@@ -9,14 +9,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Content Data Configuration
+    // Content Data Configuration for Hero Section Switch
     const contentData = {
         pm: {
-            title: "Создаю сложные <br><span class=\"gradient-text\">цифровые продукты</span><br> и управляю IT-командами.",
-            subtitle: "Чимитдоржи — Senior IT Project Manager. 16+ лет опыта в IT. Управление полным циклом разработки и интеграция инноваций.",
+            title: "ДАРИЖАПОВ<br><span class=\"gradient-text gradient-pm\">ЧИМИТДОРЖИ</span>",
+            subtitle: "Высококвалифицированный IT-специалист. 16+ лет опыта в IT. Управление полным циклом разработки, интеграция инноваций и организация масштабных мероприятий.",
             badge: "PM STATUS: ONLINE",
-            ctaPrimary: "Обсудить управление проектом",
-            ctaSecondary: "Скачать резюме <i class=\"ph ph-download-simple\"></i>",
+            ctaPrimary: "Обсудить проект",
+            ctaSecondary: "Написать в Telegram <i class=\"ph ph-telegram-logo\"></i>",
             stats: `
                 <div class="stat-item fade-in-up">
                     <i class="ph ph-briefcase"></i>
@@ -26,44 +26,27 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 </div>
                 <div class="stat-item fade-in-up" style="animation-delay: 0.1s">
-                    <i class="ph ph-users-three"></i>
-                    <div>
-                        <strong>Agile & Scrum</strong>
-                        <span>Управление командами</span>
-                    </div>
-                </div>
-                <div class="stat-item fade-in-up" style="animation-delay: 0.2s">
                     <i class="ph ph-calendar-check"></i>
                     <div>
                         <strong>50+ мероприятий</strong>
                         <span>Успешных проектов</span>
                     </div>
                 </div>
-            `,
-            services: `
-                <div class="service-card">
-                    <i class="ph ph-kanban"></i>
-                    <h3>Управление проектами</h3>
-                    <p>Agile, Scrum, реализация проектов от MVP до Enterprise решений.</p>
-                </div>
-                <div class="service-card">
-                    <i class="ph ph-strategy"></i>
-                    <h3>IT-консалтинг</h3>
-                    <p>Аудит инфраструктуры, выбор технологического стека, оптимизация процессов.</p>
-                </div>
-                <div class="service-card">
+                <div class="stat-item fade-in-up" style="animation-delay: 0.2s">
                     <i class="ph ph-users-three"></i>
-                    <h3>Построение команд</h3>
-                    <p>Найм, онбординг, выстраивание коммуникации в распределенных командах разработчиков.</p>
+                    <div>
+                        <strong>Agile & Scrum</strong>
+                        <span>Управление командами</span>
+                    </div>
                 </div>
             `
         },
         studio: {
-            title: "Внедряем <span class=\"gradient-text\">AI-решения</span><br> и автоматизируем ваш бизнес.",
-            subtitle: "CHIMITDORZHI STUDIO — Технологическая студия полного цикла. Разработка AI/ML агентов, сложных веб-приложений и интеграция с LLM.",
+            title: "CHIMITDORZHI<br><span class=\"gradient-text\">STUDIO</span>",
+            subtitle: "Технологическая студия полного цикла. Разработка AI/ML агентов, сложных веб-приложений (React/Next.js), автоматизация бизнеса и интеграция с LLM.",
             badge: "STUDIO: СИСТЕМА АКТИВНА",
             ctaPrimary: "Заказать разработку",
-            ctaSecondary: "Презентация Студии <i class=\"ph ph-arrow-right\"></i>",
+            ctaSecondary: "Смотреть проекты <i class=\"ph ph-arrow-down\"></i>",
             stats: `
                 <div class="stat-item fade-in-up">
                     <i class="ph ph-brain"></i>
@@ -86,28 +69,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         <span>Боты и бизнес-процессы</span>
                     </div>
                 </div>
-            `,
-            services: `
-                <div class="service-card">
-                    <i class="ph ph-brain"></i>
-                    <h3>AI/ML Разработка</h3>
-                    <p>RAG-системы, автономные AI-агенты, корпоративные базы знаний на основе GPT/Claude.</p>
-                </div>
-                <div class="service-card">
-                    <i class="ph ph-desktop"></i>
-                    <h3>Сайты и Веб-приложения</h3>
-                    <p>Разработка корпоративных порталов, SaaS-решений, Landing Pages под ключ.</p>
-                </div>
-                <div class="service-card">
-                    <i class="ph ph-robot"></i>
-                    <h3>Чат-боты и Интеграции</h3>
-                    <p>Умные боты для Telegram, автоматизация воронок продаж, интеграция с CRM.</p>
-                </div>
-                <div class="service-card">
-                    <i class="ph ph-rocket"></i>
-                    <h3>Event-менеджмент</h3>
-                    <p>Организация хакатонов, tech-конференций и киберспортивных турниров.</p>
-                </div>
             `
         }
     };
@@ -124,11 +85,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const primaryCta = document.getElementById('primaryCta');
     const cvButton = document.getElementById('cvButton');
     const statsContainer = document.getElementById('statsContainer');
-    const servicesGrid = document.getElementById('servicesGrid');
 
     // Initial Load Setup
     statsContainer.innerHTML = contentData.pm.stats;
-    servicesGrid.innerHTML = contentData.pm.services;
 
     function renderMode(mode) {
         const bodyTag = document.body;
@@ -147,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // GSAP transition for content swapping
         if (typeof gsap !== 'undefined') {
             const tl = gsap.timeline();
-            tl.to([mainTitle, mainSubtitle, statusBadge, primaryCta, cvButton, statsContainer, servicesGrid], {
+            tl.to([mainTitle, mainSubtitle, statusBadge, primaryCta, cvButton, statsContainer], {
                 opacity: 0,
                 y: -10,
                 duration: 0.2,
@@ -159,11 +118,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     statusBadge.innerHTML = data.badge;
                     primaryCta.innerHTML = data.ctaPrimary;
                     cvButton.innerHTML = data.ctaSecondary;
+                    cvButton.href = mode === 'pm' ? 'https://t.me/chimitdorzhi' : '#portfolio';
                     statsContainer.innerHTML = data.stats;
-                    servicesGrid.innerHTML = data.services;
 
                     // Animate back in
-                    gsap.to([mainTitle, mainSubtitle, statusBadge, primaryCta, cvButton, statsContainer, servicesGrid], {
+                    gsap.to([mainTitle, mainSubtitle, statusBadge, primaryCta, cvButton, statsContainer], {
                         opacity: 1,
                         y: 0,
                         duration: 0.4,
