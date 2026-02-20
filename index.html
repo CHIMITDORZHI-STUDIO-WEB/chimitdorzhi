@@ -592,9 +592,19 @@
                 </div>
                 <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права
                         защищены.</span></p>
+                <a href="privacy_policy.html" class="footer-policy-link">Политика конфиденциальности</a>
             </div>
         </div>
     </footer>
+
+    <!-- Cookie Consent Banner -->
+    <div class="cookie-banner" id="cookieBanner">
+        <div class="cookie-inner">
+            <p>Мы используем файлы cookie, чтобы сайт работал лучше. Оставаясь с нами, вы соглашаетесь с <a
+                    href="privacy_policy.html">Политикой конфиденциальности</a>.</p>
+            <button class="cookie-accept" id="cookieAccept">Принять</button>
+        </div>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
@@ -602,6 +612,25 @@
     <script src="i18n.js"></script>
     <script src="script.js"></script>
     <script src="particles-bg.js"></script>
+    <script>
+        // Cookie consent
+        (function () {
+            const banner = document.getElementById('cookieBanner');
+            const btn = document.getElementById('cookieAccept');
+            if (!banner || !btn) return;
+            if (localStorage.getItem('cookieAccepted') === 'true') {
+                banner.style.display = 'none';
+                return;
+            }
+            banner.style.display = 'flex';
+            btn.addEventListener('click', function () {
+                localStorage.setItem('cookieAccepted', 'true');
+                banner.style.opacity = '0';
+                banner.style.transform = 'translateY(20px)';
+                setTimeout(function () { banner.style.display = 'none'; }, 400);
+            });
+        })();
+    </script>
 </body>
 
 </html>
