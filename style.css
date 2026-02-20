@@ -807,6 +807,106 @@ h6 {
     color: var(--text-secondary);
 }
 
+/* ---- PROJECT LINK CARDS ---- */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.project-link-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 28px 32px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    text-decoration: none;
+    color: var(--text);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.project-link-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gradient-1), var(--gradient-2));
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+
+.project-link-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow);
+}
+
+.project-link-card:hover::before {
+    opacity: 1;
+}
+
+.plc-icon {
+    width: 56px;
+    height: 56px;
+    min-width: 56px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    background: rgba(79, 140, 255, 0.1);
+    color: var(--accent);
+}
+
+.plc-icon-purple {
+    background: rgba(168, 85, 247, 0.1);
+    color: #a855f7;
+}
+
+.plc-icon-green {
+    background: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+}
+
+.plc-icon-gold {
+    background: rgba(234, 179, 8, 0.1);
+    color: #eab308;
+}
+
+.plc-content {
+    flex: 1;
+}
+
+.plc-content h3 {
+    font-size: 1.15rem;
+    margin-bottom: 4px;
+}
+
+.plc-content p {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.5;
+}
+
+.plc-arrow {
+    font-size: 1.3rem;
+    color: var(--text-secondary);
+    transition: all 0.3s;
+    min-width: 24px;
+}
+
+.project-link-card:hover .plc-arrow {
+    color: var(--accent);
+    transform: translate(3px, -3px);
+}
+
 /* ---- EVENTS ---- */
 .events-cols {
     display: grid;
@@ -1133,7 +1233,8 @@ h6 {
     .cases-grid,
     .skills-grid,
     .certs-grid,
-    .events-cols {
+    .events-cols,
+    .projects-grid {
         grid-template-columns: 1fr;
     }
 
@@ -1154,7 +1255,15 @@ h6 {
     }
 
     .section {
-        padding: 80px 0;
+        padding: 60px 0;
+    }
+
+    .section-header {
+        margin-bottom: 40px;
+    }
+
+    .section-heading {
+        font-size: 2rem;
     }
 
     .sb {
@@ -1176,6 +1285,132 @@ h6 {
     }
 
     .footer-cta h2 {
+        font-size: 2rem;
+    }
+
+    .hero {
+        padding: 140px 0 60px;
+        min-height: auto;
+    }
+
+    .hero-title {
         font-size: 2.5rem;
+    }
+
+    .hero-sub {
+        font-size: 1rem;
+        margin-bottom: 28px;
+    }
+
+    .hero-actions {
+        margin-bottom: 32px;
+    }
+
+    .btn {
+        padding: 14px 24px;
+        font-size: 0.88rem;
+    }
+
+    .htag {
+        padding: 8px 14px;
+        font-size: 0.78rem;
+    }
+
+    .about-card,
+    .bento-card,
+    .svc-card,
+    .case-card,
+    .ev-col,
+    .skill-card,
+    .cert-col,
+    .project-link-card {
+        padding: 24px;
+    }
+
+    .project-link-card {
+        gap: 14px;
+    }
+
+    .plc-icon {
+        width: 48px;
+        height: 48px;
+        min-width: 48px;
+        font-size: 1.2rem;
+    }
+
+    .plc-content h3 {
+        font-size: 1rem;
+    }
+
+    .footer {
+        padding: 60px 0 40px;
+    }
+
+    .container {
+        padding: 0 16px;
+    }
+
+    .navbar {
+        padding: 14px 0;
+    }
+
+    .nav-controls {
+        gap: 8px;
+    }
+
+    .theme-toggle {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+    }
+
+    .lang-btn {
+        padding: 6px 10px;
+        font-size: 0.7rem;
+    }
+
+    .mobile-menu {
+        padding-top: 80px;
+    }
+
+    .mobile-menu a {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-tags {
+        gap: 8px;
+    }
+
+    .htag {
+        padding: 7px 12px;
+        font-size: 0.73rem;
+    }
+
+    .section-heading {
+        font-size: 1.7rem;
+    }
+
+    .about-stat {
+        font-size: 2.2rem;
+    }
+
+    .footer-cta h2 {
+        font-size: 1.6rem;
+    }
+
+    .footer-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-actions .btn {
+        width: 100%;
+        justify-content: center;
     }
 }
