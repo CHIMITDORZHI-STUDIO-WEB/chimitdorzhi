@@ -4,9 +4,6 @@
 // ================================
 
 (function () {
-    // Skip on mobile/touch for performance
-    if (window.innerWidth < 768 || 'ontouchstart' in window) return;
-
     const container = document.getElementById('particles-bg');
     if (!container) return;
 
@@ -19,12 +16,12 @@
 
     const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: false });
     renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
     renderer.setClearColor(0x000000, 0);
     container.appendChild(renderer.domElement);
 
-    // Particle system
-    const COUNT = 1500;
+    // Particle system — fewer on small screens for performance
+    const COUNT = window.innerWidth < 768 ? 800 : 1500;
     const geometry = new THREE.BufferGeometry();
     const positions = new Float32Array(COUNT * 3);
     const colors = new Float32Array(COUNT * 3);
