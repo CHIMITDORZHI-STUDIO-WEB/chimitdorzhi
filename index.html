@@ -598,12 +598,15 @@
         </div>
     </footer>
 
-    <!-- Cookie Consent Banner -->
+    <!-- Cookie Consent -->
+    <div class="cookie-overlay" id="cookieOverlay"></div>
     <div class="cookie-banner" id="cookieBanner">
+        <span class="cookie-icon">🍪</span>
         <div class="cookie-inner">
-            <p>Мы используем файлы cookie, чтобы сайт работал лучше. Оставаясь с нами, вы соглашаетесь с <a
-                    href="privacy_policy.html">Политикой конфиденциальности</a>.</p>
-            <button class="cookie-accept" id="cookieAccept">Принять</button>
+            <h3>Мы используем cookie</h3>
+            <p>Для корректной работы сайта и улучшения вашего опыта мы используем файлы cookie. Оставаясь с нами, вы
+                соглашаетесь с <a href="privacy_policy.html">Политикой конфиденциальности</a>.</p>
+            <button class="cookie-accept" id="cookieAccept">Принять и продолжить</button>
         </div>
     </div>
 
@@ -614,21 +617,29 @@
     <script src="script.js"></script>
     <script src="particles-bg.js"></script>
     <script>
-        // Cookie consent
+        // Cookie consent — 1s delay, scroll lock, premium animation
         (function () {
-            const banner = document.getElementById('cookieBanner');
-            const btn = document.getElementById('cookieAccept');
-            if (!banner || !btn) return;
-            if (localStorage.getItem('cookieAccepted') === 'true') {
-                banner.style.display = 'none';
-                return;
-            }
-            banner.style.display = 'flex';
+            var banner = document.getElementById('cookieBanner');
+            var overlay = document.getElementById('cookieOverlay');
+            var btn = document.getElementById('cookieAccept');
+            if (!banner || !overlay || !btn) return;
+
+            if (localStorage.getItem('cookieAccepted') === 'true') return;
+
+            // Lock scroll
+            document.body.classList.add('cookie-locked');
+
+            // Show after 1 second
+            setTimeout(function () {
+                overlay.classList.add('active');
+                banner.classList.add('active');
+            }, 1000);
+
             btn.addEventListener('click', function () {
                 localStorage.setItem('cookieAccepted', 'true');
-                banner.style.opacity = '0';
-                banner.style.transform = 'translateY(20px)';
-                setTimeout(function () { banner.style.display = 'none'; }, 400);
+                banner.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.classList.remove('cookie-locked');
             });
         })();
     </script>
