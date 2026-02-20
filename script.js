@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         // Cards animation
-        gsap.utils.toArray('.about-card, .bento-card, .svc-card, .case-card, .ev-col, .skill-card, .cert-col, .project-link-card').forEach((card, i) => {
+        gsap.utils.toArray('.about-card, .bento-card, .svc-card, .case-card, .ev-col, .skill-card, .cert-col').forEach((card, i) => {
             gsap.from(card, {
                 scrollTrigger: { trigger: card, start: 'top 88%', toggleActions: 'play none none none' },
                 opacity: 0, y: 40, duration: 0.6, delay: (i % 3) * 0.1, ease: 'power2.out'
