@@ -147,6 +147,8 @@ const translations = {
         "footer.legal_ogrnip": "ОГРНИП: 326750000005553",
         "footer.legal_address": "пер. Каштакский, д. 1а, г. Чита, Забайкальский край",
         "footer.privacy": "Политика конфиденциальности",
+        "footer.oferta": "Публичная оферта",
+        "footer.terms": "Пользовательское соглашение",
         "footer.legal_page": "Юридическая информация"
     },
 
@@ -294,6 +296,8 @@ const translations = {
         "footer.legal_ogrnip": "PSRNIE: 326750000005553",
         "footer.legal_address": "Kashtaksky ln., 1a, Chita, Zabaykalsky Krai",
         "footer.privacy": "Privacy Policy",
+        "footer.oferta": "Public Offer",
+        "footer.terms": "Terms of Service",
         "footer.legal_page": "Legal Information"
     },
 
@@ -441,6 +445,8 @@ const translations = {
         "footer.legal_ogrnip": "个体企业主注册号: 326750000005553",
         "footer.legal_address": "卡什塔克巷1a号, 赤塔市, 外贝加尔边疆区",
         "footer.privacy": "隐私政策",
+        "footer.oferta": "公开要约",
+        "footer.terms": "用户协议",
         "footer.legal_page": "法律信息"
     }
 };
