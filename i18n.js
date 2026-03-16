@@ -144,7 +144,10 @@ const translations = {
         "footer.copy": "Дарижапов Чимитдоржи. Все права защищены.",
         "footer.legal_name": "ИП Дарижапова Рыгзема Баировна",
         "footer.legal_inn": "ИНН: 031101842043",
-        "footer.legal_address": "пер. Каштакский, д. 1а, г. Чита, Забайкальский край"
+        "footer.legal_ogrnip": "ОГРНИП: 326750000005553",
+        "footer.legal_address": "пер. Каштакский, д. 1а, г. Чита, Забайкальский край",
+        "footer.privacy": "Политика конфиденциальности",
+        "footer.legal_page": "Юридическая информация"
     },
 
     en: {
@@ -288,7 +291,10 @@ const translations = {
         "footer.copy": "Darizhapov Chimitdorzhi. All rights reserved.",
         "footer.legal_name": "IE Darizhapova Rygzema Bairovna",
         "footer.legal_inn": "TIN: 031101842043",
-        "footer.legal_address": "Kashtaksky ln., 1a, Chita, Zabaykalsky Krai"
+        "footer.legal_ogrnip": "PSRNIE: 326750000005553",
+        "footer.legal_address": "Kashtaksky ln., 1a, Chita, Zabaykalsky Krai",
+        "footer.privacy": "Privacy Policy",
+        "footer.legal_page": "Legal Information"
     },
 
     cn: {
@@ -432,7 +438,10 @@ const translations = {
         "footer.copy": "达里扎波夫·奇米特多尔日。版权所有。",
         "footer.legal_name": "个体企业主 达里扎波娃·雷格泽玛·巴伊罗芙娜",
         "footer.legal_inn": "税号: 031101842043",
-        "footer.legal_address": "卡什塔克巷1a号, 赤塔市, 外贝加尔边疆区"
+        "footer.legal_ogrnip": "个体企业主注册号: 326750000005553",
+        "footer.legal_address": "卡什塔克巷1a号, 赤塔市, 外贝加尔边疆区",
+        "footer.privacy": "隐私政策",
+        "footer.legal_page": "法律信息"
     }
 };
 
