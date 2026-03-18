@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Магазин услуг | CHIMITDORZHI.TECH</title>
+    <meta name="description" content="Купить услуги: разработка сайта, SEO оптимизация, настройка Яндекс Директ. Онлайн-оплата через Альфа-Банк.">
+    <meta name="theme-color" content="#121218">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://chimitdorzhi-studio-web.github.io/chimitdorzhi/market/">
+    <meta property="og:title" content="Магазин услуг | CHIMITDORZHI.TECH">
+    <meta property="og:description" content="Разработка сайта + SEO + Яндекс Директ за 25 000 ₽. Онлайн-оплата.">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+    <meta property="og:locale" content="ru_RU">
+
+    <!-- Resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/regular/style.css">
+    <link rel="stylesheet" href="../style.css">
+
+    <style>
+        /* ===== Market Page Styles ===== */
+        .market-page {
+            min-height: 100vh;
+            padding: 140px 0 80px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .market-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .market-header h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .market-header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Product Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 32px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Product Card */
+        .product-card {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .product-card-top {
+            padding: 32px 32px 0;
+            flex: 1;
+        }
+
+        .product-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(0, 230, 172, 0.1);
+            color: var(--accent);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 6px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 230, 172, 0.2);
+            margin-bottom: 20px;
+        }
+
+        .product-badge i {
+            font-size: 14px;
+        }
+
+        .product-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .product-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+
+        .product-features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 24px;
+        }
+
+        .product-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            padding: 6px 0;
+        }
+
+        .product-features li .check {
+            color: var(--accent);
+            font-size: 16px;
+            flex-shrink: 0;
+            margin-top: 3px;
+        }
+
+        .product-bonus {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(0, 230, 172, 0.1));
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 12px;
+            padding: 14px 18px;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .product-bonus-icon {
+            font-size: 20px;
+        }
+
+        .product-bonus-text {
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            color: #c084fc;
+        }
+
+        /* Product Footer */
+        .product-card-bottom {
+            padding: 24px 32px 32px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .product-price {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-price-label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 4px;
+        }
+
+        .product-price-value {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--accent);
+            line-height: 1;
+        }
+
+        .product-price-currency {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-left: 4px;
+        }
+
+        .product-buy-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--accent);
+            color: #000;
+            font-size: 0.95rem;
+            font-weight: 700;
+            padding: 14px 28px;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            white-space: nowrap;
+        }
+
+        .product-buy-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 230, 172, 0.3);
+        }
+
+        .product-buy-btn:active {
+            transform: translateY(0);
+        }
+
+        .product-buy-btn i {
+            font-size: 18px;
+        }
+
+        /* Guarantee strip */
+        .market-guarantee {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 32px;
+            margin-top: 60px;
+            padding: 32px;
+            background: var(--glass);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .guarantee-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .guarantee-item i {
+            font-size: 24px;
+            color: var(--accent);
+        }
+
+        /* Legal note */
+        .market-legal {
+            text-align: center;
+            margin-top: 40px;
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+        }
+
+        .market-legal a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .market-legal a:hover {
+            text-decoration: underline;
+        }
+
+        /* Back link */
+        .market-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 40px;
+            transition: color 0.3s;
+        }
+
+        .market-back:hover {
+            color: var(--accent);
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .product-card-top {
+                padding: 24px 20px 0;
+            }
+
+            .product-card-bottom {
+                padding: 20px;
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .product-buy-btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .market-guarantee {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- BG Effects -->
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-inner">
+            <a href="../index.html" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../index.html#about">Обо мне</a></li>
+                <li><a href="../index.html#services">Услуги</a></li>
+                <li><a href="./" class="nav-active">Магазин</a></li>
+                <li><a href="../index.html#contact">Контакт</a></li>
+            </ul>
+            <div class="nav-controls">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <i class="ph ph-moon"></i>
+                </button>
+                <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta">Связаться</a>
+                <button class="burger" id="burger" aria-label="Toggle menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="market-page">
+        <div class="container">
+            <a href="../index.html" class="market-back">&larr; Вернуться на главную</a>
+
+            <div class="market-header">
+                <h1>Магазин <span class="text-gradient">услуг</span></h1>
+                <p>Выберите услугу, оплатите онлайн — и мы приступим к работе в течение 24 часов</p>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="products-grid">
+
+                <!-- Product 1: Website Development -->
+                <div class="product-card">
+                    <div class="product-card-top">
+                        <div class="product-badge">
+                            <i class="ph ph-globe"></i>
+                            Хит продаж
+                        </div>
+
+                        <h2 class="product-title">Разработка сайта + SEO + Яндекс Директ</h2>
+                        <p class="product-desc">Полный пакет для запуска вашего бизнеса в интернете. Готовый сайт с оптимизацией и рекламой — за 3–5 дней.</p>
+
+                        <ul class="product-features">
+                            <li>
+                                <span class="check">&#10003;</span>
+                                <span>Дизайн и вёрстка с учётом целевой аудитории и бизнес-задач</span>
+                            </li>
+                            <li>
+                                <span class="check">&#10003;</span>
+                                <span>SEO-оптимизация: мета-теги, структура, скорость загрузки</span>
+                            </li>
+                            <li>
+                                <span class="check">&#10003;</span>
+                                <span>Настройка рекламного кабинета Яндекс Директ</span>
+                            </li>
+                            <li>
+                                <span class="check">&#10003;</span>
+                                <span>Правки вносим до полного утверждения — вы контролируете каждый этап</span>
+                            </li>
+                            <li>
+                                <span class="check">&#10003;</span>
+                                <span>Адаптация под мобильные устройства</span>
+                            </li>
+                        </ul>
+
+                        <div class="product-bonus">
+                            <span class="product-bonus-icon">🎁</span>
+                            <span class="product-bonus-text">Бонус: настройка аналитики Яндекс Метрика</span>
+                        </div>
+                    </div>
+
+                    <div class="product-card-bottom">
+                        <div class="product-price">
+                            <span class="product-price-label">Стоимость</span>
+                            <span class="product-price-value">25 000<span class="product-price-currency"> ₽</span></span>
+                        </div>
+                        <a href="https://pay.alfabank.ru/sc/SizsuTDfNKSXZbVU" target="_blank" rel="noopener" class="product-buy-btn">
+                            <i class="ph ph-credit-card"></i>
+                            Оплатить
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Guarantees -->
+            <div class="market-guarantee">
+                <div class="guarantee-item">
+                    <i class="ph ph-shield-check"></i>
+                    <span>Безопасная оплата через Альфа-Банк</span>
+                </div>
+                <div class="guarantee-item">
+                    <i class="ph ph-clock-countdown"></i>
+                    <span>Начинаем работу в течение 24 часов</span>
+                </div>
+                <div class="guarantee-item">
+                    <i class="ph ph-arrows-counter-clockwise"></i>
+                    <span>Возврат до начала работ</span>
+                </div>
+                <div class="guarantee-item">
+                    <i class="ph ph-file-text"></i>
+                    <span>Работаем по договору-оферте</span>
+                </div>
+            </div>
+
+            <!-- Legal -->
+            <div class="market-legal">
+                <p>Оплачивая услугу, вы принимаете условия <a href="../oferta.html">Публичной оферты</a> и <a href="../privacy_policy.html">Политики конфиденциальности</a>.</p>
+                <p>ИП Дарижапова Рыгзема Баировна · ИНН: 031101842043 · ОГРНИП: 326750000005553</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Burger menu
+        const burger = document.getElementById('burger');
+        const navLinks = document.getElementById('navLinks');
+        if (burger) {
+            burger.addEventListener('click', () => {
+                burger.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+        }
+
+        // Theme toggle
+        const themeToggle = document.getElementById('themeToggle');
+        if (themeToggle) {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+
+            themeToggle.addEventListener('click', () => {
+                const current = document.documentElement.getAttribute('data-theme');
+                const next = current === 'dark' ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', next);
+                localStorage.setItem('theme', next);
+            });
+        }
+
+        // Navbar scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (navbar) {
+                navbar.classList.toggle('scrolled', window.scrollY > 50);
+            }
+        });
+    </script>
+</body>
+
+</html>

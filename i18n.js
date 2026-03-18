@@ -9,6 +9,7 @@ const translations = {
         "nav.services": "Услуги",
         "nav.cases": "Кейсы",
         "nav.projects": "Проекты",
+        "nav.market": "Магазин",
         "nav.contact": "Контакт",
         "nav.cta": "СВЯЗАТЬСЯ",
 
@@ -158,6 +159,7 @@ const translations = {
         "nav.services": "Services",
         "nav.cases": "Cases",
         "nav.projects": "Projects",
+        "nav.market": "Shop",
         "nav.contact": "Contact",
         "nav.cta": "CONTACT",
 
@@ -307,6 +309,7 @@ const translations = {
         "nav.services": "服务",
         "nav.cases": "案例",
         "nav.projects": "项目",
+        "nav.market": "商店",
         "nav.contact": "联系",
         "nav.cta": "联系我",
 
