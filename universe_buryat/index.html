@@ -1109,8 +1109,9 @@
                     card.className = 'ub-post-card';
                     var mediaHtml;
                     var thumbSrc = post.image ? VPS + post.image.replace('media/', 'media/thumbs/') : '';
+                    var fullSrc = post.image ? VPS + post.image : '';
                     if (post.image) {
-                        mediaHtml = '<img src="' + thumbSrc + '" alt="" loading="lazy">';
+                        mediaHtml = '<img src="' + thumbSrc + '" onerror="this.onerror=null;this.src=\'' + fullSrc + '\'" alt="" loading="lazy">';
                         if (post.video) mediaHtml += '<div class="ub-play-badge"><i class="ph ph-play-circle"></i></div>';
                     } else if (post.video) {
                         mediaHtml = '<div class="ub-post-noimg" style="font-size:48px;"><i class="ph ph-video-camera"></i></div>' +
