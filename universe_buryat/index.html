@@ -373,6 +373,28 @@
             transform: scale(1.05);
         }
 
+        .ub-post-img-wrap video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .ub-play-badge {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 48px;
+            color: rgba(255, 255, 255, 0.85);
+            pointer-events: none;
+            filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));
+            transition: transform 0.3s;
+        }
+
+        .ub-post-card:hover .ub-play-badge {
+            transform: translate(-50%, -50%) scale(1.15);
+        }
+
         .ub-post-noimg {
             display: flex;
             align-items: center;
@@ -928,12 +950,18 @@
                 posts.forEach(function(post) {
                     const card = document.createElement('div');
                     card.className = 'ub-post-card';
+                    var mediaHtml;
+                    if (post.image) {
+                        mediaHtml = '<img src="' + VPS + post.image + '" alt="" loading="lazy">';
+                        if (post.video) mediaHtml += '<div class="ub-play-badge"><i class="ph ph-play-circle"></i></div>';
+                    } else if (post.video) {
+                        mediaHtml = '<video src="' + VPS + post.video + '" muted preload="metadata"></video>' +
+                            '<div class="ub-play-badge"><i class="ph ph-play-circle"></i></div>';
+                    } else {
+                        mediaHtml = '<div class="ub-post-noimg"><i class="ph ph-scroll"></i></div>';
+                    }
                     card.innerHTML =
-                        '<div class="ub-post-img-wrap">' +
-                            (post.image
-                                ? '<img src="' + VPS + post.image + '" alt="" loading="lazy">'
-                                : '<div class="ub-post-noimg"><i class="ph ph-scroll"></i></div>') +
-                        '</div>' +
+                        '<div class="ub-post-img-wrap">' + mediaHtml + '</div>' +
                         '<div class="ub-post-body">' +
                             '<div class="ub-post-date">' + formatDate(post.date) + '</div>' +
                             '<div class="ub-post-text">' + (post.text || '—') + '</div>' +
@@ -961,9 +989,13 @@
             }
 
             function openPopup(post) {
-                popupImg.innerHTML = post.image
-                    ? '<img src="' + VPS + post.image + '" alt="">'
-                    : '<div class="ub-post-noimg" style="font-size:80px;"><i class="ph ph-scroll"></i></div>';
+                if (post.video) {
+                    popupImg.innerHTML = '<video src="' + VPS + post.video + '" controls autoplay playsinline style="width:100%;height:100%;object-fit:contain;background:#000;"></video>';
+                } else if (post.image) {
+                    popupImg.innerHTML = '<img src="' + VPS + post.image + '" alt="">';
+                } else {
+                    popupImg.innerHTML = '<div class="ub-post-noimg" style="font-size:80px;"><i class="ph ph-scroll"></i></div>';
+                }
                 popupDate.textContent = formatDate(post.date);
                 popupText.textContent = post.text || '—';
                 popupLink.href = post.link;
@@ -974,6 +1006,9 @@
             function closePopup() {
                 popup.classList.remove('active');
                 document.body.style.overflow = '';
+                // Stop video on close
+                var vid = popupImg.querySelector('video');
+                if (vid) vid.pause();
             }
 
             popupClose.addEventListener('click', closePopup);
