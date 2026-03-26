@@ -35,21 +35,26 @@ document.addEventListener('DOMContentLoaded', () => {
     html.setAttribute('data-theme', savedTheme);
     updateThemeIcon(savedTheme);
 
-    themeToggle.addEventListener('click', () => {
+    const mobileThemeToggle = document.getElementById('mobileThemeToggle');
+
+    function toggleTheme() {
         const current = html.getAttribute('data-theme');
         const next = current === 'dark' ? 'light' : 'dark';
         html.setAttribute('data-theme', next);
         localStorage.setItem('theme', next);
         updateThemeIcon(next);
-    });
+    }
+
+    themeToggle.addEventListener('click', toggleTheme);
+    if (mobileThemeToggle) {
+        mobileThemeToggle.addEventListener('click', toggleTheme);
+    }
 
     function updateThemeIcon(theme) {
-        const icon = themeToggle.querySelector('i');
-        if (theme === 'dark') {
-            icon.className = 'ph ph-moon';
-        } else {
-            icon.className = 'ph ph-sun';
-        }
+        const iconClass = theme === 'dark' ? 'ph ph-moon' : 'ph ph-sun';
+        document.querySelectorAll('.theme-toggle i').forEach(icon => {
+            icon.className = iconClass;
+        });
     }
 
     // ---- LANGUAGE SWITCHER ----
