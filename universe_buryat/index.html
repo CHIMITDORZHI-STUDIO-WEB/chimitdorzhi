@@ -760,12 +760,12 @@
                             <p class="ub-card-quote">"Бурятская культура — это не прошлое. Это живая вселенная, которая говорит с нами прямо сейчас."</p>
                             <div class="ub-stats">
                                 <div class="ub-stat">
-                                    <div class="ub-stat-num text-gradient">712</div>
+                                    <div class="ub-stat-num text-gradient" id="statSubscribers">—</div>
                                     <div class="ub-stat-label">Подписчиков</div>
                                 </div>
                                 <div class="ub-stat">
-                                    <div class="ub-stat-num text-gradient">300+</div>
-                                    <div class="ub-stat-label">Богов и духов</div>
+                                    <div class="ub-stat-num text-gradient" id="statPosts">—</div>
+                                    <div class="ub-stat-label">Публикаций</div>
                                 </div>
                                 <div class="ub-stat">
                                     <div class="ub-stat-num text-gradient">&infin;</div>
@@ -806,7 +806,7 @@
         <div class="ub-cta-wrap" id="contact">
             <p class="ub-label" style="justify-content: center;">03 / Сообщество</p>
             <h2 class="ub-heading" style="text-align: center; max-width: 560px; margin: 0 auto 20px;">Присоединяйтесь к<br><span class="text-gradient">Вселенной Бурят</span></h2>
-            <p class="ub-cta-sub">712 подписчиков уже читают о бурятской мифологии, духах и традициях. Новые материалы каждый день — бесплатно.</p>
+            <p class="ub-cta-sub"><span id="ctaSubscribers">Сотни</span> подписчиков уже читают о бурятской мифологии, духах и традициях. Новые материалы каждый день — бесплатно.</p>
             <a href="https://t.me/universe_buryat" target="_blank" class="btn btn-accent" style="font-size: 13px; padding: 18px 48px; letter-spacing: 2px;">
                 <i class="ph ph-telegram-logo" style="margin-right: 8px;"></i> ПОДПИСАТЬСЯ НА TELEGRAM
             </a>
@@ -886,6 +886,22 @@
             el.style.transition = 'opacity 0.5s ease, transform 0.5s ease, background 0.3s, border-color 0.3s, box-shadow 0.3s';
             io.observe(el);
         });
+
+        // === Dynamic Stats ===
+        (function() {
+            var VPS_STATS = 'https://8d4a125849ec.vps.myjino.ru/stats.json';
+            fetch(VPS_STATS)
+                .then(function(r) { return r.json(); })
+                .then(function(stats) {
+                    var subEl = document.getElementById('statSubscribers');
+                    var postsEl = document.getElementById('statPosts');
+                    var ctaEl = document.getElementById('ctaSubscribers');
+                    if (subEl && stats.subscribers) subEl.textContent = stats.subscribers;
+                    if (postsEl && stats.posts_count) postsEl.textContent = stats.posts_count;
+                    if (ctaEl && stats.subscribers) ctaEl.textContent = stats.subscribers;
+                })
+                .catch(function() {});
+        })();
 
         // === Posts Gallery ===
         (function() {
