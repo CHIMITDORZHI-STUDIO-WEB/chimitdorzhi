@@ -72,6 +72,15 @@ async def main():
     with open(POSTS_JSON, "w", encoding="utf-8") as f:
         json.dump(posts, f, ensure_ascii=False, indent=2)
 
+    # Generate SEO files
+    try:
+        from tg_bot import generate_sitemap, inject_seo_html
+        generate_sitemap(posts)
+        inject_seo_html(posts)
+        print("SEO files generated (sitemap.xml + static HTML)")
+    except Exception as e:
+        print(f"SEO generation skipped: {e}")
+
     print(f"\nDone! Saved {len(posts)} posts to {POSTS_JSON}")
     await client.disconnect()
 
