@@ -8,6 +8,7 @@ Runs as a systemd service.
 import os
 import json
 import asyncio
+import subprocess
 from telethon import TelegramClient, events
 from telethon.tl.functions.channels import GetFullChannelRequest
 
@@ -22,7 +23,22 @@ STATS_JSON = "/var/www/universe_buryat/stats.json"
 SESSION_FILE = "/root/telethon_session"
 STATS_INTERVAL = 300  # update stats every 5 minutes
 
+THUMBS_DIR = os.path.join(MEDIA_DIR, "thumbs")
 os.makedirs(MEDIA_DIR, exist_ok=True)
+os.makedirs(THUMBS_DIR, exist_ok=True)
+
+
+def create_thumbnail(filepath, filename):
+    """Create a thumbnail using ImageMagick convert."""
+    thumb_path = os.path.join(THUMBS_DIR, filename)
+    try:
+        subprocess.run(
+            ["convert", filepath, "-resize", "400x600^", "-quality", "75", thumb_path],
+            check=True, capture_output=True
+        )
+        print(f"  Thumbnail created: {filename}")
+    except Exception as e:
+        print(f"  Thumbnail error: {e}")
 
 
 def load_posts():
@@ -92,6 +108,7 @@ async def main():
             filepath = os.path.join(MEDIA_DIR, filename)
             await message.download_media(file=filepath)
             post["image"] = f"media/{filename}"
+            create_thumbnail(filepath, filename)
             print(f"  Downloaded image: {filename}")
         elif message.video:
             filename = f"post_{message.id}.mp4"
