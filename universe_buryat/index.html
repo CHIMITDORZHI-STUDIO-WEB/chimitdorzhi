@@ -854,6 +854,7 @@
 
         // === Posts Gallery ===
         (function() {
+            const VPS = 'http://8d4a125849ec.vps.myjino.ru/';
             const BATCH = 6;
             let allPosts = [];
             let shown = 0;
@@ -879,7 +880,7 @@
                     card.innerHTML =
                         '<div class="ub-post-img-wrap">' +
                             (post.image
-                                ? '<img src="' + post.image + '" alt="" loading="lazy">'
+                                ? '<img src="' + VPS + post.image + '" alt="" loading="lazy">'
                                 : '<div class="ub-post-noimg"><i class="ph ph-scroll"></i></div>') +
                         '</div>' +
                         '<div class="ub-post-body">' +
@@ -910,7 +911,7 @@
 
             function openPopup(post) {
                 popupImg.innerHTML = post.image
-                    ? '<img src="' + post.image + '" alt="">'
+                    ? '<img src="' + VPS + post.image + '" alt="">'
                     : '<div class="ub-post-noimg" style="font-size:80px;"><i class="ph ph-scroll"></i></div>';
                 popupDate.textContent = formatDate(post.date);
                 popupText.textContent = post.text || '—';
@@ -936,7 +937,7 @@
 
             // Load posts
             emptyMsg.style.display = 'block';
-            fetch('posts.json')
+            fetch(VPS + 'posts.json')
                 .then(function(r) { return r.json(); })
                 .then(function(data) {
                     allPosts = data;
