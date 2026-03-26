@@ -16,13 +16,13 @@ API_ID = 30908105
 API_HASH = "67ed19d9d8189d34dd40c30864b5c710"
 CHANNEL = "universe_buryat"
 
-IMAGES_DIR = "/var/www/universe_buryat/images"
+MEDIA_DIR = "/var/www/universe_buryat/media"
 POSTS_JSON = "/var/www/universe_buryat/posts.json"
 STATS_JSON = "/var/www/universe_buryat/stats.json"
 SESSION_FILE = "/root/telethon_session"
 STATS_INTERVAL = 300  # update stats every 5 minutes
 
-os.makedirs(IMAGES_DIR, exist_ok=True)
+os.makedirs(MEDIA_DIR, exist_ok=True)
 
 
 def load_posts():
@@ -84,14 +84,26 @@ async def main():
             "text": message.text or "",
             "link": f"https://t.me/{CHANNEL}/{message.id}",
             "image": None,
+            "video": None,
         }
 
         if message.photo:
             filename = f"post_{message.id}.jpg"
-            filepath = os.path.join(IMAGES_DIR, filename)
+            filepath = os.path.join(MEDIA_DIR, filename)
             await message.download_media(file=filepath)
-            post["image"] = f"images/{filename}"
+            post["image"] = f"media/{filename}"
             print(f"  Downloaded image: {filename}")
+        elif message.video:
+            filename = f"post_{message.id}.mp4"
+            filepath = os.path.join(MEDIA_DIR, filename)
+            await message.download_media(file=filepath)
+            post["video"] = f"media/{filename}"
+            if message.video.thumbs:
+                thumb_name = f"thumb_{message.id}.jpg"
+                thumb_path = os.path.join(MEDIA_DIR, thumb_name)
+                await client.download_media(message, file=thumb_path, thumb=-1)
+                post["image"] = f"media/{thumb_name}"
+            print(f"  Downloaded video: {filename}")
 
         posts = load_posts()
 
