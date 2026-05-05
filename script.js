@@ -119,6 +119,22 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // ---- SERVICES FILTER ----
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    if (filterBtns.length) {
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const cat = btn.dataset.category;
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                document.querySelectorAll('.svc-card').forEach(card => {
+                    const match = cat === 'all' || card.dataset.category === cat;
+                    card.classList.toggle('is-hidden', !match);
+                });
+            });
+        });
+    }
+
     // ---- SMOOTH SCROLL ----
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
