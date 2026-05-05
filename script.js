@@ -130,7 +130,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.querySelectorAll('.svc-card').forEach(card => {
                     const match = cat === 'all' || card.dataset.category === cat;
                     card.classList.toggle('is-hidden', !match);
+                    // override GSAP from-state (opacity:0 / y:40) on revealed cards
+                    if (match) {
+                        if (typeof gsap !== 'undefined') {
+                            gsap.set(card, { opacity: 1, y: 0, clearProps: 'transform' });
+                        } else {
+                            card.style.opacity = '1';
+                            card.style.transform = '';
+                        }
+                    }
                 });
+                if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
             });
         });
     }
