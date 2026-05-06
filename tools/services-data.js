@@ -347,7 +347,7 @@ const services = [
     pf:['масштаб мира','интерактивные элементы','мультиплеер','аватары'],
     r:['web3-development','culture-digitalization','ethno-tech'] },
 
-  { s:'music-production', n:'Музыкальное продюсирование и лейбл', c:'innovation', pi:'music-notes', ic:'svc-icon-pink',
+  { s:'music-production', n:'Музыкальное продюсирование и лейбл', c:'media', pi:'music-notes', ic:'svc-icon-pink',
     t:'Музыкальное продюсирование, мастеринг, дистрибуция | Чимитдоржи Дарижапов',
     md:'Запись, аранжировка, мастеринг, дистрибуция на Spotify / Apple Music / Yandex Music. Curator-питчинг, sync-лицензирование. Лейбл AREY на Beatport.',
     mk:'музыкальное продюсирование, мастеринг трека, дистрибуция Spotify, лейбл AREY, Beatport, sync лицензирование, curator питчинг, музыка для бренда',
