@@ -162,9 +162,37 @@ const i18nServices = {
     en: { n: 'Metaverse for business', d: 'Virtual showrooms, presentations, events in the metaverse. Unique case — concert in the metaverse with the Amar Sain theatre (2022). Young niche with minimal competition.', pt: 'from 200,000 ₽' },
     cn: { n: '面向企业的元宇宙', d: '虚拟展厅、演示、元宇宙活动。独特案例——2022 年与 Amar Sain 剧院的元宇宙音乐会。新兴领域，竞争稀少。', pt: '起 200,000 ₽' },
   },
-  'ai-music': {
-    en: { n: 'AI music & sonic branding', d: 'Original music for brands, podcast backgrounds, jingles for radio and video. Founder of the AREY label on Beatport. Synthesis of AI generation and authored work.', pt: 'from 15,000 ₽ per track' },
-    cn: { n: 'AI 音乐与声音品牌', d: '为品牌创作原创音乐、播客背景音、广播与视频 jingle。Beatport 厂牌 AREY 创始人。AI 生成与原创作曲的结合。', pt: '起 15,000 ₽/曲' },
+  'music-production': {
+    en: { n: 'Music production & label', d: 'Full music production cycle: recording, arrangement, mastering, cover art, distribution to Spotify, Apple Music, Yandex Music. Curator pitching, sync licensing, artist promotion. AREY label on Beatport experience.', pt: 'from 15,000 ₽' },
+    cn: { n: '音乐制作与厂牌', d: '完整的音乐制作流程：录音、编曲、母带处理、封面设计、发行至 Spotify、Apple Music、Yandex Music。策划推介、同步授权、艺人推广。Beatport 厂牌 AREY 经验。', pt: '起 15,000 ₽' },
+  },
+  'design-branding': {
+    en: { n: 'Design & branding', d: 'Brand books and identity, UX/UI for websites and mobile apps, packaging design, motion design, investor decks, marketplace visuals (Wildberries, Ozon), merch design.', pt: 'from 25,000 ₽' },
+    cn: { n: '设计与品牌', d: '品牌手册与视觉识别、网站与移动应用 UX/UI、包装设计、动效设计、投资人演示文稿、电商平台视觉（Wildberries、Ozon）、周边设计。', pt: '起 25,000 ₽' },
+  },
+  'business-legal-compliance': {
+    en: { n: 'Legal protection for business', d: 'Comprehensive business protection: trademark registration, contract templates, NDAs, 152-FZ and 259-FZ compliance, business insurance, business continuity plan (BCP), compliance audit.', pt: 'from 25,000 ₽' },
+    cn: { n: '企业法律保护', d: '全面企业法律保护：商标注册、客户与承包商合同模板、保密协议（NDA）、152-FZ 与 259-FZ 合规、商业保险、业务连续性计划（BCP）、合规审计。', pt: '起 25,000 ₽' },
+  },
+  'hr-team-management': {
+    en: { n: 'IT recruiting & HR', d: 'Full team-management cycle: IT recruiting (developers, AI/ML engineers), employee onboarding, corporate culture design, internal surveys, succession planning. 16+ years of building IT teams.', pt: 'from 30,000 ₽' },
+    cn: { n: 'IT 招聘与人力', d: '完整团队管理：IT 招聘（开发者、AI/ML 工程师）、员工入职、企业文化设计、内部调研、接班人规划。16+ 年 IT 团队搭建经验。', pt: '起 30,000 ₽' },
+  },
+  'business-analytics-unit-economics': {
+    en: { n: 'Unit economics & BI analytics', d: 'Unit economics calculation, LTV (Customer Lifetime Value), CAC (Customer Acquisition Cost), cohort analysis, predictive analytics — sales and customer behaviour forecasts. A single business dashboard with all key metrics.', pt: 'from 50,000 ₽' },
+    cn: { n: 'Unit 经济学与 BI', d: '计算 Unit 经济学、LTV（客户生命周期价值）、CAC（客户获取成本）、客户队列分析、预测性分析——销售与客户行为预测。一个统一的业务仪表板，呈现所有关键指标。', pt: '起 50,000 ₽' },
+  },
+  'operations-efficiency': {
+    en: { n: 'Operational efficiency', d: 'Lean process analysis, drafting regulations and work standards, internal SLAs between departments, management reporting automation. Turning a manual business into a systematic mechanism.', pt: 'from 40,000 ₽' },
+    cn: { n: '运营效率', d: '公司流程的精益分析、规章和工作标准制定、部门间内部 SLA、管理报告自动化。把人工业务转化为系统化机制。', pt: '起 40,000 ₽' },
+  },
+  'cfa-issuance': {
+    en: { n: 'CFA issuance under 259-FZ', d: 'Full Digital Financial Assets (CFA) issuance cycle under 259-FZ: tokenisation of real estate, equipment and receivables, operator selection (Sber, T-Bank, Atomyze), legal structuring, smart contracts, secondary-market monitoring. RACIB FEFD experience (2019–2022).', pt: 'from 150,000 ₽' },
+    cn: { n: '依据 259-FZ 发行 CFA', d: '依据俄罗斯 259-FZ 的完整数字金融资产（CFA）发行流程：房地产、设备及应收账款代币化，选择运营商（Sber、T-Bank、Atomyze），法律结构、智能合约、二级市场监控。RACIB 远东联邦区经验（2019–2022）。', pt: '起 150,000 ₽' },
+  },
+  'revenue-monetization': {
+    en: { n: 'Revenue & monetisation', d: 'Revenue-growth strategies: subscription model with autopay, up-sell and cross-sell flows, bundles and packaged offers, dynamic pricing, turnkey online courses, affiliate programmes. Turning existing customers into recurring cashflow.', pt: 'from 50,000 ₽' },
+    cn: { n: '收入与变现', d: '收入增长策略：订阅模式（自动续费）、追加销售与交叉销售、捆绑套餐、动态定价、一站式在线课程、联盟计划。让现有客户成为持续现金流。', pt: '起 50,000 ₽' },
   },
   'ethno-tech': {
     en: { n: 'Ethnotech & cultural IT projects', d: 'Digitalisation of ethnic and cultural heritage for museums, diasporas, regional authorities. Own case — the Buryat Universe project. Eligible for Ministry of Culture grants.', pt: 'from 100,000 ₽' },
@@ -186,6 +214,7 @@ const i18nUi = {
     'svc.filter.all':            'Все',
     'svc.filter.development':    'Разработка',
     'svc.filter.ai':             'AI и автоматизация',
+    'svc.filter.business':       'Бизнес и менеджмент',
     'svc.filter.security':       'Безопасность',
     'svc.filter.infrastructure': 'Инфраструктура',
     'svc.filter.industry':       'Отрасли',
@@ -206,12 +235,13 @@ const i18nUi = {
     'svc.crumbs.services':       'Услуги',
     'svc.catalog.label':         'КАТАЛОГ',
     'svc.catalog.h1':            'Услуги',
-    'svc.catalog.sub':           '39 услуг по 8 направлениям: разработка, AI, безопасность, инфраструктура, отрасли, образование, медиа, инновации.',
+    'svc.catalog.sub':           '46 услуг по 9 направлениям: разработка, AI, бизнес, безопасность, инфраструктура, отрасли, образование, медиа, инновации.',
   },
   en: {
     'svc.filter.all':            'All',
     'svc.filter.development':    'Development',
     'svc.filter.ai':             'AI & automation',
+    'svc.filter.business':       'Business & management',
     'svc.filter.security':       'Security',
     'svc.filter.infrastructure': 'Infrastructure',
     'svc.filter.industry':       'Industries',
@@ -232,12 +262,13 @@ const i18nUi = {
     'svc.crumbs.services':       'Services',
     'svc.catalog.label':         'CATALOG',
     'svc.catalog.h1':            'Services',
-    'svc.catalog.sub':           '39 services across 8 areas: development, AI, security, infrastructure, industries, education, media, innovation.',
+    'svc.catalog.sub':           '46 services across 9 areas: development, AI, business, security, infrastructure, industries, education, media, innovation.',
   },
   cn: {
     'svc.filter.all':            '全部',
     'svc.filter.development':    '开发',
     'svc.filter.ai':             'AI 与自动化',
+    'svc.filter.business':       '商业与管理',
     'svc.filter.security':       '安全',
     'svc.filter.infrastructure': '基础设施',
     'svc.filter.industry':       '行业',
@@ -258,7 +289,7 @@ const i18nUi = {
     'svc.crumbs.services':       '服务',
     'svc.catalog.label':         '目录',
     'svc.catalog.h1':            '服务',
-    'svc.catalog.sub':           '8 个方向 39 项服务：开发、AI、安全、基础设施、行业、教育、媒体、创新。',
+    'svc.catalog.sub':           '9 个方向 46 项服务：开发、AI、商业、安全、基础设施、行业、教育、媒体、创新。',
   },
 };
 
