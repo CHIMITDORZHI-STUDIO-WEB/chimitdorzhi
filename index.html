@@ -275,12 +275,9 @@
     </script>
 
     <!-- Resources -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
-    <link rel="stylesheet" href="style.css?v=16">
+    <link rel="stylesheet" href="style.css?v=17">
 </head>
 
 <body>
@@ -1520,50 +1517,115 @@
         </div>
     </footer>
 
-    <!-- Cookie Consent -->
-    <div class="cookie-overlay" id="cookieOverlay"></div>
-    <div class="cookie-banner" id="cookieBanner">
-        <span class="cookie-icon">🍪</span>
+    <!-- Cookie Consent (152-ФЗ-compliant) -->
+    <div class="cookie-banner" id="cookieBanner" role="dialog" aria-live="polite" aria-label="Согласие на использование cookie">
         <div class="cookie-inner">
-            <h3>Мы используем cookie</h3>
-            <p>Для корректной работы сайта и улучшения вашего опыта мы используем файлы cookie. Оставаясь с нами, вы
-                соглашаетесь с <a href="privacy_policy.html">Политикой конфиденциальности</a> и <a href="terms.html">Пользовательским соглашением</a>.</p>
-            <button class="cookie-accept" id="cookieAccept">Принять и продолжить</button>
+            <div class="cookie-header">
+                <span class="cookie-icon">🍪</span>
+                <h3 data-i18n="cookie.title">Мы используем cookie</h3>
+            </div>
+            <p class="cookie-text" data-i18n="cookie.text">Сайт использует файлы cookie. Необходимые cookie всегда включены — они нужны для работы сайта. Аналитические и маркетинговые cookie вы можете включить или отключить ниже. Подробнее — в <a href="privacy_policy.html">Политике конфиденциальности</a>.</p>
+
+            <div class="cookie-options" id="cookieOptions" hidden>
+                <label class="cookie-option cookie-option-locked">
+                    <input type="checkbox" checked disabled>
+                    <span class="cookie-option-info">
+                        <strong data-i18n="cookie.cat.essential">Необходимые</strong>
+                        <small data-i18n="cookie.cat.essential_desc">Авторизация, выбор языка/темы, согласие на cookie. Не отключаются.</small>
+                    </span>
+                </label>
+                <label class="cookie-option">
+                    <input type="checkbox" id="cookieAnalytics">
+                    <span class="cookie-option-info">
+                        <strong data-i18n="cookie.cat.analytics">Аналитика</strong>
+                        <small data-i18n="cookie.cat.analytics_desc">Анонимная статистика посещений (Yandex Metrica), помогает улучшать сайт.</small>
+                    </span>
+                </label>
+                <label class="cookie-option">
+                    <input type="checkbox" id="cookieMarketing">
+                    <span class="cookie-option-info">
+                        <strong data-i18n="cookie.cat.marketing">Маркетинг</strong>
+                        <small data-i18n="cookie.cat.marketing_desc">Персонализация рекламы и предложений. Сейчас не используются, оставлено на будущее.</small>
+                    </span>
+                </label>
+            </div>
+
+            <div class="cookie-actions">
+                <button class="cookie-btn cookie-btn-primary" id="cookieAcceptAll" data-i18n="cookie.accept_all">Принять всё</button>
+                <button class="cookie-btn cookie-btn-ghost" id="cookieEssentialOnly" data-i18n="cookie.essential_only">Только необходимые</button>
+                <button class="cookie-btn cookie-btn-link" id="cookieCustomize" data-i18n="cookie.customize">Настроить</button>
+                <button class="cookie-btn cookie-btn-primary" id="cookieSave" data-i18n="cookie.save" hidden>Сохранить выбор</button>
+            </div>
         </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="i18n.js?v=16"></script>
-    <script src="services-i18n.js?v=16"></script>
-    <script src="script.js?v=16"></script>
+    <script src="/assets/vendor/gsap.min.js"></script>
+    <script src="/assets/vendor/ScrollTrigger.min.js"></script>
+    <script src="/assets/vendor/three.min.js"></script>
+    <script src="i18n.js?v=17"></script>
+    <script src="services-i18n.js?v=17"></script>
+    <script src="script.js?v=17"></script>
     <script src="particles-bg.js"></script>
     <script>
-        // Cookie consent — 1s delay, scroll lock, premium animation
+        // Cookie consent — 152-ФЗ: активное согласие, без принуждения, по категориям
         (function () {
+            var CONSENT_VERSION = 2;
             var banner = document.getElementById('cookieBanner');
-            var overlay = document.getElementById('cookieOverlay');
-            var btn = document.getElementById('cookieAccept');
-            if (!banner || !overlay || !btn) return;
+            if (!banner) return;
+            var options = document.getElementById('cookieOptions');
+            var btnAll = document.getElementById('cookieAcceptAll');
+            var btnEssential = document.getElementById('cookieEssentialOnly');
+            var btnCustomize = document.getElementById('cookieCustomize');
+            var btnSave = document.getElementById('cookieSave');
+            var optAnalytics = document.getElementById('cookieAnalytics');
+            var optMarketing = document.getElementById('cookieMarketing');
 
-            if (localStorage.getItem('cookieAccepted') === 'true') return;
+            function getStored() {
+                try { return JSON.parse(localStorage.getItem('cookieConsent')); } catch (_) { return null; }
+            }
+            function save(consent) {
+                consent.version = CONSENT_VERSION;
+                consent.timestamp = new Date().toISOString();
+                localStorage.setItem('cookieConsent', JSON.stringify(consent));
+                window.dispatchEvent(new CustomEvent('cookieConsent', { detail: consent }));
+                hide();
+            }
+            function hide() { banner.classList.remove('active'); }
+            function show() {
+                setTimeout(function () { banner.classList.add('active'); }, 600);
+            }
 
-            // Lock scroll
-            document.body.classList.add('cookie-locked');
+            var stored = getStored();
+            if (stored && stored.version === CONSENT_VERSION) return;
 
-            // Show after 1 second
-            setTimeout(function () {
-                overlay.classList.add('active');
-                banner.classList.add('active');
-            }, 1000);
+            show();
 
-            btn.addEventListener('click', function () {
-                localStorage.setItem('cookieAccepted', 'true');
-                banner.classList.remove('active');
-                overlay.classList.remove('active');
-                document.body.classList.remove('cookie-locked');
+            btnAll.addEventListener('click', function () {
+                save({ essential: true, analytics: true, marketing: true });
             });
+            btnEssential.addEventListener('click', function () {
+                save({ essential: true, analytics: false, marketing: false });
+            });
+            btnCustomize.addEventListener('click', function () {
+                options.hidden = false;
+                btnCustomize.hidden = true;
+                btnAll.hidden = true;
+                btnEssential.hidden = true;
+                btnSave.hidden = false;
+            });
+            btnSave.addEventListener('click', function () {
+                save({
+                    essential: true,
+                    analytics: !!(optAnalytics && optAnalytics.checked),
+                    marketing: !!(optMarketing && optMarketing.checked),
+                });
+            });
+
+            // Re-open mechanism: window.openCookieSettings()
+            window.openCookieSettings = function () {
+                btnCustomize && btnCustomize.click();
+                show();
+            };
         })();
     </script>
 </body>
