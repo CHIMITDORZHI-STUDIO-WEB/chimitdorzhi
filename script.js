@@ -120,17 +120,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ---- SERVICES FILTER ----
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    if (filterBtns.length) {
-        filterBtns.forEach(btn => {
+    const svcFilterBtns = document.querySelectorAll('.services-filter .filter-btn');
+    if (svcFilterBtns.length) {
+        svcFilterBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 const cat = btn.dataset.category;
-                filterBtns.forEach(b => b.classList.remove('active'));
+                svcFilterBtns.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
                 document.querySelectorAll('.svc-card').forEach(card => {
                     const match = cat === 'all' || card.dataset.category === cat;
                     card.classList.toggle('is-hidden', !match);
-                    // override GSAP from-state (opacity:0 / y:40) on revealed cards
                     if (match) {
                         if (typeof gsap !== 'undefined') {
                             gsap.set(card, { opacity: 1, y: 0, clearProps: 'transform' });
@@ -139,6 +138,38 @@ document.addEventListener('DOMContentLoaded', () => {
                             card.style.transform = '';
                         }
                     }
+                });
+                if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
+            });
+        });
+    }
+
+    // ---- CASES & EVENTS FILTER ----
+    const caseFilterBtns = document.querySelectorAll('.cases-filter .filter-btn');
+    if (caseFilterBtns.length) {
+        const caseCards = document.querySelectorAll('.case-card, .event-card');
+        const caseBlocks = document.querySelectorAll('.cases-block');
+        caseFilterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const f = btn.dataset.filter;
+                caseFilterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                caseCards.forEach(card => {
+                    const match = f === 'all' || card.dataset.filter === f;
+                    card.classList.toggle('is-hidden', !match);
+                    if (match) {
+                        if (typeof gsap !== 'undefined') {
+                            gsap.set(card, { opacity: 1, y: 0, clearProps: 'transform' });
+                        } else {
+                            card.style.opacity = '1';
+                            card.style.transform = '';
+                        }
+                    }
+                });
+                caseBlocks.forEach(block => {
+                    const blockCat = block.dataset.block;
+                    const show = f === 'all' || blockCat === f;
+                    block.classList.toggle('is-hidden', !show);
                 });
                 if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
             });
