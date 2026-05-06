@@ -287,7 +287,20 @@ const translations = {
         "footer.privacy": "Политика конфиденциальности",
         "footer.oferta": "Публичная оферта",
         "footer.terms": "Пользовательское соглашение",
-        "footer.legal_page": "Юридическая информация"
+        "footer.legal_page": "Юридическая информация",
+
+        "cookie.title": "Мы используем cookie",
+        "cookie.text": "Сайт использует файлы cookie. Необходимые cookie всегда включены — они нужны для работы сайта. Аналитические и маркетинговые cookie вы можете включить или отключить ниже. Подробнее — в <a href=\"privacy_policy.html\">Политике конфиденциальности</a>.",
+        "cookie.cat.essential": "Необходимые",
+        "cookie.cat.essential_desc": "Авторизация, выбор языка/темы, согласие на cookie. Не отключаются.",
+        "cookie.cat.analytics": "Аналитика",
+        "cookie.cat.analytics_desc": "Анонимная статистика посещений (Yandex Metrica), помогает улучшать сайт.",
+        "cookie.cat.marketing": "Маркетинг",
+        "cookie.cat.marketing_desc": "Персонализация рекламы и предложений. Сейчас не используются, оставлено на будущее.",
+        "cookie.accept_all": "Принять всё",
+        "cookie.essential_only": "Только необходимые",
+        "cookie.customize": "Настроить",
+        "cookie.save": "Сохранить выбор"
     },
 
     en: {
@@ -576,7 +589,20 @@ const translations = {
         "footer.privacy": "Privacy Policy",
         "footer.oferta": "Public Offer",
         "footer.terms": "Terms of Service",
-        "footer.legal_page": "Legal Information"
+        "footer.legal_page": "Legal Information",
+
+        "cookie.title": "We use cookies",
+        "cookie.text": "This site uses cookies. Essential cookies are always on — they are required for the site to work. Analytics and marketing cookies can be enabled or disabled below. See <a href=\"privacy_policy.html\">Privacy Policy</a> for details.",
+        "cookie.cat.essential": "Essential",
+        "cookie.cat.essential_desc": "Authentication, language/theme choice, consent storage. Cannot be disabled.",
+        "cookie.cat.analytics": "Analytics",
+        "cookie.cat.analytics_desc": "Anonymous visit statistics (Yandex Metrica) — helps improve the site.",
+        "cookie.cat.marketing": "Marketing",
+        "cookie.cat.marketing_desc": "Personalisation of ads and offers. Not used currently, reserved for the future.",
+        "cookie.accept_all": "Accept all",
+        "cookie.essential_only": "Essential only",
+        "cookie.customize": "Customize",
+        "cookie.save": "Save choices"
     },
 
     cn: {
@@ -865,7 +891,20 @@ const translations = {
         "footer.privacy": "隐私政策",
         "footer.oferta": "公开要约",
         "footer.terms": "用户协议",
-        "footer.legal_page": "法律信息"
+        "footer.legal_page": "法律信息",
+
+        "cookie.title": "我们使用 cookie",
+        "cookie.text": "本网站使用 cookie。必要 cookie 始终启用——它们是网站运行所必需的。分析与营销 cookie 可在下方启用或关闭。详情见<a href=\"privacy_policy.html\">隐私政策</a>。",
+        "cookie.cat.essential": "必要",
+        "cookie.cat.essential_desc": "身份验证、语言/主题选择、同意状态存储。不可关闭。",
+        "cookie.cat.analytics": "分析",
+        "cookie.cat.analytics_desc": "匿名访问统计（Yandex Metrica）——用于改进网站。",
+        "cookie.cat.marketing": "营销",
+        "cookie.cat.marketing_desc": "广告与优惠的个性化。目前未启用，留作将来使用。",
+        "cookie.accept_all": "全部接受",
+        "cookie.essential_only": "仅必要",
+        "cookie.customize": "自定义",
+        "cookie.save": "保存选择"
     }
 };
 

@@ -57,11 +57,9 @@ function head({ title, description, keywords, canonical, ogImage = `${SITE}/hero
     <meta name="twitter:description" content="${esc(description)}">
     <meta name="twitter:image" content="${ogImage}">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
-    <link rel="stylesheet" href="/style.css?v=8">
+    <link rel="stylesheet" href="/style.css?v=17">
 `;
 }
 
@@ -167,9 +165,9 @@ function footer() {
         </div>
     </div>
 </footer>
-<script src="/i18n.js?v=8"></script>
-<script src="/services-i18n.js?v=8"></script>
-<script src="/script.js?v=8"></script>`;
+<script src="/i18n.js?v=17"></script>
+<script src="/services-i18n.js?v=17"></script>
+<script src="/script.js?v=17"></script>`;
 }
 
 // ---------- service card (used in homepage grid + catalog + related) ----------
