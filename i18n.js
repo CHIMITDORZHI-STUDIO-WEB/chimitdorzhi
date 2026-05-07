@@ -289,6 +289,11 @@ const translations = {
         "footer.terms": "Пользовательское соглашение",
         "footer.legal_page": "Юридическая информация",
 
+        "ui.showAllServices": "Показать все 46 услуг",
+        "ui.showAllActivities": "Показать все 11 направлений",
+        "ui.showAllCases": "Показать все 22 проекта",
+        "ui.collapse": "Свернуть",
+
         "cookie.title": "Мы используем cookie",
         "cookie.text": "Сайт использует файлы cookie. Необходимые cookie всегда включены — они нужны для работы сайта. Аналитические и маркетинговые cookie вы можете включить или отключить ниже. Подробнее — в <a href=\"privacy_policy.html\">Политике конфиденциальности</a>.",
         "cookie.cat.essential": "Необходимые",
@@ -591,6 +596,11 @@ const translations = {
         "footer.terms": "Terms of Service",
         "footer.legal_page": "Legal Information",
 
+        "ui.showAllServices": "Show all 46 services",
+        "ui.showAllActivities": "Show all 11 areas",
+        "ui.showAllCases": "Show all 22 projects",
+        "ui.collapse": "Collapse",
+
         "cookie.title": "We use cookies",
         "cookie.text": "This site uses cookies. Essential cookies are always on — they are required for the site to work. Analytics and marketing cookies can be enabled or disabled below. See <a href=\"privacy_policy.html\">Privacy Policy</a> for details.",
         "cookie.cat.essential": "Essential",
@@ -892,6 +902,11 @@ const translations = {
         "footer.oferta": "公开要约",
         "footer.terms": "用户协议",
         "footer.legal_page": "法律信息",
+
+        "ui.showAllServices": "查看全部 46 项服务",
+        "ui.showAllActivities": "查看全部 11 个方向",
+        "ui.showAllCases": "查看全部 22 个项目",
+        "ui.collapse": "收起",
 
         "cookie.title": "我们使用 cookie",
         "cookie.text": "本网站使用 cookie。必要 cookie 始终启用——它们是网站运行所必需的。分析与营销 cookie 可在下方启用或关闭。详情见<a href=\"privacy_policy.html\">隐私政策</a>。",

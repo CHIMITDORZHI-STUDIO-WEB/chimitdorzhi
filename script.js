@@ -119,6 +119,35 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // ---- SHOW MORE / SHOW LESS for collapsible grids ----
+    document.querySelectorAll('.show-more-btn').forEach(btn => {
+        const target = document.querySelector(btn.dataset.target);
+        if (!target) return;
+        const labelEl = btn.querySelector('span[data-i18n]');
+        const collapseKey = btn.dataset.collapseText;
+        const expandKey = btn.dataset.expandText;
+        btn.addEventListener('click', () => {
+            const isCollapsed = target.classList.toggle('is-collapsed') === false ? false : target.classList.contains('is-collapsed');
+            // toggle returns true if class added, false if removed; let's just check after toggle
+            const collapsedNow = target.classList.contains('is-collapsed');
+            btn.classList.toggle('is-expanded', !collapsedNow);
+            if (labelEl) {
+                const newKey = collapsedNow ? collapseKey : expandKey;
+                labelEl.setAttribute('data-i18n', newKey);
+                if (typeof translations !== 'undefined') {
+                    const lang = localStorage.getItem('lang') || 'ru';
+                    const dict = translations[lang] || translations.ru || {};
+                    if (dict[newKey]) labelEl.textContent = dict[newKey];
+                }
+            }
+            if (!collapsedNow) {
+                if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
+            } else {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+
     // ---- SERVICES FILTER ----
     const svcFilterBtns = document.querySelectorAll('.services-filter .filter-btn');
     if (svcFilterBtns.length) {
@@ -139,6 +168,14 @@ document.addEventListener('DOMContentLoaded', () => {
                         }
                     }
                 });
+                // auto-expand grid when filter is set; collapse back on "all"
+                const grid = document.getElementById('servicesGrid');
+                const showMoreBtn = document.querySelector('[data-target="#servicesGrid"]');
+                if (grid) {
+                    if (cat === 'all') grid.classList.add('is-collapsed');
+                    else grid.classList.remove('is-collapsed');
+                    if (showMoreBtn) showMoreBtn.style.display = (cat === 'all') ? '' : 'none';
+                }
                 if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
             });
         });
@@ -171,6 +208,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     const show = f === 'all' || blockCat === f;
                     block.classList.toggle('is-hidden', !show);
                 });
+                // auto-expand cases grid when filter is set
+                const cgrid = document.getElementById('casesGrid');
+                const cBtn = document.querySelector('[data-target="#casesGrid"]');
+                if (cgrid) {
+                    if (f === 'all') cgrid.classList.add('is-collapsed');
+                    else cgrid.classList.remove('is-collapsed');
+                    if (cBtn) cBtn.style.display = (f === 'all') ? '' : 'none';
+                }
                 if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
             });
         });
