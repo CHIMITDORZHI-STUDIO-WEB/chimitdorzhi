@@ -62,8 +62,9 @@ function head({ title, description, keywords, canonical, ogImage = `${SITE}/hero
     <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
-    <link rel="stylesheet" href="/style.css?v=20">
+    <link rel="stylesheet" href="/assets/phosphor/regular.css">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    <link rel="stylesheet" href="/style.css?v=21">
 `;
 }
 
@@ -169,9 +170,9 @@ function footer() {
         </div>
     </div>
 </footer>
-<script src="/i18n.js?v=17"></script>
-<script src="/services-i18n.js?v=17"></script>
-<script src="/script.js?v=17"></script>`;
+<script src="/i18n.js?v=21" defer></script>
+<script src="/services-i18n.js?v=21" defer></script>
+<script src="/script.js?v=21" defer></script>`;
 }
 
 // ---------- service card (used in homepage grid + catalog + related) ----------
@@ -195,6 +196,7 @@ function homeCard(svc) {
 // ---------- per-service landing page ----------
 
 function serviceJsonLd(svc, url) {
+  const today = new Date().toISOString().slice(0, 10);
   const ld = {
     '@context': 'https://schema.org',
     '@type': 'Service',
@@ -214,6 +216,8 @@ function serviceJsonLd(svc, url) {
       priceCurrency: 'RUB',
     },
     url,
+    datePublished: '2026-04-15',
+    dateModified: today,
   };
   return JSON.stringify(ld, null, 2);
 }

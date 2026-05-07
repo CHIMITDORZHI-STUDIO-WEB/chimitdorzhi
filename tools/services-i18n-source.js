@@ -235,7 +235,7 @@ const i18nUi = {
     'svc.crumbs.services':       'Услуги',
     'svc.catalog.label':         'КАТАЛОГ',
     'svc.catalog.h1':            'Услуги',
-    'svc.catalog.sub':           '46 услуг по 9 направлениям: разработка, AI, бизнес, безопасность, инфраструктура, отрасли, образование, медиа, инновации.',
+    'svc.catalog.sub':           '46 услуг в 9 направлениях для бизнеса в России и СНГ. Помогаю компаниям внедрять AI-агентов и LLM-решения, выстраивать архитектуру IT-систем, защищать сайты под 152-ФЗ, выпускать ЦФА по 259-ФЗ, проводить цифровизацию клиник и логистики, обучать команды работе с нейросетями. Работаю по всей России — от Москвы до Дальнего Востока. Опыт 16+ лет в IT, 5+ в AI/ML, сертификаты Vanderbilt University и MongoDB Inc. (2026). Каждая услуга — отдельная посадочная страница с описанием, факторами стоимости и связанными услугами. Цены ориентировочные «от X ₽» — финальная стоимость определяется индивидуально после согласования ТЗ.',
   },
   en: {
     'svc.filter.all':            'All',
@@ -262,7 +262,7 @@ const i18nUi = {
     'svc.crumbs.services':       'Services',
     'svc.catalog.label':         'CATALOG',
     'svc.catalog.h1':            'Services',
-    'svc.catalog.sub':           '46 services across 9 areas: development, AI, business, security, infrastructure, industries, education, media, innovation.',
+    'svc.catalog.sub':           '46 services across 9 areas for businesses in Russia and the CIS. I help companies deploy AI agents and LLM solutions, build IT system architecture, secure websites under 152-FZ, issue digital financial assets (CFA) under 259-FZ, digitalise clinics and logistics, and train teams to use neural networks. Working across all of Russia — from Moscow to the Far East. 16+ years in IT, 5+ in AI/ML, Vanderbilt University and MongoDB Inc. certifications (2026). Each service has its own landing page with description, pricing factors and related services. Prices are indicative “from X ₽” — final cost is set individually after scoping the work.',
   },
   cn: {
     'svc.filter.all':            '全部',
@@ -289,7 +289,7 @@ const i18nUi = {
     'svc.crumbs.services':       '服务',
     'svc.catalog.label':         '目录',
     'svc.catalog.h1':            '服务',
-    'svc.catalog.sub':           '9 个方向 46 项服务：开发、AI、商业、安全、基础设施、行业、教育、媒体、创新。',
+    'svc.catalog.sub':           '9 大方向 46 项服务，面向俄罗斯及独联体企业。帮助企业部署 AI 智能体与 LLM 方案，搭建 IT 系统架构，按 152-FZ 保护网站，按 259-FZ 发行数字金融资产 (CFA)，推进诊所和物流数字化，并培训团队使用神经网络。服务覆盖整个俄罗斯——从莫斯科到远东。16+ 年 IT 经验，5+ 年 AI/ML 经验，2026 年取得范德比尔特大学与 MongoDB 公司认证。每项服务都有独立落地页，含描述、价格影响因素和相关服务。价格为“起 X 卢布”——最终价格在确认任务书后单独商定。',
   },
 };
 
