@@ -297,6 +297,10 @@ ${breadcrumbJsonLd(svc, url)}
                     <h1 class="service-h1" data-i18n="${k}.n">${esc(svc.n)}</h1>
                     <p class="service-lead" data-i18n="${k}.d">${esc(svc.d)}</p>
                     <div class="service-price-tag" data-i18n="${k}.pt">${esc(svc.pt)}</div>
+                    ${svc.landing ? `<a href="${esc(svc.landing.url)}" target="_blank" rel="noopener" class="service-landing-cta">
+                        <i class="ph ph-arrow-up-right"></i>
+                        <span>${esc(svc.landing.label || 'Подробный лендинг')} →</span>
+                    </a>` : ''}
                     <div class="service-actions">
                         <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent"><i class="ph ph-telegram-logo"></i> <span data-i18n="svc.cta.tg">Обсудить в Telegram</span></a>
                         <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone"></i> <span data-i18n="svc.cta.call">Позвонить</span></a>

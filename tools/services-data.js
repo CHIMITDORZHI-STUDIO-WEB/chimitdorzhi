@@ -160,7 +160,8 @@ const services = [
     d:'Проверка сайта на соответствие требованиям Роскомнадзора в актуальной редакции 152-ФЗ. Защита от штрафов до 18 млн руб. Аудит политики, согласий, cookie, локализации данных.',
     p:5000, pt:'от 5 000 ₽ (устранение нарушений — от 25 000 ₽)', tg:['РКН','152-ФЗ','Compliance','GDPR'],
     pf:['размер сайта','формы','интеграции','аудит или с устранением'],
-    r:['cybersecurity','it-audit','web-development'], priority:'high' },
+    r:['cybersecurity','it-audit','web-development'], priority:'high',
+    landing:{ url:'https://audit.chimitdorzhi.tech/', label:'Подробный лендинг и тарифы' } },
 
   { s:'cybersecurity', n:'Кибербезопасность для бизнеса', c:'security', pi:'shield', ic:'svc-icon-red',
     t:'Кибербезопасность для малого бизнеса | Чимитдоржи Дарижапов',
