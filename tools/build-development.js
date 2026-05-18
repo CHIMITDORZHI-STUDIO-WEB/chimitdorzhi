@@ -292,18 +292,59 @@ ${breadcrumbJsonLd(breadcrumbs)}
     <main>
         <section class="section dev-hero">
             <div class="container">
-                <nav class="breadcrumbs" aria-label="Хлебные крошки">
-                    <a href="/">Главная</a>
-                    <span class="breadcrumbs-sep">›</span>
-                    <span aria-current="page">Разработка</span>
-                </nav>
-                <span class="section-label">18 ПРОДУКТОВ</span>
-                <h1 class="dev-hero-h1">Разработка под ключ</h1>
-                <p class="dev-hero-sub">Сайты, боты, мобильные приложения и всё, что вокруг. С прозрачными тарифами и без воды про «инновационные решения».</p>
-                <div class="dev-hero-actions">
-                    <a href="${TG}" target="_blank" rel="noopener" class="btn btn-accent btn-big"><i class="ph ph-telegram-logo"></i> Написать в Telegram</a>
-                    <a href="#web" class="btn btn-ghost btn-big">К продуктам ↓</a>
+                <div class="dev-hero-main">
+                    <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                        <a href="/">Главная</a>
+                        <span class="breadcrumbs-sep">›</span>
+                        <span aria-current="page">Разработка</span>
+                    </nav>
+                    <span class="section-label">18 ПРОДУКТОВ</span>
+                    <h1 class="dev-hero-h1">Разработка под ключ</h1>
+                    <p class="dev-hero-sub">Сайты, боты, мобильные приложения и всё, что вокруг. С прозрачными тарифами и без воды про «инновационные решения».</p>
+                    <div class="dev-hero-actions">
+                        <a href="${TG}" target="_blank" rel="noopener" class="btn btn-accent btn-big"><i class="ph ph-telegram-logo"></i> Написать в Telegram</a>
+                        <a href="#web" class="btn btn-ghost btn-big">К продуктам ↓</a>
+                    </div>
                 </div>
+                <aside class="dev-hero-side" aria-label="Стек и популярные услуги">
+                    <div class="dev-tech-grid" role="list" aria-label="Технологический стек">
+                        <div class="dev-tech-tile" role="listitem" title="Telegram"><i class="ph ph-telegram-logo"></i></div>
+                        <div class="dev-tech-tile dev-tech-tile-text" role="listitem" title="MAX мессенджер">MAX</div>
+                        <div class="dev-tech-tile dev-tech-tile-text" role="listitem" title="ВКонтакте">VK</div>
+                        <div class="dev-tech-tile" role="listitem" title="WhatsApp"><i class="ph ph-whatsapp-logo"></i></div>
+                        <div class="dev-tech-tile dev-tech-tile-text" role="listitem" title="Flutter">Fl</div>
+                        <div class="dev-tech-tile dev-tech-tile-text" role="listitem" title="React Native">RN</div>
+                        <div class="dev-tech-tile dev-tech-tile-text" role="listitem" title="Swift">Sw</div>
+                        <div class="dev-tech-tile dev-tech-tile-text" role="listitem" title="Kotlin">Kt</div>
+                        <div class="dev-tech-tile dev-tech-tile-text" role="listitem" title="Electron">El</div>
+                        <div class="dev-tech-tile dev-tech-tile-text" role="listitem" title="Chrome Extension">Cr</div>
+                        <div class="dev-tech-tile" role="listitem" title="Web"><i class="ph ph-globe"></i></div>
+                        <div class="dev-tech-tile" role="listitem" title="AI"><i class="ph ph-brain"></i></div>
+                    </div>
+                    <div class="dev-floating-cards">
+                        <a href="/development/telegram-bots/" class="dev-floating-card">
+                            <i class="ph-fill ph-lightning"></i>
+                            <div class="dev-floating-card-body">
+                                <div class="dev-floating-card-title">TG-бот</div>
+                                <div class="dev-floating-card-price">от 15 000 ₽</div>
+                            </div>
+                        </a>
+                        <a href="/development/sites/" class="dev-floating-card">
+                            <i class="ph ph-globe"></i>
+                            <div class="dev-floating-card-body">
+                                <div class="dev-floating-card-title">Лендинг</div>
+                                <div class="dev-floating-card-price">от 30 000 ₽</div>
+                            </div>
+                        </a>
+                        <a href="/development/max-bots/" class="dev-floating-card">
+                            <i class="ph ph-robot"></i>
+                            <div class="dev-floating-card-body">
+                                <div class="dev-floating-card-title">MAX-бот</div>
+                                <div class="dev-floating-card-price">от 20 000 ₽</div>
+                            </div>
+                        </a>
+                    </div>
+                </aside>
             </div>
         </section>
 
