@@ -3071,6 +3071,112 @@ a.svc-card-link {
     flex-wrap: wrap;
     margin-top: 8px;
 }
+
+/* DEV HUB HERO — 2-column with tech mosaic + floating price cards on the right */
+.dev-hero-side { display: none; }
+.dev-hero-main { min-width: 0; }
+
+@media (min-width: 1024px) {
+    .dev-hero .container {
+        display: grid;
+        grid-template-columns: 1fr 380px;
+        gap: 56px;
+        align-items: center;
+    }
+    .dev-hero-side {
+        display: block;
+        align-self: center;
+    }
+}
+
+.dev-tech-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-bottom: 24px;
+}
+.dev-tech-tile {
+    aspect-ratio: 1;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    transition: transform 0.2s ease, border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+}
+.dev-tech-tile i {
+    font-size: 1.5rem;
+    line-height: 1;
+}
+.dev-tech-tile:hover {
+    transform: translateY(-2px) scale(1.04);
+    border-color: rgba(79, 140, 255, 0.45);
+    color: #fff;
+    background: rgba(79, 140, 255, 0.08);
+}
+
+.dev-floating-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+.dev-floating-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 18px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 14px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    animation: dev-float 4s ease-in-out infinite;
+    animation-delay: 0s;
+    will-change: transform;
+}
+.dev-floating-card:nth-child(2) {
+    animation-delay: 1.3s;
+    margin-left: 20px;
+}
+.dev-floating-card:nth-child(3) {
+    animation-delay: 2.6s;
+    margin-left: 40px;
+}
+.dev-floating-card:hover {
+    border-color: rgba(79, 140, 255, 0.45);
+    background: rgba(79, 140, 255, 0.08);
+}
+.dev-floating-card i {
+    font-size: 1.6rem;
+    color: #4f8cff;
+    flex-shrink: 0;
+}
+.dev-floating-card-body { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.dev-floating-card-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #fff;
+}
+.dev-floating-card-price {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+}
+
+@keyframes dev-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+@media (prefers-reduced-motion: reduce) {
+    .dev-floating-card { animation: none; }
+}
+
 .dev-simple {
     background: rgba(255,255,255,0.03);
     border-left: 3px solid #4f8cff;
