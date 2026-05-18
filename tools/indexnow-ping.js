@@ -17,6 +17,8 @@ const body = JSON.stringify({
   urlList: [
     `https://${HOST}/`,
     `https://${HOST}/services/`,
+    `https://${HOST}/blog/`,
+    `https://${HOST}/blog/audit-152-fz-2026/`,
     SITEMAP,
   ],
 });
