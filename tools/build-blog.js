@@ -13,6 +13,7 @@ const SITE = 'https://chimitdorzhi.tech';
 const ROOT = path.resolve(__dirname, '..');
 const OUT_BLOG = path.join(ROOT, 'blog');
 const OUT_SITEMAP = path.join(ROOT, 'sitemap.xml');
+const OUT_FEED    = path.join(OUT_BLOG, 'feed.xml');
 
 const CATEGORY_LABELS = {
   legal:       'Право и 152-ФЗ',
@@ -48,6 +49,7 @@ function head({ title, description, keywords, canonical, ogImage = `${SITE}/hero
     <link rel="canonical" href="${canonical}">
     <link rel="alternate" hreflang="ru" href="${canonical}">
     <link rel="alternate" hreflang="x-default" href="${canonical}">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="${SITE}/blog/feed.xml">
 
     <meta property="og:type" content="article">
     <meta property="og:url" content="${canonical}">
@@ -485,6 +487,49 @@ function updateSitemap(published) {
   fs.writeFileSync(OUT_SITEMAP, xml, 'utf8');
 }
 
+// ---------- RSS feed ----------
+
+function rssDate(iso) {
+  // RFC 822 — required by RSS 2.0
+  const d = new Date(iso + 'T09:00:00+03:00');
+  return d.toUTCString();
+}
+
+function buildRss(published) {
+  const sorted = [...published].sort((a, b) =>
+    (b.datePublished || '').localeCompare(a.datePublished || '')
+  );
+  const latest = sorted[0] ? sorted[0].dateModified || sorted[0].datePublished : new Date().toISOString().slice(0, 10);
+
+  const items = sorted.map(a => {
+    const url = `${SITE}/blog/${a.slug}/`;
+    const cat = CATEGORY_LABELS[a.category] || a.category || '';
+    return `    <item>
+      <title>${esc(a.title)}</title>
+      <link>${url}</link>
+      <guid isPermaLink="true">${url}</guid>
+      <description><![CDATA[${a.excerpt || ''}]]></description>
+      <pubDate>${rssDate(a.datePublished)}</pubDate>
+      <category>${esc(cat)}</category>
+      <author>noreply@chimitdorzhi.tech (Чимитдоржи Дарижапов)</author>
+    </item>`;
+  }).join('\n');
+
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Блог Чимитдоржи Дарижапова</title>
+    <link>${SITE}/blog/</link>
+    <atom:link href="${SITE}/blog/feed.xml" rel="self" type="application/rss+xml" />
+    <description>Экспертные статьи о 152-ФЗ, разработке, AI и предпринимательстве в России.</description>
+    <language>ru</language>
+    <lastBuildDate>${rssDate(latest)}</lastBuildDate>
+    <ttl>60</ttl>
+${items}
+  </channel>
+</rss>`;
+}
+
 // ---------- main ----------
 
 function ensureDir(p) { fs.mkdirSync(p, { recursive: true }); }
@@ -503,11 +548,13 @@ function main() {
 
   fs.writeFileSync(path.join(OUT_BLOG, 'index.html'), hubPage(published), 'utf8');
   updateSitemap(published);
+  fs.writeFileSync(OUT_FEED, buildRss(published), 'utf8');
 
   console.log(`OK: generated ${pages} article(s) + hub`);
   console.log(`  ${OUT_BLOG}/index.html`);
   for (const a of published) console.log(`  ${OUT_BLOG}/${a.slug}/index.html`);
   console.log(`  Sitemap updated: ${OUT_SITEMAP}`);
+  console.log(`  RSS feed:       ${OUT_FEED}`);
 
   // Word count check for published articles
   const stripTags = (s) => s.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
