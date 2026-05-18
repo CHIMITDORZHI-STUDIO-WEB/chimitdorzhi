@@ -242,7 +242,7 @@ function relatedHtml(a, published) {
   return `<section class="blog-related">
   <h2>Что дальше</h2>
   <div class="blog-grid">
-    <a class="blog-card blog-card-svc" href="/audit/">
+    <a class="blog-card blog-card-svc" href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener">
       <div class="blog-card-icon"><i class="ph-fill ph-shield-check"></i></div>
       <span class="blog-card-cat">Услуга</span>
       <h3>Аудит 152-ФЗ под ключ</h3>
@@ -318,7 +318,7 @@ ${breadcrumbLd(a, url)}
                             <p>Отчёт за 1–3 дня, устранение нарушений под ключ. От 5 000 ₽.</p>
                         </div>
                         <div class="blog-cta-card-actions">
-                            <a href="${esc(a.ctaInternal ? a.ctaInternal.url : '/audit/')}" class="btn btn-accent"><i class="ph ph-shield-check"></i> ${esc(a.ctaInternal ? a.ctaInternal.label : 'Заказать аудит')}</a>
+                            <a href="${esc(a.ctaInternal ? a.ctaInternal.url : 'https://audit.chimitdorzhi.tech/')}" class="btn btn-accent"><i class="ph ph-shield-check"></i> ${esc(a.ctaInternal ? a.ctaInternal.label : 'Заказать аудит')}</a>
                             <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo"></i> Написать в Telegram</a>
                         </div>
                     </div>
