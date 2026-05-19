@@ -1,0 +1,455 @@
+// Content HTML for "Чек-лист безопасности сайта: 47 пунктов" article.
+module.exports = `
+<div class="blog-tldr">
+  <h3>Коротко (TL;DR)</h3>
+  <ul>
+    <li>47 пунктов разделены на 5 разделов: HTTPS и сертификаты, веб-уязвимости (OWASP Top 10), аутентификация и сессии, информационные утечки, инфраструктура и обновления.</li>
+    <li>Каждый пункт — с конкретной командой/инструментом проверки и шагами фикса. Проверяется за час без специального ПО.</li>
+    <li>Закрывает 80% типовых проблем безопасности веб-сайтов. Оставшиеся 20% требуют профессионального пентеста и аудита кода.</li>
+    <li>Если хоть один пункт не выполнен — у вас есть уязвимость. Большинство брешей в РФ-сегменте 2024-2026 — из этого списка.</li>
+    <li>Нужен полный аудит безопасности под ключ — <a href="https://audit.chimitdorzhi.tech/security/">закажу аудит от 15 000 ₽</a>, отчёт за 1-3 дня с приоритетами и инструкциями по исправлению.</li>
+  </ul>
+</div>
+
+<h2 id="zachem-samoproverka">Зачем самопроверка и чем она отличается от пентеста</h2>
+<p>За 2024-2026 я внедрял безопасность в десятках проектов — от лендингов до b2b SaaS на 10 000 пользователей. Видел все типичные дыры. И давно убедился: 80% инцидентов в РФ-сегменте — это базовые ошибки, которые владелец мог бы найти сам за час, без специального ПО, без хакера-консультанта за 200 000 ₽.</p>
+<p>Этот чек-лист — для собственника сайта, технического директора, разработчика, который хочет понять «у нас вообще нормально с безопасностью или мы голые». Не заменяет профессиональный пентест — это глубокое тестирование с эксплуатацией уязвимостей, оно нужно для банков, медицины, госуслуг, КИИ. Но 80% сайтов в РФ не доходят даже до этого базового уровня — и именно из-за этого утекают в новости.</p>
+<p>Что нужно для прохождения: браузер с DevTools, доступ к терминалу (Windows/Linux/macOS), 60-90 минут времени. Опционально — онлайн-сервисы вроде SSL Labs, securityheaders.com, hstspreload.org. Если хоть один из 47 пунктов не выполнен — это уязвимость, которая может стать инцидентом.</p>
+
+<div class="blog-callout blog-callout-warn">
+  <i class="ph-fill ph-warning"></i>
+  <div>
+    <strong>Важно про этику.</strong> Все тесты в этом чек-листе предназначены для <em>собственного</em> сайта. Тестирование чужого сайта без письменного разрешения — это статья 272 УК РФ (неправомерный доступ к компьютерной информации), до 2 лет лишения свободы. Не проверяйте этим списком чужие ресурсы.
+  </div>
+</div>
+
+<h2 id="razdel-1-https">Раздел 1: HTTPS и сертификаты (пункты 1-8)</h2>
+<p>Если HTTPS настроен криво — все остальные меры безопасности обесцениваются, потому что трафик можно перехватить и подменить.</p>
+
+<h3 id="check-1">1. HTTPS включён на всём сайте без mixed content</h3>
+<p>Каждая страница, каждый скрипт, каждое изображение должны грузиться по HTTPS. Один HTTP-ресурс на странице (mixed content) — и браузер показывает предупреждение, а у вас есть точка для MITM-атаки.</p>
+<details class="blog-check-details">
+<summary>Как проверить</summary>
+<div class="blog-code"><pre><code>curl -I https://example.com
+# открыть сайт в Chrome, F12 -> Console
+# смотреть на предупреждения "Mixed Content"
+# или https://www.whynopadlock.com/</code></pre></div>
+<p><strong>Что делать если плохо:</strong> найти все ссылки http:// в HTML/JS/CSS, заменить на https:// или относительные. Добавить заголовок <code>Content-Security-Policy: upgrade-insecure-requests</code>.</p>
+</details>
+
+<h3 id="check-2">2. HSTS заголовок установлен корректно</h3>
+<p>HTTP Strict Transport Security говорит браузеру «никогда не открывай этот сайт по HTTP». Защищает от SSL stripping. Минимум: <code>max-age=31536000; includeSubDomains</code>. Идеально: <code>preload</code>.</p>
+<details class="blog-check-details">
+<summary>Как проверить</summary>
+<div class="blog-code"><pre><code>curl -sI https://example.com | grep -i strict-transport
+# должно быть:
+# strict-transport-security: max-age=31536000; includeSubDomains; preload</code></pre></div>
+<p><strong>Если нет:</strong> добавить в конфиг nginx/Apache/CDN. Перед включением preload — убедиться, что ВСЕ субдомены работают по HTTPS, иначе они станут недоступны.</p>
+</details>
+
+<h3 id="check-3">3. Сертификат не просрочен и не истекает в ближайшие 30 дней</h3>
+<p>Истёкший сертификат = сайт недоступен. Установите автообновление и мониторинг.</p>
+<details class="blog-check-details">
+<summary>Как проверить</summary>
+<div class="blog-code"><pre><code>echo | openssl s_client -servername example.com -connect example.com:443 2>/dev/null | openssl x509 -noout -dates
+# или https://www.ssllabs.com/ssltest/</code></pre></div>
+<p><strong>Если плохо:</strong> Let&#39;s Encrypt с certbot — автообновление каждые 60 дней. Платный сертификат — настроить алерт в мониторинге за 30 дней до окончания.</p>
+</details>
+
+<h3 id="check-4">4. TLS версии 1.2 и выше, никаких 1.0/1.1/SSL 3</h3>
+<p>Старые версии TLS содержат известные уязвимости (BEAST, POODLE). Многие платёжные системы (PCI DSS) уже требуют только TLS 1.2+.</p>
+<details class="blog-check-details">
+<summary>Как проверить</summary>
+<div class="blog-code"><pre><code>nmap --script ssl-enum-ciphers -p 443 example.com
+# или https://www.ssllabs.com/ssltest/ — отчёт Protocols</code></pre></div>
+<p><strong>Если плохо:</strong> в nginx — <code>ssl_protocols TLSv1.2 TLSv1.3;</code>. В Apache — <code>SSLProtocol -all +TLSv1.2 +TLSv1.3</code>.</p>
+</details>
+
+<h3 id="check-5">5. Cipher suites без слабых алгоритмов</h3>
+<p>RC4, DES, 3DES, MD5, NULL-шифры — давно сломаны. Должны быть выключены.</p>
+<details class="blog-check-details">
+<summary>Как проверить</summary>
+<div class="blog-code"><pre><code>nmap --script ssl-enum-ciphers -p 443 example.com | grep -E "RC4|DES|MD5|NULL|EXPORT"
+# должно быть пусто</code></pre></div>
+<p><strong>Если плохо:</strong> использовать рекомендации Mozilla SSL Configuration Generator (intermediate или modern).</p>
+</details>
+
+<h3 id="check-6">6. HTTP редиректит на HTTPS</h3>
+<p>Запрос на http://example.com должен возвращать 301 на https://example.com, не показывать страницу по HTTP.</p>
+<details class="blog-check-details">
+<summary>Как проверить</summary>
+<div class="blog-code"><pre><code>curl -I http://example.com
+# ожидаем: HTTP/1.1 301 Moved Permanently
+# Location: https://example.com/</code></pre></div>
+<p><strong>Если плохо:</strong> в nginx — отдельный server-блок на 80 порту с <code>return 301 https://$host$request_uri;</code></p>
+</details>
+
+<h3 id="check-7">7. www и non-www ведут себя одинаково</h3>
+<p>Либо оба варианта доступны, либо один редиректит на другой 301-м кодом. Иначе SEO раздваивается, а пользователи путаются.</p>
+<details class="blog-check-details">
+<summary>Как проверить</summary>
+<div class="blog-code"><pre><code>curl -I https://example.com
+curl -I https://www.example.com
+# оба должны быть 200 или 301 в одну сторону</code></pre></div>
+</details>
+
+<h3 id="check-8">8. Certificate Transparency: нет посторонних сертификатов на ваш домен</h3>
+<p>Если кто-то выпустил сертификат на ваш домен через скомпрометированный CA — это видно в CT-логах. Регулярно проверяйте.</p>
+<details class="blog-check-details">
+<summary>Как проверить</summary>
+<div class="blog-code"><pre><code># открыть в браузере: https://crt.sh/?q=example.com
+# просмотреть все выданные сертификаты, найти неизвестные</code></pre></div>
+<p><strong>Если найдены чужие:</strong> срочно связаться с CA для отзыва, провести аудит инфраструктуры.</p>
+</details>
+
+<h2 id="razdel-2-web">Раздел 2: Веб-уязвимости — OWASP self-check (пункты 9-23)</h2>
+<p>OWASP Top 10 — список самых распространённых уязвимостей. Каждая из них — минимум одна громкая утечка в новостях каждый месяц.</p>
+
+<h3 id="check-9">9. SQL-инъекции</h3>
+<p>Самая древняя и до сих пор самая распространённая уязвимость. Позволяет читать/менять базу через web-формы.</p>
+<details class="blog-check-details">
+<summary>Как проверить</summary>
+<p>В любое поле ввода (логин, поиск, фильтр) попробовать: <code>&#39; OR 1=1 --</code> или <code>&#39;;DROP TABLE users--</code> или <code>&#39; UNION SELECT NULL --</code>.</p>
+<p>Если получили ошибку SQL, странный результат, попали в админку — уязвимы.</p>
+<p><strong>Что делать:</strong> использовать prepared statements / ORM везде. Никаких конкатенаций строк с пользовательским вводом в SQL-запросы.</p>
+</details>
+
+<h3 id="check-10">10. XSS — Cross-Site Scripting</h3>
+<p>Внедрение JS-кода через поля ввода. Позволяет красть куки, перенаправлять пользователей, выполнять действия от их имени.</p>
+<details class="blog-check-details">
+<summary>Как проверить</summary>
+<p>В каждое поле ввода: <code>&lt;script&gt;alert(1)&lt;/script&gt;</code> или <code>&quot;&gt;&lt;img src=x onerror=alert(1)&gt;</code>. Если alert сработал на странице — уязвимы.</p>
+<p><strong>Что делать:</strong> экранировать вывод (HTML escape, JS escape, URL escape — в зависимости от контекста). Установить Content-Security-Policy. Не использовать <code>innerHTML</code> с пользовательскими данными — только <code>textContent</code>.</p>
+</details>
+
+<h3 id="check-11">11. CSRF — Cross-Site Request Forgery</h3>
+<p>Атака, при которой чужой сайт от имени залогиненного пользователя выполняет действия на вашем сайте. Защита — CSRF-токены.</p>
+<details class="blog-check-details">
+<summary>Как проверить</summary>
+<p>В DevTools найти любую POST-форму. Проверить: есть ли в hidden-полях токен (csrf_token, _token, X-CSRFToken)? Если форма принимает запрос без токена — уязвимы.</p>
+<p><strong>Что делать:</strong> добавить CSRF-токен во все формы изменения состояния. Куки с <code>SameSite=Lax</code> закрывают 90% CSRF, но токены всё равно нужны для защищённости.</p>
+</details>
+
+<h3 id="check-12">12. IDOR — Insecure Direct Object Reference</h3>
+<p>Доступ к чужим данным через подмену ID в URL: <code>/orders/123</code> → <code>/orders/124</code>. Если сервер не проверяет, что заказ 124 принадлежит вам — утечка данных.</p>
+<details class="blog-check-details">
+<summary>Как проверить</summary>
+<p>Залогиниться двумя пользователями. От первого открыть свой ресурс с ID. Поменять ID на чужой. Если открылось — уязвимы.</p>
+<p><strong>Что делать:</strong> на каждый запрос проверять права доступа на уровне БД (<code>WHERE user_id = current_user_id</code>). Использовать UUID вместо инкрементальных ID — снижает вероятность угадывания.</p>
+</details>
+
+<h3 id="check-13">13. Path traversal</h3>
+<p>Доступ к файлам ОС через подмену путей: <code>?file=../../etc/passwd</code>.</p>
+<details class="blog-check-details">
+<summary>Как проверить</summary>
+<p>В параметрах GET, которые принимают имя файла: <code>../../../../etc/passwd</code>, <code>..\\..\\..\\windows\\win.ini</code>. Если в ответе системный файл — уязвимы.</p>
+<p><strong>Что делать:</strong> белый список разрешённых имён файлов. Использовать абсолютные пути из чистой папки. Не давать пользователю напрямую указывать имя файла.</p>
+</details>
+
+<h3 id="check-14">14. Command injection</h3>
+<p>Выполнение команд ОС через web. Если ваш код вызывает shell с пользовательским вводом — катастрофа.</p>
+<details class="blog-check-details">
+<summary>Как проверить</summary>
+<p>В поля, которые могут передаваться в утилиты (поиск, обработка файлов, ping): <code>; ls -la</code>, <code>| whoami</code>, <code>&amp;&amp; cat /etc/passwd</code>.</p>
+<p><strong>Что делать:</strong> не использовать <code>exec/system/shell_exec</code> с пользовательским вводом. Если без shell нельзя — белый список команд, экранирование через <code>shlex.quote</code> (Python) или аналоги.</p>
+</details>
+
+<h3 id="check-15">15. SSRF — Server-Side Request Forgery</h3>
+<p>Сервер делает запрос на URL, который указал пользователь. Атакующий может обратиться к внутренней сети: <code>http://localhost:22</code>, <code>http://169.254.169.254/</code> (метаданные облака).</p>
+<details class="blog-check-details">
+<summary>Как проверить</summary>
+<p>Если есть форма «вставьте ссылку на картинку/сайт» — попробовать <code>http://127.0.0.1/</code>, <code>http://169.254.169.254/latest/meta-data/</code>. Получили внутреннюю информацию — уязвимы.</p>
+<p><strong>Что делать:</strong> белый список разрешённых доменов. Блокировать приватные IP-диапазоны (10.x, 172.16-31.x, 192.168.x, 127.x, 169.254.x).</p>
+</details>
+
+<h3 id="check-16">16. XXE — XML External Entity</h3>
+<p>Если ваш сайт принимает XML-загрузки — может быть уязвим. XXE позволяет читать локальные файлы и делать SSRF.</p>
+<details class="blog-check-details">
+<summary>Как проверить</summary>
+<p>Загрузить XML с внешней сущностью: <code>&lt;!DOCTYPE foo [&lt;!ENTITY xxe SYSTEM &quot;file:///etc/passwd&quot;&gt;]&gt;&lt;foo&gt;&amp;xxe;&lt;/foo&gt;</code>.</p>
+<p><strong>Что делать:</strong> отключить внешние сущности в XML-парсере. В Python — <code>defusedxml</code>. В Java — <code>XMLConstants.FEATURE_SECURE_PROCESSING</code>.</p>
+</details>
+
+<h3 id="check-17">17. Open redirect</h3>
+<p>Параметр <code>?next=...</code> или <code>?redirect=...</code>, через который можно отправить пользователя на phishing-сайт от имени вашего домена.</p>
+<details class="blog-check-details">
+<summary>Как проверить</summary>
+<p>В параметре редиректа: <code>?next=https://evil.com/</code>. Если редиректит — уязвимы.</p>
+<p><strong>Что делать:</strong> белый список разрешённых URL для редиректов. Или относительные пути только (<code>/dashboard</code>, не <code>https://...</code>).</p>
+</details>
+
+<h3 id="check-18">18. Insecure deserialization</h3>
+<p>Если в куках или параметрах есть base64-закодированные объекты — попробовать их изменить. На многих стеках (PHP, Java, Python pickle) это приводит к RCE.</p>
+<details class="blog-check-details">
+<summary>Как проверить</summary>
+<p>Открыть DevTools → Application → Cookies. Если cookies выглядят как base64 — декодировать, изменить, заэкодировать обратно. Если сайт принимает изменённое — уязвимы.</p>
+<p><strong>Что делать:</strong> подписывать сериализованные данные (HMAC). Не использовать pickle/yaml.load для пользовательских данных — только JSON.</p>
+</details>
+
+<h3 id="check-19">19. JWT — типичные ошибки</h3>
+<p>Если используете JWT — проверить: алгоритм none, weak secret, отсутствие проверки expiration.</p>
+<details class="blog-check-details">
+<summary>Как проверить</summary>
+<p>Декодировать JWT на jwt.io. Если алгоритм <code>HS256</code> — попробовать <code>none</code> и проверить, примет ли сервер. Попробовать сбрутить secret через hashcat (jwt.secrets.list).</p>
+<p><strong>Что делать:</strong> белый список алгоритмов (только RS256 или HS256 с длинным секретом). Проверять expiration. Не хранить чувствительные данные в JWT — он не зашифрован.</p>
+</details>
+
+<h3 id="check-20">20. CORS не слишком разрешающий</h3>
+<p>Заголовок <code>Access-Control-Allow-Origin: *</code> с <code>Allow-Credentials: true</code> — комбинация, при которой любой сайт может читать данные ваших залогиненных пользователей.</p>
+<details class="blog-check-details">
+<summary>Как проверить</summary>
+<div class="blog-code"><pre><code>curl -I -H &quot;Origin: https://evil.com&quot; https://example.com/api/user
+# смотрим Access-Control-Allow-Origin в ответе</code></pre></div>
+<p><strong>Что делать:</strong> белый список конкретных доменов в CORS. Никаких звёздочек на endpoint, требующих авторизации.</p>
+</details>
+
+<h3 id="check-21">21. CSP — Content Security Policy</h3>
+<p>Заголовок, ограничивающий, откуда могут грузиться скрипты/стили/изображения. Защищает от XSS даже при наличии уязвимости.</p>
+<details class="blog-check-details">
+<summary>Как проверить</summary>
+<div class="blog-code"><pre><code>curl -sI https://example.com | grep -i content-security
+# или https://csp-evaluator.withgoogle.com/</code></pre></div>
+<p><strong>Что делать:</strong> начать со строгого <code>default-src &#39;self&#39;</code> и постепенно разрешать что нужно. Избегать <code>unsafe-inline</code> и <code>unsafe-eval</code>.</p>
+</details>
+
+<h3 id="check-22">22. X-Frame-Options — защита от clickjacking</h3>
+<p>Без этого заголовка ваш сайт можно вставить в iframe на чужом сайте и обмануть пользователя на клик.</p>
+<details class="blog-check-details">
+<summary>Как проверить</summary>
+<div class="blog-code"><pre><code>curl -sI https://example.com | grep -i x-frame-options
+# должно быть: X-Frame-Options: DENY (или SAMEORIGIN)</code></pre></div>
+</details>
+
+<h3 id="check-23">23. Referrer-Policy настроен правильно</h3>
+<p>Без этого заголовка ваш сайт может «протекать» полные URL в Referer наружу — а в URL могут быть токены сессии.</p>
+<details class="blog-check-details">
+<summary>Как проверить</summary>
+<div class="blog-code"><pre><code>curl -sI https://example.com | grep -i referrer-policy
+# рекомендую: strict-origin-when-cross-origin</code></pre></div>
+</details>
+
+<div class="blog-cta-card">
+  <div class="blog-cta-card-body">
+    <h3>Не уверены, что закрыли все 23 пункта правильно?</h3>
+    <p>Заберу аудит безопасности под ключ от 15 000 ₽. Прогоню 47 пунктов лично, найду что упустили, дам отчёт с приоритетами (критично / важно / косметика) и инструкциями по исправлению. По NDA по умолчанию, никаких публичных раскрытий. Срок 1-3 дня.</p>
+  </div>
+  <div class="blog-cta-card-actions">
+    <a href="https://audit.chimitdorzhi.tech/security/" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-shield-check"></i> Заказать аудит безопасности</a>
+    <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo"></i> Обсудить в Telegram</a>
+  </div>
+</div>
+
+<h2 id="razdel-3-auth">Раздел 3: Аутентификация и сессии (пункты 24-32)</h2>
+<p>Самая частая мишень атак — пользовательский логин. Если здесь дыра, остальные защиты не помогут.</p>
+
+<h3 id="check-24">24. Куки с HttpOnly, Secure, SameSite=Lax</h3>
+<p>Сессионная кука должна быть недоступна JS (<code>HttpOnly</code>), передаваться только по HTTPS (<code>Secure</code>), не отправляться cross-site (<code>SameSite=Lax</code> или <code>Strict</code>).</p>
+<details class="blog-check-details">
+<summary>Как проверить</summary>
+<div class="blog-code"><pre><code>curl -sI https://example.com/login
+# найти Set-Cookie, проверить флаги
+# или DevTools → Application → Cookies</code></pre></div>
+</details>
+
+<h3 id="check-25">25. Сессии истекают по таймауту</h3>
+<p>Бессрочная сессия — это украденная кука работает вечно. Должен быть idle timeout (30 мин — 24 ч) и absolute timeout (7-30 дней).</p>
+
+<h3 id="check-26">26. Логин не подсказывает «такой пользователь не существует»</h3>
+<p>Сообщения должны быть унифицированными: «Неверный логин или пароль». Отдельные сообщения позволяют атакующему перебрать список пользователей.</p>
+<details class="blog-check-details">
+<summary>Как проверить</summary>
+<p>Попробовать логин с заведомо несуществующим email и существующим email + неверным паролем. Если сообщения отличаются — уязвимо. То же касается формы «забыли пароль» и регистрации.</p>
+</details>
+
+<h3 id="check-27">27. Brute-force защита</h3>
+<p>После 5-10 неудачных попыток — captcha или временная блокировка IP/аккаунта.</p>
+<details class="blog-check-details">
+<summary>Как проверить</summary>
+<p>Попробовать 20 раз войти с неверным паролем. Если форма продолжает работать без замедлений/captcha — уязвимо.</p>
+<p><strong>Что делать:</strong> rate-limit на уровне приложения (например, Flask-Limiter) и/или Cloudflare/nginx rate-limiting.</p>
+</details>
+
+<h3 id="check-28">28. 2FA доступно (или обязательно для админов)</h3>
+<p>Двухфакторная аутентификация — TOTP (Google Authenticator), не SMS (SIM-swap). Для админ-аккаунтов — обязательно.</p>
+
+<h3 id="check-29">29. Сброс пароля через одноразовую ссылку</h3>
+<p>Не через SMS (SIM-swap), не через email с новым паролем в открытом виде. Ссылка на сброс — одноразовая, истекает за 15-60 минут.</p>
+
+<h3 id="check-30">30. Пароли хранятся хешированными (bcrypt/argon2/scrypt)</h3>
+<p>Не MD5, не SHA-1, не SHA-256 без соли. Только адаптивные функции — bcrypt, argon2, scrypt.</p>
+<details class="blog-check-details">
+<summary>Как проверить</summary>
+<p>Запросить у разработчика образец записи пользователя из БД. Если password выглядит как <code>$2b$12$...</code> (bcrypt) или <code>$argon2id$...</code> — отлично. Если 32-символьный hex (MD5) или 64-символьный (SHA-256 без соли) — катастрофа.</p>
+</details>
+
+<h3 id="check-31">31. Минимальная длина пароля 12+</h3>
+<p>NIST 800-63B 2024 рекомендует минимум 8, лучше 12-15. Запрещать пароли из топ-10000 утёкших (haveibeenpwned password list).</p>
+
+<h3 id="check-32">32. Сессия инвалидируется при смене пароля</h3>
+<p>Если кто-то украл сессию, а вы поменяли пароль — все старые сессии должны прекратиться, включая активные на других устройствах.</p>
+
+<h2 id="razdel-4-utechki">Раздел 4: Информационные утечки (пункты 33-40)</h2>
+<p>Часто атакующие даже не ищут уязвимости — просто берут то, что вы случайно выложили в публичный доступ.</p>
+
+<h3 id="check-33">33. /robots.txt не содержит секретные пути</h3>
+<p>Парадокс: некоторые админы пишут <code>Disallow: /admin/secret-panel</code> в robots.txt — и тем самым публикуют эту ссылку.</p>
+<details class="blog-check-details">
+<summary>Как проверить</summary>
+<div class="blog-code"><pre><code>curl https://example.com/robots.txt
+# любые упоминания админок, бэкапов, dev-эндпоинтов — плохо</code></pre></div>
+</details>
+
+<h3 id="check-34">34. /.git/ не доступна публично</h3>
+<p>Самая частая катастрофа: при деплое через <code>git pull</code> папка <code>.git</code> остаётся в webroot и любой может скачать всю историю кода (с паролями, ключами, секретами).</p>
+<details class="blog-check-details">
+<summary>Как проверить</summary>
+<div class="blog-code"><pre><code>curl -I https://example.com/.git/config
+# должно быть 403 или 404, не 200</code></pre></div>
+<p><strong>Если 200:</strong> срочно закрыть в nginx/apache. Деплоить через git push, не git pull в webroot.</p>
+</details>
+
+<h3 id="check-35">35. /.env, /config.php, /wp-config.php не отдают 200</h3>
+<p>Файлы с секретами должны быть недоступны через web.</p>
+<details class="blog-check-details">
+<summary>Как проверить</summary>
+<div class="blog-code"><pre><code>for p in .env config.php wp-config.php .htpasswd backup.sql database.sql ; do
+  curl -o /dev/null -w &quot;%{http_code} $p\\n&quot; https://example.com/$p
+done</code></pre></div>
+</details>
+
+<h3 id="check-36">36. Stack traces не показываются в production</h3>
+<p>Если при ошибке пользователь видит полный stack trace с путями файлов, версиями фреймворка, фрагментами кода — это утечка инфраструктуры.</p>
+<details class="blog-check-details">
+<summary>Как проверить</summary>
+<p>Спровоцировать ошибку: невалидный параметр, несуществующий ID, SQL-инъекция, переполнение поля. Должна показаться красивая страница 500, не дамп.</p>
+<p><strong>Что делать:</strong> в Django — <code>DEBUG = False</code>. В Flask — обрабатывать исключения через <code>errorhandler</code>. В PHP — <code>display_errors = Off</code>.</p>
+</details>
+
+<h3 id="check-37">37. Server header не выдаёт версию</h3>
+<p>Заголовок <code>Server: Apache/2.4.41 (Ubuntu)</code> сообщает атакующему точную версию для подбора эксплойтов.</p>
+<details class="blog-check-details">
+<summary>Как проверить</summary>
+<div class="blog-code"><pre><code>curl -sI https://example.com | grep -i &quot;^server:&quot;
+# хорошо: nginx, или вообще скрыт
+# плохо: nginx/1.18.0, Apache/2.4.41</code></pre></div>
+</details>
+
+<h3 id="check-38">38. X-Powered-By скрыт</h3>
+<p>Аналогично: <code>X-Powered-By: PHP/7.4.3</code> или <code>X-Powered-By: Express</code> — лишняя информация для атакующего.</p>
+
+<h3 id="check-39">39. Версии CMS/фреймворка не в HTML-исходнике</h3>
+<p>WordPress в meta-тегах генерирует <code>&lt;meta name=&quot;generator&quot; content=&quot;WordPress 5.8.1&quot;&gt;</code>. Любая CMS — аналогично. Скрыть.</p>
+<details class="blog-check-details">
+<summary>Как проверить</summary>
+<div class="blog-code"><pre><code>curl -s https://example.com | grep -i &quot;generator\\|version&quot;</code></pre></div>
+</details>
+
+<h3 id="check-40">40. /sitemap.xml не утекает dev/staging-страницы</h3>
+<p>Часто в sitemap случайно попадают draft-страницы, тестовые URL, дев-эндпоинты. Проверить вручную.</p>
+
+<h2 id="razdel-5-infrastruktura">Раздел 5: Инфраструктура и обновления (пункты 41-47)</h2>
+<p>Базовая гигиена сервера. Без этого все остальные меры — впустую.</p>
+
+<h3 id="check-41">41. Все зависимости обновлены, нет известных CVE</h3>
+<p>Старые версии npm/pip/composer пакетов — главный источник уязвимостей в современных приложениях.</p>
+<details class="blog-check-details">
+<summary>Как проверить</summary>
+<div class="blog-code"><pre><code># Node.js
+npm audit
+# Python
+pip-audit
+# PHP
+composer audit
+# Docker-образы
+docker scan myimage:latest
+# или https://snyk.io/, GitHub Dependabot</code></pre></div>
+<p><strong>Что делать:</strong> настроить Dependabot/Renovate на автоматическое создание PR с обновлениями. Раз в неделю мерджить.</p>
+</details>
+
+<h3 id="check-42">42. SSH доступ только по ключу, root отключён</h3>
+<p>В <code>/etc/ssh/sshd_config</code>: <code>PasswordAuthentication no</code>, <code>PermitRootLogin no</code>. Только ключи. Только не-root пользователи.</p>
+
+<h3 id="check-43">43. Открыты только необходимые порты</h3>
+<p>80, 443 — для HTTP/HTTPS. 22 — SSH, ограничен по IP (или Cloudflare Tunnel/wireguard). Всё остальное закрыто.</p>
+<details class="blog-check-details">
+<summary>Как проверить</summary>
+<div class="blog-code"><pre><code>nmap -p- -T4 example.com
+# или с самого сервера: ss -tlnp</code></pre></div>
+</details>
+
+<h3 id="check-44">44. Бэкапы существуют и проверены восстановлением</h3>
+<p>Бэкап, который никогда не восстанавливали — это не бэкап, а файл. Минимум раз в квартал — учения по восстановлению.</p>
+
+<h3 id="check-45">45. Мониторинг и алерты</h3>
+<p>Логи доступа (access.log) + анализ. Алерты на: всплеск 404 (сканер), всплеск 500 (что-то ломается), необычная активность на админке.</p>
+
+<h3 id="check-46">46. WAF включён</h3>
+<p>Cloudflare, BotFAQtor, российские WAF от Selectel/VK Cloud. Блокирует базовые атаки до того, как они дойдут до приложения.</p>
+
+<h3 id="check-47">47. План реагирования на инциденты записан</h3>
+<p>Кто звонит кому, в каком порядке, что отключаем первым, как уведомляем РКН про утечку (24 часа по 152-ФЗ). Документ из 1 страницы. Подробнее в <a href="/blog/utechki-pd-24-chasa-2026/">статье про утечки и 24 часа</a>.</p>
+
+<h2 id="prioritezaciya">Что делать если нашли уязвимости: приоритезация</h2>
+<p>Не пытайтесь закрыть всё сразу — расставьте приоритеты. Моя классификация по 3 уровням:</p>
+<p><strong>Критично (закрыть за 24-48 часов):</strong> SQL-инъекция (#9), XSS на админке (#10), пароли plaintext (#30), доступная /.git/ (#34), HTTPS без HSTS (#1, #2), пароли через MD5 (#30), открытые админ-эндпоинты без авторизации, отсутствие 2FA на админах (#28). Эти пункты — взлом за один день.</p>
+<p><strong>Важно (за 1-2 недели):</strong> CSRF (#11), IDOR (#12), JWT-проблемы (#19), CORS-ошибки (#20), отсутствие brute-force защиты (#27), устаревшие зависимости с known CVE (#41), SSH с паролями (#42), отсутствие мониторинга (#45). Эти пункты — взлом при целенаправленной атаке.</p>
+<p><strong>Косметика (за месяц):</strong> Server header (#37), X-Powered-By (#38), generator-теги CMS (#39), некоторые информационные утечки. Не критично, но любой security-аудитор отметит.</p>
+<p>В часах работы для среднего сайта: критичное — 8-20 часов, важное — 20-60 часов, косметика — 5-15 часов. Итого 1-3 человеко-недели на полную зачистку.</p>
+
+<h2 id="kogda-pentest">Когда нужен профессиональный аудит и пентест</h2>
+<p>Этот чек-лист закрывает 80% типовых проблем. Оставшиеся 20% — это сложные многошаговые уязвимости, бизнес-логика, race conditions, недостатки в крипто, цепочки атак через несколько компонентов. Их находит только профессиональный пентест с глубоким анализом.</p>
+<p>Кому обязательно нужен профессиональный аудит:</p>
+<ul>
+  <li><strong>Банки и финтех.</strong> Регуляторные требования ЦБ + ОУПД, PCI DSS для приёма карт.</li>
+  <li><strong>Медицина и здравоохранение.</strong> Особо чувствительные ПД, ФЗ-323, штрафы выше базовых.</li>
+  <li><strong>Объекты КИИ (критическая информационная инфраструктура).</strong> 187-ФЗ, обязательный пентест.</li>
+  <li><strong>Госуслуги и работа с госорганами.</strong> ГИС, ФСТЭК-требования.</li>
+  <li><strong>Крупные e-commerce (от 100k активных клиентов).</strong> Утечка таких баз — миллиардные оборотные штрафы по ст. 13.11 КоАП (с 30 мая 2025).</li>
+  <li><strong>B2B SaaS с обработкой клиентских данных.</strong> SOC 2, ISO 27001 при выходе на международные рынки.</li>
+</ul>
+<p>Цена профессионального пентеста — от 150 000 ₽ за быстрый аудит до 2-5 млн ₽ за полноценный red team с социальной инженерией. Для большинства средних бизнесов хватает гибрида: моя самопроверка по чек-листу за 1-3 дня (от 15 000 ₽), и раз в год полный пентест от специализированной компании.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+
+<h3>Я проверил все 47 пунктов — гарантирован ли я от взлома?</h3>
+<p>Нет, гарантия 100% защиты невозможна. Этот чек-лист закрывает базу — 80% типовых атак, через которые взламывают 90% сайтов. Останутся: zero-day-уязвимости в фреймворках, целевые атаки от продвинутых злоумышленников, социальная инженерия с вашими сотрудниками, инсайдеры. Безопасность — это процесс, не состояние.</p>
+
+<h3>Сколько стоит профессиональный пентест?</h3>
+<p>В РФ 2026: быстрый аудит периметра — от 80-150 тыс ₽, полноценный black box пентест веб-приложения — 250-600 тыс ₽, white box с доступом к коду — 400-1200 тыс ₽, red team с социалкой и физическим проникновением — 2-5 млн ₽. Срок: от 2 недель до 2 месяцев. Делается известными компаниями (Positive Technologies, Bi.Zone, Group-IB, Сайбер Альфа) или хорошими независимыми пентестерами.</p>
+
+<h3>Я нашёл уязвимость на чужом сайте — что делать?</h3>
+<p>Responsible disclosure: написать владельцу или в security-команду компании, описать проблему, дать 60-90 дней на исправление, после этого можно публиковать. Не эксплуатировать уязвимость — это статья 272/273 УК РФ независимо от мотивации. Не публиковать публично до исправления — иначе помогаете злоумышленникам.</p>
+
+<h3>Достаточно ли Cloudflare для защиты сайта?</h3>
+<p>Cloudflare закрывает DDoS, базовые WAF-сигнатуры, частично — bot-атаки. Не закрывает: уязвимости в коде приложения (SQL, XSS, IDOR), неправильную аутентификацию, утечки через открытые файлы, инсайдерские угрозы. Cloudflare плюс этот чек-лист — хорошая база. Только Cloudflare — иллюзия защищённости.</p>
+
+<h3>Как часто нужно перепроверять чек-лист?</h3>
+<p>Базовый прогон — раз в квартал. После каждого крупного релиза (изменения архитектуры, добавление компонентов) — повторить релевантные пункты. Сразу после инцидента у конкурентов из вашей ниши — тоже не помешает. Полный пентест — раз в год минимум, для регулируемых отраслей — раз в полгода.</p>
+
+<h3>Что такое responsible disclosure?</h3>
+<p>Этичный подход к раскрытию уязвимостей. Исследователь сообщает владельцу системы, договариваются о сроках исправления (обычно 60-90 дней), затем публично описывается уязвимость (часто уже после исправления). Альтернатива — bug bounty программы, где компании платят за найденные уязвимости (Yandex, VK, Сбер, Tinkoff/Т-Банк, Ozon — все имеют программы в РФ).</p>
+
+<h3>Как защититься от ботов и парсеров?</h3>
+<p>Cloudflare Bot Management или ваш WAF — первая линия. Rate-limiting на API. Captcha (hCaptcha, Cloudflare Turnstile) на критичных формах. Honeypot-поля в формах (скрытые поля, которые заполняются только ботами). Анализ поведения (скорость кликов, паттерны движения мыши) — для продвинутых решений. Полностью защититься нельзя, но усложнить жизнь массовым парсерам — можно.</p>
+
+<h2 id="vyvody">Выводы</h2>
+<p>Если ваш сайт прошёл все 47 пунктов — вы в топ-20% защищённости в РФ. Если 35-45 — нормальный средний уровень, базовые угрозы закрыты. Если меньше 35 — у вас есть серьёзные дыры, нужно срочно закрывать критичные пункты, иначе вопрос «когда взломают» а не «взломают ли».</p>
+<p>Что делать прямо сейчас:</p>
+<ol>
+  <li>Прогоните чек-лист по своему сайту. Минимум — раздел 1 (HTTPS) и раздел 4 (утечки) — это закрывается за 2-3 часа.</li>
+  <li>Если нашли критичное (SQL-инъекция, открытая /.git/, пароли plaintext) — отложите остальное и закрывайте это сегодня.</li>
+  <li>Заведите регулярный процесс: ежеквартальный прогон чек-листа, ежегодный профессиональный пентест.</li>
+  <li>Подготовьте план реагирования на инциденты — кому звонить, что отключать, как уведомлять РКН (24 часа на уведомление об утечке по 152-ФЗ).</li>
+</ol>
+<p>Если разбираетесь сами — этот чек-лист достаточен для большинства задач. Если нужна помощь с аудитом, расследованием инцидента или внедрением мер безопасности — пишите. Работаю с NDA, никаких публичных раскрытий чужих уязвимостей.</p>
+
+<div class="blog-cta-card blog-cta-personal">
+  <div class="blog-cta-card-body">
+    <h3>Нашли подозрительное — разберём вашу ситуацию</h3>
+    <p>Если что-то из 47 пунктов не сходится, видели странную активность в логах, не уверены — взломали или нет, или просто хотите второе мнение по конкретной находке — пишите мне в Telegram. Я не выкладываю чужие уязвимости публично, NDA по умолчанию. Первичный разбор бесплатный. Если нужен полный аудит — от 15 000 ₽, срок 1-3 дня, отчёт с приоритетами и инструкциями.</p>
+  </div>
+  <div class="blog-cta-card-actions">
+    <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo"></i> Написать Чимитдоржи</a>
+  </div>
+</div>
+`;

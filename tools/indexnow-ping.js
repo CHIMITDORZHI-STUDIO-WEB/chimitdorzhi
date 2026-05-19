@@ -21,6 +21,8 @@ const body = JSON.stringify({
     `https://${HOST}/blog/audit-152-fz-2026/`,
     `https://${HOST}/blog/utechki-pd-24-chasa-2026/`,
     `https://${HOST}/blog/rossiyskiy-ai-stack-2026/`,
+    `https://${HOST}/blog/ai-agenty-v-biznese-2026/`,
+    `https://${HOST}/blog/chek-list-bezopasnosti-sayta-47-punktov/`,
     SITEMAP,
   ],
 });
