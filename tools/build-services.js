@@ -107,6 +107,14 @@ function navbar({ langSwitcher = false } = {}) {
                         </span>
                         <i class="ph ph-arrow-right nav-dropdown-arrow"></i>
                     </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--arey"><i class="ph-fill ph-vinyl-record"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow"></i>
+                    </a>
                 </div>
             </li>
             <li><a href="/#cases" data-i18n="nav.cases">Кейсы</a></li>
@@ -455,6 +463,7 @@ function sitemap() {
   }
   entries.push(
     { loc: `${SITE}/universe_buryat/`,    priority: '0.7', freq: 'monthly' },
+    { loc: `${SITE}/arey/`,               priority: '0.6', freq: 'monthly' },
     { loc: `${SITE}/privacy_policy.html`, priority: '0.3', freq: 'yearly' },
     { loc: `${SITE}/oferta.html`,         priority: '0.3', freq: 'yearly' },
     { loc: `${SITE}/terms.html`,          priority: '0.3', freq: 'yearly' },
