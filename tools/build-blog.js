@@ -20,6 +20,7 @@ const CATEGORY_LABELS = {
   development: 'Разработка',
   ai:          'AI и автоматизация',
   career:      'Карьера и обучение',
+  security:    'Безопасность',
 };
 
 const esc = (s) => String(s)
@@ -427,6 +428,7 @@ ${JSON.stringify(breadcrumb, null, 2)}
                     <button class="filter-btn" data-blog-cat="legal">Право</button>
                     <button class="filter-btn" data-blog-cat="development">Разработка</button>
                     <button class="filter-btn" data-blog-cat="ai">AI</button>
+                    <button class="filter-btn" data-blog-cat="security">Безопасность</button>
                     <button class="filter-btn" data-blog-cat="career">Карьера</button>
                 </div>
 

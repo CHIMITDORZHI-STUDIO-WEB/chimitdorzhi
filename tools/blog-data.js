@@ -2,6 +2,9 @@
 // Add `contentHtml` to a stub to publish it; flip `published: true`.
 // Re-run `node tools/build-blog.js` afterwards.
 
+const aiAgentsContent = require('./blog-content-ai-agents.js');
+const securityChecklistContent = require('./blog-content-security-checklist.js');
+
 const article2Content = `
 <div class="blog-tldr">
   <h3>Коротко (TL;DR)</h3>
@@ -3080,5 +3083,69 @@ module.exports = [
     datePublished: '2026-07-28', dateModified: '2026-07-28', readingMinutes: 8,
     heroIcon: 'ph-fill ph-certificate', tags: ['сертификации', 'AI/ML', 'карьера'],
     contentHtml: null,
+  },
+  {
+    slug: 'ai-agenty-v-biznese-2026',
+    category: 'ai',
+    published: true,
+    title: 'AI-агенты в бизнесе 2026: что реально работает, а что — маркетинг',
+    metaTitle: 'AI-агенты 2026: рабочие кейсы, фреймворки, цены | Чимитдоржи Дарижапов',
+    metaDescription: 'Сертифицированный практик с 10+ внедрениями: что такое настоящий AI-агент, какие use cases работают, фреймворки 2026 (LangChain, AutoGen, CrewAI, Pydantic AI), реальные цены, юридические нюансы РФ.',
+    metaKeywords: 'AI-агенты, LangChain, AutoGen, CrewAI, Pydantic AI, n8n, RAG, AI-агент для бизнеса, AI-агент Россия, внедрение AI',
+    excerpt: 'Сертифицированный AI-инженер о том, что такое настоящий AI-агент, какие use cases работают в 2026, сколько стоят и как не нарваться на маркетинговую обёртку.',
+    datePublished: '2026-05-20',
+    dateModified: '2026-05-20',
+    readingMinutes: 22,
+    heroIcon: 'ph-fill ph-robot',
+    tags: ['AI-агенты', 'LangChain', 'GPT', 'автоматизация', 'AutoGen', 'n8n'],
+    toc: [
+      { id: 'chto-takoe-agent', text: 'Что такое AI-агент простыми словами' },
+      { id: 'marketingovaya-lovushka', text: 'Маркетинговая ловушка 2026' },
+      { id: 'chto-rabotaet', text: 'Что РЕАЛЬНО работает: 7 use cases' },
+      { id: 'chto-ne-rabotaet', text: 'Что НЕ работает: хайп без подложки' },
+      { id: 'frameworki', text: 'Фреймворки для разработки' },
+      { id: 'primer-koda', text: 'Пример кода: минимальный агент' },
+      { id: 'skolko-stoit', text: 'Сколько стоит AI-агент в проде' },
+      { id: 'agent-vs-avtomatizaciya', text: 'AI-агенты vs автоматизация' },
+      { id: 'uridicheskie-nyuansy', text: 'Юридические нюансы в РФ' },
+      { id: 'oshibki-vnedreniya', text: 'Топ-5 ошибок при внедрении' },
+      { id: 'kejs-avtora', text: 'Кейс: RAG-агент для юр-компании' },
+      { id: 'buduschee', text: 'Будущее AI-агентов 2026-2027' },
+      { id: 'faq', text: 'Частые вопросы' },
+      { id: 'vyvody', text: 'Выводы: что делать сейчас' },
+    ],
+    contentHtml: aiAgentsContent,
+    relatedSlugs: ['rossiyskiy-ai-stack-2026', 'cfa-dlya-biznesa-2026', 'pwa-iz-sayta-za-vyhodnye-2026'],
+    ctaInternal: { url: 'https://chimitdorzhi.tech/services/ai-agents/', label: 'Заказать AI-агента' },
+  },
+  {
+    slug: 'chek-list-bezopasnosti-sayta-47-punktov',
+    category: 'security',
+    published: true,
+    title: 'Чек-лист безопасности сайта: 47 пунктов от практика — что проверить за час',
+    metaTitle: 'Чек-лист безопасности сайта 2026: 47 пунктов за час | Чимитдоржи Дарижапов',
+    metaDescription: '47 пунктов проверки безопасности сайта за час: HTTPS, OWASP Top 10, аутентификация, утечки, инфраструктура. С командами проверки и инструкциями по исправлению.',
+    metaKeywords: 'чек-лист безопасности сайта, аудит безопасности, OWASP Top 10, пентест, XSS, SQL-инъекции, безопасность веб-сайта',
+    excerpt: '47 пунктов проверки безопасности за час без специального ПО. HTTPS, OWASP Top 10, утечки, инфраструктура. С командами и инструкциями. Закрывает 80% типовых брешей.',
+    datePublished: '2026-05-20',
+    dateModified: '2026-05-20',
+    readingMinutes: 20,
+    heroIcon: 'ph-fill ph-shield-check',
+    tags: ['безопасность', 'аудит', 'OWASP', 'пентест', 'XSS', 'SQL-инъекции'],
+    toc: [
+      { id: 'zachem-samoproverka', text: 'Зачем самопроверка' },
+      { id: 'razdel-1-https', text: 'Раздел 1: HTTPS и сертификаты (1-8)' },
+      { id: 'razdel-2-web', text: 'Раздел 2: Веб-уязвимости OWASP (9-23)' },
+      { id: 'razdel-3-auth', text: 'Раздел 3: Аутентификация и сессии (24-32)' },
+      { id: 'razdel-4-utechki', text: 'Раздел 4: Информационные утечки (33-40)' },
+      { id: 'razdel-5-infrastruktura', text: 'Раздел 5: Инфраструктура (41-47)' },
+      { id: 'prioritezaciya', text: 'Что делать если нашли уязвимости' },
+      { id: 'kogda-pentest', text: 'Когда нужен пентест' },
+      { id: 'faq', text: 'Частые вопросы' },
+      { id: 'vyvody', text: 'Выводы' },
+    ],
+    contentHtml: securityChecklistContent,
+    relatedSlugs: ['audit-152-fz-2026', 'cookie-banner-zakon', 'utechki-pd-24-chasa-2026'],
+    ctaInternal: { url: 'https://audit.chimitdorzhi.tech/security/', label: 'Заказать аудит безопасности' },
   },
 ];
