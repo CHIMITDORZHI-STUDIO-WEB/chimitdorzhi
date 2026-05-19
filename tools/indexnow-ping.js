@@ -19,6 +19,8 @@ const body = JSON.stringify({
     `https://${HOST}/services/`,
     `https://${HOST}/blog/`,
     `https://${HOST}/blog/audit-152-fz-2026/`,
+    `https://${HOST}/blog/utechki-pd-24-chasa-2026/`,
+    `https://${HOST}/blog/rossiyskiy-ai-stack-2026/`,
     SITEMAP,
   ],
 });
