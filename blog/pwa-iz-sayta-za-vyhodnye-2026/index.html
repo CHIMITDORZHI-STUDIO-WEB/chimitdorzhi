@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Как сделать PWA из сайта за выходные: туториал 2026</title>
+    <meta name="description" content="Пошаговый туториал: превратить сайт в PWA за выходные. Готовый код manifest.json, sw.js, install-button, push для iOS и Android, публикация в RuStore.">
+    <meta name="keywords" content="как сделать PWA из сайта, PWA туториал, manifest.json, service worker, push уведомления PWA, установить сайт как приложение, PWA на iOS, RuStore PWA">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#121218">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/pwa-iz-sayta-za-vyhodnye-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/pwa-iz-sayta-za-vyhodnye-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/pwa-iz-sayta-za-vyhodnye-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/pwa-iz-sayta-za-vyhodnye-2026/">
+    <meta property="og:title" content="Как сделать PWA из сайта за выходные: туториал 2026">
+    <meta property="og:description" content="Пошаговый туториал: превратить сайт в PWA за выходные. Готовый код manifest.json, sw.js, install-button, push для iOS и Android, публикация в RuStore.">
+    <meta property="og:image" content="https://chimitdorzhi.tech/hero-photo.webp">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Как сделать PWA из сайта за выходные: туториал 2026">
+    <meta name="twitter:description" content="Пошаговый туториал: превратить сайт в PWA за выходные. Готовый код manifest.json, sw.js, install-button, push для iOS и Android, публикация в RuStore.">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/hero-photo.webp">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor-Fill.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=23">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Как превратить обычный сайт в PWA за выходные: пошаговый туториал с кодом",
+  "description": "Пошаговый туториал: превратить сайт в PWA за выходные. Готовый код manifest.json, sw.js, install-button, push для iOS и Android, публикация в RuStore.",
+  "image": "https://chimitdorzhi.tech/hero-photo.webp",
+  "author": {
+    "@type": "Person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "CHIMITDORZHI.TECH",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://chimitdorzhi.tech/favicon-120.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/pwa-iz-sayta-za-vyhodnye-2026/"
+  },
+  "datePublished": "2026-05-19",
+  "dateModified": "2026-05-19",
+  "keywords": "PWA, разработка, frontend, мобильные приложения, туториал",
+  "articleSection": "Разработка",
+  "inLanguage": "ru"
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Как превратить обычный сайт в PWA за выходные: пошаговый туториал с кодом",
+      "item": "https://chimitdorzhi.tech/blog/pwa-iz-sayta-za-vyhodnye-2026/"
+    }
+  ]
+}
+    </script>
+</head>
+<body>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+            <li><a href="/#services" data-i18n="nav.services">Услуги</a></li>
+            <li class="nav-dropdown">
+                <a href="/#projects" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret"></i></a>
+                <div class="nav-dropdown-menu" role="menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#cases" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <div class="lang-switcher" id="langSwitcher">
+                <button class="lang-btn active" data-lang="ru">RU</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="cn">CN</button>
+            </div>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/#about">Обо мне</a></li>
+        <li><a href="/#services">Услуги</a></li>
+        <li><a href="/services/">Каталог услуг</a></li>
+        <li><a href="/#cases">Кейсы</a></li>
+        <li><a href="/blog/">Блог</a></li>
+        <li><a href="/#contact">Контакт</a></li>
+    </ul>
+</div>
+
+    <main class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Как превратить обычный сайт в PWA за выходные: пошаговый туториал с кодом</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <span class="blog-meta-cat"><i class="ph ph-bookmark"></i> Разработка</span>
+                        <span><i class="ph ph-clock"></i> 18 мин чтения</span>
+                        <time datetime="2026-05-19"><i class="ph ph-calendar"></i> 19 мая 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Как превратить обычный сайт в PWA за выходные: пошаговый туториал с кодом</h1>
+
+                    <p class="blog-lead">Туториал на выходные: manifest.json, Service Worker, install-button и push-уведомления для iOS и Android. Готовый код, чек-листы и публикация в RuStore.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash"></i>PWA</span><span class="blog-tag"><i class="ph ph-hash"></i>разработка</span><span class="blog-tag"><i class="ph ph-hash"></i>frontend</span><span class="blog-tag"><i class="ph ph-hash"></i>мобильные приложения</span><span class="blog-tag"><i class="ph ph-hash"></i>туториал</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr">
+  <h3><i class="ph ph-bookmarks"></i> Коротко (TL;DR)</h3>
+  <ul>
+    <li>PWA — это обычный сайт, который умеет три вещи: устанавливаться на телефон без магазина приложений, работать без интернета и присылать push-уведомления. Технически — три файла: <code>manifest.json</code>, <code>sw.js</code> (Service Worker) и блок регистрации в HTML.</li>
+    <li>В 2026 PWA окончательно догнала нативку по возможностям: с iOS 16.4+ работают push, с iOS 17.4+ — установка из браузера без хака «На главный экран». Раньше Apple душил PWA — теперь нет.</li>
+    <li>Стоимость для бизнеса: PWA дешевле нативного приложения в 3–5 раз. Один кодбейс на iOS, Android, десктоп. Не надо платить Apple 99$ в год и проходить ревью App Store.</li>
+    <li>За выходные реально успеть: ~13 часов чистого времени, если сайт уже на HTTPS и есть адаптивная вёрстка. Подробный план по часам — в разделе «Чек-лист на выходные».</li>
+    <li>Где НЕ подходит: Bluetooth, NFC, глубокий доступ к ФС, AR/VR, фоновая геолокация без открытого таба. Везде остальное — PWA закрывает.</li>
+  </ul>
+</div>
+
+<h2 id="chto-takoe-pwa">Что такое PWA и почему именно сейчас стоит делать</h2>
+<p>Я занимаюсь веб-разработкой с 2009 года и помню времена, когда мобильный веб был набором костылей: media-запросы только появлялись, jQuery Mobile казался прорывом, а слово «оффлайн» в браузере вызывало нервный смех. PWA (Progressive Web Apps) — это технология, которая постепенно, без шума и хайпа, накрыла этот пробел и превратила обычный сайт в полноценное приложение.</p>
+<p>Технически PWA — это три кита. Первый — файл <code>manifest.json</code>, который рассказывает браузеру «я приложение, вот моё имя, иконка, цвет, как меня запускать». Второй — Service Worker, фоновый JavaScript-скрипт, который перехватывает сетевые запросы и умеет кэшировать ресурсы, отдавать оффлайн-страницу и принимать push-уведомления. Третий — HTTPS, без которого Service Worker не зарегистрируется. Всё. Никакого фреймворка не нужно, никакого специального стека.</p>
+<p>Зачем это бизнесу. Я считал экономику для пары клиентов в 2025 году — выходит так: разработка нативного приложения под iOS и Android «под ключ» обходится в 1,5–4 млн ₽ и занимает 3–6 месяцев. PWA из существующего сайта — от 80 тыс до 400 тыс ₽ и 2–6 недель. После выхода в продакшен пользователь устанавливает приложение в один тап из браузера, получает иконку на рабочем столе, открывает её как обычное приложение (без браузерной обвязки, без адресной строки), получает push-уведомления, может пользоваться без интернета.</p>
+<p>Когда PWA НЕ подходит. Если вам нужен Bluetooth-low-energy для медицинских устройств (Web Bluetooth есть, но в iOS пока нет), NFC для платежей (Web NFC есть только на Android Chrome), глубокий доступ к файловой системе (есть File System Access API, но опять же только Chromium), фоновая геолокация без открытого таба (нет ни на одной платформе), AR/VR с тяжёлыми сценами (WebXR работает, но просадки по перформансу). Во всех остальных кейсах — интернет-магазин, корпоративный портал, медиа, доставка еды, такси, банкинг, образование, b2b-сервисы — PWA закрывает 95% задач.</p>
+<p>Что изменилось к 2026 году по сравнению с эпохой 2018–2020, когда я последний раз серьёзно писал про PWA. Главное: Apple перестал саботировать. С iOS 16.4 (март 2023) заработали Web Push для PWA, установленных на главный экран. С iOS 17.4 (март 2024) — нормальная установка через Safari, badging иконок, нормальная работа в standalone-режиме. До этого приходилось объяснять клиентам «на iPhone push не работает, извините, спасибо Тиму Куку». Теперь — работают, надо только корректно зарегистрировать подписку.</p>
+
+<h2 id="chek-list-pered-startom">Что нужно перед стартом — чек-лист</h2>
+<p>Прежде чем открывать редактор, убедитесь, что выполнены пять условий. Без них PWA либо не соберётся, либо соберётся, но Lighthouse поставит 50/100 с приписками «улучшите вот это».</p>
+<ul>
+  <li><strong>HTTPS на основном домене.</strong> Service Worker регистрируется только по https (исключение — localhost для разработки). Если у вас Let's Encrypt — отлично, проверьте, что обновляется автоматически. Если хостинг типа Beget/Reg.ru — у них есть бесплатный SSL в один клик. Если самописный сервер на VPS — поставьте Caddy, он сам получит сертификат.</li>
+  <li><strong>Адаптивная вёрстка.</strong> PWA устанавливается на телефон в первую очередь. Если ваш сайт на десктопе красивый, а на мобиле едет — сначала чините responsive, потом упаковывайте в PWA. Иначе пользователь установит и удалит за минуту.</li>
+  <li><strong>Lighthouse score 70+ на мобиле.</strong> Откройте Chrome DevTools, вкладка Lighthouse, выберите Mobile, прогоните. Если меньше 70 по Performance — сначала оптимизация: сожмите картинки в WebP/AVIF, выключите неиспользуемые скрипты, добавьте lazy loading.</li>
+  <li><strong>Иконки.</strong> Минимум 192×192 и 512×512 в PNG. Лучше — полный набор: 96, 144, 192, 256, 384, 512, плюс отдельный maskable (с safe-zone в центре) и apple-touch-icon 180×180.</li>
+  <li><strong>Доступ к корню сайта.</strong> Файл <code>manifest.json</code> и <code>sw.js</code> должны лежать в корне (или в подкаталоге, если scope ограничен). Если сайт на Tilda/Wix/Wordpress без доступа к корню — будут трудности. Tilda до сих пор не даёт нормально подключить кастомный SW, и я это видел вживую у двух клиентов.</li>
+</ul>
+
+<div class="blog-callout blog-callout-tip">
+  <i class="ph-fill ph-lightbulb"></i>
+  <div>
+    <strong>Совет из опыта.</strong> Перед стартом сделайте бэкап и заведите отдельную ветку <code>feat/pwa</code>. Service Worker умеет «прилипать» к домену — если зальёте кривой sw.js, пользователи могут видеть старый кэш ещё неделю, пока браузер не пересоберёт. Лучше отлаживать на staging-домене.
+  </div>
+</div>
+
+<h2 id="shag-1-manifest">Шаг 1: manifest.json — паспорт приложения</h2>
+<p>Manifest — это JSON-файл, где описано как ваш сайт должен выглядеть в роли приложения. Имя, иконки, цвет рамки, ориентация, стартовая страница. Браузер читает его и понимает «ага, это можно установить».</p>
+<p>Кладём в корень сайта файл <code>manifest.json</code>. Вот рабочий пример со всеми важными полями:</p>
+
+<div class="blog-code">
+<pre><code>{
+  "name": "Чимитдоржи — IT и право",
+  "short_name": "Чимитдоржи",
+  "description": "Блог про IT, право и AI от практикующего эксперта",
+  "lang": "ru-RU",
+  "dir": "ltr",
+  "start_url": "/?source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#1a1a2e",
+  "background_color": "#ffffff",
+  "categories": ["business", "education", "productivity"],
+  "icons": [
+    { "src": "/icons/icon-96.png",  "sizes": "96x96",  "type": "image/png" },
+    { "src": "/icons/icon-144.png", "sizes": "144x144","type": "image/png" },
+    { "src": "/icons/icon-192.png", "sizes": "192x192","type": "image/png" },
+    { "src": "/icons/icon-256.png", "sizes": "256x256","type": "image/png" },
+    { "src": "/icons/icon-384.png", "sizes": "384x384","type": "image/png" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512","type": "image/png" },
+    { "src": "/icons/maskable-512.png", "sizes": "512x512",
+      "type": "image/png", "purpose": "maskable" }
+  ],
+  "screenshots": [
+    { "src": "/screenshots/wide.png",   "sizes": "1280x720",
+      "type": "image/png", "form_factor": "wide" },
+    { "src": "/screenshots/narrow.png", "sizes": "750x1334",
+      "type": "image/png", "form_factor": "narrow" }
+  ],
+  "shortcuts": [
+    { "name": "Блог", "url": "/blog/", "icons": [
+      { "src": "/icons/shortcut-blog.png", "sizes": "192x192" }
+    ]}
+  ]
+}
+</code></pre>
+</div>
+
+<p>Разберём поля по важности. <code>name</code> — полное имя, видно в окне установки. <code>short_name</code> — короткое, оно подписывает иконку на рабочем столе (если длинное — обрежется). <code>start_url</code> — куда открывать после запуска (я всегда добавляю <code>?source=pwa</code>, чтобы в аналитике видеть установленных пользователей отдельно). <code>scope</code> — какая часть сайта считается «внутри приложения». <code>display: "standalone"</code> — без браузерной обвязки. <code>theme_color</code> подкрашивает статусбар Android. <code>background_color</code> — цвет splash-экрана при запуске.</p>
+<p>Подключаем manifest в <code>&lt;head&gt;</code> каждой страницы (или хотя бы стартовой):</p>
+
+<div class="blog-code">
+<pre><code>&lt;link rel="manifest" href="/manifest.json"&gt;
+&lt;meta name="theme-color" content="#1a1a2e"&gt;
+&lt;link rel="apple-touch-icon" href="/icons/apple-touch-icon.png"&gt;
+&lt;meta name="apple-mobile-web-app-capable" content="yes"&gt;
+&lt;meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"&gt;
+&lt;meta name="apple-mobile-web-app-title" content="Чимитдоржи"&gt;
+</code></pre>
+</div>
+
+<p>Проверяем: открываем сайт в Chrome, F12, вкладка Application → Manifest. Если всё хорошо — увидите имя, иконки превью, нет ошибок красным. Если есть «No matching service worker detected» — это нормально, мы его добавим на следующем шаге.</p>
+
+<h2 id="shag-2-ikonki">Шаг 2: иконки и сплэш-скрин</h2>
+<p>Тема, на которой спотыкаются почти все. Я сам в первой PWA в 2017 году упустил maskable-иконки, и на Android-устройствах иконка приложения выглядела как у бомжа — с белой окантовкой вокруг логотипа.</p>
+<p>Полный набор размеров, который я кладу всегда: 96, 144, 192, 256, 384, 512. Это PNG с прозрачным фоном или с фирменным цветом. Минимально допустимо — 192 и 512, но Lighthouse будет ныть про «add more sizes».</p>
+<p>Maskable-иконка — отдельная история. Android Pie и выше использует adaptive icons: иконка обрезается под форму, которую выбрал пользователь (круг, квадрат, скруглённый квадрат). Если у вас обычная иконка с логотипом по центру — её обрежет. Maskable-иконка делается так: квадрат 512×512, логотип в центральных 80% (safe zone), вокруг — фоновый цвет на всю площадь. Помечается в manifest как <code>"purpose": "maskable"</code>. Можно дать одну иконку и для <code>"any"</code>, и для <code>"maskable"</code> через <code>"purpose": "any maskable"</code>, но лучше две разные.</p>
+<p>Apple touch icon — 180×180 PNG, без прозрачности (Apple любит непрозрачные углы). Apple игнорирует manifest icons для splash-экрана и использует отдельный apple-touch-icon. С iOS 17.4 это поведение начало меняться, но я всё равно кладу отдельный файл — на старых iPhone (6s, 7) ничего не сломается.</p>
+<p>Чем генерить. Я использую <strong>RealFaviconGenerator</strong> (realfavicongenerator.net) — заливаешь SVG или PNG 512×512, он выдаёт ZIP со всеми форматами под все платформы плюс готовый кусок HTML. Для maskable отдельно — <strong>Maskable.app Editor</strong> (maskable.app/editor). Для пакетной генерации в CI — npm-пакет <code>pwa-asset-generator</code>.</p>
+
+<div class="blog-callout blog-callout-warn">
+  <i class="ph-fill ph-warning"></i>
+  <div>
+    <strong>Частая ошибка.</strong> Файлы иконок должны лежать по точно тем путям, что указаны в manifest. Если сервер возвращает 404 на <code>/icons/icon-192.png</code> — браузер не даст установить приложение. Проверка одной строкой: открыть DevTools → Application → Manifest, кликнуть по каждой иконке — должна открыться картинка.
+  </div>
+</div>
+
+<h2 id="shag-3-service-worker">Шаг 3: Service Worker — мозг PWA</h2>
+<p>Service Worker — это JavaScript-файл, который браузер запускает в отдельном фоновом потоке, без доступа к DOM, но с доступом к сетевым запросам. Он живёт даже когда таб закрыт (ну, почти — браузер может его «усыпить», но события будит). Через SW работает кэширование, оффлайн, push, фоновая синхронизация.</p>
+<p>Минимальный рабочий sw.js, который кэширует статику и умеет отдавать оффлайн-страницу:</p>
+
+<div class="blog-code">
+<pre><code>const CACHE = 'pwa-v1.0.3';
+const STATIC_ASSETS = [
+  '/',
+  '/index.html',
+  '/style.css',
+  '/script.js',
+  '/offline.html',
+  '/icons/icon-192.png',
+  '/icons/icon-512.png',
+  '/manifest.json'
+];
+
+// Установка: кэшируем критичные файлы
+self.addEventListener('install', (event) =&gt; {
+  event.waitUntil(
+    caches.open(CACHE).then((cache) =&gt; cache.addAll(STATIC_ASSETS))
+  );
+  self.skipWaiting();
+});
+
+// Активация: удаляем старые версии кэша
+self.addEventListener('activate', (event) =&gt; {
+  event.waitUntil(
+    caches.keys().then((keys) =&gt;
+      Promise.all(keys.filter((k) =&gt; k !== CACHE).map((k) =&gt; caches.delete(k)))
+    )
+  );
+  self.clients.claim();
+});
+
+// Перехват запросов: Network First для HTML, Cache First для остального
+self.addEventListener('fetch', (event) =&gt; {
+  const req = event.request;
+  if (req.method !== 'GET') return;
+
+  // HTML — сначала сеть, при провале — кэш или offline.html
+  if (req.headers.get('accept') &amp;&amp; req.headers.get('accept').includes('text/html')) {
+    event.respondWith(
+      fetch(req)
+        .then((res) =&gt; {
+          const copy = res.clone();
+          caches.open(CACHE).then((c) =&gt; c.put(req, copy));
+          return res;
+        })
+        .catch(() =&gt; caches.match(req).then((r) =&gt; r || caches.match('/offline.html')))
+    );
+    return;
+  }
+
+  // Всё остальное (CSS, JS, картинки) — сначала кэш, потом сеть
+  event.respondWith(
+    caches.match(req).then((cached) =&gt; cached || fetch(req).then((res) =&gt; {
+      const copy = res.clone();
+      caches.open(CACHE).then((c) =&gt; c.put(req, copy));
+      return res;
+    }))
+  );
+});
+</code></pre>
+</div>
+
+<p>Регистрация в HTML. Кладём такой блок в основной <code>script.js</code> или прямо в HTML внизу страницы:</p>
+
+<div class="blog-code">
+<pre><code>if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () =&gt; {
+    navigator.serviceWorker.register('/sw.js', { scope: '/' })
+      .then((reg) =&gt; console.log('SW registered, scope:', reg.scope))
+      .catch((err) =&gt; console.error('SW failed:', err));
+  });
+}
+</code></pre>
+</div>
+
+<p>Стратегии кэширования — это отдельная философия. Кратко, по практике:</p>
+
+<div class="blog-table">
+  <table>
+    <thead>
+      <tr>
+        <th>Стратегия</th>
+        <th>Когда применять</th>
+        <th>Плюсы</th>
+        <th>Минусы</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Cache First</td>
+        <td>Иконки, шрифты, лого, версионированный CSS/JS</td>
+        <td>Молниеносная отдача, экономия трафика</td>
+        <td>Если файл обновился, пользователь увидит старый</td>
+      </tr>
+      <tr>
+        <td>Network First</td>
+        <td>HTML-страницы, JSON API, всё актуальное</td>
+        <td>Всегда свежий контент при наличии сети</td>
+        <td>Чуть медленнее на старте</td>
+      </tr>
+      <tr>
+        <td>Stale While Revalidate</td>
+        <td>Аватарки, RSS-фиды, не-критичные данные</td>
+        <td>Быстро отдаём кэш, тихо обновляем в фоне</td>
+        <td>Первый показ — устаревший</td>
+      </tr>
+      <tr>
+        <td>Network Only</td>
+        <td>Платежи, авторизация, отправка форм</td>
+        <td>Никогда не отдаём устаревшее</td>
+        <td>Без интернета не работает</td>
+      </tr>
+      <tr>
+        <td>Cache Only</td>
+        <td>Оффлайн-страница, статика приложения</td>
+        <td>Гарантированный показ</td>
+        <td>Не подходит для динамики</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>Дебаг — Chrome DevTools → Application → Service Workers. Там виден статус (installing/activated/redundant), можно нажать Update, Unregister, поставить «Offline» галочку и проверить, что сайт работает без сети. Если SW не регистрируется — смотрите Console на ошибки JS внутри файла. Самая частая причина — синтаксическая ошибка в sw.js, тогда регистрация валится с TypeError.</p>
+
+<h2 id="shag-4-install-button">Шаг 4: кнопка «Установить приложение»</h2>
+<p>Браузер сам решает, когда показать пользователю предложение установить PWA. Критерии у Chrome строгие: должен быть валидный manifest, зарегистрирован SW, пользователь провёл на сайте хотя бы 30 секунд и сделал минимум одно осмысленное действие. На Android это работает автоматом — Chrome выкатывает свой banner «Установить». На десктопе — иконка плюса в адресной строке.</p>
+<p>Но рассчитывать на встроенный banner — плохая идея. Он может не показаться, а конверсия в установку без своей кнопки — около 1–3%. Со своей кнопкой и грамотным таймингом — 8–15%. Делаем по уму: ловим событие <code>beforeinstallprompt</code>, прячем дефолтное приглашение, показываем свою кнопку в нужный момент.</p>
+
+<div class="blog-code">
+<pre><code>let deferredPrompt = null;
+const installBtn = document.getElementById('pwa-install-btn');
+
+window.addEventListener('beforeinstallprompt', (e) =&gt; {
+  // Браузер собрался показать своё приглашение — отменяем
+  e.preventDefault();
+  deferredPrompt = e;
+  // Показываем свою кнопку (после первого осмысленного скролла, например)
+  installBtn.hidden = false;
+});
+
+installBtn.addEventListener('click', async () =&gt; {
+  if (!deferredPrompt) return;
+  installBtn.disabled = true;
+  deferredPrompt.prompt();
+  const { outcome } = await deferredPrompt.userChoice;
+  console.log('Установка:', outcome); // 'accepted' или 'dismissed'
+  // Отправляем событие в аналитику
+  if (window.ym) ym(123456, 'reachGoal', 'pwa_install_' + outcome);
+  deferredPrompt = null;
+  installBtn.hidden = true;
+});
+
+window.addEventListener('appinstalled', () =&gt; {
+  console.log('PWA установлена');
+  if (window.ym) ym(123456, 'reachGoal', 'pwa_installed');
+});
+
+// Проверка: запущено уже как PWA?
+if (window.matchMedia('(display-mode: standalone)').matches) {
+  document.body.classList.add('is-pwa');
+}
+</code></pre>
+</div>
+
+<p>UX-нюансы. Не показывайте кнопку сразу при загрузке — это бесит. Показывайте после того, как пользователь совершил «ценное» действие: прочитал статью до конца, добавил товар в корзину, посмотрел два урока подряд. Помните: предложить установить можно бесконечно раз, но если пользователь нажал «Отмена» — давайте ему отдохнуть хотя бы 7 дней, иначе он откроет настройки и заблокирует уведомления, а потом — и сайт.</p>
+<p>На iOS свой ад. Нет <code>beforeinstallprompt</code>, нет API установки. Можно только показать инструкцию: «Нажми кнопку «Поделиться» в Safari → На главный экран». Я обычно показываю отдельный модал с GIF-анимацией поделиться → на главный экран только для iOS Safari (детектится по UA).</p>
+
+<h2 id="shag-5-offline">Шаг 5: оффлайн-страница</h2>
+<p>Когда интернета нет, а пользователь открывает страницу, которую SW не успел закэшировать, надо показать что-то осмысленное вместо «нет соединения». Минималистичный шаблон <code>offline.html</code>, который кладём в корень:</p>
+
+<div class="blog-code">
+<pre><code>&lt;!doctype html&gt;
+&lt;html lang="ru"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;title&gt;Нет интернета — Чимитдоржи&lt;/title&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+  &lt;style&gt;
+    body { font-family: system-ui, sans-serif; padding: 2rem;
+           text-align: center; background: #1a1a2e; color: #fff; }
+    h1 { margin-top: 4rem; font-size: 1.8rem; }
+    button { padding: .8rem 1.6rem; border: 0; border-radius: 8px;
+             background: #ff7d3b; color: #fff; font-size: 1rem; cursor: pointer; }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Нет соединения&lt;/h1&gt;
+  &lt;p&gt;Похоже, интернет отвалился. Когда вернётся — нажмите кнопку.&lt;/p&gt;
+  &lt;button onclick="location.reload()"&gt;Попробовать снова&lt;/button&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+</div>
+
+<p>SW уже умеет её отдавать — в нашем коде в строке <code>caches.match('/offline.html')</code>. Только убедитесь, что путь к файлу есть в массиве <code>STATIC_ASSETS</code>, иначе при первой установке SW его не закэширует, и при отсутствии сети получите «не работает» внутри «не работает».</p>
+<p>Стоит ли кэшировать API-ответы. Если у вас интернет-магазин с каталогом — да, кэшируйте каталог Stale While Revalidate. Если банк или биржа — нет, никогда, только Network Only. Если соцсеть/блог — кэшируйте список постов на 5 минут (TTL через свой собственный механизм поверх Cache API), сам контент поста — на день.</p>
+
+<div class="blog-cta-card">
+  <div class="blog-cta-card-body">
+    <h3>Не хочется возиться — закажу за вас</h3>
+    <p>Если на выходные нет настроения копаться в Service Workers и manifest.json — могу сделать вашу PWA под ключ от 80 000 ₽. С push-уведомлениями, оффлайн-режимом, установкой на iOS и Android.</p>
+  </div>
+  <div class="blog-cta-card-actions">
+    <a href="https://chimitdorzhi.tech/development/pwa/" class="btn btn-accent">Заказать PWA</a>
+    <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost">Обсудить</a>
+  </div>
+</div>
+
+<h2 id="shag-6-push">Шаг 6: push-уведомления</h2>
+<p>Самая мощная и самая сложная фича PWA. С 2026 года реально работает на всех платформах, включая iOS — но только из установленного на главный экран приложения, не из обычной Safari-вкладки.</p>
+<p>Архитектура: пользователь даёт разрешение на уведомления → браузер генерирует уникальную подписку (endpoint + ключи) → подписка отправляется на ваш сервер → сервер хранит подписку и при наступлении события отправляет ей push через специальный сервис (FCM для Chrome/Android, APNs для Safari/iOS, Mozilla Push для Firefox). PWA это всё абстрагирует через стандарт Web Push с VAPID-ключами.</p>
+<p>Регистрация подписки на клиенте:</p>
+
+<div class="blog-code">
+<pre><code>const VAPID_PUBLIC = 'BNa...your-public-key...';
+
+function urlBase64ToUint8Array(b64) {
+  const padding = '='.repeat((4 - b64.length % 4) % 4);
+  const base64 = (b64 + padding).replace(/-/g, '+').replace(/_/g, '/');
+  const raw = atob(base64);
+  return Uint8Array.from([...raw].map((c) =&gt; c.charCodeAt(0)));
+}
+
+async function subscribePush() {
+  const reg = await navigator.serviceWorker.ready;
+  const permission = await Notification.requestPermission();
+  if (permission !== 'granted') return null;
+
+  const sub = await reg.pushManager.subscribe({
+    userVisibleOnly: true,
+    applicationServerKey: urlBase64ToUint8Array(VAPID_PUBLIC)
+  });
+
+  // Отправляем на свой сервер
+  await fetch('/api/push/subscribe', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(sub)
+  });
+  return sub;
+}
+</code></pre>
+</div>
+
+<p>Обработка в Service Worker — добавляем в <code>sw.js</code>:</p>
+
+<div class="blog-code">
+<pre><code>self.addEventListener('push', (event) =&gt; {
+  const data = event.data ? event.data.json() : { title: 'Новое уведомление' };
+  event.waitUntil(
+    self.registration.showNotification(data.title, {
+      body: data.body || '',
+      icon: '/icons/icon-192.png',
+      badge: '/icons/badge-72.png',
+      data: { url: data.url || '/' }
+    })
+  );
+});
+
+self.addEventListener('notificationclick', (event) =&gt; {
+  event.notification.close();
+  event.waitUntil(clients.openWindow(event.notification.data.url));
+});
+</code></pre>
+</div>
+
+<p>Отправка с сервера (Node.js, библиотека <code>web-push</code>):</p>
+
+<div class="blog-code">
+<pre><code>const webpush = require('web-push');
+
+webpush.setVapidDetails(
+  'mailto:hello@example.ru',
+  process.env.VAPID_PUBLIC,
+  process.env.VAPID_PRIVATE
+);
+
+async function sendToAll(subscriptions, payload) {
+  for (const sub of subscriptions) {
+    try {
+      await webpush.sendNotification(sub, JSON.stringify(payload));
+    } catch (err) {
+      if (err.statusCode === 410) {
+        // Подписка протухла — удаляем из БД
+        await db.subscriptions.delete(sub.endpoint);
+      }
+    }
+  }
+}
+</code></pre>
+</div>
+
+<p>VAPID-ключи генерятся командой <code>npx web-push generate-vapid-keys</code> один раз и хранятся в переменных окружения. Публичный — на клиенте, приватный — только на сервере.</p>
+<p>Про Россию и FCM. Google Firebase Cloud Messaging формально не заблокирован, но работает нестабильно: задержки до минут, иногда сообщения теряются. Хорошая новость — стандарт Web Push не привязан к FCM. Когда вы вызываете <code>pushManager.subscribe</code>, браузер сам решает, какой push-сервис использовать. Chrome пойдёт в FCM, Safari — в APNs, Firefox — в Mozilla Push. Ваш сервер просто отправляет в endpoint, который вернул браузер. То есть архитектурно мы независимы от Google.</p>
+<p>Важный момент про закон. Согласно 152-ФЗ push-уведомления — это обработка персональных данных (endpoint подписки + IP-адрес + поведенческие данные). Нужно получить явное согласие пользователя ДО запроса <code>Notification.requestPermission()</code>. Не просто браузерное «разрешить уведомления», а ваше отдельное чекбокс «Я согласен на получение уведомлений» с галочкой и логом. Подробнее писал в <a href="/blog/cookie-banner-zakon/">статье про cookie-баннер и 152-ФЗ</a> и в <a href="/blog/audit-152-fz-2026/">общем аудите</a>.</p>
+
+<h2 id="shag-7-testirovanie">Шаг 7: тестирование и валидация</h2>
+<p>Готовая PWA должна пройти четыре проверки.</p>
+<p><strong>Lighthouse audit.</strong> Chrome DevTools → Lighthouse → Mobile → Performance + PWA + SEO. Нажимаем Generate report. По разделу PWA должно быть 100/100. Если меньше — там же написано, что не так: нет иконки, не подключён manifest, SW не контролирует start_url, нет meta theme-color. Чините по списку.</p>
+<p><strong>PWA Builder от Microsoft.</strong> Сервис pwabuilder.com — заливаете URL, он проверяет manifest и SW, выдаёт оценку и список рекомендаций. Дополнительно умеет генерить пакеты для магазинов приложений (см. следующий раздел).</p>
+<p><strong>Тест на реальном Android.</strong> Откройте сайт в Chrome на телефоне. Через 20–30 секунд внизу должен появиться banner «Установить» (если не появился — три точки в правом верхнем → Установить приложение). Установите, откройте с домашнего экрана — должно открыться без браузерной обвязки, в фуллскрине. Закройте интернет (режим полёта), откройте приложение — должна показаться кэшированная страница или offline.html.</p>
+<p><strong>Тест на iPhone.</strong> Safari → ваш сайт → кнопка «Поделиться» внизу → «На экран „Домой“». Подтвердите имя — иконка появилась. Откройте её — должно быть в standalone-режиме. На iOS 16.4+ через несколько секунд после открытия можно попросить разрешение на push (только из standalone-режима, не из браузера).</p>
+
+<div class="blog-callout blog-callout-info">
+  <i class="ph-fill ph-info"></i>
+  <div>
+    <strong>Чек-лист «всё работает».</strong> Manifest валидный, SW активен, иконка на рабочем столе, открывается без браузера, работает оффлайн, install button показывается на Android, push-разрешение запрашивается, тестовый push доходит. Если все 8 пунктов — поздравляю, вы сделали PWA.
+  </div>
+</div>
+
+<h2 id="shag-8-magaziny">Шаг 8: публикация в магазинах приложений (бонус)</h2>
+<p>PWA можно НЕ публиковать в магазинах — она и так устанавливается из браузера. Но для большего охвата (особенно если у вас уже есть бренд и трафик в RuStore/Google Play) — публикация имеет смысл.</p>
+<p><strong>Google Play.</strong> Через технологию TWA (Trusted Web Activity) PWA оборачивается в Android-приложение, которое внутри показывает Chrome-вкладку без обвязки. PWA Builder делает это за вас: заливаете URL, скачиваете .aab-файл, загружаете в Google Play Console. Стоимость публикации — 25$ единоразовый Google Developer fee.</p>
+<p><strong>RuStore.</strong> Принимает обычные .apk и .aab. Через тот же PWA Builder получаете пакет, регистрируете аккаунт разработчика (нужно ИП или ООО, никаких физлиц), загружаете. RuStore требователен к описанию, скриншотам, политике конфиденциальности на русском. Модерация в среднем 3–7 дней.</p>
+<p><strong>App Store.</strong> С iOS 17.4 формально возможно через PWA Builder + Xcode, но Apple до сих пор недолюбливает чистые PWA-обёртки и периодически режектит со ссылкой на пункт 4.2 «приложение должно содержать функционал, выходящий за рамки сайта». Я бы не закладывался на App Store как канал в первый год, а сосредоточился на RuStore + домашний экран через Safari.</p>
+
+<h2 id="chek-list-vyhodnye">Чек-лист на выходные</h2>
+<p>Реалистичный план для разработчика, который уже умеет вёрстку и базовый JS, но PWA не делал. Сайт уже на HTTPS, есть адаптив.</p>
+<ul>
+  <li><strong>Суббота, 10:00–12:00 (2 часа):</strong> сгенерить иконки через RealFaviconGenerator, написать manifest.json, подключить в HTML. Проверить в DevTools → Manifest, что всё распознано.</li>
+  <li><strong>Суббота, 12:30–15:30 (3 часа):</strong> написать sw.js с базовым кэшем, зарегистрировать, отладить через DevTools → Service Workers. Прогнать тест offline.</li>
+  <li><strong>Суббота, 16:00–18:00 (2 часа):</strong> сделать offline.html, докрутить стратегии кэширования под свои секции (статика — cache first, страницы — network first). Зафиксировать версию кэша.</li>
+  <li><strong>Воскресенье, 10:00–13:00 (3 часа):</strong> сделать install-button по событию <code>beforeinstallprompt</code>, отдельную инструкцию для iOS. Опционально — подключить push: сгенерить VAPID, написать subscribePush, добавить обработчик в sw.js, поднять минимальный backend на Node/Express для приёма подписок.</li>
+  <li><strong>Воскресенье, 14:00–17:00 (3 часа):</strong> прогнать Lighthouse, дойти до PWA 100/100 и Performance 90+. Протестировать на Android и iOS. Опционально — собрать .apk через PWA Builder, начать публикацию в RuStore.</li>
+</ul>
+<p>Итого ~13 часов. Если вы один разработчик с опытом 2+ года — спокойно успеваете за выходные. Если меньше опыта или сайт большой и сложный — закладывайте 2–3 выходных.</p>
+
+<h2 id="faq">FAQ</h2>
+
+<h3>Можно ли сделать PWA из сайта на Tilda или Wix?</h3>
+<p>На Tilda — с трудом. Tilda не даёт положить файлы в корень и зарегистрировать свой Service Worker, скрипты в head ограничены. Минимальное — manifest можно прицепить через «свой код», но без SW это не полноценная PWA, только иконка на рабочем столе. Wix чуть лучше — у них есть встроенная PWA-функция в Wix Studio, активируется в настройках сайта. Если нужна настоящая PWA с push и оффлайном — переезжайте на свой хостинг.</p>
+
+<h3>Сколько стоит сделать PWA, если не делать самому?</h3>
+<p>Простая PWA из готового лендинга или сайта — 80–150 тыс ₽, 2–4 недели. PWA с push-уведомлениями и оффлайн-режимом — 200–400 тыс ₽, 4–8 недель. PWA с интеграцией оплаты, личным кабинетом, реал-тайм синхронизацией — 500 тыс — 1,5 млн ₽, 2–4 месяца. Это всё равно дешевле нативной разработки в 3–5 раз.</p>
+
+<h3>PWA реально работает на iPhone?</h3>
+<p>Да, с iOS 16.4+ работают push, с iOS 17.4+ — нормальная установка. Но есть нюансы: push приходит только в установленную через «На главный экран» PWA, не в Safari-вкладку; нет API для запроса установки (только текстовая подсказка); ограничение хранилища 50 МБ на сайт (на Android — гигабайты). Для 90% сценариев этих ограничений хватает.</p>
+
+<h3>Можно ли публиковать PWA в App Store?</h3>
+<p>Технически с iOS 17.4 — да, через PWA Builder + Xcode. Практически — Apple часто реджектит «голые» обёртки PWA по пункту 4.2 «должен быть нативный функционал». Если делать — добавляйте хотя бы пару нативных фишек через Capacitor (биометрия, шеринг). На RuStore и Google Play проблем нет.</p>
+
+<h3>Что лучше — PWA или React Native?</h3>
+<p>Зависит. PWA — если у вас уже есть веб-команда и сайт, бюджет ограничен, нужно быстро выкатить на все платформы и публикация в App Store не критична. React Native — если нужны глубокие нативные интеграции (Bluetooth, NFC, биометрия), 3D, тяжёлая графика, фоновая обработка без открытого таба. Сравнение подробнее планирую в отдельной статье.</p>
+
+<h3>Как обновлять PWA после установки у пользователя?</h3>
+<p>Через версионирование кэша. В sw.js меняете константу <code>CACHE = 'pwa-v1.0.3'</code> на <code>'pwa-v1.0.4'</code>, заливаете новый sw.js. При следующем заходе пользователя браузер скачает новый SW, в событии <code>activate</code> старый кэш удалится, новый закэшируется. Если хотите принудительно перезагрузить открытую страницу после обновления — добавьте в основной скрипт слушатель <code>navigator.serviceWorker.addEventListener('controllerchange', () =&gt; location.reload())</code>.</p>
+
+<h3>Что делать, если SW «залип» и отдаёт старую версию?</h3>
+<p>Chrome DevTools → Application → Service Workers → Unregister, потом Storage → Clear site data. У пользователя — попросить переустановить PWA (удалить иконку и установить заново). Поэтому версионирование кэша — критично с первого дня.</p>
+
+<h2 id="vyvody">Выводы и следующие шаги</h2>
+<p>PWA в 2026 — это уже не «модная фича», а полноценная альтернатива нативной разработке для большинства задач. Apple перестал саботировать, push работает, установка работает, в RuStore публикуется. За выходные реально успеть собрать рабочую PWA, если есть базовый опыт и сайт уже не разваливается.</p>
+<p>Что делать прямо сейчас:</p>
+<ol>
+  <li><strong>Запустите Lighthouse</strong> на своём сайте, посмотрите текущий PWA-скор. Если меньше 50 — сначала вёрстка и перформанс, потом PWA.</li>
+  <li><strong>Сгенерите manifest и иконки</strong> через RealFaviconGenerator — это 30 минут, никаких знаний не нужно. Просто подключите файлы — ваш сайт уже сможет добавляться на главный экран Android.</li>
+  <li><strong>Поставьте минимальный sw.js</strong> с одним кэшем статики. Это даст 60% PWA-скора и реальный буст к скорости.</li>
+  <li><strong>Замерьте конверсию</strong> установок и сравните с обычными пользователями: средний LTV установившего PWA выше на 30–50% по моим данным с проектов 2024–2025.</li>
+</ol>
+<p>Если идея зашла, но сил/времени самому копаться нет — пишите. Помогу с архитектурой или сделаем под ключ.</p>
+
+<div class="blog-cta-card blog-cta-personal">
+  <div class="blog-cta-card-body">
+    <h3>Застряли на каком-то шаге?</h3>
+    <p>Если что-то не получается — напишите мне в Telegram, разберём вашу ситуацию. Особенно если упёрлись в push-уведомления для iOS или интеграцию в RuStore — там есть свои подводные камни, на которых я уже спотыкался.</p>
+  </div>
+  <div class="blog-cta-card-actions">
+    <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo"></i> Написать Чимитдоржи</a>
+  </div>
+</div>
+
+                    </div>
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Нужен профессиональный аудит 152-ФЗ?</h3>
+                            <p>Отчёт за 1–3 дня, устранение нарушений под ключ. От 5 000 ₽.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/development/pwa/" class="btn btn-accent"><i class="ph ph-shield-check"></i> Заказать PWA-разработку</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo"></i> Написать в Telegram</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/cfa-dlya-biznesa-2026/" data-category="ai">
+  <div class="blog-card-icon"><i class="ph-fill ph-coins"></i></div>
+  <span class="blog-card-cat">AI и автоматизация</span>
+  <h3>ЦФА для бизнеса 2026: что это, зачем и как использовать</h3>
+  <p>Эксперт РАКИБ ДФО разбирает ЦФА для бизнеса: отличия от крипты, операторы (Атомайз, Сбер, Альфа), кейсы Норникеля и ВТБ, пошаговая эмиссия, налоги и риски.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar"></i> 19 мая 2026</span>
+    <span><i class="ph ph-clock"></i> 18 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right"></i></span>
+</a>
+<a class="blog-card" href="/blog/lokalizaciya-pd-2026/" data-category="legal">
+  <div class="blog-card-icon"><i class="ph-fill ph-database"></i></div>
+  <span class="blog-card-cat">Право и 152-ФЗ</span>
+  <h3>Локализация персональных данных на серверы РФ: как перенести и не сломать</h3>
+  <p>Сравнение Yandex Cloud, VK Cloud, Selectel и других. Пошаговый план переноса с AWS/GCP/Azure, гибридные схемы, штрафы по ст. 13.11 ч. 8 КоАП и самопроверка.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar"></i> 19 мая 2026</span>
+    <span><i class="ph ph-clock"></i> 17 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right"></i></span>
+</a>
+<a class="blog-card" href="/blog/audit-152-fz-2026/" data-category="legal">
+  <div class="blog-card-icon"><i class="ph-fill ph-shield-check"></i></div>
+  <span class="blog-card-cat">Право и 152-ФЗ</span>
+  <h3>Аудит сайта по 152-ФЗ в 2026: полная инструкция для бизнеса</h3>
+  <p>Новые штрафы по 152-ФЗ доходят до 500 млн ₽. Чек-лист из 32 пунктов, пошаговый план устранения нарушений и сравнение цен на аудит.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar"></i> 19 мая 2026</span>
+    <span><i class="ph ph-clock"></i> 12 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right"></i></span>
+</a></div>
+</section>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets"></i> Содержание</h2>
+  <ol><li><a href="#chto-takoe-pwa"><span class="blog-toc-num">01</span> Что такое PWA и почему именно сейчас</a></li>
+<li><a href="#chek-list-pered-startom"><span class="blog-toc-num">02</span> Что нужно перед стартом</a></li>
+<li><a href="#shag-1-manifest"><span class="blog-toc-num">03</span> Шаг 1: manifest.json</a></li>
+<li><a href="#shag-2-ikonki"><span class="blog-toc-num">04</span> Шаг 2: иконки и сплэш-скрин</a></li>
+<li><a href="#shag-3-service-worker"><span class="blog-toc-num">05</span> Шаг 3: Service Worker</a></li>
+<li><a href="#shag-4-install-button"><span class="blog-toc-num">06</span> Шаг 4: кнопка «Установить»</a></li>
+<li><a href="#shag-5-offline"><span class="blog-toc-num">07</span> Шаг 5: оффлайн-страница</a></li>
+<li><a href="#shag-6-push"><span class="blog-toc-num">08</span> Шаг 6: push-уведомления</a></li>
+<li><a href="#shag-7-testirovanie"><span class="blog-toc-num">09</span> Шаг 7: тестирование</a></li>
+<li><a href="#shag-8-magaziny"><span class="blog-toc-num">10</span> Шаг 8: публикация в магазинах</a></li>
+<li><a href="#chek-list-vyhodnye"><span class="blog-toc-num">11</span> Чек-лист на выходные</a></li>
+<li><a href="#faq"><span class="blog-toc-num">12</span> Частые вопросы</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">13</span> Выводы</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo"></i> Telegram</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+            </div>
+            <div class="footer-links">
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=23" defer></script>
+<script src="/services-i18n.js?v=23" defer></script>
+<script src="/script.js?v=23" defer></script>
+</body>
+</html>
