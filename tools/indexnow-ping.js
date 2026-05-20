@@ -28,6 +28,8 @@ const body = JSON.stringify({
     `https://${HOST}/blog/lokalnyy-llm-na-noutbuke-2026/`,
     `https://${HOST}/blog/mcp-model-context-protocol-2026/`,
     `https://${HOST}/blog/ai-transkripciya-soveshchaniy-2026/`,
+    `https://${HOST}/blog/svoy-sayt-vs-socseti-2026/`,
+    `https://${HOST}/blog/svoy-magazin-vs-wildberries-ozon-2026/`,
     SITEMAP,
   ],
 });
