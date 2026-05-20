@@ -23,6 +23,8 @@ const body = JSON.stringify({
     `https://${HOST}/blog/rossiyskiy-ai-stack-2026/`,
     `https://${HOST}/blog/ai-agenty-v-biznese-2026/`,
     `https://${HOST}/blog/chek-list-bezopasnosti-sayta-47-punktov/`,
+    `https://${HOST}/blog/rag-sistemy-dlya-biznesa-2026/`,
+    `https://${HOST}/blog/ai-v-marketinge-2026/`,
     SITEMAP,
   ],
 });
