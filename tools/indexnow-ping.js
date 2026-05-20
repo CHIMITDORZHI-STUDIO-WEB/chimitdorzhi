@@ -25,6 +25,9 @@ const body = JSON.stringify({
     `https://${HOST}/blog/chek-list-bezopasnosti-sayta-47-punktov/`,
     `https://${HOST}/blog/rag-sistemy-dlya-biznesa-2026/`,
     `https://${HOST}/blog/ai-v-marketinge-2026/`,
+    `https://${HOST}/blog/lokalnyy-llm-na-noutbuke-2026/`,
+    `https://${HOST}/blog/mcp-model-context-protocol-2026/`,
+    `https://${HOST}/blog/ai-transkripciya-soveshchaniy-2026/`,
     SITEMAP,
   ],
 });
