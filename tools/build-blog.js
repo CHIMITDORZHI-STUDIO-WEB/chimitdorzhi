@@ -19,6 +19,9 @@ const CATEGORY_LABELS = {
   legal:       'Право и 152-ФЗ',
   development: 'Разработка',
   ai:          'AI и автоматизация',
+  marketing:   'Маркетинг и SEO',
+  finance:     'Финансы и ЦФА',
+  security:    'Безопасность',
   career:      'Карьера и обучение',
   security:    'Безопасность',
 };
@@ -435,9 +438,11 @@ ${JSON.stringify(breadcrumb, null, 2)}
                     <button class="filter-btn active" data-blog-cat="all">Все <span class="filter-count">${published.length}</span></button>
                     ${[
                       { key: 'legal',       label: 'Право' },
-                      { key: 'development', label: 'Разработка' },
                       { key: 'ai',          label: 'AI' },
+                      { key: 'marketing',   label: 'Маркетинг' },
+                      { key: 'development', label: 'Разработка' },
                       { key: 'security',    label: 'Безопасность' },
+                      { key: 'finance',     label: 'Финансы' },
                       { key: 'career',      label: 'Карьера' },
                     ].map(c => {
                       const cnt = published.filter(p => p.category === c.key).length;
