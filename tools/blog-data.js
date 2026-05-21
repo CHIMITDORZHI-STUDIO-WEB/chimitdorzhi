@@ -14,6 +14,7 @@ const ownShopContent = require('./blog-content-own-shop.js');
 const a11yContent = require('./blog-content-a11y.js');
 const nocodeBotContent = require('./blog-content-nocode-bot.js');
 const seoShopContent = require('./blog-content-seo-shop.js');
+const vpsComparisonContent = require('./blog-content-vps-comparison.js');
 
 const article2Content = `
 <div class="blog-tldr">
@@ -3502,4 +3503,40 @@ module.exports = [
     contentHtml: seoShopContent,
     relatedSlugs: ['svoy-magazin-vs-wildberries-ozon-2026', 'svoy-sayt-vs-socseti-2026', 'ai-v-marketinge-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/development/marketplaces/', label: 'Заказать SEO-оптимизированный магазин' },  },
+  {
+    slug: 'svoy-vps-dlya-razrabotchika-2026',
+    category: 'development',
+    published: true,
+    title: 'Свой VPS для разработчика в 2026: Selectel vs RuVDS vs Timeweb vs Yandex Cloud — реальное сравнение',
+    metaTitle: 'Свой VPS 2026: Selectel vs RuVDS vs Timeweb vs Yandex Cloud | Чимитдоржи Дарижапов',
+    metaDescription: 'Практик о выборе VPS для разработчика в 2026: 5 лет опыта на Selectel, RuVDS, Timeweb, Yandex Cloud. Цены, плюсы и минусы, таблица сравнения, пошаговая настройка за 30 минут, топ-15 self-hosted приложений.',
+    metaKeywords: 'VPS, VDS, хостинг, Selectel, RuVDS, Timeweb, Yandex Cloud, self-hosted, Docker, Caddy, DevOps, выбор VPS, сравнение хостинга',
+    excerpt: 'Реальный опыт инженера, пять лет живущего на Selectel + RuVDS + Yandex Cloud. Цены 2026, плюсы и минусы провайдеров, таблица сравнения 14 параметров, пошаговая настройка VPS за 30 минут с bash-скриптами, топ-15 self-hosted приложений и расчёт ROI.',
+    datePublished: '2026-05-21',
+    dateModified: '2026-05-21',
+    readingMinutes: 25,
+    heroIcon: 'ph-fill ph-hard-drives',
+    tags: ['VPS', 'хостинг', 'DevOps', 'Selectel', 'RuVDS', 'Timeweb', 'Yandex Cloud'],
+    toc: [
+      { id: 'zachem-vps', text: 'Зачем разработчику свой VPS в 2026' },
+      { id: 'cloud-vs-vps', text: 'Облачные провайдеры vs классический VPS' },
+      { id: 'trebovaniya', text: 'Главные требования к VPS 2026' },
+      { id: 'selectel', text: 'Selectel — лидер РФ-рынка' },
+      { id: 'ruvds', text: 'RuVDS — баланс цены и качества' },
+      { id: 'timeweb', text: 'Timeweb — для веб-разработчиков' },
+      { id: 'yandex-cloud', text: 'Yandex Cloud — корпоративный enterprise' },
+      { id: 'cloud-ru-vk', text: 'Cloud.ru и VK Cloud — кратко' },
+      { id: 'sravnenie', text: 'Сравнительная таблица 4 главных' },
+      { id: 'nastroyka', text: 'Настройка VPS с нуля за 30 минут' },
+      { id: 'top-prilozheniy', text: 'Топ-15 self-hosted приложений' },
+      { id: 'stoimost-vladeniya', text: 'Стоимость владения за год' },
+      { id: 'yur-nyuansy', text: 'Юридические нюансы VPS в РФ' },
+      { id: 'oshibki', text: 'Топ-5 ошибок при использовании VPS' },
+      { id: 'faq', text: 'Частые вопросы' },
+      { id: 'vyvody', text: 'Выводы: что выбрать в 2026' },
+    ],
+    contentHtml: vpsComparisonContent,
+    relatedSlugs: ['pwa-iz-sayta-za-vyhodnye-2026', 'lokalizaciya-pd-2026', 'lokalnyy-llm-na-noutbuke-2026'],
+    ctaInternal: { url: 'https://chimitdorzhi.tech/services/it-infrastructure/', label: 'Заказать настройку VPS-инфраструктуры' },
+  },
 ];
