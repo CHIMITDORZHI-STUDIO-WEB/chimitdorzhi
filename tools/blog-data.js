@@ -2911,7 +2911,7 @@ module.exports = [
   },
   {
     slug: 'cfa-dlya-biznesa-2026',
-    category: 'ai',
+    category: 'finance',
     published: true,
     title: 'ЦФА для бизнеса 2026: что это, зачем и как использовать',
     metaTitle: 'ЦФА для бизнеса 2026: гид от эксперта РАКИБ',
@@ -3194,7 +3194,7 @@ module.exports = [
   },
   {
     slug: 'ai-v-marketinge-2026',
-    category: 'ai',
+    category: 'marketing',
     published: true,
     title: 'AI в маркетинге 2026: что реально работает — контент, копирайт, SEO',
     metaTitle: 'AI-маркетинг 2026: рабочий стек, промпты, кейсы | Чимитдоржи Дарижапов',
@@ -3334,7 +3334,7 @@ module.exports = [
   },
   {
     slug: 'svoy-sayt-vs-socseti-2026',
-    category: 'development',
+    category: 'marketing',
     published: true,
     title: 'Свой сайт vs соцсети 2026: почему ваш контент на чужих платформах — не ваш',
     metaTitle: 'Свой сайт vs соцсети 2026: контент-инфраструктура | Чимитдоржи Дарижапов',
@@ -3474,7 +3474,7 @@ module.exports = [
   },
   {
     slug: 'seo-internet-magazina-yandex-30-hakov-2026',
-    category: 'development',
+    category: 'marketing',
     published: true,
     title: 'SEO для интернет-магазина в Яндексе 2026: 30 хаков от практика',
     metaTitle: 'SEO интернет-магазина Яндекс 2026: 30 хаков от практика | Чимитдоржи Дарижапов',
@@ -3501,6 +3501,5 @@ module.exports = [
     ],
     contentHtml: seoShopContent,
     relatedSlugs: ['svoy-magazin-vs-wildberries-ozon-2026', 'svoy-sayt-vs-socseti-2026', 'ai-v-marketinge-2026'],
-    ctaInternal: { url: 'https://chimitdorzhi.tech/development/marketplaces/', label: 'Заказать SEO-оптимизированный магазин' },
-  },
+    ctaInternal: { url: 'https://chimitdorzhi.tech/development/marketplaces/', label: 'Заказать SEO-оптимизированный магазин' },  },
 ];
