@@ -30,6 +30,9 @@ const body = JSON.stringify({
     `https://${HOST}/blog/ai-transkripciya-soveshchaniy-2026/`,
     `https://${HOST}/blog/svoy-sayt-vs-socseti-2026/`,
     `https://${HOST}/blog/svoy-magazin-vs-wildberries-ozon-2026/`,
+    `https://${HOST}/blog/dostupnost-sayta-a11y-2026/`,
+    `https://${HOST}/blog/ai-chatbot-na-sayt-bez-programmirovaniya-2026/`,
+    `https://${HOST}/blog/seo-internet-magazina-yandex-30-hakov-2026/`,
     SITEMAP,
   ],
 });
