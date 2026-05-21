@@ -432,12 +432,18 @@ ${JSON.stringify(breadcrumb, null, 2)}
                 </div>
 
                 <div class="blog-filter-chips" role="tablist">
-                    <button class="filter-btn active" data-blog-cat="all">Все</button>
-                    <button class="filter-btn" data-blog-cat="legal">Право</button>
-                    <button class="filter-btn" data-blog-cat="development">Разработка</button>
-                    <button class="filter-btn" data-blog-cat="ai">AI</button>
-                    <button class="filter-btn" data-blog-cat="security">Безопасность</button>
-                    <button class="filter-btn" data-blog-cat="career">Карьера</button>
+                    <button class="filter-btn active" data-blog-cat="all">Все <span class="filter-count">${published.length}</span></button>
+                    ${[
+                      { key: 'legal',       label: 'Право' },
+                      { key: 'development', label: 'Разработка' },
+                      { key: 'ai',          label: 'AI' },
+                      { key: 'security',    label: 'Безопасность' },
+                      { key: 'career',      label: 'Карьера' },
+                    ].map(c => {
+                      const cnt = published.filter(p => p.category === c.key).length;
+                      if (cnt === 0) return '';
+                      return `<button class="filter-btn" data-blog-cat="${c.key}">${c.label} <span class="filter-count">${cnt}</span></button>`;
+                    }).join('\n                    ')}
                 </div>
 
                 <div class="blog-grid" id="blogGrid">
