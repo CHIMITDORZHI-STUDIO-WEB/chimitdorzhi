@@ -35,6 +35,8 @@ const body = JSON.stringify({
     `https://${HOST}/blog/seo-internet-magazina-yandex-30-hakov-2026/`,
     `https://${HOST}/blog/svoy-vps-dlya-razrabotchika-2026/`,
     `https://${HOST}/blog/mvp-to-production-3-mesyatsa-2026/`,
+    `https://${HOST}/blog/ai-dlya-roditeley-2026/`,
+    `https://${HOST}/blog/ai-v-povsednevnoy-zhizni-25-sposobov-2026/`,
     SITEMAP,
   ],
 });
