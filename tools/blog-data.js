@@ -15,6 +15,7 @@ const a11yContent = require('./blog-content-a11y.js');
 const nocodeBotContent = require('./blog-content-nocode-bot.js');
 const seoShopContent = require('./blog-content-seo-shop.js');
 const vpsComparisonContent = require('./blog-content-vps-comparison.js');
+const mvpRoadmapContent = require('./blog-content-mvp-roadmap.js');
 
 const article2Content = `
 <div class="blog-tldr">
@@ -3538,5 +3539,40 @@ module.exports = [
     contentHtml: vpsComparisonContent,
     relatedSlugs: ['pwa-iz-sayta-za-vyhodnye-2026', 'lokalizaciya-pd-2026', 'lokalnyy-llm-na-noutbuke-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/services/it-infrastructure/', label: 'Заказать настройку VPS-инфраструктуры' },
+  },
+  {
+    slug: 'mvp-to-production-3-mesyatsa-2026',
+    category: 'development',
+    published: true,
+    title: 'От MVP до Production за 3 месяца: реальный roadmap для стартапа 2026',
+    metaTitle: 'От MVP до Production за 3 месяца: roadmap стартапа 2026 | Чимитдоржи Дарижапов',
+    metaDescription: 'Конкретный план запуска MVP за 3 месяца от практика с 15+ запущенных проектов. По неделям: дискавери, фундамент, биллинг, аналитика, soft launch, public launch. Стек инструментов, бюджет, юр.форма, кейс RAG-системы для юр-компании.',
+    metaKeywords: 'MVP, стартап, production, roadmap, CTO, запуск MVP, разработка MVP, 3 месяца, soft launch, public launch, ЮKassa, NextAuth, Next.js, Selectel',
+    excerpt: 'Реальный план запуска MVP за 3 месяца от инженера, который провёл 15+ проектов от идеи до прод-релиза. По неделям: discovery, foundation, product, production. Стек инструментов с ценами, команда, юр.форма, метрики, кейс RAG-системы для юр-компании, которая окупилась за 4 месяца.',
+    datePublished: '2026-05-22',
+    dateModified: '2026-05-22',
+    readingMinutes: 28,
+    heroIcon: 'ph-fill ph-rocket-launch',
+    tags: ['MVP', 'стартап', 'production', 'roadmap', 'CTO'],
+    toc: [
+      { id: 'chto-takoe-mvp', text: 'Что такое MVP в 2026 и чем он не является' },
+      { id: 'glavnaya-oshibka', text: 'Главная ошибка стартапов — «сделать всё»' },
+      { id: 'mesyac-0', text: 'Месяц 0: Discovery (1-2 недели ДО разработки)' },
+      { id: 'mesyac-1', text: 'Месяц 1: Foundation — каркас и инфраструктура' },
+      { id: 'mesyac-2', text: 'Месяц 2: Product — наполнение и шлифовка' },
+      { id: 'mesyac-3', text: 'Месяц 3: Production — запуск и масштаб' },
+      { id: 'stek-instrumentov', text: 'Стек инструментов автора для MVP 2026' },
+      { id: 'komanda', text: 'Команда для MVP — что делать самому, что нанимать' },
+      { id: 'yur-forma', text: 'Юр. форма для стартапа в 2026' },
+      { id: 'metriki', text: 'Метрики, которые нужно отслеживать с первого дня' },
+      { id: 'oshibki', text: '5 типичных ошибок при запуске MVP' },
+      { id: 'real-case', text: 'Кейс: RAG-система для юр-компании за 4 месяца' },
+      { id: 'chek-list-prod', text: 'Чек-лист «готов к production» за неделю до запуска' },
+      { id: 'faq', text: 'Частые вопросы' },
+      { id: 'vyvody', text: 'Выводы' },
+    ],
+    contentHtml: mvpRoadmapContent,
+    relatedSlugs: ['svoy-vps-dlya-razrabotchika-2026', 'pwa-iz-sayta-za-vyhodnye-2026', 'ai-agenty-v-biznese-2026'],
+    ctaInternal: { url: 'https://chimitdorzhi.tech/services/cto-as-a-service/', label: 'Запустить MVP с CTO под ключ' },
   },
 ];
