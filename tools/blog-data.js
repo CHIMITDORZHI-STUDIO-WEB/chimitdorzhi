@@ -22,6 +22,7 @@ const phishingDetectionContent = require('./blog-content-phishing-detection.js')
 const brandProtectionContent = require('./blog-content-brand-protection.js');
 const saasPricingContent = require('./blog-content-saas-pricing.js');
 const podcastContent = require('./blog-content-podcast.js');
+const discordCommunityContent = require('./blog-content-discord-community.js');
 
 const article2Content = `
 <div class="blog-tldr">
@@ -3782,5 +3783,40 @@ module.exports = [
     contentHtml: podcastContent,
     relatedSlugs: ['svoy-sayt-vs-socseti-2026', 'ai-v-marketinge-2026', 'ai-transkripciya-soveshchaniy-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/services/podcast-production/', label: 'Запустить подкаст под ключ' },
+  },
+  {
+    slug: 'discord-server-dlya-biznesa-2026',
+    category: 'marketing',
+    published: true,
+    title: 'Свой Discord-сервер для бизнеса и комьюнити 2026: настройка, монетизация, кейсы',
+    metaTitle: 'Discord-сервер для бизнеса 2026: настройка, монетизация, кейсы',
+    metaDescription: 'Как запустить свой Discord-сервер для бизнеса и комьюнити в 2026: структура сервера, обязательные боты, AI-помощник на Claude/GPT, 7 моделей монетизации, российские кейсы (Skyeng, AvitoTech), привлечение первых 100 участников, юр-нюансы РФ, чек-лист запуска за выходные.',
+    metaKeywords: 'Discord, Discord-сервер, комьюнити, community management, медиа, бизнес, Server Subscriptions, монетизация Discord, AI-бот Discord, Discord для бизнеса',
+    excerpt: 'Discord в 2026 — это не «для геймеров»: OpenAI, Vercel, Stripe, Skyeng, AvitoTech строят на нём комьюнити вокруг бизнеса. Расскажу как запустить свой Discord-сервер за выходные: структура, 5 обязательных ботов, AI-помощник, 7 моделей монетизации, российские кейсы и юр-нюансы РФ.',
+    datePublished: '2026-05-23',
+    dateModified: '2026-05-23',
+    readingMinutes: 24,
+    heroIcon: 'ph-fill ph-discord-logo',
+    tags: ['Discord', 'комьюнити', 'community management', 'медиа', 'бизнес'],
+    toc: [
+      { id: 'discord-2026', text: 'Discord 2026 — это уже не про игры' },
+      { id: 'discord-vs-telegram-slack', text: 'Discord vs Telegram vs Slack' },
+      { id: 'komu-nuzhen', text: 'Кому нужен Discord-сервер в 2026' },
+      { id: 'struktura', text: 'Структура сервера — золотой стандарт' },
+      { id: 'nastroika', text: 'Настройка с нуля за 60 минут' },
+      { id: 'boty', text: 'Обязательные боты 2026' },
+      { id: 'ai-pomoshchnik', text: 'AI-помощник в Discord' },
+      { id: 'monetizaciya', text: '7 моделей монетизации' },
+      { id: 'keysy', text: 'Реальные российские кейсы' },
+      { id: 'privlechenie', text: 'Привлечение первых 100 участников' },
+      { id: 'uderzhanie', text: 'Удержание — 5 механик 2026' },
+      { id: 'yur-nyuansy', text: 'Юр-нюансы Discord в РФ' },
+      { id: 'oshibki', text: 'Топ-5 ошибок при запуске' },
+      { id: 'faq', text: 'Частые вопросы' },
+      { id: 'vyvody', text: 'Чек-лист запуска на выходные' },
+    ],
+    contentHtml: discordCommunityContent,
+    relatedSlugs: ['svoy-sayt-vs-socseti-2026', 'podcast-s-gostyami-monetizaciya-2026', 'ai-chatbot-na-sayt-bez-programmirovaniya-2026'],
+    ctaInternal: { url: 'https://chimitdorzhi.tech/services/personal-brand/', label: 'Запустить своё комьюнити' },
   },
 ];
