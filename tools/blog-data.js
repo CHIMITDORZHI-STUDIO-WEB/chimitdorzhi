@@ -18,6 +18,7 @@ const vpsComparisonContent = require('./blog-content-vps-comparison.js');
 const mvpRoadmapContent = require('./blog-content-mvp-roadmap.js');
 const aiParentsContent = require('./blog-content-ai-parents.js');
 const aiEverydayContent = require('./blog-content-ai-everyday.js');
+const phishingDetectionContent = require('./blog-content-phishing-detection.js');
 
 const article2Content = `
 <div class="blog-tldr">
@@ -3640,5 +3641,40 @@ module.exports = [
     contentHtml: aiEverydayContent,
     relatedSlugs: ['rossiyskiy-ai-stack-2026', 'ai-dlya-roditeley-2026', 'ai-v-marketinge-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/services/mentoring/', label: 'Менторство по AI для жизни' },
+  },
+  {
+    slug: 'kak-obnaruzhit-fishing-2026',
+    category: 'security',
+    published: true,
+    title: 'Как обнаружить фишинг в письме, SMS и Telegram за 10 секунд — гид 2026',
+    metaTitle: 'Как обнаружить фишинг за 10 секунд: email, SMS, Telegram, звонки 2026 | Чимитдоржи Дарижапов',
+    metaDescription: 'Практический гид 2026: как за 10 секунд распознать фишинг в email, SMS, Telegram, WhatsApp и звонках. 10-секундный чек-лист, топ-5 схем в РФ, защита родителей и бизнеса, AI и deepfake, план действий если попался.',
+    metaKeywords: 'фишинг, как распознать фишинг, мошенники, SMS-мошенники, фишинг Telegram, служба безопасности банка, deepfake голос, защита от фишинга, phishing 2026',
+    excerpt: 'В 2026 году с фишингом сталкивается почти каждый: SMS от «Госуслуг», звонки от «службы безопасности банка», письма от «налоговой». 99% атак вскрывается за 10 секунд если знать что искать. Гид для родителей, пенсионеров, бизнеса и айтишников: 10-секундный чек-лист, признаки по каждому каналу, AI и deepfake, топ-5 схем в РФ и план действий если попался.',
+    datePublished: '2026-05-22',
+    dateModified: '2026-05-22',
+    readingMinutes: 22,
+    heroIcon: 'ph-fill ph-fish-simple',
+    tags: ['фишинг', 'безопасность', 'мошенники', 'phishing', 'SMS', 'Telegram'],
+    toc: [
+      { id: 'realnost-2026', text: 'Реальность 2026: статистика и масштаб' },
+      { id: 'chto-takoe-fishing', text: 'Что такое фишинг — без сложных терминов' },
+      { id: 'cheklist-10-sekund', text: '10-секундный чек-лист «фишинг или нет»' },
+      { id: 'email-fishing', text: 'Email-фишинг: 8 признаков' },
+      { id: 'sms-fishing', text: 'SMS-фишинг (smishing): 7 признаков' },
+      { id: 'telegram-fishing', text: 'Telegram-фишинг: эпидемия 2026' },
+      { id: 'whatsapp-zvonki', text: 'WhatsApp, звонки и социальная инженерия' },
+      { id: 'poddelnye-sayty', text: 'Поддельные сайты: как распознать' },
+      { id: 'ai-i-fishing', text: 'AI и фишинг 2026: что изменилось' },
+      { id: 'chto-delat', text: 'Что делать если попался' },
+      { id: 'zashchita-roditelei', text: 'Защита родителей и пенсионеров' },
+      { id: 'zashchita-biznesa', text: 'Защита бизнеса от фишинга' },
+      { id: 'top-5-shem-2026', text: 'Топ-5 фишинг-схем 2026 в РФ' },
+      { id: 'faq', text: 'Частые вопросы' },
+      { id: 'vyvody', text: '10 правил безопасности' },
+    ],
+    contentHtml: phishingDetectionContent,
+    relatedSlugs: ['chek-list-bezopasnosti-sayta-47-punktov', 'utechki-pd-24-chasa-2026', 'audit-152-fz-2026'],
+    ctaInternal: { url: 'https://audit.chimitdorzhi.tech/security/', label: 'Заказать аудит безопасности' },
   },
 ];
