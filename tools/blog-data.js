@@ -16,6 +16,8 @@ const nocodeBotContent = require('./blog-content-nocode-bot.js');
 const seoShopContent = require('./blog-content-seo-shop.js');
 const vpsComparisonContent = require('./blog-content-vps-comparison.js');
 const mvpRoadmapContent = require('./blog-content-mvp-roadmap.js');
+const aiParentsContent = require('./blog-content-ai-parents.js');
+const aiEverydayContent = require('./blog-content-ai-everyday.js');
 
 const article2Content = `
 <div class="blog-tldr">
@@ -3574,5 +3576,69 @@ module.exports = [
     contentHtml: mvpRoadmapContent,
     relatedSlugs: ['svoy-vps-dlya-razrabotchika-2026', 'pwa-iz-sayta-za-vyhodnye-2026', 'ai-agenty-v-biznese-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/services/cto-as-a-service/', label: 'Запустить MVP с CTO под ключ' },
+  },
+  {
+    slug: 'ai-dlya-roditeley-2026',
+    category: 'ai',
+    published: true,
+    title: 'AI для родителей 2026: домашка, развитие, дисциплина — практический гид',
+    metaTitle: 'AI для родителей 2026: домашка, развитие, безопасность | Чимитдоржи Дарижапов',
+    metaDescription: 'Как родителю в 2026 настроить AI-связку для семьи: YandexGPT, GigaChat, Claude. 8 сценариев с готовыми промптами, развитие ребёнка, дисциплина, разговор с подростком, безопасность по 152-ФЗ, реальный кейс.',
+    metaKeywords: 'AI для родителей, AI для детей, ChatGPT школьник, YandexGPT учёба, GigaChat ребёнок, помощь с домашкой AI, AI образование, родители AI',
+    excerpt: 'Дети уже используют AI для домашки — запрет здесь не работает. Расскажу, как настроить YandexGPT, GigaChat, Claude для семьи: 8 сценариев с готовыми промптами по предметам, развитие, дисциплина, разговор с подростком, безопасность по 152-ФЗ и реальный кейс семьи с ребёнком 10 лет.',
+    datePublished: '2026-05-22',
+    dateModified: '2026-05-22',
+    readingMinutes: 26,
+    heroIcon: 'ph-fill ph-baby',
+    tags: ['AI', 'родители', 'дети', 'образование', 'ChatGPT', 'YandexGPT'],
+    toc: [
+      { id: 'realnost', text: 'AI и дети 2026: реальность' },
+      { id: 'kakie-llm', text: 'Какие LLM безопасны для детей' },
+      { id: 'glavnyy-princip', text: 'AI не заменяет мышление, а тренирует его' },
+      { id: 'domashka', text: '8 сценариев помощи с домашкой' },
+      { id: 'razvitie', text: 'AI для развития ребёнка' },
+      { id: 'pomoshchnik-roditelya', text: 'AI как помощник родителя' },
+      { id: 'disciplina', text: 'Дисциплина и время' },
+      { id: 'podrostki', text: 'AI и подростки — отдельный разговор' },
+      { id: 'ne-dolzhen', text: 'Чего НЕ должен делать AI для детей' },
+      { id: 'bezopasnost', text: 'Безопасность и приватность' },
+      { id: 'keys', text: 'Реальный кейс: семья с ребёнком 10 лет' },
+      { id: 'oshibki', text: 'Топ-5 ошибок родителей с AI' },
+      { id: 'faq', text: 'Частые вопросы' },
+      { id: 'vyvody', text: 'Выводы и чек-лист на неделю' },
+    ],
+    contentHtml: aiParentsContent,
+    relatedSlugs: ['ai-v-marketinge-2026', 'rossiyskiy-ai-stack-2026', 'lokalnyy-llm-na-noutbuke-2026'],
+    ctaInternal: { url: 'https://chimitdorzhi.tech/services/ai-for-education/', label: 'Заказать AI-обучение для семьи' },
+  },
+  {
+    slug: 'ai-v-povsednevnoy-zhizni-25-sposobov-2026',
+    category: 'ai',
+    published: true,
+    title: 'AI в повседневной жизни 2026: 25 способов использовать GPT/Claude/YandexGPT каждый день',
+    metaTitle: 'AI в жизни 2026: 25 способов использовать GPT/Claude/YandexGPT | Чимитдоржи Дарижапов',
+    metaDescription: '25 конкретных сценариев применения AI в повседневной жизни 2026: здоровье, финансы, карьера, творчество, семья. Готовые промпты для YandexGPT, GigaChat, Claude, ChatGPT, DeepSeek. Сравнительная таблица моделей и стек под бюджет.',
+    metaKeywords: 'AI повседневная жизнь, YandexGPT для жизни, GigaChat практика, ChatGPT каждый день, Claude применение, промпты AI, AI в семье, AI карьера',
+    excerpt: '25 конкретных сценариев применения AI в повседневной жизни — от расшифровки анализов и налоговых вычетов до подготовки к собеседованию, планирования путешествий и переговоров в семье. Готовые промпты для YandexGPT, GigaChat, Claude, ChatGPT и DeepSeek. Сравнительная таблица моделей и минимальный стек на 0-2000 ₽/мес.',
+    datePublished: '2026-05-22',
+    dateModified: '2026-05-22',
+    readingMinutes: 24,
+    heroIcon: 'ph-fill ph-magic-wand',
+    tags: ['AI', 'жизнь', 'повседневность', 'GPT', 'YandexGPT', 'Claude', 'практика'],
+    toc: [
+      { id: 'vvedenie', text: 'Какие AI работают в РФ 2026' },
+      { id: 'razdel-1', text: 'Раздел 1. Здоровье и быт (1-5)' },
+      { id: 'razdel-2', text: 'Раздел 2. Финансы и быт (6-10)' },
+      { id: 'razdel-3', text: 'Раздел 3. Карьера и работа (11-15)' },
+      { id: 'razdel-4', text: 'Раздел 4. Творчество и обучение (16-20)' },
+      { id: 'razdel-5', text: 'Раздел 5. Дом и семья (21-25)' },
+      { id: 'sravnitelnaya', text: 'Сравнительная таблица моделей' },
+      { id: 'oshibki', text: '5 главных ошибок начинающих' },
+      { id: 'faq', text: 'Частые вопросы' },
+      { id: 'vyvody', text: 'Выводы: AI на этой неделе' },
+    ],
+    contentHtml: aiEverydayContent,
+    relatedSlugs: ['rossiyskiy-ai-stack-2026', 'ai-dlya-roditeley-2026', 'ai-v-marketinge-2026'],
+    ctaInternal: { url: 'https://chimitdorzhi.tech/services/mentoring/', label: 'Менторство по AI для жизни' },
   },
 ];
