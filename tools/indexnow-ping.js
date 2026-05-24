@@ -44,6 +44,10 @@ const body = JSON.stringify({
     `https://${HOST}/blog/telegram-chat-vk-soobshchestvo-2026/`,
     `https://${HOST}/blog/ai-pomoshchnik-buhgaltera-2026/`,
     `https://${HOST}/blog/ai-dlya-yurista-advokata-2026/`,
+    `https://${HOST}/blog/voronka-prodazh-b2b-2026/`,
+    `https://${HOST}/blog/partnerskiy-marketing-affiliate-2026/`,
+    `https://${HOST}/blog/biznes-plan-2026-shablon/`,
+    `https://${HOST}/blog/crm-dlya-malogo-biznesa-2026/`,
     SITEMAP,
   ],
 });
