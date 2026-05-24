@@ -4105,7 +4105,7 @@ module.exports = [
   },
   {
     slug: 'kibertirniry-organizaciya-2026',
-    category: 'media',
+    category: 'esports',
     published: true,
     title: 'Турниры по киберспорту в РФ 2026: организация под ключ — площадка, призовой фонд, спонсоры',
     metaTitle: 'Кибертурнир под ключ 2026: организация, спонсоры, бюджет | Чимитдоржи Дарижапов',
@@ -4139,7 +4139,7 @@ module.exports = [
   },
   {
     slug: 'sponsorstvo-kibersport-streaming-2026',
-    category: 'marketing',
+    category: 'esports',
     published: true,
     title: 'Спонсорство в киберспорте и стриминге 2026: как привлечь, сколько просить, что давать взамен',
     metaTitle: 'Спонсорство в киберспорте 2026: гайд, цены, proposal | Чимитдоржи Дарижапов',
