@@ -33,6 +33,7 @@ const strimStudioContent = require('./blog-content-strim-studio.js');
 const liveCommerceContent = require('./blog-content-live-commerce.js');
 const kibertirniryContent = require('./blog-content-kibertirniry.js');
 const sponsorstvoContent = require('./blog-content-sponsorstvo.js');
+const gamificationSaasContent = require('./blog-content-gamification-saas.js');
 
 const article2Content = `
 <div class="blog-tldr">
@@ -4171,5 +4172,42 @@ module.exports = [
     contentHtml: sponsorstvoContent,
     relatedSlugs: ['kibertirniry-organizaciya-2026', 'partnerskiy-marketing-affiliate-2026', 'svoy-sayt-vs-socseti-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/services/event-organization/', label: 'Привлечь спонсоров под ваш проект' },
+  },
+  {
+    slug: 'geymifikaciya-saas-2026',
+    category: 'sales',
+    published: true,
+    title: 'Геймификация SaaS-продукта 2026: 7 механик которые поднимают retention в 2 раза',
+    metaTitle: 'Геймификация SaaS 2026: 7 механик retention | Чимитдоржи Дарижапов',
+    metaDescription: 'Полный гайд по геймификации SaaS 2026: 7 рабочих механик (streaks, progress bars, leaderboards, badges, variable rewards, quests, social proof) с рабочим кодом (SQL, React, Node.js), кейсы Duolingo, Strava, Notion, российские примеры (Тинькофф Pulse, Я.Музыка, Skyeng), пошаговое внедрение за 4 недели, метрики и unit-экономика.',
+    metaKeywords: 'геймификация SaaS, retention SaaS, gamification, streaks, badges, leaderboards, engagement, продуктовая аналитика, UX SaaS 2026',
+    excerpt: 'В 2026 году retention — главная метрика SaaS: привлечь клиента стоит в 5–10 раз дороже, чем удержать. Разбираю 7 рабочих механик геймификации (Duolingo, Strava, Spotify, Notion AI), даю SQL-схемы, React-компоненты и Node.js-код для share-картинок. Российские кейсы Тинькофф Pulse, Я.Музыка, Skyeng. Пошаговое внедрение за месяц, метрики, бенчмарки, AI-персонализация 2026.',
+    datePublished: '2026-05-25',
+    dateModified: '2026-05-25',
+    readingMinutes: 23,
+    heroIcon: 'ph-fill ph-trophy',
+    tags: ['геймификация', 'SaaS', 'retention', 'UX', 'продукт', 'engagement'],
+    toc: [
+      { id: 'chto-takoe', text: 'Что такое геймификация в SaaS' },
+      { id: 'glavnoe-pravilo', text: 'Главное правило 2026' },
+      { id: 'streaks', text: 'Механика №1 — Streaks' },
+      { id: 'progress', text: 'Механика №2 — Progress bars' },
+      { id: 'leaderboards', text: 'Механика №3 — Leaderboards' },
+      { id: 'badges', text: 'Механика №4 — Badges и achievements' },
+      { id: 'variable-rewards', text: 'Механика №5 — Variable rewards' },
+      { id: 'quests', text: 'Механика №6 — Quests и challenges' },
+      { id: 'social-proof', text: 'Механика №7 — Social proof и виральность' },
+      { id: 'ne-rabotaet', text: 'Где геймификация НЕ работает' },
+      { id: 'ai-gamification', text: 'AI + геймификация 2026' },
+      { id: 'rus-keisy', text: 'Российские кейсы 2024–2026' },
+      { id: 'vnedrenie', text: 'Внедрение за 4 недели' },
+      { id: 'metriki', text: 'Метрики геймификации' },
+      { id: 'oshibki', text: 'Топ-5 ошибок' },
+      { id: 'faq', text: 'FAQ' },
+      { id: 'vyvody', text: 'Чек-лист «первая механика за 2 недели»' },
+    ],
+    contentHtml: gamificationSaasContent,
+    relatedSlugs: ['saas-pricing-2026', 'mvp-to-production-3-mesyatsa-2026', 'voronka-prodazh-b2b-2026'],
+    ctaInternal: { url: 'https://chimitdorzhi.tech/services/business-automation/', label: 'Внедрить геймификацию в продукт' },
   },
 ];
