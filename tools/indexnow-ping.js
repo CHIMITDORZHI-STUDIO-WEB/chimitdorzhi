@@ -52,6 +52,7 @@ const body = JSON.stringify({
     `https://${HOST}/blog/live-commerce-rf-2026/`,
     `https://${HOST}/blog/kibertirniry-organizaciya-2026/`,
     `https://${HOST}/blog/sponsorstvo-kibersport-streaming-2026/`,
+    `https://${HOST}/blog/geymifikaciya-saas-2026/`,
     SITEMAP,
   ],
 });
