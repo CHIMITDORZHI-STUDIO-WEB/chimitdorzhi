@@ -16,12 +16,17 @@ const OUT_SITEMAP = path.join(ROOT, 'sitemap.xml');
 const OUT_FEED    = path.join(OUT_BLOG, 'feed.xml');
 
 const CATEGORY_LABELS = {
-  legal:       'Право и 152-ФЗ',
+  legal:       'Право и compliance',
+  'ai-dev':    'AI для разработчиков',
+  'ai-life':   'AI для жизни и работы',
+  marketing:   'Маркетинг и контент',
+  sales:       'Продажи и стартап',
+  media:       'Медиа и события',
   development: 'Разработка',
-  ai:          'AI и автоматизация',
-  marketing:   'Маркетинг и SEO',
-  finance:     'Финансы и ЦФА',
   security:    'Безопасность',
+  finance:     'Финансы',
+  // legacy/fallback
+  ai:          'AI и автоматизация',
   career:      'Карьера и обучение',
   security:    'Безопасность',
 };
@@ -438,11 +443,15 @@ ${JSON.stringify(breadcrumb, null, 2)}
                     <button class="filter-btn active" data-blog-cat="all">Все <span class="filter-count">${published.length}</span></button>
                     ${[
                       { key: 'legal',       label: 'Право' },
-                      { key: 'ai',          label: 'AI' },
+                      { key: 'ai-dev',      label: 'AI / разработка' },
+                      { key: 'ai-life',     label: 'AI / жизнь' },
                       { key: 'marketing',   label: 'Маркетинг' },
+                      { key: 'sales',       label: 'Продажи' },
+                      { key: 'media',       label: 'Медиа' },
                       { key: 'development', label: 'Разработка' },
                       { key: 'security',    label: 'Безопасность' },
                       { key: 'finance',     label: 'Финансы' },
+                      { key: 'ai',          label: 'AI (старое)' },
                       { key: 'career',      label: 'Карьера' },
                     ].map(c => {
                       const cnt = published.filter(p => p.category === c.key).length;
