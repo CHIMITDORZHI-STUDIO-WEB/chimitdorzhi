@@ -3026,7 +3026,7 @@ module.exports = [
   },
   {
     slug: 'rossiyskiy-ai-stack-2026',
-    category: 'ai',
+    category: 'ai-dev',
     published: true,
     title: 'Российский AI-стек 2026: чем заменить OpenAI, Claude и Gemini',
     metaTitle: 'Российский AI-стек 2026: YandexGPT, GigaChat, T-Pro',
@@ -3115,7 +3115,7 @@ module.exports = [
   },
   {
     slug: 'ai-agenty-v-biznese-2026',
-    category: 'ai',
+    category: 'ai-dev',
     published: true,
     title: 'AI-агенты в бизнесе 2026: что реально работает, а что — маркетинг',
     metaTitle: 'AI-агенты 2026: рабочие кейсы, фреймворки, цены | Чимитдоржи Дарижапов',
@@ -3179,7 +3179,7 @@ module.exports = [
   },
   {
     slug: 'rag-sistemy-dlya-biznesa-2026',
-    category: 'ai',
+    category: 'ai-dev',
     published: true,
     title: 'RAG-системы для бизнеса 2026: AI, который знает вашу базу знаний',
     metaTitle: 'RAG-системы 2026: архитектура, цены, кейсы | Чимитдоржи Дарижапов',
@@ -3247,7 +3247,7 @@ module.exports = [
   },
   {
     slug: 'lokalnyy-llm-na-noutbuke-2026',
-    category: 'ai',
+    category: 'ai-dev',
     published: true,
     title: 'Локальный LLM на ноутбуке 2026: Ollama, LM Studio, vLLM — практическое руководство',
     metaTitle: 'Локальный LLM 2026: Ollama, LM Studio, vLLM | Чимитдоржи Дарижапов',
@@ -3283,7 +3283,7 @@ module.exports = [
   },
   {
     slug: 'mcp-model-context-protocol-2026',
-    category: 'ai',
+    category: 'ai-dev',
     published: true,
     title: 'MCP — Model Context Protocol 2026: как Anthropic меняет интеграции с AI',
     metaTitle: 'MCP 2026: Model Context Protocol — практическое руководство | Чимитдоржи Дарижапов',
@@ -3318,7 +3318,7 @@ module.exports = [
   },
   {
     slug: 'ai-transkripciya-soveshchaniy-2026',
-    category: 'ai',
+    category: 'ai-life',
     published: true,
     title: 'Whisper + GPT для транскрипции совещаний 2026: AI-ассистент для встреч',
     metaTitle: 'AI-транскрипция встреч 2026: Whisper + GPT под ключ | Чимитдоржи Дарижапов',
@@ -3458,7 +3458,7 @@ module.exports = [
   },
   {
     slug: 'ai-chatbot-na-sayt-bez-programmirovaniya-2026',
-    category: 'ai',
+    category: 'ai-dev',
     published: true,
     title: 'AI-чат-бот на сайт за 2 дня без программирования 2026: n8n + Claude + Bubble',
     metaTitle: 'AI-чат-бот без кода 2026: n8n + YandexGPT за выходные | Чимитдоржи Дарижапов',
@@ -3559,7 +3559,7 @@ module.exports = [
   },
   {
     slug: 'mvp-to-production-3-mesyatsa-2026',
-    category: 'development',
+    category: 'sales',
     published: true,
     title: 'От MVP до Production за 3 месяца: реальный roadmap для стартапа 2026',
     metaTitle: 'От MVP до Production за 3 месяца: roadmap стартапа 2026 | Чимитдоржи Дарижапов',
@@ -3594,7 +3594,7 @@ module.exports = [
   },
   {
     slug: 'ai-dlya-roditeley-2026',
-    category: 'ai',
+    category: 'ai-life',
     published: true,
     title: 'AI для родителей 2026: домашка, развитие, дисциплина — практический гид',
     metaTitle: 'AI для родителей 2026: домашка, развитие, безопасность | Чимитдоржи Дарижапов',
@@ -3628,7 +3628,7 @@ module.exports = [
   },
   {
     slug: 'ai-v-povsednevnoy-zhizni-25-sposobov-2026',
-    category: 'ai',
+    category: 'ai-life',
     published: true,
     title: 'AI в повседневной жизни 2026: 25 способов использовать GPT/Claude/YandexGPT каждый день',
     metaTitle: 'AI в жизни 2026: 25 способов использовать GPT/Claude/YandexGPT | Чимитдоржи Дарижапов',
@@ -3727,7 +3727,7 @@ module.exports = [
   },
   {
     slug: 'saas-pricing-2026',
-    category: 'development',
+    category: 'sales',
     published: true,
     title: 'SaaS-pricing 2026: как назначать цены для подписочного бизнеса',
     metaTitle: 'SaaS-pricing 2026: 7 моделей, unit-экономика, тарифы | Чимитдоржи Дарижапов',
@@ -3762,7 +3762,7 @@ module.exports = [
   },
   {
     slug: 'podcast-s-gostyami-monetizaciya-2026',
-    category: 'marketing',
+    category: 'media',
     published: true,
     title: 'Подкаст с гостями: как монетизировать — опыт 100+ эпизодов',
     metaTitle: 'Подкаст с гостями: монетизация и запуск 2026 | Опыт 100+ эпизодов',
@@ -3832,7 +3832,7 @@ module.exports = [
   },
   {
     slug: 'ai-pomoshchnik-buhgaltera-2026',
-    category: 'ai',
+    category: 'ai-life',
     published: true,
     title: 'AI-помощник для бухгалтера 2026: 1С + GPT + OCR — реальная автоматизация',
     metaTitle: 'AI для бухгалтера 2026: OCR накладных, 1С, GPT, кейсы | Чимитдоржи Дарижапов',
@@ -3866,7 +3866,7 @@ module.exports = [
   },
   {
     slug: 'ai-dlya-yurista-advokata-2026',
-    category: 'ai',
+    category: 'ai-life',
     published: true,
     title: 'AI для адвоката и юриста 2026: автоматизация рутины — что реально работает',
     metaTitle: 'AI для юриста и адвоката 2026: RAG, договоры, кейсы | Чимитдоржи Дарижапов',
@@ -3901,7 +3901,7 @@ module.exports = [
   },
   {
     slug: 'voronka-prodazh-b2b-2026',
-    category: 'marketing',
+    category: 'sales',
     published: true,
     title: 'Воронка продаж B2B 2026: как построить и автоматизировать через AI + CRM',
     metaTitle: 'B2B-воронка продаж 2026: AI + CRM, метрики, кейсы | Чимитдоржи Дарижапов',
@@ -3936,7 +3936,7 @@ module.exports = [
   },
   {
     slug: 'partnerskiy-marketing-affiliate-2026',
-    category: 'marketing',
+    category: 'sales',
     published: true,
     title: 'Партнёрский маркетинг (affiliate) 2026: запуск партнёрской программы для своего продукта',
     metaTitle: 'Affiliate-маркетинг 2026: запуск партнёрки под ключ | Чимитдоржи Дарижапов',
@@ -3970,7 +3970,7 @@ module.exports = [
   },
   {
     slug: 'biznes-plan-2026-shablon',
-    category: 'marketing',
+    category: 'sales',
     published: true,
     title: 'Бизнес-план 2026: что писать и зачем — шаблон с реальным примером IT-стартапа',
     metaTitle: 'Бизнес-план 2026: шаблон, структура, AI, пример | Чимитдоржи Дарижапов',
@@ -4003,7 +4003,7 @@ module.exports = [
   },
   {
     slug: 'crm-dlya-malogo-biznesa-2026',
-    category: 'development',
+    category: 'sales',
     published: true,
     title: 'CRM для малого бизнеса 2026: amoCRM vs Bitrix24 vs RetailCRM vs Notion — что выбрать без переплаты',
     metaTitle: 'CRM 2026 сравнение: amoCRM, Bitrix24, RetailCRM, Notion | Чимитдоржи Дарижапов',
@@ -4037,7 +4037,7 @@ module.exports = [
   },
   {
     slug: 'svoya-strim-studiya-2026',
-    category: 'marketing',
+    category: 'media',
     published: true,
     title: 'Своя стрим-студия 2026: оборудование, ПО, бюджеты от 50к ₽ до 1М ₽',
     metaTitle: 'Стрим-студия 2026: оборудование, OBS, микрофоны, камеры | Чимитдоржи Дарижапов',
@@ -4071,7 +4071,7 @@ module.exports = [
   },
   {
     slug: 'live-commerce-rf-2026',
-    category: 'marketing',
+    category: 'media',
     published: true,
     title: 'Live Commerce 2026 в РФ: продажи через стримы — VK Live, OK Live, TG Stories — гид от практика',
     metaTitle: 'Live Commerce РФ 2026: VK Live, OK Live, TG Stories | Чимитдоржи Дарижапов',
@@ -4105,7 +4105,7 @@ module.exports = [
   },
   {
     slug: 'kibertirniry-organizaciya-2026',
-    category: 'marketing',
+    category: 'media',
     published: true,
     title: 'Турниры по киберспорту в РФ 2026: организация под ключ — площадка, призовой фонд, спонсоры',
     metaTitle: 'Кибертурнир под ключ 2026: организация, спонсоры, бюджет | Чимитдоржи Дарижапов',
