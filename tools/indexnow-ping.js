@@ -48,6 +48,10 @@ const body = JSON.stringify({
     `https://${HOST}/blog/partnerskiy-marketing-affiliate-2026/`,
     `https://${HOST}/blog/biznes-plan-2026-shablon/`,
     `https://${HOST}/blog/crm-dlya-malogo-biznesa-2026/`,
+    `https://${HOST}/blog/svoya-strim-studiya-2026/`,
+    `https://${HOST}/blog/live-commerce-rf-2026/`,
+    `https://${HOST}/blog/kibertirniry-organizaciya-2026/`,
+    `https://${HOST}/blog/sponsorstvo-kibersport-streaming-2026/`,
     SITEMAP,
   ],
 });
