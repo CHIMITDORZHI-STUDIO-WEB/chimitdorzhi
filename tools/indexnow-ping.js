@@ -57,6 +57,11 @@ const body = JSON.stringify({
     `https://${HOST}/blog/magazin-bot-max-2026/`,
     `https://${HOST}/blog/max-bot-restoran-kafe-2026/`,
     `https://${HOST}/blog/max-bot-rieltor-2026/`,
+    `https://${HOST}/blog/tilda-vs-kastomnaya-razrabotka-2026/`,
+    `https://${HOST}/blog/skolko-stoit-sayt-2026/`,
+    `https://${HOST}/blog/vk-mini-app-dlya-biznesa-2026/`,
+    `https://${HOST}/blog/ai-dlya-logistiki-2026/`,
+    `https://${HOST}/blog/razrabotka-dlya-meditsiny-2026/`,
     SITEMAP,
   ],
 });
