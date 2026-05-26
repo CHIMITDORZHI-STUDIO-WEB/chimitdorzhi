@@ -2850,6 +2850,16 @@ module.exports = [
     contentHtml: article1Content,
     relatedSlugs: ['cookie-banner-zakon', 'uvedomlenie-rkn-2026'],
     ctaInternal: { url: '/audit/', label: 'Заказать аудит 152-ФЗ' },
+    servicesOffer: {
+      title: "Что я делаю по 152-ФЗ и compliance",
+      services: [
+      { icon: 'ph-fill ph-shield-check', label: "Полный аудит сайта по 152-ФЗ — от 5 000 ₽" },
+      { icon: 'ph-fill ph-file-text', label: "Подача уведомления в РКН под ключ" },
+      { icon: 'ph-fill ph-cookie', label: "Cookie-баннер и согласия по закону" },
+      { icon: 'ph-fill ph-database', label: "Миграция данных на серверы РФ" },
+      { icon: 'ph-fill ph-warning-circle', label: "Помощь при утечке за 24 часа" },
+      ],
+    },
   },
   // ---- Stubs (published: false). Generator skips them. ----
   {
@@ -2882,6 +2892,16 @@ module.exports = [
     contentHtml: article2Content,
     relatedSlugs: ['audit-152-fz-2026', 'uvedomlenie-rkn-2026'],
     ctaInternal: { url: 'https://audit.chimitdorzhi.tech/', label: 'Заказать аудит сайта' },
+    servicesOffer: {
+      title: "Что я делаю по 152-ФЗ и compliance",
+      services: [
+      { icon: 'ph-fill ph-shield-check', label: "Полный аудит сайта по 152-ФЗ — от 5 000 ₽" },
+      { icon: 'ph-fill ph-file-text', label: "Подача уведомления в РКН под ключ" },
+      { icon: 'ph-fill ph-cookie', label: "Cookie-баннер и согласия по закону" },
+      { icon: 'ph-fill ph-database', label: "Миграция данных на серверы РФ" },
+      { icon: 'ph-fill ph-warning-circle', label: "Помощь при утечке за 24 часа" },
+      ],
+    },
   },
   {
     slug: 'uvedomlenie-rkn-2026',
@@ -2914,6 +2934,16 @@ module.exports = [
     contentHtml: article3Content,
     relatedSlugs: ['audit-152-fz-2026', 'cookie-banner-zakon'],
     ctaInternal: { url: 'https://audit.chimitdorzhi.tech/', label: 'Заказать аудит 152-ФЗ' },
+    servicesOffer: {
+      title: "Что я делаю по 152-ФЗ и compliance",
+      services: [
+      { icon: 'ph-fill ph-shield-check', label: "Полный аудит сайта по 152-ФЗ — от 5 000 ₽" },
+      { icon: 'ph-fill ph-file-text', label: "Подача уведомления в РКН под ключ" },
+      { icon: 'ph-fill ph-cookie', label: "Cookie-баннер и согласия по закону" },
+      { icon: 'ph-fill ph-database', label: "Миграция данных на серверы РФ" },
+      { icon: 'ph-fill ph-warning-circle', label: "Помощь при утечке за 24 часа" },
+      ],
+    },
   },
   {
     slug: 'lokalizaciya-pd-2026',
@@ -2945,6 +2975,16 @@ module.exports = [
     contentHtml: article4Content,
     relatedSlugs: ['audit-152-fz-2026', 'cookie-banner-zakon'],
     ctaInternal: { url: 'https://audit.chimitdorzhi.tech/', label: 'Заказать аудит 152-ФЗ' },
+    servicesOffer: {
+      title: "Что я делаю по 152-ФЗ и compliance",
+      services: [
+      { icon: 'ph-fill ph-shield-check', label: "Полный аудит сайта по 152-ФЗ — от 5 000 ₽" },
+      { icon: 'ph-fill ph-file-text', label: "Подача уведомления в РКН под ключ" },
+      { icon: 'ph-fill ph-cookie', label: "Cookie-баннер и согласия по закону" },
+      { icon: 'ph-fill ph-database', label: "Миграция данных на серверы РФ" },
+      { icon: 'ph-fill ph-warning-circle', label: "Помощь при утечке за 24 часа" },
+      ],
+    },
   },
   {
     slug: 'cfa-dlya-biznesa-2026',
@@ -2976,6 +3016,15 @@ module.exports = [
     contentHtml: article5Content,
     relatedSlugs: ['audit-152-fz-2026', 'lokalizaciya-pd-2026'],
     ctaInternal: { url: '/services/', label: 'Услуги и консультации' },
+    servicesOffer: {
+      title: "Что я делаю по ЦФА и финансам",
+      services: [
+      { icon: 'ph-fill ph-coins', label: "Консультация по выпуску ЦФА" },
+      { icon: 'ph-fill ph-handshake', label: "Подбор оператора ЦФА (Атомайз, Сбер)" },
+      { icon: 'ph-fill ph-file-text', label: "Юр-структура эмиссии и налоги" },
+      { icon: 'ph-fill ph-chart-line-up', label: "Токенизация активов под бизнес" },
+      ],
+    },
   },
   {
     slug: 'pwa-iz-sayta-za-vyhodnye-2026',
@@ -3009,6 +3058,16 @@ module.exports = [
     contentHtml: article6Content,
     relatedSlugs: ['cfa-dlya-biznesa-2026', 'lokalizaciya-pd-2026', 'audit-152-fz-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/development/pwa/', label: 'Заказать PWA-разработку' },
+    servicesOffer: {
+      title: "Что я делаю по разработке",
+      services: [
+      { icon: 'ph-fill ph-globe', label: "Сайт под ключ от 30 000 ₽" },
+      { icon: 'ph-fill ph-app-window', label: "PWA — приложение из сайта" },
+      { icon: 'ph-fill ph-device-mobile', label: "Мобильное приложение (iOS/Android/кросс)" },
+      { icon: 'ph-fill ph-robot', label: "Telegram/MAX-бот с интеграциями" },
+      { icon: 'ph-fill ph-cloud', label: "Деплой и настройка VPS" },
+      ],
+    },
   },
   {
     slug: 'utechki-pd-24-chasa-2026',
@@ -3041,6 +3100,16 @@ module.exports = [
     contentHtml: article7Content,
     relatedSlugs: ['audit-152-fz-2026', 'uvedomlenie-rkn-2026', 'cookie-banner-zakon'],
     ctaInternal: { url: 'https://audit.chimitdorzhi.tech/', label: 'Заказать аудит 152-ФЗ' },
+    servicesOffer: {
+      title: "Что я делаю по 152-ФЗ и compliance",
+      services: [
+      { icon: 'ph-fill ph-shield-check', label: "Полный аудит сайта по 152-ФЗ — от 5 000 ₽" },
+      { icon: 'ph-fill ph-file-text', label: "Подача уведомления в РКН под ключ" },
+      { icon: 'ph-fill ph-cookie', label: "Cookie-баннер и согласия по закону" },
+      { icon: 'ph-fill ph-database', label: "Миграция данных на серверы РФ" },
+      { icon: 'ph-fill ph-warning-circle', label: "Помощь при утечке за 24 часа" },
+      ],
+    },
   },
   {
     slug: 'rossiyskiy-ai-stack-2026',
@@ -3074,6 +3143,16 @@ module.exports = [
     contentHtml: article8Content,
     relatedSlugs: ['lokalizaciya-pd-2026', 'cfa-dlya-biznesa-2026', 'pwa-iz-sayta-za-vyhodnye-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/development/site-chatbots/', label: 'Заказать AI-ассистента' },
+    servicesOffer: {
+      title: "Что я делаю по AI для бизнеса",
+      services: [
+      { icon: 'ph-fill ph-robot', label: "AI-агенты и LLM-решения под задачу" },
+      { icon: 'ph-fill ph-database', label: "RAG-системы (10 000+ документов в портфолио)" },
+      { icon: 'ph-fill ph-chat-circle-dots', label: "AI-чат-бот на сайт за 5-7 дней" },
+      { icon: 'ph-fill ph-cpu', label: "Локальный LLM на вашем сервере (приватно)" },
+      { icon: 'ph-fill ph-plugs-connected', label: "MCP-интеграции с CRM, БД, корпоративными системами" },
+      ],
+    },
   },
   {
     slug: 'cena-telegram-bota-2026', category: 'development', published: false,
@@ -3164,6 +3243,16 @@ module.exports = [
     contentHtml: aiAgentsContent,
     relatedSlugs: ['rossiyskiy-ai-stack-2026', 'cfa-dlya-biznesa-2026', 'pwa-iz-sayta-za-vyhodnye-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/services/ai-agents/', label: 'Заказать AI-агента' },
+    servicesOffer: {
+      title: "Что я делаю по AI для бизнеса",
+      services: [
+      { icon: 'ph-fill ph-robot', label: "AI-агенты и LLM-решения под задачу" },
+      { icon: 'ph-fill ph-database', label: "RAG-системы (10 000+ документов в портфолио)" },
+      { icon: 'ph-fill ph-chat-circle-dots', label: "AI-чат-бот на сайт за 5-7 дней" },
+      { icon: 'ph-fill ph-cpu', label: "Локальный LLM на вашем сервере (приватно)" },
+      { icon: 'ph-fill ph-plugs-connected', label: "MCP-интеграции с CRM, БД, корпоративными системами" },
+      ],
+    },
   },
   {
     slug: 'chek-list-bezopasnosti-sayta-47-punktov',
@@ -3194,6 +3283,16 @@ module.exports = [
     contentHtml: securityChecklistContent,
     relatedSlugs: ['audit-152-fz-2026', 'cookie-banner-zakon', 'utechki-pd-24-chasa-2026'],
     ctaInternal: { url: 'https://audit.chimitdorzhi.tech/security/', label: 'Заказать аудит безопасности' },
+    servicesOffer: {
+      title: "Что я делаю по безопасности",
+      services: [
+      { icon: 'ph-fill ph-shield-check', label: "Аудит безопасности сайта (47 пунктов)" },
+      { icon: 'ph-fill ph-fish-simple', label: "Защита от фишинга для сотрудников" },
+      { icon: 'ph-fill ph-lock-key', label: "Аудит 152-ФЗ и compliance" },
+      { icon: 'ph-fill ph-warning-circle', label: "Реакция на инциденты (за 24 часа)" },
+      { icon: 'ph-fill ph-shield-star', label: "Корпоративные тренинги по безопасности" },
+      ],
+    },
   },
   {
     slug: 'rag-sistemy-dlya-biznesa-2026',
@@ -3228,6 +3327,16 @@ module.exports = [
     contentHtml: ragSystemsContent,
     relatedSlugs: ['ai-agenty-v-biznese-2026', 'rossiyskiy-ai-stack-2026', 'lokalizaciya-pd-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/services/rag-systems/', label: 'Заказать RAG-систему' },
+    servicesOffer: {
+      title: "Что я делаю по AI для бизнеса",
+      services: [
+      { icon: 'ph-fill ph-robot', label: "AI-агенты и LLM-решения под задачу" },
+      { icon: 'ph-fill ph-database', label: "RAG-системы (10 000+ документов в портфолио)" },
+      { icon: 'ph-fill ph-chat-circle-dots', label: "AI-чат-бот на сайт за 5-7 дней" },
+      { icon: 'ph-fill ph-cpu', label: "Локальный LLM на вашем сервере (приватно)" },
+      { icon: 'ph-fill ph-plugs-connected', label: "MCP-интеграции с CRM, БД, корпоративными системами" },
+      ],
+    },
   },
   {
     slug: 'ai-v-marketinge-2026',
@@ -3262,6 +3371,16 @@ module.exports = [
     contentHtml: aiMarketingContent,
     relatedSlugs: ['rossiyskiy-ai-stack-2026', 'ai-agenty-v-biznese-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/services/digital-marketing/', label: 'Заказать AI-маркетинг' },
+    servicesOffer: {
+      title: "Что я делаю по маркетингу и контенту",
+      services: [
+      { icon: 'ph-fill ph-magnifying-glass-plus', label: "SEO-аудит и продвижение в Яндексе" },
+      { icon: 'ph-fill ph-newspaper', label: "Контент-маркетинг + блог + email-рассылки" },
+      { icon: 'ph-fill ph-chats-circle', label: "Запуск Telegram + VK комьюнити" },
+      { icon: 'ph-fill ph-megaphone', label: "AI-маркетинг: промпты, контент-конвейер" },
+      { icon: 'ph-fill ph-trend-up', label: "Реклама в Я.Директ и VK Ads под ключ" },
+      ],
+    },
   },
   {
     slug: 'lokalnyy-llm-na-noutbuke-2026',
@@ -3298,6 +3417,16 @@ module.exports = [
     contentHtml: localLlmContent,
     relatedSlugs: ['rossiyskiy-ai-stack-2026', 'ai-agenty-v-biznese-2026', 'rag-sistemy-dlya-biznesa-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/services/ai-agents/', label: 'Заказать AI-решение под ключ' },
+    servicesOffer: {
+      title: "Что я делаю по AI для бизнеса",
+      services: [
+      { icon: 'ph-fill ph-robot', label: "AI-агенты и LLM-решения под задачу" },
+      { icon: 'ph-fill ph-database', label: "RAG-системы (10 000+ документов в портфолио)" },
+      { icon: 'ph-fill ph-chat-circle-dots', label: "AI-чат-бот на сайт за 5-7 дней" },
+      { icon: 'ph-fill ph-cpu', label: "Локальный LLM на вашем сервере (приватно)" },
+      { icon: 'ph-fill ph-plugs-connected', label: "MCP-интеграции с CRM, БД, корпоративными системами" },
+      ],
+    },
   },
   {
     slug: 'mcp-model-context-protocol-2026',
@@ -3333,6 +3462,16 @@ module.exports = [
     contentHtml: mcpContent,
     relatedSlugs: ['ai-agenty-v-biznese-2026', 'rag-sistemy-dlya-biznesa-2026', 'rossiyskiy-ai-stack-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/services/ai-agents/', label: 'Внедрю MCP-интеграцию' },
+    servicesOffer: {
+      title: "Что я делаю по AI для бизнеса",
+      services: [
+      { icon: 'ph-fill ph-robot', label: "AI-агенты и LLM-решения под задачу" },
+      { icon: 'ph-fill ph-database', label: "RAG-системы (10 000+ документов в портфолио)" },
+      { icon: 'ph-fill ph-chat-circle-dots', label: "AI-чат-бот на сайт за 5-7 дней" },
+      { icon: 'ph-fill ph-cpu', label: "Локальный LLM на вашем сервере (приватно)" },
+      { icon: 'ph-fill ph-plugs-connected', label: "MCP-интеграции с CRM, БД, корпоративными системами" },
+      ],
+    },
   },
   {
     slug: 'ai-transkripciya-soveshchaniy-2026',
@@ -3368,6 +3507,16 @@ module.exports = [
     contentHtml: whisperContent,
     relatedSlugs: ['lokalnyy-llm-na-noutbuke-2026', 'ai-agenty-v-biznese-2026', 'rossiyskiy-ai-stack-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/services/business-automation/', label: 'Заказать AI-ассистент для встреч' },
+    servicesOffer: {
+      title: "Что я делаю по AI для работы и жизни",
+      services: [
+      { icon: 'ph-fill ph-microphone', label: "AI-транскрипция совещаний и звонков" },
+      { icon: 'ph-fill ph-calculator', label: "AI-автоматизация бухгалтерии (1С + OCR + GPT)" },
+      { icon: 'ph-fill ph-scales', label: "AI-помощник для юристов и адвокатов" },
+      { icon: 'ph-fill ph-graduation-cap', label: "AI-ассистент для семьи и обучения детей" },
+      { icon: 'ph-fill ph-magic-wand', label: "Менторство — 1 час под вашу задачу" },
+      ],
+    },
   },
   {
     slug: 'svoy-sayt-vs-socseti-2026',
@@ -3403,6 +3552,16 @@ module.exports = [
     contentHtml: ownPlatformContent,
     relatedSlugs: ['ai-v-marketinge-2026', 'pwa-iz-sayta-za-vyhodnye-2026', 'audit-152-fz-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/development/sites/', label: 'Заказать сайт под ключ' },
+    servicesOffer: {
+      title: "Что я делаю по маркетингу и контенту",
+      services: [
+      { icon: 'ph-fill ph-magnifying-glass-plus', label: "SEO-аудит и продвижение в Яндексе" },
+      { icon: 'ph-fill ph-newspaper', label: "Контент-маркетинг + блог + email-рассылки" },
+      { icon: 'ph-fill ph-chats-circle', label: "Запуск Telegram + VK комьюнити" },
+      { icon: 'ph-fill ph-megaphone', label: "AI-маркетинг: промпты, контент-конвейер" },
+      { icon: 'ph-fill ph-trend-up', label: "Реклама в Я.Директ и VK Ads под ключ" },
+      ],
+    },
   },
   {
     slug: 'svoy-magazin-vs-wildberries-ozon-2026',
@@ -3439,6 +3598,15 @@ module.exports = [
     contentHtml: ownShopContent,
     relatedSlugs: ['svoy-sayt-vs-socseti-2026', 'pwa-iz-sayta-za-vyhodnye-2026', 'cena-telegram-bota-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/development/marketplaces/', label: 'Заказать интернет-магазин под ключ' },
+    servicesOffer: {
+      title: "Что я делаю по e-commerce",
+      services: [
+      { icon: 'ph-fill ph-storefront', label: "Интернет-магазин под ключ" },
+      { icon: 'ph-fill ph-credit-card', label: "Интеграция ЮKassa/СБП/СберПэй" },
+      { icon: 'ph-fill ph-truck', label: "Подключение СДЭК/Boxberry/Я.Доставка" },
+      { icon: 'ph-fill ph-database', label: "Интеграция с 1С/МойСклад/Битрикс" },
+      ],
+    },
   },
   {
     slug: 'dostupnost-sayta-a11y-2026',
@@ -3473,6 +3641,15 @@ module.exports = [
     contentHtml: a11yContent,
     relatedSlugs: ['audit-152-fz-2026', 'cookie-banner-zakon', 'svoy-sayt-vs-socseti-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/development/sites/', label: 'Сделаю доступный сайт' },
+    servicesOffer: {
+      title: "Что я делаю по доступности сайтов (a11y)",
+      services: [
+      { icon: 'ph-fill ph-universal-access', label: "WCAG 2.2 AA-аудит сайта" },
+      { icon: 'ph-fill ph-code', label: "Доработка сайта под a11y" },
+      { icon: 'ph-fill ph-globe', label: "Новый сайт с a11y из коробки" },
+      { icon: 'ph-fill ph-trophy', label: "Подготовка к гос-тендерам по доступности" },
+      ],
+    },
   },
   {
     slug: 'ai-chatbot-na-sayt-bez-programmirovaniya-2026',
@@ -3508,6 +3685,16 @@ module.exports = [
     contentHtml: nocodeBotContent,
     relatedSlugs: ['ai-agenty-v-biznese-2026', 'rag-sistemy-dlya-biznesa-2026', 'rossiyskiy-ai-stack-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/development/site-chatbots/', label: 'Заказать AI-чат-бот' },
+    servicesOffer: {
+      title: "Что я делаю по AI для бизнеса",
+      services: [
+      { icon: 'ph-fill ph-robot', label: "AI-агенты и LLM-решения под задачу" },
+      { icon: 'ph-fill ph-database', label: "RAG-системы (10 000+ документов в портфолио)" },
+      { icon: 'ph-fill ph-chat-circle-dots', label: "AI-чат-бот на сайт за 5-7 дней" },
+      { icon: 'ph-fill ph-cpu', label: "Локальный LLM на вашем сервере (приватно)" },
+      { icon: 'ph-fill ph-plugs-connected', label: "MCP-интеграции с CRM, БД, корпоративными системами" },
+      ],
+    },
   },
   {
     slug: 'seo-internet-magazina-yandex-30-hakov-2026',
@@ -3538,7 +3725,18 @@ module.exports = [
     ],
     contentHtml: seoShopContent,
     relatedSlugs: ['svoy-magazin-vs-wildberries-ozon-2026', 'svoy-sayt-vs-socseti-2026', 'ai-v-marketinge-2026'],
-    ctaInternal: { url: 'https://chimitdorzhi.tech/development/marketplaces/', label: 'Заказать SEO-оптимизированный магазин' },  },
+    ctaInternal: { url: 'https://chimitdorzhi.tech/development/marketplaces/', label: 'Заказать SEO-оптимизированный магазин' },
+    servicesOffer: {
+      title: "Что я делаю по маркетингу и контенту",
+      services: [
+        { icon: 'ph-fill ph-magnifying-glass-plus', label: "SEO-аудит и продвижение в Яндексе" },
+        { icon: 'ph-fill ph-newspaper', label: "Контент-маркетинг + блог + email-рассылки" },
+        { icon: 'ph-fill ph-chats-circle', label: "Запуск Telegram + VK комьюнити" },
+        { icon: 'ph-fill ph-megaphone', label: "AI-маркетинг: промпты, контент-конвейер" },
+        { icon: 'ph-fill ph-trend-up', label: "Реклама в Я.Директ и VK Ads под ключ" },
+      ],
+    },
+  },
   {
     slug: 'svoy-vps-dlya-razrabotchika-2026',
     category: 'development',
@@ -3574,6 +3772,16 @@ module.exports = [
     contentHtml: vpsComparisonContent,
     relatedSlugs: ['pwa-iz-sayta-za-vyhodnye-2026', 'lokalizaciya-pd-2026', 'lokalnyy-llm-na-noutbuke-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/services/it-infrastructure/', label: 'Заказать настройку VPS-инфраструктуры' },
+    servicesOffer: {
+      title: "Что я делаю по маркетингу и контенту",
+      services: [
+      { icon: 'ph-fill ph-magnifying-glass-plus', label: "SEO-аудит и продвижение в Яндексе" },
+      { icon: 'ph-fill ph-newspaper', label: "Контент-маркетинг + блог + email-рассылки" },
+      { icon: 'ph-fill ph-chats-circle', label: "Запуск Telegram + VK комьюнити" },
+      { icon: 'ph-fill ph-megaphone', label: "AI-маркетинг: промпты, контент-конвейер" },
+      { icon: 'ph-fill ph-trend-up', label: "Реклама в Я.Директ и VK Ads под ключ" },
+      ],
+    },
   },
   {
     slug: 'mvp-to-production-3-mesyatsa-2026',
@@ -3609,6 +3817,16 @@ module.exports = [
     contentHtml: mvpRoadmapContent,
     relatedSlugs: ['svoy-vps-dlya-razrabotchika-2026', 'pwa-iz-sayta-za-vyhodnye-2026', 'ai-agenty-v-biznese-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/services/cto-as-a-service/', label: 'Запустить MVP с CTO под ключ' },
+    servicesOffer: {
+      title: "Что я делаю по продажам и стартапу",
+      services: [
+      { icon: 'ph-fill ph-funnel', label: "B2B-воронка с AI и CRM-автоматизацией" },
+      { icon: 'ph-fill ph-rocket-launch', label: "MVP под ключ за 3 месяца" },
+      { icon: 'ph-fill ph-address-book', label: "Настройка CRM (amoCRM, Bitrix24)" },
+      { icon: 'ph-fill ph-clipboard-text', label: "Бизнес-план для гранта/инвестора/банка" },
+      { icon: 'ph-fill ph-currency-circle-dollar', label: "SaaS-pricing и unit-экономика" },
+      ],
+    },
   },
   {
     slug: 'ai-dlya-roditeley-2026',
@@ -3643,6 +3861,16 @@ module.exports = [
     contentHtml: aiParentsContent,
     relatedSlugs: ['ai-v-marketinge-2026', 'rossiyskiy-ai-stack-2026', 'lokalnyy-llm-na-noutbuke-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/services/ai-for-education/', label: 'Заказать AI-обучение для семьи' },
+    servicesOffer: {
+      title: "Что я делаю по AI для работы и жизни",
+      services: [
+      { icon: 'ph-fill ph-microphone', label: "AI-транскрипция совещаний и звонков" },
+      { icon: 'ph-fill ph-calculator', label: "AI-автоматизация бухгалтерии (1С + OCR + GPT)" },
+      { icon: 'ph-fill ph-scales', label: "AI-помощник для юристов и адвокатов" },
+      { icon: 'ph-fill ph-graduation-cap', label: "AI-ассистент для семьи и обучения детей" },
+      { icon: 'ph-fill ph-magic-wand', label: "Менторство — 1 час под вашу задачу" },
+      ],
+    },
   },
   {
     slug: 'ai-v-povsednevnoy-zhizni-25-sposobov-2026',
@@ -3673,6 +3901,16 @@ module.exports = [
     contentHtml: aiEverydayContent,
     relatedSlugs: ['rossiyskiy-ai-stack-2026', 'ai-dlya-roditeley-2026', 'ai-v-marketinge-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/services/mentoring/', label: 'Менторство по AI для жизни' },
+    servicesOffer: {
+      title: "Что я делаю по AI для работы и жизни",
+      services: [
+      { icon: 'ph-fill ph-microphone', label: "AI-транскрипция совещаний и звонков" },
+      { icon: 'ph-fill ph-calculator', label: "AI-автоматизация бухгалтерии (1С + OCR + GPT)" },
+      { icon: 'ph-fill ph-scales', label: "AI-помощник для юристов и адвокатов" },
+      { icon: 'ph-fill ph-graduation-cap', label: "AI-ассистент для семьи и обучения детей" },
+      { icon: 'ph-fill ph-magic-wand', label: "Менторство — 1 час под вашу задачу" },
+      ],
+    },
   },
   {
     slug: 'kak-obnaruzhit-fishing-2026',
@@ -3708,6 +3946,16 @@ module.exports = [
     contentHtml: phishingDetectionContent,
     relatedSlugs: ['chek-list-bezopasnosti-sayta-47-punktov', 'utechki-pd-24-chasa-2026', 'audit-152-fz-2026'],
     ctaInternal: { url: 'https://audit.chimitdorzhi.tech/security/', label: 'Заказать аудит безопасности' },
+    servicesOffer: {
+      title: "Что я делаю по безопасности",
+      services: [
+      { icon: 'ph-fill ph-shield-check', label: "Аудит безопасности сайта (47 пунктов)" },
+      { icon: 'ph-fill ph-fish-simple', label: "Защита от фишинга для сотрудников" },
+      { icon: 'ph-fill ph-lock-key', label: "Аудит 152-ФЗ и compliance" },
+      { icon: 'ph-fill ph-warning-circle', label: "Реакция на инциденты (за 24 часа)" },
+      { icon: 'ph-fill ph-shield-star', label: "Корпоративные тренинги по безопасности" },
+      ],
+    },
   },
   {
     slug: 'zashchita-brenda-2026',
@@ -3742,6 +3990,16 @@ module.exports = [
     contentHtml: brandProtectionContent,
     relatedSlugs: ['audit-152-fz-2026', 'uvedomlenie-rkn-2026', 'mvp-to-production-3-mesyatsa-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/services/business-legal-compliance/', label: 'Заказать защиту бренда под ключ' },
+    servicesOffer: {
+      title: "Что я делаю по защите бренда",
+      services: [
+      { icon: 'ph-fill ph-trademark-registered', label: "Регистрация товарного знака под ключ" },
+      { icon: 'ph-fill ph-globe', label: "Защита доменов и онлайн-присутствия" },
+      { icon: 'ph-fill ph-shield-star', label: "Депонирование контента и кода" },
+      { icon: 'ph-fill ph-file-text', label: "Юр-документы (оферта, политика, NDA)" },
+      { icon: 'ph-fill ph-gavel', label: "Сопровождение нарушений и претензий" },
+      ],
+    },
   },
   {
     slug: 'saas-pricing-2026',
@@ -3777,6 +4035,16 @@ module.exports = [
     contentHtml: saasPricingContent,
     relatedSlugs: ['mvp-to-production-3-mesyatsa-2026', 'svoy-magazin-vs-wildberries-ozon-2026', 'ai-v-marketinge-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/services/business-analytics-unit-economics/', label: 'Расчёт цен и unit-экономики' },
+    servicesOffer: {
+      title: "Что я делаю по продажам и стартапу",
+      services: [
+      { icon: 'ph-fill ph-funnel', label: "B2B-воронка с AI и CRM-автоматизацией" },
+      { icon: 'ph-fill ph-rocket-launch', label: "MVP под ключ за 3 месяца" },
+      { icon: 'ph-fill ph-address-book', label: "Настройка CRM (amoCRM, Bitrix24)" },
+      { icon: 'ph-fill ph-clipboard-text', label: "Бизнес-план для гранта/инвестора/банка" },
+      { icon: 'ph-fill ph-currency-circle-dollar', label: "SaaS-pricing и unit-экономика" },
+      ],
+    },
   },
   {
     slug: 'podcast-s-gostyami-monetizaciya-2026',
@@ -3811,6 +4079,15 @@ module.exports = [
     contentHtml: podcastContent,
     relatedSlugs: ['svoy-sayt-vs-socseti-2026', 'ai-v-marketinge-2026', 'ai-transkripciya-soveshchaniy-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/services/podcast-production/', label: 'Запустить подкаст под ключ' },
+    servicesOffer: {
+      title: "Что я делаю по медиа и продакшну",
+      services: [
+      { icon: 'ph-fill ph-microphone-stage', label: "Запуск подкаста с гостями под ключ" },
+      { icon: 'ph-fill ph-video-camera', label: "Стрим-студия от 100к до 1М ₽" },
+      { icon: 'ph-fill ph-shopping-bag-open', label: "Live Commerce — продажи через стримы" },
+      { icon: 'ph-fill ph-megaphone', label: "Контент-стратегия и repurposing" },
+      ],
+    },
   },
   {
     slug: 'telegram-chat-vk-soobshchestvo-2026',
@@ -3847,6 +4124,16 @@ module.exports = [
     contentHtml: tgVkCommunityContent,
     relatedSlugs: ['svoy-sayt-vs-socseti-2026', 'podcast-s-gostyami-monetizaciya-2026', 'ai-chatbot-na-sayt-bez-programmirovaniya-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/services/personal-brand/', label: 'Запустить своё комьюнити' },
+    servicesOffer: {
+      title: "Что я делаю по маркетингу и контенту",
+      services: [
+      { icon: 'ph-fill ph-magnifying-glass-plus', label: "SEO-аудит и продвижение в Яндексе" },
+      { icon: 'ph-fill ph-newspaper', label: "Контент-маркетинг + блог + email-рассылки" },
+      { icon: 'ph-fill ph-chats-circle', label: "Запуск Telegram + VK комьюнити" },
+      { icon: 'ph-fill ph-megaphone', label: "AI-маркетинг: промпты, контент-конвейер" },
+      { icon: 'ph-fill ph-trend-up', label: "Реклама в Я.Директ и VK Ads под ключ" },
+      ],
+    },
   },
   {
     slug: 'ai-pomoshchnik-buhgaltera-2026',
@@ -3881,6 +4168,16 @@ module.exports = [
     contentHtml: aiAccountantContent,
     relatedSlugs: ['ai-agenty-v-biznese-2026', 'rossiyskiy-ai-stack-2026', 'rag-sistemy-dlya-biznesa-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/services/accounting-automation/', label: 'Внедрить AI в бухгалтерию' },
+    servicesOffer: {
+      title: "Что я делаю по AI для работы и жизни",
+      services: [
+      { icon: 'ph-fill ph-microphone', label: "AI-транскрипция совещаний и звонков" },
+      { icon: 'ph-fill ph-calculator', label: "AI-автоматизация бухгалтерии (1С + OCR + GPT)" },
+      { icon: 'ph-fill ph-scales', label: "AI-помощник для юристов и адвокатов" },
+      { icon: 'ph-fill ph-graduation-cap', label: "AI-ассистент для семьи и обучения детей" },
+      { icon: 'ph-fill ph-magic-wand', label: "Менторство — 1 час под вашу задачу" },
+      ],
+    },
   },
   {
     slug: 'ai-dlya-yurista-advokata-2026',
@@ -3916,6 +4213,16 @@ module.exports = [
     contentHtml: aiLawyerContent,
     relatedSlugs: ['rag-sistemy-dlya-biznesa-2026', 'rossiyskiy-ai-stack-2026', 'ai-agenty-v-biznese-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/services/business-legal-compliance/', label: 'Внедрить AI в юр-практику' },
+    servicesOffer: {
+      title: "Что я делаю по AI для работы и жизни",
+      services: [
+      { icon: 'ph-fill ph-microphone', label: "AI-транскрипция совещаний и звонков" },
+      { icon: 'ph-fill ph-calculator', label: "AI-автоматизация бухгалтерии (1С + OCR + GPT)" },
+      { icon: 'ph-fill ph-scales', label: "AI-помощник для юристов и адвокатов" },
+      { icon: 'ph-fill ph-graduation-cap', label: "AI-ассистент для семьи и обучения детей" },
+      { icon: 'ph-fill ph-magic-wand', label: "Менторство — 1 час под вашу задачу" },
+      ],
+    },
   },
   {
     slug: 'voronka-prodazh-b2b-2026',
@@ -3951,6 +4258,16 @@ module.exports = [
     contentHtml: b2bFunnelContent,
     relatedSlugs: ['ai-agenty-v-biznese-2026', 'ai-v-marketinge-2026', 'svoy-sayt-vs-socseti-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/services/business-automation/', label: 'Построить воронку B2B под ключ' },
+    servicesOffer: {
+      title: "Что я делаю по продажам и стартапу",
+      services: [
+      { icon: 'ph-fill ph-funnel', label: "B2B-воронка с AI и CRM-автоматизацией" },
+      { icon: 'ph-fill ph-rocket-launch', label: "MVP под ключ за 3 месяца" },
+      { icon: 'ph-fill ph-address-book', label: "Настройка CRM (amoCRM, Bitrix24)" },
+      { icon: 'ph-fill ph-clipboard-text', label: "Бизнес-план для гранта/инвестора/банка" },
+      { icon: 'ph-fill ph-currency-circle-dollar', label: "SaaS-pricing и unit-экономика" },
+      ],
+    },
   },
   {
     slug: 'partnerskiy-marketing-affiliate-2026',
@@ -3985,6 +4302,16 @@ module.exports = [
     contentHtml: affiliateContent,
     relatedSlugs: ['svoy-sayt-vs-socseti-2026', 'ai-v-marketinge-2026', 'voronka-prodazh-b2b-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/services/digital-marketing/', label: 'Запустить партнёрскую программу' },
+    servicesOffer: {
+      title: "Что я делаю по продажам и стартапу",
+      services: [
+      { icon: 'ph-fill ph-funnel', label: "B2B-воронка с AI и CRM-автоматизацией" },
+      { icon: 'ph-fill ph-rocket-launch', label: "MVP под ключ за 3 месяца" },
+      { icon: 'ph-fill ph-address-book', label: "Настройка CRM (amoCRM, Bitrix24)" },
+      { icon: 'ph-fill ph-clipboard-text', label: "Бизнес-план для гранта/инвестора/банка" },
+      { icon: 'ph-fill ph-currency-circle-dollar', label: "SaaS-pricing и unit-экономика" },
+      ],
+    },
   },
   {
     slug: 'biznes-plan-2026-shablon',
@@ -4018,6 +4345,16 @@ module.exports = [
     contentHtml: businessPlanContent,
     relatedSlugs: ['mvp-to-production-3-mesyatsa-2026', 'saas-pricing-2026', 'svoy-magazin-vs-wildberries-ozon-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/services/business-analytics-unit-economics/', label: 'Составить бизнес-план под ключ' },
+    servicesOffer: {
+      title: "Что я делаю по продажам и стартапу",
+      services: [
+      { icon: 'ph-fill ph-funnel', label: "B2B-воронка с AI и CRM-автоматизацией" },
+      { icon: 'ph-fill ph-rocket-launch', label: "MVP под ключ за 3 месяца" },
+      { icon: 'ph-fill ph-address-book', label: "Настройка CRM (amoCRM, Bitrix24)" },
+      { icon: 'ph-fill ph-clipboard-text', label: "Бизнес-план для гранта/инвестора/банка" },
+      { icon: 'ph-fill ph-currency-circle-dollar', label: "SaaS-pricing и unit-экономика" },
+      ],
+    },
   },
   {
     slug: 'crm-dlya-malogo-biznesa-2026',
@@ -4052,6 +4389,16 @@ module.exports = [
     contentHtml: crmComparisonContent,
     relatedSlugs: ['voronka-prodazh-b2b-2026', 'ai-agenty-v-biznese-2026', 'mvp-to-production-3-mesyatsa-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/services/business-automation/', label: 'Настроить CRM под ключ' },
+    servicesOffer: {
+      title: "Что я делаю по продажам и стартапу",
+      services: [
+      { icon: 'ph-fill ph-funnel', label: "B2B-воронка с AI и CRM-автоматизацией" },
+      { icon: 'ph-fill ph-rocket-launch', label: "MVP под ключ за 3 месяца" },
+      { icon: 'ph-fill ph-address-book', label: "Настройка CRM (amoCRM, Bitrix24)" },
+      { icon: 'ph-fill ph-clipboard-text', label: "Бизнес-план для гранта/инвестора/банка" },
+      { icon: 'ph-fill ph-currency-circle-dollar', label: "SaaS-pricing и unit-экономика" },
+      ],
+    },
   },
   {
     slug: 'svoya-strim-studiya-2026',
@@ -4086,6 +4433,15 @@ module.exports = [
     contentHtml: strimStudioContent,
     relatedSlugs: ['podcast-s-gostyami-monetizaciya-2026', 'ai-transkripciya-soveshchaniy-2026', 'svoy-sayt-vs-socseti-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/services/podcast-production/', label: 'Запустить стрим-студию под ключ' },
+    servicesOffer: {
+      title: "Что я делаю по медиа и продакшну",
+      services: [
+      { icon: 'ph-fill ph-microphone-stage', label: "Запуск подкаста с гостями под ключ" },
+      { icon: 'ph-fill ph-video-camera', label: "Стрим-студия от 100к до 1М ₽" },
+      { icon: 'ph-fill ph-shopping-bag-open', label: "Live Commerce — продажи через стримы" },
+      { icon: 'ph-fill ph-megaphone', label: "Контент-стратегия и repurposing" },
+      ],
+    },
   },
   {
     slug: 'live-commerce-rf-2026',
@@ -4120,6 +4476,15 @@ module.exports = [
     contentHtml: liveCommerceContent,
     relatedSlugs: ['svoy-magazin-vs-wildberries-ozon-2026', 'svoy-sayt-vs-socseti-2026', 'svoya-strim-studiya-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/development/marketplaces/', label: 'Запустить Live Commerce под ключ' },
+    servicesOffer: {
+      title: "Что я делаю по медиа и продакшну",
+      services: [
+      { icon: 'ph-fill ph-microphone-stage', label: "Запуск подкаста с гостями под ключ" },
+      { icon: 'ph-fill ph-video-camera', label: "Стрим-студия от 100к до 1М ₽" },
+      { icon: 'ph-fill ph-shopping-bag-open', label: "Live Commerce — продажи через стримы" },
+      { icon: 'ph-fill ph-megaphone', label: "Контент-стратегия и repurposing" },
+      ],
+    },
   },
   {
     slug: 'kibertirniry-organizaciya-2026',
@@ -4154,6 +4519,16 @@ module.exports = [
     contentHtml: kibertirniryContent,
     relatedSlugs: ['svoya-strim-studiya-2026', 'svoy-sayt-vs-socseti-2026', 'podcast-s-gostyami-monetizaciya-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/services/event-organization/', label: 'Организовать киберспортивный турнир' },
+    servicesOffer: {
+      title: "Что я делаю по киберспорту и брендингу",
+      services: [
+      { icon: 'ph-fill ph-game-controller', label: "Организация киберспорт-турниров под ключ" },
+      { icon: 'ph-fill ph-trophy', label: "Брендированная киберспорт-лига для бренда" },
+      { icon: 'ph-fill ph-handshake', label: "Привлечение спонсоров (50+ ивентов в портфолио)" },
+      { icon: 'ph-fill ph-storefront', label: "Pop-up активации в магазинах и ТЦ" },
+      { icon: 'ph-fill ph-rocket-launch', label: "Турнир под запуск нового продукта" },
+      ],
+    },
   },
   {
     slug: 'sponsorstvo-kibersport-streaming-2026',
@@ -4189,6 +4564,16 @@ module.exports = [
     contentHtml: sponsorstvoContent,
     relatedSlugs: ['kibertirniry-organizaciya-2026', 'partnerskiy-marketing-affiliate-2026', 'svoy-sayt-vs-socseti-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/services/event-organization/', label: 'Привлечь спонсоров под ваш проект' },
+    servicesOffer: {
+      title: "Что я делаю по киберспорту и брендингу",
+      services: [
+      { icon: 'ph-fill ph-game-controller', label: "Организация киберспорт-турниров под ключ" },
+      { icon: 'ph-fill ph-trophy', label: "Брендированная киберспорт-лига для бренда" },
+      { icon: 'ph-fill ph-handshake', label: "Привлечение спонсоров (50+ ивентов в портфолио)" },
+      { icon: 'ph-fill ph-storefront', label: "Pop-up активации в магазинах и ТЦ" },
+      { icon: 'ph-fill ph-rocket-launch', label: "Турнир под запуск нового продукта" },
+      ],
+    },
   },
   {
     slug: 'geymifikaciya-saas-2026',
@@ -4226,6 +4611,16 @@ module.exports = [
     contentHtml: gamificationSaasContent,
     relatedSlugs: ['saas-pricing-2026', 'mvp-to-production-3-mesyatsa-2026', 'voronka-prodazh-b2b-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/services/business-automation/', label: 'Внедрить геймификацию в продукт' },
+    servicesOffer: {
+      title: "Что я делаю по продажам и стартапу",
+      services: [
+      { icon: 'ph-fill ph-funnel', label: "B2B-воронка с AI и CRM-автоматизацией" },
+      { icon: 'ph-fill ph-rocket-launch', label: "MVP под ключ за 3 месяца" },
+      { icon: 'ph-fill ph-address-book', label: "Настройка CRM (amoCRM, Bitrix24)" },
+      { icon: 'ph-fill ph-clipboard-text', label: "Бизнес-план для гранта/инвестора/банка" },
+      { icon: 'ph-fill ph-currency-circle-dollar', label: "SaaS-pricing и unit-экономика" },
+      ],
+    },
   },
   {
     slug: 'brendirovannaya-kibersport-liga-2026',
@@ -4261,6 +4656,16 @@ module.exports = [
     contentHtml: brandedLeagueContent,
     relatedSlugs: ['kibertirniry-organizaciya-2026', 'sponsorstvo-kibersport-streaming-2026', 'svoya-strim-studiya-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/services/event-organization/', label: 'Запустить киберспорт-лигу для бренда' },
+    servicesOffer: {
+      title: "Что я делаю по киберспорту и брендингу",
+      services: [
+      { icon: 'ph-fill ph-game-controller', label: "Организация киберспорт-турниров под ключ" },
+      { icon: 'ph-fill ph-trophy', label: "Брендированная киберспорт-лига для бренда" },
+      { icon: 'ph-fill ph-handshake', label: "Привлечение спонсоров (50+ ивентов в портфолио)" },
+      { icon: 'ph-fill ph-storefront', label: "Pop-up активации в магазинах и ТЦ" },
+      { icon: 'ph-fill ph-rocket-launch', label: "Турнир под запуск нового продукта" },
+      ],
+    },
   },
   {
     slug: 'kubok-distributora-b2b-2026',
@@ -4297,6 +4702,16 @@ module.exports = [
     contentHtml: distributorCupContent,
     relatedSlugs: ['kibertirniry-organizaciya-2026', 'brendirovannaya-kibersport-liga-2026', 'voronka-prodazh-b2b-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/services/event-organization/', label: 'Организовать кубок для дилеров' },
+    servicesOffer: {
+      title: "Что я делаю по киберспорту и брендингу",
+      services: [
+      { icon: 'ph-fill ph-game-controller', label: "Организация киберспорт-турниров под ключ" },
+      { icon: 'ph-fill ph-trophy', label: "Брендированная киберспорт-лига для бренда" },
+      { icon: 'ph-fill ph-handshake', label: "Привлечение спонсоров (50+ ивентов в портфолио)" },
+      { icon: 'ph-fill ph-storefront', label: "Pop-up активации в магазинах и ТЦ" },
+      { icon: 'ph-fill ph-rocket-launch', label: "Турнир под запуск нового продукта" },
+      ],
+    },
   },
   {
     slug: 'turnir-pod-product-launch-2026',
@@ -4332,6 +4747,16 @@ module.exports = [
     contentHtml: productLaunchContent,
     relatedSlugs: ['kibertirniry-organizaciya-2026', 'brendirovannaya-kibersport-liga-2026', 'mvp-to-production-3-mesyatsa-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/services/event-organization/', label: 'Запустить продукт через турнир' },
+    servicesOffer: {
+      title: "Что я делаю по киберспорту и брендингу",
+      services: [
+      { icon: 'ph-fill ph-game-controller', label: "Организация киберспорт-турниров под ключ" },
+      { icon: 'ph-fill ph-trophy', label: "Брендированная киберспорт-лига для бренда" },
+      { icon: 'ph-fill ph-handshake', label: "Привлечение спонсоров (50+ ивентов в портфолио)" },
+      { icon: 'ph-fill ph-storefront', label: "Pop-up активации в магазинах и ТЦ" },
+      { icon: 'ph-fill ph-rocket-launch', label: "Турнир под запуск нового продукта" },
+      ],
+    },
   },
   {
     slug: 'pop-up-kibersport-magazin-2026',
@@ -4368,6 +4793,16 @@ module.exports = [
     contentHtml: popupRetailContent,
     relatedSlugs: ['kibertirniry-organizaciya-2026', 'live-commerce-rf-2026', 'turnir-pod-product-launch-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/services/event-organization/', label: 'Pop-up турнир для вашего магазина' },
+    servicesOffer: {
+      title: "Что я делаю по киберспорту и брендингу",
+      services: [
+      { icon: 'ph-fill ph-game-controller', label: "Организация киберспорт-турниров под ключ" },
+      { icon: 'ph-fill ph-trophy', label: "Брендированная киберспорт-лига для бренда" },
+      { icon: 'ph-fill ph-handshake', label: "Привлечение спонсоров (50+ ивентов в портфолио)" },
+      { icon: 'ph-fill ph-storefront', label: "Pop-up активации в магазинах и ТЦ" },
+      { icon: 'ph-fill ph-rocket-launch', label: "Турнир под запуск нового продукта" },
+      ],
+    },
   },
   {
     slug: 'max-mini-apps-2026',
@@ -4402,6 +4837,16 @@ module.exports = [
     contentHtml: maxMiniAppsContent,
     relatedSlugs: ['pwa-iz-sayta-za-vyhodnye-2026', 'mvp-to-production-3-mesyatsa-2026', 'rossiyskiy-ai-stack-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/development/max-bots/', label: 'Заказать MAX Mini App' },
+    servicesOffer: {
+      title: "Что я делаю по МАХ-ботам",
+      services: [
+      { icon: 'ph-fill ph-robot', label: "МАХ-бот под ключ (магазин/услуги/AI)" },
+      { icon: 'ph-fill ph-app-window', label: "МАХ Mini App с UI и интеграциями" },
+      { icon: 'ph-fill ph-credit-card', label: "Интеграция ЮKassa/СБП в бот" },
+      { icon: 'ph-fill ph-brain', label: "AI-помощник (GPT/YandexGPT) в боте" },
+      { icon: 'ph-fill ph-address-book', label: "Интеграция с CRM (amoCRM/Bitrix24/1С)" },
+      ],
+    },
   },
   {
     slug: 'magazin-bot-max-2026',
@@ -4438,6 +4883,16 @@ module.exports = [
     contentHtml: magazinBotMaxContent,
     relatedSlugs: ['max-mini-apps-2026', 'svoy-magazin-vs-wildberries-ozon-2026', 'voronka-prodazh-b2b-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/development/max-bots/', label: 'Запустить магазин-бота в МАХ' },
+    servicesOffer: {
+      title: "Что я делаю по МАХ-ботам",
+      services: [
+      { icon: 'ph-fill ph-robot', label: "МАХ-бот под ключ (магазин/услуги/AI)" },
+      { icon: 'ph-fill ph-app-window', label: "МАХ Mini App с UI и интеграциями" },
+      { icon: 'ph-fill ph-credit-card', label: "Интеграция ЮKassa/СБП в бот" },
+      { icon: 'ph-fill ph-brain', label: "AI-помощник (GPT/YandexGPT) в боте" },
+      { icon: 'ph-fill ph-address-book', label: "Интеграция с CRM (amoCRM/Bitrix24/1С)" },
+      ],
+    },
   },
   {
     slug: 'max-bot-restoran-kafe-2026',
@@ -4475,6 +4930,16 @@ module.exports = [
     contentHtml: maxBotRestoranContent,
     relatedSlugs: ['max-mini-apps-2026', 'magazin-bot-max-2026', 'ai-chatbot-na-sayt-bez-programmirovaniya-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/development/max-bots/', label: 'Заказать МАХ-бот для ресторана' },
+    servicesOffer: {
+      title: "Что я делаю по МАХ-ботам",
+      services: [
+      { icon: 'ph-fill ph-robot', label: "МАХ-бот под ключ (магазин/услуги/AI)" },
+      { icon: 'ph-fill ph-app-window', label: "МАХ Mini App с UI и интеграциями" },
+      { icon: 'ph-fill ph-credit-card', label: "Интеграция ЮKassa/СБП в бот" },
+      { icon: 'ph-fill ph-brain', label: "AI-помощник (GPT/YandexGPT) в боте" },
+      { icon: 'ph-fill ph-address-book', label: "Интеграция с CRM (amoCRM/Bitrix24/1С)" },
+      ],
+    },
   },
   {
     slug: 'max-bot-rieltor-2026',
@@ -4512,6 +4977,16 @@ module.exports = [
     contentHtml: maxBotRieltorContent,
     relatedSlugs: ['max-mini-apps-2026', 'magazin-bot-max-2026', 'ai-agenty-v-biznese-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/development/max-bots/', label: 'Заказать МАХ-бот для риелтора' },
+    servicesOffer: {
+      title: "Что я делаю по МАХ-ботам",
+      services: [
+      { icon: 'ph-fill ph-robot', label: "МАХ-бот под ключ (магазин/услуги/AI)" },
+      { icon: 'ph-fill ph-app-window', label: "МАХ Mini App с UI и интеграциями" },
+      { icon: 'ph-fill ph-credit-card', label: "Интеграция ЮKassa/СБП в бот" },
+      { icon: 'ph-fill ph-brain', label: "AI-помощник (GPT/YandexGPT) в боте" },
+      { icon: 'ph-fill ph-address-book', label: "Интеграция с CRM (amoCRM/Bitrix24/1С)" },
+      ],
+    },
   },
   {
     slug: 'tilda-vs-kastomnaya-razrabotka-2026',
@@ -4545,6 +5020,16 @@ module.exports = [
     contentHtml: tildaVsCustomContent,
     relatedSlugs: ['svoy-magazin-vs-wildberries-ozon-2026', 'svoy-sayt-vs-socseti-2026', 'pwa-iz-sayta-za-vyhodnye-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/development/sites/', label: 'Заказать сайт под ключ' },
+    servicesOffer: {
+      title: "Что я делаю по сайтам",
+      services: [
+      { icon: 'ph-fill ph-globe', label: "Лендинг под ключ от 30 000 ₽" },
+      { icon: 'ph-fill ph-storefront', label: "Корпоративный сайт от 80 000 ₽" },
+      { icon: 'ph-fill ph-shopping-cart', label: "Интернет-магазин от 150 000 ₽" },
+      { icon: 'ph-fill ph-app-window', label: "Веб-приложение / SaaS от 300 000 ₽" },
+      { icon: 'ph-fill ph-lightning', label: "Лендинг за 24 часа на AI" },
+      ],
+    },
   },
   {
     slug: 'skolko-stoit-sayt-2026',
@@ -4580,6 +5065,16 @@ module.exports = [
     contentHtml: skolkoStoitSaytContent,
     relatedSlugs: ['tilda-vs-kastomnaya-razrabotka-2026', 'mvp-to-production-3-mesyatsa-2026', 'saas-pricing-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/development/sites/', label: 'Получить расчёт сайта' },
+    servicesOffer: {
+      title: "Что я делаю по сайтам",
+      services: [
+      { icon: 'ph-fill ph-globe', label: "Лендинг под ключ от 30 000 ₽" },
+      { icon: 'ph-fill ph-storefront', label: "Корпоративный сайт от 80 000 ₽" },
+      { icon: 'ph-fill ph-shopping-cart', label: "Интернет-магазин от 150 000 ₽" },
+      { icon: 'ph-fill ph-app-window', label: "Веб-приложение / SaaS от 300 000 ₽" },
+      { icon: 'ph-fill ph-lightning', label: "Лендинг за 24 часа на AI" },
+      ],
+    },
   },
   {
     slug: 'vk-mini-app-dlya-biznesa-2026',
@@ -4618,6 +5113,15 @@ module.exports = [
     contentHtml: vkMiniAppContent,
     relatedSlugs: ['max-mini-apps-2026', 'pwa-iz-sayta-za-vyhodnye-2026', 'svoy-sayt-vs-socseti-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/development/vk-mini-apps/', label: 'Заказать VK Mini App' },
+    servicesOffer: {
+      title: "Что я делаю по VK Mini Apps и ботам",
+      services: [
+      { icon: 'ph-fill ph-app-window', label: "VK Mini App под ключ" },
+      { icon: 'ph-fill ph-robot', label: "VK-бот с интеграциями" },
+      { icon: 'ph-fill ph-credit-card', label: "Подключение VK Pay и СБП" },
+      { icon: 'ph-fill ph-brain', label: "AI-помощник в Mini App" },
+      ],
+    },
   },
   {
     slug: 'ai-dlya-logistiki-2026',
@@ -4658,6 +5162,16 @@ module.exports = [
     contentHtml: aiLogistikaContent,
     relatedSlugs: ['ai-agenty-v-biznese-2026', 'rag-sistemy-dlya-biznesa-2026', 'ai-pomoshchnik-buhgaltera-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/services/logistics-automation/', label: 'Внедрить AI в логистику' },
+    servicesOffer: {
+      title: "Что я делаю по AI для логистики",
+      services: [
+      { icon: 'ph-fill ph-truck', label: "AI-оптимизация маршрутов доставки" },
+      { icon: 'ph-fill ph-chart-line-up', label: "Прогнозирование спроса и тарифов" },
+      { icon: 'ph-fill ph-camera', label: "Computer Vision на складе/транспорте" },
+      { icon: 'ph-fill ph-file-text', label: "AI-OCR накладных и путевых листов" },
+      { icon: 'ph-fill ph-chat-circle-dots', label: "AI-чат для отслеживания заказов" },
+      ],
+    },
   },
   {
     slug: 'razrabotka-dlya-meditsiny-2026',
@@ -4695,6 +5209,16 @@ module.exports = [
     contentHtml: meditsinaContent,
     relatedSlugs: ['audit-152-fz-2026', 'lokalizaciya-pd-2026', 'ai-dlya-yurista-advokata-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/services/clinics-digitalization/', label: 'Разработка медицинского ПО' },
+    servicesOffer: {
+      title: "Что я делаю по IT для медицины",
+      services: [
+      { icon: 'ph-fill ph-first-aid-kit', label: "EMR/EHR с соблюдением 152-ФЗ" },
+      { icon: 'ph-fill ph-video-camera', label: "Telemedicine-платформа" },
+      { icon: 'ph-fill ph-globe', label: "Сайт клиники с онлайн-записью" },
+      { icon: 'ph-fill ph-device-mobile', label: "Мобильное приложение для пациентов" },
+      { icon: 'ph-fill ph-shield-check', label: "Аудит соответствия 152-ФЗ для медицины" },
+      ],
+    },
   },
   {
     slug: 'it-dlya-horeca-2026',
@@ -4729,6 +5253,16 @@ module.exports = [
     contentHtml: horecaContent,
     relatedSlugs: ['max-bot-restoran-kafe-2026', 'magazin-bot-max-2026', 'svoy-magazin-vs-wildberries-ozon-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/services/business-automation/', label: 'Внедрить IT в ваш ресторан' },
+    servicesOffer: {
+      title: "Что я делаю для ресторанов и кафе",
+      services: [
+      { icon: 'ph-fill ph-fork-knife', label: "Настройка iiko/r_keeper + интеграция с 1С" },
+      { icon: 'ph-fill ph-robot', label: "Бот для меню, доставки и бронирования" },
+      { icon: 'ph-fill ph-globe', label: "Сайт ресторана с прямой доставкой" },
+      { icon: 'ph-fill ph-gift', label: "Программа лояльности (баллы, статусы)" },
+      { icon: 'ph-fill ph-chart-line-up', label: "AI-прогноз выручки и закупок" },
+      ],
+    },
   },
   {
     slug: 'it-dlya-salonov-krasoty-2026',
@@ -4765,6 +5299,16 @@ module.exports = [
     contentHtml: salonContent,
     relatedSlugs: ['it-dlya-horeca-2026', 'voronka-prodazh-b2b-2026', 'svoy-sayt-vs-socseti-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/services/business-automation/', label: 'Автоматизировать ваш салон' },
+    servicesOffer: {
+      title: "Что я делаю для салонов красоты",
+      services: [
+      { icon: 'ph-fill ph-calendar-check', label: "Настройка онлайн-записи (YClients/Sonline)" },
+      { icon: 'ph-fill ph-bell', label: "Telegram-бот с напоминаниями (минус no-show)" },
+      { icon: 'ph-fill ph-gift', label: "Программа лояльности под салон" },
+      { icon: 'ph-fill ph-app-window', label: "PWA-приложение клиента" },
+      { icon: 'ph-fill ph-magic-wand', label: "AI-консультант (подбор по фото)" },
+      ],
+    },
   },
   {
     slug: 'it-dlya-avtoservisa-2026',
@@ -4801,6 +5345,16 @@ module.exports = [
     contentHtml: autoserviceContent,
     relatedSlugs: ['it-dlya-salonov-krasoty-2026', 'crm-dlya-malogo-biznesa-2026', 'voronka-prodazh-b2b-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/services/business-automation/', label: 'Автоматизировать автосервис' },
+    servicesOffer: {
+      title: "Что я делаю для автосервиса/СТО",
+      services: [
+      { icon: 'ph-fill ph-car', label: "CRM для СТО (запись, история по VIN)" },
+      { icon: 'ph-fill ph-wrench', label: "Интеграция parts.ru/exist/emex" },
+      { icon: 'ph-fill ph-brain', label: "AI-помощник для расшифровки OBD-кодов" },
+      { icon: 'ph-fill ph-bell', label: "Бот напоминаний о ТО клиентам" },
+      { icon: 'ph-fill ph-star', label: "Управление отзывами Я.Карт/2GIS" },
+      ],
+    },
   },
   {
     slug: 'it-dlya-turizma-otelei-2026',
@@ -4837,5 +5391,15 @@ module.exports = [
     contentHtml: turizmContent,
     relatedSlugs: ['it-dlya-horeca-2026', 'live-commerce-rf-2026', 'svoy-magazin-vs-wildberries-ozon-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/services/business-automation/', label: 'Автоматизировать ваш отель' },
+    servicesOffer: {
+      title: "Что я делаю для отелей и туризма",
+      services: [
+      { icon: 'ph-fill ph-bed', label: "PMS-настройка и кастомизация (TravelLine, Bnovo)" },
+      { icon: 'ph-fill ph-globe', label: "Сайт отеля с прямым бронированием" },
+      { icon: 'ph-fill ph-link', label: "Channel Manager (Я.Путешествия, Островок)" },
+      { icon: 'ph-fill ph-chat-circle-dots', label: "AI-консьерж в Telegram/MAX-боте" },
+      { icon: 'ph-fill ph-chart-line-up', label: "Динамическое ценообразование (ML)" },
+      ],
+    },
   },
 ];

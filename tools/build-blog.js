@@ -256,6 +256,24 @@ function tagsHtml(tags) {
   return `<div class="blog-tags">${tags.map(t => `<span class="blog-tag"><i class="ph ph-hash"></i>${esc(t)}</span>`).join('')}</div>`;
 }
 
+function servicesOfferCard(article) {
+  if (!article.servicesOffer) return '';
+  const s = article.servicesOffer;
+  return `
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">${esc(s.eyebrow || 'Услуги по теме')}</div>
+  <h3 class="blog-services-offer-title">${esc(s.title)}</h3>
+  <ul class="blog-services-offer-list">
+    ${s.services.map(item => `
+    <li><i class="${item.icon}"></i> <span>${esc(item.label)}</span></li>
+    `).join('')}
+  </ul>
+  <a href="${esc(s.ctaUrl || 'https://t.me/chimitdorzhi')}" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <i class="ph-fill ph-telegram-logo"></i> ${esc(s.ctaLabel || 'Написать в Telegram')}
+  </a>
+</div>`;
+}
+
 function relatedHtml(a, published) {
   // Resolve relatedSlugs to published articles. If none — fall back to service links.
   const map = new Map(published.map(p => [p.slug, p]));
@@ -340,6 +358,8 @@ ${breadcrumbLd(a, url)}
                     <div class="blog-body">
                         ${a.contentHtml}
                     </div>
+
+                    ${servicesOfferCard(a)}
 
                     <div class="blog-cta-card blog-cta-card-final">
                         <div class="blog-cta-card-body">
