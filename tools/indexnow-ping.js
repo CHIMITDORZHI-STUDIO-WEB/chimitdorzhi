@@ -62,6 +62,10 @@ const body = JSON.stringify({
     `https://${HOST}/blog/vk-mini-app-dlya-biznesa-2026/`,
     `https://${HOST}/blog/ai-dlya-logistiki-2026/`,
     `https://${HOST}/blog/razrabotka-dlya-meditsiny-2026/`,
+    `https://${HOST}/blog/it-dlya-horeca-2026/`,
+    `https://${HOST}/blog/it-dlya-salonov-krasoty-2026/`,
+    `https://${HOST}/blog/it-dlya-avtoservisa-2026/`,
+    `https://${HOST}/blog/it-dlya-turizma-otelei-2026/`,
     SITEMAP,
   ],
 });
