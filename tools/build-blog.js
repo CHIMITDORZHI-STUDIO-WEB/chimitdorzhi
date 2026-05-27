@@ -563,22 +563,29 @@ function buildRss(published) {
   );
   const latest = sorted[0] ? sorted[0].dateModified || sorted[0].datePublished : new Date().toISOString().slice(0, 10);
 
+  const cover = `${SITE}/hero-photo.webp`;
   const items = sorted.map(a => {
     const url = `${SITE}/blog/${a.slug}/`;
     const cat = CATEGORY_LABELS[a.category] || a.category || '';
+    // Полный HTML статьи + картинка-обложка в начале — требование Дзена
+    const fullHtml = `<p><img src="${cover}" alt="${esc(a.title)}"/></p>\n${(a.contentHtml || '').replace(/]]>/g, ']]&gt;')}`;
     return `    <item>
       <title>${esc(a.title)}</title>
       <link>${url}</link>
       <guid isPermaLink="true">${url}</guid>
       <description><![CDATA[${a.excerpt || ''}]]></description>
+      <content:encoded><![CDATA[${fullHtml}]]></content:encoded>
       <pubDate>${rssDate(a.datePublished)}</pubDate>
       <category>${esc(cat)}</category>
       <author>noreply@chimitdorzhi.tech (Чимитдоржи Дарижапов)</author>
+      <enclosure url="${cover}" type="image/webp" length="0"/>
+      <media:thumbnail url="${cover}"/>
+      <media:content url="${cover}" medium="image" type="image/webp"/>
     </item>`;
   }).join('\n');
 
   return `<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:media="http://search.yahoo.com/mrss/" xmlns:yandex="http://news.yandex.ru" xmlns:dc="http://purl.org/dc/elements/1.1/">
   <channel>
     <title>Блог Чимитдоржи Дарижапова</title>
     <link>${SITE}/blog/</link>
@@ -587,6 +594,11 @@ function buildRss(published) {
     <language>ru</language>
     <lastBuildDate>${rssDate(latest)}</lastBuildDate>
     <ttl>60</ttl>
+    <image>
+      <url>${cover}</url>
+      <title>Блог Чимитдоржи Дарижапова</title>
+      <link>${SITE}/blog/</link>
+    </image>
 ${items}
   </channel>
 </rss>`;
