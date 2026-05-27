@@ -790,6 +790,7 @@
 </head>
 
 <body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
     <!-- BG Effects -->
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
@@ -812,7 +813,7 @@
                     <button class="ub-lang-btn" data-lang="zh">中</button>
                 </div>
                 <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-                    <i class="ph ph-moon"></i>
+                    <i class="ph ph-moon" aria-hidden="true"></i>
                 </button>
                 <a href="https://t.me/universe_buryat" target="_blank" class="btn btn-accent nav-cta">TELEGRAM</a>
             </div>
@@ -835,7 +836,7 @@
         </div>
     </div>
 
-    <main>
+    <main id="main">
         <!-- HERO -->
         <section class="ub-hero">
             <div class="ub-hero-nebula"></div>
@@ -920,17 +921,17 @@
         <!-- Post Popup -->
         <div class="ub-popup-overlay" id="postPopup">
             <div class="ub-popup">
-                <button class="ub-popup-close" id="popupClose"><i class="ph ph-x"></i></button>
+                <button class="ub-popup-close" id="popupClose"><i class="ph ph-x" aria-hidden="true"></i></button>
                 <div class="ub-popup-img" id="popupImg"></div>
                 <div class="ub-popup-content">
                     <div class="ub-popup-date" id="popupDate"></div>
                     <div class="ub-popup-text" id="popupText"></div>
                     <div style="display:flex;flex-wrap:wrap;gap:18px;align-items:center;">
                         <a class="ub-popup-link" id="popupFullLink" href="#" target="_blank" rel="noopener">
-                            <i class="ph ph-arrow-square-out"></i> <span data-i18n="read_full">Читать полностью</span>
+                            <i class="ph ph-arrow-square-out" aria-hidden="true"></i> <span data-i18n="read_full">Читать полностью</span>
                         </a>
                         <a class="ub-popup-link" id="popupLink" href="#" target="_blank" rel="noopener">
-                            <i class="ph ph-telegram-logo"></i> <span data-i18n="open_telegram">Открыть в Telegram</span>
+                            <i class="ph ph-telegram-logo" aria-hidden="true"></i> <span data-i18n="open_telegram">Открыть в Telegram</span>
                         </a>
                     </div>
                 </div>
@@ -1085,7 +1086,7 @@
 
         function updateThemeIcon() {
             const theme = document.documentElement.getAttribute('data-theme');
-            themeToggle.innerHTML = theme === 'dark' ? '<i class="ph ph-moon"></i>' : '<i class="ph ph-sun"></i>';
+            themeToggle.innerHTML = theme === 'dark' ? '<i class="ph ph-moon" aria-hidden="true"></i>' : '<i class="ph ph-sun" aria-hidden="true"></i>';
         }
 
         // Navbar scroll
@@ -1173,12 +1174,12 @@
                     var fullSrc = post.image ? VPS + post.image : '';
                     if (post.image) {
                         mediaHtml = '<img src="' + thumbSrc + '" onerror="this.onerror=null;this.src=\'' + fullSrc + '\'" alt="" loading="lazy">';
-                        if (post.video) mediaHtml += '<div class="ub-play-badge"><i class="ph ph-play-circle"></i></div>';
+                        if (post.video) mediaHtml += '<div class="ub-play-badge"><i class="ph ph-play-circle" aria-hidden="true"></i></div>';
                     } else if (post.video) {
-                        mediaHtml = '<div class="ub-post-noimg" style="font-size:48px;"><i class="ph ph-video-camera"></i></div>' +
-                            '<div class="ub-play-badge"><i class="ph ph-play-circle"></i></div>';
+                        mediaHtml = '<div class="ub-post-noimg" style="font-size:48px;"><i class="ph ph-video-camera" aria-hidden="true"></i></div>' +
+                            '<div class="ub-play-badge"><i class="ph ph-play-circle" aria-hidden="true"></i></div>';
                     } else {
-                        mediaHtml = '<div class="ub-post-noimg"><i class="ph ph-scroll"></i></div>';
+                        mediaHtml = '<div class="ub-post-noimg"><i class="ph ph-scroll" aria-hidden="true"></i></div>';
                     }
                     card.innerHTML =
                         '<div class="ub-post-img-wrap">' + mediaHtml + '</div>' +
@@ -1210,11 +1211,11 @@
 
             function openPopup(post) {
                 if (post.video) {
-                    popupImg.innerHTML = '<video src="' + VPS + post.video + '" controls autoplay playsinline style="width:100%;height:100%;object-fit:contain;background:#000;"></video>';
+                    popupImg.innerHTML = '<video src="' + VPS + post.video + '" controls autoplay muted playsinline style="width:100%;height:100%;object-fit:contain;background:#000;"></video>';
                 } else if (post.image) {
                     popupImg.innerHTML = '<img src="' + VPS + post.image + '" alt="">';
                 } else {
-                    popupImg.innerHTML = '<div class="ub-post-noimg" style="font-size:80px;"><i class="ph ph-scroll"></i></div>';
+                    popupImg.innerHTML = '<div class="ub-post-noimg" style="font-size:80px;"><i class="ph ph-scroll" aria-hidden="true"></i></div>';
                 }
                 popupDate.textContent = formatDate(post.date);
                 popupText.textContent = post.text || '—';
