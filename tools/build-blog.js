@@ -203,13 +203,17 @@ function footer() {
 
 // ---------- article page ----------
 
+function coverUrl(a) {
+  return `${SITE}/blog/${a.slug}/cover.png`;
+}
+
 function blogPostingLd(a, url) {
   return JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
     headline: a.title,
     description: a.metaDescription,
-    image: `${SITE}/hero-photo.webp`,
+    image: coverUrl(a),
     author: {
       '@type': 'Person',
       name: 'Чимитдоржи Дарижапов',
@@ -317,7 +321,7 @@ function relatedHtml(a, published) {
 function articlePage(a, published) {
   const url = `${SITE}/blog/${a.slug}/`;
   const cat = CATEGORY_LABELS[a.category] || 'Блог';
-  return `${head({ title: a.metaTitle || a.title, description: a.metaDescription, keywords: a.metaKeywords || a.tags.join(', '), canonical: url })}    <script type="application/ld+json">
+  return `${head({ title: a.metaTitle || a.title, description: a.metaDescription, keywords: a.metaKeywords || a.tags.join(', '), canonical: url, ogImage: coverUrl(a) })}    <script type="application/ld+json">
 ${blogPostingLd(a, url)}
     </script>
     <script type="application/ld+json">
@@ -563,10 +567,11 @@ function buildRss(published) {
   );
   const latest = sorted[0] ? sorted[0].dateModified || sorted[0].datePublished : new Date().toISOString().slice(0, 10);
 
-  const cover = `${SITE}/hero-photo.webp`;
+  const channelCover = `${SITE}/hero-photo.webp`;
   const items = sorted.map(a => {
     const url = `${SITE}/blog/${a.slug}/`;
     const cat = CATEGORY_LABELS[a.category] || a.category || '';
+    const cover = `${SITE}/blog/${a.slug}/cover.png`;
     // Полный HTML статьи + картинка-обложка в начале — требование Дзена
     const fullHtml = `<p><img src="${cover}" alt="${esc(a.title)}"/></p>\n${(a.contentHtml || '').replace(/]]>/g, ']]&gt;')}`;
     return `    <item>
@@ -578,9 +583,9 @@ function buildRss(published) {
       <pubDate>${rssDate(a.datePublished)}</pubDate>
       <category>${esc(cat)}</category>
       <author>noreply@chimitdorzhi.tech (Чимитдоржи Дарижапов)</author>
-      <enclosure url="${cover}" type="image/webp" length="0"/>
+      <enclosure url="${cover}" type="image/png" length="0"/>
       <media:thumbnail url="${cover}"/>
-      <media:content url="${cover}" medium="image" type="image/webp"/>
+      <media:content url="${cover}" medium="image" type="image/png"/>
     </item>`;
   }).join('\n');
 
@@ -595,7 +600,7 @@ function buildRss(published) {
     <lastBuildDate>${rssDate(latest)}</lastBuildDate>
     <ttl>60</ttl>
     <image>
-      <url>${cover}</url>
+      <url>${channelCover}</url>
       <title>Блог Чимитдоржи Дарижапова</title>
       <link>${SITE}/blog/</link>
     </image>
@@ -608,9 +613,18 @@ ${items}
 
 function ensureDir(p) { fs.mkdirSync(p, { recursive: true }); }
 
-function main() {
+async function main() {
   ensureDir(OUT_BLOG);
   const published = articles.filter(a => a.published && a.contentHtml);
+
+  // Генерация уникальных OG-обложек 1200×630 для каждой статьи
+  const og = require('./og-generator.js');
+  let covers = 0;
+  for (const a of published) {
+    await og.generateCover(a);
+    covers++;
+  }
+  console.log(`  Generated ${covers} cover(s) (cover.png)`);
 
   let pages = 0;
   for (const a of published) {
@@ -638,4 +652,4 @@ function main() {
   }
 }
 
-main();
+main().catch(err => { console.error(err); process.exit(1); });
