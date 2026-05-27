@@ -15,13 +15,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileMenu = document.getElementById('mobileMenu');
     if (burger && mobileMenu) {
         burger.addEventListener('click', () => {
-            mobileMenu.classList.toggle('active');
+            const isOpen = mobileMenu.classList.toggle('active');
             burger.classList.toggle('active');
+            burger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
         });
         mobileMenu.querySelectorAll('a').forEach(a => {
             a.addEventListener('click', () => {
                 mobileMenu.classList.remove('active');
                 burger.classList.remove('active');
+                burger.setAttribute('aria-expanded', 'false');
             });
         });
     }
@@ -34,6 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const savedTheme = localStorage.getItem('theme') || 'dark';
     html.setAttribute('data-theme', savedTheme);
     updateThemeIcon(savedTheme);
+    updateThemePressed(savedTheme);
 
     const mobileThemeToggle = document.getElementById('mobileThemeToggle');
 
@@ -43,6 +46,15 @@ document.addEventListener('DOMContentLoaded', () => {
         html.setAttribute('data-theme', next);
         localStorage.setItem('theme', next);
         updateThemeIcon(next);
+        updateThemePressed(next);
+    }
+
+    function updateThemePressed(theme) {
+        // aria-pressed=true when light theme is active (i.e. toggled away from default dark)
+        const pressed = theme === 'light' ? 'true' : 'false';
+        document.querySelectorAll('.theme-toggle').forEach(btn => {
+            btn.setAttribute('aria-pressed', pressed);
+        });
     }
 
     themeToggle.addEventListener('click', toggleTheme);
@@ -63,7 +75,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Apply saved language
     langBtns.forEach(btn => {
-        btn.classList.toggle('active', btn.dataset.lang === savedLang);
+        const isActive = btn.dataset.lang === savedLang;
+        btn.classList.toggle('active', isActive);
+        btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
     });
     if (typeof applyLanguage === 'function') {
         applyLanguage(savedLang);
@@ -72,8 +86,11 @@ document.addEventListener('DOMContentLoaded', () => {
     langBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             const lang = btn.dataset.lang;
-            langBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
+            langBtns.forEach(b => {
+                const active = b.dataset.lang === lang;
+                b.classList.toggle('active', active);
+                b.setAttribute('aria-pressed', active ? 'true' : 'false');
+            });
             localStorage.setItem('lang', lang);
             if (typeof applyLanguage === 'function') {
                 applyLanguage(lang);
@@ -222,6 +239,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ---- SMOOTH SCROLL ----
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const href = this.getAttribute('href');
@@ -229,7 +247,7 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             const target = document.querySelector(href);
             if (target) {
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                target.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'start' });
             }
         });
     });

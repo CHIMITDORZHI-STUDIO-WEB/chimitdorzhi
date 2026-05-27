@@ -100,16 +100,16 @@ function navbar() {
             <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
             <li><a href="/#services" data-i18n="nav.services">Услуги</a></li>
             <li class="nav-dropdown">
-                <a href="/#projects" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret"></i></a>
-                <div class="nav-dropdown-menu" role="menu">
+                <a href="/#projects" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
                     <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
                     <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
-                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three"></i></span>
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
                         <span class="nav-dropdown-text">
                             <span class="nav-dropdown-title">Gerel.space</span>
                             <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
                         </span>
-                        <i class="ph ph-arrow-up-right nav-dropdown-arrow"></i>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
                     </a>
                     <a href="/universe_buryat/" class="nav-dropdown-item">
                         <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
@@ -117,23 +117,23 @@ function navbar() {
                             <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
                             <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
                         </span>
-                        <i class="ph ph-arrow-right nav-dropdown-arrow"></i>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
                     </a>
                     <a href="/arey/" class="nav-dropdown-item">
-                        <span class="nav-dropdown-icon nav-dropdown-icon--arey"><i class="ph-fill ph-vinyl-record"></i></span>
+                        <span class="nav-dropdown-icon nav-dropdown-icon--arey"><i class="ph-fill ph-vinyl-record" aria-hidden="true"></i></span>
                         <span class="nav-dropdown-text">
                             <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
                             <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
                         </span>
-                        <i class="ph ph-arrow-right nav-dropdown-arrow"></i>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
                     </a>
                     <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
-                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check"></i></span>
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
                         <span class="nav-dropdown-text">
                             <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
                             <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
                         </span>
-                        <i class="ph ph-arrow-up-right nav-dropdown-arrow"></i>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
                     </a>
                 </div>
             </li>
@@ -142,14 +142,14 @@ function navbar() {
             <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
         </ul>
         <div class="nav-controls">
-            <div class="lang-switcher" id="langSwitcher">
-                <button class="lang-btn active" data-lang="ru">RU</button>
-                <button class="lang-btn" data-lang="en">EN</button>
-                <button class="lang-btn" data-lang="cn">CN</button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
             </div>
             <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
         </div>
-        <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
     </div>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
@@ -172,9 +172,9 @@ function footer() {
             <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
             <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
             <div class="footer-actions">
-                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo"></i> Telegram</a>
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
                 <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
-                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone"></i> +7 (931) 605-30-07</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
             </div>
         </div>
         <div class="footer-bottom">
@@ -251,13 +251,13 @@ function tocHtml(toc) {
     `<li><a href="#${t.id}"><span class="blog-toc-num">${String(i+1).padStart(2,'0')}</span> ${esc(t.text)}</a></li>`
   ).join('\n');
   return `<aside class="blog-toc" aria-label="Оглавление">
-  <h2><i class="ph ph-list-bullets"></i> Содержание</h2>
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
   <ol>${items}</ol>
 </aside>`;
 }
 
 function tagsHtml(tags) {
-  return `<div class="blog-tags">${tags.map(t => `<span class="blog-tag"><i class="ph ph-hash"></i>${esc(t)}</span>`).join('')}</div>`;
+  return `<div class="blog-tags">${tags.map(t => `<span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>${esc(t)}</span>`).join('')}</div>`;
 }
 
 function servicesOfferCard(article) {
@@ -273,7 +273,7 @@ function servicesOfferCard(article) {
     `).join('')}
   </ul>
   <a href="${esc(s.ctaUrl || 'https://t.me/chimitdorzhi')}" target="_blank" rel="noopener" class="blog-services-offer-cta">
-    <i class="ph-fill ph-telegram-logo"></i> ${esc(s.ctaLabel || 'Написать в Telegram')}
+    <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> ${esc(s.ctaLabel || 'Написать в Telegram')}
   </a>
 </div>`;
 }
@@ -294,25 +294,25 @@ function relatedHtml(a, published) {
   <h2>Что дальше</h2>
   <div class="blog-grid">
     <a class="blog-card blog-card-svc" href="/audit/">
-      <div class="blog-card-icon"><i class="ph-fill ph-shield-check"></i></div>
+      <div class="blog-card-icon"><i class="ph-fill ph-shield-check" aria-hidden="true"></i></div>
       <span class="blog-card-cat">Услуга</span>
       <h3>Аудит 152-ФЗ под ключ</h3>
       <p>От 5 000 ₽. Отчёт с приоритетами + готовые документы. Срок 1–3 дня.</p>
-      <span class="blog-card-link">Подробнее <i class="ph ph-arrow-right"></i></span>
+      <span class="blog-card-link">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
     </a>
     <a class="blog-card blog-card-svc" href="/services/rkn-audit/">
-      <div class="blog-card-icon"><i class="ph-fill ph-file-magnifying-glass"></i></div>
+      <div class="blog-card-icon"><i class="ph-fill ph-file-magnifying-glass" aria-hidden="true"></i></div>
       <span class="blog-card-cat">Услуга</span>
       <h3>Подача уведомления в РКН</h3>
       <p>Заполним анкету, подадим, ответим на вопросы регулятора.</p>
-      <span class="blog-card-link">Подробнее <i class="ph ph-arrow-right"></i></span>
+      <span class="blog-card-link">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
     </a>
     <a class="blog-card blog-card-svc" href="/services/">
-      <div class="blog-card-icon"><i class="ph-fill ph-grid-four"></i></div>
+      <div class="blog-card-icon"><i class="ph-fill ph-grid-four" aria-hidden="true"></i></div>
       <span class="blog-card-cat">Каталог</span>
       <h3>Все услуги</h3>
       <p>39 направлений: разработка, AI, кибербезопасность, обучение.</p>
-      <span class="blog-card-link">Смотреть <i class="ph ph-arrow-right"></i></span>
+      <span class="blog-card-link">Смотреть <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
     </a>
   </div>
 </section>`;
@@ -329,13 +329,14 @@ ${breadcrumbLd(a, url)}
     </script>
 </head>
 <body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
     <div class="gradient-blob blob-2"></div>
 
     ${navbar()}
 
-    <main class="blog-article-wrap">
+    <main id="main" class="blog-article-wrap">
         <div class="container">
             <nav class="breadcrumbs" aria-label="Хлебные крошки">
                 <a href="/">Главная</a>
@@ -348,9 +349,9 @@ ${breadcrumbLd(a, url)}
             <div class="blog-article-layout">
                 <article class="blog-article">
                     <div class="blog-meta">
-                        <span class="blog-meta-cat"><i class="ph ph-bookmark"></i> ${esc(cat)}</span>
-                        <span><i class="ph ph-clock"></i> ${a.readingMinutes} мин чтения</span>
-                        <time datetime="${a.datePublished}"><i class="ph ph-calendar"></i> ${formatRuDate(a.datePublished)}</time>
+                        <span class="blog-meta-cat"><i class="ph ph-bookmark" aria-hidden="true"></i> ${esc(cat)}</span>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> ${a.readingMinutes} мин чтения</span>
+                        <time datetime="${a.datePublished}"><i class="ph ph-calendar" aria-hidden="true"></i> ${formatRuDate(a.datePublished)}</time>
                     </div>
 
                     <h1 class="blog-h1">${esc(a.title)}</h1>
@@ -371,8 +372,8 @@ ${breadcrumbLd(a, url)}
                             <p>Отчёт за 1–3 дня, устранение нарушений под ключ. От 5 000 ₽.</p>
                         </div>
                         <div class="blog-cta-card-actions">
-                            <a href="${esc(a.ctaInternal ? a.ctaInternal.url : '/audit/')}" class="btn btn-accent"><i class="ph ph-shield-check"></i> ${esc(a.ctaInternal ? a.ctaInternal.label : 'Заказать аудит')}</a>
-                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo"></i> Написать в Telegram</a>
+                            <a href="${esc(a.ctaInternal ? a.ctaInternal.url : '/audit/')}" class="btn btn-accent"><i class="ph ph-shield-check" aria-hidden="true"></i> ${esc(a.ctaInternal ? a.ctaInternal.label : 'Заказать аудит')}</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram</a>
                         </div>
                     </div>
 
@@ -395,14 +396,14 @@ function cardHtml(a) {
   const cat = CATEGORY_LABELS[a.category] || 'Блог';
   return `<a class="blog-card" href="/blog/${a.slug}/" data-category="${a.category}">
   <div class="blog-card-icon"><i class="${a.heroIcon}"></i></div>
-  <span class="blog-card-cat">${esc(cat)}</span>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>${esc(cat)}</span>
   <h3>${esc(a.title)}</h3>
   <p>${esc(a.excerpt)}</p>
   <div class="blog-card-meta">
-    <span><i class="ph ph-calendar"></i> ${formatRuDate(a.datePublished)}</span>
-    <span><i class="ph ph-clock"></i> ${a.readingMinutes} мин</span>
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> ${formatRuDate(a.datePublished)}</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> ${a.readingMinutes} мин</span>
   </div>
-  <span class="blog-card-link">Читать <i class="ph ph-arrow-right"></i></span>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
 </a>`;
 }
 
@@ -445,13 +446,14 @@ ${JSON.stringify(breadcrumb, null, 2)}
     </script>
 </head>
 <body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
     <div class="gradient-blob blob-2"></div>
 
     ${navbar()}
 
-    <main>
+    <main id="main">
         <section class="section">
             <div class="container">
                 <nav class="breadcrumbs" aria-label="Хлебные крошки">
@@ -465,7 +467,7 @@ ${JSON.stringify(breadcrumb, null, 2)}
                     <p class="section-sub">Пишу о том, что вижу на проектах: 152-ФЗ, AI/ML, разработка под российский стек, карьера в IT. Без маркетинга, с конкретными цифрами.</p>
                 </div>
 
-                <div class="blog-filter-chips" role="tablist">
+                <div class="blog-filter-chips" role="group" aria-label="Фильтр категорий">
                     <button class="filter-btn active" data-blog-cat="all">Все <span class="filter-count">${published.length}</span></button>
                     ${[
                       { key: 'legal',       label: 'Право' },
@@ -494,7 +496,7 @@ ${JSON.stringify(breadcrumb, null, 2)}
 
                 ${published.length === 1 ? `
                 <div class="blog-coming-soon">
-                    <p><i class="ph ph-clock-countdown"></i> Готовятся к публикации: <strong>Cookie-баннер по закону</strong>, <strong>Уведомление в РКН 2026</strong>, <strong>Сколько стоит Telegram-бот</strong> и ещё 6 статей. Следите за обновлениями.</p>
+                    <p><i class="ph ph-clock-countdown" aria-hidden="true"></i> Готовятся к публикации: <strong>Cookie-баннер по закону</strong>, <strong>Уведомление в РКН 2026</strong>, <strong>Сколько стоит Telegram-бот</strong> и ещё 6 статей. Следите за обновлениями.</p>
                 </div>` : ''}
             </div>
         </section>
