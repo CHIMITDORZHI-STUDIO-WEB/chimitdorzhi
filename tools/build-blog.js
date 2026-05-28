@@ -27,6 +27,7 @@ const CATEGORY_LABELS = {
   development: 'Разработка',
   security:    'Безопасность',
   finance:     'Финансы',
+  mlm:         'Сетевой бизнес',
   // legacy/fallback
   ai:          'AI и автоматизация',
   career:      'Карьера и обучение',

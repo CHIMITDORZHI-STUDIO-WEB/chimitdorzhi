@@ -20,6 +20,7 @@ const CATEGORY_GRADIENTS = {
   development: ['#1e293b', '#64748b'], // slate
   security:    ['#7f1d1d', '#ef4444'], // red
   finance:     ['#064e3b', '#34d399'], // green
+  mlm:         ['#831843', '#fb7185'], // rose
   ai:          ['#5b21b6', '#a855f7'], // legacy
   career:      ['#1e3a8a', '#4f8cff'], // legacy
 };
@@ -36,6 +37,7 @@ const CATEGORY_LABELS = {
   development: 'Разработка',
   security:    'Безопасность',
   finance:     'Финансы',
+  mlm:         'Сетевой бизнес',
 };
 
 function escapeXml(str) {
