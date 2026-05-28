@@ -484,6 +484,7 @@ ${JSON.stringify(breadcrumb, null, 2)}
                       { key: 'development', label: 'Разработка' },
                       { key: 'security',    label: 'Безопасность' },
                       { key: 'finance',     label: 'Финансы' },
+                      { key: 'mlm',         label: 'Сетевой бизнес' },
                       { key: 'ai',          label: 'AI (старое)' },
                       { key: 'career',      label: 'Карьера' },
                     ].map(c => {
