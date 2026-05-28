@@ -268,6 +268,66 @@ function relatedSection(svc) {
 </section>`;
 }
 
+const TIMELINE = {
+  development:    'обычно от 1 до 6 недель в зависимости от объёма',
+  ai:            'обычно 2–6 недель в зависимости от сложности',
+  business:      'от нескольких дней до месяца',
+  security:      'аудит — 1–2 недели, внедрение — по объёму',
+  infrastructure:'от нескольких дней до 2–3 недель',
+  industry:      'от 2 до 8 недель в зависимости от масштаба',
+  education:     'обычно 2–4 недели',
+  media:         'обычно 1–3 недели',
+  innovation:    'обсуждается индивидуально под задачу',
+};
+
+function faqForService(svc) {
+  const nameLower = svc.n.charAt(0).toLowerCase() + svc.n.slice(1);
+  const time = TIMELINE[svc.c] || 'обсуждается индивидуально под задачу';
+  const priceA = (svc.pf && svc.pf.length)
+    ? `Стоимость — ${svc.pt}. Финальная цена зависит от: ${svc.pf.join(', ')}. Точную смету дам после короткого разговора о задаче.`
+    : `Стоимость — ${svc.pt}. Точную смету дам после короткого разговора о задаче.`;
+  return [
+    { q: `Сколько стоит ${nameLower}?`, a: priceA },
+    { q: `Сколько времени занимает работа?`, a: `Сроки — ${time}. После обсуждения задачи я называю конкретные сроки и фиксирую их в договоре.` },
+    { q: `Вы работаете удалённо? В каком городе?`, a: `Да, работаю удалённо по всей России. Базируюсь в Чите, личные встречи — по договорённости. Москва и регионы — онлайн.` },
+    { q: `Как заказать и с чего начать?`, a: `Напишите в Telegram или позвоните. Обсудим задачу, я задам уточняющие вопросы и пришлю смету и сроки. Работаю по договору.` },
+    { q: `Всё ли будет по закону (152-ФЗ)?`, a: `Да. Решения проектирую с учётом 152-ФЗ: данные хранятся в РФ, есть согласия и политика обработки. При необходимости проведу отдельный аудит.` },
+  ];
+}
+
+function faqSection(svc) {
+  const pairs = faqForService(svc);
+  return `<section class="section section-tight">
+    <div class="container">
+        <h2 class="service-h2">Частые вопросы</h2>
+        <div class="service-faq">
+            ${pairs.map(p => `<details class="service-faq-item">
+                <summary>${esc(p.q)}</summary>
+                <p>${esc(p.a)}</p>
+            </details>`).join('\n            ')}
+        </div>
+    </div>
+</section>`;
+}
+
+function faqJsonLd(svc) {
+  const pairs = faqForService(svc);
+  return JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: pairs.map(p => ({
+      '@type': 'Question',
+      name: p.q,
+      acceptedAnswer: { '@type': 'Answer', text: p.a },
+    })),
+  }, null, 2);
+}
+
+function commercialTitle(svc) {
+  // Коммерческий title: «<услуга> — цена <pt>, заказать | автор»
+  return `${svc.n} — цена ${svc.pt}, заказать | Чимитдоржи Дарижапов`;
+}
+
 function pricingFactorsSection(svc) {
   if (!svc.pf || !svc.pf.length) return '';
   return `<section class="section section-tight">
@@ -284,11 +344,14 @@ function servicePage(svc) {
   const url = `${SITE}/services/${svc.s}/`;
   const cat = categories[svc.c];
   const k = `svc.${svc.s}`;
-  return `${head({ title: svc.t, description: svc.md, keywords: svc.mk, canonical: url })}    <script type="application/ld+json">
+  return `${head({ title: commercialTitle(svc), description: svc.md, keywords: svc.mk, canonical: url })}    <script type="application/ld+json">
 ${serviceJsonLd(svc, url)}
     </script>
     <script type="application/ld+json">
 ${breadcrumbJsonLd(svc, url)}
+    </script>
+    <script type="application/ld+json">
+${faqJsonLd(svc)}
     </script>
 </head>
 <body>
@@ -327,6 +390,8 @@ ${breadcrumbJsonLd(svc, url)}
         </section>
 
         ${pricingFactorsSection(svc)}
+
+        ${faqSection(svc)}
 
         ${relatedSection(svc)}
 
@@ -470,8 +535,10 @@ function sitemap() {
     });
   }
   entries.push(
+    { loc: `${SITE}/mwrlife/`,            priority: '0.7', freq: 'monthly' },
     { loc: `${SITE}/universe_buryat/`,    priority: '0.7', freq: 'monthly' },
     { loc: `${SITE}/arey/`,               priority: '0.6', freq: 'monthly' },
+    { loc: `${SITE}/accessibility/`,      priority: '0.4', freq: 'quarterly' },
     { loc: `${SITE}/privacy_policy.html`, priority: '0.3', freq: 'yearly' },
     { loc: `${SITE}/oferta.html`,         priority: '0.3', freq: 'yearly' },
     { loc: `${SITE}/terms.html`,          priority: '0.3', freq: 'yearly' },
