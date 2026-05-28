@@ -1,73 +1,45 @@
-// Sends an IndexNow ping to Yandex (and others) so the sitemap is re-crawled
-// faster after a deploy. Run: `node tools/indexnow-ping.js`
+// Sends an IndexNow ping to Yandex so new/updated URLs are re-crawled fast.
+// Run: `node tools/indexnow-ping.js`
 //
-// Setup: file `1623999cfbe7e3b7b63fb5d8a3c8042f.txt` already lives at site root
-// and contains the same key. IndexNow protocol uses it to verify ownership.
+// URL list is built dynamically from blog-data.js (all published articles +
+// category pillar pages) plus key static pages — so it never goes stale.
+//
+// Ownership is verified via the key file `1623999cfbe7e3b7b63fb5d8a3c8042f.txt`
+// living at the site root (IndexNow protocol).
 
 const https = require('https');
 
 const KEY = '1623999cfbe7e3b7b63fb5d8a3c8042f';
 const HOST = 'chimitdorzhi.tech';
-const SITEMAP = `https://${HOST}/sitemap.xml`;
+
+let articles = [];
+try { articles = require('./blog-data'); } catch (e) { /* run from anywhere */ }
+const published = articles.filter(a => a && a.published && a.contentHtml);
+
+// Category keys that have a pillar page (mirror build-blog.js CATEGORY_META).
+const CAT_KEYS = ['legal','ai-dev','ai-life','marketing','sales','media','industries','esports','development','security','finance','mlm','mwrlife'];
+const catKeys = CAT_KEYS.filter(k => published.some(p => p.category === k));
+
+const staticPages = [
+  `https://${HOST}/`,
+  `https://${HOST}/services/`,
+  `https://${HOST}/blog/`,
+  `https://${HOST}/mwrlife/`,
+  `https://${HOST}/accessibility/`,
+];
+
+const urlList = [
+  ...staticPages,
+  ...catKeys.map(k => `https://${HOST}/blog/category/${k}/`),
+  ...published.map(a => `https://${HOST}/blog/${a.slug}/`),
+  `https://${HOST}/sitemap.xml`,
+];
 
 const body = JSON.stringify({
   host: HOST,
   key: KEY,
   keyLocation: `https://${HOST}/${KEY}.txt`,
-  urlList: [
-    `https://${HOST}/`,
-    `https://${HOST}/services/`,
-    `https://${HOST}/blog/`,
-    `https://${HOST}/blog/audit-152-fz-2026/`,
-    `https://${HOST}/blog/utechki-pd-24-chasa-2026/`,
-    `https://${HOST}/blog/rossiyskiy-ai-stack-2026/`,
-    `https://${HOST}/blog/ai-agenty-v-biznese-2026/`,
-    `https://${HOST}/blog/chek-list-bezopasnosti-sayta-47-punktov/`,
-    `https://${HOST}/blog/rag-sistemy-dlya-biznesa-2026/`,
-    `https://${HOST}/blog/ai-v-marketinge-2026/`,
-    `https://${HOST}/blog/lokalnyy-llm-na-noutbuke-2026/`,
-    `https://${HOST}/blog/mcp-model-context-protocol-2026/`,
-    `https://${HOST}/blog/ai-transkripciya-soveshchaniy-2026/`,
-    `https://${HOST}/blog/svoy-sayt-vs-socseti-2026/`,
-    `https://${HOST}/blog/svoy-magazin-vs-wildberries-ozon-2026/`,
-    `https://${HOST}/blog/dostupnost-sayta-a11y-2026/`,
-    `https://${HOST}/blog/ai-chatbot-na-sayt-bez-programmirovaniya-2026/`,
-    `https://${HOST}/blog/seo-internet-magazina-yandex-30-hakov-2026/`,
-    `https://${HOST}/blog/svoy-vps-dlya-razrabotchika-2026/`,
-    `https://${HOST}/blog/mvp-to-production-3-mesyatsa-2026/`,
-    `https://${HOST}/blog/ai-dlya-roditeley-2026/`,
-    `https://${HOST}/blog/ai-v-povsednevnoy-zhizni-25-sposobov-2026/`,
-    `https://${HOST}/blog/kak-obnaruzhit-fishing-2026/`,
-    `https://${HOST}/blog/zashchita-brenda-2026/`,
-    `https://${HOST}/blog/saas-pricing-2026/`,
-    `https://${HOST}/blog/podcast-s-gostyami-monetizaciya-2026/`,
-    `https://${HOST}/blog/telegram-chat-vk-soobshchestvo-2026/`,
-    `https://${HOST}/blog/ai-pomoshchnik-buhgaltera-2026/`,
-    `https://${HOST}/blog/ai-dlya-yurista-advokata-2026/`,
-    `https://${HOST}/blog/voronka-prodazh-b2b-2026/`,
-    `https://${HOST}/blog/partnerskiy-marketing-affiliate-2026/`,
-    `https://${HOST}/blog/biznes-plan-2026-shablon/`,
-    `https://${HOST}/blog/crm-dlya-malogo-biznesa-2026/`,
-    `https://${HOST}/blog/svoya-strim-studiya-2026/`,
-    `https://${HOST}/blog/live-commerce-rf-2026/`,
-    `https://${HOST}/blog/kibertirniry-organizaciya-2026/`,
-    `https://${HOST}/blog/sponsorstvo-kibersport-streaming-2026/`,
-    `https://${HOST}/blog/geymifikaciya-saas-2026/`,
-    `https://${HOST}/blog/max-mini-apps-2026/`,
-    `https://${HOST}/blog/magazin-bot-max-2026/`,
-    `https://${HOST}/blog/max-bot-restoran-kafe-2026/`,
-    `https://${HOST}/blog/max-bot-rieltor-2026/`,
-    `https://${HOST}/blog/tilda-vs-kastomnaya-razrabotka-2026/`,
-    `https://${HOST}/blog/skolko-stoit-sayt-2026/`,
-    `https://${HOST}/blog/vk-mini-app-dlya-biznesa-2026/`,
-    `https://${HOST}/blog/ai-dlya-logistiki-2026/`,
-    `https://${HOST}/blog/razrabotka-dlya-meditsiny-2026/`,
-    `https://${HOST}/blog/it-dlya-horeca-2026/`,
-    `https://${HOST}/blog/it-dlya-salonov-krasoty-2026/`,
-    `https://${HOST}/blog/it-dlya-avtoservisa-2026/`,
-    `https://${HOST}/blog/it-dlya-turizma-otelei-2026/`,
-    SITEMAP,
-  ],
+  urlList,
 });
 
 const req = https.request({
@@ -79,7 +51,7 @@ const req = https.request({
   let data = '';
   res.on('data', (c) => { data += c; });
   res.on('end', () => {
-    console.log(`Yandex IndexNow: ${res.statusCode}`);
+    console.log(`Yandex IndexNow: ${res.statusCode} (${urlList.length} URLs)`);
     if (data) console.log(data);
   });
 });

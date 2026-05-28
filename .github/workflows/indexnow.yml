@@ -1,0 +1,22 @@
+name: IndexNow ping
+
+# Пингуем Яндекс через IndexNow после того, как страница опубликовалась
+# (workflow Pages "pages build and deployment" успешно завершился).
+on:
+  workflow_run:
+    workflows: ["pages build and deployment"]
+    types:
+      - completed
+  workflow_dispatch: {}
+
+jobs:
+  ping:
+    if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Ping IndexNow (Yandex)
+        run: node tools/indexnow-ping.js

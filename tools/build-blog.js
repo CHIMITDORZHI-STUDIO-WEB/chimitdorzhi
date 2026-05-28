@@ -373,9 +373,55 @@ function relatedHtml(a, published) {
 </section>`;
 }
 
+// Contextual auto-linking: link the FIRST occurrence of a keyword phrase inside
+// a prose <p> to the matching service page. Skips headings, code, tables, existing
+// links and the lead. Caps total links to avoid over-optimization.
+const AUTOLINK_RULES = [
+  { re: /Telegram-бот(?:а|ы|ов|у)?/i,        url: 'https://chimitdorzhi.tech/services/telegram-bots/' },
+  { re: /чат-бот(?:а|ы|ов|у)?/i,             url: 'https://chimitdorzhi.tech/services/telegram-bots/' },
+  { re: /AI-агент(?:а|ы|ов|у)?/i,            url: 'https://chimitdorzhi.tech/services/ai-agents/' },
+  { re: /RAG-систем(?:а|ы|у)/i,              url: 'https://chimitdorzhi.tech/services/rag-systems/' },
+  { re: /кибербезопасност(?:ь|и)/i,          url: 'https://chimitdorzhi.tech/services/cybersecurity/' },
+  { re: /аудит(?:а)? 152-ФЗ/i,               url: 'https://audit.chimitdorzhi.tech/' },
+  { re: /юнит-экономик(?:а|и|у)/i,           url: 'https://chimitdorzhi.tech/services/business-analytics-unit-economics/' },
+  { re: /импортозамещени(?:е|я)/i,           url: 'https://chimitdorzhi.tech/services/russian-stack-migration/' },
+  { re: /мобильн(?:ое|ого) приложени(?:е|я)/i, url: 'https://chimitdorzhi.tech/services/mobile-apps/' },
+  { re: /разработк(?:а|и|у) сайта/i,         url: 'https://chimitdorzhi.tech/services/web-development/' },
+];
+
+function autolinkServices(html, selfUrl) {
+  if (!html) return html;
+  const used = new Set();
+  let count = 0;
+  const MAX = 4;
+  // Split into segments, keeping protected blocks intact.
+  const parts = html.split(/(<pre[\s\S]*?<\/pre>|<h[1-6][\s\S]*?<\/h[1-6]>|<table[\s\S]*?<\/table>|<a [\s\S]*?<\/a>)/i);
+  for (let i = 0; i < parts.length; i++) {
+    const seg = parts[i];
+    if (!seg || /^<(pre|h[1-6]|table|a )/i.test(seg)) continue; // protected
+    let s = seg;
+    for (const rule of AUTOLINK_RULES) {
+      if (count >= MAX) break;
+      if (used.has(rule.url)) continue;
+      if (rule.url === selfUrl) continue; // don't self-link
+      const m = s.match(rule.re);
+      if (!m) continue;
+      const idx = s.indexOf(m[0]);
+      s = s.slice(0, idx) +
+          `<a href="${rule.url}" class="blog-inline-link">${m[0]}</a>` +
+          s.slice(idx + m[0].length);
+      used.add(rule.url);
+      count++;
+    }
+    parts[i] = s;
+  }
+  return parts.join('');
+}
+
 function articlePage(a, published) {
   const url = `${SITE}/blog/${a.slug}/`;
   const cat = CATEGORY_LABELS[a.category] || 'Блог';
+  const bodyHtml = autolinkServices(a.contentHtml, a.ctaInternal && a.ctaInternal.url);
   return `${head({ title: a.metaTitle || a.title, description: a.metaDescription, keywords: a.metaKeywords || a.tags.join(', '), canonical: url, ogImage: coverUrl(a) })}    <script type="application/ld+json">
 ${blogPostingLd(a, url)}
     </script>
@@ -417,7 +463,7 @@ ${faqLd(a)}</head>
                     ${tagsHtml(a.tags)}
 
                     <div class="blog-body">
-                        ${a.contentHtml}
+                        ${bodyHtml}
                     </div>
 
                     ${servicesOfferCard(a)}
