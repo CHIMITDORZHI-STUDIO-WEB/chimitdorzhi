@@ -98,13 +98,36 @@
         .btn-outline { background: transparent; color: #fff; border: 1px solid var(--mwr-border); }
         .btn-outline:hover { border-color: var(--mwr-gold); transform: translateY(-2px); }
 
+        /* Trust badges under hero */
+        .mwr-trust { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px 24px; margin-top: 30px; }
+        .mwr-trust span { display: inline-flex; align-items: center; gap: 7px; color: var(--mwr-text-dim); font-size: 0.92rem; }
+        .mwr-trust i { color: var(--mwr-gold); font-size: 18px; }
+
+        /* Stats band */
+        .mwr-stats-sec { padding-top: 20px; padding-bottom: 20px; }
+        .mwr-stats {
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px;
+            background: linear-gradient(160deg, var(--mwr-navy-2), #0c1838);
+            border: 1px solid var(--mwr-border); border-radius: 20px; padding: 34px 24px;
+        }
+        .mwr-stat { text-align: center; }
+        .mwr-stat .num {
+            display: block; font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800; line-height: 1;
+            background: linear-gradient(90deg, var(--mwr-gold), var(--mwr-gold-2));
+            -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .mwr-stat .lbl { display: block; color: var(--mwr-text-dim); font-size: 0.9rem; margin-top: 8px; }
+
         /* Sections */
         .mwr-sec { padding: 56px 0; }
         .mwr-sec h2 { font-size: clamp(1.6rem, 3.2vw, 2.3rem); color: #fff; text-align: center; margin-bottom: 12px; font-weight: 800; }
         .mwr-sec .lead { text-align: center; color: var(--mwr-text-dim); max-width: 680px; margin: 0 auto 40px; }
 
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-        .card { background: var(--mwr-card-bg); border: 1px solid var(--mwr-border); border-radius: 16px; padding: 28px; }
+        .card { position: relative; background: var(--mwr-card-bg); border: 1px solid var(--mwr-border); border-radius: 16px; padding: 28px; overflow: hidden; transition: transform .15s ease, border-color .15s ease; }
+        .card::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--mwr-gold), var(--mwr-gold-2)); opacity: 0; transition: opacity .2s ease; }
+        .card:hover { transform: translateY(-4px); border-color: var(--mwr-gold); }
+        .card:hover::before { opacity: 1; }
         .card i { font-size: 32px; color: var(--mwr-gold); margin-bottom: 14px; display: block; }
         .card h3 { font-size: 1.15rem; color: #fff; margin-bottom: 8px; }
         .card p { color: var(--mwr-text-dim); font-size: 0.95rem; }
@@ -177,8 +200,11 @@
         .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(120px); background: var(--mwr-gold); color: #1a1300; padding: 14px 24px; border-radius: 12px; font-weight: 700; box-shadow: 0 10px 30px rgba(0,0,0,0.4); transition: transform .35s ease; z-index: 999; max-width: 90%; text-align: center; }
         .toast.show { transform: translateX(-50%) translateY(0); }
 
+        @media (max-width: 720px) {
+            .mwr-stats { grid-template-columns: repeat(2, 1fr); gap: 24px 12px; }
+        }
         @media (max-width: 600px) {
-            .mwr-form-wrap { padding: 26px; }
+            .mwr-contact-wrap { padding: 26px; }
             .btn { width: 100%; justify-content: center; }
             .mwr-cta-row { flex-direction: column; }
         }
@@ -206,6 +232,21 @@
             <div class="mwr-cta-row">
                 <a href="#zapis" class="btn btn-gold"><i class="ph-fill ph-calendar-check" aria-hidden="true"></i> Записаться на презентацию</a>
                 <a href="https://www.mwrlife.com/Darizhapov1991" target="_blank" rel="noopener" class="btn btn-outline"><i class="ph-fill ph-user-plus" aria-hidden="true"></i> Регистрация в клубе</a>
+            </div>
+            <div class="mwr-trust">
+                <span><i class="ph-fill ph-check-circle" aria-hidden="true"></i> Компания с 2013 года</span>
+                <span><i class="ph-fill ph-check-circle" aria-hidden="true"></i> Офисы на 5 континентах</span>
+                <span><i class="ph-fill ph-check-circle" aria-hidden="true"></i> Вход по рекомендации</span>
+            </div>
+        </section>
+
+        <!-- STATS -->
+        <section class="container mwr-sec mwr-stats-sec">
+            <div class="mwr-stats">
+                <div class="mwr-stat"><span class="num">2 млн</span><span class="lbl">отелей по миру</span></div>
+                <div class="mwr-stat"><span class="num">500K+</span><span class="lbl">участников клуба</span></div>
+                <div class="mwr-stat"><span class="num">до 70%</span><span class="lbl">скидки на поездки</span></div>
+                <div class="mwr-stat"><span class="num">×2</span><span class="lbl">баллы лояльности</span></div>
             </div>
         </section>
 
