@@ -21,6 +21,7 @@ const CATEGORY_GRADIENTS = {
   security:    ['#7f1d1d', '#ef4444'], // red
   finance:     ['#064e3b', '#34d399'], // green
   mlm:         ['#831843', '#fb7185'], // rose
+  mwrlife:     ['#0b1733', '#c8a04e'], // MWR Life navy → gold
   ai:          ['#5b21b6', '#a855f7'], // legacy
   career:      ['#1e3a8a', '#4f8cff'], // legacy
 };
@@ -38,6 +39,7 @@ const CATEGORY_LABELS = {
   security:    'Безопасность',
   finance:     'Финансы',
   mlm:         'Сетевой бизнес',
+  mwrlife:     'MWR Life',
 };
 
 function escapeXml(str) {

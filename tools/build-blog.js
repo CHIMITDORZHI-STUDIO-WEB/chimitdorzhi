@@ -28,6 +28,7 @@ const CATEGORY_LABELS = {
   security:    'Безопасность',
   finance:     'Финансы',
   mlm:         'Сетевой бизнес',
+  mwrlife:     'MWR Life',
   // legacy/fallback
   ai:          'AI и автоматизация',
   career:      'Карьера и обучение',
@@ -135,6 +136,14 @@ function navbar() {
                             <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
                         </span>
                         <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-airplane-tilt" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
                     </a>
                 </div>
             </li>
@@ -485,6 +494,7 @@ ${JSON.stringify(breadcrumb, null, 2)}
                       { key: 'security',    label: 'Безопасность' },
                       { key: 'finance',     label: 'Финансы' },
                       { key: 'mlm',         label: 'Сетевой бизнес' },
+                      { key: 'mwrlife',     label: 'MWR Life' },
                       { key: 'ai',          label: 'AI (старое)' },
                       { key: 'career',      label: 'Карьера' },
                     ].map(c => {
