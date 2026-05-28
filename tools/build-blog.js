@@ -405,7 +405,7 @@ ${faqLd(a)}</head>
             <div class="blog-article-layout">
                 <article class="blog-article">
                     <div class="blog-meta">
-                        <span class="blog-meta-cat"><i class="ph ph-bookmark" aria-hidden="true"></i> ${esc(cat)}</span>
+                        ${CATEGORY_META[a.category] ? `<a class="blog-meta-cat" href="/blog/category/${a.category}/"><i class="ph ph-bookmark" aria-hidden="true"></i> ${esc(cat)}</a>` : `<span class="blog-meta-cat"><i class="ph ph-bookmark" aria-hidden="true"></i> ${esc(cat)}</span>`}
                         <span><i class="ph ph-clock" aria-hidden="true"></i> ${a.readingMinutes} мин чтения</span>
                         <time datetime="${a.datePublished}"><i class="ph ph-calendar" aria-hidden="true"></i> ${formatRuDate(a.datePublished)}</time>
                     </div>
@@ -573,6 +573,16 @@ ${JSON.stringify(breadcrumb, null, 2)}
                 <div class="blog-coming-soon">
                     <p><i class="ph ph-clock-countdown" aria-hidden="true"></i> Готовятся к публикации: <strong>Cookie-баннер по закону</strong>, <strong>Уведомление в РКН 2026</strong>, <strong>Сколько стоит Telegram-бот</strong> и ещё 6 статей. Следите за обновлениями.</p>
                 </div>` : ''}
+
+                <nav class="blog-sections" aria-label="Разделы блога">
+                    <h2>Разделы блога</h2>
+                    <div class="blog-sections-list">
+                    ${Object.keys(CATEGORY_META).filter(k => published.some(p => p.category === k)).map(k => {
+                      const cnt = published.filter(p => p.category === k).length;
+                      return `<a href="/blog/category/${k}/" class="blog-section-link">${esc(CATEGORY_META[k].h1)} <span>${cnt}</span></a>`;
+                    }).join('\n                    ')}
+                    </div>
+                </nav>
             </div>
         </section>
     </main>
@@ -601,6 +611,156 @@ ${JSON.stringify(breadcrumb, null, 2)}
 </html>`;
 }
 
+// ---------- category pillar pages ----------
+
+const CATEGORY_META = {
+  legal: {
+    h1: 'Право и 152-ФЗ',
+    intro: 'Всё о защите персональных данных и соответствии 152-ФЗ для бизнеса: согласия, уведомление в РКН, утечки, cookie-баннеры, локализация данных и новые оборотные штрафы. Практические разборы от специалиста, который проводит аудиты на соответствие закону.',
+    service: { url: 'https://audit.chimitdorzhi.tech/', label: 'Аудит 152-ФЗ' },
+  },
+  'ai-dev': {
+    h1: 'AI для разработчиков',
+    intro: 'AI-агенты, RAG-системы, MCP, локальные LLM и российский AI-стек — для тех, кто внедряет искусственный интеллект в продукты и процессы. С кодом, архитектурой и реальными кейсами на YandexGPT и GigaChat.',
+    service: { url: 'https://chimitdorzhi.tech/services/ai-agents/', label: 'Внедрить AI-агентов' },
+  },
+  'ai-life': {
+    h1: 'AI для жизни и работы',
+    intro: 'Практическое применение нейросетей в повседневной работе и быту: помощники, автоматизация рутины, AI для бухгалтера, юриста, родителей. Без хайпа — только то, что реально экономит время.',
+    service: { url: 'https://chimitdorzhi.tech/services/corporate-ai-training/', label: 'Обучение команды AI' },
+  },
+  marketing: {
+    h1: 'Маркетинг и контент',
+    intro: 'SEO под Яндекс, контент-маркетинг, партнёрский маркетинг и продвижение в российских реалиях 2026. Что реально приводит клиентов, а что — слив бюджета.',
+    service: { url: 'https://chimitdorzhi.tech/services/digital-marketing/', label: 'Маркетинг под ключ' },
+  },
+  sales: {
+    h1: 'Продажи и стартап',
+    intro: 'Воронки продаж, юнит-экономика, бизнес-планы и CRM для малого бизнеса и стартапов. Как считать деньги и строить продажи на цифрах, а не на интуиции.',
+    service: { url: 'https://chimitdorzhi.tech/services/business-analytics-unit-economics/', label: 'Собрать финмодель' },
+  },
+  media: {
+    h1: 'Медиа и подкасты',
+    intro: 'Запуск и монетизация подкастов, стрим-студии, своё медиа. Технический стек и бизнес-модель для тех, кто создаёт контент.',
+    service: { url: 'https://chimitdorzhi.tech/services/podcast-production/', label: 'Продакшн подкаста' },
+  },
+  industries: {
+    h1: 'IT и автоматизация по отраслям',
+    intro: 'Цифровизация конкретных индустрий: HoReCa, автосервис, медицина, логистика, агросектор, ритейл, туризм, образование и десятки других. CRM, боты, IoT и AI под специфику каждой отрасли — с бюджетами и стеком.',
+    service: { url: 'https://chimitdorzhi.tech/services/business-automation/', label: 'Автоматизировать бизнес' },
+  },
+  esports: {
+    h1: 'Киберспорт',
+    intro: 'Организация турниров, киберспортивные лиги, спонсорство и монетизация — от практика с опытом 50+ мероприятий. Бизнес-сторона киберспорта без воды.',
+    service: { url: 'https://chimitdorzhi.tech/services/business-automation/', label: 'Автоматизировать ивенты' },
+  },
+  development: {
+    h1: 'Разработка',
+    intro: 'Сайты, Telegram-боты, PWA, MVP, своя инфраструктура и импортозамещение ПО. Сколько стоит, как делают и что выбрать — Tilda или кастом, no-code или код.',
+    service: { url: 'https://chimitdorzhi.tech/services/web-development/', label: 'Заказать разработку' },
+  },
+  security: {
+    h1: 'Безопасность',
+    intro: 'Кибербезопасность для бизнеса: защита от фишинга, чек-листы безопасности сайта, реагирование на утечки. Практика, а не теория.',
+    service: { url: 'https://chimitdorzhi.tech/services/cybersecurity/', label: 'Аудит безопасности' },
+  },
+  finance: {
+    h1: 'Финансы',
+    intro: 'Финансы для предпринимателя: юнит-экономика, ЦФА, цифровой рубль, налоги. Как считать и не потерять деньги.',
+    service: { url: 'https://chimitdorzhi.tech/services/business-analytics-unit-economics/', label: 'Финансовая аналитика' },
+  },
+  mlm: {
+    h1: 'Сетевой бизнес',
+    intro: 'Автоматизация и инструменты для сетевого бизнеса: CRM структуры, боты, контент на AI, калькуляторы маркетинг-планов, своя платформа дистрибьютора. Объективно и в рамках закона.',
+    service: { url: 'https://chimitdorzhi.tech/services/business-automation/', label: 'Автоматизировать структуру' },
+  },
+  mwrlife: {
+    h1: 'MWR Life / Travel Advantage',
+    intro: 'Всё про travel-клуб MWR Life: как путешествовать дешевле, как устроена партнёрская программа, честные обзоры и разборы. Объективно, без обещаний дохода.',
+    service: { url: 'https://chimitdorzhi.tech/mwrlife/', label: 'Узнать про MWR Life' },
+  },
+};
+
+function categoryPage(key, catArticles) {
+  const meta = CATEGORY_META[key];
+  const label = CATEGORY_LABELS[key] || key;
+  const url = `${SITE}/blog/category/${key}/`;
+  const cards = catArticles.map(cardHtml).join('\n');
+  const ld = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: `${meta.h1} — статьи и гайды`,
+    url,
+    description: meta.intro,
+    inLanguage: 'ru',
+    hasPart: catArticles.map(a => ({
+      '@type': 'BlogPosting',
+      headline: a.title,
+      url: `${SITE}/blog/${a.slug}/`,
+      datePublished: a.datePublished,
+    })),
+  };
+  const breadcrumb = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Главная', item: `${SITE}/` },
+      { '@type': 'ListItem', position: 2, name: 'Блог', item: `${SITE}/blog/` },
+      { '@type': 'ListItem', position: 3, name: meta.h1, item: url },
+    ],
+  };
+  return `${head({
+    title: `${meta.h1}: статьи и гайды 2026 | Чимитдоржи Дарижапов`,
+    description: meta.intro.slice(0, 300),
+    keywords: `${label}, ${meta.h1}, статьи, гайды, 2026`,
+    canonical: url,
+  })}    <script type="application/ld+json">
+${JSON.stringify(ld, null, 2)}
+    </script>
+    <script type="application/ld+json">
+${JSON.stringify(breadcrumb, null, 2)}
+    </script>
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    ${navbar()}
+
+    <main id="main">
+        <section class="section">
+            <div class="container">
+                <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                    <a href="/">Главная</a>
+                    <span class="breadcrumbs-sep">›</span>
+                    <a href="/blog/">Блог</a>
+                    <span class="breadcrumbs-sep">›</span>
+                    <span aria-current="page">${esc(meta.h1)}</span>
+                </nav>
+                <div class="section-header">
+                    <span class="section-label">РАЗДЕЛ БЛОГА</span>
+                    <h1 class="section-heading">${esc(meta.h1)}</h1>
+                    <p class="section-sub">${esc(meta.intro)}</p>
+                    <div class="blog-cat-actions">
+                        <a href="${meta.service.url}"${meta.service.url.startsWith('http') && !meta.service.url.includes('chimitdorzhi.tech') ? ' target="_blank" rel="noopener"' : ''} class="btn btn-accent"><i class="ph ph-arrow-right" aria-hidden="true"></i> ${esc(meta.service.label)}</a>
+                        <a href="/blog/" class="btn btn-ghost"><i class="ph ph-list" aria-hidden="true"></i> Все статьи блога</a>
+                    </div>
+                </div>
+
+                <div class="blog-grid">
+                    ${cards}
+                </div>
+            </div>
+        </section>
+    </main>
+
+    ${footer()}
+</body>
+</html>`;
+}
+
 // ---------- sitemap update ----------
 
 function updateSitemap(published) {
@@ -610,9 +770,18 @@ function updateSitemap(published) {
   // Strip any existing /blog/ entries (idempotent re-runs).
   xml = xml.replace(/\s*<url>\s*<loc>https:\/\/chimitdorzhi\.tech\/blog[^<]*<\/loc>[\s\S]*?<\/url>/g, '');
 
+  // Category pillar pages present
+  const catKeys = Object.keys(CATEGORY_META).filter(k => published.some(p => p.category === k));
+
   // Build new entries
   const blogEntries = [
     { loc: `${SITE}/blog/`, lastmod: today, freq: 'weekly', priority: '0.8' },
+    ...catKeys.map(k => ({
+      loc: `${SITE}/blog/category/${k}/`,
+      lastmod: today,
+      freq: 'weekly',
+      priority: '0.6',
+    })),
     ...published.map(a => ({
       loc: `${SITE}/blog/${a.slug}/`,
       lastmod: a.dateModified || a.datePublished,
@@ -712,6 +881,19 @@ async function main() {
   }
 
   fs.writeFileSync(path.join(OUT_BLOG, 'index.html'), hubPage(published), 'utf8');
+
+  // Category pillar pages
+  let catPages = 0;
+  const catKeys = Object.keys(CATEGORY_META).filter(k => published.some(p => p.category === k));
+  for (const k of catKeys) {
+    const catArticles = published.filter(p => p.category === k);
+    const dir = path.join(OUT_BLOG, 'category', k);
+    ensureDir(dir);
+    fs.writeFileSync(path.join(dir, 'index.html'), categoryPage(k, catArticles), 'utf8');
+    catPages++;
+  }
+  console.log(`  Generated ${catPages} category pillar page(s)`);
+
   updateSitemap(published);
   fs.writeFileSync(OUT_FEED, buildRss(published), 'utf8');
 
