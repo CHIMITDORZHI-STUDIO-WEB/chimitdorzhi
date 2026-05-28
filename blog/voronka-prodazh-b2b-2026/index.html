@@ -98,9 +98,58 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Сколько стоит построить B2B-воронку с AI в 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "От 80 тыс. ₽ (минимальная сборка: CRM + базовая автоматизация + один AI-сценарий) до 500 тыс. ₽ (полная воронка с интеграциями, скорингом, голосовым ботом, аналитикой). Среднее по моим проектам — 220–300 тыс. ₽."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли обойтись без CRM в B2B?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Если у вас меньше 10 сделок в год и средний чек выше 1 млн ₽ — да, хватит таблицы и календаря. Во всех остальных случаях CRM окупается за 2–3 месяца только за счёт того, что вы перестаёте терять лиды."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Какая воронка лучше для нашего бизнеса — длинная или короткая?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Длина воронки определяется не вашим желанием, а длиной реального цикла принятия решения у клиентов. Если клиенты решают за месяц — воронка из 4 этапов, если за полгода — из 6–8."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли заменить менеджера AI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "На этапах верхней квалификации (MQL → SQL) — да, голосовой AI-бот реально работает. На этапах Proposal и Negotiation — пока нет, нужен живой человек для построения отношений и торга."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как часто нужно пересматривать воронку?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Раз в квартал — анализ метрик и точечные правки. Раз в год — крупный пересмотр всей структуры, если рынок или продукт сильно изменились."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
     <div class="gradient-blob blob-2"></div>
@@ -556,5 +605,22 @@
 <script src="/i18n.js?v=23" defer></script>
 <script src="/services-i18n.js?v=23" defer></script>
 <script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
 </body>
 </html>

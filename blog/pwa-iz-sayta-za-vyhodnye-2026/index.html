@@ -98,9 +98,74 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Можно ли сделать PWA из сайта на Tilda или Wix?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "На Tilda — с трудом. Tilda не даёт положить файлы в корень и зарегистрировать свой Service Worker, скрипты в head ограничены. Минимальное — manifest можно прицепить через «свой код», но без SW это не полноценная PWA, только иконка на рабочем столе. Wix чуть лучше — у них есть встроенная PWA-функция в Wix Studio, активируется в настройках сайта. Если нужна настоящая PWA с push и оффлайном — переезжайте на свой хостинг."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько стоит сделать PWA, если не делать самому?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Простая PWA из готового лендинга или сайта — 80–150 тыс ₽, 2–4 недели. PWA с push-уведомлениями и оффлайн-режимом — 200–400 тыс ₽, 4–8 недель. PWA с интеграцией оплаты, личным кабинетом, реал-тайм синхронизацией — 500 тыс — 1,5 млн ₽, 2–4 месяца. Это всё равно дешевле нативной разработки в 3–5 раз."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "PWA реально работает на iPhone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, с iOS 16.4+ работают push, с iOS 17.4+ — нормальная установка. Но есть нюансы: push приходит только в установленную через «На главный экран» PWA, не в Safari-вкладку; нет API для запроса установки (только текстовая подсказка); ограничение хранилища 50 МБ на сайт (на Android — гигабайты). Для 90% сценариев этих ограничений хватает."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли публиковать PWA в App Store?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Технически с iOS 17.4 — да, через PWA Builder + Xcode. Практически — Apple часто реджектит «голые» обёртки PWA по пункту 4.2 «должен быть нативный функционал». Если делать — добавляйте хотя бы пару нативных фишек через Capacitor (биометрия, шеринг). На RuStore и Google Play проблем нет."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что лучше — PWA или React Native?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Зависит. PWA — если у вас уже есть веб-команда и сайт, бюджет ограничен, нужно быстро выкатить на все платформы и публикация в App Store не критична. React Native — если нужны глубокие нативные интеграции (Bluetooth, NFC, биометрия), 3D, тяжёлая графика, фоновая обработка без открытого таба. Сравнение подробнее планирую в отдельной статье."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как обновлять PWA после установки у пользователя?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Через версионирование кэша. В sw.js меняете константу CACHE = 'pwa-v1.0.3' на 'pwa-v1.0.4', заливаете новый sw.js. При следующем заходе пользователя браузер скачает новый SW, в событии activate старый кэш удалится, новый закэшируется. Если хотите принудительно перезагрузить открытую страницу после обновления — добавьте в основной скрипт слушатель navigator.serviceWorker.addEventListener('controllerchange', () =&gt; location.reload())."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что делать, если SW «залип» и отдаёт старую версию?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Chrome DevTools → Application → Service Workers → Unregister, потом Storage → Clear site data. У пользователя — попросить переустановить PWA (удалить иконку и установить заново). Поэтому версионирование кэша — критично с первого дня."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
     <div class="gradient-blob blob-2"></div>
@@ -820,5 +885,22 @@ async function sendToAll(subscriptions, payload) {
 <script src="/i18n.js?v=23" defer></script>
 <script src="/services-i18n.js?v=23" defer></script>
 <script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
 </body>
 </html>

@@ -98,9 +98,82 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Это точно не пирамида?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Здоровая модель строится на реальном продукте и обороте, а не на взносах ради выплат. Если продукт есть и им пользуются — это не пирамида. Если «платишь за вход и получаешь только за приведённых» без продукта — беги."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько я заработаю?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Не знаю, и никто честный тебе не скажет. Доход не гарантирован и зависит целиком от тебя. Если это твой главный вопрос на старте — скорее всего, модель тебе не подходит."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "А если у меня нет аудитории и подписчиков?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Можно начать без неё, но путь будет дольше: часть усилий уйдёт на построение круга доверия через контент в ВКонтакте, Telegram, Дзене, на YouTube или Rutube и через живое общение."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Я интроверт, мне точно не подойдёт?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Не обязательно. Здоровая интроверсия совместима с моделью — многие работают через тексты и узкий круг. Не подойдёт только тому, кто в принципе не выносит общение с людьми."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько времени надо в день?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Не столько объём, сколько регулярность. Лучше понемногу каждый день, чем рывками. На старте это требует почти ежедневного внимания в течение месяцев."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно вообще не строить бизнес, а просто путешествовать?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, и это абсолютно нормальный сценарий. Стать пользователем клуба для своих поездок, не занимаясь привлечением и продажами, — легитимный путь."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "А если я попробую и пойму, что не моё?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Это нормально и часто случается. Главное — войти на деньги, потерю которых ты спокойно переживёшь, и не воспринимать неудачу как катастрофу. Не каждому подходит, и это не делает тебя хуже."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Почему ты сам отговариваешь людей?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Потому что нецелевой человек теряет своё время и деньги, разочаровывается и разносит негатив. Мне выгоднее десять мотивированных, чем сто случайных. Честность на входе экономит нервы всем."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
     <div class="gradient-blob blob-2"></div>
@@ -510,5 +583,22 @@
 <script src="/i18n.js?v=23" defer></script>
 <script src="/services-i18n.js?v=23" defer></script>
 <script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
 </body>
 </html>

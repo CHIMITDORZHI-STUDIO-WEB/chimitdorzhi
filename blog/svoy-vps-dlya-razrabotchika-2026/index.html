@@ -98,9 +98,82 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "VPS или VDS — есть ли разница?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "В РФ — нет, синонимы. VPS (Virtual Private Server) и VDS (Virtual Dedicated Server) обозначают одно и то же: виртуальную машину на гипервизоре с гарантированными ресурсами. Технически некоторые провайдеры различают: VDS = выделенные ресурсы (без оверселла), VPS = разделяемые. На практике маркетинг путает оба термина — смотрите на ТТХ, а не на название."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько RAM нужно для одного Telegram-бота?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Зависит от языка и нагрузки. Python-бот на aiogram/Telethon с десятком пользователей — 200-300 MB. Тысячи пользователей с базой SQLite — 500-700 MB. С Postgres — добавьте 200-300 MB на сам Postgres. Минимальный VPS 1 GB RAM подойдёт для одного бота с парой тысяч активных пользователей. Если планируете несколько ботов — 2 GB и выше."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что выбрать — Ubuntu, Debian или Astra Linux?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ubuntu 22.04/24.04 LTS — стандарт для большинства задач. Богатая экосистема, обновления, поддержка пакетов. Debian 12 — стабильнее Ubuntu, чуть консервативнее (старые версии пакетов), хорош для долгоживущих серверов. Astra Linux — нужен только если проект для госсектора (требование 187-ФЗ или внутренние политики заказчика). В остальных случаях Astra только усложняет работу — пакетов меньше, документация скуднее."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли использовать VPS для майнинга?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Короткий ответ — нет. Все российские провайдеры запрещают майнинг в публичной оферте. Технически VPS-CPU не предназначены для майнинга — нагрузка на 100% CPU круглосуточно приведёт либо к снижению производительности (CPU steal time), либо к блокировке аккаунта. Майнинг — на специализированных GPU-серверах или ASIC, не на VPS."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужен ли отдельный VPS для AI-моделей?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Зависит от модели. Маленькие модели (Llama 3.2 3B, Qwen 2.5 7B) запускаются на CPU с 16-32 GB RAM, медленно но работают. Средние модели (Llama 3.3 70B, Mistral Large) — только на GPU, нужен VPS с A100 или H100 (от 50-100 тыс. ₽/мес). Если AI не главная задача проекта, проще использовать YandexGPT API или OpenAI API через прокси — на порядок дешевле для нерегулярной нагрузки."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что делать если VPS сломался?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "План действий: (1) проверить статус-страницу провайдера — может быть авария дата-центра; (2) написать в поддержку тикет; (3) пока поддержка отвечает — поднять резервный VPS из бэкапа на другом провайдере, переключить DNS. Если бэкапы и автоматизация настроены — простой не превышает 30-60 минут. Если нет — может тянуться сутками и не факт, что всё восстановится."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли мигрировать с одного провайдера на другой?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, если у вас Docker-стек или хорошо описанная инфраструктура. Алгоритм: (1) поднимаете аналогичный VPS у нового провайдера; (2) ставите Docker; (3) копируете все Docker volumes через rsync; (4) запускаете тот же docker-compose.yml; (5) переключаете DNS. На моих проектах миграция занимает от 30 минут (простой сайт) до 4 часов (сложный стек с базами). Если у вас «нативный» стек без Docker — миграция сложнее, может занять день-два."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Selectel или Yandex Cloud для AI-проекта?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Зависит от характера AI. Если используете готовые managed-сервисы (YandexGPT, SpeechKit) — конечно Yandex Cloud, всё в одном месте. Если поднимаете собственный LLM на Llama/Qwen — Selectel дешевле и проще: можно взять dedicated A100/H100, поставить vLLM, и платить только за железо без надбавки за managed-сервисы. Для production я бы предложил гибрид: vLLM на Selectel + YandexGPT через API как fallback."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
     <div class="gradient-blob blob-2"></div>
@@ -664,5 +737,22 @@ echo "Backup $DATE OK"
 <script src="/i18n.js?v=23" defer></script>
 <script src="/services-i18n.js?v=23" defer></script>
 <script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
 </body>
 </html>

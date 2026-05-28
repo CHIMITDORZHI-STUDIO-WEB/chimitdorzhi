@@ -98,9 +98,82 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Стоит ли вообще уходить с агрегаторов?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Не уходить полностью, а строить гибрид. Агрегатор оставить как канал привлечения новых клиентов, прямые продажи — для постоянных и тёплых. Так вы снижаете комиссию и не теряете трафик."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужна ли своя платформа соло-гиду?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, но в минимальном виде: лендинг с виджетом бронирования и бот. Это собирается дёшево и сразу даёт прямые продажи без 20% комиссии."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Обязательна ли аттестация для всех гидов?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Для экскурсоводов и инструкторов-проводников, которые лично водят людей, — да, по ФЗ-93 с 1 июля 2022 года. Аттестат действует 5 лет. Для организационной части бизнеса и аудиогидов — нет."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как принимать оплату онлайн без физической кассы?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Через облачную кассу платёжного провайдера. Она фискализирует чек по 54-ФЗ, физическое устройство покупать не нужно."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что выгоднее — предоплата или депозит?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Полная предоплата лучше защищает от неявок и удобна для популярных групповых туров. Депозит снижает порог входа и подходит для дорогих и индивидуальных туров."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли законно собирать контакты туристов с агрегатора?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Прямого доступа к данным турист с агрегатора не даёт. Но можно легально мотивировать туриста подписаться на ваш бот/канал (QR на визитке, бонус за подписку) — и дальше он уже ваш клиент."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Делать ли аудиогиды?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Если у вас пешеходные/городские маршруты — да, это пассивный доход и нижняя ступень воронки. Для джип-туров и активностей с живым проводником — нет."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как быстро окупается платформа для бюро?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Обычно 6-12 месяцев только за счёт снижения комиссии. С учётом роста повторных продаж — быстрее."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
     <div class="gradient-blob blob-2"></div>
@@ -609,5 +682,22 @@ console.log(`Экономия: ${monthlySaving} ₽/мес, ${yearlySaving} ₽/
 <script src="/i18n.js?v=23" defer></script>
 <script src="/services-i18n.js?v=23" defer></script>
 <script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
 </body>
 </html>

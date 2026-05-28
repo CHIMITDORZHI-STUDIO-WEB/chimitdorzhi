@@ -98,9 +98,82 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "За сколько можно сделать нормальный сайт?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Лендинг — от 50 тыс. за 2 недели. Корпоративный — от 200 тыс. за 6 недель. Магазин — от 300 тыс. за 8 недель."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Платить разработчику предоплатой?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Стандарт рынка — 30–50% предоплаты, остальное по этапам. Никогда не платите 100% вперёд."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что выгоднее — фрилансер или агентство?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Для простых проектов до 200 тыс. — фрилансер. Для серьёзных проектов от 500 тыс. — агентство или маленькая студия с командой."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как защититься от срыва сроков?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Чёткое ТЗ, поэтапная оплата, договор с прописанными штрафами за просрочку, регулярные созвоны раз в неделю."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько стоит сделать сайт «как у Я.Маркета»?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "30–100 млн ₽ за 1–2 года команды из 15–30 человек. Не надо так делать, начните с MVP."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли сделать сайт самостоятельно без программистов?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, на Tilda за 1–3 недели. Качество будет средним, но для старта хватит."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Зачем нанимать дизайнера, если у меня есть шаблон?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Шаблон даёт каркас, но без адаптации под бренд он выглядит как у всех. Дизайнер — это про передачу ценности и конверсию."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что входит в стоимость поддержки?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Зависит от тарифа. Минимум: бэкапы, обновления безопасности, мониторинг доступности. Максимум: развитие функционала, A/B-тесты, SEO."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
     <div class="gradient-blob blob-2"></div>
@@ -489,5 +562,22 @@
 <script src="/i18n.js?v=23" defer></script>
 <script src="/services-i18n.js?v=23" defer></script>
 <script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
 </body>
 </html>

@@ -98,9 +98,98 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Это пирамида?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет. Есть реальный продукт — платформа бронирования со скидками, которой можно пользоваться без привлечения людей. Партнёрская МЛМ-составляющая есть, но она вторична и опциональна."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько реально стоит вход?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Стартовый пакет около 588 $, но почти 490 $ из них возвращаются на ваш счёт для путешествий. Плюс ежемесячная подписка примерно 60-120 $."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли пользоваться только продуктом, без партнёрки?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, абсолютно. Я знаю людей, включая отчасти себя, кто рассматривает клуб чисто как сервис скидок на отели."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Реально ли там дешевле?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "На отелях среднего и высокого сегмента — да, в моих кейсах 12-35%. На авиа — нет. На бюджетном жилье — почти нет. Проверяйте свои направления до вступления."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли вывести баллы деньгами?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет. Баллы и travel-кредиты тратятся только на путешествия внутри платформы."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Гарантирован ли доход в партнёрке?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет, категорически. Доход зависит только от вашей работы. Большинство участников зарабатывают мало или ничего."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно вступить без приглашения?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет, вход только по рекомендации действующего участника."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Стоит ли вступать ради заработка?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Только если вы готовы продавать и строить команду как реальную работу. Ради «пассивного дохода» — нет."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что если я перестану путешествовать?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Тогда подписку лучше отключить, иначе платите за то, чем не пользуетесь, а накопленные баллы зависнут."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Чем отличается от InCruises?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Похожая модель, но MWR Life шире по продукту (отели, авиа, аренда), InCruises исторически про круизы."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
     <div class="gradient-blob blob-2"></div>
@@ -519,5 +608,22 @@
 <script src="/i18n.js?v=23" defer></script>
 <script src="/services-i18n.js?v=23" defer></script>
 <script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
 </body>
 </html>

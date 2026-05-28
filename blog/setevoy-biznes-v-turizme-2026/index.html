@@ -98,9 +98,90 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Правда ли, что рынок туризма 11 трлн долларов?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, по оценкам World Travel and Tourism Council совокупный вклад индустрии путешествий и туризма в мировую экономику оценивается примерно в эту величину. Это включает прямой, косвенный и смежный вклад."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Значит ли большой рынок, что я точно заработаю?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет. Размер рынка показывает потенциал ниши, а не ваш личный результат. Доход зависит от вашей работы, навыков, времени и упорства. Гарантий нет ни у кого."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Это пирамида?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Легальный травел-клуб с реальным продуктом — нет. Пирамида — это схема без реального продукта, где выплаты идут из взносов новичков (ст. 172.2 УК РФ). Проверяйте по критериям из раздела про отличие от пирамиды."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Почему игроков так мало, если рынок огромный?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Высокий технический барьер входа для компаний (нужны прямые контракты с поставщиками), молодость самой модели и инерция мышления — по привычке сетевой ассоциируется с БАДами, а не с туризмом."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Чем подписка лучше агентских продаж?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Подписка даёт recurring доход — повторяющийся поток с базы членов, пока они пользуются продуктом. Агентская модель приносит разовую комиссию за сделку. Но подписка работает только при реальном использовании продукта."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько нужно времени, чтобы увидеть результат?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Честно — месяцы, не недели. Первые месяцы это в основном вложение без отдачи: обучение, построение базы, отказы. Тот, кто ждёт быстрых денег, обычно уходит до результата."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли совмещать с основной работой?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "На старте — да, многие так и делают. Но это требует дисциплины и регулярности. Нерегулярная работа в любой партнёрской модели почти не даёт результата."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужно ли платить налоги?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, любой доход облагается налогом. Оформите самозанятость или ИП и работайте вбелую — это и законно, и безопасно."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что делать, если компания обещает гарантированный доход?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Насторожиться. Гарантии дохода — это либо нарушение закона о рекламе, либо признак недобросовестной компании или пирамиды. Реальные условия всегда про потенциал и зависимость от усилий."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
     <div class="gradient-blob blob-2"></div>
@@ -521,5 +602,22 @@
 <script src="/i18n.js?v=23" defer></script>
 <script src="/services-i18n.js?v=23" defer></script>
 <script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
 </body>
 </html>

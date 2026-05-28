@@ -98,9 +98,74 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Можно ли совместить launch с уже существующим турниром?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Можно. Это называется sponsored launch — вы становитесь спонсором чужого турнира на условиях специальной интеграции вашего продукта. Дешевле собственного, но и эффект меньше."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что если продукт не связан с играми напрямую?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Подойдёт ли формат? Зависит от аудитории. Если ваша ЦА — 18–35 лет с интересом к гейминг-культуре (это очень широкий спектр продуктов), формат работает. Если ЦА — 50+ или специфическая (например, B2B-CRM для бухгалтеров) — не подойдёт."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько амбассадоров нужно для launch?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Минимум 1, оптимально 3–5. Один — high-profile (топ-стример или киберспортсмен), 2–4 — нишевые блогеры с лояльной аудиторией."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли запустить продукт без оффлайн-составляющей?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да. Полностью онлайн-launch стоит в 3–4 раза дешевле, но даёт примерно 50–60% эффекта от полноценного оффлайн-launch."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Какая дисциплина лучше для launch новых наушников?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CS2 — звуковая стратегическая игра, где хорошие наушники реально важны. Это создаёт нативный кейс использования продукта."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько занимает подготовка launch-турнира с нуля?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Минимум 90 дней. Меньше — высокий риск низкого качества или провала."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как защититься от провального launch?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Тестируйте формат на меньшем масштабе: pop-up турнир в одном городе, soft launch в одной соцсети, постепенное масштабирование. Никогда не делайте первый launch сразу в premium-формате."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
     <div class="gradient-blob blob-2"></div>
@@ -509,5 +574,22 @@
 <script src="/i18n.js?v=23" defer></script>
 <script src="/services-i18n.js?v=23" defer></script>
 <script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
 </body>
 </html>

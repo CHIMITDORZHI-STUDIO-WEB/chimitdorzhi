@@ -98,9 +98,74 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Я проверил все 47 пунктов — гарантирован ли я от взлома?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет, гарантия 100% защиты невозможна. Этот чек-лист закрывает базу — 80% типовых атак, через которые взламывают 90% сайтов. Останутся: zero-day-уязвимости в фреймворках, целевые атаки от продвинутых злоумышленников, социальная инженерия с вашими сотрудниками, инсайдеры. Безопасность — это процесс, не состояние."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько стоит профессиональный пентест?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "В РФ 2026: быстрый аудит периметра — от 80-150 тыс ₽, полноценный black box пентест веб-приложения — 250-600 тыс ₽, white box с доступом к коду — 400-1200 тыс ₽, red team с социалкой и физическим проникновением — 2-5 млн ₽. Срок: от 2 недель до 2 месяцев. Делается известными компаниями (Positive Technologies, Bi.Zone, Group-IB, Сайбер Альфа) или хорошими независимыми пентестерами."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Я нашёл уязвимость на чужом сайте — что делать?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Responsible disclosure: написать владельцу или в security-команду компании, описать проблему, дать 60-90 дней на исправление, после этого можно публиковать. Не эксплуатировать уязвимость — это статья 272/273 УК РФ независимо от мотивации. Не публиковать публично до исправления — иначе помогаете злоумышленникам."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Достаточно ли Cloudflare для защиты сайта?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cloudflare закрывает DDoS, базовые WAF-сигнатуры, частично — bot-атаки. Не закрывает: уязвимости в коде приложения (SQL, XSS, IDOR), неправильную аутентификацию, утечки через открытые файлы, инсайдерские угрозы. Cloudflare плюс этот чек-лист — хорошая база. Только Cloudflare — иллюзия защищённости."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как часто нужно перепроверять чек-лист?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Базовый прогон — раз в квартал. После каждого крупного релиза (изменения архитектуры, добавление компонентов) — повторить релевантные пункты. Сразу после инцидента у конкурентов из вашей ниши — тоже не помешает. Полный пентест — раз в год минимум, для регулируемых отраслей — раз в полгода."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что такое responsible disclosure?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Этичный подход к раскрытию уязвимостей. Исследователь сообщает владельцу системы, договариваются о сроках исправления (обычно 60-90 дней), затем публично описывается уязвимость (часто уже после исправления). Альтернатива — bug bounty программы, где компании платят за найденные уязвимости (Yandex, VK, Сбер, Tinkoff/Т-Банк, Ozon — все имеют программы в РФ)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как защититься от ботов и парсеров?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cloudflare Bot Management или ваш WAF — первая линия. Rate-limiting на API. Captcha (hCaptcha, Cloudflare Turnstile) на критичных формах. Honeypot-поля в формах (скрытые поля, которые заполняются только ботами). Анализ поведения (скорость кликов, паттерны движения мыши) — для продвинутых решений. Полностью защититься нельзя, но усложнить жизнь массовым парсерам — можно."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
     <div class="gradient-blob blob-2"></div>
@@ -788,5 +853,22 @@ docker scan myimage:latest
 <script src="/i18n.js?v=23" defer></script>
 <script src="/services-i18n.js?v=23" defer></script>
 <script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
 </body>
 </html>

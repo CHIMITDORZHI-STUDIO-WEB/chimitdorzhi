@@ -98,9 +98,74 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Что лучше — Ollama, LM Studio или llama.cpp напрямую?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Для большинства пользователей — Ollama. Простая установка, REST API, скрипты автоматизации работают сразу. LM Studio — если предпочитаете GUI и хотите быстро поэкспериментировать. llama.cpp напрямую — если нужен максимальный контроль над параметрами инференса (нечасто)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Работают ли локальные LLM на Windows?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, и Ollama, и LM Studio имеют нативные Windows-версии. Через GPU Nvidia или CPU. Apple Silicon в Windows, понятно, не получится. С AMD GPU — поддержка ROCm в llama.cpp есть, но менее зрелая, чем CUDA."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли совмещать локальный LLM и облачный?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, это рабочая практика. Простые задачи (классификация, форматирование, краткие ответы) делает локальный LLM, сложные (frontier-reasoning, длинные креативные тексты) — облачный. Экономия 60-80% бюджета на API при сохранении качества по сложным задачам. Реализуется через router: код сначала пытается локально, если уверенности недостаточно — эскалирует в облако."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сильно ли страдает качество от quantization?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "На бизнес-задачах Q4_K_M отличается от FP16 на 1-3% в бенчмарках. На субъективном восприятии — практически неотличимо. Q3 и ниже — заметная деградация. Q5_K_M / Q6_K — золотая середина с минимальной потерей."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Безопасно ли использовать Ollama в production?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Для внутреннего сервиса в компании — да, проверено в нескольких проектах. Для публичного интернет-сервиса с тысячами пользователей — лучше vLLM или TGI, у них лучше throughput и стабильность под нагрузкой. Ollama не задумывалась как production-grade инференс-движок изначально."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что с function calling в локальных моделях?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "В 2026 уже работает нормально. Mistral Small 24B, Qwen 2.5, Llama 3.3 умеют function calling в формате OpenAI tools. Качество чуть слабее GPT-4o, но достаточно для большинства агентских сценариев. Подробнее — в статье про AI-агентов."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли локально запустить мультимодальную модель (зрение)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да. LLaVA, Qwen 2.5-VL, Llama 3.2 Vision — все доступны в Ollama. Работают на тех же ноутах. Качество чуть слабее GPT-4o vision, но для базовых задач (описать картинку, прочитать текст с фото, проанализировать график) — хватает."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
     <div class="gradient-blob blob-2"></div>
@@ -747,5 +812,22 @@ for doc in result["source_documents"]:
 <script src="/i18n.js?v=23" defer></script>
 <script src="/services-i18n.js?v=23" defer></script>
 <script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
 </body>
 </html>

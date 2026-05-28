@@ -98,9 +98,74 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Можно ли сразу уйти с WB или нужен гибрид?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Полный уход рискован. WB — это поток новых клиентов, который вы создавали год-два. Уйдя, вы лишаетесь этого потока, а свой магазин трафика ещё не нагнал. Правильнее — гибрид: WB остаётся, свой запускается параллельно, доля своего постепенно растёт."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько денег нужно на маркетинг своего магазина в месяц?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Минимум 30-50 000 ₽/мес для нишевого магазина. Серьёзный старт — 100-300 000 ₽/мес. Это в основном Яндекс.Директ + ремаркетинг + контентный маркетинг + работа с инфлюенсерами. Без рекламы магазин не растёт."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Какой эквайринг выбрать в 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ЮKassa — стандарт, поддерживается всеми CMS, комиссия 2.8-3.5%. Tinkoff Эквайринг — выгодные тарифы, особенно для бизнеса в Тинькофф. СБП — обязательно подключать, комиссия 0.4-0.7%, многие клиенты предпочитают платить через СБП."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Tilda или Битрикс для интернет-магазина?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "До 100 SKU и простой логики — Tilda. Сложные категории, B2B, программа лояльности, интеграция с 1С — Битрикс. Промежуточное — InSales/Aspro. Не делайте кастом сразу, начните с готовой платформы."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что делать с возвратами и доставкой?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Возвраты — по ЗоЗПП 14 дней, обработка через личный кабинет на сайте. Доставка — подключаете СДЭК/Boxberry/Почту России через готовые модули, расчёт стоимости автоматический. На малом обороте удобнее работать с пунктами выдачи, на крупном — с курьерами."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как принимать оплату от иностранных клиентов?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "В 2026 году это сложно. Зарубежные карты VISA/Mastercard российские эквайеры не обрабатывают. Варианты: ЮKassa с международными платежами (ограничения), криптоэквайринг (юр-серая зона), посредники с зарубежным юрлицом (для зрелых брендов). Для большинства селлеров иностранный трафик — не приоритет."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Реальный срок окупаемости магазина?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Гибрид с переносом аудитории с маркетплейсов — 4-8 месяцев. С нуля без существующей аудитории — 12-18 месяцев. Если бюджет на маркетинг есть и план чёткий — окупается в эти сроки уверенно."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
     <div class="gradient-blob blob-2"></div>
@@ -578,5 +643,22 @@
 <script src="/i18n.js?v=23" defer></script>
 <script src="/services-i18n.js?v=23" defer></script>
 <script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
 </body>
 </html>

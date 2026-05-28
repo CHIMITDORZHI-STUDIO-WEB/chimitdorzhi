@@ -98,9 +98,82 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Заметят ли подписчики, что я использую AI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Если вы публикуете сырые черновики — да, и это оттолкнёт. Если правите под свой голос и добавляете реальные детали — нет, текст звучит как ваш. AI здесь как калькулятор: важен не он, а ваше решение и ваш смысл."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли вести несколько площадок одним контентом?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Можно за основу брать один пост, но адаптируйте его под площадку отдельным промптом. Дословный кросс-постинг везде выглядит ленивым и хуже заходит."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Какую модель выбрать — YandexGPT или GigaChat?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Начните с любой, обе хорошо пишут на русском и доступны в РФ. Со временем держите обе: они дают разный «характер» текста, и можно выбирать под задачу."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли просить AI придумать историю успеха, если у меня пока нет результатов?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет. Выдуманные истории и результаты — это и фальшь, которую считывают, и нарушение закона. Пока нет своих историй — пишите экспертный контент и закулисье, доверие строится и без чужих чеков."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужно ли маркировать мои обычные посты как рекламу?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Органические посты в вашем личном блоге маркировать не нужно. Маркировка через ОРД нужна для платного продвижения — таргета и платных размещений."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "AI пишет слишком восторженно и с обещаниями. Что делать?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Прямо вписывайте в промпт запрет: без обещаний дохода и результата, без давления, спокойная интонация. И всё равно вычитывайте — это базовая гигиена."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько постов в неделю реально нужно?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Лучше 3-4 качественных и живых, чем 7 пустых. Регулярность важнее количества: ровный ритм, который вы выдержите, лучше рывков с последующим молчанием."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Я совсем не разбираюсь в технике. Смогу?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да. Базовый уровень — работа с моделью через обычный интерфейс и отложенный постинг — не требует навыков программирования. Бот и API — следующий шаг, когда захотите масштабироваться."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
     <div class="gradient-blob blob-2"></div>
@@ -613,5 +686,22 @@
 <script src="/i18n.js?v=23" defer></script>
 <script src="/services-i18n.js?v=23" defer></script>
 <script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
 </body>
 </html>

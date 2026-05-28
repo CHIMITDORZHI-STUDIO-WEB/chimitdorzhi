@@ -98,9 +98,74 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Whisper понимает многоязычные встречи (русский + английский)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, отлично. Whisper large-v3 умеет «code-switching» — переключение языков в одном аудио. Запускайте без явного указания языка (или со специальным флагом auto-detect), и он автоматически расставляет фрагменты как ru/en."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что делать, если встреча 4-5 часов?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Длинные встречи Whisper обрабатывает целиком без проблем (он чанкит сам внутри). Главное ограничение — context window LLM при саммаризации. Claude Sonnet 4.5 с его 200k токенов вмещает 4-5 часов транскрипта целиком. Для совсем длинных (или для моделей с меньшим контекстом) — делаем «map-reduce»: сначала саммари по 30-минутным блокам, потом саммари из саммари."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли делать в режиме real-time во время встречи?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Технически — да. Whisper streaming-вариант с короткими чанками 5-10 секунд работает почти в real-time. Но качество чуть ниже, чем при batch-обработке, и для большинства задач (саммари после встречи) overkill. Real-time нужен только если хотите «AI-переводчик» во время встречи."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как быть с диалектами и сильным акцентом?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Whisper large-v3 справляется с большинством русских акцентов (кавказский, центрально-азиатский, дальневосточный). На сильных диалектах качество может падать. Решение — fine-tuning Whisper на ваших данных (10-20 часов размеченного аудио). Это серьёзная работа, оправдана только для специфических ниш."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Работает ли с конференциями в Telemost или МАХ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Запись с Telemost / МАХ можно скачать как mp3/m4a и прогнать через тот же пайплайн. Real-time-интеграция в эти платформы пока ограничена, но по факту через post-processing работает идентично Zoom/Meet."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как защититься от «галлюцинаций» в саммари?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Главное — strict system prompt с явным запретом выдумывать (см. шаблоны выше). Дополнительно — в выводе LLM просите цитировать конкретные фрагменты транскрипта в обоснование решений. Это даёт автору саммари возможность быстро проверить, что AI не дофантазировал."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли вообще без LLM, только транскрипт?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, если устраивает «голый текст». Многие команды на старте используют только Whisper, а саммари пишут руками (или просто хранят транскрипт). Это уже улучшение по сравнению с «нет никакой записи». LLM-слой добавляется на следующем этапе зрелости процесса."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
     <div class="gradient-blob blob-2"></div>
@@ -895,5 +960,22 @@ if __name__ == "__main__":
 <script src="/i18n.js?v=23" defer></script>
 <script src="/services-i18n.js?v=23" defer></script>
 <script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
 </body>
 </html>

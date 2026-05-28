@@ -98,9 +98,82 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Можно ли запустить Live Commerce без оборудования?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Можно с одного современного телефона и кольцевой подсветки за 3 тыс. ₽. Качество будет средним, но для теста формата на существующей аудитории — достаточно. Через несколько успешных эфиров — апгрейд до нормальной студии."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько подписчиков нужно для первого эфира?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Минимум — 1000–2000 в основном канале (VK, Telegram, e-mail-база). Меньше — будет 5–10 зрителей, что демотивирует. Если базы нет — сначала наберите аудиторию обычным контент-маркетингом, потом Live."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Какая платформа самая выгодная в 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Зависит от продукта. Для массового — VK Live (большая аудитория). Для старшей региональной — OK Live. Для своих лояльных — Telegram Stories. Для маркетплейс-селлеров — Я.Прямые эфиры. Часто комбинируют 2–3 платформы одновременно."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли продавать в TG Stories без магазина?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, через Telegram Bot и платёжный шлюз ЮKassa. Бот в чате принимает заявки на покупку, генерирует ссылку на оплату, после оплаты передаёт менеджеру для оформления доставки."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько стоит подключить VK Pay?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Подключение бесплатное. Комиссия с продаж 2,5%. Нужен ИП или юр.лицо с открытым расчётным счётом. Подключение занимает 5–10 рабочих дней."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что делать если стрим лагает?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Проверьте интернет (нужно стабильные 10 Мбит/с upload), используйте проводное подключение вместо WiFi, снижайте битрейт в OBS до 4000 kbps для 1080p, имейте резервный канал (мобильный модем)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли стримить одновременно в VK Live и OK Live?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, через Restream Studio или Castr — они принимают один поток и распределяют по нескольким платформам. Минус — комментарии в разных чатах, отвечать сложнее."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как считать ROI стрима?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ROI = (выручка эфира – себестоимость товаров – затраты на эфир) / затраты на эфир. Затраты включают: амортизация оборудования (стоимость / срок службы / число эфиров), оператор, продвижение, ваше время. ROI ниже 100% — нерентабельно, выше 300% — нормально, выше 1000% — отлично."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
     <div class="gradient-blob blob-2"></div>
@@ -537,5 +610,22 @@
 <script src="/i18n.js?v=23" defer></script>
 <script src="/services-i18n.js?v=23" defer></script>
 <script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
 </body>
 </html>

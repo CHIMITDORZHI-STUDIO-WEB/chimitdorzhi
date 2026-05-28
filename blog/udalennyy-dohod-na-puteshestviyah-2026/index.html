@@ -98,9 +98,82 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Можно ли реально зарабатывать на путешествиях?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, но не «на путешествиях», а на работе, которую вы делаете благодаря мобильности: контенте, продажах, профессии, рекомендациях. Деньги приносит труд, а не сам факт поездок. Доход не гарантирован и зависит от усилий."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько времени до первых денег?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Зависит от модели. Удалённая работа — сразу при наличии навыка. Агент и партнёрка — недели-месяцы. Блог — обычно от полугода до полутора лет. Не ждите быстрого результата от моделей, требующих аудитории."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Это всё пирамиды?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет. Пирамида — это когда доход идёт от взносов новичков без реального продукта (ст. 172.2 УК). Законные модели — это контент, агентские продажи, партнёрки, удалённая работа и сетевой бизнес от реального товарооборота. Всегда проверяйте источник дохода."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько можно заработать в travel-клубе?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Честно — заранее не знает никто. Доход зависит от ваших усилий, навыков продаж и активности команды. Большинство зарабатывает мало, единицы — много. Рекламные суммы — это лучшие случаи, а не обещание и не среднее."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужны ли вложения?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Минимальные для большинства моделей (телефон, интернет, время). В клубе есть подписка на сервис. Остерегайтесь моделей, где основное вложение — это плата за «вход», а заработок обещают с привлечённых."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как платить налоги?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "На старте — НПД (самозанятость), 4-6%, регистрация за минуты. При росте оборота или найме — ИП (УСН/патент). Доход из-за рубежа тоже декларируется."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Обязательно ли маркировать партнёрские ссылки?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Если это публичная реклама — да, через ОРД с токеном erid. Это требование закона с 2022 года. Часть площадок и партнёрских сетей берут маркировку на себя."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "С чего начать, если совсем новичок?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "С честной оценки своих навыков и времени. Если есть профессия — удалённая работа как фундамент. Если есть круг общения и любите общаться — агент или партнёрка. Если любите создавать — блог в узкой нише. И в любом случае — легализация через НПД."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
     <div class="gradient-blob blob-2"></div>
@@ -547,5 +620,22 @@ if __name__ == "__main__":
 <script src="/i18n.js?v=23" defer></script>
 <script src="/services-i18n.js?v=23" defer></script>
 <script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
 </body>
 </html>

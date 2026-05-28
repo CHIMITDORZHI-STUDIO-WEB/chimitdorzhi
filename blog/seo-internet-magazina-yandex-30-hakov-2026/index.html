@@ -98,9 +98,74 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Сколько времени до первых результатов SEO?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Технический SEO даёт эффект за 2-4 недели (после переобхода Яндексом). Семантика и контент — 3-6 месяцев. Полный потенциал виден через 9-12 месяцев непрерывной работы. Это не быстрый канал, но самый дешёвый в долгосрочной перспективе."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Я.Директ или SEO — что выгоднее?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Зависит от целей. Я.Директ — быстрый результат, но высокая стоимость клика (50-500 ₽), и трафик прекращается, как только заканчивается бюджет. SEO — медленный старт, но стабильный поток через 6-12 месяцев, цена клика стремится к нулю. На долгой дистанции SEO в 5-10 раз дешевле. Правильная стратегия — параллельно: Директ для быстрых продаж, SEO как «инвестиция в будущее»."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Стоит ли копировать товары из других магазинов?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Категорически нет. Это первая и главная причина «нулевой» органики. Если выгружаете товары от поставщика — обязательно дописывайте уникальные блоки в описание (на 50-80% уникальности)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужен ли блог если магазин маленький?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да. Магазин с 100 товарами и хорошим блогом получает в 3-5 раз больше органического трафика, чем магазин с 1000 товарами и без блога. Блог — это «магнит» для информационных запросов, которые потом конвертируются в покупки."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что важнее — десктоп или мобильная версия для SEO?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Мобильная. С 2018 года Яндекс и Google перешли на mobile-first indexing — это значит, что они оценивают мобильную версию сайта в первую очередь. 70% трафика магазинов в РФ — мобильный. Без оптимизации мобильной версии нет SEO."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как часто обновлять sitemap?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Автоматически при изменениях в каталоге. Минимум — раз в день (cron-job). Для больших магазинов — раз в час. В sitemap.xml поле lastmod должно отражать реальную дату последнего изменения товара."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли вылезти в топ Яндекса без бэклинков?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Для НЧ и СЧ запросов — да, можно. Особенно в нишах с низкой конкуренцией (региональные магазины, узкие товарные категории). Для ВЧ запросов («купить кроссовки») — без качественных бэклинков сложно. Но в любом случае начинайте с внутренней оптимизации (всё, что в этой статье) — это даёт 70-80% результата. Бэклинки — это «вишенка на торте», не базис."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
     <div class="gradient-blob blob-2"></div>
@@ -575,5 +640,22 @@
 <script src="/i18n.js?v=23" defer></script>
 <script src="/services-i18n.js?v=23" defer></script>
 <script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
 </body>
 </html>

@@ -98,9 +98,82 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "С чего начать, если структура маленькая (до 30 человек)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "С базового курса в закрытом канале и простого бота с планом первых дней. Этого достаточно, чтобы заложить единый стандарт старта, пока структура растёт."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Заменит ли система спонсора?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет. Система снимает рутину и стандартное обучение, освобождая спонсору время на живую работу — мотивацию, разбор сложных ситуаций, личный контакт. Это усиление спонсора, а не замена."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли использовать GetCourse и подобные конструкторы?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, для обучения и онбординга это рабочий вариант на среднем уровне структуры. Главное — чтобы материалы были мобильными и доступ разграничивался корректно."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Где хранить обучающие видео в РФ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Основное хранилище — Rutube и VK Видео, дополнительно Дзен. YouTube как запасной канал, но не как основной из-за нестабильности доступа."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужно ли согласие партнёров на обработку их данных?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, если вы ведёте собственную базу с их ФИО, телефонами, оборотами. Это обязанность оператора ПД по 152-ФЗ."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Telegram или MAX для бота-наставника?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Telegram привычнее большинству и богаче по возможностям ботов. MAX стоит держать как дополнительный канал, особенно если часть аудитории уже там. Можно вести бота в обоих."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько времени занимает внедрение?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Базовая система — около месяца при выделенном фокусе. Полная зрелая инфраструктура с аналитикой и геймификацией — несколько месяцев итераций."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как понять, что дупликация заработала?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "По метрикам: удержание новичков на старте выросло, доля прошедших базовое обучение поднялась, время лидера на одного новичка упало, структура растёт во всех линиях, а не только под самим лидером."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
     <div class="gradient-blob blob-2"></div>
@@ -649,5 +722,22 @@ def daily_activity_check(partners: list[dict], notify, notify_sponsor):
 <script src="/i18n.js?v=23" defer></script>
 <script src="/services-i18n.js?v=23" defer></script>
 <script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
 </body>
 </html>

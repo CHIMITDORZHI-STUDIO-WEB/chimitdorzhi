@@ -98,9 +98,90 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Можно ли работать только с WB и не подключать другие маркетплейсы?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Можно, но точка окупается медленнее. Мульти-операторный ПВЗ (WB+OZON+СДЭК) приносит на 40-70% больше выручки за счёт перекрывающегося трафика."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько посылок в день нужно для окупаемости ПВЗ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Минимум 60-80 выдач/день в среднем регионе при средней комиссии 28-35 ₽ с посылки. Точки с меньшим потоком убыточны."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Стоит ли подключать СБП-эквайринг в первый месяц?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Обязательно. СБП — самая большая экономия 2026 года, разница с картами 1-2% от оборота, окупается мгновенно."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Какой агрегатор выбрать для 3-операторной точки?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Posylka.net или PVZ.guru — оба нормальные за 3-5 тыс. ₽/мес. Тестируйте бесплатные триалы 2 недели."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужно ли видеонаблюдение в ПВЗ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Обязательно. Защищает от споров с клиентами («вы не отдали мне посылку») и от внутренних краж. 2-3 камеры + регистратор — 15-30 тыс. ₽ разово."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как оформить курьеров — самозанятыми или в штат?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Зависит от объёма работы. Если курьер катается 8-12 часов 5-6 дней в неделю — ТК или ГПХ, иначе риск переквалификации. Если 2-4 часа в день несколько раз в неделю — самозанятость нормально."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Какая маршрутизация подойдёт для парка из 8 курьеров?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Яндекс.Маршрутизация — оптимально по цене и функционалу. VeeRoute избыточен для такого размера."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли использовать ChatGPT для общения с клиентами?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Для типовых вопросов (трекинг, режим работы, инструкции по возврату) — да. Для конкретных проблем («посылка испорчена», «не дают на руки») — только оператор-человек."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что делать, если клиент не забрал посылку 30 дней?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "По регламенту маркетплейса посылка возвращается продавцу. Вы получаете комиссию за хранение (50-100 ₽ с посылки), но это нагрузка на склад. Регулярно прозванивайте клиентов с залежавшимися заказами на 7-й и 14-й день."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
     <div class="gradient-blob blob-2"></div>
@@ -667,5 +748,22 @@ export async function ozonWebhookHandler(req, res) {
 <script src="/i18n.js?v=23" defer></script>
 <script src="/services-i18n.js?v=23" defer></script>
 <script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
 </body>
 </html>

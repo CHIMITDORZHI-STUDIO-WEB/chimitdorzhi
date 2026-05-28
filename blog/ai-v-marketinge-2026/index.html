@@ -98,9 +98,74 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Google и Яндекс банят за AI-контент?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "За «AI-контент как таковой» — нет. За низкокачественный массовый AI-контент без редактуры и без E-E-A-T-сигналов — да. Google March 2024 update таргетил именно «scaled content abuse». Качественный AI-assisted контент с редактурой и реальным экспертом-автором ранжируется наравне с написанным с нуля. Google прямо в Search Central пишет: «AI-content per se is not a problem; low-quality content is»."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Какая модель лучше для русских текстов?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "В 2026 — это близкая гонка. Claude 4.7 Sonnet даёт более «литературный» русский, ближе к естественному, лучше работает с длинными формами. YandexGPT 5 Pro — более «деловой» и местами «канцелярский», но имеет преимущество для российских реалий: знает законы РФ, российские бренды, термины. Я обычно делаю первый драфт Claude, затем прогоняю через YandexGPT для «русификации»."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли использовать ChatGPT для российских клиентов?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Технически да, по факту есть нюансы. Если в текстах нет ПД клиентов — без проблем (но нужно решить вопрос с доступом из РФ — через прокси, корпоративный аккаунт OpenAI Enterprise). Если есть ПД (имена, телефоны клиентов в кейсах) — нельзя по 152-ФЗ, нужны российские модели. Для маркетинга обычно ПД не передаются, поэтому это не главный риск."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "AI заменит маркетологов?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет, но трансформирует профессию. Через 2-3 года «маркетолог-исполнитель» (пишущий руками тексты, делающий руками рассылки, ведущий руками соцсети) — уйдёт. На его месте — «маркетолог-режиссёр»: ставит задачи AI, проверяет, редактирует, отвечает за стратегию, метрики, голос бренда. Производительность одного такого маркетолога — как у 3-5 «старых» маркетологов. Зарплаты вырастут, штаты сократятся."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько часов в день я реально буду экономить?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Для контент-маркетолога с правильным стеком — 3-5 часов в день. Из них 1-2 часа выйдут на проверку и редактуру AI-выдачи (не игнорируйте эту часть). Чистая экономия — 2-3 часа в день, или 40-60 часов в месяц. Если умножить на $20-30 в час рыночной ставки — это $800-1800 экономии в месяц при инвестициях в стек $30-100 в месяц."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Окупится ли AI-стек для маленького бизнеса?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Если у вас 1-2 материала в месяц — нет, проще писать вручную, инструменты дороже редактирования. Если 4+ материала в месяц и/или активные соцсети — да, окупится за 1-2 месяца. Если объём контента 10+ материалов в месяц — окупится за пару недель и дальше будет генерить серьёзную экономию."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "С чего начать, если я не разработчик?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "1) Claude или ChatGPT по подписке — $20/мес. 2) Освойте 5-7 промптов под ваши конкретные задачи: написание поста, email, мета-тегов, перевода, brain-storm идей. 3) Заведите файл «промпты» с лучшими вариантами, который растёт. 4) Через месяц добавите Perplexity для ресёрча и какой-нибудь генератор изображений. Этого хватит для 80% малого бизнеса. n8n, API, кастомные скрипты — это уже следующий уровень."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
     <div class="gradient-blob blob-2"></div>
@@ -654,5 +719,22 @@ if __name__ == "__main__":
 <script src="/i18n.js?v=23" defer></script>
 <script src="/services-i18n.js?v=23" defer></script>
 <script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
 </body>
 </html>

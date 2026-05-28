@@ -98,9 +98,74 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "MCP — это open standard или закрытый Anthropic?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Полностью open standard. Спецификация открыта, эталонные реализации опубликованы под лицензией Apache 2.0. Любой может писать клиенты и серверы без лицензионных отчислений. Anthropic курирует развитие, но не монополизирует."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сложно ли написать свой MCP-сервер?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "С готовыми SDK на Python или TypeScript — за вечер можно написать рабочий сервер с одним-двумя tools. Производственный сервер с надёжностью, обработкой ошибок, тестами — это 1-2 недели разработки."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли использовать MCP с локальной Llama / Qwen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Косвенно — да. Сами локальные LLM не «понимают» MCP напрямую, нужен MCP-клиент-агент, который умеет работать и с локальной моделью (через OpenAI-compatible API), и с MCP-серверами. Goose, Continue, LibreChat — поддерживают эту связку."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что если MCP-сервер падает или зависает?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Клиент это видит и сообщает пользователю «MCP server X disconnected». Большинство клиентов пытаются переподключиться. Стандартная стратегия — supervisord или systemd, если речь о production-сервере."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Есть ли в MCP что-то про векторный поиск и RAG?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Не напрямую. MCP — это «как подключиться к источнику», не «как сделать RAG». Но есть готовые MCP-серверы, которые внутри себя реализуют RAG (например, mcp-server-rag-anything) — клиент видит обычный tool типа search_knowledge_base, под капотом vector search."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли через MCP подключать AI к 1С?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Можно, но готового MCP-сервера для 1С в реестре нет — нужно писать custom поверх HTTP-сервисов 1С или OData. Я несколько раз делал на проектах, объём кода — 200-500 строк Python, сложность средняя."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько стоит внедрить MCP в существующий проект?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Зависит от объёма интеграций. Подключение нескольких готовых MCP-серверов (filesystem, github, postgres) к корпоративному Claude Desktop — 1-2 дня работы инженера. Custom MCP-сервер для специфической бизнес-системы — 1-3 недели на сервер. Полная замена custom-интеграций на MCP-архитектуру — от месяца."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
     <div class="gradient-blob blob-2"></div>
@@ -741,5 +806,22 @@ await server.connect(transport);
 <script src="/i18n.js?v=23" defer></script>
 <script src="/services-i18n.js?v=23" defer></script>
 <script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
 </body>
 </html>

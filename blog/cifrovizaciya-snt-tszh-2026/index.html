@@ -98,9 +98,82 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Можно ли проводить ОСЧ в Telegram-опросе?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет, это не имеет юр.силы. Telegram-опрос — это для предварительного зондажа. Юр.значимое голосование — только через ОССиК, Burmistr.ru, ГИС ЖКХ или другую сертифицированную платформу с идентификацией."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужно ли СНТ работать в ГИС ЖКХ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет, ГИС ЖКХ — только для жилого фонда (ТСЖ, УК, ЖСК). СНТ работают по 217-ФЗ и используют свои сервисы."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько стоит провести электронное ОСЧ для СНТ на 200 участков?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Через ОССиК — 10-25 тыс. ₽ за одно собрание. Через Burmistr.ru — включено в тариф (3-7 тыс. ₽/мес)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли поставить умный шлагбаум за свой счёт инициативной группой?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Только по решению ОСЧ. Иначе соседи имеют право требовать демонтаж."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что делать, если бывший председатель не передал документы?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Составить акт об отсутствии документов, восстанавливать через ФНС (устав, выписки), членов СНТ (реестр), банк (выписки по счёту). При злостном уклонении — заявление в полицию."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли использовать MAX вместо Telegram для чата?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Технически да, юридически даже лучше (152-ФЗ). Но пока меньше пользователей, поэтому стоит дублировать."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как мотивировать пожилых членов СНТ перейти на безнал?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Дать выбор: СБП-QR, карта через POS, наличка в кассу (с комиссией). Через 1-2 сезона 80-90% переходят на безнал сами."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Председатель — это работа или общественная нагрузка?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "По 217-ФЗ — может быть и тем, и другим. Если работа — трудовой договор, зарплата, налоги. Если общественная — компенсация расходов по решению ОСЧ."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
     <div class="gradient-blob blob-2"></div>
@@ -665,5 +738,22 @@ if __name__ == "__main__":
 <script src="/i18n.js?v=23" defer></script>
 <script src="/services-i18n.js?v=23" defer></script>
 <script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
 </body>
 </html>

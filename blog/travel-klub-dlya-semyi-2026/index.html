@@ -98,9 +98,82 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Travel-клуб — это про экономию или про заработок?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "В этой статье я рассматриваю клуб исключительно как инструмент экономии на семейных поездках. Тема дохода — отдельная и в этом материале не затрагивается."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько реально можно сэкономить семье за год?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "По моим расчётам, при двух-четырёх поездках в год — 80-180 тысяч рублей за вычетом членского взноса. Зависит от частоты поездок и дисциплины планирования."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Безопасно ли передавать данные детей при бронировании?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Только через проверенные сервисы с корректным согласием на обработку данных по 152-ФЗ. Данные детей — особо чувствительная категория, относитесь к ним максимально внимательно."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что выгоднее — отель или апартаменты для семьи?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "В большинстве случаев апартаменты с кухней. Они вмещают всю семью за одну цену и позволяют экономить на питании."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "За сколько бронировать поездку с детьми?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Крупные поездки — за 3-4 месяца, короткие выезды — минимум за 3-4 недели. Это окно лучших цен."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Стоит ли возить детей по России вместо заграницы?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Внутренний туризм с детьми часто дешевле, проще логистически и не менее впечатляющий. Байкал, Алтай, Карелия, Кавказ — отличные семейные направления."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Групповой тур или самостоятельная поездка?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Для сложных направлений и ради общения детей — групповой. Для спокойного пляжного отдыха — самостоятельный. Я чередую."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как накапливать баллы быстрее?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Проводить через клуб все крупные брони, а не только отпуск, и пользоваться повышенными начислениями и акциями."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
     <div class="gradient-blob blob-2"></div>
@@ -580,5 +653,22 @@
 <script src="/i18n.js?v=23" defer></script>
 <script src="/services-i18n.js?v=23" defer></script>
 <script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
 </body>
 </html>

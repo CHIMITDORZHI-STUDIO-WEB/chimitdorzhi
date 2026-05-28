@@ -98,9 +98,90 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Правда ли, что цены растут, если много раз искать один маршрут?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Однозначных доказательств нет, но привычка проверять цену в режиме инкогнито бесплатна и иногда даёт разницу 5-10%. Хуже не будет."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Когда дешевле всего покупать билеты по России?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Обычно за 3-6 недель до вылета, в середине этого окна, на будние дни. Для заграницы — за 1,5-3 месяца."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Какой агрегатор лучше — Островок или Я.Путешествия?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет универсального ответа. Цена на один и тот же отель отличается в обе стороны в зависимости от даты и города. Поэтому правило — проверять оба перед бронированием."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Стоит ли заводить отдельную карту ради travel-кэшбэка?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Если вы путешествуете 2+ раза в год, да. Возврат 3-10% с поездок окупает обслуживание карты многократно. Главное — платить ею именно за поездки."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Лоукостер реально дешевле?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, если летите с ручной кладью без допуслуг. Если набираете багаж, выбор места и питание — считайте финальную сумму, она может сравняться с обычной авиакомпанией."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Кому имеет смысл travel-клуб по подписке?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Тем, кто ездит 3-4 раза в год и больше. Оптовые цены, возврат разницы и удвоенные баллы перекрывают подписку только при реальной частоте поездок. Для редких путешествий хватит бесплатных способов из этой статьи."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Безопасно ли вводить данные карты на сайтах бронирования?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "На крупных проверенных сервисах — да, при защищённом соединении. Лучше использовать отдельную или виртуальную карту с лимитом и проверять политику обработки персональных данных по 152-ФЗ."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как сэкономить на проживании в небольшом городе без хороших отелей?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Посуточная аренда квартиры через Суточно.ру. Часто дешевле и комфортнее, особенно для семьи или длительной поездки."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "AI действительно помогает экономить?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, на этапе планирования и сравнения вариантов. Но финальные цены и наличие всегда проверяйте на официальном сайте — AI может давать неактуальные данные."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
     <div class="gradient-blob blob-2"></div>
@@ -481,5 +562,22 @@
 <script src="/i18n.js?v=23" defer></script>
 <script src="/services-i18n.js?v=23" defer></script>
 <script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
 </body>
 </html>
