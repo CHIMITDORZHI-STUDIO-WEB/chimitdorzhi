@@ -98,9 +98,74 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Можно ли через прокси использовать GPT-4 для бизнеса в РФ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Технически — да, через посредников вроде ProxyAPI или зарубежное юрлицо. Юридически с обработкой ПД — нет, это нарушение 152-ФЗ независимо от способа доступа. Для задач без ПД (генерация общих текстов, генерация кода без чувствительной логики) — допустимо, но риск что в продакшене ПД случайно попадут в промпт всегда есть. Я рекомендую: для всего что касается клиентских данных — российский стек, без вариантов."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что выбрать для чат-бота на сайт?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "В 90% случаев — GigaChat 3 Pro или YandexGPT 5 Pro. GigaChat — если важен большой контекст (RAG, длинные диалоги, анализ документов). YandexGPT — если важна стабильность API и максимально знакомая среда разработчика. Для лёгких ботов (FAQ, классификация заявок) — Lite-версии любой из моделей."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "YandexGPT vs GPT-4 — насколько серьёзный разрыв?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "На русском — небольшой. YandexGPT 5 Pro по моим тестам около 85-90% от GPT-4 Turbo. На английском — разрыв больше, 70-80%. По коду — 60-70% от GPT-4o. По агентным задачам с function calling — 75-80%. Для большинства бизнес-задач разница не критична, особенно если данные на русском."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как принимать платежи за использование API?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "За российские модели — обычно: Yandex Cloud Billing, GigaChat через личный кабинет developers.sber.ru, T-Bank через корпоративный контракт. Принимаются рублёвые карты, расчётный счёт ЮЛ/ИП, оплата по выставленному счёту. Никаких проблем с валютной оплатой и санкциями."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что если клиент международный?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Если у вас международный SaaS, который работает в РФ + ЕС + США — нужны две инфраструктуры. Для клиентов из РФ — обработка ПД через российские API на российских серверах. Для зарубежных клиентов — можно использовать OpenAI/Anthropic из соответствующих юрисдикций. Архитектурно — два пути обработки в зависимости от региона клиента, с роутингом на уровне приложения."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Open-source vs API — что выбрать?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "API: быстрый старт (1 день до прототипа), нет затрат на железо, не нужны MLOps-специалисты, оплата по факту использования, но платите за каждый токен и зависите от провайдера. Self-hosting open-source: высокий старт-аппроп (1-3 месяца до продакшена), нужно железо и команда, но фиксированная стоимость и полная независимость. Граница окупаемости self-hosting — около 50-100 млн токенов в месяц при стабильной нагрузке. Меньше — берите API."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужна ли ИТ-аккредитация, чтобы использовать AI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет, ИТ-аккредитация — это про налоговые льготы и отсрочки от армии для ИТ-компаний, к использованию AI отношения не имеет. Но если вы планируете внедрять AI как продукт и продавать другим компаниям — аккредитация даст бонусы по налогу на прибыль (3% вместо 20% до 2030 года) и НДС-льготы для своих ПО-продуктов. Подача — через Минцифры РФ онлайн, занимает 5-10 рабочих дней."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
     <div class="gradient-blob blob-2"></div>
@@ -596,5 +661,22 @@ print(r.json()["choices"][0]["message"]["content"])
 <script src="/i18n.js?v=23" defer></script>
 <script src="/services-i18n.js?v=23" defer></script>
 <script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
 </body>
 </html>

@@ -98,9 +98,82 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Обязан ли частный бизнес переходить на российское ПО?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Прямого требования для частного бизнеса нет — оно действует для госорганов, госкомпаний и субъектов КИИ. Но частному бизнесу переход выгоден из-за рисков отключения, безопасности и часто более низкой стоимости в рублях."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что такое реестр российского ПО и где он?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Это единый реестр Минцифры на reestr.digital.gov.ru. Включение в него подтверждает «российскость» продукта и даёт право участвовать в госзакупках с преференциями по 44-ФЗ и 223-ФЗ."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли полностью заменить Microsoft Office?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Для большинства задач — да, через Р7-Офис, МойОфис или OnlyOffice. Сложности возникают только со специфическими макросами VBA и очень сложной вёрсткой, что решается ручной доводкой."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Есть ли полноценная замена Figma и Adobe?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Полной замены «один в один» пока нет, это самая незрелая ниша. Но Холст, Pixso для интерфейсов и GIMP, Inkscape, Krita для графики закрывают большинство бизнес-задач."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Какое российское облако выбрать вместо AWS?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yandex Cloud — самый широкий набор сервисов, VK Cloud — хорошая альтернатива, Selectel — если нужны гибкие конфигурации и контроль над железом. Все размещают данные в РФ."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Стоит ли уходить в self-hosted open-source?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, если у вас есть IT-экспертиза или подрядчик на сопровождение. Это максимальная независимость. Если экспертизы нет — проще российский облачный продукт с поддержкой."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько времени занимает миграция?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Для малого бизнеса — от нескольких недель до пары месяцев. Для среднего и крупного — от нескольких месяцев до года, в зависимости от глубины проекта и объёма данных."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Помогает ли импортозамещение с соблюдением 152-ФЗ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, и это важный бонус. Переход на российские облака и self-hosted решения автоматически закрывает требование о хранении персональных данных граждан РФ на территории России."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
     <div class="gradient-blob blob-2"></div>
@@ -662,5 +735,22 @@
 <script src="/i18n.js?v=23" defer></script>
 <script src="/services-i18n.js?v=23" defer></script>
 <script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
 </body>
 </html>

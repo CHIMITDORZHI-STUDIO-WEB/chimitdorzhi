@@ -98,9 +98,82 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Какую систему бронирования выбрать для глэмпинга на пять домиков?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Шахматка (Realtycalendar) или Bnovo. Первая проще и заточена под «объект целиком», вторая — более зрелая PMS с богатым функционалом. Обе подойдут."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужен ли свой сайт, если я уже на Суточно и Островке?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Желателен, как минимум модуль прямого бронирования. Он экономит комиссию на повторных гостях и даёт прямой контакт. На старте можно обойтись виджетом бронирования от PMS."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Окупится ли динамическое ценообразование?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, это один из самых быстро окупаемых инструментов. Грамотная динамика по дням, сезону и загрузке поднимает выручку на 20-40% без вложений в стройку."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Какие электронные замки выбрать для удалённого объекта?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Главное — автономность (работа от батареек месяцами), поддержка одноразовых кодов и обязательно физический резервный ключ. Подойдут как импортные (Yale), так и российские умные замки."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Чем глэмпинг отличается от отеля с точки зрения IT?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Объект сдаётся целиком и посуточно, есть автономная инженерка, нет ресепшена, выраженная сезонность и большая доля допуслуг. Отсюда упор на шахматку, бот-консьерж, IoT-мониторинг и динамические цены. Подробно про отельный стек — в статье об IT для отелей и туризма."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли вести глэмпинг на самозанятости?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Для одного-двух домиков без персонала и допуслуг иногда да, но для полноценного объекта с наёмными работниками, баней и кассой — нет, нужен ИП или ООО. Это вопрос к бухгалтеру и юристу под вашу ситуацию."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что важнее на старте — сайт или бот?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Сначала система бронирования и карточка на Я.Картах для притока гостей, затем бот для заселения и допуслуг. Полноценный кастомный сайт — следующий этап."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужно ли регистрировать гостей при бесконтактном заселении?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да. Обязанность учёта и передачи сведений о проживающих от способа заселения не зависит. Данные нужно собрать и обработать по закону, соблюдая 152-ФЗ."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
     <div class="gradient-blob blob-2"></div>
@@ -687,5 +760,22 @@ if __name__ == "__main__":
 <script src="/i18n.js?v=23" defer></script>
 <script src="/services-i18n.js?v=23" defer></script>
 <script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
 </body>
 </html>

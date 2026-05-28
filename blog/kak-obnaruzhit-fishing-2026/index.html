@@ -98,9 +98,82 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Можно ли распознать deepfake-голос на слух?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Иногда — да: интонация чуть «плоская», нет фоновых шумов, паузы неестественные, обрывки звуков. Но в 2026 году качество выросло настолько, что в 70% случаев непрофессионал не отличает. Защита — не уши, а правило: при странном звонке от близкого перезвонить ему самому на знакомый номер."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что делать, если уже сообщил код или перевёл деньги?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Первые шаги — заблокировать карту, сменить пароли, написать в банк заявление о несанкционированной операции, обратиться в полицию. По переводу есть шанс вернуть, если действовать в первые часы. Подробный план — в разделе «Что делать, если попался»."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Стоит ли установить антивирус на телефон?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Для Android — да, особенно родителям. Kaspersky, Dr. Web, ESET — любой из крупных. Защищает от вредоносных приложений и подозрительных ссылок. Для iOS антивирус технически не нужен (платформа закрыта), но полезны встроенные функции «фильтр спама» и проверка ссылок в Safari."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли проверить ссылку до клика?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Можно. На компьютере — навести курсор и посмотреть реальный URL внизу. На телефоне — задержать палец на ссылке, появится превью адреса. Сервисы вроде VirusTotal или Kaspersky Threat Intelligence Portal позволяют вставить ссылку и узнать репутацию домена."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как защитить родителей, которые далеко?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Базовый минимум: семейный пароль, ежемесячный созвон с разбором «было ли что-то подозрительное», включённый фильтр звонков от незнакомых, установленный антивирус на телефоне, ваш номер в быстром наборе. Идеально — дать удалённый доступ к их телефону через семейный аккаунт (Family Link на Android, Family Sharing на iOS)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Почему банки звонят с мобильных номеров — это нормально?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Не нормально. Реальные банки звонят с короткого номера (например, 900 у Сбера, 1000 у Тинькофф) или с длинных 8-800. Любой мобильный номер «из банка» — почти гарантированно мошенник, даже если на экране показывается «Сбербанк» (имя подделывается). Всегда вешайте трубку и сами звоните в банк по номеру на обороте карты."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Куда жаловаться на фишинг в РФ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "На fincert.cbr.ru — финансовые мошенничества. На rkn.gov.ru — утечки данных и подозрительные сайты. На rocit.ru — обращения в Региональный общественный центр интернет-технологий. В полицию — официальное заявление по факту хищения. В службу поддержки банка/маркетплейса/Telegram — для блокировки конкретных аккаунтов мошенников."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как вернуть деньги, если перевёл мошеннику?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Шанс есть, но небольшой. По закону с 2024 года у банков появилась обязанность приостанавливать подозрительные переводы (период охлаждения). Если вы успели заявить о мошенничестве до того, как деньги ушли со счёта-получателя, — возврат реален. Чем быстрее обратились — тем выше шанс. После 24 часов вероятность падает до 10–15%."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
     <div class="gradient-blob blob-2"></div>
@@ -524,5 +597,22 @@
 <script src="/i18n.js?v=23" defer></script>
 <script src="/services-i18n.js?v=23" defer></script>
 <script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
 </body>
 </html>

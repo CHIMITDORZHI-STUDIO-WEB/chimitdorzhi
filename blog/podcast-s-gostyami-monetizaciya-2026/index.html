@@ -98,9 +98,82 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Сколько эпизодов нужно до первой монетизации?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Спонсорство — обычно с 20–30-го эпизода (когда есть стабильная аудитория). Продажа своих услуг — может работать с 5–10 эпизода, если контент целевой. Подписочная модель — с 30–50 эпизода (когда сформирована лояльная аудитория)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Аудио или видео-подкаст — что выбрать?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "В 2026 году — видео-подкаст, потом расшариваете аудио-версию отдельно. YouTube приносит больше всего охвата и лидов. Чисто аудио-подкаст — для специфических ниш (узкое b2b, академический контент)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Куда лить трафик с YouTube?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "На свой сайт (главная воронка), в Telegram-канал (для удержания), на конкретную услугу или продукт (для конверсии). Ссылки — в описании каждого видео, в первом закреплённом комментарии и устно в эпизоде."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько платит спонсор за упоминание?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Для подкаста 1–5 тыс. слушателей за эпизод — 30–80 тыс. ₽ за короткое упоминание. 10–50 тыс. слушателей — 100–300 тыс. ₽. Больше — от 500 тыс. ₽ за полноценную интеграцию."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как договориться с известным гостем?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Не пишите «приходите ко мне на подкаст». Пишите конкретно: «обсудим [конкретная тема], которая связана с [его экспертизой], формат 60 минут, удалённо». Покажите, что вы подготовлены и знаете его работу. Конверсия 30–50% даже с известными."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько занимает один эпизод (от подготовки до публикации)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Подготовка — 1.5 ч (research + структура), запись — 1 ч, монтаж с Descript — 0.5 ч, repurposing — 1.5 ч. Итого 4–5 часов на один эпизод. Без Descript — 8–10 часов."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Стоит ли делать подкаст соло без гостей?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Сложнее: вы должны быть единственным источником ценности. Работает для очень узких ниш и сильных экспертов. Для большинства — лучше с гостями (легче и эффективнее)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли запускать подкаст без личного бренда?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Можно, но дольше. Личный бренд ускоряет привлечение гостей и аудитории. Если без бренда — компенсируйте качеством контента и проактивностью в поиске гостей."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
     <div class="gradient-blob blob-2"></div>
@@ -526,5 +599,22 @@ AI-чистка:   Descript                      ~$15/мес (~1500 ₽)
 <script src="/i18n.js?v=23" defer></script>
 <script src="/services-i18n.js?v=23" defer></script>
 <script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
 </body>
 </html>

@@ -98,9 +98,74 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Можно ли использовать OpenAI/Claude API в РФ для AI-агента?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Технически — через прокси или зарубежное юрлицо. Юридически с обработкой ПД клиентов из РФ — нет, нарушение ст. 18 ч. 5 152-ФЗ. Для задач без ПД (общий контент, абстрактные расчёты) — серая зона. Для производственного использования с клиентскими данными — российский стек или self-hosted open-source в РФ."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что выбрать — LangChain или n8n + GPT?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Если задача укладывается в линейный сценарий с понятными ветвлениями — n8n. Дешевле в разработке, проще в поддержке, заказчик сам сможет править. Если нужно реальное планирование, рефлексия, tools с непредсказуемой последовательностью — LangChain или Pydantic AI. По моим оценкам 60% запросов «нужен AI-агент» закрываются n8n с одним вызовом LLM."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько займёт разработка простого агента?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Reception-агент сайта с FAQ и lead-qualify — 2-3 недели от ТЗ до прода. Включая: проектирование промптов, базу знаний, интеграцию с сайтом, тестирование на 50+ кейсах, мониторинг. Если у вас уже есть структурированные FAQ — быстрее, недели за 1.5. Если базу знаний нужно собирать с нуля из разрозненных источников — добавьте 1-2 недели."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "AI-агент заменит моего сотрудника?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "В 2026 — нет. Заменит часть рутины сотрудника. Реалистичная оценка: 30-50% типовых задач можно автоматизировать. Сотрудник делает то, что требует контекста, эмпатии, переговоров, неструктурированных решений. Если у вас задача «полностью заменить человека агентом» — скорее всего, эта задача либо не подходит для агента сейчас, либо результат будет хуже, чем с человеком в петле."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Безопасно ли давать агенту доступ к API/базам?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Если правильно настроено — да. Принципы: минимальные права (только то, что нужно для функции), отдельные API-ключи под агента с лимитами, логирование каждого действия, явный список «опасных» операций с подтверждением человека, регулярный аудит логов. Опасно — дать админский ключ от всей CRM и надеяться, что не сломает."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли сделать на YandexGPT или GigaChat?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, делал лично на обеих. YandexGPT 5 Pro — стабильный API, хорошо работает с function calling, удобен для агентов. GigaChat 3 Max — контекст 128K (огромное преимущество для RAG), но function calling появился позже и менее зрелый. Для большинства бизнес-задач разницы с GPT-4 Turbo для пользователя не видно. Подробное сравнение — в статье про российский AI-стек."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как обучить агента на своих данных?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "В 90% случаев — не обучить, а правильно индексировать в RAG. Файнтюнинг LLM — дорого (от 200 тыс ₽ только обучение + поддержка), долго, и часто не даёт прироста качества по сравнению с хорошим RAG. Рекомендация: сначала делайте RAG со своими документами в векторной БД, и только если RAG не справляется со специфическим стилем/жаргоном — думайте про файнтюнинг."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
     <div class="gradient-blob blob-2"></div>
@@ -620,5 +685,22 @@ print(f"Уверенность: {result.data.confidence}")
 <script src="/i18n.js?v=23" defer></script>
 <script src="/services-i18n.js?v=23" defer></script>
 <script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
 </body>
 </html>

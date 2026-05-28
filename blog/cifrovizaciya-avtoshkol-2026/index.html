@@ -98,9 +98,82 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Какую CRM выбрать для новой школы на 100 курсантов в год?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Автошкола ПРО — оптимально по цене и функционалу. Если есть 1С-инфраструктура — 1С:Автошкола."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько стоит интеграция CRM с ЕАИС ГИБДД?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "50-150 тыс. ₽ под ключ, плюс настройка КЭП школы. Окупается за 4-6 месяцев экономией времени администратора."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "VR-тренажёр Forward или дешевле собрать своё?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Свое решение требует разработки контента (методически верных сценариев), что обойдётся дороже готового. Forward или Логос — рабочие готовые решения."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли вести только электронные журналы или нужны бумажные?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "По приказу Минпросвещения №196 допускается электронное ведение с возможностью распечатки по требованию проверяющих. Бумажные дублировать не обязательно, но многие школы держат для подстраховки."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как работает запись на экзамен в ГИБДД через Госуслуги?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Курсант сам подаёт заявление через Госуслуги, указывает школу и категорию. Или школа подаёт от его имени по доверенности через ЕАИС. Второй вариант удобнее для курсанта, но требует интеграции у школы."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли использовать AI для проверки внутреннего экзамена?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Для проверки теории (тесты) — да, это автоматический подсчёт. Для проверки вождения — пока нет, только инструктор."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Маткапитал на автошколу — реально или миф?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "На взрослого ребёнка (18+) — почти миф из-за бюрократии. На несовершеннолетнего (16-17 лет, категория A1 или M) — возможно при правильной аккредитации школы."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что делать с курсантом, который трижды не сдал экзамен в ГИБДД?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Дополнительные часы вождения по экзаменационным маршрутам, разбор типичных ошибок, психологическая поддержка (страх экзамена — частая причина). Хорошая CRM подсвечивает таких курсантов методисту."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
     <div class="gradient-blob blob-2"></div>
@@ -645,5 +718,22 @@ if __name__ == "__main__":
 <script src="/i18n.js?v=23" defer></script>
 <script src="/services-i18n.js?v=23" defer></script>
 <script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
 </body>
 </html>

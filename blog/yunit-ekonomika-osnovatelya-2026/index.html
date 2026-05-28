@@ -98,9 +98,90 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "С какого момента можно считать юнит-экономику?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Как только есть первые 20-30 платящих клиентов и 2-3 месяца данных. Раньше цифры слишком шумные, но прикидку можно делать с первого клиента."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Считать LTV в выручке или в прибыли?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Всегда в прибыли (с учётом валовой маржи). LTV в выручке — для презентаций инвесторам, для решений он опасен."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Какой LTV/CAC считается нормой?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Не меньше 3. Меньше — чините экономику. Больше 6 — возможно, недоинвестируете в рост."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что важнее: LTV/CAC или payback?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Зависит от капитала. На свои деньги payback важнее (кассовый разрыв убьёт быстрее). С инвестициями можно терпеть долгий payback ради большого LTV/CAC."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как считать LTV, если бизнесу мало месяцев?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Через фактический месячный churn: LTV = ARPU × маржа × (1/churn). Это работает уже с 2-3 месяцами данных, не требуя ждать годы."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли иметь хорошую экономику и всё равно быть убыточным?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да. До точки безубыточности компания убыточна на уровне постоянных расходов, даже при отличной юнит-экономике. Нужно набрать массу клиентов."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужно ли считать экономику по каждому каналу отдельно?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Обязательно. Средний CAC скрывает убыточные каналы. Разбивка позволяет резать дорогое и масштабировать дешёвое."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что делать, если contribution margin отрицательный?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Срочно поднимать цену или снижать переменную себестоимость. Никакой объём не спасёт бизнес с отрицательным вкладом на покрытие."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как часто пересчитывать юнит-экономику?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ежемесячно для оперативных решений и при каждом изменении в продукте, ценах или каналах. Это не разовая задача, а постоянный процесс."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
     <div class="gradient-blob blob-2"></div>
@@ -740,5 +821,22 @@ LTV_когорта:        =B3*B4*SUM(C2:C13)
 <script src="/i18n.js?v=23" defer></script>
 <script src="/services-i18n.js?v=23" defer></script>
 <script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
 </body>
 </html>

@@ -98,9 +98,82 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "С какой платформы начать, если не знаю, где аудитория?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "С Telegram — самая зрелая платформа, быстрая разработка, низкая стоимость. И параллельно изучите, где реально сидят ваши клиенты, чтобы потом добавить нужную площадку."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Стоит ли уже сейчас делать бота для MAX?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Стратегически — да, особенно госсектору и крупному B2C. Ранний вход даёт преимущество, пока конкуренция низкая. Для нишевого B2B можно подождать дозревания API и закладывать MAX в мультиканальную стратегию."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли один бот на Telegram, VK и MAX?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, через мультиканальную архитектуру: единое ядро логики и адаптеры под платформы. Это дороже, но даёт максимальный охват и устойчивость."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Конструктор или разработка?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Простой бот (анкета, FAQ) — конструктор. Сложная логика, интеграции, AI, Mini App или критичный для бизнеса бот — кастомная разработка."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Безопасно ли подключать ChatGPT к боту с данными россиян?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Для обработки персональных данных лучше GigaChat или YandexGPT — они в РФ, что соответствует 152-ФЗ. Зарубежные модели для ПД россиян — юридический риск."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как принимать оплату в боте?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Универсально — через ЮKassa или СБП по ссылке/вебхуку, работает на любой платформе. В Telegram удобны встроенные Telegram Payments. Не забудьте про фискальные чеки (54-ФЗ)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько времени занимает разработка?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Простой бот — несколько дней. Средний с интеграциями — 2-4 недели. Сложный с Mini App или AI — от месяца."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что с ботом, если Telegram ограничат в РФ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Поэтому критичному бизнесу я и советую мультиканальность: если один канал отвалится, бот продолжит работать в VK и MAX. Архитектура закладывается так, чтобы добавить платформу было легко."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
     <div class="gradient-blob blob-2"></div>
@@ -713,5 +786,22 @@ def normalize_event(event: dict) -> dict | None:
 <script src="/i18n.js?v=23" defer></script>
 <script src="/services-i18n.js?v=23" defer></script>
 <script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
 </body>
 </html>

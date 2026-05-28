@@ -98,9 +98,90 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Можно ли зарегистрироваться без наставника?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет, вход в клуб только по рекомендации действующего амбассадора. Если наставника нет — напишите мне, объясню, как присоединиться."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько стоит старт?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Стартовый пакет около 588 $, из которых около 490 $ зачисляются на ваш счёт для путешествий, а около 100 $ — стоимость старта бизнеса. Плюс подписка примерно 60-120 $/мес, которая превращается в баллы лояльности с удвоением."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Обязательно ли строить структуру, или можно только пользоваться скидками?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Можно только пользоваться продуктом для себя, ради скидок на путешествия. Бизнес-сторона — по желанию. Решайте исходя из своей цели."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько времени занимает старт?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Базовое освоение — первые 2-4 недели при регулярном внимании. Это не «вложил и забыл», нужно учиться и действовать."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Гарантирован ли доход?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет. Доход зависит от ваших действий и активности структуры, гарантий быть не может. Любые обещания конкретных сумм — признак недобросовестности."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Это пирамида?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет. За моделью стоит реальный туристический продукт, которым вы сами пользуетесь, а не «деньги из взносов». В этом принципиальная разница."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужно ли платить налоги?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, с первых доходов. Проще всего оформить самозанятость (НПД), это бесплатно и занимает несколько минут."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Где можно продвигаться?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "В легальных в РФ площадках: ВКонтакте, Telegram, Дзен, YouTube, Rutube. И при системной работе помните про 152-ФЗ и маркировку рекламы."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что делать, если все отказываются?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Это нормально на старте. Пересмотрите подход (меньше давления, больше вопросов), потренируйтесь с наставником, расширьте список. Отказы — часть процесса."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
     <div class="gradient-blob blob-2"></div>
@@ -552,5 +633,22 @@
 <script src="/i18n.js?v=23" defer></script>
 <script src="/services-i18n.js?v=23" defer></script>
 <script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
 </body>
 </html>

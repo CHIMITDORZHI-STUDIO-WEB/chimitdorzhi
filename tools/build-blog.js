@@ -257,6 +257,49 @@ function breadcrumbLd(a, url) {
   }, null, 2);
 }
 
+// Extract FAQ Q&A pairs from the article's FAQ section for FAQPage schema.
+function extractFaq(html) {
+  if (!html) return [];
+  // Isolate the FAQ section: from <h2 id="faq"...> up to the next <h2 or end.
+  const m = html.match(/<h2[^>]*id="faq"[^>]*>[\s\S]*?(?=<h2[\s>]|$)/i);
+  if (!m) return [];
+  const section = m[0];
+  const pairs = [];
+  // Pattern A: <p><strong>Question?</strong> Answer.</p>
+  const reP = /<p>\s*<strong>(.*?)<\/strong>\s*([\s\S]*?)<\/p>/gi;
+  let x;
+  while ((x = reP.exec(section)) !== null) {
+    const q = x[1].replace(/<[^>]+>/g, '').trim();
+    const a = x[2].replace(/<[^>]+>/g, '').trim();
+    if (q && a && q.length > 4 && a.length > 4) pairs.push({ q, a });
+  }
+  // Pattern B (fallback): <h3>Question?</h3><p>Answer</p>
+  if (pairs.length === 0) {
+    const reH = /<h3[^>]*>(.*?)<\/h3>\s*<p>([\s\S]*?)<\/p>/gi;
+    while ((x = reH.exec(section)) !== null) {
+      const q = x[1].replace(/<[^>]+>/g, '').trim();
+      const a = x[2].replace(/<[^>]+>/g, '').trim();
+      if (q && a) pairs.push({ q, a });
+    }
+  }
+  return pairs;
+}
+
+function faqLd(a) {
+  const pairs = extractFaq(a.contentHtml);
+  if (pairs.length < 2) return '';
+  const json = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: pairs.map(p => ({
+      '@type': 'Question',
+      name: p.q,
+      acceptedAnswer: { '@type': 'Answer', text: p.a },
+    })),
+  }, null, 2);
+  return `    <script type="application/ld+json">\n${json}\n    </script>\n`;
+}
+
 function tocHtml(toc) {
   if (!toc || !toc.length) return '';
   const items = toc.map((t, i) =>
@@ -339,9 +382,10 @@ ${blogPostingLd(a, url)}
     <script type="application/ld+json">
 ${breadcrumbLd(a, url)}
     </script>
-</head>
+${faqLd(a)}</head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
     <div class="gradient-blob blob-2"></div>
@@ -398,6 +442,23 @@ ${breadcrumbLd(a, url)}
     </main>
 
     ${footer()}
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
 </body>
 </html>`;
 }

@@ -98,9 +98,82 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Можно ли вообще делать свой сайт, или компания запрещает?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "В большинстве случаев можно, но в рамках правил. Личные сайты партнёров разрешены почти везде, если соблюдать комплаенс: дисклеймер о независимости, без логотипа, без обещаний дохода. Читай правила своей компании."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сайт или достаточно вести соцсети?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Соцсети нужны, но они не твоя собственность — алгоритмы и блокировки от тебя не зависят. Сайт — твой актив, который остаётся при любом раскладе и собирает лиды в твою базу. Лучше и то, и другое, но сайт — основа."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Какие соцсети использовать для трафика?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "В РФ работаю с ВКонтакте, Telegram, MAX, Одноклассниками, Дзеном, YouTube и Rutube. Telegram и ВКонтакте — основные каналы для дистрибьютора, Дзен хорош для контента и SEO."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько лидов реально собрать?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Зависит от трафика и ниши. На моей практике рабочий лендинг с лид-магнитом и нормальным трафиком даёт конверсию 3-7% из посетителя в лид. На 1000 посетителей в месяц это 30-70 контактов в базу."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужен ли отдельный домен или хватит поддомена конструктора?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нужен свой домен. Поддомен конструктора (вида name.tilda.ws) выглядит несолидно, плохо ранжируется и не твой. Свой домен под имя/нишу стоит копейки и работает на бренд."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что писать в форме согласия?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Конкретную цель: «даю согласие на обработку персональных данных в целях обратной связи и принимаю политику конфиденциальности» со ссылкой на политику. Галочку ставит сам человек, заранее она не стоит."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли делать рассылку по собранной базе?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, но только тем, кто дал согласие, и с возможностью отписаться в каждом сообщении. Иначе нарушаешь закон о рекламе и 152-ФЗ."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что делать с базой при смене компании?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "В этом и смысл своей базы — она остаётся с тобой. Можешь предложить контактам новое решение. Но учитывай, что согласие давалось под конкретную цель, поэтому новое предложение лучше оформить корректно."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
     <div class="gradient-blob blob-2"></div>
@@ -657,5 +730,22 @@ document.getElementById("leadForm").addEventListener("submit", async (e) =&gt; {
 <script src="/i18n.js?v=23" defer></script>
 <script src="/services-i18n.js?v=23" defer></script>
 <script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
 </body>
 </html>

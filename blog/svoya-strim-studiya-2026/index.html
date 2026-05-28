@@ -98,9 +98,74 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Можно ли стримить с одного ноутбука без приставки?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, но с оговорками. Ноутбук должен быть мощным: процессор Intel Core i7 12-го поколения или AMD Ryzen 7 5000-й серии минимум, 16 ГБ ОЗУ, видеокарта с поддержкой H.264 NVENC (для NVIDIA) или AMD VCE. При 1080p60 на стрим уходит около 50% CPU современного MacBook Pro M3. Если ноутбук подтормаживает, понизьте качество до 1080p30 или используйте hardware-кодирование."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Какой минимум интернет для стрима в 1080p?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Для стрима в 1080p60 нужно стабильные 10 Мбит/с upload. Для 1080p30 хватает 6 Мбит/с. Я всегда советую иметь в два раза больше: 20 Мбит/с upload минимум. Желательно проводное подключение, не WiFi — задержки и потери пакетов на WiFi убивают качество стрима. И обязательно резервный канал (мобильный модем на крайний случай)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "MacBook или Windows для стрим-стека 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Оба работают. MacBook Pro M3/M4 — отличный выбор за счёт энергоэффективности и тихой работы (важно для подкастов, шум вентилятора попадает в микрофон). Windows-десктоп даёт больше гибкости (можно поставить мощную видеокарту, расширять память), нужен для vMix (только Windows). Я лично использую и то и другое: MacBook для мобильных съёмок и интервью, Windows-десктоп для основной студии."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли обойтись iPhone-ом для подкаста?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Для аудио-подкаста (только звук) — да, если есть Lavalier-микрофон с Lightning или USB-C разъёмом (Rode SmartLav+ за 8 тыс. ₽). Качество будет терпимым. Для видео-подкаста с одним человеком — да, через EpocCam подключив к ноутбуку как камеру. Для серьёзного контента с гостями — нет, нужна нормальная студия."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько окупается стрим-студия?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Зависит от того, что вы делаете в студии. Подкаст с монетизацией через спонсорство и платную подписку — 6–18 месяцев при регулярном выходе. Образовательные курсы — 3–6 месяцев. Live Commerce — 2–4 месяца. Корпоративные эфиры для одного клиента — окупается сразу первым контрактом."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что делать если эхо в комнате?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Купите акустические панели Mywall или Ecosound (300 ₽ за штуку), наклейте на стену за вами и сверху над микрофоном. Положите ковёр на пол. Повесьте плотные шторы на окна. Если эхо очень сильное — соорудите акустическую «коробку»: ставьте два-три раскладных штатива с акустическими одеялами вокруг микрофона."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужен ли отдельный микшер или хватит OBS?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Для одного-двух микрофонов OBS справляется сам, нужен только аудио-интерфейс Focusrite Scarlett. Когда у вас три и больше микрофонов, разные источники звука (компьютер, телефон, музыка), и нужно микшировать в реальном времени — переходите на RodeCaster Pro II или подобный аппаратный микшер. Это экономит часы работы в пост-продакшне."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
     <div class="gradient-blob blob-2"></div>
@@ -516,5 +581,22 @@ while True:
 <script src="/i18n.js?v=23" defer></script>
 <script src="/services-i18n.js?v=23" defer></script>
 <script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
 </body>
 </html>

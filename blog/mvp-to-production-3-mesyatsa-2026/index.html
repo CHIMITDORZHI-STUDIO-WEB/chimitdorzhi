@@ -98,9 +98,82 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Можно ли запустить MVP за 1 месяц?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Если это микро-продукт типа Telegram-бота или одностраничного сервиса — да. Если полноценный SaaS с биллингом и онбордингом — нет, реалистично 2.5-3 месяца. Кто обещает «MVP за месяц» обычно запускает прототип без юр-документов, без аналитики, без биллинга. Это не MVP, а демо."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что такое soft launch?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Закрытый запуск для первых 5-20 клиентов до публичного запуска. Цель — поймать критичные баги, отшлифовать онбординг, получить первые отзывы. Длится обычно 2-4 недели. Без soft launch public launch почти всегда заканчивается катастрофой по UX."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Какой стек выбрать новичку?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Next.js + TypeScript + Tailwind + Drizzle ORM + Postgres. Большая экосистема, много туториалов, легко найти разработчиков на доработки. Альтернатива для совсем простых проектов — Astro + Pocketbase, ещё проще, но меньше фич."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Стоит ли искать CTO с долей в проекте?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Если у вас нет своих технических компетенций — да, без CTO вы не запуститесь. Но не отдавайте 50% за обещания — стандарт для технического сооснователя на MVP-стадии 15-30%, с vesting на 4 года и cliff на 1 год."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Когда нанимать первого разработчика?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Когда фаундеры физически не успевают закрывать поток задач, и MRR позволяет платить зарплату 150-300 тыс. ₽/мес без выгорания личного бюджета. Раньше — рискованно, продуктивность разработчика без direct mentorship и без понимания продукта будет низкой."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что делать если MVP не пошёл?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Сделать pivot — изменить ключевую гипотезу, оставив техническую базу. Слушать клиентов: за что они готовы платить, что наоборот раздражает. Часто работающий продукт получается не из первой гипотезы, а из третьей-пятой. Slack начинал как игра, Instagram как чек-ин-сервис, Twitter как подкаст-платформа."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько денег нужно на 3 месяца?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Соло-фаундер с AI-помощниками: 350-800 тыс. ₽ (инфраструктура + юр.документы + базовый маркетинг + минимальная подушка на проживание). Команда из 2-3 человек: 1.5-3 млн ₽ (зарплаты + всё остальное). Если нет половины этой суммы — не стартуйте, не хватит до запуска."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли запустить без юр.лица?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Тестовый запуск с 1-2 клиентами — можно как физлицо или самозанятый. Полноценный public launch — нельзя: нужны реквизиты для оферты, ЭДО с платёжной системой, основание для обработки ПД. Минимум — самозанятый или ИП."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
     <div class="gradient-blob blob-2"></div>
@@ -732,5 +805,22 @@ export async function handleWebhook(req, res) {
 <script src="/i18n.js?v=23" defer></script>
 <script src="/services-i18n.js?v=23" defer></script>
 <script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
 </body>
 </html>

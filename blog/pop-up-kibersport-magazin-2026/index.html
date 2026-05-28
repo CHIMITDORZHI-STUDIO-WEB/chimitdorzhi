@@ -98,9 +98,74 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Можно ли провести pop-up без согласия торговой сети?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет. Любая активация на территории магазина или ТЦ требует официального согласия. Партизанские pop-up быстро прекращаются охраной."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько занимает подготовка pop-up?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Минимум 4–6 недель. Согласование с площадкой, организация оборудования, маркетинг — без сжатия по времени."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужны ли амбассадоры для pop-up?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Для минимального формата — нет. Для среднего и premium — желательно (1 местный стример или киберспортсмен). Усиливает медиа-эффект в 2–3 раза."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли провести pop-up в маленьком региональном магазине?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да. Региональные магазины часто заинтересованы даже больше федеральных — они нуждаются в трафике. И стоимость организации ниже."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что делать, если в ТЦ нельзя устанавливать сложное оборудование?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Использовать мобильный формат: ноутбуки с играми, планшеты для мобильных дисциплин, минимальная инфраструктура. Можно уместиться в 6 квадратных метров."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Окупится ли pop-up за один уикенд?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Для ритейлера — да, при правильном расчёте. Для бренда-спонсора — частично (основной эффект на бренд-метриках, не на прямых продажах)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли совместить несколько брендов в одном pop-up?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, и это работает. Главное — чтобы бренды не конкурировали (например, производитель мышей плюс производитель кресел плюс производитель напитков). Каждый бренд получает свою зону."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
     <div class="gradient-blob blob-2"></div>
@@ -520,5 +585,22 @@
 <script src="/i18n.js?v=23" defer></script>
 <script src="/services-i18n.js?v=23" defer></script>
 <script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
 </body>
 </html>

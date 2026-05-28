@@ -98,9 +98,82 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Какую CRM выбрать для нового СТО на 3 бокса?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Garage 47 — оптимально по цене и функционалу. TyreScanner — если большая доля шиномонтажа."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужен ли свой сайт, если есть Я.Карты?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Для одиночного СТО можно начать без сайта, главное — активная карточка на Я.Картах и 2GIS. Для сетей и брендов сайт обязателен."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько стоит интеграция CRM с exist.ru/parts.ru?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "50-150 тысяч в зависимости от глубины интеграции. Окупается за 2-3 месяца за счёт экономии времени механиков."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли использовать ChatGPT для общения с клиентами по диагностике?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Для предварительной расшифровки кодов OBD и общих вопросов — да. Для конкретных рекомендаций «менять или нет» — только механик после осмотра."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что делать с негативным отзывом, если клиент сам виноват?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ответить публично, корректно, с фактами. Не оправдываться, не нападать. Предложить разобраться в личных сообщениях. Гости видят и оценивают ваш ответ больше, чем сам отзыв."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Стоит ли вести Telegram-канал?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Если у вас есть время на регулярный полезный контент — да. Если нет — лучше не вести, чем вести нерегулярно (это убивает доверие)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как считать ROI программы лояльности?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Сравните LTV участника и неучастника за 12 месяцев. В СТО разница обычно 60-120%."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Депозит при онлайн-записи — нужен или нет?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Для срочных работ (диагностика, замена масла) — необязательно. Для долгих и дорогих (кузовной ремонт, агрегатный) — желателен, защищает от no-show."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
     <div class="gradient-blob blob-2"></div>
@@ -599,5 +672,22 @@ if __name__ == "__main__":
 <script src="/i18n.js?v=23" defer></script>
 <script src="/services-i18n.js?v=23" defer></script>
 <script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
 </body>
 </html>

@@ -98,9 +98,74 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "n8n или Make/Integromat — что выбрать?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "n8n удобнее, потому что есть self-hosted режим (полная свобода) и более развитая логика (циклы, ветвления, sub-workflows). Make стабильнее в UX, но дороже на больших объёмах. Если есть выбор — берите n8n."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "YandexGPT или Claude — что выбрать?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "YandexGPT — для российских проектов без сложностей с оплатой. Качество — на уровне GPT-3.5, для большинства задач достаточно. Claude (через прокси) — гораздо лучше для сложных диалогов и точности, но требует зарубежных карт или прокси-сервисов оплаты."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько стоит подписка n8n в реальности?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Бесплатный план — 0 ₽, до 5 000 runs/мес (одна сессия диалога = 5-10 runs). Starter — $20/мес = 1800 ₽, до 10 000 runs. Pro — $50/мес = 4500 ₽, до 50 000 runs. Self-hosted — только цена VPS, 250-1000 ₽/мес."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли так же делать боты в Telegram?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, абсолютно та же логика. Замените узел Webhook на Telegram Trigger в n8n. Дальше workflow идентичен. Бот для Telegram получится за тот же выходной."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как сделать чтобы бот понимал нашу базу знаний?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нужен RAG (Retrieval Augmented Generation): загрузить документы в векторную базу, при запросе пользователя искать релевантные куски и передавать их в LLM как контекст. На n8n это возможно с подключением Qdrant или Pinecone, но workflow сложный. Подробно — в моей статье о RAG-системах."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что если бот скажет глупость клиенту?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Снижается тремя способами. Первое — хороший system prompt с инструкцией «не знаю — передам менеджеру». Второе — отказ от temperature высокого (0.2-0.4, не 0.8). Третье — фильтр запрещённых слов или тем после генерации. С этими тремя мерами доля ошибочных ответов — 2-5%, что меньше, чем у живого оператора в первый день работы."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько времени на поддержку после запуска?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Первая неделя — 2-3 часа в день на просмотр диалогов и правку prompt. Дальше — 30-60 минут в неделю на анализ метрик и корректировки. После 2-3 месяцев — поддержка почти нулевая, если только не меняется ассортимент или цены."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
     <div class="gradient-blob blob-2"></div>
@@ -627,5 +692,22 @@ ollama run llama3.3</code></pre>
 <script src="/i18n.js?v=23" defer></script>
 <script src="/services-i18n.js?v=23" defer></script>
 <script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
 </body>
 </html>

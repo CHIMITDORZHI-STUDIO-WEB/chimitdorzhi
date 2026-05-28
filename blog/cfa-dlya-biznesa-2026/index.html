@@ -98,9 +98,74 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "1. Чем ЦФА отличается от обычного займа?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Заём — двусторонний договор: один даёт деньги, другой обязуется вернуть. ЦФА — стандартизированный финансовый инструмент, который можно перепродать на вторичном рынке. По сути, ЦФА — это «займ в форме ценной бумаги»."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "2. Можно ли вернуть деньги досрочно?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Только если в условиях выпуска предусмотрена возможность оферты (досрочного выкупа). Иначе — только через продажу на вторичном рынке другому инвестору."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "3. Что будет, если оператор обанкротится?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "По 259-ФЗ оператор отделяет средства клиентов от своих. В теории — клиентские средства защищены. На практике — эту ситуацию ещё не отрабатывали, может быть сложно."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "4. Можно ли выпустить ЦФА, привязанный к валюте?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, есть конкретные конструкции «ЦФА, номинированные в иностранной валюте». Расчёты при погашении — в рублях по курсу ЦБ на дату. Это популярный инструмент для хеджирования."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "5. Кто проверяет, что эмитент действительно расплатится?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Оператор ОИС проверяет финансовое состояние эмитента перед выпуском. Но это не гарантия — оператор не обязан компенсировать держателям убытки в случае дефолта."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "6. Какой минимальный чек для инвестора?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Зависит от выпуска. У крупных эмитентов — от 1000 ₽. У ЦФА на дорогие активы (недвижимость, искусство) — от 50-100 тыс ₽."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "7. Облагаются ли ЦФА налогом на имущество?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет. ЦФА не относятся к облагаемым налогом на имущество объектам."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
     <div class="gradient-blob blob-2"></div>
@@ -657,5 +722,22 @@
 <script src="/i18n.js?v=23" defer></script>
 <script src="/services-i18n.js?v=23" defer></script>
 <script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
 </body>
 </html>

@@ -98,9 +98,82 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Может ли MAX Mini App конкурировать с обычным сайтом?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, для большинства сценариев Mini App даёт лучшую конверсию благодаря интеграции в мессенджер. Но Mini App не заменяет полностью сайт — для SEO, презентаций, документации сайт всё ещё нужен."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что выбрать — Mini App или обычный бот в МАХ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Бот подходит для простых сценариев (информирование, FAQ, простые заказы). Mini App нужен, когда есть каталог, выбор, сложное оформление, личный кабинет. Часто используют связку: бот для уведомлений и быстрых ответов + Mini App для основного функционала."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько занимает публикация в каталог?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Модерация в каталог МАХ занимает 3–7 рабочих дней. До этого Mini App работает по прямой ссылке. Для популярных категорий (магазины, услуги) рекомендую публикацию в каталог обязательно — это бесплатный трафик."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли использовать React Native для MAX Mini App?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет, Mini App — это веб-приложение, оно работает в WebView. React Native собирает нативные приложения и не подходит. Используйте обычный React или Vue."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Где брать дизайн-гайдлайны?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Официальная документация MAX SDK содержит базовые рекомендации. Дополнительно ориентируйтесь на гайдлайны Telegram Mini Apps — большинство принципов универсальные."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Платежи СБП внутри Mini App — комиссия?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "0,4–0,7% при подключении через банк-партнёра. Это в 5–10 раз меньше, чем стандартная эквайринг-комиссия по картам. Главный минус — пока не все пользователи привыкли платить по QR."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько окупается Mini App?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Зависит от модели. Магазин с трафиком окупается за 2–4 месяца. Подписочный сервис — 6–12 месяцев. HR-инструмент для крупной компании — за один корпоративный контракт."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Какая аудитория МАХ к концу 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Прогнозы аналитиков — 15–20 млн активных пользователей при сохранении текущего темпа роста и государственной поддержки."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
     <div class="gradient-blob blob-2"></div>
@@ -595,5 +668,22 @@ app.listen(3000);
 <script src="/i18n.js?v=23" defer></script>
 <script src="/services-i18n.js?v=23" defer></script>
 <script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
 </body>
 </html>

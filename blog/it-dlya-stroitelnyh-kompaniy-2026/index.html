@@ -98,9 +98,82 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Можно ли продавать новостройки без CRM застройщика, на Excel-шахматке?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Технически можно при объекте до 30-50 квартир. На крупных ЖК это путь к двойным продажам одного лота и блокировке со стороны банка-эскроу-агента."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Renga vs nanoCAD BIM — что выбрать?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Если ваши проектировщики раньше работали в Revit — Renga ближе по логике. Если в AutoCAD — nanoCAD BIM проще освоить. Для госзаказа и Минстроя — Renga приоритетнее."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужен ли свой ЛК дольщика или хватит модуля из CRM?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "На объектах до 200 квартир хватит модуля Profitbase/Macro. На крупных ЖК и для девелоперов с несколькими объектами — собственный фирменный ЛК (веб + мобильное приложение) под брендом."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько стоит интеграция CRM с банком-эскроу-агентом?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Если интеграция готовая (Profitbase + Сбер) — входит в подписку. Если кастомная (свой ERP + ВТБ) — 1-3 млн ₽ разово плюс согласование с банком 2-4 месяца."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "AI-видеоаналитика СИЗ — это реально работает или маркетинг?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "На объектах, где я лично видел внедрение Macroscop и Cognitive Pilot, точность распознавания каски — 92-97%, жилета — 88-94%. Это рабочий инструмент, не маркетинг. Снижает травматизм на стройке на 30-50%."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что делать с ЕИСЖС, если CRM не умеет публиковать?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Вручную через личный кабинет на наш.дом.рф. Это работает на 1-2 объектах. На 5+ объектах ручная публикация становится отдельной работой на полставки."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "1С:Застройщик или своя ERP?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Для 95% застройщиков ответ — 1С:Застройщик. Своя ERP оправдана только у девелоперов с 20+ объектами и нестандартными процессами (апарт-отели, коливинги)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли сэкономить на BIM и работать в AutoCAD?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Для частного заказчика и ИЖС — можно. Для госзаказа, объектов социального назначения, крупного коммерческого — нет, BIM требуется регулятором."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
     <div class="gradient-blob blob-2"></div>
@@ -580,5 +653,22 @@ async function handleEscrowPayment(event: any) {
 <script src="/i18n.js?v=23" defer></script>
 <script src="/services-i18n.js?v=23" defer></script>
 <script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
 </body>
 </html>

@@ -98,9 +98,74 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Сколько стоит запуск бота риелтора с AI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "От 400 тыс. ₽ под ключ за 5–8 недель. AI-подборки, оценка, ЦИАН-интеграция, CRM."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли использовать иностранные AI (Claude, GPT-4)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Технически можно, но осторожно с ПД. Для обработки чувствительных данных — только российские модели (YandexGPT, GigaChat). Для общих задач (например, генерация маркетинговых текстов) — можно зарубежные."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Какая модель оценки квартиры точнее?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Зависит от качества данных. На 10+ тыс. примерах закрытых сделок XGBoost даёт MAE 5–8% от цены. Для премиум-сегмента нужны отдельные модели — там меньше данных и больше выбросов."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как защитить базу клиентов от ухода риелтора?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Все данные в централизованной БД агентства, риелтор имеет доступ только через бот/CRM. Логирование всех действий. Договор с риелтором о неконкуренции."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли использовать бот для коммерческой недвижимости?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, логика та же. Отличается только база (КОММЕРЧЕСКАЯ ЦИАН), параметры квартир (тип объекта, классность), процесс сделки (больше документов, дольше согласования)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько окупается бот?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "На агентстве с 10+ риелторами — 2–4 месяца. На одного риелтора-фрилансера — 6–12 месяцев. ROI считается через высвобожденное время и рост конверсии лидов."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что с регионами — работает ли подход?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, особенно в городах-миллионниках. В малых городах меньше объявлений в ЦИАН/Авито, но и конкуренция меньше — бот всё равно даёт преимущество."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
     <div class="gradient-blob blob-2"></div>
@@ -655,5 +720,22 @@ async def summarize_dialog(history: list) -> str:
 <script src="/i18n.js?v=23" defer></script>
 <script src="/services-i18n.js?v=23" defer></script>
 <script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
 </body>
 </html>

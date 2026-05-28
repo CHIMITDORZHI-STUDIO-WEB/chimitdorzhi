@@ -98,9 +98,82 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Чем multi-agent отличается от одного агента с множеством инструментов?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Разделением контекста и специализацией. Один агент держит всё в одном окне модели и деградирует на сложности. Multi-agent даёт каждому агенту узкий чистый контекст — отсюда выше качество, но выше и цена."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Какой фреймворк выбрать для старта?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CrewAI для быстрого прототипа и контент-задач, LangGraph для систем, которые пойдут в продакшен и требуют контроля состояния и human-in-the-loop."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли построить multi-agent на YandexGPT или GigaChat?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да. Фреймворк оркестрации не зависит от модели. Вы подключаете российскую модель через совместимый API, и система соответствует 152-ФЗ."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Насколько автономна такая система на самом деле?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Подготовку решений автоматизируем близко к 100%, принятие необратимых решений оставляем человеку. Полностью автономных систем на критичных операциях в проде не бывает у тех, кто понимает риски."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Multi-agent заменит сотрудников?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Чаще не заменяет, а множит производительность имеющихся. Один редактор делает работу троих, один оператор закрывает поток поддержки. Полная замена случается только на самой простой рутине."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Почему это так дорого по токенам?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Каждый шаг каждого агента — вызов LLM, плюс агенты обмениваются результатами. На один результат набегает 10-20 вызовов. Экономия — через память и vector store вместо раздувания контекста."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что делать с галлюцинациями в цепочке агентов?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Reviewer-агент, требование источников от researcher, валидация структурированного вывода на коде и человек перед необратимыми действиями. Ноль недостижим, но до приемлемого уровня снижается."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Когда точно НЕ нужен multi-agent?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Когда одиночный агент проходит ваши тесты по качеству. Не усложняйте без необходимости — это переплата и лишние точки отказа."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
     <div class="gradient-blob blob-2"></div>
@@ -684,5 +757,22 @@ if __name__ == "__main__":
 <script src="/i18n.js?v=23" defer></script>
 <script src="/services-i18n.js?v=23" defer></script>
 <script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
 </body>
 </html>

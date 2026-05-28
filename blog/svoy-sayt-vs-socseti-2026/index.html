@@ -98,9 +98,74 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Сколько подписчиков соцсетей в среднем переходят на сайт?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "В первые месяцы — 1-3%, через полгода-год — 5-10%. Это нормально и реалистично. Не ждите 100%-конверсии: даже самые лояльные ваши подписчики не будут регулярно переходить на сайт, пока у вас не сформируется привычка «у этого автора лучшее на сайте»."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Tilda или кастомная разработка для старта?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Если бюджет до 50 000 ₽ и нужно быстро — Tilda. Это нормальная платформа, на ней работает много серьёзных проектов. Если нужен сложный функционал, особенный дизайн, интеграции — кастомная разработка от 80 000 ₽. Tilda плохо подходит, когда у вас будут сотни статей в блоге — там быстрее становится дорого и тяжело."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько раз в неделю нужно писать в блог?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Минимум 1 пост в неделю, оптимально 2. Меньше — Яндекс не считает сайт «живым» и режет показы. Больше 3-4 в неделю — теряется качество, лучше публиковать реже, но качественные материалы по 2-3 тысячи слов."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как набрать первых email-подписчиков с нуля?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Лид-магнит + форма подписки + анонсы в соцсетях. Хороший лид-магнит — это конкретный полезный артефакт: чек-лист, шаблон, гайд, calculadora. Не «получайте новости» — это никому не нужно. Конкретное обещание ценности."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Стоит ли удалять соцсети после создания сайта?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет, ни в коем случае. Соцсети — это спицы, которые гонят трафик на хаб. Без спиц сайт сам по себе будет расти медленно. Идея в том, чтобы перестать зависеть только от соцсетей, а не отказываться от них совсем."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что если бюджет 0 ₽?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Делаете на Tilda бесплатном тарифе или на WordPress + бесплатный хостинг. Это будет с ограничениями (домен tilda.ws, реклама, медленнее), но это лучше, чем ничего. Через 6-12 месяцев, когда станет понятна окупаемость, переезжаете на платный план или на свой хостинг."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Через сколько появится органический трафик?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Первые сигналы — через 2-3 месяца. Стабильный поток — через 6-9 месяцев регулярных публикаций. Серьёзный объём (1000+ визитов/мес) — через год-полтора. Это марафон, не спринт."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
     <div class="gradient-blob blob-2"></div>
@@ -542,5 +607,22 @@
 <script src="/i18n.js?v=23" defer></script>
 <script src="/services-i18n.js?v=23" defer></script>
 <script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
 </body>
 </html>

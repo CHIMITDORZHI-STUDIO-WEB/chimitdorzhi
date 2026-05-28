@@ -98,9 +98,82 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Какую МИС выбрать для частного санатория среднего размера?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "1С:Санаторий как отраслевое решение, если важна интеграция с бухгалтерией и единый контур. Медиалог — если приоритет в глубине медицинской документации."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужна ли санаторию санаторно-курортная карта 072/у от каждого гостя?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Для проведения лечебных процедур — да, это обязательный медицинский документ. Без действующей карты 072/у санаторий не имеет права назначать лечение."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли хранить мед.данные гостей в зарубежном облаке?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет. Персональные данные граждан РФ, включая данные о здоровье, должны храниться на серверах в РФ. Для специальной категории ПД требования к защите повышенные."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Кто может видеть диагнозы гостя в системе?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Только медперсонал в рамках исполнения обязанностей. Администраторы размещения, бухгалтеры, маркетологи доступа к диагнозам иметь не должны — это врачебная тайна по 323-ФЗ."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько стоит планировщик процедур?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Как модуль в составе МИС — обычно входит в отраслевое решение. Как отдельная доработка под специфику санатория — от нескольких сотен тысяч, но это самая окупаемая инвестиция за счёт загрузки оборудования."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как автоматизировать отчётность перед СФР по соцпутёвкам?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "В МИС каждая путёвка помечается источником оплаты, и система формирует реестры и акты по СФР выгрузкой по кнопке вместо ручной сверки."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Стоит ли делать бота гостя для небольшого санатория?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, даже базовый бот с расписанием процедур и меню заметно снижает число неявок и разгружает ресепшен. Главное — не показывать в боте диагнозы."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как привязать лечебное питание к диагнозу гостя?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Через интеграцию мед.части с пищеблоком: врач назначает диетический стол по Певзнеру, и назначение автоматически уходит на пищеблок для формирования числа порций по столам."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
     <div class="gradient-blob blob-2"></div>
@@ -608,5 +681,22 @@ if __name__ == "__main__":
 <script src="/i18n.js?v=23" defer></script>
 <script src="/services-i18n.js?v=23" defer></script>
 <script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
 </body>
 </html>

@@ -98,9 +98,82 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "С чего начать цифровизацию фермы 500 га?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ЦиФРА (бесплатно, обязательно для субсидий) + ExactFarming или АгроСигнал на базовом тарифе + 1С:Бухгалтерия. Бюджет на старте 100-200 тыс. ₽."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли подключить Меркурий без 1С?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, через веб-интерфейс vetrf.ru или сервисы-интеграторы (от 1500 ₽/мес). Для объёма 100+ эВСД в день нужна прямая интеграция с учётной системой."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько стоит развернуть GPS-RTK на хозяйство?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Базовая станция RTK — от 300 тыс. ₽ разово либо подписка на сервис 30-80 тыс. ₽/год. Плюс приёмники на каждой единице техники — 100-300 тыс. ₽."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как работают NDVI-карты — нужен ли свой дрон?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Для базовой работы достаточно спутниковых снимков (включены в подписки ExactFarming, АгроСигнал). Дрон нужен для точечного обследования проблемных зон с разрешением в десятки раз выше."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что выгоднее — купить автопилот или работать без него?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "На хозяйстве от 1500 га автопилот окупается за 1-2 сезона за счёт экономии СЗР, семян, ГСМ и роста производительности."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Обязательно ли регистрироваться в ЦиФРА?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Для получения большинства субсидий и господдержки — да. Юридически прямой обязанности нет, но без ЦиФРА вы выключены из госпрограмм."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как защищать данные хозяйства от утечки?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Серверы в РФ, доступ по 2FA, резервное копирование, лог действий пользователей. Для холдингов — соответствие 187-ФЗ о критической инфраструктуре."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли использовать зарубежные SaaS для агро в 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Юридически — рискованно (152-ФЗ требует хранения ПД в РФ). Практически — большинство западных вендоров (John Deere Operations Center, Climate FieldView) ушли с рынка или работают с ограничениями."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
     <div class="gradient-blob blob-2"></div>
@@ -642,5 +715,22 @@ def create_vsd(product: dict, sender: dict, recipient: dict,
 <script src="/i18n.js?v=23" defer></script>
 <script src="/services-i18n.js?v=23" defer></script>
 <script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
 </body>
 </html>

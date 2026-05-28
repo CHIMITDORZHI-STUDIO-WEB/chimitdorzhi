@@ -98,9 +98,74 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Какой AI самый дешёвый для повседневности?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Бесплатные тарифы YandexGPT 5 и GigaChat закрывают 80% бытовых задач. Для большего — Claude или ChatGPT за 1900-2200 ₽/мес. DeepSeek практически без лимитов и бесплатно — резерв на тяжёлые задачи."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли использовать AI на телефоне?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, у всех есть мобильные приложения. Алиса — встроена в Яндекс.Браузер и отдельное приложение. GigaChat — в приложении Сбера и отдельно. ChatGPT и Claude — официальные приложения через прокси."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько стоит AI на месяц при ежедневном использовании?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Минимум — 0 ₽ (YandexGPT + GigaChat бесплатные лимиты). Средне — около 2000 ₽ (одна платная подписка). Расширенный стек — 4000-6000 ₽ (ChatGPT Plus + Claude Pro + API-доступ для автоматизаций)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Безопасно ли загружать свои документы?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "В облачные AI — нет для документов с персональными данными третьих лиц, медицинскими данными, коммерческой тайной. Для таких задач — локальный LLM на ноутбуке (см. статью про локальный LLM)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "AI ошибается — как проверить ответ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Три правила: 1) проверять факты в первоисточнике для всего важного; 2) спрашивать у второй модели как у независимого эксперта; 3) на серьёзных решениях (медицина, право, финансы) — обращаться к специалисту."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что нельзя делать через AI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ставить себе диагнозы и назначать лечение; представлять интересы в суде; давать ребёнку готовые ответы на тесты; загружать чужие персональные данные без согласия; решать вопросы, требующие нотариальной формы."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как начать, если вообще не разбираюсь?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Один шаг: установите Алису или приложение GigaChat и в первый день задайте 5 любых вопросов из вашей текущей жизни. На второй день попробуйте 3 промпта из этой статьи. На третий день вы уже сами поймёте, какие задачи отдавать AI."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
     <div class="gradient-blob blob-2"></div>
@@ -722,5 +787,22 @@
 <script src="/i18n.js?v=23" defer></script>
 <script src="/services-i18n.js?v=23" defer></script>
 <script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
 </body>
 </html>

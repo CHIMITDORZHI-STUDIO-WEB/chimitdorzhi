@@ -98,9 +98,90 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Цифровой рубль обязателен для моего бизнеса прямо сейчас?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет. Обязательность вводится поэтапно, начиная с крупного бизнеса, и об этом объявят официально. Малый бизнес получает отсрочку."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужно ли мне отдельное приложение?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет. Доступ к кошельку цифрового рубля встраивается в приложение вашего банка. Отдельных установок не требуется."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "На цифровой рубль начисляются проценты?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет. Это платёжное средство, не накопительное. Проценты не начисляются."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что выгоднее — СБП или цифровой рубль?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "СБП уже работает и даёт низкие комиссии. Цифровой рубль обещает быть ещё дешевле и добавляет смарт-контракты. Пока приём ЦР не стал массовым, СБП — рабочий инструмент здесь и сейчас."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Цифровые рубли защищены, если у моего банка проблемы?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да. Это обязательство ЦБ, а не банка. При проблемах банка ваши цифровые рубли на платформе ЦБ не пострадают."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли платить цифровым рублём без интернета?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Оффлайн-режим заявлен в планах и дорабатывается. На массовом старте относитесь к нему как к перспективе."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Видит ли налоговая мои операции в цифровых рублях?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Операции прозрачны для платформы ЦБ, и при необходимости информация доступна уполномоченным органам — как и по безналу. Для бизнеса, работающего по закону, это не создаёт новых проблем."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько стоит начать принимать цифровые рубли?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Для большинства — стоимость обновления кассового ПО и подключения услуги в банке. Дорогая кастомная интеграция малому бизнесу обычно не нужна."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли хранить большие суммы на кошельке ЦР?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Обсуждаются лимиты на пополнение. Для крупных операций планируйте заранее и уточняйте актуальные ограничения у банка."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
     <div class="gradient-blob blob-2"></div>
@@ -546,5 +627,22 @@
 <script src="/i18n.js?v=23" defer></script>
 <script src="/services-i18n.js?v=23" defer></script>
 <script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
 </body>
 </html>

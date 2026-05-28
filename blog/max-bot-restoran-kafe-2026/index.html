@@ -98,9 +98,74 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Сколько стоит запуск бота ресторана с iiko-интеграцией?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "От 250 тыс. ₽ под ключ за 4–6 недель. Меню, доставка, бронирование, лояльность, базовая аналитика."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли использовать бот без интеграции с POS?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Технически да, но операционно — нет. Уже на 10+ заказах в день ручной перенос съедает время. Без интеграции имеет смысл только пилотный месяц для теста спроса."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что с курьерами — нужна своя служба или внешняя?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Зависит от объёма. До 30 заказов в день — выгоднее свои курьеры (1–2 человека на смене). От 50+ — Я.Доставка для пика, свои для постоянной нагрузки."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как работать с отзывами?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Через 30 минут после получения заказа — короткий опрос в боте: «как заказ?». Хорошие отзывы (4–5) — публикация. Плохие (1–3) — связь с менеджером в течение часа, компенсация."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли продавать алкоголь через бот?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Запрещено по 171-ФЗ. Можно только показывать в меню при прямом запросе пользователя, без рекламы и без оплаты онлайн."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько окупается бот ресторана?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "На обороте 1 млн ₽/мес за счёт экономии на агрегаторах — 3–6 месяцев. На обороте от 3 млн ₽ — 1–3 месяца."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли запустить бот для сети ресторанов?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, через единый бэкенд с выбором точки доставки. Mini App показывает блюда конкретной точки, ближайшей к адресу клиента."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
     <div class="gradient-blob blob-2"></div>
@@ -636,5 +701,22 @@ EXECUTE FUNCTION earn_loyalty_points();
 <script src="/i18n.js?v=23" defer></script>
 <script src="/services-i18n.js?v=23" defer></script>
 <script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
 </body>
 </html>

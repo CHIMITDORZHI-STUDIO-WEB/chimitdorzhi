@@ -98,9 +98,58 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Сколько страниц должно быть в бизнес-плане?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Зависит от формата. Для гранта — 30–80, для инвестора — 15–30, для банка — по шаблону банка (обычно 30–50), для себя — 1 страница (Lean Canvas)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "На какой срок прогноз делать — 3 или 5 лет?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Стандарт — 3 года с детальной разбивкой и ещё 2 года крупными мазками. На 5 лет прогноз делать имеет смысл только в проектах с длинным циклом окупаемости (производство, недвижимость, оборудование)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли использовать готовые шаблоны бизнес-планов?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Как стартовую точку — да. Но «копировать-вставить» не получится — каждый проект уникален. Шаблон даёт структуру, наполнение делаете сами."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Какие источники данных использовать для анализа рынка?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Росстат, ВЦИОМ, отчёты отраслевых ассоциаций, исследования McKinsey/PwC/Deloitte (если есть доступ), отчёты публичных компаний в вашей нише. Никогда не ссылайтесь только на «открытые источники в интернете»."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что делать, если рынок недостаточно большой?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Не растягивать его искусственно. Лучше показать реалистичный SOM 100–500 млн ₽ и обосновать высокую долю в нём, чем рисовать TAM в 100 млрд ₽, который никто не возьмёт всерьёз."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
     <div class="gradient-blob blob-2"></div>
@@ -537,5 +586,22 @@ B6: =B5 * Inputs!B1                             → 277500
 <script src="/i18n.js?v=23" defer></script>
 <script src="/services-i18n.js?v=23" defer></script>
 <script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
 </body>
 </html>

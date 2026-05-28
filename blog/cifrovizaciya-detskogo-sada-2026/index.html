@@ -98,9 +98,82 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Какую систему выбрать для семейного мини-сада на 12 детей?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Kidza или подобная лёгкая платформа плюс бот для родителей. 1С:Дошкольное на таком масштабе избыточна, если нет лицензии и сложной отчётности."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли выкладывать фото детей в чат группы, если все родители «вроде не против»?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет. «Вроде не против» — это не согласие. Нужно письменное согласие каждого родителя с указанием, куда именно можно распространять фото. Иначе это нарушение 152-ФЗ."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужна ли лицензия, чтобы родители платили маткапиталом?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да. Маткапитал на образование и налоговый вычет по ст. 219 НК доступны только для организаций с лицензией на образовательную деятельность. Режим «присмотр и уход» без лицензии под них не попадает."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Где хранить данные детей по закону?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "На серверах, физически расположенных в РФ (требование локализации ПД). Облачные сервисы должны это обеспечивать и иметь нужные документы. Личные телефоны и неконтролируемые мессенджеры — не место для данных детей."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как считать перерасчёт за дни болезни?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "По правилам из вашего договора, привязанным к табелю посещаемости. Обычно место (фикс) сохраняется, а питание не начисляется за дни отсутствия с подтверждением. Система считает это автоматически."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Стоит ли давать родителям онлайн-трансляцию камер?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Технически можно, но это юридически рискованно: родитель видит чужих детей. Безопаснее давать запись по запросу при инциденте и иметь согласия. Открытую трансляцию — только при согласии всех родителей группы."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что важнее в первый месяц цифровизации — учёт или бот для родителей?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Учёт детей и оплаты — это фундамент. Но бот для родителей даёт самый быстрый видимый эффект на доверие. Идеально — запускать вместе: учёт внутри, бот снаружи."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли вести меню и бракераж не в специализированной программе?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Для маленького сада без лицензии — формально можно проще, но при лицензии и проверках лучше иметь систему (1С:Дошкольное или аналог), которая ведёт меню-требование и бракеражный журнал по нормам СанПиН."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
     <div class="gradient-blob blob-2"></div>
@@ -661,5 +734,22 @@ if __name__ == "__main__":
 <script src="/i18n.js?v=23" defer></script>
 <script src="/services-i18n.js?v=23" defer></script>
 <script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
 </body>
 </html>

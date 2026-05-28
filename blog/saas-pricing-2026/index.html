@@ -98,9 +98,82 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Какую цену поставить на старте?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Если непонятно — берите cost-plus как пол (себестоимость × 2) + competitor-based как ориентир (немного ниже середины рынка). Запускайтесь с одним тарифом. Через 3 месяца смотрите данные и переходите на tiered."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько тарифов оптимально?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "3 — золотая середина (Goldilocks). 4 — если очень разные сегменты. Больше 4 — путаница. Меньше 3 — упускаете upsell."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Когда добавлять Enterprise-план?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Когда получаете 3+ запроса в месяц от крупных компаний с вопросами «а можно ли SLA / SSO / on-premise / dedicated manager». Это сигнал, что есть спрос на enterprise. Не делайте Enterprise сразу — продаёте пустоту."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Стоит ли давать freemium?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Только если есть viral-механика: продукт распространяется сам через бесплатных пользователей (Notion-расшарили, Slack-инвайт). Без virality freemium — это просто потеря денег."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как часто менять цены?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Для новых клиентов — раз в 12–18 месяцев на 10–20%. Для существующих — реже, и обязательно с уведомлением за 30 дней. Существующим лучше grandfather pricing (платят старую цену) — это снижает churn."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что делать, если конкурент демпингует?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Не догонять. Демпинг — это краткосрочно: у конкурента или unit-экономика плохая, или фандинг закончится. Лучше: усилить ценностное предложение (фичи, поддержка, бренд), позиционироваться как «дороже, но качественнее»."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Annual subscription со скидкой — сколько?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "15–20%. Меньше — нет смысла для клиента переплачивать вперёд. Больше — клиент решит, что обычная цена завышена. 17% — стандартная цифра (это 2 месяца бесплатно)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как продавать SaaS с НДС в РФ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Резидент РФ платит НДС 20% сразу, в цене явно указывает («в т.ч. НДС»). Применяет упрощёнку, если позволяет оборот (с 2026 года — до 60 млн ₽ выручки). Через ЮKassa или Tinkoff — автоматическая работа с НДС."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
     <div class="gradient-blob blob-2"></div>
@@ -535,5 +608,22 @@ ARR         = MRR * 12
 <script src="/i18n.js?v=23" defer></script>
 <script src="/services-i18n.js?v=23" defer></script>
 <script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
 </body>
 </html>

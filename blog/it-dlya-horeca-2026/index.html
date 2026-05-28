@@ -98,9 +98,82 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "iiko или r_keeper для нового ресторана?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "iiko — если ресторан вне отеля и вы не планируете глубокую интеграцию с PMS. r_keeper — если вы в отеле или сети отелей."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли обойтись без 1С?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Для микро-кафе на УСН доходы — да, хватит модуля учёта в POS. Для среднего ресторана и выше 1С обязательна, иначе бухгалтерия превратится в ад."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужен ли свой сайт, если есть страница на Я.Картах и 2GIS?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Для микро-кафе с локальным трафиком — можно жить без сайта. Для среднего ресторана и выше сайт нужен для брони, доставки, лояльности, репутации."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько стоит разработка своего бота для доставки?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Базовый бот с меню, корзиной, оплатой — 100-250 тысяч. С интеграцией в POS, лояльностью, AI-FAQ — 400-800 тысяч."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Какая комиссия СБП для ресторана?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "0,4-0,7% от чека в зависимости от банка-эквайера. Сравните с 1,2-2,8% по картам — экономия очевидна."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли использовать ChatGPT для генерации меню?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Для маркетинговых описаний — да. Для технологических карт — только как черновик, повар должен проверить веса и калькуляцию."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как считать ROI программы лояльности?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Сравните средний LTV участника программы и неучастника. Если разница больше 30%, программа уже окупается. Обычно в HoReCa разница 80-200%."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что делать с негативным отзывом, если он несправедливый?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ответить публично, без эмоций, с фактами и предложением разобраться в личных сообщениях. Не удалять, не игнорировать. Гости видят и оценивают ваш ответ."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
     <div class="gradient-blob blob-2"></div>
@@ -587,5 +660,22 @@ if __name__ == "__main__":
 <script src="/i18n.js?v=23" defer></script>
 <script src="/services-i18n.js?v=23" defer></script>
 <script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
 </body>
 </html>

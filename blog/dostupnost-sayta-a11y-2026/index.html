@@ -98,9 +98,74 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Обязан ли мой сайт быть доступным по закону РФ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Если вы государственная или муниципальная организация — да, обязаны (постановление Правительства РФ № 1828). Если социально-значимый сектор (медицина, образование, банки) — фактически да, через отраслевые требования. Если коммерческий ритейл — пока обязанности нет, но требования расширяются, и через 2-3 года это будет норма. Плюс прокурорские проверки могут прийти к любой компании, если поступит жалоба."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько процентов пользователей реально это нужно?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "По данным Росстата, 12 млн людей с инвалидностью в РФ — 8% населения. Из них примерно 60-70% пользуются интернетом. К этому добавьте людей с возрастными ограничениями (миопия, тремор рук, снижение слуха) — это ещё 10-15% аудитории. Итого 15-20% пользователей выигрывают от правильной a11y."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Достаточно ли установить виджет accessibility?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет. Виджет — маркетинговый продукт, который не исправляет корень проблемы. Юридически не защищает, технически не помогает скринридерам."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "WCAG 2.1 или 2.2 — какой стандарт использовать в 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Российский ГОСТ соответствует 2.1, но если делаете новый проект — ориентируйтесь сразу на 2.2 (она строже и охватывает мобильные UX). Разница в 9 новых критериях, все полезные."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли сделать a11y только частично — главную страницу?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Можно, но это не закроет претензии регулятора и не даст полного SEO-эффекта. Минимум — все типы страниц (главная, каталог, карточка, форма обратной связи). Лучше — весь сайт."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что такое ARIA и когда её использовать?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ARIA (Accessible Rich Internet Applications) — набор HTML-атрибутов для сложных компонентов, у которых нет нативной семантики. Используется для табов, аккордеонов, модальных окон, динамических обновлений. Правило: «No ARIA лучше плохой ARIA». Если есть нативный тег — используйте его, ARIA только для специфичных случаев."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Влияет ли a11y на скорость загрузки сайта?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Практически нет. Правильная семантика весит столько же, сколько неправильная. Alt-теги — это несколько байт на картинку. Skip-link — 5 строк кода. Виджет accessibility, наоборот, добавляет 100-300КБ JavaScript — он замедляет сайт."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
     <div class="gradient-blob blob-2"></div>
@@ -580,5 +645,22 @@ pa11y https://example.com --standard WCAG2AA --reporter json</code></pre>
 <script src="/i18n.js?v=23" defer></script>
 <script src="/services-i18n.js?v=23" defer></script>
 <script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
 </body>
 </html>

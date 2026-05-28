@@ -98,9 +98,82 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "TravelLine или Bnovo для мини-отеля на 15 номеров?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bnovo — оптимально по цене/функционалу для этого масштаба. TravelLine — если планируете быстрый рост до 30+ номеров."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужен ли свой сайт, если есть Я.Путешествия?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Однозначно да. Свой сайт = прямое бронирование без 15-20% комиссии. На обороте 30 млн/год это 4,5-6 млн в год."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько стоит интеграция с Я.Путешествиями?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Если через PMS (TravelLine, Bnovo) — бесплатно, входит в подписку. Если самостоятельно — 100-300 тыс. ₽ на разработку."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли использовать ChatGPT для перевода писем гостям?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, и это работает хорошо. Главное — проверять глазами перед отправкой иностранному гостю, потому что AI иногда теряет нюансы."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что делать с миграционным учётом иностранных гостей?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Использовать электронный сервис ГИС МВД. Подключение через PMS (TravelLine поддерживает) или через отдельный сервис вроде «Гостевик»."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Стоит ли запускать своё приложение для отеля?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Только для крупного отеля (50+ номеров) или сети. Для меньших объёмов хватает мобильной версии сайта + Telegram-бот."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как защититься от овербукинга?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Channel manager — основа. Резерв 2-3% от квоты на случай технических сбоев. Чёткая политика реагирования (соседний отель партнёр, повышение класса номера, компенсация)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Какая комиссия СБП для отеля?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "0,4-0,7% против 1,2-2,8% по картам. Экономия очевидна, но не все гости готовы платить через СБП — нужен выбор."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
     <div class="gradient-blob blob-2"></div>
@@ -612,5 +685,22 @@ if __name__ == "__main__":
 <script src="/i18n.js?v=23" defer></script>
 <script src="/services-i18n.js?v=23" defer></script>
 <script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
 </body>
 </html>

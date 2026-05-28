@@ -98,9 +98,74 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Можно ли использовать ChatGPT для записи приёмов?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Только без ПД пациента в промпте. Если в тексте есть имя или другие идентифицирующие данные — нарушение."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько стоит регистрация ПО в Росздравнадзоре?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "200 тыс. — 2 млн в зависимости от класса риска. Срок 6–12 месяцев."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужна ли отдельная лицензия на telemedicine?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет, действует лицензия на мед.деятельность. Но услуги дистанционных консультаций должны быть в перечне лицензии."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли использовать иностранное мед.ПО в РФ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Только при наличии регистрации в Росздравнадзоре. Большая часть иностранного ПО не регистрируется и не может легально продаваться."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что хранить локально, что в облаке?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Все пациентские ПД — локально на российских серверах. Маркетинговые данные, аналитика без идентификации, общие настройки — можно в облаке."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько живёт пациентская сессия в EMR?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Обычно 15–30 минут неактивности. По требованию безопасности — не более часа."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужно ли страховать ответственность разработчика мед.ПО?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Не обязательно по закону, но крайне рекомендуется. Страховка от 100 тыс./год покрывает риски претензий пациентов."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
     <div class="gradient-blob blob-2"></div>
@@ -562,5 +627,22 @@ def upload_observation(patient_id: str, code: str, value: float, unit: str):
 <script src="/i18n.js?v=23" defer></script>
 <script src="/services-i18n.js?v=23" defer></script>
 <script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
 </body>
 </html>

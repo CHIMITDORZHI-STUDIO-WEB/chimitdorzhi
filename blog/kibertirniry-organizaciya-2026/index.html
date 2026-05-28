@@ -98,9 +98,74 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Сколько окупается турнир?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "При правильной экономике (привлечены спонсоры на 70%+ бюджета) — окупается сразу первым турниром, прибыль 10–25% бюджета. При неправильной — уходит в минус и больше не повторяется. Окупаемость не «через год» как у бизнеса, а здесь и сейчас в рамках одного турнира."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли провести турнир без спонсоров?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Можно, но только маленький (16 команд, призовой 30–50 тыс., бюджет 100–200 тыс., взносы команд покрывают). Это упражнение для начинающих, не бизнес. Серьёзная экономика начинается с титульного спонсора."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Какая дисциплина самая выгодная?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "По соотношению затрат и доходов — CS2 на региональном уровне. Большая готовая аудитория, много команд, понятные спонсорские интересы. На федеральном уровне больше денег в Dota 2, но и риски выше."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужна ли лицензия от Valve/Riot для CS2/Valorant?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Для некоммерческих региональных турниров — нет (по правилам этих компаний). Для коммерческих с призовым более 5 тыс. долларов или с трансляцией на телевидение — нужна. Для лицензии нужно обращаться в их юридический департамент через официальные каналы."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что делать если призовой меньше чем ожидали зрители?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Компенсировать форматом и впечатлениями: эксклюзивные интервью, мерч для зрителей, открытая arena между матчами, конкурсы для зрителей с призами от спонсоров. Зрители идут не только за деньгами — идут за атмосферой."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли провести турнир онлайн без оффлайн-точки?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Можно для локальных мобильных турниров (PUBG Mobile, Mobile Legends) — там оффлайн необязателен. Для CS2 или Dota 2 рекомендую гибрид: групповая стадия онлайн, финал оффлайн. Полный онлайн снижает медиа-привлекательность и интерес спонсоров."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько занимает организация регионального турнира?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Реалистично — 3 месяца от старта до проведения. С опытом можно сжать до 6 недель, но первый раз — берите 3 месяца с буфером. Меньшие сроки приведут к спешке и срывам."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
     <div class="gradient-blob blob-2"></div>
@@ -512,5 +577,22 @@
 <script src="/i18n.js?v=23" defer></script>
 <script src="/services-i18n.js?v=23" defer></script>
 <script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
 </body>
 </html>

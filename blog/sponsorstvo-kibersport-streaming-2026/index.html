@@ -98,9 +98,74 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "С какой аудитории можно идти к спонсорам?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Минимум: 1000–2000 одновременных зрителей на стриме или ивент с 500+ людьми оффлайн. Меньше — спонсоры будут вежливо отказывать. Если у вас меньше — растите аудиторию сначала, потом приходите."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что просить — фикс или процент с продаж?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Лучше комбинировать: фиксированную часть (покрывает ваши затраты на активацию) плюс CPA-бонус за каждую продажу/лида (мотивирует обе стороны на результат). Чисто CPA — рискованно для вас, чисто фикс — спонсору меньше нравится."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько занимает заключение спонсорской сделки?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "От первого контакта до подписанного договора — обычно 2–8 недель. Крупные бренды (банки, операторы) — 1–3 месяца из-за многоступенчатого согласования. Малый бизнес — 1–2 недели."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли работать с международными брендами через РФ-ИП?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Технически да, через дочерние компании в РФ. На практике в 2026 многие международные бренды свернули прямую работу с РФ, остались дистрибьюторы и партнёры — с ними и работайте."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что делать если спонсор хочет вмешиваться в контент?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Прописать в договоре чёткие границы: какие материалы он согласовывает, какие нет. Обычно: брендированные материалы (видео, баннеры) — согласуются полностью; редакционный контент — нет. Если спонсор настаивает на правке независимого контента — отказывайтесь, иначе потеряете аудиторию."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли иметь несколько спонсоров в одной категории?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Если категории не эксклюзивные — да. «Два банка-партнёра» работают, если у них разная позиционировка (банк для физлиц + банк для бизнеса). «Эксклюзив» в категории — отдельная опция, дороже стандартной."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как защитить отношения договором?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Подробный договор с описанием всех активаций, ответственностью обеих сторон, форс-мажорами, порядком возврата при невыполнении. Юрист, который специализируется на медиа и маркетинге, поможет с правильным шаблоном. Стоимость такого договора — 30–100 тыс. ₽ за разработку с нуля."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
     <div class="gradient-blob blob-2"></div>
@@ -599,5 +664,22 @@ B5: ROI = (B4 - A1) / A1 * 100
 <script src="/i18n.js?v=23" defer></script>
 <script src="/services-i18n.js?v=23" defer></script>
 <script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
 </body>
 </html>
