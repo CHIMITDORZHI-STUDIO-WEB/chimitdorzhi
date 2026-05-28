@@ -70,7 +70,7 @@ function head({ title, description, keywords, canonical, ogImage = `${SITE}/hero
         <link rel="stylesheet" href="/assets/phosphor/regular.css">
         <link rel="stylesheet" href="/assets/phosphor/fill.css">
     </noscript>
-    <link rel="stylesheet" href="/style.css?v=22">
+    <link rel="stylesheet" href="/style.css?v=30">
 `;
 }
 
