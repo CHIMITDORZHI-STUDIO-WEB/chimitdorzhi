@@ -10,6 +10,7 @@ const path = require('path');
 const articles = require('./blog-data');
 
 const SITE = 'https://chimitdorzhi.tech';
+let FRESH_SLUGS = new Set(); // слаги самых свежих статей, задаётся в main()
 const ROOT = path.resolve(__dirname, '..');
 const OUT_BLOG = path.join(ROOT, 'blog');
 const OUT_SITEMAP = path.join(ROOT, 'sitemap.xml');
@@ -514,7 +515,9 @@ ${faqLd(a)}</head>
 
 function cardHtml(a) {
   const cat = CATEGORY_LABELS[a.category] || 'Блог';
+  const fresh = FRESH_SLUGS.has(a.slug) ? '<span class="blog-card-fresh">Свежее</span>' : '';
   return `<a class="blog-card" href="/blog/${a.slug}/" data-category="${a.category}">
+  ${fresh}
   <div class="blog-card-icon"><i class="${a.heroIcon}"></i></div>
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>${esc(cat)}</span>
   <h3>${esc(a.title)}</h3>
@@ -908,7 +911,18 @@ function ensureDir(p) { fs.mkdirSync(p, { recursive: true }); }
 
 async function main() {
   ensureDir(OUT_BLOG);
-  const published = articles.filter(a => a.published && a.contentHtml);
+  // Лента: свежие сверху (по дате публикации, при равенстве — позже добавленные выше)
+  const published = articles
+    .filter(a => a.published && a.contentHtml)
+    .map((a, i) => ({ a, i }))
+    .sort((x, y) => {
+      const d = (y.a.datePublished || '').localeCompare(x.a.datePublished || '');
+      return d !== 0 ? d : y.i - x.i;
+    })
+    .map(o => o.a);
+
+  // «Свежее»: 6 самых новых статей (весь блог вышел сжатым периодом)
+  FRESH_SLUGS = new Set(published.slice(0, 6).map(a => a.slug));
 
   // Генерация уникальных OG-обложек 1200×630 для каждой статьи
   const og = require('./og-generator.js');
