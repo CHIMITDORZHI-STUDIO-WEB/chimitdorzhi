@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Свой облачный диск 2026: Nextcloud, Seafile, OnlyOffice на своём VPS | Чимитдоржи Дарижапов</title>
+    <meta name="description" content="Как поднять свой облачный диск вместо Google Drive и Dropbox в 2026: Nextcloud и альтернативы (Seafile, ownCloud), размещение на VPS/российских облаках/NAS, Docker, SSL, синхронизация, OnlyOffice, бэкапы restic, безопасность. Данные в РФ (152-ФЗ). С docker-compose и nginx-конфигом.">
+    <meta name="keywords" content="свой облачный диск, Nextcloud, замена Google Drive, Seafile, self-hosted облако, OnlyOffice, restic бэкап">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#121218">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/svoy-oblachnyy-disk-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/svoy-oblachnyy-disk-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/svoy-oblachnyy-disk-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/svoy-oblachnyy-disk-2026/">
+    <meta property="og:title" content="Свой облачный диск 2026: Nextcloud, Seafile, OnlyOffice на своём VPS | Чимитдоржи Дарижапов">
+    <meta property="og:description" content="Как поднять свой облачный диск вместо Google Drive и Dropbox в 2026: Nextcloud и альтернативы (Seafile, ownCloud), размещение на VPS/российских облаках/NAS, Docker, SSL, синхронизация, OnlyOffice, бэкапы restic, безопасность. Данные в РФ (152-ФЗ). С docker-compose и nginx-конфигом.">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/svoy-oblachnyy-disk-2026/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Свой облачный диск 2026: Nextcloud, Seafile, OnlyOffice на своём VPS | Чимитдоржи Дарижапов">
+    <meta name="twitter:description" content="Как поднять свой облачный диск вместо Google Drive и Dropbox в 2026: Nextcloud и альтернативы (Seafile, ownCloud), размещение на VPS/российских облаках/NAS, Docker, SSL, синхронизация, OnlyOffice, бэкапы restic, безопасность. Данные в РФ (152-ФЗ). С docker-compose и nginx-конфигом.">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/svoy-oblachnyy-disk-2026/cover.png">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor-Fill.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=30">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Свой облачный диск вместо Google Drive 2026: Nextcloud и аналоги на своём сервере",
+  "description": "Как поднять свой облачный диск вместо Google Drive и Dropbox в 2026: Nextcloud и альтернативы (Seafile, ownCloud), размещение на VPS/российских облаках/NAS, Docker, SSL, синхронизация, OnlyOffice, бэкапы restic, безопасность. Данные в РФ (152-ФЗ). С docker-compose и nginx-конфигом.",
+  "image": "https://chimitdorzhi.tech/blog/svoy-oblachnyy-disk-2026/cover.png",
+  "author": {
+    "@type": "Person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "CHIMITDORZHI.TECH",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://chimitdorzhi.tech/favicon-120.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/svoy-oblachnyy-disk-2026/"
+  },
+  "datePublished": "2026-05-30",
+  "dateModified": "2026-05-30",
+  "keywords": "Nextcloud, облачный диск, self-hosted, Docker, импортозамещение",
+  "articleSection": "Разработка",
+  "inLanguage": "ru"
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Свой облачный диск вместо Google Drive 2026: Nextcloud и аналоги на своём сервере",
+      "item": "https://chimitdorzhi.tech/blog/svoy-oblachnyy-disk-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Nextcloud или Seafile?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nextcloud — если нужна экосистема: диск + офис + календарь + заметки. Seafile — если нужна максимальная скорость на огромных объёмах и много мелких файлов, без лишних функций."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Хватит ли 2 ГБ RAM?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Для семейного диска без онлайн-офиса — да. С OnlyOffice или Collabora закладывайте 4-6 ГБ, Document Server сам по себе хочет 2 ГБ."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли держать на домашнем интернете?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Можно, нужен белый IP или туннель (например, через свой VPS как точку входа). Но для данных с ПД и для бизнеса надёжнее VPS в дата-центре РФ, а дом — как дополнительная копия."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Это законно по 152-ФЗ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, и даже лучше облака: данные физически в РФ, на вашем сервере, под вашим журналом доступа. Это закрывает требование локализации ПД. Детали по 152-ФЗ — в отдельной статье об аудите."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как редактировать документы вместе, как в Google Docs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Через OnlyOffice или Collabora — совместное редактирование .docx и .xlsx прямо в браузере, в реальном времени, файлы не покидают ваш сервер."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что с фотографиями вместо Google Photos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Приложение Nextcloud на телефоне автозагружает фото, веб-приложение Photos раскладывает по датам и геометкам, Recognize даёт распознавание лиц. Полноценная замена без лимитов."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "А если сервер сломается, я потеряю всё?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Только если нет бэкапа. С restic в S3 вы поднимаете новый сервер и восстанавливаете данные за час. Поэтому бэкап — не опция, а основа."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько времени занимает настройка?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Базовый Nextcloud в Docker — полчаса. С reverse-proxy, SSL, бэкапами и безопасностью «как надо» — вечер для технаря или день работы под ключ."
+      }
+    }
+  ]
+}
+    </script>
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+            <li><a href="/#services" data-i18n="nav.services">Услуги</a></li>
+            <li class="nav-dropdown">
+                <a href="/#projects" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--arey"><i class="ph-fill ph-vinyl-record" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-airplane-tilt" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#cases" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            </div>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/#about">Обо мне</a></li>
+        <li><a href="/#services">Услуги</a></li>
+        <li><a href="/services/">Каталог услуг</a></li>
+        <li><a href="/#cases">Кейсы</a></li>
+        <li><a href="/blog/">Блог</a></li>
+        <li><a href="/#contact">Контакт</a></li>
+    </ul>
+</div>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Свой облачный диск вместо Google Drive 2026: Nextcloud и аналоги на своём сервере</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/development/"><i class="ph ph-bookmark" aria-hidden="true"></i> Разработка</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 24 мин чтения</span>
+                        <time datetime="2026-05-30"><i class="ph ph-calendar" aria-hidden="true"></i> 30 мая 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Свой облачный диск вместо Google Drive 2026: Nextcloud и аналоги на своём сервере</h1>
+
+                    <p class="blog-lead">Google Drive дорожает и ненадёжен, данные не у вас. Разбираю, как поднять свой облачный диск: Nextcloud и альтернативы, где разместить (VPS, российские облака, домашний NAS), Docker, SSL, синхронизация всех устройств, онлайн-редактирование (OnlyOffice), бэкапы restic, безопасность. Данные в РФ (152-ФЗ). С docker-compose, nginx и restic.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>Nextcloud</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>облачный диск</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>self-hosted</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>Docker</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>импортозамещение</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr">
+  <h3>Коротко (TL;DR)</h3>
+  <ul>
+    <li>Свой облачный диск на Nextcloud — это полный контроль над файлами, отсутствие подписочной кабалы и хранение данных в РФ под 152-ФЗ. Я держу свой уже несколько лет и ни разу не пожалел.</li>
+    <li>Математика простая: 2 ТБ в Google One — около 7000 ₽/год бессрочно, а свой VPS с 2 ТБ — 300-500 ₽/мес, причём диск, конфиг и данные ваши.</li>
+    <li>Nextcloud — безусловный лидер: файлы, календарь, контакты, заметки, онлайн-редактирование документов. Альтернативы — Seafile (быстрее на больших объёмах), ownCloud, Filebrowser (минимализм).</li>
+    <li>Развёртывание — Docker Compose с Postgres и Redis за полчаса, reverse-proxy nginx с Let's Encrypt, бэкап через restic по схеме 3-2-1 в S3.</li>
+    <li>Не нужно тем, у кого меньше 50-100 ГБ файлов и нет требований по приватности — для них хватит бесплатных тарифов российских облаков. Всем остальным — стоит считать.</li>
+  </ul>
+</div>
+
+<h2 id="zachem">Зачем свой облачный диск в 2026</h2>
+<p>Я держу собственный облачный диск на своём VPS уже несколько лет. Туда стекаются рабочие документы, фотоархив, бэкапы телефонов всей семьи, проектные файлы клиентов и личные заметки. И каждый раз, когда я вижу очередное письмо от облачного сервиса в духе «мы меняем тарифы» или «функция X теперь только в премиум-подписке», я радуюсь, что у меня всё своё.</p>
+<p>Эта статья — узко про файловое хранилище, замену Google Drive, Dropbox и Яндекс.Диска своим решением. Если вам интересна тема self-hosted шире — почта, Git, автоматизация, аналитика, — у меня есть отдельный большой материал <a href="/blog/self-hosted-infrastruktura-2026/">«Self-hosted всё 2026: своя инфраструктура вместо SaaS»</a>. Здесь же я закапываюсь именно в облачный диск: какой софт выбрать, как развернуть, как настроить синхронизацию, бэкапы и безопасность, как мигрировать с Google.</p>
+<p>Первая причина уйти на своё — уход и капризы вендоров. За последние годы из РФ ушло или ограничило работу множество западных сервисов. Dropbox перестал принимать карты, Google периодически блокирует аккаунты без объяснения причин, а восстановить доступ к чужому облаку, где лежат десять лет вашей жизни, бывает невозможно. Когда диск ваш, выключить его может только тот, у кого есть root.</p>
+<p>Вторая причина — цены. Облачные подписки выглядят дёшево, пока вы храните 15 ГБ бесплатно. Но как только архив переваливает за терабайт, вы платите вечную ренту. Перестали платить — через пару месяцев данные заблокированы или удалены. Свой диск — это разовая аренда сервера, где терабайт стоит копейки, а данные никуда не денутся.</p>
+<p>Третья причина — контроль. На своём диске нет сканирования контента, нет рекламного профилирования по вашим файлам, нет внезапного «нарушения правил сообщества» из-за семейного фото на пляже. Вы сами решаете, кто и что видит.</p>
+<p>Четвёртая причина — 152-ФЗ. Если вы предприниматель или работаете с персональными данными клиентов, хранение файлов с ПД на серверах в РФ — это требование закона. Свой облачный диск на российском VPS закрывает вопрос локализации сразу: данные физически в дата-центре в России, под вашим контролем, с вашим журналом доступа. Это снимает целый класс рисков по проверкам Роскомнадзора.</p>
+
+<h2 id="skolko-stoit">Сколько стоит облако vs свой диск</h2>
+<p>Давайте посчитаем честно, без манипуляций. Возьмём типовой сценарий: семье или небольшому бизнесу нужно 2 ТБ хранилища с надёжностью и доступом отовсюду.</p>
+<div class="blog-table">
+<table>
+<thead>
+<tr><th>Решение</th><th>Объём</th><th>Цена в год</th><th>Контроль над данными</th></tr>
+</thead>
+<tbody>
+<tr><td>Google One</td><td>2 ТБ</td><td>~7000 ₽</td><td>нет, чужой сервер</td></tr>
+<tr><td>Яндекс 360</td><td>1 ТБ</td><td>~3500 ₽</td><td>нет, в РФ</td></tr>
+<tr><td>Dropbox Plus</td><td>2 ТБ</td><td>~12000 ₽ (если платить)</td><td>нет, не в РФ</td></tr>
+<tr><td>Свой VPS + Nextcloud</td><td>2 ТБ NVMe/SSD</td><td>4000-8000 ₽</td><td>полный</td></tr>
+<tr><td>Свой VPS + объектное S3</td><td>2 ТБ</td><td>3000-5000 ₽</td><td>полный</td></tr>
+<tr><td>Домашний NAS (аморт. за 3 года)</td><td>4-8 ТБ</td><td>5000-8000 ₽ + электричество</td><td>полный</td></tr>
+</tbody>
+</table>
+</div>
+<p>На первый взгляд кажется, что разница не драматичная — свой диск стоит примерно столько же, сколько облако. Но есть нюансы в вашу пользу. Во-первых, на одном VPS у вас уже крутится не только диск, а ещё сайт, бот, аналитика — стоимость размазывается. Во-вторых, цена за лишний терабайт у облаков растёт линейно и бесконечно, а на своём сервере вы либо доплачиваете за блочное хранилище 5-7 ₽ за ГБ в месяц, либо подключаете S3, где терабайт стоит совсем недорого.</p>
+<p>Главная экономия не в рублях, а в свободе. Облачная подписка — это вечный платёж: пока платите, у вас есть доступ. Свой диск с бэкапами в S3 — это актив, который остаётся вашим, даже если вы на месяц перестанете платить за второстепенные сервисы. И когда у вас 5-10 ТБ архива, разница в деньгах уже становится кратной в пользу своего решения.</p>
+
+<h2 id="nextcloud">Nextcloud — лидер</h2>
+<p>Если выбирать один продукт для своего облачного диска, это Nextcloud. Я перепробовал почти всё и вернулся к нему. Это форк ownCloud, который давно обогнал родителя по активности разработки и экосистеме.</p>
+<p>Что умеет Nextcloud из коробки: синхронизация файлов между всеми устройствами, веб-интерфейс с предпросмотром фото, видео, PDF и документов, общие папки и публичные ссылки с паролем и сроком жизни, версионирование файлов (откат к предыдущей версии), корзина с настраиваемым сроком хранения. Это полноценная замена Google Drive и Dropbox.</p>
+<p>Но Nextcloud — это больше, чем диск. Через магазин приложений вы добавляете: Calendar и Contacts (замена Google Calendar и контактов, синхронизация по CalDAV/CardDAV на телефон), Notes (заметки в Markdown), Photos с распознаванием лиц и геометками, Tasks, Deck (канбан-доски как Trello), Talk (видеозвонки и чат). По сути это ваш личный Google Workspace, только под вашим контролем.</p>
+<p>Ключевая фишка для нашей темы — онлайн-редактирование документов через OnlyOffice или Collabora (об этом ниже). Вы открываете .docx или .xlsx прямо в браузере, редактируете совместно с коллегами в реальном времени, и всё это на вашем сервере без отправки файлов в чужое облако.</p>
+<p>Минусы Nextcloud честно: он тяжеловат, написан на PHP, и при неправильной настройке (без Redis, без правильного PHP-OPcache, на SQLite вместо Postgres) может тормозить. Поэтому ниже я даю конфигурацию сразу правильную — с Postgres и Redis. На больших объёмах (десятки тысяч мелких файлов) индексация бывает медленной — тут выигрывает Seafile.</p>
+
+<h2 id="alternativy">Альтернативы Nextcloud</h2>
+<p>Nextcloud не единственный вариант. Разберу основные альтернативы и когда они уместнее.</p>
+<p><strong>Seafile</strong> — мой второй фаворит. Главное отличие — собственный движок хранения, который дробит файлы на блоки и хранит их подобно Git. Это даёт впечатляющую скорость синхронизации больших объёмов и дедупликацию. Если у вас сотни тысяч файлов или вы синхронизируете терабайты, Seafile быстрее и стабильнее Nextcloud. Минус — экосистема беднее: это именно файловый диск, без календарей и заметок. Есть встроенное клиентское шифрование библиотек.</p>
+<p><strong>ownCloud</strong> — прародитель Nextcloud. Сейчас развивается медленнее, появился переписанный на Go ownCloud Infinite Scale (oCIS) — быстрый и современный, но экосистема приложений у него скромнее, чем у Nextcloud. Рассматривайте, если нужен лёгкий и быстрый файловый сервер без лишнего.</p>
+<p><strong>Filebrowser</strong> — минимализм. Один Go-бинарник, который отдаёт веб-интерфейс к папке на сервере. Никаких баз данных, синхронизации и приложений. Идеально, если нужно просто открыть доступ к файлам через браузер с авторизацией. Запускается за минуту, ест мегабайты памяти. Для серьёзного облака слабоват, но как лёгкий файлообменник — отличный.</p>
+<p><strong>Российские решения.</strong> Если хочется готовый продукт от вендора в РФ, есть корпоративные варианты вроде Облака VK Teams и других платформ совместной работы. Они закрывают 152-ФЗ и дают поддержку, но это уже не self-hosted в чистом виде — вы зависите от вендора и тарифов. Для тех, кто не хочет администрировать сервер сам, это разумный компромисс.</p>
+<div class="blog-table">
+<table>
+<thead>
+<tr><th>Решение</th><th>Сильная сторона</th><th>Слабое место</th><th>Кому</th></tr>
+</thead>
+<tbody>
+<tr><td>Nextcloud</td><td>экосистема, OnlyOffice, всё в одном</td><td>тяжёлый PHP, требует тюнинга</td><td>большинству — диск + офис + календарь</td></tr>
+<tr><td>Seafile</td><td>скорость, дедупликация, шифрование</td><td>нет календарей/заметок</td><td>большие объёмы, много файлов</td></tr>
+<tr><td>ownCloud / oCIS</td><td>лёгкий, быстрый (Go)</td><td>меньше приложений</td><td>чистый файловый сервер</td></tr>
+<tr><td>Filebrowser</td><td>минимализм, один бинарник</td><td>нет синхронизации</td><td>простой файлообменник</td></tr>
+<tr><td>Облако VK Teams и аналоги</td><td>готовое, поддержка, 152-ФЗ</td><td>зависимость от вендора</td><td>кто не хочет администрировать</td></tr>
+</tbody>
+</table>
+</div>
+<p>Мой совет: 90% людей и малых бизнесов нужен Nextcloud. Берите его, если нет специфических причин выбрать другое.</p>
+
+<h2 id="gde-razmestit">Где разместить облачный диск</h2>
+<p>Есть три принципиально разных подхода к размещению, и выбор зависит от объёма данных, бюджета и требований к надёжности.</p>
+<p><strong>Свой VPS в российском дата-центре.</strong> Мой основной вариант. Selectel, Timeweb Cloud, RuVDS, VK Cloud, Yandex Cloud — все дают VPS с возможностью подключить блочное хранилище. Берёте сервер с 2-4 ГБ RAM, 2 vCPU и подключаете отдельный диск под данные на 500 ГБ — несколько ТБ. Данные в РФ, полный контроль, цена предсказуемая. Это закрывает 152-ФЗ и даёт лучшее соотношение контроля и удобства.</p>
+<p><strong>Российское объектное хранилище S3.</strong> Если данных много (терабайты), держать их на блочном диске VPS дорого. Решение — хранить сами файлы в S3-совместимом объектном хранилище (Selectel, VK Cloud, Yandex Object Storage), а Nextcloud настроить так, чтобы он использовал S3 как primary storage. VPS остаётся лёгким (только база и приложение), а файлы лежат в дешёвом масштабируемом хранилище в РФ. Об этом подробнее в разделе про производительность.</p>
+<p><strong>Домашний сервер или NAS.</strong> Самый дешёвый по железу вариант на длинной дистанции. Synology, QNAP или самосбор на мини-ПК с дисками. Nextcloud ставится на NAS в пару кликов. Плюс — диски ваши, можно ставить 4-8-16 ТБ без аренды. Минусы — зависимость от домашнего интернета (нужен белый IP или туннель), от электричества и от того, что если дом затопит или обворуют, диск уедет вместе с данными. Для дома и фотоархива — отлично, для бизнеса с 152-ФЗ — рискованно. Я рекомендую гибрид: NAS дома как primary, бэкап в S3 в РФ.</p>
+
+<h2 id="docker">Развёртывание на Docker</h2>
+<p>Самый надёжный способ развернуть Nextcloud — Docker Compose. Один файл описывает всё: само приложение, базу Postgres, кэш Redis. Поднимается одной командой, обновляется сменой тега образа, переносится на другой сервер копированием папки с томами.</p>
+<p>Вот рабочий docker-compose.yml, который я использую как основу. Postgres вместо SQLite — для скорости и надёжности на любом объёме, Redis — для файловых блокировок и кэша, без которого Nextcloud заметно тормозит.</p>
+<pre class="blog-code"><code># docker-compose.yml — Nextcloud + Postgres + Redis
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: nextcloud
+      POSTGRES_USER: nextcloud
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    networks:
+      - nc-net
+
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    command: redis-server --requirepass ${REDIS_PASSWORD}
+    networks:
+      - nc-net
+
+  app:
+    image: nextcloud:30-apache
+    restart: unless-stopped
+    depends_on:
+      - db
+      - redis
+    ports:
+      - "127.0.0.1:8080:80"   # наружу не торчим, проксируем через nginx
+    volumes:
+      - ./data/nextcloud:/var/www/html        # код и конфиг
+      - ./data/files:/var/www/html/data       # сами файлы пользователей
+    environment:
+      POSTGRES_HOST: db
+      POSTGRES_DB: nextcloud
+      POSTGRES_USER: nextcloud
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      REDIS_HOST: redis
+      REDIS_HOST_PASSWORD: ${REDIS_PASSWORD}
+      NEXTCLOUD_TRUSTED_DOMAINS: cloud.example.ru
+      NEXTCLOUD_ADMIN_USER: admin
+      NEXTCLOUD_ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+      OVERWRITEPROTOCOL: https   # важно за reverse-proxy, иначе ломаются ссылки
+    networks:
+      - nc-net
+
+networks:
+  nc-net:</code></pre>
+<p>Пароли держим в файле .env рядом с compose-файлом (DB_PASSWORD, REDIS_PASSWORD, ADMIN_PASSWORD) и никогда не коммитим его в Git. Запуск — docker compose up -d, и через минуту Nextcloud доступен на localhost:8080. Папку ./data/files имеет смысл смонтировать на отдельный большой диск или S3 — это и есть ваше хранилище.</p>
+<p>После первого запуска зайдите в админку, в «Параметры обзора» — Nextcloud сам подскажет, что докрутить: настроить cron вместо AJAX для фоновых задач, добавить заголовки безопасности, проверить кэш. Большинство замечаний закрываются правильным reverse-proxy, который мы сейчас и настроим.</p>
+
+<h2 id="nginx-ssl">Reverse-proxy и SSL</h2>
+<p>Nextcloud мы не выставляем в интернет напрямую — перед ним ставим nginx, который терминирует HTTPS, отдаёт сертификат Let's Encrypt и проксирует на контейнер. Это даёт шифрование трафика, контроль над заголовками и возможность держать на одном сервере несколько сервисов.</p>
+<p>Сертификат проще всего получить через certbot: certbot --nginx -d cloud.example.ru. Он сам пропишет пути к сертификатам и настроит автопродление. Вот конфиг nginx, заточенный под Nextcloud — с увеличенным лимитом на размер загрузки и нужными заголовками.</p>
+<pre class="blog-code"><code># /etc/nginx/sites-available/cloud.example.ru
+server {
+    listen 80;
+    server_name cloud.example.ru;
+    return 301 https://$host$request_uri;   # весь HTTP гоним на HTTPS
+}
+
+server {
+    listen 443 ssl http2;
+    server_name cloud.example.ru;
+
+    ssl_certificate     /etc/letsencrypt/live/cloud.example.ru/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/cloud.example.ru/privkey.pem;
+    ssl_protocols TLSv1.2 TLSv1.3;
+
+    # позволяем заливать большие файлы (по умолчанию nginx режет на 1 МБ)
+    client_max_body_size 10G;
+    client_body_timeout 3600s;
+
+    # заголовки безопасности
+    add_header Strict-Transport-Security "max-age=15768000; includeSubDomains" always;
+    add_header X-Content-Type-Options "nosniff" always;
+    add_header X-Frame-Options "SAMEORIGIN" always;
+    add_header Referrer-Policy "no-referrer" always;
+
+    # редиректы для CalDAV/CardDAV (синхронизация календаря и контактов)
+    location = /.well-known/carddav { return 301 $scheme://$host/remote.php/dav; }
+    location = /.well-known/caldav  { return 301 $scheme://$host/remote.php/dav; }
+
+    location / {
+        proxy_pass http://127.0.0.1:8080;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_buffering off;
+        proxy_request_buffering off;   # стримим большие загрузки, не буферизуем
+    }
+}</code></pre>
+<p>Два момента, на которых спотыкаются все новички. Первый — client_max_body_size: по умолчанию nginx не даст залить файл больше 1 МБ и вернёт ошибку 413. Ставьте лимит щедро. Второй — заголовок X-Forwarded-Proto и переменная OVERWRITEPROTOCOL в compose: без них Nextcloud думает, что работает по HTTP, и генерирует битые ссылки на ресурсы, отчего веб-интерфейс ломается. После правки конфига — nginx -t && systemctl reload nginx.</p>
+
+<h2 id="sinhronizaciya">Синхронизация: десктоп, мобильный, WebDAV</h2>
+<p>Облачный диск бесполезен, если файлы не синхронизируются автоматически. У Nextcloud с этим всё хорошо, и работает оно как у Dropbox.</p>
+<p><strong>Десктоп.</strong> Официальный клиент есть под Windows, macOS и Linux. Ставите, указываете адрес сервера и логин, выбираете локальную папку — и она синхронизируется с облаком в обе стороны. Поддерживается выборочная синхронизация (не тянуть на ноутбук весь архив) и Virtual Files на Windows — файлы видны в проводнике, но скачиваются только при открытии, экономя место на диске. Это полный аналог поведения OneDrive.</p>
+<p><strong>Мобильный.</strong> Приложения Nextcloud под Android и iOS делают главное — автозагрузку фото и видео с телефона в облако. Включаете один раз, и каждое снятое фото улетает на ваш сервер. Это и есть замена Google Photos: фотоархив всей семьи на вашем диске, без лимитов и сканирования.</p>
+<p><strong>WebDAV.</strong> Под капотом Nextcloud отдаёт файлы по стандартному протоколу WebDAV. Это значит, что любое устройство и программа, понимающие WebDAV, могут подключить ваш диск как сетевую папку без всякого клиента. Windows умеет это через «Подключить сетевой диск», macOS — через Finder, Linux — через davfs2 или встроенно в файловых менеджерах. Адрес вида https://cloud.example.ru/remote.php/dav/files/ВАШ_ЛОГИН/. WebDAV удобен для скриптов и бэкапов, которые льют файлы прямо в облако.</p>
+<p>Совет по безопасности: для подключения клиентов и WebDAV создавайте отдельные пароли приложений в настройках безопасности Nextcloud, а не используйте основной пароль. Так при компрометации ноутбука вы отзываете один пароль, не меняя главный и не трогая остальные устройства.</p>
+
+<h2 id="sovmestnyy-dostup">Совместная работа: шары, ссылки, права</h2>
+<p>Здесь Nextcloud не уступает Google Drive, а кое в чём превосходит. Любой файл или папку можно расшарить тремя способами.</p>
+<p>Первый — внутренним пользователям и группам. Вы заводите аккаунты для семьи или сотрудников, объединяете в группы (например, «Бухгалтерия», «Проект Альфа») и даёте доступ к папкам с точными правами: только чтение, чтение и запись, возможность дальше пересылать, удалять. Права наследуются на вложенные папки.</p>
+<p>Второй — публичные ссылки. Генерируете ссылку на файл или папку, и любой с этой ссылкой получает доступ. Но в отличие от примитивных файлообменников, ссылку можно защитить паролем, поставить срок жизни (например, удалить через 7 дней), запретить скачивание (только просмотр), разрешить загрузку файлов внешними людьми (режим «почтовый ящик» для приёма документов от клиентов). Это закрывает большинство сценариев обмена файлами с теми, у кого нет аккаунта.</p>
+<p>Третий — федерация. Два независимых сервера Nextcloud могут расшаривать папки друг другу. Если у партнёра свой Nextcloud, вы обмениваетесь папками между серверами напрямую, без публичных ссылок.</p>
+<p>Для бизнеса важна модель прав. Я обычно строю так: общая папка компании с доступом всем на чтение, папки отделов с доступом только своим группам на запись, личные папки сотрудников приватные. Внешним подрядчикам — публичные ссылки с паролем и сроком, чтобы доступ автоматически закрывался. Всё прозрачно, всё логируется.</p>
+
+<h2 id="onlyoffice">Онлайн-редактирование: OnlyOffice и Collabora</h2>
+<p>Главное, чего боятся при переходе с Google Drive, — потеря Google Docs, то есть совместного редактирования документов в браузере. Зря боятся: на своём диске это есть, и работает не хуже.</p>
+<p><strong>OnlyOffice Document Server.</strong> Мой выбор. Это движок, который даёт онлайн-редактор Word, Excel и PowerPoint прямо в Nextcloud, с отличной совместимостью с форматами Microsoft (.docx, .xlsx, .pptx открываются без перекосов вёрстки). Несколько человек редактируют один документ одновременно, видят курсоры друг друга, комментируют. Ставится отдельным Docker-контейнером и подключается к Nextcloud через приложение OnlyOffice. Интерфейс почти как настольный MS Office, пользователи привыкают мгновенно.</p>
+<p><strong>Collabora Online.</strong> Альтернатива на движке LibreOffice. Тоже совместное редактирование в браузере, открытый код, хорошая поддержка форматов ODF. Интерфейс ближе к LibreOffice. Выбор между OnlyOffice и Collabora — дело вкуса и привычки: OnlyOffice ближе к MS Office, Collabora — к LibreOffice.</p>
+<p>Важный нюанс по ресурсам: и OnlyOffice, и Collabora — тяжёлые. Document Server хочет минимум 2 ГБ RAM сам по себе. Поэтому если вы добавляете онлайн-офис, закладывайте на VPS не 2, а 4-6 ГБ памяти. Для семейного диска без офиса хватает и 2 ГБ, для бизнеса с совместным редактированием — берите запас.</p>
+<p>Результат: вы открываете .docx в Nextcloud, редактируете вместе с коллегой в реальном времени, и при этом файл ни на секунду не покидает ваш сервер в РФ. Для работы с документами, содержащими ПД или коммерческую тайну, это принципиально.</p>
+
+<h2 id="mobilnyy">Мобильный доступ</h2>
+<p>Про автозагрузку фото я уже сказал, но мобильный доступ шире. Официальное приложение Nextcloud на телефоне даёт полноценный доступ ко всем файлам: смотреть, скачивать, загружать, шарить ссылкой прямо со смартфона. Можно пометить файлы как «избранные» для офлайн-доступа — они скачиваются на телефон и доступны без сети.</p>
+<p>Отдельно стоит поставить приложения-компаньоны: Nextcloud Notes для заметок (синхронизируются с веб-версией, Markdown), DAVx5 на Android для синхронизации календаря и контактов по CalDAV/CardDAV. После настройки DAVx5 ваши контакты и календарь с сервера появляются в стандартных приложениях телефона так, будто это Google-аккаунт, только данные на вашем сервере.</p>
+<p>Для совместного редактирования документов с телефона работает тот же OnlyOffice — он открывается в мобильном браузере или приложении Nextcloud. Не самый удобный сценарий на маленьком экране, но рабочий.</p>
+<p>По опыту: именно мобильный доступ и автозагрузка фото — то, ради чего обычные пользователи в семье принимают свой диск. Когда жена видит, что фотографии с телефона сами появляются в общем альбоме, который виден всем родственникам, вопрос «зачем нам этот твой сервер» отпадает сам собой.</p>
+
+<h2 id="backup">Бэкапы: restic, S3, 3-2-1</h2>
+<p>Свой диск без бэкапа — это бомба замедленного действия. Облачные сервисы хотя бы дублируют данные за вас (хоть и без гарантий). На своём сервере резервное копирование — целиком ваша забота, и это самая важная часть всей конструкции. Падение диска без бэкапа = потеря всего архива безвозвратно.</p>
+<p>Я придерживаюсь схемы 3-2-1: три копии данных, на двух разных носителях, одна из них — вне основной площадки. Применительно к Nextcloud это: оригинал на VPS, локальный снапшот на сервере, и зашифрованная копия в S3-хранилище в другом дата-центре.</p>
+<p>Бэкапить нужно три вещи: папку с файлами пользователей, дамп базы Postgres (там вся метаинформация — права, шары, версии) и папку config Nextcloud. Бэкап только файлов без базы бесполезен — потеряете все настройки и связи. Инструмент моего выбора — restic: он делает инкрементальные дедуплицированные бэкапы с шифрованием на лету и умеет лить прямо в S3.</p>
+<pre class="blog-code"><code>#!/bin/bash
+# backup-nextcloud.sh — бэкап Nextcloud в S3 через restic
+set -euo pipefail
+
+export RESTIC_REPOSITORY="s3:https://s3.storage.selcloud.ru/nc-backup"
+export RESTIC_PASSWORD_FILE="/root/.restic-pass"   # пароль шифрования репозитория
+export AWS_ACCESS_KEY_ID="ВАШ_KEY"
+export AWS_SECRET_ACCESS_KEY="ВАШ_SECRET"
+
+NC_DIR="/opt/nextcloud/data"
+DUMP="/tmp/nc-db-$(date +%F).sql"
+
+echo "[1/4] Включаю режим обслуживания Nextcloud"
+docker compose -f /opt/nextcloud/docker-compose.yml exec -T app   php occ maintenance:mode --on
+
+echo "[2/4] Дамп базы Postgres"
+docker compose -f /opt/nextcloud/docker-compose.yml exec -T db   pg_dump -U nextcloud nextcloud > "$DUMP"
+
+echo "[3/4] Бэкап файлов и дампа в S3 (инкрементально, с шифрованием)"
+restic backup "$NC_DIR" "$DUMP" --tag nextcloud
+
+echo "[4/4] Выключаю режим обслуживания и чищу старые снапшоты"
+docker compose -f /opt/nextcloud/docker-compose.yml exec -T app   php occ maintenance:mode --off
+rm -f "$DUMP"
+
+# храним 7 дневных, 4 недельных, 6 месячных копий — остальное удаляем
+restic forget --keep-daily 7 --keep-weekly 4 --keep-monthly 6 --prune
+
+echo "Бэкап завершён: $(date)"</code></pre>
+<p>Скрипт ставится в cron на ночь (0 3 * * * /opt/scripts/backup-nextcloud.sh). Режим обслуживания на время дампа нужен, чтобы база была консистентна. Restic шифрует данные до отправки, так что в S3 лежит зашифрованный архив — даже если провайдер хранилища скомпрометирован, ваши файлы не прочитают. Раз в квартал обязательно проверяйте восстановление: restic restore на тестовый сервер. Бэкап, который ни разу не разворачивали, — это не бэкап, а надежда.</p>
+
+<h2 id="bezopasnost">Безопасность: шифрование, 2FA, fail2ban</h2>
+<p>Ваш диск торчит в интернет, и его будут сканировать боты с первого же дня. Базовая гигиена обязательна.</p>
+<p><strong>Двухфакторная аутентификация.</strong> В Nextcloud есть приложение Two-Factor TOTP — включаете, и для входа кроме пароля нужен код из приложения-аутентификатора. Для админского аккаунта это не обсуждается. Можно сделать 2FA обязательной для всех пользователей или для группы администраторов.</p>
+<p><strong>fail2ban.</strong> Nextcloud пишет неудачные попытки входа в лог. Настраиваете fail2ban на этот лог, и после нескольких неверных попыток IP банится на уровне фаервола. Это отсекает перебор паролей. Аналогично защищаете SSH самого сервера. Без fail2ban логи быстро заполняются тысячами попыток брутфорса.</p>
+<p><strong>Шифрование.</strong> Тут есть тонкость. Серверное шифрование Nextcloud (Server-Side Encryption) шифрует файлы на диске, но ключи лежат на том же сервере — это защита от утечки самого диска, не от взлома сервера. Полезно, если файлы лежат во внешнем S3 и вы не доверяете провайдеру хранилища. Сквозное шифрование (End-to-End) шифрует на клиенте, но пока работает не для всех сценариев. Для большинства достаточно: HTTPS в транзите + restic-шифрование бэкапов + надёжный пароль и 2FA. Если данные критичны — добавляйте серверное шифрование внешнего хранилища.</p>
+<p><strong>Прочее.</strong> Регулярно обновляйте образ Nextcloud (новые версии закрывают уязвимости), держите SSH только по ключам без паролей, не открывайте порт Postgres наружу (в нашем compose он только во внутренней сети), ставьте сильные пароли в .env. И — про 152-ФЗ — ведите журнал доступа: Nextcloud логирует, кто и когда заходил в файлы, что важно при работе с ПД.</p>
+
+<h2 id="proizvoditelnost">Производительность и хранилище</h2>
+<p>Скорость Nextcloud упирается в три вещи: база, кэш и хранилище. Базу и кэш мы уже решили — Postgres и Redis в compose. Остаётся хранилище.</p>
+<p>Пока данных немного (до нескольких сотен ГБ), держите файлы на блочном SSD-диске VPS — это быстро и просто. Но когда архив растёт до терабайтов, блочный диск становится дорогим, и тут на сцену выходит объектное хранилище.</p>
+<p><strong>S3 как primary storage.</strong> Nextcloud умеет хранить все файлы не на локальном диске, а в S3-совместимом объектном хранилище. Настраивается в config.php через массив objectstore с указанием эндпоинта, бакета и ключей вашего провайдера (Selectel, VK Cloud, Yandex Object Storage). Тогда VPS остаётся лёгким — на нём только приложение и база, а сами файлы лежат в дешёвом масштабируемом S3 в РФ. Терабайт в объектном хранилище стоит в разы дешевле блочного диска, и расширяется он бесконечно без миграций.</p>
+<p>Минус S3 как primary — чуть выше задержки на мелких операциях и сложнее устроены бэкапы (бэкапить нужно базу + бакет). Поэтому моя рекомендация: семейный диск и малый бизнес до 1 ТБ — блочный диск, это проще. Больше терабайта или прогноз быстрого роста — сразу проектируйте на S3.</p>
+<p>Ещё про производительность: обязательно переключите фоновые задачи Nextcloud с режима AJAX на системный cron (occ background:cron + системный крон каждые 5 минут). В режиме AJAX задачи выполняются при заходе пользователя и тормозят интерфейс. И включите PHP-OPcache с достаточным объёмом памяти — на тяжёлом интерфейсе это даёт заметный прирост.</p>
+
+<h2 id="migraciya">Миграция с Google Drive и Dropbox</h2>
+<p>Переезд пугает больше, чем стоит. Алгоритм отработанный.</p>
+<p><strong>Шаг 1 — выгрузка.</strong> Из Google заберите данные через Google Takeout (он отдаёт архив всех файлов, фото и контактов). Из Dropbox — просто скачайте папку или используйте десктоп-клиент для полной синхронизации на локальный диск. Получаете все свои файлы локально.</p>
+<p><strong>Шаг 2 — загрузка в Nextcloud.</strong> Не лейте терабайты через веб-интерфейс — это медленно и ненадёжно. Установите десктоп-клиент Nextcloud, положите выгруженные файлы в локальную папку синхронизации, и клиент сам зальёт всё на сервер в фоне, с докачкой при обрыве. Альтернатива для гиков — подключить WebDAV и скопировать через rsync или файловый менеджер.</p>
+<p><strong>Шаг 3 — контакты и календарь.</strong> Google Contacts экспортируются в vCard, Google Calendar — в iCal. Эти файлы импортируются в приложения Contacts и Calendar Nextcloud напрямую. После импорта настраиваете на телефоне синхронизацию через DAVx5, и всё работает как раньше, но на вашем сервере.</p>
+<p><strong>Шаг 4 — переходный период.</strong> Не удаляйте Google-аккаунт сразу. Месяц-два поживите параллельно: основная работа в Nextcloud, Google как страховка. Убедитесь, что синхронизация стабильна, бэкапы идут, восстановление проверено. Только потом отключайте облако. Спешка с удалением источника — самая частая причина потери данных при миграции.</p>
+<p>Для фотоархива отдельная радость: Google Photos через Takeout отдаёт фото с метаданными в JSON. Загружаете в Nextcloud Photos, и оно само раскладывает по датам и геометкам. Распознавание лиц подтянется через приложение Recognize.</p>
+
+<h2 id="stoimost-vnedreniya">Стоимость внедрения</h2>
+<div class="blog-table">
+<table>
+<thead>
+<tr><th>Сценарий</th><th>Железо/хостинг</th><th>В месяц</th><th>Разовая настройка</th></tr>
+</thead>
+<tbody>
+<tr><td>Семейный диск (до 500 ГБ)</td><td>VPS 2 ГБ + диск 500 ГБ</td><td>400-700 ₽</td><td>сам за вечер или 5-10 тыс. ₽</td></tr>
+<tr><td>Малый бизнес (1-2 ТБ + офис)</td><td>VPS 4-6 ГБ + диск/S3</td><td>1000-2500 ₽</td><td>15-30 тыс. ₽ под ключ</td></tr>
+<tr><td>Команда 10-30 чел.</td><td>VPS 8 ГБ + S3 несколько ТБ</td><td>3000-6000 ₽</td><td>30-60 тыс. ₽ + поддержка</td></tr>
+<tr><td>Домашний NAS</td><td>NAS 4-8 ТБ (разово)</td><td>электричество ~200 ₽</td><td>железо 30-60 тыс. ₽</td></tr>
+</tbody>
+</table>
+</div>
+<p>Если вы технарь, семейный диск ставится за вечер бесплатно — весь софт open-source, платите только за VPS. Для бизнеса разумно один раз заплатить за грамотную настройку (бэкапы, безопасность, S3, OnlyOffice) и забыть. Окупаемость против облачных подписок наступает обычно на втором-третьем терабайте и дальше только растёт в вашу пользу.</p>
+
+<h2 id="komu-ne-nado">Кому НЕ нужно</h2>
+<p>Я честный: свой облачный диск нужен не всем. Не городите огород, если вы попадаете в один из этих случаев.</p>
+<p>У вас меньше 50-100 ГБ файлов и нет требований по приватности — вам с головой хватит бесплатных 15 ГБ Google или платного терабайта Яндекса за копейки. Своё решение тут только добавит головной боли с администрированием.</p>
+<p>Вы категорически не готовы администрировать сервер и у вас нет никого, кто это сделает. Свой диск — это ответственность: обновления, бэкапы, реакция на сбои. Если сервер некому чинить, лучше готовое облако или вендорское решение с поддержкой.</p>
+<p>Вам критична гарантия аптайма 99,99% и вы не можете позволить себе ни часа простоя. Один VPS без кластера — это single point of failure. Корпоративные облака с SLA тут выигрывают, и это нормально.</p>
+<p>Вам нужен только обмен парой файлов изредка — для этого есть простые файлообменники, не надо разворачивать Nextcloud ради двух документов в месяц.</p>
+<p>Всем остальным — у кого терабайты данных, требования 152-ФЗ, желание контроля или просто усталость от подписок — свой диск окупается и кайфом, и деньгами.</p>
+
+<h2 id="oshibki">Топ-5 ошибок</h2>
+<p><strong>Ошибка 1: запустить без бэкапа.</strong> Самая фатальная. Сервер поднят, файлы залиты, все довольны — а резервного копирования нет. Один отказ диска, и архив исчезает навсегда. Бэкап в S3 по схеме 3-2-1 настраивается в первый же день, до того как зальёте важные данные.</p>
+<p><strong>Ошибка 2: SQLite вместо Postgres.</strong> Nextcloud разрешает SQLite «для теста», и новички оставляют его в проде. На реальной нагрузке и объёме SQLite намертво блокирует базу при параллельных операциях, интерфейс встаёт. Postgres с самого начала — не обсуждается.</p>
+<p><strong>Ошибка 3: забыть про Redis и cron.</strong> Без Redis файловые блокировки тормозят, без системного cron фоновые задачи копятся и интерфейс лагает. Оба замечания Nextcloud показывает в админке прямым текстом, но их игнорируют — а потом жалуются, что «Nextcloud медленный».</p>
+<p><strong>Ошибка 4: маленький client_max_body_size в nginx.</strong> Дефолтный лимит в 1 МБ режет загрузку больших файлов с непонятной ошибкой 413. Человек тратит час на гугление, хотя достаточно поднять лимит в конфиге reverse-proxy.</p>
+<p><strong>Ошибка 5: голый сервер без 2FA и fail2ban.</strong> Диск выставлен в интернет, на админке простой пароль, fail2ban нет. Боты подбирают пароль за неделю. 2FA на админа и fail2ban на лог входов — обязательный минимум с первого дня.</p>
+
+<h2 id="faq">FAQ</h2>
+<p><strong>Nextcloud или Seafile?</strong> Nextcloud — если нужна экосистема: диск + офис + календарь + заметки. Seafile — если нужна максимальная скорость на огромных объёмах и много мелких файлов, без лишних функций.</p>
+<p><strong>Хватит ли 2 ГБ RAM?</strong> Для семейного диска без онлайн-офиса — да. С OnlyOffice или Collabora закладывайте 4-6 ГБ, Document Server сам по себе хочет 2 ГБ.</p>
+<p><strong>Можно ли держать на домашнем интернете?</strong> Можно, нужен белый IP или туннель (например, через свой VPS как точку входа). Но для данных с ПД и для бизнеса надёжнее VPS в дата-центре РФ, а дом — как дополнительная копия.</p>
+<p><strong>Это законно по 152-ФЗ?</strong> Да, и даже лучше облака: данные физически в РФ, на вашем сервере, под вашим журналом доступа. Это закрывает требование локализации ПД. Детали по 152-ФЗ — в <a href="/blog/audit-152-fz-2026/">отдельной статье об аудите</a>.</p>
+<p><strong>Как редактировать документы вместе, как в Google Docs?</strong> Через OnlyOffice или Collabora — совместное редактирование .docx и .xlsx прямо в браузере, в реальном времени, файлы не покидают ваш сервер.</p>
+<p><strong>Что с фотографиями вместо Google Photos?</strong> Приложение Nextcloud на телефоне автозагружает фото, веб-приложение Photos раскладывает по датам и геометкам, Recognize даёт распознавание лиц. Полноценная замена без лимитов.</p>
+<p><strong>А если сервер сломается, я потеряю всё?</strong> Только если нет бэкапа. С restic в S3 вы поднимаете новый сервер и восстанавливаете данные за час. Поэтому бэкап — не опция, а основа.</p>
+<p><strong>Сколько времени занимает настройка?</strong> Базовый Nextcloud в Docker — полчаса. С reverse-proxy, SSL, бэкапами и безопасностью «как надо» — вечер для технаря или день работы под ключ.</p>
+
+<h2 id="vyvody">Чек-лист запуска своего облачного диска</h2>
+<p>Свой облачный диск в 2026 — это не блажь гика, а взвешенное решение: контроль над данными, отсутствие подписочной кабалы и соответствие 152-ФЗ при хранении в РФ. Nextcloud закрывает почти все сценарии, которые раньше держали вас на Google Drive и Dropbox.</p>
+<p>Чек-лист, чтобы запустить правильно с первого раза:</p>
+<p>Шаг 1: арендуйте VPS в российском дата-центре (2-6 ГБ RAM в зависимости от офиса) и подключите диск или S3 под данные.</p>
+<p>Шаг 2: разверните Nextcloud через Docker Compose сразу с Postgres и Redis, а не на SQLite.</p>
+<p>Шаг 3: поставьте перед ним nginx с Let's Encrypt, задайте client_max_body_size и X-Forwarded-Proto.</p>
+<p>Шаг 4: настройте restic-бэкап в S3 по схеме 3-2-1 и проверьте восстановление до загрузки важных данных.</p>
+<p>Шаг 5: включите 2FA на админа, настройте fail2ban, обновите образ, переключите cron на системный.</p>
+<p>Шаг 6: установите десктоп- и мобильные клиенты, настройте автозагрузку фото и CalDAV/CardDAV через DAVx5.</p>
+<p>Шаг 7: при необходимости добавьте OnlyOffice или Collabora для совместного редактирования документов.</p>
+<p>Шаг 8: мигрируйте с Google и Dropbox через десктоп-клиент, поживите параллельно месяц, потом отключайте облако.</p>
+<p>Если хочется копнуть шире и построить не только диск, но и всю свою инфраструктуру вместо SaaS — почта, Git, автоматизация, аналитика, — читайте мой большой материал <a href="/blog/self-hosted-infrastruktura-2026/">«Self-hosted всё 2026»</a>. А облачный диск — отличная первая точка входа в self-hosted: понятная польза, быстрый запуск и сразу ощутимая свобода от чужих облаков.</p>
+
+                    </div>
+
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Что я делаю по облачным дискам</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-cloud-arrow-up"></i> <span>Развёртывание Nextcloud на вашем VPS</span></li>
+    
+    <li><i class="ph-fill ph-swap"></i> <span>Миграция с Google Drive / Dropbox</span></li>
+    
+    <li><i class="ph-fill ph-file-text"></i> <span>OnlyOffice — онлайн-редактирование</span></li>
+    
+    <li><i class="ph-fill ph-cloud-arrow-down"></i> <span>Бэкапы restic и мониторинг</span></li>
+    
+    <li><i class="ph-fill ph-database"></i> <span>Хранение данных в РФ (152-ФЗ)</span></li>
+    
+  </ul>
+  <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
+  </a>
+</div>
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Нужен профессиональный аудит 152-ФЗ?</h3>
+                            <p>Отчёт за 1–3 дня, устранение нарушений под ключ. От 5 000 ₽.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/services/business-automation/" class="btn btn-accent"><i class="ph ph-shield-check" aria-hidden="true"></i> Поднять свой облачный диск</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/self-hosted-infrastruktura-2026/" data-category="development">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-hard-drives"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
+  <h3>Self-hosted всё 2026: своя инфраструктура вместо SaaS — Nextcloud, Gitea, n8n</h3>
+  <p>Вендоры уходят, цены SaaS растут, данные хочется держать у себя. Я сам держу инфраструктуру на VPS и перевожу клиентов с зарубежных SaaS. Полный гайд: Nextcloud, Gitea, n8n, Plausible, Vaultwarden, Metabase на Docker. С docker-compose, nginx-конфигом, restic-бэкапами, безопасностью и экономикой. Российские VPS и соответствие 152-ФЗ.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 28 мая 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 26 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/svoy-vps-dlya-razrabotchika-2026/" data-category="development">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-hard-drives"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
+  <h3>Свой VPS для разработчика в 2026: Selectel vs RuVDS vs Timeweb vs Yandex Cloud — реальное сравнение</h3>
+  <p>Реальный опыт инженера, пять лет живущего на Selectel + RuVDS + Yandex Cloud. Цены 2026, плюсы и минусы провайдеров, таблица сравнения 14 параметров, пошаговая настройка VPS за 30 минут с bash-скриптами, топ-15 self-hosted приложений и расчёт ROI.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 21 мая 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 25 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/importozameshchenie-po-2026/" data-category="development">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-swap"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
+  <h3>Импортозамещение ПО 2026: чем заменить ушедший софт — гайд по нишам</h3>
+  <p>Вендоры ушли, лицензии не продлеваются, а 152-ФЗ требует данные в РФ. Большой гайд по импортозамещению: российские и open-source аналоги по всем нишам — CRM, офис, дизайн, аналитика, облака, коммуникации, проекты, BI, git, безопасность. Реестр российского ПО, преференции в госзакупках и как мигрировать без боли.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 29 мая 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 24 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#zachem"><span class="blog-toc-num">01</span> Зачем свой диск</a></li>
+<li><a href="#skolko-stoit"><span class="blog-toc-num">02</span> Облако vs свой диск</a></li>
+<li><a href="#nextcloud"><span class="blog-toc-num">03</span> Nextcloud</a></li>
+<li><a href="#alternativy"><span class="blog-toc-num">04</span> Альтернативы</a></li>
+<li><a href="#gde-razmestit"><span class="blog-toc-num">05</span> Где разместить</a></li>
+<li><a href="#docker"><span class="blog-toc-num">06</span> Развёртывание на Docker</a></li>
+<li><a href="#nginx-ssl"><span class="blog-toc-num">07</span> Reverse-proxy и SSL</a></li>
+<li><a href="#sinhronizaciya"><span class="blog-toc-num">08</span> Синхронизация</a></li>
+<li><a href="#sovmestnyy-dostup"><span class="blog-toc-num">09</span> Совместная работа</a></li>
+<li><a href="#onlyoffice"><span class="blog-toc-num">10</span> Онлайн-редактирование</a></li>
+<li><a href="#mobilnyy"><span class="blog-toc-num">11</span> Мобильный доступ</a></li>
+<li><a href="#backup"><span class="blog-toc-num">12</span> Бэкапы</a></li>
+<li><a href="#bezopasnost"><span class="blog-toc-num">13</span> Безопасность</a></li>
+<li><a href="#proizvoditelnost"><span class="blog-toc-num">14</span> Производительность</a></li>
+<li><a href="#migraciya"><span class="blog-toc-num">15</span> Миграция с Google Drive</a></li>
+<li><a href="#stoimost-vnedreniya"><span class="blog-toc-num">16</span> Стоимость внедрения</a></li>
+<li><a href="#komu-ne-nado"><span class="blog-toc-num">17</span> Кому НЕ нужно</a></li>
+<li><a href="#oshibki"><span class="blog-toc-num">18</span> Топ-5 ошибок</a></li>
+<li><a href="#faq"><span class="blog-toc-num">19</span> FAQ</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">20</span> Чек-лист запуска</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+            </div>
+            <div class="footer-links">
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=23" defer></script>
+<script src="/services-i18n.js?v=23" defer></script>
+<script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+</body>
+</html>
