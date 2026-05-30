@@ -857,11 +857,22 @@ function rssDate(iso) {
   return d.toUTCString();
 }
 
+// drip-состояние: { slug: "YYYY-MM-DD" } — дата «выпуска в Дзен».
+// Если статья есть в drip-состоянии, в RSS она получает эту дату (свежую),
+// чтобы Дзен подхватил её как новую. См. tools/zen-drip.js.
+function loadDripState() {
+  try { return JSON.parse(fs.readFileSync(path.join(__dirname, 'zen-drip-state.json'), 'utf8')); }
+  catch { return {}; }
+}
+
 function buildRss(published) {
+  const drip = loadDripState();
+  // Эффективная дата для RSS: drip-дата (если есть) либо реальная дата публикации.
+  const feedDate = a => drip[a.slug] || a.datePublished;
   const sorted = [...published].sort((a, b) =>
-    (b.datePublished || '').localeCompare(a.datePublished || '')
+    (feedDate(b) || '').localeCompare(feedDate(a) || '')
   );
-  const latest = sorted[0] ? sorted[0].dateModified || sorted[0].datePublished : new Date().toISOString().slice(0, 10);
+  const latest = sorted[0] ? (feedDate(sorted[0]) || new Date().toISOString().slice(0, 10)) : new Date().toISOString().slice(0, 10);
 
   const channelCover = `${SITE}/hero-photo.webp`;
   const items = sorted.map(a => {
@@ -876,7 +887,7 @@ function buildRss(published) {
       <guid isPermaLink="true">${url}</guid>
       <description><![CDATA[${a.excerpt || ''}]]></description>
       <content:encoded><![CDATA[${fullHtml}]]></content:encoded>
-      <pubDate>${rssDate(a.datePublished)}</pubDate>
+      <pubDate>${rssDate(feedDate(a))}</pubDate>
       <category>${esc(cat)}</category>
       <author>noreply@chimitdorzhi.tech (Чимитдоржи Дарижапов)</author>
       <enclosure url="${cover}" type="image/png" length="0"/>
