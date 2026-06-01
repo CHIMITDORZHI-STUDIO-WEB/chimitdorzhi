@@ -935,14 +935,20 @@ async function main() {
   // «Свежее»: 6 самых новых статей (весь блог вышел сжатым периодом)
   FRESH_SLUGS = new Set(published.slice(0, 6).map(a => a.slug));
 
-  // Генерация уникальных OG-обложек 1200×630 для каждой статьи
-  const og = require('./og-generator.js');
+  // Генерация уникальных OG-обложек 1200×630 для каждой статьи.
+  // Требует sharp. Если модуль недоступен (например, в CI без npm install) —
+  // пропускаем: обложки уже закоммичены, для drip-сборки они не критичны.
   let covers = 0;
-  for (const a of published) {
-    await og.generateCover(a);
-    covers++;
+  try {
+    const og = require('./og-generator.js');
+    for (const a of published) {
+      await og.generateCover(a);
+      covers++;
+    }
+    console.log(`  Generated ${covers} cover(s) (cover.png)`);
+  } catch (e) {
+    console.log(`  ⚠ Пропуск генерации обложек (${e.message}) — использую существующие.`);
   }
-  console.log(`  Generated ${covers} cover(s) (cover.png)`);
 
   let pages = 0;
   for (const a of published) {

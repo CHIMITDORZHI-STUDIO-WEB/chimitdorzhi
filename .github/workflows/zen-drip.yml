@@ -24,6 +24,7 @@ jobs:
         with:
           node-version: '20'
       - name: Release next batch to Zen
+        # build-blog пропустит генерацию обложек без sharp (они уже в репо).
         run: |
           node tools/zen-drip.js ${{ github.event.inputs.batch || '7' }}
           node tools/build-blog.js
