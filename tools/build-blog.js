@@ -198,6 +198,8 @@ function footer() {
                 <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
             </div>
             <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
                 <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
                 <span class="footer-legal-sep"> · </span>
                 <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
@@ -229,12 +231,24 @@ function blogPostingLd(a, url) {
     image: coverUrl(a),
     author: {
       '@type': 'Person',
+      '@id': `${SITE}/#person`,
       name: 'Чимитдоржи Дарижапов',
-      url: SITE,
+      url: `${SITE}/about/`,
+      jobTitle: 'IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ',
+      sameAs: [
+        'https://t.me/chimitdorzhi',
+        'https://vk.com/chimitdorzhi',
+        'https://www.youtube.com/@chimitdorzhi_studio',
+      ],
+      alumniOf: [
+        { '@type': 'Organization', name: 'Vanderbilt University' },
+        { '@type': 'Organization', name: 'MongoDB Inc.' },
+      ],
     },
     publisher: {
       '@type': 'Organization',
       name: 'CHIMITDORZHI.TECH',
+      url: SITE,
       logo: { '@type': 'ImageObject', url: `${SITE}/favicon-120.png` },
     },
     mainEntityOfPage: { '@type': 'WebPage', '@id': url },
