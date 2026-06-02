@@ -276,11 +276,11 @@ function organizationLd() {
     '@type': 'Organization',
     '@id': `${SITE}/#organization`,
     name: 'Chimitdorzhi Studio',
-    alternateName: 'CHIMITDORZHI.TECH',
+    alternateName: ['CHIMITDORZHI.TECH', 'Чимитдоржи Студио'],
     url: SITE,
     logo: { '@type': 'ImageObject', url: `${SITE}/favicon-120.png` },
-    description: 'IT-студия Чимитдоржи Дарижапова: разработка, AI-решения на российском стеке, автоматизация бизнеса и соответствие 152-ФЗ.',
-    founder: { '@type': 'Person', '@id': `${SITE}/#person`, name: 'Чимитдоржи Дарижапов' },
+    description: 'IT-студия Чимитдоржи Дарижапова: разработка сайтов и Telegram-ботов, AI-решения на российском стеке, автоматизация бизнеса и соответствие 152-ФЗ.',
+    founder: { '@id': `${SITE}/#person` },
     foundingDate: '2016',
     areaServed: { '@type': 'Country', name: 'Россия' },
     knowsAbout: [
@@ -298,7 +298,7 @@ function organizationLd() {
       telephone: '+7-931-605-30-07',
       contactType: 'customer service',
       email: 'chimitdorzhi26@gmail.com',
-      availableLanguage: ['Russian'],
+      availableLanguage: ['Russian', 'English'],
     },
   }, null, 2);
 }
