@@ -91,7 +91,7 @@ function head({ title, description, keywords, canonical, ogImage = `${SITE}/hero
         <link rel="stylesheet" href="/assets/phosphor/regular.css">
         <link rel="stylesheet" href="/assets/phosphor/fill.css">
     </noscript>
-    <link rel="stylesheet" href="/style.css?v=30">
+    <link rel="stylesheet" href="/style.css?v=31">
 `;
 }
 
@@ -200,6 +200,8 @@ function footer() {
             <div class="footer-links">
                 <a href="/about/" class="footer-policy-link">Об авторе</a>
                 <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
                 <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
                 <span class="footer-legal-sep"> · </span>
                 <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
@@ -247,7 +249,8 @@ function blogPostingLd(a, url) {
     },
     publisher: {
       '@type': 'Organization',
-      name: 'CHIMITDORZHI.TECH',
+      '@id': `${SITE}/#organization`,
+      name: 'Chimitdorzhi Studio',
       url: SITE,
       logo: { '@type': 'ImageObject', url: `${SITE}/favicon-120.png` },
     },
@@ -257,6 +260,46 @@ function blogPostingLd(a, url) {
     keywords: a.tags.join(', '),
     articleSection: CATEGORY_LABELS[a.category] || 'Блог',
     inLanguage: 'ru',
+    // Speakable — что зачитывать голосовым ассистентам (Алиса и др.)
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: ['.blog-lead', '.blog-tldr'],
+    },
+  }, null, 2);
+}
+
+// Организация-издатель — каноническое определение сущности (граф знаний / GEO).
+// На @id ${SITE}/#organization ссылается publisher во всех статьях.
+function organizationLd() {
+  return JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': `${SITE}/#organization`,
+    name: 'Chimitdorzhi Studio',
+    alternateName: 'CHIMITDORZHI.TECH',
+    url: SITE,
+    logo: { '@type': 'ImageObject', url: `${SITE}/favicon-120.png` },
+    description: 'IT-студия Чимитдоржи Дарижапова: разработка, AI-решения на российском стеке, автоматизация бизнеса и соответствие 152-ФЗ.',
+    founder: { '@type': 'Person', '@id': `${SITE}/#person`, name: 'Чимитдоржи Дарижапов' },
+    foundingDate: '2016',
+    areaServed: { '@type': 'Country', name: 'Россия' },
+    knowsAbout: [
+      '152-ФЗ', 'персональные данные', 'разработка сайтов', 'Telegram-боты',
+      'AI-агенты', 'YandexGPT', 'GigaChat', 'RAG', 'автоматизация бизнеса',
+      'кибербезопасность', 'импортозамещение ПО',
+    ],
+    sameAs: [
+      'https://t.me/chimitdorzhi',
+      'https://vk.com/chimitdorzhi',
+      'https://www.youtube.com/@chimitdorzhi_studio',
+    ],
+    contactPoint: {
+      '@type': 'ContactPoint',
+      telephone: '+7-931-605-30-07',
+      contactType: 'customer service',
+      email: 'chimitdorzhi26@gmail.com',
+      availableLanguage: ['Russian'],
+    },
   }, null, 2);
 }
 
@@ -581,6 +624,9 @@ ${JSON.stringify(ld, null, 2)}
     <script type="application/ld+json">
 ${JSON.stringify(breadcrumb, null, 2)}
     </script>
+    <script type="application/ld+json">
+${organizationLd()}
+    </script>
 </head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
@@ -827,6 +873,118 @@ ${JSON.stringify(breadcrumb, null, 2)}
 
 // ---------- sitemap update ----------
 
+// ---------- глоссарий /slovar/ ----------
+// Определения, которые ИИ-движки охотно цитируют. DefinedTermSet + видимый <dl>.
+const GLOSSARY = [
+  { id: '152-fz', term: '152-ФЗ', def: 'Федеральный закон «О персональных данных» — основной закон РФ, регулирующий сбор, хранение и обработку данных людей. Под него попадает почти любой сайт, собирающий хотя бы имя и телефон.', slug: 'audit-152-fz-2026' },
+  { id: 'pd', term: 'Персональные данные (ПД)', def: 'Любая информация, относящаяся к определённому человеку: ФИО, телефон, e-mail, адрес, фото, cookie с идентификатором. Обработка ПД требует согласия и соблюдения 152-ФЗ.', slug: 'soglasie-na-obrabotku-pd-2026' },
+  { id: 'operator-pd', term: 'Оператор персональных данных', def: 'Лицо (компания, ИП, физлицо), которое определяет цели и способы обработки ПД. Оператор обязан уведомить Роскомнадзор и обеспечить защиту данных.', slug: 'uvedomlenie-rkn-2026' },
+  { id: 'rkn', term: 'Роскомнадзор (РКН)', def: 'Федеральная служба, надзирающая за обработкой персональных данных и связью. Ведёт реестр операторов ПД, проводит проверки и выписывает штрафы за нарушения 152-ФЗ.' },
+  { id: 'oborotnyy-shtraf', term: 'Оборотный штраф', def: 'Штраф, рассчитываемый как процент от годовой выручки компании. С 2025 года за повторные утечки персональных данных в РФ — до 3% выручки, максимум 500 млн рублей.', slug: 'oborotnye-shtrafy-utechki-pd-2026' },
+  { id: 'soglasie', term: 'Согласие на обработку ПД', def: 'Добровольное, конкретное и информированное разрешение человека на обработку его данных. Обязательно по ст. 9 152-ФЗ; должно содержать цели, перечень данных и срок.', slug: 'soglasie-na-obrabotku-pd-2026' },
+  { id: 'lokalizaciya', term: 'Локализация персональных данных', def: 'Требование 152-ФЗ хранить и первично обрабатывать ПД россиян на серверах, физически расположенных в России.', slug: 'lokalizaciya-pd-2026' },
+  { id: 'ebs', term: 'Биометрия и ЕБС', def: 'Биометрические ПД (лицо, голос, отпечатки) — особая категория данных. ЕБС — Единая биометрическая система РФ; сбор биометрии регулируется 572-ФЗ и требует отдельного согласия.', slug: 'biometria-ebs-2026' },
+  { id: 'ord', term: 'Маркировка рекламы (ОРД)', def: 'С 2022 года вся интернет-реклама в РФ обязательно маркируется через Оператора рекламных данных (ОРД) с присвоением токена erid и передачей сведений в ЕРИР.', slug: 'markirovka-reklamy-ord-2026' },
+  { id: 'erid', term: 'erid', def: 'Уникальный идентификатор рекламного креатива, который присваивает ОРД. Указывается в пометке «Реклама» рядом с объявлением.', slug: 'markirovka-reklamy-ord-2026' },
+  { id: 'ai-agent', term: 'AI-агент', def: 'Программа на основе нейросети, которая не просто отвечает, а самостоятельно выполняет цепочку действий: ищет данные, вызывает инструменты и API, принимает решения для достижения цели.', slug: 'ai-agenty-v-biznese-2026' },
+  { id: 'llm', term: 'LLM (большая языковая модель)', def: 'Large Language Model — нейросеть, обученная на больших объёмах текста и умеющая генерировать и понимать естественный язык. Примеры: GPT, YandexGPT, GigaChat, Llama.', slug: 'lokalnyy-llm-na-noutbuke-2026' },
+  { id: 'rag', term: 'RAG (Retrieval-Augmented Generation)', def: 'Подход, при котором нейросеть перед ответом ищет нужные факты в вашей базе знаний и отвечает на их основе. Снижает «галлюцинации» и позволяет работать с актуальными данными компании.', slug: 'rag-sistemy-dlya-biznesa-2026' },
+  { id: 'yandexgpt', term: 'YandexGPT', def: 'Российская большая языковая модель от Яндекса. Доступна через API Yandex Cloud, подходит для задач с требованием хранить данные в РФ.', slug: 'rossiyskiy-ai-stack-2026' },
+  { id: 'gigachat', term: 'GigaChat', def: 'Российская мультимодальная нейросеть от Сбера. Альтернатива зарубежным LLM с размещением в российском контуре.', slug: 'rossiyskiy-ai-stack-2026' },
+  { id: 'mcp', term: 'MCP (Model Context Protocol)', def: 'Открытый протокол, стандартизирующий подключение нейросетей к внешним инструментам и источникам данных. Позволяет AI-агентам единообразно работать с файлами, API и базами.', slug: 'mcp-model-context-protocol-2026' },
+  { id: 'importozameshchenie', term: 'Импортозамещение ПО', def: 'Замена зарубежного софта российскими аналогами. Обязательно для госорганов и КИИ; для бизнеса — способ снизить риски отключения и санкций.', slug: 'importozameshchenie-po-2026' },
+  { id: 'self-hosted', term: 'Self-hosted', def: 'Размещение сервисов на собственном или арендованном сервере вместо облака вендора. Даёт контроль над данными и независимость, но требует администрирования.', slug: 'self-hosted-infrastruktura-2026' },
+  { id: 'pwa', term: 'PWA (Progressive Web App)', def: 'Технология, превращающая обычный сайт в приложение: установка на экран, работа офлайн, push-уведомления — без публикации в магазинах приложений.', slug: 'pwa-iz-sayta-za-vyhodnye-2026' },
+  { id: 'crm', term: 'CRM', def: 'Customer Relationship Management — система учёта клиентов, сделок и коммуникаций. Помогает не терять заявки и видеть всю историю работы с клиентом.', slug: 'crm-dlya-malogo-biznesa-2026' },
+  { id: 'mvp', term: 'MVP (минимально жизнеспособный продукт)', def: 'Первая версия продукта с минимумом функций, достаточным для проверки спроса на реальных пользователях с минимальными затратами.', slug: 'mvp-to-production-3-mesyatsa-2026' },
+  { id: 'unit-ekonomika', term: 'Юнит-экономика', def: 'Расчёт прибыльности в пересчёте на одну единицу — клиента или продажу. Показывает, зарабатывает бизнес или теряет деньги на каждом клиенте.', slug: 'yunit-ekonomika-osnovatelya-2026' },
+  { id: 'cfa', term: 'ЦФА (цифровые финансовые активы)', def: 'Цифровые аналоги ценных бумаг и денежных требований, выпускаемые на блокчейн-платформах по 259-ФЗ. Инструмент привлечения финансирования для бизнеса.', slug: 'cfa-dlya-biznesa-2026' },
+  { id: 'cifrovoy-rubl', term: 'Цифровой рубль', def: 'Третья форма национальной валюты РФ (наряду с наличными и безналичными), выпускаемая Банком России на собственной платформе.', slug: 'cifrovoy-rubl-dlya-biznesa-2026' },
+  { id: 'geo', term: 'GEO (Generative Engine Optimization)', def: 'Оптимизация контента под ответы нейросетей (ChatGPT, Perplexity, Алиса, Яндекс Нейро): структурированные данные, чёткие определения, цитируемость и авторитетность источника.' },
+];
+
+function glossaryPage() {
+  const url = `${SITE}/slovar/`;
+  const sorted = [...GLOSSARY].sort((a, b) => a.term.localeCompare(b.term, 'ru'));
+  const ldSet = {
+    '@context': 'https://schema.org',
+    '@type': 'DefinedTermSet',
+    '@id': `${url}#glossary`,
+    name: 'Словарь терминов: 152-ФЗ, AI и разработка',
+    url,
+    inLanguage: 'ru',
+    hasDefinedTerm: sorted.map(t => ({
+      '@type': 'DefinedTerm',
+      '@id': `${url}#${t.id}`,
+      name: t.term,
+      description: t.def,
+      inDefinedTermSet: `${url}#glossary`,
+    })),
+  };
+  const breadcrumb = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Главная', item: `${SITE}/` },
+      { '@type': 'ListItem', position: 2, name: 'Блог', item: `${SITE}/blog/` },
+      { '@type': 'ListItem', position: 3, name: 'Словарь терминов', item: url },
+    ],
+  };
+  const items = sorted.map(t => {
+    const link = t.slug ? ` <a class="glossary-more" href="/blog/${t.slug}/">Подробнее →</a>` : '';
+    return `        <div class="glossary-item">
+          <dt id="${t.id}" class="glossary-term">${esc(t.term)}</dt>
+          <dd class="glossary-def">${esc(t.def)}${link}</dd>
+        </div>`;
+  }).join('\n');
+
+  return `${head({
+    title: 'Словарь терминов: 152-ФЗ, AI, разработка | Чимитдоржи Дарижапов',
+    description: 'Понятные определения ключевых терминов: 152-ФЗ, персональные данные, оборотные штрафы, AI-агенты, RAG, LLM, ОРД, ЦФА и другие — простыми словами от практика.',
+    keywords: 'словарь терминов, 152-ФЗ простыми словами, что такое RAG, что такое AI-агент, глоссарий IT',
+    canonical: url,
+  })}    <script type="application/ld+json">
+${JSON.stringify(ldSet, null, 2)}
+    </script>
+    <script type="application/ld+json">
+${JSON.stringify(breadcrumb, null, 2)}
+    </script>
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    ${navbar()}
+
+    <main id="main">
+        <section class="section">
+            <div class="container">
+                <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                    <a href="/">Главная</a>
+                    <span class="breadcrumbs-sep">›</span>
+                    <a href="/blog/">Блог</a>
+                    <span class="breadcrumbs-sep">›</span>
+                    <span aria-current="page">Словарь терминов</span>
+                </nav>
+                <div class="section-header">
+                    <span class="section-label">СЛОВАРЬ</span>
+                    <h1 class="section-heading">Термины <span class="text-gradient">простыми словами</span></h1>
+                    <p class="section-sub">Короткие понятные определения по 152-ФЗ, AI и разработке. Для людей и для нейросетей.</p>
+                </div>
+                <dl class="glossary-list">
+${items}
+                </dl>
+            </div>
+        </section>
+    </main>
+
+    ${footer()}
+</body>
+</html>`;
+}
+
 function updateSitemap(published) {
   const today = new Date().toISOString().slice(0, 10);
   let xml = fs.readFileSync(OUT_SITEMAP, 'utf8');
@@ -973,6 +1131,12 @@ async function main() {
   }
 
   fs.writeFileSync(path.join(OUT_BLOG, 'index.html'), hubPage(published), 'utf8');
+
+  // Глоссарий /slovar/
+  const slovarDir = path.join(ROOT, 'slovar');
+  ensureDir(slovarDir);
+  fs.writeFileSync(path.join(slovarDir, 'index.html'), glossaryPage(), 'utf8');
+  console.log(`  Glossary: ${slovarDir}/index.html (${GLOSSARY.length} терминов)`);
 
   // Category pillar pages
   let catPages = 0;
