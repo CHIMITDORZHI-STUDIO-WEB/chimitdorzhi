@@ -224,8 +224,27 @@ function coverUrl(a) {
   return `${SITE}/blog/${a.slug}/cover.png`;
 }
 
+// Связывание статьи с терминами глоссария (about) по совпадению с заголовком/тегами.
+function aboutTermsFor(a) {
+  if (typeof GLOSSARY === 'undefined' || !GLOSSARY) return [];
+  const hay = `${a.title} ${(a.tags || []).join(' ')}`.toLowerCase();
+  const seen = new Set();
+  const out = [];
+  for (const t of GLOSSARY) {
+    const core = t.term.toLowerCase().split(' (')[0].trim();
+    const match = t.slug === a.slug || (core.length > 2 && hay.includes(core));
+    if (match && !seen.has(t.id)) {
+      seen.add(t.id);
+      out.push({ '@type': 'DefinedTerm', '@id': `${SITE}/slovar/#${t.id}`, name: t.term });
+    }
+    if (out.length >= 6) break;
+  }
+  return out;
+}
+
 function blogPostingLd(a, url) {
-  return JSON.stringify({
+  const about = aboutTermsFor(a);
+  const obj = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
     headline: a.title,
@@ -242,18 +261,13 @@ function blogPostingLd(a, url) {
         'https://vk.com/chimitdorzhi',
         'https://www.youtube.com/@chimitdorzhi_studio',
       ],
-      alumniOf: [
-        { '@type': 'Organization', name: 'Vanderbilt University' },
-        { '@type': 'Organization', name: 'MongoDB Inc.' },
+      hasCredential: [
+        { '@type': 'EducationalOccupationalCredential', credentialCategory: 'certificate', recognizedBy: { '@type': 'Organization', name: 'Vanderbilt University' } },
+        { '@type': 'EducationalOccupationalCredential', credentialCategory: 'certificate', recognizedBy: { '@type': 'Organization', name: 'MongoDB Inc.' } },
       ],
     },
-    publisher: {
-      '@type': 'Organization',
-      '@id': `${SITE}/#organization`,
-      name: 'Chimitdorzhi Studio',
-      url: SITE,
-      logo: { '@type': 'ImageObject', url: `${SITE}/favicon-120.png` },
-    },
+    publisher: { '@id': `${SITE}/#organization` },
+    isPartOf: { '@id': `${SITE}/#website` },
     mainEntityOfPage: { '@type': 'WebPage', '@id': url },
     datePublished: a.datePublished,
     dateModified: a.dateModified,
@@ -265,7 +279,9 @@ function blogPostingLd(a, url) {
       '@type': 'SpeakableSpecification',
       cssSelector: ['.blog-lead', '.blog-tldr'],
     },
-  }, null, 2);
+  };
+  if (about.length) obj.about = about;
+  return JSON.stringify(obj, null, 2);
 }
 
 // Организация-издатель — каноническое определение сущности (граф знаний / GEO).
