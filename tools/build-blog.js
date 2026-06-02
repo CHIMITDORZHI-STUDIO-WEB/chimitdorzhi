@@ -21,6 +21,7 @@ const CATEGORY_LABELS = {
   'ai-dev':    'AI для разработчиков',
   'ai-life':   'AI для жизни и работы',
   marketing:   'Маркетинг и контент',
+  geo:         'GEO и AI-поиск',
   sales:       'Продажи и стартап',
   media:       'Медиа и подкасты',
   industries:  'Отрасли',
@@ -673,6 +674,7 @@ ${organizationLd()}
                       { key: 'ai-dev',      label: 'AI / разработка' },
                       { key: 'ai-life',     label: 'AI / жизнь' },
                       { key: 'marketing',   label: 'Маркетинг' },
+                      { key: 'geo',         label: 'GEO / AI-поиск' },
                       { key: 'sales',       label: 'Продажи' },
                       { key: 'media',       label: 'Медиа' },
                       { key: 'industries',  label: 'Отрасли' },
@@ -759,6 +761,11 @@ const CATEGORY_META = {
     h1: 'Маркетинг и контент',
     intro: 'SEO под Яндекс, контент-маркетинг, партнёрский маркетинг и продвижение в российских реалиях 2026. Что реально приводит клиентов, а что — слив бюджета.',
     service: { url: 'https://chimitdorzhi.tech/services/digital-marketing/', label: 'Маркетинг под ключ' },
+  },
+  geo: {
+    h1: 'GEO и AI-поиск',
+    intro: 'Генеративная оптимизация (GEO): как попадать в ответы ChatGPT, Perplexity, Алисы и Яндекс Нейро. llms.txt, schema, граф сущностей, измерение упоминаний бренда в ИИ — практика от того, кто внедряет это на своём сайте.',
+    service: { url: 'https://chimitdorzhi.tech/services/digital-marketing/', label: 'Продвижение в ИИ-поиске' },
   },
   sales: {
     h1: 'Продажи и стартап',

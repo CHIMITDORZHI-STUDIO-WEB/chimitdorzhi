@@ -13,6 +13,7 @@ const CATEGORY_GRADIENTS = {
   'ai-dev':    ['#5b21b6', '#a855f7'], // violet
   'ai-life':   ['#7c3aed', '#ec4899'], // violet-pink
   marketing:   ['#c2410c', '#fb923c'], // orange
+  geo:         ['#0e7490', '#22d3ee'], // teal-cyan (AI search)
   sales:       ['#065f46', '#10b981'], // emerald
   media:       ['#7c2d12', '#f59e0b'], // amber-rust
   industries:  ['#9f1239', '#f87171'], // coral
@@ -31,6 +32,7 @@ const CATEGORY_LABELS = {
   'ai-dev':    'AI для разработчиков',
   'ai-life':   'AI для жизни и работы',
   marketing:   'Маркетинг и контент',
+  geo:         'GEO и AI-поиск',
   sales:       'Продажи и стартап',
   media:       'Медиа и подкасты',
   industries:  'Отрасли',
