@@ -1181,6 +1181,20 @@ async function main() {
     const words = stripTags(a.contentHtml).split(/\s+/).filter(Boolean).length;
     console.log(`  [${a.slug}] ${words} words`);
   }
+
+  // Линтер требований (не блокирует сборку — только сигналит).
+  // Полная проверка: node tools/check-articles.js
+  try {
+    const { lint } = require('./check-articles.js');
+    const rep = lint(articles);
+    if (rep.errCount > 0) {
+      console.log(`\n  ⚠ ЛИНТЕР: ${rep.errCount} ошибок в ${rep.total} статьях — запустите: node tools/check-articles.js`);
+    } else {
+      console.log(`\n  ✓ Линтер: все ${rep.total} статей соответствуют требованиям (предупреждений: ${rep.warnCount})`);
+    }
+  } catch (e) {
+    console.log(`  (линтер пропущен: ${e.message})`);
+  }
 }
 
 main().catch(err => { console.error(err); process.exit(1); });
