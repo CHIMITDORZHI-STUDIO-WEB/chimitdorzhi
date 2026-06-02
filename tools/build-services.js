@@ -70,7 +70,7 @@ function head({ title, description, keywords, canonical, ogImage = `${SITE}/hero
         <link rel="stylesheet" href="/assets/phosphor/regular.css">
         <link rel="stylesheet" href="/assets/phosphor/fill.css">
     </noscript>
-    <link rel="stylesheet" href="/style.css?v=30">
+    <link rel="stylesheet" href="/style.css?v=31">
 `;
 }
 
@@ -536,6 +536,7 @@ function sitemap() {
   }
   entries.push(
     { loc: `${SITE}/about/`,              priority: '0.8', freq: 'monthly' },
+    { loc: `${SITE}/slovar/`,             priority: '0.6', freq: 'monthly' },
     { loc: `${SITE}/mwrlife/`,            priority: '0.7', freq: 'monthly' },
     { loc: `${SITE}/universe_buryat/`,    priority: '0.7', freq: 'monthly' },
     { loc: `${SITE}/arey/`,               priority: '0.6', freq: 'monthly' },
