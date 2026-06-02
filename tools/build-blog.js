@@ -663,8 +663,8 @@ ${organizationLd()}
                 </nav>
                 <div class="section-header">
                     <span class="section-label">БЛОГ</span>
-                    <h1 class="section-heading">Заметки <span class="text-gradient">практика</span></h1>
-                    <p class="section-sub">Пишу о том, что вижу на проектах: 152-ФЗ, AI/ML, разработка под российский стек, карьера в IT. Без маркетинга, с конкретными цифрами.</p>
+                    <h1 class="section-heading">База знаний для <span class="text-gradient">бизнеса</span></h1>
+                    <p class="section-sub">Более ${Math.floor(published.length / 10) * 10} разборов без воды: 152-ФЗ и защита данных, AI и нейросети, разработка и боты, маркетинг, GEO и цифровизация бизнеса по отраслям. Пишу как практик — с цифрами, ценами и примерами.</p>
                 </div>
 
                 <div class="blog-filter-chips" role="group" aria-label="Фильтр категорий">
