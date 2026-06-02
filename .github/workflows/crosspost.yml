@@ -1,0 +1,55 @@
+name: Crosspost (Telegraph + VC)
+
+# Ежедневно публикует следующую порцию архивных статей блога на Telegraph и VC.ru
+# и коммитит обновлённый crosspost-state.json (чтобы не постить повторно).
+# Telegraph работает всегда (токен в секрете TELEGRAPH_TOKEN).
+# VC включается только если задан секрет VC_TOKEN — иначе пропускается.
+on:
+  schedule:
+    - cron: '30 8 * * *'   # каждый день 08:30 UTC (11:30 МСК)
+  workflow_dispatch:
+    inputs:
+      platform:
+        description: 'Куда постить: telegraph | vc | all'
+        required: false
+        default: 'all'
+      batch:
+        description: 'Сколько статей за прогон'
+        required: false
+        default: '5'
+      order:
+        description: 'Порядок: old (архив) | new (свежие)'
+        required: false
+        default: 'old'
+
+jobs:
+  crosspost:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Crosspost batch
+        env:
+          TELEGRAPH_TOKEN: ${{ secrets.TELEGRAPH_TOKEN }}
+          VC_TOKEN: ${{ secrets.VC_TOKEN }}
+          VC_SUBSITE_ID: ${{ secrets.VC_SUBSITE_ID }}
+        run: |
+          node tools/crosspost.js \
+            --platform "${{ github.event.inputs.platform || 'all' }}" \
+            --batch "${{ github.event.inputs.batch || '5' }}" \
+            --order "${{ github.event.inputs.order || 'old' }}"
+      - name: Commit & push state if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if [ -n "$(git status --porcelain)" ]; then
+            git add -A
+            git commit -m "chore(crosspost): автопубликация порции на Telegraph/VC [skip ci]"
+            git push
+          else
+            echo "Новых статей для кросспостинга нет."
+          fi
