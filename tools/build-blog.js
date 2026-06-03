@@ -182,7 +182,7 @@ function head({ title, description, keywords, canonical, ogImage = `${SITE}/hero
         <link rel="stylesheet" href="/assets/phosphor/regular.css">
         <link rel="stylesheet" href="/assets/phosphor/fill.css">
     </noscript>
-    <link rel="stylesheet" href="/style.css?v=35">
+    <link rel="stylesheet" href="/style.css?v=36">
 `;
 }
 
@@ -675,6 +675,35 @@ ${faqLd(a)}</head>
       upd();
     })();
     </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
 </body>
 </html>`;
 }
@@ -686,7 +715,7 @@ function cardHtml(a) {
   const fresh = FRESH_SLUGS.has(a.slug) ? '<span class="blog-card-fresh">Свежее</span>' : '';
   return `<a class="blog-card" href="/blog/${a.slug}/" data-category="${a.category}">
   ${fresh}
-  <div class="blog-card-icon"><i class="${a.heroIcon}"></i></div>
+  <img class="blog-card-cover" src="/blog/${a.slug}/cover.png" alt="" loading="lazy" width="1200" height="630">
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>${esc(cat)}</span>
   <h3>${esc(a.title)}</h3>
   <p>${esc(a.excerpt)}</p>

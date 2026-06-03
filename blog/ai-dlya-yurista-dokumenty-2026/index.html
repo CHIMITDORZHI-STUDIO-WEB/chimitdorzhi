@@ -40,7 +40,7 @@
         <link rel="stylesheet" href="/assets/phosphor/regular.css">
         <link rel="stylesheet" href="/assets/phosphor/fill.css">
     </noscript>
-    <link rel="stylesheet" href="/style.css?v=35">
+    <link rel="stylesheet" href="/style.css?v=36">
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -655,7 +655,7 @@ if __name__ == "__main__":
   <h2>Читайте также</h2>
   <div class="blog-grid"><a class="blog-card" href="/blog/ai-dlya-yurista-advokata-2026/" data-category="ai-life">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-scales"></i></div>
+  <img class="blog-card-cover" src="/blog/ai-dlya-yurista-advokata-2026/cover.png" alt="" loading="lazy" width="1200" height="630">
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>AI для жизни и работы</span>
   <h3>AI для адвоката и юриста 2026: автоматизация рутины — что реально работает</h3>
   <p>Юристы боятся AI зря — он убирает 60% рутины: договоры по шаблонам, анализ договоров контрагента, поиск прецедентов, чат-бот для клиентов. Главный кейс автора: RAG на 10 000+ документах для юр-компании — поиск с 30 минут до 30 секунд, точность 87%, окупаемость 4 месяца. Стек, рабочий код, адвокатская тайна, ROI.</p>
@@ -667,7 +667,7 @@ if __name__ == "__main__":
 </a>
 <a class="blog-card" href="/blog/rag-sistemy-dlya-biznesa-2026/" data-category="ai-dev">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-database"></i></div>
+  <img class="blog-card-cover" src="/blog/rag-sistemy-dlya-biznesa-2026/cover.png" alt="" loading="lazy" width="1200" height="630">
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>AI для разработчиков</span>
   <h3>RAG-системы для бизнеса 2026: AI, который знает вашу базу знаний</h3>
   <p>Сертифицированный по RAG практик о том, как устроена связка «векторный поиск + LLM», какие vector DB и embeddings брать в РФ, сколько стоит и где ломается на реальной базе из 10 000+ документов.</p>
@@ -679,7 +679,7 @@ if __name__ == "__main__":
 </a>
 <a class="blog-card" href="/blog/soglasie-na-obrabotku-pd-2026/" data-category="legal">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-file-text"></i></div>
+  <img class="blog-card-cover" src="/blog/soglasie-na-obrabotku-pd-2026/cover.png" alt="" loading="lazy" width="1200" height="630">
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Право и compliance</span>
   <h3>Согласие на обработку персональных данных 2026: как составить, шаблоны, штрафы</h3>
   <p>Согласие на обработку ПД — самый частый источник штрафов по 152-ФЗ. С 30 мая 2025 действуют новые суммы по ФЗ-420: до 700 тыс. за обработку без согласия, оборотные штрафы до 500 млн за утечки. Разбираю обязательные элементы по ст. 9, когда нужно письменное согласие, согласие на распространение, оформление на сайте, право на отзыв. С готовым шаблоном и чек-листом.</p>
@@ -781,6 +781,35 @@ if __name__ == "__main__":
       window.addEventListener('scroll',upd,{passive:true});
       window.addEventListener('resize',upd,{passive:true});
       upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
     })();
     </script>
 </body>

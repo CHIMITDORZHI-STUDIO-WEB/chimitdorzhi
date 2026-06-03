@@ -40,7 +40,7 @@
         <link rel="stylesheet" href="/assets/phosphor/regular.css">
         <link rel="stylesheet" href="/assets/phosphor/fill.css">
     </noscript>
-    <link rel="stylesheet" href="/style.css?v=35">
+    <link rel="stylesheet" href="/style.css?v=36">
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -836,7 +836,7 @@ async function sendToAll(subscriptions, payload) {
   <h2>Читайте также</h2>
   <div class="blog-grid"><a class="blog-card" href="/blog/cfa-dlya-biznesa-2026/" data-category="finance">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-coins"></i></div>
+  <img class="blog-card-cover" src="/blog/cfa-dlya-biznesa-2026/cover.png" alt="" loading="lazy" width="1200" height="630">
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Финансы</span>
   <h3>ЦФА для бизнеса 2026: что это, зачем и как использовать</h3>
   <p>Эксперт РАКИБ ДФО разбирает ЦФА для бизнеса: отличия от крипты, операторы (Атомайз, Сбер, Альфа), кейсы Норникеля и ВТБ, пошаговая эмиссия, налоги и риски.</p>
@@ -848,7 +848,7 @@ async function sendToAll(subscriptions, payload) {
 </a>
 <a class="blog-card" href="/blog/lokalizaciya-pd-2026/" data-category="legal">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-database"></i></div>
+  <img class="blog-card-cover" src="/blog/lokalizaciya-pd-2026/cover.png" alt="" loading="lazy" width="1200" height="630">
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Право и compliance</span>
   <h3>Локализация персональных данных на серверы РФ: как перенести и не сломать</h3>
   <p>Сравнение Yandex Cloud, VK Cloud, Selectel и других. Пошаговый план переноса с AWS/GCP/Azure, гибридные схемы, штрафы по ст. 13.11 ч. 8 КоАП и самопроверка.</p>
@@ -860,7 +860,7 @@ async function sendToAll(subscriptions, payload) {
 </a>
 <a class="blog-card" href="/blog/audit-152-fz-2026/" data-category="legal">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-shield-check"></i></div>
+  <img class="blog-card-cover" src="/blog/audit-152-fz-2026/cover.png" alt="" loading="lazy" width="1200" height="630">
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Право и compliance</span>
   <h3>Аудит сайта по 152-ФЗ в 2026: полная инструкция для бизнеса</h3>
   <p>Новые штрафы по 152-ФЗ доходят до 500 млн ₽. Чек-лист из 32 пунктов, пошаговый план устранения нарушений и сравнение цен на аудит.</p>
@@ -957,6 +957,35 @@ async function sendToAll(subscriptions, payload) {
       window.addEventListener('scroll',upd,{passive:true});
       window.addEventListener('resize',upd,{passive:true});
       upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
     })();
     </script>
 </body>

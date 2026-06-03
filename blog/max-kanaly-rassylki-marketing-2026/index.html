@@ -40,7 +40,7 @@
         <link rel="stylesheet" href="/assets/phosphor/regular.css">
         <link rel="stylesheet" href="/assets/phosphor/fill.css">
     </noscript>
-    <link rel="stylesheet" href="/style.css?v=35">
+    <link rel="stylesheet" href="/style.css?v=36">
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -461,7 +461,7 @@
   <h2>Читайте также</h2>
   <div class="blog-grid"><a class="blog-card" href="/blog/chatbot-telegram-max-vk-2026/" data-category="development">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-robot"></i></div>
+  <img class="blog-card-cover" src="/blog/chatbot-telegram-max-vk-2026/cover.png" alt="" loading="lazy" width="1200" height="630">
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
   <h3>Чат-бот для бизнеса 2026: Telegram vs MAX vs VK — что выбрать</h3>
   <p>Telegram, MAX или VK — на какой платформе делать чат-бота для бизнеса в 2026? Сравниваю по аудитории, API, оплатам и Mini Apps, разбираю приём платежей, AI-ботов на российских моделях, интеграцию с CRM и выбор под тип бизнеса. No-code vs кастом, реальная стоимость. С примерами кода на aiogram.</p>
@@ -473,7 +473,7 @@
 </a>
 <a class="blog-card" href="/blog/max-mini-apps-2026/" data-category="development">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-app-window"></i></div>
+  <img class="blog-card-cover" src="/blog/max-mini-apps-2026/cover.png" alt="" loading="lazy" width="1200" height="630">
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
   <h3>МАХ Mini Apps 2026: разработка мини-приложений для бизнеса — что есть и что будет</h3>
   <p>Telegram Mini Apps стали стандартом. МАХ — российский мессенджер от VK Group — идёт по тому же пути. В 2026 году Mini Apps в МАХ это новая ниша для бизнеса с низкой конкуренцией. Разбираю как разработать мини-приложение, какие возможности SDK даёт, технический стек, бюджеты и почему стоит зайти первым.</p>
@@ -485,7 +485,7 @@
 </a>
 <a class="blog-card" href="/blog/email-push-rassylki-rf-2026/" data-category="marketing">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-envelope-simple"></i></div>
+  <img class="blog-card-cover" src="/blog/email-push-rassylki-rf-2026/cover.png" alt="" loading="lazy" width="1200" height="630">
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Маркетинг и контент</span>
   <h3>Email и push-рассылки в РФ 2026 без зарубежных сервисов</h3>
   <p>Mailchimp и SendGrid ушли — разбираю, как делать рассылки в РФ 2026: российские сервисы (Unisender, DashaMail, Sendsay, Mindbox), свой SMTP, доставляемость (SPF/DKIM/DMARC), прогрев домена, web-push и mobile-push, согласие на рекламную рассылку и закон. С кодом SMTP-отправки и DNS-записями.</p>
@@ -576,6 +576,35 @@
       window.addEventListener('scroll',upd,{passive:true});
       window.addEventListener('resize',upd,{passive:true});
       upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
     })();
     </script>
 </body>

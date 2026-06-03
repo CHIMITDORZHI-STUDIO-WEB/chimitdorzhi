@@ -40,7 +40,7 @@
         <link rel="stylesheet" href="/assets/phosphor/regular.css">
         <link rel="stylesheet" href="/assets/phosphor/fill.css">
     </noscript>
-    <link rel="stylesheet" href="/style.css?v=35">
+    <link rel="stylesheet" href="/style.css?v=36">
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -672,7 +672,7 @@ echo "Бэкап завершён: $(date)"</code></pre>
   <h2>Читайте также</h2>
   <div class="blog-grid"><a class="blog-card" href="/blog/self-hosted-infrastruktura-2026/" data-category="development">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-hard-drives"></i></div>
+  <img class="blog-card-cover" src="/blog/self-hosted-infrastruktura-2026/cover.png" alt="" loading="lazy" width="1200" height="630">
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
   <h3>Self-hosted всё 2026: своя инфраструктура вместо SaaS — Nextcloud, Gitea, n8n</h3>
   <p>Вендоры уходят, цены SaaS растут, данные хочется держать у себя. Я сам держу инфраструктуру на VPS и перевожу клиентов с зарубежных SaaS. Полный гайд: Nextcloud, Gitea, n8n, Plausible, Vaultwarden, Metabase на Docker. С docker-compose, nginx-конфигом, restic-бэкапами, безопасностью и экономикой. Российские VPS и соответствие 152-ФЗ.</p>
@@ -684,7 +684,7 @@ echo "Бэкап завершён: $(date)"</code></pre>
 </a>
 <a class="blog-card" href="/blog/svoy-vps-dlya-razrabotchika-2026/" data-category="development">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-hard-drives"></i></div>
+  <img class="blog-card-cover" src="/blog/svoy-vps-dlya-razrabotchika-2026/cover.png" alt="" loading="lazy" width="1200" height="630">
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
   <h3>Свой VPS для разработчика в 2026: Selectel vs RuVDS vs Timeweb vs Yandex Cloud — реальное сравнение</h3>
   <p>Реальный опыт инженера, пять лет живущего на Selectel + RuVDS + Yandex Cloud. Цены 2026, плюсы и минусы провайдеров, таблица сравнения 14 параметров, пошаговая настройка VPS за 30 минут с bash-скриптами, топ-15 self-hosted приложений и расчёт ROI.</p>
@@ -696,7 +696,7 @@ echo "Бэкап завершён: $(date)"</code></pre>
 </a>
 <a class="blog-card" href="/blog/importozameshchenie-po-2026/" data-category="development">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-swap"></i></div>
+  <img class="blog-card-cover" src="/blog/importozameshchenie-po-2026/cover.png" alt="" loading="lazy" width="1200" height="630">
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
   <h3>Импортозамещение ПО 2026: чем заменить ушедший софт — гайд по нишам</h3>
   <p>Вендоры ушли, лицензии не продлеваются, а 152-ФЗ требует данные в РФ. Большой гайд по импортозамещению: российские и open-source аналоги по всем нишам — CRM, офис, дизайн, аналитика, облака, коммуникации, проекты, BI, git, безопасность. Реестр российского ПО, преференции в госзакупках и как мигрировать без боли.</p>
@@ -800,6 +800,35 @@ echo "Бэкап завершён: $(date)"</code></pre>
       window.addEventListener('scroll',upd,{passive:true});
       window.addEventListener('resize',upd,{passive:true});
       upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
     })();
     </script>
 </body>

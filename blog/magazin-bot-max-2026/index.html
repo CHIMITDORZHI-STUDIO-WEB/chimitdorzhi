@@ -40,7 +40,7 @@
         <link rel="stylesheet" href="/assets/phosphor/regular.css">
         <link rel="stylesheet" href="/assets/phosphor/fill.css">
     </noscript>
-    <link rel="stylesheet" href="/style.css?v=35">
+    <link rel="stylesheet" href="/style.css?v=36">
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -671,7 +671,7 @@ export async function calcCdekDelivery({ fromCity, toCity, weight, cost }) {
   <h2>Читайте также</h2>
   <div class="blog-grid"><a class="blog-card" href="/blog/max-mini-apps-2026/" data-category="development">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-app-window"></i></div>
+  <img class="blog-card-cover" src="/blog/max-mini-apps-2026/cover.png" alt="" loading="lazy" width="1200" height="630">
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
   <h3>МАХ Mini Apps 2026: разработка мини-приложений для бизнеса — что есть и что будет</h3>
   <p>Telegram Mini Apps стали стандартом. МАХ — российский мессенджер от VK Group — идёт по тому же пути. В 2026 году Mini Apps в МАХ это новая ниша для бизнеса с низкой конкуренцией. Разбираю как разработать мини-приложение, какие возможности SDK даёт, технический стек, бюджеты и почему стоит зайти первым.</p>
@@ -683,7 +683,7 @@ export async function calcCdekDelivery({ fromCity, toCity, weight, cost }) {
 </a>
 <a class="blog-card" href="/blog/svoy-magazin-vs-wildberries-ozon-2026/" data-category="development">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-storefront"></i></div>
+  <img class="blog-card-cover" src="/blog/svoy-magazin-vs-wildberries-ozon-2026/cover.png" alt="" loading="lazy" width="1200" height="630">
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
   <h3>Свой интернет-магазин vs Wildberries и Ozon в 2026: расчёт реального ROI</h3>
   <p>Комиссии WB и Ozon выросли до 25-45%. Когда выгодно выходить на свой магазин, когда оставаться. Реальная математика 3 сценариев оборота, технический стек, план перехода за 6 месяцев.</p>
@@ -695,7 +695,7 @@ export async function calcCdekDelivery({ fromCity, toCity, weight, cost }) {
 </a>
 <a class="blog-card" href="/blog/voronka-prodazh-b2b-2026/" data-category="sales">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-funnel"></i></div>
+  <img class="blog-card-cover" src="/blog/voronka-prodazh-b2b-2026/cover.png" alt="" loading="lazy" width="1200" height="630">
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Продажи и стартап</span>
   <h3>Воронка продаж B2B 2026: как построить и автоматизировать через AI + CRM</h3>
   <p>B2B-воронка отличается от B2C тремя вещами: длинный цикл сделки, multi-stakeholder, обязательное ROI-обоснование. Разбираю 6 этапов, лид-скоринг по 4 осям, AI-автоматизацию (персонализация писем 1000+ в день, voice-обзвон, классификация лидов), метрики, готовый n8n-скрипт и реальный кейс с окупаемостью 1,5 месяца.</p>
@@ -795,6 +795,35 @@ export async function calcCdekDelivery({ fromCity, toCity, weight, cost }) {
       window.addEventListener('scroll',upd,{passive:true});
       window.addEventListener('resize',upd,{passive:true});
       upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
     })();
     </script>
 </body>

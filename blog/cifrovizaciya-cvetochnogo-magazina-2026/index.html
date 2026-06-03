@@ -40,7 +40,7 @@
         <link rel="stylesheet" href="/assets/phosphor/regular.css">
         <link rel="stylesheet" href="/assets/phosphor/fill.css">
     </noscript>
-    <link rel="stylesheet" href="/style.css?v=35">
+    <link rel="stylesheet" href="/style.css?v=36">
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -658,7 +658,7 @@ print("Списано:", report)                     # {'peony': [50, 6000.0], .
   <h2>Читайте также</h2>
   <div class="blog-grid"><a class="blog-card" href="/blog/dostavka-vody-produktov-2026/" data-category="industries">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-drop"></i></div>
+  <img class="blog-card-cover" src="/blog/dostavka-vody-produktov-2026/cover.png" alt="" loading="lazy" width="1200" height="630">
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Отрасли</span>
   <h3>Доставка воды и продуктов 2026: автоматизация под летний пик — заказы, маршруты, повторы</h3>
   <p>Летом спрос на воду взлетает, а бизнес держится на повторных заказах и LTV. Полный IT-стек 2026: CRM с периодичностью, автоповторы и подписка, маршрутизация курьеров, приложение курьера, учёт оборотной тары и залога, абонементы, склад, предиктивные напоминания «пора заказать». С «Честным знаком» для воды, СанПиН, 152-ФЗ и кодом предиктивных напоминаний.</p>
@@ -670,7 +670,7 @@ print("Списано:", report)                     # {'peony': [50, 6000.0], .
 </a>
 <a class="blog-card" href="/blog/avtomatizaciya-riteyla-seti-2026/" data-category="industries">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-storefront"></i></div>
+  <img class="blog-card-cover" src="/blog/avtomatizaciya-riteyla-seti-2026/cover.png" alt="" loading="lazy" width="1200" height="630">
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Отрасли</span>
   <h3>Автоматизация ритейла 2026: кассы, остатки, маркировка, лояльность, омниканальность</h3>
   <p>Ритейл РФ 2026 — рынок после ухода H&amp;M, IKEA, Decathlon. Полный стек: онлайн-кассы (Эвотор, АТОЛ, Дримкас), товароучётка (МойСклад, 1С:Розница), маркировка «Честный знак» по 20+ категориям, ЕГАИС для алкомаркетов, интеграция с маркетплейсами, лояльность Mindbox, computer vision на полках. С TypeScript-кодом синхронизации остатков МойСклад → Wildberries API.</p>
@@ -682,7 +682,7 @@ print("Списано:", report)                     # {'peony': [50, 6000.0], .
 </a>
 <a class="blog-card" href="/blog/crm-dlya-malogo-biznesa-2026/" data-category="sales">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-address-book"></i></div>
+  <img class="blog-card-cover" src="/blog/crm-dlya-malogo-biznesa-2026/cover.png" alt="" loading="lazy" width="1200" height="630">
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Продажи и стартап</span>
   <h3>CRM для малого бизнеса 2026: amoCRM vs Bitrix24 vs RetailCRM vs Notion — что выбрать без переплаты</h3>
   <p>Малый бизнес 2026 теряет деньги, выбирая CRM по принципу «надо корпоративное» или «у всех amoCRM». Разбираю топ-5 CRM (amoCRM, Bitrix24, RetailCRM, Notion, Kommo, HubSpot Free) с ценами 2026, AI-фичами, обязательными интеграциями, миграцией, полной стоимостью владения и финальной рекомендацией под каждый сегмент бизнеса.</p>
@@ -788,6 +788,35 @@ print("Списано:", report)                     # {'peony': [50, 6000.0], .
       window.addEventListener('scroll',upd,{passive:true});
       window.addEventListener('resize',upd,{passive:true});
       upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
     })();
     </script>
 </body>

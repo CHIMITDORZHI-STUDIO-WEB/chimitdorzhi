@@ -40,7 +40,7 @@
         <link rel="stylesheet" href="/assets/phosphor/regular.css">
         <link rel="stylesheet" href="/assets/phosphor/fill.css">
     </noscript>
-    <link rel="stylesheet" href="/style.css?v=35">
+    <link rel="stylesheet" href="/style.css?v=36">
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -555,7 +555,7 @@ solution, routing, manager = solve_vrp()
   <h2>Читайте также</h2>
   <div class="blog-grid"><a class="blog-card" href="/blog/ai-agenty-v-biznese-2026/" data-category="ai-dev">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-robot"></i></div>
+  <img class="blog-card-cover" src="/blog/ai-agenty-v-biznese-2026/cover.png" alt="" loading="lazy" width="1200" height="630">
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>AI для разработчиков</span>
   <h3>AI-агенты в бизнесе 2026: что реально работает, а что — маркетинг</h3>
   <p>Сертифицированный AI-инженер о том, что такое настоящий AI-агент, какие use cases работают в 2026, сколько стоят и как не нарваться на маркетинговую обёртку.</p>
@@ -567,7 +567,7 @@ solution, routing, manager = solve_vrp()
 </a>
 <a class="blog-card" href="/blog/rag-sistemy-dlya-biznesa-2026/" data-category="ai-dev">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-database"></i></div>
+  <img class="blog-card-cover" src="/blog/rag-sistemy-dlya-biznesa-2026/cover.png" alt="" loading="lazy" width="1200" height="630">
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>AI для разработчиков</span>
   <h3>RAG-системы для бизнеса 2026: AI, который знает вашу базу знаний</h3>
   <p>Сертифицированный по RAG практик о том, как устроена связка «векторный поиск + LLM», какие vector DB и embeddings брать в РФ, сколько стоит и где ломается на реальной базе из 10 000+ документов.</p>
@@ -579,7 +579,7 @@ solution, routing, manager = solve_vrp()
 </a>
 <a class="blog-card" href="/blog/ai-pomoshchnik-buhgaltera-2026/" data-category="ai-life">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-calculator"></i></div>
+  <img class="blog-card-cover" src="/blog/ai-pomoshchnik-buhgaltera-2026/cover.png" alt="" loading="lazy" width="1200" height="630">
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>AI для жизни и работы</span>
   <h3>AI-помощник для бухгалтера 2026: 1С + GPT + OCR — реальная автоматизация</h3>
   <p>Бухгалтерия 2026 — последний бастион ручного труда в офисе. AI убирает 60–70% рутины: распознавание накладных, сверки контрагентов, категоризация выписок, ответы на типовые вопросы. Реальный стек на 1С + YandexGPT + n8n, рабочий код, юр-нюансы 152-ФЗ, кейс с окупаемостью 5,6 месяцев и чек-лист внедрения за месяц.</p>
@@ -683,6 +683,35 @@ solution, routing, manager = solve_vrp()
       window.addEventListener('scroll',upd,{passive:true});
       window.addEventListener('resize',upd,{passive:true});
       upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
     })();
     </script>
 </body>

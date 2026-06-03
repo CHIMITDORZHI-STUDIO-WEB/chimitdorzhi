@@ -40,7 +40,7 @@
         <link rel="stylesheet" href="/assets/phosphor/regular.css">
         <link rel="stylesheet" href="/assets/phosphor/fill.css">
     </noscript>
-    <link rel="stylesheet" href="/style.css?v=35">
+    <link rel="stylesheet" href="/style.css?v=36">
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -470,7 +470,7 @@
   <h2>Читайте также</h2>
   <div class="blog-grid"><a class="blog-card" href="/blog/cifrovizaciya-agrosektora-2026/" data-category="industries">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-plant"></i></div>
+  <img class="blog-card-cover" src="/blog/cifrovizaciya-agrosektora-2026/cover.png" alt="" loading="lazy" width="1200" height="630">
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Отрасли</span>
   <h3>Цифровизация агросектора 2026: учёт полей, IoT, дроны, «Меркурий», «Честный знак»</h3>
   <p>Агросектор РФ 2026 — это не «дед на тракторе», это IT-индустрия с регуляторикой жёстче банковской: ФГИС «Меркурий», «Честный знак», ФГИС «Зерно», «Сатурн». Полный стек: учёт полей (ExactFarming, АгроСигнал), IoT-метеостанции и телеметрия техники, дроны NDVI, точное земледелие, ERP 1С:Селхозпредприятие, прямые продажи D2C. С Python-кодом MQTT-приёмника телеметрии и SOAP-клиента Ветис.API.</p>
@@ -482,7 +482,7 @@
 </a>
 <a class="blog-card" href="/blog/cifrovizaciya-biznesa-buryatiya-zabaykalye-2026/" data-category="industries">
   
-  <div class="blog-card-icon"><i class="ph-buildings"></i></div>
+  <img class="blog-card-cover" src="/blog/cifrovizaciya-biznesa-buryatiya-zabaykalye-2026/cover.png" alt="" loading="lazy" width="1200" height="630">
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Отрасли</span>
   <h3>Цифровизация малого бизнеса в Бурятии и Забайкалье: с чего начать</h3>
   <p>Цифровизация для регионального бизнеса — это не «модно», а способ выжить при нехватке кадров и удалённости. Разбираю, с чего начать малому бизнесу в Бурятии и Забайкалье, какие задачи решать первыми и где взять деньги.</p>
@@ -494,7 +494,7 @@
 </a>
 <a class="blog-card" href="/blog/svoy-magazin-vs-wildberries-ozon-2026/" data-category="development">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-storefront"></i></div>
+  <img class="blog-card-cover" src="/blog/svoy-magazin-vs-wildberries-ozon-2026/cover.png" alt="" loading="lazy" width="1200" height="630">
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
   <h3>Свой интернет-магазин vs Wildberries и Ozon в 2026: расчёт реального ROI</h3>
   <p>Комиссии WB и Ozon выросли до 25-45%. Когда выгодно выходить на свой магазин, когда оставаться. Реальная математика 3 сценариев оборота, технический стек, план перехода за 6 месяцев.</p>
@@ -585,6 +585,35 @@
       window.addEventListener('scroll',upd,{passive:true});
       window.addEventListener('resize',upd,{passive:true});
       upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
     })();
     </script>
 </body>

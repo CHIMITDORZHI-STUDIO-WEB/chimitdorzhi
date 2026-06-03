@@ -40,7 +40,7 @@
         <link rel="stylesheet" href="/assets/phosphor/regular.css">
         <link rel="stylesheet" href="/assets/phosphor/fill.css">
     </noscript>
-    <link rel="stylesheet" href="/style.css?v=35">
+    <link rel="stylesheet" href="/style.css?v=36">
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -711,7 +711,7 @@ def build_pickup_reminders(sets: list[dict], today: date) -> list[dict]:
   <h2>Читайте также</h2>
   <div class="blog-grid"><a class="blog-card" href="/blog/it-dlya-avtoservisa-2026/" data-category="industries">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-car-simple"></i></div>
+  <img class="blog-card-cover" src="/blog/it-dlya-avtoservisa-2026/cover.png" alt="" loading="lazy" width="1200" height="630">
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Отрасли</span>
   <h3>IT для автосервиса 2026: запись на ТО, parts.ru, диагностика, отзывы</h3>
   <p>Автосервис 2026 — это IT-индустрия с гаражной репутацией. Клиент выбирает СТО за 5 секунд (Я.Карты, отзывы), а возвращается за 5 лет (если IT-стек правильный). Полный стек: CRM (TyreScanner, Garage 47), интеграция с поставщиками запчастей, AI-расшифровка OBD-кодов, нормо-часы. С TypeScript и Python-кодом.</p>
@@ -723,7 +723,7 @@ def build_pickup_reminders(sets: list[dict], today: date) -> list[dict]:
 </a>
 <a class="blog-card" href="/blog/cifrovizaciya-avtomoyki-detailing-2026/" data-category="industries">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-car-profile"></i></div>
+  <img class="blog-card-cover" src="/blog/cifrovizaciya-avtomoyki-detailing-2026/cover.png" alt="" loading="lazy" width="1200" height="630">
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Отрасли</span>
   <h3>Цифровизация автомойки и детейлинга 2026: запись, лояльность, тэг-доступ, оплаты</h3>
   <p>Автомойка и детейлинг живут на повторных визитах и среднем чеке. Полный IT-стек 2026: CRM и онлайн-запись, автоматизация моек самообслуживания (тэги, токены, QR/СБП), лояльность и абонементы, RFID и распознавание номеров, кошелёк клиента, бот, учёт химии, погодный маркетинг. С кодом бота и юнит-экономикой поста. Автосервис — в отдельной статье.</p>
@@ -735,7 +735,7 @@ def build_pickup_reminders(sets: list[dict], today: date) -> list[dict]:
 </a>
 <a class="blog-card" href="/blog/crm-dlya-malogo-biznesa-2026/" data-category="sales">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-address-book"></i></div>
+  <img class="blog-card-cover" src="/blog/crm-dlya-malogo-biznesa-2026/cover.png" alt="" loading="lazy" width="1200" height="630">
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Продажи и стартап</span>
   <h3>CRM для малого бизнеса 2026: amoCRM vs Bitrix24 vs RetailCRM vs Notion — что выбрать без переплаты</h3>
   <p>Малый бизнес 2026 теряет деньги, выбирая CRM по принципу «надо корпоративное» или «у всех amoCRM». Разбираю топ-5 CRM (amoCRM, Bitrix24, RetailCRM, Notion, Kommo, HubSpot Free) с ценами 2026, AI-фичами, обязательными интеграциями, миграцией, полной стоимостью владения и финальной рекомендацией под каждый сегмент бизнеса.</p>
@@ -840,6 +840,35 @@ def build_pickup_reminders(sets: list[dict], today: date) -> list[dict]:
       window.addEventListener('scroll',upd,{passive:true});
       window.addEventListener('resize',upd,{passive:true});
       upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
     })();
     </script>
 </body>
