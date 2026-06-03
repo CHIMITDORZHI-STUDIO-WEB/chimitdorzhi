@@ -9414,7 +9414,7 @@ module.exports = [
     servicesOffer: {
       title: 'Готовые решения и автоматизация под ключ',
       services: [
-        { icon: 'ph-fill ph-squares-four', label: '27 готовых решений под нишу' },
+        { icon: 'ph-fill ph-squares-four', label: '{{OFFERS_COUNT}} готовых решений под нишу' },
         { icon: 'ph-fill ph-robot', label: 'Чат-боты и AI на российском стеке' },
         { icon: 'ph-fill ph-gear', label: 'Автоматизация и CRM' },
         { icon: 'ph-fill ph-shield-check', label: 'Соответствие 152-ФЗ' },
