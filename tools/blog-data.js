@@ -136,6 +136,7 @@ const maxKanalyContent = require('./blog-content-max-kanaly.js');
 const maxAiBotContent = require('./blog-content-max-ai-bot.js');
 const maxShkolyContent = require('./blog-content-max-shkoly.js');
 const maxZapisContent = require('./blog-content-max-zapis.js');
+const gotovyeResheniyaContent = require('./blog-content-gotovye-resheniya.js');
 
 const article2Content = `
 <div class="blog-tldr">
@@ -9386,5 +9387,43 @@ module.exports = [
       ],
     },
     contentHtml: maxZapisContent,
+  },
+  {
+    slug: 'gotovye-it-resheniya-dlya-biznesa-2026',
+    category: 'development',
+    published: true,
+    title: 'Готовые IT-решения для бизнеса: 27 предложений под ключ',
+    metaTitle: 'Готовые IT-решения для бизнеса в 2026: 27 предложений под ключ | Чимитдоржи Дарижапов',
+    metaDescription: 'Каталог готовых IT-решений для бизнеса: автоматизация по нишам, чат-боты и AI, геймификация, 152-ФЗ. 27 предложений под ключ с бесплатной консультацией — от автосервиса до онлайн-школы.',
+    metaKeywords: 'готовые IT-решения, автоматизация бизнеса под ключ, решения для бизнеса, чат-бот для бизнеса, CRM под нишу, IT для малого бизнеса',
+    excerpt: 'Вместо долгой разработки с нуля — готовые проверенные решения под вашу нишу: автоматизация, боты, AI, геймификация и 152-ФЗ. Собрал 27 предложений под ключ в одном месте.',
+    datePublished: '2026-06-03',
+    dateModified: '2026-06-03',
+    readingMinutes: 13,
+    heroIcon: 'ph-squares-four',
+    tags: ['готовые решения', 'автоматизация', 'для бизнеса', 'боты', 'CRM'],
+    toc: [
+      { id: 'chto-takoe-gotovye-resheniya', text: 'Что такое готовые решения' },
+      { id: 'avtomatizaciya', text: 'Автоматизация по нишам' },
+      { id: 'boty-i-ai', text: 'Боты и AI' },
+      { id: 'geymifikaciya', text: 'Геймификация и вовлечение' },
+      { id: 'pravo', text: 'Право и 152-ФЗ' },
+      { id: 'kak-vybrat', text: 'Как выбрать решение' },
+      { id: 'kak-rabotaem', text: 'Как мы работаем и сколько стоит' },
+      { id: 'faq', text: 'Частые вопросы' },
+    ],
+    relatedSlugs: ['skolko-stoit-sayt-2026', 'crm-dlya-malogo-biznesa-2026', 'cifrovizaciya-biznesa-buryatiya-zabaykalye-2026'],
+    ctaInternal: { url: 'https://chimitdorzhi.tech/predlozheniya/', label: 'Смотреть все предложения' },
+    servicesOffer: {
+      title: 'Готовые решения и автоматизация под ключ',
+      services: [
+        { icon: 'ph-fill ph-squares-four', label: '27 готовых решений под нишу' },
+        { icon: 'ph-fill ph-robot', label: 'Чат-боты и AI на российском стеке' },
+        { icon: 'ph-fill ph-gear', label: 'Автоматизация и CRM' },
+        { icon: 'ph-fill ph-shield-check', label: 'Соответствие 152-ФЗ' },
+        { icon: 'ph-fill ph-chat-circle-dots', label: 'Бесплатная консультация' },
+      ],
+    },
+    contentHtml: gotovyeResheniyaContent,
   },
 ];
