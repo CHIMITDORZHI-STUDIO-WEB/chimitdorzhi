@@ -86,6 +86,19 @@ function blogOfferCta(a) {
                     </a>`;
 }
 
+// Баннер каталога предложений (хаб блога и конец статей). {{OFFERS_COUNT}} подставляется при записи.
+function catalogBanner() {
+  return `
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовые решения под ключ</span>
+                            <span class="blog-offer-cta-title">{{OFFERS_COUNT}} готовых IT-решений для бизнеса</span>
+                            <span class="blog-offer-cta-price">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Смотреть каталог</span>
+                    </a>`;
+}
+
 const SITE = 'https://chimitdorzhi.tech';
 let FRESH_SLUGS = new Set(); // слаги самых свежих статей, задаётся в main()
 const ROOT = path.resolve(__dirname, '..');
@@ -636,6 +649,7 @@ ${faqLd(a)}</head>
                     </div>
 
                     ${relatedHtml(a, published)}
+                    ${a.slug === 'gotovye-it-resheniya-dlya-biznesa-2026' ? '' : catalogBanner()}
                 </article>
 
                 ${tocHtml(a.toc)}
@@ -746,6 +760,7 @@ ${organizationLd()}
                     <h1 class="section-heading">База знаний для <span class="text-gradient">бизнеса</span></h1>
                     <p class="section-sub">Более ${Math.floor(published.length / 10) * 10} разборов без воды: 152-ФЗ и защита данных, AI и нейросети, разработка и боты, маркетинг, GEO и цифровизация бизнеса по отраслям. Пишу как практик — с цифрами, ценами и примерами.</p>
                 </div>
+                ${catalogBanner()}
 
                 <div class="blog-filter-chips" role="group" aria-label="Фильтр категорий">
                     <button class="filter-btn active" data-blog-cat="all">Все <span class="filter-count">${published.length}</span></button>
