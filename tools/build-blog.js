@@ -1260,6 +1260,40 @@ ${offerItems}
 
 function ensureDir(p) { fs.mkdirSync(p, { recursive: true }); }
 
+// Витрина «Полезное» на главной: 2 избранные статьи между маркерами в index.html.
+// Управление — список слагов; если слага нет, добираем самыми свежими.
+const HOME_USEFUL = ['audit-152-fz-2026', 'rossiyskiy-ai-stack-2026'];
+function homeUsefulCard(a) {
+  const cat = CATEGORY_LABELS[a.category] || 'Блог';
+  return `                    <a class="blog-card" href="/blog/${a.slug}/" data-category="${a.category}">
+                        <div class="blog-card-icon"><i class="${a.heroIcon || 'ph-fill ph-article'}" aria-hidden="true"></i></div>
+                        <span class="blog-card-cat">${esc(cat)}</span>
+                        <h3>${esc(a.title)}</h3>
+                        <p>${esc(a.excerpt)}</p>
+                        <div class="blog-card-meta">
+                            <span><i class="ph ph-calendar" aria-hidden="true"></i> ${formatRuDate(a.datePublished)}</span>
+                            <span><i class="ph ph-clock" aria-hidden="true"></i> ${a.readingMinutes} мин</span>
+                        </div>
+                        <span class="blog-card-link"><span>Читать</span> <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+                    </a>`;
+}
+function generateHomeUseful(published) {
+  const INDEX = path.join(ROOT, 'index.html');
+  if (!fs.existsSync(INDEX)) return;
+  const bySlug = new Map(published.map((p) => [p.slug, p]));
+  let featured = HOME_USEFUL.map((s) => bySlug.get(s)).filter(Boolean);
+  for (const a of published) { if (featured.length >= 2) break; if (!featured.includes(a)) featured.push(a); }
+  featured = featured.slice(0, 2);
+  const cards = featured.map(homeUsefulCard).join('\n');
+  let html = fs.readFileSync(INDEX, 'utf8');
+  const re = /(<!--USEFUL_HOME_START-->)[\s\S]*?(<!--USEFUL_HOME_END-->)/;
+  if (re.test(html)) {
+    html = html.replace(re, `$1\n${cards}\n                    $2`);
+    fs.writeFileSync(INDEX, html, 'utf8');
+    console.log(`  витрина «Полезное» на главной: ${featured.length} статьи`);
+  }
+}
+
 async function main() {
   ensureDir(OUT_BLOG);
   // Лента: свежие сверху (по дате публикации, при равенстве — позже добавленные выше)
@@ -1299,6 +1333,9 @@ async function main() {
   }
 
   fs.writeFileSync(path.join(OUT_BLOG, 'index.html'), subOffersCount(hubPage(published)), 'utf8');
+
+  // Авто-витрина «Полезное» на главной (между маркерами USEFUL_HOME_*)
+  generateHomeUseful(published);
 
   // Глоссарий /slovar/
   const slovarDir = path.join(ROOT, 'slovar');
