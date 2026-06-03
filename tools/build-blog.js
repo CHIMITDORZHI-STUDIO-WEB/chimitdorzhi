@@ -25,6 +25,8 @@ const OFFER_LINKS = {
   'magazin-bot-max-2026': 'bot-dlya-biznesa',
   'max-bot-zapis-na-uslugi-2026': 'bot-dlya-biznesa',
   'telegram-chat-vk-soobshchestvo-2026': 'bot-dlya-biznesa',
+  'max-kanaly-rassylki-marketing-2026': 'geymifikaciya-kanala-max',
+  'geymifikaciya-saas-2026': 'geymifikaciya-kanala-max',
 };
 
 function blogOfferCta(a) {
