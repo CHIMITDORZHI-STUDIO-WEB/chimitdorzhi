@@ -56,6 +56,9 @@ const OFFER_LINKS = {
   'ai-dlya-yurista-dokumenty-2026': 'ai-pomoshchnik-yurist-buhgalter',
   'ai-buhgalter-avtomatizaciya-rutiny-2026': 'ai-pomoshchnik-yurist-buhgalter',
   'ai-pomoshchnik-buhgaltera-2026': 'ai-pomoshchnik-yurist-buhgalter',
+  'cifrovizaciya-vetklinik-2026': 'it-vetklinika',
+  'ai-v-hr-naym-2026': 'hr-bot-podbor',
+  'ai-transkripciya-soveshchaniy-2026': 'baza-znaniy-ai',
 };
 
 function blogOfferCta(a) {
