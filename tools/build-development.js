@@ -72,7 +72,7 @@ function head({ title, description, keywords, canonical, ogImage = `${SITE}/hero
         <link rel="stylesheet" href="/assets/phosphor/regular.css">
         <link rel="stylesheet" href="/assets/phosphor/fill.css">
     </noscript>
-    <link rel="stylesheet" href="/style.css?v=30">
+    <link rel="stylesheet" href="/style.css?v=32">
 `;
 }
 
@@ -83,6 +83,7 @@ function navbar() {
         <ul class="nav-links" id="navLinks">
             <li><a href="/#about">Обо мне</a></li>
             <li><a href="/#services">Услуги</a></li>
+            <li><a href="/predlozheniya/">Предложения</a></li>
             <li><a href="/development/" aria-current="page">Разработка</a></li>
             <li><a href="/#cases">Кейсы</a></li>
             <li><a href="/#contact">Контакт</a></li>
@@ -97,6 +98,7 @@ function navbar() {
     <ul>
         <li><a href="/#about">Обо мне</a></li>
         <li><a href="/#services">Услуги</a></li>
+        <li><a href="/predlozheniya/">Предложения</a></li>
         <li><a href="/development/">Разработка</a></li>
         <li><a href="/services/">Каталог услуг</a></li>
         <li><a href="/#cases">Кейсы</a></li>
