@@ -1,5 +1,7 @@
 // OG cover generator. Generates 1200x630 PNG per article using SVG + sharp.
 // Output: blog/<slug>/cover.png
+// Стиль: «Светлый редакционный» — кремовый фон, кобальтовый акцент,
+// тёмный жирный заголовок, тонкая категорийная подсветка для узнаваемости.
 const fs = require('fs');
 const path = require('path');
 const sharp = require('sharp');
@@ -7,24 +9,29 @@ const sharp = require('sharp');
 const ROOT = path.resolve(__dirname, '..');
 const OUT_BLOG = path.join(ROOT, 'blog');
 
-// Category → gradient palette (start, end)
-const CATEGORY_GRADIENTS = {
-  legal:       ['#1e3a8a', '#4f8cff'], // blue
-  'ai-dev':    ['#5b21b6', '#a855f7'], // violet
-  'ai-life':   ['#7c3aed', '#ec4899'], // violet-pink
-  marketing:   ['#c2410c', '#fb923c'], // orange
-  geo:         ['#0e7490', '#22d3ee'], // teal-cyan (AI search)
-  sales:       ['#065f46', '#10b981'], // emerald
-  media:       ['#7c2d12', '#f59e0b'], // amber-rust
-  industries:  ['#9f1239', '#f87171'], // coral
-  esports:     ['#0f172a', '#22d3ee'], // cyan-night
-  development: ['#1e293b', '#64748b'], // slate
-  security:    ['#7f1d1d', '#ef4444'], // red
-  finance:     ['#064e3b', '#34d399'], // green
-  mlm:         ['#831843', '#fb7185'], // rose
-  mwrlife:     ['#0b1733', '#c8a04e'], // MWR Life navy → gold
-  ai:          ['#5b21b6', '#a855f7'], // legacy
-  career:      ['#1e3a8a', '#4f8cff'], // legacy
+// Бренд
+const CREAM = '#f4f1ea';
+const INK = '#16130f';
+const COBALT = '#1e4fd6';
+
+// Категория → один насыщённый акцентный цвет (читается на кремовом)
+const CATEGORY_ACCENT = {
+  legal:       '#1e4fd6', // кобальт
+  'ai-dev':    '#6d28d9', // фиолет
+  'ai-life':   '#7c3aed',
+  marketing:   '#c2410c', // жжёный оранжевый
+  geo:         '#0e7490', // петроль
+  sales:       '#047857', // изумруд
+  media:       '#b45309', // амбра
+  industries:  '#be123c', // роза-красный
+  esports:     '#0f766e', // глубокий тил
+  development: '#334155', // сланец
+  security:    '#b91c1c', // красный
+  finance:     '#047857',
+  mlm:         '#9d174d', // роза
+  mwrlife:     '#b8862b', // золото
+  ai:          '#6d28d9',
+  career:      '#1e4fd6',
 };
 
 const CATEGORY_LABELS = {
@@ -53,9 +60,9 @@ function escapeXml(str) {
     .replace(/'/g, '&apos;');
 }
 
-// Split title into 2-3 lines, ~28 chars per line max
-function wrapTitle(title, maxChars = 32) {
-  const words = title.split(/\s+/);
+// Разбить заголовок на строки, ~maxChars символов в строке
+function wrapTitle(title, maxChars = 26) {
+  const words = String(title || '').split(/\s+/);
   const lines = [];
   let cur = '';
   for (const w of words) {
@@ -65,52 +72,56 @@ function wrapTitle(title, maxChars = 32) {
     } else {
       cur = (cur + ' ' + w).trim();
     }
-    if (lines.length >= 3) break;
+    if (lines.length >= 4) break;
   }
   if (cur && lines.length < 4) lines.push(cur.trim());
   return lines.slice(0, 4);
 }
 
+const FONT = "'Manrope', 'Inter', 'DejaVu Sans', 'Liberation Sans', Arial, sans-serif";
+
 function buildSvg(article) {
-  const [c1, c2] = CATEGORY_GRADIENTS[article.category] || CATEGORY_GRADIENTS.legal;
+  const accent = CATEGORY_ACCENT[article.category] || COBALT;
   const cat = CATEGORY_LABELS[article.category] || article.category || '';
-  const lines = wrapTitle(article.title, 30);
-  const lineHeight = 78;
-  const startY = 230 - (lines.length - 2) * (lineHeight / 2);
+  const lines = wrapTitle(article.title, 26);
+  const lineHeight = 76;
+  // вертикальное центрирование блока заголовка вокруг y≈300
+  const startY = 300 - (lines.length - 1) * (lineHeight / 2);
 
   const titleSvg = lines.map((line, i) =>
-    `<text x="80" y="${startY + i * lineHeight}" font-family="Arial, 'Liberation Sans', sans-serif" font-weight="800" font-size="62" fill="#ffffff">${escapeXml(line)}</text>`
+    `<text x="92" y="${startY + i * lineHeight}" font-family="${FONT}" font-weight="800" font-size="64" letter-spacing="-1.5" fill="${INK}">${escapeXml(line)}</text>`
   ).join('\n  ');
 
   return `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="${c1}"/>
-      <stop offset="100%" stop-color="${c2}"/>
-    </linearGradient>
-    <radialGradient id="glow" cx="80%" cy="20%" r="50%">
-      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.18"/>
-      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    <radialGradient id="tint" cx="100%" cy="0%" r="70%">
+      <stop offset="0%" stop-color="${accent}" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="${accent}" stop-opacity="0"/>
     </radialGradient>
   </defs>
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <rect width="1200" height="630" fill="url(#glow)"/>
+  <!-- кремовый фон -->
+  <rect width="1200" height="630" fill="${CREAM}"/>
+  <rect width="1200" height="630" fill="url(#tint)"/>
+  <!-- крупный декоративный полупрозрачный круг в углу -->
+  <circle cx="1120" cy="120" r="220" fill="${accent}" fill-opacity="0.06"/>
+  <!-- левая акцентная полоса -->
+  <rect x="0" y="0" width="14" height="630" fill="${accent}"/>
 
-  <!-- top bar -->
-  <text x="80" y="100" font-family="Arial, sans-serif" font-weight="700" font-size="24" fill="#ffffff" opacity="0.85" letter-spacing="2">${escapeXml(cat.toUpperCase())}</text>
-  <line x1="80" y1="120" x2="180" y2="120" stroke="#ffffff" stroke-width="3" opacity="0.7"/>
+  <!-- категория -->
+  <text x="92" y="120" font-family="${FONT}" font-weight="800" font-size="26" fill="${accent}" letter-spacing="3">${escapeXml(cat.toUpperCase())}</text>
+  <rect x="92" y="138" width="64" height="4" rx="2" fill="${accent}"/>
 
-  <!-- title -->
+  <!-- заголовок -->
   ${titleSvg}
 
-  <!-- bottom: author + domain -->
-  <line x1="80" y1="510" x2="1120" y2="510" stroke="#ffffff" stroke-width="2" opacity="0.25"/>
-  <text x="80" y="565" font-family="Arial, sans-serif" font-weight="700" font-size="30" fill="#ffffff">Чимитдоржи Дарижапов</text>
-  <text x="80" y="600" font-family="Arial, sans-serif" font-weight="400" font-size="22" fill="#ffffff" opacity="0.8">chimitdorzhi.tech / блог</text>
+  <!-- низ: автор + домен -->
+  <line x1="92" y1="520" x2="1108" y2="520" stroke="${INK}" stroke-width="2" stroke-opacity="0.14"/>
+  <text x="92" y="572" font-family="${FONT}" font-weight="800" font-size="30" fill="${INK}">Чимитдоржи Дарижапов</text>
+  <text x="92" y="606" font-family="${FONT}" font-weight="500" font-size="22" fill="${INK}" opacity="0.55">chimitdorzhi.tech · блог</text>
 
-  <!-- reading minutes badge -->
-  <rect x="980" y="540" width="140" height="60" rx="30" fill="#ffffff" fill-opacity="0.18" stroke="#ffffff" stroke-opacity="0.4" stroke-width="2"/>
-  <text x="1050" y="580" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="22" fill="#ffffff">${article.readingMinutes || 10} мин</text>
+  <!-- бейдж минут чтения -->
+  <rect x="968" y="546" width="140" height="58" rx="12" fill="${accent}"/>
+  <text x="1038" y="584" text-anchor="middle" font-family="${FONT}" font-weight="800" font-size="22" fill="#ffffff">${article.readingMinutes || 10} мин</text>
 </svg>`;
 }
 
@@ -134,4 +145,4 @@ async function generateAll(articles) {
   return count;
 }
 
-module.exports = { generateCover, generateAll, buildSvg };
+module.exports = { generateCover, generateAll, buildSvg, CATEGORY_ACCENT, CATEGORY_LABELS };

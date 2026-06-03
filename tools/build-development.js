@@ -43,7 +43,7 @@ function head({ title, description, keywords, canonical, ogImage = `${SITE}/hero
     <meta name="keywords" content="${esc(keywords)}">
     <meta name="author" content="Дарижапов Чимитдоржи">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
-    <meta name="theme-color" content="#121218">
+    <meta name="theme-color" content="#f4f1ea">
     <link rel="canonical" href="${canonical}">
 
     <meta property="og:type" content="website">
