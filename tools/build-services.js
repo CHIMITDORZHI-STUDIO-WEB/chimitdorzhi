@@ -9,6 +9,48 @@ const fs = require('fs');
 const path = require('path');
 const { categories, services } = require('./services-data');
 const { i18nServices, i18nUi } = require('./services-i18n-source');
+const OFFERS = require('./offers-data.js');
+
+// Карта: услуга (slug) → готовое предложение (slug). Связывает каталог услуг с предложениями.
+const SERVICE_OFFER = {
+  'telegram-bots': 'bot-dlya-biznesa',
+  'ai-agents': 'ai-konsultant',
+  'rag-systems': 'baza-znaniy-ai',
+  'business-automation': 'cifrovizaciya-pod-klyuch',
+  'web-development': 'bystryy-start-sayt',
+  'cybersecurity': '152-fz-pod-klyuch',
+  'rkn-audit': '152-fz-pod-klyuch',
+  'digital-marketing': 'programma-loyalnosti',
+  'clinics-digitalization': 'it-stomatologiya',
+  'cto-as-a-service': 'cto-as-a-service',
+  'russian-stack-migration': 'importozameshchenie-infrastruktura',
+  'it-infrastructure': 'importozameshchenie-infrastruktura',
+  'hr-team-management': 'hr-bot-podbor',
+  'voice-ai': 'golosovoy-ai-bot',
+  'business-analytics-unit-economics': 'dashboard-rukovoditelya',
+  'china-it': 'marketplace-pod-nishu',
+  'mobile-apps': 'bystryy-start-sayt',
+};
+
+function serviceOfferBlock(svc) {
+  const offerSlug = SERVICE_OFFER[svc.s];
+  if (!offerSlug) return '';
+  const o = OFFERS.find((x) => x.slug === offerSlug && x.published !== false);
+  if (!o) return '';
+  return `
+        <section class="section section-tight">
+            <div class="container">
+                <a class="blog-offer-cta" href="/predlozheniya/${o.slug}/">
+                    <span class="blog-offer-cta-body">
+                        <span class="blog-offer-cta-eyebrow">Готовое решение под ключ</span>
+                        <span class="blog-offer-cta-title">${esc(o.title)}</span>
+                        <span class="blog-offer-cta-price">${esc(o.priceFrom)} · перейти к предложению</span>
+                    </span>
+                    <span class="btn btn-accent"><i class="ph ph-arrow-right"></i> Смотреть решение</span>
+                </a>
+            </div>
+        </section>`;
+}
 
 const SITE = 'https://chimitdorzhi.tech';
 const ROOT = path.resolve(__dirname, '..');
@@ -394,6 +436,8 @@ ${faqJsonLd(svc)}
         ${pricingFactorsSection(svc)}
 
         ${faqSection(svc)}
+
+        ${serviceOfferBlock(svc)}
 
         ${relatedSection(svc)}
 

@@ -533,10 +533,38 @@ ${tableRows}
   console.log(`  пиллар обновлён: каталог из ${count} предложений`);
 }
 
+// Витрина на главной: 6 избранных карточек между маркерами в index.html.
+const HOME_FEATURED = ['cifrovizaciya-pod-klyuch', 'ai-konsultant', 'zapis-salon-krasoty', 'programma-loyalnosti', '152-fz-pod-klyuch', 'bot-magazin-zakazy'];
+function offerCard(o) {
+  return `                    <a href="/predlozheniya/${o.slug}/" class="offer-card" data-segment="${esc(o.segment || '')}">
+                        <span class="offer-card-icon"><i class="ph-fill ${esc(o.icon)}" aria-hidden="true"></i></span>
+                        <span class="offer-card-niche">${esc(o.niche)}</span>
+                        <span class="offer-card-title">${esc(o.title)}</span>
+                        <span class="offer-card-tagline">${esc(o.tagline)}</span>
+                        <span class="offer-card-foot"><span class="offer-card-price">${esc(o.priceFrom)}</span><span class="offer-card-more">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></span></span>
+                    </a>`;
+}
+function generateHomeShowcase(pub) {
+  const INDEX = path.join(ROOT, 'index.html');
+  if (!fs.existsSync(INDEX)) return;
+  let featured = HOME_FEATURED.map((s) => pub.find((o) => o.slug === s)).filter(Boolean);
+  // добор до 6, если каких-то слагов нет
+  if (featured.length < 6) for (const o of pub) { if (featured.length >= 6) break; if (!featured.includes(o)) featured.push(o); }
+  const cards = featured.slice(0, 6).map(offerCard).join('\n');
+  let html = fs.readFileSync(INDEX, 'utf8');
+  const re = /(<!--OFFERS_HOME_START-->)[\s\S]*?(<!--OFFERS_HOME_END-->)/;
+  if (re.test(html)) {
+    html = html.replace(re, `$1\n${cards}\n                    $2`);
+    fs.writeFileSync(INDEX, html, 'utf8');
+    console.log(`  витрина на главной: ${featured.slice(0, 6).length} карточек`);
+  }
+}
+
 async function main() {
   const pub = offers.filter((o) => o && o.published !== false);
   ensureDir(OUT);
   generatePillar(pub);
+  generateHomeShowcase(pub);
   await generateCovers(pub);
   fs.writeFileSync(path.join(OUT, 'index.html'), hubPage(pub), 'utf8');
   for (const o of pub) {
