@@ -152,15 +152,17 @@ function offerLd(o, url) {
     provider: { '@id': `${SITE}/#organization` },
     areaServed: { '@type': 'Country', name: 'Россия' },
     url,
-    offers: {
+  };
+  if (o.priceMin) {
+    obj.offers = {
       '@type': 'Offer',
       priceCurrency: 'RUB',
       price: String(o.priceMin),
       priceSpecification: { '@type': 'PriceSpecification', priceCurrency: 'RUB', minPrice: o.priceMin },
       availability: 'https://schema.org/InStock',
       url,
-    },
-  };
+    };
+  }
   return JSON.stringify(obj, null, 2);
 }
 
@@ -188,7 +190,7 @@ function breadcrumbLd(o, url) {
 
 function offerPage(o) {
   const url = `${SITE}/predlozheniya/${o.slug}/`;
-  const includes = o.includes.map((i) => `<li><i class="ph-fill ph-check-circle" aria-hidden="true"></i> ${esc(i)}</li>`).join('\n');
+  const includes = (o.includes || []).map((i) => `<li><i class="ph-fill ph-check-circle" aria-hidden="true"></i> ${esc(i)}</li>`).join('\n');
   const result = (o.result || []).map((r) => `<li><i class="ph-fill ph-trend-up" aria-hidden="true"></i> ${esc(r)}</li>`).join('\n');
   const packages = (o.packages || []).map((p) => `
         <div class="offer-pkg">
@@ -235,10 +237,11 @@ ${faqLd(o)}</head>
                     </div>
                     <div class="offer-hero-actions">
                         <a href="${tg(`Здравствуйте! Интересует «${o.title}» (${o.priceFrom}).`)}" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Обсудить задачу</a>
-                        <a href="#packages" class="btn btn-ghost">Смотреть пакеты</a>
+                        ${(o.packages || []).length ? '<a href="#packages" class="btn btn-ghost">Смотреть пакеты</a>' : '<a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>'}
                     </div>
                 </div>
 
+                ${o.bodyHtml ? `<div class="offer-block"><div class="blog-body offer-body">${o.bodyHtml}</div></div>` : `
                 <div class="offer-block">
                     <h2>В чём проблема</h2>
                     <p>${esc(o.problem)}</p>
@@ -253,7 +256,7 @@ ${faqLd(o)}</head>
 
                 ${fitBlock}
 
-                ${packages ? `<div class="offer-block" id="packages"><h2>Пакеты</h2><div class="offer-pkgs">${packages}</div><p class="offer-note">Итоговая цена зависит от ваших процессов и интеграций. Точную смету назову после короткого разговора.</p></div>` : ''}
+                ${packages ? `<div class="offer-block" id="packages"><h2>Пакеты</h2><div class="offer-pkgs">${packages}</div><p class="offer-note">Итоговая цена зависит от ваших процессов и интеграций. Точную смету назову после короткого разговора.</p></div>` : ''}`}
 
                 ${processBlock()}
 
