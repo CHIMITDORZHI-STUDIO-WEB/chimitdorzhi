@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="/assets/phosphor/regular.css"><link rel="stylesheet" href="/assets/phosphor/fill.css"></noscript>
-    <link rel="stylesheet" href="/style.css?v=32">
+    <link rel="stylesheet" href="/style.css?v=33">
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -97,9 +97,14 @@
                     <h1 class="section-heading">Готовые решения для <span class="text-gradient">бизнеса</span></h1>
                     <p class="section-sub">Упакованные IT-решения под вашу нишу: онлайн-запись, боты, CRM, автоматизация и AI. С понятным составом, ценой «от» и сроком. Точную смету называю после короткого разговора — без форм и спама.</p>
                 </div>
-                <div class="offer-grid">
+                <div class="offer-filter" role="group" aria-label="Фильтр по нишам">
+                    <button class="offer-chip active" data-seg="all">Все <span>3</span></button>
+                    <button class="offer-chip" data-seg="Автоматизация">Автоматизация</button>
+                    <button class="offer-chip" data-seg="Боты и AI">Боты и AI</button>
+                </div>
+                <div class="offer-grid" id="offerGrid">
 
-            <a href="/predlozheniya/avtoservis/" class="offer-card">
+            <a href="/predlozheniya/avtoservis/" class="offer-card" data-segment="Автоматизация">
                 <span class="offer-card-icon"><i class="ph-fill ph-wrench" aria-hidden="true"></i></span>
                 <span class="offer-card-niche">Автосервис и СТО</span>
                 <span class="offer-card-title">Цифровизация автосервиса под ключ</span>
@@ -107,7 +112,7 @@
                 <span class="offer-card-foot"><span class="offer-card-price">от 25 000 ₽</span><span class="offer-card-more">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></span></span>
             </a>
 
-            <a href="/predlozheniya/obshchepit/" class="offer-card">
+            <a href="/predlozheniya/obshchepit/" class="offer-card" data-segment="Автоматизация">
                 <span class="offer-card-icon"><i class="ph-fill ph-fork-knife" aria-hidden="true"></i></span>
                 <span class="offer-card-niche">Кафе и общепит</span>
                 <span class="offer-card-title">IT-решение для кафе и общепита</span>
@@ -115,7 +120,7 @@
                 <span class="offer-card-foot"><span class="offer-card-price">от 20 000 ₽</span><span class="offer-card-more">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></span></span>
             </a>
 
-            <a href="/predlozheniya/bot-dlya-biznesa/" class="offer-card">
+            <a href="/predlozheniya/bot-dlya-biznesa/" class="offer-card" data-segment="Боты и AI">
                 <span class="offer-card-icon"><i class="ph-fill ph-robot" aria-hidden="true"></i></span>
                 <span class="offer-card-niche">Любой бизнес</span>
                 <span class="offer-card-title">Чат-бот для бизнеса: Telegram, МАКС, VK</span>
@@ -154,5 +159,20 @@
 </footer>
 <script src="/i18n.js?v=28" defer></script>
 <script src="/script.js?v=27" defer></script>
+    <script>
+    (function(){
+      var chips=document.querySelectorAll('.offer-chip');
+      var cards=document.querySelectorAll('#offerGrid .offer-card');
+      if(!chips.length)return;
+      chips.forEach(function(c){c.addEventListener('click',function(){
+        chips.forEach(function(x){x.classList.remove('active');});
+        c.classList.add('active');
+        var seg=c.getAttribute('data-seg');
+        cards.forEach(function(card){
+          card.style.display=(seg==='all'||card.getAttribute('data-segment')===seg)?'':'none';
+        });
+      });});
+    })();
+    </script>
 </body>
 </html>
