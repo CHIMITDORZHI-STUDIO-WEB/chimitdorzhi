@@ -59,6 +59,12 @@ const OFFER_LINKS = {
   'cifrovizaciya-vetklinik-2026': 'it-vetklinika',
   'ai-v-hr-naym-2026': 'hr-bot-podbor',
   'ai-transkripciya-soveshchaniy-2026': 'baza-znaniy-ai',
+  'mvp-to-production-3-mesyatsa-2026': 'zapusk-saas-produkta',
+  'saas-pricing-2026': 'zapusk-saas-produkta',
+  'importozameshchenie-po-2026': 'importozameshchenie-infrastruktura',
+  'self-hosted-infrastruktura-2026': 'importozameshchenie-infrastruktura',
+  'svoy-vps-dlya-razrabotchika-2026': 'importozameshchenie-infrastruktura',
+  'ai-agenty-v-biznese-2026': 'ai-otdel-prodazh-podderzhki',
 };
 
 function blogOfferCta(a) {
