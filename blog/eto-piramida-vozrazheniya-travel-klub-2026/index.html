@@ -40,7 +40,7 @@
         <link rel="stylesheet" href="/assets/phosphor/regular.css">
         <link rel="stylesheet" href="/assets/phosphor/fill.css">
     </noscript>
-    <link rel="stylesheet" href="/style.css?v=35">
+    <link rel="stylesheet" href="/style.css?v=36">
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -536,7 +536,7 @@
   <h2>Читайте также</h2>
   <div class="blog-grid"><a class="blog-card" href="/blog/mwr-life-chestnyy-obzor-2026/" data-category="mwrlife">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-star-half"></i></div>
+  <img class="blog-card-cover" src="/blog/mwr-life-chestnyy-obzor-2026/cover.png" alt="" loading="lazy" width="1200" height="630">
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>MWR Life</span>
   <h3>MWR Life / Travel Advantage: честный обзор от участника 2026</h3>
   <p>Я участник MWR Life — рассказываю как есть: что за платформа, реально ли дешевле (мои кейсы), как работают баллы, что за групповые туры, сколько стоит подписка и что с партнёркой. Без рекламного глянца: плюсы, реальные минусы и кому это подойдёт, а кому нет. Развод или нет — честный ответ.</p>
@@ -548,7 +548,7 @@
 </a>
 <a class="blog-card" href="/blog/komu-podhodit-partnerka-travel-kluba-2026/" data-category="mwrlife">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-funnel"></i></div>
+  <img class="blog-card-cover" src="/blog/komu-podhodit-partnerka-travel-kluba-2026/cover.png" alt="" loading="lazy" width="1200" height="630">
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>MWR Life</span>
   <h3>Кому подходит партнёрка travel-клуба, а кому нет: честная фильтрация 2026</h3>
   <p>Партнёрка travel-клуба — не для всех, и я говорю это честно. Разбираю портреты тех, кому она реально подходит (любят путешествия, готовы работать, коммуникабельны), и антипортреты тех, кому точно нет (ищут халяву, верят в пассив без усилий). Сколько нужно времени и денег, какие качества помогают, тест на самопроверку.</p>
@@ -560,7 +560,7 @@
 </a>
 <a class="blog-card" href="/blog/partnerka-travel-kluba-dohod-2026/" data-category="mwrlife">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-chart-line-up"></i></div>
+  <img class="blog-card-cover" src="/blog/partnerka-travel-kluba-dohod-2026/cover.png" alt="" loading="lazy" width="1200" height="630">
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>MWR Life</span>
   <h3>Партнёрка travel-клуба 2026: как устроен доход — механика без обещаний</h3>
   <p>Разбираю механику дохода в партнёрке travel-клуба честно, без громких сумм: из чего складывается доход, почему подписка = оборот (а не взносы), как работают Unilevel и Dual Team, ранги и бонусы. Главное прямо: доход не гарантирован, у большинства скромный, это работа. Плюс налоги и отличие от пирамиды.</p>
@@ -660,6 +660,35 @@
       window.addEventListener('scroll',upd,{passive:true});
       window.addEventListener('resize',upd,{passive:true});
       upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
     })();
     </script>
 </body>

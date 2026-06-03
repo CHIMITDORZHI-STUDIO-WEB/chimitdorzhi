@@ -40,7 +40,7 @@
         <link rel="stylesheet" href="/assets/phosphor/regular.css">
         <link rel="stylesheet" href="/assets/phosphor/fill.css">
     </noscript>
-    <link rel="stylesheet" href="/style.css?v=35">
+    <link rel="stylesheet" href="/style.css?v=36">
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -498,7 +498,7 @@
   <h2>Читайте также</h2>
   <div class="blog-grid"><a class="blog-card" href="/blog/max-bot-restoran-kafe-2026/" data-category="development">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-fork-knife"></i></div>
+  <img class="blog-card-cover" src="/blog/max-bot-restoran-kafe-2026/cover.png" alt="" loading="lazy" width="1200" height="630">
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
   <h3>МАХ-бот для ресторана и кафе 2026: меню, бронирование, заказы</h3>
   <p>Рестораны теряют 15–30% выручки на комиссиях агрегаторов. МАХ-бот возвращает прямой канал — без комиссии. Разбираю как сделать бот с меню в Mini App, доставкой, бронированием столиков, программой лояльности и интеграцией с iiko/r_keeper за 2–4 недели. С Node.js кодом, SQL-схемами лояльности и реальными бюджетами 2026.</p>
@@ -510,7 +510,7 @@
 </a>
 <a class="blog-card" href="/blog/max-bot-rieltor-2026/" data-category="development">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-house"></i></div>
+  <img class="blog-card-cover" src="/blog/max-bot-rieltor-2026/cover.png" alt="" loading="lazy" width="1200" height="630">
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
   <h3>МАХ-бот для риелтора 2026: подборки квартир, AI-оценка, чат с клиентом</h3>
   <p>Риелторы тратят 40-60% времени на рутину: подборки квартир, типовые ответы, отслеживание клиентов. МАХ-бот с AI автоматизирует 60-80% этих задач. Разбираю архитектуру полноценной CRM-системы для агентства недвижимости: парсинг ЦИАН/Авито, AI-подборки, ML-оценка квартир, GPT-чат, документы по сделке и cross-sell с реальным кодом на Python.</p>
@@ -522,7 +522,7 @@
 </a>
 <a class="blog-card" href="/blog/crm-dlya-malogo-biznesa-2026/" data-category="sales">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-address-book"></i></div>
+  <img class="blog-card-cover" src="/blog/crm-dlya-malogo-biznesa-2026/cover.png" alt="" loading="lazy" width="1200" height="630">
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Продажи и стартап</span>
   <h3>CRM для малого бизнеса 2026: amoCRM vs Bitrix24 vs RetailCRM vs Notion — что выбрать без переплаты</h3>
   <p>Малый бизнес 2026 теряет деньги, выбирая CRM по принципу «надо корпоративное» или «у всех amoCRM». Разбираю топ-5 CRM (amoCRM, Bitrix24, RetailCRM, Notion, Kommo, HubSpot Free) с ценами 2026, AI-фичами, обязательными интеграциями, миграцией, полной стоимостью владения и финальной рекомендацией под каждый сегмент бизнеса.</p>
@@ -613,6 +613,35 @@
       window.addEventListener('scroll',upd,{passive:true});
       window.addEventListener('resize',upd,{passive:true});
       upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
     })();
     </script>
 </body>

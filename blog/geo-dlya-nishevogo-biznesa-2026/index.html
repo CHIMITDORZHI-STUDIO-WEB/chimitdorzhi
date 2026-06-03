@@ -40,7 +40,7 @@
         <link rel="stylesheet" href="/assets/phosphor/regular.css">
         <link rel="stylesheet" href="/assets/phosphor/fill.css">
     </noscript>
-    <link rel="stylesheet" href="/style.css?v=35">
+    <link rel="stylesheet" href="/style.css?v=36">
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -531,7 +531,7 @@
   <h2>Читайте также</h2>
   <div class="blog-grid"><a class="blog-card" href="/blog/geo-optimizaciya-chto-eto-2026/" data-category="geo">
   
-  <div class="blog-card-icon"><i class="ph-sparkle"></i></div>
+  <img class="blog-card-cover" src="/blog/geo-optimizaciya-chto-eto-2026/cover.png" alt="" loading="lazy" width="1200" height="630">
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>GEO и AI-поиск</span>
   <h3>GEO-оптимизация: что такое генеративная оптимизация и зачем она бизнесу в 2026</h3>
   <p>Поиск переезжает в ответы нейросетей, и привычное SEO перестаёт работать в одиночку. Разбираю, что такое GEO, как ИИ выбирают источники и с чего начать, чтобы вас цитировали ChatGPT, Perplexity и Алиса.</p>
@@ -543,7 +543,7 @@
 </a>
 <a class="blog-card" href="/blog/geo-chek-list-30-punktov-2026/" data-category="geo">
   
-  <div class="blog-card-icon"><i class="ph-list-checks"></i></div>
+  <img class="blog-card-cover" src="/blog/geo-chek-list-30-punktov-2026/cover.png" alt="" loading="lazy" width="1200" height="630">
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>GEO и AI-поиск</span>
   <h3>Как попасть в ответы ChatGPT, Perplexity и Алисы: чек-лист из 30 пунктов</h3>
   <p>Собрал в один чек-лист 30 пунктов, которые реально влияют на то, попадёте ли вы в ответы нейросетей: техника, контент, авторитетность, источники и измерение. Проходите по списку и отмечайте, что уже сделано.</p>
@@ -555,7 +555,7 @@
 </a>
 <a class="blog-card" href="/blog/yandex-neyro-alisa-istochniki-2026/" data-category="geo">
   
-  <div class="blog-card-icon"><i class="ph-magnifying-glass"></i></div>
+  <img class="blog-card-cover" src="/blog/yandex-neyro-alisa-istochniki-2026/cover.png" alt="" loading="lazy" width="1200" height="630">
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>GEO и AI-поиск</span>
   <h3>Как Яндекс Нейро и Алиса выбирают источники — и как туда попасть</h3>
   <p>Яндекс отдаёт всё больше ответов через Нейро и Алису — и берёт их из конкретных источников. Разбираю, как Яндекс выбирает сайты для нейро-ответа и что сделать, чтобы оказаться среди них.</p>
@@ -646,6 +646,35 @@
       window.addEventListener('scroll',upd,{passive:true});
       window.addEventListener('resize',upd,{passive:true});
       upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
     })();
     </script>
 </body>

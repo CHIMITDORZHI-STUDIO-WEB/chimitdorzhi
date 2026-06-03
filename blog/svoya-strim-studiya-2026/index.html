@@ -40,7 +40,7 @@
         <link rel="stylesheet" href="/assets/phosphor/regular.css">
         <link rel="stylesheet" href="/assets/phosphor/fill.css">
     </noscript>
-    <link rel="stylesheet" href="/style.css?v=35">
+    <link rel="stylesheet" href="/style.css?v=36">
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -524,7 +524,7 @@ while True:
   <h2>Читайте также</h2>
   <div class="blog-grid"><a class="blog-card" href="/blog/podcast-s-gostyami-monetizaciya-2026/" data-category="media">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-microphone-stage"></i></div>
+  <img class="blog-card-cover" src="/blog/podcast-s-gostyami-monetizaciya-2026/cover.png" alt="" loading="lazy" width="1200" height="630">
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Медиа и подкасты</span>
   <h3>Подкаст с гостями: как монетизировать — опыт 100+ эпизодов</h3>
   <p>Подкаст с гостями в 2026 — лучшая контент-стратегия для эксперта: 1 эпизод даёт 5+ форматов, конверсия в клиента 10-20%, LTV выше в 3-5 раз. Опыт 100+ эпизодов и 1М+ просмотров: технический стек, где искать гостей, 7 моделей монетизации, AI-инструменты, чек-лист запуска за 30 дней.</p>
@@ -536,7 +536,7 @@ while True:
 </a>
 <a class="blog-card" href="/blog/ai-transkripciya-soveshchaniy-2026/" data-category="ai-life">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-microphone"></i></div>
+  <img class="blog-card-cover" src="/blog/ai-transkripciya-soveshchaniy-2026/cover.png" alt="" loading="lazy" width="1200" height="630">
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>AI для жизни и работы</span>
   <h3>Whisper + GPT для транскрипции совещаний 2026: AI-ассистент для встреч</h3>
   <p>Полный путь к AI-ассистенту для встреч за выходные: Whisper, диаризация, саммари через Claude/GPT/YandexGPT, интеграция с Notion/Trello/Telegram. Юр-нюансы РФ, кейс автора.</p>
@@ -548,7 +548,7 @@ while True:
 </a>
 <a class="blog-card" href="/blog/svoy-sayt-vs-socseti-2026/" data-category="marketing">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-globe-stand"></i></div>
+  <img class="blog-card-cover" src="/blog/svoy-sayt-vs-socseti-2026/cover.png" alt="" loading="lazy" width="1200" height="630">
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Маркетинг и контент</span>
   <h3>Свой сайт vs соцсети 2026: почему ваш контент на чужих платформах — не ваш</h3>
   <p>В 2026 алгоритмы душат охваты, аккаунты блокируют, платформы меняют правила. Свой сайт + email-база + Telegram = единственный актив, который вы реально контролируете. План перехода за 90 дней.</p>
@@ -646,6 +646,35 @@ while True:
       window.addEventListener('scroll',upd,{passive:true});
       window.addEventListener('resize',upd,{passive:true});
       upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
     })();
     </script>
 </body>

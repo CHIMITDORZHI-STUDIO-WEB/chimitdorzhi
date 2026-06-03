@@ -40,7 +40,7 @@
         <link rel="stylesheet" href="/assets/phosphor/regular.css">
         <link rel="stylesheet" href="/assets/phosphor/fill.css">
     </noscript>
-    <link rel="stylesheet" href="/style.css?v=35">
+    <link rel="stylesheet" href="/style.css?v=36">
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -656,7 +656,7 @@
   <h2>Читайте также</h2>
   <div class="blog-grid"><a class="blog-card" href="/blog/soglasie-na-obrabotku-pd-2026/" data-category="legal">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-file-text"></i></div>
+  <img class="blog-card-cover" src="/blog/soglasie-na-obrabotku-pd-2026/cover.png" alt="" loading="lazy" width="1200" height="630">
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Право и compliance</span>
   <h3>Согласие на обработку персональных данных 2026: как составить, шаблоны, штрафы</h3>
   <p>Согласие на обработку ПД — самый частый источник штрафов по 152-ФЗ. С 30 мая 2025 действуют новые суммы по ФЗ-420: до 700 тыс. за обработку без согласия, оборотные штрафы до 500 млн за утечки. Разбираю обязательные элементы по ст. 9, когда нужно письменное согласие, согласие на распространение, оформление на сайте, право на отзыв. С готовым шаблоном и чек-листом.</p>
@@ -668,7 +668,7 @@
 </a>
 <a class="blog-card" href="/blog/elektronnaya-podpis-biznes-2026/" data-category="legal">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-signature"></i></div>
+  <img class="blog-card-cover" src="/blog/elektronnaya-podpis-biznes-2026/cover.png" alt="" loading="lazy" width="1200" height="630">
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Право и compliance</span>
   <h3>Электронная подпись для бизнеса 2026: ЭЦП, КЭП, как оформить — для документов и торгов</h3>
   <p>Без электронной подписи бизнесу в 2026 никуда: ЭДО, налоговая, торги, маркировка. Разбираю как юрист: виды ЭП по 63-ФЗ, как бесплатно получить КЭП юрлица в УЦ ФНС, что такое МЧД для сотрудников, токены и настройка КриптоПро, применение в торгах (44-ФЗ/223-ФЗ) и ЭДО. Со стоимостью, защитой токена и от мошенничества.</p>
@@ -680,7 +680,7 @@
 </a>
 <a class="blog-card" href="/blog/cookie-banner-zakon/" data-category="legal">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-cookie"></i></div>
+  <img class="blog-card-cover" src="/blog/cookie-banner-zakon/cover.png" alt="" loading="lazy" width="1200" height="630">
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Право и compliance</span>
   <h3>Cookie-баннер по закону: как сделать правильно и не получить штраф</h3>
   <p>Семь обязательных элементов правильного баннера, пять запрещённых dark patterns, готовый код на 60 строк JS и штрафы за нарушения по ст. 13.11 КоАП.</p>
@@ -782,6 +782,35 @@
       window.addEventListener('scroll',upd,{passive:true});
       window.addEventListener('resize',upd,{passive:true});
       upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
     })();
     </script>
 </body>

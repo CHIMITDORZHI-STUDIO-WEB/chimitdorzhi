@@ -40,7 +40,7 @@
         <link rel="stylesheet" href="/assets/phosphor/regular.css">
         <link rel="stylesheet" href="/assets/phosphor/fill.css">
     </noscript>
-    <link rel="stylesheet" href="/style.css?v=35">
+    <link rel="stylesheet" href="/style.css?v=36">
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -611,7 +611,7 @@ app.listen(3000);
   <h2>Читайте также</h2>
   <div class="blog-grid"><a class="blog-card" href="/blog/pwa-iz-sayta-za-vyhodnye-2026/" data-category="development">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-app-window"></i></div>
+  <img class="blog-card-cover" src="/blog/pwa-iz-sayta-za-vyhodnye-2026/cover.png" alt="" loading="lazy" width="1200" height="630">
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
   <h3>Как превратить обычный сайт в PWA за выходные: пошаговый туториал с кодом</h3>
   <p>Туториал на выходные: manifest.json, Service Worker, install-button и push-уведомления для iOS и Android. Готовый код, чек-листы и публикация в RuStore.</p>
@@ -623,7 +623,7 @@ app.listen(3000);
 </a>
 <a class="blog-card" href="/blog/mvp-to-production-3-mesyatsa-2026/" data-category="sales">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-rocket-launch"></i></div>
+  <img class="blog-card-cover" src="/blog/mvp-to-production-3-mesyatsa-2026/cover.png" alt="" loading="lazy" width="1200" height="630">
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Продажи и стартап</span>
   <h3>От MVP до Production за 3 месяца: реальный roadmap для стартапа 2026</h3>
   <p>Реальный план запуска MVP за 3 месяца от инженера, который провёл 15+ проектов от идеи до прод-релиза. По неделям: discovery, foundation, product, production. Стек инструментов с ценами, команда, юр.форма, метрики, кейс RAG-системы для юр-компании, которая окупилась за 4 месяца.</p>
@@ -635,7 +635,7 @@ app.listen(3000);
 </a>
 <a class="blog-card" href="/blog/rossiyskiy-ai-stack-2026/" data-category="ai-dev">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-brain"></i></div>
+  <img class="blog-card-cover" src="/blog/rossiyskiy-ai-stack-2026/cover.png" alt="" loading="lazy" width="1200" height="630">
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>AI для разработчиков</span>
   <h3>Российский AI-стек 2026: чем заменить OpenAI, Claude и Gemini</h3>
   <p>Что есть в РФ вместо OpenAI и Claude: YandexGPT 5, GigaChat 3, T-Pro, Cotype, Kandinsky 4, open-source self-hosting. Цены, код подключения, кейсы.</p>
@@ -733,6 +733,35 @@ app.listen(3000);
       window.addEventListener('scroll',upd,{passive:true});
       window.addEventListener('resize',upd,{passive:true});
       upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
     })();
     </script>
 </body>

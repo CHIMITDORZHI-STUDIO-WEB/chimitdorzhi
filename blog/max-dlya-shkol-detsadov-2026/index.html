@@ -40,7 +40,7 @@
         <link rel="stylesheet" href="/assets/phosphor/regular.css">
         <link rel="stylesheet" href="/assets/phosphor/fill.css">
     </noscript>
-    <link rel="stylesheet" href="/style.css?v=35">
+    <link rel="stylesheet" href="/style.css?v=36">
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -459,7 +459,7 @@
   <h2>Читайте также</h2>
   <div class="blog-grid"><a class="blog-card" href="/blog/cifrovizaciya-detskogo-sada-2026/" data-category="industries">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-baby"></i></div>
+  <img class="blog-card-cover" src="/blog/cifrovizaciya-detskogo-sada-2026/cover.png" alt="" loading="lazy" width="1200" height="630">
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Отрасли</span>
   <h3>Цифровизация детского сада 2026: запись, оплата, фото-отчёты, питание, СанПиН</h3>
   <p>Частный детсад — бизнес с самыми чувствительными данными: фото и сведения о детях. Полный IT-стек 2026: учёт детей (1С:Дошкольное, Параграф, Kidza), онлайн-запись, оплата с маткапиталом и вычетом, фото-отчёты родителям с согласием по 152-ФЗ, питание и СанПиН, контроль доступа «кто забрал ребёнка». С Python-кодом бота фото-отчётов и расчёта оплаты по табелю.</p>
@@ -471,7 +471,7 @@
 </a>
 <a class="blog-card" href="/blog/avtomatizaciya-onlayn-shkoly-2026/" data-category="industries">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-graduation-cap"></i></div>
+  <img class="blog-card-cover" src="/blog/avtomatizaciya-onlayn-shkoly-2026/cover.png" alt="" loading="lazy" width="1200" height="630">
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Отрасли</span>
   <h3>Автоматизация онлайн-школ 2026: LMS, оплаты, прокторинг, AI-проверка работ</h3>
   <p>EdTech РФ 2026 — рынок после ухода Vimeo, Teachable и Zoom. Полный стек: LMS (GetCourse, AntiTreningi, iSpring Learn), видео на Kinescope/Rutube, вебинары Bizon365/МТС Линк, оплаты с BNPL (Долями, Сплит), прокторинг Examus, AI-проверка работ на GigaChat. С Python-кодом OpenAI-совместимого клиента для оценки эссе.</p>
@@ -483,7 +483,7 @@
 </a>
 <a class="blog-card" href="/blog/max-mini-apps-2026/" data-category="development">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-app-window"></i></div>
+  <img class="blog-card-cover" src="/blog/max-mini-apps-2026/cover.png" alt="" loading="lazy" width="1200" height="630">
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
   <h3>МАХ Mini Apps 2026: разработка мини-приложений для бизнеса — что есть и что будет</h3>
   <p>Telegram Mini Apps стали стандартом. МАХ — российский мессенджер от VK Group — идёт по тому же пути. В 2026 году Mini Apps в МАХ это новая ниша для бизнеса с низкой конкуренцией. Разбираю как разработать мини-приложение, какие возможности SDK даёт, технический стек, бюджеты и почему стоит зайти первым.</p>
@@ -574,6 +574,35 @@
       window.addEventListener('scroll',upd,{passive:true});
       window.addEventListener('resize',upd,{passive:true});
       upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
     })();
     </script>
 </body>

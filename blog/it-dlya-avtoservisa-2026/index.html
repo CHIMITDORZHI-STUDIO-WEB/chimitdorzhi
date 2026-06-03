@@ -40,7 +40,7 @@
         <link rel="stylesheet" href="/assets/phosphor/regular.css">
         <link rel="stylesheet" href="/assets/phosphor/fill.css">
     </noscript>
-    <link rel="stylesheet" href="/style.css?v=35">
+    <link rel="stylesheet" href="/style.css?v=36">
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -628,7 +628,7 @@ if __name__ == "__main__":
   <h2>Читайте также</h2>
   <div class="blog-grid"><a class="blog-card" href="/blog/it-dlya-salonov-krasoty-2026/" data-category="industries">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-scissors"></i></div>
+  <img class="blog-card-cover" src="/blog/it-dlya-salonov-krasoty-2026/cover.png" alt="" loading="lazy" width="1200" height="630">
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Отрасли</span>
   <h3>IT для салонов красоты 2026: онлайн-запись, CRM, мобильное приложение, маркетплейс</h3>
   <p>В РФ 100 000+ салонов красоты, и большинство ведут запись в Google Sheets. Грамотный IT-стек даёт +30% выручки. Разбираю YClients, Sonline, DikidiBusiness; борьбу с no-show (с 20% до 3-5%), программу лояльности, AI-консультант beauty, PWA. С Node.js-кодом напоминаний.</p>
@@ -640,7 +640,7 @@ if __name__ == "__main__":
 </a>
 <a class="blog-card" href="/blog/crm-dlya-malogo-biznesa-2026/" data-category="sales">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-address-book"></i></div>
+  <img class="blog-card-cover" src="/blog/crm-dlya-malogo-biznesa-2026/cover.png" alt="" loading="lazy" width="1200" height="630">
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Продажи и стартап</span>
   <h3>CRM для малого бизнеса 2026: amoCRM vs Bitrix24 vs RetailCRM vs Notion — что выбрать без переплаты</h3>
   <p>Малый бизнес 2026 теряет деньги, выбирая CRM по принципу «надо корпоративное» или «у всех amoCRM». Разбираю топ-5 CRM (amoCRM, Bitrix24, RetailCRM, Notion, Kommo, HubSpot Free) с ценами 2026, AI-фичами, обязательными интеграциями, миграцией, полной стоимостью владения и финальной рекомендацией под каждый сегмент бизнеса.</p>
@@ -652,7 +652,7 @@ if __name__ == "__main__":
 </a>
 <a class="blog-card" href="/blog/voronka-prodazh-b2b-2026/" data-category="sales">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-funnel"></i></div>
+  <img class="blog-card-cover" src="/blog/voronka-prodazh-b2b-2026/cover.png" alt="" loading="lazy" width="1200" height="630">
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Продажи и стартап</span>
   <h3>Воронка продаж B2B 2026: как построить и автоматизировать через AI + CRM</h3>
   <p>B2B-воронка отличается от B2C тремя вещами: длинный цикл сделки, multi-stakeholder, обязательное ROI-обоснование. Разбираю 6 этапов, лид-скоринг по 4 осям, AI-автоматизацию (персонализация писем 1000+ в день, voice-обзвон, классификация лидов), метрики, готовый n8n-скрипт и реальный кейс с окупаемостью 1,5 месяца.</p>
@@ -752,6 +752,35 @@ if __name__ == "__main__":
       window.addEventListener('scroll',upd,{passive:true});
       window.addEventListener('resize',upd,{passive:true});
       upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
     })();
     </script>
 </body>
