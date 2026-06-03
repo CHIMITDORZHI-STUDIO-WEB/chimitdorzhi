@@ -497,7 +497,7 @@ const article1Content = `
     <li>152-ФЗ касается любого сайта, который собирает хотя бы имя и телефон — от лендинга до интернет-магазина. ИП и самозанятые тоже под законом.</li>
     <li>С 30 мая 2025 года штрафы выросли в десятки раз. Повторное нарушение — до 500 000 ₽ для юрлиц, оборотные штрафы за утечки — до 500 млн ₽.</li>
     <li>Минимальный набор: политика конфиденциальности, согласие на обработку ПД (галочка с активным action), cookie-баннер, уведомление в РКН, хранение базы на серверах в РФ.</li>
-    <li>Самопроверка за час закроет 60% базовых нарушений. На остальное нужен <a href="/audit/">профессиональный аудит</a> — 1–3 дня работы, цена от 5 000 ₽.</li>
+    <li>Самопроверка за час закроет 60% базовых нарушений. На остальное нужен <a href="https://audit.chimitdorzhi.tech/">профессиональный аудит</a> — 1–3 дня работы, цена от 5 000 ₽.</li>
   </ul>
 </div>
 
@@ -638,7 +638,7 @@ const article1Content = `
   <li>Платёжные системы (ЮKassa, Точка-Банк) — упомянуты в политике как третьи лица.</li>
 </ol>
 
-<p>Если вы прошли по всем 32 пунктам и поставили галочку — поздравляю, вы в группе примерно 5% сайтов рунета. Остальные 95% где-то нарушают. На <a href="/audit/legal/">правовом аудите 152-ФЗ</a> мы как раз закрываем эти пункты системно.</p>
+<p>Если вы прошли по всем 32 пунктам и поставили галочку — поздравляю, вы в группе примерно 5% сайтов рунета. Остальные 95% где-то нарушают. На <a href="https://audit.chimitdorzhi.tech/">правовом аудите 152-ФЗ</a> мы как раз закрываем эти пункты системно.</p>
 
 <h2 id="samoproverka">Самопроверка vs профессиональный аудит</h2>
 <p>Самостоятельно за час можно проверить базовые вещи. Этого хватит, чтобы избежать самых частых штрафов. На что обратить внимание:</p>
@@ -724,7 +724,7 @@ const article1Content = `
     <p>От 5 000 ₽ за экспресс-аудит лендинга, от 25 000 ₽ — полный аудит сайта с документами и подачей в РКН. Срок — 1–3 рабочих дня. По итогу — письменный отчёт с приоритетами и пакет готовых документов под ваш бизнес.</p>
   </div>
   <div class="blog-cta-card-actions">
-    <a href="/audit/" class="btn btn-accent"><i class="ph ph-shield-check"></i> Заказать аудит</a>
+    <a href="https://audit.chimitdorzhi.tech/" class="btn btn-accent"><i class="ph ph-shield-check"></i> Заказать аудит</a>
     <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo"></i> Написать в Telegram</a>
   </div>
 </div>
@@ -836,7 +836,7 @@ const article1Content = `
 <ol>
   <li><strong>Сегодня:</strong> пройдите чек-лист самопроверки за 60 минут. Закройте блокеры — политику, чекбокс, cookie-баннер, HTTPS.</li>
   <li><strong>На этой неделе:</strong> подайте уведомление в РКН, если ещё не подавали. Издайте приказ о назначении ответственного.</li>
-  <li><strong>В этом месяце:</strong> закажите профессиональный <a href="/audit/">аудит 152-ФЗ</a> или <a href="/audit/legal/">правовой аудит</a> для надёжности. Цена в десятки раз ниже минимального штрафа.</li>
+  <li><strong>В этом месяце:</strong> закажите профессиональный <a href="https://audit.chimitdorzhi.tech/">аудит 152-ФЗ</a> или <a href="https://audit.chimitdorzhi.tech/">правовой аудит</a> для надёжности. Цена в десятки раз ниже минимального штрафа.</li>
 </ol>
 <p>Если вопросы остались — напишите в <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener">Telegram</a>, отвечу лично. Не из вежливости — реально интересно, что у людей на сайтах происходит. По итогу первой беседы обычно сразу видно, нужен ли полный аудит или достаточно правок на час.</p>
 `;
@@ -2935,7 +2935,7 @@ module.exports = [
     ],
     contentHtml: article1Content,
     relatedSlugs: ['cookie-banner-zakon', 'uvedomlenie-rkn-2026'],
-    ctaInternal: { url: '/audit/', label: 'Заказать аудит 152-ФЗ' },
+    ctaInternal: { url: 'https://audit.chimitdorzhi.tech/', label: 'Заказать аудит 152-ФЗ' },
     servicesOffer: {
       title: "Что я делаю по 152-ФЗ и compliance",
       services: [
@@ -3682,7 +3682,7 @@ module.exports = [
       { id: 'vyvody', text: 'Выводы' },
     ],
     contentHtml: ownShopContent,
-    relatedSlugs: ['svoy-sayt-vs-socseti-2026', 'pwa-iz-sayta-za-vyhodnye-2026', 'cena-telegram-bota-2026'],
+    relatedSlugs: ['svoy-sayt-vs-socseti-2026', 'pwa-iz-sayta-za-vyhodnye-2026', 'chatbot-telegram-max-vk-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/development/marketplaces/', label: 'Заказать интернет-магазин под ключ' },
     servicesOffer: {
       title: "Что я делаю по e-commerce",
