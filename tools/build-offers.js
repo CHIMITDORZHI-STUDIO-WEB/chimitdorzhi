@@ -177,7 +177,7 @@ function footer() {
 function ctaBlock(o) {
   return `<div class="offer-cta-card">
         <div class="offer-cta-body">
-            <h3>Обсудим ваше «${esc(o.niche)}»?</h3>
+            <h3>Обсудим задачу в нише «${esc(o.niche)}»?</h3>
             <p>Расскажите о задаче — предложу решение и точную цену под вас. Без форм: пишите или звоните напрямую.</p>
         </div>
         <div class="offer-cta-actions">
