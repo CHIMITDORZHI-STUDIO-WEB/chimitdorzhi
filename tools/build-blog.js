@@ -41,6 +41,21 @@ const OFFER_LINKS = {
   'crm-dlya-malogo-biznesa-2026': 'integraciya-sistem',
   'tilda-vs-kastomnaya-razrabotka-2026': 'bystryy-start-sayt',
   'skolko-stoit-sayt-2026': 'bystryy-start-sayt',
+  'it-dlya-turizma-otelei-2026': 'bronirovanie-otel-glamping',
+  'glamping-bazy-otdyha-2026': 'bronirovanie-otel-glamping',
+  'magazin-bot-max-2026': 'bot-magazin-zakazy',
+  'svoy-magazin-vs-wildberries-ozon-2026': 'bot-magazin-zakazy',
+  'max-bot-rieltor-2026': 'crm-agentstvo-nedvizhimosti',
+  'cifrovizaciya-avtoshkol-2026': 'it-dlya-avtoshkoly',
+  'ai-dlya-sellerov-wb-ozon-2026': 'avtomatizaciya-sellera-wb-ozon',
+  'it-dlya-kliningovoy-kompanii-2026': 'zayavki-klining-uslugi',
+  'cifrovizaciya-optovoy-bazy-distributora-2026': 'b2b-portal-opt',
+  'dostavka-vody-produktov-2026': 'dostavka-bot-povtornye-zakazy',
+  'it-dlya-stroitelnyh-kompaniy-2026': 'crm-stroitelnaya-kompaniya',
+  'ai-dlya-yurista-advokata-2026': 'ai-pomoshchnik-yurist-buhgalter',
+  'ai-dlya-yurista-dokumenty-2026': 'ai-pomoshchnik-yurist-buhgalter',
+  'ai-buhgalter-avtomatizaciya-rutiny-2026': 'ai-pomoshchnik-yurist-buhgalter',
+  'ai-pomoshchnik-buhgaltera-2026': 'ai-pomoshchnik-yurist-buhgalter',
 };
 
 function blogOfferCta(a) {
