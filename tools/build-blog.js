@@ -1130,6 +1130,26 @@ function buildRss(published) {
     </item>`;
   }).join('\n');
 
+  // Пункты раздела «Предложения» — в тот же фид (для Дзена).
+  const offerItems = (OFFERS || []).filter(o => o && o.published !== false).map(o => {
+    const url = `${SITE}/predlozheniya/${o.slug}/`;
+    const cover = `${SITE}/predlozheniya/${o.slug}/cover.png`;
+    const html = `<p><img src="${cover}" alt="${esc(o.title)}"/></p>\n<p><strong>${esc(o.tagline)}</strong></p>\n${(o.bodyHtml || '').replace(/]]>/g, ']]&gt;')}\n<p>Обсудить решение: <a href="https://t.me/chimitdorzhi">Telegram</a> · <a href="https://vk.com/chimitdorzhi">ВКонтакте</a> · <a href="${url}">страница предложения</a></p>`;
+    return `    <item>
+      <title>${esc(o.title)}</title>
+      <link>${url}</link>
+      <guid isPermaLink="true">${url}</guid>
+      <description><![CDATA[${o.tagline || ''}]]></description>
+      <content:encoded><![CDATA[${html}]]></content:encoded>
+      <pubDate>${rssDate('2026-06-03')}</pubDate>
+      <category>Предложения</category>
+      <author>noreply@chimitdorzhi.tech (Чимитдоржи Дарижапов)</author>
+      <enclosure url="${cover}" type="image/png" length="0"/>
+      <media:thumbnail url="${cover}"/>
+      <media:content url="${cover}" medium="image" type="image/png"/>
+    </item>`;
+  }).join('\n');
+
   return `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:media="http://search.yahoo.com/mrss/" xmlns:yandex="http://news.yandex.ru" xmlns:dc="http://purl.org/dc/elements/1.1/">
   <channel>
@@ -1146,6 +1166,7 @@ function buildRss(published) {
       <link>${SITE}/blog/</link>
     </image>
 ${items}
+${offerItems}
   </channel>
 </rss>`;
 }

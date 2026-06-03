@@ -39,6 +39,52 @@ function processBlock() {
   return `<div class="offer-block"><h2>Как проходит работа</h2><div class="offer-steps">${steps}</div></div>`;
 }
 
+// ---------- обложки для предложений (1200×630) ----------
+const OFFER_GRADIENTS = {
+  'Автоматизация': ['#0e7490', '#22d3ee'],
+  'Боты и AI': ['#5b21b6', '#a855f7'],
+  'Геймификация': ['#9f1239', '#fb7185'],
+};
+function escXml(s) {
+  return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&apos;');
+}
+function wrapTitle(title, maxChars = 28) {
+  const words = String(title).split(/\s+/);
+  const lines = []; let cur = '';
+  for (const w of words) {
+    if ((cur + ' ' + w).trim().length > maxChars) { if (cur) lines.push(cur); cur = w; } else { cur = (cur + ' ' + w).trim(); }
+  }
+  if (cur) lines.push(cur);
+  return lines.slice(0, 4);
+}
+function offerSvg(o) {
+  const [c1, c2] = OFFER_GRADIENTS[o.segment] || ['#1e293b', '#64748b'];
+  const lines = wrapTitle(o.title, 26);
+  const lh = 76; const startY = 250 - (lines.length - 2) * (lh / 2);
+  const titleSvg = lines.map((l, i) => `<text x="80" y="${startY + i * lh}" font-family="Arial, sans-serif" font-weight="800" font-size="60" fill="#ffffff">${escXml(l)}</text>`).join('\n  ');
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs><linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="${c1}"/><stop offset="100%" stop-color="${c2}"/></linearGradient>
+  <radialGradient id="glow" cx="80%" cy="20%" r="50%"><stop offset="0%" stop-color="#ffffff" stop-opacity="0.18"/><stop offset="100%" stop-color="#ffffff" stop-opacity="0"/></radialGradient></defs>
+  <rect width="1200" height="630" fill="url(#bg)"/><rect width="1200" height="630" fill="url(#glow)"/>
+  <text x="80" y="100" font-family="Arial, sans-serif" font-weight="700" font-size="24" fill="#ffffff" opacity="0.9" letter-spacing="2">ПРЕДЛОЖЕНИЕ · ${escXml((o.niche || '').toUpperCase())}</text>
+  <line x1="80" y1="120" x2="200" y2="120" stroke="#ffffff" stroke-width="3" opacity="0.7"/>
+  ${titleSvg}
+  <line x1="80" y1="520" x2="1120" y2="520" stroke="#ffffff" stroke-width="2" opacity="0.25"/>
+  <text x="80" y="572" font-family="Arial, sans-serif" font-weight="700" font-size="30" fill="#ffffff">Чимитдоржи Дарижапов</text>
+  <text x="80" y="606" font-family="Arial, sans-serif" font-weight="400" font-size="22" fill="#ffffff" opacity="0.8">chimitdorzhi.tech / предложения</text>
+</svg>`;
+}
+async function generateCovers(list) {
+  let sharp;
+  try { sharp = require('sharp'); } catch { console.log('  ⚠ sharp недоступен — пропуск обложек'); return; }
+  for (const o of list) {
+    const dir = path.join(OUT, o.slug);
+    fs.mkdirSync(dir, { recursive: true });
+    await sharp(Buffer.from(offerSvg(o))).png({ compressionLevel: 9 }).toFile(path.join(dir, 'cover.png'));
+  }
+  console.log(`  обложки: ${list.length}`);
+}
+
 function head({ title, description, canonical, ogImage = `${SITE}/hero-photo.webp` }) {
   return `<!DOCTYPE html>
 <html lang="ru" data-theme="dark" data-lang="ru">
@@ -206,7 +252,7 @@ function offerPage(o) {
   const notInc = (o.notIncluded || []).map((x) => `<li><i class="ph ph-x-circle" aria-hidden="true"></i> ${esc(x)}</li>`).join('');
   const fitBlock = (forWhom || notInc) ? `<div class="offer-block"><h2>Кому подходит</h2><div class="offer-fit"><div class="offer-fit-col offer-fit-yes"><h3>Подходит</h3><ul>${forWhom}</ul></div><div class="offer-fit-col offer-fit-no"><h3>Не входит</h3><ul>${notInc}</ul></div></div></div>` : '';
 
-  return `${head({ title: o.metaTitle, description: o.metaDescription, canonical: url })}    <script type="application/ld+json">
+  return `${head({ title: o.metaTitle, description: o.metaDescription, canonical: url, ogImage: `${SITE}/predlozheniya/${o.slug}/cover.png` })}    <script type="application/ld+json">
 ${offerLd(o, url)}
     </script>
     <script type="application/ld+json">
@@ -375,9 +421,10 @@ function updateSitemap(pub) {
   fs.writeFileSync(SITEMAP, xml, 'utf8');
 }
 
-function main() {
+async function main() {
   const pub = offers.filter((o) => o && o.published !== false);
   ensureDir(OUT);
+  await generateCovers(pub);
   fs.writeFileSync(path.join(OUT, 'index.html'), hubPage(pub), 'utf8');
   for (const o of pub) {
     const dir = path.join(OUT, o.slug);
