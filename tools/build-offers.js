@@ -116,7 +116,7 @@ function head({ title, description, canonical, ogImage = `${SITE}/hero-photo.web
     <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="/assets/phosphor/regular.css"><link rel="stylesheet" href="/assets/phosphor/fill.css"></noscript>
-    <link rel="stylesheet" href="/style.css?v=36">
+    <link rel="stylesheet" href="/style.css?v=37">
 `;
 }
 
@@ -330,7 +330,7 @@ function hubPage(list) {
   const segments = [...new Set(list.map((o) => o.segment).filter(Boolean))];
   const cards = list.map((o) => `
             <a href="/predlozheniya/${o.slug}/" class="offer-card" data-segment="${esc(o.segment || '')}">
-                <img class="offer-card-cover" src="/predlozheniya/${o.slug}/cover.png" alt="" loading="lazy" width="1200" height="630">
+                <span class="offer-card-icon"><i class="ph-fill ${esc(o.icon)}" aria-hidden="true"></i></span>
                 <span class="offer-card-niche">${esc(o.niche)}</span>
                 <span class="offer-card-title">${esc(o.title)}</span>
                 <span class="offer-card-tagline">${esc(o.tagline)}</span>
@@ -543,7 +543,7 @@ ${tableRows}
 const HOME_FEATURED = ['cifrovizaciya-pod-klyuch', 'ai-konsultant', 'zapis-salon-krasoty', 'programma-loyalnosti', '152-fz-pod-klyuch', 'bot-magazin-zakazy'];
 function offerCard(o) {
   return `                    <a href="/predlozheniya/${o.slug}/" class="offer-card" data-segment="${esc(o.segment || '')}">
-                        <img class="offer-card-cover" src="/predlozheniya/${o.slug}/cover.png" alt="" loading="lazy" width="1200" height="630">
+                        <span class="offer-card-icon"><i class="ph-fill ${esc(o.icon)}" aria-hidden="true"></i></span>
                         <span class="offer-card-niche">${esc(o.niche)}</span>
                         <span class="offer-card-title">${esc(o.title)}</span>
                         <span class="offer-card-tagline">${esc(o.tagline)}</span>

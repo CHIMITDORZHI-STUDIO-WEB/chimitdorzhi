@@ -182,7 +182,7 @@ function head({ title, description, keywords, canonical, ogImage = `${SITE}/hero
         <link rel="stylesheet" href="/assets/phosphor/regular.css">
         <link rel="stylesheet" href="/assets/phosphor/fill.css">
     </noscript>
-    <link rel="stylesheet" href="/style.css?v=36">
+    <link rel="stylesheet" href="/style.css?v=37">
 `;
 }
 
@@ -715,7 +715,7 @@ function cardHtml(a) {
   const fresh = FRESH_SLUGS.has(a.slug) ? '<span class="blog-card-fresh">Свежее</span>' : '';
   return `<a class="blog-card" href="/blog/${a.slug}/" data-category="${a.category}">
   ${fresh}
-  <img class="blog-card-cover" src="/blog/${a.slug}/cover.png" alt="" loading="lazy" width="1200" height="630">
+  <div class="blog-card-icon"><i class="${a.heroIcon}"></i></div>
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>${esc(cat)}</span>
   <h3>${esc(a.title)}</h3>
   <p>${esc(a.excerpt)}</p>
