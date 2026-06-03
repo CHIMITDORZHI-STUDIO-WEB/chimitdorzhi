@@ -116,7 +116,7 @@ function head({ title, description, canonical, ogImage = `${SITE}/hero-photo.web
     <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="/assets/phosphor/regular.css"><link rel="stylesheet" href="/assets/phosphor/fill.css"></noscript>
-    <link rel="stylesheet" href="/style.css?v=34">
+    <link rel="stylesheet" href="/style.css?v=35">
 `;
 }
 
