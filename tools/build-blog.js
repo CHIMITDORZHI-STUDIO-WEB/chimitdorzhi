@@ -27,6 +27,20 @@ const OFFER_LINKS = {
   'telegram-chat-vk-soobshchestvo-2026': 'bot-dlya-biznesa',
   'max-kanaly-rassylki-marketing-2026': 'geymifikaciya-kanala-max',
   'geymifikaciya-saas-2026': 'geymifikaciya-kanala-max',
+  'it-dlya-salonov-krasoty-2026': 'zapis-salon-krasoty',
+  'it-dlya-stomatologiy-medcentrov-2026': 'it-stomatologiya',
+  'ai-chatbot-na-sayt-bez-programmirovaniya-2026': 'ai-konsultant',
+  'rag-sistemy-dlya-biznesa-2026': 'ai-konsultant',
+  'cifrovizaciya-fitnes-kluba-2026': 'avtomatizaciya-fitnesa',
+  'avtomatizaciya-onlayn-shkoly-2026': 'onlayn-shkola-platforma',
+  'it-dlya-yazykovoy-shkoly-repetitorov-2026': 'onlayn-shkola-platforma',
+  'audit-152-fz-2026': '152-fz-pod-klyuch',
+  'cookie-banner-zakon': '152-fz-pod-klyuch',
+  'soglasie-na-obrabotku-pd-2026': '152-fz-pod-klyuch',
+  'uvedomlenie-rkn-2026': '152-fz-pod-klyuch',
+  'crm-dlya-malogo-biznesa-2026': 'integraciya-sistem',
+  'tilda-vs-kastomnaya-razrabotka-2026': 'bystryy-start-sayt',
+  'skolko-stoit-sayt-2026': 'bystryy-start-sayt',
 };
 
 function blogOfferCta(a) {
