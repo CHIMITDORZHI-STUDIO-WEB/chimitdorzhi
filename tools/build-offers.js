@@ -39,39 +39,45 @@ function processBlock() {
   return `<div class="offer-block"><h2>Как проходит работа</h2><div class="offer-steps">${steps}</div></div>`;
 }
 
-// ---------- обложки для предложений (1200×630) ----------
-const OFFER_GRADIENTS = {
-  'Автоматизация': ['#0e7490', '#22d3ee'],
-  'Боты и AI': ['#5b21b6', '#a855f7'],
-  'Геймификация': ['#9f1239', '#fb7185'],
+// ---------- обложки для предложений (1200×630), редакционный стиль ----------
+const CREAM = '#f4f1ea', INK = '#16130f', COBALT = '#1e4fd6';
+const SEGMENT_ACCENT = {
+  'Автоматизация': '#0e7490', // петроль
+  'Боты и AI': '#6d28d9',     // фиолет
+  'Геймификация': '#be123c',  // роза-красный
+  'Право': '#1e4fd6',         // кобальт
+  'Флагманы': '#b8862b',      // золото
 };
+const COVER_FONT = "'Manrope', 'Inter', 'DejaVu Sans', 'Liberation Sans', Arial, sans-serif";
 function escXml(s) {
   return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&apos;');
 }
-function wrapTitle(title, maxChars = 28) {
+function wrapTitle(title, maxChars = 26) {
   const words = String(title).split(/\s+/);
   const lines = []; let cur = '';
   for (const w of words) {
-    if ((cur + ' ' + w).trim().length > maxChars) { if (cur) lines.push(cur); cur = w; } else { cur = (cur + ' ' + w).trim(); }
+    if ((cur + ' ' + w).trim().length > maxChars && cur) { lines.push(cur); cur = w; } else { cur = (cur + ' ' + w).trim(); }
+    if (lines.length >= 4) break;
   }
-  if (cur) lines.push(cur);
+  if (cur && lines.length < 4) lines.push(cur);
   return lines.slice(0, 4);
 }
 function offerSvg(o) {
-  const [c1, c2] = OFFER_GRADIENTS[o.segment] || ['#1e293b', '#64748b'];
+  const accent = SEGMENT_ACCENT[o.segment] || COBALT;
   const lines = wrapTitle(o.title, 26);
-  const lh = 76; const startY = 250 - (lines.length - 2) * (lh / 2);
-  const titleSvg = lines.map((l, i) => `<text x="80" y="${startY + i * lh}" font-family="Arial, sans-serif" font-weight="800" font-size="60" fill="#ffffff">${escXml(l)}</text>`).join('\n  ');
+  const lh = 76; const startY = 300 - (lines.length - 1) * (lh / 2);
+  const titleSvg = lines.map((l, i) => `<text x="92" y="${startY + i * lh}" font-family="${COVER_FONT}" font-weight="800" font-size="62" letter-spacing="-1.5" fill="${INK}">${escXml(l)}</text>`).join('\n  ');
   return `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <defs><linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="${c1}"/><stop offset="100%" stop-color="${c2}"/></linearGradient>
-  <radialGradient id="glow" cx="80%" cy="20%" r="50%"><stop offset="0%" stop-color="#ffffff" stop-opacity="0.18"/><stop offset="100%" stop-color="#ffffff" stop-opacity="0"/></radialGradient></defs>
-  <rect width="1200" height="630" fill="url(#bg)"/><rect width="1200" height="630" fill="url(#glow)"/>
-  <text x="80" y="100" font-family="Arial, sans-serif" font-weight="700" font-size="24" fill="#ffffff" opacity="0.9" letter-spacing="2">ПРЕДЛОЖЕНИЕ · ${escXml((o.niche || '').toUpperCase())}</text>
-  <line x1="80" y1="120" x2="200" y2="120" stroke="#ffffff" stroke-width="3" opacity="0.7"/>
+  <defs><radialGradient id="tint" cx="100%" cy="0%" r="70%"><stop offset="0%" stop-color="${accent}" stop-opacity="0.10"/><stop offset="100%" stop-color="${accent}" stop-opacity="0"/></radialGradient></defs>
+  <rect width="1200" height="630" fill="${CREAM}"/><rect width="1200" height="630" fill="url(#tint)"/>
+  <circle cx="1120" cy="120" r="220" fill="${accent}" fill-opacity="0.06"/>
+  <rect x="0" y="0" width="14" height="630" fill="${accent}"/>
+  <text x="92" y="120" font-family="${COVER_FONT}" font-weight="800" font-size="26" fill="${accent}" letter-spacing="3">ПРЕДЛОЖЕНИЕ · ${escXml((o.niche || '').toUpperCase())}</text>
+  <rect x="92" y="138" width="64" height="4" rx="2" fill="${accent}"/>
   ${titleSvg}
-  <line x1="80" y1="520" x2="1120" y2="520" stroke="#ffffff" stroke-width="2" opacity="0.25"/>
-  <text x="80" y="572" font-family="Arial, sans-serif" font-weight="700" font-size="30" fill="#ffffff">Чимитдоржи Дарижапов</text>
-  <text x="80" y="606" font-family="Arial, sans-serif" font-weight="400" font-size="22" fill="#ffffff" opacity="0.8">chimitdorzhi.tech / предложения</text>
+  <line x1="92" y1="520" x2="1108" y2="520" stroke="${INK}" stroke-width="2" stroke-opacity="0.14"/>
+  <text x="92" y="572" font-family="${COVER_FONT}" font-weight="800" font-size="30" fill="${INK}">Чимитдоржи Дарижапов</text>
+  <text x="92" y="606" font-family="${COVER_FONT}" font-weight="500" font-size="22" fill="${INK}" opacity="0.55">chimitdorzhi.tech · предложения</text>
 </svg>`;
 }
 async function generateCovers(list) {
@@ -94,7 +100,7 @@ function head({ title, description, canonical, ogImage = `${SITE}/hero-photo.web
     <title>${esc(title)}</title>
     <meta name="description" content="${esc(description)}">
     <meta name="robots" content="index, follow, max-image-preview:large">
-    <meta name="theme-color" content="#121218">
+    <meta name="theme-color" content="#f4f1ea">
     <link rel="canonical" href="${canonical}">
     <meta property="og:type" content="website">
     <meta property="og:url" content="${canonical}">
