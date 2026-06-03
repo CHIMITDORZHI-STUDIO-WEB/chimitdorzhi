@@ -13,6 +13,32 @@ const OUT = path.join(ROOT, 'predlozheniya');
 const esc = (s) => String(s == null ? '' : s)
   .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
+// Ссылка в Telegram с предзаполненным текстом (best-effort: где клиент поддерживает —
+// текст подставится, иначе просто откроется чат).
+const TG = 'https://t.me/chimitdorzhi';
+const tg = (text) => `${TG}?text=${encodeURIComponent(text)}`;
+
+// Этапы работы — одинаковы для всех предложений.
+const PROCESS = [
+  { icon: 'ph-chat-circle-text', t: 'Заявка и разговор', d: 'Пишете мне — обсуждаем задачу, цели и бюджет. Без форм и спама.' },
+  { icon: 'ph-clipboard-text', t: 'Бриф и смета', d: 'Уточняю детали, фиксирую состав и называю точную цену и срок.' },
+  { icon: 'ph-code', t: 'Разработка', d: 'Делаю решение, показываю промежуточные результаты, вношу правки.' },
+  { icon: 'ph-rocket-launch', t: 'Запуск', d: 'Внедряю, тестируем на реальных задачах, обучаю вашу команду.' },
+  { icon: 'ph-lifebuoy', t: 'Поддержка', d: 'Сопровождаю после запуска и развиваю под новые задачи.' },
+];
+
+function processBlock() {
+  const steps = PROCESS.map((s, i) => `
+            <div class="offer-step">
+                <div class="offer-step-num">${i + 1}</div>
+                <div class="offer-step-body">
+                    <div class="offer-step-title"><i class="ph-fill ${s.icon}" aria-hidden="true"></i> ${esc(s.t)}</div>
+                    <p>${esc(s.d)}</p>
+                </div>
+            </div>`).join('\n');
+  return `<div class="offer-block"><h2>Как проходит работа</h2><div class="offer-steps">${steps}</div></div>`;
+}
+
 function head({ title, description, canonical, ogImage = `${SITE}/hero-photo.webp` }) {
   return `<!DOCTYPE html>
 <html lang="ru" data-theme="dark" data-lang="ru">
@@ -38,7 +64,7 @@ function head({ title, description, canonical, ogImage = `${SITE}/hero-photo.web
     <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="/assets/phosphor/regular.css"><link rel="stylesheet" href="/assets/phosphor/fill.css"></noscript>
-    <link rel="stylesheet" href="/style.css?v=32">
+    <link rel="stylesheet" href="/style.css?v=33">
 `;
 }
 
@@ -109,7 +135,7 @@ function ctaBlock(o) {
             <p>Расскажите о задаче — предложу решение и точную цену под вас. Без форм: пишите или звоните напрямую.</p>
         </div>
         <div class="offer-cta-actions">
-            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram</a>
+            <a href="${tg(`Здравствуйте! Интересует решение «${o.title}» (${o.niche}).`)}" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram</a>
             <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
             <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> Позвонить</a>
         </div>
@@ -169,11 +195,14 @@ function offerPage(o) {
             <div class="offer-pkg-name">${esc(p.name)}</div>
             <div class="offer-pkg-price">${esc(p.priceFrom)}</div>
             <ul>${p.items.map((it) => `<li>${esc(it)}</li>`).join('')}</ul>
-            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost offer-pkg-btn">Выбрать</a>
+            <a href="${tg(`Здравствуйте! Интересует пакет «${p.name}» — ${o.title}.`)}" target="_blank" rel="noopener" class="btn btn-ghost offer-pkg-btn">Обсудить «${esc(p.name)}»</a>
         </div>`).join('\n');
   const faq = (o.faq || []).map((p) => `<div class="offer-faq-item"><p class="offer-faq-q">${esc(p.q)}</p><p class="offer-faq-a">${esc(p.a)}</p></div>`).join('\n');
   const related = [...(o.relatedServices || []), ...(o.relatedBlog || [])]
     .map((r) => `<a href="${r.url}" class="offer-related-link">${esc(r.label)} <i class="ph ph-arrow-right" aria-hidden="true"></i></a>`).join('\n');
+  const forWhom = (o.forWhom || []).map((x) => `<li><i class="ph-fill ph-check-circle" aria-hidden="true"></i> ${esc(x)}</li>`).join('');
+  const notInc = (o.notIncluded || []).map((x) => `<li><i class="ph ph-x-circle" aria-hidden="true"></i> ${esc(x)}</li>`).join('');
+  const fitBlock = (forWhom || notInc) ? `<div class="offer-block"><h2>Кому подходит</h2><div class="offer-fit"><div class="offer-fit-col offer-fit-yes"><h3>Подходит</h3><ul>${forWhom}</ul></div><div class="offer-fit-col offer-fit-no"><h3>Не входит</h3><ul>${notInc}</ul></div></div></div>` : '';
 
   return `${head({ title: o.metaTitle, description: o.metaDescription, canonical: url })}    <script type="application/ld+json">
 ${offerLd(o, url)}
@@ -205,7 +234,7 @@ ${faqLd(o)}</head>
                         <span class="offer-timeline"><i class="ph ph-clock" aria-hidden="true"></i> Срок: ${esc(o.timeline)}</span>
                     </div>
                     <div class="offer-hero-actions">
-                        <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Обсудить задачу</a>
+                        <a href="${tg(`Здравствуйте! Интересует «${o.title}» (${o.priceFrom}).`)}" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Обсудить задачу</a>
                         <a href="#packages" class="btn btn-ghost">Смотреть пакеты</a>
                     </div>
                 </div>
@@ -222,7 +251,11 @@ ${faqLd(o)}</head>
 
                 ${result ? `<div class="offer-block"><h2>Результат для бизнеса</h2><ul class="offer-list offer-list--result">${result}</ul></div>` : ''}
 
+                ${fitBlock}
+
                 ${packages ? `<div class="offer-block" id="packages"><h2>Пакеты</h2><div class="offer-pkgs">${packages}</div><p class="offer-note">Итоговая цена зависит от ваших процессов и интеграций. Точную смету назову после короткого разговора.</p></div>` : ''}
+
+                ${processBlock()}
 
                 ${faq ? `<div class="offer-block"><h2>Частые вопросы</h2>${faq}</div>` : ''}
 
@@ -239,8 +272,9 @@ ${faqLd(o)}</head>
 
 function hubPage(list) {
   const url = `${SITE}/predlozheniya/`;
+  const segments = [...new Set(list.map((o) => o.segment).filter(Boolean))];
   const cards = list.map((o) => `
-            <a href="/predlozheniya/${o.slug}/" class="offer-card">
+            <a href="/predlozheniya/${o.slug}/" class="offer-card" data-segment="${esc(o.segment || '')}">
                 <span class="offer-card-icon"><i class="ph-fill ${esc(o.icon)}" aria-hidden="true"></i></span>
                 <span class="offer-card-niche">${esc(o.niche)}</span>
                 <span class="offer-card-title">${esc(o.title)}</span>
@@ -288,13 +322,32 @@ ${JSON.stringify(breadcrumb, null, 2)}
                     <h1 class="section-heading">Готовые решения для <span class="text-gradient">бизнеса</span></h1>
                     <p class="section-sub">Упакованные IT-решения под вашу нишу: онлайн-запись, боты, CRM, автоматизация и AI. С понятным составом, ценой «от» и сроком. Точную смету называю после короткого разговора — без форм и спама.</p>
                 </div>
-                <div class="offer-grid">
+                ${segments.length > 1 ? `<div class="offer-filter" role="group" aria-label="Фильтр по нишам">
+                    <button class="offer-chip active" data-seg="all">Все <span>${list.length}</span></button>
+                    ${segments.map((s) => `<button class="offer-chip" data-seg="${esc(s)}">${esc(s)}</button>`).join('\n                    ')}
+                </div>` : ''}
+                <div class="offer-grid" id="offerGrid">
 ${cards}
                 </div>
             </div>
         </section>
     </main>
     ${footer()}
+    <script>
+    (function(){
+      var chips=document.querySelectorAll('.offer-chip');
+      var cards=document.querySelectorAll('#offerGrid .offer-card');
+      if(!chips.length)return;
+      chips.forEach(function(c){c.addEventListener('click',function(){
+        chips.forEach(function(x){x.classList.remove('active');});
+        c.classList.add('active');
+        var seg=c.getAttribute('data-seg');
+        cards.forEach(function(card){
+          card.style.display=(seg==='all'||card.getAttribute('data-segment')===seg)?'':'none';
+        });
+      });});
+    })();
+    </script>
 </body>
 </html>`;
 }

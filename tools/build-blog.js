@@ -8,6 +8,39 @@
 const fs = require('fs');
 const path = require('path');
 const articles = require('./blog-data');
+const OFFERS = require('./offers-data.js');
+
+// Карта: slug статьи → slug предложения. Добавляйте по мере роста раздела.
+const OFFER_LINKS = {
+  'it-dlya-avtoservisa-2026': 'avtoservis',
+  'cifrovizaciya-avtomoyki-detailing-2026': 'avtoservis',
+  'it-dlya-shinomontazha-hraneniya-shin-2026': 'avtoservis',
+  'it-dlya-horeca-2026': 'obshchepit',
+  'it-dlya-letnih-verand-obshchepita-2026': 'obshchepit',
+  'it-dlya-pekarni-konditerskoy-2026': 'obshchepit',
+  'max-bot-restoran-kafe-2026': 'obshchepit',
+  'chatbot-telegram-max-vk-2026': 'bot-dlya-biznesa',
+  'ai-bot-v-max-gigachat-yandexgpt-2026': 'bot-dlya-biznesa',
+  'magazin-bot-max-2026': 'bot-dlya-biznesa',
+  'max-bot-zapis-na-uslugi-2026': 'bot-dlya-biznesa',
+  'telegram-chat-vk-soobshchestvo-2026': 'bot-dlya-biznesa',
+};
+
+function blogOfferCta(a) {
+  const offerSlug = OFFER_LINKS[a.slug];
+  if (!offerSlug) return '';
+  const o = OFFERS.find((x) => x.slug === offerSlug && x.published !== false);
+  if (!o) return '';
+  return `
+                    <a class="blog-offer-cta" href="/predlozheniya/${o.slug}/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовое решение по теме</span>
+                            <span class="blog-offer-cta-title">${esc(o.title)}</span>
+                            <span class="blog-offer-cta-price">${esc(o.priceFrom)} · ${esc(o.timeline)}</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-arrow-right" aria-hidden="true"></i> Смотреть предложение</span>
+                    </a>`;
+}
 
 const SITE = 'https://chimitdorzhi.tech';
 let FRESH_SLUGS = new Set(); // слаги самых свежих статей, задаётся в main()
@@ -92,7 +125,7 @@ function head({ title, description, keywords, canonical, ogImage = `${SITE}/hero
         <link rel="stylesheet" href="/assets/phosphor/regular.css">
         <link rel="stylesheet" href="/assets/phosphor/fill.css">
     </noscript>
-    <link rel="stylesheet" href="/style.css?v=32">
+    <link rel="stylesheet" href="/style.css?v=33">
 `;
 }
 
@@ -544,6 +577,7 @@ ${faqLd(a)}</head>
                     </div>
 
                     ${servicesOfferCard(a)}
+                    ${blogOfferCta(a)}
 
                     <div class="blog-cta-card blog-cta-card-final">
                         <div class="blog-cta-card-body">
