@@ -9,6 +9,9 @@ const fs = require('fs');
 const path = require('path');
 const articles = require('./blog-data');
 const OFFERS = require('./offers-data.js');
+// Живое число опубликованных предложений — подставляется вместо токена {{OFFERS_COUNT}}.
+const OFFERS_COUNT = OFFERS.filter(o => o && o.published !== false).length;
+const subOffersCount = (s) => String(s).split('{{OFFERS_COUNT}}').join(OFFERS_COUNT);
 
 // Карта: slug статьи → slug предложения. Добавляйте по мере роста раздела.
 const OFFER_LINKS = {
@@ -1247,11 +1250,11 @@ async function main() {
   for (const a of published) {
     const dir = path.join(OUT_BLOG, a.slug);
     ensureDir(dir);
-    fs.writeFileSync(path.join(dir, 'index.html'), articlePage(a, published), 'utf8');
+    fs.writeFileSync(path.join(dir, 'index.html'), subOffersCount(articlePage(a, published)), 'utf8');
     pages++;
   }
 
-  fs.writeFileSync(path.join(OUT_BLOG, 'index.html'), hubPage(published), 'utf8');
+  fs.writeFileSync(path.join(OUT_BLOG, 'index.html'), subOffersCount(hubPage(published)), 'utf8');
 
   // Глоссарий /slovar/
   const slovarDir = path.join(ROOT, 'slovar');
@@ -1266,13 +1269,13 @@ async function main() {
     const catArticles = published.filter(p => p.category === k);
     const dir = path.join(OUT_BLOG, 'category', k);
     ensureDir(dir);
-    fs.writeFileSync(path.join(dir, 'index.html'), categoryPage(k, catArticles), 'utf8');
+    fs.writeFileSync(path.join(dir, 'index.html'), subOffersCount(categoryPage(k, catArticles)), 'utf8');
     catPages++;
   }
   console.log(`  Generated ${catPages} category pillar page(s)`);
 
   updateSitemap(published);
-  fs.writeFileSync(OUT_FEED, buildRss(published), 'utf8');
+  fs.writeFileSync(OUT_FEED, subOffersCount(buildRss(published)), 'utf8');
 
   console.log(`OK: generated ${pages} article(s) + hub`);
   console.log(`  ${OUT_BLOG}/index.html`);
