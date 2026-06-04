@@ -94,7 +94,7 @@ module.exports = [
   {
     slug: 'zashchita-ot-shifrovalshchikov',
     published: true,
-    segment: 'Право',
+    segment: 'Безопасность и аудит',
     niche: 'Кибербезопасность',
     icon: 'ph-lock-key',
     title: 'Защита от программ-вымогателей под ключ',
