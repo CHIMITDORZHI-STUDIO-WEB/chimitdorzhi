@@ -184,7 +184,7 @@ function ctaBlock(o) {
   return `<div class="offer-cta-card">
         <div class="offer-cta-body">
             <h3>Обсудим задачу в нише «${esc(o.niche)}»?</h3>
-            <p>Расскажите о задаче — предложу решение и точную цену под вас. Без форм: пишите или звоните напрямую.</p>
+            <p>Бесплатная консультация — это 20–30 минут разговора: разберём вашу ситуацию, я скажу, что реально стоит делать (иногда — что делать пока не нужно), назову срок и точную цену под вас. Ни к чему не обязывает. Без форм — пишите или звоните напрямую.</p>
         </div>
         <div class="offer-cta-actions">
             <a href="${tg(`Здравствуйте! Интересует решение «${o.title}» (${o.niche}).`)}" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram</a>
@@ -258,6 +258,31 @@ function offerPage(o) {
   const notInc = (o.notIncluded || []).map((x) => `<li><i class="ph ph-x-circle" aria-hidden="true"></i> ${esc(x)}</li>`).join('');
   const fitBlock = (forWhom || notInc) ? `<div class="offer-block"><h2>Кому подходит</h2><div class="offer-fit"><div class="offer-fit-col offer-fit-yes"><h3>Подходит</h3><ul>${forWhom}</ul></div><div class="offer-fit-col offer-fit-no"><h3>Не входит</h3><ul>${notInc}</ul></div></div></div>` : '';
 
+  // ---- Экспертные блоки (рендерятся только если поля заданы) ----
+  const pains = (o.pains || []).map((x) => `<li><i class="ph-fill ph-warning-circle" aria-hidden="true"></i> ${esc(x)}</li>`).join('\n');
+  const painsBlock = pains ? `<div class="offer-block"><h2>Знакомо?</h2><ul class="offer-list offer-list--pain">${pains}</ul></div>` : '';
+
+  const baRows = (o.beforeAfter || []).map((r) => `<tr><td>${esc(r.before)}</td><td>${esc(r.after)}</td></tr>`).join('\n');
+  const beforeAfterBlock = baRows ? `<div class="offer-block"><h2>Как сейчас и как будет</h2><table class="blog-table"><thead><tr><th>Сейчас, без решения</th><th>С решением</th></tr></thead><tbody>${baRows}</tbody></table></div>` : '';
+
+  const deliver = (o.deliverables || []).map((x) => `<li><i class="ph-fill ph-check-circle" aria-hidden="true"></i> ${esc(x)}</li>`).join('\n');
+  const deliverablesBlock = deliver ? `<div class="offer-block"><h2>Что вы получите на руки</h2><ul class="offer-list">${deliver}</ul></div>` : '';
+
+  const customSteps = (o.process || []).map((s, i) => `
+            <div class="offer-step">
+                <div class="offer-step-num">${i + 1}</div>
+                <div class="offer-step-body">
+                    <div class="offer-step-title">${esc(s.title)}${s.days ? ` <span class="offer-step-days">(${esc(s.days)})</span>` : ''}</div>
+                    <p>${esc(s.detail)}</p>
+                </div>
+            </div>`).join('\n');
+  const customProcessBlock = customSteps ? `<div class="offer-block"><h2>Как мы работаем</h2><div class="offer-steps">${customSteps}</div></div>` : '';
+
+  const objections = (o.objections || []).map((p) => `<div class="offer-faq-item"><p class="offer-faq-q">${esc(p.q)}</p><p class="offer-faq-a">${esc(p.a)}</p></div>`).join('\n');
+  const objectionsBlock = objections ? `<div class="offer-block"><h2>А если…</h2>${objections}</div>` : '';
+
+  const whyMeBlock = o.whyMe ? `<div class="offer-block"><h2>Почему со мной</h2><div class="blog-body offer-body"><p>${esc(o.whyMe)}</p></div></div>` : '';
+
   return `${head({ title: o.metaTitle, description: o.metaDescription, canonical: url, ogImage: `${SITE}/predlozheniya/${o.slug}/cover.png` })}    <script type="application/ld+json">
 ${offerLd(o, url)}
     </script>
@@ -294,23 +319,27 @@ ${faqLd(o)}</head>
                 </div>
 
                 ${o.bodyHtml ? `<div class="offer-block"><div class="blog-body offer-body">${o.bodyHtml}</div></div>` : `
-                <div class="offer-block">
-                    <h2>В чём проблема</h2>
-                    <p>${esc(o.problem)}</p>
-                </div>
+                ${o.problem ? `<div class="offer-block"><h2>В чём проблема</h2><p>${esc(o.problem)}</p></div>` : ''}
 
-                <div class="offer-block">
-                    <h2>Что входит в решение</h2>
-                    <ul class="offer-list">${includes}</ul>
-                </div>
+                ${painsBlock}
+
+                ${beforeAfterBlock}
+
+                ${includes ? `<div class="offer-block"><h2>Что входит в решение</h2><ul class="offer-list">${includes}</ul></div>` : ''}
+
+                ${deliverablesBlock}
 
                 ${result ? `<div class="offer-block"><h2>Результат для бизнеса</h2><ul class="offer-list offer-list--result">${result}</ul></div>` : ''}
 
                 ${fitBlock}
 
+                ${whyMeBlock}
+
+                ${objectionsBlock}
+
                 ${packages ? `<div class="offer-block" id="packages"><h2>Пакеты</h2><div class="offer-pkgs">${packages}</div><p class="offer-note">Итоговая цена зависит от ваших процессов и интеграций. Точную смету назову после короткого разговора.</p></div>` : ''}`}
 
-                ${processBlock()}
+                ${o.process ? customProcessBlock : processBlock()}
 
                 ${faq ? `<div class="offer-block"><h2>Частые вопросы</h2>${faq}</div>` : ''}
 
