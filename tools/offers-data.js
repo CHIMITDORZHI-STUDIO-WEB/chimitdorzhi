@@ -52,6 +52,7 @@ const importozamBody = require('./offer-content-importozam.js');
 const ctoBody = require('./offer-content-cto.js');
 
 module.exports = [
+  ...require('./offers-batch-2.js'),
   {
     slug: 'kofeynya',
     published: true,
