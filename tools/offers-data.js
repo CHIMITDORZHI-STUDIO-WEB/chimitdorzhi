@@ -53,6 +53,7 @@ const ctoBody = require('./offer-content-cto.js');
 
 // Порядок на хабе: свежие партии выше, старые ниже.
 const _ALL_OFFERS = [
+  ...require('./offers-batch-7.js'),
   ...require('./offers-batch-6.js'),
   ...require('./offers-batch-5.js'),
   ...require('./offers-batch-4.js'),
@@ -268,7 +269,7 @@ const _ALL_OFFERS = [
     metaDescription: 'Готовое решение для салона красоты и барбершопа: онлайн-запись через бот, расписание мастеров, напоминания, лояльность. Меньше неявок, российский стек, 152-ФЗ.',
   },
   {
-    slug: 'it-stomatologiya', published: true, segment: 'Автоматизация',
+    slug: 'it-stomatologiya', published: true, segment: 'Медицина и MedTech',
     niche: 'Стоматология и медцентр', icon: 'ph-tooth',
     title: 'IT для стоматологии и медцентра',
     tagline: 'Онлайн-запись, карта пациента, напоминания о приёме и согласия по 152-ФЗ — порядок в записи и защита данных пациентов.',
@@ -572,7 +573,7 @@ const _ALL_OFFERS = [
     metaDescription: 'AI-помощник для юриста и бухгалтера: черновики типовых документов, ответы по вашей базе знаний (RAG) на GigaChat/YandexGPT. Данные в РФ, 152-ФЗ. Человек утверждает итог.',
   },
   {
-    slug: 'it-vetklinika', published: true, segment: 'Автоматизация',
+    slug: 'it-vetklinika', published: true, segment: 'Медицина и MedTech',
     niche: 'Ветеринарная клиника', icon: 'ph-paw-print',
     title: 'IT для ветеринарной клиники',
     tagline: 'Онлайн-запись, карта питомца и автонапоминания о вакцинации и приёме — меньше неявок, клиенты возвращаются вовремя.',
@@ -684,7 +685,7 @@ const _ALL_OFFERS = [
     metaDescription: 'HR-бот: приём откликов, первичный скрининг по критериям, анкеты, назначение интервью, воронка найма. Для массового найма и кадровых агентств. Данные в РФ, 152-ФЗ.',
   },
   {
-    slug: 'zapis-chastnaya-praktika', published: true, segment: 'Автоматизация',
+    slug: 'zapis-chastnaya-praktika', published: true, segment: 'Медицина и MedTech',
     niche: 'Частная практика', icon: 'ph-user-focus',
     title: 'Запись и кабинет для частной практики',
     tagline: 'Онлайн-запись на сессии, оплата и пакеты, личный кабинет клиента — больше времени на работу, а не на администрирование.',
@@ -900,7 +901,8 @@ const _RICH = Object.assign({},
   require('./offers-rich-4.js'), require('./offers-rich-5.js'), require('./offers-rich-6.js'),
   require('./offers-rich-7a.js'), require('./offers-rich-7b.js'),
   require('./offers-rich-8a.js'), require('./offers-rich-8b.js'),
-  require('./offers-rich-9a.js'), require('./offers-rich-9b.js'));
+  require('./offers-rich-9a.js'), require('./offers-rich-9b.js'),
+  require('./offers-rich-10a.js'), require('./offers-rich-10b.js'));
 for (const o of _ALL_OFFERS) {
   const r = _RICH[o.slug];
   if (r) { Object.assign(o, r); delete o.bodyHtml; }
