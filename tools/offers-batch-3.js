@@ -177,7 +177,7 @@ module.exports = [
   {
     slug: 'it-detskiy-centr',
     published: true,
-    segment: 'Автоматизация',
+    segment: 'Образование и EdTech',
     niche: 'Детский центр',
     icon: 'ph-baby',
     title: 'IT для детского центра и школы развития',
