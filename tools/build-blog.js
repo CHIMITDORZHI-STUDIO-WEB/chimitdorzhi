@@ -245,6 +245,7 @@ function navbar() {
             <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
         </ul>
         <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
             <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
                 <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
                 <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
@@ -265,7 +266,8 @@ function navbar() {
         <li><a href="/blog/">Блог</a></li>
         <li><a href="/#contact">Контакт</a></li>
     </ul>
-</div>`;
+</div>
+${require('./search-modal.js')}`;
 }
 
 function footer() {
