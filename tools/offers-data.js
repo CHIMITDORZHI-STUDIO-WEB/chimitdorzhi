@@ -54,6 +54,7 @@ const ctoBody = require('./offer-content-cto.js');
 const _ALL_OFFERS = [
   ...require('./offers-batch-2.js'),
   ...require('./offers-batch-3.js'),
+  ...require('./offers-batch-4.js'),
   {
     slug: 'kofeynya',
     published: true,
@@ -893,7 +894,8 @@ const _ALL_OFFERS = [
 // process/result/objections/whyMe). При наличии — заменяют «сухой» bodyHtml.
 const _RICH = Object.assign({},
   require('./offers-rich-1.js'), require('./offers-rich-2.js'), require('./offers-rich-3.js'),
-  require('./offers-rich-4.js'), require('./offers-rich-5.js'), require('./offers-rich-6.js'));
+  require('./offers-rich-4.js'), require('./offers-rich-5.js'), require('./offers-rich-6.js'),
+  require('./offers-rich-7a.js'), require('./offers-rich-7b.js'));
 for (const o of _ALL_OFFERS) {
   const r = _RICH[o.slug];
   if (r) { Object.assign(o, r); delete o.bodyHtml; }
