@@ -133,6 +133,7 @@ function navbar() {
             <li><a href="/#contact">Контакт</a></li>
         </ul>
         <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
             <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent nav-cta">Связаться</a>
         </div>
         <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
@@ -146,7 +147,8 @@ function navbar() {
         <li><a href="/blog/">Блог</a></li>
         <li><a href="/#contact">Контакт</a></li>
     </ul>
-</div>`;
+</div>
+${require('./search-modal.js')}`;
 }
 
 function footer() {

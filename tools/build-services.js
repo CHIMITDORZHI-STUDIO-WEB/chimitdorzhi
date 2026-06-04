@@ -172,6 +172,7 @@ function navbar({ langSwitcher = false } = {}) {
             <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
         </ul>
         <div class="nav-controls">${langCtl}
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
             <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
         </div>
         <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -201,7 +202,8 @@ function navbar({ langSwitcher = false } = {}) {
         <li><a href="/#cases">Кейсы</a></li>
         <li><a href="/#contact">Контакт</a></li>
     </ul>
-</div>`;
+</div>
+${require('./search-modal.js')}`;
 }
 
 function footer() {
