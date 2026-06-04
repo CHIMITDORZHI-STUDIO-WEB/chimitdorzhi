@@ -406,6 +406,7 @@ ${JSON.stringify(breadcrumb, null, 2)}
                     <h1 class="section-heading">Готовые решения для <span class="text-gradient">бизнеса</span></h1>
                     <p class="section-sub">Упакованные IT-решения под вашу нишу: онлайн-запись, боты, CRM, автоматизация и AI. С понятным составом, ценой «от» и сроком. Точную смету называю после короткого разговора — без форм и спама.</p>
                 </div>
+                ${searchBox()}
                 ${segments.length > 1 ? `<div class="offer-filter" role="group" aria-label="Фильтр по нишам">
                     <button class="offer-chip active" data-seg="all">Все <span>${list.length}</span></button>
                     ${segments.map((s) => `<button class="offer-chip" data-seg="${esc(s)}">${esc(s)}</button>`).join('\n                    ')}
@@ -432,8 +433,45 @@ ${cards}
       });});
     })();
     </script>
+    ${searchScript()}
 </body>
 </html>`;
+}
+
+// ---------- Поиск по сайту (статьи + предложения), клиентский ----------
+function searchBox() {
+  return `<div class="site-search">
+                    <i class="ph ph-magnifying-glass site-search-ic" aria-hidden="true"></i>
+                    <input id="siteSearch" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+                    <div id="searchResults" class="search-results" hidden></div>
+                </div>
+                <style>
+                .site-search{position:relative;max-width:660px;margin:0 0 26px;}
+                .site-search input{width:100%;padding:14px 16px 14px 46px;border:1.5px solid var(--border);border-radius:12px;background:var(--bg-card);color:var(--text);font-family:inherit;font-size:1rem;}
+                .site-search input:focus{outline:none;border-color:var(--accent);}
+                .site-search-ic{position:absolute;left:16px;top:50%;transform:translateY(-50%);color:var(--text-secondary);font-size:1.2rem;}
+                .search-results{position:absolute;z-index:40;left:0;right:0;top:calc(100% + 6px);background:var(--bg-card);border:1.5px solid var(--border);border-radius:12px;box-shadow:0 16px 48px rgba(20,30,60,.16);max-height:62vh;overflow:auto;}
+                .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+                .search-item:last-child{border-bottom:none;}
+                .search-item:hover{background:var(--bg-card-hover);}
+                .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+                .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+                .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+                .search-empty{padding:14px 16px;color:var(--text-secondary);font-size:.9rem;}
+                </style>`;
+}
+function searchScript() {
+  return `<script>
+    (function(){
+      var inp=document.getElementById('siteSearch'),box=document.getElementById('searchResults');
+      if(!inp)return;var idx=null,loading=false,pending=null;
+      function esc(s){return String(s).replace(/[&<>]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+      function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+      function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.hidden=true;box.innerHTML='';return;}var w=t.split(/\\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,12);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';box.hidden=false;return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>12?'<div class="search-empty">+ ещё '+(n-12)+' — уточните запрос</div>':'');box.hidden=false;}
+      var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},120);});
+      document.addEventListener('click',function(e){if(!e.target.closest('.site-search'))box.hidden=true;});
+    })();
+    </script>`;
 }
 
 function ensureDir(p) { fs.mkdirSync(p, { recursive: true }); }
