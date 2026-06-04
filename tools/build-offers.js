@@ -609,7 +609,7 @@ ${tableRows}
 }
 
 // Витрина на главной: 6 избранных карточек между маркерами в index.html.
-const HOME_FEATURED = ['cifrovizaciya-pod-klyuch', 'ai-konsultant', 'zapis-salon-krasoty', 'programma-loyalnosti', '152-fz-pod-klyuch', 'bot-magazin-zakazy'];
+const HOME_FEATURED = ['ai-vnedrenie-90-dney', 'kompyuternoe-zrenie', 'ai-diagnostika-snimki', 'korporativnyy-ai-otdel', 'zashchita-ot-shifrovalshchikov', 'cifrovizaciya-pod-klyuch'];
 function offerCard(o) {
   return `                    <a href="/predlozheniya/${o.slug}/" class="offer-card" data-segment="${esc(o.segment || '')}">
                         <span class="offer-card-icon"><i class="ph-fill ${esc(o.icon)}" aria-hidden="true"></i></span>
