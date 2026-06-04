@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI red team: аудит безопасности AI и LLM | Чимитдоржи Дарижапов</title>
+    <meta name="description" content="Аудит безопасности AI-систем: тестируем ботов и LLM на prompt injection, утечки данных, jailbreak и злоупотребления. Отчёт с уязвимостями и планом устранения. Редкая экспертиза в РФ.">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/predlozheniya/ai-red-team/">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://chimitdorzhi.tech/predlozheniya/ai-red-team/">
+    <meta property="og:title" content="AI red team: аудит безопасности AI и LLM | Чимитдоржи Дарижапов">
+    <meta property="og:description" content="Аудит безопасности AI-систем: тестируем ботов и LLM на prompt injection, утечки данных, jailbreak и злоупотребления. Отчёт с уязвимостями и планом устранения. Редкая экспертиза в РФ.">
+    <meta property="og:image" content="https://chimitdorzhi.tech/predlozheniya/ai-red-team/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="/assets/phosphor/regular.css"><link rel="stylesheet" href="/assets/phosphor/fill.css"></noscript>
+    <link rel="stylesheet" href="/style.css?v=38">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "AI red team: аудит безопасности AI-систем",
+  "serviceType": "Аудит AI-систем",
+  "description": "Аудит безопасности AI-систем: тестируем ботов и LLM на prompt injection, утечки данных, jailbreak и злоупотребления. Отчёт с уязвимостями и планом устранения. Редкая экспертиза в РФ.",
+  "provider": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Россия"
+  },
+  "url": "https://chimitdorzhi.tech/predlozheniya/ai-red-team/"
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Предложения",
+      "item": "https://chimitdorzhi.tech/predlozheniya/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "AI red team: аудит безопасности AI-систем",
+      "item": "https://chimitdorzhi.tech/predlozheniya/ai-red-team/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Какие AI-системы вы тестируете",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Чат-боты, голосовые ассистенты, RAG-системы, AI-агенты с доступом к инструментам — на любых моделях, включая российские и локальные LLM"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужен ли вам доступ к нашему коду",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Можно работать как в режиме чёрного ящика, так и с доступом к промптам и архитектуре. Второй вариант даёт более глубокий результат"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько живёт результат аудита",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Базовая защита держится долго, но при изменении промптов, модели или подключённых данных рекомендую повторную проверку"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Дадите ли гарантию полной защищённости",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Абсолютной защиты не существует ни у кого. Я гарантирую выявление и устранение известных и обнаруженных классов уязвимостей с проверкой результата"
+      }
+    }
+  ]
+}
+    </script>
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/#about">Обо мне</a></li>
+            <li><a href="/#services">Услуги</a></li>
+            <li><a href="/predlozheniya/" class="nav-link-highlight">Предложения</a></li>
+            <li><a href="/blog/">Блог</a></li>
+            <li><a href="/#cases">Кейсы</a></li>
+            <li><a href="/#contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent nav-cta">Связаться</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/#about">Обо мне</a></li>
+        <li><a href="/#services">Услуги</a></li>
+        <li><a href="/predlozheniya/">Предложения</a></li>
+        <li><a href="/blog/">Блог</a></li>
+        <li><a href="/#contact">Контакт</a></li>
+    </ul>
+</div>
+    <main id="main">
+        <section class="section">
+            <div class="container">
+                <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                    <a href="/">Главная</a><span class="breadcrumbs-sep">›</span>
+                    <a href="/predlozheniya/">Предложения</a><span class="breadcrumbs-sep">›</span>
+                    <span aria-current="page">Аудит AI-систем</span>
+                </nav>
+                <div class="offer-hero">
+                    <span class="offer-eyebrow"><i class="ph-fill ph-shield-warning" aria-hidden="true"></i> Аудит AI-систем</span>
+                    <h1 class="offer-title">AI red team: аудит безопасности AI-систем</h1>
+                    <p class="offer-tagline">Проверяем ваших ботов и LLM на уязвимости: prompt injection, утечки данных, обход ограничений. Находим дыры до того, как их найдут другие.</p>
+                    <div class="offer-meta">
+                        <span class="offer-price">Бесплатная консультация</span>
+                        <span class="offer-timeline"><i class="ph ph-clock" aria-hidden="true"></i> Срок: 1–3 недели</span>
+                    </div>
+                    <div class="offer-hero-actions">
+                        <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%C2%ABAI%20red%20team%3A%20%D0%B0%D1%83%D0%B4%D0%B8%D1%82%20%D0%B1%D0%B5%D0%B7%D0%BE%D0%BF%D0%B0%D1%81%D0%BD%D0%BE%D1%81%D1%82%D0%B8%20AI-%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%C2%BB%20(%D0%91%D0%B5%D1%81%D0%BF%D0%BB%D0%B0%D1%82%D0%BD%D0%B0%D1%8F%20%D0%BA%D0%BE%D0%BD%D1%81%D1%83%D0%BB%D1%8C%D1%82%D0%B0%D1%86%D0%B8%D1%8F)." target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Обсудить задачу</a>
+                        <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                    </div>
+                </div>
+
+                
+                
+
+                <div class="offer-block"><h2>Знакомо?</h2><ul class="offer-list offer-list--pain"><li><i class="ph-fill ph-warning-circle" aria-hidden="true"></i> Ваш AI-ассистент общается с клиентами, но никто не проверял, что он не сольёт внутренние данные по хитрому запросу</li>
+<li><i class="ph-fill ph-warning-circle" aria-hidden="true"></i> Один скриншот с галлюцинацией или оскорблением от вашего бота — и это репутационный кризис в соцсетях</li>
+<li><i class="ph-fill ph-warning-circle" aria-hidden="true"></i> LLM подключён к внутренним базам и API, а значит prompt injection может превратиться в реальную утечку или действие от вашего имени</li>
+<li><i class="ph-fill ph-warning-circle" aria-hidden="true"></i> Регулятор и служба безопасности требуют доказательств защищённости AI-систем, а у вас нет ни одного отчёта</li></ul></div>
+
+                <div class="offer-block"><h2>Как сейчас и как будет</h2><table class="blog-table"><thead><tr><th>Сейчас, без решения</th><th>С решением</th></tr></thead><tbody><tr><td>AI-бот запущен в прод, но устойчивость к атакам никто не проверял</td><td>Проведён аудит, известны все уязвимости и их критичность</td></tr>
+<tr><td>Непонятно, можно ли заставить бота раскрыть системный промпт или данные</td><td>Проверены векторы prompt injection, утечек и jailbreak с конкретными примерами</td></tr>
+<tr><td>Безопасность AI держится на надежде, что никто не будет атаковать</td><td>Есть план устранения уязвимостей с приоритетами и проверкой результата</td></tr>
+<tr><td>Нет аргументов для руководства и регулятора о защищённости</td><td>На руках формальный отчёт об аудите безопасности AI-системы</td></tr>
+<tr><td>Бот может выполнять опасные действия через подключённые инструменты</td><td>Настроены границы доверия, проверены сценарии злоупотребления функциями</td></tr></tbody></table></div>
+
+                
+
+                <div class="offer-block"><h2>Что вы получите на руки</h2><ul class="offer-list"><li><i class="ph-fill ph-check-circle" aria-hidden="true"></i> Отчёт об аудите безопасности AI-системы с резюме для руководства</li>
+<li><i class="ph-fill ph-check-circle" aria-hidden="true"></i> Реестр найденных уязвимостей с уровнем критичности и сценариями эксплуатации</li>
+<li><i class="ph-fill ph-check-circle" aria-hidden="true"></i> Воспроизводимые примеры атак: prompt injection, утечки данных, jailbreak, злоупотребления</li>
+<li><i class="ph-fill ph-check-circle" aria-hidden="true"></i> План устранения уязвимостей с приоритетами и рекомендациями по защите</li>
+<li><i class="ph-fill ph-check-circle" aria-hidden="true"></i> Рекомендации по системному промпту, фильтрации, ограничению инструментов и логированию</li>
+<li><i class="ph-fill ph-check-circle" aria-hidden="true"></i> Повторная проверка после исправлений с подтверждением закрытия рисков</li></ul></div>
+
+                <div class="offer-block"><h2>Результат для бизнеса</h2><ul class="offer-list offer-list--result"><li><i class="ph-fill ph-trend-up" aria-hidden="true"></i> Известны и закрыты критические уязвимости AI-системы до того, как их найдут злоумышленники</li>
+<li><i class="ph-fill ph-trend-up" aria-hidden="true"></i> Снижен риск утечки данных и репутационного инцидента из-за поведения бота</li>
+<li><i class="ph-fill ph-trend-up" aria-hidden="true"></i> Документ для руководства, службы безопасности и регулятора о защищённости системы</li>
+<li><i class="ph-fill ph-trend-up" aria-hidden="true"></i> AI-система соответствует требованиям 152-ФЗ в части обработки персональных данных</li></ul></div>
+
+                
+
+                <div class="offer-block"><h2>Почему со мной</h2><div class="blog-body offer-body"><p>Меня зовут Чимитдоржи Дарижапов, более 16 лет в IT. Сертифицирован по AI-агентам и RAG-системам — я сам строю боты и знаю их слабые места изнутри. Параллельно занимаюсь кибербезопасностью, поэтому смотрю на ваш AI и как инженер, и как атакующий. Работаю на российском стеке, по 152-ФЗ, под NDA. Без форм и посредников — все детали обсуждаем напрямую и конфиденциально.</p></div></div>
+
+                <div class="offer-block"><h2>А если…</h2><div class="offer-faq-item"><p class="offer-faq-q">У нас популярная модель от крупного вендора, она же защищена</p><p class="offer-faq-a">Уязвима не сама модель, а ваша обвязка: системный промпт, доступ к данным, подключённые инструменты. Именно это и атакуют, и вендор за это не отвечает</p></div>
+<div class="offer-faq-item"><p class="offer-faq-q">Боимся, что тестирование сломает прод или утечёт реальными данными</p><p class="offer-faq-a">Работаю в согласованном периметре, на стенде или с ограничениями. Сценарии контролируемы, реальные данные не выводятся за пределы теста</p></div>
+<div class="offer-faq-item"><p class="offer-faq-q">У нас есть свои разработчики, почему не они</p><p class="offer-faq-a">Разработчики проверяют, что система работает как задумано. Red team проверяет, как её сломать. Это разный образ мышления и независимый взгляд</p></div>
+<div class="offer-faq-item"><p class="offer-faq-q">Насколько это вообще реальная угроза</p><p class="offer-faq-a">Prompt injection и утечки через LLM — уже массовая практика атак. Чем больше у бота доступа к данным и действиям, тем выше цена одной успешной атаки</p></div></div>
+
+                
+
+                <div class="offer-block"><h2>Как мы работаем</h2><div class="offer-steps">
+            <div class="offer-step">
+                <div class="offer-step-num">1</div>
+                <div class="offer-step-body">
+                    <div class="offer-step-title">Разведка и сценарии <span class="offer-step-days">(2-3 дня)</span></div>
+                    <p>Изучаем архитектуру AI-системы, точки входа, подключённые данные и инструменты, формируем модель угроз</p>
+                </div>
+            </div>
+
+            <div class="offer-step">
+                <div class="offer-step-num">2</div>
+                <div class="offer-step-body">
+                    <div class="offer-step-title">Атакующее тестирование <span class="offer-step-days">(4-7 дней)</span></div>
+                    <p>Проводим prompt injection, jailbreak, проверку утечек и злоупотреблений в контролируемом режиме</p>
+                </div>
+            </div>
+
+            <div class="offer-step">
+                <div class="offer-step-num">3</div>
+                <div class="offer-step-body">
+                    <div class="offer-step-title">Отчёт и план защиты <span class="offer-step-days">(2-3 дня)</span></div>
+                    <p>Документируем уязвимости, оцениваем критичность, готовим план устранения</p>
+                </div>
+            </div>
+
+            <div class="offer-step">
+                <div class="offer-step-num">4</div>
+                <div class="offer-step-body">
+                    <div class="offer-step-title">Повторная проверка <span class="offer-step-days">(1-2 дня)</span></div>
+                    <p>После ваших исправлений проверяем, что уязвимости действительно закрыты</p>
+                </div>
+            </div></div></div>
+
+                <div class="offer-block"><h2>Частые вопросы</h2><div class="offer-faq-item"><p class="offer-faq-q">Какие AI-системы вы тестируете</p><p class="offer-faq-a">Чат-боты, голосовые ассистенты, RAG-системы, AI-агенты с доступом к инструментам — на любых моделях, включая российские и локальные LLM</p></div>
+<div class="offer-faq-item"><p class="offer-faq-q">Нужен ли вам доступ к нашему коду</p><p class="offer-faq-a">Можно работать как в режиме чёрного ящика, так и с доступом к промптам и архитектуре. Второй вариант даёт более глубокий результат</p></div>
+<div class="offer-faq-item"><p class="offer-faq-q">Сколько живёт результат аудита</p><p class="offer-faq-a">Базовая защита держится долго, но при изменении промптов, модели или подключённых данных рекомендую повторную проверку</p></div>
+<div class="offer-faq-item"><p class="offer-faq-q">Дадите ли гарантию полной защищённости</p><p class="offer-faq-a">Абсолютной защиты не существует ни у кого. Я гарантирую выявление и устранение известных и обнаруженных классов уязвимостей с проверкой результата</p></div></div>
+
+                <div class="offer-block"><h2>Связанные услуги и статьи</h2><div class="offer-related"><a href="/services/cybersecurity/" class="offer-related-link">Кибербезопасность и защита систем <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+<a href="/services/ai-agents/" class="offer-related-link">Разработка AI-агентов <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+<a href="/blog/chek-list-bezopasnosti-sayta-47-punktov/" class="offer-related-link">Чек-лист безопасности: 47 пунктов <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+<a href="/blog/ai-agenty-v-biznese-2026/" class="offer-related-link">AI-агенты в бизнесе <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+<a href="/blog/rag-sistemy-dlya-biznesa-2026/" class="offer-related-link">RAG-системы для бизнеса <i class="ph ph-arrow-right" aria-hidden="true"></i></a></div></div>
+
+                <div class="offer-cta-card">
+        <div class="offer-cta-body">
+            <h3>Обсудим задачу в нише «Аудит AI-систем»?</h3>
+            <p>Бесплатная консультация — это 20–30 минут разговора: разберём вашу ситуацию, я скажу, что реально стоит делать (иногда — что делать пока не нужно), назову срок и точную цену под вас. Ни к чему не обязывает. Без форм — пишите или звоните напрямую.</p>
+        </div>
+        <div class="offer-cta-actions">
+            <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D1%80%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D0%B5%20%C2%ABAI%20red%20team%3A%20%D0%B0%D1%83%D0%B4%D0%B8%D1%82%20%D0%B1%D0%B5%D0%B7%D0%BE%D0%BF%D0%B0%D1%81%D0%BD%D0%BE%D1%81%D1%82%D0%B8%20AI-%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%C2%BB%20(%D0%90%D1%83%D0%B4%D0%B8%D1%82%20AI-%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC)." target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram</a>
+            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+            <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> Позвонить</a>
+        </div>
+    </div>
+            </div>
+        </section>
+    </main>
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label">КОНТАКТ</span>
+            <h2>ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 Дарижапов Чимитдоржи. Все права защищены.</p>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/predlozheniya/" class="footer-policy-link">Предложения</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/blog/" class="footer-policy-link">Блог</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link">Политика конфиденциальности</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=28" defer></script>
+<script src="/script.js?v=27" defer></script>
+</body>
+</html>
