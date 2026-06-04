@@ -51,11 +51,12 @@ const portalBody = require('./offer-content-portal.js');
 const importozamBody = require('./offer-content-importozam.js');
 const ctoBody = require('./offer-content-cto.js');
 
+// Порядок на хабе: свежие партии выше, старые ниже.
 const _ALL_OFFERS = [
-  ...require('./offers-batch-2.js'),
-  ...require('./offers-batch-3.js'),
-  ...require('./offers-batch-4.js'),
   ...require('./offers-batch-5.js'),
+  ...require('./offers-batch-4.js'),
+  ...require('./offers-batch-3.js'),
+  ...require('./offers-batch-2.js'),
   {
     slug: 'kofeynya',
     published: true,
