@@ -51,7 +51,7 @@ const portalBody = require('./offer-content-portal.js');
 const importozamBody = require('./offer-content-importozam.js');
 const ctoBody = require('./offer-content-cto.js');
 
-module.exports = [
+const _ALL_OFFERS = [
   ...require('./offers-batch-2.js'),
   ...require('./offers-batch-3.js'),
   {
@@ -888,3 +888,15 @@ module.exports = [
     metaDescription: 'CTO-as-a-service: IT-стратегия и архитектура, выбор технологий, управление подрядчиками, бюджет IT, безопасность и 152-ФЗ, оценка разработчиков. Дешевле штатного IT-директора.',
   },
 ];
+
+// Обогащение: экспертные структурированные блоки (pains/beforeAfter/deliverables/
+// process/result/objections/whyMe). При наличии — заменяют «сухой» bodyHtml.
+const _RICH = Object.assign({},
+  require('./offers-rich-1.js'), require('./offers-rich-2.js'), require('./offers-rich-3.js'),
+  require('./offers-rich-4.js'), require('./offers-rich-5.js'), require('./offers-rich-6.js'));
+for (const o of _ALL_OFFERS) {
+  const r = _RICH[o.slug];
+  if (r) { Object.assign(o, r); delete o.bodyHtml; }
+}
+
+module.exports = _ALL_OFFERS;
