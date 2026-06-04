@@ -53,6 +53,7 @@ const ctoBody = require('./offer-content-cto.js');
 
 module.exports = [
   ...require('./offers-batch-2.js'),
+  ...require('./offers-batch-3.js'),
   {
     slug: 'kofeynya',
     published: true,
