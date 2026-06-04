@@ -53,6 +53,7 @@ const ctoBody = require('./offer-content-cto.js');
 
 // Порядок на хабе: свежие партии выше, старые ниже.
 const _ALL_OFFERS = [
+  ...require('./offers-batch-8.js'),
   ...require('./offers-batch-7.js'),
   ...require('./offers-batch-6.js'),
   ...require('./offers-batch-5.js'),
@@ -365,7 +366,7 @@ const _ALL_OFFERS = [
     metaDescription: 'Решение для фитнес-клуба и студии: запись на тренировки, абонементы со списанием и заморозкой, расписание тренеров, напоминания, аналитика оттока. Российский стек.',
   },
   {
-    slug: 'onlayn-shkola-platforma', published: true, segment: 'Боты и AI',
+    slug: 'onlayn-shkola-platforma', published: true, segment: 'Образование и EdTech',
     niche: 'Онлайн-школы и эксперты', icon: 'ph-graduation-cap',
     title: 'Платформа для онлайн-школы и курсов',
     tagline: 'Продажа курса, доступ к урокам, домашки, прогресс и напоминания через бот — продаёте и ведёте учеников в одной системе.',
@@ -461,7 +462,7 @@ const _ALL_OFFERS = [
     metaDescription: 'Решение для агентства недвижимости: база объектов, бот подбора под клиента, CRM сделок, напоминания о показах, рассылки подборок. Российский стек, 152-ФЗ.',
   },
   {
-    slug: 'it-dlya-avtoshkoly', published: true, segment: 'Автоматизация',
+    slug: 'it-dlya-avtoshkoly', published: true, segment: 'Образование и EdTech',
     niche: 'Автошкола', icon: 'ph-steering-wheel',
     title: 'IT для автошколы: запись, теория, оплата',
     tagline: 'Запись на занятия и экзамены, расписание инструкторов и машин, бот-тренажёр ПДД и оплата с рассрочкой — порядок в потоке учеников.',
@@ -813,7 +814,7 @@ const _ALL_OFFERS = [
     metaDescription: 'AI-отдел продаж и поддержки: омниканальный AI на сайте, в мессенджерах и на телефоне, база знаний RAG, CRM, маршрутизация и передача операторам, аналитика. Обработка 24/7.',
   },
   {
-    slug: 'obrazovatelnaya-platforma-lms', published: true, segment: 'Флагманы',
+    slug: 'obrazovatelnaya-platforma-lms', published: true, segment: 'Образование и EdTech',
     niche: 'Образовательная платформа', icon: 'ph-chalkboard-teacher',
     title: 'Образовательная платформа (LMS) под ключ',
     tagline: 'Своя онлайн-школа на много курсов и потоков: продажи, кабинеты, домашки, прогресс и аналитика — без процентов с оборота.',
@@ -902,7 +903,8 @@ const _RICH = Object.assign({},
   require('./offers-rich-7a.js'), require('./offers-rich-7b.js'),
   require('./offers-rich-8a.js'), require('./offers-rich-8b.js'),
   require('./offers-rich-9a.js'), require('./offers-rich-9b.js'),
-  require('./offers-rich-10a.js'), require('./offers-rich-10b.js'));
+  require('./offers-rich-10a.js'), require('./offers-rich-10b.js'),
+  require('./offers-rich-11a.js'), require('./offers-rich-11b.js'), require('./offers-rich-11c.js'));
 for (const o of _ALL_OFFERS) {
   const r = _RICH[o.slug];
   if (r) { Object.assign(o, r); delete o.bodyHtml; }
