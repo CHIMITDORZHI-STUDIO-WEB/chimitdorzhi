@@ -15,6 +15,9 @@ const subOffersCount = (s) => String(s).split('{{OFFERS_COUNT}}').join(OFFERS_CO
 
 // Карта: slug статьи → slug предложения. Добавляйте по мере роста раздела.
 const OFFER_LINKS = {
+  'avtomatizaciya-razvlecheniy-dosuga-2027': 'kvest-komnaty',
+  'biznes-na-arende-i-prokate-2027': 'arenda-spectehniki',
+  'avtomatizaciya-lokalnyh-uslug-2027': 'servis-centr-remont',
   'it-dlya-avtoservisa-2026': 'avtoservis',
   'cifrovizaciya-avtomoyki-detailing-2026': 'avtoservis',
   'it-dlya-shinomontazha-hraneniya-shin-2026': 'avtoservis',
