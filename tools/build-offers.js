@@ -116,7 +116,7 @@ function head({ title, description, canonical, ogImage = `${SITE}/hero-photo.web
     <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="/assets/phosphor/regular.css"><link rel="stylesheet" href="/assets/phosphor/fill.css"></noscript>
-    <link rel="stylesheet" href="/style.css?v=38">
+    <link rel="stylesheet" href="/style.css?v=39">
 `;
 }
 
@@ -356,9 +356,31 @@ ${faqLd(o)}</head>
 </html>`;
 }
 
+// Группировка рубрик для удобной навигации заказчика
+const SEGMENT_GROUPS = [
+  { label: 'Отрасли', segs: ['Малый бизнес и услуги', 'HoReCa и общепит', 'Недвижимость', 'Логистика и склад', 'Спорт и фитнес', 'Производство и стройка', 'Медицина и MedTech', 'Образование и EdTech', 'Госсектор'] },
+  { label: 'AI и технологии', segs: ['Корпоративный AI', 'Боты и AI', 'Зрение и роботизация', 'Блокчейн и ЦФА'] },
+  { label: 'Под задачу', segs: ['Комплексные платформы', 'Безопасность и аудит', 'Право', 'Геймификация', 'Сетевой бизнес (MLM)'] },
+];
+
+function buildFilterGroups(list) {
+  const counts = {};
+  list.forEach((o) => { if (o.segment) counts[o.segment] = (counts[o.segment] || 0) + 1; });
+  const placed = new Set();
+  const groups = SEGMENT_GROUPS.map((g) => ({
+    label: g.label,
+    segs: g.segs.filter((s) => { if (counts[s]) { placed.add(s); return true; } return false; }),
+  })).filter((g) => g.segs.length);
+  // Любые сегменты, не попавшие в карту групп — в «Прочее», чтобы ничего не потерять
+  const rest = Object.keys(counts).filter((s) => !placed.has(s));
+  if (rest.length) groups.push({ label: 'Прочее', segs: rest });
+  return { groups, counts };
+}
+
 function hubPage(list) {
   const url = `${SITE}/predlozheniya/`;
   const segments = [...new Set(list.map((o) => o.segment).filter(Boolean))];
+  const { groups: filterGroups, counts: segCounts } = buildFilterGroups(list);
   const cards = list.map((o) => `
             <a href="/predlozheniya/${o.slug}/" class="offer-card" data-segment="${esc(o.segment || '')}">
                 <span class="offer-card-icon"><i class="ph-fill ${esc(o.icon)}" aria-hidden="true"></i></span>
@@ -409,9 +431,16 @@ ${JSON.stringify(breadcrumb, null, 2)}
                     <p class="section-sub">Упакованные IT-решения под вашу нишу: онлайн-запись, боты, CRM, автоматизация и AI. С понятным составом, ценой «от» и сроком. Точную смету называю после короткого разговора — без форм и спама.</p>
                 </div>
                 ${searchBox()}
-                ${segments.length > 1 ? `<div class="offer-filter" role="group" aria-label="Фильтр по нишам">
-                    <button class="offer-chip active" data-seg="all">Все <span>${list.length}</span></button>
-                    ${segments.map((s) => `<button class="offer-chip" data-seg="${esc(s)}">${esc(s)}</button>`).join('\n                    ')}
+                ${segments.length > 1 ? `<div class="offer-filter" role="group" aria-label="Фильтр по рубрикам">
+                    <div class="offer-filter-row offer-filter-all">
+                        <button class="offer-chip active" data-seg="all">Все решения <span>${list.length}</span></button>
+                    </div>
+                    ${filterGroups.map((g) => `<div class="offer-filter-group">
+                        <span class="offer-filter-label">${esc(g.label)}</span>
+                        <div class="offer-filter-row">
+                            ${g.segs.map((s) => `<button class="offer-chip" data-seg="${esc(s)}">${esc(s)} <span>${segCounts[s]}</span></button>`).join('\n                            ')}
+                        </div>
+                    </div>`).join('\n                    ')}
                 </div>` : ''}
                 <div class="offer-grid" id="offerGrid">
 ${cards}

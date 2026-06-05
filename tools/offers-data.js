@@ -912,4 +912,81 @@ for (const o of _ALL_OFFERS) {
   if (r) { Object.assign(o, r); delete o.bodyHtml; }
 }
 
+// --- Перегруппировка по понятным заказчику рубрикам ---------------------
+// Разбиваем разросшиеся «Автоматизация» (39) и «Флагманы» (19) на отраслевые
+// и тематические рубрики. Один источник правды — менять только здесь.
+const SEG_REMAP = {
+  // Отрасли
+  'kofeynya': 'HoReCa и общепит',
+  'obshchepit': 'HoReCa и общепит',
+  'dostavka-dlya-seti': 'HoReCa и общепит',
+  'ai-prognoz-zakupok-horeca': 'HoReCa и общепит',
+  'kontrol-franshizy-horeca': 'HoReCa и общепит',
+  'upravlenie-setyu-restoranov': 'HoReCa и общепит',
+
+  'lichnyy-kabinet-dolshchika': 'Недвижимость',
+  'vr-tury-nedvizhimost': 'Недвижимость',
+  'ai-ocenka-nedvizhimosti': 'Недвижимость',
+  'crm-agentstvo-nedvizhimosti': 'Недвижимость',
+  'platforma-prodazh-novostroek': 'Недвижимость',
+
+  'tms-marshrutizaciya': 'Логистика и склад',
+  'wms-ai-prognoz': 'Логистика и склад',
+  'treking-gruzov': 'Логистика и склад',
+  'upravlenie-avtoparkom': 'Логистика и склад',
+  'b2b-portal-opt': 'Логистика и склад',
+
+  'ai-uderzhanie-fitnes': 'Спорт и фитнес',
+  'biometriya-dostup-fitnes': 'Спорт и фитнес',
+  'prilozhenie-kluba-ai-trener': 'Спорт и фитнес',
+  'avtomatizaciya-fitnesa': 'Спорт и фитнес',
+  'upravlenie-setyu-fitnes': 'Спорт и фитнес',
+
+  'cifrovizaciya-proizvodstva': 'Производство и стройка',
+  'importozameshchenie-asu-tp': 'Производство и стройка',
+  'crm-stroitelnaya-kompaniya': 'Производство и стройка',
+
+  'zapis-salon-krasoty': 'Малый бизнес и услуги',
+  'bystryy-start-sayt': 'Малый бизнес и услуги',
+  'zayavki-klining-uslugi': 'Малый бизнес и услуги',
+  'himchistka-prachechnaya': 'Малый бизнес и услуги',
+  'zakazy-tipografiya': 'Малый бизнес и услуги',
+  'avtoservis': 'Малый бизнес и услуги',
+  'it-yuridicheskaya-firma': 'Малый бизнес и услуги',
+  'it-fotograf-videograf': 'Малый бизнес и услуги',
+  'it-event-agentstvo': 'Малый бизнес и услуги',
+  'bronirovanie-arendy': 'Малый бизнес и услуги',
+  'bronirovanie-kovorking': 'Малый бизнес и услуги',
+  'bronirovanie-otel-glamping': 'Малый бизнес и услуги',
+  'crm-turagentstvo': 'Малый бизнес и услуги',
+  'dostavka-bot-povtornye-zakazy': 'Малый бизнес и услуги',
+  'lichnyy-kabinet-klienta': 'Малый бизнес и услуги',
+  'chestnyy-znak-markirovka': 'Малый бизнес и услуги',
+
+  // AI и технологии (из «Флагманов» в профильную рубрику)
+  'ai-vnedrenie-90-dney': 'Корпоративный AI',
+  'korporativnoe-obuchenie-ai': 'Корпоративный AI',
+  'ai-otdel-prodazh-podderzhki': 'Корпоративный AI',
+
+  // Комплексные платформы — кросс-отраслевые крупные проекты
+  'cifrovizaciya-pod-klyuch': 'Комплексные платформы',
+  'korporativnyy-portal': 'Комплексные платформы',
+  'dashboard-rukovoditelya': 'Комплексные платформы',
+  'zapusk-saas-produkta': 'Комплексные платформы',
+  'marketplace-pod-nishu': 'Комплексные платформы',
+  'platforma-set-franshiza': 'Комплексные платформы',
+  'importozameshchenie-infrastruktura': 'Комплексные платформы',
+  'cto-as-a-service': 'Комплексные платформы',
+  'tech-cofounder-zapusk': 'Комплексные платформы',
+  'mobilnoe-prilozhenie-pwa': 'Комплексные платформы',
+  'integraciya-sistem': 'Комплексные платформы',
+  'platforma-loyalnosti-uderzhaniya': 'Комплексные платформы',
+  'it-granty-gospodderzhka': 'Комплексные платформы',
+  'audit-i-uskorenie-sayta': 'Комплексные платформы',
+  'edo-elektronnaya-podpis': 'Комплексные платформы',
+};
+for (const o of _ALL_OFFERS) {
+  if (SEG_REMAP[o.slug]) o.segment = SEG_REMAP[o.slug];
+}
+
 module.exports = _ALL_OFFERS;
