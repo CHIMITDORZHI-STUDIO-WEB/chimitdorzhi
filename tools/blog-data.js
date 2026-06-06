@@ -61,6 +61,9 @@ const autoschoolContent = require('./blog-content-autoschool.js');
 const razvlecheniyaDosugContent = require('./blog-content-razvlecheniya-dosug.js');
 const arendaProkatContent = require('./blog-content-arenda-prokat.js');
 const lokalnyeUslugiContent = require('./blog-content-lokalnye-uslugi.js');
+const aiAgentyVsChatbotyContent = require('./blog-content-ai-agenty-vs-chatboty.js');
+const yandexKarty2gisContent = require('./blog-content-yandex-karty-2gis.js');
+const aiBuryatiyaContent = require('./blog-content-ai-buryatiya-zabaykalye.js');
 const saunaContent = require('./blog-content-sauna.js');
 const soglasiePdContent = require('./blog-content-soglasie-pd.js');
 const selfHostedContent = require('./blog-content-self-hosted.js');
@@ -2913,6 +2916,126 @@ print(r.json()["choices"][0]["message"]["content"])
 `;
 
 module.exports = [
+  {
+    slug: 'ai-agenty-vs-chatboty-2027',
+    category: 'ai-dev',
+    published: true,
+    title: 'AI-агенты против чат-ботов 2027: в чём разница и за что не стоит переплачивать',
+    metaTitle: 'AI-агенты или чат-боты: что выбрать бизнесу в 2027 | Чимитдоржи Дарижапов',
+    metaDescription: 'Чат-бот, LLM-бот или автономный AI-агент — в чём разница и что реально нужно бизнесу. Когда хватит простого бота, когда нужен агент, как устроено внутри (RAG, инструменты, память), риски, цена и как внедрять поэтапно. Без хайпа, по задаче и бюджету.',
+    metaKeywords: 'AI-агент, чат-бот, LLM-бот, разница AI-агент и чат-бот, RAG, GigaChat, YandexGPT, AI для бизнеса',
+    excerpt: 'Чат-бот по сценарию, бот на LLM или автономный AI-агент — за что бизнес переплачивает, а где агент реально окупается. Разбираю разницу простыми словами, архитектуру (RAG, инструменты, память), риски и цену, и даю алгоритм выбора по задаче и бюджету.',
+    datePublished: '2026-06-06',
+    dateModified: '2026-06-06',
+    readingMinutes: 16,
+    heroIcon: 'ph-fill ph-robot',
+    tags: ['AI-агенты', 'чат-боты', 'LLM', 'RAG', 'AI для бизнеса'],
+    toc: [
+      { id: 'chto-takoe', text: 'Что есть что' },
+      { id: 'raznica', text: 'Ключевая разница' },
+      { id: 'kogda-bot', text: 'Когда достаточно бота' },
+      { id: 'kogda-agent', text: 'Когда нужен агент' },
+      { id: 'arhitektura', text: 'Как устроено внутри' },
+      { id: 'riski', text: 'Риски агентов' },
+      { id: 'stoimost', text: 'Сколько стоит' },
+      { id: 'vnedrenie', text: 'Как внедрять поэтапно' },
+      { id: 'oshibki', text: 'Топ-5 ошибок' },
+      { id: 'faq', text: 'FAQ' },
+      { id: 'vyvody', text: 'Как выбрать' },
+    ],
+    contentHtml: aiAgentyVsChatbotyContent,
+    relatedSlugs: ['ai-agenty-v-biznese-2026', 'rag-sistemy-dlya-biznesa-2026', 'ai-chatbot-na-sayt-bez-programmirovaniya-2026'],
+    ctaInternal: { url: 'https://chimitdorzhi.tech/predlozheniya/', label: 'Подобрать бота или AI-агента' },
+    servicesOffer: {
+      title: 'Что я делаю с ботами и AI-агентами',
+      services: [
+        { icon: 'ph-fill ph-chat-circle-dots', label: 'Чат-боты под сценарий для бизнеса' },
+        { icon: 'ph-fill ph-brain', label: 'AI-консультанты и боты на LLM (RAG)' },
+        { icon: 'ph-fill ph-robot', label: 'Автономные AI-агенты под процесс' },
+        { icon: 'ph-fill ph-phone-call', label: 'Голосовые AI-боты' },
+        { icon: 'ph-fill ph-shield-check', label: 'Российский AI-стек, 152-ФЗ' },
+      ],
+    },
+  },
+  {
+    slug: 'yandex-karty-2gis-lokalnyy-biznes-2027',
+    category: 'marketing',
+    published: true,
+    title: 'Локальный бизнес в Яндекс Картах и 2ГИС 2027: как попасть в топ и собрать отзывы',
+    metaTitle: 'Продвижение в Яндекс Картах и 2ГИС 2027: топ, отзывы, карточка | Чимитдоржи Дарижапов',
+    metaDescription: 'Для локального бизнеса карточка в Яндекс Картах и 2ГИС важнее сайта. Как заполнить карточку до конца, законно собирать отзывы и отвечать на них, факторы ранжирования, фото и посты, платное приоритетное размещение и аналитика. Чек-лист продвижения за 30 дней.',
+    metaKeywords: 'Яндекс Карты продвижение, 2ГИС топ, Яндекс Бизнес, отзывы организации, локальное SEO, карточка организации',
+    excerpt: 'Для кафе, салона или автосервиса карточка в Яндекс Картах и 2ГИС приводит больше клиентов, чем сайт. Разбираю пошагово: заполнение карточки, законный сбор отзывов и ответы, факторы ранжирования, контент, платное размещение и что мерить в аналитике.',
+    datePublished: '2026-06-06',
+    dateModified: '2026-06-06',
+    readingMinutes: 17,
+    heroIcon: 'ph-fill ph-map-pin',
+    tags: ['Яндекс Карты', '2ГИС', 'отзывы', 'локальное SEO', 'маркетинг'],
+    toc: [
+      { id: 'zachem', text: 'Почему карты важнее сайта' },
+      { id: 'kartochka', text: 'Карточка организации' },
+      { id: 'otzyvy', text: 'Отзывы: сбор и ответы' },
+      { id: 'faktory', text: 'Факторы ранжирования' },
+      { id: 'kontent', text: 'Фото, посты, акции' },
+      { id: 'prioritetnoe', text: 'Приоритетное размещение' },
+      { id: 'analitika', text: 'Аналитика и метрики' },
+      { id: 'oshibki', text: 'Топ-5 ошибок' },
+      { id: 'faq', text: 'FAQ' },
+      { id: 'vyvody', text: 'Чек-лист за 30 дней' },
+    ],
+    contentHtml: yandexKarty2gisContent,
+    relatedSlugs: ['reputaciya-otzyvy-yandex-2gis-2026', 'geomarketing-yandex-karty-2026', 'geo-dlya-nishevogo-biznesa-2026'],
+    ctaInternal: { url: 'https://chimitdorzhi.tech/predlozheniya/ai-upravlenie-reputaciey/', label: 'Настроить работу с отзывами' },
+    servicesOffer: {
+      title: 'Что я делаю для локального продвижения',
+      services: [
+        { icon: 'ph-fill ph-map-pin', label: 'Настройка карточек в Яндекс Бизнес и 2ГИС' },
+        { icon: 'ph-fill ph-star', label: 'Система сбора и ответов на отзывы (ORM)' },
+        { icon: 'ph-fill ph-calendar-check', label: 'Онлайн-запись с карт и сайта' },
+        { icon: 'ph-fill ph-chart-line-up', label: 'Аналитика звонков и маршрутов' },
+        { icon: 'ph-fill ph-image', label: 'Фото- и контент-наполнение карточки' },
+      ],
+    },
+  },
+  {
+    slug: 'ai-dlya-biznesa-buryatiya-zabaykalye-2027',
+    category: 'ai-dev',
+    published: true,
+    title: 'AI для бизнеса в Бурятии и Забайкалье 2027: с чего начать без большого бюджета',
+    metaTitle: 'AI для бизнеса в Бурятии и Забайкалье 2027: с чего начать | Чимитдоржи Дарижапов',
+    metaDescription: 'AI доступен и малому региональному бизнесу. С чего начать за неделю и без большого бюджета в Улан-Удэ, Чите и малых городах: применения под общепит, услуги, торговлю с Китаем, туризм, сельхоз и маркетплейсы. Бюджеты на старте, господдержка, типовые ошибки.',
+    metaKeywords: 'AI Бурятия, AI Забайкалье, цифровизация Улан-Удэ, AI для малого бизнеса, GigaChat, нейросети для бизнеса регион',
+    excerpt: 'AI — это не только для Москвы и корпораций. Разбираю на практике, как малому бизнесу Улан-Удэ, Читы и региона начать с AI за неделю и без большого бюджета: конкретные применения под местные ниши, цена на старте, господдержка и ошибки, которых стоит избежать.',
+    datePublished: '2026-06-06',
+    dateModified: '2026-06-06',
+    readingMinutes: 17,
+    heroIcon: 'ph-fill ph-sparkle',
+    tags: ['AI', 'Бурятия', 'Забайкалье', 'малый бизнес', 'регион'],
+    toc: [
+      { id: 'pochemu-seychas', text: 'Почему пора сейчас' },
+      { id: 'mify', text: 'Мифы про AI' },
+      { id: 's-chego-nachat', text: 'С чего начать' },
+      { id: 'primery', text: 'Применения по нишам' },
+      { id: 'byudzhet', text: 'Сколько стоит на старте' },
+      { id: 'gospodderzhka', text: 'Господдержка и гранты' },
+      { id: 'oshibki', text: 'Топ-5 ошибок' },
+      { id: 'faq', text: 'FAQ' },
+      { id: 'vyvody', text: 'План на 30 дней' },
+    ],
+    contentHtml: aiBuryatiyaContent,
+    relatedSlugs: ['cifrovizaciya-biznesa-buryatiya-zabaykalye-2026', 'it-torgovlya-s-kitaem-zabaykalsk-2026', 'lokalnoe-prodvizhenie-chita-ulan-ude-2026'],
+    ctaInternal: { url: 'https://chimitdorzhi.tech/predlozheniya/', label: 'Начать с AI в вашем бизнесе' },
+    servicesOffer: {
+      title: 'Что я делаю для регионального бизнеса',
+      services: [
+        { icon: 'ph-fill ph-brain', label: 'AI-консультанты и чат-боты под нишу' },
+        { icon: 'ph-fill ph-globe', label: 'Быстрый старт сайта и автоматизации' },
+        { icon: 'ph-fill ph-shopping-cart', label: 'AI для селлеров WB и Ozon' },
+        { icon: 'ph-fill ph-scales', label: 'AI-помощник юриста и бухгалтера' },
+        { icon: 'ph-fill ph-shield-check', label: 'Российский AI-стек, 152-ФЗ' },
+      ],
+    },
+  },
   {
     slug: 'avtomatizaciya-razvlecheniy-dosuga-2027',
     category: 'industries',
