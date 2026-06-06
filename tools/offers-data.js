@@ -53,6 +53,7 @@ const ctoBody = require('./offer-content-cto.js');
 
 // Порядок на хабе: свежие партии выше, старые ниже.
 const _ALL_OFFERS = [
+  ...require('./offers-batch-15.js'),
   ...require('./offers-batch-14.js'),
   ...require('./offers-batch-13.js'),
   ...require('./offers-batch-12.js'),
@@ -916,7 +917,8 @@ const _RICH = Object.assign({},
   require('./offers-rich-14a.js'), require('./offers-rich-14b.js'),
   require('./offers-rich-15a.js'), require('./offers-rich-15b.js'), require('./offers-rich-15c.js'),
   require('./offers-rich-16a.js'), require('./offers-rich-16b.js'),
-  require('./offers-rich-17a.js'), require('./offers-rich-17b.js'), require('./offers-rich-17c.js'));
+  require('./offers-rich-17a.js'), require('./offers-rich-17b.js'), require('./offers-rich-17c.js'),
+  require('./offers-rich-18a.js'), require('./offers-rich-18b.js'));
 for (const o of _ALL_OFFERS) {
   const r = _RICH[o.slug];
   if (r) { Object.assign(o, r); delete o.bodyHtml; }
@@ -994,6 +996,23 @@ const SEG_REMAP = {
   'it-granty-gospodderzhka': 'Комплексные платформы',
   'audit-i-uskorenie-sayta': 'Комплексные платформы',
   'edo-elektronnaya-podpis': 'Комплексные платформы',
+
+  // --- Новые рубрики: Финтех, Маркетплейсы, Маркетинг (перенос существующих) ---
+  'ai-algotreyding': 'Финтех и платежи',
+  'cfa-tokenizaciya': 'Финтех и платежи',
+  'proslezhivaemost-blockchain': 'Логистика и склад', // прослеживаемость товаров — это логистика
+
+  'avtomatizaciya-sellera-wb-ozon': 'Маркетплейсы и e-commerce',
+  'ai-kartochki-marketpleys': 'Маркетплейсы и e-commerce',
+  'ai-predmetnaya-syemka': 'Маркетплейсы и e-commerce',
+  'fulfilment-internet-magazina': 'Маркетплейсы и e-commerce',
+  'bot-magazin-zakazy': 'Маркетплейсы и e-commerce',
+  'marketplace-pod-nishu': 'Маркетплейсы и e-commerce',
+
+  'skvoznaya-analitika-koltreking': 'Маркетинг и трафик',
+  'ai-upravlenie-reputaciey': 'Маркетинг и трафик',
+  'ai-kontent-zavod': 'Маркетинг и трафик',
+  'kviz-bot-podbor-zayavki': 'Маркетинг и трафик',
 };
 for (const o of _ALL_OFFERS) {
   if (SEG_REMAP[o.slug]) o.segment = SEG_REMAP[o.slug];
