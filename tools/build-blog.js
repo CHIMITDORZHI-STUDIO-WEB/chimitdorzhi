@@ -15,6 +15,9 @@ const subOffersCount = (s) => String(s).split('{{OFFERS_COUNT}}').join(OFFERS_CO
 
 // Карта: slug статьи → slug предложения. Добавляйте по мере роста раздела.
 const OFFER_LINKS = {
+  'sistemy-loyalnosti-2027': 'programma-loyalnosti',
+  'zashchita-sayta-ot-botov-parsinga-2027': 'audit-i-uskorenie-sayta',
+  'ai-perevod-rabota-s-kitaem-2027': 'ai-konsultant',
   'ai-agenty-vs-chatboty-2027': 'ai-konsultant',
   'yandex-karty-2gis-lokalnyy-biznes-2027': 'ai-upravlenie-reputaciey',
   'ai-dlya-biznesa-buryatiya-zabaykalye-2027': 'bot-dlya-biznesa',
