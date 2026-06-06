@@ -15,6 +15,11 @@ const subOffersCount = (s) => String(s).split('{{OFFERS_COUNT}}').join(OFFERS_CO
 
 // Карта: slug статьи → slug предложения. Добавляйте по мере роста раздела.
 const OFFER_LINKS = {
+  'it-dlya-zoomagazina-gruminga-2027': 'zoomagazin-gruming',
+  'avtomatizaciya-sportshkoly-sekciy-2027': 'sportshkola-sekcii',
+  'it-dlya-magazina-stroymaterialov-2027': 'magazin-stroymaterialov',
+  'avtomatizaciya-skupki-komissionki-2027': 'skupka-komissionka',
+  'iz-excel-v-crm-za-mesyac-2027': 'integraciya-sistem',
   'sistemy-loyalnosti-2027': 'programma-loyalnosti',
   'zashchita-sayta-ot-botov-parsinga-2027': 'audit-i-uskorenie-sayta',
   'ai-perevod-rabota-s-kitaem-2027': 'ai-konsultant',
