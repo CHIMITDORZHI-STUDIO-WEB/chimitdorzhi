@@ -76,6 +76,7 @@ const fintehPlatezhiContent = require('./blog-content-finteh-platezhi.js');
 const marketpleysyContent = require('./blog-content-marketpleysy.js');
 const marketingTrafikContent = require('./blog-content-marketing-trafik.js');
 const ideyaVProduktContent = require('./blog-content-ideya-v-produkt.js');
+const kontentNaPotokContent = require('./blog-content-kontent-na-potok.js');
 const saunaContent = require('./blog-content-sauna.js');
 const soglasiePdContent = require('./blog-content-soglasie-pd.js');
 const selfHostedContent = require('./blog-content-self-hosted.js');
@@ -2928,6 +2929,47 @@ print(r.json()["choices"][0]["message"]["content"])
 `;
 
 module.exports = [
+  {
+    slug: 'kak-kreatoru-postavit-kontent-na-potok-2027',
+    category: 'media',
+    published: true,
+    title: 'Как креатору поставить контент на поток 2027: система вместо выгорания',
+    metaTitle: 'Как креатору поставить контент на поток 2027: система и AI | Чимитдоржи Дарижапов',
+    metaDescription: 'Стабильный контент — это не вдохновение, а система. Разбираю, как поставить производство на конвейер: контент-завод, AI-нарезка видео, обложки без дизайнера, авто-постинг, монетизация через курсы, подписку и цифровые товары. Без выгорания и большой команды.',
+    metaKeywords: 'контент на поток, контент-завод, AI для блогера, нарезка видео на клипы, монетизация контента, автопостинг, как не выгореть креатору',
+    excerpt: 'Контент каждый день выматывает, если делать всё руками и на вдохновении. Разбираю, как поставить производство на систему: один источник — десяток единиц контента, AI-нарезка и обложки, авто-дистрибуция и монетизация через курсы, подписку и цифровые товары.',
+    datePublished: '2026-06-06',
+    dateModified: '2026-06-06',
+    readingMinutes: 19,
+    heroIcon: 'ph-fill ph-broadcast',
+    tags: ['контент', 'креаторы', 'блогинг', 'AI', 'медиа'],
+    toc: [
+      { id: 'vygoranie', text: 'Почему креаторы выгорают' },
+      { id: 'kontent-zavod', text: 'Контент-завод' },
+      { id: 'narezka', text: 'Нарезка видео на клипы' },
+      { id: 'vizual', text: 'Обложки и визуал' },
+      { id: 'distribuciya', text: 'Дистрибуция' },
+      { id: 'ai-instrumenty', text: 'AI-инструменты креатора' },
+      { id: 'monetizaciya', text: 'Монетизация' },
+      { id: 'komanda-prava', text: 'Команда и права на контент' },
+      { id: 'oshibki', text: 'Топ-5 ошибок' },
+      { id: 'faq', text: 'FAQ' },
+      { id: 'vyvody', text: 'План за 30 дней' },
+    ],
+    contentHtml: kontentNaPotokContent,
+    relatedSlugs: ['kontent-kotoryy-citiruyut-ii-2026', 'ai-v-marketinge-2026', 'svoya-strim-studiya-2026'],
+    ctaInternal: { url: 'https://chimitdorzhi.tech/predlozheniya/ai-kontent-zavod/', label: 'Поставить контент на поток' },
+    servicesOffer: {
+      title: 'Что я делаю для креаторов и медиа',
+      services: [
+        { icon: 'ph-fill ph-factory', label: 'AI-контент-завод: один источник — десяток единиц' },
+        { icon: 'ph-fill ph-film-strip', label: 'AI-нарезка видео на клипы и Shorts' },
+        { icon: 'ph-fill ph-image-square', label: 'AI-обложки и визуал в стиле канала' },
+        { icon: 'ph-fill ph-calendar-dots', label: 'Авто-постинг и дистрибуция' },
+        { icon: 'ph-fill ph-lock-key', label: 'Монетизация: курсы, подписка, цифровые товары' },
+      ],
+    },
+  },
   {
     slug: 'kak-prevratit-ideyu-v-produkt-2027',
     category: 'development',
