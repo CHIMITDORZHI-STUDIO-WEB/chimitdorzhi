@@ -1042,4 +1042,72 @@ for (const o of _ALL_OFFERS) {
   if (SEG_REMAP[o.slug]) o.segment = SEG_REMAP[o.slug];
 }
 
+// --- Целевая пересборка рубрик (второй проход, переопределяет прежние метки) ---
+// Разбиваем монстра «Малый бизнес и услуги», собираем HR и АПК, усиливаем Право.
+const SEG_REMAP_V2 = {
+  // Розница и торговля
+  'butik-odezhdy-obuvi': 'Розница и торговля',
+  'yuvelirnyy-ritejl': 'Розница и торговля',
+  'mebelnyy-salon-shourum': 'Розница и торговля',
+  'zoomagazin-gruming': 'Розница и торговля',
+  'pitomnik-sadovyy-centr': 'Розница и торговля',
+  'skupka-komissionka': 'Розница и торговля',
+  'dostavka-bot-povtornye-zakazy': 'Розница и торговля',
+  'cvetochnyy-magazin': 'Розница и торговля',
+
+  // Бытовые услуги
+  'servis-centr-remont': 'Бытовые услуги',
+  'atelye-poshiv': 'Бытовые услуги',
+  'himchistka-prachechnaya': 'Бытовые услуги',
+  'zayavki-klining-uslugi': 'Бытовые услуги',
+  'dezinsekciya-ses': 'Бытовые услуги',
+  'fotostudiya-arenda': 'Бытовые услуги',
+  'zakazy-tipografiya': 'Бытовые услуги',
+  'landshaftnyy-dizayn': 'Бытовые услуги',
+  'bronirovanie-arendy': 'Бытовые услуги',
+  'it-fotograf-videograf': 'Бытовые услуги',
+  'it-event-agentstvo': 'Бытовые услуги',
+
+  // Красота и здоровье
+  'zapis-salon-krasoty': 'Красота и здоровье',
+  'massazh-spa-salon': 'Красота и здоровье',
+  'tatu-piersing-salon': 'Красота и здоровье',
+  'agentstvo-nyan-sidelok': 'Красота и здоровье',
+
+  // Туризм и гостеприимство
+  'bronirovanie-otel-glamping': 'Туризм и гостеприимство',
+  'apart-otel-posutochnaya': 'Туризм и гостеприимство',
+  'crm-turagentstvo': 'Туризм и гостеприимство',
+  'bronirovanie-kovorking': 'Туризм и гостеприимство',
+
+  // HR и команда
+  'hr-bot-podbor': 'HR и команда',
+  'tabel-grafiki-smen': 'HR и команда',
+  'kadrovoe-agentstvo': 'HR и команда',
+  'korporativnoe-obuchenie-ai': 'HR и команда',
+  'korporativnyy-ai-universitet': 'HR и команда',
+  'korporativnyy-portal': 'HR и команда',
+
+  // АПК и фермерство
+  'syrovarnya-ferma': 'АПК и фермерство',
+  'paseka-pchelovodstvo': 'АПК и фермерство',
+  'teplicy-gidroponika': 'АПК и фермерство',
+  'agro-tochnoe-zemledelie': 'АПК и фермерство',
+
+  // Право и документы
+  'podgotovka-k-reestru-po': 'Право и документы',
+  'importozameshchenie-ofisa': 'Право и документы',
+  '152-fz-pod-klyuch': 'Право и документы',
+  'edo-elektronnaya-podpis': 'Право и документы',
+  'it-yuridicheskaya-firma': 'Право и документы',
+  'chestnyy-znak-markirovka': 'Право и документы',
+
+  // Остатки «Малого бизнеса» → Комплексные платформы (рубрика растворяется)
+  'lichnyy-kabinet-klienta': 'Комплексные платформы',
+  'bystryy-start-sayt': 'Комплексные платформы',
+};
+for (const o of _ALL_OFFERS) {
+  if (SEG_REMAP_V2[o.slug]) o.segment = SEG_REMAP_V2[o.slug];
+}
+
 module.exports = _ALL_OFFERS;
