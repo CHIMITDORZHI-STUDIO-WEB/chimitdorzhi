@@ -15,6 +15,7 @@ const subOffersCount = (s) => String(s).split('{{OFFERS_COUNT}}').join(OFFERS_CO
 
 // Карта: slug статьи → slug предложения. Добавляйте по мере роста раздела.
 const OFFER_LINKS = {
+  'kak-prevratit-ideyu-v-produkt-2027': 'prototip-poc-investor',
   'finteh-i-platezhi-dlya-biznesa-2027': 'priem-platezhey-sbp',
   'biznes-na-marketpleysah-2027': 'repraiser-wb-ozon',
   'marketing-i-trafik-2027': 'skvoznaya-analitika-koltreking',

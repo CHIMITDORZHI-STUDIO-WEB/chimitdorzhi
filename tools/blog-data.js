@@ -75,6 +75,7 @@ const excelVCrmContent = require('./blog-content-excel-v-crm.js');
 const fintehPlatezhiContent = require('./blog-content-finteh-platezhi.js');
 const marketpleysyContent = require('./blog-content-marketpleysy.js');
 const marketingTrafikContent = require('./blog-content-marketing-trafik.js');
+const ideyaVProduktContent = require('./blog-content-ideya-v-produkt.js');
 const saunaContent = require('./blog-content-sauna.js');
 const soglasiePdContent = require('./blog-content-soglasie-pd.js');
 const selfHostedContent = require('./blog-content-self-hosted.js');
@@ -2927,6 +2928,48 @@ print(r.json()["choices"][0]["message"]["content"])
 `;
 
 module.exports = [
+  {
+    slug: 'kak-prevratit-ideyu-v-produkt-2027',
+    category: 'development',
+    published: true,
+    title: 'Как превратить идею в продукт 2027: от прототипа до первых пользователей',
+    metaTitle: 'Как превратить идею в продукт 2027: прототип, MVP, с чего начать | Чимитдоржи Дарижапов',
+    metaDescription: 'У вас есть идея приложения, сервиса, SaaS, маркетплейса, AI-продукта или устройства, но нет техкоманды. Разбираю честно путь от идеи к продукту: валидация спроса, прототип, MVP, выбор типа продукта, цена и сроки, права на код и типовые ошибки основателя.',
+    metaKeywords: 'как превратить идею в продукт, разработка MVP, прототип для инвестора, запустить стартап, разработка приложения с нуля, технический сооснователь',
+    excerpt: 'У вас есть идея, но нет техкоманды и страшно слить деньги. Разбираю честно весь путь: как проверить спрос, собрать прототип и MVP, выбрать тип продукта (сайт, приложение, SaaS, маркетплейс, AI, железо), сколько это стоит и как сохранить права на свой код.',
+    datePublished: '2026-06-06',
+    dateModified: '2026-06-06',
+    readingMinutes: 20,
+    heroIcon: 'ph-fill ph-rocket-launch',
+    tags: ['стартап', 'MVP', 'продукт', 'прототип', 'разработка'],
+    toc: [
+      { id: 'ideya-vs-produkt', text: 'Идея — ещё не продукт' },
+      { id: 'validaciya', text: 'Шаг 1: проверить спрос' },
+      { id: 'prototip', text: 'Шаг 2: прототип и PoC' },
+      { id: 'mvp', text: 'Шаг 3: MVP' },
+      { id: 'vybor-tipa', text: 'Какой продукт делать' },
+      { id: 'ai-produkty', text: 'AI-продукты' },
+      { id: 'zhelezo', text: 'Если идея про железо' },
+      { id: 'stoimost-srok', text: 'Сколько стоит и сколько занимает' },
+      { id: 'komanda-prava', text: 'Команда и права на код' },
+      { id: 'oshibki', text: 'Топ-5 ошибок основателя' },
+      { id: 'faq', text: 'FAQ' },
+      { id: 'vyvody', text: 'План первого шага за 30 дней' },
+    ],
+    contentHtml: ideyaVProduktContent,
+    relatedSlugs: ['mvp-to-production-3-mesyatsa-2026', 'yunit-ekonomika-osnovatelya-2026', 'tilda-vs-kastomnaya-razrabotka-2026'],
+    ctaInternal: { url: 'https://chimitdorzhi.tech/predlozheniya/prototip-poc-investor/', label: 'Собрать прототип вашей идеи' },
+    servicesOffer: {
+      title: 'Что я делаю для основателей',
+      services: [
+        { icon: 'ph-fill ph-lightbulb', label: 'Прототип и proof of concept за 1-2 недели' },
+        { icon: 'ph-fill ph-rocket-launch', label: 'MVP: от идеи до первых пользователей' },
+        { icon: 'ph-fill ph-cloud', label: 'Веб-сервис, приложение, SaaS, маркетплейс' },
+        { icon: 'ph-fill ph-cpu', label: 'AI-продукты и устройства' },
+        { icon: 'ph-fill ph-lifebuoy', label: 'Спасение и подхват проблемного продукта' },
+      ],
+    },
+  },
   {
     slug: 'finteh-i-platezhi-dlya-biznesa-2027',
     category: 'finance',
