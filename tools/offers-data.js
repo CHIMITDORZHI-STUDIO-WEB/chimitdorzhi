@@ -53,6 +53,7 @@ const ctoBody = require('./offer-content-cto.js');
 
 // Порядок на хабе: свежие партии выше, старые ниже.
 const _ALL_OFFERS = [
+  ...require('./offers-batch-16.js'),
   ...require('./offers-batch-15.js'),
   ...require('./offers-batch-14.js'),
   ...require('./offers-batch-13.js'),
@@ -918,7 +919,8 @@ const _RICH = Object.assign({},
   require('./offers-rich-15a.js'), require('./offers-rich-15b.js'), require('./offers-rich-15c.js'),
   require('./offers-rich-16a.js'), require('./offers-rich-16b.js'),
   require('./offers-rich-17a.js'), require('./offers-rich-17b.js'), require('./offers-rich-17c.js'),
-  require('./offers-rich-18a.js'), require('./offers-rich-18b.js'));
+  require('./offers-rich-18a.js'), require('./offers-rich-18b.js'),
+  require('./offers-rich-19a.js'), require('./offers-rich-19b.js'), require('./offers-rich-19c.js'));
 for (const o of _ALL_OFFERS) {
   const r = _RICH[o.slug];
   if (r) { Object.assign(o, r); delete o.bodyHtml; }
@@ -1013,6 +1015,18 @@ const SEG_REMAP = {
   'ai-upravlenie-reputaciey': 'Маркетинг и трафик',
   'ai-kontent-zavod': 'Маркетинг и трафик',
   'kviz-bot-podbor-zayavki': 'Маркетинг и трафик',
+
+  // --- Новая рубрика «Авто и транспорт» (разгружаем «Малый бизнес») ---
+  'avtoservis': 'Авто и транспорт',
+  'avtomoyka-deteyling': 'Авто и транспорт',
+  'avtosalon-diler': 'Авто и транспорт',
+  'avtozapchasti-vin': 'Авто и транспорт',
+  'avtorazbor-zapchasti': 'Авто и транспорт',
+  'velomagazin-masterskaya': 'Авто и транспорт',
+  'evakuator-dorpomoshch': 'Авто и транспорт',
+  'shinomontazh-hranenie': 'Авто и транспорт',
+  'gruzoperevozki-pereezdy': 'Авто и транспорт',
+  'upravlenie-avtoparkom': 'Авто и транспорт',
 };
 for (const o of _ALL_OFFERS) {
   if (SEG_REMAP[o.slug]) o.segment = SEG_REMAP[o.slug];
