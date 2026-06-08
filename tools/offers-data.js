@@ -53,6 +53,7 @@ const ctoBody = require('./offer-content-cto.js');
 
 // Порядок на хабе: свежие партии выше, старые ниже.
 const _ALL_OFFERS = [
+  ...require('./offers-batch-17.js'),
   ...require('./offers-batch-16.js'),
   ...require('./offers-batch-15.js'),
   ...require('./offers-batch-14.js'),
@@ -920,7 +921,8 @@ const _RICH = Object.assign({},
   require('./offers-rich-16a.js'), require('./offers-rich-16b.js'),
   require('./offers-rich-17a.js'), require('./offers-rich-17b.js'), require('./offers-rich-17c.js'),
   require('./offers-rich-18a.js'), require('./offers-rich-18b.js'),
-  require('./offers-rich-19a.js'), require('./offers-rich-19b.js'), require('./offers-rich-19c.js'));
+  require('./offers-rich-19a.js'), require('./offers-rich-19b.js'), require('./offers-rich-19c.js'),
+  require('./offers-rich-20a.js'), require('./offers-rich-20b.js'), require('./offers-rich-20c.js'));
 for (const o of _ALL_OFFERS) {
   const r = _RICH[o.slug];
   if (r) { Object.assign(o, r); delete o.bodyHtml; }
@@ -1027,6 +1029,12 @@ const SEG_REMAP = {
   'shinomontazh-hranenie': 'Авто и транспорт',
   'gruzoperevozki-pereezdy': 'Авто и транспорт',
   'upravlenie-avtoparkom': 'Авто и транспорт',
+
+  // --- Новая рубрика «Запуск продукта и стартап» (перенос существующих) ---
+  'zapusk-saas-produkta': 'Запуск продукта и стартап',
+  'mobilnoe-prilozhenie-pwa': 'Запуск продукта и стартап',
+  'marketplace-pod-nishu': 'Запуск продукта и стартап',
+  'tech-cofounder-zapusk': 'Запуск продукта и стартап',
 };
 for (const o of _ALL_OFFERS) {
   if (SEG_REMAP[o.slug]) o.segment = SEG_REMAP[o.slug];
