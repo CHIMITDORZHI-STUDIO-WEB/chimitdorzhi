@@ -5,6 +5,7 @@
 // but stays inside the main chimitdorzhi-site repo and reuses style.css.
 
 const fs = require('fs');
+const { clampTitle, clampDesc } = require("./meta-clamp.js");
 const path = require('path');
 const { categories, services, priceFrom, fmt, SITE } = require('./development-data');
 
@@ -33,6 +34,7 @@ function relatedFor(svc) {
 // ---------------- shared HEAD / NAV / FOOTER ----------------
 
 function head({ title, description, keywords, canonical, ogImage = `${SITE}/hero-photo.webp` }) {
+  title = clampTitle(title); description = clampDesc(description);
   return `<!DOCTYPE html>
 <html lang="ru" data-theme="dark" data-lang="ru">
 <head>

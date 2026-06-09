@@ -6,6 +6,7 @@
 // Re-run any time tools/services-data.js changes.
 
 const fs = require('fs');
+const { clampTitle, clampDesc } = require("./meta-clamp.js");
 const path = require('path');
 const { categories, services } = require('./services-data');
 const { i18nServices, i18nUi } = require('./services-i18n-source');
@@ -71,6 +72,7 @@ const findBySlug = (slug) => services.find((x) => x.s === slug);
 // ---------- shared head/nav/footer for sub-pages ----------
 
 function head({ title, description, keywords, canonical, ogImage = `${SITE}/hero-photo.webp` }) {
+  title = clampTitle(title); description = clampDesc(description);
   return `<!DOCTYPE html>
 <html lang="ru" data-theme="dark" data-lang="ru">
 <head>

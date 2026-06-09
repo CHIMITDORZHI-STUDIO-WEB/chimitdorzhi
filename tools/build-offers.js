@@ -3,6 +3,7 @@
 // Запуск: node tools/build-offers.js
 
 const fs = require('fs');
+const { clampTitle, clampDesc } = require("./meta-clamp.js");
 const path = require('path');
 const offers = require('./offers-data.js');
 
@@ -92,6 +93,7 @@ async function generateCovers(list) {
 }
 
 function head({ title, description, canonical, ogImage = `${SITE}/hero-photo.webp` }) {
+  title = clampTitle(title); description = clampDesc(description);
   return `<!DOCTYPE html>
 <html lang="ru" data-theme="dark" data-lang="ru">
 <head>
