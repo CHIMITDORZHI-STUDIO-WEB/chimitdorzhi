@@ -2,6 +2,7 @@
 // Add `contentHtml` to a stub to publish it; flip `published: true`.
 // Re-run `node tools/build-blog.js` afterwards.
 
+const antigravityEntries = require('./blog-data-antigravity.js');
 const aiAgentsContent = require('./blog-content-ai-agents.js');
 const securityChecklistContent = require('./blog-content-security-checklist.js');
 const ragSystemsContent = require('./blog-content-rag-systems.js');
@@ -10347,4 +10348,4 @@ module.exports = [
     },
     contentHtml: gotovyeResheniyaContent,
   },
-];
+].concat(antigravityEntries);

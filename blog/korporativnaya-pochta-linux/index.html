@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Безопасная корпоративная почта: как развернуть свой почтовый…</title>
+    <meta name="description" content="Пошаговое руководство по развертыванию собственного безопасного корпоративного почтового сервера на Linux.">
+    <meta name="keywords" content="корпоративная почта, почтовый сервер linux, настройка postfix, dovecot, rspamd, spf dkim dmarc, защита от спама, ssl tls почта">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/korporativnaya-pochta-linux/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/korporativnaya-pochta-linux/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/korporativnaya-pochta-linux/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/korporativnaya-pochta-linux/">
+    <meta property="og:title" content="Безопасная корпоративная почта: как развернуть свой почтовый…">
+    <meta property="og:description" content="Пошаговое руководство по развертыванию собственного безопасного корпоративного почтового сервера на Linux.">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/korporativnaya-pochta-linux/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Безопасная корпоративная почта: как развернуть свой почтовый…">
+    <meta name="twitter:description" content="Пошаговое руководство по развертыванию собственного безопасного корпоративного почтового сервера на Linux.">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/korporativnaya-pochta-linux/cover.png">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor-Fill.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=40">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Безопасная корпоративная почта: как развернуть свой почтовый сервер на Linux и защититься от спама",
+  "description": "Пошаговое руководство по развертыванию собственного безопасного корпоративного почтового сервера на Linux. Настройка Postfix, Dovecot, Rspamd, SPF, DKIM, DMARC и современные стратегии фильтрации спама.",
+  "image": "https://chimitdorzhi.tech/blog/korporativnaya-pochta-linux/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/korporativnaya-pochta-linux/"
+  },
+  "datePublished": "2026-06-09",
+  "dateModified": "2026-06-09",
+  "keywords": "почта, сервер, Linux, безопасность, спам",
+  "articleSection": "Разработка",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Безопасная корпоративная почта: как развернуть свой почтовый сервер на Linux и защититься от спама",
+      "item": "https://chimitdorzhi.tech/blog/korporativnaya-pochta-linux/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Почему письма с нового сервера улетают в спам на Gmail или Mail.ru?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Это стандартное поведение крупных почтовых систем по отношению к новым IP-адресам, у которых отсутствует история (репутация). Чтобы исправить это:"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли развернуть почтовый сервер, если провайдер предоставляет динамический IP-адрес?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет, для надежного почтового сервера необходим строго статический публичный IP-адрес. Динамические IP-адреса обычно принадлежат пулам домашних провайдеров. Большинство крупных почтовых систем (Yandex, Gmail) автоматически блокируют любую почту, поступающую с таких диапазонов, классифицируя её как спам-активность домашних ботнетов. Кроме того, для динамического IP невозможно прописать постоянную PTR-запись."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Зачем в связке с Rspamd обязательно использовать Redis?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Redis выполняет роль сверхбыстрого временного хранилища данных. Rspamd обращается к нему при обработке каждого входящего сообщения. В Redis хранятся:"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как перенести старые письма со старого облачного хостинга на наш новый Linux-сервер?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Для бесшовного переноса почтовых архивов используется проверенная консольная утилита ImapSync. Она подключается к старому и новому ящикам по протоколу IMAP и копирует всю структуру папок и писем с сохранением их статусов (прочитано/непрочитано), дат получения и вложений. Процесс миграции можно выполнять на живую, без остановки работы сотрудников, так как утилита поддерживает синхронизацию только новых изменившихся писем (инкрементальный перенос)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько ресурсов сервера (RAM/CPU) реально требуется для стабильной работы почты?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Минимальные системные требования для операционной системы Linux с установленными Postfix и Dovecot — 1 ГБ оперативной памяти. Однако при подключении современного спам-фильтра Rspamd, базы данных Redis и средств защиты лимиты возрастают. Рекомендуется выделять виртуальную машину минимум с 2 ГБ RAM (а лучше 4 ГБ) и 2 ядрами CPU. Это предотвратит аварийное завершение процессов из-за нехватки памяти (Out of Memory killer) в моменты пиковой нагрузки."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как защитить почтовый сервер от попадания в спам-листы при массовых рассылках?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Главное правило — разделяйте транзакционную почту (уведомления, счета клиентам) и маркетинговую рассылку (новости, акции). Для маркетинговых писем используйте отдельные поддомены (например, promo.company.ru) и внешние специализированные сервисы рассылок. Никогда не делайте массовых рекламных рассылок с основного почтового IP-адреса вашей компании. Любая жалоба получателя на спам мгновенно снизит репутацию IP, заблокировав отправку важных рабочих писем сотрудников."
+      }
+    }
+  ]
+}
+    </script>
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+            <li><a href="/#services" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li class="nav-dropdown">
+                <a href="/#projects" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--arey"><i class="ph-fill ph-vinyl-record" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-airplane-tilt" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#cases" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            </div>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/#about">Обо мне</a></li>
+        <li><a href="/#services">Услуги</a></li>
+        <li><a href="/services/">Каталог услуг</a></li>
+        <li><a href="/predlozheniya/">Предложения</a></li>
+        <li><a href="/#cases">Кейсы</a></li>
+        <li><a href="/blog/">Блог</a></li>
+        <li><a href="/#contact">Контакт</a></li>
+    </ul>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Безопасная корпоративная почта: как развернуть свой почтовый сервер на Linux и защититься от спама</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/development/"><i class="ph ph-bookmark" aria-hidden="true"></i> Разработка</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 15 мин чтения</span>
+                        <time datetime="2026-06-09"><i class="ph ph-calendar" aria-hidden="true"></i> 9 июня 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Безопасная корпоративная почта: как развернуть свой почтовый сервер на Linux и защититься от спама</h1>
+
+                    <p class="blog-lead">Пошаговое руководство по развертыванию собственного безопасного корпоративного почтового сервера на Linux. Настройка Postfix, Dovecot, Rspamd, SPF, DKIM, DMARC и современные стратегии фильтрации спама.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>почта</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>сервер</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>Linux</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>безопасность</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>спам</span></div>
+
+                    <div class="blog-body">
+                        <p>Электронная почта остается главным каналом деловых коммуникаций. Через нее проходят коммерческие предложения, счета, договоры и конфиденциальная переписка руководства. Однако в 2026 году доверять эти данные внешним облачным провайдерам становится все более рискованным и дорогостоящим решением. Постоянный рост стоимости подписок (особенно при расчете за каждого пользователя), риск внезапных блокировок из-за изменения политики платформ, а также сканирование содержимого писем алгоритмами для таргетирования рекламы вынуждают компании задумываться о цифровом суверенитете.</p>
+<p>Развертывание собственного корпоративного почтового сервера на базе Linux — это оптимальный способ вернуть контроль над корпоративными данными, обеспечить их конфиденциальность и гибко адаптировать систему под уникальные требования безопасности. В этом подробном руководстве мы шаг за шагом разберем, как построить отказоустойчивый, защищенный почтовый сервер, правильно настроить криптографические подписи и защитить входящий трафик от лавины спама и фишинга.</p>
+<div class="blog-tldr"><h3>Коротко (TL;DR)</h3><p>Собственный почтовый сервер на базе Linux (связка Postfix, Dovecot и Rspamd) обеспечивает полную независимость бизнеса от сторонних облачных провайдеров и снижает затраты на ИТ-инфраструктуру. Для стабильной работы и доставляемости писем критически важно настроить корректные DNS-записи (A, MX, PTR), внедрить политики аутентификации SPF, DKIM и DMARC, а также защитить трафик с помощью современных TLS-шифров и Let's Encrypt. Защита от спама реализуется на базе Rspamd, использующего байесовские фильтры, серые списки (greylisting) и нейросети. Решение окупается в течение нескольких месяцев, но требует квалифицированного внедрения и регулярного контроля.</p></div>
+<h2 id="why-own-mail-server">Зачем компании собственный почтовый сервер в 2026 году?</h2>
+<p>Переход на собственные почтовые серверы — это не просто дань безопасности, а прагматичный экономический расчет. Облачные сервисы, такие как Google Workspace, Microsoft 365 или отечественные альтернативы вроде Яндекс 360, работают по модели подписки. Для компании со штатом в 150 сотрудников ежемесячные платежи становятся ощутимой статьей расходов. При этом собственный почтовый сервер требует лишь оплаты аренды виртуального (VPS) или физического сервера и разовых затрат на настройку. В долгосрочной перспективе это экономит миллионы рублей.</p>
+<p>Помимо финансовой стороны, собственное решение дает бизнесу неоспоримые преимущества:</p>
+<ol><li><strong>Абсолютный контроль над данными.</strong> Все письма, вложения и архивы хранятся на ваших дисках. Ни один внешний администратор или алгоритм анализа данных не имеет к ним доступа. Это критически важно для соблюдения законов о персональных данных (например, ФЗ-152 в РФ) и защиты коммерческой тайны.</li><li><strong>Гибкие лимиты и конфигурация.</strong> Вы можете создавать неограниченное количество почтовых ящиков, настраивать любые псевдонимы (aliases), управлять размером вложений и устанавливать индивидуальные правила архивации переписки.</li><li><strong>Безопасность SMTP-клиентов.</strong> Возможность настройки доступа к SMTP-серверу только через внутреннюю VPN-сеть компании, что полностью исключает атаки методом перебора паролей (brute force) из внешнего интернета.</li><li><strong>Независимость от санкций.</strong> Внешние платформы могут заблокировать аккаунт организации без объяснения причин. Собственный сервер, размещенный в доверенном дата-центре, защищен от таких рисков.</li></ol>
+<h2 id="mail-server-architecture">Архитектура и основные компоненты почтовой системы</h2>
+<p>Современный почтовый сервер — это не единая монолитная программа, а модульная экосистема, состоящая из нескольких специализированных сервисов. Понимание их взаимодействия лежит в основе успешного администрирования.</p>
+<pre><code>Incoming Email -&gt; [Port 25] -&gt; Postfix (MTA) 
+                                 |
+                                 +--&gt; (Milter Protocol) --&gt; Rspamd (Spam Filter)
+                                 |                             |--&gt; Redis (Cache &amp; Bayes DB)
+                                 v
+                              Dovecot (MDA via LMTP)
+                                 |
+                                 v
+                              Maildir Storage (on SSD)
+                                 ^
+                                 |
+User Client   &lt;-- [Port 993] &lt;-- Dovecot (IMAP Server)</code></pre>
+<p>Основу нашего стека составляют следующие компоненты:</p>
+<ul><li><strong>Postfix (MTA — Mail Transfer Agent):</strong> Отвечает за прием писем из внешнего мира и отправку исходящей почты по протоколу SMTP. Это быстрый, безопасный и легко настраиваемый сервер с многолетней историей.</li><li><strong>Dovecot (MDA — Mail Delivery Agent и IMAP-сервер):</strong> Принимает письма от Postfix и раскладывает их по папкам пользователей в формате Maildir. Также Dovecot обеспечивает доступ сотрудников к своим ящикам по защищенному протоколу IMAPS (порт 993).</li><li><strong>Rspamd:</strong> Интеллектуальная система фильтрации спама нового поколения. Она написана на C и Lua, благодаря чему работает в десятки раз быстрее классического SpamAssassin, потребляя минимум ресурсов. Rspamd интегрируется с Postfix через протокол Milter и выполняет проверку писем, а также подписывает исходящие сообщения ключом DKIM.</li><li><strong>Redis:</strong> Сверхбыстрая СУБД в оперативной памяти (in-memory database). Rspamd использует ее для хранения кэша, результатов байесовского обучения, серых списков и счетчиков ограничений частоты отправки (rate limits).</li><li><strong>Certbot (Let's Encrypt):</strong> Утилита для автоматического получения и продления бесплатных криптографических SSL/TLS-сертификатов, необходимых для шифрования почтового трафика.</li></ul>
+<h2 id="dns-configuration">Подготовка инфраструктуры и настройка DNS-записей</h2>
+<p>Прежде чем приступать к установке ПО на Linux, необходимо подготовить фундамент — серверную инфраструктуру и DNS-зону домена. Ошибки на этом этапе гарантируют, что ваши письма будут блокироваться внешними серверами (Gmail, Mail.ru, Yandex) еще на подлете.</p>
+<h3>Выбор сервера и IP-адреса</h3>
+<p>Для сервера средней компании (до 200 пользователей) достаточно виртуальной машины (VPS) со следующими характеристиками:</p>
+<ul><li><strong>ОС:</strong> Debian 12 (Bookworm) или Ubuntu 24.04 LTS. Это наиболее стабильные дистрибутивы для почтовых служб.</li><li><strong>Ресурсы:</strong> 2–4 ядра CPU, 4 ГБ RAM (минимум 2 ГБ, так как Rspamd и антивирусные базы требуют свободной памяти).</li><li><strong>Диск:</strong> От 50 ГБ SSD/NVMe (зависит от объема переписки и установленных квот).</li></ul>
+<p><strong>Критически важное требование:</strong> У сервера должен быть выделенный статический IPv4-адрес с «чистой» репутацией. Перед покупкой обязательно проверьте IP-адрес по публичным базам спам-листов (RBL), например, через MXToolbox. Если адрес находится в черных списках, просите хостинг-провайдера заменить его.</p>
+<h3>Настройка записей DNS</h3>
+<p>Перейдите в панель управления DNS вашего домена (например, <code>company.ru</code>) и добавьте следующие записи:</p>
+<ol><li><strong>A-запись для почтового хоста:</strong></li></ol>
+<p>Указывает на IP-адрес вашего сервера. ``<code>text mail.company.ru.  IN  A  1.2.3.4 </code>``</p>
+<ol><li><strong>MX-запись (Mail Exchanger):</strong></li></ol>
+<p>Указывает, какой сервер отвечает за прием почты для вашего домена. ``<code>text company.ru.       IN  MX  10 mail.company.ru. </code>``</p>
+<ol><li><strong>PTR-запись (Reverse DNS / Обратная запись):</strong></li></ol>
+<p>Связывает IP-адрес сервера с его доменным именем. Это важнейшая проверка подлинности. Если отправить письмо с IP <code>1.2.3.4</code>, принимающий сервер выполнит обратный запрос и проверит, указывает ли PTR-запись для <code>1.2.3.4</code> на <code>mail.company.ru</code>. *Настройка PTR выполняется в панели управления хостинг-провайдера (VPS) или через их техподдержку. PTR должна строго соответствовать имени хоста (hostname) вашего почтового сервера.*</p>
+<ol><li><strong>SPF-запись (Sender Policy Framework):</strong></li></ol>
+<p>TXT-запись, определяющая список серверов, которым разрешено отправлять почту от имени вашего домена. ``<code>text company.ru.       IN  TXT  "v=spf1 mx ip4:1.2.3.4 -all" </code>`<code> *Здесь </code>mx<code> разрешает отправку серверам из MX-записей, </code>ip4:1.2.3.4<code> явно разрешает указанный IP, а </code>-all<code> (Fail) предписывает блокировать письма со всех остальных источников. Использование жесткого флага </code>-all<code> вместо мягкого </code>~all` является стандартом безопасной конфигурации.*</p>
+<h2 id="postfix-setup">Установка и конфигурирование Postfix</h2>
+<p>Начнем настройку с установки почтового агента Postfix. Обновим списки пакетов и установим необходимые компоненты:</p>
+<pre><code>apt update
+apt install postfix postfix-pcre mailutils -y</code></pre>
+<p>При установке появится интерактивное окно настройки. Выберите тип конфигурации <strong>Internet Site</strong> (Интернет-сайт), а в качестве системного почтового имени (System mail name) укажите ваш основной домен: <code>company.ru</code>.</p>
+<p>Основной файл конфигурации Postfix находится по адресу <code>/etc/postfix/main.cf</code>. Заменим его содержимое на безопасную и оптимизированную конфигурацию. Но перед этим сделаем резервную копию:</p>
+<pre><code>cp /etc/postfix/main.cf /etc/postfix/main.cf.bak</code></pre>
+<p>Откроем <code>/etc/postfix/main.cf</code> и приведем его к следующему виду:</p>
+<pre><code># Основные параметры идентификации
+myhostname = mail.company.ru
+mydomain = company.ru
+myorigin = $mydomain
+mydestination = localhost.$mydomain, localhost, $myhostname
+mynetworks = 127.0.0.0/8 [::ffff:127.0.0.0]/104 [::1]/128
+
+# Лимиты и баннер
+smtpd_banner = $myhostname ESMTP (Secure Mail Server)
+biff = no
+append_dot_mydomain = no
+readme_directory = no
+mailbox_size_limit = 0
+recipient_delimiter = +
+inet_interfaces = all
+inet_protocols = all
+
+# Доставка почты через Dovecot LMTP
+virtual_transport = lmtp:unix:private/dovecot-lmtp
+
+# Настройки шифрования TLS для входящих соединений (SMTP-приемник)
+smtpd_tls_cert_file = /etc/letsencrypt/live/mail.company.ru/fullchain.pem
+smtpd_tls_key_file = /etc/letsencrypt/live/mail.company.ru/privkey.pem
+smtpd_use_tls = yes
+smtpd_tls_security_level = may
+smtpd_tls_auth_only = yes
+smtpd_tls_protocols = !SSLv2, !SSLv3, !TLSv1, !TLSv1.1
+smtpd_tls_mandatory_protocols = !SSLv2, !SSLv3, !TLSv1, !TLSv1.1
+smtpd_tls_mandatory_ciphers = high
+smtpd_tls_exclude_ciphers = aNULL, eNULL, EXPORT, DES, RC4, MD5, PSK, aDSS, kECDHe, kECDHr, kDHd, kDHr
+
+# Настройки TLS для исходящих соединений (SMTP-отправитель)
+smtp_tls_security_level = may
+smtp_tls_protocols = !SSLv2, !SSLv3, !TLSv1, !TLSv1.1
+smtp_tls_mandatory_protocols = !SSLv2, !SSLv3, !TLSv1, !TLSv1.1
+
+# Авторизация пользователей через Dovecot SASL
+smtpd_sasl_type = dovecot
+smtpd_sasl_path = private/auth
+smtpd_sasl_auth_enable = yes
+smtpd_sasl_security_options = noanonymous
+smtpd_sasl_local_domain = $myhostname
+broken_sasl_auth_clients = yes
+
+# Ограничения и правила фильтрации на уровне SMTP-сессии
+smtpd_helo_required = yes
+smtpd_helo_restrictions = 
+    permit_mynetworks,
+    reject_invalid_helo_hostname,
+    reject_non_fqdn_helo_hostname
+
+smtpd_sender_restrictions = 
+    permit_mynetworks,
+    reject_non_fqdn_sender,
+    reject_unknown_sender_domain
+
+smtpd_recipient_restrictions = 
+    permit_mynetworks,
+    permit_sasl_authenticated,
+    reject_unauth_destination,
+    reject_unauth_pipelining,
+    reject_rbl_client zen.spamhaus.org,
+    reject_rbl_client bl.spamcop.net
+
+# Интеграция с Rspamd через протокол Milter
+smtpd_milters = inet:127.0.0.1:11332
+non_smtpd_milters = $smtpd_milters
+milter_default_action = accept</code></pre>
+<h3>Разбор важных параметров Postfix:</h3>
+<ul><li><code>virtual_transport = lmtp:unix:private/dovecot-lmtp</code>: Postfix не будет сам записывать файлы писем на диск. Вместо этого он передает их Dovecot через быстрый локальный сокет LMTP.</li><li><code>smtpd_tls_auth_only = yes</code>: Запрещает передачу паролей авторизации в открытом виде. Клиент обязан инициировать шифрованное TLS-соединение перед отправкой учетных данных.</li><li><code>reject_unauth_destination</code>: Важнейшая директива безопасности. Она блокирует попытки внешних отправителей использовать ваш сервер как транзитный узел для рассылки спама другим адресатам (Open Relay).</li><li><code>reject_rbl_client</code>: Проверяет IP-адрес отправителя по спискам известных спамеров (Spamhaus, Spamcop) еще до приема тела письма, экономя трафик и ресурсы процессора.</li></ul>
+<h2 id="dovecot-setup">Настройка Dovecot: хранение почты и авторизация</h2>
+<p>Dovecot отвечает за безопасную аутентификацию пользователей и обеспечивает работу с почтовыми ящиками. Установим Dovecot и необходимые плагины:</p>
+<pre><code>apt install dovecot-core dovecot-imapd dovecot-lmtpd dovecot-pop3d -y</code></pre>
+<p>Конфигурационные файлы Dovecot по умолчанию разделены на несколько файлов в каталоге <code>/etc/dovecot/conf.d/</code>. Это удобно для администрирования. Отредактируем ключевые файлы.</p>
+<h3>Основной конфигурационный файл <code>/etc/dovecot/dovecot.conf</code></h3>
+<p>Убедитесь, что включены необходимые протоколы:</p>
+<pre><code>protocols = imap pop3 lmtp</code></pre>
+<h3>Конфигурация хранилища почты <code>/etc/dovecot/conf.d/10-mail.conf</code></h3>
+<p>Мы будем использовать современный формат <strong>Maildir</strong>, где каждое письмо хранится в виде отдельного файла на диске. Это значительно ускоряет работу с ящиками большого объема и упрощает резервное копирование по сравнению с устаревшим форматом Mbox.</p>
+<pre><code>mail_location = maildir:~/Maildir
+mail_privileged_group = mail</code></pre>
+<h3>Настройка авторизации <code>/etc/dovecot/conf.d/10-auth.conf</code></h3>
+<p>Отключим передачу паролей без шифрования и настроим механизмы аутентификации:</p>
+<pre><code>disable_plaintext_auth = yes
+auth_mechanisms = plain login</code></pre>
+<p>*Для простоты в этом руководстве мы используем системных пользователей Linux (<code>pam</code>). Для крупных инфраструктур рекомендуется использовать интеграцию с базой данных PostgreSQL/MySQL или каталогом Active Directory/LDAP.*</p>
+<h3>Настройка сокетов и процессов <code>/etc/dovecot/conf.d/10-master.conf</code></h3>
+<p>Настроим интеграцию с Postfix. Создадим сокет для авторизации SASL и настроим LMTP-сервер:</p>
+<pre><code>service lmtp {
+  unix_listener private/dovecot-lmtp {
+    mode = 0660
+    user = postfix
+    group = postfix
+  }
+}
+
+service auth {
+  unix_listener private/auth {
+    mode = 0660
+    user = postfix
+    group = postfix
+  }
+}</code></pre>
+<h3>Настройка SSL/TLS в <code>/etc/dovecot/conf.d/10-ssl.conf</code></h3>
+<p>Включим обязательное шифрование и укажем пути к SSL-сертификатам Let's Encrypt:</p>
+<pre><code>ssl = required
+ssl_cert = &lt;/etc/letsencrypt/live/mail.company.ru/fullchain.pem
+ssl_key = &lt;/etc/letsencrypt/live/mail.company.ru/privkey.pem
+ssl_min_protocol = TLSv1.2
+ssl_cipher_list = ALL:!kAnull:!ADH:!DES:!3DES:!EXPORT:!RC4:!aNULL:!eNULL:!SSLv2:!SSLv3:!MD5:!PSK
+ssl_prefer_server_ciphers = yes</code></pre>
+<h2 id="spf-dkim-dmarc">Криптография и подлинность писем: SPF, DKIM и DMARC</h2>
+<p>Чтобы ваши письма гарантированно доставлялись внешним адресатам и не попадали в папку «Спам», необходимо подтвердить право вашего сервера отправлять почту от имени домена. Для этого используется триада стандартов: SPF, DKIM и DMARC.</p>
+<p>Настройку SPF мы выполнили на этапе подготовки DNS. Перейдем к настройке DKIM (DomainKeys Identified Mail). DKIM добавляет к каждому исходящему письму невидимую цифровую подпись, которая подтверждает, что письмо отправлено именно с вашего домена и его содержимое не было изменено при транспортировке.</p>
+<p>В нашем стеке за генерацию и подписание писем отвечает Rspamd. Сгенерируем ключи DKIM с помощью встроенной утилиты Rspamd:</p>
+<pre><code>mkdir -p /var/lib/rspamd/dkim/
+rspamd-genkey -d company.ru -s mail -k /var/lib/rspamd/dkim/company.ru.key &gt; /var/lib/rspamd/dkim/company.ru.txt</code></pre>
+<p>*Параметр <code>-d</code> указывает домен, а <code>-s mail</code> — селектор (идентификатор подписи). Селектор может быть любым, но обычно используют <code>mail</code> или <code>default</code>.*</p>
+<p>Сменим владельца директории с ключами, чтобы Rspamd имел к ним доступ:</p>
+<pre><code>chown -R _rspamd:_rspamd /var/lib/rspamd/dkim/
+chmod 400 /var/lib/rspamd/dkim/*.key</code></pre>
+<p>В файле <code>/var/lib/rspamd/dkim/company.ru.txt</code> находится публичная часть ключа, которую нужно добавить в DNS-панель вашего домена в виде TXT-записи. Выглядеть она будет следующим образом:</p>
+<pre><code>mail._domainkey.company.ru.  IN  TXT  "v=DKIM1; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA..."</code></pre>
+<p>Настроим Rspamd для автоматического подписания исходящих писем. Создадим файл <code>/etc/rspamd/local.d/dkim_signing.conf</code>:</p>
+<pre><code># /etc/rspamd/local.d/dkim_signing.conf
+allow_username = true;
+auth_only = true;
+use_esld = false;
+
+path = "/var/lib/rspamd/dkim/$domain.$selector.key";
+selector = "mail";</code></pre>
+<h3>Настройка DMARC (Domain-based Message Authentication)</h3>
+<p>DMARC указывает принимающим серверам, что делать с письмами, которые не прошли проверку SPF или DKIM. Также он позволяет владельцу домена получать отчеты о попытках отправки писем от имени его бренда.</p>
+<p>Добавьте в DNS вашего домена TXT-запись:</p>
+<pre><code>_dmarc.company.ru.  IN  TXT  "v=DMARC1; p=quarantine; pct=100; rua=mailto:dmarc-reports@company.ru"</code></pre>
+<p>*Разбор параметров:*</p>
+<ul><li><code>p=quarantine</code>: Политика обработки писем. Если письмо не прошло валидацию, принимающий сервер должен отправить его в папку «Спам» (quarantine). Со временем, когда вы убедитесь в стабильности отправки, смените этот флаг на <code>p=reject</code> (полная блокировка фальшивых писем).</li><li><code>pct=100</code>: Применять политику к 100% писем.</li><li><code>rua=mailto:...</code>: Адрес электронной почты, на который крупные почтовые провайдеры (Google, Mail.ru) будут отправлять посуточные агрегированные отчеты в формате XML.</li></ul>
+<h2 id="rspamd-protection">Интеллектуальная защита от спама с помощью Rspamd</h2>
+<p>Rspamd является одним из лучших инструментов для борьбы с нежелательной почтой. Он проводит комплексный многоуровневый анализ каждого сообщения, присваивая ему баллы (score). Чем выше балл, тем больше вероятность того, что письмо является спамом.</p>
+<p>Установим Rspamd и кэш-сервер Redis:</p>
+<pre><code>apt install redis-server rspamd -y</code></pre>
+<p>Запустим и добавим службы в автозапуск:</p>
+<pre><code>systemctl enable --now redis-server
+systemctl enable --now rspamd</code></pre>
+<h3>Настройка интеграции Rspamd и Redis</h3>
+<p>Создадим файл конфигурации для подключения Rspamd к Redis <code>/etc/rspamd/local.d/redis.conf</code>:</p>
+<pre><code>servers = "127.0.0.1:6379";</code></pre>
+<h3>Стратегии фильтрации спама в Rspamd:</h3>
+<ol><li><strong>Серые списки (Greylisting):</strong> Метод основан на особенностях поведения спам-ботов. При получении письма от неизвестного отправителя сервер возвращает временную ошибку SMTP «попробуйте позже». Легитимный почтовый сервер повторит попытку отправки через 5–10 минут, а спам-бот, рассылающий миллионы писем по базе, проигнорирует отказ и пойдет дальше. В Rspamd этот модуль работает автоматически, запоминая успешные триады (IP, отправитель, получатель) в Redis, чтобы не задерживать повторные письма.</li><li><strong>Байесовский классификатор (Bayes Filter):</strong> Статистический анализ текста. Система учится разделять слова и фразы, характерные для спама и обычных деловых писем (ham). Rspamd автоматически обучается на проходящих письмах, но для повышения точности рекомендуется провести ручное обучение.</li></ol>
+<p>*Команда для обучения спаму:* ``<code>bash rspamc learn_spam /path/to/spam/folder </code>`<code> *Команда для обучения чистым письмам:* </code>`<code>bash rspamc learn_ham /path/to/ham/folder </code>``</p>
+<ol><li><strong>Размытые хэши (Fuzzy Hashes):</strong> Rspamd сверяет контрольные суммы текста писем с глобальными базами данных спам-кампаний. Если хэш-сумма письма совпадает с шаблоном массовой рассылки, письмо блокируется.</li><li><strong>Нейронные сети (Neural Network):</strong> Модуль объединяет все факторы проверки (результаты SPF, DKIM, RBL, Bayes, заголовки) и пропускает их через математическую модель для вынесения окончательного вердикта.</li></ol>
+<p>Зададим пароль администратора для удобной веб-панели управления Rspamd (Web UI). Панель доступна по адресу <code>http://localhost:11334/</code>:</p>
+<pre><code>rspamadm pw</code></pre>
+<p>Полученный хэш пароля вставьте в файл <code>/etc/rspamd/local.d/worker-controller.conf</code>:</p>
+<pre><code>password = "$2y$05$xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";</code></pre>
+<p>Перезапустим Rspamd для применения всех настроек:</p>
+<pre><code>systemctl restart rspamd</code></pre>
+<h2 id="mail-server-security">Безопасность и шифрование (SSL/TLS, Let's Encrypt и hardening)</h2>
+<p>Безопасность почтового сервера требует закрытия всех потенциальных векторов атак. Для защиты соединений мы используем бесплатные сертификаты Let's Encrypt.</p>
+<h3>Получение SSL/TLS сертификата</h3>
+<p>Установим утилиту Certbot:</p>
+<pre><code>apt install certbot -y</code></pre>
+<p>Остановим временно Postfix или веб-сервер, если они используют 80-й порт, и выпустим сертификат для нашего почтового домена:</p>
+<pre><code>certbot certonly --standalone -d mail.company.ru --agree-tos --email admin@company.ru</code></pre>
+<p>Для автоматического обновления сертификата настроим хук перезапуска почтовых служб. Создадим файл <code>/etc/letsencrypt/renewal-hooks/deploy/mail-restart.sh</code>:</p>
+<pre><code>#!/bin/bash
+systemctl restart postfix
+systemctl restart dovecot</code></pre>
+<p>Сделаем скрипт исполняемым:</p>
+<pre><code>chmod +x /etc/letsencrypt/renewal-hooks/deploy/mail-restart.sh</code></pre>
+<h3>Защита от перебора паролей с помощью Fail2ban</h3>
+<p>Спам-боты круглосуточно сканируют интернет в поисках почтовых серверов со слабыми паролями пользователей. Чтобы защитить Postfix и Dovecot от перебора (brute force), установим и настроим сервис Fail2ban:</p>
+<pre><code>apt install fail2ban -y</code></pre>
+<p>Создадим файл локальной конфигурации <code>/etc/fail2ban/jail.local</code>:</p>
+<pre><code>[DEFAULT]
+bantime = 1h
+findtime = 10m
+maxretry = 5
+
+[postfix]
+enabled = true
+port = smtp,ssmtp,submission
+filter = postfix
+logpath = /var/log/mail.log
+
+[dovecot]
+enabled = true
+port = pop3,pop3s,imap,imaps,submission
+filter = dovecot
+logpath = /var/log/mail.log</code></pre>
+<p>Перезапустим службу:</p>
+<pre><code>systemctl restart fail2ban</code></pre>
+<p>Теперь, если злоумышленник или бот сделает более 5 неверных попыток авторизации в течение 10 минут, Fail2ban заблокирует его IP-адрес на уровне межсетевого экрана (iptables/nftables) на 1 час.</p>
+<h2 id="my-services">Что я делаю для этой сферы</h2>
+<ul><li>[ ] <strong>Аудит безопасности и настройка DNS:</strong> Проверяю репутацию IP-адресов, настраиваю корректные SPF, DKIM и DMARC записи в DNS для максимальной доставляемости.</li><li>[ ] <strong>Развертывание почтового стека на Linux:</strong> Устанавливаю и настраиваю Postfix и Dovecot с хранением писем в быстром и надежном формате Maildir.</li><li>[ ] <strong>Интеграция интеллектуального антиспама:</strong> Внедряю и обучаю систему Rspamd с кэшированием в Redis для фильтрации нежелательного трафика без задержек.</li><li>[ ] <strong>Настройка TLS-шифрования и автопродления:</strong> Защищаю каналы связи с помощью современных шифров TLSv1.3 и автоматизирую получение SSL-сертификатов Let's Encrypt.</li><li>[ ] <strong>Внедрение систем защиты и бэкапов:</strong> Настраиваю Fail2ban для защиты от перебора паролей и организую автоматическое резервное копирование почтовых ящиков по схеме «3-2-1».</li></ul>
+<h2 id="ready-solution">Готовое решение по теме</h2>
+<div class="blog-tldr"><h3>Коротко (TL;DR)</h3><p>Забудьте о дорогостоящих облачных подписках и рисках блокировки корпоративной переписки. Разверну надежный, полностью контролируемый корпоративный почтовый сервер на вашем Linux-оборудовании с гарантией высокой доставляемости писем и защитой от спама под ключ. Подробное описание услуги и тарифы доступны по ссылке: <strong><a href="/predlozheniya/importozameshchenie-ofisa/">Собственный корпоративный почтовый сервер на Linux</a></strong> — стоимость внедрения <strong>от 35 000 рублей</strong>.</p></div>
+<ul><li><strong><a href="https://t.me/chimitdorzhi">Связаться со мной в Telegram</a></strong> — быстрое обсуждение деталей проекта и техническая консультация в мессенджере.</li><li><strong><a href="https://vk.com/chimitdorzhi_tech">Группа ВКонтакте</a></strong> — полезные обзоры, кейсы по системному администрированию и новости сферы ИТ.</li><li><strong><a href="https://chimitdorzhi.tech/catalog">Каталог услуг</a></strong> — актуальный прайс-лист, шаблоны договоров и детальный перечень регламентных работ.</li></ul>
+<h2 id="faq">Часто задаваемые вопросы (FAQ)</h2>
+<h3>Почему письма с нового сервера улетают в спам на Gmail или Mail.ru?</h3>
+<p>Это стандартное поведение крупных почтовых систем по отношению к новым IP-адресам, у которых отсутствует история (репутация). Чтобы исправить это:</p>
+<ul><li>Убедитесь, что все DNS-записи (особенно PTR, SPF и DKIM) настроены абсолютно верно.</li><li>Зарегистрируйте домен в кабинетах для отправителей: Google Postmaster Tools и Mail.ru Postmaster. Там вы сможете отслеживать репутацию домена и IP.</li><li>Начните процесс «прогрева» IP-адреса: отправляйте почту небольшими объемами реальным клиентам, которые будут открывать ваши письма и отвечать на них. Избегайте массовых рассылок в первые 2–3 недели.</li></ul>
+<h3>Можно ли развернуть почтовый сервер, если провайдер предоставляет динамический IP-адрес?</h3>
+<p>Нет, для надежного почтового сервера необходим строго статический публичный IP-адрес. Динамические IP-адреса обычно принадлежат пулам домашних провайдеров. Большинство крупных почтовых систем (Yandex, Gmail) автоматически блокируют любую почту, поступающую с таких диапазонов, классифицируя её как спам-активность домашних ботнетов. Кроме того, для динамического IP невозможно прописать постоянную PTR-запись.</p>
+<h3>Зачем в связке с Rspamd обязательно использовать Redis?</h3>
+<p>Redis выполняет роль сверхбыстрого временного хранилища данных. Rspamd обращается к нему при обработке каждого входящего сообщения. В Redis хранятся:</p>
+<ul><li>Данные для модуля Greylisting (серые списки IP-адресов).</li><li>Статистические токены байесовского классификатора (результаты обучения спам/не-спам).</li><li>Данные о лимитах отправки (rate limits), предотвращающие компрометацию учетных записей и массовую рассылку спама с вашего сервера изнутри.</li></ul>
+<p>Использование Redis в оперативной памяти минимизирует задержки при обработке почты.</p>
+<h3>Как перенести старые письма со старого облачного хостинга на наш новый Linux-сервер?</h3>
+<p>Для бесшовного переноса почтовых архивов используется проверенная консольная утилита <strong>ImapSync</strong>. Она подключается к старому и новому ящикам по протоколу IMAP и копирует всю структуру папок и писем с сохранением их статусов (прочитано/непрочитано), дат получения и вложений. Процесс миграции можно выполнять на живую, без остановки работы сотрудников, так как утилита поддерживает синхронизацию только новых изменившихся писем (инкрементальный перенос).</p>
+<h3>Сколько ресурсов сервера (RAM/CPU) реально требуется для стабильной работы почты?</h3>
+<p>Минимальные системные требования для операционной системы Linux с установленными Postfix и Dovecot — 1 ГБ оперативной памяти. Однако при подключении современного спам-фильтра Rspamd, базы данных Redis и средств защиты лимиты возрастают. Рекомендуется выделять виртуальную машину минимум с 2 ГБ RAM (а лучше 4 ГБ) и 2 ядрами CPU. Это предотвратит аварийное завершение процессов из-за нехватки памяти (Out of Memory killer) в моменты пиковой нагрузки.</p>
+<h3>Как защитить почтовый сервер от попадания в спам-листы при массовых рассылках?</h3>
+<p>Главное правило — разделяйте транзакционную почту (уведомления, счета клиентам) и маркетинговую рассылку (новости, акции). Для маркетинговых писем используйте отдельные поддомены (например, <code>promo.company.ru</code>) и внешние специализированные сервисы рассылок. Никогда не делайте массовых рекламных рассылок с основного почтового IP-адреса вашей компании. Любая жалоба получателя на спам мгновенно снизит репутацию IP, заблокировав отправку важных рабочих писем сотрудников.</p>
+<h2 id="checklist">30-дневный пошаговый план внедрения корпоративного почтового сервера</h2>
+<p>Создание собственной безопасной почтовой системы — это процесс, требующий системного подхода. Ниже представлен проверенный пошаговый план действий на 4 недели.</p>
+<h3>Неделя 1: Подготовка инфраструктуры и DNS-окружения</h3>
+<ul><li>[ ] <strong>День 1:</strong> Аренда виртуального сервера (VPS) в надежном дата-центре. Проверка чистоты выделенного IP-адреса по базам RBL.</li><li>[ ] <strong>День 2:</strong> Направление заявки хостинг-провайдеру на прописку корректной обратной записи DNS (PTR record), соответствующей имени хоста сервера.</li><li>[ ] <strong>День 3:</strong> Создание А-записи для почтового поддомена и MX-записи для основного домена в панели управления DNS.</li><li>[ ] <strong>День 4:</strong> Выпуск первичного бесплатного SSL/TLS-сертификата Let's Encrypt с помощью Certbot в режиме standalone.</li><li>[ ] <strong>День 5:</strong> Настройка базовой политики SPF в DNS с жестким ограничением <code>-all</code> для защиты от подделки адресов.</li></ul>
+<h3>Неделя 2: Установка и базовая конфигурация почтовых служб</h3>
+<ul><li>[ ] <strong>День 6:</strong> Установка пакетов Postfix и Dovecot на чистую ОС Debian/Ubuntu.</li><li>[ ] <strong>День 7:</strong> Настройка конфигурационного файла Postfix (<code>main.cf</code>) для безопасного приема писем и работы с шифрованием TLS.</li><li>[ ] <strong>День 8:</strong> Настройка Dovecot: переключение на формат хранения Maildir, создание LMTP сокета для взаимодействия с Postfix.</li><li>[ ] <strong>День 9:</strong> Настройка механизмов авторизации SASL для защиты доступа к отправке писем по протоколу SMTP.</li><li>[ ] <strong>День 10:</strong> Локальное тестирование отправки и приема писем между тестовыми пользователями сервера.</li></ul>
+<h3>Неделя 3: Внедрение DKIM, DMARC и антиспам системы Rspamd</h3>
+<ul><li>[ ] <strong>День 11:</strong> Генерация закрытого криптографического ключа DKIM в Rspamd и добавление публичной TXT-записи в DNS.</li><li>[ ] <strong>День 12:</strong> Создание политики DMARC в DNS с мягким флагом <code>p=quarantine</code> для тестирования доставляемости.</li><li>[ ] <strong>День 13:</strong> Установка Rspamd и Redis. Настройка интеграции фильтра с очередями Postfix через протокол Milter.</li><li>[ ] <strong>День 14:</strong> Включение и настройка модуля Greylisting (серых списков) в Rspamd для отсечения базовых спам-ботов.</li><li>[ ] <strong>День 15:</strong> Проверка доставляемости тестовых писем на внешние сервисы через анализаторы (например, Mail-tester).</li></ul>
+<h3>Неделя 4: Безопасность, миграция данных и запуск в эксплуатацию</h3>
+<ul><li>[ ] <strong>День 16:</strong> Установка и конфигурирование утилиты Fail2ban для защиты портов SMTP, IMAP и POP3 от перебора паролей.</li><li>[ ] <strong>День 17:</strong> Импорт существующей структуры учетных записей сотрудников на новый сервер.</li><li>[ ] <strong>День 18:</strong> Запуск процесса синхронизации архивов старых писем со старого хостинга через утилиту ImapSync.</li><li>[ ] <strong>День 19:</strong> Финальное переключение MX-записей в DNS на новый сервер в нерабочее время для минимизации простоев.</li><li>[ ] <strong>День 20:</strong> Запуск полноценного почтового обмена, первичное обучение байесовских фильтров Rspamd на входящем потоке.</li><li>[ ] <strong>День 21-30:</strong> Период стабилизации и тонкой настройки. Анализ поступающих DMARC-отчетов, корректировка весов правил Rspamd, перевод политики DMARC в жесткий режим <code>p=reject</code> и проведение инструктажа для сотрудников по правилам безопасной работы с почтой.</li></ul>
+                    </div>
+
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Что я делаю с IT-инфраструктурой</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-database"></i> <span>1С, PostgreSQL и тюнинг серверов</span></li>
+    
+    <li><i class="ph-fill ph-shield-check"></i> <span>Импортозамещение и безопасный периметр</span></li>
+    
+    <li><i class="ph-fill ph-package"></i> <span>Складской учёт и WMS</span></li>
+    
+    <li><i class="ph-fill ph-pulse"></i> <span>Мониторинг и поддержка</span></li>
+    
+  </ul>
+  <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
+  </a>
+</div>
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/importozameshchenie-ofisa/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовое решение по теме</span>
+                            <span class="blog-offer-cta-title">Импортозамещение офиса: почта, диск, документы</span>
+                            <span class="blog-offer-cta-price">Бесплатная консультация · Миграция за 2–4 недели</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-arrow-right" aria-hidden="true"></i> Смотреть предложение</span>
+                    </a>
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/predlozheniya/importozameshchenie-ofisa/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Развернуть корп. почту</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/uskorenie-1c-postgresql/" data-category="development">
+  <span class="blog-card-fresh">Свежее</span>
+  <div class="blog-card-icon"><i class="ph-fill ph-database"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
+  <h3>Ускорение 1С: тонкая настройка СУБД PostgreSQL на Linux без покупки нового сервера</h3>
+  <p>Практическое руководство по оптимизации СУБД PostgreSQL на Linux для работы с 1С:Предприятие. Настройка параметров ядра Linux, тестирование SSD с помощью FIO, конфигурация postgresql.conf и автовакуума.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 9 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 15 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/udalenniy-ofis-vpn-telefoniya/" data-category="development">
+  <span class="blog-card-fresh">Свежее</span>
+  <div class="blog-card-icon"><i class="ph-fill ph-shield-check"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
+  <h3>Удаленный офис под ключ: организация безопасного удаленного доступа (VPN, телефония, таск-трекеры)</h3>
+  <p>Техническое руководство по организации безопасного удаленного офиса. Сравнение WireGuard/OpenVPN, интеграция с AD/LDAP, настройка Asterisk/FreePBX, выбор таск-трекеров и внедрение политик безопасности (2FA, DLP).</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 9 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 15 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/skladskoy-uchet-wms-tsd/" data-category="development">
+  <span class="blog-card-fresh">Свежее</span>
+  <div class="blog-card-icon"><i class="ph-fill ph-package"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
+  <h3>Складской учет (WMS): внедрение адресного хранения и ТСД на оптовых базах Сибири</h3>
+  <p>Практическое руководство по автоматизации складского учета (WMS) на оптовых базах Сибири. Как внедрить адресное хранение, выбрать ТСД Honeywell, Urovo, Zebra, настроить штрихкодирование и интегрировать систему с 1С:УТ, 1С:ERP и МойСклад.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 9 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 15 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовые решения под ключ</span>
+                            <span class="blog-offer-cta-title">321 готовых IT-решений для бизнеса</span>
+                            <span class="blog-offer-cta-price">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Смотреть каталог</span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#why-own-mail-server"><span class="blog-toc-num">01</span> Зачем компании собственный почтовый сервер в…</a></li>
+<li><a href="#mail-server-architecture"><span class="blog-toc-num">02</span> Архитектура и основные компоненты почтовой с…</a></li>
+<li><a href="#dns-configuration"><span class="blog-toc-num">03</span> Подготовка инфраструктуры и настройка DNS-за…</a></li>
+<li><a href="#postfix-setup"><span class="blog-toc-num">04</span> Установка и конфигурирование Postfix</a></li>
+<li><a href="#dovecot-setup"><span class="blog-toc-num">05</span> Настройка Dovecot: хранение почты и авториза…</a></li>
+<li><a href="#spf-dkim-dmarc"><span class="blog-toc-num">06</span> Криптография и подлинность писем: SPF, DKIM…</a></li>
+<li><a href="#rspamd-protection"><span class="blog-toc-num">07</span> Интеллектуальная защита от спама с помощью R…</a></li>
+<li><a href="#mail-server-security"><span class="blog-toc-num">08</span> Безопасность и шифрование (SSL/TLS, Let's En…</a></li>
+<li><a href="#my-services"><span class="blog-toc-num">09</span> Что я делаю для этой сферы</a></li>
+<li><a href="#ready-solution"><span class="blog-toc-num">10</span> Готовое решение по теме</a></li>
+<li><a href="#faq"><span class="blog-toc-num">11</span> Часто задаваемые вопросы (FAQ)</a></li>
+<li><a href="#checklist"><span class="blog-toc-num">12</span> 30-дневный пошаговый план внедрения корпорат…</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=23" defer></script>
+<script src="/services-i18n.js?v=23" defer></script>
+<script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>

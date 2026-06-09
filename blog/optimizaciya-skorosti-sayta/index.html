@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оптимизация скорости сайта: технический гайд по ускорению…</title>
+    <meta name="description" content="Подробный технический гайд по оптимизации скорости загрузки сайтов на CMS WordPress и 1С-Битрикс.">
+    <meta name="keywords" content="оптимизация скорости сайта, WordPress, 1С-Битрикс, ускорение сайта, TTFB, кэширование, Redis, Memcached, WebP, AVIF">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/optimizaciya-skorosti-sayta/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/optimizaciya-skorosti-sayta/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/optimizaciya-skorosti-sayta/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/optimizaciya-skorosti-sayta/">
+    <meta property="og:title" content="Оптимизация скорости сайта: технический гайд по ускорению…">
+    <meta property="og:description" content="Подробный технический гайд по оптимизации скорости загрузки сайтов на CMS WordPress и 1С-Битрикс.">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/optimizaciya-skorosti-sayta/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Оптимизация скорости сайта: технический гайд по ускорению…">
+    <meta name="twitter:description" content="Подробный технический гайд по оптимизации скорости загрузки сайтов на CMS WordPress и 1С-Битрикс.">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/optimizaciya-skorosti-sayta/cover.png">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor-Fill.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=40">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Оптимизация скорости сайта: технический гайд по ускорению загрузки страниц на WordPress и 1С-Битрикс",
+  "description": "Подробный технический гайд по оптимизации скорости загрузки сайтов на CMS WordPress и 1С-Битрикс. Разбор TTFB, critical rendering path, кэширования, баз данных, настроек VPS/VDS и сравнительный анализ.",
+  "image": "https://chimitdorzhi.tech/blog/optimizaciya-skorosti-sayta/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/optimizaciya-skorosti-sayta/"
+  },
+  "datePublished": "2026-06-09",
+  "dateModified": "2026-06-09",
+  "keywords": "оптимизация скорости, WordPress, 1С-Битрикс, разработка, хостинг",
+  "articleSection": "Разработка",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Оптимизация скорости сайта: технический гайд по ускорению загрузки страниц на WordPress и 1С-Битрикс",
+      "item": "https://chimitdorzhi.tech/blog/optimizaciya-skorosti-sayta/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Каковы оптимальные показатели Core Web Vitals в 2026 году?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "В 2026 году ключевой метрикой интерактивности является INP (Interaction to Next Paint), которая должна быть строго менее 200 мс. Отрисовка основного контента (LCP) должна происходить быстрее 2.5 секунд, а сдвиг макета (CLS) должен составлять менее 0.1. Попадание во все три зеленые зоны гарантирует лояльность пользователей и лояльное отношение поисковых роботов."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что лучше выбрать для кэширования — Redis или Memcached?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Для простых проектов с невысокой посещаемостью и небольшим объемом данных Memcached будет достаточно. Однако для интернет-магазинов (особенно на WooCommerce или Битрикс), где важна персистентность данных, сессии пользователей и сложная структура кэша, безальтернативным выбором является Redis. Он работает быстрее при многопоточных запросах и не теряет кэш при перезапуске сервера."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли оптимизировать сайт плагинами без программирования?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "На WordPress с помощью комбайнов (например, WP Rocket) можно улучшить показатели фронтенда на 50–70%. Однако плагины не смогут исправить архитектурные ошибки в кодовой базе темы, оптимизировать медленные запросы к БД или настроить конфигурацию веб-сервера. На 1С-Битрикс «коробочные» плагины практически бесполезны — здесь требуется ручная работа программиста и системного администратора."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Почему 1С-Битрикс работает медленно на обычном виртуальном хостинге?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "1С-Битрикс — ресурсоемкая CMS с тяжелой базой данных и сложным API. Виртуальный хостинг сильно ограничивает лимиты оперативной памяти для PHP и дисковые операции (IOPS). Для комфортной работы Битрикса требуется выделенный сервер или VPS с установленным окружением «1С-Битрикс: Виртуальная машина» (BitrixVM), которая «из коробки» настроена под требования платформы."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Безопасно ли использовать форматы WebP и AVIF для всех браузеров?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, абсолютно безопасно. WebP сегодня поддерживается более чем 97% активных браузеров. Для AVIF поддержка составляет около 93%. Чтобы подстраховаться на случай редких старых версий браузеров, используется тег &lt;picture&gt;, в котором последним вариантом (fallback) прописывается стандартный сжатый JPG или PNG."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как часто нужно проводить аудит базы данных?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Аудит и чистку базы данных рекомендуется проводить не реже одного раза в квартал для контентных проектов и раз в месяц — для активно работающих интернет-магазинов. В БД постоянно накапливаются сессии, логи, ревизии записей и устаревшие кэшированные данные, которые раздувают размер таблиц и замедляют выполнение поисковых запросов."
+      }
+    }
+  ]
+}
+    </script>
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+            <li><a href="/#services" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li class="nav-dropdown">
+                <a href="/#projects" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--arey"><i class="ph-fill ph-vinyl-record" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-airplane-tilt" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#cases" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            </div>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/#about">Обо мне</a></li>
+        <li><a href="/#services">Услуги</a></li>
+        <li><a href="/services/">Каталог услуг</a></li>
+        <li><a href="/predlozheniya/">Предложения</a></li>
+        <li><a href="/#cases">Кейсы</a></li>
+        <li><a href="/blog/">Блог</a></li>
+        <li><a href="/#contact">Контакт</a></li>
+    </ul>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Оптимизация скорости сайта: технический гайд по ускорению загрузки страниц на WordPress и 1С-Битрикс</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/development/"><i class="ph ph-bookmark" aria-hidden="true"></i> Разработка</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 15 мин чтения</span>
+                        <time datetime="2026-06-09"><i class="ph ph-calendar" aria-hidden="true"></i> 9 июня 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Оптимизация скорости сайта: технический гайд по ускорению загрузки страниц на WordPress и 1С-Битрикс</h1>
+
+                    <p class="blog-lead">Подробный технический гайд по оптимизации скорости загрузки сайтов на CMS WordPress и 1С-Битрикс. Разбор TTFB, critical rendering path, кэширования, баз данных, настроек VPS/VDS и сравнительный анализ.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>оптимизация скорости</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>WordPress</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>1С-Битрикс</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>разработка</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>хостинг</span></div>
+
+                    <div class="blog-body">
+                        <p>В эпоху мгновенного потребления контента и высоких требований к пользовательскому опыту (UX) скорость загрузки веб-страниц перестала быть просто техническим параметром. Сегодня это критически важный фактор успеха любого онлайн-проекта. Пользователи не готовы ждать более двух секунд: каждая лишняя секунда задержки экспоненциально снижает конверсию, увеличивает показатель отказов и негативно сказывается на ранжировании сайта в поисковых системах Google и Яндекс.</p>
+<p>В данном руководстве мы подробно разберем глубокие инженерные подходы к оптимизации производительности веб-ресурсов, работающих на двух наиболее популярных платформах в Рунете — WordPress и 1С-Битрикс. Мы заглянем под капот веб-серверов, разберем тонкую настройку баз данных, конфигурацию кэширования и тонкости рендеринга на стороне клиента.</p>
+<div class="blog-tldr"><h3>Коротко (TL;DR)</h3><p>Оптимизация скорости — это комплексный процесс, охватывающий бэкенд, серверную инфраструктуру и фронтенд. Основные шаги для достижения высоких результатов: 1. <strong>Сокращение TTFB</strong>: Снижение времени отклика сервера до &lt;200 мс с помощью тонкой настройки PHP-FPM, OPcache, MySQL и использования веб-сервера Nginx. 2. <strong>Внедрение кэширования</strong>: Использование Redis для объектного кэширования в WordPress и Memcached/Redis для кэширования данных в 1С-Битрикс. 3. <strong>Оптимизация рендеринга</strong>: Сокращение критического пути рендеринга (Critical Rendering Path) через отложенную загрузку JS (defer/async), инлайнинг критического CSS и оптимизацию веб-шрифтов. 4. <strong>Работа с медиа</strong>: Автоматическая конвертация изображений в форматы нового поколения (WebP/AVIF) и использование адаптивной разметки (srcset). 5. <strong>Учет специфики платформ</strong>: WordPress требует минимизации плагинов и очистки базы данных от оверхеда ревизий, тогда как 1С-Битрикс — настройки режима «Композитный сайт», оптимизации ORM и отладки медленных SQL-запросов.</p></div>
+<h2 id="introduction">Введение: Почему скорость решает всё в 2026 году</h2>
+<p>Производительность сайта напрямую влияет на его коммерческий успех. С точки зрения бизнеса, медленный сайт — это упущенная прибыль. Поисковые системы оценивают пользовательский опыт с помощью метрик Core Web Vitals, ключевыми из которых являются:</p>
+<ul><li><strong>LCP (Largest Contentful Paint)</strong>: Скорость отрисовки самого крупного контентного элемента (картинки или блока текста) в видимой зоне. Идеальный показатель — до 2.5 секунд.</li><li><strong>INP (Interaction to Next Paint)</strong>: Метрика, пришедшая на смену FID (First Input Delay) в марте 2024 года. Она измеряет задержку взаимодействия пользователя со страницей. Идеальный показатель — менее 200 миллисекунд.</li><li><strong>CLS (Cumulative Layout Shift)</strong>: Совокупный сдвиг макета во время загрузки. Идеальный показатель — менее 0.1.</li></ul>
+<p>Медленная загрузка страниц увеличивает показатель отказов (Bounce Rate) на мобильных устройствах, доля которых сегодня превышает 70% от общего объема трафика. Google использует алгоритмы Mobile-First Indexing, что означает: если мобильная версия вашего сайта работает медленно, позиции всего сайта в поисковой выдаче будут пессимизированы. Кроме того, быстрая загрузка снижает нагрузку на процессор и оперативную память сервера, позволяя экономить на услугах хостинга.</p>
+<h2 id="ttfb-optimization">Что такое TTFB и как его минимизировать</h2>
+<p><strong>TTFB (Time to First Byte)</strong> — время до получения первого байта информации от сервера браузером пользователя. Эта метрика состоит из трех составляющих: времени отправки HTTP-запроса, времени обработки запроса сервером и времени передачи первого байта ответа по сети. В идеальных условиях TTFB динамических страниц должен находиться в пределах 100–300 мс.</p>
+<p>Для минимизации сетевых задержек важно использовать современные протоколы HTTP/2 и HTTP/3, которые позволяют передавать ресурсы параллельно в рамках одного TCP/UDP соединения. Также критически важно выбрать качественного DNS-провайдера (например, Cloudflare) и разместить сервер физически ближе к вашей целевой аудитории.</p>
+<p>Однако основная часть задержки TTFB часто кроется в обработке запроса сервером. Для оптимизации бэкенда на уровне PHP необходимо:</p>
+<ol><li><strong>Использовать актуальную версию PHP</strong>. Переход с PHP 7.4 на PHP 8.2 или 8.3 дает прирост производительности до 30% за счет улучшенного компилятора и оптимизации ядра.</li><li><strong>Настроить PHP OPcache</strong>. Данный модуль кэширует скомпилированный байт-код PHP-скриптов в оперативной памяти, избавляя сервер от необходимости парсить файлы при каждом запросе. Рекомендуемая конфигурация в файле <code>php.ini</code>:</li></ol>
+<pre><code>   opcache.enable=1
+   opcache.memory_consumption=256
+   opcache.interned_strings_buffer=16
+   opcache.max_accelerated_files=20000
+   opcache.validate_timestamps=0 ; Для продакшена (отключает проверку изменений файлов)
+   opcache.revalidate_freq=0</code></pre>
+<ol><li><strong>Включить JIT-компиляцию (Just-In-Time)</strong>. В PHP 8+ JIT компилирует участки кода непосредственно в машинные инструкции процессора, что повышает скорость вычислений.</li></ol>
+<h2 id="critical-rendering-path">Оптимизация критического пути рендеринга (Critical Rendering Path)</h2>
+<p>Браузер не сможет начать отрисовку страницы до тех пор, пока не построит дерево DOM (Document Object Model) и дерево CSSOM (CSS Object Model). Этот процесс называется <strong>Critical Rendering Path (CRP)</strong>. Ресурсы, которые блокируют этот процесс, называют блокирующими рендеринг (Render-Blocking Resources). Обычно это файлы стилей (.css) и скриптов (.js), подключенные в секции <code>&lt;head&gt;</code>.</p>
+<p>Для ускорения CRP необходимо внедрить следующие практики:</p>
+<ul><li><strong>Инлайнинг критического CSS (Critical CSS)</strong>. Разделите ваши стили на критические (необходимые для отрисовки первого экрана, «above-the-fold») и второстепенные. Критический CSS внедряется непосредственно в тег <code>&lt;style&gt;</code> внутри <code>&lt;head&gt;</code>, а основной файл стилей загружается асинхронно с помощью конструкции:</li></ul>
+<pre><code>  &lt;link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'"&gt;
+  &lt;noscript&gt;&lt;link rel="stylesheet" href="style.css"&gt;&lt;/noscript&gt;</code></pre>
+<ul><li><strong>Асинхронная загрузка JavaScript</strong>. По умолчанию браузер останавливает парсинг HTML, когда встречает тег <code>&lt;script&gt;</code>. Используйте атрибуты <code>defer</code> или <code>async</code> для загрузки сторонних скриптов (метрик, виджетов, систем аналитики):</li><li><code>defer</code>: Скрипт загружается в фоновом режиме и выполняется только после завершения разбора всего HTML-документа. Сохраняет порядок выполнения.</li><li><code>async</code>: Скрипт загружается в фоновом режиме и выполняется сразу по мере готовности, приостанавливая разбор HTML. Рекомендуется для независимых внешних библиотек.</li><li><strong>Оптимизация веб-шрифтов</strong>. Шрифты часто вызывают сдвиги макета (CLS) и задерживают отображение текста (эффекты FOIT/FOUT). Решения:</li><li>Используйте свойство <code>font-display: swap</code> в правилах <code>@font-face</code> — это заставит браузер временно показать системный шрифт, пока загружается кастомный.</li><li>Предварительно загружайте критические шрифты с помощью директивы <code>&lt;link rel="preload" href="font.woff2" as="font" type="font/woff2" crossorigin&gt;</code>.</li><li>Используйте современный формат WOFF2, который сжимает файлы на 30-50% лучше старого WOFF.</li><li>Сокращайте наборы символов (subsetting), удаляя неиспользуемые глифы (например, оставляя только кириллицу и базовую латиницу).</li></ul>
+<h2 id="image-compression">Современная графика: WebP, AVIF и адаптивная разгрузка</h2>
+<p>Изображения составляют до 60-70% от общего веса средней веб-страницы. Неоптимизированная графика — основная причина медленной загрузки сайтов на мобильных устройствах. Для решения этой проблемы используются форматы нового поколения:</p>
+<ul><li><strong>WebP</strong>: Разработан Google, обеспечивает сжатие изображений с потерями и без потерь примерно на 30% лучше по сравнению с JPEG и PNG при аналогичном качестве.</li><li><strong>AVIF</strong>: Формат на базе видеокодека AV1, превосходит WebP по степени сжатия еще на 20-30% и лучше сохраняет мелкие детали на изображениях с высокой контрастностью.</li></ul>
+<p>Сравнение форматов сжатия для изображения весом 2 МБ (JPEG):</p>
+<table><thead><tr><th>Формат</th><th>Средний вес после оптимизации</th><th>Поддержка браузерами</th><th>Качество</th></tr></thead><tbody><tr><td><strong>JPEG (сжатый)</strong></td><td>450 КБ</td><td>100%</td><td>Базовое</td></tr><tr><td><strong>WebP</strong></td><td>280 КБ</td><td>&gt;97% (все современные)</td><td>Отличное</td></tr><tr><td><strong>AVIF</strong></td><td>160 КБ</td><td>&gt;93% (Chrome, Firefox, Safari 16+)</td><td>Великолепное</td></tr></tbody></table>
+<p>Для отдачи нужного формата в зависимости от возможностей браузера применяется тег <code>&lt;picture&gt;</code>:</p>
+<pre><code>&lt;picture&gt;
+  &lt;source srcset="image.avif" type="image/avif"&gt;
+  &lt;source srcset="image.webp" type="image/webp"&gt;
+  &lt;img src="image.jpg" alt="Пример оптимизации" loading="lazy" width="800" height="600"&gt;
+&lt;/picture&gt;</code></pre>
+<p>Обязательно используйте атрибут <code>srcset</code> для адаптивных изображений, чтобы мобильные устройства не скачивали огромные картинки, предназначенные для экранов с разрешением 4K. Также настройте ленивую загрузку с помощью встроенного атрибута <code>loading="lazy"</code> или JS-библиотек на базе <code>IntersectionObserver</code>.</p>
+<h2 id="server-caching">Серверное кэширование: Сравниваем Redis и Memcached</h2>
+<p>Когда пользователь запрашивает динамическую страницу, CMS выполняет десятки SQL-запросов к базе данных и производит вычисления на PHP. Чтобы разгрузить процессор сервера, внедряют объектное кэширование и кэширование страниц.</p>
+<p>В качестве хранилищ кэша в оперативной памяти чаще всего используются Redis и Memcached.</p>
+<h3>Memcached</h3>
+<ul><li><strong>Плюсы</strong>: Чрезвычайно прост, ориентирован исключительно на работу по схеме «ключ-значение», имеет низкие требования к ресурсам процессора, идеально подходит для простого кэширования строк и HTML-блоков.</li><li><strong>Минусы</strong>: Не поддерживает сложные структуры данных, отсутствует персистентность (при перезапуске сервера все данные кэша стираются).</li></ul>
+<h3>Redis</h3>
+<ul><li><strong>Плюсы</strong>: Поддерживает сложные типы данных (списки, множества, хэши), может сохранять данные на диск (персистентность), поддерживает транзакции и репликацию. Это не просто кэш, а полноценная база данных в памяти.</li><li><strong>Минусы</strong>: Требует больше оперативной памяти и тонкой настройки конфигурации.</li></ul>
+<p>Для крупных интернет-магазинов и высоконагруженных порталов Redis является безальтернативным выбором, так как позволяет хранить сессии пользователей без риска их потери при перезагрузке демона. На WordPress интеграция с Redis реализуется через плагин <code>Redis Object Cache</code> и скрипт-dropin <code>object-cache.php</code>. В 1С-Битрикс подключение Redis производится через конфигурационные файлы <code>.settings.php</code> и <code>dbconn.php</code>.</p>
+<h2 id="database-optimization">Оптимизация баз данных: MySQL/MariaDB на стероидах</h2>
+<p>Медленная база данных — главный враг низкого TTFB. По мере роста объема контента, заказов и метаданных запросы начинают выполняться дольше. Оптимизацию СУБД (MySQL или MariaDB) нужно проводить по двум направлениям: конфигурация сервера и чистка структуры таблиц.</p>
+<h3>Тонкая настройка <code>my.cnf</code> (для серверов с 8 ГБ RAM):</h3>
+<pre><code>[mysqld]
+# Размер буфера для данных и индексов в памяти (главный параметр)
+innodb_buffer_pool_size = 5G # 50-70% от общей RAM
+
+# Размер лог-файла транзакций InnoDB
+innodb_log_file_size = 1G
+
+# Метод сброса данных на диск
+innodb_flush_method = O_DIRECT
+
+# Настройки временных таблиц в памяти
+tmp_table_size = 64M
+max_heap_table_size = 64M
+
+# Отключение устаревшего Query Cache (для MySQL &lt; 8.0)
+query_cache_type = 0
+query_cache_size = 0</code></pre>
+<h3>Регулярная очистка и дефрагментация таблиц:</h3>
+<ol><li><strong>WordPress</strong>: В таблице <code>wp_options</code> скапливается мусор из-за плагинов, которые некорректно удаляют свои настройки и временные опции (transients). Очистить транзиенты и удалить ревизии записей можно SQL-запросами:</li></ol>
+<pre><code>   DELETE FROM wp_posts WHERE post_type = 'revision';
+   DELETE FROM wp_options WHERE option_name LIKE '_transient_%' OR option_name LIKE '_site_transient_%';</code></pre>
+<ol><li><strong>1С-Битрикс</strong>: Важно регулярно очищать таблицы логов веб-аналитики, поискового индекса и незавершенных сессий:</li><li><code>b_event</code> (системные события);</li><li><code>b_search_content</code> (поисковый индекс, если используется внешний Elastic/Sphinx);</li><li><code>b_user_stored_auth</code> (сохраненная авторизация).</li></ol>
+<p>После удаления мусора выполните команду дефрагментации таблиц <code>OPTIMIZE TABLE имя_таблицы;</code>.</p>
+<h2 id="hosting-vps-config">Конфигурация хостинга и VPS под высокие нагрузки</h2>
+<p>Использование дешевого виртуального хостинга (Shared Hosting) накладывает жесткие ограничения на ресурсы процессора и дисковую активность (IOPS). Для быстрой работы CMS требуется виртуальный (VPS/VDS) или выделенный сервер.</p>
+<p>Оптимальный стек ПО для современных проектов — <strong>LEMP</strong> (Linux, Nginx, MariaDB, PHP-FPM). В этой связке Nginx выступает в роли фронтенд-сервера, обрабатывая статические файлы (картинки, стили, шрифты) напрямую и передавая динамические запросы на обработку PHP-FPM.</p>
+<h3>Оптимизация PHP-FPM (в файле пула <code>www.conf</code>):</h3>
+<p>Вместо режима <code>dynamic</code>, который тратит ресурсы на создание и уничтожение процессов PHP, для высоконагруженных систем рекомендуется использовать режим <code>static</code>:</p>
+<pre><code>pm = static
+pm.max_children = 40 # Рассчитывается как: (Доступная RAM - RAM под MySQL/Redis) / 80МБ (средний вес процесса PHP)
+pm.max_requests = 1000 # Перезапуск процесса после обработки 1000 запросов для предотвращения утечек памяти</code></pre>
+<p>Также необходимо настроить сжатие данных на уровне Nginx, добавив в конфигурационный файл <code>nginx.conf</code>:</p>
+<pre><code>gzip on;
+gzip_disable "msie6";
+gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript;
+gzip_comp_level 5;</code></pre>
+<h2 id="wordpress-vs-bitrix">Сравнение процессов оптимизации: WordPress vs 1С-Битрикс</h2>
+<p>Несмотря на общие принципы веб-технологий, WordPress и 1С-Битрикс кардинально отличаются по своей архитектуре и внутреннему устройству.</p>
+<h3>WordPress: Архитектура плагинов и простота решений</h3>
+<p>WordPress по своей природе является легковесной блоговой системой, которая превращается в интернет-магазин или портал за счет установки сторонних плагинов (WooCommerce, Elementor, Advanced Custom Fields).</p>
+<ul><li><strong>Проблема</strong>: Каждый новый плагин добавляет свои JS и CSS файлы, отправляет запросы к базе данных и замедляет выполнение скриптов. Особо прожорливы визуальные конструкторы (Page Builders), генерирующие избыточный HTML-код.</li><li><strong>Решение</strong>: Минимизация количества плагинов (до 15-20 штук), ручное отключение неиспользуемых скриптов на конкретных страницах через хук <code>wp_dequeue_script()</code>. Использование специализированных плагинов оптимизации (WP Rocket, FlyingPress, LiteSpeed Cache) для настройки объединения ресурсов и отложенной загрузки JS.</li></ul>
+<h3>1С-Битрикс: Тяжеловесный энтерпрайз</h3>
+<p>Битрикс — это мощная монолитная система со строгой архитектурой компонентов и инфоблоков.</p>
+<ul><li><strong>Проблема</strong>: Избыточность кода, сложные SQL-запросы при выборке данных из инфоблоков через стандартное API (особенно при неверном использовании <code>CIBlockElement::GetList</code>), высокая нагрузка на диск и процессор.</li><li><strong>Решение</strong>:</li><li>Внедрение технологии <strong>«Композитный сайт»</strong>. Это уникальная фича Битрикса, разделяющая страницу на статическую часть (кэшируется на уровне веб-сервера и отдается мгновенно) и динамическую (подгружается асинхронным фоновым AJAX-запросом).</li><li>Использование встроенного инструмента «Монитор производительности» для отслеживания времени генерации страниц, поиска «тяжелых» компонентов и медленных запросов к БД.</li><li>Переписывание неоптимальных выборок с использованием механизма ORM (D7) и обязательное кэширование результатов выборок с помощью параметров компонента <code>CACHE_TIME</code> и <code>CACHE_TYPE</code>.</li></ul>
+<h2 id="my-services">Мои услуги по оптимизации сайтов</h2>
+<ul><li>[ ] <strong>Аудит производительности и выявление «бутылочных горлышек»</strong>: Полный технический анализ TTFB, критического пути рендеринга, запросов к базе данных и архитектуры используемых плагинов/компонентов.</li><li>[ ] <strong>Настройка серверного окружения (VPS/VDS)</strong>: Конфигурирование связки Nginx + PHP-FPM, тюнинг параметров MySQL/MariaDB, установка и интеграция кэширующих серверов Redis или Memcached.</li><li>[ ] <strong>Глубокая оптимизация WordPress</strong>: Внедрение объектного кэширования, чистка базы данных, отключение лишних плагинов, минификация стилей и асинхронная загрузка скриптов без нарушения работоспособности интерфейса.</li><li>[ ] <strong>Настройка и доработка 1С-Битрикс</strong>: Настройка режима «Композитный сайт», оптимизация структуры инфоблоков, перенос тяжелых компонентов на кэш D7, устранение медленных SQL-запросов и оптимизация агентов.</li><li>[ ] <strong>Фронтенд-оптимизация и работа с графикой</strong>: Автоматическое сжатие и конвертация изображений в WebP/AVIF, оптимизация загрузки шрифтов, выделение Critical CSS и вынос сторонних скриптов.</li></ul>
+<div class="blog-tldr"><h3>Коротко (TL;DR)</h3><p>Если вы хотите доверить ускорение сайта профессионалу, воспользуйтесь моим пакетом услуг. Я проведу комплексный аудит, настрою кэширование, базу данных, сожму графику и выведу ваш сайт в «зелёную зону» Google PageSpeed.</p><p><strong>Стоимость услуги:</strong> от <strong>20 000 рублей</strong>.</p><p><strong><a href="/predlozheniya/audit-i-uskorenie-sayta/">Заказать оптимизацию скорости сайта</a></strong></p></div>
+<div class="blog-tldr"><h3>Коротко (TL;DR)</h3><p>Если вашему сайту на WordPress или 1С-Битрикс требуется профессиональная оптимизация скорости, напишите мне: - Telegram: <a href="https://t.me/chimit_d">@chimit_d</a> - VK: <a href="https://vk.com/chimit_d">vk.com/chimit_d</a> - Каталог предложений: <a href="/predlozheniya/">Перейти в каталог</a></p></div>
+<h2 id="monitoring-skorosti">Мониторинг скорости после оптимизации</h2>
+<p>Скорость сайта — не разовая задача, а состояние, которое нужно поддерживать. Новый контент, сторонние скрипты и обновления постепенно замедляют сайт, поэтому после оптимизации настраивается постоянный мониторинг.</p>
+<p>Что отслеживать, чтобы сайт не деградировал:</p>
+<ul>
+<li><strong>Core Web Vitals в динамике.</strong> Ключевые метрики загрузки и стабильности отслеживаются по реальным пользователям, а не только в лабораторных тестах.</li>
+<li><strong>Бюджет производительности.</strong> Для страниц задаётся лимит на вес и число запросов — новый функционал не должен его превышать.</li>
+<li><strong>Контроль сторонних скриптов.</strong> Виджеты, чаты и аналитика — частая причина просадки, их влияние проверяется регулярно.</li>
+<li><strong>Алерты на просадку.</strong> При ухудшении метрик приходит уведомление, и проблему чинят до того, как она ударит по конверсии и позициям.</li>
+</ul>
+<p>Регулярный мониторинг дешевле, чем разовая глубокая оптимизация раз в год, и удерживает сайт в форме постоянно. Это напрямую влияет и на поведенческие факторы, и на ранжирование в поиске.</p>
+<h2 id="faq">FAQ: Часто задаваемые вопросы</h2>
+<h3>Каковы оптимальные показатели Core Web Vitals в 2026 году?</h3>
+<p>В 2026 году ключевой метрикой интерактивности является <strong>INP (Interaction to Next Paint)</strong>, которая должна быть строго менее 200 мс. Отрисовка основного контента (LCP) должна происходить быстрее 2.5 секунд, а сдвиг макета (CLS) должен составлять менее 0.1. Попадание во все три зеленые зоны гарантирует лояльность пользователей и лояльное отношение поисковых роботов.</p>
+<h3>Что лучше выбрать для кэширования — Redis или Memcached?</h3>
+<p>Для простых проектов с невысокой посещаемостью и небольшим объемом данных Memcached будет достаточно. Однако для интернет-магазинов (особенно на WooCommerce или Битрикс), где важна персистентность данных, сессии пользователей и сложная структура кэша, безальтернативным выбором является Redis. Он работает быстрее при многопоточных запросах и не теряет кэш при перезапуске сервера.</p>
+<h3>Можно ли оптимизировать сайт плагинами без программирования?</h3>
+<p>На WordPress с помощью комбайнов (например, WP Rocket) можно улучшить показатели фронтенда на 50–70%. Однако плагины не смогут исправить архитектурные ошибки в кодовой базе темы, оптимизировать медленные запросы к БД или настроить конфигурацию веб-сервера. На 1С-Битрикс «коробочные» плагины практически бесполезны — здесь требуется ручная работа программиста и системного администратора.</p>
+<h3>Почему 1С-Битрикс работает медленно на обычном виртуальном хостинге?</h3>
+<p>1С-Битрикс — ресурсоемкая CMS с тяжелой базой данных и сложным API. Виртуальный хостинг сильно ограничивает лимиты оперативной памяти для PHP и дисковые операции (IOPS). Для комфортной работы Битрикса требуется выделенный сервер или VPS с установленным окружением «1С-Битрикс: Виртуальная машина» (BitrixVM), которая «из коробки» настроена под требования платформы.</p>
+<h3>Безопасно ли использовать форматы WebP и AVIF для всех браузеров?</h3>
+<p>Да, абсолютно безопасно. WebP сегодня поддерживается более чем 97% активных браузеров. Для AVIF поддержка составляет около 93%. Чтобы подстраховаться на случай редких старых версий браузеров, используется тег <code>&lt;picture&gt;</code>, в котором последним вариантом (fallback) прописывается стандартный сжатый JPG или PNG.</p>
+<h3>Как часто нужно проводить аудит базы данных?</h3>
+<p>Аудит и чистку базы данных рекомендуется проводить не реже одного раза в квартал для контентных проектов и раз в месяц — для активно работающих интернет-магазинов. В БД постоянно накапливаются сессии, логи, ревизии записей и устаревшие кэшированные данные, которые раздувают размер таблиц и замедляют выполнение поисковых запросов.</p>
+<h2 id="checklist">30-дневный чек-лист по оптимизации скорости сайта</h2>
+<p>Комплексная оптимизация сайта — это итерационный процесс. Выполняйте задачи последовательно, разбивая работу на четыре недели.</p>
+<h3>Неделя 1: Анализ, сбор метрик и базовая настройка сервера</h3>
+<ul><li>[ ] Провести замеры скорости в Google PageSpeed Insights, Lighthouse и WebPageTest для мобильной и десктопной версий.</li><li>[ ] Проанализировать логи веб-сервера Nginx/Apache и включить slow-logs в MySQL для поиска медленных запросов.</li><li>[ ] Проверить текущую версию PHP (обновить до 8.2+ при необходимости) и активировать PHP OPcache.</li><li>[ ] Настроить сжатие Gzip или Brotli на стороне веб-сервера.</li><li>[ ] Установить заголовки кэширования статических файлов (Expires, Cache-Control) в конфигурации Nginx.</li></ul>
+<h3>Неделя 2: Оптимизация бэкенда и баз данных</h3>
+<ul><li>[ ] Очистить базу данных от мусора (ревизии в WordPress, логи событий и сессий в 1С-Битрикс).</li><li>[ ] Настроить индексы для таблиц БД и оптимизировать конфигурационный файл <code>my.cnf</code> (увеличить <code>innodb_buffer_pool_size</code>).</li><li>[ ] Установить и настроить Redis или Memcached на сервере.</li><li>[ ] Подключить объектное кэширование в CMS (Redis Object Cache для WP, настройка класса кэша в Битрикс).</li><li>[ ] Настроить полностраничное кэширование для неавторизованных пользователей.</li><li>[ ] (Для 1С-Битрикс) Включить и протестировать технологию «Композитный сайт».</li></ul>
+<h3>Неделя 3: Фронтенд-оптимизация (ассеты и графика)</h3>
+<ul><li>[ ] Настроить автоматическую конвертацию всех загружаемых изображений в форматы WebP или AVIF.</li><li>[ ] Добавить атрибуты <code>loading="lazy"</code> для всех картинок вне первого экрана.</li><li>[ ] Настроить предзагрузку (preload) основных шрифтов в формате WOFF2 и добавить <code>font-display: swap</code>.</li><li>[ ] Извлечь Critical CSS и настроить его инлайнинг, а основные стили подключить асинхронно.</li><li>[ ] Настроить объединение и минификацию (минимизацию) CSS и JS файлов.</li><li>[ ] Перенести сторонние скрипты (аналитика, чаты) вниз страницы, добавив атрибуты <code>defer</code> или <code>async</code>.</li></ul>
+<h3>Неделя 4: Финальное тестирование, мониторинг и поддержка</h3>
+<ul><li>[ ] Протестировать корректность отображения сайта и работу всех интерактивных элементов (формы, корзина, фильтры) на мобильных устройствах и разных браузерах.</li><li>[ ] Провести повторные замеры скорости в Lighthouse и сравнить результаты с показателями первой недели.</li><li>[ ] Подключить CDN (например, Cloudflare) для дополнительного кэширования статики и защиты от сетевых угроз.</li><li>[ ] Настроить автоматический мониторинг доступности сайта (uptime) и отслеживание скорости загрузки (например, с помощью UptimeRobot).</li><li>[ ] Задокументировать внесенные изменения в конфигурационные файлы для предотвращения их перезаписи при обновлениях CMS.</li></ul>
+                    </div>
+
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Что я делаю с сайтами</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-gauge"></i> <span>Ускорение и Core Web Vitals</span></li>
+    
+    <li><i class="ph-fill ph-shield"></i> <span>Защита от ботов и парсинга</span></li>
+    
+    <li><i class="ph-fill ph-credit-card"></i> <span>Приём платежей по СБП</span></li>
+    
+    <li><i class="ph-fill ph-chart-bar"></i> <span>Аналитика и конверсия</span></li>
+    
+  </ul>
+  <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
+  </a>
+</div>
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/audit-i-uskorenie-sayta/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовое решение по теме</span>
+                            <span class="blog-offer-cta-title">Аудит и ускорение сайта</span>
+                            <span class="blog-offer-cta-price">Бесплатная консультация · Аудит за 3–5 дней</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-arrow-right" aria-hidden="true"></i> Смотреть предложение</span>
+                    </a>
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/predlozheniya/audit-i-uskorenie-sayta/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Ускорить сайт</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/zaschita-sayta-ot-parsinga/" data-category="development">
+  <span class="blog-card-fresh">Свежее</span>
+  <div class="blog-card-icon"><i class="ph-fill ph-shield"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
+  <h3>Защита сайтов от парсинга: как закрыть свои каталоги от воровства цен и контента конкурентами</h3>
+  <p>Детальное техническое руководство по защите интернет-магазинов и каталогов от автоматического парсинга. Разбираем методы обхода блокировок, настройку Cloudflare WAF, Rate Limiting, Canvas Fingerprinting, подпись API-запросов, Shadow DOM, Honeypots и юридические аспекты.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 9 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 15 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/priem-platezhey-sbp-sayt/" data-category="development">
+  <span class="blog-card-fresh">Свежее</span>
+  <div class="blog-card-icon"><i class="ph-fill ph-credit-card"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
+  <h3>Прием платежей на сайте: как подключить СБП (систему быстрых платежей) и рассрочки для снижения эквайринга</h3>
+  <p>Детальное руководство по приему платежей на сайте. Сравнение классического эквайринга и СБП (тарифы, QR-коды, динамические ссылки), обзор BNPL-сервисов, онлайн-рассрочек (Т-Банк, Сбер) и интеграция через API.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 9 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 15 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/uskorenie-1c-postgresql/" data-category="development">
+  <span class="blog-card-fresh">Свежее</span>
+  <div class="blog-card-icon"><i class="ph-fill ph-database"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
+  <h3>Ускорение 1С: тонкая настройка СУБД PostgreSQL на Linux без покупки нового сервера</h3>
+  <p>Практическое руководство по оптимизации СУБД PostgreSQL на Linux для работы с 1С:Предприятие. Настройка параметров ядра Linux, тестирование SSD с помощью FIO, конфигурация postgresql.conf и автовакуума.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 9 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 15 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовые решения под ключ</span>
+                            <span class="blog-offer-cta-title">321 готовых IT-решений для бизнеса</span>
+                            <span class="blog-offer-cta-price">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Смотреть каталог</span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#introduction"><span class="blog-toc-num">01</span> Введение: Почему скорость решает всё в 2026…</a></li>
+<li><a href="#ttfb-optimization"><span class="blog-toc-num">02</span> Что такое TTFB и как его минимизировать</a></li>
+<li><a href="#critical-rendering-path"><span class="blog-toc-num">03</span> Оптимизация критического пути рендеринга (Cr…</a></li>
+<li><a href="#image-compression"><span class="blog-toc-num">04</span> Современная графика: WebP, AVIF и адаптивная…</a></li>
+<li><a href="#server-caching"><span class="blog-toc-num">05</span> Серверное кэширование: Сравниваем Redis и Me…</a></li>
+<li><a href="#database-optimization"><span class="blog-toc-num">06</span> Оптимизация баз данных: MySQL/MariaDB на сте…</a></li>
+<li><a href="#hosting-vps-config"><span class="blog-toc-num">07</span> Конфигурация хостинга и VPS под высокие нагр…</a></li>
+<li><a href="#wordpress-vs-bitrix"><span class="blog-toc-num">08</span> Сравнение процессов оптимизации: WordPress v…</a></li>
+<li><a href="#my-services"><span class="blog-toc-num">09</span> Мои услуги по оптимизации сайтов</a></li>
+<li><a href="#monitoring-skorosti"><span class="blog-toc-num">10</span> Мониторинг скорости после оптимизации</a></li>
+<li><a href="#faq"><span class="blog-toc-num">11</span> FAQ: Часто задаваемые вопросы</a></li>
+<li><a href="#checklist"><span class="blog-toc-num">12</span> 30-дневный чек-лист по оптимизации скорости…</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=23" defer></script>
+<script src="/services-i18n.js?v=23" defer></script>
+<script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ускорение 1С: тонкая настройка СУБД PostgreSQL на Linux без…</title>
+    <meta name="description" content="Практическое руководство по оптимизации СУБД PostgreSQL на Linux для работы с 1С:Предприятие.">
+    <meta name="keywords" content="ускорение 1С, PostgreSQL для 1С, настройка СУБД, Linux для 1С, оптимизация PostgreSQL, Rocky Linux, Ubuntu, тюнинг ядра, тестирование SSD">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/uskorenie-1c-postgresql/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/uskorenie-1c-postgresql/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/uskorenie-1c-postgresql/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/uskorenie-1c-postgresql/">
+    <meta property="og:title" content="Ускорение 1С: тонкая настройка СУБД PostgreSQL на Linux без…">
+    <meta property="og:description" content="Практическое руководство по оптимизации СУБД PostgreSQL на Linux для работы с 1С:Предприятие.">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/uskorenie-1c-postgresql/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ускорение 1С: тонкая настройка СУБД PostgreSQL на Linux без…">
+    <meta name="twitter:description" content="Практическое руководство по оптимизации СУБД PostgreSQL на Linux для работы с 1С:Предприятие.">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/uskorenie-1c-postgresql/cover.png">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor-Fill.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=40">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Ускорение 1С: тонкая настройка СУБД PostgreSQL на Linux без покупки нового сервера",
+  "description": "Практическое руководство по оптимизации СУБД PostgreSQL на Linux для работы с 1С:Предприятие. Настройка параметров ядра Linux, тестирование SSD с помощью FIO, конфигурация postgresql.conf и автовакуума.",
+  "image": "https://chimitdorzhi.tech/blog/uskorenie-1c-postgresql/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/uskorenie-1c-postgresql/"
+  },
+  "datePublished": "2026-06-09",
+  "dateModified": "2026-06-09",
+  "keywords": "1С, PostgreSQL, Linux, оптимизация, базы данных",
+  "articleSection": "Разработка",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Ускорение 1С: тонкая настройка СУБД PostgreSQL на Linux без покупки нового сервера",
+      "item": "https://chimitdorzhi.tech/blog/uskorenie-1c-postgresql/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Безопасно ли отключать synchronous_commit? Не приведет ли это к потере или повреждению всей базы данных 1С?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, это безопасно. PostgreSQL использует механизм WAL (Write-Ahead Log) для обеспечения транзакционной целостности. При установке synchronous_commit = off изменения сначала фиксируются в WAL-буфере в оперативной памяти, и СУБД мгновенно подтверждает транзакцию клиенту. Сброс логов на диск происходит асинхронно с задержкой до 50 мс. При аварийном отключении питания сервера могут быть потеряны только те данные, которые были изменены за последние 20–50 мс. База данных при этом не будет повреждена и сохранит логическую целостность, так как при перезапуске PostgreSQL автоматически восстановит согласованное состояние. Для большинства компаний такое минимальное допущение является оправданной ценой за ускорение операций записи в 1С в 3–5 раз."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Какой дистрибутив Linux выбрать для сервера 1С и PostgreSQL: Rocky Linux или Ubuntu Server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Производительность СУБД на обоих дистрибутивах одинакова при идентичной настройке ядра. Выбор зависит от инфраструктурных стандартов и компетенций администраторов:"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Почему стандартный autovacuum в PostgreSQL не справляется с базой 1С и как это увидеть?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "По умолчанию autovacuum запускается только после изменения 20% строк таблицы. В базе 1С таблицы регистров могут содержать миллионы строк. Если в таблице на 10 млн записей накопился 1.9 млн мертвых строк, автовакуум не запустится, так как лимит в 20% не достигнут. При этом СУБД будет вынуждена считывать эти мертвые строки при каждом запросе. Проверить количество мертвых строк можно запросом:"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что лучше для 1С: PostgreSQL или MS SQL Server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "MS SQL Server обладает продвинутым планировщиком запросов, который сглаживает ошибки неоптимального кода 1С без ручной настройки, но стоимость его лицензий крайне высока. PostgreSQL под Linux — это бесплатная альтернатива. При правильной настройке параметров операционной системы, файлов конфигурации СУБД и регулярном обслуживании производительность PostgreSQL не уступает коммерческим аналогам на базах объемом до нескольких терабайт."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как часто нужно делать REINDEX и чем он отличается от pg_repack?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Индексы 1С подвержены быстрой фрагментации и накоплению пустых страниц в процессе записи и удаления данных."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "У нас 1С работает на виртуальных машинах (Proxmox/ESXi). Стоит ли оптимизировать хост или достаточно настроить гостевую ОС?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Оптимизация гостевой ОС не принесет эффекта, если хост виртуализации настроен стандартно. На уровне хоста необходимо:"
+      }
+    }
+  ]
+}
+    </script>
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+            <li><a href="/#services" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li class="nav-dropdown">
+                <a href="/#projects" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--arey"><i class="ph-fill ph-vinyl-record" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-airplane-tilt" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#cases" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            </div>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/#about">Обо мне</a></li>
+        <li><a href="/#services">Услуги</a></li>
+        <li><a href="/services/">Каталог услуг</a></li>
+        <li><a href="/predlozheniya/">Предложения</a></li>
+        <li><a href="/#cases">Кейсы</a></li>
+        <li><a href="/blog/">Блог</a></li>
+        <li><a href="/#contact">Контакт</a></li>
+    </ul>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Ускорение 1С: тонкая настройка СУБД PostgreSQL на Linux без покупки нового сервера</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/development/"><i class="ph ph-bookmark" aria-hidden="true"></i> Разработка</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 15 мин чтения</span>
+                        <time datetime="2026-06-09"><i class="ph ph-calendar" aria-hidden="true"></i> 9 июня 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Ускорение 1С: тонкая настройка СУБД PostgreSQL на Linux без покупки нового сервера</h1>
+
+                    <p class="blog-lead">Практическое руководство по оптимизации СУБД PostgreSQL на Linux для работы с 1С:Предприятие. Настройка параметров ядра Linux, тестирование SSD с помощью FIO, конфигурация postgresql.conf и автовакуума.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>1С</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>PostgreSQL</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>Linux</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>оптимизация</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>базы данных</span></div>
+
+                    <div class="blog-body">
+                        <p>В условиях <a href="https://chimitdorzhi.tech/services/russian-stack-migration/" class="blog-inline-link">импортозамещения</a> многие компании переносят системы «1С:Предприятие» с Windows и MS SQL Server на стек Linux и PostgreSQL. Однако после миграции бизнес часто сталкивается с падением производительности: проведение документов зависает, отчеты формируются в разы дольше, возникают взаимные блокировки. Первая реакция руководства — покупка более мощного сервера. Но в 80% случаев проблема кроется не в нехватке физических ресурсов, а в неоптимальных стандартных настройках СУБД и ОС. По умолчанию PostgreSQL сконфигурирован под простые веб-приложения, а не под транзакционную нагрузку ERP-систем. Тонкая настройка имеющегося сервера позволяет увеличить производительность 1С в 2–3 раза без дополнительных затрат на оборудование.</p>
+<div class="blog-tldr"><h3>Коротко (TL;DR)</h3><p>Медленная работа 1С на Linux + PostgreSQL обычно вызвана нерациональным использованием оперативной памяти, задержками дисков при записи транзакционного лога (WAL) и неэффективными планами запросов СУБД. Для решения проблемы оптимизируются четыре уровня инфраструктуры. На уровне ядра Linux отключаются механизмы энергосбережения CPU и Transparent Huge Pages, снижается использование файла подкачки (swappiness) и настраивается сброс грязных страниц памяти. Дисковая система тестируется утилитой <code>fio</code> для выявления задержек (latency) и IOPS. Параметры <code>postgresql.conf</code> (shared_buffers, work_mem, temp_buffers, effective_cache_size) пересчитываются под ресурсы сервера, а также отключается синхронная запись транзакций (<code>synchronous_commit = off</code>). В СУБД настраивается агрессивный автовакуум и регламенты обслуживания для борьбы с раздуванием таблиц.</p></div>
+<h2 id="architecture-spec">Специфика работы 1С с базами данных и неэффективность настроек по умолчанию</h2>
+<p>Платформа «1С:Предприятие» создает транзакционную нагрузку типа OLTP (Online Transaction Processing). Она характеризуется миллионами мелких и быстрых запросов на чтение и запись от множества пользователей. Для таких систем критически важны минимальное время отклика (latency) памяти и дисков, а также быстрая обработка блокировок.</p>
+<p>Особенностью 1С является интенсивное использование временных таблиц. При проведении документов платформа генерирует сложные SQL-запросы с десятками соединений, записывая промежуточные результаты во временные таблицы. В неоптимизированной СУБД эти таблицы сбрасываются на диск во временные файлы, что перегружает дисковый ввод-вывод и замедляет работу всей системы.</p>
+<p>Стандартный PostgreSQL без оптимизации не подходит для 1С. Платформа требует специализированных сборок СУБД (например, от Postgres Pro или самой фирмы 1С), содержащих патчи для поддержки специфического упорядочивания символов (collation), оптимизации менеджера блокировок и планировщика запросов. Но даже специализированная сборка требует настройки под параметры конкретного сервера.</p>
+<h2 id="linux-os-tuning">Подготовка и оптимизация Linux: тонкий тюнинг ядра</h2>
+<p>Перед настройкой PostgreSQL необходимо подготовить ОС. Оптимизация рассматривается на примере дистрибутивов Rocky Linux и Ubuntu Server.</p>
+<h3>Настройка профиля производительности CPU</h3>
+<p>Современные процессоры по умолчанию работают в режиме энергосбережения, динамически меняя тактовую частоту. При отправке запроса процессору требуется время на повышение частоты (режимы <code>powersave</code> или <code>ondemand</code>). В высоконагруженных системах эти микросекундные задержки накапливаются, снижая общую отзывчивость. Сервер СУБД должен работать на максимальной мощности. Для принудительного включения режима максимальной производительности выполните:</p>
+<pre><code>cpupower frequency-set -g performance</code></pre>
+<p>Для сохранения настроек при загрузке в Rocky Linux используется утилита <code>tuned</code>:</p>
+<pre><code>tuned-adm profile network-latency</code></pre>
+<p>В Ubuntu установите утилиту <code>sysfsutils</code> и добавьте в <code>/etc/sysfs.conf</code> строку:</p>
+<pre><code>devices/system/cpu/cpu*/cpufreq/scaling_governor = performance</code></pre>
+<h3>Настройка параметров виртуальной памяти (sysctl.conf)</h3>
+<p>Добавьте следующие параметры в файл <code>/etc/sysctl.conf</code> для оптимизации кэширования и работы с памятью:</p>
+<pre><code>vm.swappiness = 1
+vm.overcommit_memory = 2
+vm.overcommit_ratio = 80
+kernel.sched_migration_cost_ns = 5000000
+vm.dirty_background_bytes = 67108864
+vm.dirty_bytes = 268435456</code></pre>
+<p>Логика этих параметров:</p>
+<ul><li><code>vm.swappiness = 1</code> минимизирует сброс страниц памяти PostgreSQL в swap. Чтение буферов из swap приводит к катастрофическому падению скорости работы СУБД.</li><li><code>vm.overcommit_memory = 2</code> запрещает ядру выделять памяти больше, чем доступно физически с учетом swap. Это защищает PostgreSQL от уничтожения процессом OOM-killer при резком росте нагрузки. Параметр <code>vm.overcommit_ratio</code> задает лимит использования ОЗУ в 80%.</li><li><code>kernel.sched_migration_cost_ns = 5000000</code> снижает частоту миграции потоков PostgreSQL между ядрами CPU, повышая эффективность использования процессорного кэша.</li><li><code>vm.dirty_background_bytes</code> (64 МБ) и <code>vm.dirty_bytes</code> (256 МБ) заменяют стандартные лимиты сброса грязных страниц в процентах. Это заставляет ядро сбрасывать измененные данные на диск непрерывно и мелкими порциями, исключая длительные зависания дисковой очереди.</li></ul>
+<h3>Отключение Transparent Huge Pages (THP)</h3>
+<p>Механизм Transparent Huge Pages объединяет стандартные страницы памяти 4 КБ в блоки по 2 МБ. Для СУБД с хаотичным доступом к данным THP вызывает фрагментацию ОЗУ и накладные расходы на уплотнение памяти. Для отключения THP добавьте параметр <code>transparent_hugepage=never</code> в строку загрузки ядра в файле <code>/etc/default/grub</code> и обновите конфигурацию загрузчика:</p>
+<ul><li>В Ubuntu: <code>update-grub</code></li><li>В Rocky Linux: <code>grub2-mkconfig -o /boot/grub2/grub.cfg</code></li></ul>
+<h3>Файловая система, опции монтирования и планировщик</h3>
+<p>Для баз данных рекомендуется использовать файловую систему XFS. В файле <code>/etc/fstab</code> для раздела данных укажите опции <code>noatime</code> и <code>nodiratime</code> для предотвращения записи времени последнего доступа при каждом чтении:</p>
+<pre><code>/dev/mapper/vg-pgdata /var/lib/postgresql xfs defaults,noatime,nodiratime 0 0</code></pre>
+<p>Для современных SSD-дисков используйте планировщик <code>deadline</code> (или <code>mq-deadline</code>), а для NVMe-накопителей — планировщик <code>none</code> для исключения лишних очередей на уровне ОС:</p>
+<pre><code>echo none &gt; /sys/block/nvme0n1/queue/scheduler</code></pre>
+<h2 id="disk-testing-fio">Стресс-тестирование дисковой подсистемы с помощью FIO и pg_test_fsync</h2>
+<p>Скорость дисков определяет производительность СУБД. Перед оптимизацией необходимо измерить реальные показатели IOPS и latency.</p>
+<h3>Тестирование дисков утилитой FIO</h3>
+<p>Установите пакет <code>fio</code> (<code>apt-get install fio</code> или <code>dnf install fio</code>). Запустите тест на случайную запись блоками по 4 КБ (имитация записи транзакционного лога WAL):</p>
+<pre><code>fio --name=randwrite --ioengine=libaio --iodepth=64 --rw=randwrite --bs=4k --direct=1 --size=4G --numjobs=4 --runtime=60 --group_reporting --filename=/var/lib/postgresql/test_fio_file</code></pre>
+<p>Для качественных корпоративных NVMe-дисков производительность случайной записи должна составлять не менее 40 000–60 000 IOPS, а средняя задержка (clat/latency) — не более 150–300 микросекунд (usec). Задержки в миллисекундах указывают на то, что диски будут узким местом системы.</p>
+<h3>Определение метода fsync с помощью pg_test_fsync</h3>
+<p>Запустите утилиту от имени пользователя <code>postgres</code> для проверки скорости системных вызовов фиксации данных на диске:</p>
+<pre><code>/usr/lib/postgresql/15/bin/pg_test_fsync -f /var/lib/postgresql/fsync_test.file</code></pre>
+<p>Обычно в PostgreSQL используется метод <code>fdatasync</code>, показывающий оптимальную производительность на большинстве Linux-систем.</p>
+<h2 id="postgresql-conf-parameters">Конфигурирование postgresql.conf: детальный разбор параметров</h2>
+<p>Рассмотрим настройку основного файла конфигурации <code>/var/lib/postgresql/data/postgresql.conf</code>. Для примера возьмем сервер с <strong>64 ГБ оперативной памяти (RAM)</strong> и <strong>16-ядерным процессором (CPU)</strong>.</p>
+<table><thead><tr><th>Имя параметра</th><th>Значение для 64 ГБ RAM / 16 CPU</th><th>Логика настройки и рекомендации</th></tr></thead><tbody><tr><td><code>shared_buffers</code></td><td><code>16GB</code></td><td>Кэш страниц СУБД. Устанавливается равным 25% от физической оперативной памяти.</td></tr><tr><td><code>work_mem</code></td><td><code>128MB</code></td><td>Лимит памяти для одной операции сортировки или группировки в рамках одного запроса.</td></tr><tr><td><code>maintenance_work_mem</code></td><td><code>2GB</code></td><td>Память для регламентных операций СУБД (создание индексов, вакуум).</td></tr><tr><td><code>temp_buffers</code></td><td><code>64MB</code></td><td>Объем памяти под временные таблицы для одной сессии. Крайне важен для 1С.</td></tr><tr><td><code>effective_cache_size</code></td><td><code>48GB</code></td><td>Оценка общего объема кэша, доступного для СУБД (буферы СУБД + Page Cache ядра).</td></tr><tr><td><code>max_connections</code></td><td><code>150</code></td><td>Максимальное количество одновременных подключений.</td></tr><tr><td><code>synchronous_commit</code></td><td><code>off</code></td><td>Отключение ожидания физического сброса лога WAL на диск при фиксации транзакции.</td></tr><tr><td><code>fsync</code></td><td><code>on</code></td><td>Гарантия физического сброса буферов на диск. Должен быть включен в продакшене.</td></tr><tr><td><code>checkpoint_timeout</code></td><td><code>15min</code></td><td>Временной интервал между контрольными точками сброса грязных буферов на диск.</td></tr><tr><td><code>checkpoint_completion_target</code></td><td><code>0.9</code></td><td>Коэффициент сглаживания записи страниц во времени в течение таймаута чекпоинта.</td></tr><tr><td><code>max_wal_size</code></td><td><code>16GB</code></td><td>Максимальный объем файлов журнала WAL до принудительного чекпоинта.</td></tr><tr><td><code>min_wal_size</code></td><td><code>2GB</code></td><td>Минимальный объем журналов WAL, сохраняемый для повторного использования.</td></tr><tr><td><code>random_page_cost</code></td><td><code>1.1</code></td><td>Коэффициент стоимости случайного чтения страниц. Для SSD снижается с дефолтных 4.0.</td></tr><tr><td><code>effective_io_concurrency</code></td><td><code>200</code></td><td>Число параллельных операций ввода-вывода, обрабатываемых дисковой подсистемой.</td></tr></tbody></table>
+<h3>Описание ключевых параметров конфигурации</h3>
+<p>#### <code>shared_buffers</code> Определяет объем ОЗУ, выделяемый под кэширование страниц СУБД. Оптимальное значение составляет 25% от памяти сервера. Установка более высоких значений (например, 50%) снижает общую скорость работы из-за эффекта двойного кэширования (так как Linux дублирует эти же данные в системном Page Cache) и повышает накладные расходы на блокировку буферов.</p>
+<p>#### <code>work_mem</code> Задает объем ОЗУ для сортировок и хэш-таблиц перед записью во временные файлы на диск. Запросы 1С содержат множество вложенных соединений, поэтому значение должно быть достаточным (например, <code>128MB</code>). Однако этот лимит выделяется на каждый шаг запроса индивидуально. При 150 подключениях одновременное потребление памяти может превысить ОЗУ сервера. Начинайте со <code>128MB</code> и отслеживайте в логах предупреждения о создании временных файлов СУБД (<code>temporary file</code>), постепенно повышая параметр при необходимости.</p>
+<p>#### <code>temp_buffers</code> Определяет лимит ОЗУ для временных таблиц в одной сессии. Так как 1С активно использует временные таблицы, увеличение параметра до <code>64MB</code> позволяет удерживать большинство из них в быстрой оперативной памяти, минуя запись на диск.</p>
+<p>#### <code>synchronous_commit</code> При значении <code>off</code> СУБД подтверждает завершение транзакции сразу после записи в буфер WAL в ОЗУ, не дожидаясь физического сброса на диск. Запись на диск выполняется асинхронно с задержкой до 20–50 мс. <strong>Безопасность данных:</strong> В случае сбоя питания могут быть потеряны транзакции за последние доли секунды, но сама база данных <strong>не повредится</strong>. При запуске PostgreSQL восстановит согласованное состояние. Для большинства баз 1С ускорение записи в 3–5 раз полностью окупает этот минимальный риск.</p>
+<p>#### <code>random_page_cost</code> Для SSD/NVMe дисков случайный доступ выполняется с той же скоростью, что и последовательный. Установка значения <code>1.1</code> (вместо стандартного 4.0) сообщает планировщику, что случайное чтение дешево, и заставляет его чаще использовать индексный поиск вместо полного сканирования таблиц.</p>
+<p>#### Параллельное исполнение запросов Для транзакционной базы 1С параллельное выполнение одиночных запросов неэффективно, так как накладные расходы на сборку результатов велики. Параллелизм должен использоваться только для регламентных процедур. Отключите параллельное выполнение для клиентских сессий и выделите ресурсы под обслуживание:</p>
+<pre><code>max_worker_processes = 16
+max_parallel_workers_per_gather = 0
+max_parallel_workers = 8
+max_parallel_maintenance_workers = 4</code></pre>
+<h2 id="postgresql-maintenance">Борьба с раздуванием (bloat) и регламентное обслуживание: autovacuum, analyze и pg_repack</h2>
+<p>В PostgreSQL измененные или удаленные строки физически не удаляются из таблиц сразу. Они помечаются как «мертвые» (dead tuples). Очисткой этих строк занимается фоновый процесс автовакуума (autovacuum). Если автовакуум не настроен, таблицы и индексы раздуваются (bloat), из-за чего СУБД считывает лишние гигабайты пустых страниц, замедляя работу 1С.</p>
+<h3>Настройка autovacuum для нагрузок 1С</h3>
+<p>Стандартный автовакуум настроен на низкую интенсивность. Для баз 1С с частыми изменениями его параметры необходимо сделать более агрессивными:</p>
+<pre><code>autovacuum = on
+autovacuum_max_workers = 4
+autovacuum_vacuum_scale_factor = 0.05
+autovacuum_analyze_scale_factor = 0.02
+autovacuum_vacuum_cost_limit = 1000
+autovacuum_vacuum_cost_delay = 2</code></pre>
+<p>Параметр <code>autovacuum_vacuum_scale_factor = 0.05</code> запускает очистку при изменении 5% строк таблицы (вместо 20% по умолчанию), а снижение задержки <code>autovacuum_vacuum_cost_delay</code> до 2 мс и увеличение лимита стоимости <code>autovacuum_vacuum_cost_limit</code> до 1000 ускоряют работу автовакуума в несколько раз.</p>
+<h3>Регламентные операции СУБД</h3>
+<p>Необходимо настроить запуск ночных регламентных задач через системный планировщик <code>cron</code>:</p>
+<p>#### 1. Обновление статистики (ANALYZE) Статистика распределения данных в таблицах критически важна для правильного выбора индексов планировщиком. Запускайте сбор статистики для базы каждую ночь:</p>
+<pre><code>vacuumdb -U postgres -d your_database_name --analyze-only --verbose</code></pre>
+<p>#### 2. Переиндексация (REINDEX) Индексы 1С быстро фрагментируются. Команда <code>REINDEX</code> перестраивает их с нуля, повышая скорость поиска. Поскольку обычный <code>REINDEX</code> блокирует таблицы на запись, его запускают раз в неделю на выходных:</p>
+<pre><code>reindexdb -U postgres -d your_database_name</code></pre>
+<p>#### 3. Использование pg_repack для сжатия в режиме 24/7 Для круглосуточных баз данных используйте утилиту <code>pg_repack</code>. Она устраняет фрагментацию таблиц и индексов в фоновом режиме без наложения эксклюзивных блокировок. Установка в Ubuntu:</p>
+<pre><code>apt-get install postgresql-15-repack</code></pre>
+<p>Запуск сжатия конкретной таблицы без остановки работы пользователей:</p>
+<pre><code>pg_repack -U postgres -d your_database_name -t named_table</code></pre>
+<h2 id="my-services">Что я делаю для этой сферы</h2>
+<ul><li>[ ] <strong>Аудит производительности 1С:</strong> Провожу детальный анализ технологического журнала 1С и логов СУБД для выявления причин медленной работы.</li><li>[ ] <strong>Оптимизация параметров ядра Linux:</strong> Конфигурирую виртуальную память, профили CPU, THP и планировщики очередей ввода-вывода.</li><li>[ ] <strong>Стресс-тестирование оборудования:</strong> Измеряю производительность накопителей (FIO) и процессора под максимальной нагрузкой.</li><li>[ ] <strong>Тюнинг файлов конфигурации СУБД:</strong> Настраиваю лимиты памяти, параметры WAL и параллелизма под ресурсы сервера.</li><li>[ ] <strong>Настройка планового обслуживания:</strong> Автоматизирую резервное копирование, агрессивный автовакуум и бесконфликтную переиндексацию баз данных.</li></ul>
+<h2 id="ready-solution">Готовое решение по теме</h2>
+<div class="blog-tldr"><h3>Коротко (TL;DR)</h3><p>Не спешите тратить ИТ-бюджет на покупку нового сервера. Закажите комплексную услугу по оптимизации работы ОС Linux и тонкой настройке PostgreSQL под нужды 1С с гарантией роста производительности по договору. Подробные условия предложения доступны по ссылке: <strong><a href="/predlozheniya/importozameshchenie-infrastruktura/">Оптимизация и ускорение PostgreSQL под 1С на Linux</a></strong> — стоимость работ составляет <strong>от 45 000 рублей</strong>.</p></div>
+<ul><li><strong><a href="https://t.me/chimitdorzhi">Связаться со мной в Telegram</a></strong> — оперативный технический разбор проблемы в чате.</li><li><strong><a href="https://vk.com/chimitdorzhi_tech">Группа ВКонтакте</a></strong> — кейсы администрирования баз данных, рекомендации и отзывы.</li><li><strong><a href="https://chimitdorzhi.tech/catalog">Каталог услуг</a></strong> — прайс-лист на обслуживание серверов СУБД, 1С и систем на Linux.</li></ul>
+<h2 id="reglament-obsluzhivaniya">Регламент обслуживания после тюнинга</h2>
+<p>Разовая настройка PostgreSQL даёт ускорение, но без регулярного обслуживания база со временем снова замедляется: накапливаются мёртвые строки, разрастаются индексы, меняется объём данных. Поэтому тюнинг закрепляется регламентом сопровождения.</p>
+<p>Минимальный регламент обслуживания сервера 1С на PostgreSQL:</p>
+<ul>
+<li><strong>Контроль автовакуума.</strong> Регулярная проверка раздувания таблиц и при необходимости ручное обслуживание тяжёлых регистров.</li>
+<li><strong>Резервное копирование.</strong> Проверяемые бэкапы с регулярным тестовым восстановлением — бэкап, который не восстанавливается, бесполезен.</li>
+<li><strong>Мониторинг ресурсов.</strong> Отслеживание нагрузки на диск, память и медленных запросов, чтобы ловить проблемы до жалоб пользователей.</li>
+<li><strong>Обновление статистики.</strong> Пересчёт планов запросов после крупных загрузок данных и закрытия периодов.</li>
+</ul>
+<p>Регламентное сопровождение удерживает производительность 1С стабильной круглый год и обходится дешевле, чем экстренное вмешательство, когда база уже встала в разгар рабочего дня.</p>
+<h2 id="faq">Часто задаваемые вопросы (FAQ)</h2>
+<h3>Безопасно ли отключать synchronous_commit? Не приведет ли это к потере или повреждению всей базы данных 1С?</h3>
+<p>Да, это безопасно. PostgreSQL использует механизм WAL (Write-Ahead Log) для обеспечения транзакционной целостности. При установке <code>synchronous_commit = off</code> изменения сначала фиксируются в WAL-буфере в оперативной памяти, и СУБД мгновенно подтверждает транзакцию клиенту. Сброс логов на диск происходит асинхронно с задержкой до 50 мс. При аварийном отключении питания сервера могут быть потеряны только те данные, которые были изменены за последние 20–50 мс. База данных при этом <strong>не будет повреждена</strong> и сохранит логическую целостность, так как при перезапуске PostgreSQL автоматически восстановит согласованное состояние. Для большинства компаний такое минимальное допущение является оправданной ценой за ускорение операций записи в 1С в 3–5 раз.</p>
+<h3>Какой дистрибутив Linux выбрать для сервера 1С и PostgreSQL: Rocky Linux или Ubuntu Server?</h3>
+<p>Производительность СУБД на обоих дистрибутивах одинакова при идентичной настройке ядра. Выбор зависит от инфраструктурных стандартов и компетенций администраторов:</p>
+<ul><li><strong>Rocky Linux / RedOS / Astra Linux (семейство RHEL):</strong> Стабильные корпоративные дистрибутивы с консервативной пакетной базой и файловой системой XFS из коробки. Рекомендуются для крупных систем с повышенными требованиями к отказоустойчивости и лицензионной поддержке.</li><li><strong>Ubuntu Server (семейство Debian):</strong> Проще в установке, содержит более новые версии вспомогательных пакетов в стандартных репозиториях. Оптимален для небольших и средних проектов.</li></ul>
+<h3>Почему стандартный autovacuum в PostgreSQL не справляется с базой 1С и как это увидеть?</h3>
+<p>По умолчанию autovacuum запускается только после изменения 20% строк таблицы. В базе 1С таблицы регистров могут содержать миллионы строк. Если в таблице на 10 млн записей накопился 1.9 млн мертвых строк, автовакуум не запустится, так как лимит в 20% не достигнут. При этом СУБД будет вынуждена считывать эти мертвые строки при каждом запросе. Проверить количество мертвых строк можно запросом:</p>
+<pre><code>SELECT relname, n_dead_tup, last_vacuum, last_autovacuum FROM pg_stat_user_tables WHERE n_dead_tup &gt; 0;</code></pre>
+<p>Если количество мертвых строк исчисляется тысячами, а автовакуум не запускался неделями, настройки необходимо делать более агрессивными.</p>
+<h3>Что лучше для 1С: PostgreSQL или MS SQL Server?</h3>
+<p>MS SQL Server обладает продвинутым планировщиком запросов, который сглаживает ошибки неоптимального кода 1С без ручной настройки, но стоимость его лицензий крайне высока. PostgreSQL под Linux — это бесплатная альтернатива. При правильной настройке параметров операционной системы, файлов конфигурации СУБД и регулярном обслуживании производительность PostgreSQL не уступает коммерческим аналогам на базах объемом до нескольких терабайт.</p>
+<h3>Как часто нужно делать REINDEX и чем он отличается от pg_repack?</h3>
+<p>Индексы 1С подвержены быстрой фрагментации и накоплению пустых страниц в процессе записи и удаления данных.</p>
+<ul><li><strong>REINDEX</strong> перестраивает индекс с нуля, очищая его от мусора, но блокирует таблицу на запись на время выполнения. Операцию рекомендуется запускать раз в неделю во внерабочее время.</li><li><strong>pg_repack</strong> выполняет аналогичную очистку индексов и таблиц в фоновом режиме, используя триггеры для синхронизации изменений, без блокировки пользователей. Это незаменимый инструмент для высоконагруженных систем 24/7.</li></ul>
+<h3>У нас 1С работает на виртуальных машинах (Proxmox/ESXi). Стоит ли оптимизировать хост или достаточно настроить гостевую ОС?</h3>
+<p>Оптимизация гостевой ОС не принесет эффекта, если хост виртуализации настроен стандартно. На уровне хоста необходимо:</p>
+<ol><li>Выполнить жесткую привязку виртуальных процессоров VM к физическим ядрам CPU (CPU pinning) для исключения переключений контекста.</li><li>Отключить динамическое распределение памяти (Memory Ballooning), зарезервировав весь объем ОЗУ за виртуальной машиной СУБД.</li><li>Использовать для дисков СУБД тома LVM или raw-устройства вместо файлов виртуальных дисков (qcow2/vmdk) для исключения лишних очередей ввода-вывода.</li></ol>
+<h2 id="30-day-plan">30-дневный пошаговый план настройки и ускорения PostgreSQL</h2>
+<p>Внесение изменений в работающую систему должно выполняться поэтапно, чтобы иметь возможность точно оценивать влияние каждого шага и быстро реагировать на сбои.</p>
+<h3>Неделя 1: Сбор базовых метрик и дисковый аудит</h3>
+<ul><li><strong>День 1-2:</strong> Разверните систему мониторинга (Zabbix или Prometheus + Grafana). Начните сбор метрик загрузки CPU, RAM и дисков (очередь диска, процент утилизации).</li><li><strong>День 3:</strong> Выполните замеры производительности 1С в текущем состоянии с помощью теста Гилева или фиксацией времени выполнения ключевых операций по APDEX.</li><li><strong>День 4-5:</strong> Проведите низкоуровневые тесты накопителей с помощью <code>fio</code> во внерабочее время. Замерьте показатели IOPS и времени задержки записи. Выполните тест <code>pg_test_fsync</code>.</li><li><strong>Результат:</strong> Зафиксированы базовые метрики производительности 1С и реальные возможности дисковой подсистемы.</li></ul>
+<h3>Неделя 2: Оптимизация операционной системы Linux</h3>
+<ul><li><strong>День 6-7:</strong> Переведите процессор сервера в режим максимальной производительности (<code>performance</code>). Проверьте тактовые частоты CPU под нагрузкой.</li><li><strong>День 8-9:</strong> Внесите изменения параметров виртуальной памяти в <code>/etc/sysctl.conf</code> (<code>vm.swappiness = 1</code>, настройки сброса грязных страниц в байтах). Примените параметры командой <code>sysctl -p</code>.</li><li><strong>День 10:</strong> Отключите Transparent Huge Pages (THP) в загрузчике Grub. Настройте дисковый планировщик <code>none</code> для NVMe-накопителей. Добавьте в <code>/etc/fstab</code> опции <code>noatime,nodiratime</code> для разделов баз данных СУБД.</li><li><strong>Результат:</strong> Операционная система оптимизирована для работы СУБД, устранены задержки планировщика ядра Linux.</li></ul>
+<h3>Неделя 3: Настройка параметров PostgreSQL</h3>
+<ul><li><strong>День 11-12:</strong> Рассчитайте лимиты оперативной памяти <code>shared_buffers</code>, <code>work_mem</code> и <code>temp_buffers</code> под объем ОЗУ вашего сервера. Внесите изменения в файл <code>postgresql.conf</code>.</li><li><strong>День 13-14:</strong> Оптимизируйте коэффициенты стоимости планировщика (<code>random_page_cost = 1.1</code>), настройте параметры контрольных точек и отключите синхронную запись транзакций (<code>synchronous_commit = off</code>).</li><li><strong>День 15:</strong> Перезапустите службу СУБД PostgreSQL. Проанализируйте логи запуска на отсутствие ошибок. Контролируйте потребление памяти процессами в течение дня.</li><li><strong>Результат:</strong> Параметры PostgreSQL адаптированы под ресурсы сервера и структуру запросов 1С.</li></ul>
+<h3>Неделя 4: Настройка регламентов обслуживания и фиксация результатов</h3>
+<ul><li><strong>День 16-17:</strong> Сделайте параметры автовакуума более агрессивными в <code>postgresql.conf</code>. Пропишите в планировщик задач <code>cron</code> выполнение ежедневного ночного сбора статистики СУБД (<code>ANALYZE</code>).</li><li><strong>День 18-19:</strong> Настройте еженедельную ночную переиндексацию базы данных (<code>REINDEX</code>) по выходным дням. Для баз 24/7 настройте фоновую очистку через <code>pg_repack</code>.</li><li><strong>День 20-21:</strong> Выполните повторные замеры скорости 1С с помощью теста Гилева и сравните показатели времени выполнения операций по APDEX с показателями первой недели.</li><li><strong>День 22-30:</strong> Проведите тонкую донастройку. Контролируйте логи СУБД на наличие записей о временных файлах (<code>temporary file</code>), точечно увеличивая <code>work_mem</code> при необходимости.</li><li><strong>Результат:</strong> Инфраструктура полностью оптимизирована, настроено автоматическое фоновое обслуживание базы данных, зафиксирован рост производительности 1С.</li></ul>
+                    </div>
+
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Что я делаю с IT-инфраструктурой</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-database"></i> <span>1С, PostgreSQL и тюнинг серверов</span></li>
+    
+    <li><i class="ph-fill ph-shield-check"></i> <span>Импортозамещение и безопасный периметр</span></li>
+    
+    <li><i class="ph-fill ph-package"></i> <span>Складской учёт и WMS</span></li>
+    
+    <li><i class="ph-fill ph-pulse"></i> <span>Мониторинг и поддержка</span></li>
+    
+  </ul>
+  <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
+  </a>
+</div>
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/importozameshchenie-infrastruktura/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовое решение по теме</span>
+                            <span class="blog-offer-cta-title">Импортозамещение и переезд IT-инфраструктуры в РФ</span>
+                            <span class="blog-offer-cta-price">Бесплатная консультация · обсуждается</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-arrow-right" aria-hidden="true"></i> Смотреть предложение</span>
+                    </a>
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/predlozheniya/importozameshchenie-infrastruktura/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Ускорить 1С на PostgreSQL</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/udalenniy-ofis-vpn-telefoniya/" data-category="development">
+  <span class="blog-card-fresh">Свежее</span>
+  <div class="blog-card-icon"><i class="ph-fill ph-shield-check"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
+  <h3>Удаленный офис под ключ: организация безопасного удаленного доступа (VPN, телефония, таск-трекеры)</h3>
+  <p>Техническое руководство по организации безопасного удаленного офиса. Сравнение WireGuard/OpenVPN, интеграция с AD/LDAP, настройка Asterisk/FreePBX, выбор таск-трекеров и внедрение политик безопасности (2FA, DLP).</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 9 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 15 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/korporativnaya-pochta-linux/" data-category="development">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-envelope"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
+  <h3>Безопасная корпоративная почта: как развернуть свой почтовый сервер на Linux и защититься от спама</h3>
+  <p>Пошаговое руководство по развертыванию собственного безопасного корпоративного почтового сервера на Linux. Настройка Postfix, Dovecot, Rspamd, SPF, DKIM, DMARC и современные стратегии фильтрации спама.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 9 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 15 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/skladskoy-uchet-wms-tsd/" data-category="development">
+  <span class="blog-card-fresh">Свежее</span>
+  <div class="blog-card-icon"><i class="ph-fill ph-package"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
+  <h3>Складской учет (WMS): внедрение адресного хранения и ТСД на оптовых базах Сибири</h3>
+  <p>Практическое руководство по автоматизации складского учета (WMS) на оптовых базах Сибири. Как внедрить адресное хранение, выбрать ТСД Honeywell, Urovo, Zebra, настроить штрихкодирование и интегрировать систему с 1С:УТ, 1С:ERP и МойСклад.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 9 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 15 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовые решения под ключ</span>
+                            <span class="blog-offer-cta-title">321 готовых IT-решений для бизнеса</span>
+                            <span class="blog-offer-cta-price">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Смотреть каталог</span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#architecture-spec"><span class="blog-toc-num">01</span> Специфика работы 1С с базами данных и неэффе…</a></li>
+<li><a href="#linux-os-tuning"><span class="blog-toc-num">02</span> Подготовка и оптимизация Linux: тонкий тюнин…</a></li>
+<li><a href="#disk-testing-fio"><span class="blog-toc-num">03</span> Стресс-тестирование дисковой подсистемы с по…</a></li>
+<li><a href="#postgresql-conf-parameters"><span class="blog-toc-num">04</span> Конфигурирование postgresql.conf: детальный…</a></li>
+<li><a href="#postgresql-maintenance"><span class="blog-toc-num">05</span> Борьба с раздуванием (bloat) и регламентное…</a></li>
+<li><a href="#my-services"><span class="blog-toc-num">06</span> Что я делаю для этой сферы</a></li>
+<li><a href="#ready-solution"><span class="blog-toc-num">07</span> Готовое решение по теме</a></li>
+<li><a href="#reglament-obsluzhivaniya"><span class="blog-toc-num">08</span> Регламент обслуживания после тюнинга</a></li>
+<li><a href="#faq"><span class="blog-toc-num">09</span> Часто задаваемые вопросы (FAQ)</a></li>
+<li><a href="#30-day-plan"><span class="blog-toc-num">10</span> 30-дневный пошаговый план настройки и ускоре…</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=23" defer></script>
+<script src="/services-i18n.js?v=23" defer></script>
+<script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>
