@@ -6,6 +6,7 @@
 // Usage: node tools/build-blog.js
 
 const fs = require('fs');
+const { clampTitle, clampDesc } = require("./meta-clamp.js");
 const path = require('path');
 const articles = require('./blog-data');
 const OFFERS = require('./offers-data.js');
@@ -159,6 +160,7 @@ function formatRuDate(iso) {
 // ---------- shared head/nav/footer ----------
 
 function head({ title, description, keywords, canonical, ogImage = `${SITE}/hero-photo.webp` }) {
+  title = clampTitle(title); description = clampDesc(description);
   return `<!DOCTYPE html>
 <html lang="ru" data-theme="dark" data-lang="ru">
 <head>
