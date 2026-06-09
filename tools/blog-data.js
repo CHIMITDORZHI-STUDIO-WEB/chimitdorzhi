@@ -4910,7 +4910,7 @@ module.exports = [
     ],
     contentHtml: aiEverydayContent,
     relatedSlugs: ['rossiyskiy-ai-stack-2026', 'ai-dlya-roditeley-2026', 'ai-v-marketinge-2026'],
-    ctaInternal: { url: 'https://chimitdorzhi.tech/services/mentoring/', label: 'Менторство по AI для жизни' },
+    ctaInternal: { url: 'https://chimitdorzhi.tech/services/it-mentoring/', label: 'Менторство по AI для жизни' },
     servicesOffer: {
       title: "Что я делаю по AI для работы и жизни",
       services: [
@@ -5528,7 +5528,7 @@ module.exports = [
     ],
     contentHtml: kibertirniryContent,
     relatedSlugs: ['svoya-strim-studiya-2026', 'svoy-sayt-vs-socseti-2026', 'podcast-s-gostyami-monetizaciya-2026'],
-    ctaInternal: { url: 'https://chimitdorzhi.tech/services/event-organization/', label: 'Организовать киберспортивный турнир' },
+    ctaInternal: { url: 'https://chimitdorzhi.tech/predlozheniya/brendirovannaya-liga-pod-klyuch/', label: 'Организовать киберспортивный турнир' },
     servicesOffer: {
       title: "Что я делаю по киберспорту и брендингу",
       services: [
@@ -5573,7 +5573,7 @@ module.exports = [
     ],
     contentHtml: sponsorstvoContent,
     relatedSlugs: ['kibertirniry-organizaciya-2026', 'partnerskiy-marketing-affiliate-2026', 'svoy-sayt-vs-socseti-2026'],
-    ctaInternal: { url: 'https://chimitdorzhi.tech/services/event-organization/', label: 'Привлечь спонсоров под ваш проект' },
+    ctaInternal: { url: 'https://chimitdorzhi.tech/predlozheniya/brendirovannaya-liga-pod-klyuch/', label: 'Привлечь спонсоров под ваш проект' },
     servicesOffer: {
       title: "Что я делаю по киберспорту и брендингу",
       services: [
@@ -5665,7 +5665,7 @@ module.exports = [
     ],
     contentHtml: brandedLeagueContent,
     relatedSlugs: ['kibertirniry-organizaciya-2026', 'sponsorstvo-kibersport-streaming-2026', 'svoya-strim-studiya-2026'],
-    ctaInternal: { url: 'https://chimitdorzhi.tech/services/event-organization/', label: 'Запустить киберспорт-лигу для бренда' },
+    ctaInternal: { url: 'https://chimitdorzhi.tech/predlozheniya/brendirovannaya-liga-pod-klyuch/', label: 'Запустить киберспорт-лигу для бренда' },
     servicesOffer: {
       title: "Что я делаю по киберспорту и брендингу",
       services: [
@@ -5711,7 +5711,7 @@ module.exports = [
     ],
     contentHtml: distributorCupContent,
     relatedSlugs: ['kibertirniry-organizaciya-2026', 'brendirovannaya-kibersport-liga-2026', 'voronka-prodazh-b2b-2026'],
-    ctaInternal: { url: 'https://chimitdorzhi.tech/services/event-organization/', label: 'Организовать кубок для дилеров' },
+    ctaInternal: { url: 'https://chimitdorzhi.tech/predlozheniya/brendirovannaya-liga-pod-klyuch/', label: 'Организовать кубок для дилеров' },
     servicesOffer: {
       title: "Что я делаю по киберспорту и брендингу",
       services: [
@@ -5756,7 +5756,7 @@ module.exports = [
     ],
     contentHtml: productLaunchContent,
     relatedSlugs: ['kibertirniry-organizaciya-2026', 'brendirovannaya-kibersport-liga-2026', 'mvp-to-production-3-mesyatsa-2026'],
-    ctaInternal: { url: 'https://chimitdorzhi.tech/services/event-organization/', label: 'Запустить продукт через турнир' },
+    ctaInternal: { url: 'https://chimitdorzhi.tech/predlozheniya/brendirovannaya-liga-pod-klyuch/', label: 'Запустить продукт через турнир' },
     servicesOffer: {
       title: "Что я делаю по киберспорту и брендингу",
       services: [
@@ -5802,7 +5802,7 @@ module.exports = [
     ],
     contentHtml: popupRetailContent,
     relatedSlugs: ['kibertirniry-organizaciya-2026', 'live-commerce-rf-2026', 'turnir-pod-product-launch-2026'],
-    ctaInternal: { url: 'https://chimitdorzhi.tech/services/event-organization/', label: 'Pop-up турнир для вашего магазина' },
+    ctaInternal: { url: 'https://chimitdorzhi.tech/predlozheniya/brendirovannaya-liga-pod-klyuch/', label: 'Pop-up турнир для вашего магазина' },
     servicesOffer: {
       title: "Что я делаю по киберспорту и брендингу",
       services: [
