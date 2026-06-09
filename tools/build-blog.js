@@ -16,6 +16,7 @@ const subOffersCount = (s) => String(s).split('{{OFFERS_COUNT}}').join(OFFERS_CO
 
 // Карта: slug статьи → slug предложения. Добавляйте по мере роста раздела.
 const OFFER_LINKS = {
+  'konkurs-priglasheniy-max-virusnyy-rost-2027': 'geymifikaciya-kanala-max',
   // --- импорт «Антиравити» ---
   'ai-chatbot-prodazhi-2027': 'bot-dlya-biznesa',
   'ai-hr-avtomatizaciya': 'ai-pomoshchnik-rekrutera',

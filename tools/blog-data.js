@@ -3,6 +3,7 @@
 // Re-run `node tools/build-blog.js` afterwards.
 
 const antigravityEntries = require('./blog-data-antigravity.js');
+const konkursPriglasheniyMaxContent = require('./blog-content-konkurs-priglasheniy-max.js');
 const aiAgentsContent = require('./blog-content-ai-agents.js');
 const securityChecklistContent = require('./blog-content-security-checklist.js');
 const ragSystemsContent = require('./blog-content-rag-systems.js');
@@ -10347,5 +10348,48 @@ module.exports = [
       ],
     },
     contentHtml: gotovyeResheniyaContent,
+  },
+  {
+    slug: 'konkurs-priglasheniy-max-virusnyy-rost-2027',
+    category: 'marketing',
+    published: true,
+    title: 'Конкурс приглашений в MAX: вирусный рост аудитории и продаж 2027',
+    metaTitle: 'Конкурс приглашений в MAX: вирусный рост 2027',
+    metaDescription: 'Как растить аудиторию и продажи руками самих клиентов в MAX, Telegram и VK: конкурс приглашений, реферальные программы, UGC, геймификация, удержание и защита от накруток. Полный гайд с механиками под разные ниши. Российский стек, 152-ФЗ.',
+    metaKeywords: 'конкурс приглашений в макс, конкурс инвайтинга в макс, вирусный рост, реферальная программа, геймификация, бот для конкурса приглашений, рост аудитории max',
+    excerpt: 'Реклама дорожает, а доверие к ней падает — снова в цене сарафан, только теперь системный. Разбираю, как растить аудиторию и продажи руками самих клиентов в MAX: конкурс приглашений, рефералки, UGC, геймификация, удержание и как не получить накрутку вместо роста.',
+    datePublished: '2026-06-10',
+    dateModified: '2026-06-10',
+    readingMinutes: 18,
+    heroIcon: 'ph-fill ph-rocket-launch',
+    tags: ['вовлечение', 'вирусный рост', 'MAX', 'конкурс приглашений', 'геймификация'],
+    toc: [
+      { id: 'virusnyy-rost', text: 'Что такое вирусный рост' },
+      { id: 'konkurs-priglasheniy', text: 'Конкурс приглашений' },
+      { id: 'referalnye', text: 'Реферальные программы и уровни' },
+      { id: 'ugc', text: 'UGC и соцдоказательство' },
+      { id: 'geymifikaciya', text: 'Геймификация' },
+      { id: 'uderzhanie', text: 'Удержание' },
+      { id: 'antinakrutka', text: 'Как не получить накрутку' },
+      { id: 'analitika', text: 'Аналитика и метрики' },
+      { id: 'nishi', text: 'Механика под вашу нишу' },
+      { id: 'start', text: 'С чего начать за 2 недели' },
+      { id: 'oshibki', text: 'Типичные ошибки' },
+      { id: 'faq', text: 'FAQ' },
+      { id: 'vyvody', text: 'Коротко о главном' },
+    ],
+    contentHtml: konkursPriglasheniyMaxContent,
+    relatedSlugs: ['geymifikaciya-saas-2026', 'telegram-chat-vk-soobshchestvo-2026', 'sistemy-loyalnosti-2027'],
+    ctaInternal: { url: 'https://chimitdorzhi.tech/predlozheniya/geymifikaciya-kanala-max/', label: 'Запустить конкурс приглашений' },
+    servicesOffer: {
+      title: 'Что я делаю для вовлечения и роста',
+      services: [
+        { icon: 'ph-fill ph-trophy', label: 'Конкурс приглашений и реферальные программы' },
+        { icon: 'ph-fill ph-confetti', label: 'Розыгрыши, колесо фортуны, лотереи по чекам' },
+        { icon: 'ph-fill ph-game-controller', label: 'Геймификация: бейджи, квесты, челленджи' },
+        { icon: 'ph-fill ph-gift', label: 'Лояльность, клуб по подписке, реактивация' },
+        { icon: 'ph-fill ph-shield-check', label: 'Защита от накруток и сквозная аналитика' },
+      ],
+    },
   },
 ].concat(antigravityEntries);
