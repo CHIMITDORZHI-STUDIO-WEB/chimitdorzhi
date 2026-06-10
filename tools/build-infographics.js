@@ -380,6 +380,13 @@ ${navbar()}
       .ig-chip.on{background:var(--accent);border-color:var(--accent);color:#fff}
       .ig-chip.on span{opacity:.8}
       .ig-tile.is-hidden{display:none}
+      @media (max-width: 560px){
+        .ig-chips{flex-wrap:nowrap;overflow-x:auto;gap:8px;margin:0 0 22px;padding-bottom:8px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+        .ig-chips::-webkit-scrollbar{display:none}
+        .ig-chip{flex:0 0 auto;font-size:13px;padding:7px 13px}
+        .ig-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+        .ig-tile-cap{font-size:13px;padding:10px}
+      }
     </style>
     <div class="ig-chips" id="igChips">
 ${chips}
