@@ -174,67 +174,159 @@ const ITEMS = [
   require('./infografika-extra-o.js'),
 );
 
-// ---------- SVG обложки (Колор-блок) ----------
-function infoSvg(it) {
-  const W = 1000, H = 1500, M = 80, white = '#ffffff';
-  const CREAM = '#f4f1ea', INK = '#16130f', BLUE = '#1e4fd6', BLUE2 = '#3b6ef5', GRAY = '#6b655c';
-  const CARDB = '#eceadf';
-  const DOTS = ['#1e4fd6', '#f59e0b', '#16a34a', '#7c3aed'];
+// ---------- SVG обложки (светлый «отчётный» стиль, 6 макетов) ----------
+const CREAM = '#f4f1ea', INK = '#16130f', GRAY = '#6b655c', CARDB = '#eceadf', WHITE = '#ffffff', RULE = '#dcd6c8';
+const DOTS = ['#1e4fd6', '#f59e0b', '#16a34a', '#7c3aed'];
+// фирменный цвет акцента по рубрике (пилл + последнее слово заголовка + плашка F)
+const RUBRIC_ACCENT = {
+  grow: '#1e4fd6', msg: '#0d9488', ai: '#4f46e5', sec: '#d85a30', law: '#0f766e',
+  geo: '#7c3aed', startup: '#b45309', mkt: '#1e4fd6', media: '#be185d', dev: '#4338ca',
+  ind: '#15803d', fin: '#0891b2', mlm: '#6d28d9', travel: '#0e7490', esport: '#9333ea',
+};
+// основной макет рубрики (узнаваемый почерк)
+const RUBRIC_LAYOUT = {
+  grow: 'F', msg: 'B', ai: 'C', sec: 'D', law: 'E', geo: 'A', startup: 'B', mkt: 'F',
+  media: 'C', dev: 'E', ind: 'A', fin: 'D', mlm: 'B', travel: 'C', esport: 'F',
+};
+const LAYOUT_ORDER = ['A', 'B', 'C', 'D', 'E', 'F'];
+function hashStr(s) { let h = 5381; for (let i = 0; i < s.length; i++) h = ((h * 33) ^ s.charCodeAt(i)) >>> 0; return h; }
+function layoutFor(it) {
+  const base = LAYOUT_ORDER.indexOf(RUBRIC_LAYOUT[igCatOf(it).k] || 'A');
+  // у рубрики два почерка (base и base+3) — сдвиг по хешу слага разводит соседей
+  return LAYOUT_ORDER[(base + (hashStr(it.slug || it.hero) % 2) * 3) % 6];
+}
+const T = (x, y, s, w, fill, extra = '') => `<text x="${x}" y="${y}" font-family="${FONT}" font-weight="${w}" font-size="${s}" fill="${fill}"${extra}>`;
 
-  // заголовок: чёрный, последнее слово — синим
-  const lines = wrapTitle(it.hero, 14);
-  const lineH = 100, titleFs = 86, ty = 300;
-  const titleSvg = lines.map((l, i) => {
-    const last = i === lines.length - 1;
-    const y = ty + i * lineH;
-    if (!last) return `<text x="${M}" y="${y}" font-family="${FONT}" font-weight="800" font-size="${titleFs}" letter-spacing="-2" fill="${INK}">${escXml(l)}</text>`;
-    const words = l.split(' ');
-    if (words.length === 1) return `<text x="${M}" y="${y}" font-family="${FONT}" font-weight="800" font-size="${titleFs}" letter-spacing="-2" fill="${BLUE2}">${escXml(l)}</text>`;
-    const head = words.slice(0, -1).join(' ') + ' ', tail = words[words.length - 1];
-    return `<text x="${M}" y="${y}" font-family="${FONT}" font-weight="800" font-size="${titleFs}" letter-spacing="-2"><tspan fill="${INK}">${escXml(head)}</tspan><tspan fill="${BLUE2}">${escXml(tail)}</tspan></text>`;
-  }).join('\n  ');
-  const titleBottom = ty + (lines.length - 1) * lineH;
-
-  // подзаголовок (итог) серым
-  const subLines = wrapTitle(it.tagline || '', 42);
-  const subY = titleBottom + 64;
-  const subSvg = subLines.map((l, i) => `<text x="${M}" y="${subY + i * 46}" font-family="${FONT}" font-weight="500" font-size="33" fill="${GRAY}">${escXml(l)}</text>`).join('\n  ');
-  const subBottom = subY + (subLines.length - 1) * 46;
-
-  // белые карточки пунктов (2 колонки)
-  const cols = 2, n = it.points.length, rows = Math.ceil(n / cols);
-  const gx = 28, gy = 26, cw = (W - 2 * M - gx) / 2;
-  const areaTop = subBottom + 52, areaBottom = 1330;
-  const ch = Math.min(248, (areaBottom - areaTop - (rows - 1) * gy) / rows);
-  const gy0 = areaTop + ((areaBottom - areaTop) - (rows * ch + (rows - 1) * gy)) / 2;
-  const cardsSvg = it.points.map((p, i) => {
+// блок пунктов для макетов A–E (общая шапка сверху)
+function pointsBlock(layout, points, top, bottom, accent) {
+  const W = 1000, M = 80, n = points.length;
+  if (layout === 'B') { // нумерованный список
+    const rowH = (bottom - top) / n;
+    return points.map((p, i) => {
+      const ry = top + i * rowH, num = String(i + 1).padStart(2, '0');
+      const pl = wrapTitle(p, 24);
+      const ty0 = ry + rowH / 2 - (pl.length - 1) * 22 + 14;
+      const txt = pl.map((l, j) => `${T(M + 116, ty0 + j * 44, 40, 600, INK)}${escXml(l)}</text>`).join('\n  ');
+      const div = i < n - 1 ? `<line x1="${M}" y1="${ry + rowH}" x2="${W - M}" y2="${ry + rowH}" stroke="${RULE}" stroke-width="1.5"/>` : '';
+      return `${T(M, ry + rowH / 2 + 24, 70, 800, DOTS[i % 4], ' letter-spacing="-2"')}${num}</text>\n  ${txt}\n  ${div}`;
+    }).join('\n  ');
+  }
+  if (layout === 'C') { // таймлайн
+    const pad = 30, step = (bottom - top - 2 * pad) / Math.max(1, n - 1), x = M + 14;
+    const first = top + pad, lastY = top + pad + (n - 1) * step;
+    const line = `<line x1="${x}" y1="${first}" x2="${x}" y2="${lastY}" stroke="${RULE}" stroke-width="3"/>`;
+    const nodes = points.map((p, i) => {
+      const cy = first + i * step, pl = wrapTitle(p, 26);
+      const ty0 = cy - (pl.length - 1) * 20 + 13;
+      const txt = pl.map((l, j) => `${T(M + 64, ty0 + j * 42, 38, 600, INK)}${escXml(l)}</text>`).join('\n  ');
+      return `<circle cx="${x}" cy="${cy}" r="17" fill="${CREAM}" stroke="${DOTS[i % 4]}" stroke-width="6"/>\n  ${txt}`;
+    }).join('\n  ');
+    return line + '\n  ' + nodes;
+  }
+  if (layout === 'D') { // чек-лист
+    const step = (bottom - top) / n;
+    return points.map((p, i) => {
+      const cy = top + step * (i + 0.5), cx = M + 26, R = 22, c = DOTS[i % 4];
+      const chk = `<path d="M${cx - 9} ${cy} l6 7 l13 -15" fill="none" stroke="${WHITE}" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>`;
+      const pl = wrapTitle(p, 28);
+      const ty0 = cy - (pl.length - 1) * 20 + 13;
+      const txt = pl.map((l, j) => `${T(M + 74, ty0 + j * 42, 38, 600, INK)}${escXml(l)}</text>`).join('\n  ');
+      return `<circle cx="${cx}" cy="${cy}" r="${R}" fill="${c}"/>\n  ${chk}\n  ${txt}`;
+    }).join('\n  ');
+  }
+  if (layout === 'E') { // цветные полосы
+    const gap = 22, barH = Math.min(150, (bottom - top - (n - 1) * gap) / n);
+    const totalH = n * barH + (n - 1) * gap, y0 = top + ((bottom - top) - totalH) / 2;
+    return points.map((p, i) => {
+      const y = y0 + i * (barH + gap), pl = wrapTitle(p, 30);
+      const ty0 = y + barH / 2 - (pl.length - 1) * 21 + 13;
+      const txt = pl.map((l, j) => `${T(M + 50, ty0 + j * 42, 38, 600, INK)}${escXml(l)}</text>`).join('\n  ');
+      return `<rect x="${M}" y="${y}" width="${W - 2 * M}" height="${barH}" rx="18" fill="${WHITE}" stroke="${CARDB}" stroke-width="1.5"/>\n  <rect x="${M}" y="${y}" width="11" height="${barH}" rx="5.5" fill="${DOTS[i % 4]}"/>\n  ${txt}`;
+    }).join('\n  ');
+  }
+  // 'A' — карточки 2×2 (по умолчанию)
+  const cols = 2, rows = Math.ceil(n / cols), gx = 28, gy = 26, cw = (W - 2 * M - gx) / 2;
+  const ch = Math.min(248, (bottom - top - (rows - 1) * gy) / rows);
+  const gy0 = top + ((bottom - top) - (rows * ch + (rows - 1) * gy)) / 2;
+  return points.map((p, i) => {
     const col = i % cols, row = Math.floor(i / cols);
-    const cx = M + col * (cw + gx), cy = gy0 + row * (ch + gy);
-    const pl = wrapTitle(p, 16);
+    const cx = M + col * (cw + gx), cy = gy0 + row * (ch + gy), pl = wrapTitle(p, 16);
     const tStart = cy + ch / 2 - (pl.length - 1) * 23 + 24;
-    const txt = pl.map((l, j) => `<text x="${cx + 34}" y="${tStart + j * 46}" font-family="${FONT}" font-weight="600" font-size="36" fill="${INK}">${escXml(l)}</text>`).join('\n  ');
-    return `<rect x="${cx}" y="${cy}" width="${cw}" height="${ch}" rx="20" fill="${white}" stroke="${CARDB}" stroke-width="1.5"/>\n  <circle cx="${cx + 44}" cy="${cy + 50}" r="12" fill="${DOTS[i % DOTS.length]}"/>\n  ${txt}`;
+    const txt = pl.map((l, j) => `${T(cx + 34, tStart + j * 46, 36, 600, INK)}${escXml(l)}</text>`).join('\n  ');
+    return `<rect x="${cx}" y="${cy}" width="${cw}" height="${ch}" rx="20" fill="${WHITE}" stroke="${CARDB}" stroke-width="1.5"/>\n  <circle cx="${cx + 44}" cy="${cy + 50}" r="12" fill="${DOTS[i % 4]}"/>\n  ${txt}`;
   }).join('\n  ');
+}
 
-  // пилл
-  const pillW = it.pill.length * 15 + 96;
-
+function chrome(inner) {
+  const W = 1000, H = 1500, M = 80;
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
   <defs><pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0V48" fill="none" stroke="${INK}" stroke-opacity="0.04" stroke-width="1"/></pattern></defs>
   <rect width="${W}" height="${H}" fill="${CREAM}"/>
   <rect width="${W}" height="${H}" fill="url(#grid)"/>
-  <rect x="${M}" y="96" width="${pillW}" height="56" rx="28" fill="${BLUE}"/>
-  <circle cx="${M + 30}" cy="124" r="6" fill="${white}"/>
-  <text x="${M + 52}" y="133" font-family="${FONT}" font-weight="700" font-size="25" letter-spacing="1.5" fill="${white}">${escXml(it.pill)}</text>
-  ${titleSvg}
-  ${subSvg}
-  ${cardsSvg}
-  <line x1="${M}" y1="1380" x2="${W - M}" y2="1380" stroke="#dcd6c8" stroke-width="2"/>
-  <text x="${M}" y="1434" font-family="${FONT}" font-weight="800" font-size="34" letter-spacing="0.5" fill="${INK}">CHIMITDORZHI.</text>
-  <text x="${M}" y="1474" font-family="${FONT}" font-weight="600" font-size="26" fill="${BLUE}">@chimitdorzhi</text>
-  <text x="${W - M}" y="1432" text-anchor="end" font-family="${FONT}" font-weight="600" font-size="24" fill="${GRAY}">IT, AI и автоматизация</text>
-  <text x="${W - M}" y="1468" text-anchor="end" font-family="${FONT}" font-weight="500" font-size="24" fill="${GRAY}">под ключ · chimitdorzhi.tech</text>
+  ${inner}
+  <line x1="${M}" y1="1380" x2="${W - M}" y2="1380" stroke="${RULE}" stroke-width="2"/>
+  ${T(M, 1434, 34, 800, INK, ' letter-spacing="0.5"')}CHIMITDORZHI.</text>
+  ${T(M, 1474, 26, 600, '#1e4fd6')}@chimitdorzhi</text>
+  ${T(W - M, 1432, 24, 600, GRAY, ' text-anchor="end"')}IT, AI и автоматизация</text>
+  ${T(W - M, 1468, 24, 500, GRAY, ' text-anchor="end"')}под ключ · chimitdorzhi.tech</text>
 </svg>`;
+}
+
+function infoSvg(it) {
+  const W = 1000, M = 80;
+  const accent = RUBRIC_ACCENT[igCatOf(it).k] || '#1e4fd6';
+  const layout = layoutFor(it);
+
+  if (layout === 'F') { // акцентный блок: заголовок на цветной плашке
+    const tl = wrapTitle(it.hero, 16), titleFs = 76, tLineH = 90;
+    const subL = wrapTitle(it.tagline || '', 40);
+    const padT = 184, blockTop = 96;
+    const blockH = padT + (tl.length - 1) * tLineH + (subL.length ? 40 + subL.length * 42 : 0) + 56;
+    const tTop = blockTop + padT - 18;
+    const titleSvg = tl.map((l, i) => `${T(M + 36, tTop + i * tLineH, titleFs, 800, WHITE, ' letter-spacing="-2"')}${escXml(l)}</text>`).join('\n  ');
+    const subTop = tTop + (tl.length - 1) * tLineH + 56;
+    const subSvg = subL.map((l, i) => `${T(M + 36, subTop + i * 42, 31, 500, '#ffffff', ' fill-opacity="0.82"')}${escXml(l)}</text>`).join('\n  ');
+    const pillW = it.pill.length * 17.5 + 104;
+    const head = `<rect x="${M}" y="${blockTop}" width="${W - 2 * M}" height="${blockH}" rx="28" fill="${accent}"/>
+  <rect x="${M + 36}" y="${blockTop + 40}" width="${pillW}" height="52" rx="26" fill="${WHITE}" fill-opacity="0.2"/>
+  <circle cx="${M + 64}" cy="${blockTop + 66}" r="6" fill="${WHITE}"/>
+  ${T(M + 86, blockTop + 75, 25, 700, WHITE, ' letter-spacing="1.5"')}${escXml(it.pill)}</text>
+  ${titleSvg}
+  ${subSvg}`;
+    // пункты — один столбец с цветными точками
+    const top = blockTop + blockH + 60, bottom = 1330, n = it.points.length, step = (bottom - top) / n;
+    const pts = it.points.map((p, i) => {
+      const cy = top + step * (i + 0.5), pl = wrapTitle(p, 28);
+      const ty0 = cy - (pl.length - 1) * 20 + 13;
+      const txt = pl.map((l, j) => `${T(M + 52, ty0 + j * 42, 38, 600, INK)}${escXml(l)}</text>`).join('\n  ');
+      return `<circle cx="${M + 16}" cy="${cy}" r="12" fill="${DOTS[i % 4]}"/>\n  ${txt}`;
+    }).join('\n  ');
+    return chrome(head + '\n  ' + pts);
+  }
+
+  // макеты A–E: общая светлая шапка (пилл + заголовок + подзаголовок)
+  const lines = wrapTitle(it.hero, 14), lineH = 100, titleFs = 86, ty = 300;
+  const titleSvg = lines.map((l, i) => {
+    const last = i === lines.length - 1, y = ty + i * lineH;
+    if (!last) return `${T(M, y, titleFs, 800, INK, ' letter-spacing="-2"')}${escXml(l)}</text>`;
+    const words = l.split(' ');
+    if (words.length === 1) return `${T(M, y, titleFs, 800, accent, ' letter-spacing="-2"')}${escXml(l)}</text>`;
+    const head = words.slice(0, -1).join(' ') + ' ', tail = words[words.length - 1];
+    return `${T(M, y, titleFs, 800, INK, ' letter-spacing="-2"')}<tspan fill="${INK}">${escXml(head)}</tspan><tspan fill="${accent}">${escXml(tail)}</tspan></text>`;
+  }).join('\n  ');
+  const titleBottom = ty + (lines.length - 1) * lineH;
+  const subLines = wrapTitle(it.tagline || '', 42), subY = titleBottom + 64;
+  const subSvg = subLines.map((l, i) => `${T(M, subY + i * 46, 33, 500, GRAY)}${escXml(l)}</text>`).join('\n  ');
+  const subBottom = subY + (subLines.length - 1) * 46;
+  const pillW = it.pill.length * 17.5 + 104;
+  const top = subBottom + 56, bottom = 1330;
+  const block = pointsBlock(layout, it.points, top, bottom, accent);
+  const head = `<rect x="${M}" y="96" width="${pillW}" height="56" rx="28" fill="${accent}"/>
+  <circle cx="${M + 30}" cy="124" r="6" fill="${WHITE}"/>
+  ${T(M + 52, 133, 25, 700, WHITE, ' letter-spacing="1.5"')}${escXml(it.pill)}</text>
+  ${titleSvg}
+  ${subSvg}`;
+  return chrome(head + '\n  ' + block);
 }
 
 // ---------- чром страниц (как в build-offers) ----------
