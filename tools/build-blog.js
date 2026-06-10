@@ -16,6 +16,17 @@ const subOffersCount = (s) => String(s).split('{{OFFERS_COUNT}}').join(OFFERS_CO
 
 // Карта: slug статьи → slug предложения. Добавляйте по мере роста раздела.
 const OFFER_LINKS = {
+  'korporativnye-kommunikacii-max-2027': 'importozameshchenie-ofisa',
+  'pervaya-1000-podpischikov-max-2027': 'geymifikaciya-kanala-max',
+  'avtovoronki-v-messendzherah-2027': 'welcome-voronka-novichki',
+  'svoya-veb-analitika-2027': 'skvoznaya-analitika-koltreking',
+  'korporativnyy-ai-assistent-na-svoih-dannyh-2027': 'ai-konsultant',
+  'ai-videoavatary-2027': 'ai-dvoynik-eksperta',
+  'finetuning-rag-api-chto-vybrat-2027': 'ai-konsultant',
+  'geo-2027-alisa-gigachat-neyropoisk': 'audit-i-uskorenie-sayta',
+  '152-fz-izmeneniya-2027': '152-fz-pod-klyuch',
+  'ai-kontent-doverie-eeat-2027': 'ai-kontent-zavod',
+  'rossiyskie-oblaka-hosting-2027': 'importozameshchenie-infrastruktura',
   'konkurs-priglasheniy-max-virusnyy-rost-2027': 'geymifikaciya-kanala-max',
   // --- импорт «Антиравити» ---
   'ai-chatbot-prodazhi-2027': 'bot-dlya-biznesa',
