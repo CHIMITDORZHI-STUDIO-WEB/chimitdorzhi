@@ -118,7 +118,7 @@ function head({ title, description, canonical, ogImage = `${SITE}/hero-photo.web
     <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="/assets/phosphor/regular.css"><link rel="stylesheet" href="/assets/phosphor/fill.css"></noscript>
-    <link rel="stylesheet" href="/style.css?v=40">
+    <link rel="stylesheet" href="/style.css?v=41">
 `;
 }
 
@@ -131,6 +131,7 @@ function navbar() {
             <li><a href="/#services">Услуги</a></li>
             <li><a href="/predlozheniya/" class="nav-link-highlight">Предложения</a></li>
             <li><a href="/blog/">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
             <li><a href="/#cases">Кейсы</a></li>
             <li><a href="/#contact">Контакт</a></li>
         </ul>
@@ -147,6 +148,7 @@ function navbar() {
         <li><a href="/#services">Услуги</a></li>
         <li><a href="/predlozheniya/">Предложения</a></li>
         <li><a href="/blog/">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
         <li><a href="/#contact">Контакт</a></li>
     </ul>
 </div>

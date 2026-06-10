@@ -227,7 +227,7 @@ function head({ title, description, keywords, canonical, ogImage = `${SITE}/hero
         <link rel="stylesheet" href="/assets/phosphor/regular.css">
         <link rel="stylesheet" href="/assets/phosphor/fill.css">
     </noscript>
-    <link rel="stylesheet" href="/style.css?v=40">
+    <link rel="stylesheet" href="/style.css?v=41">
 `;
 }
 
@@ -287,6 +287,7 @@ function navbar() {
             </li>
             <li><a href="/#cases" data-i18n="nav.cases">Кейсы</a></li>
             <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
             <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
         </ul>
         <div class="nav-controls">
@@ -309,6 +310,7 @@ function navbar() {
         <li><a href="/predlozheniya/">Предложения</a></li>
         <li><a href="/#cases">Кейсы</a></li>
         <li><a href="/blog/">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
         <li><a href="/#contact">Контакт</a></li>
     </ul>
 </div>
