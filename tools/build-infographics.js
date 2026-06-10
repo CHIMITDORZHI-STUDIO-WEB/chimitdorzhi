@@ -310,13 +310,33 @@ function footer() {
 }
 
 // ---------- хаб ----------
+const IG_CATS = {
+  'AI И ТЕХНОЛОГИИ': { k: 'ai', l: 'AI и технологии' },
+  'БЕЗОПАСНОСТЬ': { k: 'sec', l: 'Безопасность и право' },
+  'ПРАВО · 152-ФЗ': { k: 'sec', l: 'Безопасность и право' },
+  'МАРКЕТИНГ И РОСТ': { k: 'mkt', l: 'Маркетинг' },
+  'РАЗРАБОТКА': { k: 'dev', l: 'Разработка' },
+  'ОТРАСЛИ': { k: 'ind', l: 'Отрасли' },
+  'ФИНТЕХ И ПЛАТЕЖИ': { k: 'fin', l: 'Финтех и платежи' },
+};
+const IG_GROW = { k: 'grow', l: 'Вовлечение и рост' };
+const igCatOf = (it) => (it.label && IG_CATS[it.label]) ? IG_CATS[it.label] : IG_GROW;
+const IG_ORDER = ['grow', 'ai', 'sec', 'mkt', 'dev', 'ind', 'fin'];
+
 function hubPage() {
   const tiles = ITEMS.map((it) => {
-    return `<a class="ig-tile" href="/infografika/${it.slug}/">
+    const c = igCatOf(it);
+    return `<a class="ig-tile" data-cat="${c.k}" href="/infografika/${it.slug}/">
       <img src="/infografika/${it.slug}.png" width="1000" height="1500" loading="lazy" alt="Инфографика: ${esc(titleOf(it))}">
       <span class="ig-tile-cap">${esc(it.hero)}</span>
     </a>`;
   }).join('\n');
+  const counts = {};
+  for (const it of ITEMS) { const k = igCatOf(it).k; counts[k] = (counts[k] || 0) + 1; }
+  const labelByKey = {}; for (const v of Object.values(IG_CATS)) labelByKey[v.k] = v.l; labelByKey[IG_GROW.k] = IG_GROW.l;
+  const chips = [`<button class="ig-chip on" data-f="all" type="button">Все <span>${ITEMS.length}</span></button>`]
+    .concat(IG_ORDER.filter((k) => counts[k]).map((k) =>
+      `<button class="ig-chip" data-f="${k}" type="button">${esc(labelByKey[k])} <span>${counts[k]}</span></button>`)).join('\n');
   return head({
     title: 'Инфографика — IT, AI и бизнес наглядно',
     description: 'Инфографика по IT, AI и бизнесу: безопасность и 152-ФЗ, российский AI-стек, маркетинг и вирусный рост, отрасли, финтех и платежи. Наглядные карточки со ссылками на статьи и предложения. Сохраняйте и делитесь.',
@@ -331,13 +351,40 @@ ${navbar()}
     <header class="ig-head">
       <span class="section-label">ИНФОГРАФИКА</span>
       <h1>IT, AI и бизнес — наглядно</h1>
-      <p class="ig-sub">Карточки-инфографики по безопасности, AI, маркетингу, отраслям и финтеху. Кликните, чтобы открыть описание и связанные статьи и предложения. Сохраняйте и делитесь в соцсетях.</p>
+      <p class="ig-sub">Карточки-инфографики по темам: вовлечение, AI, безопасность, маркетинг, отрасли и финтех. Выберите рубрику, откройте карточку — внутри описание и связанные статьи и предложения. Сохраняйте и делитесь.</p>
     </header>
-    <div class="ig-grid">
+    <style>
+      .ig-chips{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 28px}
+      .ig-chip{font-size:14px;padding:8px 16px;border-radius:999px;border:1px solid var(--border);background:var(--bg-card);color:var(--text-secondary);cursor:pointer;transition:all .15s;font-family:inherit}
+      .ig-chip span{opacity:.6;font-size:12px;margin-left:2px}
+      .ig-chip:hover{border-color:var(--border-hover);color:var(--text)}
+      .ig-chip.on{background:var(--accent);border-color:var(--accent);color:#fff}
+      .ig-chip.on span{opacity:.8}
+      .ig-tile.is-hidden{display:none}
+    </style>
+    <div class="ig-chips" id="igChips">
+${chips}
+    </div>
+    <div class="ig-grid" id="igGrid">
 ${tiles}
     </div>
   </div>
 </main>
+<script>
+(function(){
+  var chips=document.getElementById('igChips'),grid=document.getElementById('igGrid');
+  if(!chips||!grid)return;
+  chips.addEventListener('click',function(e){
+    var b=e.target.closest('.ig-chip');if(!b)return;
+    [].forEach.call(chips.children,function(c){c.classList.remove('on')});
+    b.classList.add('on');
+    var f=b.getAttribute('data-f');
+    [].forEach.call(grid.children,function(t){
+      t.classList.toggle('is-hidden', f!=='all' && t.getAttribute('data-cat')!==f);
+    });
+  });
+})();
+</script>
 ${footer()}
 </body>
 </html>`;
