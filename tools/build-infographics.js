@@ -35,7 +35,7 @@ function wrapTitle(title, maxChars) {
 const ITEMS = [
   {
     slug: 'geymifikaciya-kanala-max', bg: '#4f46e5', accent: '#d6fb5a',
-    pill: 'MAX · TELEGRAM · VK', hero: 'Конкурс приглашений',
+    pill: 'MAX · TELEGRAM · VK', hero: 'Конкурс приглашений', tagline: 'Платите за реальных людей, а не за показы',
     points: ['Персональные реф-ссылки', 'Живой рейтинг в реальном времени', 'Защита от накруток', 'Призы и рост аудитории'],
     description: 'Рост подписчиков и клиентов силами самой аудитории. У каждого участника своя реферальная ссылка, бот считает реальные приглашения, ведёт живой рейтинг и раздаёт призы топу. Вы платите за реальных людей, а не за рекламные показы. MAX-first, та же механика работает в Telegram и VK. Данные участников — на российском стеке, по 152-ФЗ.',
     relatedArticles: ['konkurs-priglasheniy-max-virusnyy-rost-2027', 'geymifikaciya-saas-2026', 'telegram-chat-vk-soobshchestvo-2026'],
@@ -43,7 +43,7 @@ const ITEMS = [
   },
   {
     slug: 'referalnaya-programma', bg: '#0d9488', accent: '#fde047',
-    pill: 'MAX · TELEGRAM · VK', hero: 'Приведи друга',
+    pill: 'MAX · TELEGRAM · VK', hero: 'Приведи друга', tagline: 'Сарафан, который работает на автомате',
     points: ['Бонус за каждого приведённого', 'Двусторонняя награда', 'Учёт и защита от фрода', 'Прозрачная статистика'],
     description: 'Постоянный сарафан вместо разовой акции. За каждого приведённого клиента человек получает бонус, а двусторонняя награда (бонус и тому, кто пригласил, и новичку) поднимает конверсию. Встроенная защита от накруток и прозрачная статистика показывают реальную отдачу. Работает в MAX, Telegram и VK, интегрируется с сайтом и CRM.',
     relatedArticles: ['partnerskiy-marketing-affiliate-2026', 'konkurs-priglasheniy-max-virusnyy-rost-2027', 'sistemy-loyalnosti-2027'],
@@ -51,7 +51,7 @@ const ITEMS = [
   },
   {
     slug: 'chestnye-rozygryshi', bg: '#db2777', accent: '#fef08a',
-    pill: 'MAX · TELEGRAM · VK', hero: 'Честный розыгрыш',
+    pill: 'MAX · TELEGRAM · VK', hero: 'Честный розыгрыш', tagline: 'Честный розыгрыш повышает доверие к бренду',
     points: ['Прозрачный выбор победителя', 'Проверка условий подписки', 'Защита от мультиаккаунтов', 'Публичный протокол'],
     description: 'Розыгрыши, которым доверяют. Бот проверяет условия (подписка, репост, отметка друга), честно выбирает победителя с фиксацией результата и публичным протоколом, отсекает мультиаккаунты и накрутки. Прозрачность здесь — часть маркетинга: честный розыгрыш сам по себе повышает доверие к бренду. MAX, Telegram и VK, российский стек, 152-ФЗ.',
     relatedArticles: ['konkurs-priglasheniy-max-virusnyy-rost-2027', 'geymifikaciya-saas-2026', 'marketing-i-trafik-2027'],
@@ -59,7 +59,7 @@ const ITEMS = [
   },
   {
     slug: 'programma-loyalnosti', bg: '#7c3aed', accent: '#5eead4',
-    pill: 'MAX · TELEGRAM · VK', hero: 'Баллы и кэшбэк',
+    pill: 'MAX · TELEGRAM · VK', hero: 'Баллы и кэшбэк', tagline: 'Вернуть клиента дешевле, чем привлечь нового',
     points: ['Баллы за покупки', 'Кэшбэк прямо в боте', 'Уровни и статусы', 'Возврат за повторными покупками'],
     description: 'Удержание клиентов и регулярные повторные продажи. Баллы за покупки и кэшбэк начисляются прямо в боте, уровни и статусы мотивируют возвращаться, а сегменты помогают делать персональные предложения. Привлечь нового клиента дороже, чем вернуть существующего — программа лояльности работает на эту экономику. MAX, Telegram и VK, данные по 152-ФЗ.',
     relatedArticles: ['sistemy-loyalnosti-2027', 'konkurs-priglasheniy-max-virusnyy-rost-2027', 'crm-dlya-malogo-biznesa-2026'],
@@ -67,7 +67,7 @@ const ITEMS = [
   },
   {
     slug: 'max-mini-app-magazin', bg: '#1e4fd6', accent: '#d6fb5a',
-    pill: 'MAX · TELEGRAM · VK', hero: 'Магазин в MAX',
+    pill: 'MAX · TELEGRAM · VK', hero: 'Магазин в MAX', tagline: 'Магазин там, где уже ваша аудитория',
     points: ['Каталог и корзина', 'Оплата по СБП', 'Без установки приложения', 'Витрина рядом с аудиторией'],
     description: 'Витрина магазина прямо внутри мессенджера: каталог, корзина и оформление заказа без перехода на сторонний сайт и без установки приложения. Приём оплаты по СБП, витрина живёт там, где уже находится ваша аудитория. Также Telegram Mini App и VK Mini App. Российский стек, данные и оплата — по 152-ФЗ и 54-ФЗ.',
     relatedArticles: ['max-mini-apps-2026', 'magazin-bot-max-2026', 'vk-mini-app-dlya-biznesa-2026'],
@@ -79,18 +79,37 @@ const ITEMS = [
 function infoSvg(it) {
   const W = 1000, H = 1500, M = 80, white = '#ffffff';
   const lines = wrapTitle(it.hero, 15);
-  const lineH = 104, titleFs = 90, ty = 392;
+  const lineH = 104, titleFs = 92, ty = 320;
   const titleSvg = lines.map((l, i) =>
     `<text x="${M}" y="${ty + i * lineH}" font-family="${FONT}" font-weight="800" font-size="${titleFs}" letter-spacing="-2" fill="${white}">${escXml(l)}</text>`
   ).join('\n  ');
   const titleBottom = ty + (lines.length - 1) * lineH;
-  const barY = titleBottom + 54;
-  const py = barY + 130, pH = 96;
-  const pointsSvg = it.points.map((p, i) => {
-    const y = py + i * pH;
-    return `<circle cx="${M + 12}" cy="${y - 14}" r="10" fill="${it.accent}"/>\n  <text x="${M + 50}" y="${y}" font-family="${FONT}" font-weight="500" font-size="40" fill="${white}" opacity="0.95">${escXml(p)}</text>`;
-  }).join('\n  ');
+  const barY = titleBottom + 46;
   const pillW = it.pill.length * 17 + 56;
+
+  // нижняя плашка-итог
+  const bandH = 112, bandY = 1224, bandPad = 36;
+  const tagLines = wrapTitle(it.tagline || '', 40);
+  const tagFs = tagLines.length > 1 ? 32 : 34;
+  const tagStartY = bandY + (bandH - (tagLines.length - 1) * 44) / 2 + 12;
+  const bandSvg = it.tagline ? `<rect x="${M}" y="${bandY}" width="${W - 2 * M}" height="${bandH}" rx="22" fill="${it.accent}"/>\n  ` +
+    tagLines.map((l, i) => `<text x="${M + bandPad}" y="${tagStartY + i * 44}" font-family="${FONT}" font-weight="800" font-size="${tagFs}" fill="${it.bg}">${escXml(l)}</text>`).join('\n  ') : '';
+
+  // карточки пунктов (2 колонки)
+  const cols = 2, n = it.points.length, rows = Math.ceil(n / cols);
+  const gx = 30, gy = 28, cw = (W - 2 * M - gx) / 2;
+  const areaTop = barY + 40, areaBottom = bandY - 44;
+  const ch = Math.min(252, (areaBottom - areaTop - (rows - 1) * gy) / rows);
+  const gy0 = areaTop + ((areaBottom - areaTop) - (rows * ch + (rows - 1) * gy)) / 2;
+  const cardsSvg = it.points.map((p, i) => {
+    const col = i % cols, row = Math.floor(i / cols);
+    const cx = M + col * (cw + gx), cy = gy0 + row * (ch + gy);
+    const pl = wrapTitle(p, 16);
+    const tStart = cy + ch / 2 - (pl.length - 1) * 23 + 22;
+    const txt = pl.map((l, j) => `<text x="${cx + 34}" y="${tStart + j * 46}" font-family="${FONT}" font-weight="600" font-size="37" fill="${white}">${escXml(l)}</text>`).join('\n  ');
+    return `<rect x="${cx}" y="${cy}" width="${cw}" height="${ch}" rx="22" fill="${white}" fill-opacity="0.12"/>\n  <circle cx="${cx + 44}" cy="${cy + 52}" r="13" fill="${it.accent}"/>\n  ${txt}`;
+  }).join('\n  ');
+
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
   <rect width="${W}" height="${H}" fill="${it.bg}"/>
   <circle cx="900" cy="150" r="320" fill="${it.accent}" fill-opacity="0.10"/>
@@ -99,7 +118,8 @@ function infoSvg(it) {
   <text x="${M + 28}" y="138" font-family="${FONT}" font-weight="800" font-size="26" letter-spacing="2" fill="${it.bg}">${escXml(it.pill)}</text>
   ${titleSvg}
   <rect x="${M}" y="${barY}" width="130" height="11" rx="5" fill="${it.accent}"/>
-  ${pointsSvg}
+  ${cardsSvg}
+  ${bandSvg}
   <line x1="${M}" y1="1378" x2="${W - M}" y2="1378" stroke="${white}" stroke-width="2" stroke-opacity="0.22"/>
   <text x="${M}" y="1440" font-family="${FONT}" font-weight="800" font-size="40" fill="${white}">Чимитдоржи Дарижапов</text>
   <text x="${M}" y="1486" font-family="${FONT}" font-weight="500" font-size="30" fill="${white}" opacity="0.7">chimitdorzhi.tech</text>
