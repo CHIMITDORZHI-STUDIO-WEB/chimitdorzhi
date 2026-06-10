@@ -168,6 +168,9 @@ const ITEMS = [
   require('./infografika-extra-i.js'),
   require('./infografika-extra-j.js'),
   require('./infografika-extra-k.js'),
+  require('./infografika-extra-l.js'),
+  require('./infografika-extra-m.js'),
+  require('./infografika-extra-n.js'),
 );
 
 // ---------- SVG обложки (Колор-блок) ----------
@@ -329,13 +332,15 @@ const IG_CATS = {
   'МЕССЕНДЖЕРЫ И БОТЫ': { k: 'msg', l: 'Мессенджеры и боты' },
   'МЕДИА И КОНТЕНТ': { k: 'media', l: 'Медиа и контент' },
   'СЕТЕВОЙ БИЗНЕС': { k: 'mlm', l: 'Сетевой бизнес' },
+  'ПУТЕШЕСТВИЯ': { k: 'travel', l: 'Путешествия' },
+  'КИБЕРСПОРТ': { k: 'esport', l: 'Киберспорт' },
   'РАЗРАБОТКА': { k: 'dev', l: 'Разработка' },
   'ОТРАСЛИ': { k: 'ind', l: 'Отрасли' },
   'ФИНТЕХ И ПЛАТЕЖИ': { k: 'fin', l: 'Финтех и платежи' },
 };
 const IG_GROW = { k: 'grow', l: 'Вовлечение и рост' };
 const igCatOf = (it) => (it.label && IG_CATS[it.label]) ? IG_CATS[it.label] : IG_GROW;
-const IG_ORDER = ['grow', 'msg', 'ai', 'sec', 'law', 'geo', 'mkt', 'startup', 'media', 'dev', 'ind', 'fin', 'mlm'];
+const IG_ORDER = ['grow', 'msg', 'ai', 'sec', 'law', 'geo', 'mkt', 'startup', 'media', 'dev', 'ind', 'fin', 'mlm', 'travel', 'esport'];
 
 function hubPage() {
   const tiles = ITEMS.map((it) => {
