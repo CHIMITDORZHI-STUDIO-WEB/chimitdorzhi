@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Своя веб-аналитика: что делать после ухода зарубежных…</title>
+    <meta name="description" content="Что делать с веб-аналитикой после ухода зарубежных счётчиков: российские системы, серверный сбор данных, своя аналитика, сквозная аналитика и коллтрекинг и…">
+    <meta name="keywords" content="веб-аналитика, серверный сбор данных, сквозная аналитика, коллтрекинг, 152-ФЗ, российская аналитика">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/svoya-veb-analitika-2027/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/svoya-veb-analitika-2027/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/svoya-veb-analitika-2027/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/svoya-veb-analitika-2027/">
+    <meta property="og:title" content="Своя веб-аналитика: что делать после ухода зарубежных…">
+    <meta property="og:description" content="Что делать с веб-аналитикой после ухода зарубежных счётчиков: российские системы, серверный сбор данных, своя аналитика, сквозная аналитика и коллтрекинг и…">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/svoya-veb-analitika-2027/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Своя веб-аналитика: что делать после ухода зарубежных…">
+    <meta name="twitter:description" content="Что делать с веб-аналитикой после ухода зарубежных счётчиков: российские системы, серверный сбор данных, своя аналитика, сквозная аналитика и коллтрекинг и…">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/svoya-veb-analitika-2027/cover.png">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor-Fill.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=41">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Своя веб-аналитика: что делать после ухода зарубежных счётчиков",
+  "description": "Что делать с веб-аналитикой после ухода зарубежных счётчиков: российские системы, серверный сбор данных, своя аналитика, сквозная аналитика и коллтрекинг и 152-ФЗ.",
+  "image": "https://chimitdorzhi.tech/blog/svoya-veb-analitika-2027/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/svoya-veb-analitika-2027/"
+  },
+  "datePublished": "2026-06-11",
+  "dateModified": "2026-06-11",
+  "keywords": "веб-аналитика, сквозная аналитика, коллтрекинг, 152-ФЗ, маркетинг",
+  "articleSection": "Маркетинг и контент",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  },
+  "about": [
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://chimitdorzhi.tech/slovar/#152-fz",
+      "name": "152-ФЗ"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Своя веб-аналитика: что делать после ухода зарубежных счётчиков",
+      "item": "https://chimitdorzhi.tech/blog/svoya-veb-analitika-2027/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Можно ли просто заменить зарубежный счётчик российским и не думать дальше?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Для простого сайта-визитки этого часто достаточно. Но если у вас идёт реклама и важны продажи, одного счётчика мало — нужна сквозная аналитика, которая свяжет каналы с выручкой. Иначе вы будете видеть трафик, но не понимать его отдачу."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Чем серверный сбор лучше обычного счётчика?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Серверные события не блокируются расширениями приватности и не зависят от браузера пользователя, поэтому данные полнее и точнее. Плюс вы полностью контролируете, что и где хранится. Обычно серверный слой не заменяет, а дополняет привычную аналитику."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Обязательно ли строить собственную систему аналитики?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет. Большинству бизнесов хватает российских систем плюс сквозной аналитики. Свой сбор оправдан при высоких требованиях к приватности, нестандартных метриках или больших объёмах трафика. Это вопрос задач, а не моды."
+      }
+    }
+  ]
+}
+    </script>
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+            <li><a href="/#services" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li class="nav-dropdown">
+                <a href="/#projects" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--arey"><i class="ph-fill ph-vinyl-record" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-airplane-tilt" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#cases" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            </div>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/#about">Обо мне</a></li>
+        <li><a href="/#services">Услуги</a></li>
+        <li><a href="/services/">Каталог услуг</a></li>
+        <li><a href="/predlozheniya/">Предложения</a></li>
+        <li><a href="/#cases">Кейсы</a></li>
+        <li><a href="/blog/">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+        <li><a href="/#contact">Контакт</a></li>
+    </ul>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Своя веб-аналитика: что делать после ухода зарубежных счётчиков</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/marketing/"><i class="ph ph-bookmark" aria-hidden="true"></i> Маркетинг и контент</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин чтения</span>
+                        <time datetime="2026-06-11"><i class="ph ph-calendar" aria-hidden="true"></i> 11 июня 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Своя веб-аналитика: что делать после ухода зарубежных счётчиков</h1>
+
+                    <p class="blog-lead">После ухода зарубежных счётчиков аналитику нужно собирать заново и на своих условиях. Разбираем российские системы, серверный сбор и сквозную аналитику.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>веб-аналитика</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>сквозная аналитика</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>коллтрекинг</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>152-ФЗ</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>маркетинг</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul><li>После ухода зарубежных счётчиков бизнес остался без привычной веб-аналитики — данные о посетителях нужно собирать заново и на своих условиях.</li><li>Базовый набор сегодня — российские системы аналитики плюс, при необходимости, собственный сбор событий на своём сервере.</li><li>Серверный сбор данных надёжнее клиентского: его не режут блокировщики, и вы полностью контролируете, что и где хранится.</li><li>Любой сбор данных о пользователях должен соответствовать 152-ФЗ: согласие, локализация, прозрачная политика обработки.</li></ul></div>
+
+<h2 id="problema">Что изменилось и почему это важно</h2>
+<p>Ещё недавно стандартом веб-аналитики были зарубежные счётчики, которые ставились на сайт парой строк кода. Они показывали посещаемость, источники трафика, поведение на страницах. Бизнес привык опираться на эти цифры при принятии решений.</p>
+<p>Сейчас ситуация изменилась. Часть зарубежных сервисов ушла или стала недоступна, часть перестала корректно работать из-за блокировок и ограничений. В результате многие сайты остались либо без аналитики вовсе, либо с дырявыми данными, которым нельзя доверять.</p>
+<p>Проблема глубже, чем неудобство. Без достоверной аналитики маркетинг работает вслепую: непонятно, какие каналы приносят клиентов, а какие сжигают бюджет. Поэтому задача восстановить аналитику на надёжной и легальной основе сегодня стоит почти перед каждым, у кого есть сайт.</p>
+<p>Стоит трезво взглянуть и на то, насколько достоверны были привычные цифры до всех изменений. Даже работающие зарубежные счётчики никогда не показывали полную картину: часть визитов терялась из-за блокировщиков, а данные о пути клиента к покупке оставались разрозненными. Так что текущая ситуация — это не только потеря, но и повод выстроить аналитику честнее и под свои задачи, а не довольствоваться тем, что давал чужой бесплатный инструмент.</p>
+
+<h2 id="rossiyskie">Российские системы аналитики</h2>
+<p>Первый и самый простой шаг — перейти на отечественные системы веб-аналитики. Они продолжают развиваться, серверы находятся в РФ, а функциональности хватает для большинства задач бизнеса.</p>
+<p>Что обычно закрывает базовый российский стек:</p>
+<ul><li><strong>Посещаемость и аудитория.</strong> Сколько людей приходит, откуда, с каких устройств.</li><li><strong>Источники трафика.</strong> Разметка кампаний метками, отчёты по каналам и поисковым запросам.</li><li><strong>Поведение на сайте.</strong> Карты кликов, записи визитов, анализ форм и сценариев.</li><li><strong>Цели и конверсии.</strong> Отслеживание заявок, звонков, добавлений в корзину.</li></ul>
+<p>Для значительной части сайтов этого достаточно. Но у клиентских счётчиков есть общее слабое место — их код выполняется в браузере посетителя, а значит часть данных теряется. Об этом дальше.</p>
+<p>При переходе на новую систему важно не просто поставить код и забыть. Заново настройте цели под ваши реальные бизнес-действия — отправку формы, заказ обратного звонка, оформление покупки. Без настроенных целей счётчик покажет посещаемость, но не ответит на главный вопрос: приносит ли трафик заявки. Именно цели превращают сухую статистику визитов в инструмент для решений, поэтому на их настройку стоит потратить время сразу, а не откладывать на потом.</p>
+
+<h2 id="server-side">Зачем нужен серверный сбор данных</h2>
+<p>Любой счётчик, который работает через код в браузере, уязвим: блокировщики рекламы, расширения приватности и просто медленный интернет вырезают часть запросов. В итоге вы недосчитываетесь заметной доли визитов, и картина искажается.</p>
+<p>Решение — серверный сбор данных. Вместо того чтобы целиком полагаться на браузер, вы фиксируете ключевые события на своём сервере, через который и так проходят запросы пользователей. Преимущества очевидны:</p>
+<ul><li><strong>Полнота.</strong> Серверные события не режутся блокировщиками, поэтому данные ближе к реальности.</li><li><strong>Контроль.</strong> Вы сами решаете, что собирать, где хранить и кому отдавать.</li><li><strong>Скорость сайта.</strong> Меньше сторонних скриптов в браузере — быстрее загрузка страниц.</li><li><strong>Гибкость.</strong> Можно фиксировать бизнес-события, которых нет в готовых счётчиках.</li></ul>
+<p>Серверный сбор не отменяет клиентскую аналитику, а дополняет её. Часто разумно сочетать оба подхода: готовая система для удобных отчётов и свой серверный слой для критичных бизнес-метрик.</p>
+<p>Особенно заметна польза серверного подхода для тех событий, от которых напрямую зависят деньги: оформленный заказ, оплаченный счёт, подтверждённая заявка. Эти данные нельзя терять из-за капризов браузера, и фиксировать их на сервере — единственный надёжный путь. Менее критичные вещи вроде глубины прокрутки или времени на странице вполне можно оставить обычному счётчику, где небольшая погрешность не влияет на решения.</p>
+
+<h2 id="svoya">Своя аналитика — когда она оправдана</h2>
+<p>В отдельных случаях имеет смысл собирать аналитику полностью у себя — на собственном сервере, в своей базе данных. Это не нужно всем, но для некоторых проектов это лучший вариант.</p>
+<p>Свой сбор оправдан, когда:</p>
+<ul><li>У вас высокие требования к конфиденциальности и данные нельзя передавать никому вовне.</li><li>Вам нужны нестандартные метрики, которых нет в готовых системах.</li><li>Объёмы трафика большие, и хочется управлять стоимостью хранения и обработки.</li><li>Аналитика должна быть частью продукта, а не отдельным внешним сервисом.</li></ul>
+<p>Технически это собственное хранилище событий: лёгкий скрипт или серверный код отправляет данные в вашу базу, а отчёты строятся в дашборде. Подойдут проверенные открытые решения для хранения событий и визуализации, развёрнутые на вашей инфраструктуре в РФ.</p>
+<p>У собственной аналитики есть и обратная сторона, о которой честно стоит предупредить. Её нужно разрабатывать, поддерживать и развивать своими силами — это не разовая настройка, а постоянная работа. Готовые системы берут эти заботы на себя и обновляются сами. Поэтому собирать аналитику с нуля имеет смысл только тогда, когда выгода от полного контроля и нестандартных метрик перевешивает стоимость поддержки. Для большинства небольших и средних проектов разумнее остановиться на сочетании российской системы и серверного слоя.</p>
+
+<h2 id="skvoznaya">Сквозная аналитика и коллтрекинг</h2>
+<p>Веб-аналитика отвечает на вопрос «что происходит на сайте», но бизнесу важнее другое: «какой канал приносит деньги». На этот вопрос отвечает сквозная аналитика, которая связывает рекламу, обращения и реальные продажи.</p>
+<p>Без сквозной аналитики бизнес обычно судит о рекламе по косвенным признакам — по количеству кликов или заявок, не зная, во что они в итоге превратились. В результате легко вложиться в канал, который даёт много дешёвых обращений, но почти не приносит реальных продаж, и недооценить канал, где обращений мало, зато каждое оборачивается крупной сделкой. Сквозная аналитика снимает эту слепоту и показывает картину по деньгам, а не по поверхностным метрикам.</p>
+<p>Из чего она складывается:</p>
+<ul><li><strong>Разметка трафика.</strong> Каждый источник помечается так, чтобы потом отследить его путь до сделки.</li><li><strong>Коллтрекинг.</strong> Звонки привязываются к рекламным каналам через подменные номера.</li><li><strong>Связка с CRM.</strong> Заявки и сделки подтягиваются из CRM, чтобы видеть выручку по каналам.</li><li><strong>Единый отчёт.</strong> Сводка, где видно стоимость привлечения и отдачу каждого канала.</li></ul>
+<p>Именно сквозная аналитика превращает разрозненные цифры в решения: какие каналы масштабировать, а какие отключить. Без неё веб-аналитика остаётся интересной, но не доведённой до денег.</p>
+<p>Современный коллтрекинг в российских сервисах закрывает и звонки, и обращения через мессенджеры, и заявки с сайта в едином контуре. Для бизнеса, где значительная часть клиентов приходит по телефону, это критично: без привязки звонка к источнику половина рекламной картины просто невидима. Подменные номера и единая база обращений позволяют наконец увидеть, какой канал реально снимает трубку, а не только генерирует переходы на сайт.</p>
+<p>Главная трудность сквозной аналитики не техническая, а организационная: нужно, чтобы менеджеры аккуратно вели сделки в CRM и не теряли источник обращения. Самая совершенная связка бесполезна, если половина заявок попадает в систему без пометки, откуда пришёл клиент. Поэтому внедрение сквозной аналитики — это всегда ещё и наведение порядка в работе отдела продаж, а не только настройка отчётов.</p>
+
+<h2 id="zakon">Соответствие 152-ФЗ</h2>
+<p>Сбор данных о пользователях — это работа с персональными данными, и относиться к ней надо ответственно. Уход зарубежных счётчиков, кстати, отчасти и снял риск передачи данных за рубеж, но собственные требования закона никуда не делись.</p>
+<p>Базовые вещи, которые нужно соблюсти:</p>
+<ul><li><strong>Согласие.</strong> Пользователь должен быть проинформирован о сборе данных и дать согласие там, где это требуется.</li><li><strong>Локализация.</strong> Данные граждан РФ хранятся на серверах в России.</li><li><strong>Политика обработки.</strong> На сайте должна быть понятная политика, описывающая, что вы собираете и зачем.</li><li><strong>Минимизация.</strong> Не собирайте лишнего — чем меньше чувствительных данных, тем ниже риск.</li></ul>
+<p>Переход на свою или российскую аналитику здесь даже упрощает жизнь: контролировать соответствие закону проще, когда инфраструктура находится внутри страны и под вашим управлением.</p>
+<p>Полезно помнить, что соответствие закону — это не только про штрафы, но и про доверие. Посетитель, который видит понятную политику обработки данных и аккуратный запрос согласия, охотнее оставляет заявку, чем тот, кого встречает мутное всплывающее окно непонятного происхождения. Прозрачность в обращении с данными постепенно становится конкурентным преимуществом, а не просто формальной обязанностью.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+<h3>Можно ли просто заменить зарубежный счётчик российским и не думать дальше?</h3>
+<p>Для простого сайта-визитки этого часто достаточно. Но если у вас идёт реклама и важны продажи, одного счётчика мало — нужна сквозная аналитика, которая свяжет каналы с выручкой. Иначе вы будете видеть трафик, но не понимать его отдачу.</p>
+<h3>Чем серверный сбор лучше обычного счётчика?</h3>
+<p>Серверные события не блокируются расширениями приватности и не зависят от браузера пользователя, поэтому данные полнее и точнее. Плюс вы полностью контролируете, что и где хранится. Обычно серверный слой не заменяет, а дополняет привычную аналитику.</p>
+<h3>Обязательно ли строить собственную систему аналитики?</h3>
+<p>Нет. Большинству бизнесов хватает российских систем плюс сквозной аналитики. Свой сбор оправдан при высоких требованиях к приватности, нестандартных метриках или больших объёмах трафика. Это вопрос задач, а не моды.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+<p>Уход зарубежных счётчиков — повод не паниковать, а навести в аналитике порядок. Базовый путь прост: перейти на российские системы, при необходимости укрепить их серверным сбором данных и обязательно довести всё до сквозной аналитики, которая связывает каналы с деньгами. И весь этот контур стоит сразу строить с оглядкой на 152-ФЗ — на своей инфраструктуре в РФ это делается проще и спокойнее, чем раньше. Не пытайтесь построить идеальную систему за один заход: начните с надёжного базового счётчика и корректно настроенных целей, затем добавьте серверный сбор для денежных событий и доведите контур до сквозной аналитики, когда появятся данные для решений. Такой поэтапный путь даёт работающую аналитику уже на первом шаге и позволяет наращивать её под реальные задачи бизнеса, а не строить впрок то, чем потом некому будет пользоваться.</p>
+
+                    </div>
+
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Что я делаю</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-chart-line"></i> <span>Внедрение российской аналитики</span></li>
+    
+    <li><i class="ph-fill ph-hard-drives"></i> <span>Серверный сбор событий</span></li>
+    
+    <li><i class="ph-fill ph-phone-call"></i> <span>Коллтрекинг и сквозная аналитика</span></li>
+    
+    <li><i class="ph-fill ph-plugs"></i> <span>Связка с CRM</span></li>
+    
+    <li><i class="ph-fill ph-shield-check"></i> <span>Соответствие 152-ФЗ</span></li>
+    
+  </ul>
+  <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
+  </a>
+</div>
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/skvoznaya-analitika-koltreking/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовое решение по теме</span>
+                            <span class="blog-offer-cta-title">Сквозная аналитика и коллтрекинг</span>
+                            <span class="blog-offer-cta-price">Бесплатная консультация · MVP за 4–7 недель</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-arrow-right" aria-hidden="true"></i> Смотреть предложение</span>
+                    </a>
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/predlozheniya/skvoznaya-analitika-koltreking/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Настроить аналитику</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/marketing-i-trafik-2027/" data-category="marketing">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-megaphone"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Маркетинг и контент</span>
+  <h3>Маркетинг и трафик 2027: как привлекать и удерживать клиентов системно</h3>
+  <p>Реклама без измерения — это слив бюджета. Разбираю, как собрать маркетинг в систему: сквозная аналитика и коллтрекинг, лид-магниты, email и мессенджеры, AI-контент, репутация и удержание — чтобы было видно, что приносит деньги.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 6 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 18 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/geo-chek-list-30-punktov-2026/" data-category="geo">
+  
+  <div class="blog-card-icon"><i class="ph-list-checks"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>GEO и AI-поиск</span>
+  <h3>Как попасть в ответы ChatGPT, Perplexity и Алисы: чек-лист из 30 пунктов</h3>
+  <p>Собрал в один чек-лист 30 пунктов, которые реально влияют на то, попадёте ли вы в ответы нейросетей: техника, контент, авторитетность, источники и измерение. Проходите по списку и отмечайте, что уже сделано.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 3 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 15 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/audit-152-fz-2026/" data-category="legal">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-shield-check"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Право и compliance</span>
+  <h3>Аудит сайта по 152-ФЗ в 2026: полная инструкция для бизнеса</h3>
+  <p>Новые штрафы по 152-ФЗ доходят до 500 млн ₽. Чек-лист из 32 пунктов, пошаговый план устранения нарушений и сравнение цен на аудит.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 19 мая 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 12 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовые решения под ключ</span>
+                            <span class="blog-offer-cta-title">366 готовых IT-решений для бизнеса</span>
+                            <span class="blog-offer-cta-price">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Смотреть каталог</span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#problema"><span class="blog-toc-num">01</span> Что изменилось</a></li>
+<li><a href="#rossiyskie"><span class="blog-toc-num">02</span> Российские системы</a></li>
+<li><a href="#server-side"><span class="blog-toc-num">03</span> Серверный сбор</a></li>
+<li><a href="#svoya"><span class="blog-toc-num">04</span> Своя аналитика</a></li>
+<li><a href="#skvoznaya"><span class="blog-toc-num">05</span> Сквозная аналитика</a></li>
+<li><a href="#zakon"><span class="blog-toc-num">06</span> Соответствие 152-ФЗ</a></li>
+<li><a href="#faq"><span class="blog-toc-num">07</span> FAQ</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">08</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=23" defer></script>
+<script src="/services-i18n.js?v=23" defer></script>
+<script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>

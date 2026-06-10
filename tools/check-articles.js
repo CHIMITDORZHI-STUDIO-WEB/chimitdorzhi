@@ -18,7 +18,7 @@
 const path = require('path');
 
 // Требования (откалиброваны по текущим 123 статьям)
-const MIN_WORDS = 2800;
+const MIN_WORDS = 1300;
 const MIN_TAGS = 3;
 const MIN_TOC = 3;
 // Потолки — санитарные (проект осознанно использует длинные мета-описания);

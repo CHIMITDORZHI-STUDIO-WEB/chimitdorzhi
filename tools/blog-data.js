@@ -3,6 +3,9 @@
 // Re-run `node tools/build-blog.js` afterwards.
 
 const antigravityEntries = require('./blog-data-antigravity.js');
+const blogBatchA = require('./blog-batch-a.js');
+const blogBatchB = require('./blog-batch-b.js');
+const blogBatchC = require('./blog-batch-c.js');
 const konkursPriglasheniyMaxContent = require('./blog-content-konkurs-priglasheniy-max.js');
 const aiAgentsContent = require('./blog-content-ai-agents.js');
 const securityChecklistContent = require('./blog-content-security-checklist.js');
@@ -10392,4 +10395,4 @@ module.exports = [
       ],
     },
   },
-].concat(antigravityEntries);
+].concat(antigravityEntries, blogBatchA, blogBatchB, blogBatchC);

@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Корпоративный AI-ассистент на своих данных: приватный RAG…</title>
+    <meta name="description" content="Как построить корпоративный AI-ассистент на своих данных: приватный RAG-контур без утечек, российский AI-стек GigaChat и YandexGPT, соответствие 152-ФЗ и…">
+    <meta name="keywords" content="корпоративный ai-ассистент, приватный rag, ai на своих данных, gigachat, yandexgpt, 152-фз, защита от утечек">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/korporativnyy-ai-assistent-na-svoih-dannyh-2027/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/korporativnyy-ai-assistent-na-svoih-dannyh-2027/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/korporativnyy-ai-assistent-na-svoih-dannyh-2027/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/korporativnyy-ai-assistent-na-svoih-dannyh-2027/">
+    <meta property="og:title" content="Корпоративный AI-ассистент на своих данных: приватный RAG…">
+    <meta property="og:description" content="Как построить корпоративный AI-ассистент на своих данных: приватный RAG-контур без утечек, российский AI-стек GigaChat и YandexGPT, соответствие 152-ФЗ и…">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/korporativnyy-ai-assistent-na-svoih-dannyh-2027/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Корпоративный AI-ассистент на своих данных: приватный RAG…">
+    <meta name="twitter:description" content="Как построить корпоративный AI-ассистент на своих данных: приватный RAG-контур без утечек, российский AI-стек GigaChat и YandexGPT, соответствие 152-ФЗ и…">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/korporativnyy-ai-assistent-na-svoih-dannyh-2027/cover.png">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor-Fill.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=41">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Корпоративный AI-ассистент на своих данных: приватный RAG без утечек",
+  "description": "Как построить корпоративный AI-ассистент на своих данных: приватный RAG-контур без утечек, российский AI-стек GigaChat и YandexGPT, соответствие 152-ФЗ и поэтапное внедрение.",
+  "image": "https://chimitdorzhi.tech/blog/korporativnyy-ai-assistent-na-svoih-dannyh-2027/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/korporativnyy-ai-assistent-na-svoih-dannyh-2027/"
+  },
+  "datePublished": "2026-06-11",
+  "dateModified": "2026-06-11",
+  "keywords": "AI-ассистент, RAG, приватность данных, 152-ФЗ, российский AI-стек",
+  "articleSection": "AI для разработчиков",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  },
+  "about": [
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://chimitdorzhi.tech/slovar/#152-fz",
+      "name": "152-ФЗ"
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://chimitdorzhi.tech/slovar/#rag",
+      "name": "RAG (Retrieval-Augmented Generation)"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Корпоративный AI-ассистент на своих данных: приватный RAG без утечек",
+      "item": "https://chimitdorzhi.tech/blog/korporativnyy-ai-assistent-na-svoih-dannyh-2027/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Чем приватный RAG отличается от обычного чат-бота с AI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Обычный чат-бот отвечает по общим знаниям модели и может выдумывать факты. Приватный RAG отвечает строго по вашим документам со ссылкой на источник, а данные при этом не покидают защищённый контур. Это разница между удобной игрушкой и рабочим инструментом, которому можно доверять в делах."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли гарантировать, что ассистент никогда не ошибётся?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет, и любой, кто такое обещает, лукавит. Языковые модели могут ошибаться. Задача архитектуры — снизить риск: жёсткий промпт, ссылки на источники, проверка ответа и мониторинг качества. Я даю прозрачные метрики точности на ваших данных, а не гарантию результата."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Обязательно ли использовать локальную модель?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Не всегда. Если в документах нет персональных данных и коммерческой тайны, можно использовать российский облачный стек — GigaChat или YandexGPT. Локальная модель нужна там, где данные особенно чувствительны и не должны покидать ваши серверы. Решение принимается после аудита данных."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько документов нужно, чтобы это имело смысл?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ориентир — от нескольких сотен документов. Если у вас тридцать-сорок типовых вопросов, проще описать их в одном документе и подключить простой бот. RAG раскрывается на больших базах, где ручной поиск занимает много времени."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что происходит, когда документы меняются?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "В продакшен-контуре настраивается обновление базы: изменённые документы переиндексируются, устаревшие убираются. Это часть поддержки. Без обновления ассистент со временем начнёт отвечать по неактуальным данным, поэтому процесс закладывается заранее."
+      }
+    }
+  ]
+}
+    </script>
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+            <li><a href="/#services" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li class="nav-dropdown">
+                <a href="/#projects" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--arey"><i class="ph-fill ph-vinyl-record" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-airplane-tilt" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#cases" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            </div>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/#about">Обо мне</a></li>
+        <li><a href="/#services">Услуги</a></li>
+        <li><a href="/services/">Каталог услуг</a></li>
+        <li><a href="/predlozheniya/">Предложения</a></li>
+        <li><a href="/#cases">Кейсы</a></li>
+        <li><a href="/blog/">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+        <li><a href="/#contact">Контакт</a></li>
+    </ul>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Корпоративный AI-ассистент на своих данных: приватный RAG без утечек</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/ai-dev/"><i class="ph ph-bookmark" aria-hidden="true"></i> AI для разработчиков</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 8 мин чтения</span>
+                        <time datetime="2026-06-11"><i class="ph ph-calendar" aria-hidden="true"></i> 11 июня 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Корпоративный AI-ассистент на своих данных: приватный RAG без утечек</h1>
+
+                    <p class="blog-lead">Приватный RAG-контур, где модель отвечает строго по вашим документам, а данные не покидают периметр. Российский AI-стек, соответствие 152-ФЗ и честный поэтапный план внедрения.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>AI-ассистент</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>RAG</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>приватность данных</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>152-ФЗ</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>российский AI-стек</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr">
+  <h3>Коротко (TL;DR)</h3>
+  <ul>
+    <li>Корпоративный AI-ассистент на своих данных — это приватный RAG-контур, где модель отвечает строго по вашим регламентам, договорам и базе знаний, а не по случайным фактам из интернета. Главная ценность — точность и ссылка на источник.</li>
+    <li>Приватность достигается архитектурой: чувствительные документы остаются внутри периметра, а для генерации используется либо локальная модель, либо российский AI-стек — GigaChat и YandexGPT. Никакой трансграничной передачи персональных данных.</li>
+    <li>152-ФЗ запрещает отправлять персональные данные в зарубежные сервисы без выполнения условий закона. Поэтому контур с GigaChat или локальной моделью — это не каприз, а способ закрыть юридические риски и штрафы.</li>
+    <li>Внедрение идёт этапами: аудит данных, прототип на узкой задаче, пилот на отделе, продакшен. На каждом шаге измеряется качество ответов, иначе ассистент тихо деградирует. Гарантий результата не даю — даю прозрачные метрики и честную оценку.</li>
+  </ul>
+</div>
+
+<h2 id="chto-takoe">Что такое корпоративный AI-ассистент на своих данных</h2>
+<p>Меня зовут Чимитдоржи Дарижапов, я консультант по внедрению AI в бизнес. За последние два года я собрал несколько приватных RAG-контуров — от помощника по внутренним регламентам для производственной компании до ассистента по юридической базе на несколько тысяч документов. Эта статья — концентрат того, что я понял на практике, без маркетингового тумана.</p>
+<p>Начнём с простого. Обычная большая языковая модель прочитала половину интернета, но она никогда не видела ваш приказ о порядке согласования отпусков, ваш прайс на текущий квартал, вашу инструкцию по обработке рекламаций. Спросите её про внутренний регламент — и она либо честно ответит «не знаю», либо, что опаснее, выдумает правдоподобный, но ложный ответ. Для бизнеса вторая ситуация хуже первой.</p>
+<p>Корпоративный AI-ассистент на своих данных решает именно эту проблему. Технически это связка из двух частей: поисковый слой, который перед каждым ответом находит в вашей базе самые подходящие фрагменты документов, и языковая модель, которая формулирует ответ строго по этим фрагментам. Такой подход называется RAG — генерация, дополненная поиском. Сотрудник задаёт вопрос на обычном языке, а ассистент отвечает со ссылкой на конкретный документ и пункт.</p>
+<p>Ключевое слово в названии — «приватный». Это значит, что ваши данные не утекают на чужие серверы, не попадают в обучающую выборку сторонних компаний и не пересекают границу без вашего ведома. Достигается это архитектурой, а не обещаниями подрядчика, и об этом — отдельный раздел ниже.</p>
+
+<h2 id="zachem-biznesu">Зачем это бизнесу и где реальная экономия</h2>
+<p>Самая частая ошибка — внедрять AI-ассистента ради моды. Я всегда начинаю с вопроса: где у вас люди тратят время на поиск информации, которая уже где-то записана? Именно там ассистент окупается.</p>
+<p>Типичные сценарии, где приватный RAG приносит ощутимую пользу:</p>
+<ul>
+  <li><strong>База знаний для поддержки.</strong> Операторы первой линии перестают листать десятки документов и регламентов — ассистент выдаёт ответ за секунды со ссылкой на источник.</li>
+  <li><strong>Внутренний справочник для сотрудников.</strong> Новички задают вопросы по процедурам, отпускам, оформлению командировок и не отвлекают коллег.</li>
+  <li><strong>Юридический и договорный поиск.</strong> Юристы находят похожие договоры и пункты за минуты, а не за часы ручного перебора папок.</li>
+  <li><strong>Техническая документация.</strong> Инженеры спрашивают по тысячам страниц инструкций и схем, не помня, в каком файле что лежит.</li>
+  <li><strong>Аналитика по отчётам.</strong> Руководитель спрашивает про цифры и формулировки из накопленных документов, не открывая каждый файл вручную.</li>
+</ul>
+<p>Где экономия не очевидна и ассистент скорее не нужен: маленькая база на тридцать-сорок вопросов, где проще всё описать в одном документе; задачи, где ответ есть в общих знаниях модели; запросы, требующие свежих внешних данных в реальном времени. Я честно говорю клиенту, если задача не для RAG — это экономит ему бюджет и сохраняет мою репутацию.</p>
+
+<h2 id="kak-rabotaet-rag">Как устроен приватный RAG: поток данных без утечек</h2>
+<p>Чтобы понимать, где могут быть утечки, надо понимать поток данных. Опишу его без лишней технической глубины, но достаточно подробно, чтобы вы могли задавать правильные вопросы подрядчику.</p>
+<ol>
+  <li><strong>Сбор документов.</strong> Файлы в форматах PDF, Word, Excel, HTML и выгрузки из баз собираются в одно хранилище внутри вашего периметра.</li>
+  <li><strong>Очистка и разбиение.</strong> Тексты чистятся от мусора и режутся на фрагменты по несколько абзацев с небольшим перекрытием, чтобы важная фраза не разрывалась пополам.</li>
+  <li><strong>Векторизация.</strong> Для каждого фрагмента считается числовое представление смысла. Этот шаг можно выполнять локально, не отправляя текст наружу.</li>
+  <li><strong>Хранение.</strong> Векторы вместе с исходным текстом и метаданными кладутся в специальную базу, которая умеет быстро искать по смыслу.</li>
+  <li><strong>Поиск.</strong> Когда приходит вопрос, система находит несколько самых подходящих фрагментов.</li>
+  <li><strong>Генерация ответа.</strong> Найденные фрагменты вместе с вопросом передаются языковой модели с жёсткой инструкцией отвечать только по ним.</li>
+  <li><strong>Проверка и логирование.</strong> Ответ проверяется на наличие ссылки на источник, записывается в журнал для анализа качества.</li>
+</ol>
+<p>Точка, где данные потенциально покидают периметр — это шаг генерации, если модель внешняя. Поэтому именно здесь принимается главное архитектурное решение: локальная модель или российский облачный AI-стек. Поисковый слой и хранилище при правильной настройке остаются полностью под вашим контролем.</p>
+
+<h2 id="privatnost">Приватность и защита от утечек: что реально работает</h2>
+<p>Слово «приватный» легко произнести и трудно обеспечить. Разберу конкретные механизмы, которые отделяют настоящий приватный контур от маркетинговой обёртки.</p>
+<p><strong>Локализация генерации.</strong> Если в документах есть персональные данные или коммерческая тайна, языковая модель должна быть либо развёрнута на ваших серверах, либо это российский сервис с понятным договором — GigaChat или YandexGPT. Отправлять такие данные в зарубежные облака через обходные пути — это и юридический риск, и риск самой утечки.</p>
+<p>Дополнительные меры, которые я закладываю в архитектуру:</p>
+<ul>
+  <li><strong>Контроль доступа.</strong> Ассистент видит только те документы, к которым у конкретного сотрудника есть права. Финансист не должен через ассистента читать кадровые приказы.</li>
+  <li><strong>Шифрование хранилища.</strong> База с фрагментами документов шифруется на диске, доступ к ней закрыт сетевой изоляцией.</li>
+  <li><strong>Журналирование запросов.</strong> Каждый вопрос и ответ логируется. Это нужно и для качества, и для расследования инцидентов.</li>
+  <li><strong>Маскирование чувствительных полей.</strong> Где возможно, персональные данные обезличиваются ещё до векторизации.</li>
+  <li><strong>Договор поручения обработки.</strong> Если ассистента делает подрядчик с доступом к данным, оформляется договор по требованиям 152-ФЗ. Я всегда подписываю такой документ.</li>
+</ul>
+<p>Отдельно подчеркну: приватность — это не одна галочка, а совокупность решений на каждом слое. Если подрядчик обещает «всё безопасно» без конкретики про модель, хранилище и доступы — это повод задавать неудобные вопросы.</p>
+
+<h2 id="rossiyskiy-stack">Российский AI-стек и 152-ФЗ: почему это связано</h2>
+<p>Тема приватности в России неотделима от закона о персональных данных. Если ваша база содержит фамилии, телефоны, адреса клиентов или сотрудников — а так почти всегда — то на ассистента распространяются требования 152-ФЗ.</p>
+<p>Главная норма, о которую спотыкаются: передача персональных данных за границу требует выполнения условий закона, а не просто желания использовать удобный зарубежный сервис. Отправка таких данных в иностранное облако без согласований — это нарушение, за которое предусмотрены серьёзные штрафы для юридических лиц, особенно в случае утечки.</p>
+<p>Отсюда практический вывод. Для контура с персональными данными разумно использовать:</p>
+<ul>
+  <li><strong>GigaChat</strong> — российская модель от Сбера с понятными условиями обработки данных внутри страны.</li>
+  <li><strong>YandexGPT</strong> — модель Яндекса, доступная через российское облако, с инструментами для векторизации.</li>
+  <li><strong>Локальные открытые модели</strong> — когда данные особенно чувствительны и не должны покидать ваши серверы вообще.</li>
+</ul>
+<p>Я не юрист и не даю юридических заключений — финальную оценку рисков всегда стоит согласовать с вашим специалистом по защите данных. Но архитектурно я строю контур так, чтобы у юриста не было поводов для тревоги: данные с персональной информацией не уходят туда, куда им нельзя.</p>
+
+<h2 id="vnedrenie">Как внедрять: этапы от прототипа до продакшена</h2>
+<p>Я никогда не предлагаю сразу строить большой контур на всю компанию. Это путь к раздутому бюджету и разочарованию. Работает поэтапный подход.</p>
+<p><strong>Этап 1. Аудит данных.</strong> Смотрим, какие документы есть, в каком они состоянии, сколько устаревших и дублей. Часто на этом этапе выясняется, что половину базы надо чистить — и это нормально. Мусор на входе даёт мусор на выходе.</p>
+<p><strong>Этап 2. Прототип на узкой задаче.</strong> Берём одну болезненную задачу и одну небольшую базу. Собираем минимальный работающий ассистент. Цель — за пару недель показать, что это вообще решает проблему.</p>
+<p><strong>Этап 3. Пилот на отделе.</strong> Подключаем реальных пользователей, добавляем кнопку обратной связи, измеряем качество ответов на наборе проверочных вопросов. Здесь крутятся настройки поиска и промпта.</p>
+<p><strong>Этап 4. Продакшен.</strong> Масштабируем базу, добавляем контроль доступа, мониторинг, интеграцию с авторизацией компании, обновление документов. Это уже стабильный сервис, а не эксперимент.</p>
+<p>Между этапами всегда есть точка принятия решения: продолжаем или нет. Если прототип не даёт пользы — лучше остановиться, чем тянуть проект из инерции. Такой подход защищает бюджет клиента.</p>
+
+<h2 id="oshibki">Типичные ошибки и как их избежать</h2>
+<p>Собрал самые частые провалы, которые видел у компаний, пытавшихся сделать ассистента своими силами или с неопытным подрядчиком.</p>
+<p><strong>Грязная база знаний.</strong> Ассистент честно достанет устаревший регламент трёхлетней давности и ответит по нему. Перед запуском нужна ревизия документов: пометить актуальные, убрать черновики и дубли.</p>
+<p><strong>Отсутствие метрик.</strong> Запустили, спросили «работает?», услышали «вроде да» и забыли. Через несколько месяцев точность проседает, а никто не замечает. Нужен набор проверочных вопросов и регулярная проверка качества.</p>
+<p><strong>Один промпт на все случаи.</strong> Для справки по процедурам, для генерации черновиков документов и для аналитики нужны разные инструкции модели. Универсальный промпт даёт средний результат везде.</p>
+<p><strong>Игнор обратной связи.</strong> Простая кнопка «помогло / не помогло» под ответом даёт поток реальных кейсов на улучшение. Без неё команда летит вслепую.</p>
+<p><strong>Ставка на зарубежную модель с персональными данными.</strong> Это и юридический риск, и риск утечки. Для чувствительных данных — только локальный или российский контур.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+
+<h3>Чем приватный RAG отличается от обычного чат-бота с AI?</h3>
+<p>Обычный <a href="https://chimitdorzhi.tech/services/telegram-bots/" class="blog-inline-link">чат-бот</a> отвечает по общим знаниям модели и может выдумывать факты. Приватный RAG отвечает строго по вашим документам со ссылкой на источник, а данные при этом не покидают защищённый контур. Это разница между удобной игрушкой и рабочим инструментом, которому можно доверять в делах.</p>
+
+<h3>Можно ли гарантировать, что ассистент никогда не ошибётся?</h3>
+<p>Нет, и любой, кто такое обещает, лукавит. Языковые модели могут ошибаться. Задача архитектуры — снизить риск: жёсткий промпт, ссылки на источники, проверка ответа и мониторинг качества. Я даю прозрачные метрики точности на ваших данных, а не гарантию результата.</p>
+
+<h3>Обязательно ли использовать локальную модель?</h3>
+<p>Не всегда. Если в документах нет персональных данных и коммерческой тайны, можно использовать российский облачный стек — GigaChat или YandexGPT. Локальная модель нужна там, где данные особенно чувствительны и не должны покидать ваши серверы. Решение принимается после аудита данных.</p>
+
+<h3>Сколько документов нужно, чтобы это имело смысл?</h3>
+<p>Ориентир — от нескольких сотен документов. Если у вас тридцать-сорок типовых вопросов, проще описать их в одном документе и подключить простой бот. RAG раскрывается на больших базах, где ручной поиск занимает много времени.</p>
+
+<h3>Что происходит, когда документы меняются?</h3>
+<p>В продакшен-контуре настраивается обновление базы: изменённые документы переиндексируются, устаревшие убираются. Это часть поддержки. Без обновления ассистент со временем начнёт отвечать по неактуальным данным, поэтому процесс закладывается заранее.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+<p>Корпоративный AI-ассистент на своих данных — это не магия и не игрушка, а инженерный контур, где приватность и точность заложены в архитектуру с первого дня. Ценность в том, что сотрудники получают быстрые ответы со ссылкой на источник, а данные не утекают за пределы периметра. Российский AI-стек и локальные модели позволяют закрыть требования 152-ФЗ и снять юридические риски.</p>
+<p>Внедрять стоит поэтапно: аудит, прототип, пилот, продакшен — с измерением качества на каждом шаге. Я не обещаю чудес и не даю гарантий результата. Я даю честную оценку, прозрачную архитектуру и метрики, по которым видно, работает контур или нет. Если хотите разобрать ваш кейс — напишите мне в мессенджер, посмотрим вашу базу знаний и обсудим реалистичный план.</p>
+
+                    </div>
+
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Что я делаю</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-brain"></i> <span>Приватные RAG-ассистенты на ваших данных</span></li>
+    
+    <li><i class="ph-fill ph-shield-check"></i> <span>Контур без утечек и по 152-ФЗ</span></li>
+    
+    <li><i class="ph-fill ph-database"></i> <span>Подбор векторной базы и модели</span></li>
+    
+    <li><i class="ph-fill ph-gear"></i> <span>Интеграция с авторизацией и доступами</span></li>
+    
+    <li><i class="ph-fill ph-chart-line"></i> <span>Мониторинг качества ответов</span></li>
+    
+  </ul>
+  <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
+  </a>
+</div>
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/ai-konsultant/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовое решение по теме</span>
+                            <span class="blog-offer-cta-title">AI-консультант 24/7 для сайта и мессенджеров</span>
+                            <span class="blog-offer-cta-price">Бесплатная консультация · от 2 недель</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-arrow-right" aria-hidden="true"></i> Смотреть предложение</span>
+                    </a>
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/predlozheniya/ai-konsultant/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Внедрить AI-ассистента</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/rag-sistemy-dlya-biznesa-2026/" data-category="ai-dev">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-database"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>AI для разработчиков</span>
+  <h3>RAG-системы для бизнеса 2026: AI, который знает вашу базу знаний</h3>
+  <p>Сертифицированный по RAG практик о том, как устроена связка «векторный поиск + LLM», какие vector DB и embeddings брать в РФ, сколько стоит и где ломается на реальной базе из 10 000+ документов.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 20 мая 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 24 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/rossiyskiy-ai-stack-2026/" data-category="ai-dev">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-brain"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>AI для разработчиков</span>
+  <h3>Российский AI-стек 2026: чем заменить OpenAI, Claude и Gemini</h3>
+  <p>Что есть в РФ вместо OpenAI и Claude: YandexGPT 5, GigaChat 3, T-Pro, Cotype, Kandinsky 4, open-source self-hosting. Цены, код подключения, кейсы.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 20 мая 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 21 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/lokalnyy-llm-na-noutbuke-2026/" data-category="ai-dev">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-cpu"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>AI для разработчиков</span>
+  <h3>Локальный LLM на ноутбуке 2026: Ollama, LM Studio, vLLM — практическое руководство</h3>
+  <p>Как поднять локальный LLM за час: Ollama, LM Studio, vLLM. Какие модели выбрать в 2026, бенчмарки скорости на M3 Max / RTX 4090 / H100, локальный RAG за 40 строк, экономика владения.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 20 мая 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 22 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовые решения под ключ</span>
+                            <span class="blog-offer-cta-title">366 готовых IT-решений для бизнеса</span>
+                            <span class="blog-offer-cta-price">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Смотреть каталог</span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#chto-takoe"><span class="blog-toc-num">01</span> Что такое AI-ассистент на своих данных</a></li>
+<li><a href="#zachem-biznesu"><span class="blog-toc-num">02</span> Зачем это бизнесу</a></li>
+<li><a href="#kak-rabotaet-rag"><span class="blog-toc-num">03</span> Как устроен приватный RAG</a></li>
+<li><a href="#privatnost"><span class="blog-toc-num">04</span> Приватность и защита от утечек</a></li>
+<li><a href="#rossiyskiy-stack"><span class="blog-toc-num">05</span> Российский AI-стек и 152-ФЗ</a></li>
+<li><a href="#vnedrenie"><span class="blog-toc-num">06</span> Как внедрять поэтапно</a></li>
+<li><a href="#oshibki"><span class="blog-toc-num">07</span> Типичные ошибки</a></li>
+<li><a href="#faq"><span class="blog-toc-num">08</span> FAQ</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">09</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=23" defer></script>
+<script src="/services-i18n.js?v=23" defer></script>
+<script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>
