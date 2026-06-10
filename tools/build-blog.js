@@ -16,6 +16,9 @@ const subOffersCount = (s) => String(s).split('{{OFFERS_COUNT}}').join(OFFERS_CO
 
 // Карта: slug статьи → slug предложения. Добавляйте по мере роста раздела.
 const OFFER_LINKS = {
+  'geymifikaciya-dlya-biznesa-gayd-2027': 'konstruktor-konkursov',
+  'programma-loyalnosti-bez-skidok-2027': 'statusnaya-loyalnost',
+  'geymifikaciya-otdela-prodazh-i-sotrudnikov-2027': 'geymifikaciya-otdela-prodazh',
   'korporativnye-kommunikacii-max-2027': 'importozameshchenie-ofisa',
   'pervaya-1000-podpischikov-max-2027': 'geymifikaciya-kanala-max',
   'avtovoronki-v-messendzherah-2027': 'welcome-voronka-novichki',
