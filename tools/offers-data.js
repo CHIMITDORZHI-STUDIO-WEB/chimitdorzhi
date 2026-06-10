@@ -53,6 +53,7 @@ const ctoBody = require('./offer-content-cto.js');
 
 // Порядок на хабе: свежие партии выше, старые ниже.
 const _ALL_OFFERS = [
+  ...require('./offers-batch-29.js'),
   ...require('./offers-batch-28.js'),
   ...require('./offers-batch-27.js'),
   ...require('./offers-batch-26.js'),
@@ -944,7 +945,8 @@ const _RICH = Object.assign({},
   require('./offers-rich-28a.js'), require('./offers-rich-28b.js'),
   require('./offers-rich-29.js'),
   require('./offers-rich-30a.js'), require('./offers-rich-30b.js'), require('./offers-rich-30c.js'),
-  require('./offers-rich-31a.js'), require('./offers-rich-31b.js'), require('./offers-rich-31c.js'), require('./offers-rich-31d.js'));
+  require('./offers-rich-31a.js'), require('./offers-rich-31b.js'), require('./offers-rich-31c.js'), require('./offers-rich-31d.js'),
+  require('./offers-rich-32a.js'), require('./offers-rich-32b.js'), require('./offers-rich-32c.js'));
 for (const o of _ALL_OFFERS) {
   const r = _RICH[o.slug];
   if (r) { Object.assign(o, r); delete o.bodyHtml; }
