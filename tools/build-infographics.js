@@ -18,6 +18,9 @@ const OFFER_BY = {}; for (const o of OFFERS) OFFER_BY[o.slug] = o;
 const BLOG = require('./blog-data.js');
 const BLOG_BY = {}; for (const a of BLOG) BLOG_BY[a.slug] = a;
 
+const srcOf = (it) => (it.kind === 'article' ? BLOG_BY[it.slug] : OFFER_BY[it.slug]) || {};
+const titleOf = (it) => srcOf(it).title || it.hero;
+
 const esc = (s) => String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const escXml = (s) => String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&apos;');
 
@@ -153,7 +156,11 @@ const ITEMS = [
     relatedArticles: ['sistemy-loyalnosti-2027', 'konkurs-priglasheniy-max-virusnyy-rost-2027', 'crm-dlya-malogo-biznesa-2026'],
     relatedOffers: ['programma-loyalnosti', 'chestnye-rozygryshi', 'promokody-kupony-treking'],
   },
-];
+].concat(
+  require('./infografika-extra-a.js'),
+  require('./infografika-extra-b.js'),
+  require('./infografika-extra-c.js'),
+);
 
 // ---------- SVG обложки (Колор-блок) ----------
 function infoSvg(it) {
@@ -305,15 +312,14 @@ function footer() {
 // ---------- хаб ----------
 function hubPage() {
   const tiles = ITEMS.map((it) => {
-    const o = OFFER_BY[it.slug] || {};
     return `<a class="ig-tile" href="/infografika/${it.slug}/">
-      <img src="/infografika/${it.slug}.png" width="1000" height="1500" loading="lazy" alt="Инфографика: ${esc(o.title || it.hero)}">
+      <img src="/infografika/${it.slug}.png" width="1000" height="1500" loading="lazy" alt="Инфографика: ${esc(titleOf(it))}">
       <span class="ig-tile-cap">${esc(it.hero)}</span>
     </a>`;
   }).join('\n');
   return head({
-    title: 'Инфографика — вовлечение и вирусный рост в MAX',
-    description: 'Инфографика по решениям для вовлечения и вирусного роста в MAX, Telegram и VK: конкурс приглашений, реферальная программа, розыгрыши, лояльность, Mini App. Наглядно и со ссылками на статьи и предложения.',
+    title: 'Инфографика — IT, AI и бизнес наглядно',
+    description: 'Инфографика по IT, AI и бизнесу: безопасность и 152-ФЗ, российский AI-стек, маркетинг и вирусный рост, отрасли, финтех и платежи. Наглядные карточки со ссылками на статьи и предложения. Сохраняйте и делитесь.',
     canonical: `${SITE}/infografika/`,
     ogImage: `${SITE}/infografika/${ITEMS[0].slug}.png`,
   }) + `</head>
@@ -324,8 +330,8 @@ ${navbar()}
     <nav class="breadcrumbs" aria-label="Хлебные крошки"><a href="/">Главная</a> · <span>Инфографика</span></nav>
     <header class="ig-head">
       <span class="section-label">ИНФОГРАФИКА</span>
-      <h1>Вовлечение и вирусный рост — наглядно</h1>
-      <p class="ig-sub">Карточки-инфографики по решениям для MAX, Telegram и VK. Кликните, чтобы открыть описание и связанные статьи и предложения. Сохраняйте и делитесь в соцсетях.</p>
+      <h1>IT, AI и бизнес — наглядно</h1>
+      <p class="ig-sub">Карточки-инфографики по безопасности, AI, маркетингу, отраслям и финтеху. Кликните, чтобы открыть описание и связанные статьи и предложения. Сохраняйте и делитесь в соцсетях.</p>
     </header>
     <div class="ig-grid">
 ${tiles}
@@ -339,17 +345,23 @@ ${footer()}
 
 // ---------- страница инфографики ----------
 function detailPage(it) {
-  const o = OFFER_BY[it.slug] || {};
-  const relOffers = it.relatedOffers.map((s) => {
+  const isArt = it.kind === 'article';
+  const titleText = titleOf(it);
+  const ctaUrl = isArt ? `/blog/${it.slug}/` : `/predlozheniya/${it.slug}/`;
+  const ctaLabel = isArt ? 'Читать статью' : 'Подробнее о предложении';
+  const label = it.label || 'ВОВЛЕЧЕНИЕ И ВИРУСНЫЙ РОСТ';
+  const relOffers = (it.relatedOffers || []).map((s) => {
     const ro = OFFER_BY[s]; if (!ro) return '';
     return `<a class="ig-link-card" href="/predlozheniya/${s}/"><i class="ph ph-arrow-right" aria-hidden="true"></i><span>${esc(ro.title)}</span></a>`;
   }).filter(Boolean).join('\n');
-  const relArticles = it.relatedArticles.map((s) => {
+  const relArticles = (it.relatedArticles || []).map((s) => {
     const a = BLOG_BY[s]; if (!a) return '';
     return `<a class="ig-link-card" href="/blog/${s}/"><i class="ph ph-article" aria-hidden="true"></i><span>${esc(a.title)}</span></a>`;
   }).filter(Boolean).join('\n');
+  const offersBlock = relOffers ? `<h2 class="ig-h2">Связанные предложения</h2>\n        <div class="ig-links">\n${relOffers}\n        </div>\n` : '';
+  const articlesBlock = relArticles ? `<h2 class="ig-h2">Статьи по теме</h2>\n        <div class="ig-links">\n${relArticles}\n        </div>\n` : '';
   return head({
-    title: `${o.title || it.hero} — инфографика`,
+    title: `${titleText} — инфографика`,
     description: it.description,
     canonical: `${SITE}/infografika/${it.slug}/`,
     ogImage: `${SITE}/infografika/${it.slug}.png`,
@@ -361,23 +373,16 @@ ${navbar()}
     <nav class="breadcrumbs" aria-label="Хлебные крошки"><a href="/">Главная</a> · <a href="/infografika/">Инфографика</a> · <span>${esc(it.hero)}</span></nav>
     <article class="ig-article">
       <div class="ig-figure">
-        <img src="/infografika/${it.slug}.png" width="1000" height="1500" alt="Инфографика: ${esc(o.title || it.hero)} — для MAX, Telegram и VK">
+        <img src="/infografika/${it.slug}.png" width="1000" height="1500" alt="Инфографика: ${esc(titleText)}">
       </div>
       <div class="ig-body">
-        <span class="section-label">ВОВЛЕЧЕНИЕ И ВИРУСНЫЙ РОСТ</span>
-        <h1>${esc(o.title || it.hero)}</h1>
+        <span class="section-label">${esc(label)}</span>
+        <h1>${esc(titleText)}</h1>
         <p class="ig-desc">${esc(it.description)}</p>
-        <a class="btn btn-accent" href="/predlozheniya/${it.slug}/">Подробнее о предложении <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+        <a class="btn btn-accent" href="${ctaUrl}">${ctaLabel} <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
 
-        <h2 class="ig-h2">Связанные предложения</h2>
-        <div class="ig-links">
-${relOffers}
-        </div>
-
-        <h2 class="ig-h2">Статьи по теме</h2>
-        <div class="ig-links">
-${relArticles}
-        </div>
+        ${offersBlock}
+        ${articlesBlock}
 
         <div class="ig-share">
           <span>Поделиться:</span>
