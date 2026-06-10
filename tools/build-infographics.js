@@ -78,6 +78,9 @@ const ITEMS = [
 // ---------- SVG обложки (Колор-блок) ----------
 function infoSvg(it) {
   const W = 1000, H = 1500, M = 80, white = '#ffffff';
+  const ACCENT = '#34d3ee';
+  const DARK = '#06363f';
+  const GRAD = '<linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1e4fd6"/><stop offset="1" stop-color="#6d28d9"/></linearGradient>';
   const lines = wrapTitle(it.hero, 15);
   const lineH = 104, titleFs = 92, ty = 320;
   const titleSvg = lines.map((l, i) =>
@@ -92,8 +95,8 @@ function infoSvg(it) {
   const tagLines = wrapTitle(it.tagline || '', 40);
   const tagFs = tagLines.length > 1 ? 32 : 34;
   const tagStartY = bandY + (bandH - (tagLines.length - 1) * 44) / 2 + 12;
-  const bandSvg = it.tagline ? `<rect x="${M}" y="${bandY}" width="${W - 2 * M}" height="${bandH}" rx="22" fill="${it.accent}"/>\n  ` +
-    tagLines.map((l, i) => `<text x="${M + bandPad}" y="${tagStartY + i * 44}" font-family="${FONT}" font-weight="800" font-size="${tagFs}" fill="${it.bg}">${escXml(l)}</text>`).join('\n  ') : '';
+  const bandSvg = it.tagline ? `<rect x="${M}" y="${bandY}" width="${W - 2 * M}" height="${bandH}" rx="22" fill="${ACCENT}"/>\n  ` +
+    tagLines.map((l, i) => `<text x="${M + bandPad}" y="${tagStartY + i * 44}" font-family="${FONT}" font-weight="800" font-size="${tagFs}" fill="${DARK}">${escXml(l)}</text>`).join('\n  ') : '';
 
   // карточки пунктов (2 колонки)
   const cols = 2, n = it.points.length, rows = Math.ceil(n / cols);
@@ -107,17 +110,18 @@ function infoSvg(it) {
     const pl = wrapTitle(p, 16);
     const tStart = cy + ch / 2 - (pl.length - 1) * 23 + 22;
     const txt = pl.map((l, j) => `<text x="${cx + 34}" y="${tStart + j * 46}" font-family="${FONT}" font-weight="600" font-size="37" fill="${white}">${escXml(l)}</text>`).join('\n  ');
-    return `<rect x="${cx}" y="${cy}" width="${cw}" height="${ch}" rx="22" fill="${white}" fill-opacity="0.12"/>\n  <circle cx="${cx + 44}" cy="${cy + 52}" r="13" fill="${it.accent}"/>\n  ${txt}`;
+    return `<rect x="${cx}" y="${cy}" width="${cw}" height="${ch}" rx="22" fill="${white}" fill-opacity="0.12"/>\n  <circle cx="${cx + 44}" cy="${cy + 52}" r="13" fill="${ACCENT}"/>\n  ${txt}`;
   }).join('\n  ');
 
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
-  <rect width="${W}" height="${H}" fill="${it.bg}"/>
-  <circle cx="900" cy="150" r="320" fill="${it.accent}" fill-opacity="0.10"/>
-  <circle cx="120" cy="1380" r="240" fill="${it.accent}" fill-opacity="0.07"/>
-  <rect x="${M}" y="100" width="${pillW}" height="58" rx="29" fill="${it.accent}"/>
-  <text x="${M + 28}" y="138" font-family="${FONT}" font-weight="800" font-size="26" letter-spacing="2" fill="${it.bg}">${escXml(it.pill)}</text>
+  <defs>${GRAD}</defs>
+  <rect width="${W}" height="${H}" fill="url(#g)"/>
+  <circle cx="900" cy="150" r="320" fill="${white}" fill-opacity="0.05"/>
+  <circle cx="120" cy="1380" r="240" fill="${white}" fill-opacity="0.04"/>
+  <rect x="${M}" y="100" width="${pillW}" height="58" rx="29" fill="${ACCENT}"/>
+  <text x="${M + 28}" y="138" font-family="${FONT}" font-weight="800" font-size="26" letter-spacing="2" fill="${DARK}">${escXml(it.pill)}</text>
   ${titleSvg}
-  <rect x="${M}" y="${barY}" width="130" height="11" rx="5" fill="${it.accent}"/>
+  <rect x="${M}" y="${barY}" width="130" height="11" rx="5" fill="${ACCENT}"/>
   ${cardsSvg}
   ${bandSvg}
   <line x1="${M}" y1="1378" x2="${W - M}" y2="1378" stroke="${white}" stroke-width="2" stroke-opacity="0.22"/>
