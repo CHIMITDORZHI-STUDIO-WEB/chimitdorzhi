@@ -176,55 +176,63 @@ const ITEMS = [
 // ---------- SVG обложки (Колор-блок) ----------
 function infoSvg(it) {
   const W = 1000, H = 1500, M = 80, white = '#ffffff';
-  const ACCENT = '#34d3ee';
-  const DARK = '#06363f';
-  const GRAD = '<linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1e4fd6"/><stop offset="1" stop-color="#6d28d9"/></linearGradient>';
-  const lines = wrapTitle(it.hero, 15);
-  const lineH = 104, titleFs = 92, ty = 320;
-  const titleSvg = lines.map((l, i) =>
-    `<text x="${M}" y="${ty + i * lineH}" font-family="${FONT}" font-weight="800" font-size="${titleFs}" letter-spacing="-2" fill="${white}">${escXml(l)}</text>`
-  ).join('\n  ');
+  const CREAM = '#f4f1ea', INK = '#16130f', BLUE = '#1e4fd6', BLUE2 = '#3b6ef5', GRAY = '#6b655c';
+  const CARDB = '#eceadf';
+  const DOTS = ['#1e4fd6', '#f59e0b', '#16a34a', '#7c3aed'];
+
+  // заголовок: чёрный, последнее слово — синим
+  const lines = wrapTitle(it.hero, 14);
+  const lineH = 100, titleFs = 86, ty = 300;
+  const titleSvg = lines.map((l, i) => {
+    const last = i === lines.length - 1;
+    const y = ty + i * lineH;
+    if (!last) return `<text x="${M}" y="${y}" font-family="${FONT}" font-weight="800" font-size="${titleFs}" letter-spacing="-2" fill="${INK}">${escXml(l)}</text>`;
+    const words = l.split(' ');
+    if (words.length === 1) return `<text x="${M}" y="${y}" font-family="${FONT}" font-weight="800" font-size="${titleFs}" letter-spacing="-2" fill="${BLUE2}">${escXml(l)}</text>`;
+    const head = words.slice(0, -1).join(' ') + ' ', tail = words[words.length - 1];
+    return `<text x="${M}" y="${y}" font-family="${FONT}" font-weight="800" font-size="${titleFs}" letter-spacing="-2"><tspan fill="${INK}">${escXml(head)}</tspan><tspan fill="${BLUE2}">${escXml(tail)}</tspan></text>`;
+  }).join('\n  ');
   const titleBottom = ty + (lines.length - 1) * lineH;
-  const barY = titleBottom + 46;
-  const pillW = it.pill.length * 17 + 56;
 
-  // нижняя плашка-итог
-  const bandH = 112, bandY = 1224, bandPad = 36;
-  const tagLines = wrapTitle(it.tagline || '', 40);
-  const tagFs = tagLines.length > 1 ? 32 : 34;
-  const tagStartY = bandY + (bandH - (tagLines.length - 1) * 44) / 2 + 12;
-  const bandSvg = it.tagline ? `<rect x="${M}" y="${bandY}" width="${W - 2 * M}" height="${bandH}" rx="22" fill="${ACCENT}"/>\n  ` +
-    tagLines.map((l, i) => `<text x="${M + bandPad}" y="${tagStartY + i * 44}" font-family="${FONT}" font-weight="800" font-size="${tagFs}" fill="${DARK}">${escXml(l)}</text>`).join('\n  ') : '';
+  // подзаголовок (итог) серым
+  const subLines = wrapTitle(it.tagline || '', 42);
+  const subY = titleBottom + 64;
+  const subSvg = subLines.map((l, i) => `<text x="${M}" y="${subY + i * 46}" font-family="${FONT}" font-weight="500" font-size="33" fill="${GRAY}">${escXml(l)}</text>`).join('\n  ');
+  const subBottom = subY + (subLines.length - 1) * 46;
 
-  // карточки пунктов (2 колонки)
+  // белые карточки пунктов (2 колонки)
   const cols = 2, n = it.points.length, rows = Math.ceil(n / cols);
-  const gx = 30, gy = 28, cw = (W - 2 * M - gx) / 2;
-  const areaTop = barY + 40, areaBottom = bandY - 44;
-  const ch = Math.min(252, (areaBottom - areaTop - (rows - 1) * gy) / rows);
+  const gx = 28, gy = 26, cw = (W - 2 * M - gx) / 2;
+  const areaTop = subBottom + 52, areaBottom = 1330;
+  const ch = Math.min(248, (areaBottom - areaTop - (rows - 1) * gy) / rows);
   const gy0 = areaTop + ((areaBottom - areaTop) - (rows * ch + (rows - 1) * gy)) / 2;
   const cardsSvg = it.points.map((p, i) => {
     const col = i % cols, row = Math.floor(i / cols);
     const cx = M + col * (cw + gx), cy = gy0 + row * (ch + gy);
     const pl = wrapTitle(p, 16);
-    const tStart = cy + ch / 2 - (pl.length - 1) * 23 + 22;
-    const txt = pl.map((l, j) => `<text x="${cx + 34}" y="${tStart + j * 46}" font-family="${FONT}" font-weight="600" font-size="37" fill="${white}">${escXml(l)}</text>`).join('\n  ');
-    return `<rect x="${cx}" y="${cy}" width="${cw}" height="${ch}" rx="22" fill="${white}" fill-opacity="0.12"/>\n  <circle cx="${cx + 44}" cy="${cy + 52}" r="13" fill="${ACCENT}"/>\n  ${txt}`;
+    const tStart = cy + ch / 2 - (pl.length - 1) * 23 + 24;
+    const txt = pl.map((l, j) => `<text x="${cx + 34}" y="${tStart + j * 46}" font-family="${FONT}" font-weight="600" font-size="36" fill="${INK}">${escXml(l)}</text>`).join('\n  ');
+    return `<rect x="${cx}" y="${cy}" width="${cw}" height="${ch}" rx="20" fill="${white}" stroke="${CARDB}" stroke-width="1.5"/>\n  <circle cx="${cx + 44}" cy="${cy + 50}" r="12" fill="${DOTS[i % DOTS.length]}"/>\n  ${txt}`;
   }).join('\n  ');
 
+  // пилл
+  const pillW = it.pill.length * 15 + 96;
+
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
-  <defs>${GRAD}</defs>
-  <rect width="${W}" height="${H}" fill="url(#g)"/>
-  <circle cx="900" cy="150" r="320" fill="${white}" fill-opacity="0.05"/>
-  <circle cx="120" cy="1380" r="240" fill="${white}" fill-opacity="0.04"/>
-  <rect x="${M}" y="100" width="${pillW}" height="58" rx="29" fill="${ACCENT}"/>
-  <text x="${M + 28}" y="138" font-family="${FONT}" font-weight="800" font-size="26" letter-spacing="2" fill="${DARK}">${escXml(it.pill)}</text>
+  <defs><pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0V48" fill="none" stroke="${INK}" stroke-opacity="0.04" stroke-width="1"/></pattern></defs>
+  <rect width="${W}" height="${H}" fill="${CREAM}"/>
+  <rect width="${W}" height="${H}" fill="url(#grid)"/>
+  <rect x="${M}" y="96" width="${pillW}" height="56" rx="28" fill="${BLUE}"/>
+  <circle cx="${M + 30}" cy="124" r="6" fill="${white}"/>
+  <text x="${M + 52}" y="133" font-family="${FONT}" font-weight="700" font-size="25" letter-spacing="1.5" fill="${white}">${escXml(it.pill)}</text>
   ${titleSvg}
-  <rect x="${M}" y="${barY}" width="130" height="11" rx="5" fill="${ACCENT}"/>
+  ${subSvg}
   ${cardsSvg}
-  ${bandSvg}
-  <line x1="${M}" y1="1378" x2="${W - M}" y2="1378" stroke="${white}" stroke-width="2" stroke-opacity="0.22"/>
-  <text x="${M}" y="1440" font-family="${FONT}" font-weight="800" font-size="40" fill="${white}">Чимитдоржи Дарижапов</text>
-  <text x="${M}" y="1486" font-family="${FONT}" font-weight="500" font-size="30" fill="${white}" opacity="0.7">chimitdorzhi.tech</text>
+  <line x1="${M}" y1="1380" x2="${W - M}" y2="1380" stroke="#dcd6c8" stroke-width="2"/>
+  <text x="${M}" y="1434" font-family="${FONT}" font-weight="800" font-size="34" letter-spacing="0.5" fill="${INK}">CHIMITDORZHI.</text>
+  <text x="${M}" y="1474" font-family="${FONT}" font-weight="600" font-size="26" fill="${BLUE}">@chimitdorzhi</text>
+  <text x="${W - M}" y="1432" text-anchor="end" font-family="${FONT}" font-weight="600" font-size="24" fill="${GRAY}">IT, AI и автоматизация</text>
+  <text x="${W - M}" y="1468" text-anchor="end" font-family="${FONT}" font-weight="500" font-size="24" fill="${GRAY}">под ключ · chimitdorzhi.tech</text>
 </svg>`;
 }
 
