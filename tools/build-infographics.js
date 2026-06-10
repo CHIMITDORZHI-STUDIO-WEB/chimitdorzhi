@@ -160,6 +160,10 @@ const ITEMS = [
   require('./infografika-extra-a.js'),
   require('./infografika-extra-b.js'),
   require('./infografika-extra-c.js'),
+  require('./infografika-extra-d.js'),
+  require('./infografika-extra-e.js'),
+  require('./infografika-extra-f.js'),
+  require('./infografika-extra-g.js'),
 );
 
 // ---------- SVG обложки (Колор-блок) ----------
@@ -312,8 +316,11 @@ function footer() {
 // ---------- хаб ----------
 const IG_CATS = {
   'AI И ТЕХНОЛОГИИ': { k: 'ai', l: 'AI и технологии' },
-  'БЕЗОПАСНОСТЬ': { k: 'sec', l: 'Безопасность и право' },
-  'ПРАВО · 152-ФЗ': { k: 'sec', l: 'Безопасность и право' },
+  'БЕЗОПАСНОСТЬ': { k: 'sec', l: 'Безопасность' },
+  'ПРАВО · 152-ФЗ': { k: 'law', l: 'Право и документы' },
+  'ПРАВО И ДОКУМЕНТЫ': { k: 'law', l: 'Право и документы' },
+  'GEO И AI-ПОИСК': { k: 'geo', l: 'GEO и AI-поиск' },
+  'СТАРТАП И ПРОДУКТ': { k: 'startup', l: 'Стартап и продукт' },
   'МАРКЕТИНГ И РОСТ': { k: 'mkt', l: 'Маркетинг' },
   'РАЗРАБОТКА': { k: 'dev', l: 'Разработка' },
   'ОТРАСЛИ': { k: 'ind', l: 'Отрасли' },
@@ -321,7 +328,7 @@ const IG_CATS = {
 };
 const IG_GROW = { k: 'grow', l: 'Вовлечение и рост' };
 const igCatOf = (it) => (it.label && IG_CATS[it.label]) ? IG_CATS[it.label] : IG_GROW;
-const IG_ORDER = ['grow', 'ai', 'sec', 'mkt', 'dev', 'ind', 'fin'];
+const IG_ORDER = ['grow', 'ai', 'sec', 'law', 'geo', 'mkt', 'startup', 'dev', 'ind', 'fin'];
 
 function hubPage() {
   const tiles = ITEMS.map((it) => {
