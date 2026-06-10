@@ -171,6 +171,7 @@ const ITEMS = [
   require('./infografika-extra-l.js'),
   require('./infografika-extra-m.js'),
   require('./infografika-extra-n.js'),
+  require('./infografika-extra-o.js'),
 );
 
 // ---------- SVG обложки (Колор-блок) ----------
