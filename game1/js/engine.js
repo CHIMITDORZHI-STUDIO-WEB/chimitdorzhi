@@ -65,7 +65,7 @@
     row.classList.remove('kept', 'cut');
     if (st === 'kept') { row.classList.add('kept'); mark.textContent = '✓'; }
     else if (st === 'cut') { row.classList.add('cut'); mark.textContent = '✕'; }
-    else { mark.textContent = '○'; }
+    else { mark.textContent = ''; }
     const stLabel = st === 'kept' ? 'оставлено' : st === 'cut' ? 'убрано' : 'не отмечено';
     row.setAttribute('aria-label', 'Слово ' + wd.w + ' — ' + stLabel + '. Нажмите, чтобы изменить.');
     row.setAttribute('aria-pressed', st === 'kept' ? 'true' : 'false');
