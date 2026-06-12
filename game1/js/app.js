@@ -57,8 +57,7 @@
     chain.innerHTML = '';
     lvl.words.forEach((wd, i) => chain.appendChild(buildRow(wd, i, onToggle)));
 
-    // Кнопка «следующий» активна только если есть следующий играбельный уровень.
-    $('btnNext').disabled = li >= PLAYABLE.length - 1;
+    refreshNext();
 
     // Если уровень уже пройден ранее — мягко сообщим.
     const saved = progress.levels[lvl.id];
@@ -79,6 +78,14 @@
   function updateMarked() {
     const done = state.filter((s) => s !== null).length;
     $('marked').textContent = 'Отмечено ' + done + ' из ' + state.length;
+  }
+
+  // Следующий уровень доступен, только если он есть и уже разблокирован
+  // (текущий пройден). До прохождения кнопка заблокирована — §6 спеки.
+  function refreshNext() {
+    const noNext = li >= PLAYABLE.length - 1;
+    const locked = (li + 1) >= progress.unlocked;
+    $('btnNext').disabled = noNext || locked;
   }
 
   function check() {
@@ -105,6 +112,7 @@
       setResult('win', 'Верно всё! Вы увидели, как один корень ' + lvl.root +
         ' проходит через языки — и отделили настоящих родственников от созвучных чужаков.' + tail);
       updateHud();
+      refreshNext();
     } else {
       setResult('miss', 'Угадано ' + correct + ' из ' + total +
         '. Похожие по звучанию — ещё не родня: у омонимов другой корень. Откройте значение или словарь и проверьте ещё раз.');

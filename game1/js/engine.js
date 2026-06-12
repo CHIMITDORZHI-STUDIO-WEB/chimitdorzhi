@@ -47,8 +47,8 @@
       if (open) { meanEl.removeAttribute('hidden'); revealBtn.textContent = 'скрыть значение'; revealBtn.setAttribute('aria-expanded', 'true'); }
       else { meanEl.setAttribute('hidden', ''); revealBtn.textContent = 'значение'; revealBtn.setAttribute('aria-expanded', 'false'); }
     });
-    // Ссылка на словарь не должна классифицировать слово.
-    row.querySelector('.dict').addEventListener('click', (e) => e.stopPropagation());
+    // Клики внутри панели значения (текст и ссылка) не классифицируют слово.
+    meanEl.addEventListener('click', (e) => e.stopPropagation());
 
     const fire = () => onToggle(i, row);
     row.addEventListener('click', fire);
