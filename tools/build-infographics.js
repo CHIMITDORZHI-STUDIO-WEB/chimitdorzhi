@@ -172,6 +172,7 @@ const ITEMS = [
   require('./infografika-extra-m.js'),
   require('./infografika-extra-n.js'),
   require('./infografika-extra-o.js'),
+  require('./infografika-extra-p.js'),
 );
 
 // ---------- SVG обложки (светлый «отчётный» стиль, 6 макетов) ----------
@@ -312,7 +313,7 @@ function infoSvg(it) {
     const words = l.split(' ');
     if (words.length === 1) return `${T(M, y, titleFs, 800, accent, ' letter-spacing="-2"')}${escXml(l)}</text>`;
     const head = words.slice(0, -1).join(' ') + ' ', tail = words[words.length - 1];
-    return `${T(M, y, titleFs, 800, INK, ' letter-spacing="-2"')}<tspan fill="${INK}">${escXml(head)}</tspan><tspan fill="${accent}">${escXml(tail)}</tspan></text>`;
+    return `${T(M, y, titleFs, 800, INK, ' letter-spacing="-2" xml:space=&quot;preserve&quot;'.replace(/&quot;/g,String.fromCharCode(34)))}<tspan fill="${INK}">${escXml(head)}</tspan><tspan fill="${accent}">${escXml(tail)}</tspan></text>`;
   }).join('\n  ');
   const titleBottom = ty + (lines.length - 1) * lineH;
   const subLines = wrapTitle(it.tagline || '', 42), subY = titleBottom + 64;
