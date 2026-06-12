@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Аналитика MAX-канала: метрики</title>
+    <meta name="description" content="Аналитика канала в MAX: зачем она нужна, ключевые метрики (охват, вовлечённость, прирост и отток, переходы, конверсия, стоимость подписчика), как их считать…">
+    <meta name="keywords" content="аналитика канала max, метрики канала, вовлечённость, стоимость подписчика, сквозная аналитика">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/analitika-max-kanala-2027/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/analitika-max-kanala-2027/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/analitika-max-kanala-2027/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/analitika-max-kanala-2027/">
+    <meta property="og:title" content="Аналитика MAX-канала: метрики">
+    <meta property="og:description" content="Аналитика канала в MAX: зачем она нужна, ключевые метрики (охват, вовлечённость, прирост и отток, переходы, конверсия, стоимость подписчика), как их считать…">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/analitika-max-kanala-2027/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Аналитика MAX-канала: метрики">
+    <meta name="twitter:description" content="Аналитика канала в MAX: зачем она нужна, ключевые метрики (охват, вовлечённость, прирост и отток, переходы, конверсия, стоимость подписчика), как их считать…">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/analitika-max-kanala-2027/cover.png">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor-Fill.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=41">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Аналитика MAX-канала: какие метрики считать и как",
+  "description": "Аналитика канала в MAX: зачем она нужна, ключевые метрики (охват, вовлечённость, прирост и отток, переходы, конверсия, стоимость подписчика), как их считать, инструменты и решения по цифрам.",
+  "image": "https://chimitdorzhi.tech/blog/analitika-max-kanala-2027/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/analitika-max-kanala-2027/"
+  },
+  "datePublished": "2026-06-12",
+  "dateModified": "2026-06-12",
+  "keywords": "MAX, аналитика, метрики, маркетинг, 2027",
+  "articleSection": "Маркетинг и контент",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Аналитика MAX-канала: какие метрики считать и как",
+      "item": "https://chimitdorzhi.tech/blog/analitika-max-kanala-2027/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Какие метрики считать в самом начале, когда подписчиков мало?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Начните с трёх: охват каждого поста, вовлечённость и прирост за неделю. Этого достаточно, чтобы понять, читают ли вас и растёте ли вы. Переходы и конверсию подключайте, как только начнёте вести трафик на сайт или собирать заявки — раньше эти цифры просто не на чем считать."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Какой коэффициент вовлечённости считается нормальным?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Универсальной нормы нет — она зависит от тематики, размера и характера канала. Небольшие нишевые каналы часто показывают вовлечённость выше, чем крупные. Правильнее сравнивать канал не с чужими цифрами, а с самим собой во времени: если ER стабильно растёт или держится при росте аудитории — это хороший знак."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли обойтись без сторонних сервисов и платить только за труд?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да. Встроенной статистики MAX, бесплатной Яндекс Метрики, UTM-меток и обычной таблицы хватает для полноценной аналитики небольшого и среднего канала. Платные сервисы и автоматизация нужны, когда объёмы данных растут и ручной сбор начинает съедать слишком много времени."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как отличить «живых» подписчиков от накрученных?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Главный признак — разрыв между размером базы и реальной активностью. Если подписчиков много, а охват и реакции на их фоне ничтожны, скорее всего часть аудитории мёртвая или накрученная. Поэтому стоимость подписчика всегда оценивают в паре с его дальнейшим поведением, а не саму по себе."
+      }
+    }
+  ]
+}
+    </script>
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+            <li><a href="/#services" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li class="nav-dropdown">
+                <a href="/#projects" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--arey"><i class="ph-fill ph-vinyl-record" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-airplane-tilt" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#cases" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            </div>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/#about">Обо мне</a></li>
+        <li><a href="/#services">Услуги</a></li>
+        <li><a href="/services/">Каталог услуг</a></li>
+        <li><a href="/predlozheniya/">Предложения</a></li>
+        <li><a href="/#cases">Кейсы</a></li>
+        <li><a href="/blog/">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+        <li><a href="/#contact">Контакт</a></li>
+    </ul>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Аналитика MAX-канала: какие метрики считать и как</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/marketing/"><i class="ph ph-bookmark" aria-hidden="true"></i> Маркетинг и контент</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин чтения</span>
+                        <time datetime="2026-06-12"><i class="ph ph-calendar" aria-hidden="true"></i> 12 июня 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Аналитика MAX-канала: какие метрики считать и как</h1>
+
+                    <p class="blog-lead">Без цифр маркетинг — гадание. Разбираю аналитику MAX-канала: какие метрики считать (охват, вовлечённость, отток, конверсия, стоимость подписчика), как их получить и какие решения принимать.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>MAX</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>аналитика</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>метрики</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>маркетинг</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>2027</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr">
+  <h3>Коротко (TL;DR)</h3>
+  <ul>
+    <li>Аналитика MAX-канала нужна не ради красивых графиков, а чтобы понимать: растёт ли аудитория, читают ли вас, приносит ли канал заявки и продажи. Без цифр любое продвижение превращается в гадание.</li>
+    <li>Базовый набор метрик: охват публикации, коэффициент вовлечённости (ER), прирост и отток подписчиков, переходы по ссылкам, конверсия в целевое действие и стоимость привлечения подписчика. Каждую из них легко считать вручную или встроенными счётчиками.</li>
+    <li>Главный принцип — связывать метрики между собой и с деньгами. Большой охват без конверсии и низкая стоимость подписчика без удержания одинаково опасны и приводят к ложным выводам.</li>
+    <li>Сквозная аналитика через UTM-метки и простую таблицу превращает разрозненные цифры в воронку: от показа поста до оплаты. Это и есть основа решений о контенте, бюджете и темпе роста.</li>
+  </ul>
+</div>
+
+<h2 id="zachem-analitika">Зачем каналу аналитика</h2>
+<p>Аналитика канала — это не отчётность ради отчётности и не дашборд для красоты. Это способ отвечать на простые деловые вопросы: стоит ли продолжать вести канал, какой контент работает, окупается ли реклама и где теряются люди по пути к покупке. Когда у владельца канала нет цифр, он принимает решения на ощущениях: «вроде стали меньше лайкать», «кажется, отписываются». Ощущения почти всегда обманывают, а цифры — нет.</p>
+<p>В мессенджере MAX канал — это полноценный маркетинговый инструмент: витрина, новостная лента и точка контакта с аудиторией одновременно. И как у любого инструмента, у него есть КПД. Аналитика как раз измеряет этот КПД. Она показывает, сколько людей реально видит ваши публикации, сколько из них реагирует, сколько переходит на сайт и сколько в итоге оставляет заявку или оплачивает. Без этой цепочки невозможно понять, приносит канал деньги или просто отнимает время.</p>
+<p>Есть ещё одна причина считать метрики — экономия бюджета. Реклама, посевы, коллаборации стоят денег. Если вы не знаете стоимость привлечённого подписчика и его дальнейшее поведение, вы не отличите выгодный источник трафика от убыточного. В результате деньги уходят в каналы, которые приводят «мёртвые души» — подписчиков, которые никогда ничего не купят. Аналитика отсекает такие источники ещё на старте.</p>
+<p>Важно сразу задать себе цель канала. Один канал ведут ради продаж, другой — ради прогрева и доверия, третий — ради поддержки клиентов. От цели зависит, какие метрики главные. Для канала-витрины важнее конверсия и переходы, для медийного — охват и вовлечённость, для сервисного — удержание и отток. Поэтому первый шаг аналитики — не открыть статистику, а честно сформулировать, зачем вообще существует канал.</p>
+
+<h2 id="klyuchevye-metriki">Ключевые метрики канала</h2>
+<p>Разберём базовый набор метрик, которого хватает 90% каналов. Не нужно гнаться за десятками показателей — лучше регулярно считать шесть-семь и понимать каждый, чем собирать сотню цифр, которые ни на что не влияют. Объясню каждую метрику простыми словами.</p>
+<ul>
+  <li><strong>Охват</strong> — сколько уникальных людей увидело конкретную публикацию. Это не количество подписчиков, а реальное число прочитавших. Если в канале 5000 подписчиков, а пост увидели 1500, охват равен 1500. Охват показывает, до скольких человек вообще дошёл ваш контент. Низкий охват при большой базе — сигнал, что подписчики «спят» или контент не попадает в их интересы.</li>
+  <li><strong>Коэффициент вовлечённости (ER, от английского engagement rate)</strong> — доля людей, которые не просто увидели пост, а отреагировали: поставили реакцию, ответили, переслали, проголосовали. Считается как отношение числа реакций к охвату или к числу подписчиков, умноженное на сто процентов. По-русски это «коэффициент вовлечённости». Он показывает, насколько контент задевает аудиторию. Большой охват при низком ER означает, что вас видят, но он вам безразличны.</li>
+  <li><strong>Прирост и отток подписчиков</strong> — сколько людей подписалось и отписалось за период. Прирост без учёта оттока обманчив: можно набрать 300 новых и потерять 280 старых, и тогда канал фактически стоит на месте. Отток — это «дырявое ведро»: пока вы льёте в него трафик, вода уходит через дно. Здоровый канал растёт за счёт того, что прирост стабильно превышает отток, а сам отток держится в разумных пределах.</li>
+  <li><strong>Переходы по ссылкам</strong> — сколько раз люди кликнули по ссылке из поста: на сайт, в карточку товара, на форму. Это первый измеримый шаг от контента к действию. Переходы показывают, насколько убедителен ваш призыв и интересно ли предложение. Пост может собрать много реакций, но почти не давать переходов — значит, людям нравится читать, но покупать они не готовы.</li>
+  <li><strong>Конверсия в целевое действие</strong> — доля тех, кто после перехода совершил нужное вам действие: оставил заявку, записался, оплатил, подписался на рассылку. Считается как отношение числа целевых действий к числу переходов. Это сердцевина всей аналитики: именно здесь видно, превращается ли внимание в результат. Высокий охват и переходы при нулевой конверсии означают, что проблема не в канале, а в посадочной странице или предложении.</li>
+  <li><strong>Стоимость привлечения подписчика</strong> — сколько денег вы потратили на рекламу, делённое на число новых подписчиков, пришедших с этой рекламы. Если вложили 10 000 рублей и получили 200 подписчиков, стоимость одного — 50 рублей. Эта метрика отвечает на вопрос «дорого или дёшево я расту» и позволяет сравнивать источники трафика между собой. Но сама по себе она ничего не значит без оценки качества этих подписчиков.</li>
+</ul>
+<p>Эти шесть метрик образуют логичную цепочку: охват → вовлечённость → переходы → конверсия → деньги, а стоимость подписчика стоит на входе как цена топлива. Если смотреть на них вместе, а не по отдельности, картина становится объёмной. Падение конверсии при стабильном охвате и стоимости подписчика сразу подсказывает, где искать проблему — не в количестве людей, а в качестве предложения.</p>
+<p>Подробнее о том, как устроены сами каналы и рассылки в мессенджере и какие форматы публикаций дают лучший отклик, я писал в материале про <a href="/blog/max-kanaly-rassylki-marketing-2026/">каналы и рассылки в MAX</a>. Аналитика — это надстройка над контентом, и без понимания форматов цифры читать сложнее.</p>
+
+<h2 id="kak-schitat">Как считать и где смотреть</h2>
+<p>Большую часть метрик не нужно считать вручную каждый день — достаточно настроить источники данных один раз. Охват и реакции MAX показывает во встроенной статистике публикаций: у каждого поста видно число просмотров и реакций. Это базовый слой, который доступен любому администратору канала без дополнительных инструментов.</p>
+<p>Вовлечённость считается из этих же данных. Берёте сумму реакций, ответов и пересылок за пост, делите на охват и умножаете на сто процентов — получаете ER конкретной публикации. Чтобы оценить канал в целом, усредните показатель за две-четыре недели. Один пост может «выстрелить» или провалиться случайно, поэтому смотреть надо на тренд, а не на отдельные всплески.</p>
+<p>Прирост и отток удобно фиксировать раз в неделю в простой таблице: дата, число подписчиков на начало недели, на конец, разница. Если MAX показывает динамику подписок, берите цифры оттуда; если нет — записывайте число подписчиков вручную по понедельникам. Через месяц у вас уже будет график, по которому видно, ускоряется рост или замедляется, и совпадают ли провалы с конкретными событиями вроде неудачного поста или окончания рекламы.</p>
+<p>Переходы и конверсию нельзя увидеть внутри мессенджера — их нужно ловить на стороне сайта. Для этого к каждой ссылке добавляют UTM-метки: специальные пометки в адресе, по которым система веб-аналитики понимает, откуда пришёл человек. Тогда в Яндекс Метрике видно, сколько людей перешло именно из этого поста и сколько из них дошло до заявки. Без меток весь трафик из MAX сольётся в безликий «переход по ссылке», и разобрать его на источники будет невозможно.</p>
+<p>Стоимость подписчика считается по факту рекламной кампании. Записывайте бюджет каждого размещения и число подписчиков, пришедших именно с него — отследить их помогает отдельная ссылка-приглашение на каждый источник. Разделив одно на другое, вы получите честную цену по каждому каналу трафика и быстро увидите, какие посевы окупаются, а какие просто жгут бюджет.</p>
+
+<h2 id="instrumenty">Инструменты и сквозная аналитика</h2>
+<p>Минимальный набор инструментов проще, чем кажется. Встроенная статистика MAX даёт охват и реакции. Яндекс Метрика на сайте ловит переходы, поведение и конверсии. UTM-метки связывают одно с другим. И обычная таблица — Google Таблицы или Excel — собирает всё в единую картину. Этого достаточно, чтобы вести канал осознанно даже без дорогих сервисов.</p>
+<p>Сквозная аналитика — это когда вы видите весь путь человека от показа поста до оплаты в одной воронке, а не как набор разрозненных цифр. Суть в том, чтобы каждый шаг был помечен и подсчитан: пост показали стольким-то, столько-то перешло, столько-то оставило заявку, столько-то купило на такую-то сумму. Когда воронка собрана целиком, сразу видно узкое место — этап, где теряется больше всего людей. Именно его и нужно чинить в первую очередь.</p>
+<p>Собрать такую воронку помогает простая таблица с колонками: дата, пост, охват, реакции, переходы, заявки, продажи, выручка. Заполняя её еженедельно, вы за месяц-два получаете базу, по которой видно закономерности: какие темы дают переходы, какие форматы — заявки, в какие дни аудитория активнее. Это уже не догадки, а управляемый процесс. Связку MAX-канала с другими источниками трафика и общую логику привлечения я разбирал в статье про <a href="/blog/marketing-i-trafik-2027/">маркетинг и трафик</a>.</p>
+<p>Если канал растёт и ручных таблиц становится мало, есть смысл выстроить полноценную систему отчётности с автоматическим сбором данных и регулярными срезами. Это уже отдельная работа: настройка меток, целей в Метрике, дашбордов и единой воронки под конкретный бизнес. Такую задачу я закрываю в рамках услуги <a href="/predlozheniya/analitika-soobshchestva/">аналитика сообщества и канала</a> — от аудита текущих цифр до настроенной сквозной аналитики, по которой можно принимать решения, а не любоваться графиками.</p>
+<p>Отдельно стоит помнить про закон. Любая аналитика, которая собирает данные пользователей, должна соответствовать 152-ФЗ о персональных данных. На практике это означает корректную работу со ссылками и формами, согласие на обработку данных там, где вы собираете контакты, и аккуратность с тем, что именно вы храните. Аналитика поведения в канале по обезличенным цифрам — охватам и переходам — таких рисков обычно не несёт, но как только вы собираете заявки с контактами, требования закона включаются полностью.</p>
+
+<h2 id="resheniya">Как принимать решения по цифрам</h2>
+<p>Цифры сами по себе не управляют каналом — управляют решения, которые вы на их основе принимаете. Главная ошибка новичков в том, что они смотрят на одну метрику в отрыве от остальных. Большой охват радует, но если за ним нет переходов и конверсии, это пустая популярность. Дешёвый подписчик радует, но если он отписывается через неделю, его низкая цена обманчива. Решения принимают по связкам метрик, а не по одной цифре.</p>
+<p>Разберём типичные ситуации и что они подсказывают:</p>
+<ul>
+  <li><strong>Охват падает, вовлечённость держится.</strong> Контент по-прежнему интересен оставшимся, но до людей он доходит хуже. Стоит проверить частоту и время публикаций, оживить «спящих» подписчиков и подумать о притоке свежей аудитории.</li>
+  <li><strong>Охват большой, вовлечённость низкая.</strong> Вас видят, но не задевает. Проблема в самом контенте: темы, подача, призывы не цепляют. Здесь не нужен новый трафик — нужно менять то, что вы публикуете.</li>
+  <li><strong>Переходов много, конверсия низкая.</strong> Канал работает, а посадочная страница или предложение — нет. Чинить нужно не контент, а сайт, оффер или форму заявки.</li>
+  <li><strong>Стоимость подписчика низкая, но отток высокий.</strong> Вы дёшево набираете людей, которым канал не нужен. Дешевизна обманчива: качество трафика важнее цены, и такой источник часто выгоднее отключить.</li>
+</ul>
+<p>Полезное правило — менять что-то одно за раз и смотреть на результат. Если вы одновременно сменили формат постов, время публикации и запустили рекламу, а охват вырос, вы не поймёте, что именно сработало. Изолированные изменения дают чистые выводы. Это медленнее, зато вы накапливаете реальное знание о своей аудитории, а не набор совпадений.</p>
+<p>И последнее — смотрите на динамику, а не на абсолютные числа. Канал с ER в три процента может быть здоровее канала с пятью, если первый растёт, а второй падает. Тренд важнее моментального снимка. Поэтому ценность аналитики проявляется не в первый день, а через месяцы регулярных замеров, когда у вас на руках история и вы видите, куда движется канал.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+<p><strong>Какие метрики считать в самом начале, когда подписчиков мало?</strong> Начните с трёх: охват каждого поста, вовлечённость и прирост за неделю. Этого достаточно, чтобы понять, читают ли вас и растёте ли вы. Переходы и конверсию подключайте, как только начнёте вести трафик на сайт или собирать заявки — раньше эти цифры просто не на чем считать.</p>
+<p><strong>Какой коэффициент вовлечённости считается нормальным?</strong> Универсальной нормы нет — она зависит от тематики, размера и характера канала. Небольшие нишевые каналы часто показывают вовлечённость выше, чем крупные. Правильнее сравнивать канал не с чужими цифрами, а с самим собой во времени: если ER стабильно растёт или держится при росте аудитории — это хороший знак.</p>
+<p><strong>Можно ли обойтись без сторонних сервисов и платить только за труд?</strong> Да. Встроенной статистики MAX, бесплатной Яндекс Метрики, UTM-меток и обычной таблицы хватает для полноценной аналитики небольшого и среднего канала. Платные сервисы и автоматизация нужны, когда объёмы данных растут и ручной сбор начинает съедать слишком много времени.</p>
+<p><strong>Как отличить «живых» подписчиков от накрученных?</strong> Главный признак — разрыв между размером базы и реальной активностью. Если подписчиков много, а охват и реакции на их фоне ничтожны, скорее всего часть аудитории мёртвая или накрученная. Поэтому стоимость подписчика всегда оценивают в паре с его дальнейшим поведением, а не саму по себе.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+<p>Аналитика MAX-канала — это не про графики, а про решения. Шесть базовых метрик — охват, вовлечённость, прирост и отток, переходы, конверсия и стоимость подписчика — дают полную картину КПД канала, если смотреть на них вместе, а не по отдельности. Каждую легко считать встроенной статистикой, Яндекс Метрикой и простой таблицей, без дорогих инструментов.</p>
+<p>Главная ценность появляется, когда разрозненные цифры собираются в единую воронку от показа поста до оплаты. Сквозная аналитика показывает узкое место, и именно туда направляются усилия и бюджет. Менять по одному параметру за раз, смотреть на динамику, а не на снимок, и связывать каждую метрику с деньгами — вот и весь метод. Дальше остаётся регулярность: канал, который измеряют каждую неделю, растёт осознанно, а не на удачу.</p>
+
+                    </div>
+
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Что я делаю для MAX-маркетинга</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-megaphone"></i> <span>Продвижение и реклама канала</span></li>
+    
+    <li><i class="ph-fill ph-funnel"></i> <span>Автоворонки и рассылки в MAX</span></li>
+    
+    <li><i class="ph-fill ph-users-three"></i> <span>Рост аудитории и рефералы</span></li>
+    
+    <li><i class="ph-fill ph-game-controller"></i> <span>Вовлечение и геймификация</span></li>
+    
+    <li><i class="ph-fill ph-chart-line-up"></i> <span>Аналитика канала и сообщества</span></li>
+    
+  </ul>
+  <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
+  </a>
+</div>
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/analitika-soobshchestva/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовое решение по теме</span>
+                            <span class="blog-offer-cta-title">Сквозная аналитика сообщества и приглашений</span>
+                            <span class="blog-offer-cta-price">Бесплатная консультация · Запуск за 3–4 недели</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-arrow-right" aria-hidden="true"></i> Смотреть предложение</span>
+                    </a>
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/predlozheniya/analitika-soobshchestva/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Настроить аналитику канала</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/max-kanaly-rassylki-marketing-2026/" data-category="marketing">
+  
+  <div class="blog-card-icon"><i class="ph-megaphone"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Маркетинг и контент</span>
+  <h3>Каналы и рассылки в МАКС: маркетинг в национальном мессенджере</h3>
+  <p>МАКС растёт как национальный мессенджер, а конкуренция за внимание в нём пока низкая — самое время заводить канал. Разбираю, как использовать каналы и рассылки в МАКС для маркетинга и не нарушить закон о рекламе и 152-ФЗ.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 3 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 13 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/marketing-i-trafik-2027/" data-category="marketing">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-megaphone"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Маркетинг и контент</span>
+  <h3>Маркетинг и трафик 2027: как привлекать и удерживать клиентов системно</h3>
+  <p>Реклама без измерения — это слив бюджета. Разбираю, как собрать маркетинг в систему: сквозная аналитика и коллтрекинг, лид-магниты, email и мессенджеры, AI-контент, репутация и удержание — чтобы было видно, что приносит деньги.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 6 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 18 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/reklama-v-max-2027/" data-category="marketing">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-megaphone"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Маркетинг и контент</span>
+  <h3>Реклама в MAX в 2027: форматы, цены и как запустить</h3>
+  <p>Разбираю рекламу в MAX по-взрослому: какие форматы есть, как запустить кампанию пошагово, на какой бюджет закладываться, как настроить аудиторию и где рекламодатели чаще всего теряют деньги.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 12 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовые решения под ключ</span>
+                            <span class="blog-offer-cta-title">426 готовых IT-решений для бизнеса</span>
+                            <span class="blog-offer-cta-price">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Смотреть каталог</span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#zachem-analitika"><span class="blog-toc-num">01</span> Зачем аналитика</a></li>
+<li><a href="#klyuchevye-metriki"><span class="blog-toc-num">02</span> Ключевые метрики</a></li>
+<li><a href="#kak-schitat"><span class="blog-toc-num">03</span> Как считать</a></li>
+<li><a href="#instrumenty"><span class="blog-toc-num">04</span> Инструменты</a></li>
+<li><a href="#resheniya"><span class="blog-toc-num">05</span> Решения по цифрам</a></li>
+<li><a href="#faq"><span class="blog-toc-num">06</span> FAQ</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">07</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=23" defer></script>
+<script src="/services-i18n.js?v=23" defer></script>
+<script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>

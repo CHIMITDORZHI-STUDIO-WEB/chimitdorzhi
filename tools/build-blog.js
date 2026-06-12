@@ -16,6 +16,20 @@ const subOffersCount = (s) => String(s).split('{{OFFERS_COUNT}}').join(OFFERS_CO
 
 // Карта: slug статьи → slug предложения. Добавляйте по мере роста раздела.
 const OFFER_LINKS = {
+  'reklama-v-max-2027': 'analitika-soobshchestva',
+  'pervye-podpischiki-max-bez-byudzheta-2027': 'max-deeplink-referral',
+  'posevy-v-max-kanalah-2027': 'analitika-soobshchestva',
+  'perevod-auditorii-v-max-2027': 'max-deeplink-referral',
+  'kontent-plan-max-kanala-2027': 'max-dajdzhest-krosspost',
+  'vovlechennost-v-max-2027': 'geymifikaciya-kanala-max',
+  'progrev-i-zapusk-cherez-max-2027': 'max-rassylki-voronki',
+  'avtovoronka-v-max-2027': 'max-rassylki-voronki',
+  'bot-plus-rassylka-max-povtornye-prodazhi-2027': 'max-rassylki-voronki',
+  'segmentaciya-podpischikov-max-2027': 'max-rassylki-voronki',
+  'monetizaciya-kanala-max-2027': 'klub-po-podpiske',
+  'analitika-max-kanala-2027': 'analitika-soobshchestva',
+  'max-ili-telegram-dlya-biznesa-2027': 'bot-dlya-biznesa',
+  'lokalnyy-marketing-v-max-2027': 'analitika-soobshchestva',
   'geymifikaciya-dlya-biznesa-gayd-2027': 'konstruktor-konkursov',
   'programma-loyalnosti-bez-skidok-2027': 'statusnaya-loyalnost',
   'geymifikaciya-otdela-prodazh-i-sotrudnikov-2027': 'geymifikaciya-otdela-prodazh',
