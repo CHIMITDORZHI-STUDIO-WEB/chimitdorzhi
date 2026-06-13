@@ -16,6 +16,16 @@ const subOffersCount = (s) => String(s).split('{{OFFERS_COUNT}}').join(OFFERS_CO
 
 // Карта: slug статьи → slug предложения. Добавляйте по мере роста раздела.
 const OFFER_LINKS = {
+  'internet-magazin-ulan-ude-ili-marketpleys-2026': 'bystryy-start-sayt',
+  'dostavka-edy-ulan-ude-2026': 'dostavka-dlya-seti',
+  'neyroseti-dlya-biznesa-10-zadach-2026': 'ai-konsultant',
+  'avtomatizaciya-7-rutin-2026': 'ai-konsultant',
+  'yandex-direkt-ulan-ude-2026': 'skvoznaya-analitika-koltreking',
+  'crm-bitrix24-irkutsk-2026': 'ai-konsultant',
+  'avtomatizaciya-lokalnogo-magazina-2026': 'bot-magazin-zakazy',
+  'ii-assistent-otdela-prodazh-2026': 'ai-otdel-prodazh-podderzhki',
+  'granty-podderzhka-biznesa-buryatiya-2026': 'it-granty-gospodderzhka',
+  '152-fz-internet-magazin-2026': '152-fz-pod-klyuch',
   'reklama-v-max-2027': 'analitika-soobshchestva',
   'pervye-podpischiki-max-bez-byudzheta-2027': 'max-deeplink-referral',
   'posevy-v-max-kanalah-2027': 'analitika-soobshchestva',
