@@ -173,6 +173,7 @@ const ITEMS = [
   require('./infografika-extra-n.js'),
   require('./infografika-extra-o.js'),
   require('./infografika-extra-p.js'),
+  require('./infografika-extra-q.js'),
 );
 
 // ---------- SVG обложки (светлый «отчётный» стиль, 6 макетов) ----------
