@@ -29,7 +29,7 @@ module.exports = [
     tags: ['МЛМ', 'сетевой маркетинг', 'обзор', 'Бурятия', '2026'],
     toc: toc(['pochemu-populyaren', 'Почему популярен в регионе'], ['kak-chitat-obzor', 'Как читать обзор'], ['rossiyskie-sibirskie', 'Российские и сибирские'], ['mezhdunarodnye', 'Международные'], ['pryamye-prodazhi', 'Прямые продажи и ниши'], ['mlm-ili-piramida', 'МЛМ или пирамида'], ['kak-vybrat', 'Как выбрать'], ['cifrovoy-ugol', 'Цифровой угол'], ['faq', 'FAQ'], ['vyvody', 'Коротко о главном']),
     ctaInternal: { url: 'https://chimitdorzhi.tech/predlozheniya/sayt-distributora/', label: 'Сделать свой актив сетевика' },
-    relatedSlugs: ['sibirskoe-zdorovie-obzor-2026', 'faberlik-obzor-2026', 'greenway-obzor-2026'],
+    relatedSlugs: ['sibirskoe-zdorovie-obzor-2026', 'faberlik-obzor-2026', 'greenway-obzor-2026', 'oriflame-vs-sibirskoe-zdorovie-vs-faberlik-2026'],
   }),
   E({
     slug: 'sibirskoe-zdorovie-obzor-2026',
