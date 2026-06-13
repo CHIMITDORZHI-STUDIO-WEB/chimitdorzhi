@@ -167,7 +167,7 @@ module.exports = `
   <div>
     <strong>Организую киберспортивный турнир под ключ. От 500 000 ₽</strong>
     <p>Концепция, площадка, спонсоры, стрим, маркетинг — всё под ключ. 50+ организованных ивентов, кибертурниры в Чите и Калининграде в портфеле.</p>
-    <a href="https://chimitdorzhi.tech/services/event-organization/">Организовать киберспортивный турнир <i class="ph ph-arrow-right"></i></a>
+    <a href="https://chimitdorzhi.tech/predlozheniya/it-event-agentstvo/">Организовать киберспортивный турнир <i class="ph ph-arrow-right"></i></a>
   </div>
 </div>
 

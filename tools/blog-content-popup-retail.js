@@ -173,7 +173,7 @@ module.exports = `
   <div>
     <strong>Запущу pop-up киберспорт-активацию в вашем магазине/ТЦ. От 250 000 ₽ за weekend</strong>
     <p>Оборудование, организаторы, маркетинг, контент — всё под ключ. Опыт 50+ ивентов, включая региональные активации в Чите, Калининграде, Иркутске. Выберу формат под ваш ритейл-бизнес.</p>
-    <a href="https://chimitdorzhi.tech/services/event-organization/">Pop-up турнир для вашего магазина <i class="ph ph-arrow-right"></i></a>
+    <a href="https://chimitdorzhi.tech/predlozheniya/it-event-agentstvo/">Pop-up турнир для вашего магазина <i class="ph ph-arrow-right"></i></a>
   </div>
 </div>
 

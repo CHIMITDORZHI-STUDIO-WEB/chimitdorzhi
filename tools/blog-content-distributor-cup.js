@@ -163,7 +163,7 @@ module.exports = `
   <div>
     <strong>Организую Кубок дилеров под вашу марку. От 400 000 ₽</strong>
     <p>От концепции до финала и контента после. Опыт 50+ ивентов, корпоративные активации для российских брендов. Подскажу формат под ваших партнёров.</p>
-    <a href="https://chimitdorzhi.tech/services/event-organization/">Организовать кубок для дилеров <i class="ph ph-arrow-right"></i></a>
+    <a href="https://chimitdorzhi.tech/predlozheniya/it-event-agentstvo/">Организовать кубок для дилеров <i class="ph ph-arrow-right"></i></a>
   </div>
 </div>
 
