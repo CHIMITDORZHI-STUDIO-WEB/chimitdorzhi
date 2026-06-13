@@ -69,7 +69,7 @@ module.exports = `
   <div>
     <strong>Создам брендированную лигу под ключ. От 800 000 ₽ за концепцию</strong>
     <p>Концепция, спонсорские пакеты, 12-месячный календарь, юр-структура, команда, продакшн. 50+ ивентов опыта, кибертурниры в Чите и Калининграде в портфеле.</p>
-    <a href="https://chimitdorzhi.tech/services/event-organization/">Запустить киберспорт-лигу для бренда <i class="ph ph-arrow-right"></i></a>
+    <a href="https://chimitdorzhi.tech/predlozheniya/it-event-agentstvo/">Запустить киберспорт-лигу для бренда <i class="ph ph-arrow-right"></i></a>
   </div>
 </div>
 
@@ -198,7 +198,7 @@ module.exports = `
   <div>
     <strong>Готов запустить вашу киберспорт-лигу под бренд</strong>
     <p>Концепция, спонсорские пакеты, 12-месячный план, юр-структура, команда. От первых переговоров с title-спонсором до Grand Final.</p>
-    <a href="https://chimitdorzhi.tech/services/event-organization/">Запустить киберспорт-лигу для бренда <i class="ph ph-arrow-right"></i></a>
+    <a href="https://chimitdorzhi.tech/predlozheniya/it-event-agentstvo/">Запустить киберспорт-лигу для бренда <i class="ph ph-arrow-right"></i></a>
   </div>
 </div>
 
