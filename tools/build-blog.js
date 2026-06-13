@@ -16,6 +16,12 @@ const subOffersCount = (s) => String(s).split('{{OFFERS_COUNT}}').join(OFFERS_CO
 
 // Карта: slug статьи → slug предложения. Добавляйте по мере роста раздела.
 const OFFER_LINKS = {
+  'dostavka-edy-chita-2026': 'dostavka-dlya-seti',
+  'internet-magazin-chita-ili-marketpleys-2026': 'bystryy-start-sayt',
+  'yandex-direkt-chita-2026': 'skvoznaya-analitika-koltreking',
+  'granty-podderzhka-biznesa-zabaykalye-2026': 'it-granty-gospodderzhka',
+  'crm-bitrix24-chita-2026': 'ai-konsultant',
+  'avtomatizaciya-biznesa-chita-zabaykalye-2026': 'ai-konsultant',
   'internet-magazin-ulan-ude-ili-marketpleys-2026': 'bystryy-start-sayt',
   'dostavka-edy-ulan-ude-2026': 'dostavka-dlya-seti',
   'neyroseti-dlya-biznesa-10-zadach-2026': 'ai-konsultant',
