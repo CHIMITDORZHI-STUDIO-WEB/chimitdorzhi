@@ -298,7 +298,7 @@ function head({ title, description, keywords, canonical, ogImage = `${SITE}/hero
         <link rel="stylesheet" href="/assets/phosphor/regular.css">
         <link rel="stylesheet" href="/assets/phosphor/fill.css">
     </noscript>
-    <link rel="stylesheet" href="/style.css?v=42">
+    <link rel="stylesheet" href="/style.css?v=43">
 `;
 }
 
@@ -620,6 +620,46 @@ function servicesOfferCard(article) {
 </div>`;
 }
 
+const SERIES = {
+  setevik: {
+    title: 'Цикл «Цифровой сетевик»',
+    note: 'Путь от «нет людей» до управляемой команды — по шагам.',
+    items: [
+      { slug: 'zakonchilsya-spisok-znakomyh-setevoy-2026', label: 'Закончился список знакомых' },
+      { slug: 'istochniki-zayavok-dlya-setevika-2026', label: '7 источников заявок' },
+      { slug: 'rekruting-mlm-cherez-internet-2026', label: 'Рекрутинг через интернет' },
+      { slug: 'setevoy-biznes-posle-blokirovki-socsetey-2026', label: 'Куда перейти после блокировок' },
+      { slug: 'kontent-plan-dlya-setevika-30-dney-2026', label: 'Контент-план на 30 дней' },
+      { slug: 'chat-bot-avtovoronka-dlya-setevika-2026', label: 'Чат-бот и автоворонка' },
+      { slug: 'crm-dlya-setevika-iz-excel-2026', label: 'CRM вместо Excel' },
+      { slug: 'onbording-novichka-mlm-2026', label: 'Онбординг новичка' },
+      { slug: 'motivaciya-mlm-komandy-2026', label: 'Мотивация команды' },
+      { slug: 'uchet-struktury-mlm-dashboard-2026', label: 'Дашборд лидера' },
+    ],
+  },
+};
+const SERIES_OF = {};
+for (const [key, s] of Object.entries(SERIES)) for (const it of s.items) SERIES_OF[it.slug] = key;
+
+function seriesHtml(a, published) {
+  const key = SERIES_OF[a.slug];
+  if (!key) return '';
+  const s = SERIES[key];
+  const pub = new Set(published.map(p => p.slug));
+  const items = s.items.filter(it => pub.has(it.slug) || it.slug === a.slug);
+  const lis = items.map((it, i) => {
+    const num = `<span class="blog-series-num">${i + 1}</span>`;
+    if (it.slug === a.slug) return `<li class="is-current">${num}<span>${esc(it.label)}</span></li>`;
+    return `<li>${num}<a href="/blog/${it.slug}/">${esc(it.label)}</a></li>`;
+  }).join('\n    ');
+  return `<section class="blog-series" aria-label="${esc(s.title)}">
+  <div class="blog-series-head"><strong>${esc(s.title)}</strong><span>${esc(s.note)}</span></div>
+  <ol class="blog-series-list">
+    ${lis}
+  </ol>
+</section>`;
+}
+
 function relatedHtml(a, published) {
   // Resolve relatedSlugs to published articles. If none — fall back to service links.
   const map = new Map(published.map(p => [p.slug, p]));
@@ -753,6 +793,7 @@ ${faqLd(a)}</head>
                         ${bodyHtml}
                     </div>
 
+                    ${seriesHtml(a, published)}
                     ${servicesOfferCard(a)}
                     ${blogOfferCta(a)}
 
