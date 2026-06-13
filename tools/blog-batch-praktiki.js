@@ -1,0 +1,108 @@
+// Кластер «Частная практика»: психологи, коучи, эзотерики — 8 статей.
+const C = (s) => require('./blog-content-' + s + '.js');
+const D = '2026-06-14';
+const toc = (...p) => p.map(([id, text]) => ({ id, text }));
+const SVC = {
+  title: 'Что я делаю для частной практики',
+  services: [
+    { icon: 'ph-fill ph-calendar-check', label: 'Онлайн-запись и напоминания' },
+    { icon: 'ph-fill ph-robot', label: 'Чат-боты и AI-ассистенты' },
+    { icon: 'ph-fill ph-credit-card', label: 'Приём оплаты и подписки' },
+    { icon: 'ph-fill ph-address-book', label: 'CRM и база клиентов' },
+    { icon: 'ph-fill ph-shield-check', label: 'Защита данных и 152-ФЗ' },
+  ],
+};
+const E = (o) => Object.assign({
+  published: true, datePublished: D, dateModified: D, readingMinutes: 10, servicesOffer: SVC,
+}, o, { contentHtml: C(o.slug) });
+
+module.exports = [
+  E({
+    slug: '152-fz-dlya-psihologa-2026', category: 'legal', heroIcon: 'ph-fill ph-shield-check',
+    title: '152-ФЗ для психолога: данные клиентов без штрафов в 2026',
+    metaTitle: '152-ФЗ для психолога: данные клиентов без штрафов',
+    metaDescription: 'Как частному психологу соблюдать 152-ФЗ: согласие на обработку, особая категория данных о здоровье, безопасное хранение записей сессий, риски онлайн-консультаций и чек-лист соответствия. Без штрафов и без позиционирования как медуслуга.',
+    excerpt: 'Психолог работает с особо чувствительными данными, а про 152-ФЗ обычно не думает — пока не приходит проверка или утечка. Разбираю по делу: какое согласие нужно, где хранить записи сессий, чем рискуют онлайн-консультации и как привести всё в соответствие.',
+    tags: ['152-ФЗ', 'психологам', 'персональные данные', 'комплаенс', '2026'],
+    toc: toc(['chto-trebuet-zakon', 'Что требует закон'], ['osobye-dannye', 'Особая категория данных'], ['soglasie', 'Согласие на обработку'], ['hranenie', 'Хранение записей'], ['onlayn-konsultacii', 'Онлайн-консультации'], ['chek-list', 'Чек-лист'], ['faq', 'FAQ'], ['vyvody', 'Коротко о главном']),
+    ctaInternal: { url: 'https://chimitdorzhi.tech/predlozheniya/komplaens-152fz-psiholog/', label: 'Привести данные в соответствие' },
+    relatedSlugs: ['crm-dlya-chastnogo-praktika-2026', 'onlayn-zapis-psiholog-kouch-2026', 'priem-oplaty-dlya-praktika-2026'],
+  }),
+  E({
+    slug: 'psiholog-tarolog-posle-blokirovki-2026', category: 'marketing', heroIcon: 'ph-fill ph-arrow-bend-up-right',
+    title: 'Психолог и таролог после блокировки соцсетей: где брать клиентов',
+    metaTitle: 'Психолог и таролог после блокировки соцсетей 2026',
+    metaDescription: 'Куда переводить аудиторию психологу, коучу и эзотерику после блокировки соцсетей: Telegram, MAX, VK и свой сайт, своя база вместо чужой ленты, контент и прогрев без зависимости от площадки, план переезда за 30 дней. Нейтрально, без обещаний.',
+    excerpt: 'Когда площадка блокируется или режет охваты, частный практик остаётся без потока клиентов. Разбираю, куда переводить аудиторию, как собрать свою базу, которую у вас не отключит алгоритм, и как переехать за 30 дней без потери людей.',
+    tags: ['после блокировки', 'трафик', 'психологам', 'эзотерика', '2026'],
+    toc: toc(['chto-proizoshlo', 'Что произошло'], ['kuda-perevodit', 'Куда переводить'], ['svoya-baza', 'Своя база'], ['kontent-bez-ploshchadok', 'Контент без площадок'], ['plan-pereezda', 'План переезда'], ['faq', 'FAQ'], ['vyvody', 'Коротко о главном']),
+    ctaInternal: { url: 'https://chimitdorzhi.tech/predlozheniya/sayt-lending-eksperta-praktika/', label: 'Свой сайт и переезд аудитории' },
+    relatedSlugs: ['lichnyy-sayt-psihologa-kouch-2026', 'zakrytyy-klub-po-podpiske-2026', 'chat-bot-dlya-ezoterika-2026'],
+  }),
+  E({
+    slug: 'onlayn-zapis-psiholog-kouch-2026', category: 'industries', heroIcon: 'ph-fill ph-calendar-check',
+    title: 'Онлайн-запись для психолога и коуча: убрать переписку и no-show',
+    metaTitle: 'Онлайн-запись для психолога и коуча: без no-show',
+    metaDescription: 'Как настроить онлайн-запись психологу и коучу: убрать ручную переписку о слотах, напоминания против неявок (no-show), предоплата как фильтр, инструменты — бот, виджет на сайте, календарь. Практично, на российском стеке.',
+    excerpt: 'Переписка «а когда у вас окно?» съедает часы, а неявки бьют по доходу. Разбираю, как поставить онлайн-запись, чтобы клиент сам выбирал слот, получал напоминания и вносил предоплату — а вы занимались практикой, а не администрированием.',
+    tags: ['онлайн-запись', 'психологам', 'автоматизация', 'no-show', '2026'],
+    toc: toc(['problema-perepiski', 'Проблема переписки'], ['kak-rabotaet', 'Как работает запись'], ['napominaniya', 'Напоминания и неявки'], ['oplata-pri-zapisi', 'Предоплата'], ['instrumenty', 'Инструменты'], ['faq', 'FAQ'], ['vyvody', 'Коротко о главном']),
+    ctaInternal: { url: 'https://chimitdorzhi.tech/predlozheniya/bot-zapis-oplata-praktik/', label: 'Настроить бота записи' },
+    relatedSlugs: ['priem-oplaty-dlya-praktika-2026', 'crm-dlya-chastnogo-praktika-2026', '152-fz-dlya-psihologa-2026'],
+  }),
+  E({
+    slug: 'chat-bot-dlya-ezoterika-2026', category: 'industries', heroIcon: 'ph-fill ph-moon-stars',
+    title: 'Чат-бот для эзотерика: заявки, оплата и расклады без ручного труда',
+    metaTitle: 'Чат-бот для эзотерика: заявки, оплата, расклады',
+    metaDescription: 'Как тарологу, астрологу и нумерологу собрать чат-бот: приём заявок и оплаты без переписки, AI-расклады и гороскопы как контент и вовлечение, подписка и рассылки. Бот как IT-инструмент — без обещаний достоверности предсказаний.',
+    excerpt: 'У эзотерика вся продажа уходит в ручную переписку, а контент живёт на одной площадке. Разбираю, как чат-бот берёт заявки и оплату на себя, а AI-расклады работают как вовлекающий контент — честно, как инструмент, без магии и обещаний.',
+    tags: ['чат-бот', 'эзотерика', 'таро', 'AI', '2026'],
+    toc: toc(['zachem-bot', 'Зачем бот'], ['zayavki-i-oplata', 'Заявки и оплата'], ['ai-rasklady', 'AI-расклады'], ['podpiska-rassylki', 'Подписка и рассылки'], ['granicy-etika', 'Границы и этика'], ['faq', 'FAQ'], ['vyvody', 'Коротко о главном']),
+    ctaInternal: { url: 'https://chimitdorzhi.tech/predlozheniya/ai-bot-raskladov-ezoterika/', label: 'Собрать AI-бота раскладов' },
+    relatedSlugs: ['psiholog-tarolog-posle-blokirovki-2026', 'zakrytyy-klub-po-podpiske-2026', 'onlayn-zapis-psiholog-kouch-2026'],
+  }),
+  E({
+    slug: 'priem-oplaty-dlya-praktika-2026', category: 'finance', heroIcon: 'ph-fill ph-credit-card',
+    title: 'Приём оплаты для частного практика: СБП, пакеты сессий, чеки',
+    metaTitle: 'Приём оплаты для практика: СБП, пакеты, чеки 54-ФЗ',
+    metaDescription: 'Как частному практику принимать оплату: СБП, карты и ссылки на оплату, пакеты сессий и предоплата, самозанятость и чеки по 54-ФЗ, регулярные платежи и подписки, автоматизация оплаты в боте и на сайте. Практично, актуальные условия уточняйте.',
+    excerpt: 'Оплата «переведите на карту» отпугивает часть клиентов и создаёт хаос с учётом. Разбираю, как принимать оплату по-человечески: СБП, пакеты сессий, чеки для самозанятых, подписки — и как встроить оплату прямо в бота записи.',
+    tags: ['приём оплаты', 'СБП', 'самозанятость', 'финансы', '2026'],
+    toc: toc(['sposoby-oplaty', 'Способы оплаты'], ['pakety-sessiy', 'Пакеты сессий'], ['samozanyatost-cheki', 'Самозанятость и чеки'], ['podpiski', 'Подписки'], ['avtomatizaciya', 'Автоматизация'], ['faq', 'FAQ'], ['vyvody', 'Коротко о главном']),
+    ctaInternal: { url: 'https://chimitdorzhi.tech/predlozheniya/bot-zapis-oplata-praktik/', label: 'Подключить приём оплаты' },
+    relatedSlugs: ['onlayn-zapis-psiholog-kouch-2026', 'crm-dlya-chastnogo-praktika-2026', 'zakrytyy-klub-po-podpiske-2026'],
+  }),
+  E({
+    slug: 'crm-dlya-chastnogo-praktika-2026', category: 'industries', heroIcon: 'ph-fill ph-address-book',
+    title: 'CRM для частного практика: клиенты, история сессий, напоминания',
+    metaTitle: 'CRM для частного практика: клиенты и история сессий',
+    metaDescription: 'Зачем частному практику CRM: единая база клиентов и история сессий, напоминания и повторные записи, конфиденциальность по 152-ФЗ, переход от заметок в телефоне к нормальной системе. Для психологов, коучей и эзотериков.',
+    excerpt: 'Когда клиентов становится больше десятка, заметки в телефоне перестают работать: забываются повторные записи, теряется история. Разбираю, что такое CRM для практика, как она хранит историю сессий и почему это ещё и про конфиденциальность.',
+    tags: ['CRM', 'частная практика', 'автоматизация', 'психологам', '2026'],
+    toc: toc(['zachem-crm', 'Зачем CRM'], ['baza-klientov', 'База клиентов'], ['napominaniya', 'Напоминания'], ['konfidencialnost', 'Конфиденциальность'], ['ot-tablicy-k-sisteme', 'От таблицы к системе'], ['faq', 'FAQ'], ['vyvody', 'Коротко о главном']),
+    ctaInternal: { url: 'https://chimitdorzhi.tech/predlozheniya/crm-chastnoy-praktiki/', label: 'Настроить CRM практики' },
+    relatedSlugs: ['152-fz-dlya-psihologa-2026', 'onlayn-zapis-psiholog-kouch-2026', 'priem-oplaty-dlya-praktika-2026'],
+  }),
+  E({
+    slug: 'zakrytyy-klub-po-podpiske-2026', category: 'sales', heroIcon: 'ph-fill ph-crown',
+    title: 'Закрытый клуб по подписке для эксперта: как запустить в 2026',
+    metaTitle: 'Закрытый клуб по подписке для эксперта: как запустить',
+    metaDescription: 'Как эксперту запустить закрытый клуб по подписке: модели монетизации (подписка, уровни, разовый доступ), на чём собрать (Telegram, MAX, своя платформа), контент и удержание подписчиков, запуск за несколько недель. Для психологов, коучей, эзотериков.',
+    excerpt: 'Разовые консультации — это доход, который каждый месяц начинается с нуля. Клуб по подписке даёт регулярную выручку и тёплое сообщество. Разбираю модели монетизации, на чём собрать клуб и как удерживать подписчиков, чтобы они не отписывались.',
+    tags: ['клуб по подписке', 'монетизация', 'эксперты', 'подписка', '2026'],
+    toc: toc(['chto-takoe-klub', 'Что такое клуб'], ['modeli', 'Модели монетизации'], ['na-chem-sobrat', 'На чём собрать'], ['kontent-uderzhanie', 'Контент и удержание'], ['zapusk', 'Запуск'], ['faq', 'FAQ'], ['vyvody', 'Коротко о главном']),
+    ctaInternal: { url: 'https://chimitdorzhi.tech/predlozheniya/klub-po-podpiske-ekspert/', label: 'Запустить клуб по подписке' },
+    relatedSlugs: ['lichnyy-sayt-psihologa-kouch-2026', 'chat-bot-dlya-ezoterika-2026', 'priem-oplaty-dlya-praktika-2026'],
+  }),
+  E({
+    slug: 'lichnyy-sayt-psihologa-kouch-2026', category: 'development', heroIcon: 'ph-fill ph-browser',
+    title: 'Личный сайт психолога и коуча, который приводит клиентов',
+    metaTitle: 'Личный сайт психолога и коуча, который приводит клиентов',
+    metaDescription: 'Зачем психологу и коучу свой сайт, если есть соцсети: структура продающей страницы эксперта, запись и заявки прямо с сайта, доверие через отзывы, дипломы и E-E-A-T, выбор между Tilda и кастомной разработкой. Практично, без обещаний.',
+    excerpt: 'Соцсети можно потерять за день, а сайт остаётся вашим активом и работает на доверие. Разбираю, из чего состоит продающая страница эксперта, как принимать запись прямо с сайта и что выбрать — Tilda или кастом.',
+    tags: ['личный сайт', 'лендинг', 'психологам', 'разработка', '2026'],
+    toc: toc(['zachem-sayt', 'Зачем сайт'], ['struktura', 'Структура страницы'], ['zapis-zayavki', 'Запись и заявки'], ['doverie-eeat', 'Доверие и E-E-A-T'], ['tilda-ili-kastom', 'Tilda или кастом'], ['faq', 'FAQ'], ['vyvody', 'Коротко о главном']),
+    ctaInternal: { url: 'https://chimitdorzhi.tech/predlozheniya/sayt-lending-eksperta-praktika/', label: 'Сделать личный сайт' },
+    relatedSlugs: ['psiholog-tarolog-posle-blokirovki-2026', 'onlayn-zapis-psiholog-kouch-2026', 'zakrytyy-klub-po-podpiske-2026'],
+  }),
+];

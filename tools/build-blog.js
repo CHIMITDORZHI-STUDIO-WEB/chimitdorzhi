@@ -16,6 +16,14 @@ const subOffersCount = (s) => String(s).split('{{OFFERS_COUNT}}').join(OFFERS_CO
 
 // Карта: slug статьи → slug предложения. Добавляйте по мере роста раздела.
 const OFFER_LINKS = {
+  '152-fz-dlya-psihologa-2026': 'komplaens-152fz-psiholog',
+  'psiholog-tarolog-posle-blokirovki-2026': 'sayt-lending-eksperta-praktika',
+  'onlayn-zapis-psiholog-kouch-2026': 'bot-zapis-oplata-praktik',
+  'chat-bot-dlya-ezoterika-2026': 'ai-bot-raskladov-ezoterika',
+  'priem-oplaty-dlya-praktika-2026': 'bot-zapis-oplata-praktik',
+  'crm-dlya-chastnogo-praktika-2026': 'crm-chastnoy-praktiki',
+  'zakrytyy-klub-po-podpiske-2026': 'klub-po-podpiske-ekspert',
+  'lichnyy-sayt-psihologa-kouch-2026': 'sayt-lending-eksperta-praktika',
   'pm-international-fitline-obzor-2026': 'avtovoronka-rekrutinga',
   'fohow-obzor-2026': 'ai-kontent-setevik',
   '4life-obzor-2026': 'avtovoronka-rekrutinga',
