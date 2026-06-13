@@ -16,6 +16,11 @@ const subOffersCount = (s) => String(s).split('{{OFFERS_COUNT}}').join(OFFERS_CO
 
 // Карта: slug статьи → slug предложения. Добавляйте по мере роста раздела.
 const OFFER_LINKS = {
+  'oriflame-obzor-2026': 'ai-kontent-setevik',
+  'avon-obzor-2026': 'sayt-distributora',
+  'amway-obzor-2026': 'avtovoronka-rekrutinga',
+  'nl-international-obzor-2026': 'crm-setevika',
+  'oriflame-vs-sibirskoe-zdorovie-vs-faberlik-2026': 'sayt-distributora',
   'mlm-kompanii-buryatiya-zabaykalye-irkutsk-2026': 'sayt-distributora',
   'sibirskoe-zdorovie-obzor-2026': 'ai-kontent-setevik',
   'faberlik-obzor-2026': 'avtovoronka-rekrutinga',
