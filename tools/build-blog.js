@@ -16,6 +16,16 @@ const subOffersCount = (s) => String(s).split('{{OFFERS_COUNT}}').join(OFFERS_CO
 
 // Карта: slug статьи → slug предложения. Добавляйте по мере роста раздела.
 const OFFER_LINKS = {
+  '152-fz-dlya-organizatora-meropriyatiy-2026': 'bot-registracii-biletov',
+  'ai-networking-na-konferencii-2026': 'ai-networking-uchastnikov',
+  'chat-bot-gid-po-konferencii-2026': 'chat-bot-gid-meropriyatiya',
+  'bot-registracii-na-meropriyatie-2026': 'bot-registracii-biletov',
+  'dohodimost-do-meropriyatiya-2026': 'chat-bot-gid-meropriyatiya',
+  'geymifikaciya-meropriyatiya-2026': 'geymifikaciya-meropriyatiya',
+  'sayt-afisha-meropriyatiya-2026': 'sayt-afisha-iventa',
+  'priem-oplaty-za-bilety-2026': 'bot-registracii-biletov',
+  'sponsory-konferencii-roi-2026': 'dashboard-organizatora-iventa',
+  'gibridnaya-konferenciya-2026': 'platforma-gibridnogo-iventa',
   '152-fz-dlya-psihologa-2026': 'komplaens-152fz-psiholog',
   'psiholog-tarolog-posle-blokirovki-2026': 'sayt-lending-eksperta-praktika',
   'onlayn-zapis-psiholog-kouch-2026': 'bot-zapis-oplata-praktik',
