@@ -1,0 +1,106 @@
+// Кластер «Чита и Забайкалье» — 6 гео-статей (заново, не копии улан-удэнских).
+const C = (s) => require('./blog-content-' + s + '.js');
+const D = '2026-06-12';
+const toc = (...p) => p.map(([id, text]) => ({ id, text }));
+const SVC = (title, ...rows) => ({ title, services: rows.map(([icon, label]) => ({ icon, label })) });
+
+const SVC_LOCAL = SVC('Что я делаю для бизнеса в Чите и Забайкалье',
+  ['ph-fill ph-storefront', 'Интернет-магазины и сайты под ключ'],
+  ['ph-fill ph-moped', 'Приём заказов и доставка'],
+  ['ph-fill ph-target', 'Реклама и трафик: Директ, аналитика'],
+  ['ph-fill ph-address-book', 'CRM и автоматизация'],
+  ['ph-fill ph-map-pin', 'Гео-продвижение в Чите'],
+);
+const SVC_AI = SVC('Что я делаю с AI и автоматизацией',
+  ['ph-fill ph-brain', 'Нейросети под задачи бизнеса'],
+  ['ph-fill ph-robot', 'AI-ассистенты и боты'],
+  ['ph-fill ph-arrows-clockwise', 'Автоматизация рутины'],
+  ['ph-fill ph-address-book', 'Внедрение и интеграция CRM'],
+  ['ph-fill ph-chart-line-up', 'Аналитика и отчётность'],
+);
+
+const E = (o) => Object.assign({
+  category: 'development', published: true, datePublished: D, dateModified: D, readingMinutes: 9,
+  servicesOffer: SVC_LOCAL,
+}, o, { contentHtml: C(o.slug) });
+
+module.exports = [
+  E({
+    slug: 'dostavka-edy-chita-2026', category: 'sales',
+    title: 'Как запустить доставку еды в Чите: сайт, приём заказов, автоматизация',
+    metaTitle: 'Доставка еды в Чите: запуск под ключ',
+    metaDescription: 'Как запустить доставку еды в Чите: с чего начать, как принимать заказы (сайт, бот или агрегатор), логистика, оплата и учёт, продвижение в городе. Практичный разбор для кафе и кухонь Забайкалья.',
+    metaKeywords: 'доставка еды чита, запуск доставки чита, приём заказов кафе, бот доставки, автоматизация общепита забайкалье',
+    excerpt: 'Своя доставка еды в Чите — это не только курьер. Разбираю, с чего начать, как принимать заказы (сайт, бот или агрегатор), как устроить логистику, оплату и учёт и как продвигаться в Чите и районах Забайкалья.',
+    heroIcon: 'ph-fill ph-moped',
+    tags: ['доставка еды', 'Чита', 'Забайкалье', 'общепит', '2026'],
+    toc: toc(['s-chego-nachat', 'С чего начать'], ['priem-zakazov', 'Приём заказов'], ['sayt-ili-bot', 'Сайт, бот или агрегатор'], ['logistika-i-oplata', 'Логистика и оплата'], ['prodvizhenie', 'Продвижение в Чите'], ['faq', 'FAQ'], ['vyvody', 'Коротко о главном']),
+    ctaInternal: { url: 'https://chimitdorzhi.tech/predlozheniya/dostavka-dlya-seti/', label: 'Запустить доставку' },
+    relatedSlugs: ['dostavka-edy-ulan-ude-2026', 'max-bot-restoran-kafe-2026', 'lokalnoe-prodvizhenie-chita-ulan-ude-2026'],
+  }),
+  E({
+    slug: 'internet-magazin-chita-ili-marketpleys-2026', category: 'sales',
+    title: 'Свой интернет-магазин в Чите или маркетплейс — что выгоднее',
+    metaTitle: 'Интернет-магазин в Чите или маркетплейс',
+    metaDescription: 'Свой интернет-магазин или маркетплейс для продавца в Чите: плюсы и минусы, экономика (комиссии, реклама, маржа), как выбрать под товар и как запустить свой магазин в Забайкалье. Разбор без иллюзий.',
+    metaKeywords: 'интернет магазин чита, свой магазин или маркетплейс, wildberries ozon забайкалье, запуск интернет-магазина чита',
+    excerpt: 'Маркетплейс или свой магазин — вопрос для каждого продавца в Чите. Разбираю плюсы и минусы, считаю экономику (комиссии, реклама, маржа), помогаю выбрать под товар и показываю, как запустить свой магазин в Забайкалье.',
+    heroIcon: 'ph-fill ph-storefront',
+    tags: ['интернет-магазин', 'Чита', 'маркетплейсы', 'e-commerce', '2026'],
+    toc: toc(['svoy-ili-marketpleys', 'Свой магазин или маркетплейс'], ['plyusy-minusy', 'Плюсы и минусы'], ['ekonomika', 'Экономика'], ['kak-vybrat', 'Как выбрать'], ['zapusk-v-chite', 'Запуск в Чите'], ['faq', 'FAQ'], ['vyvody', 'Коротко о главном']),
+    ctaInternal: { url: 'https://chimitdorzhi.tech/predlozheniya/bystryy-start-sayt/', label: 'Запустить свой магазин' },
+    relatedSlugs: ['internet-magazin-ulan-ude-ili-marketpleys-2026', 'svoy-magazin-vs-wildberries-ozon-2026', 'skolko-stoit-sayt-chita-ulan-ude-2026'],
+  }),
+  E({
+    slug: 'yandex-direkt-chita-2026', category: 'marketing',
+    title: 'Настройка Яндекс.Директа для бизнеса в Чите',
+    metaTitle: 'Яндекс.Директ для бизнеса в Чите',
+    metaDescription: 'Настройка Яндекс.Директа для бизнеса в Чите: зачем он местному бизнесу, настройка по шагам, геотаргетинг на Читу и районы Забайкалья, бюджет и ставки, ошибки, на которых сливают деньги.',
+    metaKeywords: 'яндекс директ чита, настройка директа забайкалье, контекстная реклама чита, геотаргетинг, реклама местный бизнес',
+    excerpt: 'Яндекс.Директ приводит клиентов из Читы быстро — если настроен с умом. Разбираю настройку по шагам, геотаргетинг на Читу и районы Забайкалья, бюджет и ставки и ошибки, на которых сливают деньги.',
+    heroIcon: 'ph-fill ph-target',
+    tags: ['Яндекс Директ', 'Чита', 'реклама', 'Забайкалье', '2026'],
+    toc: toc(['zachem-direkt', 'Зачем Директ'], ['nastroyka-po-shagam', 'Настройка по шагам'], ['geotargeting-chita', 'Геотаргетинг на Читу'], ['byudzhet-i-stavki', 'Бюджет и ставки'], ['oshibki', 'Ошибки'], ['faq', 'FAQ'], ['vyvody', 'Коротко о главном']),
+    ctaInternal: { url: 'https://chimitdorzhi.tech/predlozheniya/skvoznaya-analitika-koltreking/', label: 'Настроить аналитику рекламы' },
+    relatedSlugs: ['yandex-direkt-ulan-ude-2026', 'lokalnoe-prodvizhenie-chita-ulan-ude-2026', 'geomarketing-yandex-karty-2026'],
+  }),
+  E({
+    slug: 'granty-podderzhka-biznesa-zabaykalye-2026', category: 'development',
+    title: 'Меры поддержки и гранты для бизнеса в Забайкальском крае 2026',
+    metaTitle: 'Гранты и поддержка бизнеса в Забайкалье 2026',
+    metaDescription: 'Меры поддержки и гранты для бизнеса в Забайкальском крае 2026: какие виды поддержки бывают (гранты, субсидии, льготные займы, центр «Мой бизнес»), как получить, на что потратить в IT и частые ошибки заявителей.',
+    metaKeywords: 'гранты для бизнеса забайкалье, господдержка мсп чита, меры поддержки бизнеса, мой бизнес забайкальский край, субсидии 2026',
+    excerpt: 'Поддержка бизнеса в Забайкальском крае — это не только гранты, но и субсидии, льготные займы и центр «Мой бизнес». Разбираю типы поддержки, как её получить, на что разумно потратить в IT и где чаще ошибаются заявители.',
+    heroIcon: 'ph-fill ph-hand-coins',
+    tags: ['гранты', 'господдержка', 'Забайкалье', 'Чита', '2026'],
+    toc: toc(['vidy-podderzhki', 'Виды поддержки'], ['granty-2026', 'Гранты и субсидии'], ['kak-poluchit', 'Как получить'], ['na-chto-potratit-it', 'На что потратить: IT'], ['oshibki', 'Ошибки заявителей'], ['faq', 'FAQ'], ['vyvody', 'Коротко о главном']),
+    ctaInternal: { url: 'https://chimitdorzhi.tech/predlozheniya/it-granty-gospodderzhka/', label: 'IT под грант' },
+    relatedSlugs: ['granty-podderzhka-biznesa-buryatiya-2026', 'ai-dlya-biznesa-buryatiya-zabaykalye-2027', 'it-dlya-fermerov-zabaykalya-buryatii-2026'],
+  }),
+  E({
+    slug: 'crm-bitrix24-chita-2026', category: 'sales', servicesOffer: SVC_AI,
+    title: 'Внедрение CRM (Битрикс24) для компании в Чите',
+    metaTitle: 'Внедрение CRM Битрикс24 в Чите',
+    metaDescription: 'Внедрение CRM Битрикс24 для компании в Чите: зачем нужна CRM, возможности Битрикс24, внедрение по шагам, интеграции с телефонией, сайтом и 1С, типичные ошибки внедрения.',
+    metaKeywords: 'битрикс24 чита, внедрение crm забайкалье, crm для компании чита, интеграция битрикс24, автоматизация продаж',
+    excerpt: 'CRM наводит порядок в продажах, если её правильно внедрить. Разбираю возможности Битрикс24, внедрение по шагам, интеграции с телефонией, сайтом и 1С и ошибки, из-за которых CRM не приживается — на примерах бизнеса Читы.',
+    heroIcon: 'ph-fill ph-address-book',
+    tags: ['CRM', 'Битрикс24', 'Чита', 'автоматизация', '2026'],
+    toc: toc(['zachem-crm', 'Зачем CRM'], ['vozmozhnosti-bitrix24', 'Возможности Битрикс24'], ['vnedrenie-po-shagam', 'Внедрение по шагам'], ['integracii', 'Интеграции'], ['oshibki', 'Ошибки'], ['faq', 'FAQ'], ['vyvody', 'Коротко о главном']),
+    ctaInternal: { url: 'https://chimitdorzhi.tech/predlozheniya/ai-konsultant/', label: 'Внедрить CRM' },
+    relatedSlugs: ['crm-bitrix24-irkutsk-2026', 'crm-dlya-malogo-biznesa-2026', 'iz-excel-v-crm-za-mesyac-2027'],
+  }),
+  E({
+    slug: 'avtomatizaciya-biznesa-chita-zabaykalye-2026', category: 'development', servicesOffer: SVC_AI,
+    title: 'Автоматизация бизнеса в Чите и Забайкалье: с чего начать малому бизнесу',
+    metaTitle: 'Автоматизация бизнеса в Чите и Забайкалье',
+    metaDescription: 'Автоматизация бизнеса в Чите и Забайкалье: с чего начать малому бизнесу, что автоматизировать в первую очередь, примеры по местным нишам, внедрение по шагам и частые ошибки. Без больших вложений.',
+    metaKeywords: 'автоматизация бизнеса чита, автоматизация забайкалье, с чего начать автоматизацию, малый бизнес чита, цифровизация',
+    excerpt: 'Автоматизация пугает сложностью, а начать можно с малого. Разбираю, с чего стартовать бизнесу в Чите и Забайкалье, что автоматизировать в первую очередь, примеры по местным нишам и как внедрить без хаоса и больших вложений.',
+    heroIcon: 'ph-fill ph-arrows-clockwise',
+    tags: ['автоматизация', 'Чита', 'Забайкалье', 'малый бизнес', '2026'],
+    toc: toc(['s-chego-nachat', 'С чего начать'], ['chto-avtomatizirovat', 'Что автоматизировать'], ['primery-nish', 'Примеры по нишам'], ['vnedrenie', 'Внедрение'], ['oshibki', 'Ошибки'], ['faq', 'FAQ'], ['vyvody', 'Коротко о главном']),
+    ctaInternal: { url: 'https://chimitdorzhi.tech/predlozheniya/ai-konsultant/', label: 'Начать автоматизацию' },
+    relatedSlugs: ['cifrovizaciya-biznesa-buryatiya-zabaykalye-2026', 'avtomatizaciya-7-rutin-2026', 'ai-dlya-biznesa-buryatiya-zabaykalye-2027'],
+  }),
+];
