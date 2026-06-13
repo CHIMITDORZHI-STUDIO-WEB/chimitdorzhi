@@ -16,6 +16,16 @@ const subOffersCount = (s) => String(s).split('{{OFFERS_COUNT}}').join(OFFERS_CO
 
 // Карта: slug статьи → slug предложения. Добавляйте по мере роста раздела.
 const OFFER_LINKS = {
+  'zakonchilsya-spisok-znakomyh-setevoy-2026': 'avtovoronka-rekrutinga',
+  'rekruting-mlm-cherez-internet-2026': 'ai-kontent-setevik',
+  'setevoy-biznes-posle-blokirovki-socsetey-2026': 'sayt-distributora',
+  'chat-bot-avtovoronka-dlya-setevika-2026': 'avtovoronka-rekrutinga',
+  'crm-dlya-setevika-iz-excel-2026': 'crm-setevika',
+  'kontent-plan-dlya-setevika-30-dney-2026': 'ai-kontent-setevik',
+  'istochniki-zayavok-dlya-setevika-2026': 'sayt-distributora',
+  'motivaciya-mlm-komandy-2026': 'geymifikaciya-mlm',
+  'onbording-novichka-mlm-2026': 'geymifikaciya-mlm',
+  'uchet-struktury-mlm-dashboard-2026': 'dashboard-lidera-mlm',
   'kak-onlayn-shkole-sobirat-zayavki-v-max-2026': 'voronka-prodazh-onlayn-shkoly-max',
   'dostavka-edy-chita-2026': 'dostavka-dlya-seti',
   'internet-magazin-chita-ili-marketpleys-2026': 'bystryy-start-sayt',
