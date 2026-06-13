@@ -118,7 +118,7 @@ function head({ title, description, canonical, ogImage = `${SITE}/hero-photo.web
     <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="/assets/phosphor/regular.css"><link rel="stylesheet" href="/assets/phosphor/fill.css"></noscript>
-    <link rel="stylesheet" href="/style.css?v=41">
+    <link rel="stylesheet" href="/style.css?v=44">
 `;
 }
 
@@ -367,6 +367,24 @@ const SEGMENT_GROUPS = [
   { label: 'Под задачу', segs: ['Мессенджер MAX', 'Маркетинг и трафик', 'Вовлечение и вирусный рост', 'Геймификация бизнеса', 'Геймификация под нишу', 'Медиа, контент и креаторы', 'Финтех и платежи', 'HR и команда', 'Безопасность и аудит', 'Право и документы', 'Комплексные платформы', 'Геймификация', 'Сетевой бизнес (MLM)'] },
 ];
 
+// Иконка для каждого сегмента (Phosphor), чтобы чипы читались как на блоге/инфографике
+const SEGMENT_ICONS = {
+  'Розница и торговля': 'ph-shopping-cart', 'Бытовые услуги': 'ph-wrench', 'Красота и здоровье': 'ph-scissors',
+  'HoReCa и общепит': 'ph-fork-knife', 'Авто и транспорт': 'ph-car', 'Туризм и гостеприимство': 'ph-airplane-tilt',
+  'Недвижимость': 'ph-buildings', 'Развлечения и досуг': 'ph-confetti', 'Спорт и фитнес': 'ph-barbell',
+  'Медицина и MedTech': 'ph-first-aid', 'Образование и EdTech': 'ph-graduation-cap', 'АПК и фермерство': 'ph-plant',
+  'Производство и стройка': 'ph-factory', 'Логистика и склад': 'ph-truck', 'Маркетплейсы и e-commerce': 'ph-storefront',
+  'Госсектор': 'ph-bank', 'Этнокультура и наследие': 'ph-globe-hemisphere-east',
+  'AI-ассистенты для работы': 'ph-sparkle', 'Запуск продукта и стартап': 'ph-rocket-launch', 'Корпоративный AI': 'ph-brain',
+  'Боты и AI': 'ph-robot', 'Зрение и роботизация': 'ph-eye',
+  'Мессенджер MAX': 'ph-chat-circle-dots', 'Маркетинг и трафик': 'ph-megaphone', 'Вовлечение и вирусный рост': 'ph-trend-up',
+  'Геймификация бизнеса': 'ph-game-controller', 'Геймификация под нишу': 'ph-trophy', 'Геймификация': 'ph-game-controller',
+  'Медиа, контент и креаторы': 'ph-microphone', 'Финтех и платежи': 'ph-credit-card', 'HR и команда': 'ph-users-three',
+  'Безопасность и аудит': 'ph-shield-check', 'Право и документы': 'ph-scales', 'Комплексные платформы': 'ph-stack',
+  'Сетевой бизнес (MLM)': 'ph-share-network',
+};
+const segIcon = (s) => SEGMENT_ICONS[s] || 'ph-tag';
+
 function buildFilterGroups(list) {
   const counts = {};
   list.forEach((o) => { if (o.segment) counts[o.segment] = (counts[o.segment] || 0) + 1; });
@@ -437,12 +455,12 @@ ${JSON.stringify(breadcrumb, null, 2)}
                 ${searchBox()}
                 ${segments.length > 1 ? `<div class="offer-filter" role="group" aria-label="Фильтр по рубрикам">
                     <div class="offer-filter-row offer-filter-all">
-                        <button class="offer-chip active" data-seg="all">Все решения <span>${list.length}</span></button>
+                        <button class="offer-chip active" data-seg="all"><i class="ph ph-squares-four" aria-hidden="true"></i> Все решения <span>${list.length}</span></button>
                     </div>
                     ${filterGroups.map((g) => `<div class="offer-filter-group">
                         <span class="offer-filter-label">${esc(g.label)}</span>
                         <div class="offer-filter-row">
-                            ${g.segs.map((s) => `<button class="offer-chip" data-seg="${esc(s)}">${esc(s)} <span>${segCounts[s]}</span></button>`).join('\n                            ')}
+                            ${g.segs.slice().sort((a, b) => (segCounts[b] || 0) - (segCounts[a] || 0)).map((s) => `<button class="offer-chip" data-seg="${esc(s)}"><i class="ph ${segIcon(s)}" aria-hidden="true"></i> ${esc(s)} <span>${segCounts[s]}</span></button>`).join('\n                            ')}
                         </div>
                     </div>`).join('\n                    ')}
                 </div>` : ''}

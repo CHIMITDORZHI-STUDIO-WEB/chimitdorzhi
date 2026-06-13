@@ -425,23 +425,23 @@ function footer() {
 
 // ---------- хаб ----------
 const IG_CATS = {
-  'AI И ТЕХНОЛОГИИ': { k: 'ai', l: 'AI и технологии' },
-  'БЕЗОПАСНОСТЬ': { k: 'sec', l: 'Безопасность' },
-  'ПРАВО · 152-ФЗ': { k: 'law', l: 'Право и документы' },
-  'ПРАВО И ДОКУМЕНТЫ': { k: 'law', l: 'Право и документы' },
-  'GEO И AI-ПОИСК': { k: 'geo', l: 'GEO и AI-поиск' },
-  'СТАРТАП И ПРОДУКТ': { k: 'startup', l: 'Стартап и продукт' },
-  'МАРКЕТИНГ И РОСТ': { k: 'mkt', l: 'Маркетинг' },
-  'МЕССЕНДЖЕРЫ И БОТЫ': { k: 'msg', l: 'Мессенджеры и боты' },
-  'МЕДИА И КОНТЕНТ': { k: 'media', l: 'Медиа и контент' },
-  'СЕТЕВОЙ БИЗНЕС': { k: 'mlm', l: 'Сетевой бизнес' },
-  'ПУТЕШЕСТВИЯ': { k: 'travel', l: 'Путешествия' },
-  'КИБЕРСПОРТ': { k: 'esport', l: 'Киберспорт' },
-  'РАЗРАБОТКА': { k: 'dev', l: 'Разработка' },
-  'ОТРАСЛИ': { k: 'ind', l: 'Отрасли' },
-  'ФИНТЕХ И ПЛАТЕЖИ': { k: 'fin', l: 'Финтех и платежи' },
+  'AI И ТЕХНОЛОГИИ': { k: 'ai', l: 'AI и технологии', ic: 'ph-cpu' },
+  'БЕЗОПАСНОСТЬ': { k: 'sec', l: 'Безопасность', ic: 'ph-shield-check' },
+  'ПРАВО · 152-ФЗ': { k: 'law', l: 'Право и документы', ic: 'ph-scales' },
+  'ПРАВО И ДОКУМЕНТЫ': { k: 'law', l: 'Право и документы', ic: 'ph-scales' },
+  'GEO И AI-ПОИСК': { k: 'geo', l: 'GEO и AI-поиск', ic: 'ph-robot' },
+  'СТАРТАП И ПРОДУКТ': { k: 'startup', l: 'Стартап и продукт', ic: 'ph-rocket-launch' },
+  'МАРКЕТИНГ И РОСТ': { k: 'mkt', l: 'Маркетинг', ic: 'ph-megaphone' },
+  'МЕССЕНДЖЕРЫ И БОТЫ': { k: 'msg', l: 'Мессенджеры и боты', ic: 'ph-chat-circle-dots' },
+  'МЕДИА И КОНТЕНТ': { k: 'media', l: 'Медиа и контент', ic: 'ph-microphone' },
+  'СЕТЕВОЙ БИЗНЕС': { k: 'mlm', l: 'Сетевой бизнес', ic: 'ph-share-network' },
+  'ПУТЕШЕСТВИЯ': { k: 'travel', l: 'Путешествия', ic: 'ph-airplane-tilt' },
+  'КИБЕРСПОРТ': { k: 'esport', l: 'Киберспорт', ic: 'ph-game-controller' },
+  'РАЗРАБОТКА': { k: 'dev', l: 'Разработка', ic: 'ph-code' },
+  'ОТРАСЛИ': { k: 'ind', l: 'Отрасли', ic: 'ph-buildings' },
+  'ФИНТЕХ И ПЛАТЕЖИ': { k: 'fin', l: 'Финтех и платежи', ic: 'ph-credit-card' },
 };
-const IG_GROW = { k: 'grow', l: 'Вовлечение и рост' };
+const IG_GROW = { k: 'grow', l: 'Вовлечение и рост', ic: 'ph-trend-up' };
 const igCatOf = (it) => (it.label && IG_CATS[it.label]) ? IG_CATS[it.label] : IG_GROW;
 const IG_ORDER = ['grow', 'msg', 'ai', 'sec', 'law', 'geo', 'mkt', 'startup', 'media', 'dev', 'ind', 'fin', 'mlm', 'travel', 'esport'];
 
@@ -455,10 +455,12 @@ function hubPage() {
   }).join('\n');
   const counts = {};
   for (const it of ITEMS) { const k = igCatOf(it).k; counts[k] = (counts[k] || 0) + 1; }
-  const labelByKey = {}; for (const v of Object.values(IG_CATS)) labelByKey[v.k] = v.l; labelByKey[IG_GROW.k] = IG_GROW.l;
-  const chips = [`<button class="ig-chip on" data-f="all" type="button">Все <span>${ITEMS.length}</span></button>`]
-    .concat(IG_ORDER.filter((k) => counts[k]).map((k) =>
-      `<button class="ig-chip" data-f="${k}" type="button">${esc(labelByKey[k])} <span>${counts[k]}</span></button>`)).join('\n');
+  const labelByKey = {}, iconByKey = {};
+  for (const v of Object.values(IG_CATS)) { labelByKey[v.k] = v.l; iconByKey[v.k] = v.ic; }
+  labelByKey[IG_GROW.k] = IG_GROW.l; iconByKey[IG_GROW.k] = IG_GROW.ic;
+  const chips = [`<button class="ig-chip on" data-f="all" type="button"><i class="ph ph-squares-four" aria-hidden="true"></i> Все <span>${ITEMS.length}</span></button>`]
+    .concat(Object.keys(counts).sort((a, b) => counts[b] - counts[a]).map((k) =>
+      `<button class="ig-chip" data-f="${k}" type="button"><i class="ph ${iconByKey[k] || 'ph-tag'}" aria-hidden="true"></i> ${esc(labelByKey[k] || k)} <span>${counts[k]}</span></button>`)).join('\n');
   return head({
     title: 'Инфографика — IT, AI и бизнес наглядно',
     description: 'Инфографика по IT, AI и бизнесу: безопасность и 152-ФЗ, российский AI-стек, маркетинг и вирусный рост, отрасли, финтех и платежи. Наглядные карточки со ссылками на статьи и предложения. Сохраняйте и делитесь.',
@@ -477,7 +479,7 @@ ${navbar()}
     </header>
     <style>
       .ig-chips{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 28px}
-      .ig-chip{font-size:14px;padding:8px 16px;border-radius:999px;border:1px solid var(--border);background:var(--bg-card);color:var(--text-secondary);cursor:pointer;transition:all .15s;font-family:inherit}
+      .ig-chip{display:inline-flex;align-items:center;gap:7px;font-size:14px;padding:8px 16px;border-radius:999px;border:1px solid var(--border);background:var(--bg-card);color:var(--text-secondary);cursor:pointer;transition:all .15s;font-family:inherit}
       .ig-chip span{opacity:.6;font-size:12px;margin-left:2px}
       .ig-chip:hover{border-color:var(--border-hover);color:var(--text)}
       .ig-chip.on{background:var(--accent);border-color:var(--accent);color:#fff}
