@@ -16,6 +16,10 @@ const subOffersCount = (s) => String(s).split('{{OFFERS_COUNT}}').join(OFFERS_CO
 
 // Карта: slug статьи → slug предложения. Добавляйте по мере роста раздела.
 const OFFER_LINKS = {
+  'mlm-kompanii-buryatiya-zabaykalye-irkutsk-2026': 'sayt-distributora',
+  'sibirskoe-zdorovie-obzor-2026': 'ai-kontent-setevik',
+  'faberlik-obzor-2026': 'avtovoronka-rekrutinga',
+  'greenway-obzor-2026': 'sayt-distributora',
   'zakonchilsya-spisok-znakomyh-setevoy-2026': 'avtovoronka-rekrutinga',
   'rekruting-mlm-cherez-internet-2026': 'ai-kontent-setevik',
   'setevoy-biznes-posle-blokirovki-socsetey-2026': 'sayt-distributora',
