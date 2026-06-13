@@ -1,0 +1,106 @@
+// Кластер «МЛМ-бренды», фаза 3: ещё 7 разборов (PM International, FOHOW, 4Life, M International, EWA, Greenleaf, WHIEDA).
+const C = (s) => require('./blog-content-' + s + '.js');
+const D = '2026-06-13';
+const toc = (...p) => p.map(([id, text]) => ({ id, text }));
+const SVC_SET = {
+  title: 'Что я делаю для сетевиков',
+  services: [
+    { icon: 'ph-fill ph-magnet', label: 'Привлечение и автоворонки рекрутинга' },
+    { icon: 'ph-fill ph-globe', label: 'Сайт и лендинг дистрибьютора' },
+    { icon: 'ph-fill ph-robot', label: 'AI-контент: посты и рассылки' },
+    { icon: 'ph-fill ph-address-book', label: 'CRM и база контактов' },
+    { icon: 'ph-fill ph-game-controller', label: 'Геймификация и дашборд команды' },
+  ],
+};
+const BRAND = toc(['chto-eto', 'Что это'], ['produkt', 'Продукт'], ['kak-ustroen-biznes', 'Как устроен бизнес'], ['komu-podhodit', 'Кому подходит'], ['plyusy-i-riski', 'Плюсы и риски'], ['kak-nachat', 'Как начать'], ['faq', 'FAQ'], ['vyvody', 'Коротко о главном']);
+const E = (o) => Object.assign({
+  category: 'marketing', published: true, datePublished: D, dateModified: D, readingMinutes: 10,
+  servicesOffer: SVC_SET, toc: BRAND,
+}, o, { contentHtml: C(o.slug) });
+
+module.exports = [
+  E({
+    slug: 'pm-international-fitline-obzor-2026',
+    title: 'PM International (FitLine): как устроен бизнес — честный обзор',
+    metaTitle: 'PM International (FitLine): обзор бизнеса',
+    metaDescription: 'PM International (FitLine): что за компания, продукт (функциональное и клеточное питание FitLine), как устроен бизнес и доход, кому подходит, плюсы и риски. Нейтрально, без обещаний дохода.',
+    metaKeywords: 'pm international, fitline, пм интернешнл, фитлайн, pm international бизнес, отзывы',
+    excerpt: 'PM International — немецкая компания прямых продаж с брендом функционального питания FitLine. Разбираю нейтрально: продукт, как устроен бизнес и доход, кому подходит и на что обратить внимание.',
+    heroIcon: 'ph-fill ph-barbell',
+    tags: ['PM International', 'FitLine', 'МЛМ', 'обзор', '2026'],
+    ctaInternal: { url: 'https://chimitdorzhi.tech/predlozheniya/avtovoronka-rekrutinga/', label: 'Настроить поток партнёров' },
+    relatedSlugs: ['mlm-kompanii-buryatiya-zabaykalye-irkutsk-2026', 'amway-obzor-2026', 'rekruting-mlm-cherez-internet-2026'],
+  }),
+  E({
+    slug: 'fohow-obzor-2026',
+    title: 'FOHOW (Фохоу): как устроен бизнес и продукт — честный обзор',
+    metaTitle: 'FOHOW (Фохоу): обзор бизнеса и продукта',
+    metaDescription: 'FOHOW (Фохоу): что за компания, продукт (БАДы и продукты для здоровья на основе фитокомпонентов), как устроен бизнес и доход, кому подходит, плюсы и риски. Нейтрально, без обещаний и лечебных свойств.',
+    metaKeywords: 'fohow, фохоу, fohow продукция, фохоу бизнес, фохоу отзывы, кордицепс',
+    excerpt: 'FOHOW (Фохоу) — китайская компания прямых продаж с продуктами для здоровья на основе фитокомпонентов. Разбираю нейтрально: продукт без лечебных обещаний, как устроен бизнес и доход, кому подходит и риски.',
+    heroIcon: 'ph-fill ph-plant',
+    tags: ['FOHOW', 'Фохоу', 'МЛМ', 'обзор', '2026'],
+    ctaInternal: { url: 'https://chimitdorzhi.tech/predlozheniya/ai-kontent-setevik/', label: 'Выделиться своим контентом' },
+    relatedSlugs: ['mlm-kompanii-buryatiya-zabaykalye-irkutsk-2026', '4life-obzor-2026', 'zakonchilsya-spisok-znakomyh-setevoy-2026'],
+  }),
+  E({
+    slug: '4life-obzor-2026',
+    title: '4Life (Трансфер Фактор): как устроен бизнес и продукт — честный обзор',
+    metaTitle: '4Life (Трансфер Фактор): обзор бизнеса',
+    metaDescription: '4Life (Transfer Factor): что за компания, продукт (добавки линейки Трансфер Фактор), как устроен бизнес и доход, кому подходит, плюсы и риски. Нейтрально, без обещаний дохода и лечебных свойств.',
+    metaKeywords: '4life, трансфер фактор, transfer factor, 4life бизнес, 4life продукция, отзывы',
+    excerpt: '4Life — американская компания прямых продаж с добавками Трансфер Фактор. Разбираю нейтрально: продукт без медицинских обещаний, как устроен бизнес и доход, кому подходит и на что обратить внимание.',
+    heroIcon: 'ph-fill ph-shield-plus',
+    tags: ['4Life', 'Трансфер Фактор', 'МЛМ', 'обзор', '2026'],
+    ctaInternal: { url: 'https://chimitdorzhi.tech/predlozheniya/avtovoronka-rekrutinga/', label: 'Настроить поток партнёров' },
+    relatedSlugs: ['mlm-kompanii-buryatiya-zabaykalye-irkutsk-2026', 'fohow-obzor-2026', 'rekruting-mlm-cherez-internet-2026'],
+  }),
+  E({
+    slug: 'm-international-obzor-2026',
+    title: 'M International: как устроен бизнес — честный обзор',
+    metaTitle: 'M International: обзор бизнеса',
+    metaDescription: 'M International: компания прямых продаж в нише парфюмерии и косметики — как устроен сетевой бизнес, как оценить компанию перед стартом, кому подходит, плюсы и риски. Нейтрально, данные сверяйте на офсайте.',
+    metaKeywords: 'm international, м интернешнл, m international бизнес, наливная парфюмерия сетевой, отзывы',
+    excerpt: 'M International — компания прямых продаж в парфюмерно-косметической нише. Публичных данных немного, поэтому разбираю, как устроен сетевой бизнес в этой нише и как трезво оценить компанию перед стартом.',
+    heroIcon: 'ph-fill ph-drop-half',
+    tags: ['M International', 'парфюмерия', 'МЛМ', 'обзор', '2026'],
+    ctaInternal: { url: 'https://chimitdorzhi.tech/predlozheniya/ai-kontent-setevik/', label: 'Выделиться своим контентом' },
+    relatedSlugs: ['mlm-kompanii-buryatiya-zabaykalye-irkutsk-2026', 'oriflame-obzor-2026', 'zakonchilsya-spisok-znakomyh-setevoy-2026'],
+  }),
+  E({
+    slug: 'ewa-obzor-2026',
+    title: 'EWA: как устроен бизнес — честный обзор и как проверить компанию',
+    metaTitle: 'EWA: обзор и как проверить компанию',
+    metaDescription: 'EWA: компания прямых продаж в нише wellness — как устроен сетевой бизнес, как проверить и оценить малоизвестную компанию перед стартом (юрлицо, продукт, спрос, признаки пирамиды). Нейтрально, без обещаний.',
+    metaKeywords: 'ewa, ewa компания, ewa бизнес, ewa отзывы, как проверить сетевую компанию, wellness mlm',
+    excerpt: 'EWA — компания прямых продаж в нише wellness, публичных данных немного. Разбираю, как устроен сетевой бизнес в этой нише и, главное, как самому проверить и оценить малоизвестную компанию, чтобы не попасть.',
+    heroIcon: 'ph-fill ph-heartbeat',
+    tags: ['EWA', 'wellness', 'МЛМ', 'как проверить', '2026'],
+    ctaInternal: { url: 'https://chimitdorzhi.tech/predlozheniya/sayt-distributora/', label: 'Сделать свой актив' },
+    relatedSlugs: ['mlm-kompanii-buryatiya-zabaykalye-irkutsk-2026', 'greenleaf-obzor-2026', 'istochniki-zayavok-dlya-setevika-2026'],
+  }),
+  E({
+    slug: 'greenleaf-obzor-2026',
+    title: 'Greenleaf (Гринлиф): как устроен бизнес — честный обзор',
+    metaTitle: 'Greenleaf (Гринлиф): обзор бизнеса',
+    metaDescription: 'Greenleaf (Гринлиф): компания прямых продаж в нише БАДов и продуктов для здоровья — как устроен сетевой бизнес, как проверить и оценить компанию перед стартом, кому подходит, риски. Нейтрально, без обещаний.',
+    metaKeywords: 'greenleaf, гринлиф, greenleaf бизнес, гринлиф отзывы, бад сетевой, как проверить компанию',
+    excerpt: 'Greenleaf (Гринлиф) — компания прямых продаж в нише БАДов, публичных данных немного. Разбираю, как устроен сетевой бизнес в этой нише и как трезво проверить и оценить компанию перед тем как вкладываться.',
+    heroIcon: 'ph-fill ph-leaf',
+    tags: ['Greenleaf', 'Гринлиф', 'МЛМ', 'обзор', '2026'],
+    ctaInternal: { url: 'https://chimitdorzhi.tech/predlozheniya/crm-setevika/', label: 'Навести порядок в базе' },
+    relatedSlugs: ['mlm-kompanii-buryatiya-zabaykalye-irkutsk-2026', 'ewa-obzor-2026', 'kontent-plan-dlya-setevika-30-dney-2026'],
+  }),
+  E({
+    slug: 'whieda-obzor-2026',
+    title: 'WHIEDA: как устроен бизнес — честный обзор и как проверить компанию',
+    metaTitle: 'WHIEDA: обзор и как проверить компанию',
+    metaDescription: 'WHIEDA: компания прямых продаж (косметика и wellness) — публичных данных мало. Разбираю, как устроен сетевой бизнес и как самому проверить и оценить малоизвестную компанию перед стартом. Нейтрально, без обещаний.',
+    metaKeywords: 'whieda, whieda компания, whieda бизнес, whieda отзывы, как проверить сетевую компанию',
+    excerpt: 'WHIEDA — компания прямых продаж, публичных данных о ней немного. Поэтому статья — это руководство: как устроен сетевой бизнес и как самому проверить и оценить малоизвестную компанию, чтобы не потерять деньги.',
+    heroIcon: 'ph-fill ph-sparkle',
+    tags: ['WHIEDA', 'МЛМ', 'как проверить', 'обзор', '2026'],
+    ctaInternal: { url: 'https://chimitdorzhi.tech/predlozheniya/sayt-distributora/', label: 'Сделать свой актив' },
+    relatedSlugs: ['mlm-kompanii-buryatiya-zabaykalye-irkutsk-2026', 'ewa-obzor-2026', 'lichnyy-brend-vs-kompaniya-setevik-2026'],
+  }),
+];
