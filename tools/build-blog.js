@@ -955,29 +955,29 @@ ${organizationLd()}
                 ${searchBox()}
 
                 <div class="blog-filter-chips" role="group" aria-label="Фильтр категорий">
-                    <button class="filter-btn active" data-blog-cat="all">Все <span class="filter-count">${published.length}</span></button>
+                    <button class="filter-btn active" data-blog-cat="all"><i class="ph ph-squares-four" aria-hidden="true"></i> Все <span class="filter-count">${published.length}</span></button>
                     ${[
-                      { key: 'legal',       label: 'Право' },
-                      { key: 'ai-dev',      label: 'AI / разработка' },
-                      { key: 'ai-life',     label: 'AI / жизнь' },
-                      { key: 'marketing',   label: 'Маркетинг' },
-                      { key: 'geo',         label: 'GEO / AI-поиск' },
-                      { key: 'sales',       label: 'Продажи' },
-                      { key: 'media',       label: 'Медиа' },
-                      { key: 'industries',  label: 'Отрасли' },
-                      { key: 'esports',     label: 'Киберспорт' },
-                      { key: 'development', label: 'Разработка' },
-                      { key: 'security',    label: 'Безопасность' },
-                      { key: 'finance',     label: 'Финансы' },
-                      { key: 'mlm',         label: 'Сетевой бизнес' },
-                      { key: 'mwrlife',     label: 'MWR Life' },
-                      { key: 'ai',          label: 'AI (старое)' },
-                      { key: 'career',      label: 'Карьера' },
-                    ].map(c => {
-                      const cnt = published.filter(p => p.category === c.key).length;
-                      if (cnt === 0) return '';
-                      return `<button class="filter-btn" data-blog-cat="${c.key}">${c.label} <span class="filter-count">${cnt}</span></button>`;
-                    }).join('\n                    ')}
+                      { key: 'legal',       label: 'Право',          icon: 'ph-scales' },
+                      { key: 'ai-dev',      label: 'AI для кода',    icon: 'ph-cpu' },
+                      { key: 'ai-life',     label: 'AI в работе',    icon: 'ph-sparkle' },
+                      { key: 'marketing',   label: 'Маркетинг',      icon: 'ph-megaphone' },
+                      { key: 'geo',         label: 'GEO / AI-поиск', icon: 'ph-robot' },
+                      { key: 'sales',       label: 'Продажи',        icon: 'ph-trend-up' },
+                      { key: 'media',       label: 'Медиа',          icon: 'ph-microphone' },
+                      { key: 'industries',  label: 'По отраслям',    icon: 'ph-buildings' },
+                      { key: 'esports',     label: 'Киберспорт',     icon: 'ph-game-controller' },
+                      { key: 'development', label: 'Разработка',     icon: 'ph-code' },
+                      { key: 'security',    label: 'Безопасность',   icon: 'ph-shield-check' },
+                      { key: 'finance',     label: 'Финансы',        icon: 'ph-coins' },
+                      { key: 'mlm',         label: 'Сетевой бизнес', icon: 'ph-share-network' },
+                      { key: 'mwrlife',     label: 'MWR Life',       icon: 'ph-airplane-tilt' },
+                      { key: 'ai',          label: 'AI (старое)',    icon: 'ph-brain' },
+                      { key: 'career',      label: 'Карьера',        icon: 'ph-graduation-cap' },
+                    ].map(c => ({ ...c, cnt: published.filter(p => p.category === c.key).length }))
+                      .filter(c => c.cnt > 0)
+                      .sort((a, b) => b.cnt - a.cnt)
+                      .map(c => `<button class="filter-btn" data-blog-cat="${c.key}"><i class="ph ${c.icon}" aria-hidden="true"></i> ${c.label} <span class="filter-count">${c.cnt}</span></button>`)
+                      .join('\n                    ')}
                 </div>
 
                 <div class="blog-grid" id="blogGrid">
