@@ -16,6 +16,7 @@ const subOffersCount = (s) => String(s).split('{{OFFERS_COUNT}}').join(OFFERS_CO
 
 // Карта: slug статьи → slug предложения. Добавляйте по мере роста раздела.
 const OFFER_LINKS = {
+  'kak-onlayn-shkole-sobirat-zayavki-v-max-2026': 'voronka-prodazh-onlayn-shkoly-max',
   'dostavka-edy-chita-2026': 'dostavka-dlya-seti',
   'internet-magazin-chita-ili-marketpleys-2026': 'bystryy-start-sayt',
   'yandex-direkt-chita-2026': 'skvoznaya-analitika-koltreking',
