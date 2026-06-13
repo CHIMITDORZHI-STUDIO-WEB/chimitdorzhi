@@ -16,6 +16,13 @@ const subOffersCount = (s) => String(s).split('{{OFFERS_COUNT}}').join(OFFERS_CO
 
 // Карта: slug статьи → slug предложения. Добавляйте по мере роста раздела.
 const OFFER_LINKS = {
+  'pm-international-fitline-obzor-2026': 'avtovoronka-rekrutinga',
+  'fohow-obzor-2026': 'ai-kontent-setevik',
+  '4life-obzor-2026': 'avtovoronka-rekrutinga',
+  'm-international-obzor-2026': 'ai-kontent-setevik',
+  'ewa-obzor-2026': 'sayt-distributora',
+  'greenleaf-obzor-2026': 'crm-setevika',
+  'whieda-obzor-2026': 'sayt-distributora',
   'oriflame-obzor-2026': 'ai-kontent-setevik',
   'avon-obzor-2026': 'sayt-distributora',
   'amway-obzor-2026': 'avtovoronka-rekrutinga',
