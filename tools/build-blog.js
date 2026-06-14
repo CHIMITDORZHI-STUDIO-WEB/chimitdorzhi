@@ -16,6 +16,15 @@ const subOffersCount = (s) => String(s).split('{{OFFERS_COUNT}}').join(OFFERS_CO
 
 // Карта: slug статьи → slug предложения. Добавляйте по мере роста раздела.
 const OFFER_LINKS = {
+  'kakoy-biznes-nachat-2026-onlayn-idei': 'zapusk-onlayn-biznesa-pod-klyuch',
+  'biznes-bez-vlozheniy-onlayn-2026': 'proverka-biznes-idei-mvp',
+  'kak-proverit-biznes-ideyu-2026': 'proverka-biznes-idei-mvp',
+  'infobiznes-s-nulya-idei-onlayn-shkol-2026': 'zapusk-infoprodukta-kursa',
+  'biznes-na-kontente-platnyy-dostup-2026': 'platforma-podpiski-kontent',
+  'biznes-po-podpiske-idei-2026': 'klub-po-podpiske',
+  'biznes-dlya-mam-v-dekrete-2026': 'zapusk-onlayn-biznesa-pod-klyuch',
+  'biznes-idei-dlya-malenkogo-goroda-sibir-2026': 'lokalnaya-avtomatizaciya-pod-klyuch',
+  'uber-dlya-x-lokalnye-servisy-2026': 'mobilnoe-prilozhenie-pwa',
   '152-fz-dlya-organizatora-meropriyatiy-2026': 'bot-registracii-biletov',
   'ai-networking-na-konferencii-2026': 'ai-networking-uchastnikov',
   'chat-bot-gid-po-konferencii-2026': 'chat-bot-gid-meropriyatiya',
