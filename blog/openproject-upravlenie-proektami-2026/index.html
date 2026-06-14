@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenProject: управление проектами на сервере</title>
+    <meta name="description" content="OpenProject — open-source система управления проектами (аналог MS Project/Jira): задачи, диаграммы Ганта, спринты, дорожные карты.">
+    <meta name="keywords" content="OpenProject, управление проектами, Jira, open-source">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/openproject-upravlenie-proektami-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/openproject-upravlenie-proektami-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/openproject-upravlenie-proektami-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/openproject-upravlenie-proektami-2026/">
+    <meta property="og:title" content="OpenProject: управление проектами на сервере">
+    <meta property="og:description" content="OpenProject — open-source система управления проектами (аналог MS Project/Jira): задачи, диаграммы Ганта, спринты, дорожные карты.">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/openproject-upravlenie-proektami-2026/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="OpenProject: управление проектами на сервере">
+    <meta name="twitter:description" content="OpenProject — open-source система управления проектами (аналог MS Project/Jira): задачи, диаграммы Ганта, спринты, дорожные карты.">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/openproject-upravlenie-proektami-2026/cover.png">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor-Fill.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=43">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "OpenProject: управление проектами на своём сервере под ключ",
+  "description": "OpenProject — open-source система управления проектами (аналог MS Project/Jira): задачи, диаграммы Ганта, спринты, дорожные карты. Без дорогих лицензий, данные у себя — разверну под ключ.",
+  "image": "https://chimitdorzhi.tech/blog/openproject-upravlenie-proektami-2026/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/openproject-upravlenie-proektami-2026/"
+  },
+  "datePublished": "2026-06-15",
+  "dateModified": "2026-06-15",
+  "keywords": "OpenProject, управление проектами, Jira, open-source",
+  "articleSection": "Open-source и свой сервер",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "OpenProject: управление проектами на своём сервере под ключ",
+      "item": "https://chimitdorzhi.tech/blog/openproject-upravlenie-proektami-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Чем OpenProject отличается от платных сервисов?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Это open-source-система, которую вы ставите на свой сервер и используете без помесячной платы за каждого пользователя. Данные остаются у вас, а не на чужих серверах."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли перенести проекты из другой системы?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Как правило, да. Существующие задачи и структуру проектов чаще всего можно перенести, чтобы не начинать ведение с чистого листа. Объём переноса зависит от исходной системы."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Подходит ли OpenProject под требования 152-ФЗ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Поскольку система размещается на вашем сервере, её можно поставить в российском дата-центре и хранить данные в России. Это помогает выполнять требования к хранению персональных данных. Полное соответствие зависит от вашей внутренней организации процессов."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужен ли отдельный сервер?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, нужна машина, на которой система будет работать, — виртуальный сервер или собственное оборудование. Параметры подбираются под количество пользователей и объём проектов."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Кто будет обслуживать систему после запуска?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Систему нужно обновлять и резервировать. Это можно делать силами вашего ИТ-специалиста или отдать на поддержку — по договорённости."
+      }
+    }
+  ]
+}
+    </script>
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+            <li><a href="/#services" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li class="nav-dropdown">
+                <a href="/#projects" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--arey"><i class="ph-fill ph-vinyl-record" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-airplane-tilt" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#cases" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            </div>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/#about">Обо мне</a></li>
+        <li><a href="/#services">Услуги</a></li>
+        <li><a href="/services/">Каталог услуг</a></li>
+        <li><a href="/predlozheniya/">Предложения</a></li>
+        <li><a href="/#cases">Кейсы</a></li>
+        <li><a href="/blog/">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+        <li><a href="/#contact">Контакт</a></li>
+    </ul>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">OpenProject: управление проектами на своём сервере под ключ</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/opensource/"><i class="ph ph-bookmark" aria-hidden="true"></i> Open-source и свой сервер</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин чтения</span>
+                        <time datetime="2026-06-15"><i class="ph ph-calendar" aria-hidden="true"></i> 15 июня 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">OpenProject: управление проектами на своём сервере под ключ</h1>
+
+                    <p class="blog-lead">OpenProject держит проекты, задачи и сроки команды на вашем сервере — как Jira/MS Project, но без лицензий и с данными у себя. Разбираю возможности и запуск.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>OpenProject</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>управление проектами</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>Jira</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>open-source</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
+<li>OpenProject — open-source система управления проектами: задачи, диаграммы Ганта, спринты, дорожные карты, тайм-трекинг.</li>
+<li>Заменяет MS Project, частично Jira и другие платные сервисы — без помесячной оплаты за каждого пользователя.</li>
+<li>Ставится на ваш сервер, данные остаются у вас — это удобно для требований 152-ФЗ и хранения данных в РФ.</li>
+<li>Для запуска нужен сервер, развёртывание, настройка ролей и проектов, иногда — перенос данных из старой системы.</li>
+<li>Развёртывание, настройку и поддержку можно отдать под ключ, а команде остаётся только работать.</li>
+</ul></div>
+
+<p>Когда проектов становится больше двух-трёх, таблицы в Excel и переписка в мессенджерах перестают справляться: задачи теряются, сроки плывут, непонятно, кто за что отвечает. Платные облачные сервисы решают это, но берут деньги за каждого участника каждый месяц, а данные хранятся на чужих серверах за рубежом. OpenProject — это open-source альтернатива, которую можно поставить на собственный сервер: вы получаете полноценную систему управления проектами и при этом полностью контролируете данные. Ниже разберём, что это за инструмент, что он умеет, кому подходит и что нужно для запуска.</p>
+
+<h2 id="chto-eto">Что такое OpenProject и что заменяет</h2>
+<p>OpenProject — это веб-система для управления проектами и совместной работы команд. Она работает в браузере: пользователи заходят по ссылке, видят свои проекты, задачи и сроки. По набору функций это аналог привычных коммерческих инструментов — таких как Microsoft Project для планирования и диаграмм Ганта, а также во многом Jira, Trello и других сервисов для ведения задач и спринтов.</p>
+<p>Ключевое отличие от облачных сервисов в модели использования. OpenProject распространяется как open-source: его можно развернуть на своём сервере и пользоваться без помесячной платы за каждого сотрудника. Вы не зависите от тарифной сетки внешнего провайдера и не рискуете тем, что цена внезапно вырастет или сервис перестанет работать в вашем регионе. Все проекты, задачи, файлы и переписка по задачам хранятся в вашей инфраструктуре.</p>
+<p>Для бизнеса это означает две вещи. Во-первых, предсказуемые расходы: вместо постоянных подписок — стоимость сервера и обслуживания. Во-вторых, контроль над данными — что особенно важно, когда речь идёт о коммерческой тайне, клиентских проектах или персональных данных.</p>
+
+<h2 id="vozmozhnosti">Что умеет: управление проектами</h2>
+<p>OpenProject покрывает основные потребности проектной работы. Перечислю обобщённо, без привязки к конкретным версиям и редакциям, поскольку набор функций может отличаться.</p>
+<ul>
+<li><strong>Задачи и пакеты работ.</strong> Задачи можно создавать, назначать ответственных, ставить сроки, приоритеты, статусы и связывать между собой. Видна вся история по каждой задаче.</li>
+<li><strong>Диаграммы Ганта.</strong> Наглядное планирование на временной шкале: видно, какие работы идут параллельно, где зависимости и где сдвиг сроков потянет за собой остальные этапы.</li>
+<li><strong>Спринты и гибкие методологии.</strong> Доски в стиле канбан и работа спринтами для команд, которые ведут разработку или итеративные процессы.</li>
+<li><strong>Дорожные карты и вехи.</strong> Планирование на верхнем уровне — крупные этапы, релизы и ключевые точки проекта.</li>
+<li><strong>Тайм-трекинг.</strong> Учёт затраченного времени по задачам — полезно для оценки трудозатрат, отчётности перед клиентом и анализа загрузки команды.</li>
+<li><strong>Совместная работа.</strong> Обсуждение задач, прикрепление файлов, вики-разделы для документации проекта, уведомления об изменениях.</li>
+<li><strong>Роли и права доступа.</strong> Гибкая настройка: кто какие проекты видит, кто может редактировать, а кто — только просматривать.</li>
+</ul>
+<p>Всё это собрано в одном месте, поэтому команде не нужно держать отдельные сервисы для задач, планирования и учёта времени. Конкретный состав возможностей стоит уточнять под вашу задачу — система гибкая и настраивается под процессы компании.</p>
+<p>На практике эти возможности складываются в понятные бизнес-сценарии. Руководитель видит сводную картину по всем проектам сразу: какие задачи горят, где сорваны сроки и кто перегружен. Менеджер проекта раскладывает работу на этапы, расставляет зависимости на диаграмме Ганта и заранее замечает, что задержка с одной задачей сдвинет сдачу всего проекта. Исполнители открывают список своих задач на сегодня и не тратят время на выяснение, что делать дальше и в каком приоритете.</p>
+<p>Отдельная ценность — прозрачность для заказчика и руководства. Тайм-трекинг и история по задачам дают объективную картину: сколько времени реально ушло на работу, какие правки запрашивались и когда. Это снимает споры о трудозатратах, упрощает выставление счетов клиентам по факту и помогает оценивать новые проекты на основе реальных данных прошлых, а не интуиции. Когда все договорённости и изменения зафиксированы в системе, к ним всегда можно вернуться.</p>
+
+<h2 id="komu-podhodit">Кому и для каких задач подходит</h2>
+<p>OpenProject подходит организациям, у которых одновременно идёт несколько проектов и есть потребность держать их под контролем. Несколько типичных сценариев.</p>
+<ul>
+<li><strong>Агентства и студии.</strong> Когда параллельно ведётся много клиентских проектов, важно видеть загрузку команды, сроки и затраченное время по каждому клиенту.</li>
+<li><strong>Строительные и проектные компании.</strong> Этапы работ, зависимости, вехи и сроки удобно вести на диаграммах Ганта — это близко к привычной логике MS Project.</li>
+<li><strong>IT- и продуктовые команды.</strong> Спринты, доски задач, дорожные карты релизов — стандартный набор для разработки.</li>
+<li><strong>Производство и сервис.</strong> Повторяющиеся процессы, заявки, контроль исполнения по ответственным и срокам.</li>
+</ul>
+<p>Отдельно стоит выделить случаи, когда важно, чтобы данные не уходили на сторону: работа с чувствительной информацией, требования службы безопасности, желание не зависеть от иностранных сервисов. Здесь размещение системы на своём сервере становится решающим аргументом.</p>
+<p>Если же у вас один-два небольших проекта и пара человек, возможно, хватит и более простого инструмента — OpenProject раскрывается там, где есть масштаб и потребность в порядке.</p>
+<p>Хороший индикатор, что компании пора переходить на такую систему, — повторяющиеся симптомы хаоса. Задачи живут в нескольких мессенджерах и теряются в переписке, статус проекта приходится собирать по людям вручную, при увольнении сотрудника вместе с ним уходит история договорённостей, а на вопрос «когда сдадим» никто не может ответить уверенно. Если это про вашу команду, выделенная система управления проектами окупится довольно быстро — за счёт сэкономленного времени руководителя и меньшего числа сорванных сроков.</p>
+<p>Подойдёт OpenProject и тем, кто перерос бесплатные тарифы облачных сервисов и столкнулся с тем, что оплата за каждого пользователя при росте команды превращается в заметную статью расходов. Перенос на свой сервер фиксирует стоимость владения и снимает зависимость от тарифной политики стороннего сервиса. Это особенно актуально для компаний, которые планируют расти и не хотят, чтобы расходы на софт росли пропорционально численности.</p>
+
+<h2 id="chto-nuzhno">Что нужно для запуска: сервер, настройка, 152-ФЗ</h2>
+<p>OpenProject — это не сервис, куда достаточно зарегистрироваться. Это система, которую нужно развернуть и обслуживать. Что для этого потребуется.</p>
+<p><strong>Сервер.</strong> Нужна машина, на которой система будет работать: это может быть виртуальный сервер у российского хостинг-провайдера или собственное оборудование компании. Мощность подбирается под число пользователей и объём проектов.</p>
+<p><strong>Развёртывание и настройка.</strong> Систему нужно установить, настроить доступ по защищённому соединению (HTTPS), завести проекты, роли и права, при необходимости — почтовые уведомления и резервное копирование. От качества настройки зависит, насколько удобно команде будет работать.</p>
+<p><strong>Перенос данных.</strong> Если вы уже ведёте проекты в другой системе или в таблицах, часто нужно перенести существующие задачи и структуру, чтобы не начинать с нуля.</p>
+<p><strong>152-ФЗ и хранение в России.</strong> Когда в проектах есть персональные данные сотрудников или клиентов, размещение системы на сервере в российском дата-центре помогает выполнять требования законодательства о хранении персональных данных. Поскольку OpenProject ставится в вашу инфраструктуру, вы сами решаете, где физически лежат данные.</p>
+<p><strong>Поддержка.</strong> Любую систему нужно обновлять, делать резервные копии и следить за работоспособностью. Это регулярная задача, которую стоит закрепить за кем-то заранее.</p>
+<p><strong>Типичные ошибки самостоятельного развёртывания.</strong> Когда систему ставят без опыта, чаще всего спотыкаются на одних и тех же вещах. Самая частая ошибка — запустить систему по обычному HTTP без шифрования: пароли и данные проектов идут по сети открытыми. Вторая — не настроить резервное копирование сразу: о бэкапах вспоминают только после первого сбоя, когда данные уже потеряны. Третья — выдать всем сотрудникам полные права, чтобы «не разбираться с ролями», а потом обнаружить, что кто-то случайно удалил чужой проект. Сюда же относятся слабый или дефолтный пароль администратора, отсутствие настроенных почтовых уведомлений (из-за чего команда не узнаёт об изменениях) и установка на слишком слабый сервер, на котором система тормозит при росте числа задач. Отдельная проблема — обновления: версию ставят один раз и забывают, а накопившиеся обновления потом сложно и рискованно накатывать разом, особенно если перед этим не сделана резервная копия. Большинство этих ошибок не видны в первые недели работы и всплывают позже, когда в системе уже много данных, — именно поэтому базовые вопросы безопасности, прав и бэкапов стоит закрыть на этапе запуска, а не откладывать на потом.</p>
+
+<h2 id="kak-vnedrit">Как внедрить под ключ</h2>
+<p>Самостоятельное развёртывание реально, но требует времени и технических знаний: сервер, веб-сервер, база данных, сертификаты, резервные копии, обновления. Если внутри компании нет человека, который этим займётся, разумнее отдать задачу под ключ.</p>
+<p>Я занимаюсь open-source-системами больше 16 лет и разворачиваю их на российском стеке с учётом 152-ФЗ. По OpenProject это обычно выглядит так: обсуждаем ваши процессы и число пользователей, подбираем сервер, разворачиваем и настраиваем систему, заводим проекты и роли, при необходимости переносим данные из старой системы, показываем команде, как работать, и настраиваем резервное копирование. Дальше — поддержка, если она нужна.</p>
+<p>В результате вы получаете готовую систему управления проектами на своём сервере, без помесячных лицензий и с данными под вашим контролем. Если хотите так — <a href="/predlozheniya/open-source-pod-klyuch/">разверну OpenProject под ключ</a>, а команде останется только работать.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+<p><strong>Чем OpenProject отличается от платных сервисов?</strong> Это open-source-система, которую вы ставите на свой сервер и используете без помесячной платы за каждого пользователя. Данные остаются у вас, а не на чужих серверах.</p>
+<p><strong>Можно ли перенести проекты из другой системы?</strong> Как правило, да. Существующие задачи и структуру проектов чаще всего можно перенести, чтобы не начинать ведение с чистого листа. Объём переноса зависит от исходной системы.</p>
+<p><strong>Подходит ли OpenProject под требования 152-ФЗ?</strong> Поскольку система размещается на вашем сервере, её можно поставить в российском дата-центре и хранить данные в России. Это помогает выполнять требования к хранению персональных данных. Полное соответствие зависит от вашей внутренней организации процессов.</p>
+<p><strong>Нужен ли отдельный сервер?</strong> Да, нужна машина, на которой система будет работать, — виртуальный сервер или собственное оборудование. Параметры подбираются под количество пользователей и объём проектов.</p>
+<p><strong>Кто будет обслуживать систему после запуска?</strong> Систему нужно обновлять и резервировать. Это можно делать силами вашего ИТ-специалиста или отдать на поддержку — по договорённости.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+<p>OpenProject — это зрелая open-source-альтернатива платным системам управления проектами. Она даёт задачи, диаграммы Ганта, спринты, дорожные карты и тайм-трекинг в одном месте, а главное — ставится на ваш сервер, без подписки за каждого пользователя и с данными под вашим контролем. Это удобно для бизнеса, агентств, строительных и проектных команд, которым важны порядок в проектах, предсказуемые расходы и хранение данных в России.</p>
+<p>Запуск требует сервера, развёртывания, настройки и поддержки — это технические задачи, которые проще отдать специалисту. Если хотите получить готовую систему без лишних хлопот, я помогу развернуть и настроить её под ваши процессы.</p>
+
+                    </div>
+
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Что я делаю с open-source</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-hard-drives"></i> <span>Развёртывание на вашем сервере</span></li>
+    
+    <li><i class="ph-fill ph-arrows-left-right"></i> <span>Перенос данных из старого сервиса</span></li>
+    
+    <li><i class="ph-fill ph-shield-check"></i> <span>Безопасность и 152-ФЗ</span></li>
+    
+    <li><i class="ph-fill ph-wrench"></i> <span>Настройка под ваши процессы</span></li>
+    
+    <li><i class="ph-fill ph-lifebuoy"></i> <span>Поддержка и обновления</span></li>
+    
+  </ul>
+  <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
+  </a>
+</div>
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/open-source-pod-klyuch/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовое решение по теме</span>
+                            <span class="blog-offer-cta-title">Open-source решение под ключ на ваш сервер</span>
+                            <span class="blog-offer-cta-price">Бесплатная консультация · Запуск за 1–3 недели</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-arrow-right" aria-hidden="true"></i> Смотреть предложение</span>
+                    </a>
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/predlozheniya/open-source-pod-klyuch/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Развернуть open-source под ключ</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/penpot-figma-na-svoyom-servere-2026/" data-category="opensource">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-pencil-ruler"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>Penpot: Figma на своём сервере под ключ</h3>
+  <p>Penpot даёт дизайн-команде инструмент уровня Figma на своём сервере — без подписки и с файлами у себя. Разбираю возможности, кому подходит и что нужно для запуска.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 15 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/wiki-js-korporativnaya-wiki-2026/" data-category="opensource">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-book-open-text"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>Wiki.js: корпоративная вики и база знаний на своём сервере</h3>
+  <p>Wiki.js собирает регламенты, инструкции и знания компании в одну удобную вики на вашем сервере — как Confluence, но без подписки и с данными у себя. Разбираю, что умеет и что нужно для запуска.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 15 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/mattermost-korporativnyy-messenger-2026/" data-category="opensource">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-chat-teardrop-text"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>Mattermost: корпоративный мессенджер на своём сервере вместо Slack</h3>
+  <p>Mattermost — это корпоративный чат на своём сервере, как Slack, но с данными у себя. Разбираю возможности, кому подходит и что нужно для запуска.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 14 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовые решения под ключ</span>
+                            <span class="blog-offer-cta-title">449 готовых IT-решений для бизнеса</span>
+                            <span class="blog-offer-cta-price">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Смотреть каталог</span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#chto-eto"><span class="blog-toc-num">01</span> Что это и что заменяет</a></li>
+<li><a href="#vozmozhnosti"><span class="blog-toc-num">02</span> Что умеет</a></li>
+<li><a href="#komu-podhodit"><span class="blog-toc-num">03</span> Кому подходит</a></li>
+<li><a href="#chto-nuzhno"><span class="blog-toc-num">04</span> Что нужно для запуска</a></li>
+<li><a href="#kak-vnedrit"><span class="blog-toc-num">05</span> Как внедрить под ключ</a></li>
+<li><a href="#faq"><span class="blog-toc-num">06</span> FAQ</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">07</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=23" defer></script>
+<script src="/services-i18n.js?v=23" defer></script>
+<script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>
