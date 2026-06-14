@@ -79,42 +79,59 @@ function buildTags(rawTags) {
 }
 
 // ---------- шаблоны постов ----------
+// ТенЧат: без внешних ссылок (они некликабельны и режут охват), польза в самом
+// посте, CTA — «напишите мне в личку». Первая строка блока = заголовок поста.
+function stripTags(s) {
+  return String(s).replace(/<[^>]+>/g, ' ').replace(/&[a-z]+;/gi, ' ').replace(/\s+/g, ' ').trim();
+}
+function tldrItems(html) {
+  const m = String(html).match(/<div class="blog-tldr">([\s\S]*?)<\/div>/i);
+  if (!m) return [];
+  const items = [];
+  const re = /<(?:li|p)>([\s\S]*?)<\/(?:li|p)>/gi;
+  let x;
+  while ((x = re.exec(m[1])) !== null) { const t = stripTags(x[1]); if (t) items.push(t); }
+  return items;
+}
 function articlePost(a) {
-  const url = `${SITE}/blog/${a.slug}/`;
-  const points = (a.toc || [])
-    .filter((t) => t.id !== 'faq' && t.id !== 'vyvody')
-    .map((t) => t.text)
-    .slice(0, 5);
   const lead = (a.excerpt || a.metaDescription || '').trim();
+  let points = tldrItems(a.contentHtml || '');
+  if (!points.length) {
+    points = (a.toc || []).filter((t) => t.id !== 'faq' && t.id !== 'vyvody').map((t) => t.text);
+  }
+  points = points.slice(0, 6);
   const lines = [];
   lines.push(a.title.trim());
   lines.push('');
   if (lead) { lines.push(lead); lines.push(''); }
   if (points.length) {
-    lines.push('В статье разобрал:');
+    lines.push('Разберу по пунктам:');
     points.forEach((p) => lines.push('— ' + p));
     lines.push('');
   }
-  lines.push('Читать целиком: ' + url);
+  lines.push('Если откликается и хотите так же у себя — напишите мне в личку. Разберём вашу задачу и подскажу, с чего начать.');
   lines.push('');
   lines.push(buildTags(a.tags));
   return lines.join('\n').trim();
 }
 
 function offerPost(o) {
-  const url = `${SITE}/predlozheniya/${o.slug}/`;
   const lines = [];
-  const head = o.niche ? `${o.title} — для ниши «${o.niche}»` : o.title;
-  lines.push(head.trim());
+  lines.push(o.title.trim());
   lines.push('');
   if (o.tagline) { lines.push(o.tagline.trim()); lines.push(''); }
-  lines.push('Веду проект лично, на российском стеке, с соблюдением 152-ФЗ. Без форм — пишите в личку, обсудим задачу.');
-  lines.push('');
-  lines.push('Подробнее: ' + url);
+  const del = (o.deliverables || []).slice(0, 5);
+  if (del.length) {
+    lines.push('Что делаю:');
+    del.forEach((d) => lines.push('— ' + String(d).trim()));
+    lines.push('');
+  }
+  const res = (o.result || [])[0];
+  if (res) { lines.push(String(res).trim()); lines.push(''); }
+  lines.push('Напишите мне в личку — обсудим вашу задачу, сроки и смету. Веду проект лично, на российском стеке, с соблюдением 152-ФЗ.');
   lines.push('');
   const nicheWord = o.niche ? o.niche.split(/[\s,/]+/)[0] : '';
-  const niceTags = [nicheWord, 'готовоерешение', 'разработка'].filter(Boolean);
-  lines.push(buildTags(niceTags));
+  lines.push(buildTags([nicheWord, 'готовоерешение', 'бизнес']));
   return lines.join('\n').trim();
 }
 
@@ -157,8 +174,8 @@ function main() {
     '# Очередь постов для ТенЧата',
     '',
     `Сгенерировано: ${stamp}. Постов в этой порции: ${fresh.length}.`,
-    'Публикуйте 1–2 в день. Текст в блоках ниже — копируйте целиком (заход + польза + ссылка + хэштеги).',
-    'Обложку берите из соответствующей страницы (cover.png рядом со статьёй/оффером).',
+    'Публикуйте 1–2 в день. В каждом блоке: ПЕРВАЯ строка = «Заголовок» поста (поле в ТенЧате), всё остальное = «Текст поста».',
+    'В ТенЧате обязательно выберите 1–3 тематики и прикрепите картинку (cover.png рядом со статьёй/оффером). Ссылок в постах нет намеренно — CTA «напишите мне».',
     '',
     '---',
     '',
