@@ -1421,9 +1421,9 @@ function buildRss(published) {
   const latest = sorted[0] ? (feedDate(sorted[0]) || new Date().toISOString().slice(0, 10)) : new Date().toISOString().slice(0, 10);
 
   const channelCover = `${SITE}/hero-photo.webp`;
-  // Лимит RSS: ограничиваем число записей в фиде (защита от заливки всего архива
-  // RSS-репостером в соцсети). 1 — тестовый режим, потом ~25.
-  const FEED_MAX = 1;
+  // Лимит RSS: последние N статей (стандартная практика; ТенЧат-репостер теперь
+  // смотрит на отдельный /tenchat-feed.xml, а этот фид — для обычных RSS-читателей).
+  const FEED_MAX = 30;
   const items = sorted.slice(0, FEED_MAX).map(a => {
     const url = `${SITE}/blog/${a.slug}/`;
     const cat = CATEGORY_LABELS[a.category] || a.category || '';
@@ -1570,6 +1570,8 @@ async function main() {
 
   updateSitemap(published);
   fs.writeFileSync(OUT_FEED, subOffersCount(buildRss(published)), 'utf8');
+  // Отдельный RSS под ТенЧат-репостер (богатый текст + картинка, без ссылок)
+  try { require('./build-tenchat-feed.js')(); } catch (e) { console.log('  tenchat-feed: пропуск (' + e.message + ')'); }
 
   console.log(`OK: generated ${pages} article(s) + hub`);
   console.log(`  ${OUT_BLOG}/index.html`);

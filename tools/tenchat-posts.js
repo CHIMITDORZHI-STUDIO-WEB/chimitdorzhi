@@ -93,7 +93,8 @@ function tldrItems(html) {
   while ((x = re.exec(m[1])) !== null) { const t = stripTags(x[1]); if (t) items.push(t); }
   return items;
 }
-function articlePost(a) {
+// Тело поста БЕЗ заголовка (заголовок отдаётся отдельным полем — и в .md, и в RSS).
+function articleBody(a) {
   const lead = (a.excerpt || a.metaDescription || '').trim();
   let points = tldrItems(a.contentHtml || '');
   if (!points.length) {
@@ -101,8 +102,6 @@ function articlePost(a) {
   }
   points = points.slice(0, 6);
   const lines = [];
-  lines.push(a.title.trim());
-  lines.push('');
   if (lead) { lines.push(lead); lines.push(''); }
   if (points.length) {
     lines.push('Разберу по пунктам:');
@@ -115,10 +114,8 @@ function articlePost(a) {
   return lines.join('\n').trim();
 }
 
-function offerPost(o) {
+function offerBody(o) {
   const lines = [];
-  lines.push(o.title.trim());
-  lines.push('');
   if (o.tagline) { lines.push(o.tagline.trim()); lines.push(''); }
   const del = (o.deliverables || []).slice(0, 5);
   if (del.length) {
@@ -133,6 +130,23 @@ function offerPost(o) {
   const nicheWord = o.niche ? o.niche.split(/[\s,/]+/)[0] : '';
   lines.push(buildTags([nicheWord, 'готовоерешение', 'бизнес']));
   return lines.join('\n').trim();
+}
+
+// Заголовок ТенЧата — максимум 80 символов.
+function trimTitle(t) {
+  t = String(t).trim();
+  if (t.length <= 80) return t;
+  const cut = t.slice(0, 79);
+  const sp = cut.lastIndexOf(' ');
+  return (sp > 40 ? cut.slice(0, sp) : cut).trim() + '…';
+}
+
+// Единая точка сборки поста: {title, body, image}. Используется и CLI, и RSS-фидом.
+function postParts(kind, item) {
+  if (kind === 'offer') {
+    return { kind, title: trimTitle(item.title), body: offerBody(item), image: `${SITE}/predlozheniya/${item.slug}/cover.png`, slug: item.slug };
+  }
+  return { kind, title: trimTitle(item.title), body: articleBody(item), image: `${SITE}/blog/${item.slug}/cover.png`, slug: item.slug };
 }
 
 // ---------- основной прогон ----------
@@ -164,8 +178,9 @@ function main() {
   }
 
   const blocks = fresh.map((p, i) => {
-    const post = p.kind === 'article' ? articlePost(p.item) : offerPost(p.item);
+    const parts = postParts(p.kind, p.item);
     const tag = p.kind === 'article' ? 'СТАТЬЯ' : 'ОФФЕР';
+    const post = `${parts.title}\n\n${parts.body}`;
     return `### ${i + 1}. [${tag}] ${p.item.title}\n\n\`\`\`\n${post}\n\`\`\``;
   });
 
@@ -196,4 +211,6 @@ function main() {
   console.log(`Всего в учёте: ${Object.keys(state.generated).length}. Остаток в пуле: ${pool.length - Object.keys(state.generated).length}.`);
 }
 
-main();
+module.exports = { postParts, loadArticles, loadOffers, articleBody, offerBody, trimTitle };
+
+if (require.main === module) main();
