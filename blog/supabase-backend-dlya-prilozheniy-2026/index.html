@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supabase: backend для приложений на сервере</title>
+    <meta name="description" content="Supabase — open-source backend-платформа (аналог Firebase): база PostgreSQL, авторизация, API, файловое хранилище, реалтайм.">
+    <meta name="keywords" content="Supabase, backend, Firebase, open-source">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/supabase-backend-dlya-prilozheniy-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/supabase-backend-dlya-prilozheniy-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/supabase-backend-dlya-prilozheniy-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/supabase-backend-dlya-prilozheniy-2026/">
+    <meta property="og:title" content="Supabase: backend для приложений на сервере">
+    <meta property="og:description" content="Supabase — open-source backend-платформа (аналог Firebase): база PostgreSQL, авторизация, API, файловое хранилище, реалтайм.">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/supabase-backend-dlya-prilozheniy-2026/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Supabase: backend для приложений на сервере">
+    <meta name="twitter:description" content="Supabase — open-source backend-платформа (аналог Firebase): база PostgreSQL, авторизация, API, файловое хранилище, реалтайм.">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/supabase-backend-dlya-prilozheniy-2026/cover.png">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor-Fill.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=43">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Supabase: backend для приложений на своём сервере",
+  "description": "Supabase — open-source backend-платформа (аналог Firebase): база PostgreSQL, авторизация, API, файловое хранилище, реалтайм. Готовая техбаза для приложения с данными у себя по 152-ФЗ — разверну под ключ.",
+  "image": "https://chimitdorzhi.tech/blog/supabase-backend-dlya-prilozheniy-2026/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/supabase-backend-dlya-prilozheniy-2026/"
+  },
+  "datePublished": "2026-06-15",
+  "dateModified": "2026-06-15",
+  "keywords": "Supabase, backend, Firebase, open-source",
+  "articleSection": "Open-source и свой сервер",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Supabase: backend для приложений на своём сервере",
+      "item": "https://chimitdorzhi.tech/blog/supabase-backend-dlya-prilozheniy-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Чем Supabase отличается от Firebase?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Главное отличие — открытый код и возможность установки на свой сервер. Firebase работает только в облаке Google и привязывает вас к нему. Supabase можно развернуть где угодно, а в основе у него стандартный PostgreSQL, а не закрытое хранилище."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли с Supabase соответствовать 152-ФЗ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Сама платформа этого не гарантирует, но её можно поставить на сервер в российском дата-центре, и тогда персональные данные хранятся на нужной территории под вашим контролем. Это закрывает основной технический барьер; остальное — организационные меры."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужны ли свои разработчики, чтобы пользоваться Supabase?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Для развёртывания и настройки сервера — нет, эту часть я делаю под ключ. Для самого приложения, которое подключается к backend, разработчики понадобятся, но Supabase сильно сокращает объём их работы за счёт готовых API и авторизации."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Подходит ли Supabase для серьёзного проекта или только для прототипов?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Подходит для обоих. В основе лежит PostgreSQL, который используют крупные сервисы, поэтому решение, начатое как прототип, не придётся переписывать при росте — его масштабируют под нагрузку."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что будет с данными, если я захочу уйти?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Поскольку всё стоит на вашем сервере и построено на открытых технологиях, данные принадлежат вам и их легко выгрузить или перенести. Привязки к одному поставщику нет — в этом и смысл open-source подхода."
+      }
+    }
+  ]
+}
+    </script>
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+            <li><a href="/#services" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li class="nav-dropdown">
+                <a href="/#projects" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--arey"><i class="ph-fill ph-vinyl-record" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-airplane-tilt" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#cases" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            </div>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/#about">Обо мне</a></li>
+        <li><a href="/#services">Услуги</a></li>
+        <li><a href="/services/">Каталог услуг</a></li>
+        <li><a href="/predlozheniya/">Предложения</a></li>
+        <li><a href="/#cases">Кейсы</a></li>
+        <li><a href="/blog/">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+        <li><a href="/#contact">Контакт</a></li>
+    </ul>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Supabase: backend для приложений на своём сервере</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/opensource/"><i class="ph ph-bookmark" aria-hidden="true"></i> Open-source и свой сервер</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин чтения</span>
+                        <time datetime="2026-06-15"><i class="ph ph-calendar" aria-hidden="true"></i> 15 июня 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Supabase: backend для приложений на своём сервере</h1>
+
+                    <p class="blog-lead">Supabase даёт готовую техническую базу для приложения — БД, авторизацию, API и хранилище — на своём сервере, как Firebase, но с данными у себя. Разбираю возможности и запуск.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>Supabase</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>backend</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>Firebase</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>open-source</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
+<li>Supabase — это open-source backend-платформа: база данных PostgreSQL, авторизация, автогенерируемое API, файловое хранилище и реалтайм в одном наборе. Аналог Firebase, но с открытым кодом.</li>
+<li>Главное преимущество — её можно развернуть на своём сервере. Данные пользователей остаются у вас, без привязки к чужому зарубежному облаку.</li>
+<li>Это снимает часть рисков по 152-ФЗ: персональные данные хранятся на инфраструктуре, которую вы контролируете.</li>
+<li>Подходит стартапам и командам, которым нужна готовая техническая база под приложение, а не разработка backend с нуля.</li>
+<li>Для запуска нужен сервер, корректная настройка и поддержка — это я делаю под ключ.</li>
+</ul></div>
+
+<p>Когда вы запускаете приложение — мобильное, веб или внутренний сервис — большая часть работы прячется не в красивом интерфейсе, а в том, что под ним. База данных, регистрация и вход пользователей, хранение файлов, обмен данными между клиентом и сервером. Всё это называют backend, и обычно его пишут месяцами. Supabase позволяет получить эту техническую базу сразу, не собирая её по кусочкам, и при этом оставить данные у себя. Разберём, что это за инструмент, что он умеет и что нужно для запуска.</p>
+
+<h2 id="chto-eto">Что такое Supabase и что заменяет</h2>
+<p>Supabase — это набор готовых компонентов, из которых строится серверная часть приложения. Его часто описывают как открытую альтернативу Firebase от Google. Разница принципиальная: Firebase — это закрытый сервис, который работает только в облаке Google, а Supabase — это open-source проект, который можно установить где угодно, в том числе на собственный сервер в России.</p>
+<p>В основе лежит PostgreSQL — одна из самых надёжных и распространённых баз данных в мире. Вокруг неё Supabase добавляет всё, что обычно приходится докручивать вручную: систему авторизации, генерацию API, хранилище файлов, механизм реального времени. По сути это конструктор, который закрывает типовые задачи любого приложения и избавляет от написания одного и того же кода в каждом новом проекте.</p>
+<p>Для бизнеса смысл простой. Вместо того чтобы платить за разработку backend с нуля или арендовать иностранный облачный сервис с непрозрачными условиями, вы получаете проверенную платформу под своим контролем. Код открыт, развитие сообществом активное, а сам подход не привязывает вас к одному поставщику.</p>
+
+<h2 id="vozmozhnosti">Что умеет: база, авторизация, API</h2>
+<p>Основные возможности Supabase покрывают большинство потребностей типового приложения.</p>
+<p><strong>База данных.</strong> Полноценный PostgreSQL с удобной панелью управления. Можно создавать таблицы, описывать связи, делать запросы. Это не урезанная база, а взрослая СУБД, которой пользуются крупные компании.</p>
+<p><strong>Авторизация.</strong> Готовая система регистрации и входа: по email и паролю, по одноразовым ссылкам, через внешние сервисы. Управление сессиями и правами доступа уже встроено, не нужно изобретать это с нуля и рисковать ошибками в безопасности.</p>
+<p><strong>API.</strong> Supabase автоматически создаёт интерфейс для работы с данными. Как только вы описали таблицы, приложение уже может читать и записывать данные через готовые методы. Это резко сокращает объём ручной работы для разработчиков.</p>
+<p><strong>Файловое хранилище.</strong> Место для картинок, документов, видео и любых других файлов, которые загружают пользователи, с контролем доступа к ним.</p>
+<p><strong>Реалтайм.</strong> Механизм, который позволяет приложению получать обновления мгновенно, без перезагрузки. Это нужно для чатов, лент, совместной работы, уведомлений — везде, где данные должны появляться у пользователя сразу.</p>
+<p>На практике это видно по конкретным сценариям. Сервис доставки еды держит в одной базе меню, заказы и профили курьеров, а реалтайм мгновенно показывает кухне новый заказ и обновляет клиенту статус «готовится — в пути — доставлено» без перезагрузки страницы. Маркетплейс услуг использует авторизацию для двух ролей — заказчик и исполнитель — и хранит в файловом хранилище фотографии работ и сканы документов с разграничением доступа. Онлайн-школа собирает на API личный кабинет ученика, прогресс по урокам и загрузку домашних заданий, а внутренняя CRM небольшой компании ведёт клиентов, сделки и историю переписки. Во всех этих случаях бизнес получает рабочую систему, не оплачивая разработку каждого блока по отдельности, и может менять логику продукта, не переписывая фундамент.</p>
+<p>Все эти части работают вместе как единая система, и именно это экономит время: не приходится связывать между собой пять разных сервисов.</p>
+
+<h2 id="komu-podhodit">Кому и для каких задач подходит</h2>
+<p>Supabase хорошо ложится на широкий круг задач, но особенно полезен в нескольких сценариях.</p>
+<p>Стартапам, которым важна скорость. Когда нужно быстро проверить идею и запустить первую версию продукта, нет смысла тратить месяцы на backend. Supabase даёт работающую основу за считанные дни, и при этом её не придётся выбрасывать при росте — PostgreSQL масштабируется.</p>
+<p>Командам разработки, которые хотят сосредоточиться на продукте, а не на инфраструктуре. Вместо того чтобы вручную поднимать базу, писать авторизацию и API, разработчики получают это готовым и занимаются тем, что отличает их приложение от других.</p>
+<p>Бизнесу, который запускает собственный сервис — веб-приложение, личный кабинет, <a href="https://chimitdorzhi.tech/services/mobile-apps/" class="blog-inline-link">мобильное приложение</a>, внутреннюю систему. Если в продукте есть пользователи, их данные и обмен информацией, Supabase закрывает техническую базу.</p>
+<p>Хорошо ложится Supabase и на проекты, где данные пользователей чувствительны и важна репутация. Это сервисы в медицине, образовании, финансах, госсекторе и любые продукты, где клиент должен быть уверен, что его данные не уходят в чужое зарубежное облако. Для таких задач сам факт, что backend стоит на сервере под вашим контролем, становится частью предложения и аргументом в переговорах. Подходит он и компаниям, которые уже устали от привязки к одному поставщику: миграция с закрытого облака на открытую платформу убирает зависимость от чужих тарифов и условий. Наконец, это удачный выбор для агентств и студий, которые делают приложения на заказ, — единая проверенная основа ускоряет каждый новый проект и снижает стоимость поддержки.</p>
+<p>Отдельно стоит выделить тех, кому важно, где физически лежат данные. Если вы работаете с персональными данными граждан России, вопрос хранения становится не техническим, а юридическим. Здесь возможность развернуть платформу на своём сервере оказывается решающей.</p>
+
+<h2 id="chto-nuzhno">Что нужно для запуска: сервер, настройка, 152-ФЗ</h2>
+<p>Supabase можно использовать в облаке самого проекта, но смысл self-hosted варианта именно в том, чтобы поставить его на свою инфраструктуру. Для этого нужно несколько вещей.</p>
+<p>Во-первых, сервер. Это может быть арендованный VPS или выделенная машина у российского хостинга. Требования зависят от нагрузки: для старта достаточно скромных ресурсов, под рост их наращивают.</p>
+<p>Во-вторых, корректная настройка. Supabase состоит из нескольких связанных сервисов, которые нужно правильно развернуть, настроить безопасность, подключить домен и шифрование, организовать резервное копирование. От качества этой настройки напрямую зависит, будет ли система работать стабильно и не утекут ли данные.</p>
+<p>В-третьих, поддержка. Любая серверная система требует обновлений, мониторинга и реакции на сбои. Это не задача «поставил и забыл».</p>
+<p>Самостоятельное развёртывание обычно спотыкается на одних и тех же ошибках, и они дорого обходятся. Частый промах — оставить сервисы с настройками по умолчанию: открытые наружу порты, стандартные пароли и ключи, доступная всем панель управления превращают backend в лёгкую цель. Другая типичная беда — забытое или ненастроенное резервное копирование: о нём вспоминают только после первого сбоя, когда данные уже потеряны. Часто неправильно настраивают разграничение доступа на уровне строк базы, и тогда один пользователь может прочитать чужие записи. Добавьте сюда отсутствие шифрования соединения, обновления, которые накатывают вслепую и роняют рабочую систему, а также нехватку мониторинга, из-за которой о падении узнают от клиентов, а не от сервера. По отдельности каждая ошибка кажется мелочью, но вместе они означают утечки, простои и потерю доверия, поэтому грамотная настройка с самого начала экономит куда больше, чем стоит.</p>
+<p>Отдельно про 152-ФЗ. Закон требует, чтобы персональные данные граждан России хранились в базах на территории страны. Когда вы используете зарубежное облако, выполнить это требование сложно и непрозрачно. Когда Supabase стоит на вашем сервере в российском дата-центре, данные физически находятся под вашим контролем и на нужной территории. Это не делает соответствие закону автоматическим — нужны ещё организационные меры, — но снимает главный технический барьер и упрощает выполнение требований.</p>
+
+<h2 id="kak-vnedrit">Как внедрить под ключ</h2>
+<p>На бумаге всё звучит просто, но между «скачать Supabase» и «работающим backend, которому можно доверить данные пользователей» есть заметная дистанция. Нужно выбрать и подготовить сервер, развернуть все компоненты, настроить безопасность и доступы, продумать резервные копии, проверить отказоустойчивость и связать платформу с вашим приложением.</p>
+<p>Я беру эту часть на себя. Подбираю и настраиваю сервер на российской инфраструктуре, разворачиваю Supabase, настраиваю авторизацию, хранилище и API под задачи проекта, закрываю вопросы безопасности и резервного копирования. На выходе вы получаете готовую серверную базу, к которой можно подключать приложение, и понятную схему дальнейшей поддержки.</p>
+<p>Работаю не только с Supabase, а со связкой open-source решений целиком, подбирая то, что подходит именно вашей задаче и не привязывает вас к чужому облаку. Если планируете запуск приложения и хотите, чтобы данные были у вас — <a href="/predlozheniya/open-source-pod-klyuch/">разверну Supabase под ключ</a>.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+<p><strong>Чем Supabase отличается от Firebase?</strong> Главное отличие — открытый код и возможность установки на свой сервер. Firebase работает только в облаке Google и привязывает вас к нему. Supabase можно развернуть где угодно, а в основе у него стандартный PostgreSQL, а не закрытое хранилище.</p>
+<p><strong>Можно ли с Supabase соответствовать 152-ФЗ?</strong> Сама платформа этого не гарантирует, но её можно поставить на сервер в российском дата-центре, и тогда персональные данные хранятся на нужной территории под вашим контролем. Это закрывает основной технический барьер; остальное — организационные меры.</p>
+<p><strong>Нужны ли свои разработчики, чтобы пользоваться Supabase?</strong> Для развёртывания и настройки сервера — нет, эту часть я делаю под ключ. Для самого приложения, которое подключается к backend, разработчики понадобятся, но Supabase сильно сокращает объём их работы за счёт готовых API и авторизации.</p>
+<p><strong>Подходит ли Supabase для серьёзного проекта или только для прототипов?</strong> Подходит для обоих. В основе лежит PostgreSQL, который используют крупные сервисы, поэтому решение, начатое как прототип, не придётся переписывать при росте — его масштабируют под нагрузку.</p>
+<p><strong>Что будет с данными, если я захочу уйти?</strong> Поскольку всё стоит на вашем сервере и построено на открытых технологиях, данные принадлежат вам и их легко выгрузить или перенести. Привязки к одному поставщику нет — в этом и смысл open-source подхода.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+<p>Supabase — это готовая техническая основа для приложения: база данных, авторизация, API, хранилище файлов и реальное время в одном открытом наборе. Он заменяет долгую разработку backend с нуля и при этом, в отличие от закрытых облачных сервисов, разворачивается на вашем собственном сервере.</p>
+<p>Для бизнеса это значит две вещи. Первая — скорость: рабочую серверную базу можно получить за дни, а не за месяцы. Вторая — контроль над данными: они хранятся на вашей инфраструктуре, что упрощает выполнение требований 152-ФЗ и снимает зависимость от чужого облака. Чтобы всё это работало стабильно, нужен правильно настроенный сервер и поддержка — и эту часть я закрываю под ключ, оставляя вам сам продукт.</p>
+
+                    </div>
+
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Что я делаю с open-source</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-hard-drives"></i> <span>Развёртывание на вашем сервере</span></li>
+    
+    <li><i class="ph-fill ph-arrows-left-right"></i> <span>Перенос данных из старого сервиса</span></li>
+    
+    <li><i class="ph-fill ph-shield-check"></i> <span>Безопасность и 152-ФЗ</span></li>
+    
+    <li><i class="ph-fill ph-wrench"></i> <span>Настройка под ваши процессы</span></li>
+    
+    <li><i class="ph-fill ph-lifebuoy"></i> <span>Поддержка и обновления</span></li>
+    
+  </ul>
+  <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
+  </a>
+</div>
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/open-source-pod-klyuch/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовое решение по теме</span>
+                            <span class="blog-offer-cta-title">Open-source решение под ключ на ваш сервер</span>
+                            <span class="blog-offer-cta-price">Бесплатная консультация · Запуск за 1–3 недели</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-arrow-right" aria-hidden="true"></i> Смотреть предложение</span>
+                    </a>
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/predlozheniya/open-source-pod-klyuch/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Развернуть open-source под ключ</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/coolify-svoya-platforma-deploya-2026/" data-category="opensource">
+  <span class="blog-card-fresh">Свежее</span>
+  <div class="blog-card-icon"><i class="ph-fill ph-cloud-arrow-up"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>Coolify: своя платформа деплоя приложений на сервере</h3>
+  <p>Coolify превращает ваш сервер в платформу деплоя как Vercel/Heroku: запускаете сайты, приложения и сервисы в пару кликов, без растущих облачных счетов. Разбираю, кому подходит и что нужно.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 15 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/baserow-baza-dannyh-bez-koda-2026/" data-category="opensource">
+  <span class="blog-card-fresh">Свежее</span>
+  <div class="blog-card-icon"><i class="ph-fill ph-table"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>Baserow: база данных без кода на своём сервере</h3>
+  <p>Baserow — это гибкие умные таблицы и базы без кода на вашем сервере: CRM, трекеры задач, базы клиентов без платы за каждого пользователя. Разбираю, что умеет и что нужно для запуска.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 15 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/zarabotok-na-mikro-saas-2026/" data-category="sales">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-stack"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Продажи и стартап</span>
+  <h3>Заработок на своём микро-SaaS: продукт как источник дохода</h3>
+  <p>Микро-SaaS — небольшой сервис по подписке, который может стать источником регулярного дохода. Разбираю, как найти нишу, что нужно для запуска и с чего начать.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 15 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовые решения под ключ</span>
+                            <span class="blog-offer-cta-title">449 готовых IT-решений для бизнеса</span>
+                            <span class="blog-offer-cta-price">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Смотреть каталог</span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#chto-eto"><span class="blog-toc-num">01</span> Что это и что заменяет</a></li>
+<li><a href="#vozmozhnosti"><span class="blog-toc-num">02</span> Что умеет</a></li>
+<li><a href="#komu-podhodit"><span class="blog-toc-num">03</span> Кому подходит</a></li>
+<li><a href="#chto-nuzhno"><span class="blog-toc-num">04</span> Что нужно для запуска</a></li>
+<li><a href="#kak-vnedrit"><span class="blog-toc-num">05</span> Как внедрить под ключ</a></li>
+<li><a href="#faq"><span class="blog-toc-num">06</span> FAQ</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">07</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=23" defer></script>
+<script src="/services-i18n.js?v=23" defer></script>
+<script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>
