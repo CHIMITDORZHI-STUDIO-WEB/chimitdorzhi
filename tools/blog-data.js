@@ -24,6 +24,7 @@ const blogBatchZarabotok = require('./blog-batch-zarabotok.js');
 const blogBatchOpenSource3 = require('./blog-batch-opensource3.js');
 const blogBatchOpenSource4 = require('./blog-batch-opensource4.js');
 const blogBatchOpenSource5 = require('./blog-batch-opensource5.js');
+const blogBatchOpenSource6 = require('./blog-batch-opensource6.js');
 const konkursPriglasheniyMaxContent = require('./blog-content-konkurs-priglasheniy-max.js');
 const aiAgentsContent = require('./blog-content-ai-agents.js');
 const securityChecklistContent = require('./blog-content-security-checklist.js');
@@ -10655,4 +10656,4 @@ module.exports = [
       ],
     },
   },
-].concat(antigravityEntries, blogBatchA, blogBatchB, blogBatchC, blogBatchPillars, blogBatchMaxMkt, blogBatchLocal, blogBatchChita, blogBatchShkola, blogBatchSetevik, blogBatchMlmBrands, blogBatchMlmBrands2, blogBatchMlmBrands3, blogBatchPraktiki, blogBatchEvents, blogBatchBiznesIdei, blogBatchOpenSource, blogBatchOpenSource2, blogBatchZarabotok, blogBatchOpenSource3, blogBatchOpenSource4, blogBatchOpenSource5);
+].concat(antigravityEntries, blogBatchA, blogBatchB, blogBatchC, blogBatchPillars, blogBatchMaxMkt, blogBatchLocal, blogBatchChita, blogBatchShkola, blogBatchSetevik, blogBatchMlmBrands, blogBatchMlmBrands2, blogBatchMlmBrands3, blogBatchPraktiki, blogBatchEvents, blogBatchBiznesIdei, blogBatchOpenSource, blogBatchOpenSource2, blogBatchZarabotok, blogBatchOpenSource3, blogBatchOpenSource4, blogBatchOpenSource5, blogBatchOpenSource6);
