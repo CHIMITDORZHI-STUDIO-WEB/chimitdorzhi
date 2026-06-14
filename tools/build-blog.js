@@ -16,6 +16,9 @@ const subOffersCount = (s) => String(s).split('{{OFFERS_COUNT}}').join(OFFERS_CO
 
 // Карта: slug статьи → slug предложения. Добавляйте по мере роста раздела.
 const OFFER_LINKS = {
+  'rustdesk-udalennyy-dostup-2026': 'open-source-pod-klyuch',
+  'paperless-ngx-arhiv-dokumentov-2026': 'open-source-pod-klyuch',
+  'send-bezopasnaya-peredacha-faylov-2026': 'open-source-pod-klyuch',
   'viseron-ai-videonablyudenie-2026': 'open-source-pod-klyuch',
   'catvton-virtualnaya-primerka-2026': 'open-source-pod-klyuch',
   'moss-tts-nano-sintez-rechi-2026': 'open-source-pod-klyuch',
