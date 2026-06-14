@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send: безопасная передача файлов на сервере</title>
+    <meta name="description" content="Send (форк Firefox Send) — open-source сервер безопасной передачи файлов: end-to-end шифрование, авто-удаление после скачивания или по сроку.">
+    <meta name="keywords" content="Send, передача файлов, шифрование, open-source">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/send-bezopasnaya-peredacha-faylov-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/send-bezopasnaya-peredacha-faylov-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/send-bezopasnaya-peredacha-faylov-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/send-bezopasnaya-peredacha-faylov-2026/">
+    <meta property="og:title" content="Send: безопасная передача файлов на сервере">
+    <meta property="og:description" content="Send (форк Firefox Send) — open-source сервер безопасной передачи файлов: end-to-end шифрование, авто-удаление после скачивания или по сроку.">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/send-bezopasnaya-peredacha-faylov-2026/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Send: безопасная передача файлов на сервере">
+    <meta name="twitter:description" content="Send (форк Firefox Send) — open-source сервер безопасной передачи файлов: end-to-end шифрование, авто-удаление после скачивания или по сроку.">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/send-bezopasnaya-peredacha-faylov-2026/cover.png">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor-Fill.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=43">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Send: безопасная передача файлов на своём сервере вместо WeTransfer",
+  "description": "Send (форк Firefox Send) — open-source сервер безопасной передачи файлов: end-to-end шифрование, авто-удаление после скачивания или по сроку. Импортозамещение WeTransfer, данные у себя по 152-ФЗ — разверну под ключ.",
+  "image": "https://chimitdorzhi.tech/blog/send-bezopasnaya-peredacha-faylov-2026/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/send-bezopasnaya-peredacha-faylov-2026/"
+  },
+  "datePublished": "2026-06-15",
+  "dateModified": "2026-06-15",
+  "keywords": "Send, передача файлов, шифрование, open-source",
+  "articleSection": "Open-source и свой сервер",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Send: безопасная передача файлов на своём сервере вместо WeTransfer",
+      "item": "https://chimitdorzhi.tech/blog/send-bezopasnaya-peredacha-faylov-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Чем Send лучше WeTransfer и обычного облака?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Файлы остаются на вашем сервере, шифруются на стороне клиента и удаляются автоматически. Вы не зависите от тарифов и политик чужого сервиса и не отправляете данные в неизвестную юрисдикцию."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Видит ли администратор сервера содержимое файлов?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет. Шифрование происходит в браузере отправителя, а ключ передаётся внутри ссылки и на сервер в открытом виде не попадает. На диске лежат только зашифрованные данные."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что происходит с файлом после отправки?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Он удаляется автоматически — когда истекает заданный срок жизни ссылки или исчерпан лимит скачиваний. Ничего удалять вручную не нужно, файлы не накапливаются бесконтрольно."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Помогает ли это с 152-ФЗ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Размещение сервиса на вашем сервере в России держит файлы с персональными данными под вашим контролем и убирает риски передачи в зарубежные облака. Полное соответствие достигается вместе с организационными мерами, но это важный технический шаг в нужную сторону."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли передавать большие файлы?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, максимальный размер загрузки настраивается под ваши задачи и возможности сервера. Конкретные значения фиксируем на этапе настройки."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сложно ли пользоваться сотрудникам?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет. Интерфейс простой: открыть страницу, перетащить файл, скопировать ссылку. Отдельное обучение обычно не требуется."
+      }
+    }
+  ]
+}
+    </script>
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+            <li><a href="/#services" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li class="nav-dropdown">
+                <a href="/#projects" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--arey"><i class="ph-fill ph-vinyl-record" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-airplane-tilt" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#cases" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            </div>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/#about">Обо мне</a></li>
+        <li><a href="/#services">Услуги</a></li>
+        <li><a href="/services/">Каталог услуг</a></li>
+        <li><a href="/predlozheniya/">Предложения</a></li>
+        <li><a href="/#cases">Кейсы</a></li>
+        <li><a href="/blog/">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+        <li><a href="/#contact">Контакт</a></li>
+    </ul>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Send: безопасная передача файлов на своём сервере вместо WeTransfer</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/opensource/"><i class="ph ph-bookmark" aria-hidden="true"></i> Open-source и свой сервер</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин чтения</span>
+                        <time datetime="2026-06-15"><i class="ph ph-calendar" aria-hidden="true"></i> 15 июня 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Send: безопасная передача файлов на своём сервере вместо WeTransfer</h1>
+
+                    <p class="blog-lead">Send позволяет безопасно отправлять файлы клиентам по ссылке: всё шифруется, а файл удаляется после скачивания или по таймеру. Своя замена WeTransfer на вашем сервере. Разбираю, кому нужно и что требуется.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>Send</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>передача файлов</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>шифрование</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>open-source</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
+<li>Send — open-source-сервис для передачи файлов, форк закрытого Firefox Send (проект timvisee/send), который вы разворачиваете на собственном сервере.</li>
+<li>Файлы шифруются в браузере отправителя (end-to-end), сервер хранит только зашифрованные данные и не видит содержимое.</li>
+<li>Каждая ссылка живёт ограниченное время и/или ограниченное число скачиваний — после этого файл автоматически удаляется.</li>
+<li>Это рабочая замена WeTransfer и публичным файлообменникам: данные остаются на вашей инфраструктуре, что помогает выполнять требования 152-ФЗ.</li>
+<li>Нужны сервер, домен, SSL и настройка хранилища — я разворачиваю и сопровождаю под ключ.</li>
+</ul></div>
+
+<p>Бизнес каждый день пересылает файлы клиентам и подрядчикам: договоры, сканы паспортов, бухгалтерскую отчётность, макеты, базы. Привычный путь — закинуть в WeTransfer, на файлообменник или в чужое облако. Удобно, но файл уходит на сторонний сервер в неизвестной юрисдикции, ссылка живёт неопределённо долго, и кто её получит дальше — вы уже не контролируете. Для персональных данных и коммерческой тайны это прямой риск. Self-hosted Send решает задачу иначе: тот же простой сценарий «загрузил — отправил ссылку», но всё происходит на вашем сервере и с шифрованием на стороне клиента.</p>
+
+<h2 id="chto-eto">Что такое Send и что заменяет</h2>
+<p>Send — это веб-сервис для безопасной передачи файлов. Исторически его сделала Mozilla под названием Firefox Send, затем закрыла, а сообщество продолжило развивать открытый форк (проект timvisee/send). Сегодня это зрелое open-source-решение, которое вы ставите на свой сервер и используете без подписок и лимитов чужого тарифа.</p>
+<p>Логика максимально простая. Пользователь открывает страницу, перетаскивает файл, при желании задаёт срок жизни ссылки, число скачиваний и пароль. Получает короткую ссылку и отправляет её адресату любым каналом — в мессенджере, по почте, в чате. Адресат переходит по ссылке и скачивает файл. После того как срок вышел или лимит скачиваний исчерпан, файл удаляется автоматически, без ручной уборки.</p>
+<p>Что Send заменяет на практике: WeTransfer и аналогичные зарубежные сервисы передачи «тяжёлых» файлов, бесконтрольную пересылку через публичные облака и файлообменники, а также пересылку чувствительных документов вложениями в почте, где они потом годами лежат в чужих ящиках. По сути это <a href="https://chimitdorzhi.tech/services/russian-stack-migration/" class="blog-inline-link">импортозамещение</a> WeTransfer без потери удобства: тот же сценарий, но инфраструктура и данные ваши.</p>
+
+<h2 id="vozmozhnosti">Что умеет: шифрованная передача файлов</h2>
+<p>Главное в Send — модель безопасности. Файл шифруется прямо в браузере отправителя ещё до загрузки на сервер. Ключ шифрования становится частью ссылки и на сервер в открытом виде не передаётся. Это и есть end-to-end-подход: сервер хранит и отдаёт только зашифрованный набор байтов, а расшифровка происходит снова в браузере — уже у получателя. Даже если кто-то получит доступ к диску сервера, без ссылки с ключом содержимое останется нечитаемым.</p>
+<p>Базовые возможности, на которые стоит рассчитывать:</p>
+<ul>
+<li><strong>End-to-end шифрование.</strong> Содержимое файлов недоступно ни серверу, ни администратору в открытом виде.</li>
+<li><strong>Автоудаление.</strong> Файл удаляется по истечении срока или после исчерпания лимита скачиваний — ссылки не живут вечно.</li>
+<li><strong>Срок жизни и лимит скачиваний.</strong> Отправитель сам задаёт, сколько ссылка действует и сколько раз файл можно скачать.</li>
+<li><strong>Защита паролем.</strong> Дополнительный пароль на скачивание для особо чувствительных файлов.</li>
+<li><strong>Передача больших файлов.</strong> Максимальный размер загрузки настраивается под ваши задачи.</li>
+<li><strong>Простой интерфейс.</strong> Загрузка перетаскиванием, понятная даже неподготовленному пользователю.</li>
+</ul>
+<p>Конкретные ограничения — максимальный размер файла, сроки хранения по умолчанию, число одновременных загрузок — настраиваются под вашу нагрузку и политику. Я не обещаю несуществующих функций: возможности описаны обобщённо, а точный набор фиксируется на этапе настройки под вашу инфраструктуру.</p>
+<p>На практике эти возможности удобно ложатся на повседневные бизнес-сценарии. Юридическая фирма отправляет клиенту проект договора и комплект сканов по ссылке с лимитом в одно скачивание и сроком в сутки: документ доходит до адресата, а не оседает в переписке навсегда. Бухгалтерия на аутсорсе раз в квартал собирает у контрагентов акты сверки и выписки — каждый файл идёт по отдельной защищённой паролем ссылке, и после загрузки в учётную систему он сам удаляется с сервера, не превращаясь в свалку чувствительных данных.</p>
+<p>Дизайн-агентство пересылает клиенту тяжёлые макеты, исходники и видеоролики, которые не помещаются во вложение почты: вместо публичного файлообменника менеджер кидает разовую ссылку, которая исчезает после согласования правок. Во всех трёх случаях работает один и тот же набор настроек — срок жизни, лимит скачиваний и пароль, — просто скомбинированный под конкретную задачу и уровень чувствительности файлов.</p>
+
+<h2 id="komu-podhodit">Кому и для каких задач подходит</h2>
+<p>Send полезен везде, где регулярно пересылают файлы и где содержимое нельзя «светить» в чужих сервисах.</p>
+<ul>
+<li><strong>Юристы и юридические отделы.</strong> Передача договоров, доверенностей, материалов дел клиентам без следов в публичных облаках.</li>
+<li><strong>Бухгалтерия и аутсорсинг учёта.</strong> Обмен отчётностью, актами, выписками, сканами документов с контрагентами.</li>
+<li><strong>Агентства и студии.</strong> Отправка макетов, исходников, видео и других тяжёлых файлов клиентам по разовой ссылке, которая потом исчезает.</li>
+<li><strong>HR и кадры.</strong> Приём резюме, сканов документов и анкет, содержащих персональные данные.</li>
+<li><strong>Любой бизнес, который шлёт файлы клиентам.</strong> Когда важно, чтобы ссылка не жила вечно и не утекала дальше адресата.</li>
+</ul>
+<p>Общий критерий простой: если по вашим каналам ходят персональные данные, коммерческая тайна или просто файлы, которые не должны оставаться на чужих серверах, — Send закрывает эту задачу аккуратно и предсказуемо.</p>
+<p>Чтобы это не звучало абстрактно, разберём пару типичных ситуаций. Юрфирма ведёт десятки дел параллельно, и по каждому идёт обмен документами с доверителем: раньше это были вложения в почте и ссылки на чужие диски, теперь — единый сервис под своим доменом, где видно, что ссылка одноразовая и больше никуда не утечёт. Бухгалтерия, которая обслуживает несколько юрлиц, перестаёт пересылать выписки и сканы паспортов сотрудников через мессенджеры: каждый такой файл — это персональные данные, и держать их под контролем на своём сервере спокойнее и для клиента, и для самой компании.</p>
+<p>Отдельная история — агентства и студии, которые сдают клиенту результат работы. Передача макетов, исходников и видео по разовой исчезающей ссылке выглядит для заказчика солидно и заодно снимает вопрос «а где теперь лежат все наши материалы»: после согласования ссылка просто перестаёт работать. Чем регулярнее и чувствительнее обмен файлами, тем заметнее выгода от собственного сервиса вместо набора разрозненных публичных инструментов.</p>
+
+<h2 id="chto-nuzhno">Что нужно для запуска: сервер, домен, 152-ФЗ</h2>
+<p>Send — self-hosted-решение, поэтому ему нужна ваша инфраструктура. Минимальный набор:</p>
+<ul>
+<li><strong>Сервер.</strong> Подойдёт недорогой VPS или ваш собственный сервер. Требования к ресурсам скромные, но важен достаточный объём дискового пространства под временное хранение файлов.</li>
+<li><strong>Домен или поддомен.</strong> Например, files.вашакомпания.ru — по нему сотрудники и клиенты будут открывать сервис.</li>
+<li><strong>SSL-сертификат.</strong> HTTPS обязателен: без защищённого соединения схема шифрования теряет смысл. Настраивается бесплатно через Let's Encrypt.</li>
+<li><strong>Хранилище.</strong> Файлы хранятся на диске сервера или во внешнем S3-совместимом хранилище — выбор зависит от объёмов и бюджета.</li>
+</ul>
+<p>Стоит сразу учитывать типичные ошибки самостоятельного развёртывания, из-за которых сервис либо не работает как надо, либо перестаёт быть безопасным. Самая частая — поднять Send по HTTP без сертификата или с самоподписанным: тогда шифрование в браузере есть, но соединение можно перехватить, а пользователи привыкают щёлкать «всё равно перейти» мимо предупреждений. Вторая ошибка — забыть про дисковое пространство и автоудаление: если лимиты выставлены небрежно, временные файлы копятся, диск однажды заполняется, и сервис встаёт в самый неподходящий момент. Третья — оставить настройки по умолчанию открытыми наружу, не ограничив максимальный размер загрузки и доступ, из-за чего сервер легко превратить в чужой бесплатный файлообменник. Добавьте сюда отсутствие обновлений и резервных копий конфигурации, путаницу с обратным прокси и правами доступа — и вместо спокойного инструмента получается источник проблем. Поэтому даже простой на вид сервис лучше разворачивать аккуратно, с проверкой каждого пункта, а не по первой попавшейся инструкции.</p>
+<p>Отдельно про 152-ФЗ. Когда сервис стоит на вашем сервере в российской юрисдикции, файлы с персональными данными не уходят в зарубежные облака, а остаются под вашим контролем. Это снимает значительную часть рисков, связанных с трансграничной передачей и хранением ПДн у внешних операторов. Сам по себе софт не делает вас автоматически соответствующим закону — соответствие обеспечивает связка из правильного размещения, организационных мер и регламентов. Но самостоятельный сервер на территории России — это базовое условие, которое с зарубежным WeTransfer выполнить попросту невозможно.</p>
+
+<h2 id="kak-vnedrit">Как внедрить под ключ</h2>
+<p>Если вы не хотите разбираться с Docker, обратным прокси, сертификатами и настройкой хранилища, разумнее отдать запуск на аутсорс. Я разворачиваю Send под ключ и довожу до состояния «работает и не требует внимания». Как это устроено:</p>
+<ul>
+<li><strong>Разбираемся в задаче.</strong> Какие файлы и какого размера вы передаёте, какой ожидается объём, нужны ли пароли и ограничения по сроку.</li>
+<li><strong>Готовлю сервер.</strong> Подбор и настройка VPS или развёртывание на вашем оборудовании, базовая защита системы.</li>
+<li><strong>Устанавливаю Send.</strong> Разворачиваю сервис, подключаю домен, выпускаю SSL, настраиваю хранилище, сроки жизни ссылок и лимиты под ваш сценарий.</li>
+<li><strong>Проверяю безопасность.</strong> Корректность HTTPS, автоудаление, поведение при истечении срока и лимитов скачиваний.</li>
+<li><strong>Передаю и сопровождаю.</strong> Короткая инструкция для сотрудников, обновления, мониторинг и поддержка по необходимости.</li>
+</ul>
+<p>В работе использую открытый и проверенный софт из российского и open-source-стека, без скрытых лицензий и привязки к одному поставщику. Вы получаете рабочий сервис, который принадлежит вам целиком.</p>
+<p><a href="/predlozheniya/open-source-pod-klyuch/">Разверну Send под ключ</a> — от подбора сервера до готового сервиса с вашим доменом и поддержкой.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+<p><strong>Чем Send лучше WeTransfer и обычного облака?</strong> Файлы остаются на вашем сервере, шифруются на стороне клиента и удаляются автоматически. Вы не зависите от тарифов и политик чужого сервиса и не отправляете данные в неизвестную юрисдикцию.</p>
+<p><strong>Видит ли администратор сервера содержимое файлов?</strong> Нет. Шифрование происходит в браузере отправителя, а ключ передаётся внутри ссылки и на сервер в открытом виде не попадает. На диске лежат только зашифрованные данные.</p>
+<p><strong>Что происходит с файлом после отправки?</strong> Он удаляется автоматически — когда истекает заданный срок жизни ссылки или исчерпан лимит скачиваний. Ничего удалять вручную не нужно, файлы не накапливаются бесконтрольно.</p>
+<p><strong>Помогает ли это с 152-ФЗ?</strong> Размещение сервиса на вашем сервере в России держит файлы с персональными данными под вашим контролем и убирает риски передачи в зарубежные облака. Полное соответствие достигается вместе с организационными мерами, но это важный технический шаг в нужную сторону.</p>
+<p><strong>Можно ли передавать большие файлы?</strong> Да, максимальный размер загрузки настраивается под ваши задачи и возможности сервера. Конкретные значения фиксируем на этапе настройки.</p>
+<p><strong>Сложно ли пользоваться сотрудникам?</strong> Нет. Интерфейс простой: открыть страницу, перетащить файл, скопировать ссылку. Отдельное обучение обычно не требуется.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+<p>Send — это спокойный способ передавать файлы клиентам и подрядчикам без оглядки на чужие облака. End-to-end-шифрование закрывает содержимое от посторонних, автоудаление не даёт ссылкам жить вечно, а размещение на собственном сервере в российской юрисдикции снимает значительную часть рисков по 152-ФЗ и заменяет WeTransfer на своё решение. Для запуска нужны сервер, домен, SSL и аккуратная настройка хранилища и лимитов. Если хотите получить готовый сервис без погружения в технику — я разверну Send под ключ и возьму сопровождение на себя.</p>
+
+                    </div>
+
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Что я делаю с open-source</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-hard-drives"></i> <span>Развёртывание на вашем сервере</span></li>
+    
+    <li><i class="ph-fill ph-arrows-left-right"></i> <span>Перенос данных из старого сервиса</span></li>
+    
+    <li><i class="ph-fill ph-shield-check"></i> <span>Безопасность и 152-ФЗ</span></li>
+    
+    <li><i class="ph-fill ph-wrench"></i> <span>Настройка под ваши процессы</span></li>
+    
+    <li><i class="ph-fill ph-lifebuoy"></i> <span>Поддержка и обновления</span></li>
+    
+  </ul>
+  <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
+  </a>
+</div>
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/open-source-pod-klyuch/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовое решение по теме</span>
+                            <span class="blog-offer-cta-title">Open-source решение под ключ на ваш сервер</span>
+                            <span class="blog-offer-cta-price">Бесплатная консультация · Запуск за 1–3 недели</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-arrow-right" aria-hidden="true"></i> Смотреть предложение</span>
+                    </a>
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/predlozheniya/open-source-pod-klyuch/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Развернуть open-source под ключ</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/rustdesk-udalennyy-dostup-2026/" data-category="opensource">
+  <span class="blog-card-fresh">Свежее</span>
+  <div class="blog-card-icon"><i class="ph-fill ph-desktop"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>RustDesk: удалённый доступ на своём сервере вместо TeamViewer</h3>
+  <p>RustDesk даёт удалённый доступ к компьютерам, как TeamViewer, но с собственным сервером — без зависимости от чужой инфраструктуры. Актуально для импортозамещения. Разбираю, кому подходит и что нужно.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 15 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/nextcloud-svoy-oblachnyy-disk-2026/" data-category="opensource">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-cloud"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>Nextcloud: свой облачный диск компании вместо Google Drive</h3>
+  <p>Nextcloud — это своё облако компании: файлы, общий доступ и документы на своём сервере, как Google Drive, но с данными у себя. Разбираю, что умеет и что нужно для запуска.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 14 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/cryptpad-privatnyy-ofis-2026/" data-category="opensource">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-lock-key"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>CryptPad: приватный онлайн-офис с шифрованием на своём сервере</h3>
+  <p>CryptPad — это совместная работа над документами без передачи данных третьим: всё зашифровано и лежит на вашем сервере. Разбираю, кому это важно и что нужно для запуска.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 15 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовые решения под ключ</span>
+                            <span class="blog-offer-cta-title">449 готовых IT-решений для бизнеса</span>
+                            <span class="blog-offer-cta-price">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Смотреть каталог</span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#chto-eto"><span class="blog-toc-num">01</span> Что это и что заменяет</a></li>
+<li><a href="#vozmozhnosti"><span class="blog-toc-num">02</span> Что умеет</a></li>
+<li><a href="#komu-podhodit"><span class="blog-toc-num">03</span> Кому подходит</a></li>
+<li><a href="#chto-nuzhno"><span class="blog-toc-num">04</span> Что нужно для запуска</a></li>
+<li><a href="#kak-vnedrit"><span class="blog-toc-num">05</span> Как внедрить под ключ</a></li>
+<li><a href="#faq"><span class="blog-toc-num">06</span> FAQ</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">07</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=23" defer></script>
+<script src="/services-i18n.js?v=23" defer></script>
+<script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>
