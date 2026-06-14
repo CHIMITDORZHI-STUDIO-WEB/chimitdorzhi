@@ -17,7 +17,7 @@ try { articles = require('./blog-data'); } catch (e) { /* run from anywhere */ }
 const published = articles.filter(a => a && a.published && a.contentHtml);
 
 // Category keys that have a pillar page (mirror build-blog.js CATEGORY_META).
-const CAT_KEYS = ['legal','ai-dev','ai-life','marketing','sales','media','industries','esports','development','security','finance','mlm','mwrlife'];
+const CAT_KEYS = ['legal','ai-dev','ai-life','marketing','sales','media','industries','esports','development','security','finance','mlm','mwrlife','opensource'];
 const catKeys = CAT_KEYS.filter(k => published.some(p => p.category === k));
 
 const staticPages = [
