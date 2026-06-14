@@ -16,6 +16,12 @@ const subOffersCount = (s) => String(s).split('{{OFFERS_COUNT}}').join(OFFERS_CO
 
 // Карта: slug статьи → slug предложения. Добавляйте по мере роста раздела.
 const OFFER_LINKS = {
+  'docker-mailserver-pochtovyy-server-2026': 'open-source-pod-klyuch',
+  'bitwarden-menedzher-paroley-2026': 'open-source-pod-klyuch',
+  'chandra-ai-ocr-dokumenty-2026': 'open-source-pod-klyuch',
+  'fooocus-generaciya-izobrazheniy-2026': 'open-source-pod-klyuch',
+  'hermes-agent-ai-assistent-na-servere-2026': 'open-source-pod-klyuch',
+  'agentic-inbox-ai-pochta-2026': 'open-source-pod-klyuch',
   'rustdesk-udalennyy-dostup-2026': 'open-source-pod-klyuch',
   'paperless-ngx-arhiv-dokumentov-2026': 'open-source-pod-klyuch',
   'send-bezopasnaya-peredacha-faylov-2026': 'open-source-pod-klyuch',
