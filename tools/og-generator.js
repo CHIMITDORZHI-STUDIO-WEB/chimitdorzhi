@@ -154,14 +154,18 @@ function clipText(s, n) { s = String(s || '').trim(); return s.length <= n ? s :
 
 function buildOpenSourceSvg(article) {
   const p = OS_PALETTES[hashNum(article.slug) % OS_PALETTES.length];
-  const lines = wrapTitle(article.title, 28).slice(0, 3);
-  const sub = clipText(article.excerpt || article.metaDescription, 72);
-  const lh = 70;
-  const blockTop = 470 - (lines.length - 1) * lh;
+  const lines = wrapTitle(article.title, 24).slice(0, 3);
+  const sub = clipText(article.excerpt || article.metaDescription, 64);
+  const CX = 600, lh = 66, tFs = 56;
+  // центрируем блок (плашка + заголовок + подзаголовок) вокруг y≈300
+  const blockH = 48 + 24 + lines.length * lh + 14 + 30;
+  const top = Math.round(300 - blockH / 2);
+  const pillY = top;
+  const firstTitleY = top + 48 + 24 + 44;
   const titleSvg = lines.map((l, i) =>
-    `<text x="80" y="${blockTop + i * lh}" font-family="${FONT}" font-weight="800" font-size="58" letter-spacing="-1.5" fill="#ffffff">${escapeXml(l)}</text>`
+    `<text x="${CX}" y="${firstTitleY + i * lh}" text-anchor="middle" font-family="${FONT}" font-weight="800" font-size="${tFs}" letter-spacing="-1.5" fill="#ffffff">${escapeXml(l)}</text>`
   ).join('\n  ');
-  const subY = blockTop + lines.length * lh + 28;
+  const subY = firstTitleY + (lines.length - 1) * lh + 50;
   return `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
     <linearGradient id="bg" x1="1" y1="0" x2="0" y2="1">
@@ -170,21 +174,22 @@ function buildOpenSourceSvg(article) {
       <stop offset="100%" stop-color="${p.base[2]}"/>
     </linearGradient>
     <filter id="soft" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="9"/></filter>
-    <linearGradient id="leg" x1="0" y1="1" x2="0" y2="0">
-      <stop offset="0%" stop-color="#0b1030" stop-opacity="0.40"/>
-      <stop offset="55%" stop-color="#0b1030" stop-opacity="0"/>
-    </linearGradient>
+    <radialGradient id="scrim" cx="50%" cy="46%" r="75%">
+      <stop offset="0%" stop-color="#0b1030" stop-opacity="0.34"/>
+      <stop offset="62%" stop-color="#0b1030" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="#0b1030" stop-opacity="0"/>
+    </radialGradient>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
   <g filter="url(#soft)" transform="rotate(-21 600 315)">
     ${silkStreaks(p, article.slug)}
   </g>
-  <rect width="1200" height="630" fill="url(#leg)"/>
-  <rect x="80" y="${blockTop - 84}" rx="24" ry="24" width="206" height="48" fill="#ffffff" fill-opacity="0.10" stroke="#ffffff" stroke-opacity="0.85" stroke-width="2"/>
-  <text x="183" y="${blockTop - 52}" text-anchor="middle" font-family="${FONT}" font-weight="700" font-size="20" letter-spacing="2" fill="#ffffff">OPEN-SOURCE</text>
+  <rect width="1200" height="630" fill="url(#scrim)"/>
+  <rect x="${CX - 103}" y="${pillY}" rx="24" ry="24" width="206" height="48" fill="#ffffff" fill-opacity="0.12" stroke="#ffffff" stroke-opacity="0.9" stroke-width="2"/>
+  <text x="${CX}" y="${pillY + 31}" text-anchor="middle" font-family="${FONT}" font-weight="700" font-size="20" letter-spacing="2" fill="#ffffff">OPEN-SOURCE</text>
   ${titleSvg}
-  <text x="80" y="${subY}" font-family="${FONT}" font-weight="500" font-size="26" fill="#ffffff" fill-opacity="0.92">${escapeXml(sub)}</text>
-  <text x="80" y="600" font-family="${FONT}" font-weight="700" font-size="22" fill="#ffffff" fill-opacity="0.82">chimitdorzhi.tech · блог</text>
+  <text x="${CX}" y="${subY}" text-anchor="middle" font-family="${FONT}" font-weight="500" font-size="25" fill="#ffffff" fill-opacity="0.92">${escapeXml(sub)}</text>
+  <text x="${CX}" y="600" text-anchor="middle" font-family="${FONT}" font-weight="700" font-size="21" fill="#ffffff" fill-opacity="0.8">chimitdorzhi.tech · блог</text>
 </svg>`;
 }
 
