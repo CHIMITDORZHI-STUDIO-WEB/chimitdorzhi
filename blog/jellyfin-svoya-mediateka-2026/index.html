@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jellyfin: своя медиатека для заведения</title>
+    <meta name="description" content="Jellyfin — open-source медиасервер (аналог Plex): своя медиатека видео и музыки, стриминг на ТВ и устройства.">
+    <meta name="keywords" content="Jellyfin, медиатека, HoReCa, open-source">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/jellyfin-svoya-mediateka-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/jellyfin-svoya-mediateka-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/jellyfin-svoya-mediateka-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/jellyfin-svoya-mediateka-2026/">
+    <meta property="og:title" content="Jellyfin: своя медиатека для заведения">
+    <meta property="og:description" content="Jellyfin — open-source медиасервер (аналог Plex): своя медиатека видео и музыки, стриминг на ТВ и устройства.">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/jellyfin-svoya-mediateka-2026/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Jellyfin: своя медиатека для заведения">
+    <meta name="twitter:description" content="Jellyfin — open-source медиасервер (аналог Plex): своя медиатека видео и музыки, стриминг на ТВ и устройства.">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/jellyfin-svoya-mediateka-2026/cover.png">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor-Fill.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=43">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Jellyfin: своя медиатека и ТВ для заведения на своём сервере",
+  "description": "Jellyfin — open-source медиасервер (аналог Plex): своя медиатека видео и музыки, стриминг на ТВ и устройства. Для HoReCa, фитнеса, отелей: свой контент без подписок и рекламы. Разверну на вашем сервере под ключ.",
+  "image": "https://chimitdorzhi.tech/blog/jellyfin-svoya-mediateka-2026/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/jellyfin-svoya-mediateka-2026/"
+  },
+  "datePublished": "2026-06-15",
+  "dateModified": "2026-06-15",
+  "keywords": "Jellyfin, медиатека, HoReCa, open-source",
+  "articleSection": "Open-source и свой сервер",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Jellyfin: своя медиатека и ТВ для заведения на своём сервере",
+      "item": "https://chimitdorzhi.tech/blog/jellyfin-svoya-mediateka-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Это законно? Не про пиратство ли речь?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Речь только о вашем собственном или лицензионном контенте. Jellyfin — это инструмент для хранения и показа материалов, на которые у вас есть права: съёмки, имиджевые и обучающие ролики, лицензионное видео и музыка. Наполнение чужим контентом без прав — это уже вопрос к вам, и так делать не нужно."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Чем это отличается от обычного ТВ или YouTube на экране?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Эфирное ТВ и видеохостинги показывают чужую рекламу, зависят от интернета и каталога площадки, плохо управляются. Jellyfin показывает ровно то, что вы загрузили, по вашему сценарию, без посторонней рекламы и подписок."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужен ли постоянный интернет?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Для показа уже загруженного контента внутри заведения интернет не обязателен — система работает в локальной сети. Интернет нужен в основном для удалённого управления и обновлений. Точную схему определяем под ваш объект."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько экранов можно подключить?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Это зависит от мощности сервера и сети. Один сервер может отдавать контент на несколько устройств одновременно; под нужное число экранов подбираем подходящее оборудование на этапе разбора задачи."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Где будут храниться данные?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "На вашем сервере — локальном или арендованном в РФ. Контент и настройки не уходят в сторонние облака, что удобно с точки зрения контроля и 152-ФЗ."
+      }
+    }
+  ]
+}
+    </script>
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+            <li><a href="/#services" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li class="nav-dropdown">
+                <a href="/#projects" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--arey"><i class="ph-fill ph-vinyl-record" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-airplane-tilt" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#cases" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            </div>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/#about">Обо мне</a></li>
+        <li><a href="/#services">Услуги</a></li>
+        <li><a href="/services/">Каталог услуг</a></li>
+        <li><a href="/predlozheniya/">Предложения</a></li>
+        <li><a href="/#cases">Кейсы</a></li>
+        <li><a href="/blog/">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+        <li><a href="/#contact">Контакт</a></li>
+    </ul>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Jellyfin: своя медиатека и ТВ для заведения на своём сервере</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/opensource/"><i class="ph ph-bookmark" aria-hidden="true"></i> Open-source и свой сервер</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин чтения</span>
+                        <time datetime="2026-06-15"><i class="ph ph-calendar" aria-hidden="true"></i> 15 июня 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Jellyfin: своя медиатека и ТВ для заведения на своём сервере</h1>
+
+                    <p class="blog-lead">Jellyfin превращает ваш сервер в медиатеку для заведения: видео, музыка и фото на экранах кафе, фитнеса или отеля — свой контент без подписок и рекламы стримингов. Разбираю, что нужно для запуска.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>Jellyfin</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>медиатека</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>HoReCa</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>open-source</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
+<li>Jellyfin — это бесплатный open-source медиасервер: своя библиотека видео, музыки и фото, которая стримится на телевизоры и устройства внутри заведения.</li>
+<li>Подходит как замена связке «случайный YouTube на ТВ + подписки на стриминг»: показываете свой или лицензионный контент без рекламы и абонентской платы.</li>
+<li>Полезен HoReCa, фитнесу, отелям, шоурумам и зонам ожидания — там, где нужен управляемый видео- и аудиоряд на экранах.</li>
+<li>Для запуска нужен сервер (можно локальный или в РФ), сам контент, устройства вывода и грамотная настройка. Данные остаются у вас — это удобно для 152-ФЗ.</li>
+<li>Разворачиваю под ключ: сервер, библиотека, плейлисты, вывод на экраны и поддержка.</li>
+</ul></div>
+
+<p>В заведении почти всегда работают экраны: телевизоры в зале кафе, мониторы в фитнес-клубе, панели в шоуруме, экран в зоне ожидания. Чаще всего на них крутят случайные ролики из интернета, ТВ-каналы с чужой рекламой или платный стриминг с подпиской. Это плохо управляется, прерывается рекламой конкурентов и привязывает вас к чужим сервисам. Jellyfin решает эту задачу иначе: вы собираете собственную медиатеку и показываете её на любых устройствах со своего сервера. Ниже разберу, что это за инструмент, что он умеет, кому подходит и что нужно для запуска.</p>
+
+<h2 id="chto-eto">Что такое Jellyfin и что заменяет</h2>
+<p>Jellyfin — это свободный медиасервер с открытым исходным кодом. По сути это ваш личный «стриминговый сервис»: вы загружаете на сервер видеофайлы, музыку и фотографии, а Jellyfin превращает их в аккуратную библиотеку с обложками, описаниями и категориями. Контент доступен через приложения и браузер — на телевизорах, планшетах, телефонах и компьютерах внутри вашей сети.</p>
+<p>По логике работы Jellyfin похож на Plex и на привычный «нетфликс-подход»: красивая витрина, удобный поиск, продолжение просмотра. Но есть принципиальное отличие — это полностью ваш сервер и ваш контент. Нет ежемесячной подписки, нет рекламы стриминговых платформ, нет ситуации, когда нужный ролик внезапно убрали из каталога. Вы сами решаете, что и в каком порядке показывать на экранах заведения.</p>
+<p>Важно сразу подчеркнуть: речь идёт о легальном использовании. Это ваш собственный контент — съёмки заведения, имиджевые ролики, обучающие видео, фоновые подборки, на которые у вас есть права, либо лицензионный материал. Jellyfin не предназначен для пиратства, и подходить к наполнению библиотеки нужно с соблюдением авторских прав.</p>
+
+<h2 id="vozmozhnosti">Что умеет: медиатека и стриминг</h2>
+<p>Базовая сила Jellyfin — это организованная медиатека. Загруженные файлы автоматически раскладываются по разделам, получают обложки и описания, объединяются в коллекции. Вместо папки с десятками безымянных файлов вы получаете понятную витрину, по которой удобно ориентироваться даже сотруднику без технической подготовки.</p>
+<p>Вторая ключевая функция — стриминг внутри вашей сети. Jellyfin отдаёт видео и музыку на разные устройства одновременно: на телевизор в зале, на планшет администратора, на монитор в зоне ожидания. Поддерживается воспроизведение в браузере и через приложения на популярных платформах, включая Smart TV и мобильные устройства.</p>
+<p>Что обычно используется в заведениях:</p>
+<ul>
+<li><strong>Плейлисты и подборки.</strong> Можно собрать тематические наборы видео или музыки и запускать их по сценарию.</li>
+<li><strong>Фоновое видео и аудио.</strong> Атмосферный ряд на экранах и музыкальное сопровождение без сторонней рекламы.</li>
+<li><strong>Несколько библиотек.</strong> Отдельно имиджевые ролики, отдельно обучающие материалы, отдельно фотоконтент.</li>
+<li><strong>Учётные записи и доступы.</strong> Сотрудники получают доступ к нужным разделам, гости — к ограниченному набору.</li>
+<li><strong>Доступ с разных устройств.</strong> Управление с телефона администратора, вывод на стационарные экраны.</li>
+</ul>
+<p>Конкретный набор возможностей зависит от версии, устройств и сценария. Здесь я описываю их обобщённо — точную конфигурацию определяем под вашу задачу на этапе настройки.</p>
+
+<h2 id="komu-podhodit">Кому и для каких задач подходит</h2>
+<p>Jellyfin полезен там, где экраны и звук — часть атмосферы и сервиса, а не случайный фон. Несколько типичных сценариев из практики:</p>
+<ul>
+<li><strong>HoReCa (кафе, рестораны, бары).</strong> Атмосферное видео и музыка на экранах в зале, тематические подборки под время суток, без чужой рекламы между роликами.</li>
+<li><strong>Фитнес-клубы и студии.</strong> Обучающие ролики, видеоряд для зон кардио и групповых занятий, единая библиотека упражнений на нескольких экранах.</li>
+<li><strong>Отели и гостевые дома.</strong> Своя витрина контента в номерах и общих зонах, имиджевые материалы об отеле и регионе, информация для гостей.</li>
+<li><strong>Шоурумы и розница.</strong> Презентационные ролики о товарах и бренде, которые крутятся по плейлисту и не прерываются посторонним.</li>
+<li><strong>Залы ожидания и приёмные.</strong> Спокойный управляемый видеоряд, информационные блоки, фоновое сопровождение для посетителей.</li>
+</ul>
+<p>Общий знаменатель простой: если вам важно контролировать, что именно видят и слышат люди в вашем пространстве, и при этом не платить подписки и не зависеть от чужих каталогов — Jellyfin закрывает эту потребность.</p>
+
+<h2 id="chto-nuzhno">Что нужно для запуска: сервер, контент, 152-ФЗ</h2>
+<p>Чтобы Jellyfin заработал в заведении, нужно несколько составляющих. Разберу их по порядку.</p>
+<p><strong>Сервер.</strong> Это «сердце» системы, где хранится медиатека и работает Jellyfin. Им может быть отдельный компьютер или мини-ПК в самом заведении, либо арендованный сервер. Мощность подбирается под объём контента и число одновременных экранов. Для локального сценария часто хватает компактного устройства, которое тихо стоит в подсобке.</p>
+<p><strong>Контент.</strong> Библиотеку нужно наполнить вашими материалами: собственными съёмками, имиджевыми и обучающими роликами, лицензионным видео и музыкой. Это тот момент, где особенно важна легальность — используем то, на что у вас есть права. Структуру библиотеки и плейлисты продумываем под сценарий заведения.</p>
+<p><strong>Устройства вывода.</strong> Телевизоры, мониторы, панели, на которых будет показываться контент. Нужно проверить совместимость, способ подключения (приложение, браузер, медиаприставка) и стабильность вывода на каждом экране.</p>
+<p><strong>Сеть.</strong> Стабильное локальное соединение между сервером и экранами. Для нескольких одновременных потоков важно, чтобы сеть это выдерживала — проводное подключение к ключевым экранам обычно надёжнее.</p>
+<p><strong>152-ФЗ и контроль данных.</strong> Поскольку Jellyfin — это ваш сервер, контент и настройки остаются под вашим контролем и не уходят в чужие облака. Это удобно с точки зрения российского законодательства о персональных данных: систему можно развернуть на сервере в РФ, на собственном оборудовании, на российском стеке. Конкретные требования 152-ФЗ зависят от того, какие именно данные вы обрабатываете, и это стоит оценивать отдельно под ваш случай.</p>
+
+<h2 id="kak-vnedrit">Как внедрить под ключ</h2>
+<p>Самостоятельный запуск Jellyfin возможен, но на практике у бизнеса уходит много времени на сервер, кодеки, совместимость экранов и наполнение библиотеки. Я беру эту работу на себя и довожу до результата, который просто работает. Как обычно строится внедрение:</p>
+<ul>
+<li><strong>Разбор задачи.</strong> Уточняем, где экраны, какой контент нужен, сколько одновременных потоков и какой сценарий показа.</li>
+<li><strong>Подбор сервера.</strong> Выбираем локальный мини-ПК или арендованный сервер в РФ под ваш объём и бюджет.</li>
+<li><strong>Установка и настройка.</strong> Разворачиваю Jellyfin, настраиваю библиотеки, доступы, оформление витрины.</li>
+<li><strong>Наполнение и плейлисты.</strong> Помогаю организовать ваш контент в аккуратную структуру и собрать сценарии показа.</li>
+<li><strong>Вывод на экраны.</strong> Подключаю и проверяю каждое устройство: телевизоры, мониторы, приставки.</li>
+<li><strong>Обучение и поддержка.</strong> Показываю сотрудникам, как управлять контентом, остаюсь на связи для сопровождения.</li>
+</ul>
+<p>Если хотите свою медиатеку на экранах заведения без подписок и чужой рекламы — <a href="/predlozheniya/open-source-pod-klyuch/">разверну Jellyfin под ключ</a>.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+<p><strong>Это законно? Не про пиратство ли речь?</strong> Речь только о вашем собственном или лицензионном контенте. Jellyfin — это инструмент для хранения и показа материалов, на которые у вас есть права: съёмки, имиджевые и обучающие ролики, лицензионное видео и музыка. Наполнение чужим контентом без прав — это уже вопрос к вам, и так делать не нужно.</p>
+<p><strong>Чем это отличается от обычного ТВ или YouTube на экране?</strong> Эфирное ТВ и видеохостинги показывают чужую рекламу, зависят от интернета и каталога площадки, плохо управляются. Jellyfin показывает ровно то, что вы загрузили, по вашему сценарию, без посторонней рекламы и подписок.</p>
+<p><strong>Нужен ли постоянный интернет?</strong> Для показа уже загруженного контента внутри заведения интернет не обязателен — система работает в локальной сети. Интернет нужен в основном для удалённого управления и обновлений. Точную схему определяем под ваш объект.</p>
+<p><strong>Сколько экранов можно подключить?</strong> Это зависит от мощности сервера и сети. Один сервер может отдавать контент на несколько устройств одновременно; под нужное число экранов подбираем подходящее оборудование на этапе разбора задачи.</p>
+<p><strong>Где будут храниться данные?</strong> На вашем сервере — локальном или арендованном в РФ. Контент и настройки не уходят в сторонние облака, что удобно с точки зрения контроля и 152-ФЗ.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+<p>Jellyfin даёт заведению собственную медиатеку и стриминг на экраны без подписок, без чужой рекламы и без зависимости от внешних каталогов. Это open-source решение, которое можно развернуть на своём сервере или на сервере в РФ, наполнить легальным контентом и вывести на телевизоры и устройства в HoReCa, фитнесе, отелях, шоурумах и зонах ожидания. Для запуска нужны сервер, контент, устройства вывода, сеть и грамотная настройка — и всё это я беру на себя, доводя систему до рабочего состояния и оставаясь на поддержке.</p>
+
+                    </div>
+
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Что я делаю с open-source</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-hard-drives"></i> <span>Развёртывание на вашем сервере</span></li>
+    
+    <li><i class="ph-fill ph-arrows-left-right"></i> <span>Перенос данных из старого сервиса</span></li>
+    
+    <li><i class="ph-fill ph-shield-check"></i> <span>Безопасность и 152-ФЗ</span></li>
+    
+    <li><i class="ph-fill ph-wrench"></i> <span>Настройка под ваши процессы</span></li>
+    
+    <li><i class="ph-fill ph-lifebuoy"></i> <span>Поддержка и обновления</span></li>
+    
+  </ul>
+  <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
+  </a>
+</div>
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/open-source-pod-klyuch/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовое решение по теме</span>
+                            <span class="blog-offer-cta-title">Open-source решение под ключ на ваш сервер</span>
+                            <span class="blog-offer-cta-price">Бесплатная консультация · Запуск за 1–3 недели</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-arrow-right" aria-hidden="true"></i> Смотреть предложение</span>
+                    </a>
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/predlozheniya/open-source-pod-klyuch/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Развернуть open-source под ключ</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/nextcloud-svoy-oblachnyy-disk-2026/" data-category="opensource">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-cloud"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>Nextcloud: свой облачный диск компании вместо Google Drive</h3>
+  <p>Nextcloud — это своё облако компании: файлы, общий доступ и документы на своём сервере, как Google Drive, но с данными у себя. Разбираю, что умеет и что нужно для запуска.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 14 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/immich-fotoarhiv-2026/" data-category="opensource">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-images"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>Immich: свой фотоархив на сервере под ключ</h3>
+  <p>Immich хранит большой архив фото и видео на вашем сервере — как Google Photos, но без подписки за объём и с данными у себя. Разбираю, кому подходит и что нужно для запуска.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 15 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/jitsi-videokonferencii-bez-zoom-2026/" data-category="opensource">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-video-camera"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>Jitsi: видеоконференции без Zoom на своём домене</h3>
+  <p>Jitsi — это свои видеоконференции на своём домене, без подписки и лимитов Zoom. Разбираю, кому подходит, что умеет и что нужно для стабильной работы.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 14 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовые решения под ключ</span>
+                            <span class="blog-offer-cta-title">449 готовых IT-решений для бизнеса</span>
+                            <span class="blog-offer-cta-price">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Смотреть каталог</span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#chto-eto"><span class="blog-toc-num">01</span> Что это и что заменяет</a></li>
+<li><a href="#vozmozhnosti"><span class="blog-toc-num">02</span> Что умеет</a></li>
+<li><a href="#komu-podhodit"><span class="blog-toc-num">03</span> Кому подходит</a></li>
+<li><a href="#chto-nuzhno"><span class="blog-toc-num">04</span> Что нужно для запуска</a></li>
+<li><a href="#kak-vnedrit"><span class="blog-toc-num">05</span> Как внедрить под ключ</a></li>
+<li><a href="#faq"><span class="blog-toc-num">06</span> FAQ</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">07</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=23" defer></script>
+<script src="/services-i18n.js?v=23" defer></script>
+<script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>

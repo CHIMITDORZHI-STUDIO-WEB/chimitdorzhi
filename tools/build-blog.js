@@ -16,6 +16,11 @@ const subOffersCount = (s) => String(s).split('{{OFFERS_COUNT}}').join(OFFERS_CO
 
 // Карта: slug статьи → slug предложения. Добавляйте по мере роста раздела.
 const OFFER_LINKS = {
+  'bookstack-baza-znaniy-2026': 'open-source-pod-klyuch',
+  'jellyfin-svoya-mediateka-2026': 'open-source-pod-klyuch',
+  'dify-ai-prilozheniya-2026': 'open-source-pod-klyuch',
+  'activepieces-prostaya-avtomatizaciya-2026': 'open-source-pod-klyuch',
+  'taiga-agile-doski-2026': 'open-source-pod-klyuch',
   'wiki-js-korporativnaya-wiki-2026': 'open-source-pod-klyuch',
   'cryptpad-privatnyy-ofis-2026': 'open-source-pod-klyuch',
   'penpot-figma-na-svoyom-servere-2026': 'open-source-pod-klyuch',
