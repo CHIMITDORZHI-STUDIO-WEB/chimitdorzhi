@@ -16,6 +16,8 @@ const subOffersCount = (s) => String(s).split('{{OFFERS_COUNT}}').join(OFFERS_CO
 
 // Карта: slug статьи → slug предложения. Добавляйте по мере роста раздела.
 const OFFER_LINKS = {
+  'matrix-element-korporativnyy-messenger-2026': 'open-source-pod-klyuch',
+  'mealie-recepty-menyu-2026': 'open-source-pod-klyuch',
   'bookstack-baza-znaniy-2026': 'open-source-pod-klyuch',
   'jellyfin-svoya-mediateka-2026': 'open-source-pod-klyuch',
   'dify-ai-prilozheniya-2026': 'open-source-pod-klyuch',
