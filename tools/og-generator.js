@@ -125,9 +125,72 @@ function buildSvg(article) {
 </svg>`;
 }
 
+// ---------- Стиль «Аврора» для рубрики Open-source ----------
+function hashNum(s) { let h = 0; for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) >>> 0; return h; }
+// Светлые «шёлковые» палитры: диагональный градиент + наборы цветов тонких нитей
+const OS_PALETTES = [
+  { base: ['#7dd3fc', '#3b82f6', '#ec4899'], blue: ['#60a5fa', '#3b82f6', '#38bdf8', '#2563eb'], light: ['#dbeafe', '#e0f2fe', '#ffffff'], mag: ['#ec4899', '#f472b6', '#d946ef'] },
+  { base: ['#5eead4', '#22d3ee', '#3b82f6'], blue: ['#22d3ee', '#38bdf8', '#2dd4bf', '#3b82f6'], light: ['#cffafe', '#ecfeff', '#ffffff'], mag: ['#818cf8', '#60a5fa', '#a5b4fc'] },
+  { base: ['#a5b4fc', '#6366f1', '#db2777'], blue: ['#818cf8', '#6366f1', '#6d28d9', '#4f46e5'], light: ['#e0e7ff', '#ede9fe', '#ffffff'], mag: ['#ec4899', '#d946ef', '#f472b6'] },
+  { base: ['#7dd3fc', '#6366f1', '#a855f7'], blue: ['#38bdf8', '#60a5fa', '#818cf8', '#6366f1'], light: ['#e0f2fe', '#ede9fe', '#ffffff'], mag: ['#c084fc', '#a855f7', '#e879f9'] },
+];
+function silkStreaks(p, seed) {
+  const N = 70, out = [];
+  for (let i = 0; i < N; i++) {
+    const r = hashNum(seed + '_' + i);
+    const y = -180 + i * 15 + ((r % 9) - 4);
+    const h = 8 + (r % 16);
+    const t = i / N;
+    let color;
+    if (t > 0.6) color = (r % 5 < 3) ? p.mag[r % p.mag.length] : p.blue[r % p.blue.length];
+    else if (r % 8 === 0) color = p.light[r % p.light.length];
+    else color = p.blue[r % p.blue.length];
+    const op = (0.20 + (r % 32) / 100).toFixed(2);
+    out.push(`<rect x="-360" y="${y}" width="1920" height="${h}" rx="${(h / 2).toFixed(0)}" fill="${color}" fill-opacity="${op}"/>`);
+  }
+  return out.join('\n    ');
+}
+function clipText(s, n) { s = String(s || '').trim(); return s.length <= n ? s : s.slice(0, n - 1).replace(/\s+\S*$/, '') + '…'; }
+
+function buildOpenSourceSvg(article) {
+  const p = OS_PALETTES[hashNum(article.slug) % OS_PALETTES.length];
+  const lines = wrapTitle(article.title, 28).slice(0, 3);
+  const sub = clipText(article.excerpt || article.metaDescription, 72);
+  const lh = 70;
+  const blockTop = 470 - (lines.length - 1) * lh;
+  const titleSvg = lines.map((l, i) =>
+    `<text x="80" y="${blockTop + i * lh}" font-family="${FONT}" font-weight="800" font-size="58" letter-spacing="-1.5" fill="#ffffff">${escapeXml(l)}</text>`
+  ).join('\n  ');
+  const subY = blockTop + lines.length * lh + 28;
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="1" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="${p.base[0]}"/>
+      <stop offset="50%" stop-color="${p.base[1]}"/>
+      <stop offset="100%" stop-color="${p.base[2]}"/>
+    </linearGradient>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="9"/></filter>
+    <linearGradient id="leg" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#0b1030" stop-opacity="0.40"/>
+      <stop offset="55%" stop-color="#0b1030" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <g filter="url(#soft)" transform="rotate(-21 600 315)">
+    ${silkStreaks(p, article.slug)}
+  </g>
+  <rect width="1200" height="630" fill="url(#leg)"/>
+  <rect x="80" y="${blockTop - 84}" rx="24" ry="24" width="206" height="48" fill="#ffffff" fill-opacity="0.10" stroke="#ffffff" stroke-opacity="0.85" stroke-width="2"/>
+  <text x="183" y="${blockTop - 52}" text-anchor="middle" font-family="${FONT}" font-weight="700" font-size="20" letter-spacing="2" fill="#ffffff">OPEN-SOURCE</text>
+  ${titleSvg}
+  <text x="80" y="${subY}" font-family="${FONT}" font-weight="500" font-size="26" fill="#ffffff" fill-opacity="0.92">${escapeXml(sub)}</text>
+  <text x="80" y="600" font-family="${FONT}" font-weight="700" font-size="22" fill="#ffffff" fill-opacity="0.82">chimitdorzhi.tech · блог</text>
+</svg>`;
+}
+
 async function generateCover(article) {
   if (!article.published) return null;
-  const svg = buildSvg(article);
+  const svg = article.category === 'opensource' ? buildOpenSourceSvg(article) : buildSvg(article);
   const outDir = path.join(OUT_BLOG, article.slug);
   fs.mkdirSync(outDir, { recursive: true });
   const outFile = path.join(outDir, 'cover.png');
@@ -145,4 +208,4 @@ async function generateAll(articles) {
   return count;
 }
 
-module.exports = { generateCover, generateAll, buildSvg, CATEGORY_ACCENT, CATEGORY_LABELS };
+module.exports = { generateCover, generateAll, buildSvg, buildOpenSourceSvg, CATEGORY_ACCENT, CATEGORY_LABELS };
