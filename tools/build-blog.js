@@ -1421,7 +1421,10 @@ function buildRss(published) {
   const latest = sorted[0] ? (feedDate(sorted[0]) || new Date().toISOString().slice(0, 10)) : new Date().toISOString().slice(0, 10);
 
   const channelCover = `${SITE}/hero-photo.webp`;
-  const items = sorted.map(a => {
+  // Лимит RSS: ограничиваем число записей в фиде (защита от заливки всего архива
+  // RSS-репостером в соцсети). 1 — тестовый режим, потом ~25.
+  const FEED_MAX = 1;
+  const items = sorted.slice(0, FEED_MAX).map(a => {
     const url = `${SITE}/blog/${a.slug}/`;
     const cat = CATEGORY_LABELS[a.category] || a.category || '';
     const cover = `${SITE}/blog/${a.slug}/cover.png`;
