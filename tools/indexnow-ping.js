@@ -16,6 +16,10 @@ let articles = [];
 try { articles = require('./blog-data'); } catch (e) { /* run from anywhere */ }
 const published = articles.filter(a => a && a.published && a.contentHtml);
 
+let offers = [];
+try { const od = require('./offers-data'); offers = Array.isArray(od) ? od : (od.offers || Object.values(od).find(Array.isArray) || []); } catch (e) { /* ok */ }
+const offersPub = offers.filter(o => o && o.published !== false && o.slug);
+
 // Category keys that have a pillar page (mirror build-blog.js CATEGORY_META).
 const CAT_KEYS = ['legal','ai-dev','ai-life','marketing','sales','media','industries','esports','development','security','finance','mlm','mwrlife','opensource'];
 const catKeys = CAT_KEYS.filter(k => published.some(p => p.category === k));
@@ -32,6 +36,8 @@ const urlList = [
   ...staticPages,
   ...catKeys.map(k => `https://${HOST}/blog/category/${k}/`),
   ...published.map(a => `https://${HOST}/blog/${a.slug}/`),
+  `https://${HOST}/predlozheniya/`,
+  ...offersPub.map(o => `https://${HOST}/predlozheniya/${o.slug}/`),
   `https://${HOST}/sitemap.xml`,
 ];
 
