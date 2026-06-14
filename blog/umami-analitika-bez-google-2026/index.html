@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Umami: веб-аналитика без Google по 152-ФЗ</title>
+    <meta name="description" content="Umami (и Plausible) — open-source веб-аналитика на своём сервере: посещаемость и источники без cookie-баннеров и передачи данных Google.">
+    <meta name="keywords" content="Umami, веб-аналитика, 152-ФЗ, open-source">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/umami-analitika-bez-google-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/umami-analitika-bez-google-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/umami-analitika-bez-google-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/umami-analitika-bez-google-2026/">
+    <meta property="og:title" content="Umami: веб-аналитика без Google по 152-ФЗ">
+    <meta property="og:description" content="Umami (и Plausible) — open-source веб-аналитика на своём сервере: посещаемость и источники без cookie-баннеров и передачи данных Google.">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/umami-analitika-bez-google-2026/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Umami: веб-аналитика без Google по 152-ФЗ">
+    <meta name="twitter:description" content="Umami (и Plausible) — open-source веб-аналитика на своём сервере: посещаемость и источники без cookie-баннеров и передачи данных Google.">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/umami-analitika-bez-google-2026/cover.png">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor-Fill.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=43">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Umami: веб-аналитика сайта без Google и по 152-ФЗ",
+  "description": "Umami (и Plausible) — open-source веб-аналитика на своём сервере: посещаемость и источники без cookie-баннеров и передачи данных Google. Приватно, проще с 152-ФЗ — разверну под ключ.",
+  "image": "https://chimitdorzhi.tech/blog/umami-analitika-bez-google-2026/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/umami-analitika-bez-google-2026/"
+  },
+  "datePublished": "2026-06-14",
+  "dateModified": "2026-06-14",
+  "keywords": "Umami, веб-аналитика, 152-ФЗ, open-source",
+  "articleSection": "Open-source и свой сервер",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  },
+  "about": [
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://chimitdorzhi.tech/slovar/#152-fz",
+      "name": "152-ФЗ"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Umami: веб-аналитика сайта без Google и по 152-ФЗ",
+      "item": "https://chimitdorzhi.tech/blog/umami-analitika-bez-google-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Umami полностью заменяет Google Analytics?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Для базовых задач — посещаемость, источники трафика, популярные страницы — да, это понятная альтернатива. Для очень глубокой маркетинговой аналитики стоит обсудить задачи отдельно: иногда инструменты комбинируют."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Где будут храниться данные о посетителях?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "На вашем сервере, в вашей базе данных. Вы контролируете местоположение данных и доступ к ним, в отличие от облачных зарубежных сервисов."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Это поможет с 152-ФЗ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Размещение аналитики на своей инфраструктуре, в том числе в России, упрощает выполнение требований, потому что данные не уходят во внешний сервис. Но соблюдение закона — это ещё и документы и организационные меры, поэтому детали согласуем под ваш проект. Юридических гарантий не даю."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Чем Umami отличается от Plausible?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Оба — лёгкая приватная аналитика с открытым кодом и возможностью разместить на своём сервере. Идеология близкая, различия в деталях интерфейса и возможностей. Помогу выбрать подходящий вариант под ваши задачи."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужен ли отдельный сервер?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, Umami работает на вашем сервере (например, VPS), в том числе у российского хостинга. Подбор и настройку сервера беру на себя."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько времени занимает запуск?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Базовое развёртывание с установкой счётчика и проверкой обычно делается быстро, точный срок зависит от количества сайтов и требований к серверу. Конкретику назову после короткого обсуждения задач."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Кто будет поддерживать аналитику после запуска?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Вы можете пользоваться панелью самостоятельно — это несложно. При необходимости беру на себя обновления, резервное копирование и сопровождение, чтобы вам не пришлось погружаться в администрирование сервера."
+      }
+    }
+  ]
+}
+    </script>
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+            <li><a href="/#services" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li class="nav-dropdown">
+                <a href="/#projects" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--arey"><i class="ph-fill ph-vinyl-record" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-airplane-tilt" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#cases" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            </div>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/#about">Обо мне</a></li>
+        <li><a href="/#services">Услуги</a></li>
+        <li><a href="/services/">Каталог услуг</a></li>
+        <li><a href="/predlozheniya/">Предложения</a></li>
+        <li><a href="/#cases">Кейсы</a></li>
+        <li><a href="/blog/">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+        <li><a href="/#contact">Контакт</a></li>
+    </ul>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Umami: веб-аналитика сайта без Google и по 152-ФЗ</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/opensource/"><i class="ph ph-bookmark" aria-hidden="true"></i> Open-source и свой сервер</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин чтения</span>
+                        <time datetime="2026-06-14"><i class="ph ph-calendar" aria-hidden="true"></i> 14 июня 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Umami: веб-аналитика сайта без Google и по 152-ФЗ</h1>
+
+                    <p class="blog-lead">Umami — лёгкая приватная аналитика сайта на своём сервере, без передачи данных Google и без cookie-баннеров. Разбираю, что умеет и почему это проще по 152-ФЗ.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>Umami</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>веб-аналитика</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>152-ФЗ</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>open-source</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr">
+<h3>Коротко (TL;DR)</h3>
+<ul>
+<li>Umami — это открытая (open-source) система веб-аналитики, которую можно развернуть на своём сервере как замену Google Analytics.</li>
+<li>Данные о посетителях хранятся у вас, а не на стороне зарубежного сервиса, — это упрощает работу с требованиями 152-ФЗ о персональных данных.</li>
+<li>Аналитика приватная: как правило, без cookie-баннеров и без сбора лишних персональных данных, акцент на простых и понятных метриках.</li>
+<li>Похожий по идеологии инструмент — Plausible: тоже лёгкая приватная аналитика с open-source-версией для самостоятельного размещения.</li>
+<li>Для запуска нужны сервер, установка счётчика на сайт и базовая настройка — это делается под ключ.</li>
+</ul>
+</div>
+
+<p>Веб-аналитика нужна почти любому бизнесу: важно понимать, сколько людей заходит на сайт, откуда они приходят и какие страницы смотрят. Долгие годы стандартом был Google Analytics, но у него есть две проблемы для российского бизнеса: данные о посетителях уходят в зарубежный сервис, и это создаёт вопросы по 152-ФЗ. Umami — открытая альтернатива, которую можно поставить на свой сервер и собирать аналитику, не отдавая данные третьим сторонам. Ниже разберу, что это за инструмент, что он умеет, кому подходит и что нужно для запуска.</p>
+
+<h2 id="chto-eto">Что такое Umami и что заменяет</h2>
+<p>Umami — это open-source-платформа веб-аналитики. Открытый код означает, что её можно бесплатно развернуть на собственном сервере, изучить, как она устроена, и не зависеть от тарифов и правил внешнего сервиса. По смыслу это прямая альтернатива Google Analytics: вы ставите на сайт небольшой счётчик (фрагмент кода), а в панели управления видите статистику посещаемости.</p>
+<p>Ключевое отличие от облачных сервисов — место хранения данных. В классической связке с Google Analytics статистика о ваших посетителях обрабатывается на инфраструктуре зарубежной компании. В случае с Umami вся аналитика хранится в базе данных на вашем сервере. Вы сами решаете, где физически находятся данные, кто имеет к ним доступ и как долго они хранятся.</p>
+<p>Стоит упомянуть и похожий инструмент — Plausible. Это ещё одна лёгкая приватная аналитика с открытым кодом и возможностью самостоятельного размещения. Идеология у них близкая: простые метрики, уважение к приватности, минимум лишнего. Umami и Plausible часто рассматривают вместе и выбирают по деталям; я помогу подобрать то, что лучше ляжет под ваши задачи.</p>
+
+<h2 id="vozmozhnosti">Что умеет: приватная веб-аналитика</h2>
+<p>Umami закрывает основные потребности в веб-аналитике, не перегружая интерфейс. Если обобщить, инструмент даёт понятную картину того, что происходит на сайте, без необходимости разбираться в сложных отчётах.</p>
+<ul>
+<li><strong>Посещаемость.</strong> Сколько людей заходит на сайт, как меняется трафик по дням и неделям, какие страницы смотрят чаще.</li>
+<li><strong>Источники трафика.</strong> Откуда приходят посетители — из поиска, по прямым ссылкам, из соцсетей или с других сайтов.</li>
+<li><strong>География и устройства.</strong> Обобщённая информация о регионах, типах устройств и браузерах посетителей.</li>
+<li><strong>Простые понятные метрики.</strong> Акцент на тех показателях, которые реально помогают принимать решения, без избыточной детализации.</li>
+<li><strong>Несколько сайтов в одной панели.</strong> Если у вас несколько проектов, их статистику можно вести из одного места.</li>
+</ul>
+<p>Отдельно стоит сказать о приватности. Подход Umami построен так, чтобы собирать минимум данных и, как правило, обходиться без cookie-баннеров, которые раздражают пользователей. Это делает аналитику аккуратнее по отношению к посетителям и проще в части юридических формальностей. Конкретный состав собираемых данных и поведение зависят от версии и настроек, поэтому точные характеристики я уточняю под ваш случай и не обещаю заранее.</p>
+<p>На практике эти возможности закрывают вполне конкретные бизнес-сценарии. Например, маркетолог хочет понять, какая рекламная кампания реально приводит людей на сайт: в отчёте по источникам трафика видно, что из контекстной рекламы пришло столько-то посетителей, а из соцсетей — столько-то, и можно перераспределить бюджет в пользу того канала, который работает. Другой типичный сценарий — оценка контента: владелец блога видит, какие статьи читают чаще всего, и понимает, какие темы стоит развивать дальше, а какие не находят отклика у аудитории.</p>
+<p>Ещё один частый запрос — контроль после изменений на сайте. Допустим, вы переделали главную страницу или поменяли структуру меню: по динамике посещаемости и популярных страниц видно, стало ли людям удобнее, не просел ли трафик и не появились ли страницы, на которые посетители заходить перестали. Для интернет-магазина это помогает заметить, что какой-то раздел внезапно потерял аудиторию, и вовремя разобраться, в чём дело. Все эти задачи Umami решает без сложных настроек и без необходимости держать в штате отдельного аналитика.</p>
+
+<h2 id="komu-podhodit">Кому и для каких задач подходит</h2>
+<p>Umami хорошо подходит бизнесу, которому нужна понятная статистика по сайту без тяжёлой настройки и без передачи данных во внешние сервисы. Это типичная ситуация для компаний, которые хотят контролировать свои данные и спокойнее относиться к вопросам персональных данных.</p>
+<ul>
+<li><strong>Корпоративные сайты и сайты-визитки.</strong> Когда нужно видеть посещаемость и источники трафика, но не нужен громоздкий аналитический комбайн.</li>
+<li><strong>Интернет-магазины и сервисы.</strong> Базовое понимание трафика и популярных разделов как дополнение к другим инструментам.</li>
+<li><strong>Медиа и блоги.</strong> Простая статистика по статьям и страницам, понятная редакции без обучения.</li>
+<li><strong>Организации, чувствительные к данным.</strong> Когда принципиально важно, чтобы статистика хранилась на своей инфраструктуре.</li>
+</ul>
+<p>Хорошо ложится Umami и на сценарии, где важна репутация и доверие аудитории. Если вы работаете с темой персональных данных, медициной, образованием или госсектором, аккуратное отношение к данным посетителей становится не формальностью, а частью имиджа: вы можете честно сказать, что не передаёте статистику зарубежным сервисам и не навешиваете на людей лишние трекеры. Для небольших команд и предпринимателей подойдёт ещё и потому, что не требует постоянного сопровождения: настроили один раз — и просто заходите смотреть цифры, когда нужно принять решение.</p>
+<p>Если же вам нужна максимально глубокая маркетинговая аналитика с десятками отчётов и сложными воронками, стоит честно обсудить задачи: иногда правильнее комбинировать инструменты. На этапе обсуждения я помогу понять, достаточно ли Umami именно для ваших целей.</p>
+
+<h2 id="chto-nuzhno">Что нужно для запуска: сервер, счётчик, 152-ФЗ</h2>
+<p>Umami — это не облачная кнопка «включить», а программа, которую нужно где-то разместить. Поэтому для запуска понадобится несколько вещей.</p>
+<ul>
+<li><strong>Сервер.</strong> Подойдёт VPS или выделенный сервер, в том числе у российского хостинг-провайдера. Именно на нём будет работать аналитика и храниться база данных.</li>
+<li><strong>Установка и база данных.</strong> Само приложение нужно развернуть и подключить к базе данных, настроить домен и защищённое соединение.</li>
+<li><strong>Счётчик на сайте.</strong> На страницы добавляется небольшой фрагмент кода, который и передаёт статистику в вашу панель Umami.</li>
+<li><strong>Доступ к панели.</strong> Настройка учётных записей, чтобы вы и ваша команда могли смотреть отчёты.</li>
+</ul>
+<p>При самостоятельном развёртывании люди чаще всего спотыкаются на одних и тех же вещах. Типичная ошибка — оставить панель Umami открытой без защищённого соединения и нормального пароля, из-за чего к статистике может получить доступ кто угодно. Другая частая проблема — неправильно установленный счётчик: код добавлен не на все страницы или продублирован, и тогда цифры в отчётах оказываются недостоверными. Бывает и так, что забывают про резервное копирование базы данных: при сбое сервера вся накопленная аналитика теряется безвозвратно. Отдельная категория ошибок связана с обновлениями — версия Umami и база данных со временем расходятся, обновление откладывают, и в какой-то момент перенос становится болезненным. Я учитываю эти моменты заранее, поэтому развёртывание под ключ избавляет от типичных граблей и неприятных сюрпризов в будущем.</p>
+<p>Что касается 152-ФЗ: размещение аналитики на собственном сервере, в том числе на инфраструктуре в России, упрощает выполнение требований к обработке и хранению персональных данных, потому что данные остаются под вашим контролем и не передаются автоматически зарубежному сервису. Это важный аргумент в пользу российского стека и open-source-решений. При этом соблюдение 152-ФЗ — это комплекс мер (документы, политика конфиденциальности, организационные моменты), а не только выбор инструмента, поэтому конкретику по вашему сайту стоит согласовать отдельно. Юридических гарантий я не даю и помогаю именно с технической частью.</p>
+
+<h2 id="kak-vnedrit">Как внедрить под ключ</h2>
+<p>Разворачивать Umami самостоятельно без опыта администрирования серверов бывает хлопотно: нужно настроить сервер, базу данных, домен, шифрование, аккуратно поставить счётчик и проверить, что данные собираются корректно. Я беру эту работу на себя и делаю её под ключ.</p>
+<ul>
+<li><strong>Обсуждаем задачи.</strong> Какие сайты, что важно видеть, какие требования по данным и приватности.</li>
+<li><strong>Готовлю сервер и устанавливаю Umami.</strong> Разворачиваю приложение, базу данных, настраиваю домен и защищённое соединение.</li>
+<li><strong>Подключаю счётчик.</strong> Добавляю код на ваш сайт и проверяю, что статистика собирается правильно.</li>
+<li><strong>Передаю доступ и объясняю.</strong> Показываю, как читать отчёты, чтобы вы могли пользоваться аналитикой без меня.</li>
+</ul>
+<p>Опыт в IT и AI у меня более 16 лет, и я специализируюсь на разворачивании open-source-решений на российском стеке. Если коротко — вы получаете рабочую приватную аналитику на своём сервере, а не набор инструкций. <a href="/predlozheniya/open-source-pod-klyuch/">разверну Umami на вашем сервере под ключ</a>.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+<p><strong>Umami полностью заменяет Google Analytics?</strong> Для базовых задач — посещаемость, источники трафика, популярные страницы — да, это понятная альтернатива. Для очень глубокой маркетинговой аналитики стоит обсудить задачи отдельно: иногда инструменты комбинируют.</p>
+<p><strong>Где будут храниться данные о посетителях?</strong> На вашем сервере, в вашей базе данных. Вы контролируете местоположение данных и доступ к ним, в отличие от облачных зарубежных сервисов.</p>
+<p><strong>Это поможет с 152-ФЗ?</strong> Размещение аналитики на своей инфраструктуре, в том числе в России, упрощает выполнение требований, потому что данные не уходят во внешний сервис. Но соблюдение закона — это ещё и документы и организационные меры, поэтому детали согласуем под ваш проект. Юридических гарантий не даю.</p>
+<p><strong>Чем Umami отличается от Plausible?</strong> Оба — лёгкая приватная аналитика с открытым кодом и возможностью разместить на своём сервере. Идеология близкая, различия в деталях интерфейса и возможностей. Помогу выбрать подходящий вариант под ваши задачи.</p>
+<p><strong>Нужен ли отдельный сервер?</strong> Да, Umami работает на вашем сервере (например, VPS), в том числе у российского хостинга. Подбор и настройку сервера беру на себя.</p>
+<p><strong>Сколько времени занимает запуск?</strong> Базовое развёртывание с установкой счётчика и проверкой обычно делается быстро, точный срок зависит от количества сайтов и требований к серверу. Конкретику назову после короткого обсуждения задач.</p>
+<p><strong>Кто будет поддерживать аналитику после запуска?</strong> Вы можете пользоваться панелью самостоятельно — это несложно. При необходимости беру на себя обновления, резервное копирование и сопровождение, чтобы вам не пришлось погружаться в администрирование сервера.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+<p>Umami — это способ получить веб-аналитику уровня «понимаю, что происходит на сайте» без передачи данных Google и без лишних персональных данных. Открытый код, размещение на своём сервере, простые приватные метрики и более спокойное отношение к 152-ФЗ — вот её сильные стороны. Рядом стоит держать в виду Plausible как близкий по духу инструмент. Для запуска нужны сервер, установка и счётчик на сайте — всё это делается под ключ, чтобы вы сразу получили работающую аналитику, а не набор задач для самостоятельной настройки.</p>
+
+                    </div>
+
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Что я делаю с open-source</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-hard-drives"></i> <span>Развёртывание на вашем сервере</span></li>
+    
+    <li><i class="ph-fill ph-arrows-left-right"></i> <span>Перенос данных из старого сервиса</span></li>
+    
+    <li><i class="ph-fill ph-shield-check"></i> <span>Безопасность и 152-ФЗ</span></li>
+    
+    <li><i class="ph-fill ph-wrench"></i> <span>Настройка под ваши процессы</span></li>
+    
+    <li><i class="ph-fill ph-lifebuoy"></i> <span>Поддержка и обновления</span></li>
+    
+  </ul>
+  <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
+  </a>
+</div>
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/open-source-pod-klyuch/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовое решение по теме</span>
+                            <span class="blog-offer-cta-title">Open-source решение под ключ на ваш сервер</span>
+                            <span class="blog-offer-cta-price">Бесплатная консультация · Запуск за 1–3 недели</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-arrow-right" aria-hidden="true"></i> Смотреть предложение</span>
+                    </a>
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/predlozheniya/open-source-pod-klyuch/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Развернуть open-source под ключ</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/metabase-dashbordy-bi-2026/" data-category="opensource">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-chart-bar"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>Metabase: дашборды и BI без дорогих лицензий</h3>
+  <p>Metabase превращает ваши базы данных в наглядные дашборды и отчёты — без дорогих BI-лицензий. Разбираю возможности, сценарии и что нужно для запуска.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 14 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/nocodb-airtable-svoy-server-2026/" data-category="opensource">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-table"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>NocoDB: Airtable на своём сервере под ключ</h3>
+  <p>NocoDB — это гибкие умные таблицы для учёта чего угодно, как Airtable, но на своём сервере. Разбираю, кому подходит, что умеет и что нужно для запуска.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 14 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/n8n-avtomatizaciya-bez-zapier-2026/" data-category="opensource">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-flow-arrow"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>n8n: автоматизация бизнес-процессов без Zapier на своём сервере</h3>
+  <p>n8n связывает ваши сервисы в автоматические сценарии — как Zapier, только на своём сервере и без платы за объём. Разбираю, что умеет, кому подходит и что нужно, чтобы это реально заработало.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 14 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовые решения под ключ</span>
+                            <span class="blog-offer-cta-title">448 готовых IT-решений для бизнеса</span>
+                            <span class="blog-offer-cta-price">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Смотреть каталог</span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#chto-eto"><span class="blog-toc-num">01</span> Что это и что заменяет</a></li>
+<li><a href="#vozmozhnosti"><span class="blog-toc-num">02</span> Что умеет</a></li>
+<li><a href="#komu-podhodit"><span class="blog-toc-num">03</span> Кому подходит</a></li>
+<li><a href="#chto-nuzhno"><span class="blog-toc-num">04</span> Что нужно для запуска</a></li>
+<li><a href="#kak-vnedrit"><span class="blog-toc-num">05</span> Как внедрить под ключ</a></li>
+<li><a href="#faq"><span class="blog-toc-num">06</span> FAQ</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">07</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=23" defer></script>
+<script src="/services-i18n.js?v=23" defer></script>
+<script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>

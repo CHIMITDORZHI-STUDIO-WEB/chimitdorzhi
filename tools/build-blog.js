@@ -16,6 +16,26 @@ const subOffersCount = (s) => String(s).split('{{OFFERS_COUNT}}').join(OFFERS_CO
 
 // Карта: slug статьи → slug предложения. Добавляйте по мере роста раздела.
 const OFFER_LINKS = {
+  'n8n-avtomatizaciya-bez-zapier-2026': 'open-source-pod-klyuch',
+  'ollama-svoy-chatgpt-na-servere-2026': 'open-source-pod-klyuch',
+  'flowise-konstruktor-ai-botov-2026': 'open-source-pod-klyuch',
+  'typebot-chat-boty-kvizy-2026': 'open-source-pod-klyuch',
+  'librechat-korporativnyy-chatgpt-2026': 'open-source-pod-klyuch',
+  'espocrm-besplatnaya-crm-2026': 'open-source-pod-klyuch',
+  'chatwoot-svoya-podderzhka-2026': 'open-source-pod-klyuch',
+  'cal-com-onlayn-zapis-2026': 'open-source-pod-klyuch',
+  'twenty-crm-otkrytyy-kod-2026': 'open-source-pod-klyuch',
+  'invoice-ninja-scheta-2026': 'open-source-pod-klyuch',
+  'umami-analitika-bez-google-2026': 'open-source-pod-klyuch',
+  'metabase-dashbordy-bi-2026': 'open-source-pod-klyuch',
+  'nocodb-airtable-svoy-server-2026': 'open-source-pod-klyuch',
+  'mattermost-korporativnyy-messenger-2026': 'open-source-pod-klyuch',
+  'nextcloud-svoy-oblachnyy-disk-2026': 'open-source-pod-klyuch',
+  'outline-baza-znaniy-2026': 'open-source-pod-klyuch',
+  'jitsi-videokonferencii-bez-zoom-2026': 'open-source-pod-klyuch',
+  'listmonk-rassylki-bez-mailchimp-2026': 'open-source-pod-klyuch',
+  'ghost-blog-s-podpiskoy-2026': 'open-source-pod-klyuch',
+  'mautic-marketing-avtomatizaciya-2026': 'open-source-pod-klyuch',
   'kakoy-biznes-nachat-2026-onlayn-idei': 'zapusk-onlayn-biznesa-pod-klyuch',
   'biznes-bez-vlozheniy-onlayn-2026': 'proverka-biznes-idei-mvp',
   'kak-proverit-biznes-ideyu-2026': 'proverka-biznes-idei-mvp',
@@ -263,6 +283,7 @@ const CATEGORY_LABELS = {
   finance:     'Финансы',
   mlm:         'Сетевой бизнес',
   mwrlife:     'MWR Life',
+  opensource:  'Open-source и свой сервер',
   // legacy/fallback
   ai:          'AI и автоматизация',
   career:      'Карьера и обучение',
@@ -998,6 +1019,7 @@ ${organizationLd()}
                       { key: 'finance',     label: 'Финансы',        icon: 'ph-coins' },
                       { key: 'mlm',         label: 'Сетевой бизнес', icon: 'ph-share-network' },
                       { key: 'mwrlife',     label: 'MWR Life',       icon: 'ph-airplane-tilt' },
+                      { key: 'opensource',  label: 'Open-source',    icon: 'ph-hard-drives' },
                       { key: 'ai',          label: 'AI (старое)',    icon: 'ph-brain' },
                       { key: 'career',      label: 'Карьера',        icon: 'ph-graduation-cap' },
                     ].map(c => ({ ...c, cnt: published.filter(p => p.category === c.key).length }))
@@ -1162,6 +1184,11 @@ const CATEGORY_META = {
     h1: 'MWR Life / Travel Advantage',
     intro: 'Всё про travel-клуб MWR Life: как путешествовать дешевле, как устроена партнёрская программа, честные обзоры и разборы. Объективно, без обещаний дохода.',
     service: { url: 'https://chimitdorzhi.tech/mwrlife/', label: 'Узнать про MWR Life' },
+  },
+  opensource: {
+    h1: 'Open-source и свой сервер',
+    intro: 'Бесплатные open-source инструменты для бизнеса на вашем сервере: CRM, аналитика, автоматизация, AI, облако, мессенджеры — аналоги дорогих SaaS и замена ушедшего софта. Разбираю, что и кому подходит, и разворачиваю под ключ с соблюдением 152-ФЗ.',
+    service: { url: 'https://chimitdorzhi.tech/predlozheniya/open-source-pod-klyuch/', label: 'Развернуть open-source под ключ' },
   },
 };
 

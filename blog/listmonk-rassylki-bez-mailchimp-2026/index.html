@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listmonk: email-рассылки без Mailchimp</title>
+    <meta name="description" content="Listmonk — open-source система email-рассылок (аналог Mailchimp/SendPulse): списки, сегменты, кампании, высокая производительность.">
+    <meta name="keywords" content="Listmonk, email-рассылки, Mailchimp, open-source">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/listmonk-rassylki-bez-mailchimp-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/listmonk-rassylki-bez-mailchimp-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/listmonk-rassylki-bez-mailchimp-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/listmonk-rassylki-bez-mailchimp-2026/">
+    <meta property="og:title" content="Listmonk: email-рассылки без Mailchimp">
+    <meta property="og:description" content="Listmonk — open-source система email-рассылок (аналог Mailchimp/SendPulse): списки, сегменты, кампании, высокая производительность.">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/listmonk-rassylki-bez-mailchimp-2026/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Listmonk: email-рассылки без Mailchimp">
+    <meta name="twitter:description" content="Listmonk — open-source система email-рассылок (аналог Mailchimp/SendPulse): списки, сегменты, кампании, высокая производительность.">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/listmonk-rassylki-bez-mailchimp-2026/cover.png">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor-Fill.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=43">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Listmonk: email-рассылки без Mailchimp на своём сервере",
+  "description": "Listmonk — open-source система email-рассылок (аналог Mailchimp/SendPulse): списки, сегменты, кампании, высокая производительность. Без платы за объём, база у себя — разверну под ключ.",
+  "image": "https://chimitdorzhi.tech/blog/listmonk-rassylki-bez-mailchimp-2026/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/listmonk-rassylki-bez-mailchimp-2026/"
+  },
+  "datePublished": "2026-06-14",
+  "dateModified": "2026-06-14",
+  "keywords": "Listmonk, email-рассылки, Mailchimp, open-source",
+  "articleSection": "Open-source и свой сервер",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Listmonk: email-рассылки без Mailchimp на своём сервере",
+      "item": "https://chimitdorzhi.tech/blog/listmonk-rassylki-bez-mailchimp-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Это правда бесплатно?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Само приложение Listmonk бесплатно и open-source. Платить нужно за сервер и за отправку писем (свой SMTP или транзакционный сервис). При большой базе это обычно заметно выгоднее, чем подписка на облачный сервис, где цена растёт с объёмом."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Письма точно не будут попадать в спам?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Стопроцентной гарантии не даёт никто — доставляемость зависит от домена, репутации, качества базы и содержания писем. Но правильно настроенные SPF/DKIM/DMARC, прогрев и чистая база с согласиями серьёзно повышают шансы попасть во «Входящие»."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли перенести базу из Mailchimp или SendPulse?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да. Контакты выгружаются из текущего сервиса в CSV и импортируются в Listmonk. Важно переносить только тех подписчиков, кто давал согласие на рассылку."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Справится ли Listmonk с большой базой?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, он рассчитан на большие объёмы — сотни тысяч и более подписчиков. На практике скорость рассылки чаще ограничивает не само приложение, а лимиты почтового шлюза."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько времени занимает запуск под ключ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Установка приложения и базы — дело нескольких часов, но реальный срок до полноценной рассылки определяется прогревом домена. Чтобы наработать репутацию и безопасно выйти на полные объёмы, обычно нужно от одной до нескольких недель постепенного наращивания отправок. Импорт базы, настройку шаблонов и интеграции можно вести параллельно с прогревом, так что к моменту полной готовности всё уже на месте."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужно ли уметь программировать, чтобы пользоваться?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет. Повседневная работа — создание кампаний, управление списками, просмотр статистики — делается через веб-панель. Программирование может понадобиться только для интеграций через API, и это можно настроить заранее."
+      }
+    }
+  ]
+}
+    </script>
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+            <li><a href="/#services" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li class="nav-dropdown">
+                <a href="/#projects" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--arey"><i class="ph-fill ph-vinyl-record" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-airplane-tilt" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#cases" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            </div>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/#about">Обо мне</a></li>
+        <li><a href="/#services">Услуги</a></li>
+        <li><a href="/services/">Каталог услуг</a></li>
+        <li><a href="/predlozheniya/">Предложения</a></li>
+        <li><a href="/#cases">Кейсы</a></li>
+        <li><a href="/blog/">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+        <li><a href="/#contact">Контакт</a></li>
+    </ul>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Listmonk: email-рассылки без Mailchimp на своём сервере</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/opensource/"><i class="ph ph-bookmark" aria-hidden="true"></i> Open-source и свой сервер</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин чтения</span>
+                        <time datetime="2026-06-14"><i class="ph ph-calendar" aria-hidden="true"></i> 14 июня 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Listmonk: email-рассылки без Mailchimp на своём сервере</h1>
+
+                    <p class="blog-lead">Listmonk — это свои email-рассылки на своём сервере без платы за размер базы. Разбираю возможности, важность доставляемости и что нужно для запуска.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>Listmonk</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>email-рассылки</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>Mailchimp</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>open-source</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr">
+<h3>Коротко (TL;DR)</h3>
+<ul>
+<li>Listmonk — open-source система email-рассылок и управления подписчиками: списки, сегменты, кампании, шаблоны. Альтернатива Mailchimp и SendPulse.</li>
+<li>Главная ценность для бизнеса: нет абонентской платы за объём базы и количество писем, вы платите только за свой сервер и отправку.</li>
+<li>База подписчиков и согласий хранится у вас — это удобно для требований 152-ФЗ о персональных данных.</li>
+<li>Для запуска нужен сервер, настроенная отправка (SMTP или почтовый шлюз), свой домен с SPF/DKIM/DMARC и аккуратный прогрев — это напрямую влияет на доставляемость.</li>
+<li>Разворачиваю Listmonk под ключ: установка, домен и доставляемость, импорт базы, шаблоны и обучение.</li>
+</ul>
+</div>
+
+<p>Когда база подписчиков растёт, счёт за облачный сервис рассылок растёт вместе с ней. Mailchimp, SendPulse и подобные платформы берут деньги за объём контактов и количество отправленных писем — и чем успешнее ваша рассылка, тем дороже она обходится. При этом сама база, история подписок и согласия лежат на чужих серверах, нередко за пределами России. Listmonk решает обе задачи сразу: это бесплатная open-source система рассылок, которую вы разворачиваете на своём сервере и полностью контролируете. Разберём, что она умеет, кому подходит и что нужно для запуска.</p>
+
+<h2 id="chto-eto">Что такое Listmonk и что заменяет</h2>
+<p>Listmonk — это самостоятельное приложение для email-рассылок и управления подписчиками с открытым исходным кодом. Оно устанавливается на ваш сервер и даёт веб-панель администратора, через которую вы ведёте списки контактов, создаёте кампании и отслеживаете результаты. По сути это аналог Mailchimp, SendPulse, Sendinblue (Brevo) и UniSender — но без ежемесячной подписки за объём и с базой данных, которая принадлежит только вам.</p>
+<p>Listmonk написан на языке Go и работает быстро: он спокойно обрабатывает большие базы — сотни тысяч и миллионы подписчиков — и рассылает письма с высокой скоростью, упираясь обычно не в само приложение, а в ограничения почтового шлюза. Под капотом используется база данных PostgreSQL, в которой хранятся подписчики, списки, кампании и статистика. Само приложение — это один исполняемый файл, что упрощает развёртывание и обслуживание.</p>
+<p>Важно понимать границу: Listmonk управляет подписчиками и формирует кампании, но письма он не доставляет сам напрямую конечным получателям. Для отправки нужен почтовый канал — собственный SMTP-сервер или внешний транзакционный сервис. Listmonk управляет тем, кому, что и когда отправить; шлюз отвечает за саму доставку.</p>
+
+<h2 id="vozmozhnosti">Что умеет: рассылки и сегменты</h2>
+<p>Несмотря на лёгкость, по функциям Listmonk закрывает основные потребности бизнес-рассылок:</p>
+<ul>
+<li><strong>Списки и подписчики.</strong> Можно вести несколько списков (например, «клиенты», «партнёры», «новости»), как публичных с формой подписки, так и приватных, которые вы наполняете сами. Подписчик может состоять в нескольких списках одновременно.</li>
+<li><strong>Сегменты по запросам.</strong> Аудиторию кампании можно фильтровать по атрибутам подписчика и условиям — например, отправить только тем, кто из определённого города, подписался после конкретной даты или имеет нужный тег. Это позволяет делать точечные рассылки вместо «всем подряд».</li>
+<li><strong>Кампании и шаблоны.</strong> Письма создаются в визуальном или HTML-редакторе, поддерживаются повторно используемые шаблоны и подстановка персональных данных (имя, город и другие поля). Кампанию можно запланировать на нужное время.</li>
+<li><strong>Произвольные атрибуты.</strong> У каждого подписчика хранится гибкий набор данных в формате JSON — туда можно записать что угодно: сегмент, источник, дату последней покупки, и потом использовать это в фильтрах и письмах.</li>
+<li><strong>Аналитика.</strong> По каждой кампании видна статистика: отправки, открытия, переходы по ссылкам. Это помогает понимать, что работает.</li>
+<li><strong>Импорт и экспорт.</strong> База легко загружается из CSV и так же выгружается — вы не заперты внутри сервиса.</li>
+<li><strong>API.</strong> Listmonk имеет полноценный HTTP API, через который можно добавлять подписчиков и запускать кампании из вашего сайта, CRM или бота автоматически.</li>
+</ul>
+<p>На практике эти возможности складываются в живые бизнес-сценарии. Интернет-магазин может вести отдельный список «купившие за последние 90 дней» и автоматически добавлять туда покупателей через API прямо из CRM, а раз в неделю отправлять им подборку новинок с подстановкой имени и города. Образовательный проект собирает подписки через публичную форму с двойным подтверждением, сегментирует аудиторию по интересующему направлению и шлёт релевантный дайджест только тем, кому тема действительно близка, — это поднимает открываемость и снижает отписки. Сервис с платными тарифами может настроить напоминания о продлении, фильтруя подписчиков по дате последней оплаты из произвольных атрибутов. Во всех этих случаях вы не платите за каждый лишний контакт в базе и не упираетесь в лимиты тарифа в самый неподходящий момент — например, перед крупной распродажей, когда писать нужно сразу всем.</p>
+
+<h2 id="komu-podhodit">Кому и для каких задач подходит</h2>
+<p>Listmonk имеет смысл в первую очередь там, где база достаточно большая или активная, чтобы подписка на облачный сервис стала заметной статьёй расходов. Типичные сценарии:</p>
+<ul>
+<li><strong>Интернет-магазины и сервисы</strong> с базой клиентов, которым регулярно идут анонсы, акции и новости.</li>
+<li><strong>Медиа, блоги, образовательные проекты</strong> с email-дайджестами и регулярными рассылками.</li>
+<li><strong>Компании, которым важно хранить персональные данные клиентов у себя</strong> — на сервере в российской юрисдикции, под своим контролем.</li>
+<li><strong>Проекты с автоматизацией</strong>, где подписки и письма нужно связывать с сайтом или CRM через API.</li>
+</ul>
+<p>Если у вас совсем небольшая база и пара писем в месяц, бесплатных тарифов облачных сервисов может хватать, и отдельный сервер под Listmonk будет избыточен. Чем больше база и активнее рассылки — тем выгоднее своё решение.</p>
+<p>Чтобы прикинуть, ваш ли это случай, полезно посчитать на конкретных цифрах. Допустим, база выросла до 30–50 тысяч контактов и вы отправляете несколько кампаний в месяц: на облачных платформах такой объём уже выводит вас на платные тарифы, и счёт продолжает расти с каждой тысячей новых подписчиков. Своё решение на скромном VPS стоит фиксированную сумму в месяц независимо от того, 30 тысяч у вас контактов или 300 тысяч, — экономика становится предсказуемой. Отдельная категория, для которой Listmonk особенно уместен, — компании, работающие с чувствительными данными клиентов: клиники, финансовые и юридические сервисы, где хранить базу и согласия на собственном сервере в российской юрисдикции не просто удобно, а является частью требований к обработке персональных данных. Для таких задач контроль над инфраструктурой важнее, чем удобство «всё в облаке».</p>
+
+<h2 id="chto-nuzhno">Что нужно для запуска: сервер, доставляемость, 152-ФЗ</h2>
+<p>Listmonk бесплатен, но «бесплатно» не значит «без вложений». Чтобы рассылки реально доходили до адресатов, нужно несколько вещей.</p>
+<p><strong>Сервер.</strong> Нужен VPS или выделенный сервер с PostgreSQL. Для большинства задач хватает скромной конфигурации — Listmonk нетребователен к ресурсам.</p>
+<p><strong>Канал отправки и доставляемость.</strong> Это самая ответственная часть. Письма должны не просто уходить, а попадать во «Входящие», а не в спам. Для этого критично:</p>
+<ul>
+<li>отправка с вашего домена с корректно настроенными записями <strong>SPF, DKIM и DMARC</strong> — без них почтовые провайдеры относятся к письмам с подозрением;</li>
+<li>аккуратный <strong>прогрев</strong> домена и адреса отправителя: репутация нарабатывается постепенно, нельзя сразу слать большие объёмы с нового домена;</li>
+<li>чистая база и работающая отписка — жалобы и письма на несуществующие адреса портят репутацию отправителя.</li>
+</ul>
+<p>Точные сроки и результаты доставляемости заранее никто гарантировать не может — они зависят от домена, истории отправок и качества базы. Но соблюдение технических требований и постепенный прогрев заметно повышают шансы попасть во «Входящие».</p>
+<p><strong>Типичные ошибки самостоятельного развёртывания.</strong> Само приложение ставится за полчаса, и именно поэтому многие недооценивают остальное — а доходимость писем страдает в первую очередь. Самая частая ошибка: запустить рассылку с нового домена сразу на всю базу, без прогрева. Почтовые провайдеры воспринимают резкий всплеск отправок с неизвестного адреса как спам, репутация падает, и даже корректные письма уходят в папку «Спам» надолго. Вторая ошибка — неполные или ошибочные DNS-записи: настроили SPF, но забыли DKIM или DMARC, либо оставили лишние записи от прежнего сервиса, из-за чего проверки подлинности не проходят. Третья — рассылка по «грязной» базе со старыми и несуществующими адресами: высокий процент отказов и попаданий в спам-ловушки бьёт по репутации отправителя сильнее, чем кажется. Сюда же относится открытый или незащищённый SMTP, который быстро используют для чужого спама, и отсутствие мониторинга отказов, когда проблема с доставляемостью замечается только спустя недели. Все эти ошибки исправимы, но восстанавливать испорченную репутацию домена долго и дорого, поэтому правильнее заложить прогрев и корректные настройки с самого начала.</p>
+<p><strong>Согласия и 152-ФЗ.</strong> Рассылать письма можно только тем, кто дал на это согласие. Listmonk помогает соблюдать это правило: он поддерживает двойное подтверждение подписки (double opt-in), хранит статус и историю подписок и автоматически даёт ссылку отписки в каждом письме. Поскольку вся база и согласия лежат на вашем сервере, вам проще выполнять требования российского закона о персональных данных (152-ФЗ) — данные не уходят неизвестно куда.</p>
+
+<h2 id="kak-vnedrit">Как внедрить под ключ</h2>
+<p>Развёртывание рассылочной системы — это не только установка приложения. Чтобы письма доходили, а вы могли спокойно работать, нужен полный цикл. Под ключ работа обычно выглядит так:</p>
+<ul>
+<li><strong>Подбор и подготовка сервера</strong> — VPS в российской юрисдикции, установка Listmonk и PostgreSQL, настройка HTTPS.</li>
+<li><strong>Домен и доставляемость</strong> — настройка отправки с вашего домена, записи SPF/DKIM/DMARC, подключение почтового шлюза, план прогрева.</li>
+<li><strong>Импорт базы и списки</strong> — перенос существующих контактов, разбивка на списки и сегменты, настройка форм подписки и double opt-in.</li>
+<li><strong>Шаблоны писем</strong> — фирменные шаблоны кампаний с вашим оформлением и корректной отпиской.</li>
+<li><strong>Интеграции</strong> — при необходимости связка с сайтом, CRM или ботом через API.</li>
+<li><strong>Обучение и поддержка</strong> — показываю, как создавать кампании и читать статистику; остаюсь на связи для сопровождения и обновлений.</li>
+</ul>
+<p>Если хотите свои рассылки без абонентской платы за объём и с базой под вашим контролем — <a href="/predlozheniya/open-source-pod-klyuch/">разверну Listmonk для рассылок под ключ</a>.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+<p><strong>Это правда бесплатно?</strong> Само приложение Listmonk бесплатно и open-source. Платить нужно за сервер и за отправку писем (свой SMTP или транзакционный сервис). При большой базе это обычно заметно выгоднее, чем подписка на облачный сервис, где цена растёт с объёмом.</p>
+<p><strong>Письма точно не будут попадать в спам?</strong> Стопроцентной гарантии не даёт никто — доставляемость зависит от домена, репутации, качества базы и содержания писем. Но правильно настроенные SPF/DKIM/DMARC, прогрев и чистая база с согласиями серьёзно повышают шансы попасть во «Входящие».</p>
+<p><strong>Можно ли перенести базу из Mailchimp или SendPulse?</strong> Да. Контакты выгружаются из текущего сервиса в CSV и импортируются в Listmonk. Важно переносить только тех подписчиков, кто давал согласие на рассылку.</p>
+<p><strong>Справится ли Listmonk с большой базой?</strong> Да, он рассчитан на большие объёмы — сотни тысяч и более подписчиков. На практике скорость рассылки чаще ограничивает не само приложение, а лимиты почтового шлюза.</p>
+<p><strong>Сколько времени занимает запуск под ключ?</strong> Установка приложения и базы — дело нескольких часов, но реальный срок до полноценной рассылки определяется прогревом домена. Чтобы наработать репутацию и безопасно выйти на полные объёмы, обычно нужно от одной до нескольких недель постепенного наращивания отправок. Импорт базы, настройку шаблонов и интеграции можно вести параллельно с прогревом, так что к моменту полной готовности всё уже на месте.</p>
+<p><strong>Нужно ли уметь программировать, чтобы пользоваться?</strong> Нет. Повседневная работа — создание кампаний, управление списками, просмотр статистики — делается через веб-панель. Программирование может понадобиться только для интеграций через API, и это можно настроить заранее.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+<p>Listmonk — это зрелая open-source альтернатива Mailchimp и подобным сервисам: списки, сегменты, кампании, шаблоны и API без абонентской платы за объём базы. Главные выгоды для бизнеса — предсказуемая стоимость и полный контроль над базой подписчиков и их согласиями, что особенно важно с учётом 152-ФЗ. Ключ к результату — не столько сама установка, сколько настройка доставляемости: свой домен, SPF/DKIM/DMARC, прогрев и чистая база. Если хотите запустить рассылки на своём сервере и без растущих счетов — помогу развернуть и настроить Listmonk под ключ.</p>
+
+                    </div>
+
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Что я делаю с open-source</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-hard-drives"></i> <span>Развёртывание на вашем сервере</span></li>
+    
+    <li><i class="ph-fill ph-arrows-left-right"></i> <span>Перенос данных из старого сервиса</span></li>
+    
+    <li><i class="ph-fill ph-shield-check"></i> <span>Безопасность и 152-ФЗ</span></li>
+    
+    <li><i class="ph-fill ph-wrench"></i> <span>Настройка под ваши процессы</span></li>
+    
+    <li><i class="ph-fill ph-lifebuoy"></i> <span>Поддержка и обновления</span></li>
+    
+  </ul>
+  <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
+  </a>
+</div>
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/open-source-pod-klyuch/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовое решение по теме</span>
+                            <span class="blog-offer-cta-title">Open-source решение под ключ на ваш сервер</span>
+                            <span class="blog-offer-cta-price">Бесплатная консультация · Запуск за 1–3 недели</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-arrow-right" aria-hidden="true"></i> Смотреть предложение</span>
+                    </a>
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/predlozheniya/open-source-pod-klyuch/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Развернуть open-source под ключ</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/mautic-marketing-avtomatizaciya-2026/" data-category="opensource">
+  <span class="blog-card-fresh">Свежее</span>
+  <div class="blog-card-icon"><i class="ph-fill ph-megaphone"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>Mautic: маркетинговая автоматизация без HubSpot</h3>
+  <p>Mautic автоматизирует маркетинг — цепочки писем, сегменты, лид-скоринг — на своём сервере и без дорогой подписки. Мощный инструмент, который требует настройки. Разбираю детали.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 14 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/ghost-blog-s-podpiskoy-2026/" data-category="opensource">
+  <span class="blog-card-fresh">Свежее</span>
+  <div class="blog-card-icon"><i class="ph-fill ph-pen-nib"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>Ghost: свой блог с платной подпиской вместо Substack</h3>
+  <p>Ghost — это своё медиа с платной подпиской на своём сервере: статьи, рассылки и закрытый доступ без комиссий платформ. Разбираю, кому подходит и что нужно для запуска.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 14 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/n8n-avtomatizaciya-bez-zapier-2026/" data-category="opensource">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-flow-arrow"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>n8n: автоматизация бизнес-процессов без Zapier на своём сервере</h3>
+  <p>n8n связывает ваши сервисы в автоматические сценарии — как Zapier, только на своём сервере и без платы за объём. Разбираю, что умеет, кому подходит и что нужно, чтобы это реально заработало.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 14 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовые решения под ключ</span>
+                            <span class="blog-offer-cta-title">448 готовых IT-решений для бизнеса</span>
+                            <span class="blog-offer-cta-price">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Смотреть каталог</span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#chto-eto"><span class="blog-toc-num">01</span> Что это и что заменяет</a></li>
+<li><a href="#vozmozhnosti"><span class="blog-toc-num">02</span> Что умеет</a></li>
+<li><a href="#komu-podhodit"><span class="blog-toc-num">03</span> Кому подходит</a></li>
+<li><a href="#chto-nuzhno"><span class="blog-toc-num">04</span> Что нужно для запуска</a></li>
+<li><a href="#kak-vnedrit"><span class="blog-toc-num">05</span> Как внедрить под ключ</a></li>
+<li><a href="#faq"><span class="blog-toc-num">06</span> FAQ</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">07</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=23" defer></script>
+<script src="/services-i18n.js?v=23" defer></script>
+<script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>

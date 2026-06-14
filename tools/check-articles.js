@@ -29,7 +29,7 @@ const META_DESC_MAX = 350;
 
 const VALID_CATEGORIES = new Set([
   'legal', 'ai-dev', 'ai-life', 'marketing', 'geo', 'sales', 'media', 'industries',
-  'esports', 'development', 'security', 'finance', 'mlm', 'mwrlife',
+  'esports', 'development', 'security', 'finance', 'mlm', 'mwrlife', 'opensource',
 ]);
 
 // Пиктографические эмодзи (НЕ трогаем типографские стрелки → и тире —)
