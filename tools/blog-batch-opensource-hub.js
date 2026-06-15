@@ -2,7 +2,7 @@
 // группирует по задачам и ссылается на каждую. Контент генерируется при сборке —
 // новые статьи рубрики попадают в каталог автоматически.
 const BATCHES = ['opensource', 'opensource2', 'opensource3', 'opensource4', 'opensource5',
-  'opensource6', 'opensource7', 'opensource8', 'opensource9', 'opensource10', 'opensource11', 'opensource12', 'opensource13'];
+  'opensource6', 'opensource7', 'opensource8', 'opensource9', 'opensource10', 'opensource11', 'opensource12', 'opensource13', 'opensource14'];
 
 let items = [];
 for (const b of BATCHES) {
