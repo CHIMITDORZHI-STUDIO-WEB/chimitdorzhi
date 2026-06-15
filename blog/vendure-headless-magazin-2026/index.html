@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendure: headless-магазин на своём сервере</title>
+    <meta name="description" content="Vendure — современный open-source headless commerce (Node/TypeScript, GraphQL): товары, заказы, оплата, скидки, плагины, админка.">
+    <meta name="keywords" content="Vendure, headless, магазин, open-source">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/vendure-headless-magazin-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/vendure-headless-magazin-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/vendure-headless-magazin-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/vendure-headless-magazin-2026/">
+    <meta property="og:title" content="Vendure: headless-магазин на своём сервере">
+    <meta property="og:description" content="Vendure — современный open-source headless commerce (Node/TypeScript, GraphQL): товары, заказы, оплата, скидки, плагины, админка.">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/vendure-headless-magazin-2026/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Vendure: headless-магазин на своём сервере">
+    <meta name="twitter:description" content="Vendure — современный open-source headless commerce (Node/TypeScript, GraphQL): товары, заказы, оплата, скидки, плагины, админка.">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/vendure-headless-magazin-2026/cover.png">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor-Fill.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=43">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Vendure: headless-магазин — товарная основа для live commerce",
+  "description": "Vendure — современный open-source headless commerce (Node/TypeScript, GraphQL): товары, заказы, оплата, скидки, плагины, админка. API-first — витрина любая, вплоть до кнопки «купить в эфире» для live-commerce. Гибкий магазин, данные у себя — внедрю под ключ.",
+  "image": "https://chimitdorzhi.tech/blog/vendure-headless-magazin-2026/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/vendure-headless-magazin-2026/"
+  },
+  "datePublished": "2026-06-16",
+  "dateModified": "2026-06-16",
+  "keywords": "Vendure, headless, магазин, open-source",
+  "articleSection": "Open-source и свой сервер",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Vendure: headless-магазин — товарная основа для live commerce",
+      "item": "https://chimitdorzhi.tech/blog/vendure-headless-magazin-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Чем Vendure отличается от обычного интернет-магазина?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Обычная платформа даёт и движок, и готовую витрину в одном пакете — это удобно для типовых задач, но негибко. Vendure — headless-движок: он отвечает за товары, заказы, оплату и скидки и отдаёт всё через API, а витрину вы делаете любой. Это даёт свободу в сценариях продаж, но требует отдельной разработки витрины."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли сделать покупку прямо во время прямого эфира?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, это один из ключевых сценариев headless-подхода. Поскольку движок отдаёт операции с корзиной и заказом через API, кнопку покупки можно встроить прямо в плеер трансляции — зритель оформляет заказ, не уходя с эфира. Это требует разработки интеграции, но именно такая гибкость и есть смысл headless."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Чем Vendure отличается от Medusa?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Medusa — родственная альтернатива, тоже open-source headless commerce на Node.js, решающая ту же общую задачу. Выбор между ними зависит от деталей проекта и команды. Vendure силён гибкостью архитектуры и системой плагинов, за счёт которой движок аккуратно подгоняется под нестандартную логику без переписывания ядра."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Это законно с точки зрения данных покупателей?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, при правильной организации. Магазин собирает персональные данные, и поскольку Vendure разворачивается на вашем сервере, вы контролируете их хранение и можете разместить всё в российской юрисдикции с учётом требований 152-ФЗ — это прозрачнее, чем зависеть от политики зарубежного облачного сервиса."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Я не программист — справлюсь ли я с запуском сам?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Запуск движка и разработку витрины я беру на себя и передаю готовую платформу с инструкцией. Для повседневной работы программировать не нужно: товары, заказы и скидки менеджеры ведут через удобную админку. Техническая часть остаётся на стороне внедрения и поддержки."
+      }
+    }
+  ]
+}
+    </script>
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+            <li><a href="/#services" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li class="nav-dropdown">
+                <a href="/#projects" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--arey"><i class="ph-fill ph-vinyl-record" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-airplane-tilt" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#cases" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            </div>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/#about">Обо мне</a></li>
+        <li><a href="/#services">Услуги</a></li>
+        <li><a href="/services/">Каталог услуг</a></li>
+        <li><a href="/predlozheniya/">Предложения</a></li>
+        <li><a href="/#cases">Кейсы</a></li>
+        <li><a href="/blog/">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+        <li><a href="/#contact">Контакт</a></li>
+    </ul>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Vendure: headless-магазин — товарная основа для live commerce</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/opensource/"><i class="ph ph-bookmark" aria-hidden="true"></i> Open-source и свой сервер</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 10 мин чтения</span>
+                        <time datetime="2026-06-16"><i class="ph ph-calendar" aria-hidden="true"></i> 16 июня 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Vendure: headless-магазин — товарная основа для live commerce</h1>
+
+                    <p class="blog-lead">Vendure — это магазин с API, к которому можно прикрутить любую витрину: сайт, приложение или кнопку «купить» прямо в плеере трансляции. Гибче шаблонных движков. Разбираю применение, в т.ч. для live-commerce, и как на этом зарабатывать.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>Vendure</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>headless</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>магазин</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>open-source</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
+<li>Vendure — современный open-source headless commerce на Node.js и TypeScript с GraphQL API: товары и варианты, заказы, оплата, скидки, плагины и готовая админка.</li>
+<li>API-first означает, что витрину можно сделать любой: обычный сайт, <a href="https://chimitdorzhi.tech/services/mobile-apps/" class="blog-inline-link">мобильное приложение</a> или кнопку «купить» прямо в плеере прямого эфира — для live commerce это ключевое.</li>
+<li>Подходит тем, кому тесно в готовых коробочных магазинах: нестандартные сценарии продаж, своя логика скидок, интеграции с внутренними системами и продажи во время трансляций.</li>
+<li>Это headless-движок без встроенной витрины, поэтому нужен фронтенд и разработка интеграции — это проект под задачу, а не установка из коробки за полчаса.</li>
+<li>Я разворачиваю Vendure на вашем сервере и собираю витрину под сценарий, чтобы вы получили рабочий магазин, а не голый API из репозитория.</li>
+</ul></div>
+
+<p>Когда говорят «интернет-магазин», обычно представляют готовую платформу: поставил, выбрал шаблон, добавил товары — и торгуешь. Это удобно для типовых случаев, но плохо работает там, где сценарий продажи нестандартный. Например, когда товар нужно продавать прямо во время прямого эфира, встроить кнопку покупки в мобильное приложение или связать корзину с внутренней системой учёта. Здесь на помощь приходит headless-подход: магазин разделяют на «движок» (товары, заказы, оплата, склад) и «витрину» (то, что видит покупатель), и связывают их через API. Vendure — один из сильных open-source проектов в этой нише. Ниже разберу, что это такое, какие задачи он закрывает, кому подходит и что реально нужно для запуска — честно, без обещаний, что всё заработает само.</p>
+
+<h2 id="chto-eto">Что такое Vendure и что значит headless</h2>
+<p>Vendure — это бесплатный open-source движок для электронной коммерции, написанный на Node.js и TypeScript. Его задача — взять на себя всю «торговую начинку»: каталог товаров с вариантами, корзины и заказы, оплату, скидки и промокоды, управление клиентами, складские остатки и роли сотрудников. В комплекте идёт готовая административная панель, через которую менеджеры заводят товары, видят заказы и управляют магазином.</p>
+<p>Ключевое слово здесь — headless, то есть «без головы». В привычном движке витрина (страницы товаров, корзина, оформление заказа) намертво связана с движком: меняешь одно — цепляешь другое. Vendure устроен иначе: он отдаёт все данные и операции через GraphQL API, а как именно будет выглядеть витрина — решаете вы. Движок не диктует внешний вид. Это и есть API-first архитектура: сначала программный интерфейс, а витрина поверх него — любая.</p>
+<p>На практике это означает, что одним и тем же магазином можно «питать» сразу несколько точек продаж: сайт на современном фреймворке, мобильное приложение, виджет покупки внутри другого сервиса. Товары, цены и остатки при этом единые — они живут в движке, а витрины просто обращаются к нему по API. Для бизнеса со сложной или растущей логикой продаж это гибкость, которой коробочные решения обычно не дают.</p>
+
+<h2 id="vozmozhnosti">Что умеет: каталог, заказы, плагины, API</h2>
+<p>Основа Vendure — полноценный каталог. Товары поддерживают варианты (размер, цвет, комплектация), коллекции и категории, атрибуты, изображения. Цены, налоги и валюты настраиваются гибко, есть поддержка нескольких языков и каналов продаж — это полезно, если вы торгуете в разных регионах или через разные витрины из одной базы товаров.</p>
+<p>Работа с заказами выстроена как процесс: корзина, оформление, оплата, статусы выполнения, возвраты. Систему скидок можно настраивать под свои правила — промокоды, акции, условия на сумму корзины или конкретные товары. Управление клиентами, адресами и историей заказов тоже встроено. Менеджеры работают через админку, а вся логика доступна и через API, если нужно автоматизировать.</p>
+<p>Отдельная сила Vendure — расширяемость через плагины. Архитектура устроена так, что под свою задачу можно добавить новую функциональность, не ломая ядро: подключить нужный способ оплаты, интегрировать доставку, связать магазин с CRM или системой учёта, добавить кастомные поля и собственную бизнес-логику. Именно за счёт плагинов движок подгоняется под нестандартные сценарии, а не наоборот.</p>
+<p>И главное для гибких сценариев — GraphQL API. Через него витрина запрашивает ровно те данные, которые ей нужны, и выполняет операции: добавить в корзину, применить скидку, оформить заказ. Поскольку этот интерфейс открыт, покупку можно встроить куда угодно — в том числе в плеер прямой трансляции, чтобы зритель оформлял заказ, не уходя с эфира.</p>
+
+<h2 id="komu-podhodit">Кому и для каких задач подходит</h2>
+<p>Vendure имеет смысл там, где готовый коробочный магазин начинает мешать. Если у вас типовой ассортимент и стандартный процесс продажи, проще взять обычную платформу. Но как только появляется нестандартный сценарий — Vendure раскрывается. Пример, который сейчас особенно актуален, — live commerce, продажи во время прямых эфиров.</p>
+<p>Проблема классической связки «магазин отдельно, эфир отдельно» в том, что она теряет зрителя на пути к оформлению. Человек смотрит трансляцию, загорается товаром, но чтобы купить, должен уйти на сайт, найти позицию, заполнить корзину — и по дороге его внимание рассеивается. Headless-подход позволяет встроить покупку туда, где внимание клиента уже сосредоточено: кнопка «купить в эфире» прямо в плеере, оформление в один-два тапа, без ухода с трансляции. Технически это и делает GraphQL API Vendure — витриной становится сам плеер.</p>
+<p>Помимо live commerce, движок подходит проектам с мобильным приложением как основной витриной, маркетплейсам и нишевым магазинам со своей логикой ценообразования, компаниям, которым нужна глубокая интеграция магазина с внутренними системами (учёт, склад, CRM), и тем, кто хочет владеть своей торговой платформой целиком, без привязки к чужому SaaS-тарифу и его ограничениям.</p>
+<p><strong>Как на этом можно зарабатывать.</strong> Headless-магазин — это не только инструмент для собственных продаж, но и услуга, которую можно оказывать другим. Если вы работаете с продавцами, блогерами или магазинами, востребованным предложением становится внедрение товарной основы под ключ: развернуть Vendure, собрать витрину под конкретный сценарий (сайт, приложение или кнопку покупки в эфире), настроить оплату и интеграции. Это проектная работа с понятной ценностью — заказчик получает готовую платформу под свою модель продаж. Речь именно о платной услуге внедрения и сопровождения, а не об обещании какого-либо дохода: результат зависит от спроса, ассортимента и того, как выстроены продажи у самого заказчика.</p>
+
+<h2 id="chto-nuzhno">Что нужно для запуска: сервер, витрина, разработка</h2>
+<p>Сразу честно: Vendure — это движок, а не готовый магазин из коробки. Из репозитория вы получаете мощную торговую основу с API и админкой, но не получаете готовую витрину для покупателей. Витрину — сайт, приложение или виджет в эфире — нужно разрабатывать отдельно и связывать с движком через API. Это полноценный проект, а не установка за полчаса, и важно понимать это до старта.</p>
+<p>Для серверной части понадобится площадка, где движок будет постоянно работать: виртуальный сервер (VPS) или выделенная машина с окружением для Node.js и базой данных. Vendure состоит из приложения, базы данных и сопутствующих сервисов, которые нужно корректно настроить и связать. Дополнительно потребуется доменное имя, защищённое соединение (HTTPS) и настройка приёма платежей через подходящий платёжный шлюз.</p>
+<p>Отдельно стоит вопрос данных покупателей. Магазин по своей природе собирает персональные данные — имена, контакты, адреса доставки, историю заказов. Это попадает под требования российского законодательства о персональных данных (152-ФЗ), поэтому сервер разумно размещать в российской юрисдикции и аккуратно выстраивать хранение и обработку данных. Преимущество self-hosted решения в том, что вы полностью контролируете, где лежат данные, и можете организовать всё в соответствии с требованиями, а не зависеть от политики зарубежного облака.</p>
+<p>Наконец, нужна работа по интеграции: подключить оплату и доставку под ваш рынок, при необходимости связать магазин с внутренними системами, собрать и оформить витрину под сценарий продаж. Объём этой работы зависит от того, насколько нестандартный у вас сценарий — простой сайт-витрина и кнопка покупки в плеере трансляции требуют разного объёма разработки.</p>
+
+<h2 id="kak-vnedrit">Как внедрить под ключ</h2>
+<p>Самостоятельный запуск headless-движка — задача не для новичка. Нужно развернуть сервер и базу данных, настроить сам Vendure, подключить домен и сертификат, настроить приём платежей, а затем — и это главная часть — спроектировать и собрать витрину, которая будет обращаться к движку по API. Для live commerce добавляется интеграция покупки прямо в плеер эфира. Без опыта администрирования и разработки это растягивается надолго и легко упирается в типичные ошибки.</p>
+<p>Я беру эту часть на себя. Подбираю подходящий сервер под ожидаемую нагрузку, разворачиваю Vendure, настраиваю домен, HTTPS, оплату, резервное копирование и базовую безопасность. Затем разбираемся с витриной: собираю фронтенд под ваш сценарий — обычный сайт-магазин, мобильную витрину или кнопку покупки в плеере трансляции — и связываю её с движком через API. Передаю вам рабочую платформу с понятной инструкцией и остаюсь на связи для поддержки, доработок и обновлений.</p>
+<p>За плечами 16+ лет в IT и десятки развёрнутых open-source решений под конкретные задачи бизнеса. Если вам нужна гибкая товарная основа на своём сервере — для нестандартного магазина или для продаж прямо во время эфира — <a href="/predlozheniya/open-source-pod-klyuch/">разверну headless-магазин под ключ</a>, а вы сосредоточитесь на ассортименте и продажах.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+<p><strong>Чем Vendure отличается от обычного интернет-магазина?</strong> Обычная платформа даёт и движок, и готовую витрину в одном пакете — это удобно для типовых задач, но негибко. Vendure — headless-движок: он отвечает за товары, заказы, оплату и скидки и отдаёт всё через API, а витрину вы делаете любой. Это даёт свободу в сценариях продаж, но требует отдельной разработки витрины.</p>
+<p><strong>Можно ли сделать покупку прямо во время прямого эфира?</strong> Да, это один из ключевых сценариев headless-подхода. Поскольку движок отдаёт операции с корзиной и заказом через API, кнопку покупки можно встроить прямо в плеер трансляции — зритель оформляет заказ, не уходя с эфира. Это требует разработки интеграции, но именно такая гибкость и есть смысл headless.</p>
+<p><strong>Чем Vendure отличается от Medusa?</strong> Medusa — родственная альтернатива, тоже open-source headless commerce на Node.js, решающая ту же общую задачу. Выбор между ними зависит от деталей проекта и команды. Vendure силён гибкостью архитектуры и системой плагинов, за счёт которой движок аккуратно подгоняется под нестандартную логику без переписывания ядра.</p>
+<p><strong>Это законно с точки зрения данных покупателей?</strong> Да, при правильной организации. Магазин собирает персональные данные, и поскольку Vendure разворачивается на вашем сервере, вы контролируете их хранение и можете разместить всё в российской юрисдикции с учётом требований 152-ФЗ — это прозрачнее, чем зависеть от политики зарубежного облачного сервиса.</p>
+<p><strong>Я не программист — справлюсь ли я с запуском сам?</strong> Запуск движка и разработку витрины я беру на себя и передаю готовую платформу с инструкцией. Для повседневной работы программировать не нужно: товары, заказы и скидки менеджеры ведут через удобную админку. Техническая часть остаётся на стороне внедрения и поддержки.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+<p>Vendure — это зрелый open-source headless-движок для электронной коммерции на Node.js и TypeScript: товары и варианты, заказы, оплата, скидки, плагины и готовая админка, а всё взаимодействие идёт через GraphQL API. Главное преимущество — API-first архитектура: витриной может стать что угодно, от обычного сайта до кнопки «купить» прямо в плеере прямого эфира, и это решает главную проблему live commerce — потерю зрителя на пути к оформлению. Движок подходит проектам с нестандартными сценариями продаж, мобильными витринами и глубокими интеграциями; как родственную альтернативу стоит держать в виду Medusa. Важно понимать: headless — это не коробка, а проект, которому нужны сервер, разработка витрины и интеграция. Эту часть проще доверить специалисту, чтобы сразу получить рабочую платформу под свою модель продаж, а не голый API из репозитория.</p>
+
+                    </div>
+
+                    
+                    <div class="blog-cta-card">
+                        <div class="blog-cta-card-body">
+                            <h3>Ещё open-source для бизнеса</h3>
+                            <p>Эта статья — часть каталога бесплатных решений, которые я разворачиваю на вашем сервере под ключ: CRM, аналитика, документы, почта, безопасность, магазины, AI.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="/blog/katalog-open-source-resheniy-dlya-biznesa-2026/" class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Каталог open-source решений</a>
+                        </div>
+                    </div>
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Что я делаю с open-source</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-hard-drives"></i> <span>Развёртывание на вашем сервере</span></li>
+    
+    <li><i class="ph-fill ph-arrows-left-right"></i> <span>Перенос данных из старого сервиса</span></li>
+    
+    <li><i class="ph-fill ph-shield-check"></i> <span>Безопасность и 152-ФЗ</span></li>
+    
+    <li><i class="ph-fill ph-wrench"></i> <span>Настройка под ваши процессы</span></li>
+    
+    <li><i class="ph-fill ph-lifebuoy"></i> <span>Поддержка и обновления</span></li>
+    
+  </ul>
+  <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
+  </a>
+</div>
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/open-source-pod-klyuch/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовое решение по теме</span>
+                            <span class="blog-offer-cta-title">Open-source решение под ключ на ваш сервер</span>
+                            <span class="blog-offer-cta-price">Бесплатная консультация · Запуск за 1–3 недели</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-arrow-right" aria-hidden="true"></i> Смотреть предложение</span>
+                    </a>
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/predlozheniya/open-source-pod-klyuch/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Развернуть open-source под ключ</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/medusa-headless-magazin-2026/" data-category="opensource">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-storefront"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>Medusa: headless интернет-магазин без комиссий на своём сервере</h3>
+  <p>Medusa — это магазин без комиссий с продаж и полной кастомизацией: headless-движок под нестандартные витрины и интеграции. Разбираю, кому подходит и что нужно для запуска.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 15 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/live-commerce-svoya-ploschadka-opensource-2026/" data-category="opensource">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-broadcast"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>Своя площадка live-commerce на open-source: из чего собрать</h3>
+  <p>Готовой open-source «коробки» под live-commerce нет — площадка собирается из блоков: низколатентный стрим, headless-магазин, живой чат, кнопка покупки в эфире и мультистрим. Разбираю, из чего и как собрать, и как на этом зарабатывать.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 16 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 10 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/bagisto-internet-magazin-2026/" data-category="opensource">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-shopping-cart"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>Bagisto: интернет-магазин на открытом коде под ключ</h3>
+  <p>Bagisto — это полноценный интернет-магазин на своём сервере без ежемесячной платы платформам. Разбираю, что умеет, кому подходит и что нужно для запуска (включая приём оплаты в РФ).</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 15 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовые решения под ключ</span>
+                            <span class="blog-offer-cta-title">449 готовых IT-решений для бизнеса</span>
+                            <span class="blog-offer-cta-price">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Смотреть каталог</span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#chto-eto"><span class="blog-toc-num">01</span> Что это и что заменяет</a></li>
+<li><a href="#vozmozhnosti"><span class="blog-toc-num">02</span> Что умеет</a></li>
+<li><a href="#komu-podhodit"><span class="blog-toc-num">03</span> Кому подходит</a></li>
+<li><a href="#chto-nuzhno"><span class="blog-toc-num">04</span> Что нужно для запуска</a></li>
+<li><a href="#kak-vnedrit"><span class="blog-toc-num">05</span> Как внедрить под ключ</a></li>
+<li><a href="#faq"><span class="blog-toc-num">06</span> FAQ</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">07</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=23" defer></script>
+<script src="/services-i18n.js?v=23" defer></script>
+<script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>

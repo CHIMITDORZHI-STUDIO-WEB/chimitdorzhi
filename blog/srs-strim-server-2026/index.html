@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SRS: свой стриминг-сервер на своём сервере</title>
+    <meta name="description" content="SRS (Simple Realtime Server) — мощный open-source стриминг-сервер (RTMP, WebRTC, HLS, SRT, кластеризация, низкая задержка).">
+    <meta name="keywords" content="SRS, стриминг, live commerce, open-source">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/srs-strim-server-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/srs-strim-server-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/srs-strim-server-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/srs-strim-server-2026/">
+    <meta property="og:title" content="SRS: свой стриминг-сервер на своём сервере">
+    <meta property="og:description" content="SRS (Simple Realtime Server) — мощный open-source стриминг-сервер (RTMP, WebRTC, HLS, SRT, кластеризация, низкая задержка).">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/srs-strim-server-2026/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SRS: свой стриминг-сервер на своём сервере">
+    <meta name="twitter:description" content="SRS (Simple Realtime Server) — мощный open-source стриминг-сервер (RTMP, WebRTC, HLS, SRT, кластеризация, низкая задержка).">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/srs-strim-server-2026/cover.png">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor-Fill.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=43">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "SRS: свой стриминг-сервер для live commerce и трансляций",
+  "description": "SRS (Simple Realtime Server) — мощный open-source стриминг-сервер (RTMP, WebRTC, HLS, SRT, кластеризация, низкая задержка). Фундамент своей трансляционной площадки и live-shopping без комиссий за зрителей, поток у себя — разверну под ключ.",
+  "image": "https://chimitdorzhi.tech/blog/srs-strim-server-2026/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/srs-strim-server-2026/"
+  },
+  "datePublished": "2026-06-16",
+  "dateModified": "2026-06-16",
+  "keywords": "SRS, стриминг, live commerce, open-source",
+  "articleSection": "Open-source и свой сервер",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "SRS: свой стриминг-сервер для live commerce и трансляций",
+      "item": "https://chimitdorzhi.tech/blog/srs-strim-server-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Чем SRS отличается от облачного стрим-сервиса?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Задача та же — принять поток и раздать его зрителям, но модель разная. Облачный сервис вы арендуете и платите за трафик и число зрителей по его тарифу, а сам поток и аналитика остаются у него. SRS вы ставите на свой сервер и владеете полностью: платите только за сервер и трафик напрямую, без наценки за каждого зрителя, а все данные остаются у вас."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько зрителей выдержит трансляция?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Жёсткого лимита, навязанного тарифом, здесь нет — реальное число зависит от мощности сервера и ширины канала. Для большой аудитории SRS поддерживает кластеризацию, когда раздачу берут на себя несколько серверов. Под ожидаемое число зрителей инфраструктуру можно спланировать заранее, и я помогаю это рассчитать."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Какая будет задержка эфира?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Зависит от протокола раздачи. Через WebRTC и HTTP-FLV SRS даёт задержку в считанные секунды, что подходит для живых продаж и интерактивных эфиров, где важна быстрая реакция. Через HLS задержка традиционно больше, зато он максимально совместим со всеми устройствами. Часто имеет смысл раздавать поток сразу в нескольких форматах."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Подойдёт ли SRS для продаж в прямом эфире (live-shopping)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, это один из основных сценариев — именно в живых продажах SRS получил широкое распространение. Он обеспечивает низкую задержку, нужную для общения с покупателями в реальном времени, а собственная площадка позволяет встроить эфир прямо в сайт магазина и связать его с каталогом и корзиной."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Я не разбираюсь в серверах — справлюсь ли я?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Запуск, настройку и масштабирование я беру на себя и передаю готовую площадку с инструкцией. Для проведения трансляций техническое образование не нужно: вы запускаете эфир из привычной программы вроде OBS, а сервер всё раздаёт зрителям сам."
+      }
+    }
+  ]
+}
+    </script>
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+            <li><a href="/#services" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li class="nav-dropdown">
+                <a href="/#projects" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--arey"><i class="ph-fill ph-vinyl-record" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-airplane-tilt" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#cases" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            </div>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/#about">Обо мне</a></li>
+        <li><a href="/#services">Услуги</a></li>
+        <li><a href="/services/">Каталог услуг</a></li>
+        <li><a href="/predlozheniya/">Предложения</a></li>
+        <li><a href="/#cases">Кейсы</a></li>
+        <li><a href="/blog/">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+        <li><a href="/#contact">Контакт</a></li>
+    </ul>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">SRS: свой стриминг-сервер для live commerce и трансляций</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/opensource/"><i class="ph ph-bookmark" aria-hidden="true"></i> Open-source и свой сервер</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 10 мин чтения</span>
+                        <time datetime="2026-06-16"><i class="ph ph-calendar" aria-hidden="true"></i> 16 июня 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">SRS: свой стриминг-сервер для live commerce и трансляций</h1>
+
+                    <p class="blog-lead">SRS принимает поток от ведущего и раздаёт его тысячам зрителей с низкой задержкой — основа своей площадки трансляций и live-commerce без комиссий облачных сервисов. Разбираю применение и как на этом зарабатывать.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>SRS</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>стриминг</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>live commerce</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>open-source</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
+<li>SRS (Simple Realtime Server) — популярный open-source стриминг-сервер: принимает поток от ведущего и раздаёт его тысячам зрителей по RTMP, WebRTC, HLS, HTTP-FLV и SRT.</li>
+<li>Это фундамент собственной трансляционной площадки: live-shopping (продажи в прямом эфире), вебинары, спортивные и событийные трансляции — всё на своих условиях.</li>
+<li>Главное отличие от облачных стрим-сервисов — нет комиссий за трафик и зрителей, поток и данные остаются у вас, а не в чужой инфраструктуре.</li>
+<li>SRS — серверный компонент: для запуска нужен сервер с хорошей полосой, оплата трафика и грамотная настройка масштабирования под нагрузку.</li>
+<li>Я разворачиваю и настраиваю стриминг-сервер под ключ, при необходимости связываю его с витриной эфира (Owncast) и интерактивом (LiveKit), чтобы вы получили работающую площадку.</li>
+</ul></div>
+
+<p>Прямые трансляции давно перестали быть форматом только для крупных платформ. Продажи в прямом эфире, вебинары, разборы товаров, спортивные и событийные стримы — всё это работает на одном и том же принципе: ведущий отдаёт видеопоток, а сервер раздаёт его зрителям с минимальной задержкой. Чаще всего для этого арендуют облачные стрим-сервисы, но у них есть особенность: они берут деньги за трафик и количество зрителей, а сам поток и аналитика остаются на их стороне. SRS (Simple Realtime Server) решает ту же задачу как open-source инструмент, который можно развернуть у себя и сделать фундаментом собственной трансляционной площадки. Ниже разберу, что это за сервер, что он умеет, кому подходит и что реально нужно для запуска.</p>
+
+<h2 id="chto-eto">Что такое SRS и что он заменяет</h2>
+<p>SRS (Simple Realtime Server) — это open-source медиасервер для прямых трансляций в реальном времени. Его задача проста по формулировке и сложна по исполнению: принять видеопоток от одного источника (ведущего, камеры, программы трансляции вроде OBS) и раздать его одновременно множеству зрителей с низкой задержкой и без потери качества. По сути это сердце любой стриминговой площадки — то, что стоит между человеком, который вещает, и аудиторией, которая смотрит.</p>
+<p>Проект получил особую популярность в азиатском live commerce — сегменте, где продажи в прямом эфире стали массовым форматом и где к стриминговой инфраструктуре предъявляют серьёзные требования по задержке и числу зрителей. Именно оттуда во многом и пришёл сам формат живых продаж, а вместе с ним вырос спрос на надёжный и недорогой в эксплуатации сервер. SRS отвечает этим требованиям и при этом распространяется с открытым исходным кодом.</p>
+<p>По нише SRS занимает то же место, что и облачные стрим-сервисы, которым вы отдаёте поток, а они раздают его зрителям за абонентскую плату и оплату трафика. Принципиальная разница в модели: облачный сервис вы арендуете и платите по мере роста аудитории, а SRS ставите на свой сервер и владеете им полностью. Нет комиссий за каждого зрителя и за каждый гигабайт отданного видео сверх тарифа, нет ситуации, когда ваш поток, список зрителей и поведенческая аналитика лежат в чужой инфраструктуре. Когда трансляции проводятся регулярно и аудитория растёт, эта разница в подходе становится ощутимой и по деньгам, и по контролю.</p>
+
+<h2 id="vozmozhnosti">Что умеет: протоколы, задержка, масштабирование</h2>
+<p>Главная сила SRS — поддержка множества протоколов доставки видео в одном сервере. Он принимает поток по RTMP (классический способ, которым вещают OBS и большинство программ для трансляций) или по SRT (современный протокол для надёжной передачи видео даже по нестабильным каналам), а раздаёт зрителям так, как удобно им: через HLS (универсальный способ, который понимают все браузеры и мобильные устройства), HTTP-FLV (для низкой задержки) или WebRTC (для почти мгновенной доставки, когда задержка критична). Это значит, что одна и та же трансляция доходит и до зрителя на телефоне, и до того, кому важна минимальная задержка для общения с ведущим.</p>
+<p>Низкая задержка — отдельная ценность SRS и причина, по которой его выбирают для живых продаж и интерактивных эфиров. В формате live commerce важно, чтобы зритель видел товар и реакцию ведущего практически в реальном времени: задал вопрос — почти сразу получил ответ, увидел цену — успел отреагировать. Через WebRTC и HTTP-FLV SRS способен давать задержку в считанные секунды, а то и меньше, в отличие от обычного HLS, где задержка традиционно больше.</p>
+<p>Не менее важна способность раздавать поток на большую аудиторию. SRS поддерживает кластеризацию — режим, при котором несколько серверов работают вместе и распределяют между собой нагрузку по раздаче видео. Один сервер принимает поток от ведущего, а раздающие узлы тиражируют его зрителям. Благодаря этому площадку можно масштабировать под рост аудитории, добавляя мощности, вместо того чтобы упираться в потолок одного сервера.</p>
+<p>Помимо этого SRS умеет записывать трансляции для последующего просмотра, отдавать статистику и события через API (чтобы стыковать сервер с вашим сайтом, личным кабинетом или ботом), и работать как универсальный шлюз между разными протоколами. Для большинства задач этого набора достаточно, а открытый код оставляет запас на доработку под конкретный сценарий.</p>
+
+<h2 id="komu-podhodit">Кому и для каких задач подходит</h2>
+<p>SRS пригодится всем, кому нужна собственная трансляционная площадка, а не место на чужой платформе. Для онлайн-магазинов и брендов это основа для продаж в прямом эфире: ведущий показывает товар, отвечает на вопросы и подталкивает к покупке, а зрители смотрят без рекламы конкурентов и переходов на сторонние сервисы. Свой сервер позволяет встроить эфир прямо в сайт магазина и связать его с корзиной и каталогом.</p>
+<p>Образовательным проектам и спикерам SRS даёт инфраструктуру для вебинаров и онлайн-занятий без лимитов чужого тарифа на число подключений. Организаторам мероприятий — площадку для событийных и спортивных трансляций, которую можно оформить под свой бренд. Медиа и сообществам — независимый канал вещания, не зависящий от правил и алгоритмов крупных платформ.</p>
+<p>SRS отвечает за приём и раздачу потока, но вокруг него удобно собирать полноценную площадку. Если нужна готовая витрина эфира — страница трансляции с плеером, чатом и описанием — её роль может выполнить open-source проект Owncast, который выглядит как собственный канал вещания. Если же нужен глубокий интерактив, когда зрители выходят в эфир, общаются голосом и видео в реальном времени, эту часть закрывает LiveKit на технологии WebRTC. SRS, Owncast и LiveKit решают разные задачи и хорошо дополняют друг друга в рамках одной площадки.</p>
+<p><strong>Как на этом можно зарабатывать.</strong> Собственный стриминг-сервер — это не только инструмент для себя, но и услуга, которую можно предлагать рынку. Сейчас живые продажи и эфиры активно растут, а у многих магазинов, блогеров и организаторов нет своей площадки и они зависят от чужих сервисов. На базе SRS можно собирать и сдавать под ключ трансляционные площадки для эфиров и live-shopping: разворачивать сервер, настраивать витрину и интерактив, оформлять под бренд заказчика и сопровождать. Это понятная ниша с реальным спросом. Я не обещаю конкретных доходов — результат зависит от ваших усилий, клиентов и рынка, — но техническую базу для такой услуги SRS даёт надёжную и проверенную.</p>
+
+<h2 id="chto-nuzhno">Что нужно для запуска: сервер, трафик, масштабирование</h2>
+<p>Важно честно понимать: SRS — это серверный компонент, а не готовое приложение, которое скачал и запустил на телефоне. Для работы ему нужна площадка, где он будет постоянно запущен, — виртуальный сервер (VPS) или выделенная машина с современным окружением для запуска контейнеров. Сам сервер настраивается на приём потока, нужные протоколы раздачи и запись, после чего к нему подключается источник трансляции и плеер на стороне зрителей.</p>
+<p>Ключевой ресурс для стриминга — это полоса пропускания и трафик. Видео — тяжёлый контент: чем больше зрителей и чем выше качество картинки, тем больше данных сервер отдаёт каждую секунду. Поэтому для трансляций нужен сервер с хорошим каналом, а исходящий трафик — это статья расходов, которую важно учитывать заранее. Это не недостаток SRS, а природа любого видеостриминга: облачные сервисы берут за тот же трафик деньги, просто упаковывают это в тариф. На своём сервере вы платите за трафик напрямую, зато без наценки за зрителя.</p>
+<p>Отдельная тема — масштабирование под нагрузку. Один сервер тянет ограниченное число одновременных зрителей, и при росте аудитории нужно разносить раздачу на несколько узлов через кластеризацию. Это требует продуманной архитектуры: сколько раздающих серверов поставить, как распределить нагрузку, как подключить раздачу через сеть доставки контента, если зрители географически разбросаны. Эту часть стоит планировать заранее, исходя из ожидаемого числа зрителей.</p>
+<p>Также понадобится доменное имя и защищённое соединение (HTTPS), чтобы зрители заходили по нормальной ссылке и современные браузеры корректно проигрывали поток, особенно для WebRTC. Плюс базовая настройка безопасности, защита от чужих подключений к вашему серверу и резервное копирование записей и настроек.</p>
+
+<h2 id="kak-vnedrit">Как внедрить под ключ</h2>
+<p>Самостоятельный запуск стриминг-сервера — это заметно больше, чем скачать репозиторий. Нужно подобрать сервер с подходящим каналом, развернуть SRS, настроить нужные протоколы приёма и раздачи, добиться низкой задержки, проверить поведение под реальной нагрузкой и продумать масштабирование на случай роста аудитории. Добавьте сюда домен, HTTPS, защиту от посторонних подключений и стыковку с витриной эфира — и для человека без опыта администрирования это превращается в долгое разбирательство с документацией и типичными ошибками, причём проблемы часто всплывают именно в момент важной трансляции.</p>
+<p>Я беру эту часть на себя. Подбираю сервер под ваши задачи и ожидаемую аудиторию, разворачиваю SRS, настраиваю протоколы под нужный баланс задержки и совместимости, подключаю домен, HTTPS, запись и базовую безопасность, при необходимости связываю сервер с витриной эфира на Owncast и интерактивом на LiveKit, проверяю реальный сценарий трансляции и передаю вам работающую площадку с понятной инструкцией. При росте аудитории помогаю выстроить кластеризацию и масштабирование.</p>
+<p>За плечами 16+ лет в IT и десятки развёрнутых open-source решений под конкретные задачи бизнеса. Если вам нужна собственная трансляционная площадка для эфиров и live-shopping — с потоком и данными под вашим контролем и без комиссий за зрителей — <a href="/predlozheniya/open-source-pod-klyuch/">разверну стриминг-сервер под ключ</a>, а вы сосредоточитесь на эфирах и продажах.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+<p><strong>Чем SRS отличается от облачного стрим-сервиса?</strong> Задача та же — принять поток и раздать его зрителям, но модель разная. Облачный сервис вы арендуете и платите за трафик и число зрителей по его тарифу, а сам поток и аналитика остаются у него. SRS вы ставите на свой сервер и владеете полностью: платите только за сервер и трафик напрямую, без наценки за каждого зрителя, а все данные остаются у вас.</p>
+<p><strong>Сколько зрителей выдержит трансляция?</strong> Жёсткого лимита, навязанного тарифом, здесь нет — реальное число зависит от мощности сервера и ширины канала. Для большой аудитории SRS поддерживает кластеризацию, когда раздачу берут на себя несколько серверов. Под ожидаемое число зрителей инфраструктуру можно спланировать заранее, и я помогаю это рассчитать.</p>
+<p><strong>Какая будет задержка эфира?</strong> Зависит от протокола раздачи. Через WebRTC и HTTP-FLV SRS даёт задержку в считанные секунды, что подходит для живых продаж и интерактивных эфиров, где важна быстрая реакция. Через HLS задержка традиционно больше, зато он максимально совместим со всеми устройствами. Часто имеет смысл раздавать поток сразу в нескольких форматах.</p>
+<p><strong>Подойдёт ли SRS для продаж в прямом эфире (live-shopping)?</strong> Да, это один из основных сценариев — именно в живых продажах SRS получил широкое распространение. Он обеспечивает низкую задержку, нужную для общения с покупателями в реальном времени, а собственная площадка позволяет встроить эфир прямо в сайт магазина и связать его с каталогом и корзиной.</p>
+<p><strong>Я не разбираюсь в серверах — справлюсь ли я?</strong> Запуск, настройку и масштабирование я беру на себя и передаю готовую площадку с инструкцией. Для проведения трансляций техническое образование не нужно: вы запускаете эфир из привычной программы вроде OBS, а сервер всё раздаёт зрителям сам.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+<p>SRS (Simple Realtime Server) — это проверенный open-source стриминг-сервер, который принимает поток от ведущего и раздаёт его тысячам зрителей по RTMP, WebRTC, HLS, HTTP-FLV и SRT с низкой задержкой и поддержкой кластеризации. Это фундамент собственной трансляционной площадки для live-shopping, вебинаров, событийных и спортивных эфиров. Главное преимущество перед облачными сервисами — отсутствие комиссий за трафик и зрителей и полный контроль над потоком и данными. В связке с витриной эфира Owncast и интерактивом LiveKit на базе SRS собирается полноценная площадка. При этом стоит честно учитывать, что SRS — серверный компонент: для него нужны сервер с хорошим каналом, оплата трафика и грамотная настройка масштабирования под нагрузку. Эту техническую часть проще доверить специалисту, чтобы сразу получить работающую площадку, а не разбираться с инфраструктурой в одиночку.</p>
+
+                    </div>
+
+                    
+                    <div class="blog-cta-card">
+                        <div class="blog-cta-card-body">
+                            <h3>Ещё open-source для бизнеса</h3>
+                            <p>Эта статья — часть каталога бесплатных решений, которые я разворачиваю на вашем сервере под ключ: CRM, аналитика, документы, почта, безопасность, магазины, AI.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="/blog/katalog-open-source-resheniy-dlya-biznesa-2026/" class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Каталог open-source решений</a>
+                        </div>
+                    </div>
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Что я делаю с open-source</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-hard-drives"></i> <span>Развёртывание на вашем сервере</span></li>
+    
+    <li><i class="ph-fill ph-arrows-left-right"></i> <span>Перенос данных из старого сервиса</span></li>
+    
+    <li><i class="ph-fill ph-shield-check"></i> <span>Безопасность и 152-ФЗ</span></li>
+    
+    <li><i class="ph-fill ph-wrench"></i> <span>Настройка под ваши процессы</span></li>
+    
+    <li><i class="ph-fill ph-lifebuoy"></i> <span>Поддержка и обновления</span></li>
+    
+  </ul>
+  <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
+  </a>
+</div>
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/open-source-pod-klyuch/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовое решение по теме</span>
+                            <span class="blog-offer-cta-title">Open-source решение под ключ на ваш сервер</span>
+                            <span class="blog-offer-cta-price">Бесплатная консультация · Запуск за 1–3 недели</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-arrow-right" aria-hidden="true"></i> Смотреть предложение</span>
+                    </a>
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/predlozheniya/open-source-pod-klyuch/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Развернуть open-source под ключ</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/live-commerce-svoya-ploschadka-opensource-2026/" data-category="opensource">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-broadcast"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>Своя площадка live-commerce на open-source: из чего собрать</h3>
+  <p>Готовой open-source «коробки» под live-commerce нет — площадка собирается из блоков: низколатентный стрим, headless-магазин, живой чат, кнопка покупки в эфире и мультистрим. Разбираю, из чего и как собрать, и как на этом зарабатывать.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 16 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 10 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/livekit-interaktivnye-translyacii-2026/" data-category="opensource">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-video-conference"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>LiveKit: интерактивные трансляции с минимальной задержкой для live commerce</h3>
+  <p>LiveKit даёт трансляции с задержкой меньше секунды: зритель спрашивает — ведущий отвечает мгновенно и тут же продаёт, без лага в полминуты, который убивает интерактив. Ядро интерактивного live-shopping. Разбираю и как на этом зарабатывать.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 16 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 10 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/restreamer-multistream-2026/" data-category="opensource">
+  <span class="blog-card-fresh">Свежее</span>
+  <div class="blog-card-icon"><i class="ph-fill ph-share-network"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>Restreamer: свой стрим и мультитрансляция во все площадки сразу</h3>
+  <p>Restreamer ведёт один эфир и раздаёт его сразу во все соцсети и на свой сайт — максимум зрителей без дублирования трансляций. Для live-commerce это охват и продажи во всех каналах. Разбираю применение и как на этом зарабатывать.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 16 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 10 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовые решения под ключ</span>
+                            <span class="blog-offer-cta-title">449 готовых IT-решений для бизнеса</span>
+                            <span class="blog-offer-cta-price">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Смотреть каталог</span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#chto-eto"><span class="blog-toc-num">01</span> Что это и что заменяет</a></li>
+<li><a href="#vozmozhnosti"><span class="blog-toc-num">02</span> Что умеет</a></li>
+<li><a href="#komu-podhodit"><span class="blog-toc-num">03</span> Кому подходит</a></li>
+<li><a href="#chto-nuzhno"><span class="blog-toc-num">04</span> Что нужно для запуска</a></li>
+<li><a href="#kak-vnedrit"><span class="blog-toc-num">05</span> Как внедрить под ключ</a></li>
+<li><a href="#faq"><span class="blog-toc-num">06</span> FAQ</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">07</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=23" defer></script>
+<script src="/services-i18n.js?v=23" defer></script>
+<script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>
