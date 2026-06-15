@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Своя площадка live-commerce на open-source</title>
+    <meta name="description" content="Из чего собрать свою площадку live-commerce (продажи в прямом эфире) на open-source: низколатентный стрим (LiveKit, SRS, Owncast), headless-магазин (Vendure…">
+    <meta name="keywords" content="live commerce, прямые эфиры, продажи, open-source">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/live-commerce-svoya-ploschadka-opensource-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/live-commerce-svoya-ploschadka-opensource-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/live-commerce-svoya-ploschadka-opensource-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/live-commerce-svoya-ploschadka-opensource-2026/">
+    <meta property="og:title" content="Своя площадка live-commerce на open-source">
+    <meta property="og:description" content="Из чего собрать свою площадку live-commerce (продажи в прямом эфире) на open-source: низколатентный стрим (LiveKit, SRS, Owncast), headless-магазин (Vendure…">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/live-commerce-svoya-ploschadka-opensource-2026/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Своя площадка live-commerce на open-source">
+    <meta name="twitter:description" content="Из чего собрать свою площадку live-commerce (продажи в прямом эфире) на open-source: низколатентный стрим (LiveKit, SRS, Owncast), headless-магазин (Vendure…">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/live-commerce-svoya-ploschadka-opensource-2026/cover.png">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor-Fill.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=43">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Своя площадка live-commerce на open-source: из чего собрать",
+  "description": "Из чего собрать свою площадку live-commerce (продажи в прямом эфире) на open-source: низколатентный стрим (LiveKit, SRS, Owncast), headless-магазин (Vendure, Medusa), живой чат, виджет покупки в эфире и мультистрим (Restreamer). Без комиссий, данные у себя — соберу под ключ.",
+  "image": "https://chimitdorzhi.tech/blog/live-commerce-svoya-ploschadka-opensource-2026/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/live-commerce-svoya-ploschadka-opensource-2026/"
+  },
+  "datePublished": "2026-06-16",
+  "dateModified": "2026-06-16",
+  "keywords": "live commerce, прямые эфиры, продажи, open-source",
+  "articleSection": "Open-source и свой сервер",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Своя площадка live-commerce на open-source: из чего собрать",
+      "item": "https://chimitdorzhi.tech/blog/live-commerce-svoya-ploschadka-opensource-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Есть ли готовая open-source «коробка» под live commerce?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет. Единого проекта, который скачал и запустил как готовый сервис продаж в эфире, не существует. Площадку собирают из нескольких зрелых open-source блоков — стрим, магазин, чат — плюс связующий слой с виджетом покупки, который дорабатывается под задачу."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Чем live commerce отличается от обычной трансляции?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Двумя вещами. Низкой задержкой — чтобы диалог ведущего и зрителей в чате оставался живым. И покупкой внутри эфира — товар и оплата встроены в ту же страницу, без перехода в сторонние сервисы. Обычный стрим — это контент, а live commerce — это торговля в реальном времени."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Почему не вести продажи просто через эфиры на маркетплейсе или в соцсети?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Это рабочий способ начать, но вы зависите от правил, комиссий и аудитории чужой платформы, а данные покупателей остаются у неё. Своя площадка даёт контроль над оформлением, данными и сценарием продаж и не зависит от изменений политики внешних сервисов. Про сам рынок и формат у меня есть отдельный материал."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько зрителей выдержит площадка?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Жёсткого лимита, навязанного чужим тарифом, здесь нет — реальное число одновременных зрителей упирается в мощность серверов и пропускную полосу под видеотрафик. Инфраструктуру подбирают заранее под ожидаемую аудиторию, и я помогаю это рассчитать."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Законно ли это с точки зрения данных зрителей и покупателей?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, при правильной организации. Поскольку площадка разворачивается на вашей инфраструктуре, вы контролируете хранение данных и можете разместить всё в российской юрисдикции с учётом требований 152-ФЗ — это надёжнее, чем зависеть от политики стороннего сервиса."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Я не разбираюсь в серверах и стриминге — справлюсь ли я?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Сборку и настройку я беру на себя и передаю готовую площадку с инструкцией. Для ведения эфиров техническое образование не нужно: вы запускаете трансляцию, показываете товар и общаетесь с аудиторией, а покупка и оплата работают сами."
+      }
+    }
+  ]
+}
+    </script>
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+            <li><a href="/#services" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li class="nav-dropdown">
+                <a href="/#projects" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--arey"><i class="ph-fill ph-vinyl-record" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-airplane-tilt" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#cases" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            </div>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/#about">Обо мне</a></li>
+        <li><a href="/#services">Услуги</a></li>
+        <li><a href="/services/">Каталог услуг</a></li>
+        <li><a href="/predlozheniya/">Предложения</a></li>
+        <li><a href="/#cases">Кейсы</a></li>
+        <li><a href="/blog/">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+        <li><a href="/#contact">Контакт</a></li>
+    </ul>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Своя площадка live-commerce на open-source: из чего собрать</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/opensource/"><i class="ph ph-bookmark" aria-hidden="true"></i> Open-source и свой сервер</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 10 мин чтения</span>
+                        <time datetime="2026-06-16"><i class="ph ph-calendar" aria-hidden="true"></i> 16 июня 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Своя площадка live-commerce на open-source: из чего собрать</h1>
+
+                    <p class="blog-lead">Готовой open-source «коробки» под live-commerce нет — площадка собирается из блоков: низколатентный стрим, headless-магазин, живой чат, кнопка покупки в эфире и мультистрим. Разбираю, из чего и как собрать, и как на этом зарабатывать.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>live commerce</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>прямые эфиры</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>продажи</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>open-source</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
+<li>Live commerce — это продажи в прямом эфире: ведущий показывает товар, отвечает в чате, а зритель покупает не выходя из трансляции. Формат пришёл из Азии и продолжает расти.</li>
+<li>Готовой open-source «коробки» под live commerce нет — нет одного проекта, который скачал и запустил. Площадку собирают из нескольких open-source блоков под конкретную задачу.</li>
+<li>Сборка обычно включает низколатентный стрим, headless-магазин с приёмом оплаты, живой чат с реакциями, виджет «купить в эфире» и мультистрим во все соцсети.</li>
+<li>Для запуска нужны серверы с запасом по полосе под видеотрафик, приём оплаты, домен и соблюдение 152-ФЗ при работе с данными зрителей и покупателей.</li>
+<li>Это разработка и сборка под задачу, а не готовый продукт из коробки. Я собираю такую связку под ключ, чтобы вы получили работающую площадку, а не набор репозиториев.</li>
+</ul></div>
+
+<p>Продажи в прямом эфире давно стали отдельным каналом торговли в Азии: ведущий в реальном времени показывает товар, отвечает на вопросы в чате, запускает скидки на ограниченное время, а зритель оформляет заказ, не покидая трансляцию. Этот формат — live commerce — постепенно осваивают и в России: бренды и селлеры пробуют продавать через эфиры на маркетплейсах и в соцсетях. Закономерный следующий шаг — собственная площадка, где правила, данные и оформление полностью под вашим контролем. Сразу честно: единой open-source «коробки» под live commerce не существует — нельзя скачать один проект и получить готовый сервис. Зато есть зрелые open-source блоки, из которых такую площадку реально собрать. Ниже разберу, что такое live commerce, из чего складывается своя площадка и что нужно для запуска. Про сам формат и рынок в России у меня есть отдельный материал — здесь же речь о технической сборке.</p>
+
+<h2 id="chto-eto">Что такое live commerce и почему формат растёт</h2>
+<p>Live commerce, или live-shopping, — это продажи в прямом эфире. Ведущий ведёт трансляцию, показывает товар вживую, рассказывает о нём, отвечает на вопросы прямо в чате и подталкивает к покупке акциями, которые действуют только во время эфира. Ключевая особенность в том, что зритель совершает покупку, не выходя из трансляции: рядом с видео есть карточка товара и кнопка заказа, а оплата проходит здесь же. Получается формат, где развлечение, общение и торговля слиты в одно действие.</p>
+<p>Формат вырос из азиатского рынка, где трансляции с продажами стали привычной частью повседневных покупок и собирают огромные аудитории. Причина роста проста: живой эфир снимает главные сомнения онлайн-покупателя. Товар видно со всех сторон и в движении, на любой вопрос отвечают сразу, а ощущение «здесь и сейчас» вместе с ограниченными по времени предложениями подталкивает решиться на покупку быстрее. Это ближе к живому разговору с продавцом, чем к статичной карточке товара в каталоге.</p>
+<p>Чем live commerce отличается от обычного стрима? Обычная трансляция — это в первую очередь контент: её смотрят, ставят реакции, комментируют, но покупка (если она вообще есть) уходит куда-то по ссылке, в другой сервис и часто с заметной задержкой. В live commerce критичны два технических момента. Первый — низкая задержка: ответ ведущего на вопрос из чата должен приходить почти мгновенно, иначе живой диалог рассыпается, а зритель теряет интерес. Второй — покупка внутри эфира: товар и оплата встроены в ту же страницу, без перехода в сторонние сервисы. Именно эти два требования и определяют, из чего собирать площадку, — обычный видеоплеер с лентой комментариев тут не подходит.</p>
+
+<h2 id="vozmozhnosti">Из чего собрать: блоки площадки</h2>
+<p>Поскольку готового продукта «всё в одном» под live commerce в open-source нет, площадку собирают из нескольких самостоятельных блоков. Каждый блок отвечает за свою часть и решается отдельным зрелым проектом. Разберу их по очереди.</p>
+<p><strong>1. Низколатентный стрим.</strong> Это сердце площадки — видео, которое доходит до зрителя с минимальной задержкой, чтобы диалог в чате оставался живым. Для по-настоящему интерактивных сценариев, где важны секунды, подходит <strong>LiveKit</strong> — open-source платформа реального времени на базе WebRTC, на которой можно построить эфир с минимальной задержкой и двусторонним взаимодействием. Если задача ближе к классическому вещанию, берут <strong>SRS</strong> (Simple Realtime Server) — мощный open-source стрим-сервер, который принимает поток от ведущего и раздаёт его зрителям по разным протоколам. А когда нужна готовая витрина трансляции «из коробки» с собственной страницей и чатом, удобной отправной точкой служит <strong>Owncast</strong> — самостоятельная open-source платформа для своего стриминга, которую дальше дорабатывают под торговые сценарии.</p>
+<p><strong>2. Товарная основа и оплата.</strong> Эфир без магазина — это просто видео. Чтобы зритель мог купить, нужна торговая система: каталог товаров, корзина, заказы и приём оплаты. Здесь хорошо ложатся headless-магазины с открытым кодом — <strong>Vendure</strong> и <strong>Medusa</strong>. «Headless» означает, что магазин отвечает за товары, цены, заказы и оплату через программный интерфейс (API), а внешний вид и место показа товара вы определяете сами. Именно это и нужно для live commerce: карточку товара и кнопку заказа встраивают прямо в страницу эфира, а заказ и оплата обрабатываются торговым ядром в фоне.</p>
+<p><strong>3. Живой чат и реакции.</strong> Без чата live commerce теряет смысл — именно вопросы зрителей и ответы ведущего создают эффект живого общения. Нужен чат реального времени, привязанный к конкретному эфиру, с реакциями, лайками и возможностью закреплять сообщения и модерировать поток. Часто чат строят на том же фундаменте реального времени, что и видео, чтобы вопросы и реакции приходили синхронно с картинкой, а ведущий мог реагировать без задержки.</p>
+<p><strong>4. Виджет «купить в эфире».</strong> Это связующий блок, ради которого всё и затевается. На странице рядом с видео показывается активный товар, кнопка заказа и быстрый путь к оплате, а ведущий со своей стороны может на лету менять, какой товар «подсвечен» в эфире сейчас. Технически это слой, который соединяет трансляцию, чат и торговое ядро в одно целое: зритель нажимает «купить», заказ уходит в магазин, оплата проходит — и всё это не прерывая просмотр. Готового такого виджета в открытом виде обычно нет, и именно он чаще всего и есть та самая разработка под задачу.</p>
+<p><strong>5. Мультистрим во все соцсети.</strong> Аудиторию редко удаётся собрать только на своей площадке, поэтому эфир дублируют в соцсети и на видеоплатформы одновременно. Для этого подходит <strong>Restreamer</strong> — open-source решение, которое принимает один поток от ведущего и раздаёт его сразу на несколько площадок. Так вы ведёте трансляцию один раз, а охватываете и свою площадку, и внешние каналы, возвращая зрителей оттуда к себе на покупку.</p>
+
+<h2 id="komu-podhodit">Кому и для каких задач подходит</h2>
+<p>Своя площадка live commerce имеет смысл там, где живой показ товара даёт ощутимое преимущество перед статичной карточкой. Брендам она помогает выстроить прямой контакт с аудиторией: премьеры коллекций, разбор продукта, ответы на вопросы в реальном времени работают на доверие и продажи лучше обычной рекламы. Селлерам маркетплейсов собственная площадка даёт канал, не зависящий от правил и комиссий чужих платформ, и возможность собирать свою аудиторию, а не арендовать её.</p>
+<p>Шоурумам и магазинам формат позволяет проводить онлайн-показы для тех, кто не может прийти лично, фактически устраивая удалённую примерку и презентацию. Мастерам и небольшим производствам — ремесленникам, ювелирам, авторам хендмейда — эфир даёт возможность показать процесс и детали изделия, которые невозможно передать фотографией, и продавать прямо со сцены. В инфобизнесе и онлайн-образовании live commerce работает для продаж курсов и продуктов прямо во время вебинара или прямого эфира, без увода аудитории на сторонние страницы.</p>
+<p>Общий знаменатель такой: формат подходит тем, у кого товар или продукт выигрывает от живого показа и общения, и кто хочет вести продажи на своих условиях, с контролем над аудиторией и данными.</p>
+<p><strong>Как на этом можно зарабатывать.</strong> Помимо собственных продаж, сама сборка площадок live commerce может стать услугой. Спрос на формат растёт, а готового продукта из коробки нет — значит, есть запрос на тех, кто соберёт и запустит такую площадку под конкретный бизнес. Это может быть запуск площадки под ключ для бренда или селлера, организация и техническое сопровождение отдельных эфиров как услуга, либо настройка инфраструктуры под чужую трансляцию. Речь не об обещании конкретного дохода, а о направлении, в котором появляется реальная потребность рынка: разбираясь в сборке таких систем, вы можете предлагать её как отдельную услугу. Подход тот же, что и в остальной работе с open-source, — берёте задачу, под которую нет коробочного решения, и собираете её из открытых компонентов.</p>
+
+<h2 id="chto-nuzhno">Что нужно для запуска: серверы, оплата, домен, 152-ФЗ</h2>
+<p>Видео — тяжёлый по ресурсам формат, поэтому первое требование — серверы с запасом по производительности и, что важнее, по пропускной полосе. Каждый зритель получает видеопоток, и чем больше аудитория, тем больше исходящего трафика нужно обеспечить. На практике это означает сервер или несколько серверов под видео, отдельную инфраструктуру под магазин и чат, а также трезвый расчёт полосы под ожидаемое число одновременных зрителей. Недооценённый канал — главная причина, по которой эфир начинает «лагать» в самый неподходящий момент.</p>
+<p>Второе — приём оплаты. Чтобы покупка проходила внутри эфира, торговое ядро нужно подключить к платёжному провайдеру, который работает с вашим бизнесом и валютой. Это отдельный этап настройки: регистрация в платёжной системе, подключение через её интерфейс, проверка сценария оплаты от нажатия кнопки до подтверждения заказа.</p>
+<p>Третье — доменное имя и защищённое соединение (HTTPS), чтобы площадка открывалась по нормальному адресу, а данные зрителей и платежей передавались по шифрованному каналу. Это базовое требование и для доверия аудитории, и для работы платёжных сервисов.</p>
+<p>Отдельный и важный вопрос — персональные данные. Как только вы регистрируете зрителей, собираете контакты, обрабатываете заказы и привязываете покупки к конкретным людям, вы работаете с персональными данными и попадаете под требования российского законодательства (152-ФЗ). На практике это означает, что разумно размещать серверы в российской юрисдикции и аккуратно выстраивать хранение и обработку данных зрителей и покупателей. Преимущество собственной площадки в том, что вы полностью контролируете, где и как хранятся эти данные, и можете изначально настроить процесс под требования, а не зависеть от политики чужого сервиса.</p>
+
+<h2 id="kak-vnedrit">Как внедрить под ключ</h2>
+<p>Собрать площадку live commerce — это не установка одного приложения, а сборка системы из нескольких блоков, которые должны работать вместе. Нужно выбрать связку под ваш сценарий (по-настоящему интерактивный эфир или классическое вещание), развернуть стрим-сервер, поднять headless-магазин и подключить оплату, настроить чат реального времени, написать и встроить виджет «купить в эфире», который свяжет видео, чат и магазин, при необходимости добавить мультистрим в соцсети, а затем рассчитать инфраструктуру под нагрузку и проверить весь путь зрителя — от входа в эфир до оплаченного заказа. Для человека без опыта это не выходной с документацией, а полноценный проект разработки.</p>
+<p>Я беру эту сборку на себя. Разбираю вашу задачу и аудиторию, подбираю подходящие open-source блоки, разворачиваю стрим, магазин и чат, подключаю приём оплаты, собираю виджет покупки внутри эфира, настраиваю домен, HTTPS, мультистрим и резервное копирование, рассчитываю серверы под ожидаемую нагрузку и прогоняю реальный сценарий эфира с тестовой покупкой. На выходе вы получаете работающую площадку с понятной инструкцией, а не набор репозиториев, в которых нужно разбираться самому.</p>
+<p>За плечами 16+ лет в IT и опыт сборки нестандартных решений из open-source под конкретные задачи бизнеса. Если вам нужна собственная площадка live commerce — с продажами внутри эфира, данными под вашим контролем и без привязки к чужим платформам — <a href="/predlozheniya/open-source-pod-klyuch/">соберу площадку под ключ</a>, а вы сосредоточитесь на эфирах и продажах.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+<p><strong>Есть ли готовая open-source «коробка» под live commerce?</strong> Нет. Единого проекта, который скачал и запустил как готовый сервис продаж в эфире, не существует. Площадку собирают из нескольких зрелых open-source блоков — стрим, магазин, чат — плюс связующий слой с виджетом покупки, который дорабатывается под задачу.</p>
+<p><strong>Чем live commerce отличается от обычной трансляции?</strong> Двумя вещами. Низкой задержкой — чтобы диалог ведущего и зрителей в чате оставался живым. И покупкой внутри эфира — товар и оплата встроены в ту же страницу, без перехода в сторонние сервисы. Обычный стрим — это контент, а live commerce — это торговля в реальном времени.</p>
+<p><strong>Почему не вести продажи просто через эфиры на маркетплейсе или в соцсети?</strong> Это рабочий способ начать, но вы зависите от правил, комиссий и аудитории чужой платформы, а данные покупателей остаются у неё. Своя площадка даёт контроль над оформлением, данными и сценарием продаж и не зависит от изменений политики внешних сервисов. Про сам рынок и формат у меня есть отдельный материал.</p>
+<p><strong>Сколько зрителей выдержит площадка?</strong> Жёсткого лимита, навязанного чужим тарифом, здесь нет — реальное число одновременных зрителей упирается в мощность серверов и пропускную полосу под видеотрафик. Инфраструктуру подбирают заранее под ожидаемую аудиторию, и я помогаю это рассчитать.</p>
+<p><strong>Законно ли это с точки зрения данных зрителей и покупателей?</strong> Да, при правильной организации. Поскольку площадка разворачивается на вашей инфраструктуре, вы контролируете хранение данных и можете разместить всё в российской юрисдикции с учётом требований 152-ФЗ — это надёжнее, чем зависеть от политики стороннего сервиса.</p>
+<p><strong>Я не разбираюсь в серверах и стриминге — справлюсь ли я?</strong> Сборку и настройку я беру на себя и передаю готовую площадку с инструкцией. Для ведения эфиров техническое образование не нужно: вы запускаете трансляцию, показываете товар и общаетесь с аудиторией, а покупка и оплата работают сами.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+<p>Live commerce — это продажи в прямом эфире, где зритель покупает не выходя из трансляции, а ведущий отвечает в чате в реальном времени. Формат пришёл из Азии и набирает обороты в России. Готовой open-source «коробки» под него нет, но площадку реально собрать из зрелых блоков: низколатентный стрим (LiveKit, SRS, Owncast), headless-магазин с оплатой (Vendure, Medusa), живой чат с реакциями, виджет «купить в эфире» и мультистрим во все соцсети (Restreamer). Формат подходит брендам, селлерам, шоурумам, мастерам и инфобизнесу, а сама сборка таких площадок может стать отдельной услугой. Для запуска нужны серверы с запасом по полосе, приём оплаты, домен и соблюдение 152-ФЗ. Это честно разработка и сборка под задачу, а не готовый продукт, — и эту часть проще доверить специалисту, чтобы сразу получить работающую площадку, а не разбираться с инфраструктурой в одиночку.</p>
+
+                    </div>
+
+                    
+                    <div class="blog-cta-card">
+                        <div class="blog-cta-card-body">
+                            <h3>Ещё open-source для бизнеса</h3>
+                            <p>Эта статья — часть каталога бесплатных решений, которые я разворачиваю на вашем сервере под ключ: CRM, аналитика, документы, почта, безопасность, магазины, AI.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="/blog/katalog-open-source-resheniy-dlya-biznesa-2026/" class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Каталог open-source решений</a>
+                        </div>
+                    </div>
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Что я делаю с open-source</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-hard-drives"></i> <span>Развёртывание на вашем сервере</span></li>
+    
+    <li><i class="ph-fill ph-arrows-left-right"></i> <span>Перенос данных из старого сервиса</span></li>
+    
+    <li><i class="ph-fill ph-shield-check"></i> <span>Безопасность и 152-ФЗ</span></li>
+    
+    <li><i class="ph-fill ph-wrench"></i> <span>Настройка под ваши процессы</span></li>
+    
+    <li><i class="ph-fill ph-lifebuoy"></i> <span>Поддержка и обновления</span></li>
+    
+  </ul>
+  <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
+  </a>
+</div>
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/open-source-pod-klyuch/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовое решение по теме</span>
+                            <span class="blog-offer-cta-title">Open-source решение под ключ на ваш сервер</span>
+                            <span class="blog-offer-cta-price">Бесплатная консультация · Запуск за 1–3 недели</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-arrow-right" aria-hidden="true"></i> Смотреть предложение</span>
+                    </a>
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/predlozheniya/open-source-pod-klyuch/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Развернуть open-source под ключ</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/live-commerce-rf-2026/" data-category="media">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-shopping-bag-open"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Медиа и подкасты</span>
+  <h3>Live Commerce 2026 в РФ: продажи через стримы — VK Live, OK Live, TG Stories — гид от практика</h3>
+  <p>В Китае Live Commerce даёт $500 млрд оборота. В РФ формат только формируется в 2026 — окно возможностей для тех, кто зайдёт сейчас. Разбираю 8 платформ, 6 форматов эфиров, технический стек с webhook к amoCRM, поминутный сценарий шоу-стрима, юр-нюансы РФ, реальные кейсы и стоимость запуска от 3 тыс. до 4,5 млн ₽.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 25 мая 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 25 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/owncast-svoya-strim-platforma-2026/" data-category="opensource">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-broadcast"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>Owncast: своя платформа трансляций на своём сервере</h3>
+  <p>Owncast — это свои прямые трансляции на своём домене: вебинары, мероприятия, обучение без рекламы и чужих правил. Разбираю возможности, требования к серверу и запуск.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 15 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/medusa-headless-magazin-2026/" data-category="opensource">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-storefront"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>Medusa: headless интернет-магазин без комиссий на своём сервере</h3>
+  <p>Medusa — это магазин без комиссий с продаж и полной кастомизацией: headless-движок под нестандартные витрины и интеграции. Разбираю, кому подходит и что нужно для запуска.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 15 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовые решения под ключ</span>
+                            <span class="blog-offer-cta-title">449 готовых IT-решений для бизнеса</span>
+                            <span class="blog-offer-cta-price">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Смотреть каталог</span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#chto-eto"><span class="blog-toc-num">01</span> Что это и что заменяет</a></li>
+<li><a href="#vozmozhnosti"><span class="blog-toc-num">02</span> Что умеет</a></li>
+<li><a href="#komu-podhodit"><span class="blog-toc-num">03</span> Кому подходит</a></li>
+<li><a href="#chto-nuzhno"><span class="blog-toc-num">04</span> Что нужно для запуска</a></li>
+<li><a href="#kak-vnedrit"><span class="blog-toc-num">05</span> Как внедрить под ключ</a></li>
+<li><a href="#faq"><span class="blog-toc-num">06</span> FAQ</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">07</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=23" defer></script>
+<script src="/services-i18n.js?v=23" defer></script>
+<script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>
