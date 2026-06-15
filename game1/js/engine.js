@@ -1,100 +1,185 @@
-/* ============================================================
-   engine.js — движок: рендер уровня, механика проверки, очки.
-   ВАЖНО: здесь нет ни одного зашитого слова. Любой уровень
-   приходит из data.js и обрабатывается единообразно.
-   ============================================================ */
-(function () {
-  const { LANGS, SCORE, DICT_URL } = window.GAME_DATA;
+/* ============================================================================
+ * engine.js — движок: рендер уровня, разбор, вердикты, проверка.
+ * ВАЖНО: здесь нет ни одного зашитого слова. Любой уровень приходит из data.js.
+ * Наружу: Engine.load(level, onPass), Engine.check(), Engine.toggleAdd(),
+ *         Engine.addWord(text).
+ * ==========================================================================*/
+const Engine = (function () {
+  const $ = (id) => document.getElementById(id);
 
-  const esc = (s) => String(s == null ? '' : s)
-    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  let current = null;   // текущий объект уровня
+  let added = [];       // слова, добавленные игроком в этой сессии уровня
+  let onPass = null;    // колбэк(points) при успешном доказательстве
 
-  function langPill(code) {
-    const l = LANGS[code] || { label: code, color: '#7a6a4a' };
-    return '<span class="lang" style="background:' + l.color + '">' + esc(l.label) + '</span>';
+  function langName(code) {
+    return (LANGS[code] && LANGS[code].label) || code;
+  }
+  function langColor(code) {
+    return (LANGS[code] && LANGS[code].color) || '#7a6a4a';
   }
 
-  function dictUrl(word) {
-    return DICT_URL.replace('{q}', encodeURIComponent(String(word).toLowerCase()));
+  /* мини-язык разбора → размеченные span */
+  function parseTransform(t) {
+    return String(t || '')
+      .replace(/<ar>/g, '<span class="ar">').replace(/<\/ar>/g, '</span>')
+      .replace(/<drop>/g, '<span class="drop">').replace(/<\/drop>/g, '</span>')
+      .replace(/<keep>/g, '<span class="keep">').replace(/<\/keep>/g, '</span>');
   }
 
-  /* Создаёт строку-слово. onToggle(i, rowEl) вызывается при клике/Enter. */
-  function buildRow(wd, i, onToggle) {
-    const row = document.createElement('div');
-    row.className = 'link';
-    row.setAttribute('role', 'button');
-    row.setAttribute('tabindex', '0');
+  function clearResult() {
+    const r = $('result');
+    if (r) { r.className = 'result'; r.innerHTML = ''; }
+  }
 
-    const star = wd.star ? ' <span class="star" aria-hidden="true">★</span>' : '';
-    const tr = wd.tr ? '<span class="tr">' + esc(wd.tr) + '</span>' : '';
-    row.innerHTML =
-      langPill(wd.lang) +
-      '<span class="word' + (wd.star ? ' is-star' : '') + '">' +
-        '<span class="w-line">' + esc(wd.w) + star + tr + '</span>' +
-        '<button class="reveal" type="button" aria-expanded="false">значение</button>' +
-        '<span class="mean" hidden>' + esc(wd.mean) +
-          ' <a class="dict" href="' + dictUrl(wd.w) + '" target="_blank" rel="noopener">найти в словаре ↗</a>' +
-        '</span>' +
-      '</span>' +
-      '<span class="mark" aria-hidden="true">○</span>';
+  function isPlayable() {
+    return current && Array.isArray(current.words) && current.words.length > 0;
+  }
 
-    // Раскрытие значения — отдельное действие, не классификация.
-    const revealBtn = row.querySelector('.reveal');
-    const meanEl = row.querySelector('.mean');
-    revealBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const open = meanEl.hasAttribute('hidden');
-      if (open) { meanEl.removeAttribute('hidden'); revealBtn.textContent = 'скрыть значение'; revealBtn.setAttribute('aria-expanded', 'true'); }
-      else { meanEl.setAttribute('hidden', ''); revealBtn.textContent = 'значение'; revealBtn.setAttribute('aria-expanded', 'false'); }
+  function load(level, onPassCb) {
+    current = level;
+    added = [];
+    onPass = onPassCb || null;
+
+    $('rootName').textContent = level.root || '—';
+    $('rootNote').innerHTML = level.note || '';
+    $('task').textContent = level.task || '';
+    clearResult();
+    $('addRow').classList.remove('show');
+    const addInput = $('addInput');
+    if (addInput) addInput.value = '';
+
+    // Заготовка без слов — показываем «в подготовке», прячем механику
+    const playable = isPlayable();
+    $('controls').style.display = playable ? '' : 'none';
+    $('btnAdd').style.display = playable ? '' : 'none';
+
+    if (!playable) {
+      $('chain').innerHTML =
+        '<div class="placeholder">Этот уровень ещё в подготовке. Загляните позже.</div>';
+      $('progress').textContent = '';
+      return;
+    }
+    renderChain();
+  }
+
+  function renderChain() {
+    const all = current.words.concat(added);
+    const c = $('chain');
+    c.innerHTML = '';
+    all.forEach((wd, i) => {
+      const el = document.createElement('div');
+      el.className = 'link';
+      el.dataset.i = i;
+      el.dataset.verdict = '';
+
+      const tf = parseTransform(wd.transform);
+      const trHtml = wd.tr ? '<span class="tr">' + esc(wd.tr) + '</span>' : '';
+
+      el.innerHTML =
+        '<div class="row1">' +
+          '<span class="lang" style="background:' + langColor(wd.lang) + '">' + esc(langName(wd.lang)) + '</span>' +
+          '<span class="word">' + esc(wd.w) + trHtml +
+            '<span class="mean">' + esc(wd.mean) + '</span></span>' +
+          '<button class="badge" aria-expanded="false">разбор</button>' +
+        '</div>' +
+        '<div class="proof" role="region">' +
+          '<div class="transform">' + (tf || '—') + '</div>' +
+          '<div class="verdict">' +
+            '<button class="vbtn yes">родственно ✓</button>' +
+            '<button class="vbtn no">нет, созвучие ✕</button>' +
+          '</div>' +
+        '</div>';
+
+      const proof = el.querySelector('.proof');
+      const badge = el.querySelector('.badge');
+      badge.addEventListener('click', () => {
+        const open = proof.classList.toggle('show');
+        badge.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      el.querySelector('.vbtn.yes').addEventListener('click', () => setVerdict(el, 'yes'));
+      el.querySelector('.vbtn.no').addEventListener('click', () => setVerdict(el, 'no'));
+      c.appendChild(el);
     });
-    // Клики внутри панели значения (текст и ссылка) не классифицируют слово.
-    meanEl.addEventListener('click', (e) => e.stopPropagation());
-
-    const fire = () => onToggle(i, row);
-    row.addEventListener('click', fire);
-    row.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); fire(); }
-    });
-
-    applyRowState(row, wd, null);
-    return row;
+    updateProgress();
   }
 
-  function applyRowState(row, wd, st) {
-    const mark = row.querySelector('.mark');
-    row.classList.remove('kept', 'cut');
-    if (st === 'kept') { row.classList.add('kept'); mark.textContent = '✓'; }
-    else if (st === 'cut') { row.classList.add('cut'); mark.textContent = '✕'; }
-    else { mark.textContent = ''; }
-    const stLabel = st === 'kept' ? 'оставлено' : st === 'cut' ? 'убрано' : 'не отмечено';
-    row.setAttribute('aria-label', 'Слово ' + wd.w + ' — ' + stLabel + '. Нажмите, чтобы изменить.');
-    row.setAttribute('aria-pressed', st === 'kept' ? 'true' : 'false');
+  function esc(s) {
+    return String(s == null ? '' : s)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   }
 
-  /* Подсчёт результата проверки. */
-  function evaluate(level, state) {
+  function setVerdict(el, v) {
+    el.dataset.verdict = v;
+    const y = el.querySelector('.vbtn.yes');
+    const n = el.querySelector('.vbtn.no');
+    y.classList.toggle('sel-yes', v === 'yes');
+    n.classList.toggle('sel-no', v === 'no');
+    el.classList.toggle('proven', v === 'yes');
+    clearResult();
+    updateProgress();
+  }
+
+  function updateProgress() {
+    const els = [].slice.call(document.querySelectorAll('.link'));
+    const done = els.filter((e) => e.dataset.verdict).length;
+    $('progress').textContent = 'Разобрано ' + done + ' из ' + els.length + ' слов';
+  }
+
+  function check() {
+    if (!isPlayable()) return;
+    const all = current.words.concat(added);
+    const els = [].slice.call(document.querySelectorAll('.link'));
     let correct = 0, unmarked = 0;
-    level.words.forEach((wd, i) => {
-      const want = wd.related ? 'kept' : 'cut';
-      if (state[i] === null) unmarked++;
-      else if (state[i] === want) correct++;
+    els.forEach((el, i) => {
+      const want = all[i].related ? 'yes' : 'no';
+      if (!el.dataset.verdict) unmarked++;
+      else if (el.dataset.verdict === want) correct++;
     });
-    return { correct, unmarked, total: level.words.length };
+
+    const r = $('result');
+    r.classList.add('show');
+
+    if (unmarked > 0) {
+      r.className = 'result show miss';
+      r.innerHTML = 'Разберите все слова — осталось ' + unmarked +
+        '. Откройте «разбор» и решите по каждому.';
+      return;
+    }
+    if (correct === all.length) {
+      r.className = 'result show win';
+      r.innerHTML = 'Родство доказано! Вы увидели, как один корень ' + esc(current.root) +
+        ' прошёл через языки и как ипсилон Yu, разделившись на Y и U, рвал связь. ' +
+        'Где корень иной — это только созвучие. <b>Кубик Рубика отдыхает.</b>';
+      if (onPass) onPass(correct * POINTS_PER_CORRECT);
+    } else {
+      r.className = 'result show miss';
+      r.innerHTML = 'Верно ' + correct + ' из ' + all.length +
+        '. Подсказка: следите за звуком. Где «у/и/ю» восходят к ипсилону и держатся ' +
+        'корня — родственно; где корень иной — только созвучие.';
+    }
   }
 
-  /* Очки за уровень (с учётом звёздочки и подсказки). Не ниже нуля. */
-  function scoreLevel(level, state, hintUsed) {
-    let pts = 0;
-    level.words.forEach((wd, i) => {
-      const want = wd.related ? 'kept' : 'cut';
-      if (state[i] === want) {
-        pts += SCORE.perWord;
-        if (wd.star) pts += SCORE.starBonus;
-      }
-    });
-    if (hintUsed) pts -= SCORE.hintPenalty;
-    return Math.max(0, pts);
+  function toggleAdd() {
+    $('addRow').classList.toggle('show');
+    const inp = $('addInput');
+    if ($('addRow').classList.contains('show') && inp) inp.focus();
   }
 
-  window.Engine = { buildRow, applyRowState, evaluate, scoreLevel, dictUrl, esc };
+  function addWord(text) {
+    if (!isPlayable()) return;
+    const v = String(text || '').trim();
+    if (!v) return;
+    added.push({
+      lang: 'rus',
+      w: v.toUpperCase(),
+      tr: '',
+      mean: 'добавлено игроком — проверьте по словарю',
+      transform: v.toUpperCase() + ' <ar>→</ar> ваша гипотеза родства с <keep>' + esc(current.root) + '</keep>',
+      related: true
+    });
+    $('addInput').value = '';
+    renderChain();
+  }
+
+  return { load, check, toggleAdd, addWord };
 })();
