@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matomo: веб-аналитика вместо Google Analytics</title>
+    <meta name="description" content="Matomo — open-source веб-аналитика, полный аналог Google Analytics: посещаемость, источники, цели, карты кликов, без передачи данных Google.">
+    <meta name="keywords" content="Matomo, веб-аналитика, Google Analytics, open-source">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/matomo-veb-analitika-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/matomo-veb-analitika-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/matomo-veb-analitika-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/matomo-veb-analitika-2026/">
+    <meta property="og:title" content="Matomo: веб-аналитика вместо Google Analytics">
+    <meta property="og:description" content="Matomo — open-source веб-аналитика, полный аналог Google Analytics: посещаемость, источники, цели, карты кликов, без передачи данных Google.">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/matomo-veb-analitika-2026/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Matomo: веб-аналитика вместо Google Analytics">
+    <meta name="twitter:description" content="Matomo — open-source веб-аналитика, полный аналог Google Analytics: посещаемость, источники, цели, карты кликов, без передачи данных Google.">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/matomo-veb-analitika-2026/cover.png">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor-Fill.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=43">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Matomo: веб-аналитика, полный аналог Google Analytics на своём сервере",
+  "description": "Matomo — open-source веб-аналитика, полный аналог Google Analytics: посещаемость, источники, цели, карты кликов, без передачи данных Google. Данные у себя по 152-ФЗ, контроль — разверну на вашем сервере под ключ.",
+  "image": "https://chimitdorzhi.tech/blog/matomo-veb-analitika-2026/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/matomo-veb-analitika-2026/"
+  },
+  "datePublished": "2026-06-15",
+  "dateModified": "2026-06-15",
+  "keywords": "Matomo, веб-аналитика, Google Analytics, open-source",
+  "articleSection": "Open-source и свой сервер",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Matomo: веб-аналитика, полный аналог Google Analytics на своём сервере",
+      "item": "https://chimitdorzhi.tech/blog/matomo-veb-analitika-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Matomo полностью заменяет Google Analytics?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "В большинстве сценариев — да. Это полнофункциональная аналитика: посещаемость, источники, цели, конверсии, поведение пользователей. Главное отличие в том, что данные хранятся у вас, а не в Google."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Где будут храниться данные посетителей?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "На вашем сервере. Сервер можно разместить в российском контуре — это даёт контроль над персональными данными и помогает соответствовать 152-ФЗ. Вы не передаёте данные о пользователях третьим сторонам."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Чем Matomo отличается от Umami?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Matomo — полнофункциональная система, близкая к Google Analytics: глубокие отчёты, цели, сегменты, карты кликов. Umami — лёгкий минималистичный инструмент для базовой статистики. Выбор зависит от того, нужна вам глубина аналитики или простота."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сложно ли поставить счётчик на сайт?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Технически счётчик добавляется небольшим кодом, как и у Google Analytics. Но чтобы данные собирались корректно и отчёты были полезными, нужна настройка целей, фильтров и параметров — это я беру на себя при внедрении под ключ."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Подойдёт ли Matomo для сайта с большим трафиком?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, но под нагрузку важно правильно подобрать сервер и настроить базу данных, чтобы статистика собиралась без потерь и отчёты строились быстро. Это часть работы по запуску."
+      }
+    }
+  ]
+}
+    </script>
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+            <li><a href="/#services" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li class="nav-dropdown">
+                <a href="/#projects" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--arey"><i class="ph-fill ph-vinyl-record" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-airplane-tilt" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#cases" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            </div>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/#about">Обо мне</a></li>
+        <li><a href="/#services">Услуги</a></li>
+        <li><a href="/services/">Каталог услуг</a></li>
+        <li><a href="/predlozheniya/">Предложения</a></li>
+        <li><a href="/#cases">Кейсы</a></li>
+        <li><a href="/blog/">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+        <li><a href="/#contact">Контакт</a></li>
+    </ul>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Matomo: веб-аналитика, полный аналог Google Analytics на своём сервере</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/opensource/"><i class="ph ph-bookmark" aria-hidden="true"></i> Open-source и свой сервер</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин чтения</span>
+                        <time datetime="2026-06-15"><i class="ph ph-calendar" aria-hidden="true"></i> 15 июня 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Matomo: веб-аналитика, полный аналог Google Analytics на своём сервере</h1>
+
+                    <p class="blog-lead">Matomo — это полноценная аналитика сайта на своём сервере: источники, цели, карты кликов — как Google Analytics, но с данными у себя и без слежки Google. Разбираю возможности и запуск.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>Matomo</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>веб-аналитика</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>Google Analytics</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>open-source</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
+<li>Matomo — open-source веб-аналитика, полный аналог Google Analytics: посещаемость, источники трафика, цели, поведение пользователей.</li>
+<li>Все данные хранятся на вашем сервере, а не в облаке Google, — это контроль над данными и соответствие 152-ФЗ.</li>
+<li>Возможности близки к GA: отчёты в реальном времени, конверсии, карты кликов, тепловые карты, сегменты.</li>
+<li>Для запуска нужен сервер, установка системы и счётчика на сайт, настройка целей и поддержка.</li>
+<li>Я разворачиваю Matomo под ключ: от сервера до настроенных отчётов под ваши задачи.</li>
+</ul></div>
+
+<p>Google Analytics долгие годы был стандартом веб-аналитики, но у него есть две большие проблемы: данные о ваших посетителях уходят в Google, а сам доступ к сервису для российских компаний стал нестабильным. Matomo решает обе задачи сразу — это полнофункциональная система аналитики с открытым кодом, которая устанавливается на ваш собственный сервер и держит все данные у вас. Ниже разберу, что это за инструмент, что он умеет, кому подходит и что нужно для запуска.</p>
+
+<h2 id="chto-eto">Что такое Matomo и что заменяет</h2>
+<p>Matomo (раньше назывался Piwik) — это open-source платформа веб-аналитики. По сути это прямая альтернатива Google Analytics: вы ставите на сайт счётчик, и система начинает собирать данные о посетителях — сколько их, откуда пришли, какие страницы смотрят, что делают и как доходят до целевых действий.</p>
+<p>Ключевое отличие от Google Analytics в том, где живут данные. У Google вся информация о ваших посетителях хранится в его инфраструктуре, и вы пользуетесь ей на условиях Google. В случае с Matomo база данных находится на вашем сервере — вы полный владелец и собранной статистики, и самой системы. Это и есть главная ценность: подробная аналитика уровня GA, но без передачи данных третьей стороне.</p>
+<p>Matomo — это полнофункциональный продукт, который закрывает большинство сценариев, ради которых компании ставят Google Analytics. Если вам нужна лёгкая минималистичная статистика без сложных отчётов, есть более простые инструменты вроде Umami. Matomo же — для тех, кому нужна глубина: воронки, сегментация, цели, детальные отчёты. Это его осознанный выбор в пользу богатой функциональности.</p>
+
+<h2 id="vozmozhnosti">Что умеет: веб-аналитика</h2>
+<p>Функционально Matomo покрывает весь привычный набор веб-аналитики и в большинстве сценариев заменяет Google Analytics один к одному. Основные группы возможностей:</p>
+<ul>
+<li><strong>Посещаемость и аудитория.</strong> Количество визитов и уникальных посетителей, просмотры страниц, время на сайте, глубина просмотра, география, устройства, браузеры, повторные и новые пользователи.</li>
+<li><strong>Источники трафика.</strong> Откуда приходят люди: поисковые системы, прямые заходы, переходы с других сайтов, соцсети, рекламные кампании с UTM-метками. Видно, какие каналы реально приводят аудиторию.</li>
+<li><strong>Цели и конверсии.</strong> Можно настроить целевые действия — заявку, звонок, переход в мессенджер, скачивание — и отслеживать, сколько посетителей их совершают и из каких источников.</li>
+<li><strong>Поведение на сайте.</strong> Популярные страницы, точки входа и выхода, маршруты пользователей, поведенческие отчёты, которые показывают, где люди теряются.</li>
+<li><strong>Карты кликов и тепловые карты.</strong> Наглядное представление того, куда пользователи кликают и как взаимодействуют со страницей, — помогает улучшать структуру и кнопки.</li>
+<li><strong>Сегменты и отчёты в реальном времени.</strong> Можно выделять группы посетителей по любым признакам и смотреть, что происходит на сайте прямо сейчас.</li>
+</ul>
+<p>Набор отчётов гибкий, конкретный состав зависит от версии и подключённых модулей, но в целом по охвату Matomo сопоставим с Google Analytics, а по контролю над данными — превосходит его.</p>
+<p>На практике эти возможности складываются в конкретные бизнес-сценарии. Представьте интернет-магазин: владелец открывает отчёт по источникам и видит, что половина оплаченных заказов приходит из органического поиска, четверть — из рассылки, а дорогая контекстная реклама даёт лишь единичные продажи. Раньше это было ощущением, теперь — цифрой, на которую можно опереться при планировании бюджета. Matomo показывает не просто визиты, а путь от первого захода до оформленного заказа, и владелец видит, какие товары и страницы реально доводят посетителя до покупки, а какие только собирают просмотры.</p>
+<p>Другой пример — маркетолог, который ведёт несколько рекламных каналов одновременно. По меткам кампаний он сводит в одном отчёте стоимость привлечения и итоговую конверсию по каждому каналу, замечает, что один из источников приносит трафик без заявок, и спокойно отключает неокупаемый канал, перенаправляя бюджет туда, где конверсия выше. Карты кликов при этом подсказывают, почему конкретная посадочная страница не работает: люди не доходят до кнопки или кликают по неактивным элементам. Так аналитика превращается из набора графиков в инструмент ежедневных решений.</p>
+
+<h2 id="komu-podhodit">Кому и для каких задач подходит</h2>
+<p>Matomo полезен любому, кто принимает решения по сайту на основе цифр, а не догадок. Несколько типичных ситуаций:</p>
+<ul>
+<li><strong>Бизнес с сайтом или интернет-магазином.</strong> Понимать, какие каналы приводят клиентов, какие страницы работают, где теряются заявки, — и распределять рекламный бюджет осознанно.</li>
+<li><strong>Маркетологи и агентства.</strong> Полноценная аналитика для оценки кампаний, A/B-гипотез и отчётности перед клиентами — с данными, которые принадлежат вам, а не платформе.</li>
+<li><strong>Компании с требованиями к данным.</strong> Организации, которым важно или необходимо по закону держать персональные данные посетителей в российском контуре, на своём сервере.</li>
+<li><strong>Сетевики и проекты с трафиком.</strong> Те, кто гонит трафик на лендинги и воронки и хочет точно видеть конверсию по каждому источнику.</li>
+</ul>
+<p>Если ваша задача — серьёзно работать с трафиком и конверсией, а не просто посмотреть счётчик визитов, Matomo подойдёт лучше лёгких инструментов. И наоборот: для совсем простого учёта посещаемости он может оказаться избыточным.</p>
+<p>Чтобы было понятнее, как это работает в деле, два коротких сценария. Магазин одежды перед сезонной распродажей смотрит в Matomo, откуда приходят покупатели прошлых месяцев, и заранее усиливает те каналы, что давали продажи, а не просто клики, — рекламный бюджет уходит туда, где он окупается, а не распыляется по всем площадкам сразу. Маркетолог в агентстве, наоборот, использует отчёты как защиту перед клиентом: когда видно, что конкретный канал за месяц не принёс ни одной заявки, он аргументированно отключает неокупаемый источник и переносит деньги в работающий, опираясь на цифры, а не на интуицию. В обоих случаях ценность не в самих отчётах, а в том, что решения о деньгах принимаются на фактах, и эти факты лежат на собственном сервере, а не в чужом облаке.</p>
+
+<h2 id="chto-nuzhno">Что нужно для запуска: сервер, счётчик, 152-ФЗ</h2>
+<p>Matomo — самостоятельная система, которую нужно где-то разместить. Для запуска понадобится несколько вещей.</p>
+<p><strong>Сервер.</strong> Нужен сервер или хостинг, на котором будет работать Matomo и его база данных. Для сайтов с большим трафиком ресурсы и настройку базы важно подобрать под нагрузку, чтобы статистика собиралась без потерь и отчёты строились быстро.</p>
+<p><strong>Установка и счётчик.</strong> Систему устанавливают на сервер, а на сайт добавляют небольшой код счётчика — так же, как это делается с Google Analytics. После этого Matomo начинает собирать данные. Дальше нужно настроить цели, фильтры, права доступа и нужные отчёты под конкретные задачи.</p>
+<p><strong>Соответствие 152-ФЗ и контроль данных.</strong> Это ключевой аргумент в пользу Matomo. Поскольку данные посетителей хранятся на вашем сервере, который можно разместить в российском контуре, вы сохраняете полный контроль над персональными данными и упрощаете соблюдение требований 152-ФЗ. Вы не передаёте информацию о пользователях в Google и сами решаете, как её хранить, кому давать доступ и как настроить уровень анонимизации.</p>
+<p>Отдельный плюс самостоятельного размещения — независимость. Вы не зависите от доступности внешнего сервиса и его политики: аналитика работает, пока работает ваш сервер.</p>
+<p><strong>Типичные ошибки самостоятельного развёртывания.</strong> Когда Matomo ставят впопыхах, проблемы вылезают позже и портят всю статистику. Самая частая ошибка — слабый сервер без запаса по ресурсам: на растущем трафике база замедляется, отчёты строятся минутами, а часть визитов теряется. Вторая — установка счётчика только на часть страниц или дублирование кода, из-за чего цифры расходятся с реальностью и им перестают доверять. Третья — забытая обработка обновления статистики по расписанию: без правильно настроенной фоновой задачи отчёты считаются прямо при открытии и подвешивают систему под нагрузкой. Сюда же — игнорирование анонимизации IP и настроек хранения данных, из-за чего теряется главный смысл перехода на своё решение, то есть аккуратная работа с персональными данными. И наконец, отсутствие резервных копий базы: вся накопленная статистика хранится в одном месте, и без бэкапов её легко потерять при сбое. Большинство этих ошибок не видны в первые недели и проявляются ровно тогда, когда на данные уже опираются при принятии решений, — поэтому базовые вещи лучше сделать правильно сразу.</p>
+
+<h2 id="kak-vnedrit">Как внедрить под ключ</h2>
+<p>Развернуть Matomo и настроить его так, чтобы он реально приносил пользу, — это работа на стыке сервера, веб-разработки и аналитики. Нужно подобрать и настроить сервер, установить систему, корректно поставить счётчик на сайт, настроить цели и отчёты под ваши задачи, проверить, что данные собираются правильно, и обеспечить поддержку.</p>
+<p>Я делаю это под ключ. Более 16 лет занимаюсь IT и внедрением решений, разворачиваю open-source системы на российском стеке с учётом 152-ФЗ. Беру на себя весь процесс — от выбора сервера до настроенной аналитики, которой можно сразу пользоваться, — и остаюсь на поддержке. Если нужна подробная веб-аналитика с данными у себя, без зависимости от Google, — <a href="/predlozheniya/open-source-pod-klyuch/">разверну Matomo под ключ</a>.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+<p><strong>Matomo полностью заменяет Google Analytics?</strong> В большинстве сценариев — да. Это полнофункциональная аналитика: посещаемость, источники, цели, конверсии, поведение пользователей. Главное отличие в том, что данные хранятся у вас, а не в Google.</p>
+<p><strong>Где будут храниться данные посетителей?</strong> На вашем сервере. Сервер можно разместить в российском контуре — это даёт контроль над персональными данными и помогает соответствовать 152-ФЗ. Вы не передаёте данные о пользователях третьим сторонам.</p>
+<p><strong>Чем Matomo отличается от Umami?</strong> Matomo — полнофункциональная система, близкая к Google Analytics: глубокие отчёты, цели, сегменты, карты кликов. Umami — лёгкий минималистичный инструмент для базовой статистики. Выбор зависит от того, нужна вам глубина аналитики или простота.</p>
+<p><strong>Сложно ли поставить счётчик на сайт?</strong> Технически счётчик добавляется небольшим кодом, как и у Google Analytics. Но чтобы данные собирались корректно и отчёты были полезными, нужна настройка целей, фильтров и параметров — это я беру на себя при внедрении под ключ.</p>
+<p><strong>Подойдёт ли Matomo для сайта с большим трафиком?</strong> Да, но под нагрузку важно правильно подобрать сервер и настроить базу данных, чтобы статистика собиралась без потерь и отчёты строились быстро. Это часть работы по запуску.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+<p>Matomo — это полноценная веб-аналитика уровня Google Analytics, но с принципиальным отличием: все данные о посетителях остаются на вашем сервере. Вы получаете посещаемость, источники трафика, цели, конверсии, поведение пользователей и карты кликов — и при этом сохраняете полный контроль над данными и упрощаете соблюдение 152-ФЗ.</p>
+<p>Для запуска нужен сервер, установка системы, счётчик на сайте и грамотная настройка под ваши задачи. Если хотите подробную аналитику с данными у себя, без зависимости от Google, — я разверну и настрою Matomo под ключ и останусь на поддержке.</p>
+
+                    </div>
+
+                    
+                    <div class="blog-cta-card">
+                        <div class="blog-cta-card-body">
+                            <h3>Ещё open-source для бизнеса</h3>
+                            <p>Эта статья — часть каталога бесплатных решений, которые я разворачиваю на вашем сервере под ключ: CRM, аналитика, документы, почта, безопасность, магазины, AI.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="/blog/katalog-open-source-resheniy-dlya-biznesa-2026/" class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Каталог open-source решений</a>
+                        </div>
+                    </div>
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Что я делаю с open-source</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-hard-drives"></i> <span>Развёртывание на вашем сервере</span></li>
+    
+    <li><i class="ph-fill ph-arrows-left-right"></i> <span>Перенос данных из старого сервиса</span></li>
+    
+    <li><i class="ph-fill ph-shield-check"></i> <span>Безопасность и 152-ФЗ</span></li>
+    
+    <li><i class="ph-fill ph-wrench"></i> <span>Настройка под ваши процессы</span></li>
+    
+    <li><i class="ph-fill ph-lifebuoy"></i> <span>Поддержка и обновления</span></li>
+    
+  </ul>
+  <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
+  </a>
+</div>
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/open-source-pod-klyuch/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовое решение по теме</span>
+                            <span class="blog-offer-cta-title">Open-source решение под ключ на ваш сервер</span>
+                            <span class="blog-offer-cta-price">Бесплатная консультация · Запуск за 1–3 недели</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-arrow-right" aria-hidden="true"></i> Смотреть предложение</span>
+                    </a>
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/predlozheniya/open-source-pod-klyuch/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Развернуть open-source под ключ</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/umami-analitika-bez-google-2026/" data-category="opensource">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-chart-line"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>Umami: веб-аналитика сайта без Google и по 152-ФЗ</h3>
+  <p>Umami — лёгкая приватная аналитика сайта на своём сервере, без передачи данных Google и без cookie-баннеров. Разбираю, что умеет и почему это проще по 152-ФЗ.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 14 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/shlink-korotkie-ssylki-analitika-2026/" data-category="opensource">
+  <span class="blog-card-fresh">Свежее</span>
+  <div class="blog-card-icon"><i class="ph-fill ph-link-simple-horizontal"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>Shlink: короткие ссылки с аналитикой на своём домене</h3>
+  <p>Shlink делает короткие ссылки на вашем домене и показывает, кто и откуда по ним переходит — как Bitly, но на своём сервере. Помогает понять, что работает в продвижении. Разбираю запуск.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 15 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/apache-superset-bi-dashbordy-2026/" data-category="opensource">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-chart-line-up"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>Apache Superset: BI и дашборды на своём сервере вместо Tableau</h3>
+  <p>Apache Superset строит интерактивные дашборды и аналитику поверх ваших баз — мощно, как Tableau, но без лицензий и на своём сервере. Сложнее Metabase, но гибче. Разбираю внедрение.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 15 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовые решения под ключ</span>
+                            <span class="blog-offer-cta-title">449 готовых IT-решений для бизнеса</span>
+                            <span class="blog-offer-cta-price">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Смотреть каталог</span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#chto-eto"><span class="blog-toc-num">01</span> Что это и что заменяет</a></li>
+<li><a href="#vozmozhnosti"><span class="blog-toc-num">02</span> Что умеет</a></li>
+<li><a href="#komu-podhodit"><span class="blog-toc-num">03</span> Кому подходит</a></li>
+<li><a href="#chto-nuzhno"><span class="blog-toc-num">04</span> Что нужно для запуска</a></li>
+<li><a href="#kak-vnedrit"><span class="blog-toc-num">05</span> Как внедрить под ключ</a></li>
+<li><a href="#faq"><span class="blog-toc-num">06</span> FAQ</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">07</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=23" defer></script>
+<script src="/services-i18n.js?v=23" defer></script>
+<script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>
