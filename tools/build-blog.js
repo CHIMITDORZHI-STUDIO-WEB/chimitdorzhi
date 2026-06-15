@@ -16,6 +16,11 @@ const subOffersCount = (s) => String(s).split('{{OFFERS_COUNT}}').join(OFFERS_CO
 
 // Карта: slug статьи → slug предложения. Добавляйте по мере роста раздела.
 const OFFER_LINKS = {
+  'stalwart-pochtovyy-server-2026': 'open-source-pod-klyuch',
+  'qloapps-bronirovanie-oteley-2026': 'open-source-pod-klyuch',
+  'esphome-zigbee-datchiki-2026': 'open-source-pod-klyuch',
+  'h5p-interaktivnye-uroki-2026': 'open-source-pod-klyuch',
+  'dawarich-istoriya-peremeshcheniy-2026': 'open-source-pod-klyuch',
   'mobilizon-svoya-ploschadka-meropriyatiy-2026': 'open-source-pod-klyuch',
   'frappe-hr-kadrovyy-portal-2026': 'open-source-pod-klyuch',
   'vikunja-zadachi-dlya-komandy-2026': 'open-source-pod-klyuch',
