@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duplicati: шифрованные бэкапы под ключ</title>
+    <meta name="description" content="Duplicati — open-source резервное копирование: расписание, инкрементальные бэкапы, шифрование AES до отправки, выгрузка в любое хранилище (свой сервер, S3…">
+    <meta name="keywords" content="Duplicati, резервное копирование, бэкап, open-source">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/duplicati-rezervnoe-kopirovanie-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/duplicati-rezervnoe-kopirovanie-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/duplicati-rezervnoe-kopirovanie-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/duplicati-rezervnoe-kopirovanie-2026/">
+    <meta property="og:title" content="Duplicati: шифрованные бэкапы под ключ">
+    <meta property="og:description" content="Duplicati — open-source резервное копирование: расписание, инкрементальные бэкапы, шифрование AES до отправки, выгрузка в любое хранилище (свой сервер, S3…">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/duplicati-rezervnoe-kopirovanie-2026/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Duplicati: шифрованные бэкапы под ключ">
+    <meta name="twitter:description" content="Duplicati — open-source резервное копирование: расписание, инкрементальные бэкапы, шифрование AES до отправки, выгрузка в любое хранилище (свой сервер, S3…">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/duplicati-rezervnoe-kopirovanie-2026/cover.png">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor-Fill.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=43">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Duplicati: шифрованное резервное копирование в любое хранилище",
+  "description": "Duplicati — open-source резервное копирование: расписание, инкрементальные бэкапы, шифрование AES до отправки, выгрузка в любое хранилище (свой сервер, S3, российские облака). Потеря данных = остановка бизнеса; настрою бэкапы под ключ.",
+  "image": "https://chimitdorzhi.tech/blog/duplicati-rezervnoe-kopirovanie-2026/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/duplicati-rezervnoe-kopirovanie-2026/"
+  },
+  "datePublished": "2026-06-15",
+  "dateModified": "2026-06-15",
+  "keywords": "Duplicati, резервное копирование, бэкап, open-source",
+  "articleSection": "Open-source и свой сервер",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Duplicati: шифрованное резервное копирование в любое хранилище",
+      "item": "https://chimitdorzhi.tech/blog/duplicati-rezervnoe-kopirovanie-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Чем Duplicati лучше ручного копирования в облако?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ручные копии забывают делать, они устаревают и часто лежат рядом с оригиналом. Duplicati делает копии сам по расписанию, отправляет только изменения, шифрует данные и хранит их отдельно, убирая человеческий фактор и экономя место и трафик."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Насколько безопасно хранить бэкап в облаке?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Безопасно, потому что Duplicati шифрует данные алгоритмом AES у вас до отправки. В хранилище попадает только зашифрованный архив, бесполезный без вашего ключа, поэтому даже компрометация облака не раскрывает содержимое."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Это законно с точки зрения персональных данных?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, при правильной организации. Шифрование выполняется на вашей стороне, ключ остаётся у вас, а удалённую копию можно разместить в российской юрисдикции с учётом требований 152-ФЗ — это вы контролируете сами."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что значит проверить восстановление и зачем это нужно?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Это значит реально достать данные из бэкапа и убедиться, что они открываются и работают. Без такой проверки можно годами хранить копии с тихой ошибкой и узнать о ней только тогда, когда данные уже потеряны и восстановить нечего."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Я не разбираюсь в серверах — справлюсь ли я?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Настройку, расписание, хранилища и проверку восстановления я беру на себя и передаю готовое решение с инструкцией. От вас нужно только понимание, какие данные важны; управлять бэкапами после настройки можно через простой веб-интерфейс."
+      }
+    }
+  ]
+}
+    </script>
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+            <li><a href="/#services" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li class="nav-dropdown">
+                <a href="/#projects" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--arey"><i class="ph-fill ph-vinyl-record" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-airplane-tilt" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#cases" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            </div>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/#about">Обо мне</a></li>
+        <li><a href="/#services">Услуги</a></li>
+        <li><a href="/services/">Каталог услуг</a></li>
+        <li><a href="/predlozheniya/">Предложения</a></li>
+        <li><a href="/#cases">Кейсы</a></li>
+        <li><a href="/blog/">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+        <li><a href="/#contact">Контакт</a></li>
+    </ul>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Duplicati: шифрованное резервное копирование в любое хранилище</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/opensource/"><i class="ph ph-bookmark" aria-hidden="true"></i> Open-source и свой сервер</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин чтения</span>
+                        <time datetime="2026-06-15"><i class="ph ph-calendar" aria-hidden="true"></i> 15 июня 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Duplicati: шифрованное резервное копирование в любое хранилище</h1>
+
+                    <p class="blog-lead">Duplicati делает автоматические шифрованные бэкапы по расписанию в любое хранилище — дешёвая страховка от потери данных. Главное — правильно настроить и проверять восстановление. Разбираю, как и от каких ошибок.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>Duplicati</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>резервное копирование</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>бэкап</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>open-source</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
+<li>Duplicati — бесплатный open-source инструмент резервного копирования: расписание, инкрементальные бэкапы и шифрование AES перед отправкой в любое хранилище.</li>
+<li>Данные шифруются у вас на стороне до выгрузки, поэтому в облаке или на чужом диске лежит зашифрованный архив — это важно для соблюдения 152-ФЗ.</li>
+<li>Выгрузка работает почти куда угодно: свой сервер, S3-совместимые хранилища, российские облака, сетевые и сетевые диски, FTP и WebDAV.</li>
+<li>Главная ценность — автоматизация по правилу 3-2-1: настроенные бэкапы это дешёвая страховка от потери данных, которая иначе означает остановку работы.</li>
+<li>Инструмент бесплатный, но требует грамотной настройки расписания, хранилища и регулярной проверки восстановления — эту часть я беру на себя под ключ.</li>
+</ul></div>
+
+<p>Потеря данных редко выглядит как катастрофа в момент, когда о ней стоит задуматься. Всё работает, файлы на месте, база отвечает — и кажется, что бэкапы можно отложить на потом. Реальность другая: вышедший из строя диск, шифровальщик-вымогатель, удалённая по ошибке папка или сгоревший сервер превращают рабочий день в простой, а иногда и в полную остановку бизнеса. Восстановить вручную то, что копилось годами, обычно невозможно. Настроенные автоматические резервные копии — это та самая дешёвая страховка, которая окупается ровно один раз, но окупается полностью. Duplicati решает эту задачу как open-source инструмент: он сам делает бэкапы по расписанию, шифрует их до отправки и складывает в любое выбранное вами хранилище. Ниже разберу, что это за инструмент, что он умеет, кому подходит и почему важно не просто включить бэкап, а проверить восстановление.</p>
+
+<h2 id="chto-eto">Что такое Duplicati и зачем он нужен</h2>
+<p>Duplicati — это бесплатная программа для резервного копирования с открытым исходным кодом. Её задача проста по формулировке и непроста на практике: регулярно и без вашего участия сохранять копии важных данных в надёжное место, причём так, чтобы из этих копий можно было всё восстановить. Работает Duplicati на сервере или компьютере, управляется через понятный веб-интерфейс в браузере и не требует постоянного внимания после настройки.</p>
+<p>Ключевая идея инструмента — отделить ваши данные от места их хранения. Вы указываете, что копировать (папки с документами, базы данных, файлы сайта, рабочие проекты) и куда складывать копии, а Duplicati берёт на себя расписание, упаковку, шифрование и контроль целостности. При этом копии получаются инкрементальными: после первого полного бэкапа в хранилище отправляются только изменения, а не весь объём заново. Это экономит и место, и трафик, и время.</p>
+<p>По сути Duplicati заменяет ручное копирование файлов на флешку или разовую выгрузку в облако — подход, который выглядит как бэкап, но им не является. Ручные копии забывают делать, они устаревают, лежат рядом с оригиналом и теряются вместе с ним. Автоматический инструмент снимает человеческий фактор: бэкап делается по расписанию, проверяется и хранится отдельно, независимо от того, вспомнили вы о нём сегодня или нет.</p>
+
+<h2 id="vozmozhnosti">Что умеет: расписание, шифрование, любое хранилище</h2>
+<p>Первое и главное — расписание. Вы задаёте, как часто делать копии (например, каждую ночь), а Duplicati запускает задание сам. Можно настроить несколько заданий с разной периодичностью для разных данных и определить, сколько поколений копий хранить, чтобы можно было откатиться не только на вчера, но и на неделю или месяц назад. Это важно: если файл повредился или был зашифрован вирусом несколько дней назад, вам нужна копия именно за тот период, а не свежий бэкап уже испорченных данных.</p>
+<p>Второе — инкрементальные копии и дедупликация. После первой полной выгрузки Duplicati отправляет в хранилище только изменившиеся блоки данных. Благодаря этому ежедневный бэкап занимает минимум места и времени, а история версий при этом сохраняется. Вы получаете возможность восстановить состояние файлов на конкретную дату, не храня десятки полных копий.</p>
+<p>Третье и принципиальное — шифрование. Duplicati шифрует данные алгоритмом AES прямо у вас, до того как они уйдут в хранилище. Это значит, что в облаке, на чужом сервере или на сетевом диске лежит только зашифрованный архив, который без вашего ключа бесполезен. Даже если хранилище скомпрометируют, содержимое останется недоступным. Для работы с персональными данными это не приятная опция, а способ снизить риски утечки.</p>
+<p>Четвёртое — свобода выбора хранилища. Duplicati умеет выгружать копии практически куда угодно: на ваш собственный сервер, в S3-совместимые объектные хранилища, в российские облака, на сетевые папки и подключённые диски, по FTP, SFTP и WebDAV. Это позволяет выстроить хранение так, как удобно и безопасно именно вам, и не зависеть от одного поставщика. И, наконец, инструмент умеет проверять целостность копий и восстанавливать как отдельные файлы, так и весь набор данных целиком — выборочно, на нужную дату.</p>
+
+<h2 id="komu-podhodit">Кому и для каких задач подходит</h2>
+<p>Duplicati пригодится везде, где есть данные, потеря которых дорого обойдётся. Малому бизнесу он закрывает базовую, но критичную потребность: автоматически сохранять бухгалтерию, клиентскую базу, договоры и рабочие документы, чтобы поломка одного компьютера не остановила работу. Часто именно в небольших компаниях бэкапов нет вообще — просто потому, что некому этим заняться, — и именно там цена потери максимальна.</p>
+<p>Владельцам сайтов и веб-проектов инструмент помогает регулярно копировать файлы и базы данных. Сайт, который восстанавливают из бэкапа за полчаса, и сайт, который собирают заново неделями, — это разница между неприятностью и серьёзными убытками. Студиям, агентствам и специалистам, работающим с проектами клиентов, Duplicati даёт спокойствие за результаты труда: исходники, макеты и наработки защищены от случайного удаления и отказа оборудования.</p>
+<p>Подходит он и для личных задач — семейного архива фотографий, документов, рабочих материалов, которые жалко потерять. Везде, где данные накапливаются и имеют ценность, логика одна: бэкап нужен не тогда, когда что-то уже случилось, а заранее. Общий знаменатель прост — если потеря данных означает для вас простой, убытки или невосполнимую утрату, автоматическое резервное копирование окупается одним предотвращённым инцидентом.</p>
+
+<h2 id="chto-nuzhno">Что нужно для запуска: хранилище, правило 3-2-1, 152-ФЗ</h2>
+<p>Для работы Duplicati нужно место, где он будет запущен (сервер или компьютер, который копирует данные), и хотя бы одно хранилище, куда складывать копии. Минимально достаточно одного внешнего хранилища, но правильный подход описывается простым правилом 3-2-1: три копии данных, на двух разных носителях, и хотя бы одна копия — вне основной площадки. На практике это означает: оригинал, локальная копия для быстрого восстановления и удалённая копия в облаке или на другом сервере на случай пожара, кражи или выхода из строя всей площадки.</p>
+<p>Именно нарушение этого правила — самая частая причина, по которой бэкапы не спасают. Если все копии лежат в одном месте, один инцидент уничтожает их разом вместе с оригиналом. Удалённая зашифрованная копия снимает этот риск, и Duplicati как раз заточен под такой сценарий: одно задание может одновременно или по очереди отправлять данные в несколько хранилищ.</p>
+<p>Отдельный вопрос — персональные данные. Если в копиях есть сведения о клиентах, сотрудниках или пользователях, их хранение попадает под требования российского законодательства о персональных данных (152-ФЗ). На практике это означает, что разумно размещать хранилище в российской юрисдикции и шифровать данные. Здесь у Duplicati сильная сторона: шифрование происходит на вашей стороне до выгрузки, поэтому в облако уходит уже зашифрованный архив, а не открытые данные. Вы сами контролируете ключ и сами решаете, где физически хранятся копии.</p>
+<p>Российское облако или свой сервер в РФ для удалённой копии здесь не формальность, а способ заранее снять юридические и репутационные риски — особенно для компаний, которые работают с данными людей на постоянной основе.</p>
+
+<h2 id="kak-vnedrit">Как внедрить под ключ</h2>
+<p>Сам по себе Duplicati бесплатен, и в этом кроется ложное ощущение лёгкости. Установить программу несложно, но рабочая система резервного копирования — это не установка, а грамотно собранная конструкция. Нужно решить, какие данные действительно критичны, как часто их копировать, сколько поколений хранить, в какие хранилища выгружать, как организовать удалённую копию по правилу 3-2-1, где безопасно хранить ключ шифрования и как настроить уведомления, чтобы вы вовремя узнали, если бэкап вдруг перестал выполняться.</p>
+<p>Самая коварная и самая частая ошибка — считать, что бэкап есть, ни разу не проверив восстановление. Копии могут годами создаваться с тихой ошибкой, и об этом узнают в худший момент: когда данные уже потеряны, а из архива ничего не достаётся. Настроенный бэкап без проверенного восстановления — это иллюзия защиты. Поэтому реальную ценность даёт не сам факт копий, а регулярная проверка, что из них действительно можно всё вернуть.</p>
+<p>Я беру эту часть на себя. Разбираюсь, что и как часто нужно копировать, подбираю и настраиваю хранилища, выстраиваю схему по правилу 3-2-1 с удалённой зашифрованной копией, настраиваю расписание, шифрование и уведомления, а главное — провожу тестовое восстановление, чтобы убедиться, что система работает на деле, а не на бумаге. Передаю вам готовое решение с понятной инструкцией и остаюсь на связи для поддержки. За плечами 16+ лет в IT и десятки развёрнутых open-source решений под конкретные задачи бизнеса. Если вам нужны надёжные автоматические шифрованные бэкапы без привязки к чужим тарифам и с данными под вашим контролем — <a href="/predlozheniya/open-source-pod-klyuch/">настрою резервное копирование под ключ</a>, а вы перестанете держать в голове риск потери данных.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+<p><strong>Чем Duplicati лучше ручного копирования в облако?</strong> Ручные копии забывают делать, они устаревают и часто лежат рядом с оригиналом. Duplicati делает копии сам по расписанию, отправляет только изменения, шифрует данные и хранит их отдельно, убирая человеческий фактор и экономя место и трафик.</p>
+<p><strong>Насколько безопасно хранить бэкап в облаке?</strong> Безопасно, потому что Duplicati шифрует данные алгоритмом AES у вас до отправки. В хранилище попадает только зашифрованный архив, бесполезный без вашего ключа, поэтому даже компрометация облака не раскрывает содержимое.</p>
+<p><strong>Это законно с точки зрения персональных данных?</strong> Да, при правильной организации. Шифрование выполняется на вашей стороне, ключ остаётся у вас, а удалённую копию можно разместить в российской юрисдикции с учётом требований 152-ФЗ — это вы контролируете сами.</p>
+<p><strong>Что значит проверить восстановление и зачем это нужно?</strong> Это значит реально достать данные из бэкапа и убедиться, что они открываются и работают. Без такой проверки можно годами хранить копии с тихой ошибкой и узнать о ней только тогда, когда данные уже потеряны и восстановить нечего.</p>
+<p><strong>Я не разбираюсь в серверах — справлюсь ли я?</strong> Настройку, расписание, хранилища и проверку восстановления я беру на себя и передаю готовое решение с инструкцией. От вас нужно только понимание, какие данные важны; управлять бэкапами после настройки можно через простой веб-интерфейс.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+<p>Duplicati — это рабочий open-source инструмент резервного копирования: автоматическое расписание, инкрементальные копии, шифрование AES до отправки и выгрузка в любое хранилище — от своего сервера до S3-совместимых и российских облаков. Главная ценность не в самой программе, а в выстроенной вокруг неё системе: копии по правилу 3-2-1, удалённая зашифрованная копия вне площадки и регулярная проверка восстановления. Потеря данных означает простой и убытки, а настроенные бэкапы — дешёвая страховка, которая окупается одним предотвращённым инцидентом. Инструмент бесплатный, но цена ошибки в настройке высока, поэтому проще доверить запуск специалисту и сразу получить проверенную защиту, а не иллюзию бэкапа, который ни разу не пробовали восстановить.</p>
+
+                    </div>
+
+                    
+                    <div class="blog-cta-card">
+                        <div class="blog-cta-card-body">
+                            <h3>Ещё open-source для бизнеса</h3>
+                            <p>Эта статья — часть каталога бесплатных решений, которые я разворачиваю на вашем сервере под ключ: CRM, аналитика, документы, почта, безопасность, магазины, AI.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="/blog/katalog-open-source-resheniy-dlya-biznesa-2026/" class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Каталог open-source решений</a>
+                        </div>
+                    </div>
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Что я делаю с open-source</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-hard-drives"></i> <span>Развёртывание на вашем сервере</span></li>
+    
+    <li><i class="ph-fill ph-arrows-left-right"></i> <span>Перенос данных из старого сервиса</span></li>
+    
+    <li><i class="ph-fill ph-shield-check"></i> <span>Безопасность и 152-ФЗ</span></li>
+    
+    <li><i class="ph-fill ph-wrench"></i> <span>Настройка под ваши процессы</span></li>
+    
+    <li><i class="ph-fill ph-lifebuoy"></i> <span>Поддержка и обновления</span></li>
+    
+  </ul>
+  <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
+  </a>
+</div>
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/open-source-pod-klyuch/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовое решение по теме</span>
+                            <span class="blog-offer-cta-title">Open-source решение под ключ на ваш сервер</span>
+                            <span class="blog-offer-cta-price">Бесплатная консультация · Запуск за 1–3 недели</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-arrow-right" aria-hidden="true"></i> Смотреть предложение</span>
+                    </a>
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/predlozheniya/open-source-pod-klyuch/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Развернуть open-source под ключ</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/nextcloud-svoy-oblachnyy-disk-2026/" data-category="opensource">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-cloud"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>Nextcloud: свой облачный диск компании вместо Google Drive</h3>
+  <p>Nextcloud — это своё облако компании: файлы, общий доступ и документы на своём сервере, как Google Drive, но с данными у себя. Разбираю, что умеет и что нужно для запуска.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 14 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/wazuh-monitoring-bezopasnosti-2026/" data-category="opensource">
+  <span class="blog-card-fresh">Свежее</span>
+  <div class="blog-card-icon"><i class="ph-fill ph-shield-warning"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>Wazuh: мониторинг безопасности (SIEM/XDR) для инфраструктуры на своём сервере</h3>
+  <p>Wazuh показывает, что происходит с безопасностью серверов и рабочих станций: ловит вторжения и аномалии, контролирует уязвимости и помогает с требованиями по защите данных. Серьёзный инструмент. Разбираю честно.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 15 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/uptime-kuma-monitoring-dostupnosti-2026/" data-category="opensource">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-heartbeat"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>Uptime Kuma: мониторинг доступности сайтов и статус-страница на своём сервере</h3>
+  <p>Uptime Kuma следит за доступностью ваших сайтов и сервисов и сразу пишет в Telegram, если что-то упало, плюс показывает клиентам публичную статус-страницу. Узнавайте о сбоях первыми. Разбираю запуск.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 15 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовые решения под ключ</span>
+                            <span class="blog-offer-cta-title">449 готовых IT-решений для бизнеса</span>
+                            <span class="blog-offer-cta-price">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Смотреть каталог</span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#chto-eto"><span class="blog-toc-num">01</span> Что это и что заменяет</a></li>
+<li><a href="#vozmozhnosti"><span class="blog-toc-num">02</span> Что умеет</a></li>
+<li><a href="#komu-podhodit"><span class="blog-toc-num">03</span> Кому подходит</a></li>
+<li><a href="#chto-nuzhno"><span class="blog-toc-num">04</span> Что нужно для запуска</a></li>
+<li><a href="#kak-vnedrit"><span class="blog-toc-num">05</span> Как внедрить под ключ</a></li>
+<li><a href="#faq"><span class="blog-toc-num">06</span> FAQ</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">07</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=23" defer></script>
+<script src="/services-i18n.js?v=23" defer></script>
+<script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>
