@@ -16,6 +16,15 @@ const subOffersCount = (s) => String(s).split('{{OFFERS_COUNT}}').join(OFFERS_CO
 
 // Карта: slug статьи → slug предложения. Добавляйте по мере роста раздела.
 const OFFER_LINKS = {
+  'white-label-na-open-source-2026': 'open-source-pod-klyuch',
+  'white-label-onlayn-zapis-cal-com-2026': 'open-source-pod-klyuch',
+  'white-label-smm-planer-2026': 'open-source-pod-klyuch',
+  'white-label-lms-platforma-2026': 'open-source-pod-klyuch',
+  'white-label-email-rassylki-2026': 'open-source-pod-klyuch',
+  'white-label-magazin-dlya-nishi-2026': 'open-source-pod-klyuch',
+  'white-label-korporativnyy-messendzher-2026': 'open-source-pod-klyuch',
+  'white-label-konstruktor-botov-2026': 'open-source-pod-klyuch',
+  'white-label-monitoring-uptime-2026': 'open-source-pod-klyuch',
   'live-commerce-svoya-ploschadka-opensource-2026': 'open-source-pod-klyuch',
   'livekit-interaktivnye-translyacii-2026': 'open-source-pod-klyuch',
   'srs-strim-server-2026': 'open-source-pod-klyuch',
