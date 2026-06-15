@@ -20,10 +20,13 @@ h1{font-size:40px;letter-spacing:1px;color:var(--steppe-dk);margin:4px 0 2px}
 .sub{font-size:15px;color:#6b6354;font-style:italic}
 .author{font-size:11px;color:#8a8170;margin-top:6px;font-family:Verdana,sans-serif}
 
-/* статус игрока */
-.status{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:16px 0 4px}
-.stat{display:flex;flex-direction:column;align-items:center;gap:2px;background:#fbf6ea;
-  border:1px solid var(--line);border-radius:10px;padding:8px 14px;min-width:96px}
+/* статус игрока — три равные карточки, по центру */
+.status{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;
+  max-width:460px;margin:16px auto 4px}
+.stat{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
+  background:#fbf6ea;border:1px solid var(--line);border-radius:10px;padding:9px 10px;
+  min-width:0;text-align:center}
+.stat-v{min-width:0}
 .stat-k{font-size:10px;letter-spacing:1px;text-transform:uppercase;color:#8a8170;font-family:Verdana,sans-serif}
 .stat-v{font-size:15px;font-weight:bold;color:var(--steppe-dk)}
 
@@ -35,11 +38,14 @@ h1{font-size:40px;letter-spacing:1px;color:var(--steppe-dk);margin:4px 0 2px}
 .ipsilon{text-align:center;font-size:13px;color:#6b6354;font-family:Verdana,sans-serif;margin-bottom:14px}
 .ipsilon b{color:var(--clay)}
 
-/* навигация по уровням */
-.levelnav{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}
-.level-title{font-size:13px;color:#6b6354;font-family:Verdana,sans-serif;text-align:center;flex:1}
+/* навигация по уровням — заголовок строго по центру, кнопки по краям равные */
+.levelnav{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px;margin-bottom:12px}
+.level-title{font-size:13px;color:#6b6354;font-family:Verdana,sans-serif;text-align:center}
 .navbtn{font-family:Verdana,sans-serif;font-size:12px;border:1px solid var(--steppe);
-  color:var(--steppe-dk);background:#fbf6ea;border-radius:8px;padding:8px 12px;cursor:pointer;white-space:nowrap}
+  color:var(--steppe-dk);background:#fbf6ea;border-radius:8px;padding:8px 12px;cursor:pointer;
+  white-space:nowrap;min-width:92px;text-align:center}
+#btnPrev{justify-self:start}
+#btnNext{justify-self:end}
 .navbtn:hover:not(:disabled){background:#f0e7d3}
 .navbtn:disabled{opacity:.4;cursor:not-allowed}
 
@@ -86,7 +92,8 @@ h1{font-size:40px;letter-spacing:1px;color:var(--steppe-dk);margin:4px 0 2px}
 .vbtn.sel-yes{background:var(--ok);color:#fff}
 .vbtn.sel-no{background:var(--no);color:#fff}
 
-.controls{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.controls{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:18px}
+.controls .main{min-width:240px;text-align:center}
 button.main{font-family:Verdana,sans-serif;font-size:13px;border:none;border-radius:9px;
   padding:11px 16px;cursor:pointer;font-weight:bold;letter-spacing:.3px}
 .btn-check{background:var(--clay);color:#fff;box-shadow:0 3px 0 #8a4527}
@@ -113,9 +120,13 @@ button:focus-visible, input:focus-visible{outline:3px solid var(--sand);outline-
   .lang{grid-area:lang;justify-self:start}
   .badge{grid-area:badge;justify-self:end}
   .word{grid-area:word}
-  .status .stat{min-width:84px;padding:7px 10px}
+  .status{gap:7px}
+  .stat{padding:8px 6px}
+  .stat-k{font-size:9px;letter-spacing:.5px}
+  .stat-v{font-size:13px}
   .controls{flex-direction:column}
-  button.main{width:100%}
+  .controls .main{min-width:0;width:100%}
+  .navbtn{min-width:78px;padding:8px 8px}
 }
 
 /* меньше движения по системной настройке */
