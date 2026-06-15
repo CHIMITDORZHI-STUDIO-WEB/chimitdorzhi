@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Цифровой след компании: что видно и как закрыть</title>
+    <meta name="description" content="Что компания невольно публикует о себе в открытых источниках: метаданные документов, открытые папки, утёкшие пароли сотрудников, реквизиты в соцсетях.">
+    <meta name="keywords" content="безопасность, цифровой след, 152-ФЗ, защита данных, 2026">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/osint-cifrovoy-sled-kompanii-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/osint-cifrovoy-sled-kompanii-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/osint-cifrovoy-sled-kompanii-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/osint-cifrovoy-sled-kompanii-2026/">
+    <meta property="og:title" content="Цифровой след компании: что видно и как закрыть">
+    <meta property="og:description" content="Что компания невольно публикует о себе в открытых источниках: метаданные документов, открытые папки, утёкшие пароли сотрудников, реквизиты в соцсетях.">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/osint-cifrovoy-sled-kompanii-2026/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Цифровой след компании: что видно и как закрыть">
+    <meta name="twitter:description" content="Что компания невольно публикует о себе в открытых источниках: метаданные документов, открытые папки, утёкшие пароли сотрудников, реквизиты в соцсетях.">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/osint-cifrovoy-sled-kompanii-2026/cover.png">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor-Fill.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=43">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Что о вашей компании можно узнать из открытых источников — и как закрыть дыры",
+  "description": "Что компания невольно публикует о себе в открытых источниках: метаданные документов, открытые папки, утёкшие пароли сотрудников, реквизиты в соцсетях. Чем это грозит и как закрыть дыры — чек-лист аудита цифрового следа и защита данных (152-ФЗ).",
+  "image": "https://chimitdorzhi.tech/blog/osint-cifrovoy-sled-kompanii-2026/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/osint-cifrovoy-sled-kompanii-2026/"
+  },
+  "datePublished": "2026-06-16",
+  "dateModified": "2026-06-16",
+  "keywords": "безопасность, цифровой след, 152-ФЗ, защита данных, 2026",
+  "articleSection": "Безопасность",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  },
+  "about": [
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://chimitdorzhi.tech/slovar/#152-fz",
+      "name": "152-ФЗ"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Что о вашей компании можно узнать из открытых источников — и как закрыть дыры",
+      "item": "https://chimitdorzhi.tech/blog/osint-cifrovoy-sled-kompanii-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Это законно — проверять цифровой след своей компании?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да. Речь идёт о проверке собственных публичных ресурсов и информации, которую компания сама разместила в открытом доступе. Вы смотрите на себя глазами стороннего наблюдателя и наводите порядок в своих же данных — это нормальная мера информационной гигиены."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли полностью убрать компанию из открытых источников?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Полностью — нет, и обещать абсолютную защиту было бы нечестно. Часть информации обязана быть публичной (реквизиты, контакты), а кэш и сторонние архивы не всегда удаляются мгновенно. Реалистичная цель — убрать лишнее, закрыть очевидные дыры и снизить риск, а не добиться невидимости."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Откуда наши email и пароли могли попасть в публичные базы, если нас не взламывали?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Чаще всего из утечек на сторонних сервисах, где сотрудники регистрировались рабочей почтой. Когда такой сервис взламывают, его база с адресами и паролями попадает в открытые подборки. Ваша инфраструктура при этом не пострадала, но учётные данные оказались скомпрометированы."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "С чего начать, если ресурсов мало?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "С самого болезненного: проверьте корпоративные адреса по публичным утечкам и смените пароли, включите двухфакторную аутентификацию, очистите метаданные публикуемых документов и закройте от индексации служебные разделы. Эти шаги дают наибольший эффект при минимальных затратах, а дальше можно двигаться по чек-листу."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужно ли привлекать специалиста или можно справиться самим?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Базовую гигиену можно навести своими силами по чек-листу. Но системный аудит со стороны полезен тем, что находит привычное и незаметное изнутри — забытые поддомены, старый кэш, лишние данные в файлах. Если данных и ресурсов много, разумно доверить это специалисту."
+      }
+    }
+  ]
+}
+    </script>
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+            <li><a href="/#services" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li class="nav-dropdown">
+                <a href="/#projects" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--arey"><i class="ph-fill ph-vinyl-record" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-airplane-tilt" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#cases" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            </div>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/#about">Обо мне</a></li>
+        <li><a href="/#services">Услуги</a></li>
+        <li><a href="/services/">Каталог услуг</a></li>
+        <li><a href="/predlozheniya/">Предложения</a></li>
+        <li><a href="/#cases">Кейсы</a></li>
+        <li><a href="/blog/">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+        <li><a href="/#contact">Контакт</a></li>
+    </ul>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Что о вашей компании можно узнать из открытых источников — и как закрыть дыры</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/security/"><i class="ph ph-bookmark" aria-hidden="true"></i> Безопасность</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 10 мин чтения</span>
+                        <time datetime="2026-06-16"><i class="ph ph-calendar" aria-hidden="true"></i> 16 июня 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Что о вашей компании можно узнать из открытых источников — и как закрыть дыры</h1>
+
+                    <p class="blog-lead">О компании из открытых источников видно куда больше, чем кажется: метаданные файлов, открытые папки, утёкшие пароли сотрудников, лишние реквизиты в соцсетях. Разбираю, что именно видно, чем это грозит и как закрыть дыры — с чек-листом для самопроверки.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>безопасность</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>цифровой след</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>152-ФЗ</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>защита данных</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>2026</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
+<li>Любая компания невольно оставляет цифровой след: метаданные документов и фото, открытые папки на сайте, забытые поддомены, реквизиты в соцсетях и кэш поисковиков.</li>
+<li>Самая частая дыра — корпоративные email и пароли сотрудников, попавшие в публичные базы из-за утечек на сторонних сервисах.</li>
+<li>Из этих разрозненных данных складывается картина, которой пользуются мошенники для фишинга, обмана сотрудников и атак на инфраструктуру.</li>
+<li>Большинство дыр закрываются организационными мерами: чистка метаданных, ограничение индексации, аудит поддоменов, смена паролей и обучение сотрудников.</li>
+<li>Начать стоит с честного аудита собственного цифрового следа — проверить компанию глазами постороннего и системно устранить найденное.</li>
+</ul></div>
+
+<p>О компании можно многое узнать, даже не имея доступа к её внутренним системам. Не потому, что кто-то взломал почту или базу данных, а потому что сама организация год за годом публикует фрагменты информации: выкладывает документы на сайт, ведёт соцсети, регистрирует поддомены, а сотрудники используют рабочие адреса на сторонних сервисах. По отдельности это мелочи, но собранные вместе они дают картину, которую можно использовать против бизнеса. В этом материале — строго оборонительный разбор: что именно компания невольно показывает наружу, откуда это берётся, чем грозит и, главное, как закрыть дыры. Никаких инструкций по слежке или поиску людей — только проверка себя и наведение порядка.</p>
+
+<h2 id="chto-vidno">Что о компании видно снаружи</h2>
+<p>Первое, что попадает в открытый доступ, — метаданные файлов. Когда компания публикует на сайте прайс, презентацию или скан договора, внутри документа часто остаётся служебная информация: имя автора и его учётная запись, название компьютера, версия и путь установки программы, дата создания и редактирования. У фотографий бывает ещё и EXIF — модель устройства, а иногда и геометка с координатами съёмки. Всё это видно любому, кто скачал файл, и компания обычно даже не подозревает, что делится этими подробностями.</p>
+<p>Второй пласт — то, что лежит на самом сайте и в инфраструктуре. Это открытые для просмотра папки, незакрытые от индексации служебные и тестовые страницы, резервные копии и архивы, оставленные в корне сайта, забытые поддомены со старыми версиями проектов. Поисковики прилежно сохраняют кэш страниц, поэтому даже удалённая информация какое-то время остаётся доступной. Сюда же относятся публичные технические интерфейсы, панели входа и страницы статуса, которые видно снаружи, если их не ограничили.</p>
+<p>Третий пласт — то, что компания и её сотрудники публикуют сами и осознанно, не задумываясь о последствиях. В соцсетях и на сайте размещают полные реквизиты, прямые рабочие телефоны и адреса конкретных людей, структуру отделов, фотографии офиса с досками, мониторами и пропусками в кадре. Вакансии нередко раскрывают, какие именно системы и технологии используются внутри. По крупицам из этих публичных источников складывается довольно подробный портрет организации.</p>
+
+<h2 id="otkuda-utechki">Откуда берутся данные</h2>
+<p>Источники цифрового следа можно разделить на несколько групп. Первая — публикации самой компании. Документы выкладываются без очистки метаданных, фотографии — без удаления геометок, на сайт попадают черновики и тестовые разделы. Это не злой умысел и не взлом, а обычная невнимательность: файл сохранили как есть и отдали в публичный доступ.</p>
+<p>Вторая группа — техническая история. У сайтов остаётся длинный шлейф: старые поддомены, которые когда-то использовались под акции или тестовые версии, и о которых забыли; резервные копии, случайно оставленные доступными; кэш и архивные слепки страниц, которые хранят то, что давно убрали с актуального сайта. Инфраструктура накапливает такие следы годами, особенно если за ней никто системно не следит.</p>
+<p>Третья и самая болезненная группа — утечки на сторонних сервисах. Сотрудники регистрируют рабочие email на форумах, в сервисах рассылок, онлайн-инструментах и сторонних площадках. Когда любой из этих сервисов взламывают, базы с адресами и паролями попадают в публичный доступ. В результате корпоративные адреса вашей компании оказываются в общедоступных подборках утёкших данных — притом что сам ваш сайт и почта никто не трогал. Если сотрудник использовал один и тот же пароль на стороннем сервисе и в рабочей почте, проблема становится прямой угрозой.</p>
+<p>Четвёртая группа — человеческий фактор в соцсетях. Личные аккаунты сотрудников, отметки геолокации на рабочем месте, фотографии с корпоративов и из офиса, упоминания внутренних проектов и инструментов. Каждая такая публикация безобидна сама по себе, но в совокупности дополняет общий портрет компании деталями, которые она не собиралась раскрывать.</p>
+
+<h2 id="chem-grozit">Чем это грозит бизнесу</h2>
+<p>Главная опасность открытого цифрового следа — не сам факт публичности, а то, что разрозненные фрагменты складываются в материал для целенаправленной атаки. Зная имена и должности сотрудников, их рабочие адреса и стиль внутренней переписки, злоумышленник может подготовить убедительное письмо от имени руководителя или подрядчика. Это и есть основа фишинга и схем социальной инженерии: чем больше достоверных деталей, тем выше шанс, что сотрудник поверит и выполнит просьбу — переведёт деньги, откроет вложение, сообщит данные.</p>
+<p>Утёкшие пары адрес-пароль создают отдельный риск. Если сотрудник переиспользует пароли, найденная в публичной базе комбинация может подойти к рабочей почте, корпоративному порталу или другим сервисам. Это открывает путь к внутренней переписке и системам без всякого технического взлома — просто за счёт чужой невнимательности и старой утечки на постороннем сайте.</p>
+<p>Техническая информация — используемые системы, забытые поддомены, открытые служебные интерфейсы — снижает усилия для атаки на инфраструктуру: чем больше известно о начинке, тем проще искать слабые места. А репутационная сторона не менее важна: обнаруженные посторонними чувствительные документы, персональные данные клиентов или сотрудников в открытом доступе — это не только риск штрафов по законодательству о персональных данных, но и удар по доверию. Стоит подчеркнуть: абсолютной защиты не существует, и задача аудита — не обещать неуязвимость, а методично снижать число и серьёзность дыр.</p>
+
+<h2 id="kak-zakryt">Как закрыть дыры</h2>
+<p>Начать стоит с метаданных. Перед публикацией документов и фотографий их полезно прогонять через очистку служебной информации — убирать имена авторов, пути, геометки. Многие офисные программы и операционные системы умеют удалять свойства файла перед сохранением; для потока документов имеет смысл встроить такую очистку в регламент подготовки публикаций. Это простая привычка, которая закрывает целый класс утечек.</p>
+<p>Дальше — наведение порядка на сайте и в инфраструктуре. Закройте от индексации служебные, тестовые и технические разделы, уберите из публичного доступа резервные копии и архивы, отключите просмотр содержимого папок. Проведите инвентаризацию поддоменов и уберите или закройте те, что больше не используются. Где возможно — запросите обновление или удаление устаревшего кэша в поисковиках. Доступ к панелям входа и служебным интерфейсам ограничьте так, чтобы они не были видны всему интернету.</p>
+<p>Отдельный блок — учётные записи и пароли. Регулярно проверяйте, не фигурируют ли корпоративные адреса в известных публичных утечках, и при обнаружении меняйте пароли. Введите правило уникальных надёжных паролей и менеджера паролей, по возможности включите двухфакторную аутентификацию на важных сервисах. Объясните сотрудникам, почему нельзя использовать рабочую почту для регистрации на случайных сторонних площадках и переиспользовать пароли.</p>
+<p>Не менее важна работа с людьми и контентом соцсетей. Договоритесь, какая информация о компании может публиковаться, а какая нет; проверяйте фотографии офиса на предмет случайно попавших в кадр экранов, документов и пропусков; аккуратнее формулируйте вакансии, не раскрывая лишних технических деталей. Если своими силами охватить всё сложно, разумно <a href="/predlozheniya/152-fz-pod-klyuch/">заказать аудит цифрового следа и приведение данных в порядок</a> — за плечами 16+ лет в IT, и системный взгляд со стороны часто находит то, что внутри компании давно примелькалось и перестало замечаться.</p>
+
+<h2 id="chek-list">Чек-лист аудита цифрового следа</h2>
+<p>Пройдитесь по компании глазами постороннего человека и проверьте по пунктам, что именно доступно снаружи. Этот список удобно использовать как основу для самопроверки или технического задания на аудит.</p>
+<ul>
+<li>Документы на сайте: очищены ли метаданные (автор, путь, версия программы) в прайсах, презентациях, договорах и других публичных файлах.</li>
+<li>Фотографии: удалены ли EXIF и геометки, нет ли в кадре экранов, бумаг, пропусков и других чувствительных деталей.</li>
+<li>Индексация: закрыты ли от поисковиков служебные, тестовые и технические страницы, нет ли в выдаче лишнего.</li>
+<li>Открытые папки и архивы: отключён ли просмотр содержимого каталогов, убраны ли резервные копии из публичного доступа.</li>
+<li>Поддомены: есть ли актуальный список, закрыты ли или удалены забытые и неиспользуемые.</li>
+<li>Кэш поисковиков: проверено ли, что в сохранённых копиях не осталось удалённой чувствительной информации.</li>
+<li>Утечки учётных данных: проверены ли корпоративные адреса по публичным базам утечек, сменены ли пароли при необходимости.</li>
+<li>Пароли и доступ: используются ли уникальные надёжные пароли, включена ли двухфакторная аутентификация на ключевых сервисах.</li>
+<li>Реквизиты и контакты: нет ли в открытом доступе лишних персональных данных конкретных сотрудников.</li>
+<li>Соцсети и вакансии: есть ли договорённость о том, что можно публиковать, не раскрывают ли объявления внутреннюю кухню.</li>
+<li>Служебные интерфейсы: ограничен ли доступ к панелям входа и техническим страницам извне.</li>
+<li>Регламент: закреплены ли правила публикации и очистки данных, чтобы дыры не появлялись снова.</li>
+</ul>
+
+<h2 id="faq">Частые вопросы</h2>
+<p><strong>Это законно — проверять цифровой след своей компании?</strong> Да. Речь идёт о проверке собственных публичных ресурсов и информации, которую компания сама разместила в открытом доступе. Вы смотрите на себя глазами стороннего наблюдателя и наводите порядок в своих же данных — это нормальная мера информационной гигиены.</p>
+<p><strong>Можно ли полностью убрать компанию из открытых источников?</strong> Полностью — нет, и обещать абсолютную защиту было бы нечестно. Часть информации обязана быть публичной (реквизиты, контакты), а кэш и сторонние архивы не всегда удаляются мгновенно. Реалистичная цель — убрать лишнее, закрыть очевидные дыры и снизить риск, а не добиться невидимости.</p>
+<p><strong>Откуда наши email и пароли могли попасть в публичные базы, если нас не взламывали?</strong> Чаще всего из утечек на сторонних сервисах, где сотрудники регистрировались рабочей почтой. Когда такой сервис взламывают, его база с адресами и паролями попадает в открытые подборки. Ваша инфраструктура при этом не пострадала, но учётные данные оказались скомпрометированы.</p>
+<p><strong>С чего начать, если ресурсов мало?</strong> С самого болезненного: проверьте корпоративные адреса по публичным утечкам и смените пароли, включите двухфакторную аутентификацию, очистите метаданные публикуемых документов и закройте от индексации служебные разделы. Эти шаги дают наибольший эффект при минимальных затратах, а дальше можно двигаться по чек-листу.</p>
+<p><strong>Нужно ли привлекать специалиста или можно справиться самим?</strong> Базовую гигиену можно навести своими силами по чек-листу. Но системный аудит со стороны полезен тем, что находит привычное и незаметное изнутри — забытые поддомены, старый кэш, лишние данные в файлах. Если данных и ресурсов много, разумно доверить это специалисту.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+<p>Цифровой след компании складывается не из одного взлома, а из множества мелочей: метаданных документов, геометок на фото, открытых папок и забытых поддоменов, кэша поисковиков, реквизитов в соцсетях и утёкших на сторонних сервисах учётных данных сотрудников. Поодиночке это безобидно, но вместе даёт материал для фишинга, обмана сотрудников и атак на инфраструктуру. Хорошая новость в том, что большинство дыр закрываются организационными мерами: очисткой данных, ограничением индексации, аудитом поддоменов, сменой паролей и обучением людей. Абсолютной защиты не бывает, но честный аудит собственного цифрового следа и регулярная гигиена ощутимо снижают риски. Начните с того, чтобы посмотреть на свою компанию глазами постороннего — и методично закрыть то, что не должно быть на виду.</p>
+
+                    </div>
+
+                    
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Что я делаю для защиты данных</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-magnifying-glass"></i> <span>Аудит цифрового следа компании</span></li>
+    
+    <li><i class="ph-fill ph-file-lock"></i> <span>Чистка метаданных и утечек</span></li>
+    
+    <li><i class="ph-fill ph-shield-check"></i> <span>Соответствие 152-ФЗ</span></li>
+    
+    <li><i class="ph-fill ph-lock-key"></i> <span>Защита доступов и аккаунтов</span></li>
+    
+    <li><i class="ph-fill ph-lifebuoy"></i> <span>Сопровождение и обновления</span></li>
+    
+  </ul>
+  <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
+  </a>
+</div>
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/152-fz-pod-klyuch/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовое решение по теме</span>
+                            <span class="blog-offer-cta-title">«152-ФЗ под ключ»: защита от штрафов за персональные данные</span>
+                            <span class="blog-offer-cta-price">Бесплатная консультация · от 1–3 дней</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-arrow-right" aria-hidden="true"></i> Смотреть предложение</span>
+                    </a>
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/predlozheniya/152-fz-pod-klyuch/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Аудит и защита данных</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/wazuh-monitoring-bezopasnosti-2026/" data-category="opensource">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-shield-warning"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>Wazuh: мониторинг безопасности (SIEM/XDR) для инфраструктуры на своём сервере</h3>
+  <p>Wazuh показывает, что происходит с безопасностью серверов и рабочих станций: ловит вторжения и аномалии, контролирует уязвимости и помогает с требованиями по защите данных. Серьёзный инструмент. Разбираю честно.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 15 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/bitwarden-menedzher-paroley-2026/" data-category="opensource">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-key"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>Bitwarden и Vaultwarden: менеджер паролей для команды на своём сервере</h3>
+  <p>Bitwarden с self-hosted сервером Vaultwarden держит пароли компании под контролем на вашем сервере: общие хранилища, расширения, шифрование. Разбираю, кому нужно и что требуется для запуска.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 15 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/duplicati-rezervnoe-kopirovanie-2026/" data-category="opensource">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-cloud-arrow-up"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>Duplicati: шифрованное резервное копирование в любое хранилище</h3>
+  <p>Duplicati делает автоматические шифрованные бэкапы по расписанию в любое хранилище — дешёвая страховка от потери данных. Главное — правильно настроить и проверять восстановление. Разбираю, как и от каких ошибок.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 15 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовые решения под ключ</span>
+                            <span class="blog-offer-cta-title">449 готовых IT-решений для бизнеса</span>
+                            <span class="blog-offer-cta-price">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Смотреть каталог</span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#chto-vidno"><span class="blog-toc-num">01</span> Что видно снаружи</a></li>
+<li><a href="#otkuda-utechki"><span class="blog-toc-num">02</span> Откуда берутся данные</a></li>
+<li><a href="#chem-grozit"><span class="blog-toc-num">03</span> Чем это грозит</a></li>
+<li><a href="#kak-zakryt"><span class="blog-toc-num">04</span> Как закрыть дыры</a></li>
+<li><a href="#chek-list"><span class="blog-toc-num">05</span> Чек-лист аудита</a></li>
+<li><a href="#faq"><span class="blog-toc-num">06</span> FAQ</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">07</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=23" defer></script>
+<script src="/services-i18n.js?v=23" defer></script>
+<script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>

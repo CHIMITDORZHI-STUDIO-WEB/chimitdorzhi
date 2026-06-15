@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AudioBookshelf: свой сервер аудиокниг</title>
+    <meta name="description" content="AudioBookshelf — open-source сервер аудиокниг и подкастов: своя медиатека, стриминг на телефон, отметки прогресса, главы, мультипользователи.">
+    <meta name="keywords" content="AudioBookshelf, аудиокниги, подкасты, open-source">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/audiobookshelf-server-audioknig-podkastov-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/audiobookshelf-server-audioknig-podkastov-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/audiobookshelf-server-audioknig-podkastov-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/audiobookshelf-server-audioknig-podkastov-2026/">
+    <meta property="og:title" content="AudioBookshelf: свой сервер аудиокниг">
+    <meta property="og:description" content="AudioBookshelf — open-source сервер аудиокниг и подкастов: своя медиатека, стриминг на телефон, отметки прогресса, главы, мультипользователи.">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/audiobookshelf-server-audioknig-podkastov-2026/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AudioBookshelf: свой сервер аудиокниг">
+    <meta name="twitter:description" content="AudioBookshelf — open-source сервер аудиокниг и подкастов: своя медиатека, стриминг на телефон, отметки прогресса, главы, мультипользователи.">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/audiobookshelf-server-audioknig-podkastov-2026/cover.png">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor-Fill.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=43">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "AudioBookshelf: свой сервер аудиокниг и подкастов",
+  "description": "AudioBookshelf — open-source сервер аудиокниг и подкастов: своя медиатека, стриминг на телефон, отметки прогресса, главы, мультипользователи. Для онлайн-школ, авторов курсов и личной коллекции, контент у себя — разверну под ключ.",
+  "image": "https://chimitdorzhi.tech/blog/audiobookshelf-server-audioknig-podkastov-2026/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/audiobookshelf-server-audioknig-podkastov-2026/"
+  },
+  "datePublished": "2026-06-16",
+  "dateModified": "2026-06-16",
+  "keywords": "AudioBookshelf, аудиокниги, подкасты, open-source",
+  "articleSection": "Open-source и свой сервер",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "AudioBookshelf: свой сервер аудиокниг и подкастов",
+      "item": "https://chimitdorzhi.tech/blog/audiobookshelf-server-audioknig-podkastov-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Чем AudioBookshelf отличается от обычного стримингового сервиса аудиокниг?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Формат прослушивания похож: библиотека, обложки, приложение на телефоне, продолжение с места остановки. Разница в том, что AudioBookshelf — open-source сервер, который вы ставите на свой сервер и наполняете своей коллекцией. Нет подписки, рекламы и региональных ограничений каталога, а вся история прослушивания остаётся у вас."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужно ли слушателям что-то устанавливать?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Слушать можно прямо в браузере без установки. Для удобства на смартфоне есть мобильное приложение, которое подключается к вашему серверу — оно даёт офлайн-загрузку, скорость воспроизведения и таймер сна."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли давать доступ ученикам или членам семьи раздельно?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да. Платформа поддерживает несколько пользователей с отдельными учётными записями, собственным прогрессом и доступом к разным разделам библиотеки. Это удобно и для семьи, и для раздачи учебных аудиоматериалов."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Работает ли это с подкастами?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да. Можно подписаться на подкаст по его ленте, и сервер будет сам скачивать новые выпуски в вашу библиотеку — получается личный подкаст-агрегатор, где всё хранится у вас."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Я не разбираюсь в серверах — справлюсь ли я?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Запуск и настройку я беру на себя и передаю готовый инструмент с инструкцией. Для пользования медиатекой техническое образование не нужно: загружаете аудио и слушаете через приложение или браузер."
+      }
+    }
+  ]
+}
+    </script>
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+            <li><a href="/#services" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li class="nav-dropdown">
+                <a href="/#projects" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--arey"><i class="ph-fill ph-vinyl-record" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-airplane-tilt" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#cases" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            </div>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/#about">Обо мне</a></li>
+        <li><a href="/#services">Услуги</a></li>
+        <li><a href="/services/">Каталог услуг</a></li>
+        <li><a href="/predlozheniya/">Предложения</a></li>
+        <li><a href="/#cases">Кейсы</a></li>
+        <li><a href="/blog/">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+        <li><a href="/#contact">Контакт</a></li>
+    </ul>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">AudioBookshelf: свой сервер аудиокниг и подкастов</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/opensource/"><i class="ph ph-bookmark" aria-hidden="true"></i> Open-source и свой сервер</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин чтения</span>
+                        <time datetime="2026-06-16"><i class="ph ph-calendar" aria-hidden="true"></i> 16 июня 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">AudioBookshelf: свой сервер аудиокниг и подкастов</h1>
+
+                    <p class="blog-lead">AudioBookshelf — это свой сервер аудиокниг и подкастов со стримингом на телефон и отметками прогресса. Для онлайн-школ и авторов курсов, чтобы раздавать аудиоматериалы ученикам, и для личной коллекции. Разбираю запуск.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>AudioBookshelf</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>аудиокниги</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>подкасты</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>open-source</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
+<li>AudioBookshelf — open-source сервер для аудиокниг и подкастов: своя медиатека на собственном сервере и стриминг на телефон через приложение.</li>
+<li>Платформа сама хранит обложки, главы и метаданные, запоминает прогресс прослушивания и синхронизирует его между устройствами.</li>
+<li>Поддерживаются несколько пользователей и подписка на подкасты — подходит для семьи, личной коллекции и для раздачи аудиоматериалов ученикам.</li>
+<li>Для запуска нужен сервер, доменное имя и настройка; при работе с данными людей разумно учитывать 152-ФЗ и размещение в РФ.</li>
+<li>Я разворачиваю и настраиваю AudioBookshelf под ключ, чтобы вы получили рабочую медиатеку, а не набор файлов из репозитория.</li>
+</ul></div>
+
+<p>Аудиокниги и подкасты слушают в дороге, на прогулке, за рутинными делами — формат удобный и востребованный. Но привычные способы хранить и слушать аудио привязывают к чужим сервисам: подписка на стриминговую платформу, ограничения каталога, реклама и хранение истории прослушивания на внешних серверах. При этом у многих уже есть своя коллекция аудиокниг в файлах, записи курсов или внутренние аудиоматериалы, которым не место в публичном облаке. AudioBookshelf решает эту задачу иначе: это open-source сервер, который превращает вашу папку с аудиофайлами в полноценную медиатеку с приложением на телефоне. Ниже разберу, что это за инструмент, что он умеет, кому подходит и что нужно для запуска.</p>
+
+<h2 id="chto-eto">Что такое AudioBookshelf и что заменяет</h2>
+<p>AudioBookshelf — это бесплатный open-source сервер для аудиокниг, подкастов и аудиозаписей. Вы устанавливаете его на свой сервер, указываете папки с аудиофайлами, и платформа сама собирает из них аккуратную медиатеку: распознаёт книги и выпуски, подтягивает обложки и описания, раскладывает всё по полкам с удобным поиском. Слушать можно прямо в браузере или через <a href="https://chimitdorzhi.tech/services/mobile-apps/" class="blog-inline-link">мобильное приложение</a>, которое подключается к вашему серверу и стримит аудио на телефон.</p>
+<p>По сути AudioBookshelf занимает нишу персонального аудио-стриминга — того, что обычно дают коммерческие сервисы аудиокниг и подкаст-приложения. Принципиальная разница в модели владения: облачный сервис вы арендуете и зависите от его каталога, тарифа и правил, а AudioBookshelf разворачиваете у себя и владеете полностью. Нет подписки, нет рекламы, нет ограничения «эта книга недоступна в вашем регионе» — в библиотеке ровно то, что вы туда положили. И вся история прослушивания, закладки и прогресс хранятся в вашей инфраструктуре, а не у стороннего поставщика.</p>
+<p>Платформа распространяется с открытым исходным кодом, регулярно развивается и имеет официальные мобильные приложения. Для большинства задач достаточно стандартного функционала, а открытость кода оставляет запас на доработку и интеграцию в свои процессы.</p>
+
+<h2 id="vozmozhnosti">Что умеет: медиатека, стриминг, прогресс</h2>
+<p>Основа платформы — собственная медиатека. AudioBookshelf сканирует указанные папки, организует аудиокниги по авторам, сериям и жанрам, хранит обложки и описания. Поддерживаются главы: длинную книгу удобно слушать по частям, перематывать к нужной главе и видеть структуру произведения, а не один сплошной файл. Метаданные можно править вручную, чтобы коллекция выглядела опрятно.</p>
+<p>Ключевое удобство — стриминг на телефон через приложение. Вы устанавливаете мобильное приложение, подключаете его к своему серверу по адресу и слушаете аудио откуда угодно, как в обычном стриминговом сервисе, но из своей библиотеки. Поддерживается загрузка выпусков для офлайн-прослушивания, настройка скорости воспроизведения, таймер сна и другие привычные мелочи, без которых слушать неудобно.</p>
+<p>Отдельная сильная сторона — отметки прогресса прослушивания. Сервер запоминает, на каком месте вы остановились в каждой книге, и синхронизирует это между устройствами: начали слушать в приложении на телефоне, продолжили в браузере на компьютере — позиция сохранится. Это снимает главную боль домашних коллекций, когда вечно теряешь, где остановился.</p>
+<p>AudioBookshelf работает не только с книгами, но и с подкастами. Можно подписаться на подкаст по его ленте, и сервер сам будет скачивать новые выпуски в вашу библиотеку — получается личный подкаст-агрегатор, где все интересные передачи собраны в одном месте и хранятся у вас. Поддержка нескольких пользователей позволяет завести отдельные учётные записи с собственным прогрессом и доступом к разным разделам библиотеки.</p>
+
+<h2 id="komu-podhodit">Кому и для каких задач подходит</h2>
+<p>Онлайн-школам и авторам курсов AudioBookshelf даёт удобный способ раздавать аудиоматериалы ученикам на своём сервере. Лекции, аудиоверсии уроков, дополнительные записи можно сложить в библиотеку, выдать ученикам доступ и не зависеть от чужих платформ. Ученики слушают через приложение, прогресс по каждому уроку сохраняется, а вы контролируете, кто и к чему имеет доступ — материалы не утекают в публичные сервисы.</p>
+<p>Для семьи и личной коллекции это домашний аудио-стриминг без подписок. Накопленные за годы аудиокниги перестают лежать мёртвым грузом в папках и превращаются в живую библиотеку, доступную с любого телефона в доме. Несколько учётных записей дают каждому члену семьи свой прогресс и свои закладки, а детям можно открыть только подходящий раздел.</p>
+<p>Бизнесу платформа подходит как база аудиоконтента: записи вебинаров, аудиоверсии регламентов, обучающие материалы для сотрудников, внутренние подкасты компании. Всё это удобно хранить и раздавать в одном месте, с разграничением доступа и под вашим контролем, а не на внешнем файлообменнике.</p>
+<p>Общий знаменатель прост: если у вас есть собственная аудиоколлекция или аудиоматериалы, которые нужно слушать с телефона и при этом держать у себя — своя медиатека на AudioBookshelf даёт удобство стримингового сервиса без зависимости от чужих подписок и каталогов.</p>
+
+<h2 id="chto-nuzhno">Что нужно для запуска: сервер, настройка, 152-ФЗ</h2>
+<p>AudioBookshelf — это серверное приложение, поэтому ему нужна площадка, где оно будет постоянно запущено. На практике это виртуальный сервер (VPS) или домашний мини-сервер с современным окружением для запуска контейнеров и достаточным дисковым пространством под аудиоколлекцию. Чем больше библиотека, тем важнее заранее рассчитать объём диска, ведь аудиофайлы накапливаются и занимают место.</p>
+<p>Кроме сервера понадобится доменное имя и защищённое соединение (HTTPS), чтобы приложение на телефоне подключалось по нормальному адресу, а данные передавались по шифрованному каналу. Важна и базовая настройка безопасности: доступ к личной или учебной библиотеке должен быть закрыт от посторонних. Резервное копирование настроек и базы прогресса убережёт от потери накопленной истории прослушивания.</p>
+<p>Отдельный вопрос — данные людей. Если вы заводите учётные записи для учеников или сотрудников, привязываете к ним прогресс и контактные сведения, это попадает под требования российского законодательства о персональных данных (152-ФЗ). На практике это значит, что разумно размещать сервер в российской юрисдикции и аккуратно обращаться с собранной информацией. Преимущество self-hosted решения как раз в том, что вы полностью контролируете, где и как хранятся данные, и выстраиваете процесс по требованиям, а не полагаетесь на политику зарубежного облака. Стоит также помнить про авторские права на сам аудиоконтент: размещайте в библиотеке то, на что у вас есть права.</p>
+<p>Российский стек и размещение в РФ здесь не формальность, а способ заранее снять риски — особенно для образовательных проектов и компаний, которые работают с данными людей на постоянной основе.</p>
+
+<h2 id="kak-vnedrit">Как внедрить под ключ</h2>
+<p>Самостоятельный запуск open-source платформы — это не только скачать репозиторий. Нужно подобрать и настроить сервер с учётом объёма коллекции, развернуть приложение, организовать структуру папок с аудио, подключить домен и сертификат, настроить пользователей и доступы, проверить работу мобильного приложения и убедиться, что прогресс корректно синхронизируется. Для человека без опыта администрирования это несколько дней разбирательств с документацией и типичными ошибками.</p>
+<p>Я беру эту часть на себя. Подбираю подходящий сервер под размер вашей библиотеки и число пользователей, разворачиваю AudioBookshelf, настраиваю домен, HTTPS, резервное копирование и базовую безопасность, помогаю разложить коллекцию и навести порядок в метаданных, проверяю реальный сценарий прослушивания с телефона и передаю вам готовую рабочую медиатеку с понятной инструкцией. При необходимости остаюсь на связи для поддержки и обновлений.</p>
+<p>За плечами 16+ лет в IT и десятки развёрнутых open-source решений под конкретные задачи. Если вам нужен свой сервер аудиокниг и подкастов, с данными под вашим контролем и без привязки к чужим подпискам — <a href="/predlozheniya/open-source-pod-klyuch/">разверну медиатеку под ключ</a>, а вы сосредоточитесь на контенте и слушателях.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+<p><strong>Чем AudioBookshelf отличается от обычного стримингового сервиса аудиокниг?</strong> Формат прослушивания похож: библиотека, обложки, приложение на телефоне, продолжение с места остановки. Разница в том, что AudioBookshelf — open-source сервер, который вы ставите на свой сервер и наполняете своей коллекцией. Нет подписки, рекламы и региональных ограничений каталога, а вся история прослушивания остаётся у вас.</p>
+<p><strong>Нужно ли слушателям что-то устанавливать?</strong> Слушать можно прямо в браузере без установки. Для удобства на смартфоне есть мобильное приложение, которое подключается к вашему серверу — оно даёт офлайн-загрузку, скорость воспроизведения и таймер сна.</p>
+<p><strong>Можно ли давать доступ ученикам или членам семьи раздельно?</strong> Да. Платформа поддерживает несколько пользователей с отдельными учётными записями, собственным прогрессом и доступом к разным разделам библиотеки. Это удобно и для семьи, и для раздачи учебных аудиоматериалов.</p>
+<p><strong>Работает ли это с подкастами?</strong> Да. Можно подписаться на подкаст по его ленте, и сервер будет сам скачивать новые выпуски в вашу библиотеку — получается личный подкаст-агрегатор, где всё хранится у вас.</p>
+<p><strong>Я не разбираюсь в серверах — справлюсь ли я?</strong> Запуск и настройку я беру на себя и передаю готовый инструмент с инструкцией. Для пользования медиатекой техническое образование не нужно: загружаете аудио и слушаете через приложение или браузер.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+<p>AudioBookshelf — это рабочий open-source сервер аудиокниг и подкастов: своя медиатека, стриминг на телефон через приложение, главы и обложки, отметки прогресса с синхронизацией между устройствами, несколько пользователей и подписка на подкасты. Главное преимущество перед чужими сервисами — собственная установка: нет подписок и ограничений каталога, а данные и контент остаются под вашим контролем, что особенно важно с учётом 152-ФЗ. Решение подходит для онлайн-школ и авторов курсов, для семьи и личной коллекции, а также для бизнеса как база аудиоконтента. Для запуска нужен сервер, домен и грамотная настройка — и эту часть проще доверить специалисту, чтобы сразу получить надёжную медиатеку, а не разбираться с инфраструктурой в одиночку.</p>
+
+                    </div>
+
+                    
+                    <div class="blog-cta-card">
+                        <div class="blog-cta-card-body">
+                            <h3>Ещё open-source для бизнеса</h3>
+                            <p>Эта статья — часть каталога бесплатных решений, которые я разворачиваю на вашем сервере под ключ: CRM, аналитика, документы, почта, безопасность, магазины, AI.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="/blog/katalog-open-source-resheniy-dlya-biznesa-2026/" class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Каталог open-source решений</a>
+                        </div>
+                    </div>
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Что я делаю с open-source</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-hard-drives"></i> <span>Развёртывание на вашем сервере</span></li>
+    
+    <li><i class="ph-fill ph-arrows-left-right"></i> <span>Перенос данных из старого сервиса</span></li>
+    
+    <li><i class="ph-fill ph-shield-check"></i> <span>Безопасность и 152-ФЗ</span></li>
+    
+    <li><i class="ph-fill ph-wrench"></i> <span>Настройка под ваши процессы</span></li>
+    
+    <li><i class="ph-fill ph-lifebuoy"></i> <span>Поддержка и обновления</span></li>
+    
+  </ul>
+  <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
+  </a>
+</div>
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/open-source-pod-klyuch/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовое решение по теме</span>
+                            <span class="blog-offer-cta-title">Open-source решение под ключ на ваш сервер</span>
+                            <span class="blog-offer-cta-price">Бесплатная консультация · Запуск за 1–3 недели</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-arrow-right" aria-hidden="true"></i> Смотреть предложение</span>
+                    </a>
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/predlozheniya/open-source-pod-klyuch/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Развернуть open-source под ключ</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/whisperx-transkribaciya-rechi-2026/" data-category="opensource">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-microphone"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>WhisperX: автоматическая транскрибация речи на своём сервере</h3>
+  <p>WhisperX расшифровывает аудио и видео в текст с таймкодами и определением говорящих — совещания, интервью, подкасты, субтитры — на вашем сервере, без отправки записей в чужое облако. Разбираю применение и как на этом зарабатывать.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 16 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/jellyfin-svoya-mediateka-2026/" data-category="opensource">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-television"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>Jellyfin: своя медиатека и ТВ для заведения на своём сервере</h3>
+  <p>Jellyfin превращает ваш сервер в медиатеку для заведения: видео, музыка и фото на экранах кафе, фитнеса или отеля — свой контент без подписок и рекламы стримингов. Разбираю, что нужно для запуска.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 15 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/moodle-onlayn-obuchenie-2026/" data-category="opensource">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-student"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>Moodle: платформа онлайн-обучения (LMS) на своём сервере</h3>
+  <p>Moodle — это своя платформа обучения: курсы, тесты, задания, сертификаты — для онлайн-школы или обучения сотрудников, без подписок и с данными у себя. Разбираю, кому подходит и что нужно.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 15 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовые решения под ключ</span>
+                            <span class="blog-offer-cta-title">449 готовых IT-решений для бизнеса</span>
+                            <span class="blog-offer-cta-price">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Смотреть каталог</span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#chto-eto"><span class="blog-toc-num">01</span> Что это и что заменяет</a></li>
+<li><a href="#vozmozhnosti"><span class="blog-toc-num">02</span> Что умеет</a></li>
+<li><a href="#komu-podhodit"><span class="blog-toc-num">03</span> Кому подходит</a></li>
+<li><a href="#chto-nuzhno"><span class="blog-toc-num">04</span> Что нужно для запуска</a></li>
+<li><a href="#kak-vnedrit"><span class="blog-toc-num">05</span> Как внедрить под ключ</a></li>
+<li><a href="#faq"><span class="blog-toc-num">06</span> FAQ</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">07</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=23" defer></script>
+<script src="/services-i18n.js?v=23" defer></script>
+<script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>
