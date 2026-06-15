@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenWISP: гостевой Wi-Fi с captive-порталом</title>
+    <meta name="description" content="OpenWISP — open-source управление Wi-Fi сетями: централизованная настройка точек, captive-портал (страница входа), авторизация гостей, сбор контактов…">
+    <meta name="keywords" content="OpenWISP, Wi-Fi, captive-портал, open-source">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/openwisp-upravlenie-wifi-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/openwisp-upravlenie-wifi-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/openwisp-upravlenie-wifi-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/openwisp-upravlenie-wifi-2026/">
+    <meta property="og:title" content="OpenWISP: гостевой Wi-Fi с captive-порталом">
+    <meta property="og:description" content="OpenWISP — open-source управление Wi-Fi сетями: централизованная настройка точек, captive-портал (страница входа), авторизация гостей, сбор контактов…">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/openwisp-upravlenie-wifi-2026/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="OpenWISP: гостевой Wi-Fi с captive-порталом">
+    <meta name="twitter:description" content="OpenWISP — open-source управление Wi-Fi сетями: централизованная настройка точек, captive-портал (страница входа), авторизация гостей, сбор контактов…">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/openwisp-upravlenie-wifi-2026/cover.png">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor-Fill.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=43">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "OpenWISP: гостевой Wi-Fi с captive-порталом и сбором лидов на своём сервере",
+  "description": "OpenWISP — open-source управление Wi-Fi сетями: централизованная настройка точек, captive-портал (страница входа), авторизация гостей, сбор контактов, мониторинг. Гостевой Wi-Fi как маркетинг-инструмент, данные у себя — настрою под ключ.",
+  "image": "https://chimitdorzhi.tech/blog/openwisp-upravlenie-wifi-2026/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/openwisp-upravlenie-wifi-2026/"
+  },
+  "datePublished": "2026-06-16",
+  "dateModified": "2026-06-16",
+  "keywords": "OpenWISP, Wi-Fi, captive-портал, open-source",
+  "articleSection": "Open-source и свой сервер",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "OpenWISP: гостевой Wi-Fi с captive-порталом и сбором лидов на своём сервере",
+      "item": "https://chimitdorzhi.tech/blog/openwisp-upravlenie-wifi-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Чем OpenWISP отличается от облачных Wi-Fi маркетинг-сервисов?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Логика похожа: брендированная страница входа, авторизация гостей, сбор контактов и статистика. Разница в том, что OpenWISP — open-source платформа, которую вы ставите на свой сервер и владеете полностью, без ежемесячной подписки за портал и без лимитов по тарифу, а контактная база гостей остаётся у вас, а не в чужой инфраструктуре."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что такое captive-портал простыми словами?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Это страница, которая открывается у гостя при подключении к Wi-Fi, прежде чем он получит доступ в интернет. На ней можно разместить логотип и приветствие заведения, условия использования и форму входа — например, ввод телефона или согласие с правилами. После авторизации гость попадает в интернет."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужно ли менять оборудование?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Зависит от того, что у вас сейчас стоит. Для работы портала нужны точки доступа, совместимые с такой схемой управления. На этапе подготовки я проверяю ваше оборудование и, если нужно, помогаю подобрать подходящее, чтобы внедрение прошло без сюрпризов."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Законно ли собирать контакты гостей через Wi-Fi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, при правильной организации. Сбор телефонов или адресов — это обработка персональных данных, поэтому на странице входа нужно явное согласие гостя, а также доступная политика обработки данных. Поскольку платформа стоит на вашем сервере, вы контролируете хранение и можете разместить всё в российской юрисдикции с учётом требований 152-ФЗ."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Я не разбираюсь в серверах и сетях — справлюсь ли я?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Запуск, настройку оборудования и оформление портала я беру на себя и передаю готовый инструмент с инструкцией. Для повседневной работы технических знаний не нужно: вы управляете контентом портала и видите статистику через удобную панель."
+      }
+    }
+  ]
+}
+    </script>
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+            <li><a href="/#services" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li class="nav-dropdown">
+                <a href="/#projects" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--arey"><i class="ph-fill ph-vinyl-record" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-airplane-tilt" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#cases" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            </div>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/#about">Обо мне</a></li>
+        <li><a href="/#services">Услуги</a></li>
+        <li><a href="/services/">Каталог услуг</a></li>
+        <li><a href="/predlozheniya/">Предложения</a></li>
+        <li><a href="/#cases">Кейсы</a></li>
+        <li><a href="/blog/">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+        <li><a href="/#contact">Контакт</a></li>
+    </ul>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">OpenWISP: гостевой Wi-Fi с captive-порталом и сбором лидов на своём сервере</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/opensource/"><i class="ph ph-bookmark" aria-hidden="true"></i> Open-source и свой сервер</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 10 мин чтения</span>
+                        <time datetime="2026-06-16"><i class="ph ph-calendar" aria-hidden="true"></i> 16 июня 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">OpenWISP: гостевой Wi-Fi с captive-порталом и сбором лидов на своём сервере</h1>
+
+                    <p class="blog-lead">OpenWISP превращает гостевой Wi-Fi в кафе, отеле или ТЦ из «просто раздачи» в инструмент: брендированная страница входа, сбор контактов и согласий (лиды), аналитика. Разбираю применение, 152-ФЗ и как на этом зарабатывать.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>OpenWISP</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>Wi-Fi</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>captive-портал</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>open-source</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
+<li>OpenWISP — open-source платформа для управления Wi-Fi сетями: централизованная настройка точек доступа, captive-портал (страница входа в гостевой Wi-Fi), авторизация гостей, мониторинг и статистика.</li>
+<li>Подходит для кафе, ресторанов, отелей, торговых центров, салонов и коворкингов — везде, где раздают гостевой Wi-Fi и хотят превратить его из расхода в маркетинговый инструмент.</li>
+<li>Главная идея — брендированная страница входа со сбором контактов и согласий: вместо «просто раздаём интернет» вы получаете базу лидов для рассылок и контроль над тем, кто и как пользуется сетью.</li>
+<li>Своя установка на собственном сервере убирает абонентскую плату облачных Wi-Fi маркетинг-сервисов, а данные гостей остаются у вас, а не у стороннего провайдера.</li>
+<li>Я разворачиваю и настраиваю платформу под ключ, чтобы вы сразу получили рабочий гостевой Wi-Fi с порталом, а не набор файлов из репозитория.</li>
+</ul></div>
+
+<p>Бесплатный Wi-Fi для гостей стал нормой почти в любом заведении: в кафе, ресторане, отеле, салоне красоты или торговом центре посетитель ожидает, что подключится к интернету за пару секунд. Но в большинстве случаев этот Wi-Fi просто «раздаётся» — стоит роутер с паролем на стене, и на этом всё. При этом гостевая сеть может быть полноценным маркетинговым каналом: брендированная страница входа, сбор контактов и согласий на рассылку, понимание, сколько людей и как часто подключается. OpenWISP — это open-source платформа, которая позволяет выстроить такой управляемый гостевой Wi-Fi на собственном сервере, без абонентской платы зарубежным облачным сервисам и с данными под вашим контролем. Ниже разберу, что это за платформа, что она умеет, кому подходит и что нужно для запуска.</p>
+
+<h2 id="chto-eto">Что такое OpenWISP и какую задачу решает</h2>
+<p>OpenWISP — это бесплатная open-source платформа для централизованного управления Wi-Fi сетями. Если упростить, она решает три задачи сразу: настраивает точки доступа из одного места, показывает гостям страницу входа в Wi-Fi (captive-портал) и ведёт мониторинг сети со статистикой подключений. Изначально платформа создавалась для операторов и сообществ, которые управляют десятками и сотнями точек доступа, но её логика отлично ложится и на задачи отдельного заведения, которое хочет навести порядок в своём гостевом Wi-Fi.</p>
+<p>Ключевой элемент для бизнеса — captive-портал. Это та самая страница, которая открывается у гостя при подключении к сети, прежде чем он получит доступ в интернет. На обычном роутере такой страницы нет: подключился по паролю и пользуешься. OpenWISP же позволяет показать гостю брендированную страницу с логотипом заведения, кратким приветствием, условиями использования и формой входа. Доступ в интернет гость получает после того, как пройдёт авторизацию — например, введёт телефон и код из SMS, заполнит короткую форму или согласится с правилами.</p>
+<p>По сути OpenWISP занимает нишу облачных Wi-Fi маркетинг-сервисов, которые продают «умный гостевой Wi-Fi с порталом и сбором контактов» по подписке. Принципиальная разница в модели: облачный сервис вы арендуете помесячно и складываете данные гостей в его инфраструктуру, а OpenWISP устанавливаете на свой сервер и владеете им полностью. Нет ежемесячной абонентской платы за портал, нет лимитов на число гостей по тарифу, и контактная база ваших посетителей лежит у вас, а не у стороннего провайдера.</p>
+
+<h2 id="vozmozhnosti">Что умеет: портал, авторизация, мониторинг</h2>
+<p>Первое и главное — централизованная настройка точек доступа. Вместо того чтобы заходить в каждый роутер по отдельности, вы управляете конфигурацией всех точек из единой панели. Это удобно, когда точек несколько (например, разные залы, этажи или филиалы): изменили настройку в одном месте — она применилась везде. Для сети заведений это экономит много времени на обслуживании.</p>
+<p>Второе — captive-портал, то есть брендированная страница входа в гостевой Wi-Fi. Её можно оформить в фирменном стиле: логотип, цвета, приветственный текст, ссылка на сайт или соцсети, рекламный баннер или спецпредложение. Это первое, что видит гость, когда подключается, — а значит, дополнительная точка контакта с брендом, которую обычный роутер просто не использует.</p>
+<p>Третье — авторизация гостей. Платформа поддерживает разные сценарии входа: по коду из SMS на телефон, по простой форме (имя и контакт), по согласию с правилами или через ваучер/код доступа. Сценарий выбирается под задачу: где-то достаточно нажать «Войти», а где-то важно получить подтверждённый номер телефона для дальнейшей связи. Именно авторизация превращает анонимное подключение в идентифицируемого посетителя.</p>
+<p>Четвёртое — мониторинг сети и статистика. OpenWISP показывает состояние точек доступа, число подключённых устройств, активность по времени и базовые метрики использования. Это помогает понимать загрузку Wi-Fi в часы пик, замечать проблемы с оборудованием и оценивать, насколько активно гости пользуются сетью. Для управляющего заведением это объективные данные вместо догадок.</p>
+<p>Отдельно стоит отметить, что собранные через портал контакты и согласия можно использовать как основу для маркетинга: база телефонов или адресов гостей, давших согласие, — это аудитория для рассылок об акциях, новинках меню или специальных предложениях. Именно это и отличает управляемый гостевой Wi-Fi от обычной раздачи интернета.</p>
+
+<h2 id="komu-podhodit">Кому и для каких задач подходит</h2>
+<p>OpenWISP пригодится практически любому бизнесу, который раздаёт гостевой Wi-Fi и при этом работает с потоком посетителей. Кафе и рестораны получают брендированную страницу входа и возможность собирать контакты гостей с согласием на рассылку — чтобы потом сообщать о новом меню, акциях и мероприятиях. Гость и так подключается к Wi-Fi, так почему бы не сделать этот момент полезным для заведения.</p>
+<p>Отелям и гостиницам платформа даёт аккуратный портал с условиями, авторизацией и понятной статистикой по нагрузке на сеть. Торговым центрам и крупным объектам — централизованное управление множеством точек доступа и единую страницу входа для всех арендаторов и посетителей. Салонам красоты, фитнес-клубам и коворкингам — инструмент мягкого сбора контактной базы постоянных клиентов через привычное подключение к Wi-Fi.</p>
+<p>Общий знаменатель прост: если у вас есть проходимость и гостевой Wi-Fi, который сейчас «просто работает», то с OpenWISP он превращается в управляемый канал — с брендом на странице входа, контролем доступа и накоплением контактов тех, кто согласился их оставить.</p>
+<p><strong>Как на этом можно зарабатывать.</strong> Настройка управляемого гостевого Wi-Fi с captive-порталом и сбором лидов — это услуга, которую можно предлагать заведениям под ключ. Бизнесу нужен не роутер с паролем, а маркетинговый инструмент: брендированная страница входа, авторизация гостей и аккуратно собираемая база контактов для рассылок. Вы можете брать на себя подбор оборудования, настройку платформы, оформление портала в фирменном стиле клиента и сопровождение, а также упаковывать сбор лидов как отдельную ценность для общепита, отелей и розницы. Это прикладная ниша с понятным запросом со стороны малого и среднего бизнеса; конкретные финансовые результаты здесь зависят от вашего рынка, объёма работы и условий, поэтому никаких обещаний по доходу давать не стоит — речь о востребованном направлении услуг, а не о гарантиях.</p>
+
+<h2 id="chto-nuzhno">Что нужно для запуска: сервер, оборудование, 152-ФЗ</h2>
+<p>OpenWISP — это серверное приложение, поэтому для работы ему нужна площадка, где оно будет постоянно запущено. На практике это виртуальный сервер (VPS) или выделенная машина с современным окружением. Платформа состоит из нескольких компонентов — панель управления, база данных, модуль портала и мониторинга, — которые нужно корректно связать между собой и настроить.</p>
+<p>Кроме сервера понадобится совместимое сетевое оборудование — точки доступа, которые умеют работать с captive-порталом и отдавать управление платформе. Здесь важно заранее подобрать или проверить оборудование, чтобы избежать сюрпризов на этапе внедрения. Также нужны доменное имя и защищённое соединение (HTTPS), чтобы страница входа открывалась корректно, а данные передавались по шифрованному каналу. Если планируется авторизация по SMS, потребуется подключение сервиса отправки сообщений.</p>
+<p>Отдельный и важный вопрос — персональные данные. Как только вы собираете через портал телефоны, имена или адреса гостей, вы работаете с персональными данными, и это попадает под требования российского законодательства (152-ФЗ). На практике это означает несколько вещей: на странице входа должно быть явное согласие гостя на обработку данных и, при необходимости, на получение рекламных рассылок; должна быть доступна политика обработки персональных данных; а сами данные разумно хранить в российской юрисдикции. Преимущество self-hosted решения здесь как раз в том, что вы полностью контролируете, где и как хранятся контакты гостей, и можете выстроить процесс в соответствии с требованиями, а не полагаться на политику зарубежного облачного сервиса.</p>
+<p>Российский стек и размещение в РФ в этом случае не формальность, а способ заранее снять риски — особенно для заведений, которые системно собирают контактную базу клиентов и затем используют её для рассылок.</p>
+
+<h2 id="kak-vnedrit">Как внедрить под ключ</h2>
+<p>Самостоятельный запуск OpenWISP — это не только скачать репозиторий. Нужно подобрать и настроить сервер, развернуть панель управления, базу данных и модуль портала, подобрать и подключить совместимые точки доступа, оформить брендированную страницу входа, настроить сценарий авторизации гостей, подключить домен и сертификат, а затем проверить весь путь гостя — от подключения к сети до получения доступа в интернет. Для человека без опыта администрирования это несколько дней разбирательств с документацией, сетевыми настройками и типичными ошибками.</p>
+<p>Я беру эту часть на себя. Подбираю подходящий сервер и помогаю с выбором совместимого оборудования, разворачиваю OpenWISP, настраиваю captive-портал в вашем фирменном стиле, подключаю нужный способ авторизации гостей, настраиваю мониторинг, домен, HTTPS, резервное копирование и базовую безопасность, помогаю корректно оформить согласия и политику обработки данных с учётом 152-ФЗ, проверяю реальный сценарий подключения гостя и передаю вам готовый рабочий инструмент с понятной инструкцией. При необходимости остаюсь на связи для поддержки и обновлений.</p>
+<p>За плечами 16+ лет в IT и десятки развёрнутых open-source решений под конкретные задачи бизнеса. Если вам нужен управляемый гостевой Wi-Fi с брендированным порталом и сбором контактов на своём сервере, с данными под вашим контролем и без абонентской платы чужому сервису — <a href="/predlozheniya/open-source-pod-klyuch/">разверну платформу гостевого Wi-Fi под ключ</a>, а вы сосредоточитесь на гостях и продажах.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+<p><strong>Чем OpenWISP отличается от облачных Wi-Fi маркетинг-сервисов?</strong> Логика похожа: брендированная страница входа, авторизация гостей, сбор контактов и статистика. Разница в том, что OpenWISP — open-source платформа, которую вы ставите на свой сервер и владеете полностью, без ежемесячной подписки за портал и без лимитов по тарифу, а контактная база гостей остаётся у вас, а не в чужой инфраструктуре.</p>
+<p><strong>Что такое captive-портал простыми словами?</strong> Это страница, которая открывается у гостя при подключении к Wi-Fi, прежде чем он получит доступ в интернет. На ней можно разместить логотип и приветствие заведения, условия использования и форму входа — например, ввод телефона или согласие с правилами. После авторизации гость попадает в интернет.</p>
+<p><strong>Нужно ли менять оборудование?</strong> Зависит от того, что у вас сейчас стоит. Для работы портала нужны точки доступа, совместимые с такой схемой управления. На этапе подготовки я проверяю ваше оборудование и, если нужно, помогаю подобрать подходящее, чтобы внедрение прошло без сюрпризов.</p>
+<p><strong>Законно ли собирать контакты гостей через Wi-Fi?</strong> Да, при правильной организации. Сбор телефонов или адресов — это обработка персональных данных, поэтому на странице входа нужно явное согласие гостя, а также доступная политика обработки данных. Поскольку платформа стоит на вашем сервере, вы контролируете хранение и можете разместить всё в российской юрисдикции с учётом требований 152-ФЗ.</p>
+<p><strong>Я не разбираюсь в серверах и сетях — справлюсь ли я?</strong> Запуск, настройку оборудования и оформление портала я беру на себя и передаю готовый инструмент с инструкцией. Для повседневной работы технических знаний не нужно: вы управляете контентом портала и видите статистику через удобную панель.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+<p>OpenWISP — это рабочая open-source платформа для управления гостевым Wi-Fi: централизованная настройка точек доступа, брендированный captive-портал, авторизация гостей и мониторинг сети. Главное отличие от обычной раздачи интернета в том, что Wi-Fi превращается в маркетинговый инструмент — страница входа с логотипом, сбор контактов и согласий, основа базы для рассылок и контроль над тем, кто пользуется сетью. По сравнению с облачными сервисами своя установка убирает абонентскую плату и оставляет данные гостей под вашим контролем, что особенно важно с учётом 152-ФЗ. Платформа подходит для кафе, ресторанов, отелей, торговых центров, салонов и коворкингов. Для запуска нужны сервер, совместимое оборудование и грамотная настройка с корректным оформлением согласий — и эту часть проще доверить специалисту, чтобы сразу получить надёжный инструмент, а не разбираться с инфраструктурой в одиночку.</p>
+
+                    </div>
+
+                    
+                    <div class="blog-cta-card">
+                        <div class="blog-cta-card-body">
+                            <h3>Ещё open-source для бизнеса</h3>
+                            <p>Эта статья — часть каталога бесплатных решений, которые я разворачиваю на вашем сервере под ключ: CRM, аналитика, документы, почта, безопасность, магазины, AI.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="/blog/katalog-open-source-resheniy-dlya-biznesa-2026/" class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Каталог open-source решений</a>
+                        </div>
+                    </div>
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Что я делаю с open-source</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-hard-drives"></i> <span>Развёртывание на вашем сервере</span></li>
+    
+    <li><i class="ph-fill ph-arrows-left-right"></i> <span>Перенос данных из старого сервиса</span></li>
+    
+    <li><i class="ph-fill ph-shield-check"></i> <span>Безопасность и 152-ФЗ</span></li>
+    
+    <li><i class="ph-fill ph-wrench"></i> <span>Настройка под ваши процессы</span></li>
+    
+    <li><i class="ph-fill ph-lifebuoy"></i> <span>Поддержка и обновления</span></li>
+    
+  </ul>
+  <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
+  </a>
+</div>
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/open-source-pod-klyuch/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовое решение по теме</span>
+                            <span class="blog-offer-cta-title">Open-source решение под ключ на ваш сервер</span>
+                            <span class="blog-offer-cta-price">Бесплатная консультация · Запуск за 1–3 недели</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-arrow-right" aria-hidden="true"></i> Смотреть предложение</span>
+                    </a>
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/predlozheniya/open-source-pod-klyuch/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Развернуть open-source под ключ</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/open-loyalty-programma-loyalnosti-2026/" data-category="opensource">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-medal"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>Open Loyalty: программа лояльности с геймификацией на своём сервере</h3>
+  <p>Open Loyalty — это своя программа лояльности с геймификацией: баллы, уровни, награды и челленджи для клиентов, на вашем сервере и без дорогих подписок. Разбираю, кому подходит и что нужно для запуска.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 15 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/listmonk-rassylki-bez-mailchimp-2026/" data-category="opensource">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-envelope-simple"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>Listmonk: email-рассылки без Mailchimp на своём сервере</h3>
+  <p>Listmonk — это свои email-рассылки на своём сервере без платы за размер базы. Разбираю возможности, важность доставляемости и что нужно для запуска.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 14 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/frigate-umnoe-videonablyudenie-2026/" data-category="opensource">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-video-camera"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>Frigate: умное видеонаблюдение с AI-распознаванием объектов</h3>
+  <p>Frigate распознаёт на видео людей и машины и шлёт оповещение только на реальное событие, а не на каждое шевеление — плюс быстрый поиск по событиям. Для ретейла, склада, офиса. Разбираю применение и как на этом зарабатывать.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 16 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 10 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовые решения под ключ</span>
+                            <span class="blog-offer-cta-title">449 готовых IT-решений для бизнеса</span>
+                            <span class="blog-offer-cta-price">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Смотреть каталог</span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#chto-eto"><span class="blog-toc-num">01</span> Что это и что заменяет</a></li>
+<li><a href="#vozmozhnosti"><span class="blog-toc-num">02</span> Что умеет</a></li>
+<li><a href="#komu-podhodit"><span class="blog-toc-num">03</span> Кому подходит</a></li>
+<li><a href="#chto-nuzhno"><span class="blog-toc-num">04</span> Что нужно для запуска</a></li>
+<li><a href="#kak-vnedrit"><span class="blog-toc-num">05</span> Как внедрить под ключ</a></li>
+<li><a href="#faq"><span class="blog-toc-num">06</span> FAQ</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">07</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=23" defer></script>
+<script src="/services-i18n.js?v=23" defer></script>
+<script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>
