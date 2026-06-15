@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>changedetection.io: слежение за изменениями сайтов</title>
+    <meta name="description" content="changedetection.io — open-source мониторинг изменений веб-страниц: следит за ценами конкурентов, новыми тендерами и госзакупками, прайсами поставщиков…">
+    <meta name="keywords" content="changedetection, мониторинг, конкуренты, open-source">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/changedetection-monitoring-saytov-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/changedetection-monitoring-saytov-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/changedetection-monitoring-saytov-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/changedetection-monitoring-saytov-2026/">
+    <meta property="og:title" content="changedetection.io: слежение за изменениями сайтов">
+    <meta property="og:description" content="changedetection.io — open-source мониторинг изменений веб-страниц: следит за ценами конкурентов, новыми тендерами и госзакупками, прайсами поставщиков…">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/changedetection-monitoring-saytov-2026/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="changedetection.io: слежение за изменениями сайтов">
+    <meta name="twitter:description" content="changedetection.io — open-source мониторинг изменений веб-страниц: следит за ценами конкурентов, новыми тендерами и госзакупками, прайсами поставщиков…">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/changedetection-monitoring-saytov-2026/cover.png">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor-Fill.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=43">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "changedetection.io: мониторинг изменений на сайтах на своём сервере",
+  "description": "changedetection.io — open-source мониторинг изменений веб-страниц: следит за ценами конкурентов, новыми тендерами и госзакупками, прайсами поставщиков, правками в законах; шлёт уведомления при изменении. Без подписки, данные у себя — разверну под ключ.",
+  "image": "https://chimitdorzhi.tech/blog/changedetection-monitoring-saytov-2026/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/changedetection-monitoring-saytov-2026/"
+  },
+  "datePublished": "2026-06-16",
+  "dateModified": "2026-06-16",
+  "keywords": "changedetection, мониторинг, конкуренты, open-source",
+  "articleSection": "Open-source и свой сервер",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "changedetection.io: мониторинг изменений на сайтах на своём сервере",
+      "item": "https://chimitdorzhi.tech/blog/changedetection-monitoring-saytov-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Чем changedetection.io отличается от платных сервисов мониторинга?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Задача та же — следить за изменениями на страницах и присылать уведомления. Разница в модели: changedetection.io вы ставите на свой сервер и владеете им полностью, без ежемесячной подписки и без лимитов чужого тарифа на число страниц и частоту проверок, а отслеживаемые адреса и история остаются у вас."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как я узнаю об изменении?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Инструмент сам пришлёт уведомление в выбранный канал — на email, в Telegram или на вебхук — и покажет наглядный diff: какой текст на странице добавился, изменился или исчез. Заходить в панель и проверять вручную не нужно."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли следить за ценой или наличием конкретного товара, а не за всей страницей?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да. Можно настроить отслеживание только нужного блока страницы — например, поля с ценой или статусом наличия — и игнорировать остальное, чтобы реклама и прочий меняющийся контент не вызывали лишних уведомлений."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "А если страница открывается только после входа в личный кабинет?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Инструмент умеет работать со страницами за авторизацией и с сайтами, где содержимое подгружается скриптами, — для этого используется встроенный браузер, который открывает страницу как обычный пользователь. Такой сценарий настраивается отдельно при внедрении."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Я не разбираюсь в серверах — справлюсь ли я?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Запуск и настройку я беру на себя и передаю готовый инструмент с инструкцией. Дальше пользоваться им просто: вы добавляете нужные страницы через удобный интерфейс и получаете уведомления, техническое образование для этого не требуется."
+      }
+    }
+  ]
+}
+    </script>
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+            <li><a href="/#services" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li class="nav-dropdown">
+                <a href="/#projects" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--arey"><i class="ph-fill ph-vinyl-record" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-airplane-tilt" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#cases" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            </div>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/#about">Обо мне</a></li>
+        <li><a href="/#services">Услуги</a></li>
+        <li><a href="/services/">Каталог услуг</a></li>
+        <li><a href="/predlozheniya/">Предложения</a></li>
+        <li><a href="/#cases">Кейсы</a></li>
+        <li><a href="/blog/">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+        <li><a href="/#contact">Контакт</a></li>
+    </ul>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">changedetection.io: мониторинг изменений на сайтах на своём сервере</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/opensource/"><i class="ph ph-bookmark" aria-hidden="true"></i> Open-source и свой сервер</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 10 мин чтения</span>
+                        <time datetime="2026-06-16"><i class="ph ph-calendar" aria-hidden="true"></i> 16 июня 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">changedetection.io: мониторинг изменений на сайтах на своём сервере</h1>
+
+                    <p class="blog-lead">changedetection.io автоматически следит за нужными сайтами и пишет вам, когда там что-то изменилось: цена конкурента, новый тендер, правка в законе, появление товара. Вручную это не отследить. Разбираю применение и как на этом зарабатывать.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>changedetection</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>мониторинг</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>конкуренты</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>open-source</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
+<li>changedetection.io — open-source инструмент, который сам следит за веб-страницами: проверяет их по расписанию и сообщает, когда на странице что-то изменилось.</li>
+<li>Сценарии для бизнеса: цены и акции конкурентов, новые тендеры и госзакупки, правки в прайсах поставщиков, изменения в законах на госсайтах, наличие товара.</li>
+<li>Уведомления приходят туда, где вам удобно — на email, в Telegram или на вебхук, — а инструмент показывает наглядный diff: что именно на странице поменялось.</li>
+<li>Главное отличие от платных сервисов слежения — установка на свой сервер: без ежемесячной подписки, без лимитов чужого тарифа и с данными у себя.</li>
+<li>Я разворачиваю и настраиваю мониторинг под ваши задачи, чтобы вы сразу получили готовые уведомления, а не разбирались с настройкой в одиночку.</li>
+</ul></div>
+
+<p>Многие важные для бизнеса вещи живут на чужих сайтах и тихо меняются без предупреждения: конкурент опускает цену, поставщик обновляет прайс, на портале госзакупок появляется новый подходящий тендер, а на сайте ведомства правят регламент. Отслеживать всё это вручную невозможно — никто не будет открывать десятки страниц по кругу несколько раз в день. Платные сервисы мониторинга такую задачу решают, но стоят дорого и хранят данные у себя. changedetection.io — это open-source инструмент, который делает то же самое, но разворачивается на вашем собственном сервере. Ниже разберу, что он умеет, кому полезен и что нужно для запуска.</p>
+
+<h2 id="chto-eto">Что такое changedetection.io и зачем он нужен</h2>
+<p>changedetection.io — это бесплатный инструмент с открытым исходным кодом, который автоматически следит за изменениями на веб-страницах. Принцип простой: вы добавляете адрес страницы, которую хотите контролировать, задаёте расписание проверок, и дальше система сама регулярно открывает эту страницу и сравнивает её с предыдущей версией. Как только содержимое меняется, вы получаете уведомление — и видите, что именно изменилось.</p>
+<p>По сути это автоматический наблюдатель, который делает за вас рутину: вместо того чтобы человек вручную обходил список сайтов и пытался заметить отличия, этим занимается программа. Она не устаёт, не пропускает проверки и фиксирует даже мелкие правки, которые глазом легко не заметить. Это особенно ценно, когда отслеживать нужно не одну страницу, а десятки, и делать это постоянно.</p>
+<p>На рынке есть платные облачные сервисы с похожей задачей, но модель у них другая: вы платите подписку, упираетесь в лимиты тарифа по числу страниц и частоте проверок, а все отслеживаемые адреса и история изменений хранятся в чужой инфраструктуре. changedetection.io вы ставите на свой сервер и владеете им полностью — без абонентской платы, без навязанных ограничений и с полным контролем над тем, что и как часто проверяется.</p>
+
+<h2 id="vozmozhnosti">Что умеет: проверки, уведомления, diff</h2>
+<p>Основа инструмента — проверка страниц по расписанию. Вы сами задаёте, как часто открывать каждый адрес: для чего-то срочного это могут быть минуты, для редко меняющихся страниц — раз в день. Система ходит по списку, скачивает содержимое и сравнивает с тем, что было в прошлый раз. Если отличий нет, она молчит и не отвлекает вас зря; если что-то поменялось — срабатывает уведомление.</p>
+<p>Уведомления приходят туда, где вам удобно их получать: на электронную почту, в Telegram, в другие мессенджеры или на вебхук — то есть напрямую в вашу систему или скрипт, если вы хотите подключить реакцию автоматически. Это значит, что вам не нужно заходить в сам инструмент и проверять — он сам постучится, когда будет повод.</p>
+<p>Отдельно стоит выделить наглядный diff. Инструмент не просто говорит «страница изменилась», а показывает, что именно стало другим: какой текст добавился, что убрали, что переписали — изменения подсвечиваются, как при сравнении версий документа. Это экономит время: вы сразу видите суть правки и не перечитываете всю страницу заново.</p>
+<p>Есть и более тонкие настройки слежения. Можно отслеживать не всю страницу целиком, а только нужный её блок — например, поле с ценой или статусом наличия, игнорируя меняющуюся рекламу и прочий шум. Можно реагировать на появление или исчезновение ключевых слов. Можно следить за страницами, которые открываются только после входа в личный кабинет, то есть за контентом, спрятанным за авторизацией. А для современных сайтов, где содержимое подгружается скриптами, инструмент умеет открывать страницу как полноценный браузер, чтобы видеть её так же, как живой пользователь.</p>
+
+<h2 id="komu-podhodit">Кому и для каких задач подходит</h2>
+<p>changedetection.io полезен любому бизнесу, который зависит от информации на чужих сайтах. Самый частый сценарий — мониторинг конкурентов: отслеживание цен, акций и новых предложений. Как только конкурент меняет стоимость или запускает распродажу, вы узнаёте об этом в тот же день, а не через неделю случайно. Это позволяет вовремя реагировать ценой или собственной акцией.</p>
+<p>Второй большой сценарий — закупки и тендеры. Инструмент можно нацелить на страницы тендерных площадок и порталов госзакупок и получать сигнал, когда появляется новый подходящий лот. Так заявку не упустишь из-за того, что вовремя не заглянул на сайт. По той же логике отслеживают изменения в прайсах поставщиков: подорожание или новые позиции видны сразу, а не в момент очередного заказа.</p>
+<p>Третий сценарий — нормативные и юридические изменения. Юристам, бухгалтерам и руководителям важно не пропустить правки в законах, регламентах и требованиях на официальных сайтах ведомств. Мониторинг таких страниц снимает риск работать по устаревшей версии документа. Сюда же относится контроль наличия товара — например, отслеживание, когда нужная позиция снова появится в продаже у поставщика.</p>
+<p>Общий знаменатель прост: если для вас важны данные, которые меняются на сайтах вне вашего контроля, и упустить это изменение стоит денег или времени — автоматический мониторинг окупает себя за счёт скорости реакции.</p>
+<p><strong>Как на этом можно зарабатывать.</strong> Развёрнутый у себя инструмент мониторинга — это ещё и основа для услуги под клиента. Можно настраивать отслеживание нужных страниц для других компаний: следить за ценами их конкурентов, за тендерами в их нише, за изменениями у их поставщиков и присылать готовые сводки. Один сервер обслуживает сразу несколько клиентов, а ценность для них — в экономии времени и в том, что они узнают о важных изменениях вовремя. Это спокойная и понятная услуга, которую легко объяснить заказчику; конкретный доход здесь зависит от числа клиентов и условий, которые вы согласуете сами.</p>
+
+<h2 id="chto-nuzhno">Что нужно для запуска: сервер, настройка, нюансы</h2>
+<p>changedetection.io — это серверное приложение, которому нужна площадка для постоянной работы. На практике это виртуальный сервер (VPS) с современным окружением для запуска контейнеров. Сам инструмент нетребователен к ресурсам, но если вы планируете отслеживать сложные сайты с подгружаемым содержимым, понадобится дополнительный компонент — встроенный браузер, который открывает страницы как настоящий пользователь. Это тоже разворачивается на сервере и связывается с основным приложением.</p>
+<p>Кроме сервера разумно подключить доменное имя и защищённое соединение (HTTPS), чтобы заходить в панель управления по нормальному адресу и по шифрованному каналу. Важна и базовая настройка безопасности: доступ к панели должен быть закрыт паролем, ведь там хранятся ваши списки отслеживаемых страниц и, возможно, данные для входа в личные кабинеты. Стоит также настроить резервное копирование, чтобы накопленные настройки и история изменений не потерялись.</p>
+<p>Есть и содержательные нюансы. Частоту проверок нужно подбирать с умом: слишком частые обращения к одному сайту — это и лишняя нагрузка, и риск, что сайт начнёт ограничивать запросы. Сами страницы нужно настроить так, чтобы инструмент реагировал на значимые изменения, а не на меняющуюся рекламу, дату или счётчики — иначе уведомления превратятся в шум. Грамотная первичная настройка как раз и отделяет полезный инструмент от источника бесполезных оповещений.</p>
+<p>Размещение на собственном сервере здесь даёт ещё одно преимущество — контроль над данными. Вы сами решаете, где физически находится сервер и кто имеет доступ к спискам отслеживаемых страниц, а это бывает важно, когда мониторинг касается коммерчески чувствительной информации.</p>
+
+<h2 id="kak-vnedrit">Как внедрить под ключ</h2>
+<p>Самостоятельный запуск open-source инструмента — это не только скачать репозиторий. Нужно подобрать и настроить сервер, развернуть приложение и при необходимости браузерный компонент, подключить домен и сертификат, закрыть доступ паролем, настроить уведомления в нужный канал и, главное, правильно сконфигурировать сами проверки — выбрать нужные блоки страниц, частоту и фильтры. Для человека без опыта администрирования это несколько дней разбирательств с документацией и типичными ошибками.</p>
+<p>Я беру эту часть на себя. Подбираю подходящий сервер под ваши задачи и список страниц, разворачиваю changedetection.io вместе с браузерным компонентом для сложных сайтов, настраиваю домен, HTTPS, пароль, резервное копирование и доставку уведомлений в email, Telegram или вебхук. Затем настраиваю сами проверки под ваши сценарии — цены, тендеры, прайсы, нормативку, наличие — так, чтобы приходили только полезные оповещения, и передаю готовый инструмент с понятной инструкцией. При необходимости остаюсь на связи для поддержки и доработок.</p>
+<p>За плечами 16+ лет в IT и десятки развёрнутых open-source решений под конкретные задачи бизнеса. Если вам нужен автоматический мониторинг изменений на сайтах, на своём сервере, без подписки и с данными под вашим контролем — <a href="/predlozheniya/open-source-pod-klyuch/">разверну мониторинг под ключ</a>, а вы будете вовремя узнавать о важных изменениях.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+<p><strong>Чем changedetection.io отличается от платных сервисов мониторинга?</strong> Задача та же — следить за изменениями на страницах и присылать уведомления. Разница в модели: changedetection.io вы ставите на свой сервер и владеете им полностью, без ежемесячной подписки и без лимитов чужого тарифа на число страниц и частоту проверок, а отслеживаемые адреса и история остаются у вас.</p>
+<p><strong>Как я узнаю об изменении?</strong> Инструмент сам пришлёт уведомление в выбранный канал — на email, в Telegram или на вебхук — и покажет наглядный diff: какой текст на странице добавился, изменился или исчез. Заходить в панель и проверять вручную не нужно.</p>
+<p><strong>Можно ли следить за ценой или наличием конкретного товара, а не за всей страницей?</strong> Да. Можно настроить отслеживание только нужного блока страницы — например, поля с ценой или статусом наличия — и игнорировать остальное, чтобы реклама и прочий меняющийся контент не вызывали лишних уведомлений.</p>
+<p><strong>А если страница открывается только после входа в личный кабинет?</strong> Инструмент умеет работать со страницами за авторизацией и с сайтами, где содержимое подгружается скриптами, — для этого используется встроенный браузер, который открывает страницу как обычный пользователь. Такой сценарий настраивается отдельно при внедрении.</p>
+<p><strong>Я не разбираюсь в серверах — справлюсь ли я?</strong> Запуск и настройку я беру на себя и передаю готовый инструмент с инструкцией. Дальше пользоваться им просто: вы добавляете нужные страницы через удобный интерфейс и получаете уведомления, техническое образование для этого не требуется.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+<p>changedetection.io — это рабочий open-source инструмент для автоматического мониторинга изменений на сайтах: он проверяет страницы по расписанию, присылает уведомления на email, в Telegram или вебхук и показывает наглядный diff того, что именно изменилось. Он закрывает задачи, которые вручную не отследить, — цены и акции конкурентов, новые тендеры, правки в прайсах поставщиков, изменения в нормативке, наличие товара. Главное преимущество перед платными сервисами — собственная установка: нет подписки и лимитов тарифа, а данные остаются под вашим контролем. Для запуска нужен сервер, домен и грамотная настройка проверок — и эту часть проще доверить специалисту, чтобы сразу получать только полезные уведомления, а не разбираться с инфраструктурой в одиночку.</p>
+
+                    </div>
+
+                    
+                    <div class="blog-cta-card">
+                        <div class="blog-cta-card-body">
+                            <h3>Ещё open-source для бизнеса</h3>
+                            <p>Эта статья — часть каталога бесплатных решений, которые я разворачиваю на вашем сервере под ключ: CRM, аналитика, документы, почта, безопасность, магазины, AI.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="/blog/katalog-open-source-resheniy-dlya-biznesa-2026/" class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Каталог open-source решений</a>
+                        </div>
+                    </div>
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Что я делаю с open-source</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-hard-drives"></i> <span>Развёртывание на вашем сервере</span></li>
+    
+    <li><i class="ph-fill ph-arrows-left-right"></i> <span>Перенос данных из старого сервиса</span></li>
+    
+    <li><i class="ph-fill ph-shield-check"></i> <span>Безопасность и 152-ФЗ</span></li>
+    
+    <li><i class="ph-fill ph-wrench"></i> <span>Настройка под ваши процессы</span></li>
+    
+    <li><i class="ph-fill ph-lifebuoy"></i> <span>Поддержка и обновления</span></li>
+    
+  </ul>
+  <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
+  </a>
+</div>
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/open-source-pod-klyuch/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовое решение по теме</span>
+                            <span class="blog-offer-cta-title">Open-source решение под ключ на ваш сервер</span>
+                            <span class="blog-offer-cta-price">Бесплатная консультация · Запуск за 1–3 недели</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-arrow-right" aria-hidden="true"></i> Смотреть предложение</span>
+                    </a>
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/predlozheniya/open-source-pod-klyuch/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Развернуть open-source под ключ</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/n8n-avtomatizaciya-bez-zapier-2026/" data-category="opensource">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-flow-arrow"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>n8n: автоматизация бизнес-процессов без Zapier на своём сервере</h3>
+  <p>n8n связывает ваши сервисы в автоматические сценарии — как Zapier, только на своём сервере и без платы за объём. Разбираю, что умеет, кому подходит и что нужно, чтобы это реально заработало.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 14 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/ntfy-push-uvedomleniya-2026/" data-category="opensource">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-bell"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>ntfy: свои push-уведомления на своём сервере</h3>
+  <p>ntfy шлёт уведомления о важных событиях бизнеса прямо на телефон: заявка с сайта, новый заказ, сбой сервера — простым запросом из любой системы, без чужих облаков. Разбираю применение.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 15 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/qdrant-semanticheskiy-poisk-2026/" data-category="opensource">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-magnifying-glass-plus"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>Qdrant: семантический поиск по документам компании на своём сервере</h3>
+  <p>Qdrant — это «умный поиск по смыслу» по всем документам компании и фундамент для AI-ассистента, отвечающего по вашим данным. Сотрудники перестают искать файлы вслепую. Это внедрение, разбираю честно — и как на этом зарабатывать.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 16 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 10 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовые решения под ключ</span>
+                            <span class="blog-offer-cta-title">449 готовых IT-решений для бизнеса</span>
+                            <span class="blog-offer-cta-price">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Смотреть каталог</span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#chto-eto"><span class="blog-toc-num">01</span> Что это и что заменяет</a></li>
+<li><a href="#vozmozhnosti"><span class="blog-toc-num">02</span> Что умеет</a></li>
+<li><a href="#komu-podhodit"><span class="blog-toc-num">03</span> Кому подходит</a></li>
+<li><a href="#chto-nuzhno"><span class="blog-toc-num">04</span> Что нужно для запуска</a></li>
+<li><a href="#kak-vnedrit"><span class="blog-toc-num">05</span> Как внедрить под ключ</a></li>
+<li><a href="#faq"><span class="blog-toc-num">06</span> FAQ</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">07</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=23" defer></script>
+<script src="/services-i18n.js?v=23" defer></script>
+<script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>
