@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frappe HR: кадровый портал на своём сервере</title>
+    <meta name="description" content="Frappe HR — open-source HR-система: учёт сотрудников, отпуска и посещаемость, расчётные листки, заявки и согласования, подбор и оценка персонала…">
+    <meta name="keywords" content="Frappe HR, HR, кадры, open-source">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/frappe-hr-kadrovyy-portal-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/frappe-hr-kadrovyy-portal-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/frappe-hr-kadrovyy-portal-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/frappe-hr-kadrovyy-portal-2026/">
+    <meta property="og:title" content="Frappe HR: кадровый портал на своём сервере">
+    <meta property="og:description" content="Frappe HR — open-source HR-система: учёт сотрудников, отпуска и посещаемость, расчётные листки, заявки и согласования, подбор и оценка персонала…">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/frappe-hr-kadrovyy-portal-2026/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Frappe HR: кадровый портал на своём сервере">
+    <meta name="twitter:description" content="Frappe HR — open-source HR-система: учёт сотрудников, отпуска и посещаемость, расчётные листки, заявки и согласования, подбор и оценка персонала…">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/frappe-hr-kadrovyy-portal-2026/cover.png">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor-Fill.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=43">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Frappe HR: кадровый портал (HR-система) на своём сервере",
+  "description": "Frappe HR — open-source HR-система: учёт сотрудников, отпуска и посещаемость, расчётные листки, заявки и согласования, подбор и оценка персонала, самообслуживание. Замена кадрового Excel без абонентки, данные у себя (152-ФЗ) — внедрю под ключ.",
+  "image": "https://chimitdorzhi.tech/blog/frappe-hr-kadrovyy-portal-2026/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/frappe-hr-kadrovyy-portal-2026/"
+  },
+  "datePublished": "2026-06-16",
+  "dateModified": "2026-06-16",
+  "keywords": "Frappe HR, HR, кадры, open-source",
+  "articleSection": "Open-source и свой сервер",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Frappe HR: кадровый портал (HR-система) на своём сервере",
+      "item": "https://chimitdorzhi.tech/blog/frappe-hr-kadrovyy-portal-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Чем Frappe HR отличается от облачных HR-сервисов?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Набор функций во многом схож: учёт сотрудников, отпуска, заявки, расчётные листки. Разница в модели: Frappe HR — open-source система, которую вы ставите на свой сервер и владеете полностью. Нет платы за каждого сотрудника, нет лимитов чужого тарифа, а данные кадров остаются у вас."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Подходит ли Frappe HR под российский кадровый учёт?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Базовая логика работы с персоналом универсальна, но это международная система. Типовые шаблоны, справочники и расчёт зарплаты ориентированы не на российскую специфику, поэтому их нужно адаптировать под российские правила. Это обязательный этап внедрения, который я закладываю в проект."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько сотрудников можно вести в системе?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Жёсткого лимита, навязанного тарифом, здесь нет — реальный объём зависит от мощности вашего сервера. Под размер штата и нагрузку сервер подбирается заранее, и я помогаю это рассчитать."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Насколько это законно с точки зрения данных сотрудников?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "HR-система работает с персональными данными работников, и это регулируется 152-ФЗ. Поскольку Frappe HR разворачивается на вашем сервере, вы контролируете хранение данных и можете разместить всё в российской юрисдикции с учётом требований закона, а не зависеть от политики зарубежного облака."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Мы не разбираемся в серверах — справимся ли мы?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Установку и настройку я беру на себя и передаю готовый портал с инструкцией и обучением кадровой службы. Для повседневной работы техническое образование не нужно: сотрудники и HR работают через удобный веб-интерфейс."
+      }
+    }
+  ]
+}
+    </script>
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+            <li><a href="/#services" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li class="nav-dropdown">
+                <a href="/#projects" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--arey"><i class="ph-fill ph-vinyl-record" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-airplane-tilt" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#cases" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            </div>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/#about">Обо мне</a></li>
+        <li><a href="/#services">Услуги</a></li>
+        <li><a href="/services/">Каталог услуг</a></li>
+        <li><a href="/predlozheniya/">Предложения</a></li>
+        <li><a href="/#cases">Кейсы</a></li>
+        <li><a href="/blog/">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+        <li><a href="/#contact">Контакт</a></li>
+    </ul>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Frappe HR: кадровый портал (HR-система) на своём сервере</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/opensource/"><i class="ph ph-bookmark" aria-hidden="true"></i> Open-source и свой сервер</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 10 мин чтения</span>
+                        <time datetime="2026-06-16"><i class="ph ph-calendar" aria-hidden="true"></i> 16 июня 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Frappe HR: кадровый портал (HR-система) на своём сервере</h1>
+
+                    <p class="blog-lead">Frappe HR заменяет кадровый учёт в Excel и заявки в переписке: сотрудники, отпуска, посещаемость, расчётные листки и согласования в одной системе на своём сервере. Разбираю применение и как на этом зарабатывать.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>Frappe HR</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>HR</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>кадры</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>open-source</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
+<li>Frappe HR — open-source HR-система из экосистемы Frappe/ERPNext: учёт сотрудников, отпуска и отсутствия, учёт рабочего времени, расчётные листки, заявки и согласования, оценка и подбор персонала, самообслуживание сотрудников.</li>
+<li>Подходит компаниям со штатом, которые хотят уйти от кадрового учёта в Excel и заявок в переписке к единому порталу с понятными процессами.</li>
+<li>Главное отличие — установка на собственном сервере: нет дорогой абонентки за каждого сотрудника, а данные кадров остаются у вас, что важно с учётом 152-ФЗ о персональных данных работников.</li>
+<li>Для запуска нужен сервер, доменное имя и настройка; кадровые шаблоны и справочники нужно адаптировать под российскую специфику.</li>
+<li>Я разворачиваю и настраиваю HR-портал под ключ под процессы вашей компании, чтобы вы получили рабочую систему, а не набор файлов из репозитория.</li>
+</ul></div>
+
+<p>Когда в компании пять человек, кадровый учёт легко уживается в одной таблице Excel, а заявления на отпуск пересылаются в мессенджере. Но как только штат вырастает до нескольких десятков, начинается путаница: кто в отпуске, у кого заканчивается испытательный срок, где лежит актуальный список сотрудников, сколько дней отпуска осталось у конкретного человека. Заявки теряются в переписке, согласования зависают, а HR тратит время на ручную сверку. Эту задачу закрывают HR-системы, но коммерческие решения нередко берут абонентскую плату за каждого сотрудника и хранят данные кадров в чужом облаке. Frappe HR — это open-source альтернатива, которую можно развернуть на своём сервере. Разберу, что это за система, что она умеет, кому подходит и что нужно для запуска.</p>
+
+<h2 id="chto-eto">Что такое Frappe HR и что заменяет</h2>
+<p>Frappe HR — это бесплатная HR-система с открытым исходным кодом, построенная на платформе Frappe — той же, на которой работает известная ERP-система ERPNext. По сути это полноценный кадровый портал, который объединяет в одном месте всё, что касается работы с персоналом: справочник сотрудников, оргструктуру, учёт отпусков и отсутствий, рабочее время и посещаемость, расчётные листки, заявки на согласование, оценку и подбор. Сотрудники получают личный кабинет для самообслуживания, а кадровая служба и руководители — единый инструмент управления.</p>
+<p>По функциям Frappe HR занимает ту же нишу, что и коммерческие HRM-платформы и облачные сервисы кадрового учёта. Принципиальная разница в модели владения. Облачные HR-системы вы арендуете и платите, как правило, за каждого активного сотрудника каждый месяц, а все кадровые данные хранятся в инфраструктуре поставщика. Frappe HR вы устанавливаете на свой сервер и владеете системой целиком: нет платы за число сотрудников, нет лимитов чужого тарифа и нет ситуации, когда персональные данные работников лежат на стороне. Для растущей компании это означает предсказуемые расходы и полный контроль над чувствительной информацией.</p>
+<p>Поскольку система open-source и построена на гибкой платформе Frappe, её можно настраивать под собственные процессы: добавлять нужные поля, менять маршруты согласований, оформлять справочники под свою специфику. Для большинства задач достаточно штатного функционала, а возможность доработки остаётся запасом на будущее.</p>
+
+<h2 id="vozmozhnosti">Что умеет: учёт, отпуска, зарплата, заявки</h2>
+<p>Основа системы — учёт сотрудников. В Frappe HR ведётся единый справочник персонала с карточками работников, должностями, подразделениями и оргструктурой. Здесь хранятся данные о приёме, переводах, документах и истории по каждому человеку. Это заменяет разрозненные таблицы и папки, давая один источник правды о том, кто и в какой роли работает в компании.</p>
+<p>Отдельный крупный блок — отпуска и отсутствия. Сотрудник подаёт заявку на отпуск через личный кабинет, она уходит на согласование руководителю, а система сама считает остатки дней по типам отпусков и ведёт календарь отсутствий. Видно, кто и когда отсутствует, что снимает вечный вопрос пересечения отпусков в отделе и избавляет от ручного подсчёта остатков.</p>
+<p>Учёт рабочего времени и посещаемости позволяет фиксировать отметки прихода и ухода, вести табель и учитывать отработанные часы. На основе этих данных и настроенных правил формируется картина посещаемости, удобная для контроля дисциплины и последующего расчёта.</p>
+<p>Расчётные листки и зарплата — это блок, где на основе оклада, отработанного времени, надбавок и удержаний система помогает формировать расчётные листки сотрудников. Структуру начислений настраивают под принятые в компании правила. Важно понимать, что под российский расчёт зарплаты и налоги типовые шаблоны нужно адаптировать — об этом ниже.</p>
+<p>Заявки и согласования пронизывают всю систему. Отпуск, командировка, авансовый отчёт по расходам, изменение данных — всё это оформляется как заявка с понятным маршрутом утверждения. Вместо переписки в чате появляется прозрачный процесс: видно, на ком сейчас согласование и в каком оно статусе.</p>
+<p>Оценка и подбор персонала дополняют картину. В системе можно вести цели и оценку сотрудников, а модуль подбора помогает работать с вакансиями и кандидатами — от заявки на вакансию до найма. Завершает всё самообслуживание: личный кабинет, где сотрудник сам видит свои данные, остатки отпусков, расчётные листки и подаёт заявки, разгружая кадровую службу от рутинных запросов.</p>
+
+<h2 id="komu-podhodit">Кому и для каких задач подходит</h2>
+<p>Frappe HR в первую очередь пригодится компаниям со штатом, которые переросли учёт в Excel. Если в организации несколько десятков сотрудников или больше, отдельные таблицы и переписка перестают справляться: данные дублируются, актуальность теряется, а HR тонет в ручной работе. Единый портал наводит порядок и экономит время на типовых операциях.</p>
+<p>Особенно полезна система там, где много заявок и согласований: отпуска, командировки, отчёты по расходам. Когда всё это идёт через прозрачные маршруты, а не через личные сообщения руководителю, процессы перестают зависать и проще найти, на ком застряло утверждение. Руководители видят свою команду, а сотрудники — свои данные и статусы заявок.</p>
+<p>Подходит Frappe HR и компаниям, для которых важен контроль над персональными данными сотрудников. Кадровая информация чувствительна по своей природе, и хранение её на собственном сервере, а не в чужом облаке, для многих организаций становится решающим аргументом. Тем, кто уже использует или планирует ERPNext, Frappe HR близок особенно — он живёт в той же экосистеме и логично дополняет учётный контур.</p>
+<p><strong>Как на этом можно зарабатывать.</strong> Внедрение HR-портала под ключ — это самостоятельная услуга, на которой можно строить практику. Компаниям почти всегда нужна не голая установка, а настройка под их процессы: справочники подразделений, типы отпусков, маршруты согласований, шаблоны под российскую специфику, обучение кадровой службы. Это полноценный проект внедрения, который можно предлагать бизнесу как услугу, а затем сопровождать систему — поддержка, обновления, доработки по мере роста компании. Речь не об обещании конкретного дохода, а о понятной модели: автоматизация кадровых процессов востребована, и компетенция по внедрению open-source HR-системы имеет ценность для рынка.</p>
+
+<h2 id="chto-nuzhno">Что нужно для запуска: сервер, настройка, 152-ФЗ</h2>
+<p>Frappe HR — это серверное приложение, поэтому для работы ему нужна площадка, где оно будет постоянно запущено. На практике это виртуальный сервер (VPS) или выделенная машина с подходящим окружением. Система построена на платформе Frappe и включает несколько компонентов — само приложение, базу данных, веб-сервер и фоновые службы, — которые нужно корректно установить, связать и настроить. Это не самое простое в развёртывании решение, и здесь важна аккуратная первоначальная настройка.</p>
+<p>Кроме сервера понадобится доменное имя и защищённое соединение (HTTPS), чтобы сотрудники заходили в портал по нормальной ссылке, а кадровые данные передавались по шифрованному каналу. Критично важны резервное копирование и базовая настройка безопасности: в системе хранится чувствительная информация о людях, и её потеря или утечка недопустимы.</p>
+<p>Отдельный и важный вопрос — персональные данные. HR-система по определению работает с персональными данными работников: ФИО, должности, документы, иногда сведения о зарплате. Это напрямую попадает под требования российского законодательства о персональных данных (152-ФЗ). На практике это означает, что разумно размещать сервер в российской юрисдикции и выстраивать процессы хранения и доступа в соответствии с требованиями. Преимущество self-hosted решения в том и состоит, что вы полностью контролируете, где и как хранятся данные сотрудников, и не зависите от политики зарубежного облачного сервиса.</p>
+<p>Стоит честно сказать и про адаптацию. Frappe HR — международная система, и её типовые кадровые шаблоны, справочники и логика расчёта зарплаты ориентированы не на российскую специфику. Под российский кадровый учёт, типы отпусков, расчёт и отчётность шаблоны нужно адаптировать. Это нормальная часть проекта внедрения, но важно понимать заранее: из коробки система не будет полностью соответствовать российским кадровым реалиям, и настройка под них — обязательный этап.</p>
+
+<h2 id="kak-vnedrit">Как внедрить под ключ</h2>
+<p>Самостоятельный запуск Frappe HR — это не только скачать репозиторий. Нужно подобрать и настроить сервер, развернуть платформу Frappe со всеми компонентами и базой данных, подключить домен и сертификат, настроить резервное копирование и безопасность. Затем начинается главное — настройка под процессы компании: оргструктура и подразделения, типы отпусков и правила их расчёта, маршруты согласования заявок, структура начислений, адаптация шаблонов под российскую специфику. Для человека без опыта администрирования и без понимания платформы Frappe это долгий путь проб и ошибок.</p>
+<p>Я беру эту часть на себя. Подбираю подходящий сервер под размер вашего штата, разворачиваю Frappe HR, настраиваю домен, HTTPS, резервное копирование и базовую безопасность. Дальше настраиваю систему под ваши кадровые процессы: справочники, типы отпусков, маршруты согласований, личные кабинеты сотрудников, адаптирую шаблоны под российскую специфику в разумных пределах. Провожу базовое обучение кадровой службы, передаю готовый рабочий портал с понятной инструкцией и остаюсь на связи для поддержки и обновлений.</p>
+<p>За плечами 16+ лет в IT и десятки развёрнутых open-source решений под конкретные задачи бизнеса. Если вам нужен кадровый портал на своём сервере — с данными сотрудников под вашим контролем и без абонентки за каждого человека — <a href="/predlozheniya/open-source-pod-klyuch/">разверну и настрою HR-портал под ключ</a>, а вы сосредоточитесь на работе с людьми, а не на инфраструктуре.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+<p><strong>Чем Frappe HR отличается от облачных HR-сервисов?</strong> Набор функций во многом схож: учёт сотрудников, отпуска, заявки, расчётные листки. Разница в модели: Frappe HR — open-source система, которую вы ставите на свой сервер и владеете полностью. Нет платы за каждого сотрудника, нет лимитов чужого тарифа, а данные кадров остаются у вас.</p>
+<p><strong>Подходит ли Frappe HR под российский кадровый учёт?</strong> Базовая логика работы с персоналом универсальна, но это международная система. Типовые шаблоны, справочники и расчёт зарплаты ориентированы не на российскую специфику, поэтому их нужно адаптировать под российские правила. Это обязательный этап внедрения, который я закладываю в проект.</p>
+<p><strong>Сколько сотрудников можно вести в системе?</strong> Жёсткого лимита, навязанного тарифом, здесь нет — реальный объём зависит от мощности вашего сервера. Под размер штата и нагрузку сервер подбирается заранее, и я помогаю это рассчитать.</p>
+<p><strong>Насколько это законно с точки зрения данных сотрудников?</strong> HR-система работает с персональными данными работников, и это регулируется 152-ФЗ. Поскольку Frappe HR разворачивается на вашем сервере, вы контролируете хранение данных и можете разместить всё в российской юрисдикции с учётом требований закона, а не зависеть от политики зарубежного облака.</p>
+<p><strong>Мы не разбираемся в серверах — справимся ли мы?</strong> Установку и настройку я беру на себя и передаю готовый портал с инструкцией и обучением кадровой службы. Для повседневной работы техническое образование не нужно: сотрудники и HR работают через удобный веб-интерфейс.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+<p>Frappe HR — это полноценная open-source HR-система из экосистемы Frappe/ERPNext: учёт сотрудников, отпуска и отсутствия, рабочее время, расчётные листки, заявки и согласования, оценка и подбор, самообслуживание сотрудников. Главное преимущество перед облачными сервисами — собственная установка: нет абонентки за каждого сотрудника, а данные кадров остаются под вашим контролем, что особенно важно с учётом 152-ФЗ. Система подходит компаниям со штатом, которые хотят уйти от учёта в Excel и заявок в переписке к единому порталу. Честно стоит учитывать, что это проект внедрения: нужны сервер, настройка под процессы компании и адаптация шаблонов под российскую специфику. Эту часть проще доверить специалисту, чтобы сразу получить рабочую кадровую систему, а не разбираться с инфраструктурой в одиночку.</p>
+
+                    </div>
+
+                    
+                    <div class="blog-cta-card">
+                        <div class="blog-cta-card-body">
+                            <h3>Ещё open-source для бизнеса</h3>
+                            <p>Эта статья — часть каталога бесплатных решений, которые я разворачиваю на вашем сервере под ключ: CRM, аналитика, документы, почта, безопасность, магазины, AI.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="/blog/katalog-open-source-resheniy-dlya-biznesa-2026/" class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Каталог open-source решений</a>
+                        </div>
+                    </div>
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Что я делаю с open-source</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-hard-drives"></i> <span>Развёртывание на вашем сервере</span></li>
+    
+    <li><i class="ph-fill ph-arrows-left-right"></i> <span>Перенос данных из старого сервиса</span></li>
+    
+    <li><i class="ph-fill ph-shield-check"></i> <span>Безопасность и 152-ФЗ</span></li>
+    
+    <li><i class="ph-fill ph-wrench"></i> <span>Настройка под ваши процессы</span></li>
+    
+    <li><i class="ph-fill ph-lifebuoy"></i> <span>Поддержка и обновления</span></li>
+    
+  </ul>
+  <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
+  </a>
+</div>
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/open-source-pod-klyuch/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовое решение по теме</span>
+                            <span class="blog-offer-cta-title">Open-source решение под ключ на ваш сервер</span>
+                            <span class="blog-offer-cta-price">Бесплатная консультация · Запуск за 1–3 недели</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-arrow-right" aria-hidden="true"></i> Смотреть предложение</span>
+                    </a>
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/predlozheniya/open-source-pod-klyuch/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Развернуть open-source под ключ</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/ai-v-hr-naym-2026/" data-category="ai-dev">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-users-three"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>AI для разработчиков</span>
+  <h3>AI в HR 2026: автоматизация найма — подбор, скрининг резюме, адаптация</h3>
+  <p>AI закрывает рутину найма: скрининг сотен резюме, первичный контакт, матчинг под вакансию. Разбираю где AI реально помогает (а где опасен): скрининг на YandexGPT/GigaChat, чат-бот-рекрутер, ATS, онбординг, прогноз увольнений — с кодом, запретом дискриминации (ТК РФ) и 152-ФЗ для данных кандидатов. AI рекомендует — решает человек.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 30 мая 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 23 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/kimai-uchet-rabochego-vremeni-2026/" data-category="opensource">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-timer"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>Kimai: учёт рабочего времени и таймтрекинг на своём сервере</h3>
+  <p>Kimai — это прозрачный учёт рабочего времени по проектам и клиентам с табелями, отчётами и биллингом часов, на вашем сервере и без подписки за пользователя. Для фрилансеров, агентств и команд. Разбираю запуск.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 16 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/odoo-erp-vsyo-v-odnom-2026/" data-category="opensource">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-stack"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>Odoo: ERP всё-в-одном на своём сервере</h3>
+  <p>Odoo заменяет зоопарк программ единой системой: CRM, склад, закупки, бухгалтерия, проекты — модулями, на своём сервере. Это внедрение, а не «поставил и работает». Разбираю честно.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 15 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовые решения под ключ</span>
+                            <span class="blog-offer-cta-title">449 готовых IT-решений для бизнеса</span>
+                            <span class="blog-offer-cta-price">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Смотреть каталог</span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#chto-eto"><span class="blog-toc-num">01</span> Что это и что заменяет</a></li>
+<li><a href="#vozmozhnosti"><span class="blog-toc-num">02</span> Что умеет</a></li>
+<li><a href="#komu-podhodit"><span class="blog-toc-num">03</span> Кому подходит</a></li>
+<li><a href="#chto-nuzhno"><span class="blog-toc-num">04</span> Что нужно для запуска</a></li>
+<li><a href="#kak-vnedrit"><span class="blog-toc-num">05</span> Как внедрить под ключ</a></li>
+<li><a href="#faq"><span class="blog-toc-num">06</span> FAQ</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">07</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=23" defer></script>
+<script src="/services-i18n.js?v=23" defer></script>
+<script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>
