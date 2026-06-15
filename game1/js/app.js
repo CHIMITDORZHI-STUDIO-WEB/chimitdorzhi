@@ -1,175 +1,93 @@
-/* ============================================================
-   app.js — склейка: инициализация, навигация между уровнями,
-   прогресс, звания. Использует data/engine/storage.
-   ============================================================ */
+/* ============================================================================
+ * app.js — склейка: инициализация, навигация между уровнями, прогресс,
+ * звания. Использует data.js / engine.js / storage.js. Регистрирует SW.
+ * ==========================================================================*/
 (function () {
-  const { LEVELS, RANKS } = window.GAME_DATA;
-  const { buildRow, applyRowState, evaluate, scoreLevel } = window.Engine;
   const $ = (id) => document.getElementById(id);
 
-  // Играбельны только заполненные уровни (заготовки без слов пропускаем).
-  const PLAYABLE = LEVELS.filter((lv) => Array.isArray(lv.words) && lv.words.length > 0);
-  const DRAFTS = LEVELS.length - PLAYABLE.length;
+  const state = Storage.load();
+  let idx = 0;
 
-  let progress = window.Storage.load();
-  let li = 0;            // индекс в PLAYABLE
-  let state = [];        // отметки текущего уровня
-  let hintUsed = false;  // открыл ли подсказку на этом заходе
-
-  function rankFor(total) {
-    let r = RANKS[0].title;
-    for (const rk of RANKS) if (total >= rk.min) r = rk.title;
-    return r;
+  function isUnlocked(i) {
+    if (i <= 0) return true;
+    return state.completed.indexOf(LEVELS[i - 1].id) !== -1;
   }
-
-  function passedCount() {
-    return PLAYABLE.filter((lv) => progress.levels[lv.id] && progress.levels[lv.id].passed).length;
+  function isDone(i) {
+    return state.completed.indexOf(LEVELS[i].id) !== -1;
   }
-
-  function updateHud() {
-    $('rank').textContent = rankFor(progress.total);
-    $('score').textContent = String(progress.total);
-    $('passed').textContent = passedCount() + ' из ' + PLAYABLE.length;
-    const pct = PLAYABLE.length ? Math.round((passedCount() / PLAYABLE.length) * 100) : 0;
-    $('bar').style.width = pct + '%';
-  }
-
-  function setResult(kind, html) {
-    const r = $('result');
-    r.className = 'result show ' + (kind || '');
-    r.innerHTML = html;
-  }
-  function clearResult() { $('result').className = 'result'; $('result').innerHTML = ''; }
-
-  function render() {
-    const lvl = PLAYABLE[li];
-    hintUsed = false;
-    state = lvl.words.map(() => null);
-
-    $('rootName').textContent = lvl.root;
-    $('rootNote').innerHTML = lvl.note;
-    $('task').textContent = lvl.task;
-    $('hint').innerHTML = '<b>Подсказка.</b> ' + lvl.hint;
-    $('hint').classList.remove('show');
-    clearResult();
-
-    const chain = $('chain');
-    chain.innerHTML = '';
-    lvl.words.forEach((wd, i) => chain.appendChild(buildRow(wd, i, onToggle)));
-
-    refreshNext();
-
-    // Если уровень уже пройден ранее — мягко сообщим.
-    const saved = progress.levels[lvl.id];
-    if (saved && saved.passed) {
-      setResult('win', 'Этот корень вы уже разобрали (получено ' + saved.score + ' очк.). Можно пройти заново для тренировки — очки начисляются один раз.');
+  function firstUnfinished() {
+    for (let i = 0; i < LEVELS.length; i++) {
+      if (isUnlocked(i) && !isDone(i)) return i;
     }
-    updateMarked();
-    updateHud();
+    return 0;
   }
-
-  function onToggle(i, row) {
-    const wd = PLAYABLE[li].words[i];
-    state[i] = state[i] === null ? 'kept' : state[i] === 'kept' ? 'cut' : null;
-    applyRowState(row, wd, state[i]);
-    updateMarked();
-  }
-
-  function updateMarked() {
-    const done = state.filter((s) => s !== null).length;
-    $('marked').textContent = 'Отмечено ' + done + ' из ' + state.length;
-  }
-
-  // Следующий уровень доступен, только если он есть и уже разблокирован
-  // (текущий пройден). До прохождения кнопка заблокирована — §6 спеки.
-  function refreshNext() {
-    const noNext = li >= PLAYABLE.length - 1;
-    const locked = (li + 1) >= progress.unlocked;
-    $('btnNext').disabled = noNext || locked;
-  }
-
-  function check() {
-    const lvl = PLAYABLE[li];
-    const { correct, unmarked, total } = evaluate(lvl, state);
-
-    if (unmarked > 0) {
-      setResult('miss', 'Отметьте все слова — осталось ' + unmarked +
-        '. По каждому решите: хранит ли оно корень ' + lvl.root + ' (✓) или это омоним-самозванец (✕).');
-      return;
+  function rankFor(points) {
+    let name = RANKS[0].name;
+    for (let i = 0; i < RANKS.length; i++) {
+      if (points >= RANKS[i].points) name = RANKS[i].name;
     }
+    return name;
+  }
 
-    if (correct === total) {
-      const saved = progress.levels[lvl.id];
-      let gained = 0;
-      if (!saved || !saved.passed) {
-        gained = scoreLevel(lvl, state, hintUsed);
-        progress.levels[lvl.id] = { passed: true, score: gained, hintUsed: hintUsed };
-        progress.total += gained;
-        if (li + 1 < PLAYABLE.length && progress.unlocked < li + 2) progress.unlocked = li + 2;
-        window.Storage.save(progress);
-      }
-      const tail = gained ? ' <b>+' + gained + ' очков.</b>' : '';
-      setResult('win', 'Верно всё! Вы увидели, как один корень ' + lvl.root +
-        ' проходит через языки — и отделили настоящих родственников от созвучных чужаков.' + tail);
-      updateHud();
-      refreshNext();
-    } else {
-      setResult('miss', 'Угадано ' + correct + ' из ' + total +
-        '. Похожие по звучанию — ещё не родня: у омонимов другой корень. Откройте значение или словарь и проверьте ещё раз.');
+  function renderHeader() {
+    const completedCount = LEVELS.filter((l, i) => isDone(i)).length;
+    $('statRank').textContent = rankFor(state.points);
+    $('statPoints').textContent = state.points + ' очк.';
+    $('statLevels').textContent = 'Пройдено ' + completedCount + ' из ' + LEVELS.length;
+  }
+
+  function renderNav() {
+    $('levelTitle').textContent = 'Уровень ' + (idx + 1) + ' из ' + LEVELS.length +
+      ' · корень ' + (LEVELS[idx].root || '—');
+    $('btnPrev').disabled = idx <= 0;
+    const nextI = idx + 1;
+    $('btnNext').disabled = nextI >= LEVELS.length || !isUnlocked(nextI);
+    $('btnNext').title = ($('btnNext').disabled && nextI < LEVELS.length)
+      ? 'Откроется после прохождения текущего уровня' : '';
+  }
+
+  function show(i) {
+    if (i < 0 || i >= LEVELS.length || !isUnlocked(i)) return;
+    idx = i;
+    Engine.load(LEVELS[i], onPass);
+    renderHeader();
+    renderNav();
+    window.scrollTo({ top: 0, behavior: prefersReducedMotion() ? 'auto' : 'smooth' });
+  }
+
+  function onPass(points) {
+    const lvl = LEVELS[idx];
+    if (state.completed.indexOf(lvl.id) === -1) {
+      state.points += points;
+      state.completed.push(lvl.id);
+      Storage.save(state);
     }
+    renderHeader();
+    renderNav(); // разблокирует «вперёд», если открылся следующий уровень
   }
 
-  function init() {
-    if (PLAYABLE.length === 0) {
-      $('rootName').textContent = '—';
-      setResult('miss', 'Пока нет заполненных уровней. Добавьте корень в data.js.');
-      return;
-    }
-    // Стартуем с первого непройденного, иначе с последнего доступного.
-    const firstUnsolved = PLAYABLE.findIndex((lv) => !(progress.levels[lv.id] && progress.levels[lv.id].passed));
-    li = firstUnsolved === -1 ? 0 : firstUnsolved;
-
-    $('btnCheck').addEventListener('click', check);
-    $('btnHint').addEventListener('click', () => {
-      const h = $('hint');
-      const opening = !h.classList.contains('show');
-      h.classList.toggle('show');
-      if (opening) hintUsed = true; // штраф учтётся при начислении за уровень
-    });
-    $('btnNext').addEventListener('click', () => {
-      if (li < PLAYABLE.length - 1) { li++; render(); window.scrollTo({ top: 0, behavior: 'smooth' }); }
-    });
-    $('btnReset').addEventListener('click', () => {
-      if (confirm('Сбросить весь прогресс и очки?')) { progress = window.Storage.reset(); li = 0; render(); }
-    });
-
-    setupTheme();
-
-    if (DRAFTS > 0) $('drafts').textContent = 'В трафарете ещё ' + DRAFTS + ' заготовки — новые корни добавляются одним блоком данных.';
-    render();
+  function prefersReducedMotion() {
+    return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   }
 
-  var SUN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>';
-  var MOON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></svg>';
+  /* ----- проводка кнопок ----- */
+  $('btnCheck').addEventListener('click', () => Engine.check());
+  $('btnAdd').addEventListener('click', () => Engine.toggleAdd());
+  $('addGo').addEventListener('click', () => Engine.addWord($('addInput').value));
+  $('addInput').addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') { e.preventDefault(); Engine.addWord($('addInput').value); }
+  });
+  $('btnPrev').addEventListener('click', () => show(idx - 1));
+  $('btnNext').addEventListener('click', () => show(idx + 1));
 
-  function applyThemeUi() {
-    var dark = document.documentElement.getAttribute('data-theme') === 'dark';
-    // кнопка показывает, на что переключит
-    $('themeIcon').innerHTML = dark ? SUN : MOON;
-    $('themeLabel').textContent = dark ? 'Светлая' : 'Тёмная';
-    var meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.setAttribute('content', dark ? '#191d1b' : '#2f5d57');
-  }
-
-  function setupTheme() {
-    applyThemeUi();
-    $('themeToggle').addEventListener('click', function () {
-      var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-      document.documentElement.setAttribute('data-theme', next);
-      try { localStorage.setItem('tolkovatel:theme', next); } catch (e) {}
-      applyThemeUi();
+  /* ----- регистрация Service Worker (PWA, офлайн) ----- */
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register('service-worker.js').catch(function () { /* офлайн необязателен */ });
     });
   }
 
-  document.addEventListener('DOMContentLoaded', init);
+  /* старт: первый непройденный уровень */
+  idx = firstUnfinished();
+  show(idx);
 })();

@@ -2,91 +2,76 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="theme-color" content="#2f5d57">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Толкователь — игра в слова</title>
-<meta name="description" content="«Толкователь» — веб-игра в слова на основе алфавита-ключа. Проверяйте цепочки однокоренных слов и отделяйте настоящих родственников корня от созвучных омонимов. Идея: Ольга Раднаева.">
-<link rel="canonical" href="https://chimitdorzhi.tech/game1/">
-<meta property="og:title" content="Толкователь — игра в слова">
-<meta property="og:description" content="Как стать полиглотом, не зная языков. Проверяйте цепочки однокоренных слов через алфавит-ключ.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://chimitdorzhi.tech/game1/">
-<meta property="og:locale" content="ru_RU">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="css/styles.css?v=3">
-<script>
-(function(){try{var t=localStorage.getItem('tolkovatel:theme');if(t!=='light'&&t!=='dark')t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();
-</script>
+<meta name="description" content="Толкователь — игра про доказательство родства слов. Один корень под разными алфавитами. Идея: Ольга Раднаева.">
+<meta name="theme-color" content="#2f5d57">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-<div class="topbar">
-  <a class="backlink" href="/">← chimitdorzhi.tech</a>
-  <button class="theme-toggle" id="themeToggle" type="button" aria-label="Переключить тему">
-    <span id="themeIcon" aria-hidden="true"></span><span id="themeLabel"></span>
-  </button>
-</div>
-
 <div class="wrap">
   <header>
-    <div class="kicker">Игра-трафарет</div>
+    <div class="kicker">Игра в слова · трафарет</div>
     <h1>Толкователь</h1>
     <div class="sub">Как стать полиглотом, не зная языков</div>
     <div class="author">Идея: Ольга Раднаева · Исполнитель: Chimitdorzhi Studio</div>
   </header>
 
-  <div class="keybar" aria-label="Алфавит-ключ: кодовые буквы">
+  <!-- статус игрока -->
+  <div class="status" aria-live="polite">
+    <div class="stat"><span class="stat-k">Звание</span><span class="stat-v" id="statRank">—</span></div>
+    <div class="stat"><span class="stat-k">Очки</span><span class="stat-v" id="statPoints">0 очк.</span></div>
+    <div class="stat"><span class="stat-k">Прогресс</span><span class="stat-v" id="statLevels">—</span></div>
+  </div>
+
+  <div class="keybar" aria-hidden="true">
     <div class="ktile"><b>Ү</b><span>У</span></div>
     <div class="ktile"><b>Һ</b><span>Х</span></div>
     <div class="ktile"><b>Ө</b><span>О</span></div>
   </div>
+  <div class="ipsilon">Греческий ипсилон <b>Yu</b> в латинском разделился на <b>Y</b> (звук «и») и <b>U</b> (звук «ю»). Отсюда рвалось родство.</div>
 
-  <section class="hud" aria-label="Прогресс">
-    <div class="hud-row">
-      <span class="hud-item"><span class="hud-k">Звание</span><b id="rank">Ученик</b></span>
-      <span class="hud-item"><span class="hud-k">Очки</span><b id="score">0</b></span>
-      <span class="hud-item"><span class="hud-k">Пройдено</span><b id="passed">0 из 0</b></span>
-    </div>
-    <div class="track"><div class="track-fill" id="bar"></div></div>
-  </section>
+  <!-- навигация по уровням -->
+  <nav class="levelnav">
+    <button class="navbtn" id="btnPrev" aria-label="Предыдущий уровень">‹ назад</button>
+    <span class="level-title" id="levelTitle">Уровень</span>
+    <button class="navbtn" id="btnNext" aria-label="Следующий уровень">вперёд ›</button>
+  </nav>
 
-  <main class="card" id="card">
+  <div class="card">
     <div class="root-head">
-      <span class="root-label">Корень уровня</span>
+      <span class="root-label">Корень</span>
       <span class="root" id="rootName">—</span>
     </div>
-    <p class="root-note" id="rootNote"></p>
-
-    <p class="task" id="task"></p>
-
+    <div class="root-note" id="rootNote"></div>
+    <div class="task" id="task"></div>
     <div class="chain" id="chain"></div>
 
-    <div class="hint" id="hint"></div>
-
-    <div class="controls">
-      <button class="btn btn-check" id="btnCheck" type="button">Проверить цепочку</button>
-      <button class="btn btn-hint" id="btnHint" type="button">Подсказка</button>
-      <button class="btn btn-next" id="btnNext" type="button">Следующий пример →</button>
+    <div class="controls" id="controls">
+      <button class="main btn-check" id="btnCheck">Проверить доказательство</button>
+      <button class="main btn-add" id="btnAdd">+ Пополнить цепочку</button>
+    </div>
+    <div class="add-row" id="addRow">
+      <input id="addInput" placeholder="впишите слово из другого словаря с этим корнем" aria-label="Новое слово">
+      <button class="main btn-check" id="addGo">Добавить</button>
     </div>
 
-    <div class="result" id="result" role="status" aria-live="polite"></div>
-
-    <div class="meta-row">
-      <span class="marked" id="marked"></span>
-      <button class="reset" id="btnReset" type="button">сбросить прогресс</button>
-    </div>
-  </main>
-
-  <p class="drafts" id="drafts"></p>
+    <div class="result" id="result" aria-live="polite"></div>
+    <div class="progress" id="progress"></div>
+  </div>
 
   <footer>
     Трафарет: механика одна, меняются только примеры.<br>
-    Каждое слово можно открыть в словаре — игра будит любопытство, а не даёт готовый перевод.
+    Игра не выдаёт финальную этимологию — она будит здоровое любопытство к словам.
   </footer>
 </div>
 
-<script src="js/data.js?v=3"></script>
-<script src="js/storage.js?v=3"></script>
-<script src="js/engine.js?v=3"></script>
-<script src="js/app.js?v=3"></script>
+<script src="js/data.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/app.js"></script>
 </body>
 </html>
