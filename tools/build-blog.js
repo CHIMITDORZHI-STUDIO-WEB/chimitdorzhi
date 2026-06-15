@@ -16,6 +16,7 @@ const subOffersCount = (s) => String(s).split('{{OFFERS_COUNT}}').join(OFFERS_CO
 
 // Карта: slug статьи → slug предложения. Добавляйте по мере роста раздела.
 const OFFER_LINKS = {
+  'katalog-open-source-resheniy-dlya-biznesa-2026': 'open-source-pod-klyuch',
   'apache-guacamole-udalennyy-dostup-2026': 'open-source-pod-klyuch',
   'opencart-internet-magazin-2026': 'open-source-pod-klyuch',
   'libretranslate-svoy-perevodchik-2026': 'open-source-pod-klyuch',
