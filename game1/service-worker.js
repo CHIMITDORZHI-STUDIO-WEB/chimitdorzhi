@@ -2,7 +2,7 @@
  * service-worker.js — офлайн-кэш оболочки и данных (PWA-минимум).
  * При обновлении файлов поднимите версию CACHE, чтобы кэш пересобрался.
  * ==========================================================================*/
-const CACHE = 'tolkovatel-v2';
+const CACHE = 'tolkovatel-v3';
 const ASSETS = [
   './',
   './index.html',
@@ -30,19 +30,21 @@ self.addEventListener('activate', (e) => {
   );
 });
 
+/* stale-while-revalidate: мгновенно отдаём из кэша и тут же обновляем его из сети,
+ * поэтому обновления игры (правки, новые уровни в data.js) долетают на след. заход,
+ * а офлайн продолжает работать. */
 self.addEventListener('fetch', (e) => {
   if (e.request.method !== 'GET') return;
+  if (!e.request.url.startsWith(self.location.origin)) return;
   e.respondWith(
-    caches.match(e.request).then((cached) => {
-      if (cached) return cached;
-      return fetch(e.request).then((res) => {
-        // кладём в кэш свежие same-origin ответы
-        if (res && res.ok && e.request.url.startsWith(self.location.origin)) {
-          const copy = res.clone();
-          caches.open(CACHE).then((c) => c.put(e.request, copy));
-        }
-        return res;
-      }).catch(() => cached);
-    })
+    caches.open(CACHE).then((cache) =>
+      cache.match(e.request).then((cached) => {
+        const network = fetch(e.request).then((res) => {
+          if (res && res.ok) cache.put(e.request, res.clone());
+          return res;
+        }).catch(() => cached);
+        return cached || network;
+      })
+    )
   );
 });

@@ -15,9 +15,17 @@
   function isDone(i) {
     return state.completed.indexOf(LEVELS[i].id) !== -1;
   }
-  function firstUnfinished() {
+  function isPlayable(i) {
+    return LEVELS[i].words && LEVELS[i].words.length > 0;
+  }
+  function pickStart() {
+    // 1) первый открытый, играбельный и ещё не пройденный
     for (let i = 0; i < LEVELS.length; i++) {
-      if (isUnlocked(i) && !isDone(i)) return i;
+      if (isUnlocked(i) && isPlayable(i) && !isDone(i)) return i;
+    }
+    // 2) иначе — последний открытый играбельный (а не пустая заготовка)
+    for (let i = LEVELS.length - 1; i >= 0; i--) {
+      if (isUnlocked(i) && isPlayable(i)) return i;
     }
     return 0;
   }
@@ -87,7 +95,7 @@
     });
   }
 
-  /* старт: первый непройденный уровень */
-  idx = firstUnfinished();
+  /* старт: первый непройденный играбельный уровень (не пустая заготовка) */
+  idx = pickStart();
   show(idx);
 })();
