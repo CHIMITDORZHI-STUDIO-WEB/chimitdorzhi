@@ -714,6 +714,20 @@ function tagsHtml(tags) {
   return `<div class="blog-tags">${tags.map(t => `<span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>${esc(t)}</span>`).join('')}</div>`;
 }
 
+const OS_HUB_SLUG = 'katalog-open-source-resheniy-dlya-biznesa-2026';
+function catalogHtml(a) {
+  if (a.category !== 'opensource' || a.slug === OS_HUB_SLUG) return '';
+  return `<div class="blog-cta-card">
+                        <div class="blog-cta-card-body">
+                            <h3>Ещё open-source для бизнеса</h3>
+                            <p>Эта статья — часть каталога бесплатных решений, которые я разворачиваю на вашем сервере под ключ: CRM, аналитика, документы, почта, безопасность, магазины, AI.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="/blog/${OS_HUB_SLUG}/" class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Каталог open-source решений</a>
+                        </div>
+                    </div>`;
+}
+
 function servicesOfferCard(article) {
   if (!article.servicesOffer) return '';
   const s = article.servicesOffer;
@@ -906,6 +920,7 @@ ${faqLd(a)}</head>
                     </div>
 
                     ${seriesHtml(a, published)}
+                    ${catalogHtml(a)}
                     ${servicesOfferCard(a)}
                     ${blogOfferCta(a)}
 
