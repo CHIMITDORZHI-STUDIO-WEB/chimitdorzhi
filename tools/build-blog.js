@@ -16,6 +16,7 @@ const subOffersCount = (s) => String(s).split('{{OFFERS_COUNT}}').join(OFFERS_CO
 
 // Карта: slug статьи → slug предложения. Добавляйте по мере роста раздела.
 const OFFER_LINKS = {
+  'open-webui-svoy-chatgpt-2026': 'open-source-pod-klyuch',
   'whisperx-transkribaciya-rechi-2026': 'open-source-pod-klyuch',
   'opendronemap-obrabotka-dron-semki-2026': 'open-source-pod-klyuch',
   'kimai-uchet-rabochego-vremeni-2026': 'open-source-pod-klyuch',
