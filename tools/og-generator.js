@@ -127,13 +127,33 @@ function buildSvg(article) {
 
 // ---------- Стиль «Аврора» для рубрики Open-source ----------
 function hashNum(s) { let h = 0; for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) >>> 0; return h; }
-// Светлые «шёлковые» палитры: диагональный градиент + наборы цветов тонких нитей
-const OS_PALETTES = [
-  { base: ['#7dd3fc', '#3b82f6', '#ec4899'], blue: ['#60a5fa', '#3b82f6', '#38bdf8', '#2563eb'], light: ['#dbeafe', '#e0f2fe', '#ffffff'], mag: ['#ec4899', '#f472b6', '#d946ef'] },
-  { base: ['#5eead4', '#22d3ee', '#3b82f6'], blue: ['#22d3ee', '#38bdf8', '#2dd4bf', '#3b82f6'], light: ['#cffafe', '#ecfeff', '#ffffff'], mag: ['#818cf8', '#60a5fa', '#a5b4fc'] },
-  { base: ['#a5b4fc', '#6366f1', '#db2777'], blue: ['#818cf8', '#6366f1', '#6d28d9', '#4f46e5'], light: ['#e0e7ff', '#ede9fe', '#ffffff'], mag: ['#ec4899', '#d946ef', '#f472b6'] },
-  { base: ['#7dd3fc', '#6366f1', '#a855f7'], blue: ['#38bdf8', '#60a5fa', '#818cf8', '#6366f1'], light: ['#e0f2fe', '#ede9fe', '#ffffff'], mag: ['#c084fc', '#a855f7', '#e879f9'] },
-];
+// HSL→HEX
+function hslToHex(h, s, l) {
+  h = ((h % 360) + 360) % 360; s /= 100; l /= 100;
+  const a = s * Math.min(l, 1 - l);
+  const f = (n) => { const k = (n + h / 30) % 12; return l - a * Math.max(-1, Math.min(k - 3, 9 - k, 1)); };
+  const to = (x) => Math.round(255 * x).toString(16).padStart(2, '0');
+  return '#' + to(f(0)) + to(f(8)) + to(f(4));
+}
+// Уникальный «шёлковый» градиент для каждой статьи: базовый оттенок и разброс выводятся из хеша слага.
+function osPalette(slug) {
+  const hh = hashNum(slug);
+  const h2 = hashNum(slug + '~salt');
+  const h0 = (hh % 360) + (h2 % 7) - 3;          // тонкий сдвиг оттенка вторым хешем
+  const dir = ((hh >> 3) % 2) ? 1 : -1;
+  const span = 65 + (hh % 55);
+  const dl = ((h2 >> 5) % 9) - 4;                 // разброс светлоты ±4: разводит совпадающие оттенки
+  const ds = ((h2 >> 9) % 7) - 3;                 // разброс насыщенности ±3
+  const H = (d) => h0 + dir * d;
+  const L = (l) => Math.max(40, Math.min(94, l + dl));
+  const S = (s) => Math.max(55, Math.min(90, s + ds));
+  return {
+    base: [hslToHex(H(0), S(74), L(64)), hslToHex(H(span * 0.5), S(64), L(52)), hslToHex(H(span), S(72), L(58))],
+    blue: [hslToHex(H(span * 0.15), S(68), L(58)), hslToHex(H(span * 0.4), S(62), L(50)), hslToHex(H(-span * 0.1), S(70), L(60)), hslToHex(H(span * 0.6), S(60), L(52))],
+    light: [hslToHex(H(span * 0.2), 85, 90), hslToHex(H(-span * 0.1), 80, 92), '#ffffff'],
+    mag: [hslToHex(H(span * 1.1), S(72), L(62)), hslToHex(H(span * 1.25), S(70), L(66)), hslToHex(H(span * 0.95), S(68), L(58))],
+  };
+}
 function silkStreaks(p, seed) {
   const N = 70, out = [];
   for (let i = 0; i < N; i++) {
@@ -153,7 +173,7 @@ function silkStreaks(p, seed) {
 function clipText(s, n) { s = String(s || '').trim(); return s.length <= n ? s : s.slice(0, n - 1).replace(/\s+\S*$/, '') + '…'; }
 
 function buildOpenSourceSvg(article) {
-  const p = OS_PALETTES[hashNum(article.slug) % OS_PALETTES.length];
+  const p = osPalette(article.slug);
   const lines = wrapTitle(article.title, 24).slice(0, 3);
   const sub = clipText(article.excerpt || article.metaDescription, 64);
   const CX = 600, lh = 66, tFs = 56;
