@@ -16,6 +16,19 @@ const subOffersCount = (s) => String(s).split('{{OFFERS_COUNT}}').join(OFFERS_CO
 
 // Карта: slug статьи → slug предложения. Добавляйте по мере роста раздела.
 const OFFER_LINKS = {
+  'three-js-3d-konfigurator-tovara-2026': 'open-source-pod-klyuch',
+  'model-viewer-ar-prosmotr-tovara-2026': 'open-source-pod-klyuch',
+  'babylonjs-3d-vizualizaciya-2026': 'open-source-pod-klyuch',
+  'playcanvas-web-3d-konfigurator-2026': 'open-source-pod-klyuch',
+  'pannellum-virtualnye-tury-2026': 'open-source-pod-klyuch',
+  'marzipano-virtualnye-tury-navigaciya-2026': 'open-source-pod-klyuch',
+  'ar-js-dopolnennaya-realnost-brauzer-2026': 'open-source-pod-klyuch',
+  'a-frame-webxr-ar-vr-2026': 'open-source-pod-klyuch',
+  'mediapipe-virtualnaya-primerka-2026': 'open-source-pod-klyuch',
+  'leaflet-interaktivnye-karty-2026': 'open-source-pod-klyuch',
+  'gsap-animaciya-lendingov-2026': 'open-source-pod-klyuch',
+  'lottie-animacii-na-sayte-2026': 'open-source-pod-klyuch',
+  'tensorflow-js-ai-v-brauzere-2026': 'open-source-pod-klyuch',
   'phaser-promo-igry-dlya-biznesa-2026': 'open-source-pod-klyuch',
   'gdevelop-promo-igry-bez-koda-2026': 'open-source-pod-klyuch',
   'pixijs-interaktiv-dlya-lendingov-2026': 'open-source-pod-klyuch',
