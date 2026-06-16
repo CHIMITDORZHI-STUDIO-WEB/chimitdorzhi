@@ -42,6 +42,7 @@ const blogBatchOpenSource20 = require('./blog-batch-opensource20.js');
 const blogBatchOpenSource21 = require('./blog-batch-opensource21.js');
 const blogBatchOpenSource22 = require('./blog-batch-opensource22.js');
 const blogBatchOpenSource23 = require('./blog-batch-opensource23.js');
+const blogBatchOpenSource24 = require('./blog-batch-opensource24.js');
 const blogBatchZaschitaOsint = require('./blog-batch-zaschita-osint.js');
 const blogBatchOpenSourceHub = require('./blog-batch-opensource-hub.js');
 const konkursPriglasheniyMaxContent = require('./blog-content-konkurs-priglasheniy-max.js');
@@ -10675,4 +10676,4 @@ module.exports = [
       ],
     },
   },
-].concat(antigravityEntries, blogBatchA, blogBatchB, blogBatchC, blogBatchPillars, blogBatchMaxMkt, blogBatchLocal, blogBatchChita, blogBatchShkola, blogBatchSetevik, blogBatchMlmBrands, blogBatchMlmBrands2, blogBatchMlmBrands3, blogBatchPraktiki, blogBatchEvents, blogBatchBiznesIdei, blogBatchOpenSource, blogBatchOpenSource2, blogBatchZarabotok, blogBatchOpenSource3, blogBatchOpenSource4, blogBatchOpenSource5, blogBatchOpenSource6, blogBatchOpenSource7, blogBatchOpenSource8, blogBatchOpenSource9, blogBatchOpenSource10, blogBatchOpenSource11, blogBatchOpenSource12, blogBatchOpenSource13, blogBatchOpenSource14, blogBatchOpenSource15, blogBatchOpenSource16, blogBatchOpenSource17, blogBatchOpenSource18, blogBatchOpenSource19, blogBatchOpenSource20, blogBatchOpenSource21, blogBatchOpenSource22, blogBatchOpenSource23, blogBatchZaschitaOsint, blogBatchOpenSourceHub);
+].concat(antigravityEntries, blogBatchA, blogBatchB, blogBatchC, blogBatchPillars, blogBatchMaxMkt, blogBatchLocal, blogBatchChita, blogBatchShkola, blogBatchSetevik, blogBatchMlmBrands, blogBatchMlmBrands2, blogBatchMlmBrands3, blogBatchPraktiki, blogBatchEvents, blogBatchBiznesIdei, blogBatchOpenSource, blogBatchOpenSource2, blogBatchZarabotok, blogBatchOpenSource3, blogBatchOpenSource4, blogBatchOpenSource5, blogBatchOpenSource6, blogBatchOpenSource7, blogBatchOpenSource8, blogBatchOpenSource9, blogBatchOpenSource10, blogBatchOpenSource11, blogBatchOpenSource12, blogBatchOpenSource13, blogBatchOpenSource14, blogBatchOpenSource15, blogBatchOpenSource16, blogBatchOpenSource17, blogBatchOpenSource18, blogBatchOpenSource19, blogBatchOpenSource20, blogBatchOpenSource21, blogBatchOpenSource22, blogBatchOpenSource23, blogBatchOpenSource24, blogBatchZaschitaOsint, blogBatchOpenSourceHub);

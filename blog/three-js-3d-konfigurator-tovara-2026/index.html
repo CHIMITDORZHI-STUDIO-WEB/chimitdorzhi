@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Three.js: 3D-конфигуратор товара на сайте</title>
+    <meta name="description" content="Three.js — open-source библиотека 3D-графики (WebGL) для 3D-конфигуратора товара на сайте: вращать модель, менять цвет, материал и комплектацию в реальном…">
+    <meta name="keywords" content="Three.js, 3D-конфигуратор, e-commerce, open-source">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/three-js-3d-konfigurator-tovara-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/three-js-3d-konfigurator-tovara-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/three-js-3d-konfigurator-tovara-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/three-js-3d-konfigurator-tovara-2026/">
+    <meta property="og:title" content="Three.js: 3D-конфигуратор товара на сайте">
+    <meta property="og:description" content="Three.js — open-source библиотека 3D-графики (WebGL) для 3D-конфигуратора товара на сайте: вращать модель, менять цвет, материал и комплектацию в реальном…">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/three-js-3d-konfigurator-tovara-2026/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Three.js: 3D-конфигуратор товара на сайте">
+    <meta name="twitter:description" content="Three.js — open-source библиотека 3D-графики (WebGL) для 3D-конфигуратора товара на сайте: вращать модель, менять цвет, материал и комплектацию в реальном…">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/three-js-3d-konfigurator-tovara-2026/cover.png">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor-Fill.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=43">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Three.js: 3D-конфигуратор товара на сайте",
+  "description": "Three.js — open-source библиотека 3D-графики (WebGL) для 3D-конфигуратора товара на сайте: вращать модель, менять цвет, материал и комплектацию в реальном времени. Выше вовлечённость, меньше возвратов. Разработаю под ключ.",
+  "image": "https://chimitdorzhi.tech/blog/three-js-3d-konfigurator-tovara-2026/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/three-js-3d-konfigurator-tovara-2026/"
+  },
+  "datePublished": "2026-06-16",
+  "dateModified": "2026-06-16",
+  "keywords": "Three.js, 3D-конфигуратор, e-commerce, open-source",
+  "articleSection": "Open-source и свой сервер",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Three.js: 3D-конфигуратор товара на сайте",
+      "item": "https://chimitdorzhi.tech/blog/three-js-3d-konfigurator-tovara-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Чем Three.js отличается от model-viewer и Babylon.js?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Это три инструмента одного семейства, но разной сложности. Model-viewer — самый простой способ показать готовую 3D-модель с базовым вращением, его быстро внедрить, но гибкости в нём немного. Three.js — золотая середина: на нём строят индивидуальные конфигураторы с произвольной логикой смены цветов и комплектаций. Babylon.js — более тяжёлый и мощный движок, который оправдан для сложных интерактивных сцен и почти игровых проектов. Под типичный конфигуратор товара чаще всего оптимален Three.js, а простую демонстрацию можно сделать и на model-viewer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужно ли посетителю что-то устанавливать, чтобы покрутить модель?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет. Конфигуратор работает в обычном браузере на компьютере, планшете и телефоне. Никаких плагинов и приложений не требуется — достаточно открыть страницу товара."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Откуда берутся 3D-модели и можно ли использовать мои?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Модель товара создаётся в трёхмерном редакторе, обычно в Blender. Если у вас уже есть готовые модели, например от конструкторского отдела или производителя, их можно адаптировать и использовать. Если моделей нет, я организую их подготовку под конкретный товар."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Будет ли конфигуратор тормозить на телефоне?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "При грамотной оптимизации — нет. Модель упрощают, текстуры сжимают, загрузку настраивают так, чтобы сцена оставалась плавной даже на среднем смартфоне. Поведение на мобильных проверяется отдельно, это обязательная часть работы."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Я не разбираюсь в 3D и коде — насколько это сложно для меня?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Сложная часть — разработка и подготовка моделей — на моей стороне. Вам достаточно описать товар и желаемые опции выбора, а готовый конфигуратор работает на сайте сам и не требует от вас технических знаний для повседневной эксплуатации."
+      }
+    }
+  ]
+}
+    </script>
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+            <li><a href="/#services" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li class="nav-dropdown">
+                <a href="/#projects" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--arey"><i class="ph-fill ph-vinyl-record" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-airplane-tilt" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#cases" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            </div>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/#about">Обо мне</a></li>
+        <li><a href="/#services">Услуги</a></li>
+        <li><a href="/services/">Каталог услуг</a></li>
+        <li><a href="/predlozheniya/">Предложения</a></li>
+        <li><a href="/#cases">Кейсы</a></li>
+        <li><a href="/blog/">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+        <li><a href="/#contact">Контакт</a></li>
+    </ul>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Three.js: 3D-конфигуратор товара на сайте</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/opensource/"><i class="ph ph-bookmark" aria-hidden="true"></i> Open-source и свой сервер</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 10 мин чтения</span>
+                        <time datetime="2026-06-16"><i class="ph ph-calendar" aria-hidden="true"></i> 16 июня 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Three.js: 3D-конфигуратор товара на сайте</h1>
+
+                    <p class="blog-lead">Three.js — это 3D-конфигуратор товара прямо на сайте: покупатель крутит модель и меняет цвет, материал, комплектацию вживую. Для мебели, авто и маркетплейсов. Разбираю, кто заказывает и как сделать под ключ.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>Three.js</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>3D-конфигуратор</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>e-commerce</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>open-source</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
+<li>Three.js — открытая JavaScript-библиотека 3D-графики на базе WebGL: позволяет показывать на сайте интерактивную модель товара, которую посетитель крутит и рассматривает прямо в браузере.</li>
+<li>На её основе строят 3D-конфигуратор: покупатель вращает изделие, меняет цвет, материал и комплектацию в реальном времени и видит результат сразу, без перезагрузки страницы.</li>
+<li>Заказывают такое решение мебельные компании, автодилеры, производители промтоваров и селлеры маркетплейсов — чтобы повысить вовлечённость, помочь клиенту определиться и снизить долю возвратов.</li>
+<li>Это полноценная разработка: нужны подготовленные 3D-модели (обычно в Blender), оптимизация под скорость загрузки и корректную работу на мобильных устройствах.</li>
+<li>Я проектирую и собираю 3D-конфигуратор под ваш товар и сайт, беру на себя модели, оптимизацию и интеграцию, чтобы вы получили готовый рабочий блок, а не набор библиотек.</li>
+</ul></div>
+
+<p>Когда товар сложный или дорогой, обычных фотографий часто не хватает: покупатель хочет рассмотреть изделие со всех сторон, понять, как оно будет выглядеть в выбранном цвете и комплектации, прикинуть габариты. Раньше это решалось десятками фото и долгими переписками с менеджером, сегодня — интерактивной 3D-моделью прямо на странице товара. Такой 3D-конфигуратор строится на Three.js — открытой библиотеке трёхмерной графики для браузера. Ниже разберу, что это за технология, что умеет конфигуратор, кому он подходит и что нужно, чтобы внедрить его на сайт без иллюзий о том, что это «пара строк кода».</p>
+
+<h2 id="chto-eto">Что такое Three.js и зачем он бизнесу</h2>
+<p>Three.js — это бесплатная open-source библиотека для отображения трёхмерной графики прямо в браузере. Технически она работает поверх WebGL — стандарта, который позволяет выводить 3D-сцены с аппаратным ускорением на видеокарте без установки плагинов и сторонних программ. Для посетителя сайта это выглядит просто: на странице появляется объёмная модель товара, которую можно вращать пальцем или мышью, приближать и рассматривать с любой стороны.</p>
+<p>Для бизнеса Three.js — это инструмент, который превращает статичную карточку товара в интерактивную презентацию. Вместо набора плоских снимков клиент получает живую модель и сам управляет тем, что видит. На базе этой библиотеки можно собрать 3D-конфигуратор: посетитель не только крутит изделие, но и меняет его параметры — выбирает обивку дивана, цвет кузова автомобиля, отделку корпуса техники — и сразу видит результат.</p>
+<p>Важно, что это открытая и зрелая технология, которой пользуются крупные бренды и интернет-магазины по всему миру. Она не привязана к платному облачному сервису и чужому тарифу: код конфигуратора живёт на вашем сайте, а вы не зависите от ежемесячной подписки на стороннюю платформу. Рядом с Three.js существуют и другие решения — о них чуть ниже, — но именно она остаётся самым гибким и распространённым выбором, когда нужен индивидуальный конфигуратор под конкретный товар.</p>
+
+<h2 id="vozmozhnosti">Что умеет 3D-конфигуратор товара</h2>
+<p>Базовая возможность — это вращение модели. Посетитель берёт изделие «в руки»: крутит его на 360 градусов, наклоняет, приближает, чтобы рассмотреть фактуру, швы, элементы крепления. Уже это даёт совсем другое восприятие товара по сравнению с галереей фотографий, потому что человек сам контролирует обзор и не упирается в ограниченный набор ракурсов.</p>
+<p>Следующий уровень — изменение параметров в реальном времени. Конфигуратор позволяет переключать цвет и материал: дерево, ткань, металл, пластик, кожа меняются на модели мгновенно, без перезагрузки страницы. Можно собирать комплектацию: добавлять и убирать элементы, выбирать варианты отделки, фурнитуры, размеров. Покупатель буквально конструирует тот товар, который хочет, и видит итоговый вид перед заказом.</p>
+<p>Поверх этого выстраиваются дополнительные сценарии. Конфигуратор можно связать с ценой, чтобы при смене комплектации обновлялась стоимость. Можно показывать модель в нужном окружении, добавлять подсветку и тени для реалистичности, выводить пояснения к отдельным деталям. Для презентаций сложной продукции это превращается в полноценный 3D-стенд, который работает на сайте круглосуточно и не требует участия менеджера.</p>
+<p>Вся эта механика работает в обычном браузере и не привязана к конкретной операционной системе. Посетителю не нужно ничего устанавливать: достаточно открыть страницу товара на компьютере, планшете или телефоне. Это снимает барьер входа и делает 3D-просмотр доступным любой аудитории сайта.</p>
+
+<h2 id="komu-podhodit">Кому и для каких задач подходит</h2>
+<p>3D-конфигуратор в первую очередь нужен там, где товар имеет много вариантов исполнения и где клиенту важно увидеть результат до покупки. Мебельные компании заказывают конфигураторы, чтобы покупатель сам подобрал обивку, цвет каркаса и конфигурацию модульного дивана или шкафа. Вместо того чтобы листать десятки фото и звонить менеджеру, человек собирает свой вариант на сайте и понимает, как мебель будет выглядеть.</p>
+<p>Автодилеры и производители транспорта используют 3D-просмотр, чтобы показать машину или технику в разных цветах кузова, с разными дисками и комплектациями. Производители промышленных и бытовых товаров — оборудования, техники, инструмента — применяют конфигуратор для демонстрации модификаций и сложных узлов, которые трудно передать на плоском снимке. Селлерам маркетплейсов и интернет-магазинам интерактивная модель помогает выделить карточку товара на фоне конкурентов и подробнее показать продукт.</p>
+<p>Зачем это бизнесу: интерактивная 3D-модель повышает вовлечённость — посетитель дольше остаётся на странице и активнее взаимодействует с товаром. Она помогает клиенту лучше понять, что именно он покупает, и точнее выбрать комплектацию, а значит снижается риск, что после получения товар не оправдает ожиданий и его вернут. Это разумный аргумент в пользу конфигуратора, но важно сразу оговориться: я не обещаю конкретных цифр роста продаж или процента снижения возвратов — результат зависит от товара, цен, аудитории и качества самого сайта. 3D-конфигуратор — это инструмент, который усиливает презентацию товара, а не гарантия определённой выручки.</p>
+<p>Общий знаменатель простой: если у вашего товара есть варианты исполнения и его сложно полноценно показать фотографиями, интерактивная 3D-модель закрывает этот разрыв и даёт покупателю опыт, близкий к осмотру вживую.</p>
+
+<h2 id="chto-nuzhno">Что нужно для запуска: 3D-модели и оптимизация</h2>
+<p>Главное, что стоит понимать заранее: 3D-конфигуратор не появляется из одной только библиотеки. Three.js умеет показывать и анимировать модель, но саму модель товара сначала нужно создать. Это отдельная работа: изделие моделируют в специализированном редакторе, чаще всего в Blender — бесплатной open-source программе для трёхмерной графики, — задают геометрию, материалы и текстуры, чтобы модель выглядела реалистично и соответствовала реальному товару. Качество исходной модели напрямую определяет, насколько убедительно конфигуратор выглядит на сайте.</p>
+<p>Второй важный момент — оптимизация. Трёхмерная модель тяжелее обычной фотографии, и если её не подготовить, страница будет долго грузиться, а на телефоне работать с рывками. Поэтому модель упрощают по числу деталей без потери внешнего вида, сжимают текстуры, настраивают постепенную загрузку. Отдельно проверяют поведение на мобильных устройствах: у них слабее видеокарта, и сцена должна оставаться плавной даже на среднем смартфоне. Это инженерная часть работы, от которой зависит, будет конфигуратор удобным или начнёт раздражать посетителей задержками.</p>
+<p>Наконец, конфигуратор нужно встроить в сайт: связать переключение цветов и комплектаций с интерфейсом карточки товара, при необходимости подружить с ценой и корзиной, проверить во всех основных браузерах. Всё это — полноценная разработка, а не настройка готового плагина. Поэтому к 3D-конфигуратору стоит относиться как к проекту: с подготовкой моделей, тестированием и последующей поддержкой при добавлении новых товаров.</p>
+
+<h2 id="kak-vnedrit">Как внедрить под ключ</h2>
+<p>Самостоятельно собрать 3D-конфигуратор — задача на стыке нескольких дисциплин: нужно уметь моделировать товар, программировать сцену на Three.js, оптимизировать её под загрузку и мобильные, аккуратно встроить всё в существующий сайт. Для большинства команд это означает либо долгое погружение в новую для них область, либо сборку решения из разрозненных подрядчиков, которых ещё нужно состыковать между собой.</p>
+<p>Я беру эту работу на себя целиком. Разбираюсь с вашим товаром и сценариями выбора, готовлю или организую 3D-модели в Blender, собираю конфигуратор на Three.js с нужными вам опциями — вращение, смена цвета, материала и комплектации, — оптимизирую сцену под скорость и корректную работу на телефонах и встраиваю готовый блок в карточку товара на вашем сайте. После запуска остаюсь на связи, помогаю добавлять новые модели и развивать конфигуратор по мере роста каталога.</p>
+<p>За плечами 16+ лет в IT и опыт внедрения веб-решений под конкретные задачи бизнеса. Если вам нужен 3D-конфигуратор товара на сайте — с интерактивной моделью, выбором цвета и комплектации и адекватной работой на мобильных — <a href="/predlozheniya/open-source-pod-klyuch/">разработаю 3D-конфигуратор под ключ</a> на открытых технологиях, а вы получите готовый инструмент для презентации продукта.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+<p><strong>Чем Three.js отличается от model-viewer и Babylon.js?</strong> Это три инструмента одного семейства, но разной сложности. Model-viewer — самый простой способ показать готовую 3D-модель с базовым вращением, его быстро внедрить, но гибкости в нём немного. Three.js — золотая середина: на нём строят индивидуальные конфигураторы с произвольной логикой смены цветов и комплектаций. Babylon.js — более тяжёлый и мощный движок, который оправдан для сложных интерактивных сцен и почти игровых проектов. Под типичный конфигуратор товара чаще всего оптимален Three.js, а простую демонстрацию можно сделать и на model-viewer.</p>
+<p><strong>Нужно ли посетителю что-то устанавливать, чтобы покрутить модель?</strong> Нет. Конфигуратор работает в обычном браузере на компьютере, планшете и телефоне. Никаких плагинов и приложений не требуется — достаточно открыть страницу товара.</p>
+<p><strong>Откуда берутся 3D-модели и можно ли использовать мои?</strong> Модель товара создаётся в трёхмерном редакторе, обычно в Blender. Если у вас уже есть готовые модели, например от конструкторского отдела или производителя, их можно адаптировать и использовать. Если моделей нет, я организую их подготовку под конкретный товар.</p>
+<p><strong>Будет ли конфигуратор тормозить на телефоне?</strong> При грамотной оптимизации — нет. Модель упрощают, текстуры сжимают, загрузку настраивают так, чтобы сцена оставалась плавной даже на среднем смартфоне. Поведение на мобильных проверяется отдельно, это обязательная часть работы.</p>
+<p><strong>Я не разбираюсь в 3D и коде — насколько это сложно для меня?</strong> Сложная часть — разработка и подготовка моделей — на моей стороне. Вам достаточно описать товар и желаемые опции выбора, а готовый конфигуратор работает на сайте сам и не требует от вас технических знаний для повседневной эксплуатации.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+<p>Three.js — это зрелая open-source библиотека 3D-графики для браузера, на которой строят интерактивные конфигураторы товара: посетитель вращает модель, меняет цвет, материал и комплектацию в реальном времени и видит результат сразу. Такое решение востребовано у мебельных компаний, автодилеров, производителей промтоваров и селлеров маркетплейсов — оно усиливает презентацию продукта, помогает клиенту выбрать осознанно и работает аргументом против возвратов, хотя и не гарантирует конкретных цифр. При этом 3D-конфигуратор — это полноценная разработка с подготовкой моделей в Blender и оптимизацией под загрузку и мобильные устройства. Эту часть проще доверить специалисту, чтобы получить готовый рабочий блок на сайте, а не разбираться с трёхмерной графикой и кодом в одиночку.</p>
+
+                    </div>
+
+                    
+                    <div class="blog-cta-card">
+                        <div class="blog-cta-card-body">
+                            <h3>Ещё open-source для бизнеса</h3>
+                            <p>Эта статья — часть каталога бесплатных решений, которые я разворачиваю на вашем сервере под ключ: CRM, аналитика, документы, почта, безопасность, магазины, AI.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="/blog/katalog-open-source-resheniy-dlya-biznesa-2026/" class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Каталог open-source решений</a>
+                        </div>
+                    </div>
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Что я разрабатываю</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-cube"></i> <span>3D-конфигураторы и визуализация</span></li>
+    
+    <li><i class="ph-fill ph-panorama"></i> <span>Виртуальные туры и AR</span></li>
+    
+    <li><i class="ph-fill ph-chart-donut"></i> <span>Карты, дашборды, интерактив</span></li>
+    
+    <li><i class="ph-fill ph-plugs"></i> <span>Интеграция с сайтом и CRM</span></li>
+    
+    <li><i class="ph-fill ph-lifebuoy"></i> <span>Поддержка и доработки</span></li>
+    
+  </ul>
+  <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
+  </a>
+</div>
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/open-source-pod-klyuch/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовое решение по теме</span>
+                            <span class="blog-offer-cta-title">Open-source решение под ключ на ваш сервер</span>
+                            <span class="blog-offer-cta-price">Бесплатная консультация · Запуск за 1–3 недели</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-arrow-right" aria-hidden="true"></i> Смотреть предложение</span>
+                    </a>
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/predlozheniya/open-source-pod-klyuch/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Заказать разработку под ключ</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/model-viewer-ar-prosmotr-tovara-2026/" data-category="opensource">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-cube-transparent"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>model-viewer: 3D-просмотр и AR-примерка товара «поставь в комнату»</h3>
+  <p>model-viewer добавляет в карточку 3D-модель и AR «поставить товар в комнату» с телефона — буквально парой строк. Для магазинов мебели и декора. Разбираю, кто заказывает и как внедрить под ключ.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 16 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 10 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/babylonjs-3d-vizualizaciya-2026/" data-category="opensource">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-bounding-box"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>Babylon.js: интерактивная 3D-визуализация для бизнеса</h3>
+  <p>Babylon.js — для сложной интерактивной 3D-визуализации: оборудование, недвижимость, обучающие 3D-сцены и продуктовые туры. Для B2B-производителей и девелоперов. Разбираю, кто заказывает и как сделать под ключ.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 16 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 10 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/playcanvas-web-3d-konfigurator-2026/" data-category="opensource">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-perspective"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>PlayCanvas: лёгкий web-3D и конфигураторы с быстрой загрузкой</h3>
+  <p>PlayCanvas — web-3D с быстрой загрузкой и командным редактором: 3D-конфигураторы и рекламные интерактивные сцены, которые не тормозят на телефоне. Для e-commerce и рекламы. Разбираю применение и заказ.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 16 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 10 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовые решения под ключ</span>
+                            <span class="blog-offer-cta-title">449 готовых IT-решений для бизнеса</span>
+                            <span class="blog-offer-cta-price">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Смотреть каталог</span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#chto-eto"><span class="blog-toc-num">01</span> Что это и что заменяет</a></li>
+<li><a href="#vozmozhnosti"><span class="blog-toc-num">02</span> Что умеет</a></li>
+<li><a href="#komu-podhodit"><span class="blog-toc-num">03</span> Кому подходит</a></li>
+<li><a href="#chto-nuzhno"><span class="blog-toc-num">04</span> Что нужно для запуска</a></li>
+<li><a href="#kak-vnedrit"><span class="blog-toc-num">05</span> Как внедрить под ключ</a></li>
+<li><a href="#faq"><span class="blog-toc-num">06</span> FAQ</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">07</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=23" defer></script>
+<script src="/services-i18n.js?v=23" defer></script>
+<script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>
