@@ -16,6 +16,18 @@ const subOffersCount = (s) => String(s).split('{{OFFERS_COUNT}}').join(OFFERS_CO
 
 // Карта: slug статьи → slug предложения. Добавляйте по мере роста раздела.
 const OFFER_LINKS = {
+  'it-dlya-salona-krasoty-2026': 'zapis-salon-krasoty',
+  'it-dlya-barbershopa-2026': 'max-bot-zapis-uslugi',
+  'it-dlya-kofeyni-obshchepita-2026': 'programma-loyalnosti',
+  'it-dlya-detskogo-centra-2026': 'it-detskiy-centr',
+  'it-dlya-chastnoy-shkoly-2026': 'crm-obrazovatelnogo-centra',
+  'it-dlya-yuridicheskoy-firmy-2026': 'crm-chastnoy-praktiki',
+  'it-dlya-turagentstva-2026': 'cifrovizaciya-pod-klyuch',
+  'it-dlya-apteki-2026': 'max-mini-app-magazin',
+  'it-dlya-optiki-2026': 'mis-klinika',
+  'it-dlya-yuvelirnogo-magazina-2026': 'programma-loyalnosti',
+  'it-dlya-taksoparka-2026': 'cifrovizaciya-pod-klyuch',
+  'it-dlya-mini-gostinicy-hostela-2026': 'hostel-kapsulnyy-otel',
   'three-js-3d-konfigurator-tovara-2026': 'open-source-pod-klyuch',
   'model-viewer-ar-prosmotr-tovara-2026': 'open-source-pod-klyuch',
   'babylonjs-3d-vizualizaciya-2026': 'open-source-pod-klyuch',
