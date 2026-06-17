@@ -16,6 +16,22 @@ const subOffersCount = (s) => String(s).split('{{OFFERS_COUNT}}').join(OFFERS_CO
 
 // Карта: slug статьи → slug предложения. Добавляйте по мере роста раздела.
 const OFFER_LINKS = {
+  'it-dlya-massazhnogo-salona-2026': 'massazh-spa-salon',
+  'it-dlya-nogtevoy-studii-2026': 'manikyurnaya-studiya',
+  'it-dlya-tatu-salona-2026': 'tatu-piersing-salon',
+  'it-dlya-fotostudii-2026': 'fotostudiya-arenda',
+  'it-dlya-fotografa-videografa-2026': 'it-fotograf-videograf',
+  'it-dlya-shkoly-tancev-vokala-2026': 'shkola-tancev-vokala',
+  'it-dlya-servisnogo-centra-2026': 'servis-centr-remont',
+  'it-dlya-remonta-telefonov-2026': 'servis-centr-remont',
+  'it-dlya-atelie-himchistki-2026': 'himchistka-prachechnaya',
+  'it-dlya-prachechnoy-2026': 'himchistka-prachechnaya',
+  'it-dlya-avtosalona-2026': 'avtosalon-diler',
+  'it-dlya-kovorkinga-2026': 'bronirovanie-kovorking',
+  'it-dlya-sauny-bani-2026': 'banya-sauna-kompleks',
+  'it-dlya-kvest-antikafe-2026': 'kvest-komnaty',
+  'it-dlya-kosmetologii-2026': 'kosmetologiya-klinika',
+  'it-dlya-laboratorii-analizov-2026': 'mis-klinika',
   'it-dlya-salona-krasoty-2026': 'zapis-salon-krasoty',
   'it-dlya-barbershopa-2026': 'max-bot-zapis-uslugi',
   'it-dlya-kofeyni-obshchepita-2026': 'programma-loyalnosti',
