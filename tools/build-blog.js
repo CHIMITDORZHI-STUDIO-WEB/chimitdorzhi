@@ -1298,6 +1298,7 @@ ${METRIKA}</head>
                       { key: 'mlm',         label: 'Сетевой бизнес', icon: 'ph-share-network' },
                       { key: 'mwrlife',     label: 'MWR Life',       icon: 'ph-airplane-tilt' },
                       { key: 'opensource',  label: 'Open-source',    icon: 'ph-hard-drives' },
+                      { key: 'biznes-krugozor', label: 'Бизнес-кругозор', icon: 'ph-compass' },
                       { key: 'ai',          label: 'AI (старое)',    icon: 'ph-brain' },
                       { key: 'career',      label: 'Карьера',        icon: 'ph-graduation-cap' },
                     ].map(c => ({ ...c, cnt: published.filter(p => p.category === c.key).length }))
