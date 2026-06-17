@@ -974,7 +974,9 @@ function relatedHtml(a, published) {
 // в одну сеть (исключая текущую). Заголовки берём из published, битые slug отбрасываем.
 const MWR_CLUSTER = [
   { label: 'Разобраться', icon: 'ph-fill ph-compass', slugs: [
-    'mwr-life-chestnyy-obzor-2026', 'mwr-life-otzyvy-2026', 'travel-advantage-platforma-2026', 'eto-piramida-vozrazheniya-travel-klub-2026'] },
+    'mwr-life-chestnyy-obzor-2026', 'mwr-life-otzyvy-2026', 'travel-advantage-platforma-2026', 'eto-piramida-vozrazheniya-travel-klub-2026', 'puteshestviya-po-podpiske-trend-2026'] },
+  { label: 'Деньги и доверие', icon: 'ph-fill ph-shield-check', slugs: [
+    'skolko-stoit-mwr-life-matematika-2026', 'mwr-life-v-rossii-legalno-nalogi-2026', 'vozrazheniya-net-vremeni-deneg-svyazey-travel-klub-2026', 'travel-klub-ili-kopit-samomu-2026'] },
   { label: 'Путешествия и продукт', icon: 'ph-fill ph-airplane-tilt', slugs: [
     'life-experience-gruppovye-tury-2026', 'tematicheskie-tury-mwr-2026', 'podpiska-mwr-vozvrat-ballami-2026', 'kak-poehat-besplatno-mwr-2026', 'travel-klub-dlya-semyi-2026'] },
   { label: 'Как устроен бизнес', icon: 'ph-fill ph-tree-structure', slugs: [
@@ -982,9 +984,9 @@ const MWR_CLUSTER = [
   { label: 'Сравнения и выбор', icon: 'ph-fill ph-scales', slugs: [
     'travel-advantage-vs-turagentstvo-2026', 'travel-advantage-vs-inteletravel-incruises-2026', 'travel-klub-vs-goryashchie-tury-2026', 'mwr-vs-worldventures-dreamtrips-2026'] },
   { label: 'Заработок и партнёрство', icon: 'ph-fill ph-handshake', slugs: [
-    'partnerka-travel-kluba-dohod-2026', 'kak-zarabatyvat-na-puteshestviyah-2026', 'setevoy-biznes-v-turizme-2026', 'udalennyy-dohod-na-puteshestviyah-2026', 'komu-podhodit-partnerka-travel-kluba-2026'] },
+    'partnerka-travel-kluba-dohod-2026', 'kak-zarabatyvat-na-puteshestviyah-2026', 'setevoy-biznes-v-turizme-2026', 'udalennyy-dohod-na-puteshestviyah-2026', 'komu-podhodit-partnerka-travel-kluba-2026', 'kak-stat-ambassadorom-mwr-life-2026', 'travel-klub-dlya-mam-v-dekrete-2026', 'puteshestviya-i-dohod-dlya-frilanserov-2026'] },
   { label: 'Инструменты партнёра', icon: 'ph-fill ph-wrench', slugs: [
-    'sayt-partnera-mwr-life-2026', 'avtovoronka-bot-travel-klub-2026', 'ii-kontent-travel-setevik-2026', 'crm-partnera-travel-kluba-2026'] },
+    'sayt-partnera-mwr-life-2026', 'avtovoronka-bot-travel-klub-2026', 'ii-kontent-travel-setevik-2026', 'crm-partnera-travel-kluba-2026', 'kak-priglashat-v-travel-klub-bez-spama-2026'] },
   { label: 'Лайфхаки путешествий', icon: 'ph-fill ph-suitcase-rolling', slugs: [
     'kak-puteshestvovat-deshevle-2026', 'travel-haking-15-sposobov-2026'] },
 ];
