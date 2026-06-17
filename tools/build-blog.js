@@ -1223,6 +1223,8 @@ ${METRIKA}</head>
                 </div>
                 ${catalogBanner()}
 
+                ${nicheNavHtml(published)}
+
                 ${searchBox()}
 
                 ${POPULAR_SLUGS.size ? `<div class="blog-popular-strip" style="margin:0 0 22px;">
@@ -1333,6 +1335,72 @@ ${METRIKA}</head>
 }
 
 // ---------- Поиск по сайту (статьи + предложения), клиентский ----------
+// ---------- Навигатор «Выберите свою сферу» (ниши → статья → оффер) ----------
+const NICHES = [
+  { l: 'Салон красоты', i: 'ph-scissors', s: 'it-dlya-salona-krasoty-2026' },
+  { l: 'Барбершоп', i: 'ph-user-focus', s: 'it-dlya-barbershopa-2026' },
+  { l: 'Маникюр', i: 'ph-hand-palm', s: 'it-dlya-nogtevoy-studii-2026' },
+  { l: 'Массаж / СПА', i: 'ph-hand-heart', s: 'it-dlya-massazhnogo-salona-2026' },
+  { l: 'Косметология', i: 'ph-syringe', s: 'it-dlya-kosmetologii-2026' },
+  { l: 'Тату-салон', i: 'ph-pen-nib', s: 'it-dlya-tatu-salona-2026' },
+  { l: 'Фитнес-клуб', i: 'ph-barbell', s: 'cifrovizaciya-fitnes-kluba-2026' },
+  { l: 'Сауна / баня', i: 'ph-thermometer-hot', s: 'it-dlya-sauny-bani-2026' },
+  { l: 'Кофейня / общепит', i: 'ph-coffee', s: 'it-dlya-kofeyni-obshchepita-2026' },
+  { l: 'Ресторан / кафе', i: 'ph-fork-knife', s: 'max-bot-restoran-kafe-2026' },
+  { l: 'Пекарня', i: 'ph-cookie', s: 'it-dlya-pekarni-konditerskoy-2026' },
+  { l: 'Автосервис', i: 'ph-wrench', s: 'it-dlya-avtoservisa-2026' },
+  { l: 'Автомойка', i: 'ph-car-simple', s: 'cifrovizaciya-avtomoyki-detailing-2026' },
+  { l: 'Шиномонтаж', i: 'ph-gauge', s: 'it-dlya-shinomontazha-hraneniya-shin-2026' },
+  { l: 'Автосалон', i: 'ph-car-profile', s: 'it-dlya-avtosalona-2026' },
+  { l: 'Таксопарк', i: 'ph-taxi', s: 'it-dlya-taksoparka-2026' },
+  { l: 'Сервисный центр', i: 'ph-wrench', s: 'it-dlya-servisnogo-centra-2026' },
+  { l: 'Ремонт телефонов', i: 'ph-device-mobile', s: 'it-dlya-remonta-telefonov-2026' },
+  { l: 'Ателье / химчистка', i: 'ph-t-shirt', s: 'it-dlya-atelie-himchistki-2026' },
+  { l: 'Прачечная', i: 'ph-washing-machine', s: 'it-dlya-prachechnoy-2026' },
+  { l: 'Детский центр', i: 'ph-baby', s: 'it-dlya-detskogo-centra-2026' },
+  { l: 'Частная школа', i: 'ph-chalkboard-teacher', s: 'it-dlya-chastnoy-shkoly-2026' },
+  { l: 'Школа танцев', i: 'ph-microphone-stage', s: 'it-dlya-shkoly-tancev-vokala-2026' },
+  { l: 'Языковая школа', i: 'ph-translate', s: 'it-dlya-yazykovoy-shkoly-repetitorov-2026' },
+  { l: 'Автошкола', i: 'ph-steering-wheel', s: 'cifrovizaciya-avtoshkol-2026' },
+  { l: 'Юрфирма', i: 'ph-scales', s: 'it-dlya-yuridicheskoy-firmy-2026' },
+  { l: 'Турагентство', i: 'ph-airplane-tilt', s: 'it-dlya-turagentstva-2026' },
+  { l: 'Гостиница / хостел', i: 'ph-bed', s: 'it-dlya-mini-gostinicy-hostela-2026' },
+  { l: 'Коворкинг', i: 'ph-armchair', s: 'it-dlya-kovorkinga-2026' },
+  { l: 'Квест / антикафе', i: 'ph-confetti', s: 'it-dlya-kvest-antikafe-2026' },
+  { l: 'Фотостудия', i: 'ph-camera', s: 'it-dlya-fotostudii-2026' },
+  { l: 'Фотограф', i: 'ph-video-camera', s: 'it-dlya-fotografa-videografa-2026' },
+  { l: 'Аптека', i: 'ph-first-aid-kit', s: 'it-dlya-apteki-2026' },
+  { l: 'Оптика', i: 'ph-eyeglasses', s: 'it-dlya-optiki-2026' },
+  { l: 'Стоматология', i: 'ph-tooth', s: 'it-dlya-stomatologiy-medcentrov-2026' },
+  { l: 'Лаборатория', i: 'ph-test-tube', s: 'it-dlya-laboratorii-analizov-2026' },
+  { l: 'Ювелирный', i: 'ph-diamond', s: 'it-dlya-yuvelirnogo-magazina-2026' },
+  { l: 'Цветы', i: 'ph-flower', s: 'cifrovizaciya-cvetochnogo-magazina-2026' },
+  { l: 'Зоомагазин', i: 'ph-paw-print', s: 'it-dlya-zoomagazina-gruminga-2027' },
+  { l: 'Клининг', i: 'ph-broom', s: 'it-dlya-kliningovoy-kompanii-2026' },
+  { l: 'Стройка', i: 'ph-buildings', s: 'it-dlya-stroitelnyh-kompaniy-2026' },
+];
+function nicheNavHtml(published) {
+  const pub = new Set(published.map(a => a.slug));
+  const items = NICHES.filter(n => pub.has(n.s));
+  if (items.length < 6) return '';
+  return `<section class="niche-nav" aria-label="Выберите свою сферу">
+                    <h2 class="niche-nav-title"><i class="ph-fill ph-target" aria-hidden="true"></i> Выберите свою сферу</h2>
+                    <p class="niche-nav-sub">IT-решения под вашу нишу — нажмите свою, чтобы перейти к разбору и предложению.</p>
+                    <div class="niche-nav-grid">
+                    ${items.map(n => `<a class="niche-chip" href="/blog/${n.s}/"><i class="ph ${n.i}" aria-hidden="true"></i> ${esc(n.l)}</a>`).join('\n                    ')}
+                    </div>
+                </section>
+                <style>
+                .niche-nav{margin:0 0 30px;}
+                .niche-nav-title{font-size:1.15rem;margin:0 0 4px;display:flex;align-items:center;gap:8px;}
+                .niche-nav-title i{color:var(--accent);}
+                .niche-nav-sub{color:var(--text-secondary);font-size:.92rem;margin:0 0 14px;}
+                .niche-nav-grid{display:flex;flex-wrap:wrap;gap:9px;}
+                .niche-chip{display:inline-flex;align-items:center;gap:7px;padding:9px 14px;border:1.5px solid var(--border);border-radius:999px;background:var(--bg-card);color:var(--text);text-decoration:none;font-size:.92rem;transition:border-color .15s,background .15s,transform .1s;}
+                .niche-chip i{color:var(--accent);font-size:1.05rem;}
+                .niche-chip:hover{border-color:var(--accent);background:var(--bg-card-hover);transform:translateY(-1px);}
+                </style>`;
+}
 function searchBox() {
   return `<div class="site-search">
                     <i class="ph ph-magnifying-glass site-search-ic" aria-hidden="true"></i>
