@@ -491,6 +491,7 @@ const CATEGORY_LABELS = {
   mlm:         'Сетевой бизнес',
   mwrlife:     'MWR Life',
   opensource:  'Open-source и свой сервер',
+  'biznes-krugozor': 'Бизнес-кругозор',
   // legacy/fallback
   ai:          'AI и автоматизация',
   career:      'Карьера и обучение',
@@ -1566,6 +1567,11 @@ const CATEGORY_META = {
     h1: 'Open-source и свой сервер',
     intro: 'Бесплатные open-source инструменты для бизнеса на вашем сервере: CRM, аналитика, автоматизация, AI, облако, мессенджеры — аналоги дорогих SaaS и замена ушедшего софта. Разбираю, что и кому подходит, и разворачиваю под ключ с соблюдением 152-ФЗ.',
     service: { url: 'https://chimitdorzhi.tech/predlozheniya/open-source-pod-klyuch/', label: 'Развернуть open-source под ключ' },
+  },
+  'biznes-krugozor': {
+    h1: 'Бизнес-кругозор',
+    intro: 'Методологии, личная эффективность, разборы книг и трендов — простыми словами и с практикой. Agile и Scrum, OKR, тайм-менеджмент, выгорание, «второй мозг» и навыки 2026. Не теория ради теории, а как применить у себя и автоматизировать рутину.',
+    service: { url: 'https://chimitdorzhi.tech/services/business-automation/', label: 'Навести порядок в процессах' },
   },
 };
 

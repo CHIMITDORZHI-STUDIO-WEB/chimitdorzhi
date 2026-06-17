@@ -172,7 +172,8 @@ function silkStreaks(p, seed) {
 }
 function clipText(s, n) { s = String(s || '').trim(); return s.length <= n ? s : s.slice(0, n - 1).replace(/\s+\S*$/, '') + '…'; }
 
-function buildOpenSourceSvg(article) {
+function buildOpenSourceSvg(article, label) {
+  label = label || 'OPEN-SOURCE';
   const p = osPalette(article.slug);
   const lines = wrapTitle(article.title, 24).slice(0, 3);
   const sub = clipText(article.excerpt || article.metaDescription, 64);
@@ -205,8 +206,13 @@ function buildOpenSourceSvg(article) {
     ${silkStreaks(p, article.slug)}
   </g>
   <rect width="1200" height="630" fill="url(#scrim)"/>
-  <rect x="${CX - 103}" y="${pillY}" rx="24" ry="24" width="206" height="48" fill="#ffffff" fill-opacity="0.12" stroke="#ffffff" stroke-opacity="0.9" stroke-width="2"/>
-  <text x="${CX}" y="${pillY + 31}" text-anchor="middle" font-family="${FONT}" font-weight="700" font-size="20" letter-spacing="2" fill="#ffffff">OPEN-SOURCE</text>
+  ${(() => {
+    const pillFs = label.length > 11 ? 17 : 20;
+    const pillLs = label.length > 11 ? 1 : 2;
+    const pillW = Math.max(206, Math.round(label.length * (pillFs * 0.62 + pillLs) + 56));
+    return `<rect x="${CX - pillW / 2}" y="${pillY}" rx="24" ry="24" width="${pillW}" height="48" fill="#ffffff" fill-opacity="0.12" stroke="#ffffff" stroke-opacity="0.9" stroke-width="2"/>
+  <text x="${CX}" y="${pillY + 31}" text-anchor="middle" font-family="${FONT}" font-weight="700" font-size="${pillFs}" letter-spacing="${pillLs}" fill="#ffffff">${escapeXml(label)}</text>`;
+  })()}
   ${titleSvg}
   <text x="${CX}" y="${subY}" text-anchor="middle" font-family="${FONT}" font-weight="500" font-size="25" fill="#ffffff" fill-opacity="0.92">${escapeXml(sub)}</text>
   <text x="${CX}" y="600" text-anchor="middle" font-family="${FONT}" font-weight="700" font-size="21" fill="#ffffff" fill-opacity="0.8">chimitdorzhi.tech · блог</text>
@@ -215,7 +221,9 @@ function buildOpenSourceSvg(article) {
 
 async function generateCover(article) {
   if (!article.published) return null;
-  const svg = article.category === 'opensource' ? buildOpenSourceSvg(article) : buildSvg(article);
+  const svg = article.category === 'opensource' ? buildOpenSourceSvg(article)
+    : article.category === 'biznes-krugozor' ? buildOpenSourceSvg(article, 'БИЗНЕС-КРУГОЗОР')
+    : buildSvg(article);
   const outDir = path.join(OUT_BLOG, article.slug);
   fs.mkdirSync(outDir, { recursive: true });
   const outFile = path.join(outDir, 'cover.png');
