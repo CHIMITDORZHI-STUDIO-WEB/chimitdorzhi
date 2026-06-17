@@ -1015,6 +1015,48 @@ function mwrClusterHtml(a, published) {
 </section>`;
 }
 
+// Карта рубрики «Бизнес-кругозор»: навигация по всем статьям рубрики, сгруппированным
+// по темам. Рендерится на каждой статье категории biznes-krugozor (исключая текущую).
+const KRUGOZOR_CLUSTER = [
+  { label: 'Гибкие методологии и проекты', icon: 'ph-fill ph-arrows-clockwise', slugs: [
+    'chto-takoe-agile-prostymi-slovami-2026', 'chto-takoe-scrum-roli-sprinty-2026', 'kanban-doska-poryadok-v-zadachah-2026', 'diagramma-ganta-planirovanie-proekta-2026', 'berezhlivoe-proizvodstvo-lean-kaizen-2026', 'teoriya-ogranicheniy-toc-2026', 'async-first-asinhronnaya-rabota-2026', 'working-backwards-prfaq-amazon-2026'] },
+  { label: 'Стратегия и продукт', icon: 'ph-fill ph-strategy', slugs: [
+    'biznes-model-canvas-za-list-2026', 'lean-canvas-2026', 'swot-analiz-prostymi-slovami-2026', '5-sil-portera-2026', 'strategiya-golubogo-okeana-2026', 'wardley-mapping-kartirovanie-2026', 'lean-startup-mvp-zapusk-2026', 'dizayn-myshlenie-design-thinking-2026', 'jobs-to-be-done-jtbd-2026', 'customer-journey-map-cjm-2026', 'continuous-discovery-opportunity-solution-tree-2026', 'product-led-growth-plg-2026', 'utp-kak-sformulirovat-2026', 'celevaya-auditoriya-portret-klienta-2026'] },
+  { label: 'Цели и приоритеты', icon: 'ph-fill ph-target', slugs: [
+    'okr-kak-stavit-celi-2026', 'smart-celi-kak-formulirovat-2026', 'princip-pareto-80-20-2026', 'matrica-eyzenhauera-vazhnoe-srochnoe-2026', 'metod-5-pochemu-koren-problemy-2026'] },
+  { label: 'Время и продуктивность', icon: 'ph-fill ph-clock', slugs: [
+    'taym-menedzhment-12-tehnik-2026', 'metod-pomodoro-koncentraciya-2026', 'gtd-getting-things-done-2026', 'taym-bloking-planirovanie-2026', 'metod-syesh-lyagushku-2026', 'pravilo-2-minut-2026', 'zakon-parkinsona-2026', 'glubokaya-rabota-deep-work-2026', 'sostoyanie-potoka-flow-2026', 'slow-productivity-medlennaya-produktivnost-2026', 'energomenedzhment-2026', 'kak-poborot-prokrastinaciyu-2026', 'delegirovanie-kak-perestat-delat-vsyo-samomu-2026'] },
+  { label: 'Деньги и метрики', icon: 'ph-fill ph-chart-line', slugs: [
+    'finansovaya-gramotnost-s-chego-nachat-2026', 'kpi-chto-eto-kak-stavit-2026', 'marzha-i-nacenka-raznica-2026', 'tochka-bezubytochnosti-kak-poschitat-2026', 'yunit-ekonomika-prostymi-slovami-2026', 'ltv-cac-2026', 'roi-romi-2026', 'fire-finansovaya-nezavisimost-2026'] },
+  { label: 'Психология и навыки', icon: 'ph-fill ph-heartbeat', slugs: [
+    'sindrom-samozvanca-kak-spravitsya-2026', 'vygoranie-burnout-priznaki-chto-delat-2026', 'kak-spravitsya-so-stressom-na-rabote-2026', 'emocionalnyy-intellekt-v-rabote-2026', 'soft-skills-2026-navyki', 'kak-nauchitsya-govorit-net-assertivnost-2026', 'kak-formirovat-privychki-2026', 'myshlenie-rosta-growth-mindset-2026'] },
+  { label: 'Знания и обучение', icon: 'ph-fill ph-brain', slugs: [
+    'vtoroy-mozg-para-baza-znaniy-2026', 'intellekt-karty-mind-map-2026', 'kriticheskoe-myshlenie-2026', 'metod-feynmana-2026', 'digital-gardens-cifrovye-sady-2026', 'personal-crm-lichnaya-crm-2026'] },
+];
+function krugozorClusterHtml(a, published) {
+  if (a.category !== 'biznes-krugozor') return '';
+  const map = new Map(published.map(p => [p.slug, p]));
+  const groups = KRUGOZOR_CLUSTER.map(g => {
+    const items = g.slugs
+      .map(s => map.get(s))
+      .filter(Boolean)
+      .map(p => p.slug === a.slug
+        ? `<li class="is-current"><i class="ph ph-caret-right" aria-hidden="true"></i> ${esc(p.title)} <span>(вы здесь)</span></li>`
+        : `<li><a href="/blog/${esc(p.slug)}/">${esc(p.title)}</a></li>`);
+    if (!items.length) return '';
+    return `<div class="mwr-cluster-col">
+      <h3><i class="${g.icon}" aria-hidden="true"></i> ${esc(g.label)}</h3>
+      <ul>${items.join('')}</ul>
+    </div>`;
+  }).filter(Boolean).join('\n');
+  return `<section class="mwr-cluster" aria-label="Карта рубрики Бизнес-кругозор">
+  <h2>Вся рубрика «Бизнес-кругозор»: карта тем</h2>
+  <p class="mwr-cluster-lead">Методологии, стратегия, продуктивность, деньги, психология и знания — выберите, что разобрать сейчас.</p>
+  <div class="mwr-cluster-grid">${groups}</div>
+  <a class="mwr-cluster-cta" href="https://chimitdorzhi.tech/predlozheniya/"><i class="ph-fill ph-wrench" aria-hidden="true"></i> Внедрить это в работу: автоматизация и процессы под ключ</a>
+</section>`;
+}
+
 // Contextual auto-linking: link the FIRST occurrence of a keyword phrase inside
 // a prose <p> to the matching service page. Skips headings, code, tables, existing
 // links and the lead. Caps total links to avoid over-optimization.
@@ -1127,6 +1169,7 @@ ${faqLd(a)}${METRIKA}</head>
 
                     ${relatedHtml(a, published)}
                     ${mwrClusterHtml(a, published)}
+                    ${krugozorClusterHtml(a, published)}
                     ${a.slug === 'gotovye-it-resheniya-dlya-biznesa-2026' ? '' : catalogBanner()}
                 </article>
 
