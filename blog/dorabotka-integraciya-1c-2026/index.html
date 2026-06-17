@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Доработка и интеграция 1С: сайт, WB, CRM</title>
+    <meta name="description" content="Типовые сценарии интеграции 1С: обмен с сайтом (заказы, остатки, цены), маркетплейсы WB/Ozon, CRM Битрикс24/amoCRM, банк и ОФД, обмен по API/EnterpriseData.">
+    <meta name="keywords" content="1С, интеграция, маркетплейсы, CRM">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/dorabotka-integraciya-1c-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/dorabotka-integraciya-1c-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/dorabotka-integraciya-1c-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/dorabotka-integraciya-1c-2026/">
+    <meta property="og:title" content="Доработка и интеграция 1С: сайт, WB, CRM">
+    <meta property="og:description" content="Типовые сценарии интеграции 1С: обмен с сайтом (заказы, остатки, цены), маркетплейсы WB/Ozon, CRM Битрикс24/amoCRM, банк и ОФД, обмен по API/EnterpriseData.">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/dorabotka-integraciya-1c-2026/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Доработка и интеграция 1С: сайт, WB, CRM">
+    <meta name="twitter:description" content="Типовые сценарии интеграции 1С: обмен с сайтом (заказы, остатки, цены), маркетплейсы WB/Ozon, CRM Битрикс24/amoCRM, банк и ОФД, обмен по API/EnterpriseData.">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/dorabotka-integraciya-1c-2026/cover.png">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor-Fill.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=44">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Доработка и интеграция 1С с сайтом, маркетплейсом и CRM",
+  "description": "Типовые сценарии интеграции 1С: обмен с сайтом (заказы, остатки, цены), маркетплейсы WB/Ozon, CRM Битрикс24/amoCRM, банк и ОФД, обмен по API/EnterpriseData. Чем грозит ручной перенос и как не сломать учёт.",
+  "image": "https://chimitdorzhi.tech/blog/dorabotka-integraciya-1c-2026/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/dorabotka-integraciya-1c-2026/"
+  },
+  "datePublished": "2026-06-17",
+  "dateModified": "2026-06-17",
+  "keywords": "1С, интеграция, маркетплейсы, CRM",
+  "articleSection": "Разработка",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  },
+  "about": [
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://chimitdorzhi.tech/slovar/#crm",
+      "name": "CRM"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Доработка и интеграция 1С с сайтом, маркетплейсом и CRM",
+      "item": "https://chimitdorzhi.tech/blog/dorabotka-integraciya-1c-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Не сломается ли мой учёт после настройки обмена?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "При грамотном подходе — нет. Обмен сначала настраивается и тестируется на копии базы, затем запускается в контролируемом режиме со сверкой данных, и только после проверки включается в боевую работу. Именно такой порядок защищает действующий учёт от ошибок и задвоения данных."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Подойдёт ли интеграция, если у меня сильно доработанная 1С?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, но доработанная или самописная конфигурация требует более тщательной подготовки. Сначала разбираемся, какие поля и справочники используются, как формируются цены и остатки, и только потом строим обмен. Нестандартная конфигурация — это не препятствие, а вопрос дополнительного времени на анализ."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли связать 1С сразу с несколькими системами — и сайтом, и маркетплейсами, и CRM?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да. 1С может быть единым центром, из которого данные расходятся по всем каналам: остатки и цены уходят на сайт и маркетплейсы, заказы и сделки синхронизируются с CRM, оплаты загружаются из банка. Каждое направление настраивается отдельно, но работает как единая система."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Чем плох ручной перенос данных, если сейчас всё работает?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ручной перенос работает, пока операций мало. С ростом оборота он становится узким местом: появляются ошибки ввода, расхождения остатков и цен между каналами, потерянные заказы и отмены с штрафами от маркетплейсов. Автоматический обмен убирает человеческий фактор и масштабируется без роста нагрузки на менеджеров."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как обновляются остатки на маркетплейсах — мгновенно?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Практически в реальном времени. Обмен настраивается по расписанию с коротким интервалом, поэтому актуальные остатки уходят на площадки каждые несколько минут. Частоту обновления подбираем под ваш оборот и ограничения API площадок."
+      }
+    }
+  ]
+}
+    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+for (var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109281884" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+            <li><a href="/#services" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li class="nav-dropdown">
+                <a href="/#projects" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--arey"><i class="ph-fill ph-vinyl-record" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-airplane-tilt" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#cases" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            </div>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/#about">Обо мне</a></li>
+        <li><a href="/#services">Услуги</a></li>
+        <li><a href="/services/">Каталог услуг</a></li>
+        <li><a href="/predlozheniya/">Предложения</a></li>
+        <li><a href="/#cases">Кейсы</a></li>
+        <li><a href="/blog/">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+        <li><a href="/#contact">Контакт</a></li>
+    </ul>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Доработка и интеграция 1С с сайтом, маркетплейсом и CRM</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/development/"><i class="ph ph-bookmark" aria-hidden="true"></i> Разработка</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 10 мин чтения</span>
+                        <time datetime="2026-06-17"><i class="ph ph-calendar" aria-hidden="true"></i> 17 июня 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Доработка и интеграция 1С с сайтом, маркетплейсом и CRM</h1>
+
+                    <p class="blog-lead">Когда 1С не дружит с сайтом и маркетплейсами, бизнес тонет в ручном переносе. Разбираю сценарии интеграции и доработки 1С и как настроить обмен, не сломав учёт.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>1С</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>интеграция</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>маркетплейсы</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>CRM</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
+<li>Интеграция 1С — это автоматический обмен данными между вашей учётной системой и сайтом, маркетплейсами, CRM, банком и ОФД: заказы, остатки, цены и оплаты ходят между системами без ручного переноса.</li>
+<li>Ручной перенос данных рано или поздно приводит к ошибкам: продажи товара, которого нет на складе, расхождению цен, потерянным заказам и испорченному учёту.</li>
+<li>Типовые сценарии — обмен с сайтом (заказы, остатки, цены), выгрузка на Wildberries и Ozon, связка с Битрикс24 и amoCRM, загрузка выписок из банка и чеков ОФД.</li>
+<li>Обмен строится через стандартные механизмы (CommerceML, EnterpriseData) и API, но требует аккуратной настройки, чтобы не сломать существующий учёт и не задвоить данные.</li>
+<li>Я настраиваю обмен 1С с сайтом, маркетплейсами и CRM под ключ: от анализа задачи до рабочего автоматического обмена с проверкой на реальных данных.</li>
+</ul></div>
+
+<p>Почти у любого бизнеса, который ведёт учёт в 1С, рано или поздно появляется одна и та же боль: данные приходится переносить руками. Менеджер вручную заводит заказы с сайта в 1С, кладовщик отдельно правит остатки на маркетплейсах, бухгалтер вбивает оплаты из банковской выписки. Пока заказов мало, это терпимо, но с ростом оборота ручной перенос превращается в источник ошибок и потерянного времени. Интеграция 1С с внешними системами убирает эту рутину: данные начинают ходить между сайтом, маркетплейсами, CRM и банком автоматически. Ниже разберу, что такое доработка и интеграция 1С, кому она нужна, как делается, сколько стоит и чем грозит работа «на ручнике».</p>
+
+<h2 id="chto-eto">Что такое доработка и интеграция 1С</h2>
+<p>Интеграция 1С — это настройка автоматического обмена данными между вашей учётной системой 1С и другими сервисами, с которыми работает бизнес: интернет-магазином, маркетплейсами, CRM-системой, банком, кассой и оператором фискальных данных (ОФД). Вместо того чтобы человек переносил информацию из одной программы в другую руками, системы обмениваются ей сами по заданному расписанию или в момент события.</p>
+<p>Доработка 1С — это изменение самой конфигурации под нестандартные процессы компании: дополнительные поля в карточке товара, особые правила расчёта цен, нетиповые документы, печатные формы или логика, которой нет в коробочной версии. Часто доработка и интеграция идут вместе: чтобы корректно выгружать данные на сайт или маркетплейс, конфигурацию приходится подготовить — добавить характеристики, привязать товары к категориям, настроить виды цен.</p>
+<p>В основе обмена лежат стандартные механизмы. Для сайтов это, как правило, формат CommerceML и протокол обмена с CMS (например, с 1С-Битрикс, который понимает выгрузку «из коробки»). Между конфигурациями 1С и многими внешними сервисами используется универсальный формат EnterpriseData. Там, где готового протокола нет — например, для маркетплейсов или CRM, — обмен строится через их API: 1С отправляет и получает данные по сети напрямую через программный интерфейс сервиса. Понимание этих механизмов и отличает аккуратную интеграцию от костыля, который ломается при первом обновлении.</p>
+
+<h2 id="komu-nuzhno">Кому это нужно</h2>
+<p>Интеграция 1С нужна в первую очередь тем, кто продаёт через несколько каналов одновременно. Если у вас есть розничный учёт в 1С, интернет-магазин и витрина на Wildberries или Ozon, то без обмена остатки в этих каналах живут отдельной жизнью. Результат предсказуем: товар продан в рознице, но на маркетплейсе он всё ещё «в наличии», покупатель оформляет заказ, а отгрузить нечего — отмена, штраф от площадки и испорченный рейтинг.</p>
+<p>Интернет-магазинам обмен с 1С нужен, чтобы каталог, цены и остатки на сайте всегда соответствовали реальному складу, а заказы автоматически попадали в учётную систему и сразу резервировали товар. Это снимает с менеджеров ручной ввод и убирает ошибки переноса.</p>
+<p>Компаниям, которые работают с клиентами через CRM (Битрикс24, amoCRM), интеграция нужна, чтобы сделки, контрагенты и счета не вводились дважды. Менеджер ведёт сделку в CRM, а отгрузка, счёт и оплата отражаются в 1С автоматически — руководитель видит единую картину по выручке и долгам.</p>
+<p>Отдельная категория — те, кому важна бухгалтерия без ручного ввода: загрузка банковских выписок, разнесение оплат, получение чеков из ОФД. Чем больше операций в день, тем сильнее окупается автоматизация. Если коротко: интеграция нужна всем, у кого данные сейчас переносятся вручную и кому этот ручной перенос уже стоит времени, нервов или денег.</p>
+
+<h2 id="kak-rabotaet">Как делается интеграция</h2>
+<p>Любая интеграция начинается не с кода, а с разбора процессов. Сначала нужно понять, какие данные и в какую сторону должны ходить: что считается источником истины по остаткам, где заводятся заказы, как формируются цены, какие справочники должны совпадать в обеих системах. Без этого этапа легко получить обмен, который технически работает, но задваивает товары или перетирает правильные данные неправильными.</p>
+<p>Обмен с сайтом обычно строится так: 1С выгружает каталог, характеристики, цены и остатки на сайт, а сайт отдаёт обратно новые заказы. Для популярных CMS это делается через стандартный протокол CommerceML, для самописных сайтов — через их API или промежуточный модуль. Важно настроить расписание: остатки и цены имеет смысл обновлять часто, а полный каталог — реже, чтобы не нагружать систему.</p>
+<p>Интеграция с маркетплейсами (Wildberries, Ozon) идёт через их API. 1С передаёт остатки и цены, получает новые заказы и статусы отгрузок. Здесь критично правильно сопоставить номенклатуру 1С с карточками на площадке по артикулу или штрихкоду, иначе остатки «приклеятся» не к тем товарам.</p>
+<p>Связка с CRM (Битрикс24, amoCRM) тоже работает через API: контрагенты и сделки синхронизируются с заказами и контрагентами 1С, счета и оплаты возвращаются в CRM. С банком и ОФД обмен обычно односторонний — загрузка выписок в формате 1С:Предприятие — Клиент банка и получение чеков для отражения розничной выручки.</p>
+<p>На каждом этапе обязательны тестирование на копии базы и проверка на реальных, но контролируемых данных. Сначала обмен запускают в «тихом» режиме, сверяют результат с учётом, и только потом включают в боевую работу. Такой подход защищает действующий учёт от поломки.</p>
+
+<h2 id="skolko">Сроки и стоимость</h2>
+<p>Стоимость и сроки зависят от того, сколько систем связывается, насколько типовая у вас конфигурация 1С и нужны ли доработки самой базы. Простой обмен с сайтом на стандартной CMS, где конфигурация типовая, настраивается быстро — это вопрос нескольких дней. Подключение маркетплейса через API или связка с CRM занимает больше времени, потому что требует сопоставления номенклатуры, настройки правил и тестирования сценариев.</p>
+<p>Самые трудозатратные проекты — там, где конфигурация 1С серьёзно доработана или самописная, справочники в системах не совпадают, а процессы нестандартные. В таких случаях значительная часть времени уходит не на сам обмен, а на подготовку данных и согласование логики.</p>
+<p>На сроки также влияет готовность данных с вашей стороны: если номенклатура аккуратно заведена, у товаров есть артикулы и штрихкоды, а виды цен настроены, интеграция идёт быстрее. Если же справочники в беспорядке, сначала придётся навести в них порядок. Поэтому точную оценку всегда дают после короткого разбора задачи: какие системы, какая версия 1С, какой объём номенклатуры и какие сценарии обмена нужны. Это занимает немного времени, но позволяет назвать реальные сроки и стоимость, а не среднюю цифру «по больнице».</p>
+
+<h2 id="primer">Пример: 1С + сайт + Wildberries</h2>
+<p>Разберу типовой сценарий, чтобы было понятно, как это выглядит на практике. Допустим, у компании есть учёт в 1С, интернет-магазин и витрина на Wildberries. До интеграции работа выглядела так: остатки на складе ведутся в 1С, на сайт их переносит менеджер раз в день вручную, а на Wildberries поставщик правит остатки прямо в личном кабинете площадки. Заказы с сайта печатаются и заводятся в 1С руками, заказы с маркетплейса выгружаются отдельно.</p>
+<p>Проблемы начинаются на росте. Товар продали в рознице, но на сайте он ещё в наличии — клиент заказывает, менеджер извиняется и отменяет. На Wildberries остаток не успели обновить — заказ приходит на отсутствующий товар, площадка штрафует за отмену и понижает карточку в выдаче. Цены на сайте и в 1С расходятся, потому что акцию завели в одном месте и забыли в другом. Каждая такая ошибка стоит денег и репутации.</p>
+<p>После интеграции картина меняется. 1С становится единым источником истины по остаткам и ценам. Каждые несколько минут актуальные остатки автоматически уходят на сайт и на Wildberries через API — продали товар в любом канале, и он почти сразу списывается во всех остальных. Заказы с сайта и с маркетплейса сами попадают в 1С как документы, резервируют товар и встают в очередь на отгрузку. Цены меняются в одном месте — в 1С — и расходятся по всем витринам. Менеджер больше не переносит данные руками, а занимается реальной работой с клиентами. Риск продать несуществующий товар сводится к минимуму, а руководитель видит единую и достоверную картину продаж по всем каналам.</p>
+
+<h2 id="kak-zakazat">Как заказать</h2>
+<p>Самостоятельно собрать надёжный обмен между 1С, сайтом, маркетплейсами и CRM — задача, в которой легко наделать ошибок: задвоить номенклатуру, перетереть правильные остатки, сломать действующий учёт неудачной выгрузкой. Поэтому такую работу разумнее доверить специалисту, который сначала разберётся в ваших процессах, а потом аккуратно настроит обмен и проверит его на реальных данных.</p>
+<p>Я настрою обмен 1С с сайтом, маркетплейсами и CRM под ключ. Начинаю с разбора задачи: какие системы нужно связать, какая у вас версия и конфигурация 1С, какой объём номенклатуры и какие сценарии обмена важны. Затем подготавливаю конфигурацию (при необходимости дорабатываю её), настраиваю выгрузку и загрузку данных через стандартные механизмы и API, сопоставляю справочники, тестирую обмен на копии базы и запускаю его в боевую работу так, чтобы существующий учёт не пострадал. После запуска остаюсь на связи для поддержки и доработок.</p>
+<p>За плечами 16+ лет в IT и опыт интеграций учётных систем с сайтами, маркетплейсами и CRM под конкретные задачи бизнеса. Если вам нужно убрать ручной перенос данных и получить надёжный автоматический обмен — <a href="https://chimitdorzhi.tech/predlozheniya/integraciya-sistem/">обсудить задачу</a>, а рутину по синхронизации систем я возьму на себя.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+<p><strong>Не сломается ли мой учёт после настройки обмена?</strong> При грамотном подходе — нет. Обмен сначала настраивается и тестируется на копии базы, затем запускается в контролируемом режиме со сверкой данных, и только после проверки включается в боевую работу. Именно такой порядок защищает действующий учёт от ошибок и задвоения данных.</p>
+<p><strong>Подойдёт ли интеграция, если у меня сильно доработанная 1С?</strong> Да, но доработанная или самописная конфигурация требует более тщательной подготовки. Сначала разбираемся, какие поля и справочники используются, как формируются цены и остатки, и только потом строим обмен. Нестандартная конфигурация — это не препятствие, а вопрос дополнительного времени на анализ.</p>
+<p><strong>Можно ли связать 1С сразу с несколькими системами — и сайтом, и маркетплейсами, и CRM?</strong> Да. 1С может быть единым центром, из которого данные расходятся по всем каналам: остатки и цены уходят на сайт и маркетплейсы, заказы и сделки синхронизируются с CRM, оплаты загружаются из банка. Каждое направление настраивается отдельно, но работает как единая система.</p>
+<p><strong>Чем плох ручной перенос данных, если сейчас всё работает?</strong> Ручной перенос работает, пока операций мало. С ростом оборота он становится узким местом: появляются ошибки ввода, расхождения остатков и цен между каналами, потерянные заказы и отмены с штрафами от маркетплейсов. Автоматический обмен убирает человеческий фактор и масштабируется без роста нагрузки на менеджеров.</p>
+<p><strong>Как обновляются остатки на маркетплейсах — мгновенно?</strong> Практически в реальном времени. Обмен настраивается по расписанию с коротким интервалом, поэтому актуальные остатки уходят на площадки каждые несколько минут. Частоту обновления подбираем под ваш оборот и ограничения API площадок.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+<p>Интеграция 1С — это способ убрать ручной перенос данных и связать учётную систему с сайтом, маркетплейсами, CRM, банком и ОФД в единый автоматический обмен. Заказы, остатки, цены и оплаты начинают ходить между системами сами, а 1С становится единым источником истины. Это снимает с менеджеров рутину, убирает ошибки переноса и защищает от самой дорогой проблемы мультиканальной торговли — продажи товара, которого нет на складе. Обмен строится на стандартных механизмах вроде CommerceML и EnterpriseData и через API сервисов, но требует аккуратной настройки и тестирования, чтобы не сломать действующий учёт. Эту часть проще доверить специалисту, чтобы сразу получить надёжный обмен, а не разбираться с протоколами и справочниками в одиночку.</p>
+
+                    </div>
+
+                    
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Что делаю под ключ</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-plugs-connected"></i> <span>Интеграции: 1С, сайт, маркетплейсы, CRM</span></li>
+    
+    <li><i class="ph-fill ph-file-text"></i> <span>ЭДО, КЭДО, электронная подпись</span></li>
+    
+    <li><i class="ph-fill ph-shield-check"></i> <span>Импортозамещение ПО и инфраструктуры</span></li>
+    
+    <li><i class="ph-fill ph-robot"></i> <span>Боты и магазины в Telegram/WhatsApp</span></li>
+    
+    <li><i class="ph-fill ph-credit-card"></i> <span>Приём оплаты, СБП, чеки</span></li>
+    
+    <li><i class="ph-fill ph-browser"></i> <span>Сайты и лендинги для экспертов и бизнеса</span></li>
+    
+  </ul>
+  <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
+  </a>
+</div>
+                    
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/predlozheniya/integraciya-sistem/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Настроить обмен 1С под ключ</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/skolko-stoit-vnedrenie-1c-2026/" data-category="development" data-clicks="0">
+  <span class="blog-card-fresh">Свежее</span>
+  <div class="blog-card-icon"><i class="ph-fill ph-currency-rub"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
+  <h3>Сколько стоит внедрение 1С и от чего зависит цена в 2026</h3>
+  <p>Цена внедрения 1С пугает разбросом. Раскладываю по полочкам, из чего она складывается и от чего зависит, даю ориентиры по бюджету и срокам — честно, без обещаний фиксированной суммы.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 17 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 10 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/ai-dlya-sellerov-wb-ozon-2026/" data-category="ai-life" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-storefront"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>AI для жизни и работы</span>
+  <h3>AI для селлеров на Wildberries и Ozon: карточки, отзывы, аналитика</h3>
+  <p>Нейросети экономят селлеру десятки часов на карточках, отзывах и аналитике — если применять их с умом. Разбираю, где AI реально помогает на Wildberries и Ozon, какими инструментами пользоваться и где легко обжечься.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 3 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 15 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/priem-platezhey-sbp-sayt/" data-category="development" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-credit-card"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
+  <h3>Прием платежей на сайте: как подключить СБП (систему быстрых платежей) и рассрочки для снижения эквайринга</h3>
+  <p>Детальное руководство по приему платежей на сайте. Сравнение классического эквайринга и СБП (тарифы, QR-коды, динамические ссылки), обзор BNPL-сервисов, онлайн-рассрочек (Т-Банк, Сбер) и интеграция через API.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 9 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 15 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовые решения под ключ</span>
+                            <span class="blog-offer-cta-title">449 готовых IT-решений для бизнеса</span>
+                            <span class="blog-offer-cta-price">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Смотреть каталог</span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#chto-eto"><span class="blog-toc-num">01</span> Что это</a></li>
+<li><a href="#komu-nuzhno"><span class="blog-toc-num">02</span> Кому нужно</a></li>
+<li><a href="#kak-rabotaet"><span class="blog-toc-num">03</span> Как это работает</a></li>
+<li><a href="#skolko"><span class="blog-toc-num">04</span> Сроки и стоимость</a></li>
+<li><a href="#primer"><span class="blog-toc-num">05</span> Пример</a></li>
+<li><a href="#kak-zakazat"><span class="blog-toc-num">06</span> Как заказать</a></li>
+<li><a href="#faq"><span class="blog-toc-num">07</span> FAQ</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">08</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=23" defer></script>
+<script src="/services-i18n.js?v=23" defer></script>
+<script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>
