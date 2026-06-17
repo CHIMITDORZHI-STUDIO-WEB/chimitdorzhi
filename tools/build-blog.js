@@ -466,6 +466,10 @@ function catalogBanner() {
 
 const SITE = 'https://chimitdorzhi.tech';
 let FRESH_SLUGS = new Set(); // слаги самых свежих статей, задаётся в main()
+let POPULAR_SLUGS = new Set(); // топ статей по кликам из Вебмастера, задаётся в main()
+// Поисковая статистика из Вебмастера (slug → {c: клики, i: показы}). Обновляется выгрузкой.
+const POPULARITY = (() => { try { return require('./popularity.json'); } catch (e) { return {}; } })();
+const clicksOf = (slug) => (POPULARITY[slug] && POPULARITY[slug].c) || 0;
 const ROOT = path.resolve(__dirname, '..');
 const OUT_BLOG = path.join(ROOT, 'blog');
 const OUT_SITEMAP = path.join(ROOT, 'sitemap.xml');
@@ -1139,9 +1143,10 @@ ${faqLd(a)}${METRIKA}</head>
 
 function cardHtml(a) {
   const cat = CATEGORY_LABELS[a.category] || 'Блог';
-  const fresh = FRESH_SLUGS.has(a.slug) ? '<span class="blog-card-fresh">Свежее</span>' : '';
-  return `<a class="blog-card" href="/blog/${a.slug}/" data-category="${a.category}">
-  ${fresh}
+  const popular = POPULAR_SLUGS.has(a.slug) ? '<span class="blog-card-popular"><i class="ph-fill ph-fire" aria-hidden="true"></i> Популярное</span>' : '';
+  const fresh = !popular && FRESH_SLUGS.has(a.slug) ? '<span class="blog-card-fresh">Свежее</span>' : '';
+  return `<a class="blog-card" href="/blog/${a.slug}/" data-category="${a.category}" data-clicks="${clicksOf(a.slug)}">
+  ${popular}${fresh}
   <div class="blog-card-icon"><i class="${a.heroIcon}"></i></div>
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>${esc(cat)}</span>
   <h3>${esc(a.title)}</h3>
@@ -1220,8 +1225,14 @@ ${METRIKA}</head>
 
                 ${searchBox()}
 
+                ${POPULAR_SLUGS.size ? `<div class="blog-popular-strip" style="margin:0 0 22px;">
+                    <h2 style="font-size:1.05rem;margin:0 0 12px;display:flex;align-items:center;gap:7px;"><i class="ph-fill ph-fire" style="color:#ff7a18;" aria-hidden="true"></i> Часто читают</h2>
+                    <div class="blog-grid">${published.filter(a => POPULAR_SLUGS.has(a.slug)).sort((a, b) => clicksOf(b.slug) - clicksOf(a.slug)).slice(0, 6).map(cardHtml).join('\n')}</div>
+                </div>` : ''}
+
                 <div class="blog-filter-chips" role="group" aria-label="Фильтр категорий">
                     <button class="filter-btn active" data-blog-cat="all"><i class="ph ph-squares-four" aria-hidden="true"></i> Все <span class="filter-count">${published.length}</span></button>
+                    ${POPULAR_SLUGS.size ? '<button class="filter-btn" data-blog-cat="__popular"><i class="ph-fill ph-fire" aria-hidden="true"></i> Популярное</button>' : ''}
                     ${[
                       { key: 'legal',       label: 'Право',          icon: 'ph-scales' },
                       { key: 'ai-dev',      label: 'AI для кода',    icon: 'ph-cpu' },
@@ -1283,11 +1294,16 @@ ${METRIKA}</head>
       var btns = [].slice.call(document.querySelectorAll('.blog-filter-chips .filter-btn'));
       var cards = [].slice.call(grid.querySelectorAll('.blog-card'));
       var moreBtn = document.getElementById('blogMore');
-      var cat = 'all', shown = PAGE;
+      var cat = 'all', shown = PAGE, sortPopular = false;
       function apply(){
+        var order = cards;
+        if(sortPopular){
+          order = cards.slice().sort(function(a,b){ return (+b.getAttribute('data-clicks')||0) - (+a.getAttribute('data-clicks')||0); });
+          order.forEach(function(c){ grid.appendChild(c); }); // физически переставить по кликам
+        }
         var matched = 0;
-        cards.forEach(function(c){
-          var m = cat === 'all' || c.getAttribute('data-category') === cat;
+        order.forEach(function(c){
+          var m = (cat === 'all' || sortPopular) || c.getAttribute('data-category') === cat;
           if(!m){ c.style.display = 'none'; return; }
           matched++;
           c.style.display = matched <= shown ? '' : 'none';
@@ -1301,7 +1317,10 @@ ${METRIKA}</head>
         btn.addEventListener('click', function(){
           btns.forEach(function(b){ b.classList.remove('active'); });
           btn.classList.add('active');
-          cat = btn.getAttribute('data-blog-cat'); shown = PAGE; apply();
+          var v = btn.getAttribute('data-blog-cat');
+          sortPopular = (v === '__popular');
+          cat = sortPopular ? 'all' : v;
+          shown = PAGE; apply();
         });
       });
       if(moreBtn) moreBtn.addEventListener('click', function(){ shown += PAGE; apply(); });
@@ -1792,6 +1811,13 @@ async function main() {
 
   // «Свежее»: 6 самых новых статей (весь блог вышел сжатым периодом)
   FRESH_SLUGS = new Set(published.slice(0, 6).map(a => a.slug));
+
+  // «Популярное»: топ-24 статей по кликам из Вебмастера (только с реальными кликами)
+  POPULAR_SLUGS = new Set(
+    published.filter(a => clicksOf(a.slug) > 0)
+      .sort((a, b) => clicksOf(b.slug) - clicksOf(a.slug))
+      .slice(0, 24).map(a => a.slug)
+  );
 
   // Генерация уникальных OG-обложек 1200×630 для каждой статьи.
   // Требует sharp. Если модуль недоступен (например, в CI без npm install) —
