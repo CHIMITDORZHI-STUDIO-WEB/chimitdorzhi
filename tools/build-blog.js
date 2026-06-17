@@ -14,6 +14,21 @@ const OFFERS = require('./offers-data.js');
 const OFFERS_COUNT = OFFERS.filter(o => o && o.published !== false).length;
 const subOffersCount = (s) => String(s).split('{{OFFERS_COUNT}}').join(OFFERS_COUNT);
 
+// Яндекс.Метрика (счётчик 109281884) — вставляется во все страницы блога,
+// чтобы собирались просмотры статей (для будущего ранжирования по популярности).
+const METRIKA = `<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+for (var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109281884" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+`;
+
 // Карта: slug статьи → slug предложения. Добавляйте по мере роста раздела.
 const OFFER_LINKS = {
   'it-dlya-massazhnogo-salona-2026': 'massazh-spa-salon',
@@ -1005,7 +1020,7 @@ ${blogPostingLd(a, url)}
     <script type="application/ld+json">
 ${breadcrumbLd(a, url)}
     </script>
-${faqLd(a)}</head>
+${faqLd(a)}${METRIKA}</head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
     <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
@@ -1179,7 +1194,7 @@ ${JSON.stringify(breadcrumb, null, 2)}
     <script type="application/ld+json">
 ${organizationLd()}
     </script>
-</head>
+${METRIKA}</head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
     <div class="noise-overlay"></div>
@@ -1434,7 +1449,7 @@ ${JSON.stringify(ld, null, 2)}
     <script type="application/ld+json">
 ${JSON.stringify(breadcrumb, null, 2)}
     </script>
-</head>
+${METRIKA}</head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
     <div class="noise-overlay"></div>
@@ -1553,7 +1568,7 @@ ${JSON.stringify(ldSet, null, 2)}
     <script type="application/ld+json">
 ${JSON.stringify(breadcrumb, null, 2)}
     </script>
-</head>
+${METRIKA}</head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
     <div class="noise-overlay"></div>
