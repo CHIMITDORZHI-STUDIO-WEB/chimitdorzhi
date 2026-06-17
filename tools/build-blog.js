@@ -553,7 +553,7 @@ function head({ title, description, keywords, canonical, ogImage = `${SITE}/hero
         <link rel="stylesheet" href="/assets/phosphor/regular.css">
         <link rel="stylesheet" href="/assets/phosphor/fill.css">
     </noscript>
-    <link rel="stylesheet" href="/style.css?v=43">
+    <link rel="stylesheet" href="/style.css?v=44">
 `;
 }
 
@@ -969,6 +969,49 @@ function relatedHtml(a, published) {
 </section>`;
 }
 
+// Карта рубрики MWR Life: единый навигационный блок по этапам пути читателя.
+// Рендерится на каждой статье категории mwrlife и сшивает все статьи рубрики
+// в одну сеть (исключая текущую). Заголовки берём из published, битые slug отбрасываем.
+const MWR_CLUSTER = [
+  { label: 'Разобраться', icon: 'ph-fill ph-compass', slugs: [
+    'mwr-life-chestnyy-obzor-2026', 'mwr-life-otzyvy-2026', 'travel-advantage-platforma-2026', 'eto-piramida-vozrazheniya-travel-klub-2026'] },
+  { label: 'Путешествия и продукт', icon: 'ph-fill ph-airplane-tilt', slugs: [
+    'life-experience-gruppovye-tury-2026', 'tematicheskie-tury-mwr-2026', 'podpiska-mwr-vozvrat-ballami-2026', 'kak-poehat-besplatno-mwr-2026', 'travel-klub-dlya-semyi-2026'] },
+  { label: 'Как устроен бизнес', icon: 'ph-fill ph-tree-structure', slugs: [
+    'marketing-plan-mwr-binar-klassika-2026', '9-vidov-voznagrazhdeniy-mwr-2026', 'travel-klub-po-podpiske-komu-vygodno-2026'] },
+  { label: 'Сравнения и выбор', icon: 'ph-fill ph-scales', slugs: [
+    'travel-advantage-vs-turagentstvo-2026', 'travel-advantage-vs-inteletravel-incruises-2026', 'travel-klub-vs-goryashchie-tury-2026', 'mwr-vs-worldventures-dreamtrips-2026'] },
+  { label: 'Заработок и партнёрство', icon: 'ph-fill ph-handshake', slugs: [
+    'partnerka-travel-kluba-dohod-2026', 'kak-zarabatyvat-na-puteshestviyah-2026', 'setevoy-biznes-v-turizme-2026', 'udalennyy-dohod-na-puteshestviyah-2026', 'komu-podhodit-partnerka-travel-kluba-2026'] },
+  { label: 'Инструменты партнёра', icon: 'ph-fill ph-wrench', slugs: [
+    'sayt-partnera-mwr-life-2026', 'avtovoronka-bot-travel-klub-2026', 'ii-kontent-travel-setevik-2026', 'crm-partnera-travel-kluba-2026'] },
+  { label: 'Лайфхаки путешествий', icon: 'ph-fill ph-suitcase-rolling', slugs: [
+    'kak-puteshestvovat-deshevle-2026', 'travel-haking-15-sposobov-2026'] },
+];
+function mwrClusterHtml(a, published) {
+  if (a.category !== 'mwrlife') return '';
+  const map = new Map(published.map(p => [p.slug, p]));
+  const groups = MWR_CLUSTER.map(g => {
+    const items = g.slugs
+      .map(s => map.get(s))
+      .filter(Boolean)
+      .map(p => p.slug === a.slug
+        ? `<li class="is-current"><i class="ph ph-caret-right" aria-hidden="true"></i> ${esc(p.title)} <span>(вы здесь)</span></li>`
+        : `<li><a href="/blog/${esc(p.slug)}/">${esc(p.title)}</a></li>`);
+    if (!items.length) return '';
+    return `<div class="mwr-cluster-col">
+      <h3><i class="${g.icon}" aria-hidden="true"></i> ${esc(g.label)}</h3>
+      <ul>${items.join('')}</ul>
+    </div>`;
+  }).filter(Boolean).join('\n');
+  return `<section class="mwr-cluster" aria-label="Карта рубрики MWR Life">
+  <h2>Вся рубрика MWR Life: с чего начать</h2>
+  <p class="mwr-cluster-lead">Путеводитель по клубу путешественников — от знакомства до партнёрства. Выберите, что ближе сейчас.</p>
+  <div class="mwr-cluster-grid">${groups}</div>
+  <a class="mwr-cluster-cta" href="https://chimitdorzhi.tech/mwrlife/"><i class="ph-fill ph-rocket-launch" aria-hidden="true"></i> Готовы присоединиться? Стать партнёром в моей команде</a>
+</section>`;
+}
+
 // Contextual auto-linking: link the FIRST occurrence of a keyword phrase inside
 // a prose <p> to the matching service page. Skips headings, code, tables, existing
 // links and the lead. Caps total links to avoid over-optimization.
@@ -1080,6 +1123,7 @@ ${faqLd(a)}${METRIKA}</head>
                     </div>
 
                     ${relatedHtml(a, published)}
+                    ${mwrClusterHtml(a, published)}
                     ${a.slug === 'gotovye-it-resheniya-dlya-biznesa-2026' ? '' : catalogBanner()}
                 </article>
 
