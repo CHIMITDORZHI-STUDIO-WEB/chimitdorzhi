@@ -11339,6 +11339,9 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
   <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
 </a>
                 </div>
+                <div class="blog-more-wrap" style="text-align:center;margin:28px 0 0;">
+                    <button id="blogMore" class="filter-btn" hidden style="font-size:1rem;padding:12px 28px;"></button>
+                </div>
 
                 
 
@@ -11408,21 +11411,37 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 <script src="/script.js?v=23" defer></script>
 
     <script>
-    // Filter chips
+    // Filter chips + постраничный показ (по 24, чтобы не вываливать все статьи разом)
     (function(){
-      var btns = document.querySelectorAll('.blog-filter-chips .filter-btn');
-      var cards = document.querySelectorAll('#blogGrid .blog-card');
+      var PAGE = 24;
+      var grid = document.getElementById('blogGrid');
+      if(!grid) return;
+      var btns = [].slice.call(document.querySelectorAll('.blog-filter-chips .filter-btn'));
+      var cards = [].slice.call(grid.querySelectorAll('.blog-card'));
+      var moreBtn = document.getElementById('blogMore');
+      var cat = 'all', shown = PAGE;
+      function apply(){
+        var matched = 0;
+        cards.forEach(function(c){
+          var m = cat === 'all' || c.getAttribute('data-category') === cat;
+          if(!m){ c.style.display = 'none'; return; }
+          matched++;
+          c.style.display = matched <= shown ? '' : 'none';
+        });
+        if(moreBtn){
+          if(matched > shown){ moreBtn.hidden = false; moreBtn.textContent = 'Показать ещё (' + (matched - shown) + ')'; }
+          else { moreBtn.hidden = true; }
+        }
+      }
       btns.forEach(function(btn){
         btn.addEventListener('click', function(){
           btns.forEach(function(b){ b.classList.remove('active'); });
           btn.classList.add('active');
-          var cat = btn.getAttribute('data-blog-cat');
-          cards.forEach(function(c){
-            var show = cat === 'all' || c.getAttribute('data-category') === cat;
-            c.style.display = show ? '' : 'none';
-          });
+          cat = btn.getAttribute('data-blog-cat'); shown = PAGE; apply();
         });
       });
+      if(moreBtn) moreBtn.addEventListener('click', function(){ shown += PAGE; apply(); });
+      apply();
     })();
     </script>
     <script>
@@ -11430,10 +11449,17 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
       var inp=document.getElementById('siteSearch'),box=document.getElementById('searchResults');
       if(!inp)return;var idx=null,loading=false,pending=null;
       function esc(s){return String(s).replace(/[&<>]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+      function hl(s,w){s=esc(s);w.forEach(function(x){if(x.length<2)return;var re=new RegExp('('+x.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','ig');s=s.replace(re,'<mark>$1</mark>');});return s;}
       function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
-      function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.hidden=true;box.innerHTML='';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,12);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';box.hidden=false;return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>12?'<div class="search-empty">+ ещё '+(n-12)+' — уточните запрос</div>':'');box.hidden=false;}
+      function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.hidden=true;box.innerHTML='';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,12);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';box.hidden=false;return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+hl(it.t,w)+'</span><span class="search-d">'+hl(String(it.d).slice(0,110),w)+'</span></a>';}).join('')+(n>12?'<div class="search-empty">+ ещё '+(n-12)+' — уточните запрос</div>':'');box.hidden=false;}
       var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},120);});
       document.addEventListener('click',function(e){if(!e.target.closest('.site-search'))box.hidden=true;});
+      // Хоткеи: «/» и Ctrl/Cmd+K — фокус в поиск; Esc — очистить и закрыть
+      document.addEventListener('keydown',function(e){
+        var tag=(e.target.tagName||'').toLowerCase();var typing=tag==='input'||tag==='textarea'||e.target.isContentEditable;
+        if((e.key==='/'&&!typing)||((e.ctrlKey||e.metaKey)&&(e.key==='k'||e.key==='K'))){e.preventDefault();inp.focus();inp.select();}
+        else if(e.key==='Escape'&&document.activeElement===inp){inp.value='';box.hidden=true;inp.blur();}
+      });
     })();
     </script>
 </body>
