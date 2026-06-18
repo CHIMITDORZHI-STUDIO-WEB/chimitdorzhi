@@ -1059,6 +1059,41 @@ function krugozorClusterHtml(a, published) {
 </section>`;
 }
 
+// Карта коммерческого кластера «Деньги»: сколько стоит + что выбрать + перед заказом.
+// Членство по списку slug (статьи в разных категориях). Рендерится на каждой статье набора.
+const COMMERCIAL_CLUSTER = [
+  { label: 'Сколько стоит', icon: 'ph-fill ph-currency-rub', slugs: [
+    'skolko-stoit-razrabotka-gayd-ceny-2026', 'skolko-stoit-sayt-2026', 'skolko-stoit-lending-2026', 'skolko-stoit-internet-magazin-2026', 'skolko-stoit-mobilnoe-prilozhenie-2026', 'skolko-stoit-veb-prilozhenie-2026', 'skolko-stoit-po-na-zakaz-2026', 'skolko-stoit-mvp-2026', 'skolko-stoit-chat-bot-2026', 'skolko-stoit-vnedrit-ii-2026', 'skolko-stoit-crm-vnedrenie-2026', 'skolko-stoit-avtomatizaciya-biznesa-2026', 'skolko-stoit-integraciya-api-2026', 'skolko-stoit-podderzhka-dorabotka-po-2026'] },
+  { label: 'Что выбрать', icon: 'ph-fill ph-scales', slugs: [
+    'bitrix24-vs-amocrm-2026', 'tilda-vs-wordpress-2026', 'gotovoe-vs-svoya-razrabotka-2026', 'noukod-vs-kod-2026', 'frilanser-vs-studiya-vs-agentstvo-2026', 'gigachat-vs-yandexgpt-vs-chatgpt-2026', 'ekvayring-vs-sbp-platezhnye-ssylki-2026', 'svoy-sayt-vs-socseti-2026', 'pwa-vs-native-2026'] },
+  { label: 'Перед заказом', icon: 'ph-fill ph-clipboard-text', slugs: [
+    'priznaki-chto-pora-avtomatizirovatsya-2026', 'kak-vybrat-podryadchika-razrabotka-2026', 'kak-sostavit-tz-2026', 'ii-dlya-otdela-prodazh-2026'] },
+];
+const COMMERCIAL_SET = new Set(COMMERCIAL_CLUSTER.flatMap(g => g.slugs));
+function commercialClusterHtml(a, published) {
+  if (!COMMERCIAL_SET.has(a.slug)) return '';
+  const map = new Map(published.map(p => [p.slug, p]));
+  const groups = COMMERCIAL_CLUSTER.map(g => {
+    const items = g.slugs
+      .map(s => map.get(s))
+      .filter(Boolean)
+      .map(p => p.slug === a.slug
+        ? `<li class="is-current"><i class="ph ph-caret-right" aria-hidden="true"></i> ${esc(p.title)} <span>(вы здесь)</span></li>`
+        : `<li><a href="/blog/${esc(p.slug)}/">${esc(p.title)}</a></li>`);
+    if (!items.length) return '';
+    return `<div class="mwr-cluster-col">
+      <h3><i class="${g.icon}" aria-hidden="true"></i> ${esc(g.label)}</h3>
+      <ul>${items.join('')}</ul>
+    </div>`;
+  }).filter(Boolean).join('\n');
+  return `<section class="mwr-cluster" aria-label="Сколько стоит и что выбрать">
+  <h2>Сколько стоит и что выбрать: навигатор</h2>
+  <p class="mwr-cluster-lead">Цены, сравнения и что важно знать до заказа — выберите свой вопрос.</p>
+  <div class="mwr-cluster-grid">${groups}</div>
+  <a class="mwr-cluster-cta" href="https://t.me/chimitdorzhi" target="_blank" rel="noopener"><i class="ph-fill ph-chats-circle" aria-hidden="true"></i> Опишите задачу — пришлю бесплатный расчёт и смету</a>
+</section>`;
+}
+
 // Contextual auto-linking: link the FIRST occurrence of a keyword phrase inside
 // a prose <p> to the matching service page. Skips headings, code, tables, existing
 // links and the lead. Caps total links to avoid over-optimization.
@@ -1172,6 +1207,7 @@ ${faqLd(a)}${METRIKA}</head>
                     ${relatedHtml(a, published)}
                     ${mwrClusterHtml(a, published)}
                     ${krugozorClusterHtml(a, published)}
+                    ${commercialClusterHtml(a, published)}
                     ${a.slug === 'gotovye-it-resheniya-dlya-biznesa-2026' ? '' : catalogBanner()}
                 </article>
 
