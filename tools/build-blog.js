@@ -1055,7 +1055,7 @@ function krugozorClusterHtml(a, published) {
   <h2>Вся рубрика «Бизнес-кругозор»: карта тем</h2>
   <p class="mwr-cluster-lead">Методологии, стратегия, продуктивность, деньги, психология и знания — выберите, что разобрать сейчас.</p>
   <div class="mwr-cluster-grid">${groups}</div>
-  <a class="mwr-cluster-cta" href="https://chimitdorzhi.tech/predlozheniya/"><i class="ph-fill ph-wrench" aria-hidden="true"></i> Внедрить это в работу: автоматизация и процессы под ключ</a>
+  <a class="mwr-cluster-cta" href="https://t.me/chimitdorzhi" target="_blank" rel="noopener"><i class="ph-fill ph-chats-circle" aria-hidden="true"></i> Прочитали — а как применить у вас? Разберём на вашем примере: бесплатная консультация</a>
 </section>`;
 }
 
