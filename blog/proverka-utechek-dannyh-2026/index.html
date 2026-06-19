@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Как проверить, не утекли ли ваши данные</title>
+    <meta name="description" content="Как узнать, что ваши данные и пароли попали в утечку: легальная самопроверка по email, уведомления браузера и менеджера паролей, что делать при утечке (сменить…">
+    <meta name="keywords" content="утечки данных, пароли, безопасность, 152-ФЗ">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/proverka-utechek-dannyh-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/proverka-utechek-dannyh-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/proverka-utechek-dannyh-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/proverka-utechek-dannyh-2026/">
+    <meta property="og:title" content="Как проверить, не утекли ли ваши данные">
+    <meta property="og:description" content="Как узнать, что ваши данные и пароли попали в утечку: легальная самопроверка по email, уведомления браузера и менеджера паролей, что делать при утечке (сменить…">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/proverka-utechek-dannyh-2026/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Как проверить, не утекли ли ваши данные">
+    <meta name="twitter:description" content="Как узнать, что ваши данные и пароли попали в утечку: легальная самопроверка по email, уведомления браузера и менеджера паролей, что делать при утечке (сменить…">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/proverka-utechek-dannyh-2026/cover.png">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor-Fill.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=45">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Как проверить, не утекли ли ваши данные",
+  "description": "Как узнать, что ваши данные и пароли попали в утечку: легальная самопроверка по email, уведомления браузера и менеджера паролей, что делать при утечке (сменить пароли, 2FA, отозвать сессии). Для бизнеса — мониторинг и 152-ФЗ.",
+  "image": "https://chimitdorzhi.tech/blog/proverka-utechek-dannyh-2026/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/proverka-utechek-dannyh-2026/"
+  },
+  "datePublished": "2026-06-19",
+  "dateModified": "2026-06-19",
+  "keywords": "утечки данных, пароли, безопасность, 152-ФЗ",
+  "articleSection": "Безопасность",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  },
+  "about": [
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://chimitdorzhi.tech/slovar/#152-fz",
+      "name": "152-ФЗ"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Как проверить, не утекли ли ваши данные",
+      "item": "https://chimitdorzhi.tech/blog/proverka-utechek-dannyh-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Мой email нашёлся в утечке — меня взломали?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Не обязательно. Чаще всего это значит, что взломали сервис, где вы регистрировались, а не лично ваш аккаунт или устройство. Но отнестись к этому стоит серьёзно: проверьте, не утёк ли вместе с адресом пароль, смените его на затронутом сервисе и везде, где он повторялся, и включите 2FA. Сам по себе факт нахождения email в базе — это сигнал к проверке, а не приговор."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Безопасно ли вводить свой email в сервис проверки утечек?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Если речь о известном легальном сервисе вроде Have I Been Pwned — да. Вы проверяете свой собственный адрес, сервис не показывает пароли и не передаёт ваши данные третьим лицам, а лишь сверяет адрес с базой уже опубликованных утечек. Осторожность нужна с малоизвестными сайтами, которые просят ввести и email, и пароль одновременно, — этого делать не стоит никогда."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужно ли менять пароль, если конкретно мой пока не утёк?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Если пароль уникальный и нигде не повторяется, а сервис не сообщал об инциденте — срочности нет. Но если вы узнали об утечке на сервисе и не уверены, попал ли в неё ваш пароль, безопаснее сменить его в любом случае: это быстро и снимает риск. А вот повторяющийся пароль, засветившийся хотя бы в одной утечке, нужно менять везде немедленно."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что важнее — сложный пароль или двухфакторная аутентификация?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Они работают вместе и не заменяют друг друга. Уникальный и достаточно длинный пароль защищает от подбора и от повторного использования при утечках. Двухфакторная аутентификация защищает даже тогда, когда пароль уже украден: без второго фактора (кода) злоумышленник внутрь не попадёт. На важных аккаунтах — почта, банк, госуслуги — нужно и то, и другое."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как бизнесу следить за утечками данных сотрудников?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Легально — через мониторинг корпоративных адресов в известных утечках и через политику безопасности: уникальные пароли, обязательная 2FA на рабочих сервисах, менеджер паролей, обучение распознавать фишинг. Важно действовать в рамках 152-ФЗ и не использовать нелегальные «пробивные» базы. Цель — вовремя узнать, что рабочий аккаунт скомпрометирован, и закрыть вход, пока им не воспользовались."
+      }
+    }
+  ]
+}
+    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+for (var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109281884" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+            <li><a href="/#services" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li class="nav-dropdown">
+                <a href="/#projects" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--arey"><i class="ph-fill ph-vinyl-record" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-airplane-tilt" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#cases" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            </div>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/#about">Обо мне</a></li>
+        <li><a href="/#services">Услуги</a></li>
+        <li><a href="/services/">Каталог услуг</a></li>
+        <li><a href="/predlozheniya/">Предложения</a></li>
+        <li><a href="/#cases">Кейсы</a></li>
+        <li><a href="/blog/">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+        <li><a href="/#contact">Контакт</a></li>
+    </ul>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Как проверить, не утекли ли ваши данные</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/security/"><i class="ph ph-bookmark" aria-hidden="true"></i> Безопасность</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин чтения</span>
+                        <time datetime="2026-06-19"><i class="ph ph-calendar" aria-hidden="true"></i> 19 июня 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Как проверить, не утекли ли ваши данные</h1>
+
+                    <p class="blog-lead">Пароли утекают чаще, чем мы думаем. Разбираю, как легально проверить, в утечке ли ваши данные, что делать сразу и как защититься заранее — без сомнительных «пробивных» сервисов.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>утечки данных</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>пароли</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>безопасность</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>152-ФЗ</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
+<li>Утечка персональных данных — это когда ваши логины, пароли, телефоны, адреса и другие сведения оказываются в руках посторонних: чаще всего из-за взлома сервиса, которым вы пользовались, а не вашего личного устройства.</li>
+<li>Проверить, не утекли ли ваши данные, можно легально и бесплатно — через сервисы самопроверки по email (например, Have I Been Pwned), а также через встроенный мониторинг паролей в браузере и менеджере паролей.</li>
+<li>Если утечка подтвердилась, действовать нужно быстро: сменить пароль на затронутом сервисе и везде, где он повторялся, включить двухфакторную аутентификацию (2FA — второй шаг входа после пароля), завершить чужие сессии.</li>
+<li>Защититься заранее проще, чем разгребать последствия: уникальный пароль на каждый сервис, менеджер паролей, 2FA на важных аккаунтах и внимание к уведомлениям, которые присылают браузер и сервисы.</li>
+<li>Для бизнеса утечка данных сотрудников и клиентов — это не только репутация, но и закон: 152-ФЗ и оборотные штрафы за утечки персональных данных. Мониторинг корпоративных адресов в утечках — часть гигиены безопасности. Никаких «пробивных» сервисов — только легальная самопроверка.</li>
+</ul></div>
+
+<p>Почти у каждого из нас десятки аккаунтов: почта, маркетплейсы, банки, соцсети, рабочие сервисы. И за любой из них может прийти неприятное письмо: «Произошла утечка данных». Звучит пугающе, но паника тут плохой советчик. Полезнее понимать, что такое утечка на самом деле, как спокойно проверить, затронули ли вас, и что делать дальше. Хорошая новость в том, что для этого есть легальные и бесплатные инструменты — не нужно ни взламывать, ни покупать сомнительные «базы». В этой статье разберу по-человечески: что такое утечка персональных данных, как самостоятельно узнать, что ваши пароли утекли, что предпринять при утечке и как защититься заранее. Угол здесь один — защита, без серых схем.</p>
+
+<h2 id="chto-eto">Что такое утечка данных</h2>
+<p>Утечка персональных данных (по-английски data breach) — это ситуация, когда сведения о вас оказываются в распоряжении тех, у кого не должно быть к ним доступа. Сюда относятся логины и пароли, адреса электронной почты, номера телефонов, домашние адреса, данные документов, история заказов, иногда — платёжные сведения. Утечка не означает, что взломали именно ваш компьютер или телефон. Чаще всего происходит обратное: взламывают или по ошибке открывают наружу базу какого-то сервиса, которым вы когда-то пользовались, и все данные его клиентов разом оказываются в чужих руках.</p>
+<p>Откуда берутся утечки? Это взлом сервиса злоумышленниками. Ошибка в настройках, когда база по недосмотру оказывается доступна из интернета без пароля. Действия недобросовестного сотрудника, который выгрузил и продал данные. Заражение устройства вредоносной программой, которая ворует сохранённые пароли. Иногда данные собирают через фишинг (phishing — выманивание данных через поддельные сайты и письма), когда человек сам вводит логин и пароль на сайте-двойнике.</p>
+<p>Чем опасна утечка? Главная угроза — не сам факт того, что где-то «всплыл» ваш email, а то, как этим пользуются. Если утёк пароль, а вы используете его на нескольких сайтах, злоумышленники пробуют его везде подряд — это называется credential stuffing (подстановка украденных учётных данных). Утёкший телефон и имя — материал для адресного мошенничества и звонков «из банка». Связка email плюс пароль открывает доступ к почте, а через неё — к восстановлению паролей от других сервисов. Поэтому утечку нельзя игнорировать, даже если кажется, что «ничего страшного не украли».</p>
+
+<h2 id="zachem">Зачем проверять и кому это важно</h2>
+<p>Смысл проверки простой: узнать о проблеме раньше, чем ею воспользуются. Между моментом утечки и моментом, когда данные начинают применять для взлома и мошенничества, обычно есть время. Если вы вовремя узнали, что пароль скомпрометирован, и сменили его, украденная пара «логин-пароль» превращается в бесполезный набор символов. Проверка — это способ перехватить инициативу, а не ждать, пока с карты пропадут деньги.</p>
+<p>Обычному человеку проверка нужна прежде всего ради ключевых аккаунтов: основной почты, госуслуг, банковских приложений, маркетплейсов, соцсетей. Достаточно понимать, не фигурирует ли ваш email в известных утечках и не помечен ли какой-то из паролей как скомпрометированный. Это не паранойя, а обычная цифровая гигиена.</p>
+<p>Для бизнеса тема острее. Утечка данных клиентов или сотрудников — это удар по репутации и прямой юридический риск. В России обработку персональных данных регулирует закон 152-ФЗ, а за утечки введены оборотные штрафы — то есть штраф может считаться от выручки компании, а не быть символической суммой. Поэтому важно не только защищать свои базы, но и отслеживать, не засветились ли корпоративные адреса сотрудников в чужих утечках: один скомпрометированный рабочий аккаунт может стать входной точкой в инфраструктуру. Кому это нужно в первую очередь: ответственным за информационную безопасность, ИТ-специалистам, руководителям и всем, кто пользуется рабочей почтой.</p>
+
+<h2 id="kak-primenit">Как проверить и что делать при утечке</h2>
+<p>Начнём с самопроверки. Самый известный легальный инструмент — сервис Have I Been Pwned (переводится примерно как «не взломали ли меня»). Вы вводите свой адрес электронной почты, и сервис показывает, в каких известных утечках он встречался. Сервис работает с базой публично известных утечек и не выдаёт ваши пароли — он лишь сообщает сам факт. Это безопасно: вы проверяете свой собственный адрес, а не «пробиваете» кого-то постороннего.</p>
+<p>Второй источник — то, что у вас уже под рукой. Современные браузеры и менеджеры паролей (программы, которые хранят и подставляют ваши пароли) умеют сами сверять сохранённые пароли с базами утечек. Если браузер показывает предупреждение вроде «этот пароль был обнаружен в утечке» или «пароль скомпрометирован» — это не реклама и не спам, а прямой сигнал к действию. Отдельный менеджер паролей делает то же самое и обычно показывает целый отчёт: какие пароли слабые, какие повторяются, какие засветились в утечках.</p>
+<p>Третий слой — уведомления самих сервисов. Многие компании при утечке обязаны и стараются предупредить пользователей письмом: «мы зафиксировали инцидент, рекомендуем сменить пароль». Важная оговорка про безопасность: мошенники маскируются под такие письма. Не переходите по ссылкам из письма об утечке — вместо этого зайдите на сайт сервиса вручную, набрав адрес самостоятельно, и смените пароль уже там.</p>
+<p>Теперь главное — что делать, если утечка подтвердилась. Первое: немедленно смените пароль на затронутом сервисе. Второе, и это критично: смените этот же пароль везде, где вы его повторяли, — именно повторное использование превращает одну утечку в десяток взломанных аккаунтов. Третье: включите двухфакторную аутентификацию (2FA — вход в два шага: пароль плюс одноразовый код из приложения или СМS), чтобы один украденный пароль больше не давал доступа. Четвёртое: завершите активные сессии — в настройках безопасности почти у каждого сервиса есть кнопка «выйти со всех устройств», она выкидывает чужих, кто уже мог войти. Пятое: какое-то время повышенно следите за признаками мошенничества — подозрительные письма, звонки «из банка», незнакомые попытки входа, списания. Для бизнеса добавляется шаг: зафиксировать инцидент, оценить, какие данные затронуты, и действовать по регламенту, который требует 152-ФЗ.</p>
+
+<h2 id="oshibki">Частые ошибки</h2>
+<p>Первая и самая дорогая ошибка — один и тот же пароль на всех сервисах. Кажется, что так удобнее: один пароль легко запомнить. Но ровно поэтому достаточно одной утечки на любом второстепенном сайте, чтобы злоумышленники получили ключ сразу ко всем вашим аккаунтам, включая почту и банк. Уникальный пароль на каждый сервис — это не перестраховка, а базовое правило, и именно для этого существуют менеджеры паролей: запоминать сотни разных паролей вручную невозможно, а программа делает это за вас.</p>
+<p>Вторая ошибка — игнорировать предупреждения. Браузер пишет, что пароль скомпрометирован, сервис прислал письмо об утечке, менеджер паролей подсветил аккаунт красным — а человек откладывает «на потом» и забывает. Эти уведомления не возникают на пустом месте; каждое из них — повод потратить пять минут и сменить пароль, а не закрыть окно.</p>
+<p>Третья ошибка — менять только пароль и останавливаться на этом. Если не включить 2FA и не завершить чужие сессии, тот, кто уже вошёл в аккаунт, может остаться внутри даже после смены пароля или быстро вернуться. Смена пароля без второго фактора и без отзыва сессий закрывает дверь, но оставляет приоткрытым окно.</p>
+<p>Четвёртая ошибка — паниковать и идти к сомнительным «сервисам пробива» и «проверки по всем базам», которые обещают показать «всё, что о вас слили». Это опасный путь: такие сервисы сами часто нелегальны, работают с украденными данными, а нередко просто выманивают деньги и ваши же сведения. Легальная самопроверка по собственному email и встроенные инструменты браузера дают всё необходимое, не нарушая закон. И пятая ошибка — защищаться только постфактум. Разумнее настроить уникальные пароли, менеджер паролей и 2FA заранее, чтобы утечка на стороне очередного сервиса вас почти не задевала.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+<p><strong>Мой email нашёлся в утечке — меня взломали?</strong> Не обязательно. Чаще всего это значит, что взломали сервис, где вы регистрировались, а не лично ваш аккаунт или устройство. Но отнестись к этому стоит серьёзно: проверьте, не утёк ли вместе с адресом пароль, смените его на затронутом сервисе и везде, где он повторялся, и включите 2FA. Сам по себе факт нахождения email в базе — это сигнал к проверке, а не приговор.</p>
+<p><strong>Безопасно ли вводить свой email в сервис проверки утечек?</strong> Если речь о известном легальном сервисе вроде Have I Been Pwned — да. Вы проверяете свой собственный адрес, сервис не показывает пароли и не передаёт ваши данные третьим лицам, а лишь сверяет адрес с базой уже опубликованных утечек. Осторожность нужна с малоизвестными сайтами, которые просят ввести и email, и пароль одновременно, — этого делать не стоит никогда.</p>
+<p><strong>Нужно ли менять пароль, если конкретно мой пока не утёк?</strong> Если пароль уникальный и нигде не повторяется, а сервис не сообщал об инциденте — срочности нет. Но если вы узнали об утечке на сервисе и не уверены, попал ли в неё ваш пароль, безопаснее сменить его в любом случае: это быстро и снимает риск. А вот повторяющийся пароль, засветившийся хотя бы в одной утечке, нужно менять везде немедленно.</p>
+<p><strong>Что важнее — сложный пароль или двухфакторная аутентификация?</strong> Они работают вместе и не заменяют друг друга. Уникальный и достаточно длинный пароль защищает от подбора и от повторного использования при утечках. Двухфакторная аутентификация защищает даже тогда, когда пароль уже украден: без второго фактора (кода) злоумышленник внутрь не попадёт. На важных аккаунтах — почта, банк, госуслуги — нужно и то, и другое.</p>
+<p><strong>Как бизнесу следить за утечками данных сотрудников?</strong> Легально — через мониторинг корпоративных адресов в известных утечках и через политику безопасности: уникальные пароли, обязательная 2FA на рабочих сервисах, менеджер паролей, обучение распознавать фишинг. Важно действовать в рамках 152-ФЗ и не использовать нелегальные «пробивные» базы. Цель — вовремя узнать, что рабочий аккаунт скомпрометирован, и закрыть вход, пока им не воспользовались.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+<p>Утечка персональных данных — это попадание ваших сведений в чужие руки, и чаще всего виноват не ваш компьютер, а взломанный или плохо настроенный сервис. Проверить, затронули ли вас, можно спокойно и законно: ввести свой email в известный сервис самопроверки вроде Have I Been Pwned, обращать внимание на предупреждения браузера и менеджера паролей и не игнорировать письма об инцидентах. Если утечка подтвердилась — действуйте по шагам: смените пароль на затронутом сервисе и всюду, где он повторялся, включите двухфакторную аутентификацию, завершите чужие сессии и какое-то время следите за признаками мошенничества. Лучшая стратегия — профилактика: уникальный пароль на каждый сервис, менеджер паролей и 2FA на важных аккаунтах делают чужие утечки для вас почти безвредными. Для бизнеса к этому добавляется ответственность по 152-ФЗ и оборотные штрафы, поэтому мониторинг утечек сотрудников — необходимость. И ещё раз: никаких «пробивных» сервисов — только легальная самопроверка. Если нужно выстроить грамотную защиту аккаунтов для себя или навести порядок с паролями и мониторингом утечек в компании — с этим помогу, чтобы безопасность работала на вас, а не превращалась в источник тревоги.</p>
+
+                    </div>
+
+                    
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Что я делаю по защите и проверке</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-magnifying-glass"></i> <span>Аудит цифрового следа</span></li>
+    
+    <li><i class="ph-fill ph-shield-check"></i> <span>Защита данных и 152-ФЗ</span></li>
+    
+    <li><i class="ph-fill ph-scales"></i> <span>Проверка контрагентов</span></li>
+    
+    <li><i class="ph-fill ph-graduation-cap"></i> <span>Обучение сотрудников и СБ</span></li>
+    
+    <li><i class="ph-fill ph-bell-ringing"></i> <span>Мониторинг упоминаний и утечек</span></li>
+    
+  </ul>
+  <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
+  </a>
+</div>
+                    
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/predlozheniya/152-fz-pod-klyuch/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Аудит и защита данных</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/cifrovaya-gigiena-cifrovoy-sled-2026/" data-category="security" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-eraser"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Безопасность</span>
+  <h3>Цифровая гигиена: как уменьшить свой цифровой след</h3>
+  <p>О вас в сети видно больше, чем кажется, — и этим пользуются мошенники. Разбираю, как уменьшить цифровой след: приватность, старые аккаунты, доступы, 2FA — без паранойи.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 19 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/zashchita-kompanii-ot-razvedki-2026/" data-category="security" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-shield-warning"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Безопасность</span>
+  <h3>Как защитить компанию от разведки злоумышленников</h3>
+  <p>Перед атакой злоумышленник собирает о вас всё из открытых источников. Разбираю, что вы невольно раскрываете и как закрыть это, чтобы не стать жертвой фишинга и социнженерии.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 19 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/chto-takoe-osint-2026/" data-category="security" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-binoculars"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Безопасность</span>
+  <h3>Что такое OSINT простыми словами: методология, этапы, этика и закон</h3>
+  <p>OSINT — это анализ открытых источников, а не «пробив». Объясняю простыми словами, как устроен процесс, где он легально применяется в бизнесе и где проходит грань закона и этики.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 19 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    
+                    
+                    <section class="mwr-cluster" aria-label="OSINT: защита и проверка">
+  <h2>OSINT: защита, проверка, верификация — карта</h2>
+  <p class="mwr-cluster-lead">Только легально и этично: защита данных, проверка по открытым источникам, антифейк и методология.</p>
+  <div class="mwr-cluster-grid"><div class="mwr-cluster-col">
+      <h3><i class="ph-fill ph-shield-check" aria-hidden="true"></i> Защита и приватность</h3>
+      <ul><li><a href="/blog/chto-takoe-osint-2026/">Что такое OSINT простыми словами: методология, этапы, этика и закон</a></li><li><a href="/blog/cifrovaya-gigiena-cifrovoy-sled-2026/">Цифровая гигиена: как уменьшить свой цифровой след</a></li><li class="is-current"><i class="ph ph-caret-right" aria-hidden="true"></i> Как проверить, не утекли ли ваши данные <span>(вы здесь)</span></li><li><a href="/blog/metadannye-exif-2026/">Метаданные и EXIF: что раскрывают фото и документы и как чистить</a></li><li><a href="/blog/zashchita-kompanii-ot-razvedki-2026/">Как защитить компанию от разведки злоумышленников</a></li><li><a href="/blog/osint-cifrovoy-sled-kompanii-2026/">Что о вашей компании можно узнать из открытых источников — и как закрыть дыры</a></li></ul>
+    </div>
+<div class="mwr-cluster-col">
+      <h3><i class="ph-fill ph-scales" aria-hidden="true"></i> Проверка для бизнеса</h3>
+      <ul><li><a href="/blog/besplatnye-servisy-proverki-kontragenta-2026/">Бесплатные сервисы проверки контрагента: ЕГРЮЛ, ФССП, арбитраж, ФНС</a></li><li><a href="/blog/proverka-kontragentov-due-diligence-2026/">Проверка контрагентов и должная осмотрительность (due diligence) легально</a></li><li><a href="/blog/konkurentnaya-razvedka-legalno-2026/">Конкурентная разведка легально: что можно узнать из открытых источников</a></li><li><a href="/blog/osint-pri-nayme-2026/">OSINT при найме: как законно проверить кандидата (грань 152-ФЗ)</a></li><li><a href="/blog/monitoring-upominaniy-brenda-2026/">Мониторинг упоминаний бренда и репутации: где о вас пишут и как это отслеживать</a></li></ul>
+    </div>
+<div class="mwr-cluster-col">
+      <h3><i class="ph-fill ph-image-broken" aria-hidden="true"></i> Верификация и антифейк</h3>
+      <ul><li><a href="/blog/raspoznat-feyk-obratnyy-poisk-2026/">Как распознать фейк: обратный поиск фото и проверка источников</a></li><li><a href="/blog/verifikaciya-ii-dipfeyki-2026/">Верификация в эпоху ИИ: как отличить реальное от сгенерированного</a></li></ul>
+    </div>
+<div class="mwr-cluster-col">
+      <h3><i class="ph-fill ph-toolbox" aria-hidden="true"></i> Методология и инструменты</h3>
+      <ul><li><a href="/blog/google-dorki-poiskovye-operatory-2026/">Поисковые операторы (Google-дорки): легальный поиск информации</a></li><li><a href="/blog/instrumenty-osint-2026/">Инструменты OSINT 2026: легальный обзор для специалиста</a></li><li><a href="/blog/osint-dlya-rassledovaniy-2026/">OSINT для расследований и журналистики: методы и этика</a></li><li><a href="/blog/osint-freymvork-2026/">OSINT-фреймворк: как выстроить процесс проверки</a></li></ul>
+    </div></div>
+  <a class="mwr-cluster-cta" href="https://t.me/chimitdorzhi" target="_blank" rel="noopener"><i class="ph-fill ph-chats-circle" aria-hidden="true"></i> Нужен аудит, проверка или обучение? Обсудим задачу</a>
+</section>
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовые решения под ключ</span>
+                            <span class="blog-offer-cta-title">449 готовых IT-решений для бизнеса</span>
+                            <span class="blog-offer-cta-price">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Смотреть каталог</span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#chto-eto"><span class="blog-toc-num">01</span> Что это</a></li>
+<li><a href="#zachem"><span class="blog-toc-num">02</span> Зачем</a></li>
+<li><a href="#kak-primenit"><span class="blog-toc-num">03</span> Как применить</a></li>
+<li><a href="#oshibki"><span class="blog-toc-num">04</span> Ошибки</a></li>
+<li><a href="#faq"><span class="blog-toc-num">05</span> FAQ</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">06</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=23" defer></script>
+<script src="/services-i18n.js?v=23" defer></script>
+<script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>
