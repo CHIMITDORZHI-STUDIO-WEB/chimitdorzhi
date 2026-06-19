@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Как защитить компанию от OSINT-разведки</title>
+    <meta name="description" content="Как злоумышленники готовят атаку через разведку по открытым источникам (сайт, соцсети сотрудников, вакансии, утёкшие почты) и как этому помешать: снизить…">
+    <meta name="keywords" content="безопасность, социнженерия, фишинг, защита">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/zashchita-kompanii-ot-razvedki-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/zashchita-kompanii-ot-razvedki-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/zashchita-kompanii-ot-razvedki-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/zashchita-kompanii-ot-razvedki-2026/">
+    <meta property="og:title" content="Как защитить компанию от OSINT-разведки">
+    <meta property="og:description" content="Как злоумышленники готовят атаку через разведку по открытым источникам (сайт, соцсети сотрудников, вакансии, утёкшие почты) и как этому помешать: снизить…">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/zashchita-kompanii-ot-razvedki-2026/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Как защитить компанию от OSINT-разведки">
+    <meta name="twitter:description" content="Как злоумышленники готовят атаку через разведку по открытым источникам (сайт, соцсети сотрудников, вакансии, утёкшие почты) и как этому помешать: снизить…">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/zashchita-kompanii-ot-razvedki-2026/cover.png">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor-Fill.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=45">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Как защитить компанию от разведки злоумышленников",
+  "description": "Как злоумышленники готовят атаку через разведку по открытым источникам (сайт, соцсети сотрудников, вакансии, утёкшие почты) и как этому помешать: снизить поверхность, обучить сотрудников, MFA, защита от фишинга и социнженерии.",
+  "image": "https://chimitdorzhi.tech/blog/zashchita-kompanii-ot-razvedki-2026/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/zashchita-kompanii-ot-razvedki-2026/"
+  },
+  "datePublished": "2026-06-19",
+  "dateModified": "2026-06-19",
+  "keywords": "безопасность, социнженерия, фишинг, защита",
+  "articleSection": "Безопасность",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Как защитить компанию от разведки злоумышленников",
+      "item": "https://chimitdorzhi.tech/blog/zashchita-kompanii-ot-razvedki-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Чем разведка отличается от самой атаки?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Разведка — это подготовительный этап, на котором собираются открытые сведения о компании, без вторжения в системы. Атака — это уже действие: фишинговое письмо, звонок с обманом, попытка выманить доступ или деньги. Опасность разведки в том, что именно она делает последующую атаку прицельной и убедительной, поэтому защищаться разумно уже на этом этапе — сокращая то, что лежит на поверхности."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Если мы небольшая компания, нам действительно стоит беспокоиться?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да. Малый и средний бизнес — частая мишень именно потому, что там реже выстроены защита и обучение, а доступ к деньгам и данным есть. Хорошая новость: базовые меры (MFA, регламент проверки платежей, короткое обучение сотрудников) недороги и закрывают большую часть рисков. Размер компании не защищает — защищает дисциплина."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нам что, нужно удалить сайт и закрыть соцсети?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет, публичность важна для бизнеса, и отказываться от неё не нужно. Задача в другом — убрать лишние подсказки: не выкладывать полный список внутренних систем, подробную оргструктуру, фотографии рабочих экранов и документов. Это вопрос разумной осознанности, а не тотальной закрытости."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как сотруднику отличить настоящее письмо от поддельного?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Главные тревожные признаки: давление срочностью, нестандартная или необычная просьба (особенно про деньги или доступы), несовпадение имени отправителя и реального адреса, ссылка на незнакомый адрес, неожиданное вложение. Универсальное правило простое: если что-то вызывает сомнение, не отвечайте на письмо и не переходите по ссылке, а свяжитесь с отправителем по уже известному вам контакту и уточните."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "С чего начать защиту, если ничего ещё не сделано?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "С трёх шагов. Включить многофакторную аутентификацию там, где есть доступ к важным системам и почте. Ввести правило подтверждать платежи и смену реквизитов по отдельному каналу. Провести базовое обучение сотрудников по распознаванию фишинга и социальной инженерии. Параллельно стоит посмотреть на компанию глазами постороннего и убрать лишние детали, которые облегчают разведку."
+      }
+    }
+  ]
+}
+    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+for (var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109281884" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+            <li><a href="/#services" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li class="nav-dropdown">
+                <a href="/#projects" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--arey"><i class="ph-fill ph-vinyl-record" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-airplane-tilt" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#cases" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            </div>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/#about">Обо мне</a></li>
+        <li><a href="/#services">Услуги</a></li>
+        <li><a href="/services/">Каталог услуг</a></li>
+        <li><a href="/predlozheniya/">Предложения</a></li>
+        <li><a href="/#cases">Кейсы</a></li>
+        <li><a href="/blog/">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+        <li><a href="/#contact">Контакт</a></li>
+    </ul>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Как защитить компанию от разведки злоумышленников</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/security/"><i class="ph ph-bookmark" aria-hidden="true"></i> Безопасность</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин чтения</span>
+                        <time datetime="2026-06-19"><i class="ph ph-calendar" aria-hidden="true"></i> 19 июня 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Как защитить компанию от разведки злоумышленников</h1>
+
+                    <p class="blog-lead">Перед атакой злоумышленник собирает о вас всё из открытых источников. Разбираю, что вы невольно раскрываете и как закрыть это, чтобы не стать жертвой фишинга и социнженерии.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>безопасность</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>социнженерия</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>фишинг</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>защита</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
+<li>Перед атакой злоумышленник проводит разведку по открытым источникам: изучает сайт, вакансии, соцсети сотрудников, поддомены и упоминания компании. Это даёт ему имена, роли, стек технологий и поводы для убедительного обмана.</li>
+<li>На основе собранного строятся целевые атаки: фишинг под конкретного человека, претекстинг (звонок «от ИТ-отдела») и BEC — поддельное письмо «от руководителя» с просьбой оплатить счёт или прислать данные.</li>
+<li>Защита начинается с сокращения поверхности разведки: меньше лишних деталей в вакансиях и публикациях, меньше раскрытой оргструктуры и стека, продуманная политика соцсетей для сотрудников.</li>
+<li>Технические меры (MFA, проверка отправителя, осторожность с вложениями и ссылками) и обучение людей работают только в паре. Большинство успешных атак бьёт не по системам, а по человеку.</li>
+<li>Эта статья — про защиту, а не про нападение. Никаких инструкций по сбору данных или атаке: только то, что помогает компании закрыть слабые места и не дать себя обмануть.</li>
+</ul></div>
+
+<p>Серьёзная атака почти никогда не начинается со взлома. Она начинается с разведки. Прежде чем отправить вредоносное письмо или позвонить «из техподдержки», злоумышленник тратит время на то, чтобы узнать о компании как можно больше из открытых источников: кто здесь работает, кто за что отвечает, какими системами пользуется, к кому можно обратиться от чьего имени. Чем больше деталей он соберёт, тем убедительнее будет обман — и тем выше шанс, что кто-то из сотрудников нажмёт на ссылку, откроет вложение или переведёт деньги по поддельному счёту. В этой статье разберу, как устроена эта подготовка и, главное, что компания может сделать, чтобы лишить атакующего опоры. Речь только о защите: никаких инструкций по сбору данных или проведению атак здесь нет.</p>
+
+<h2 id="chto-eto">Что такое разведка перед атакой</h2>
+<p>Разведка — это первый этап практически любой целенаправленной атаки на компанию. Злоумышленник пока ничего не взламывает и не нарушает периметр. Он просто собирает по открытым источникам мозаику из публично доступных сведений, чтобы понять, как устроена организация и где у неё слабое место. Опасность в том, что по отдельности каждый факт выглядит безобидным, а собранные вместе они дают атакующему достаточно, чтобы выдать себя за «своего».</p>
+<p>Что обычно становится материалом для такой подготовки? Корпоративный сайт раскрывает структуру компании, имена руководителей, контакты, иногда — описание процессов. Раздел вакансий нередко перечисляет конкретные технологии, системы и инструменты, с которыми предстоит работать, — фактически это карта используемого стека. Публикации сотрудников в соцсетях и профессиональных сетях показывают, кто где работает, кто кому подчиняется, кто уехал в отпуск или командировку. Упоминания компании в СМИ и пресс-релизах дают контекст: новые контракты, открытие офисов, смена руководства.</p>
+<p>Технические следы тоже на виду. Поддомены, публичные сервисы, адреса корпоративной почты, построенные по очевидному шаблону (имя.фамилия@компания), — всё это подсказывает атакующему, по кому и как бить. Отдельная беда — корпоративные адреса, оказавшиеся в публичных утечках сторонних сервисов: если сотрудник регистрировался рабочей почтой на стороннем сайте, который потом скомпрометировали, этот адрес становится известной мишенью.</p>
+<p>Важно понимать: всё перечисленное — это не «взлом», а сбор того, что компания сама опубликовала или что оказалось доступным. Поэтому защита здесь начинается не с антивируса, а с осознанного отношения к тому, что вы показываете внешнему миру.</p>
+
+<h2 id="zachem">Зачем злоумышленнику разведка и кому грозит</h2>
+<p>Цель разведки одна — сделать обман правдоподобным. Безликая рассылка «вам письмо от банка» легко распознаётся и попадает в спам. А письмо, где правильно названы ваше имя, должность, имя руководителя, реальный проект и используемая система, выглядит достоверно — и его открывают. Чем точнее разведка, тем точнее удар.</p>
+<p>На собранных данных строится несколько типичных сценариев. Целевой фишинг — письмо или сообщение, адресованное конкретному сотруднику и сделанное под него: с упоминанием реальных деталей, со ссылкой на поддельную страницу входа или с вредоносным вложением. Претекстинг — заранее придуманная легенда: звонок или сообщение «от ИТ-отдела», «от нового коллеги», «от подрядчика», где собеседник уверенно оперирует деталями и под предлогом срочности выманивает доступ или информацию.</p>
+<p>Отдельная и очень дорогая категория — атаки на корпоративную почту (BEC, компрометация деловой переписки). Изучив, кто распоряжается платежами и кто перед кем отчитывается, злоумышленник отправляет бухгалтеру письмо «от директора» с просьбой срочно оплатить счёт или изменить реквизиты. Расчёт — на авторитет и спешку: подчинённый не хочет переспрашивать руководителя и выполняет просьбу. Убытки от таких схем измеряются миллионами.</p>
+<p>Кому это грозит? Не только крупным корпорациям. Малый и средний бизнес атакуют активно именно потому, что там реже выстроена защита и обучение, а деньги и доступы есть. Под удар попадают финансовые сотрудники, кадровики (они привыкли открывать резюме от незнакомцев), руководители и их помощники, ИТ-специалисты. По сути, мишень — любой человек с доступом к деньгам, данным или системам. Поэтому защита нужна организации любого размера.</p>
+
+<h2 id="kak-primenit">Как снизить поверхность разведки</h2>
+<p>Хорошая новость в том, что атакующему можно серьёзно осложнить задачу, не превращая компанию в крепость и не отказываясь от публичности. Логика простая: чем меньше готовых деталей лежит на поверхности и чем внимательнее сотрудники к обращениям, тем дороже и рискованнее становится подготовка атаки. Разберём по направлениям.</p>
+<p>Первое — пересмотрите, что вы публикуете. Вакансии не обязаны перечислять полный список внутренних систем и версий — достаточно общих требований к специалисту. Сайт может рассказывать о компании, не выкладывая подробную оргструктуру с указанием, кто кому подчиняется. Контакты лучше давать через общие адреса и формы, а не россыпью персональных почт с предсказуемым шаблоном. Это не секретность ради секретности — это отказ от бесплатной подсказки для тех, кто готовит обман.</p>
+<p>Второе — политика поведения в соцсетях для сотрудников. Речь не о запретах, а о понятных правилах: не выкладывать фотографии рабочих экранов, пропусков и документов, не раскрывать публично детали внутренних процессов, аккуратно относиться к публикациям об отъездах и командировках руководителей. Стоит мягко объяснять людям, что безобидный пост может стать кусочком чужой мозаики.</p>
+<p>Третье — технические меры, снижающие цену ошибки человека. Многофакторная аутентификация (MFA) — базовая защита: даже если пароль выманили фишингом, без второго фактора войти не получится. Настройте проверку подлинности отправителя почты, чтобы письма от поддельных доменов было сложнее выдать за настоящие. Заведите чёткий регламент для финансовых операций: смена реквизитов и оплата по «срочной» просьбе подтверждаются по отдельному, заранее известному каналу — звонком или личным контактом, а не ответом на то же письмо.</p>
+<p>Четвёртое и решающее — обучение сотрудников. Технологии останавливают часть атак, но последний рубеж — человек. Людей нужно учить узнавать признаки обмана: давление срочностью, нестандартная просьба от имени руководителя, ссылка на незнакомый адрес, вложение, которого не ждали, несовпадение имени отправителя и реального адреса. Полезны регулярные короткие тренинги и безопасные учебные рассылки, которые тренируют рефлекс «остановись и проверь». Главное правило, которое стоит закрепить: засомневался — не отвечай на письмо, а свяжись с человеком по уже известному тебе контакту.</p>
+
+<h2 id="oshibki">Частые ошибки компаний</h2>
+<p>Большинство успешных атак становятся возможны не из-за гениальности злоумышленника, а из-за типовых промахов самой организации. Разберём те, что встречаются чаще всего.</p>
+<p>Первая ошибка — щедро раскрывать стек и оргструктуру. Когда вакансии подробно перечисляют все внутренние системы, а сайт рисует схему «кто кому начальник», компания фактически выдаёт атакующему готовые материалы для убедительной легенды. Публичность полезна, но детали внутренней кухни — это не та информация, которая обязана быть на виду.</p>
+<p>Вторая, самая дорогая ошибка — отсутствие обучения. Можно купить лучшие технические средства, но если сотрудник не обучен распознавать обман, одно убедительное письмо сведёт защиту на нет. Безопасность, которая держится только на технологиях и игнорирует людей, всегда хрупка. И наоборот: ставка только на «бдительность сотрудников» без MFA и регламентов перекладывает на человека непосильную ответственность.</p>
+<p>Третья ошибка — отсутствие простого регламента проверки. Если нет правила перепроверять платежи и смену реквизитов по отдельному каналу, рано или поздно кто-то оплатит поддельный счёт. Четвёртая — реакция «нас это не касается, мы слишком маленькие»: малый бизнес атакуют именно из-за этой иллюзии. Пятая — наказывать сотрудника, который попался на провокацию. Страх наказания приводит к тому, что люди скрывают инциденты, а скрытый инцидент опаснее открытого: культура должна поощрять сообщать о подозрительном, а не молчать.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+<p><strong>Чем разведка отличается от самой атаки?</strong> Разведка — это подготовительный этап, на котором собираются открытые сведения о компании, без вторжения в системы. Атака — это уже действие: фишинговое письмо, звонок с обманом, попытка выманить доступ или деньги. Опасность разведки в том, что именно она делает последующую атаку прицельной и убедительной, поэтому защищаться разумно уже на этом этапе — сокращая то, что лежит на поверхности.</p>
+<p><strong>Если мы небольшая компания, нам действительно стоит беспокоиться?</strong> Да. Малый и средний бизнес — частая мишень именно потому, что там реже выстроены защита и обучение, а доступ к деньгам и данным есть. Хорошая новость: базовые меры (MFA, регламент проверки платежей, короткое обучение сотрудников) недороги и закрывают большую часть рисков. Размер компании не защищает — защищает дисциплина.</p>
+<p><strong>Нам что, нужно удалить сайт и закрыть соцсети?</strong> Нет, публичность важна для бизнеса, и отказываться от неё не нужно. Задача в другом — убрать лишние подсказки: не выкладывать полный список внутренних систем, подробную оргструктуру, фотографии рабочих экранов и документов. Это вопрос разумной осознанности, а не тотальной закрытости.</p>
+<p><strong>Как сотруднику отличить настоящее письмо от поддельного?</strong> Главные тревожные признаки: давление срочностью, нестандартная или необычная просьба (особенно про деньги или доступы), несовпадение имени отправителя и реального адреса, ссылка на незнакомый адрес, неожиданное вложение. Универсальное правило простое: если что-то вызывает сомнение, не отвечайте на письмо и не переходите по ссылке, а свяжитесь с отправителем по уже известному вам контакту и уточните.</p>
+<p><strong>С чего начать защиту, если ничего ещё не сделано?</strong> С трёх шагов. Включить многофакторную аутентификацию там, где есть доступ к важным системам и почте. Ввести правило подтверждать платежи и смену реквизитов по отдельному каналу. Провести базовое обучение сотрудников по распознаванию фишинга и социальной инженерии. Параллельно стоит посмотреть на компанию глазами постороннего и убрать лишние детали, которые облегчают разведку.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+<p>Целенаправленная атака начинается не со взлома, а с разведки: злоумышленник собирает по открытым источникам имена, роли, стек и поводы для обмана, чтобы сделать фишинг, претекстинг или поддельное письмо «от руководителя» убедительными. Защита поэтому строится в две линии. Первая — сократить поверхность разведки: не раздавать в вакансиях и публикациях лишних технических деталей, не выкладывать подробную оргструктуру, выстроить разумную политику соцсетей. Вторая — снизить цену человеческой ошибки: многофакторная аутентификация, проверка отправителя, регламент подтверждения платежей по отдельному каналу и, главное, регулярное обучение сотрудников. Технологии и люди работают только вместе: дорогая система бессильна против одного убедительного письма, а бдительность без MFA и регламентов перекладывает на человека непосильный груз. И ещё одно — культура, в которой о подозрительном принято сообщать, а не молчать из страха наказания. Если нужно посмотреть на свою компанию глазами постороннего, закрыть слабые места и обучить команду не попадаться на социальную инженерию — с этим помогу, чтобы разведка злоумышленника упёрлась в стену, а не в открытую дверь.</p>
+
+                    </div>
+
+                    
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Что я делаю по защите и проверке</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-magnifying-glass"></i> <span>Аудит цифрового следа</span></li>
+    
+    <li><i class="ph-fill ph-shield-check"></i> <span>Защита данных и 152-ФЗ</span></li>
+    
+    <li><i class="ph-fill ph-scales"></i> <span>Проверка контрагентов</span></li>
+    
+    <li><i class="ph-fill ph-graduation-cap"></i> <span>Обучение сотрудников и СБ</span></li>
+    
+    <li><i class="ph-fill ph-bell-ringing"></i> <span>Мониторинг упоминаний и утечек</span></li>
+    
+  </ul>
+  <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
+  </a>
+</div>
+                    
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/predlozheniya/152-fz-pod-klyuch/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Аудит и защита данных</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/osint-cifrovoy-sled-kompanii-2026/" data-category="security" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-detective"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Безопасность</span>
+  <h3>Что о вашей компании можно узнать из открытых источников — и как закрыть дыры</h3>
+  <p>О компании из открытых источников видно куда больше, чем кажется: метаданные файлов, открытые папки, утёкшие пароли сотрудников, лишние реквизиты в соцсетях. Разбираю, что именно видно, чем это грозит и как закрыть дыры — с чек-листом для самопроверки.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 16 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 10 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/proverka-utechek-dannyh-2026/" data-category="security" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-warning-octagon"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Безопасность</span>
+  <h3>Как проверить, не утекли ли ваши данные</h3>
+  <p>Пароли утекают чаще, чем мы думаем. Разбираю, как легально проверить, в утечке ли ваши данные, что делать сразу и как защититься заранее — без сомнительных «пробивных» сервисов.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 19 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/metadannye-exif-2026/" data-category="security" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-image"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Безопасность</span>
+  <h3>Метаданные и EXIF: что раскрывают фото и документы и как чистить</h3>
+  <p>Одно фото может выдать ваш адрес, а документ — имена и внутреннюю кухню. Разбираю, что прячется в метаданных файлов и как их чистить перед публикацией.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 19 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    
+                    
+                    <section class="mwr-cluster" aria-label="OSINT: защита и проверка">
+  <h2>OSINT: защита, проверка, верификация — карта</h2>
+  <p class="mwr-cluster-lead">Только легально и этично: защита данных, проверка по открытым источникам, антифейк и методология.</p>
+  <div class="mwr-cluster-grid"><div class="mwr-cluster-col">
+      <h3><i class="ph-fill ph-shield-check" aria-hidden="true"></i> Защита и приватность</h3>
+      <ul><li><a href="/blog/chto-takoe-osint-2026/">Что такое OSINT простыми словами: методология, этапы, этика и закон</a></li><li><a href="/blog/cifrovaya-gigiena-cifrovoy-sled-2026/">Цифровая гигиена: как уменьшить свой цифровой след</a></li><li><a href="/blog/proverka-utechek-dannyh-2026/">Как проверить, не утекли ли ваши данные</a></li><li><a href="/blog/metadannye-exif-2026/">Метаданные и EXIF: что раскрывают фото и документы и как чистить</a></li><li class="is-current"><i class="ph ph-caret-right" aria-hidden="true"></i> Как защитить компанию от разведки злоумышленников <span>(вы здесь)</span></li><li><a href="/blog/osint-cifrovoy-sled-kompanii-2026/">Что о вашей компании можно узнать из открытых источников — и как закрыть дыры</a></li></ul>
+    </div>
+<div class="mwr-cluster-col">
+      <h3><i class="ph-fill ph-scales" aria-hidden="true"></i> Проверка для бизнеса</h3>
+      <ul><li><a href="/blog/besplatnye-servisy-proverki-kontragenta-2026/">Бесплатные сервисы проверки контрагента: ЕГРЮЛ, ФССП, арбитраж, ФНС</a></li><li><a href="/blog/proverka-kontragentov-due-diligence-2026/">Проверка контрагентов и должная осмотрительность (due diligence) легально</a></li><li><a href="/blog/konkurentnaya-razvedka-legalno-2026/">Конкурентная разведка легально: что можно узнать из открытых источников</a></li><li><a href="/blog/osint-pri-nayme-2026/">OSINT при найме: как законно проверить кандидата (грань 152-ФЗ)</a></li><li><a href="/blog/monitoring-upominaniy-brenda-2026/">Мониторинг упоминаний бренда и репутации: где о вас пишут и как это отслеживать</a></li></ul>
+    </div>
+<div class="mwr-cluster-col">
+      <h3><i class="ph-fill ph-image-broken" aria-hidden="true"></i> Верификация и антифейк</h3>
+      <ul><li><a href="/blog/raspoznat-feyk-obratnyy-poisk-2026/">Как распознать фейк: обратный поиск фото и проверка источников</a></li><li><a href="/blog/verifikaciya-ii-dipfeyki-2026/">Верификация в эпоху ИИ: как отличить реальное от сгенерированного</a></li></ul>
+    </div>
+<div class="mwr-cluster-col">
+      <h3><i class="ph-fill ph-toolbox" aria-hidden="true"></i> Методология и инструменты</h3>
+      <ul><li><a href="/blog/google-dorki-poiskovye-operatory-2026/">Поисковые операторы (Google-дорки): легальный поиск информации</a></li><li><a href="/blog/instrumenty-osint-2026/">Инструменты OSINT 2026: легальный обзор для специалиста</a></li><li><a href="/blog/osint-dlya-rassledovaniy-2026/">OSINT для расследований и журналистики: методы и этика</a></li><li><a href="/blog/osint-freymvork-2026/">OSINT-фреймворк: как выстроить процесс проверки</a></li></ul>
+    </div></div>
+  <a class="mwr-cluster-cta" href="https://t.me/chimitdorzhi" target="_blank" rel="noopener"><i class="ph-fill ph-chats-circle" aria-hidden="true"></i> Нужен аудит, проверка или обучение? Обсудим задачу</a>
+</section>
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовые решения под ключ</span>
+                            <span class="blog-offer-cta-title">449 готовых IT-решений для бизнеса</span>
+                            <span class="blog-offer-cta-price">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Смотреть каталог</span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#chto-eto"><span class="blog-toc-num">01</span> Что это</a></li>
+<li><a href="#zachem"><span class="blog-toc-num">02</span> Зачем</a></li>
+<li><a href="#kak-primenit"><span class="blog-toc-num">03</span> Как применить</a></li>
+<li><a href="#oshibki"><span class="blog-toc-num">04</span> Ошибки</a></li>
+<li><a href="#faq"><span class="blog-toc-num">05</span> FAQ</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">06</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=23" defer></script>
+<script src="/services-i18n.js?v=23" defer></script>
+<script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>

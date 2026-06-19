@@ -1094,6 +1094,43 @@ function commercialClusterHtml(a, published) {
 </section>`;
 }
 
+// Карта OSINT-кластера: защита, легальная проверка, верификация, методология.
+// Членство по списку slug. Рендерится на каждой статье набора.
+const OSINT_CLUSTER = [
+  { label: 'Защита и приватность', icon: 'ph-fill ph-shield-check', slugs: [
+    'chto-takoe-osint-2026', 'cifrovaya-gigiena-cifrovoy-sled-2026', 'proverka-utechek-dannyh-2026', 'metadannye-exif-2026', 'zashchita-kompanii-ot-razvedki-2026', 'osint-cifrovoy-sled-kompanii-2026'] },
+  { label: 'Проверка для бизнеса', icon: 'ph-fill ph-scales', slugs: [
+    'besplatnye-servisy-proverki-kontragenta-2026', 'proverka-kontragentov-due-diligence-2026', 'konkurentnaya-razvedka-legalno-2026', 'osint-pri-nayme-2026', 'monitoring-upominaniy-brenda-2026'] },
+  { label: 'Верификация и антифейк', icon: 'ph-fill ph-image-broken', slugs: [
+    'raspoznat-feyk-obratnyy-poisk-2026', 'verifikaciya-ii-dipfeyki-2026'] },
+  { label: 'Методология и инструменты', icon: 'ph-fill ph-toolbox', slugs: [
+    'google-dorki-poiskovye-operatory-2026', 'instrumenty-osint-2026', 'osint-dlya-rassledovaniy-2026', 'osint-freymvork-2026'] },
+];
+const OSINT_SET = new Set(OSINT_CLUSTER.flatMap(g => g.slugs));
+function osintClusterHtml(a, published) {
+  if (!OSINT_SET.has(a.slug)) return '';
+  const map = new Map(published.map(p => [p.slug, p]));
+  const groups = OSINT_CLUSTER.map(g => {
+    const items = g.slugs
+      .map(s => map.get(s))
+      .filter(Boolean)
+      .map(p => p.slug === a.slug
+        ? `<li class="is-current"><i class="ph ph-caret-right" aria-hidden="true"></i> ${esc(p.title)} <span>(вы здесь)</span></li>`
+        : `<li><a href="/blog/${esc(p.slug)}/">${esc(p.title)}</a></li>`);
+    if (!items.length) return '';
+    return `<div class="mwr-cluster-col">
+      <h3><i class="${g.icon}" aria-hidden="true"></i> ${esc(g.label)}</h3>
+      <ul>${items.join('')}</ul>
+    </div>`;
+  }).filter(Boolean).join('\n');
+  return `<section class="mwr-cluster" aria-label="OSINT: защита и проверка">
+  <h2>OSINT: защита, проверка, верификация — карта</h2>
+  <p class="mwr-cluster-lead">Только легально и этично: защита данных, проверка по открытым источникам, антифейк и методология.</p>
+  <div class="mwr-cluster-grid">${groups}</div>
+  <a class="mwr-cluster-cta" href="https://t.me/chimitdorzhi" target="_blank" rel="noopener"><i class="ph-fill ph-chats-circle" aria-hidden="true"></i> Нужен аудит, проверка или обучение? Обсудим задачу</a>
+</section>`;
+}
+
 // Contextual auto-linking: link the FIRST occurrence of a keyword phrase inside
 // a prose <p> to the matching service page. Skips headings, code, tables, existing
 // links and the lead. Caps total links to avoid over-optimization.
@@ -1208,6 +1245,7 @@ ${faqLd(a)}${METRIKA}</head>
                     ${mwrClusterHtml(a, published)}
                     ${krugozorClusterHtml(a, published)}
                     ${commercialClusterHtml(a, published)}
+                    ${osintClusterHtml(a, published)}
                     ${a.slug === 'gotovye-it-resheniya-dlya-biznesa-2026' ? '' : catalogBanner()}
                 </article>
 
