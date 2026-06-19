@@ -1117,7 +1117,7 @@ const OSINT_CLUSTER = [
   { label: 'Верификация и антифейк', icon: 'ph-fill ph-image-broken', slugs: [
     'raspoznat-feyk-obratnyy-poisk-2026', 'verifikaciya-ii-dipfeyki-2026'] },
   { label: 'Методология и инструменты', icon: 'ph-fill ph-toolbox', slugs: [
-    'google-dorki-poiskovye-operatory-2026', 'instrumenty-osint-2026', 'osint-dlya-rassledovaniy-2026', 'osint-freymvork-2026'] },
+    'google-dorki-poiskovye-operatory-2026', 'instrumenty-osint-2026', 'osint-arsenal-instrumenty-2026', 'osint-dlya-rassledovaniy-2026', 'osint-freymvork-2026'] },
 ];
 const OSINT_SET = new Set(OSINT_CLUSTER.flatMap(g => g.slugs));
 function osintClusterHtml(a, published) {
