@@ -827,6 +827,15 @@ function extractFaq(html) {
       if (q && a) pairs.push({ q, a });
     }
   }
+  // Pattern C (fallback): <p><strong>Question?</strong></p> <p>Answer</p> (в разных абзацах)
+  if (pairs.length === 0) {
+    const reC = /<p>\s*<strong>(.*?)<\/strong>\s*<\/p>\s*<p>([\s\S]*?)<\/p>/gi;
+    while ((x = reC.exec(section)) !== null) {
+      const q = x[1].replace(/<[^>]+>/g, '').trim();
+      const a = x[2].replace(/<[^>]+>/g, '').trim();
+      if (q && a && q.length > 4 && a.length > 4) pairs.push({ q, a });
+    }
+  }
   return pairs;
 }
 
