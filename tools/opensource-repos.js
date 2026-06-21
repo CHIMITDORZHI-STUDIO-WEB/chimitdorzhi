@@ -145,5 +145,6 @@ module.exports = {
   "mobilizon-svoya-ploschadka-meropriyatiy-2026": "https://framagit.org/framasoft/mobilizon",
   "esphome-zigbee-datchiki-2026": "https://github.com/esphome/esphome",
   "dawarich-istoriya-peremeshcheniy-2026": "https://github.com/Freika/dawarich",
-  "qloapps-bronirovanie-oteley-2026": "https://github.com/Qloapps/QloApps"
+  "qloapps-bronirovanie-oteley-2026": "https://github.com/Qloapps/QloApps",
+  "khoj-ii-assistent-baza-znaniy-2026": "https://github.com/khoj-ai/khoj"
 };
