@@ -1058,9 +1058,9 @@ const KRUGOZOR_CLUSTER = [
   { label: 'Бизнес в цифровую эпоху (Дэниел Пристли)', icon: 'ph-fill ph-compass', slugs: [
     'biznes-v-cifrovuyu-epohu-pristli-2026', 'pravilo-7-11-4-zapominaemost-brenda-2026', '5-veshchey-kotorye-mozg-ne-udalyaet-2026', 'kak-predstavit-sebya-name-same-fame-2026', 'klyuchevoy-chelovek-vliyaniya-kpi-2026', 'test-sprosa-do-zapuska-produkta-2026', 'situacionnaya-model-klienta-2026', 'sayd-hasl-pravilo-90-dney-2026', 'krivaya-normy-vs-stepennoy-zakon-2026', 'sladkaya-tochka-predprinimatelya-2026', 'top-10-procentov-byudzheta-monetizaciya-2026', 'vozmozhnost-bebi-bumerov-2026', 'ii-kak-elektrichestvo-rannyaya-stadiya-2026'] },
   { label: 'Путь клиента и маркетинг', icon: 'ph-fill ph-path', slugs: [
-    'jobs-to-be-done-jtbd-2026', 'customer-journey-map-cjm-2026', 'zmot-moment-istiny-2026', 'consumer-decision-journey-mckinsey-2026', 'see-think-do-care-2026', 'konversiya-cr-voronka-2026', 'bowtie-funnel-galstuk-babochka-2026'] },
+    'jobs-to-be-done-jtbd-2026', 'customer-journey-map-cjm-2026', 'zmot-moment-istiny-2026', 'consumer-decision-journey-mckinsey-2026', 'see-think-do-care-2026', 'konversiya-cr-voronka-2026', 'bowtie-funnel-galstuk-babochka-2026', 'decision-partner-uverennost-vybora-2026', 'nepreryvnaya-personalizaciya-2026'] },
   { label: 'Поведение и лояльность', icon: 'ph-fill ph-heartbeat', slugs: [
-    'fogg-behavior-model-2026', 'hook-model-petlya-privychki-2026', 'peak-end-rule-2026', 'kak-formirovat-privychki-2026', 'nps-indeks-loyalnosti-2026', 'ottok-uderzhanie-churn-retention-2026'] },
+    'fogg-behavior-model-2026', 'hook-model-petlya-privychki-2026', 'peak-end-rule-2026', 'kak-formirovat-privychki-2026', 'nps-indeks-loyalnosti-2026', 'ottok-uderzhanie-churn-retention-2026', 'participation-loyalty-loyalnost-cherez-uchastie-2026', 'calm-tech-spokoynyy-interfeys-2026'] },
 ];
 function krugozorClusterHtml(a, published) {
   if (a.category !== 'biznes-krugozor') return '';
