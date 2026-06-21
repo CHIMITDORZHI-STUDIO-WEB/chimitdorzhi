@@ -167,4 +167,11 @@ module.exports = [
     excerpt: 'Mautic автоматизирует маркетинг — цепочки писем, сегменты, лид-скоринг — на своём сервере и без дорогой подписки. Мощный инструмент, который требует настройки. Разбираю детали.',
     tags: ['Mautic', 'маркетинг', 'автоматизация', 'open-source'],
     relatedSlugs: ['listmonk-rassylki-bez-mailchimp-2026', 'ghost-blog-s-podpiskoy-2026', 'n8n-avtomatizaciya-bez-zapier-2026'] }),
+  E({ slug: 'khoj-ii-assistent-baza-znaniy-2026', heroIcon: 'ph-fill ph-brain',
+    title: 'Khoj: свой ИИ-ассистент по документам компании на своём сервере',
+    metaTitle: 'Khoj: ИИ-ассистент по своим документам',
+    metaDescription: 'Khoj — open-source ИИ-ассистент («второй мозг») поверх ваших документов и заметок: вопросы по своей базе знаний, семантический поиск, ответы со ссылками на источник. Данные на своём сервере (152-ФЗ), Ollama или GigaChat/YandexGPT. Разверну под ключ.',
+    excerpt: 'Khoj отвечает на вопросы по документам вашей компании (PDF, Word, заметки, Notion) и держит данные у вас, а не в чужом облаке. Свой ИИ-ассистент по базе знаний без утечки. Разбираю, как это работает и кому нужно.',
+    tags: ['Khoj', 'ИИ-ассистент', 'база знаний', 'RAG', 'open-source'],
+    relatedSlugs: ['ollama-svoy-chatgpt-na-servere-2026', 'open-webui-svoy-chatgpt-2026', 'outline-baza-znaniy-2026'] }),
 ];
