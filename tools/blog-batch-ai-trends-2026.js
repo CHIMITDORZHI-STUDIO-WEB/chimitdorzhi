@@ -1,0 +1,90 @@
+// Тренды агентного ИИ 2026: конвейеры, ROI, окупаемость, маленькие доменные модели.
+// Рубрика ai-dev, индивидуальное оглавление под каждую статью.
+const C = (s) => require('./blog-content-' + s + '.js');
+const D = '2026-06-22';
+const SVC = {
+  title: 'Что я делаю с ИИ под ключ',
+  services: [
+    { icon: 'ph-fill ph-robot', label: 'ИИ-агенты и чат-боты' },
+    { icon: 'ph-fill ph-flow-arrow', label: 'Агентные конвейеры и автоматизация' },
+    { icon: 'ph-fill ph-brain', label: 'База знаний с ИИ-поиском (RAG)' },
+    { icon: 'ph-fill ph-hard-drives', label: 'Локальные модели на своём сервере' },
+    { icon: 'ph-fill ph-shield-check', label: 'Приватность и 152-ФЗ' },
+    { icon: 'ph-fill ph-graduation-cap', label: 'Обучение команды работе с ИИ' },
+  ],
+};
+const AGENTS = { url: 'https://chimitdorzhi.tech/services/ai-agents/', label: 'Внедрить ИИ-агента под ключ' };
+const AUTO = { url: 'https://chimitdorzhi.tech/services/business-automation/', label: 'Автоматизировать процесс с ИИ' };
+const E = (o) => Object.assign({
+  category: 'ai-dev', published: true, datePublished: D, dateModified: D, readingMinutes: 10,
+  servicesOffer: SVC,
+}, o, { contentHtml: C(o.slug) });
+
+module.exports = [
+  E({ slug: 'agentnye-konveyery-ot-promptov-k-agentam-2026', heroIcon: 'ph-fill ph-flow-arrow', ctaInternal: AGENTS,
+    title: 'Agent leap: от промптов к агентным конвейерам',
+    metaTitle: 'Агентные конвейеры: от промптов к агентам',
+    metaDescription: 'Agent leap 2026: эра простых промптов заканчивается — ИИ оркестрирует сквозные процессы как «цифровые сборочные линии». Что такое агентные конвейеры, как они работают (инструменты, память, human-in-the-loop, MCP) и как внедрить в России с учётом 152-ФЗ.',
+    excerpt: 'Эра простых промптов заканчивается: ИИ начинает прогонять целые процессы как сборочные линии. Разбираю, что такое агентные конвейеры, как они устроены и с чего начать внедрение в России.',
+    tags: ['ИИ-агенты', 'агентные конвейеры', 'автоматизация', 'тренды 2026'],
+    toc: [
+      { id: 'chto-eto', text: 'Что такое агентные конвейеры' },
+      { id: 'ot-promptov', text: 'От промптов к конвейерам' },
+      { id: 'kak-rabotaet', text: 'Как это работает' },
+      { id: 'primery', text: 'Примеры процессов' },
+      { id: 'vnedrenie', text: 'Как внедрить' },
+      { id: 'oshibki', text: 'Частые ошибки' },
+      { id: 'faq', text: 'FAQ' },
+      { id: 'vyvody', text: 'Коротко о главном' },
+    ],
+    relatedSlugs: ['mcp-model-context-protocol-2026', 'ai-agenty-avtonomnye-sotrudniki-2026', 'kak-sozdat-ai-agenta-2026'] }),
+  E({ slug: 'pochemu-ii-ne-okupaetsya-roi-razryv-2026', heroIcon: 'ph-fill ph-chart-line-down', ctaInternal: AUTO,
+    title: 'Почему ИИ не окупается: разрыв между внедрением и отдачей',
+    metaTitle: 'Почему ИИ не окупается: ROI-разрыв',
+    metaDescription: 'Почему ИИ не окупается: большинство внедрили, но значимый ROI видит меньшинство. Объяснение — правило 80/20: технология даёт лишь ~20% ценности, остальное — переработка самой работы. Как получить реальную отдачу от ИИ, а не автоматизировать хаос.',
+    excerpt: 'Многие внедрили ИИ, но отдачи не видят. Причина — правило 80/20: сама технология даёт лишь 20% ценности, остальное приходит из переработки процессов. Разбираю честно, как получить реальный ROI.',
+    tags: ['ROI', 'внедрение ИИ', 'бизнес', 'тренды 2026'],
+    toc: [
+      { id: 'chto-eto', text: 'В чём разрыв' },
+      { id: 'pochemu', text: 'Почему отдача не приходит: правило 80/20' },
+      { id: 'cifry', text: 'Что показывают данные' },
+      { id: 'kak-poluchit-roi', text: 'Как получить реальную отдачу' },
+      { id: 'oshibki', text: 'Частые ошибки' },
+      { id: 'faq', text: 'FAQ' },
+      { id: 'vyvody', text: 'Коротко о главном' },
+    ],
+    relatedSlugs: ['okupaemost-ii-agentov-biznes-keys-2026', 'rag-sistemy-dlya-biznesa-2026', 'ai-agenty-avtonomnye-sotrudniki-2026'] }),
+  E({ slug: 'okupaemost-ii-agentov-biznes-keys-2026', heroIcon: 'ph-fill ph-calculator', ctaInternal: AGENTS,
+    title: 'Окупаемость ИИ-агентов в месяцах: как собрать бизнес-кейс',
+    metaTitle: 'Окупаемость ИИ-агентов: бизнес-кейс',
+    metaDescription: 'Окупаемость ИИ-агентов в месяцах: по рыночным оценкам медиана ~5 месяцев, агенты в продажах (SDR) ~3-4, финансовые и операционные ~9. Как посчитать срок окупаемости для своего случая, что включать в затраты и выгоды, с какого агента начать.',
+    excerpt: 'У ИИ-агентов есть измеримая окупаемость: по оценкам медиана около 5 месяцев, в продажах быстрее. Разбираю, как собрать бизнес-кейс и посчитать срок окупаемости для своей задачи.',
+    tags: ['окупаемость', 'ИИ-агенты', 'бизнес-кейс', 'ROI'],
+    toc: [
+      { id: 'chto-eto', text: 'Окупаемость агентов: о чём речь' },
+      { id: 'cifry', text: 'Сроки окупаемости по типам' },
+      { id: 'kak-schitat', text: 'Как посчитать для своего случая' },
+      { id: 's-chego-nachat', text: 'С чего начать, чтобы окупилось' },
+      { id: 'oshibki', text: 'Частые ошибки' },
+      { id: 'faq', text: 'FAQ' },
+      { id: 'vyvody', text: 'Коротко о главном' },
+    ],
+    relatedSlugs: ['pochemu-ii-ne-okupaetsya-roi-razryv-2026', 'ai-agenty-avtonomnye-sotrudniki-2026', 'kak-sozdat-ai-agenta-2026'] }),
+  E({ slug: 'malenkie-domennye-modeli-slm-2026', heroIcon: 'ph-fill ph-cube', ctaInternal: AGENTS,
+    title: 'Маленькие доменные модели (SLM): почему не один гигант, а узкие модели под задачу',
+    metaTitle: 'Маленькие доменные модели (SLM) 2026',
+    metaDescription: 'Маленькие доменные модели (SLM) вместо одного гиганта: при настройке под конкретную задачу они так же точны или точнее, дешевле и быстрее. Угол импортозамещения и 152-ФЗ — модель на своём сервере в РФ, данные не уходят наружу. Как внедрить.',
+    excerpt: 'Вместо одной гигантской модели «на всё» — маленькие модели под конкретную задачу: дешевле, быстрее, можно развернуть локально в РФ. Разбираю тренд SLM и угол импортозамещения и 152-ФЗ.',
+    tags: ['SLM', 'локальные модели', 'импортозамещение', '152-ФЗ'],
+    toc: [
+      { id: 'chto-eto', text: 'Что такое маленькие доменные модели' },
+      { id: 'pochemu', text: 'Почему не один гигант' },
+      { id: 'preimushchestva', text: 'Преимущества под задачу' },
+      { id: 'rossiyskiy-kontekst', text: 'Импортозамещение и 152-ФЗ' },
+      { id: 'kak-vnedrit', text: 'Как внедрить' },
+      { id: 'oshibki', text: 'Частые ошибки' },
+      { id: 'faq', text: 'FAQ' },
+      { id: 'vyvody', text: 'Коротко о главном' },
+    ],
+    relatedSlugs: ['lokalnyy-llm-na-noutbuke-2026', 'rossiyskiy-ai-stack-2026', 'rag-sistemy-dlya-biznesa-2026'] }),
+];
