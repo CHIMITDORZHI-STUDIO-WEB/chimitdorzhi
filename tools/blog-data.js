@@ -3,6 +3,7 @@
 // Re-run `node tools/build-blog.js` afterwards.
 
 const antigravityEntries = require('./blog-data-antigravity.js');
+const blogBatchAiTrends = require('./blog-batch-ai-trends-2026.js');
 const blogBatchA = require('./blog-batch-a.js');
 const blogBatchB = require('./blog-batch-b.js');
 const blogBatchC = require('./blog-batch-c.js');
@@ -10683,4 +10684,4 @@ module.exports = [
       ],
     },
   },
-].concat(antigravityEntries, blogBatchA, blogBatchB, blogBatchC, blogBatchPillars, blogBatchMaxMkt, blogBatchLocal, blogBatchChita, blogBatchShkola, blogBatchSetevik, blogBatchMlmBrands, blogBatchMlmBrands2, blogBatchMlmBrands3, blogBatchPraktiki, blogBatchEvents, blogBatchBiznesIdei, blogBatchOpenSource, blogBatchOpenSource2, blogBatchZarabotok, blogBatchOpenSource3, blogBatchOpenSource4, blogBatchOpenSource5, blogBatchOpenSource6, blogBatchOpenSource7, blogBatchOpenSource8, blogBatchOpenSource9, blogBatchOpenSource10, blogBatchOpenSource11, blogBatchOpenSource12, blogBatchOpenSource13, blogBatchOpenSource14, blogBatchOpenSource15, blogBatchOpenSource16, blogBatchOpenSource17, blogBatchOpenSource18, blogBatchOpenSource19, blogBatchOpenSource20, blogBatchOpenSource21, blogBatchOpenSource22, blogBatchOpenSource23, blogBatchOpenSource24, blogBatchNishiIt, blogBatchNishiIt2, blogBatchMwrTravel, blogBatchBiznesTechGaps, blogBatchBiznesKrugozor, blogBatchSkolkoStoit, blogBatchLocalDengi, blogBatchZaschitaOsint, blogBatchOpenSourceHub);
+].concat(antigravityEntries, blogBatchA, blogBatchB, blogBatchC, blogBatchPillars, blogBatchMaxMkt, blogBatchLocal, blogBatchChita, blogBatchShkola, blogBatchSetevik, blogBatchMlmBrands, blogBatchMlmBrands2, blogBatchMlmBrands3, blogBatchPraktiki, blogBatchEvents, blogBatchBiznesIdei, blogBatchOpenSource, blogBatchOpenSource2, blogBatchZarabotok, blogBatchOpenSource3, blogBatchOpenSource4, blogBatchOpenSource5, blogBatchOpenSource6, blogBatchOpenSource7, blogBatchOpenSource8, blogBatchOpenSource9, blogBatchOpenSource10, blogBatchOpenSource11, blogBatchOpenSource12, blogBatchOpenSource13, blogBatchOpenSource14, blogBatchOpenSource15, blogBatchOpenSource16, blogBatchOpenSource17, blogBatchOpenSource18, blogBatchOpenSource19, blogBatchOpenSource20, blogBatchOpenSource21, blogBatchOpenSource22, blogBatchOpenSource23, blogBatchOpenSource24, blogBatchNishiIt, blogBatchNishiIt2, blogBatchMwrTravel, blogBatchBiznesTechGaps, blogBatchBiznesKrugozor, blogBatchSkolkoStoit, blogBatchLocalDengi, blogBatchZaschitaOsint, blogBatchOpenSourceHub, blogBatchAiTrends);

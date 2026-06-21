@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Маленькие доменные модели (SLM) 2026</title>
+    <meta name="description" content="Маленькие доменные модели (SLM) вместо одного гиганта: при настройке под конкретную задачу они так же точны или точнее, дешевле и быстрее.">
+    <meta name="keywords" content="SLM, локальные модели, импортозамещение, 152-ФЗ">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/malenkie-domennye-modeli-slm-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/malenkie-domennye-modeli-slm-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/malenkie-domennye-modeli-slm-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/malenkie-domennye-modeli-slm-2026/">
+    <meta property="og:title" content="Маленькие доменные модели (SLM) 2026">
+    <meta property="og:description" content="Маленькие доменные модели (SLM) вместо одного гиганта: при настройке под конкретную задачу они так же точны или точнее, дешевле и быстрее.">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/malenkie-domennye-modeli-slm-2026/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Маленькие доменные модели (SLM) 2026">
+    <meta name="twitter:description" content="Маленькие доменные модели (SLM) вместо одного гиганта: при настройке под конкретную задачу они так же точны или точнее, дешевле и быстрее.">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/malenkie-domennye-modeli-slm-2026/cover.png">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor-Fill.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=45">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Маленькие доменные модели (SLM): почему не один гигант, а узкие модели под задачу",
+  "description": "Маленькие доменные модели (SLM) вместо одного гиганта: при настройке под конкретную задачу они так же точны или точнее, дешевле и быстрее. Угол импортозамещения и 152-ФЗ — модель на своём сервере в РФ, данные не уходят наружу. Как внедрить.",
+  "image": "https://chimitdorzhi.tech/blog/malenkie-domennye-modeli-slm-2026/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/malenkie-domennye-modeli-slm-2026/"
+  },
+  "datePublished": "2026-06-22",
+  "dateModified": "2026-06-22",
+  "keywords": "SLM, локальные модели, импортозамещение, 152-ФЗ",
+  "articleSection": "AI для разработчиков",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  },
+  "about": [
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://chimitdorzhi.tech/slovar/#152-fz",
+      "name": "152-ФЗ"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Маленькие доменные модели (SLM): почему не один гигант, а узкие модели под задачу",
+      "item": "https://chimitdorzhi.tech/blog/malenkie-domennye-modeli-slm-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Чем SLM отличается от больших универсальных моделей?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Размером и специализацией. Большая модель — это универсал, который умеет понемногу всё и потому дорог и тяжёл. SLM — компактная модель, настроенная под одну область или задачу. На своём узком сценарии она часто не уступает гиганту, при этом дешевле, быстрее и проще в контроле."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Правда ли, что маленькая модель может быть точнее гиганта?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "На своей узкой задаче — да, такое реально. После настройки на ваших данных компактная модель глубоко «понимает» именно ваш домен и может давать более точные ответы, чем универсальный гигант, который знает обо всём, но ни о чём конкретном слишком глубоко. На широких и непредсказуемых задачах гигант по-прежнему сильнее."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужно ли мощное железо или видеокарта?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Зависит от размера модели и задачи. Маленькие модели заметно скромнее в требованиях, чем гиганты, и для части сценариев хватает обычного сервера. Для более крупных вариантов или высокой нагрузки видеокарта может понадобиться. Точную конфигурацию я подбираю под конкретную задачу и объём запросов."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Подходит ли это для соблюдения 152-ФЗ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Локальное развёртывание здесь — большое преимущество: модель работает на вашем сервере в России, и данные не уходят в чужой облачный ИИ, что упрощает соблюдение требований к персональным данным. Но само по себе локальное размещение не делает систему «автоматически законной» — нужно правильно организовать доступ, хранение и регламенты. Это решается на этапе внедрения."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько данных нужно для настройки?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Зависит от задачи: чем она уже и понятнее, тем меньше примеров требуется. Главное не объём ради объёма, а качество — чистые, репрезентативные примеры реальных обращений или документов. Если данных совсем мало или они противоречивы, результат будет слабым, и я честно скажу об этом до старта."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "С чего начать?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "С выбора одной узкой задачи, на которой выгода очевидна, — например, классификация обращений или извлечение данных из документов. Дальше подбирается подходящая открытая модель, настраивается на ваших данных, разворачивается локально и проверяется на реальных запросах. Начинать почти всегда стоит с одного сценария, а не с попытки заменить весь ИИ сразу."
+      }
+    }
+  ]
+}
+    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+var inject=function(){for (var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)};
+var run=function(){('requestIdleCallback' in window)?requestIdleCallback(inject,{timeout:5000}):setTimeout(inject,3000)};
+(e.readyState==='complete')?run():m.addEventListener('load',run);})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109281884" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+            <li><a href="/#services" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li class="nav-dropdown">
+                <a href="/#projects" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--arey"><i class="ph-fill ph-vinyl-record" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-airplane-tilt" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#cases" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            </div>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/#about">Обо мне</a></li>
+        <li><a href="/#services">Услуги</a></li>
+        <li><a href="/services/">Каталог услуг</a></li>
+        <li><a href="/predlozheniya/">Предложения</a></li>
+        <li><a href="/#cases">Кейсы</a></li>
+        <li><a href="/blog/">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+        <li><a href="/#contact">Контакт</a></li>
+    </ul>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Маленькие доменные модели (SLM): почему не один гигант, а узкие модели под задачу</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/ai-dev/"><i class="ph ph-bookmark" aria-hidden="true"></i> AI для разработчиков</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 10 мин чтения</span>
+                        <time datetime="2026-06-22"><i class="ph ph-calendar" aria-hidden="true"></i> 22 июня 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Маленькие доменные модели (SLM): почему не один гигант, а узкие модели под задачу</h1>
+
+                    <p class="blog-lead">Вместо одной гигантской модели «на всё» — маленькие модели под конкретную задачу: дешевле, быстрее, можно развернуть локально в РФ. Разбираю тренд SLM и угол импортозамещения и 152-ФЗ.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>SLM</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>локальные модели</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>импортозамещение</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>152-ФЗ</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
+<li>Маленькие доменные модели (SLM, Small Language Models) — это компактные нейросети, которые настраивают под одну узкую задачу вместо того, чтобы тащить ко всему один гигантский универсальный ИИ.</li>
+<li>На своём сценарии — классификация обращений, извлечение данных, ответы по своей базе — настроенная маленькая модель часто не уступает гиганту по точности, а выигрывает по цене и скорости.</li>
+<li>SLM дешевле в эксплуатации, быстрее отвечают, разворачиваются локально на своём сервере и проще контролируются — меньше требований к железу и лучше приватность.</li>
+<li>Для российского контекста это прямой ответ на <a href="https://chimitdorzhi.tech/services/russian-stack-migration/" class="blog-inline-link">импортозамещение</a> и 152-ФЗ: модель живёт на сервере в РФ, данные не уходят наружу.</li>
+<li>Я разворачиваю локальные модели под задачу под ключ: выбор модели, настройка на ваших данных, развёртывание на вашем сервере и оценка качества.</li>
+</ul></div>
+
+<p>Несколько лет индустрия двигалась в одну сторону: чем больше модель, тем лучше. Появлялись всё более крупные нейросети, которые умеют «всё» — и писать тексты, и считать, и переводить, и рассуждать. Но в 2026 году стало заметно встречное движение: компании всё чаще берут не одного гиганта на все задачи, а несколько маленьких моделей, каждая из которых заточена под свой узкий сценарий. Это и есть тренд на SLM — маленькие доменные модели. Ниже я простыми словами разберу, что это такое, почему гигант нужен не всегда, в чём выгода узких моделей, как это ложится на российский контекст с импортозамещением и 152-ФЗ, и с чего начать внедрение. Без громких обещаний и с честным разговором про ограничения.</p>
+
+<h2 id="chto-eto">Что такое маленькие доменные модели</h2>
+<p>SLM расшифровывается как Small Language Models — «маленькие языковые модели». Слово «маленькие» здесь условное: речь о моделях, которые на порядки компактнее самых крупных универсальных нейросетей. А «доменные» означает, что модель настроена под конкретную область или задачу — под ваш «домен»: тип документов, отрасль, набор запросов, с которыми реально работает компания.</p>
+<p>Идея простая. Вместо одной гигантской модели, которая пытается уметь всё на свете, вы берёте модель поменьше и настраиваете её под один понятный сценарий. После такой настройки на узкой задаче она часто оказывается так же точна или даже точнее, чем универсальный гигант, при этом работает заметно дешевле и быстрее. Гигант — как энциклопедия на все случаи жизни; маленькая доменная модель — как специалист, который знает свою область глубже, чем «человек, знающий обо всём по чуть-чуть».</p>
+<p>Тренд ускоряют две вещи. Первая — открытый код: появилось много качественных открытых моделей разного размера, которые можно скачать, дообучить под себя и развернуть на своём сервере без оглядки на чужую подписку. Вторая — агентный ИИ: когда систему собирают из нескольких помощников-агентов, каждый из которых отвечает за свой шаг, удобнее ставить на каждый шаг свою компактную модель, а не гонять одного дорогого гиганта по кругу. В сумме это и даёт сдвиг от «одна модель на всё» к «много узких моделей под задачу».</p>
+
+<h2 id="pochemu">Почему не один гигант</h2>
+<p>Логичный вопрос: если есть мощная универсальная модель, которая умеет всё, зачем городить зоопарк из маленьких? Ответ в том, что для большинства реальных бизнес-задач гигант избыточен. Компании редко нужна нейросеть, которая одновременно пишет стихи, решает олимпиадные задачи и ведёт философские беседы. Чаще нужна одна конкретная вещь: разобрать входящие обращения по категориям, вытащить из документа нужные поля, ответить сотруднику по внутренней базе знаний, отсортировать заявки по приоритету.</p>
+<p>Для такой узкой задачи маленькая дообученная модель часто выигрывает сразу по трём направлениям. По цене: гигант стоит дорого в эксплуатации, и если гонять его на тысячах однотипных запросов в день, счёт быстро растёт. По скорости: компактная модель отвечает быстрее, что критично, когда обращений много и ответ нужен мгновенно. По контролю: свою маленькую модель проще понять, проверить и держать в рамках — вы знаете, на чём она настроена и как себя ведёт на ваших данных.</p>
+<p>Гигант остаётся незаменим там, где задача действительно широкая, творческая или непредсказуемая — где заранее не известно, о чём спросят, и нужна максимальная «эрудиция». Но это далеко не каждый сценарий в бизнесе. Гнать универсального гиганта на простую классификацию обращений — это как нанимать профессора, чтобы он сортировал почту: справится, но дорого и медленно. Поэтому правильный вопрос не «какая модель самая сильная», а «какая модель достаточно сильная именно для этой задачи при минимальной цене и максимальном контроле».</p>
+
+<h2 id="preimushchestva">Преимущества под задачу</h2>
+<p>Когда модель подобрана и настроена под конкретный сценарий, преимущества складываются во вполне ощутимую выгоду. Разберу по пунктам.</p>
+<ul>
+<li><strong>Дешевле в эксплуатации.</strong> Маленькая модель потребляет меньше ресурсов на каждый запрос. На больших объёмах однотипных задач это разница не в проценты, а в разы — особенно по сравнению с оплатой запросов к дорогому облачному гиганту.</li>
+<li><strong>Быстрее отвечает.</strong> Меньше модель — меньше вычислений на ответ. Там, где важна скорость (онлайн-обработка обращений, подсказки в реальном времени), это заметно для пользователя.</li>
+<li><strong>Можно развернуть локально.</strong> Компактную модель реально поднять на своём сервере или даже на относительно скромном железе, без обязательного похода во внешний облачный сервис.</li>
+<li><strong>Проще контролировать.</strong> Вы знаете, на каких данных модель настроена, как она ведёт себя на ваших запросах, и можете её проверять и дорабатывать под свои требования.</li>
+<li><strong>Меньше требований к железу.</strong> Маленькой модели не нужен дата-центр. Часто хватает одного сервера, а для некоторых задач — и без мощной видеокарты.</li>
+<li><strong>Лучше приватность.</strong> Когда модель работает на вашем сервере, данные не уходят в чужой облачный ИИ. Запросы и документы остаются внутри вашего контура.</li>
+</ul>
+<p>Важно держать ожидания в реальности. Все эти плюсы проявляются именно тогда, когда модель действительно настроена под задачу. «Просто скачать маленькую модель» и ждать чудес не стоит — без настройки она будет слабее гиганта на тех же запросах. Выгода берётся не из размера самого по себе, а из связки «правильный размер плюс настройка под ваш домен». Это смежная тема с локальным LLM и собственным ИИ-ассистентом по базе знаний (подход RAG): часто маленькая доменная модель — это как раз тот компонент, который делает локальное решение быстрым и дешёвым.</p>
+
+<h2 id="rossiyskiy-kontekst">Импортозамещение и 152-ФЗ</h2>
+<p>Для российских компаний у маленьких доменных моделей есть отдельный, очень практичный угол — приватность данных и независимость от внешних сервисов. Это две болевые точки, которые в 2026 году волнуют почти всех.</p>
+<p>Начну с приватности и 152-ФЗ. Когда вы работаете с обращениями клиентов, договорами, заявками или внутренними документами, в них почти всегда есть персональные данные. Отправлять такие данные в чужой облачный ИИ — это всегда вопрос: где они хранятся, кто к ним имеет доступ, не уходят ли за пределы страны. Маленькую доменную модель можно держать на своём сервере в России — и тогда данные просто не покидают ваш контур. Это сильно упрощает соблюдение требований 152-ФЗ к обработке персональных данных, потому что нечего «отдавать наружу».</p>
+<p>Второй угол — импортозамещение. Локальная маленькая модель не зависит от того, доступен ли вам конкретный зарубежный облачный сервис, не изменились ли его условия, не отключили ли его. Она работает на вашем железе и хорошо ложится на российский AI-стек: отечественный хостинг, локальное развёртывание через инструменты вроде Ollama (это удобный способ запускать открытые модели на своём сервере), при необходимости — связка с российскими сервисами. Вы контролируете всю цепочку.</p>
+<p>Теперь честно про ограничения. Локальное размещение само по себе не делает систему «автоматически соответствующей закону» — нужно ещё грамотно организовать доступ, хранение и регламенты, и это решается на этапе внедрения. И главное: настройка модели под ваш домен требует данных и работы. Чтобы маленькая модель хорошо решала вашу задачу, ей нужны ваши примеры — размеченные обращения, образцы документов, типовые запросы. Это не «волшебная кнопка», а проект, в котором качество результата зависит от качества данных. Я говорю об этом сразу, чтобы ожидания были честными.</p>
+
+<h2 id="kak-vnedrit">Как внедрить</h2>
+<p>Переход на маленькие доменные модели — это понятный маршрут, если идти по шагам, а не пытаться сразу «заменить весь ИИ». Вот логика, по которой я обычно двигаюсь.</p>
+<ul>
+<li><strong>Выбрать узкую задачу.</strong> Начинать стоит с одного конкретного и измеримого сценария: классификация входящих обращений, извлечение полей из документов, ответы по внутренней базе знаний, сортировка заявок по приоритету. Чем уже задача, тем выше шанс, что маленькая модель её закроет.</li>
+<li><strong>Подобрать подходящую открытую модель.</strong> Под задачу выбирается открытая модель подходящего размера — достаточно сильная, чтобы справиться, но не избыточная. Здесь важен баланс между качеством и требованиями к железу.</li>
+<li><strong>Настроить на своих данных.</strong> Модель дообучается или настраивается на ваших примерах: реальных обращениях, документах, запросах. Это ключевой этап — именно он превращает универсальную заготовку в специалиста по вашему домену.</li>
+<li><strong>Развернуть на своём сервере.</strong> Модель поднимается локально — на вашем сервере или в вашей инфраструктуре, например через Ollama. Так данные остаются внутри контура, а вы не зависите от внешнего сервиса. Для российского контекста это и есть тот самый локальный, импортонезависимый вариант.</li>
+<li><strong>Мерить качество.</strong> Обязательный шаг, который часто пропускают: проверить модель на реальных запросах, сравнить с тем, что было, и убедиться, что точности достаточно. Без оценки качества вы не знаете, работает решение или только кажется, что работает.</li>
+</ul>
+<p>Этот маршрут хорошо сочетается с уже существующими у вас инструментами. Маленькая доменная модель может быть частью более крупной системы — например, движком для локального ИИ-ассистента по документам или одним из агентов в агентной схеме. Начинать почти всегда стоит с одной задачи, на которой выгода очевидна, а уже потом расширять подход на соседние сценарии.</p>
+
+<h2 id="oshibki">Частые ошибки</h2>
+<p>За время работы с локальными моделями я вижу одни и те же грабли. Перечислю их, чтобы вы могли обойти.</p>
+<ul>
+<li><strong>Брать гигантскую модель туда, где хватит маленькой.</strong> Самая частая и самая дорогая ошибка. На простую классификацию или извлечение данных гнать универсального гиганта — значит переплачивать за ресурсы и терять в скорости там, где компактная настроенная модель справится не хуже.</li>
+<li><strong>Ждать от маленькой модели универсальности.</strong> Обратная крайность. Маленькая доменная модель сильна на своей задаче, но не должна одновременно писать тексты, рассуждать на любые темы и решать чужие сценарии. Если вы хотите «всё в одном», маленькая модель вас разочарует — её ценность именно в узости.</li>
+<li><strong>Настройка без качественных данных.</strong> Модель учится на ваших примерах. Если данные грязные, противоречивые или их слишком мало, результат будет слабым — каким бы хорошим ни был подход. «Мусор на входе — мусор на выходе» здесь работает в полную силу.</li>
+<li><strong>Игнорировать оценку качества.</strong> Развернули, вроде отвечает — и на этом успокоились. Без измерения точности на реальных запросах вы не знаете, можно ли доверять модели в работе. Оценка качества — не формальность, а условие, при котором решением вообще можно пользоваться.</li>
+<li><strong>Забыть про приватность данных при обучении.</strong> Если вы настраиваете модель на чувствительных данных, важно понимать, где идёт обучение и куда уходят примеры. Локальная настройка на своём сервере держит данные внутри; настройка через чужой облачный сервис — это уже отдельный вопрос с точки зрения 152-ФЗ, который нужно решить заранее.</li>
+</ul>
+<p>Объединяет эти ошибки одно: попытка пропустить этап осмысленного выбора и настройки. Маленькие доменные модели дают выгоду не «из коробки», а когда подход выстроен под конкретную задачу и проверен на ваших данных.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+<p><strong>Чем SLM отличается от больших универсальных моделей?</strong> Размером и специализацией. Большая модель — это универсал, который умеет понемногу всё и потому дорог и тяжёл. SLM — компактная модель, настроенная под одну область или задачу. На своём узком сценарии она часто не уступает гиганту, при этом дешевле, быстрее и проще в контроле.</p>
+<p><strong>Правда ли, что маленькая модель может быть точнее гиганта?</strong> На своей узкой задаче — да, такое реально. После настройки на ваших данных компактная модель глубоко «понимает» именно ваш домен и может давать более точные ответы, чем универсальный гигант, который знает обо всём, но ни о чём конкретном слишком глубоко. На широких и непредсказуемых задачах гигант по-прежнему сильнее.</p>
+<p><strong>Нужно ли мощное железо или видеокарта?</strong> Зависит от размера модели и задачи. Маленькие модели заметно скромнее в требованиях, чем гиганты, и для части сценариев хватает обычного сервера. Для более крупных вариантов или высокой нагрузки видеокарта может понадобиться. Точную конфигурацию я подбираю под конкретную задачу и объём запросов.</p>
+<p><strong>Подходит ли это для соблюдения 152-ФЗ?</strong> Локальное развёртывание здесь — большое преимущество: модель работает на вашем сервере в России, и данные не уходят в чужой облачный ИИ, что упрощает соблюдение требований к персональным данным. Но само по себе локальное размещение не делает систему «автоматически законной» — нужно правильно организовать доступ, хранение и регламенты. Это решается на этапе внедрения.</p>
+<p><strong>Сколько данных нужно для настройки?</strong> Зависит от задачи: чем она уже и понятнее, тем меньше примеров требуется. Главное не объём ради объёма, а качество — чистые, репрезентативные примеры реальных обращений или документов. Если данных совсем мало или они противоречивы, результат будет слабым, и я честно скажу об этом до старта.</p>
+<p><strong>С чего начать?</strong> С выбора одной узкой задачи, на которой выгода очевидна, — например, классификация обращений или извлечение данных из документов. Дальше подбирается подходящая открытая модель, настраивается на ваших данных, разворачивается локально и проверяется на реальных запросах. Начинать почти всегда стоит с одного сценария, а не с попытки заменить весь ИИ сразу.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+<p>Маленькие доменные модели — это здоровый разворот после гонки за размером: вместо одного дорогого гиганта на всё вы ставите несколько компактных моделей, каждая под свою задачу. Для узких сценариев — классификации обращений, извлечения данных, ответов по своей базе — настроенная маленькая модель часто так же точна или точнее, при этом дешевле в эксплуатации, быстрее и проще в контроле. Для российских компаний к этому добавляется главное: такую модель можно держать на своём сервере в РФ, данные не уходят наружу, и это хорошо ложится и на импортозамещение, и на требования 152-ФЗ. Взамен нужны осмысленный выбор задачи, качественные данные для настройки и честная оценка качества — без этого выгода не появится сама. Я 16+ лет в IT и разворачиваю локальные модели под задачу под ключ: от выбора модели и настройки на ваших данных до развёртывания на вашем сервере. Если вам близка идея узких моделей вместо одного гиганта — помогу пройти этот путь до рабочего решения.</p>
+
+                    </div>
+
+                    
+                    
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Что я делаю с ИИ под ключ</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-robot"></i> <span>ИИ-агенты и чат-боты</span></li>
+    
+    <li><i class="ph-fill ph-flow-arrow"></i> <span>Агентные конвейеры и автоматизация</span></li>
+    
+    <li><i class="ph-fill ph-brain"></i> <span>База знаний с ИИ-поиском (RAG)</span></li>
+    
+    <li><i class="ph-fill ph-hard-drives"></i> <span>Локальные модели на своём сервере</span></li>
+    
+    <li><i class="ph-fill ph-shield-check"></i> <span>Приватность и 152-ФЗ</span></li>
+    
+    <li><i class="ph-fill ph-graduation-cap"></i> <span>Обучение команды работе с ИИ</span></li>
+    
+  </ul>
+  <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
+  </a>
+</div>
+                    
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/services/ai-agents/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Внедрить ИИ-агента под ключ</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/lokalnyy-llm-na-noutbuke-2026/" data-category="ai-dev" data-clicks="57">
+  <span class="blog-card-popular"><i class="ph-fill ph-fire" aria-hidden="true"></i> Популярное</span>
+  <div class="blog-card-icon"><i class="ph-fill ph-cpu"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>AI для разработчиков</span>
+  <h3>Локальный LLM на ноутбуке 2026: Ollama, LM Studio, vLLM — практическое руководство</h3>
+  <p>Как поднять локальный LLM за час: Ollama, LM Studio, vLLM. Какие модели выбрать в 2026, бенчмарки скорости на M3 Max / RTX 4090 / H100, локальный RAG за 40 строк, экономика владения.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 20 мая 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 22 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/rossiyskiy-ai-stack-2026/" data-category="ai-dev" data-clicks="3">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-brain"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>AI для разработчиков</span>
+  <h3>Российский AI-стек 2026: чем заменить OpenAI, Claude и Gemini</h3>
+  <p>Что есть в РФ вместо OpenAI и Claude: YandexGPT 5, GigaChat 3, T-Pro, Cotype, Kandinsky 4, open-source self-hosting. Цены, код подключения, кейсы.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 20 мая 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 21 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/rag-sistemy-dlya-biznesa-2026/" data-category="ai-dev" data-clicks="2">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-database"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>AI для разработчиков</span>
+  <h3>RAG-системы для бизнеса 2026: AI, который отвечает по вашим документам</h3>
+  <p>Сертифицированный по RAG практик о том, как устроена связка «векторный поиск + LLM», какие vector DB и embeddings брать в РФ, сколько стоит и где ломается на реальной базе из 10 000+ документов.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 20 мая 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 24 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    
+                    
+                    
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовые решения под ключ</span>
+                            <span class="blog-offer-cta-title">449 готовых IT-решений для бизнеса</span>
+                            <span class="blog-offer-cta-price">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Смотреть каталог</span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#chto-eto"><span class="blog-toc-num">01</span> Что такое маленькие доменные модели</a></li>
+<li><a href="#pochemu"><span class="blog-toc-num">02</span> Почему не один гигант</a></li>
+<li><a href="#preimushchestva"><span class="blog-toc-num">03</span> Преимущества под задачу</a></li>
+<li><a href="#rossiyskiy-kontekst"><span class="blog-toc-num">04</span> Импортозамещение и 152-ФЗ</a></li>
+<li><a href="#kak-vnedrit"><span class="blog-toc-num">05</span> Как внедрить</a></li>
+<li><a href="#oshibki"><span class="blog-toc-num">06</span> Частые ошибки</a></li>
+<li><a href="#faq"><span class="blog-toc-num">07</span> FAQ</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">08</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=23" defer></script>
+<script src="/services-i18n.js?v=23" defer></script>
+<script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>
