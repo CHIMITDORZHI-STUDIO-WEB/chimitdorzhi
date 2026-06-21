@@ -1055,6 +1055,8 @@ const KRUGOZOR_CLUSTER = [
     'sindrom-samozvanca-kak-spravitsya-2026', 'vygoranie-burnout-priznaki-chto-delat-2026', 'kak-spravitsya-so-stressom-na-rabote-2026', 'emocionalnyy-intellekt-v-rabote-2026', 'soft-skills-2026-navyki', 'kak-nauchitsya-govorit-net-assertivnost-2026', 'kak-formirovat-privychki-2026', 'myshlenie-rosta-growth-mindset-2026', 'kognitivnye-iskazheniya-2026', 'effekt-danninga-kryugera-2026', 'motivaciya-maslou-gercberg-2026', 'kak-davat-obratnuyu-svyaz-2026', 'aktivnoe-slushanie-2026', 'konflikty-na-rabote-2026', 'radikalnaya-pryamota-radical-candor-2026'] },
   { label: 'Знания и обучение', icon: 'ph-fill ph-brain', slugs: [
     'vtoroy-mozg-para-baza-znaniy-2026', 'intellekt-karty-mind-map-2026', 'kriticheskoe-myshlenie-2026', 'metod-feynmana-2026', 'kak-nauchitsya-uchitsya-2026', 'mentalnye-modeli-2026', 'myshlenie-ot-pervyh-principov-2026', 'sistemnoe-myshlenie-2026', 'kak-prinimat-resheniya-2026', 'digital-gardens-cifrovye-sady-2026', 'personal-crm-lichnaya-crm-2026'] },
+  { label: 'Бизнес в цифровую эпоху (Дэниел Пристли)', icon: 'ph-fill ph-compass', slugs: [
+    'biznes-v-cifrovuyu-epohu-pristli-2026', 'pravilo-7-11-4-zapominaemost-brenda-2026', '5-veshchey-kotorye-mozg-ne-udalyaet-2026', 'kak-predstavit-sebya-name-same-fame-2026', 'klyuchevoy-chelovek-vliyaniya-kpi-2026', 'test-sprosa-do-zapuska-produkta-2026', 'situacionnaya-model-klienta-2026', 'sayd-hasl-pravilo-90-dney-2026', 'krivaya-normy-vs-stepennoy-zakon-2026', 'sladkaya-tochka-predprinimatelya-2026', 'top-10-procentov-byudzheta-monetizaciya-2026', 'vozmozhnost-bebi-bumerov-2026', 'ii-kak-elektrichestvo-rannyaya-stadiya-2026'] },
 ];
 function krugozorClusterHtml(a, published) {
   if (a.category !== 'biznes-krugozor') return '';
