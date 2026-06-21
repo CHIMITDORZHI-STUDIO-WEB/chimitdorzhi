@@ -146,5 +146,8 @@ module.exports = {
   "esphome-zigbee-datchiki-2026": "https://github.com/esphome/esphome",
   "dawarich-istoriya-peremeshcheniy-2026": "https://github.com/Freika/dawarich",
   "qloapps-bronirovanie-oteley-2026": "https://github.com/Qloapps/QloApps",
-  "khoj-ii-assistent-baza-znaniy-2026": "https://github.com/khoj-ai/khoj"
+  "khoj-ii-assistent-baza-znaniy-2026": "https://github.com/khoj-ai/khoj",
+  "open-notebook-analog-notebooklm-2026": "https://github.com/lfnovo/open-notebook",
+  "pangolin-bezopasnyy-dostup-k-servisam-2026": "https://github.com/fosrl/pangolin",
+  "minio-svoyo-s3-hranilishche-2026": "https://github.com/minio/minio"
 };

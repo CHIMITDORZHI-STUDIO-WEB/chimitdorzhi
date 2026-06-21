@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MinIO: своё S3-хранилище на сервере</title>
+    <meta name="description" content="MinIO — open-source объектное хранилище, совместимое с Amazon S3, на своём сервере: файлы, бэкапы, медиа без оплаты облаку за объём и трафик.">
+    <meta name="keywords" content="MinIO, S3, объектное хранилище, бэкапы, open-source">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/minio-svoyo-s3-hranilishche-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/minio-svoyo-s3-hranilishche-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/minio-svoyo-s3-hranilishche-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/minio-svoyo-s3-hranilishche-2026/">
+    <meta property="og:title" content="MinIO: своё S3-хранилище на сервере">
+    <meta property="og:description" content="MinIO — open-source объектное хранилище, совместимое с Amazon S3, на своём сервере: файлы, бэкапы, медиа без оплаты облаку за объём и трафик.">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/minio-svoyo-s3-hranilishche-2026/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="MinIO: своё S3-хранилище на сервере">
+    <meta name="twitter:description" content="MinIO — open-source объектное хранилище, совместимое с Amazon S3, на своём сервере: файлы, бэкапы, медиа без оплаты облаку за объём и трафик.">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/minio-svoyo-s3-hranilishche-2026/cover.png">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor-Fill.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=45">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "MinIO: своё S3-совместимое хранилище файлов на своём сервере",
+  "description": "MinIO — open-source объектное хранилище, совместимое с Amazon S3, на своём сервере: файлы, бэкапы, медиа без оплаты облаку за объём и трафик. Данные в РФ (152-ФЗ), отказоустойчивость, шифрование. Замена S3 и Yandex Object Storage. Разверну под ключ.",
+  "image": "https://chimitdorzhi.tech/blog/minio-svoyo-s3-hranilishche-2026/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/minio-svoyo-s3-hranilishche-2026/"
+  },
+  "datePublished": "2026-06-14",
+  "dateModified": "2026-06-14",
+  "keywords": "MinIO, S3, объектное хранилище, бэкапы, open-source",
+  "articleSection": "Open-source и свой сервер",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "MinIO: своё S3-совместимое хранилище файлов на своём сервере",
+      "item": "https://chimitdorzhi.tech/blog/minio-svoyo-s3-hranilishche-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Это правда бесплатно?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Сам MinIO — бесплатный и open-source. Платить нужно за сервер с дисками (своё железо или аренду) и за настройку с поддержкой. Постоянной платы за объём данных и за трафик, как у облачных хранилищ, нет — вы один раз оплачиваете железо и настройку, а дальше платите только за содержание сервера."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Точно ли это совместимо с S3?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, MinIO полностью совместим с Amazon S3 API. Приложения, библиотеки и инструменты, рассчитанные на S3, подключаются к нему сменой адреса хранилища (endpoint) и ключей доступа — переписывать код не нужно. Для программы MinIO выглядит так же, как настоящий S3."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Данные в безопасности, что с 152-ФЗ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Данные хранятся на вашем сервере в России или в вашей инфраструктуре и не уходят на зарубежные площадки, что упрощает соблюдение 152-ФЗ. Можно включить шифрование, чтобы содержимое нельзя было прочитать даже при доступе к дискам. При этом соответствие закону — это не только расположение, но и правильно настроенные доступ, хранение и регламенты, которые мы прорабатываем при внедрении."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "А если откажет диск — данные не потеряются?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Для этого есть erasure coding: данные хранятся с избыточностью, разложенные по нескольким дискам, и при выходе из строя части из них остаются целыми и доступными. Чтобы это работало, нужна отказоустойчивая конфигурация из нескольких дисков или узлов — её я закладываю на этапе подбора сервера."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько нужно дисков?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Для простой одиночной установки хватит и одного диска нужного объёма. Для отказоустойчивости через erasure coding нужно несколько дисков, а лучше несколько узлов — точное количество зависит от объёма данных и требований к надёжности, и я подбираю его под вашу задачу."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько времени занимает запуск?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Базовое развёртывание с настройкой бакетов и доступа обычно укладывается в несколько дней, а не недель. Дольше всего идёт не установка, а настройка под ваши задачи: отказоустойчивая конфигурация, перенос данных из старого облака и проверка интеграции с приложениями. Точные сроки зависят от объёма данных и числа интеграций."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли перенести данные из Yandex Object Storage или AWS?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да. Поскольку всё говорит на одном языке S3, данные из Yandex Object Storage, Amazon S3 или другого совместимого хранилища переносятся в MinIO, а приложения переключаются на него сменой endpoint и ключей. Я переношу данные с проверкой целостности и помогаю переключить интеграции без простоя."
+      }
+    }
+  ]
+}
+    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+var inject=function(){for (var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)};
+var run=function(){('requestIdleCallback' in window)?requestIdleCallback(inject,{timeout:5000}):setTimeout(inject,3000)};
+(e.readyState==='complete')?run():m.addEventListener('load',run);})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109281884" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+            <li><a href="/#services" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li class="nav-dropdown">
+                <a href="/#projects" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--arey"><i class="ph-fill ph-vinyl-record" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-airplane-tilt" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#cases" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            </div>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/#about">Обо мне</a></li>
+        <li><a href="/#services">Услуги</a></li>
+        <li><a href="/services/">Каталог услуг</a></li>
+        <li><a href="/predlozheniya/">Предложения</a></li>
+        <li><a href="/#cases">Кейсы</a></li>
+        <li><a href="/blog/">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+        <li><a href="/#contact">Контакт</a></li>
+    </ul>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">MinIO: своё S3-совместимое хранилище файлов на своём сервере</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/opensource/"><i class="ph ph-bookmark" aria-hidden="true"></i> Open-source и свой сервер</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин чтения</span>
+                        <time datetime="2026-06-14"><i class="ph ph-calendar" aria-hidden="true"></i> 14 июня 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">MinIO: своё S3-совместимое хранилище файлов на своём сервере</h1>
+
+                    <p class="blog-lead">MinIO — своё S3-совместимое хранилище для файлов, бэкапов и медиа на вашем сервере. Приложения подключаются как к Amazon S3, но данные остаются у вас и без платы за объём. Разбираю, что умеет и кому нужно.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>MinIO</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>S3</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>объектное хранилище</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>бэкапы</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>open-source</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
+<li>MinIO — open-source объектное хранилище, полностью совместимое с Amazon S3 API, которое ставится на ваш сервер.</li>
+<li>Заменяет Amazon S3, Yandex Object Storage и Google Cloud Storage для хранения файлов, бэкапов, медиа и данных приложений — без платы облаку за объём и трафик.</li>
+<li>Любой софт, который умеет работать с S3, подключается к MinIO без переделки: достаточно сменить адрес хранилища (endpoint).</li>
+<li>Данные остаются на вашем сервере в РФ, что упрощает соблюдение требований 152-ФЗ, а отказоустойчивость обеспечивает erasure coding.</li>
+<li>Я разворачиваю MinIO под ключ: подбор сервера и дисков, настройка бакетов, доступа и шифрования, перенос данных из старого облака и сопровождение.</li>
+</ul></div>
+
+<p>Почти у любого современного приложения есть файлы, которые надо где-то хранить: загрузки пользователей, документы, фотографии, видео, резервные копии, логи. Чаще всего их складывают в облачное объектное хранилище — Amazon S3 или его аналоги. Это удобно, пока не приходит счёт за объём и трафик, а вместе с ним вопрос: а где, собственно, лежат данные и кто к ним имеет доступ. MinIO даёт другой путь: это объектное хранилище, которое работает по тому же стандарту, что и S3, но стоит на вашем сервере. Ниже разберу простыми словами, что это за инструмент, что он умеет, кому подходит и что нужно для запуска.</p>
+
+<h2 id="chto-eto">Что это и что заменяет</h2>
+<p>MinIO — это бесплатное open-source объектное хранилище. Объектное — значит, оно хранит данные не как файлы в привычных папках, а как «объекты»: каждый файл лежит в контейнере (бакете) вместе со своими метаданными и адресуется по уникальному ключу. Именно так устроены все крупные облачные хранилища, и именно так удобно хранить большие объёмы файлов, к которым обращаются приложения.</p>
+<p>Главная особенность MinIO в том, что он полностью совместим с Amazon S3 API. S3 API — это, по сути, общепринятый «язык», на котором приложения разговаривают с хранилищем: как загрузить файл, как его скачать, как удалить, как выдать ссылку. Этот язык стал отраслевым стандартом, и тысячи программ умеют на нём общаться. MinIO говорит на том же языке, поэтому для приложения он выглядит ровно как Amazon S3 — только находится на вашем сервере.</p>
+<p>Что MinIO заменяет. По задачам он закрывает то, ради чего бизнес идёт в облачные хранилища: Amazon S3, Yandex Object Storage, Google Cloud Storage. Хранение файлов приложения, резервных копий, медиабиблиотек, логов, любых данных. Разница в том, что облако хранит ваши данные на чужих серверах и берёт плату за каждый гигабайт и за каждый исходящий поток трафика. MinIO ставится на ваш сервер, данные остаются внутри вашего контура, а сам инструмент бесплатен. Вы платите за железо и настройку, а не за объём и трафик по растущему тарифу. И что особенно важно: любой софт, который уже умеет работать с S3, подключается к MinIO без переделки кода — меняется только адрес хранилища (endpoint) и ключи доступа.</p>
+
+<h2 id="vozmozhnosti">Что умеет</h2>
+<p>MinIO — это не «волшебная кнопка», а зрелый рабочий инструмент с понятным набором возможностей. В общем виде он умеет следующее:</p>
+<ul>
+<li><strong>Хранить неограниченное число объектов.</strong> Файлы любого типа и размера — от мелких документов до больших видео и образов, ограничение только по месту на дисках сервера.</li>
+<li><strong>Совместимость с S3 API.</strong> Приложения, библиотеки и инструменты, рассчитанные на Amazon S3, работают с MinIO без переделки — достаточно указать новый endpoint.</li>
+<li><strong>Бакеты и политики доступа.</strong> Данные раскладываются по контейнерам (бакетам), а доступ к ним настраивается гибко: кто что может читать и писать, какие ключи и права у каждого приложения или пользователя.</li>
+<li><strong>Шифрование данных.</strong> Объекты можно хранить в зашифрованном виде, чтобы даже при физическом доступе к дискам содержимое нельзя было прочитать.</li>
+<li><strong>Версионирование объектов.</strong> Можно хранить историю версий файла: если объект перезаписали или удалили по ошибке, прежнюю версию реально восстановить.</li>
+<li><strong>Репликация между серверами.</strong> Данные можно автоматически копировать на другой сервер или площадку — для резервирования или близости к пользователям.</li>
+<li><strong>Отказоустойчивость через erasure coding.</strong> Это способ хранения, при котором данные разбиваются на части с избыточностью и раскладываются по нескольким дискам. При выходе из строя части дисков данные не теряются и остаются доступными.</li>
+<li><strong>Веб-консоль администрирования.</strong> Удобный интерфейс в браузере для управления бакетами, пользователями, доступом и просмотра состояния хранилища.</li>
+<li><strong>Интеграция с приложениями, бэкап-инструментами и CDN.</strong> MinIO дружит с популярными инструментами резервного копирования (например, Veeam, restic) и может выступать источником для CDN при раздаче медиа.</li>
+</ul>
+<p>На практике это выглядит как конкретные сценарии. Веб-сервис хранит в MinIO пользовательские загрузки и отдаёт их по ссылкам — так же, как раньше из S3, но дешевле и под своим контролем. Компания настраивает резервное копирование баз и серверов через restic или Veeam прямо на своё хранилище, не отправляя бэкапы в чужое облако. Медиапроект складывает в MinIO тысячи фотографий и видео и раздаёт их через CDN. Команда разработки поднимает MinIO как S3-совместимое хранилище для приложения, чтобы и в разработке, и в продакшене всё работало одинаково. Ценность не в самом хранилище как таковом, а в том, что данные остаются внутри компании и не привязывают вас к тарифам облака.</p>
+
+<h2 id="komu-podhodit">Кому подходит</h2>
+<p>MinIO раскрывается там, где есть заметные объёмы файлов и важен контроль над данными. Типичные ситуации:</p>
+<ul>
+<li><strong>Компании, которым нужно хранить данные внутри РФ.</strong> Файлы приложений, документы, резервные копии с персональными данными — там, где важно соблюдение 152-ФЗ и нежелательно отправлять данные в зарубежное облако.</li>
+<li><strong>Разработчики и продуктовые команды.</strong> Тем, кому нужно S3-хранилище для приложения, но не хочется платить облаку и привязываться к нему — особенно если код уже написан под S3.</li>
+<li><strong>Компании с большими объёмами медиа и документов.</strong> Фото, видео, сканы, архивы — там, где трафик и объём в облаке выливаются в ощутимые суммы.</li>
+<li><strong>Те, кто хочет уйти от зарубежных облаков.</strong> Из-за рисков с оплатой, доступом и блокировками собственное хранилище становится надёжнее и предсказуемее.</li>
+<li><strong>Резервное копирование на своё хранилище.</strong> Бэкапы серверов, баз и рабочих станций на собственное S3-совместимое хранилище под полным контролем.</li>
+</ul>
+<p>Объединяет эти случаи одно: есть данные, которые накапливаются и стоят денег в облаке, и есть желание держать их под своим контролем. Именно на стыке этих двух условий собственное объектное хранилище окупается быстрее всего, особенно когда объёмы и трафик растут.</p>
+<p>Если же файлов немного, они не растут, а удобство готового облака для вас важнее экономии и контроля, то разворачивать собственное хранилище часто избыточно. Я честно скажу, если в вашем случае проще остаться на готовом сервисе.</p>
+
+<h2 id="chto-nuzhno">Что нужно для запуска</h2>
+<p>Чтобы MinIO работал стабильно и надёжно, нужны три вещи: сервер с дисками подходящего объёма, грамотная настройка и продуманная схема отказоустойчивости и бэкапов.</p>
+<p><strong>Сервер или VPS с дисками.</strong> Объём дисков подбирается под ваши данные с запасом на рост. Для одиночной установки достаточно одного сервера, а для отказоустойчивого варианта нужно несколько серверов или несколько дисков, чтобы работал erasure coding. Сервер может стоять у российского хостера или прямо в вашей инфраструктуре. Конкретные цифры по объёму и количеству узлов зависят от задачи, поэтому я не называю их заранее: сначала смотрим на объём данных и требования к надёжности, потом подбираем конфигурацию.</p>
+<p><strong>Docker и развёртывание.</strong> MinIO удобно ставить через Docker (инструмент упаковки и запуска приложений в изолированных контейнерах) — это упрощает установку, обновления и перенос. Для продакшена обычно разворачивают несколько узлов, чтобы данные хранились с избыточностью через erasure coding и пережили выход из строя части дисков.</p>
+<p><strong>Настройка доступа, шифрования и бэкапов.</strong> Установить движок — это только начало. Нужно создать бакеты, настроить политики доступа и ключи для приложений, включить шифрование, при необходимости версионирование и репликацию, а также организовать резервное копирование самого хранилища. Это та часть, где обычно нужен специалист.</p>
+<p><strong>152-ФЗ и расположение данных.</strong> Главное преимущество собственного хранилища в том, что данные остаются на вашем сервере в России или прямо в вашей инфраструктуре, а не на зарубежных площадках. Это упрощает соблюдение требований к обработке персональных данных по 152-ФЗ. При этом важно понимать: само по себе локальное размещение не делает систему «автоматически соответствующей закону» — нужно правильно организовать доступ, шифрование, хранение и регламенты. Это решается на этапе внедрения, и я учитываю эти моменты при настройке.</p>
+
+<h2 id="kak-vnedrit">Как внедрить под ключ</h2>
+<p>Запуск собственного объектного хранилища — это проект, а не одна кнопка. Чтобы не утонуть в технических деталях, удобнее отдать его специалисту. Обычно я иду по такому маршруту:</p>
+<ul>
+<li><strong>Разбираемся в задаче.</strong> Какой объём данных храним, какая нагрузка ожидается, нужна ли отказоустойчивость, какие приложения и бэкап-инструменты будут подключаться и какие требования к приватности.</li>
+<li><strong>Подбираем сервер и диски.</strong> Рассчитываю объём дисков под ваши данные с запасом на рост и определяю, нужен один узел или несколько для erasure coding.</li>
+<li><strong>Разворачиваю через Docker.</strong> Устанавливаю MinIO, при необходимости в отказоустойчивой конфигурации из нескольких узлов, настраиваю веб-консоль администрирования.</li>
+<li><strong>Настраиваю бакеты, доступ и шифрование.</strong> Создаю бакеты, прописываю политики доступа и ключи для приложений, включаю шифрование, при необходимости версионирование и репликацию.</li>
+<li><strong>Переношу данные из старого облака.</strong> Аккуратно переливаю файлы из Yandex Object Storage, AWS или другого хранилища и проверяю целостность.</li>
+<li><strong>Проверяю интеграцию.</strong> Подключаю ваши приложения и бэкап-инструменты сменой endpoint и ключей, убеждаюсь, что всё работает как раньше.</li>
+<li><strong>Сопровождаю дальше.</strong> Обновления, мониторинг свободного места и состояния дисков, помощь при росте нагрузки — чтобы хранилище оставалось рабочим, а не «настроили и забыли».</li>
+</ul>
+<p>Я 16+ лет в IT и разворачиваю open-source-инструменты под ключ на российском стеке, с учётом приватности и 152-ФЗ. Если хотите собственное S3-совместимое хранилище без платы облаку за объём и трафик — разверну MinIO на вашем сервере под ключ.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+<p><strong>Это правда бесплатно?</strong> Сам MinIO — бесплатный и open-source. Платить нужно за сервер с дисками (своё железо или аренду) и за настройку с поддержкой. Постоянной платы за объём данных и за трафик, как у облачных хранилищ, нет — вы один раз оплачиваете железо и настройку, а дальше платите только за содержание сервера.</p>
+<p><strong>Точно ли это совместимо с S3?</strong> Да, MinIO полностью совместим с Amazon S3 API. Приложения, библиотеки и инструменты, рассчитанные на S3, подключаются к нему сменой адреса хранилища (endpoint) и ключей доступа — переписывать код не нужно. Для программы MinIO выглядит так же, как настоящий S3.</p>
+<p><strong>Данные в безопасности, что с 152-ФЗ?</strong> Данные хранятся на вашем сервере в России или в вашей инфраструктуре и не уходят на зарубежные площадки, что упрощает соблюдение 152-ФЗ. Можно включить шифрование, чтобы содержимое нельзя было прочитать даже при доступе к дискам. При этом соответствие закону — это не только расположение, но и правильно настроенные доступ, хранение и регламенты, которые мы прорабатываем при внедрении.</p>
+<p><strong>А если откажет диск — данные не потеряются?</strong> Для этого есть erasure coding: данные хранятся с избыточностью, разложенные по нескольким дискам, и при выходе из строя части из них остаются целыми и доступными. Чтобы это работало, нужна отказоустойчивая конфигурация из нескольких дисков или узлов — её я закладываю на этапе подбора сервера.</p>
+<p><strong>Сколько нужно дисков?</strong> Для простой одиночной установки хватит и одного диска нужного объёма. Для отказоустойчивости через erasure coding нужно несколько дисков, а лучше несколько узлов — точное количество зависит от объёма данных и требований к надёжности, и я подбираю его под вашу задачу.</p>
+<p><strong>Сколько времени занимает запуск?</strong> Базовое развёртывание с настройкой бакетов и доступа обычно укладывается в несколько дней, а не недель. Дольше всего идёт не установка, а настройка под ваши задачи: отказоустойчивая конфигурация, перенос данных из старого облака и проверка интеграции с приложениями. Точные сроки зависят от объёма данных и числа интеграций.</p>
+<p><strong>Можно ли перенести данные из Yandex Object Storage или AWS?</strong> Да. Поскольку всё говорит на одном языке S3, данные из Yandex Object Storage, Amazon S3 или другого совместимого хранилища переносятся в MinIO, а приложения переключаются на него сменой endpoint и ключей. Я переношу данные с проверкой целостности и помогаю переключить интеграции без простоя.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+<p>MinIO — это способ получить собственное объектное хранилище на своём сервере: полностью совместимое с Amazon S3, без платы облаку за объём и трафик и без передачи данных на зарубежные площадки. Оно хранит неограниченное число файлов, поддерживает бакеты и политики доступа, шифрование, версионирование, репликацию и отказоустойчивость через erasure coding, а приложения подключаются к нему сменой адреса хранилища, без переделки кода. Это особенно ценно для компаний, которым важно держать данные внутри РФ по 152-ФЗ, для разработчиков, для проектов с большими объёмами медиа и для резервного копирования на своё хранилище. Взамен нужны подходящий сервер с дисками и грамотная настройка — без громких обещаний и с честным разговором об ограничениях. Если идея собственного S3-совместимого хранилища вам близка, я помогу пройти путь от подбора сервера до рабочей системы под ключ.</p>
+
+                    </div>
+
+                    <div class="blog-callout"><i class="ph-fill ph-git-branch" aria-hidden="true"></i><div><strong>Где взять</strong> — Официальный репозиторий на GitHub: <a href="https://github.com/minio/minio" target="_blank" rel="noopener">github.com/minio/minio</a>. Развернуть и настроить под ключ помогу — <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener">напишите в Telegram</a>.</div></div>
+                    
+                    <div class="blog-cta-card">
+                        <div class="blog-cta-card-body">
+                            <h3>Ещё open-source для бизнеса</h3>
+                            <p>Эта статья — часть каталога бесплатных решений, которые я разворачиваю на вашем сервере под ключ: CRM, аналитика, документы, почта, безопасность, магазины, AI.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="/blog/katalog-open-source-resheniy-dlya-biznesa-2026/" class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Каталог open-source решений</a>
+                        </div>
+                    </div>
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Что я делаю с open-source</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-hard-drives"></i> <span>Развёртывание на вашем сервере</span></li>
+    
+    <li><i class="ph-fill ph-arrows-left-right"></i> <span>Перенос данных из старого сервиса</span></li>
+    
+    <li><i class="ph-fill ph-shield-check"></i> <span>Безопасность и 152-ФЗ</span></li>
+    
+    <li><i class="ph-fill ph-wrench"></i> <span>Настройка под ваши процессы</span></li>
+    
+    <li><i class="ph-fill ph-lifebuoy"></i> <span>Поддержка и обновления</span></li>
+    
+  </ul>
+  <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
+  </a>
+</div>
+                    
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/predlozheniya/open-source-pod-klyuch/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Развернуть open-source под ключ</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/svoy-oblachnyy-disk-2026/" data-category="development" data-clicks="27">
+  <span class="blog-card-popular"><i class="ph-fill ph-fire" aria-hidden="true"></i> Популярное</span>
+  <div class="blog-card-icon"><i class="ph-fill ph-cloud-arrow-up"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
+  <h3>Свой облачный диск вместо Google Drive 2026: Nextcloud и аналоги на своём сервере</h3>
+  <p>Google Drive дорожает и ненадёжен, данные не у вас. Разбираю, как поднять свой облачный диск: Nextcloud и альтернативы, где разместить (VPS, российские облака, домашний NAS), Docker, SSL, синхронизация всех устройств, онлайн-редактирование (OnlyOffice), бэкапы restic, безопасность. Данные в РФ (152-ФЗ). С docker-compose, nginx и restic.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 30 мая 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 24 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/svoy-vps-dlya-razrabotchika-2026/" data-category="development" data-clicks="46">
+  <span class="blog-card-popular"><i class="ph-fill ph-fire" aria-hidden="true"></i> Популярное</span>
+  <div class="blog-card-icon"><i class="ph-fill ph-hard-drives"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
+  <h3>Свой VPS для разработчика в 2026: Selectel vs RuVDS vs Timeweb vs Yandex Cloud — реальное сравнение</h3>
+  <p>Реальный опыт инженера, пять лет живущего на Selectel + RuVDS + Yandex Cloud. Цены 2026, плюсы и минусы провайдеров, таблица сравнения 14 параметров, пошаговая настройка VPS за 30 минут с bash-скриптами, топ-15 self-hosted приложений и расчёт ROI.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 21 мая 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 25 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/self-hosted-infrastruktura-2026/" data-category="development" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-hard-drives"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
+  <h3>Self-hosted всё 2026: своя инфраструктура вместо SaaS — Nextcloud, Gitea, n8n</h3>
+  <p>Вендоры уходят, цены SaaS растут, данные хочется держать у себя. Я сам держу инфраструктуру на VPS и перевожу клиентов с зарубежных SaaS. Полный гайд: Nextcloud, Gitea, n8n, Plausible, Vaultwarden, Metabase на Docker. С docker-compose, nginx-конфигом, restic-бэкапами, безопасностью и экономикой. Российские VPS и соответствие 152-ФЗ.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 28 мая 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 26 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    
+                    
+                    
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовые решения под ключ</span>
+                            <span class="blog-offer-cta-title">449 готовых IT-решений для бизнеса</span>
+                            <span class="blog-offer-cta-price">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Смотреть каталог</span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#chto-eto"><span class="blog-toc-num">01</span> Что это и что заменяет</a></li>
+<li><a href="#vozmozhnosti"><span class="blog-toc-num">02</span> Что умеет</a></li>
+<li><a href="#komu-podhodit"><span class="blog-toc-num">03</span> Кому подходит</a></li>
+<li><a href="#chto-nuzhno"><span class="blog-toc-num">04</span> Что нужно для запуска</a></li>
+<li><a href="#kak-vnedrit"><span class="blog-toc-num">05</span> Как внедрить под ключ</a></li>
+<li><a href="#faq"><span class="blog-toc-num">06</span> FAQ</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">07</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=23" defer></script>
+<script src="/services-i18n.js?v=23" defer></script>
+<script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>
