@@ -219,9 +219,95 @@ function buildOpenSourceSvg(article, label) {
 </svg>`;
 }
 
+// ---------- Стиль «Компас стратегии» для кластера «Бизнес в цифровую эпоху» (Пристли) ----------
+// Единый узнаваемый облик серии: тёмный навигационный фон, золотой акцент,
+// чертёжная сетка и концентрические кольца-компас (перекличка с иконкой ph-compass).
+const PRIESTLEY_SET = new Set([
+  'biznes-v-cifrovuyu-epohu-pristli-2026', 'pravilo-7-11-4-zapominaemost-brenda-2026',
+  '5-veshchey-kotorye-mozg-ne-udalyaet-2026', 'kak-predstavit-sebya-name-same-fame-2026',
+  'klyuchevoy-chelovek-vliyaniya-kpi-2026', 'test-sprosa-do-zapuska-produkta-2026',
+  'situacionnaya-model-klienta-2026', 'sayd-hasl-pravilo-90-dney-2026',
+  'krivaya-normy-vs-stepennoy-zakon-2026', 'sladkaya-tochka-predprinimatelya-2026',
+  'top-10-procentov-byudzheta-monetizaciya-2026', 'vozmozhnost-bebi-bumerov-2026',
+  'ii-kak-elektrichestvo-rannyaya-stadiya-2026',
+]);
+const NAVY_A = '#0a1130';
+const NAVY_B = '#172150';
+const GOLD = '#e3b261';
+const GOLD_HI = '#f3d49a';
+
+function buildPriestleySvg(article) {
+  const lines = wrapTitle(article.title, 22).slice(0, 4);
+  const lh = 70, fs = 56;
+  const startY = 312 - (lines.length - 1) * (lh / 2);
+  const titleSvg = lines.map((l, i) =>
+    `<text x="96" y="${startY + i * lh}" font-family="${FONT}" font-weight="800" font-size="${fs}" letter-spacing="-1.5" fill="#ffffff">${escapeXml(l)}</text>`
+  ).join('\n  ');
+
+  // чертёжная сетка
+  const grid = [];
+  for (let x = 60; x < 1200; x += 60) grid.push(`<line x1="${x}" y1="0" x2="${x}" y2="630" stroke="#ffffff" stroke-opacity="0.035" stroke-width="1"/>`);
+  for (let y = 60; y < 630; y += 60) grid.push(`<line x1="0" y1="${y}" x2="1200" y2="${y}" stroke="#ffffff" stroke-opacity="0.035" stroke-width="1"/>`);
+
+  // кольца-компас справа
+  const cx = 1070, cy = 300;
+  const rings = [110, 175, 240, 305, 370]
+    .map((r, i) => `<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${GOLD}" stroke-opacity="${(0.20 - i * 0.03).toFixed(2)}" stroke-width="1.5"/>`)
+    .join('\n  ');
+  const ticks = `<g stroke="${GOLD}" stroke-opacity="0.18" stroke-width="2">
+    <line x1="${cx}" y1="${cy - 372}" x2="${cx}" y2="${cy + 372}"/>
+    <line x1="${cx - 372}" y1="${cy}" x2="${cx + 372}" y2="${cy}"/>
+  </g>`;
+  // стрелка компаса
+  const needle = `<g transform="rotate(34 ${cx} ${cy})">
+    <polygon points="${cx},${cy - 150} ${cx - 22},${cy} ${cx},${cy + 12} ${cx + 22},${cy}" fill="${GOLD}" fill-opacity="0.55"/>
+    <polygon points="${cx},${cy + 150} ${cx - 22},${cy} ${cx},${cy - 12} ${cx + 22},${cy}" fill="${GOLD_HI}" fill-opacity="0.16"/>
+    <circle cx="${cx}" cy="${cy}" r="10" fill="${GOLD}"/>
+  </g>`;
+
+  const label = 'БИЗНЕС В ЦИФРОВУЮ ЭПОХУ';
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bgp" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="${NAVY_A}"/>
+      <stop offset="100%" stop-color="${NAVY_B}"/>
+    </linearGradient>
+    <linearGradient id="scrimp" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="${NAVY_A}" stop-opacity="0.95"/>
+      <stop offset="55%" stop-color="${NAVY_A}" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="${NAVY_A}" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bgp)"/>
+  ${grid.join('\n  ')}
+  ${ticks}
+  ${rings}
+  ${needle}
+  <rect width="1200" height="630" fill="url(#scrimp)"/>
+  <!-- левая золотая полоса -->
+  <rect x="0" y="0" width="10" height="630" fill="${GOLD}"/>
+
+  <!-- плашка кластера -->
+  <text x="96" y="118" font-family="${FONT}" font-weight="800" font-size="24" fill="${GOLD}" letter-spacing="3">${escapeXml(label)}</text>
+  <rect x="96" y="134" width="72" height="4" rx="2" fill="${GOLD}"/>
+  <text x="96" y="166" font-family="${FONT}" font-weight="600" font-size="19" fill="#ffffff" fill-opacity="0.5" letter-spacing="2">ПО ДЭНИЕЛУ ПРИСТЛИ</text>
+
+  <!-- заголовок -->
+  ${titleSvg}
+
+  <!-- низ: автор + домен + бейдж -->
+  <line x1="96" y1="520" x2="1104" y2="520" stroke="${GOLD}" stroke-width="2" stroke-opacity="0.22"/>
+  <text x="96" y="572" font-family="${FONT}" font-weight="800" font-size="29" fill="#ffffff">Чимитдоржи Дарижапов</text>
+  <text x="96" y="606" font-family="${FONT}" font-weight="500" font-size="21" fill="#ffffff" opacity="0.55">chimitdorzhi.tech · блог</text>
+  <rect x="964" y="546" width="140" height="58" rx="12" fill="${GOLD}"/>
+  <text x="1034" y="584" text-anchor="middle" font-family="${FONT}" font-weight="800" font-size="22" fill="${NAVY_A}">${article.readingMinutes || 8} мин</text>
+</svg>`;
+}
+
 async function generateCover(article) {
   if (!article.published) return null;
-  const svg = article.category === 'opensource' ? buildOpenSourceSvg(article)
+  const svg = PRIESTLEY_SET.has(article.slug) ? buildPriestleySvg(article)
+    : article.category === 'opensource' ? buildOpenSourceSvg(article)
     : article.category === 'biznes-krugozor' ? buildOpenSourceSvg(article, 'БИЗНЕС-КРУГОЗОР')
     : buildSvg(article);
   const outDir = path.join(OUT_BLOG, article.slug);
