@@ -1062,7 +1062,7 @@ const KRUGOZOR_CLUSTER = [
   { label: 'Поведение и лояльность', icon: 'ph-fill ph-heartbeat', slugs: [
     'fogg-behavior-model-2026', 'hook-model-petlya-privychki-2026', 'peak-end-rule-2026', 'kak-formirovat-privychki-2026', 'nps-indeks-loyalnosti-2026', 'ottok-uderzhanie-churn-retention-2026', 'participation-loyalty-loyalnost-cherez-uchastie-2026', 'calm-tech-spokoynyy-interfeys-2026'] },
   { label: 'Ментальные модели и стратегия', icon: 'ph-fill ph-strategy', slugs: [
-    'mentalnye-modeli-2026', 'mentalnye-modeli-dlya-resheniy-2026', 'antihrupkost-i-risk-po-talebu-2026', 'counter-positioning-dilemma-innovatora-2026', 'flywheel-mahovik-rosta-2026', 'bullseye-vybor-kanalov-2026', 'kano-model-prioritizaciya-fich-2026'] },
+    'mentalnye-modeli-2026', 'mentalnye-modeli-dlya-resheniy-2026', 'kak-prinimat-resheniya-chast-3-2026', 'antihrupkost-i-risk-po-talebu-2026', '7-powers-istochniki-preimushchestva-2026', 'counter-positioning-dilemma-innovatora-2026', 'flywheel-mahovik-rosta-2026', 'bullseye-vybor-kanalov-2026', 'kano-model-prioritizaciya-fich-2026', 'chto-lomaetsya-pri-roste-2026'] },
 ];
 function krugozorClusterHtml(a, published) {
   if (a.category !== 'biznes-krugozor') return '';
