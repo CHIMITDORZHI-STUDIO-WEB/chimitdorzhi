@@ -304,11 +304,66 @@ function buildPriestleySvg(article) {
 </svg>`;
 }
 
+// ---------- Стиль «Матрица знаний» для рубрики «Бизнес-кругозор» ----------
+// Единый облик: светлый «бумажный» фон, один акцент из выверенной палитры,
+// мотив матрицы 2x2 (квадранты) справа — перекличка с моделями рубрики
+// (BCG, Эйзенхауэр, Ансофф). Акцент выбирается по хешу слага: единый стиль,
+// но не одинаковые обложки на 100+ статей.
+const KRUGOZOR_PAPER = '#f5f2ea';
+const KRUGOZOR_INK = '#16130f';
+const KRUGOZOR_ACCENTS = ['#1e4fd6', '#0f766e', '#6d28d9', '#9f1239', '#15803d', '#b45309', '#0e7490', '#7c2d92'];
+
+function buildKrugozorSvg(article) {
+  const accent = KRUGOZOR_ACCENTS[hashNum(article.slug) % KRUGOZOR_ACCENTS.length];
+  const lines = wrapTitle(article.title, 20).slice(0, 4);
+  const lh = 70, fs = 56;
+  const startY = 300 - (lines.length - 1) * (lh / 2);
+  const titleSvg = lines.map((l, i) =>
+    `<text x="92" y="${startY + i * lh}" font-family="${FONT}" font-weight="800" font-size="${fs}" letter-spacing="-1.5" fill="${KRUGOZOR_INK}">${escapeXml(l)}</text>`
+  ).join('\n  ');
+
+  // мотив матрицы 2x2 справа; одна ячейка-«цель» закрашена акцентом
+  const gx = 812, gy = 150, cell = 150, gap = 12;
+  const fillIdx = hashNum(article.slug + '~q') % 4;
+  const cells = [];
+  for (let i = 0; i < 4; i++) {
+    const cxq = gx + (i % 2) * (cell + gap);
+    const cyq = gy + Math.floor(i / 2) * (cell + gap);
+    const filled = i === fillIdx;
+    cells.push(`<rect x="${cxq}" y="${cyq}" width="${cell}" height="${cell}" rx="14" fill="${filled ? accent : 'none'}" fill-opacity="${filled ? 0.12 : 0}" stroke="${accent}" stroke-opacity="${filled ? 0.55 : 0.28}" stroke-width="2.5"/>`);
+    if (filled) cells.push(`<circle cx="${cxq + cell / 2}" cy="${cyq + cell / 2}" r="20" fill="${accent}" fill-opacity="0.85"/>`);
+  }
+
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <radialGradient id="ktint" cx="92%" cy="20%" r="60%">
+      <stop offset="0%" stop-color="${accent}" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="${accent}" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="${KRUGOZOR_PAPER}"/>
+  <rect width="1200" height="630" fill="url(#ktint)"/>
+  ${cells.join('\n  ')}
+  <rect x="0" y="0" width="12" height="630" fill="${accent}"/>
+
+  <text x="92" y="118" font-family="${FONT}" font-weight="800" font-size="25" fill="${accent}" letter-spacing="3">БИЗНЕС-КРУГОЗОР</text>
+  <rect x="92" y="135" width="66" height="4" rx="2" fill="${accent}"/>
+
+  ${titleSvg}
+
+  <line x1="92" y1="520" x2="1108" y2="520" stroke="${KRUGOZOR_INK}" stroke-width="2" stroke-opacity="0.12"/>
+  <text x="92" y="572" font-family="${FONT}" font-weight="800" font-size="29" fill="${KRUGOZOR_INK}">Чимитдоржи Дарижапов</text>
+  <text x="92" y="606" font-family="${FONT}" font-weight="500" font-size="21" fill="${KRUGOZOR_INK}" opacity="0.55">chimitdorzhi.tech · блог</text>
+  <rect x="966" y="546" width="142" height="58" rx="12" fill="${accent}"/>
+  <text x="1037" y="584" text-anchor="middle" font-family="${FONT}" font-weight="800" font-size="22" fill="#ffffff">${article.readingMinutes || 8} мин</text>
+</svg>`;
+}
+
 async function generateCover(article) {
   if (!article.published) return null;
   const svg = PRIESTLEY_SET.has(article.slug) ? buildPriestleySvg(article)
     : article.category === 'opensource' ? buildOpenSourceSvg(article)
-    : article.category === 'biznes-krugozor' ? buildOpenSourceSvg(article, 'БИЗНЕС-КРУГОЗОР')
+    : article.category === 'biznes-krugozor' ? buildKrugozorSvg(article)
     : buildSvg(article);
   const outDir = path.join(OUT_BLOG, article.slug);
   fs.mkdirSync(outDir, { recursive: true });
