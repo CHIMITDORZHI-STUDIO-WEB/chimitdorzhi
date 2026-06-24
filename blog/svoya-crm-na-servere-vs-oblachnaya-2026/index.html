@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Своя CRM на сервере vs облачная</title>
+    <meta name="description" content="Своя CRM на своём сервере (на open-source вроде EspoCRM) против облачной по подписке (amoCRM, Битрикс24): сравнение по стоимости, контролю данных и 152-ФЗ…">
+    <meta name="keywords" content="CRM, свой сервер, облако, выбор">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/svoya-crm-na-servere-vs-oblachnaya-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/svoya-crm-na-servere-vs-oblachnaya-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/svoya-crm-na-servere-vs-oblachnaya-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/svoya-crm-na-servere-vs-oblachnaya-2026/">
+    <meta property="og:title" content="Своя CRM на сервере vs облачная">
+    <meta property="og:description" content="Своя CRM на своём сервере (на open-source вроде EspoCRM) против облачной по подписке (amoCRM, Битрикс24): сравнение по стоимости, контролю данных и 152-ФЗ…">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/svoya-crm-na-servere-vs-oblachnaya-2026/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Своя CRM на сервере vs облачная">
+    <meta name="twitter:description" content="Своя CRM на своём сервере (на open-source вроде EspoCRM) против облачной по подписке (amoCRM, Битрикс24): сравнение по стоимости, контролю данных и 152-ФЗ…">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/svoya-crm-na-servere-vs-oblachnaya-2026/cover.png">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor-Fill.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=45">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Своя CRM на сервере против облачной: что выгоднее малому бизнесу",
+  "description": "Своя CRM на своём сервере (на open-source вроде EspoCRM) против облачной по подписке (amoCRM, Битрикс24): сравнение по стоимости, контролю данных и 152-ФЗ, кастомизации, поддержке. Кому что подходит и где своя CRM выгоднее по числу пользователей.",
+  "image": "https://chimitdorzhi.tech/blog/svoya-crm-na-servere-vs-oblachnaya-2026/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/svoya-crm-na-servere-vs-oblachnaya-2026/"
+  },
+  "datePublished": "2026-06-23",
+  "dateModified": "2026-06-23",
+  "keywords": "CRM, свой сервер, облако, выбор",
+  "articleSection": "Продажи и стартап",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  },
+  "about": [
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://chimitdorzhi.tech/slovar/#crm",
+      "name": "CRM"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Своя CRM на сервере против облачной: что выгоднее малому бизнесу",
+      "item": "https://chimitdorzhi.tech/blog/svoya-crm-na-servere-vs-oblachnaya-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Что в итоге дешевле — облако или свой сервер?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Зависит от размера команды и горизонта. На маленькой команде и коротком сроке дешевле облако. При росте числа пользователей и на дистанции 1–3 лет своя CRM обычно выходит выгоднее, потому что нет платы за каждого сотрудника. Считать нужно совокупную стоимость владения под конкретный случай, а не цену первого месяца."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Своя CRM на сервере безопаснее облачной?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Не автоматически. Свой сервер даёт контроль над данными и держит их в вашем контуре, что важно для 152-ФЗ. Но безопасность зависит от того, как настроены доступ, обновления и резервные копии. Облачный вендор профессионально занимается защитой, но данные при этом у него. Безопаснее тот вариант, который правильно настроен и сопровождается, — и я честно об этом предупреждаю."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сложно ли поддерживать свою CRM?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Сложнее, чем облако, где поддержкой занимается вендор. Своему серверу нужны обновления, мониторинг и бэкапы. Это посильно при наличии специалиста — своего или привлечённого. Если поддерживать систему некому, честнее остаться в облаке или передать сопровождение на сторону."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли перенести данные из облака на свой сервер?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, как правило это возможно: контакты, сделки и история выгружаются из облачного сервиса и переносятся в вашу CRM. Сложность зависит от объёма данных, структуры и нужных интеграций. Это отдельный проект миграции, и его стоит планировать заранее, а не делать на ходу."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что со 152-ФЗ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Своё решение упрощает соблюдение требований к персональным данным, потому что данные находятся на вашем сервере, который может стоять в России или прямо в вашей инфраструктуре. Но само по себе размещение на своём сервере не делает систему «соответствующей закону» — нужно правильно организовать доступ, хранение и регламенты. В облаке важно проверять, где вендор хранит данные и что написано в его условиях."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "С чего начать выбор?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "С честных ответов на три вопроса: сколько у вас сотрудников и как быстро растёт команда, насколько чувствительны ваши данные и требует ли отрасль их хранения внутри, и есть ли кому сопровождать своё решение. Дальше считаем совокупную стоимость владения для обоих вариантов на 1–3 года и смотрим, где экономика и риски складываются в вашу пользу."
+      }
+    }
+  ]
+}
+    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+var inject=function(){for (var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)};
+var run=function(){('requestIdleCallback' in window)?requestIdleCallback(inject,{timeout:5000}):setTimeout(inject,3000)};
+(e.readyState==='complete')?run():m.addEventListener('load',run);})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109281884" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+            <li><a href="/#services" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li class="nav-dropdown">
+                <a href="/#projects" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--arey"><i class="ph-fill ph-vinyl-record" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-airplane-tilt" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#cases" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            </div>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/#about">Обо мне</a></li>
+        <li><a href="/#services">Услуги</a></li>
+        <li><a href="/services/">Каталог услуг</a></li>
+        <li><a href="/predlozheniya/">Предложения</a></li>
+        <li><a href="/#cases">Кейсы</a></li>
+        <li><a href="/blog/">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+        <li><a href="/#contact">Контакт</a></li>
+    </ul>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Своя CRM на сервере против облачной: что выгоднее малому бизнесу</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/sales/"><i class="ph ph-bookmark" aria-hidden="true"></i> Продажи и стартап</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин чтения</span>
+                        <time datetime="2026-06-23"><i class="ph ph-calendar" aria-hidden="true"></i> 23 июня 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Своя CRM на сервере против облачной: что выгоднее малому бизнесу</h1>
+
+                    <p class="blog-lead">Облачная CRM по подписке или своя на сервере? Сравниваю честно по цене, контролю данных и 152-ФЗ, кастомизации и поддержке — и показываю, кому что подходит и где своя выгоднее облака.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>CRM</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>свой сервер</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>облако</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>выбор</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
+<li>Есть два пути к CRM: облачный сервис по подписке (amoCRM, Битрикс24 и подобные) и своя CRM на собственном сервере, чаще на open-source-движках вроде EspoCRM.</li>
+<li>Облако выигрывает по скорости старта и простоте: настроили и работаете, администрировать не нужно — но абонплата растёт вместе с командой, а данные хранятся у вендора.</li>
+<li>Своя CRM на сервере даёт контроль над данными, полную кастомизацию и отсутствие платы за каждого пользователя — взамен нужны сервер, настройка, бэкапы и поддержка.</li>
+<li>Где проходит граница выгоды: на маленькой команде дешевле облако, при росте числа сотрудников и требованиях 152-ФЗ своя CRM начинает экономить.</li>
+<li>Я разворачиваю свою CRM на сервере под ключ и честно помогаю выбрать между облаком и своим решением или перенести данные из облака.</li>
+</ul></div>
+
+<p>Когда малый бизнес дорастает до необходимости в CRM, почти сразу встаёт развилка: взять готовый облачный сервис по подписке или развернуть собственную систему на своём сервере. Оба пути рабочие, но ведут к разным результатам по деньгам, контролю и гибкости. Реклама облачных сервисов обычно громче, поэтому про второй вариант часто забывают, хотя для части компаний он выгоднее. Ниже я честно разберу оба подхода: чем они отличаются, кому что подходит и как посчитать, что выйдет дешевле именно в вашем случае. Без навязывания одного варианта — у каждого есть и плюсы, и минусы.</p>
+
+<h2 id="chto-eto">О чём речь: два пути к CRM</h2>
+<p>CRM — это система для учёта клиентов, сделок и задач: куда менеджеры заносят контакты, ведут воронку продаж, ставят напоминания и смотрят аналитику. Сама задача у любой CRM одна, а вот способы её решить принципиально разные.</p>
+<p><strong>Первый путь — облачная CRM по подписке.</strong> Вы регистрируетесь в готовом сервисе, платите помесячно или за год, и работаете через браузер. Самые известные примеры на российском рынке — amoCRM и Битрикс24. Сервис размещён на серверах вендора, он же отвечает за обновления, доступность и резервные копии. Вы платите, как правило, за каждого пользователя (сотрудника) в месяц.</p>
+<p><strong>Второй путь — своя CRM на своём сервере.</strong> Здесь вы берёте программу-движок CRM, чаще всего open-source (с открытым исходным кодом и бесплатную саму по себе), и разворачиваете её на собственном сервере или арендованном VPS. Популярный пример такого движка — EspoCRM, есть и другие аналоги. Сам софт бесплатен, а платите вы за сервер и за настройку с поддержкой. Данные при этом физически находятся в вашем контуре, и вы решаете, как систему дорабатывать.</p>
+<p>Суть выбора простая: в облаке вы арендуете готовый сервис и удобство, но платите абонентскую плату и доверяете данные вендору. На своём сервере вы получаете контроль и отсутствие платы за пользователей, но берёте на себя ответственность за инфраструктуру. Дальше разберу это по конкретным параметрам.</p>
+
+<h2 id="sravnenie">Сравнение по ключевым параметрам</h2>
+<p>Чтобы выбор был осознанным, удобно сравнить оба варианта по одним и тем же критериям. Пройдусь по каждому честно, отмечая сильные и слабые стороны обоих подходов.</p>
+<ul>
+<li><strong>Стоимость.</strong> Облако — это абонентская плата за каждого пользователя в месяц: чем больше команда, тем больше платёж, и он не заканчивается никогда. Своя CRM — это разовые затраты на настройку плюс ежемесячная аренда сервера, которая почти не зависит от числа сотрудников. На старте облако дешевле, на дистанции и при росте команды экономнее свой сервер.</li>
+<li><strong>Контроль данных и 152-ФЗ.</strong> В облаке клиентская база хранится на серверах вендора, и вы зависите от его политики и расположения серверов. На своём сервере данные физически у вас, что упрощает соблюдение требований 152-ФЗ к обработке персональных данных. Важная оговорка: само по себе размещение на своём сервере не делает систему «соответствующей закону» автоматически — нужно правильно организовать доступ, хранение и регламенты.</li>
+<li><strong>Кастомизация.</strong> Облачные сервисы дают настройку в рамках того, что заложил вендор: поля, воронки, иногда модули и API. Но если нужна нестандартная логика, вы упираетесь в ограничения тарифа или платформы. Своя CRM на open-source открыта полностью: можно дописать любые поля, модули, интеграции и бизнес-логику под ваши процессы.</li>
+<li><strong>Скорость запуска.</strong> Здесь облако заметно выигрывает: зарегистрировались, завели пользователей и можно работать в тот же день. Свой сервер требует развёртывания и настройки, на это нужно время и специалист. Если CRM нужна «вчера» и процессы стандартные, облако стартует быстрее.</li>
+<li><strong>Поддержка и обновления.</strong> В облаке обновления и работоспособность — забота вендора, вам ничего делать не нужно. На своём сервере обновления, мониторинг и устранение сбоев ложатся на вас или на вашего специалиста. Это плюс облака по удобству и минус по зависимости.</li>
+<li><strong>Риски и зависимость.</strong> В облаке вы зависите от вендора: он может поднять цены, изменить тарифы, ограничить функции или, в крайнем случае, заблокировать доступ. На своём сервере вы зависите от своего администратора и от того, кто поддерживает систему: если специалист пропал, а резервных копий нет, это тоже риск. По сути, выбор между двумя видами зависимости.</li>
+<li><strong>Масштабирование.</strong> В облаке расти просто технически, но дорого: каждый новый сотрудник — плюс к ежемесячному счёту. На своём сервере добавить пользователей почти ничего не стоит, но при серьёзном росте нагрузки нужно усиливать сервер. Для растущей команды экономика чаще складывается в пользу своего решения.</li>
+</ul>
+<p>Как видите, ни один вариант не выигрывает по всем пунктам сразу. Облако сильнее в скорости и простоте, своя CRM — в контроле, кастомизации и экономике на больших командах. Дальше разберу плюсы и минусы каждого отдельно, чтобы картина была полной.</p>
+
+<h2 id="svoy-server-plyusy">Своя CRM на сервере: плюсы и минусы</h2>
+<p>Начну с собственного решения, потому что про него реже рассказывают. Это вариант, когда вы ставите CRM-движок (например, EspoCRM) на свой сервер и владеете системой целиком.</p>
+<p><strong>Плюсы.</strong></p>
+<ul>
+<li><strong>Данные у вас.</strong> Клиентская база, переписка, сделки физически находятся в вашем контуре, а не на чужих серверах. Это и про безопасность, и про спокойствие, и про 152-ФЗ.</li>
+<li><strong>Нет платы за пользователя.</strong> Сколько сотрудников ни заводи, абонентская плата за каждого не капает. Для команды в десятки человек это превращается в ощутимую экономию.</li>
+<li><strong>Полная кастомизация.</strong> Открытый код позволяет настроить систему ровно под ваши процессы: любые поля, нестандартные воронки, свои модули и интеграции без оглядки на ограничения тарифа.</li>
+<li><strong>Контроль.</strong> Вы решаете, когда обновляться, какие функции включать, куда подключать систему. Никто внезапно не меняет вам правила игры.</li>
+</ul>
+<p><strong>Минусы.</strong></p>
+<ul>
+<li><strong>Нужен сервер.</strong> Своё железо или арендованный VPS, который надо оплачивать и поддерживать в рабочем состоянии.</li>
+<li><strong>Нужна настройка.</strong> Развернуть и настроить систему под процессы — это работа специалиста, особенно если нужны интеграции и нестандартная логика.</li>
+<li><strong>Поддержка на вас.</strong> Обновления, мониторинг, устранение сбоев — всё это нужно кому-то поручить. «Настроили и забыли» не работает.</li>
+<li><strong>Ответственность за бэкапы и безопасность.</strong> Резервные копии, обновления безопасности, защита доступа — теперь это ваша зона ответственности. Если этим не заниматься, риск потерять данные выше, чем в облаке.</li>
+</ul>
+<p>Если коротко: своя CRM — это про контроль и экономику в обмен на ответственность. Она хороша, когда есть кому её сопровождать (своими силами или с привлечённым специалистом).</p>
+
+<h2 id="oblako-plyusy">Облачная CRM: плюсы и минусы</h2>
+<p>Теперь облачный вариант — сервис по подписке вроде amoCRM или Битрикс24, где всё уже работает на стороне вендора.</p>
+<p><strong>Плюсы.</strong></p>
+<ul>
+<li><strong>Быстрый старт.</strong> Регистрация занимает минуты, базовая работа возможна в тот же день. Не нужно ничего разворачивать.</li>
+<li><strong>Не надо администрировать.</strong> Серверы, обновления, доступность, резервные копии — всё на вендоре. Вам не нужен свой технический специалист для поддержки самой системы.</li>
+<li><strong>Готовые интеграции.</strong> У популярных сервисов из коробки есть связки с телефонией, мессенджерами, почтой, сайтами и магазинами — подключается в пару кликов.</li>
+<li><strong>Предсказуемость для старта.</strong> Понятная помесячная цена и готовый продукт, который уже отлажен на тысячах компаний.</li>
+</ul>
+<p><strong>Минусы.</strong></p>
+<ul>
+<li><strong>Абонплата растёт с командой.</strong> Платёж за каждого пользователя в месяц — на маленькой команде это немного, но с ростом штата сумма набегает серьёзная и тянется бесконечно.</li>
+<li><strong>Данные у вендора.</strong> Клиентская база хранится на чужих серверах. Вы зависите от политики провайдера и его подхода к безопасности и расположению серверов.</li>
+<li><strong>Ограничения кастомизации.</strong> Настроить можно только то, что предусмотрел вендор. Нестандартные процессы либо невозможны, либо доступны на дорогих тарифах.</li>
+<li><strong>Риск роста тарифов и блокировок.</strong> Цены могут вырасти, функции — перейти в платный тариф, а доступ — оказаться ограниченным по не зависящим от вас причинам. Вы не управляете этими решениями.</li>
+</ul>
+<p>Облако — это про удобство и скорость в обмен на абонплату и зависимость от вендора. Отличный выбор, когда нужно быстро начать и процессы у вас стандартные.</p>
+
+<h2 id="komu-chto">Кому что подходит</h2>
+<p>Универсального ответа нет, но есть понятные ориентиры. Разложу по ситуациям, чтобы было проще соотнести с собой.</p>
+<p><strong>Облачная CRM подойдёт, если:</strong></p>
+<ul>
+<li>Вам нужно начать быстро и без технических хлопот.</li>
+<li>Команда небольшая — несколько человек, и абонплата за них пока некритична.</li>
+<li>Процессы продаж стандартные и хорошо ложатся на готовый сервис.</li>
+<li>У вас нет своего технического специалиста и нет желания заниматься сервером.</li>
+<li>Важны готовые интеграции с телефонией и мессенджерами «из коробки».</li>
+</ul>
+<p><strong>Своя CRM на сервере подойдёт, если:</strong></p>
+<ul>
+<li>Для вас принципиально, чтобы данные клиентов оставались внутри компании, и важно соблюдение 152-ФЗ.</li>
+<li>Процессы нестандартные, и готовый сервис в них упирается ограничениями.</li>
+<li>Команда выросла, и абонплата за каждого пользователя превратилась в заметную статью расходов.</li>
+<li>Вы работаете в отрасли с чувствительными данными — медицина, финансы, юриспруденция и подобные.</li>
+<li>Есть кому сопровождать систему — свой специалист или привлечённый.</li>
+</ul>
+<p>Часто истина в том, что на старте бизнесу логично взять облако, а при росте команды и ужесточении требований к данным — задуматься о переезде на своё решение. Это нормальный путь, и в нём нет противоречия. Я честно скажу, если в вашем случае облако пока выгоднее и затевать свой сервер преждевременно.</p>
+
+<h2 id="stoimost">Стоимость владения</h2>
+<p>Самый частый вопрос — что в итоге дешевле. Правильный способ ответить — считать не цену старта, а совокупную стоимость владения (TCO, total cost of ownership) на горизонте 1–3 лет. Сравнивать только первый месяц некорректно: облако там почти всегда выглядит дешевле, а на дистанции картина меняется.</p>
+<p><strong>Как считать облако.</strong> Берёте цену тарифа за одного пользователя в месяц, умножаете на число сотрудников и на количество месяцев. Добавляете возможные доплаты за нужные функции и интеграции. Главный момент: эта сумма повторяется каждый месяц и растёт вместе с командой. Через год-два набегает заметная величина, и она не превращается в актив — вы платите за аренду доступа.</p>
+<p><strong>Как считать свой сервер.</strong> Здесь структура другая: разовые затраты на развёртывание и настройку (плюс доработки под ваши процессы) и ежемесячная аренда сервера, которая почти не зависит от числа пользователей. Сюда же стоит честно заложить регулярную поддержку: обновления, бэкапы, мониторинг. Сам движок (например, EspoCRM) бесплатен. Первый месяц обычно дороже облака за счёт настройки, но дальше ежемесячные расходы заметно ниже и не растут от каждого нового сотрудника.</p>
+<p><strong>Где проходит точка выгоды.</strong> Принцип такой: чем больше пользователей и чем дольше горизонт, тем выгоднее своя CRM. На команде из двух-трёх человек облако почти наверняка дешевле и проще. По мере роста числа сотрудников ежемесячная абонплата облака начинает обгонять расходы на свой сервер, и в какой-то момент своё решение окупает первоначальную настройку. Где именно эта точка — зависит от конкретных тарифов, размера команды и того, нужна ли вам внешняя поддержка. Поэтому я не называю «магических» цифр заранее: считается под конкретный случай. Дам только честный ориентир — чем больше команда и длиннее горизонт планирования, тем сильнее экономика склоняется к своему серверу.</p>
+<p>И ещё одна оговорка без обещаний: дешевле не значит автоматически лучше. Если у вас нет ресурса сопровождать систему, мнимая экономия может обернуться простоями. TCO нужно считать вместе с трудозатратами на поддержку, а не только по строчке аренды.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+<p><strong>Что в итоге дешевле — облако или свой сервер?</strong> Зависит от размера команды и горизонта. На маленькой команде и коротком сроке дешевле облако. При росте числа пользователей и на дистанции 1–3 лет своя CRM обычно выходит выгоднее, потому что нет платы за каждого сотрудника. Считать нужно совокупную стоимость владения под конкретный случай, а не цену первого месяца.</p>
+<p><strong>Своя CRM на сервере безопаснее облачной?</strong> Не автоматически. Свой сервер даёт контроль над данными и держит их в вашем контуре, что важно для 152-ФЗ. Но безопасность зависит от того, как настроены доступ, обновления и резервные копии. Облачный вендор профессионально занимается защитой, но данные при этом у него. Безопаснее тот вариант, который правильно настроен и сопровождается, — и я честно об этом предупреждаю.</p>
+<p><strong>Сложно ли поддерживать свою CRM?</strong> Сложнее, чем облако, где поддержкой занимается вендор. Своему серверу нужны обновления, мониторинг и бэкапы. Это посильно при наличии специалиста — своего или привлечённого. Если поддерживать систему некому, честнее остаться в облаке или передать сопровождение на сторону.</p>
+<p><strong>Можно ли перенести данные из облака на свой сервер?</strong> Да, как правило это возможно: контакты, сделки и история выгружаются из облачного сервиса и переносятся в вашу CRM. Сложность зависит от объёма данных, структуры и нужных интеграций. Это отдельный проект миграции, и его стоит планировать заранее, а не делать на ходу.</p>
+<p><strong>Что со 152-ФЗ?</strong> Своё решение упрощает соблюдение требований к персональным данным, потому что данные находятся на вашем сервере, который может стоять в России или прямо в вашей инфраструктуре. Но само по себе размещение на своём сервере не делает систему «соответствующей закону» — нужно правильно организовать доступ, хранение и регламенты. В облаке важно проверять, где вендор хранит данные и что написано в его условиях.</p>
+<p><strong>С чего начать выбор?</strong> С честных ответов на три вопроса: сколько у вас сотрудников и как быстро растёт команда, насколько чувствительны ваши данные и требует ли отрасль их хранения внутри, и есть ли кому сопровождать своё решение. Дальше считаем совокупную стоимость владения для обоих вариантов на 1–3 года и смотрим, где экономика и риски складываются в вашу пользу.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+<p>Облачная CRM и своя CRM на сервере — это не «хорошая и плохая», а два разных инструмента под разные ситуации. Облако выигрывает в скорости старта, простоте и отсутствии хлопот с администрированием, но берёт абонплату за каждого пользователя и хранит данные у вендора. Своя CRM на open-source-движке вроде EspoCRM даёт контроль над данными, полную кастомизацию и экономику без платы за сотрудников, но требует сервера, настройки и регулярной поддержки. Маленькой команде со стандартными процессами чаще проще и дешевле облако, а растущему бизнесу с чувствительными данными и нестандартными процессами выгоднее своё решение. Главное — считать совокупную стоимость владения на 1–3 года и честно оценивать, кто будет систему сопровождать. Я разворачиваю свою CRM на сервере под ключ, помогаю выбрать между облаком и своим решением без навязывания и при необходимости переношу данные из облака — с честным разговором об ограничениях и без обещаний золотых гор.</p>
+
+                    </div>
+
+                    
+                    
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Что я делаю под ключ</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-chat-circle-dots"></i> <span>Чат-боты Telegram/MAX</span></li>
+    
+    <li><i class="ph-fill ph-calendar-check"></i> <span>Онлайн-запись и напоминания</span></li>
+    
+    <li><i class="ph-fill ph-credit-card"></i> <span>Приём заявок и оплат</span></li>
+    
+    <li><i class="ph-fill ph-kanban"></i> <span>CRM и автоматизация процессов</span></li>
+    
+    <li><i class="ph-fill ph-lifebuoy"></i> <span>Поддержка и сопровождение</span></li>
+    
+  </ul>
+  <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
+  </a>
+</div>
+                    
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/services/business-automation/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Автоматизировать бизнес под ключ</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/crm-dlya-malogo-biznesa-2026/" data-category="sales" data-clicks="2">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-address-book"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Продажи и стартап</span>
+  <h3>CRM для малого бизнеса 2026: amoCRM vs Bitrix24 vs RetailCRM vs Notion — что выбрать без переплаты</h3>
+  <p>Малый бизнес 2026 теряет деньги, выбирая CRM по принципу «надо корпоративное» или «у всех amoCRM». Разбираю топ-5 CRM (amoCRM, Bitrix24, RetailCRM, Notion, Kommo, HubSpot Free) с ценами 2026, AI-фичами, обязательными интеграциями, миграцией, полной стоимостью владения и финальной рекомендацией под каждый сегмент бизнеса.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 25 мая 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 26 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/espocrm-besplatnaya-crm-2026/" data-category="opensource" data-clicks="4">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-address-book"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>EspoCRM: бесплатная CRM на своём сервере для малого бизнеса</h3>
+  <p>EspoCRM — это полноценная CRM с открытым кодом на своём сервере: учёт клиентов и сделок без облачной подписки. Разбираю, кому подходит и что нужно для запуска.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 14 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/skolko-stoit-crm-vnedrenie-2026/" data-category="development" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-kanban"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
+  <h3>Сколько стоит внедрение CRM и сопровождение в 2026</h3>
+  <p>Цена CRM — это не только лицензии: настройка, интеграции, миграция данных и обучение часто стоят больше. Разбираю, из чего складывается смета и чем разовое внедрение отличается от сопровождения.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 19 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 8 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    
+                    
+                    
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовые решения под ключ</span>
+                            <span class="blog-offer-cta-title">449 готовых IT-решений для бизнеса</span>
+                            <span class="blog-offer-cta-price">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Смотреть каталог</span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#chto-eto"><span class="blog-toc-num">01</span> Два пути к CRM</a></li>
+<li><a href="#sravnenie"><span class="blog-toc-num">02</span> Сравнение по параметрам</a></li>
+<li><a href="#svoy-server-plyusy"><span class="blog-toc-num">03</span> Своя на сервере: плюсы и минусы</a></li>
+<li><a href="#oblako-plyusy"><span class="blog-toc-num">04</span> Облачная: плюсы и минусы</a></li>
+<li><a href="#komu-chto"><span class="blog-toc-num">05</span> Кому что подходит</a></li>
+<li><a href="#stoimost"><span class="blog-toc-num">06</span> Стоимость владения</a></li>
+<li><a href="#faq"><span class="blog-toc-num">07</span> FAQ</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">08</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=23" defer></script>
+<script src="/services-i18n.js?v=23" defer></script>
+<script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>
