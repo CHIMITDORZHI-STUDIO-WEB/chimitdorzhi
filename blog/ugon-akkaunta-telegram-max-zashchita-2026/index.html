@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Угон аккаунта Telegram и MAX: защита</title>
+    <meta name="description" content="Как угоняют аккаунты в Telegram и MAX (МАКС) и как защититься: двухэтапная аутентификация, осторожность с кодами и ссылками, проверка сессий.">
+    <meta name="keywords" content="безопасность, Telegram, MAX, аккаунт">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/ugon-akkaunta-telegram-max-zashchita-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/ugon-akkaunta-telegram-max-zashchita-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/ugon-akkaunta-telegram-max-zashchita-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/ugon-akkaunta-telegram-max-zashchita-2026/">
+    <meta property="og:title" content="Угон аккаунта Telegram и MAX: защита">
+    <meta property="og:description" content="Как угоняют аккаунты в Telegram и MAX (МАКС) и как защититься: двухэтапная аутентификация, осторожность с кодами и ссылками, проверка сессий.">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/ugon-akkaunta-telegram-max-zashchita-2026/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Угон аккаунта Telegram и MAX: защита">
+    <meta name="twitter:description" content="Как угоняют аккаунты в Telegram и MAX (МАКС) и как защититься: двухэтапная аутентификация, осторожность с кодами и ссылками, проверка сессий.">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/ugon-akkaunta-telegram-max-zashchita-2026/cover.png">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor-Fill.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=45">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Угон аккаунта Telegram и MAX: как защититься и что делать, если взломали",
+  "description": "Как угоняют аккаунты в Telegram и MAX (МАКС) и как защититься: двухэтапная аутентификация, осторожность с кодами и ссылками, проверка сессий. Что срочно делать, если аккаунт уже взломали, и чем это грозит бизнесу.",
+  "image": "https://chimitdorzhi.tech/blog/ugon-akkaunta-telegram-max-zashchita-2026/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/ugon-akkaunta-telegram-max-zashchita-2026/"
+  },
+  "datePublished": "2026-06-23",
+  "dateModified": "2026-06-23",
+  "keywords": "безопасность, Telegram, MAX, аккаунт",
+  "articleSection": "Безопасность",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Угон аккаунта Telegram и MAX: как защититься и что делать, если взломали",
+      "item": "https://chimitdorzhi.tech/blog/ugon-akkaunta-telegram-max-zashchita-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Можно ли угнать аккаунт, если я никому не давал код?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Если включена двухэтапная аутентификация и вы не вводили код и пароль на сторонних сайтах, не открывали вредоносные файлы и ваше устройство под защитой — шансы угона резко падают. Полностью исключить риск нельзя (остаются перехват СМС и доступ к устройству), поэтому защита всегда строится из нескольких слоёв, а не из одного."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Чем двухэтапная аутентификация отличается от обычного кода из СМС?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Код из СМС — это первый рубеж, но его можно выманить или перехватить. Двухэтапная аутентификация добавляет второй, постоянный пароль, который знаете только вы и который не приходит в сообщениях. Даже с вашим кодом из СМС злоумышленник без этого пароля в аккаунт не зайдёт."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Мне написала «поддержка Telegram» (или MAX) и просит код или переход по ссылке. Это нормально?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет. Настоящая поддержка мессенджеров не пишет вам первой с требованием срочно подтвердить личность, не просит код подтверждения и не угрожает блокировкой через личные сообщения. Это типичная схема обмана — не отвечайте и не переходите по ссылкам."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Я случайно продиктовал код мошеннику. Что делать прямо сейчас?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Действуйте немедленно: зайдите в настройки безопасности, завершите все чужие сеансы, смените облачный пароль и пароль на почте, предупредите контакты. Если доступ уже потерян — восстанавливайте через официальный вход по номеру и форму поддержки. Чем быстрее, тем лучше."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Безопаснее ли MAX, чем Telegram, или наоборот?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Универсального «более безопасного» мессенджера нет: в обоих случаях львиная доля угонов происходит из-за обмана пользователя, а не из-за дыр в самом приложении. Поэтому правила одинаковы — двухэтапная аутентификация, не диктовать коды, проверять сеансы, осторожность со ссылками и файлами. Защищает не столько выбор мессенджера, сколько ваши привычки."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Стоит ли платить тому, кто обещает «вернуть угнанный аккаунт»?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет. Аккаунт восстанавливается только через официальные механизмы самого мессенджера и бесплатно. Люди, которые сами пишут с предложением вернуть доступ за деньги, — это вторая волна мошенников, наживающихся на чужой беде. Не платите им."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужно ли защищать почту, если речь про мессенджер?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, обязательно. Почта часто используется для восстановления доступов, и если её взломают, под удар попадает всё остальное. Включите на почте двухэтапную аутентификацию и используйте отдельный сложный пароль — это один из самых недооценённых шагов защиты."
+      }
+    }
+  ]
+}
+    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+var inject=function(){for (var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)};
+var run=function(){('requestIdleCallback' in window)?requestIdleCallback(inject,{timeout:5000}):setTimeout(inject,3000)};
+(e.readyState==='complete')?run():m.addEventListener('load',run);})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109281884" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+            <li><a href="/#services" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li class="nav-dropdown">
+                <a href="/#projects" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--arey"><i class="ph-fill ph-vinyl-record" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-airplane-tilt" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#cases" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            </div>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/#about">Обо мне</a></li>
+        <li><a href="/#services">Услуги</a></li>
+        <li><a href="/services/">Каталог услуг</a></li>
+        <li><a href="/predlozheniya/">Предложения</a></li>
+        <li><a href="/#cases">Кейсы</a></li>
+        <li><a href="/blog/">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+        <li><a href="/#contact">Контакт</a></li>
+    </ul>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Угон аккаунта Telegram и MAX: как защититься и что делать, если взломали</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/security/"><i class="ph ph-bookmark" aria-hidden="true"></i> Безопасность</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин чтения</span>
+                        <time datetime="2026-06-23"><i class="ph ph-calendar" aria-hidden="true"></i> 23 июня 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Угон аккаунта Telegram и MAX: как защититься и что делать, если взломали</h1>
+
+                    <p class="blog-lead">Аккаунт в Telegram или MAX угоняют за минуты — через фейковую поддержку и коды из СМС. Разбираю, как защититься заранее и что делать, если уже взломали. Отдельно — риски для бизнеса.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>безопасность</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>Telegram</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>MAX</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>аккаунт</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
+<li>Чаще всего аккаунты в Telegram и MAX угоняют не «взломом», а обманом: человека уговаривают продиктовать код из СМС, перейти на сайт-двойник или открыть вредоносный файл.</li>
+<li>Главная защита — двухэтапная аутентификация (облачный пароль) и железное правило: код подтверждения нельзя сообщать никому, даже «техподдержке» и знакомым.</li>
+<li>Регулярно проверяйте активные сеансы и устройства в настройках — это позволяет вовремя заметить чужой вход и завершить его в один тап.</li>
+<li>Если аккаунт уже угнали, действовать нужно сразу: завершить чужие сеансы, сменить пароль, восстановить доступ через поддержку и предупредить контакты, чтобы от вашего имени не выманивали деньги.</li>
+<li>Для бизнеса аккаунт, канал или бот — это актив: важно понимать, кто им владеет, иметь резервного администратора и не хранить в личных переписках чувствительные данные.</li>
+</ul></div>
+
+<p>Аккаунт в мессенджере давно перестал быть «просто перепиской». В Telegram и MAX лежат рабочие чаты, доступы, переписка с клиентами, каналы и боты, а иногда и привязка к деньгам. Поэтому угон такого аккаунта — это не мелкая неприятность, а реальный риск: от вашего имени начинают выманивать деньги у знакомых, читают рабочие чаты и перехватывают доступы. При этом подавляющее большинство случаев — не результат гениального взлома, а следствие обычного обмана, на который можно не попасться, если знать схему. Ниже я разберу простыми словами, как угоняют аккаунты, как защититься заранее, что делать, если вас уже взломали, и на что обратить внимание бизнесу.</p>
+
+<h2 id="kak-ugonyayut">Как угоняют аккаунты</h2>
+<p>Важно понять главное: чтобы получить доступ к вашему аккаунту в Telegram или MAX, злоумышленнику обычно не нужно «ломать» серверы мессенджера. Ему нужно, чтобы вы сами совершили нужное действие — продиктовали код, ввели данные на поддельной странице или открыли файл. Поэтому почти все схемы сводятся к социальной инженерии, то есть к манипуляции человеком. Вот основные приёмы.</p>
+<ul>
+<li><strong>Фишинговые сайты-двойники.</strong> Вам присылают ссылку на страницу, которая выглядит как вход в мессенджер, голосование, подарок, премиум-подписку или «проверку аккаунта». Вы вводите номер телефона и код подтверждения — и фактически отдаёте доступ. Адрес сайта при этом отличается от настоящего на одну-две буквы, и в спешке это легко не заметить.</li>
+<li><strong>Коды из СМС под предлогом.</strong> Классика: вам пишет «знакомый» или «сотрудник» и просит переслать код, который вам сейчас придёт, — якобы по ошибке отправил его на ваш номер, нужен для голосования, для подтверждения, для службы доставки. Код, который приходит в этот момент, — это код входа в ваш аккаунт. Сообщили его — отдали аккаунт.</li>
+<li><strong>Фейковая «техподдержка».</strong> Пишет аккаунт с названием вроде «Поддержка», «Безопасность», «Администрация» и сообщает, что аккаунт пытаются взломать или заблокировать, поэтому срочно нужно «подтвердить личность» — перейти по ссылке или назвать код. Настоящая поддержка мессенджера так не работает и никогда не просит код.</li>
+<li><strong>Вредоносные файлы и приложения.</strong> Под видом документа, фото, архива, обновления или «программы для заработка» вам присылают файл, который ворует данные с устройства, включая доступы к мессенджерам. Особенно опасны файлы с расширениями программ и «моды» официальных приложений из неофициальных источников.</li>
+<li><strong>Перехват СМС.</strong> Если вход защищён только кодом из СМС, доступ к вашему номеру открывает доступ к аккаунту. Номер могут увести через подмену сим-карты (мошенник перевыпускает вашу сим по поддельным документам) или через уязвимости. Это реже бытовых схем, но именно поэтому одного СМС-кода недостаточно.</li>
+<li><strong>Доступ к чужому устройству.</strong> Иногда всё проще: оставленный без присмотра разблокированный телефон, общий компьютер с сохранённой сессией, любопытный человек рядом. Несколько секунд доступа к устройству — и злоумышленник добавляет свой сеанс.</li>
+</ul>
+<p>Объединяет все эти схемы одно: где-то на пути есть момент, когда вы сами что-то делаете — диктуете, вводите, открываете, оставляете без присмотра. Именно на этих моментах и строится защита.</p>
+
+<h2 id="zashchita">Как защититься заранее</h2>
+<p>Хорошая новость в том, что базовая защита бесплатна и занимает несколько минут. Если выработать привычку, шанс угона падает в разы. Вот что я рекомендую сделать каждому.</p>
+<ul>
+<li><strong>Включите двухэтапную аутентификацию (облачный пароль).</strong> Это дополнительный пароль, который запрашивается при входе с нового устройства вдобавок к коду из СМС. Даже если злоумышленник выманит у вас код или перехватит СМС, без этого пароля он не войдёт. В Telegram это «облачный пароль» в настройках конфиденциальности и безопасности; в MAX и других мессенджерах ищите раздел безопасности и двухэтапную защиту. Пароль придумайте отдельный, не такой же, как от почты или банка.</li>
+<li><strong>Никому не диктуйте коды подтверждения.</strong> Это правило без исключений. Код из СМС или из приложения — это ключ от вашего аккаунта. Ни поддержка, ни банк, ни знакомый, ни «служба доставки» не имеют законной причины просить его у вас. Просят код — перед вами мошенник, точка.</li>
+<li><strong>Регулярно проверяйте активные сеансы и устройства.</strong> В настройках есть список устройств, на которых выполнен вход. Зайдите туда и убедитесь, что все сеансы — ваши. Незнакомое устройство или город — повод немедленно завершить этот сеанс и сменить пароль. Делайте такую проверку хотя бы раз в пару недель.</li>
+<li><strong>Будьте осторожны со ссылками и файлами.</strong> Прежде чем перейти по ссылке, посмотрите на адрес: настоящий сайт мессенджера не выглядит как длинная странная строка с лишними словами. Не вводите номер и код на сторонних страницах. Не открывайте присланные файлы и архивы, если не ждали их, и тем более не устанавливайте «моды» мессенджеров и приложения из неофициальных источников.</li>
+<li><strong>Заведите отдельную почту и при возможности отдельный номер.</strong> Если аккаунты и восстановление завязаны на одну и ту же почту, которая засвечена везде, риск растёт. Отдельный «технический» ящик и аккуратное отношение к номеру телефона снижают площадь атаки. Почту тоже защитите двухэтапной аутентификацией — часто именно через неё разматывают всё остальное.</li>
+<li><strong>Следите за устройством.</strong> Блокировка экрана с паролем или биометрией, актуальные обновления системы, отсутствие сомнительных приложений — это база. Угнать аккаунт с защищённого, чистого устройства намного сложнее.</li>
+</ul>
+<p>Если хочется системно укрепить цифровую безопасность — не только мессенджеры, но и почту, доступы, рабочие сервисы — я помогаю с этим в рамках <a href="https://chimitdorzhi.tech/services/cybersecurity/">услуг по кибербезопасности</a>: разбираю слабые места и настраиваю защиту под конкретную ситуацию, без запугивания и навязывания лишнего.</p>
+
+<h2 id="esli-vzlomali">Что делать, если уже взломали</h2>
+<p>Если вы заметили, что в аккаунт кто-то вошёл, важна скорость. Чем быстрее вы среагируете, тем меньше успеют сделать от вашего имени. Действуйте по порядку.</p>
+<ul>
+<li><strong>Срочно завершите чужие сеансы.</strong> Зайдите в настройки безопасности и в списке активных устройств завершите все сеансы, кроме вашего текущего. Это выкидывает злоумышленника из аккаунта. Если своего доступа уже нет — переходите к восстановлению (ниже).</li>
+<li><strong>Смените пароли.</strong> Поменяйте облачный пароль (двухэтапную аутентификацию) в мессенджере, а также пароль на привязанной почте. Если этот же пароль вы использовали где-то ещё — меняйте и там. Новые пароли делайте разными и сложными.</li>
+<li><strong>Восстановите доступ через поддержку.</strong> Если войти не получается, используйте штатное восстановление: вход по номеру телефона с кодом, а при необходимости — официальную форму поддержки мессенджера. Обращайтесь только в официальные каналы, не к «помощникам», которые сами написали вам с предложением «вернуть аккаунт за деньги», — это вторая волна мошенничества.</li>
+<li><strong>Предупредите контакты.</strong> Как только вернёте доступ (или с запасного аккаунта), сообщите близким и коллегам, что вас взломали и от вашего имени могли просить деньги, коды или переходить по ссылкам. Это останавливает цепочку: чаще всего мошенники сразу начинают писать вашим контактам.</li>
+<li><strong>Проверьте устройства и привязки.</strong> Убедитесь, что на вашем телефоне и компьютере нет сомнительных приложений, проверьте систему антивирусом. Загляните в настройки аккаунта: не добавлены ли чужая почта, бот, пересылка или подозрительные привязки. Если что-то меняли без вас — откатите.</li>
+</ul>
+<p>И отдельно: не паникуйте и не платите «за разблокировку». Никакие платежи неизвестным людям доступ не вернут — только официальное восстановление. Если угнали рабочий или бизнес-аккаунт и ситуация сложная, лучше сразу подключить специалиста, чтобы не потерять время на хаотичные действия.</p>
+
+<h2 id="dlya-biznesa">Что важно для бизнеса</h2>
+<p>Для компании мессенджер — это не только переписка, но и активы: аккаунт-витрина, канал с аудиторией, бот для заявок и оплат, рабочие чаты с доступами. Угон любого из них бьёт по выручке и репутации, поэтому подход здесь должен быть строже, чем у частного пользователя.</p>
+<ul>
+<li><strong>Поймите, кто реально владеет активом.</strong> На чьём личном аккаунте создан канал или бот? Если на сотруднике, который завтра уволится или которого взломают, — вы зависите от одного человека. Важно заранее понимать, на ком завязан доступ, и не строить бизнес-канал вокруг единственной личной учётки без подстраховки.</li>
+<li><strong>Назначьте резервного администратора.</strong> У канала и рабочих чатов должно быть несколько администраторов с правами, чтобы потеря одного аккаунта не означала потерю всего. При этом права стоит выдавать по принципу минимально необходимых: не каждому нужен полный доступ.</li>
+<li><strong>Не храните чувствительное в личной переписке.</strong> Пароли, доступы, сканы документов, базы клиентов в обычных чатах — это мина. Если аккаунт угонят, всё это утечёт. Для секретов есть отдельные инструменты (менеджеры паролей), а чувствительные данные не должны лежать в истории переписки «на всякий случай».</li>
+<li><strong>Помните про 152-ФЗ, если собираете данные через бот.</strong> Когда бот принимает заявки, телефоны, имена и другие персональные данные клиентов, вы становитесь оператором персональных данных и обязаны соблюдать требования 152-ФЗ: законно собирать, безопасно хранить, не передавать кому попало. Угон такого бота — это не только потеря канала продаж, но и утечка персональных данных с возможными последствиями. Это стоит учитывать ещё на этапе настройки.</li>
+<li><strong>Введите простые правила для команды.</strong> Двухэтапная аутентификация обязательна для всех, кто имеет доступ к рабочим аккаунтам и каналам. Договоритесь, что коды не пересылаются никогда и никому, а о любом подозрительном сообщении «от руководителя» с просьбой срочно что-то сделать сотрудники переспрашивают по другому каналу связи.</li>
+</ul>
+<p>Если нужно навести порядок в доступах, защитить канал и бота и выстроить понятные правила для команды — это как раз то, с чем я помогаю. Посмотреть форматы работы и оставить запрос можно в разделе <a href="https://chimitdorzhi.tech/predlozheniya/">с предложениями и услугами</a>: разберёмся, где у вас слабые места, и закроем их без лишнего шума.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+<p><strong>Можно ли угнать аккаунт, если я никому не давал код?</strong> Если включена двухэтапная аутентификация и вы не вводили код и пароль на сторонних сайтах, не открывали вредоносные файлы и ваше устройство под защитой — шансы угона резко падают. Полностью исключить риск нельзя (остаются перехват СМС и доступ к устройству), поэтому защита всегда строится из нескольких слоёв, а не из одного.</p>
+<p><strong>Чем двухэтапная аутентификация отличается от обычного кода из СМС?</strong> Код из СМС — это первый рубеж, но его можно выманить или перехватить. Двухэтапная аутентификация добавляет второй, постоянный пароль, который знаете только вы и который не приходит в сообщениях. Даже с вашим кодом из СМС злоумышленник без этого пароля в аккаунт не зайдёт.</p>
+<p><strong>Мне написала «поддержка Telegram» (или MAX) и просит код или переход по ссылке. Это нормально?</strong> Нет. Настоящая поддержка мессенджеров не пишет вам первой с требованием срочно подтвердить личность, не просит код подтверждения и не угрожает блокировкой через личные сообщения. Это типичная схема обмана — не отвечайте и не переходите по ссылкам.</p>
+<p><strong>Я случайно продиктовал код мошеннику. Что делать прямо сейчас?</strong> Действуйте немедленно: зайдите в настройки безопасности, завершите все чужие сеансы, смените облачный пароль и пароль на почте, предупредите контакты. Если доступ уже потерян — восстанавливайте через официальный вход по номеру и форму поддержки. Чем быстрее, тем лучше.</p>
+<p><strong>Безопаснее ли MAX, чем Telegram, или наоборот?</strong> Универсального «более безопасного» мессенджера нет: в обоих случаях львиная доля угонов происходит из-за обмана пользователя, а не из-за дыр в самом приложении. Поэтому правила одинаковы — двухэтапная аутентификация, не диктовать коды, проверять сеансы, осторожность со ссылками и файлами. Защищает не столько выбор мессенджера, сколько ваши привычки.</p>
+<p><strong>Стоит ли платить тому, кто обещает «вернуть угнанный аккаунт»?</strong> Нет. Аккаунт восстанавливается только через официальные механизмы самого мессенджера и бесплатно. Люди, которые сами пишут с предложением вернуть доступ за деньги, — это вторая волна мошенников, наживающихся на чужой беде. Не платите им.</p>
+<p><strong>Нужно ли защищать почту, если речь про мессенджер?</strong> Да, обязательно. Почта часто используется для восстановления доступов, и если её взломают, под удар попадает всё остальное. Включите на почте двухэтапную аутентификацию и используйте отдельный сложный пароль — это один из самых недооценённых шагов защиты.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+<p>Угон аккаунта в Telegram или MAX почти всегда начинается не со взлома, а с обмана: вас уговаривают продиктовать код, перейти на сайт-двойник или открыть вредоносный файл. Значит, и защита в первую очередь в ваших руках. Включите двухэтапную аутентификацию, возьмите за правило никому не сообщать коды подтверждения, регулярно проверяйте активные сеансы, аккуратно относитесь к ссылкам и файлам и защитите почту и устройство. Если аккаунт всё же угнали — не паникуйте и не платите мошенникам, а быстро завершите чужие сеансы, смените пароли, восстановите доступ через официальную поддержку и предупредите контакты. Бизнесу стоит относиться к аккаунтам, каналам и ботам как к активам: понимать, кто владеет доступом, держать резервного администратора, не хранить секреты в переписке и помнить про 152-ФЗ при сборе данных через бот. Это не требует больших вложений — только внимательности и нескольких правильных настроек. А если хотите выстроить защиту системно и без лишнего шума, я помогу пройти этот путь от аудита слабых мест до рабочих правил для команды.</p>
+
+                    </div>
+
+                    
+                    
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Что я делаю по безопасности</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-shield-check"></i> <span>Защита данных и 152-ФЗ</span></li>
+    
+    <li><i class="ph-fill ph-lock-key"></i> <span>Доступы, 2FA, пароли</span></li>
+    
+    <li><i class="ph-fill ph-hard-drives"></i> <span>Бэкапы и свой сервер</span></li>
+    
+    <li><i class="ph-fill ph-graduation-cap"></i> <span>Обучение команды</span></li>
+    
+    <li><i class="ph-fill ph-lifebuoy"></i> <span>Реагирование на инциденты</span></li>
+    
+  </ul>
+  <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
+  </a>
+</div>
+                    
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/services/cybersecurity/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Защита данных и 152-ФЗ под ключ</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/cifrovaya-gigiena-rukovoditelya-2026/" data-category="security" data-clicks="0">
+  <span class="blog-card-fresh">Свежее</span>
+  <div class="blog-card-icon"><i class="ph-fill ph-shield-star"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Безопасность</span>
+  <h3>Цифровая гигиена для руководителя: как не стать слабым звеном</h3>
+  <p>Через руководителя бьют по всей компании: доступ к деньгам, данным, решениям. Разбираю правила цифровой гигиены для директора и команды — без паранойи, но по делу.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 23 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/plan-na-sluchay-utechki-dannyh-2026/" data-category="security" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-warning"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Безопасность</span>
+  <h3>Что делать при утечке данных: план реагирования для бизнеса</h3>
+  <p>Утечка данных — вопрос «когда», а не «если». Разбираю план реагирования по шагам: что сделать в первые часы, кого уведомить и как снизить риск заранее. Без паники и без юридических выдумок.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 23 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/152-fz-dlya-chat-botov-i-messendzherov-2026/" data-category="legal" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-chat-centered-text"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Право и compliance</span>
+  <h3>152-ФЗ для чат-ботов и мессенджеров: как собирать заявки и не нарушить закон</h3>
+  <p>Если бот собирает имя и телефон — это персональные данные, и 152-ФЗ работает так же, как для сайта. Разбираю, как получить согласие в боте, где хранить данные и как сделать бота по закону.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 23 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    
+                    
+                    
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовые решения под ключ</span>
+                            <span class="blog-offer-cta-title">449 готовых IT-решений для бизнеса</span>
+                            <span class="blog-offer-cta-price">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Смотреть каталог</span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#kak-ugonyayut"><span class="blog-toc-num">01</span> Как угоняют аккаунты</a></li>
+<li><a href="#zashchita"><span class="blog-toc-num">02</span> Как защититься заранее</a></li>
+<li><a href="#esli-vzlomali"><span class="blog-toc-num">03</span> Если уже взломали</a></li>
+<li><a href="#dlya-biznesa"><span class="blog-toc-num">04</span> Что важно для бизнеса</a></li>
+<li><a href="#faq"><span class="blog-toc-num">05</span> FAQ</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">06</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=23" defer></script>
+<script src="/services-i18n.js?v=23" defer></script>
+<script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>
