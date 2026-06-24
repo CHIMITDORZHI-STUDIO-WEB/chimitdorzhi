@@ -32,6 +32,7 @@ const CATEGORY_ACCENT = {
   mwrlife:     '#b8862b', // золото
   ai:          '#6d28d9',
   career:      '#1e4fd6',
+  expert:      '#b8862b', // золото (авторская колонка)
 };
 
 const CATEGORY_LABELS = {
@@ -49,6 +50,7 @@ const CATEGORY_LABELS = {
   finance:     'Финансы',
   mlm:         'Сетевой бизнес',
   mwrlife:     'MWR Life',
+  expert:      'Экспертный блог',
 };
 
 function escapeXml(str) {
@@ -359,9 +361,55 @@ function buildKrugozorSvg(article) {
 </svg>`;
 }
 
+// ---------- Стиль «Авторская колонка» для рубрики «Экспертный блог» ----------
+// Тёмный графитовый фон, золотой акцент, крупно имя автора — серия читается
+// как личная колонка эксперта.
+const EXPERT_BG1 = '#171513';
+const EXPERT_BG2 = '#262019';
+const EXPERT_GOLD = '#cda349';
+const EXPERT_GOLD_HI = '#e7c87e';
+
+function buildExpertSvg(article) {
+  const lines = wrapTitle(article.title, 21).slice(0, 4);
+  const lh = 70, fs = 56;
+  const startY = 300 - (lines.length - 1) * (lh / 2);
+  const titleSvg = lines.map((l, i) =>
+    `<text x="92" y="${startY + i * lh}" font-family="${FONT}" font-weight="800" font-size="${fs}" letter-spacing="-1.5" fill="#ffffff">${escapeXml(l)}</text>`
+  ).join('\n  ');
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="ebg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="${EXPERT_BG1}"/>
+      <stop offset="100%" stop-color="${EXPERT_BG2}"/>
+    </linearGradient>
+    <radialGradient id="eglow" cx="88%" cy="18%" r="55%">
+      <stop offset="0%" stop-color="${EXPERT_GOLD}" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="${EXPERT_GOLD}" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#ebg)"/>
+  <rect width="1200" height="630" fill="url(#eglow)"/>
+  <!-- крупные кавычки как знак авторской колонки -->
+  <text x="980" y="320" font-family="${FONT}" font-weight="800" font-size="420" fill="${EXPERT_GOLD}" fill-opacity="0.08">”</text>
+  <rect x="0" y="0" width="12" height="630" fill="${EXPERT_GOLD}"/>
+
+  <text x="92" y="118" font-family="${FONT}" font-weight="800" font-size="24" fill="${EXPERT_GOLD}" letter-spacing="3">ЭКСПЕРТНЫЙ БЛОГ</text>
+  <rect x="92" y="135" width="66" height="4" rx="2" fill="${EXPERT_GOLD}"/>
+
+  ${titleSvg}
+
+  <line x1="92" y1="520" x2="1108" y2="520" stroke="${EXPERT_GOLD}" stroke-width="2" stroke-opacity="0.25"/>
+  <text x="92" y="572" font-family="${FONT}" font-weight="800" font-size="30" fill="#ffffff">Чимитдоржи Дарижапов</text>
+  <text x="92" y="606" font-family="${FONT}" font-weight="500" font-size="21" fill="${EXPERT_GOLD_HI}" opacity="0.85">IT и AI для бизнеса · 16+ лет в IT</text>
+  <rect x="966" y="546" width="142" height="58" rx="12" fill="${EXPERT_GOLD}"/>
+  <text x="1037" y="584" text-anchor="middle" font-family="${FONT}" font-weight="800" font-size="22" fill="${EXPERT_BG1}">${article.readingMinutes || 8} мин</text>
+</svg>`;
+}
+
 async function generateCover(article) {
   if (!article.published) return null;
   const svg = PRIESTLEY_SET.has(article.slug) ? buildPriestleySvg(article)
+    : article.category === 'expert' ? buildExpertSvg(article)
     : article.category === 'opensource' ? buildOpenSourceSvg(article)
     : article.category === 'biznes-krugozor' ? buildKrugozorSvg(article)
     : buildSvg(article);

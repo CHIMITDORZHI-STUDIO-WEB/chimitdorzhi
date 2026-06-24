@@ -504,6 +504,7 @@ const CATEGORY_LABELS = {
   mwrlife:     'MWR Life',
   opensource:  'Open-source и свой сервер',
   'biznes-krugozor': 'Бизнес-кругозор',
+  expert:      'Экспертный блог',
   // legacy/fallback
   ai:          'AI и автоматизация',
   career:      'Карьера и обучение',
@@ -1448,6 +1449,7 @@ ${METRIKA}</head>
                       { key: 'mwrlife',     label: 'MWR Life',       icon: 'ph-airplane-tilt' },
                       { key: 'opensource',  label: 'Open-source',    icon: 'ph-hard-drives' },
                       { key: 'biznes-krugozor', label: 'Бизнес-кругозор', icon: 'ph-compass' },
+                      { key: 'expert',      label: 'Экспертный блог', icon: 'ph-user-focus' },
                       { key: 'ai',          label: 'AI (старое)',    icon: 'ph-brain' },
                       { key: 'career',      label: 'Карьера',        icon: 'ph-graduation-cap' },
                     ].map(c => ({ ...c, cnt: published.filter(p => p.category === c.key).length }))
@@ -1722,6 +1724,11 @@ const CATEGORY_META = {
     h1: 'Бизнес-кругозор',
     intro: 'Методологии, личная эффективность, разборы книг и трендов — простыми словами и с практикой. Agile и Scrum, OKR, тайм-менеджмент, выгорание, «второй мозг» и навыки 2026. Не теория ради теории, а как применить у себя и автоматизировать рутину.',
     service: { url: 'https://chimitdorzhi.tech/services/business-automation/', label: 'Навести порядок в процессах' },
+  },
+  expert: {
+    h1: 'Экспертный блог',
+    intro: 'Авторская колонка: мнение, кейсы, разборы ошибок и прогнозы из практики 16+ лет в IT. Честно о том, что работает, а что нет, без хайпа — про ИИ, автоматизацию, ботов, 152-ФЗ и российский стек. Здесь я делюсь подходом, по которому веду проекты клиентов.',
+    service: { url: 'https://chimitdorzhi.tech/predlozheniya/', label: 'Обсудить ваш проект' },
   },
 };
 
@@ -2092,7 +2099,7 @@ const LLMS_TAIL = `## Услуги
 - Телефон: +7 (931) 605-30-07
 - Сайт: https://chimitdorzhi.tech`;
 // Порядок и подписи разделов навигатора
-const LLMS_ORDER = ['legal','ai-dev','ai-life','ai','development','security','geo','marketing','sales','finance','industries','biznes-krugozor','opensource','media','esports','mlm','mwrlife','career'];
+const LLMS_ORDER = ['expert','legal','ai-dev','ai-life','ai','development','security','geo','marketing','sales','finance','industries','biznes-krugozor','opensource','media','esports','mlm','mwrlife','career'];
 function writeLlms(published) {
   const U = (s) => `https://chimitdorzhi.tech/blog/${s}/`;
   const byCat = {};
