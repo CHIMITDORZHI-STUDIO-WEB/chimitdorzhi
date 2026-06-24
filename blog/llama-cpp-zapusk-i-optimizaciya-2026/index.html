@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>llama.cpp: запуск и оптимизация</title>
+    <meta name="description" content="llama.cpp простыми словами: open-source движок для запуска локальных LLM на своём железе. Чем отличается от Ollama и LM Studio, как запустить (GGUF, сервер) и…">
+    <meta name="keywords" content="llama.cpp, локальный LLM, open-source, оптимизация">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/llama-cpp-zapusk-i-optimizaciya-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/llama-cpp-zapusk-i-optimizaciya-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/llama-cpp-zapusk-i-optimizaciya-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/llama-cpp-zapusk-i-optimizaciya-2026/">
+    <meta property="og:title" content="llama.cpp: запуск и оптимизация">
+    <meta property="og:description" content="llama.cpp простыми словами: open-source движок для запуска локальных LLM на своём железе. Чем отличается от Ollama и LM Studio, как запустить (GGUF, сервер) и…">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/llama-cpp-zapusk-i-optimizaciya-2026/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="llama.cpp: запуск и оптимизация">
+    <meta name="twitter:description" content="llama.cpp простыми словами: open-source движок для запуска локальных LLM на своём железе. Чем отличается от Ollama и LM Studio, как запустить (GGUF, сервер) и…">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/llama-cpp-zapusk-i-optimizaciya-2026/cover.png">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor-Fill.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=45">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "llama.cpp: как запустить и ускорить локальный LLM",
+  "description": "llama.cpp простыми словами: open-source движок для запуска локальных LLM на своём железе. Чем отличается от Ollama и LM Studio, как запустить (GGUF, сервер) и что реально влияет на скорость — выгрузка слоёв на видеокарту, размер контекста, потоки и квантизация. Где взять репозиторий.",
+  "image": "https://chimitdorzhi.tech/blog/llama-cpp-zapusk-i-optimizaciya-2026/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/llama-cpp-zapusk-i-optimizaciya-2026/"
+  },
+  "datePublished": "2026-06-25",
+  "dateModified": "2026-06-25",
+  "keywords": "llama.cpp, локальный LLM, open-source, оптимизация",
+  "articleSection": "Open-source и свой сервер",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  },
+  "about": [
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://chimitdorzhi.tech/slovar/#llm",
+      "name": "LLM (большая языковая модель)"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "llama.cpp: как запустить и ускорить локальный LLM",
+      "item": "https://chimitdorzhi.tech/blog/llama-cpp-zapusk-i-optimizaciya-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Можно запустить llama.cpp без видеокарты?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, проект изначально для этого и создавался — он умеет работать на обычном процессоре. Но без видеокарты ответы идут медленнее, и есть смысл брать модели поменьше и с более сильной квантизацией. Видеокарта сильно ускоряет работу, но не является обязательной для старта."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Чем это лучше, чем просто поставить Ollama?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Для простого старта Ollama удобнее, и я часто с неё и рекомендую начинать — под капотом там во многом тот же движок. Прямая работа с llama.cpp нужна, когда вы упёрлись в скорость или память и хотите вручную управлять выгрузкой на видеокарту, контекстом и потоками, либо встраиваете модель в своё приложение."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Откуда брать актуальные флаги оптимизации?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Только из официальной документации репозитория llama.cpp. Проект активно развивается, имена и поведение параметров меняются, появляются автоматические режимы подбора настроек. Команды из случайных постов в соцсетях могут быть устаревшими или просто неверными — сверяйтесь с первоисточником."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Это законно и безопасно для бизнеса?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да. llama.cpp — открытый проект со свободной лицензией, а сами модели вы выбираете с подходящими условиями использования. Поскольку всё работает локально, данные не уходят наружу — это плюс для приватности и для соблюдения 152-ФЗ. Важно только корректно организовать доступ и хранение на сервере; это решается на этапе внедрения."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Какой результат по скорости реально получить?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Честно — зависит от железа и модели, универсальной цифры нет. Главный прирост обычно даёт перенос слоёв на видеокарту и отказ от раздутого контекста. Я не обещаю «икс раз быстрее», а измеряю на вашей конфигурации и подбираю настройки под неё."
+      }
+    }
+  ]
+}
+    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+var inject=function(){for (var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)};
+var run=function(){('requestIdleCallback' in window)?requestIdleCallback(inject,{timeout:5000}):setTimeout(inject,3000)};
+(e.readyState==='complete')?run():m.addEventListener('load',run);})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109281884" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+            <li><a href="/#services" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li class="nav-dropdown">
+                <a href="/#projects" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--arey"><i class="ph-fill ph-vinyl-record" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-airplane-tilt" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#cases" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            </div>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/#about">Обо мне</a></li>
+        <li><a href="/#services">Услуги</a></li>
+        <li><a href="/services/">Каталог услуг</a></li>
+        <li><a href="/predlozheniya/">Предложения</a></li>
+        <li><a href="/#cases">Кейсы</a></li>
+        <li><a href="/blog/">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+        <li><a href="/#contact">Контакт</a></li>
+    </ul>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">llama.cpp: как запустить и ускорить локальный LLM</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/opensource/"><i class="ph ph-bookmark" aria-hidden="true"></i> Open-source и свой сервер</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 10 мин чтения</span>
+                        <time datetime="2026-06-25"><i class="ph ph-calendar" aria-hidden="true"></i> 25 июня 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">llama.cpp: как запустить и ускорить локальный LLM</h1>
+
+                    <p class="blog-lead">llama.cpp — движок, на котором держатся Ollama и LM Studio. Разбираю простыми словами, как запустить локальный LLM и что реально ускоряет работу: выгрузка слоёв на видеокарту, контекст, потоки и квантизация. Со ссылкой на репозиторий.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>llama.cpp</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>локальный LLM</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>open-source</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>оптимизация</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
+<li>llama.cpp — это open-source «движок», который запускает большие языковые модели (LLM) прямо на вашем железе: на обычном ноутбуке, мини-сервере или машине с видеокартой, без облака.</li>
+<li>Главные рычаги скорости — формат модели (квантизация GGUF), выгрузка слоёв на видеокарту и размер контекста. Их и нужно настраивать под конкретное железо.</li>
+<li>На llama.cpp построены многие популярные оболочки, в том числе Ollama и LM Studio. Понимая базовые настройки, вы выжимаете из той же машины заметно больше.</li>
+<li>Конкретные флаги в проекте периодически меняются и добавляются — точные имена сверяйте в официальной документации репозитория, а не по случайным постам в соцсетях.</li>
+<li>Я разворачиваю локальный ИИ под ключ: подбор модели и железа, настройка и интеграция в рабочие процессы с учётом приватности и 152-ФЗ.</li>
+</ul></div>
+
+<p>Запустить свой ИИ на собственном железе сегодня реально даже без видеокарты за сотни тысяч рублей. Инструмент, который сделал это массово доступным, — llama.cpp. На нём, по сути, держатся самые удобные «обёртки» вроде Ollama и LM Studio, но если разобраться в базовых настройках самого движка, та же модель на том же ноутбуке начинает работать ощутимо быстрее. Ниже разберу простыми словами, что такое llama.cpp, чем он отличается от готовых оболочек, как его запустить и какие настройки реально влияют на скорость. Без обещаний «ускорим в 10 раз одной командой» — только по делу.</p>
+
+<h2 id="chto-eto">Что такое llama.cpp</h2>
+<p>llama.cpp — это бесплатный open-source проект, который позволяет запускать большие языковые модели (LLM — те самые нейросети, что стоят за <a href="https://chimitdorzhi.tech/services/telegram-bots/" class="blog-inline-link">чат-бота</a>ми) локально, на вашем компьютере или сервере. Изначально он был написан так, чтобы эффективно работать даже на обычном процессоре, без дорогой видеокарты, — отсюда и популярность. Сейчас он умеет использовать и видеокарту, и процессор, и их сочетание.</p>
+<p>Главная идея — эффективность. llama.cpp написан на C/C++ и заточен под то, чтобы выжимать максимум из доступного железа и памяти. Поэтому он лёг в основу множества пользовательских инструментов: когда вы ставите Ollama или LM Studio и спокойно общаетесь с локальной моделью через удобный интерфейс, под капотом во многих случаях работает именно llama.cpp. Готовые оболочки скрывают настройки ради простоты — это удобно, но иногда оставляет производительность на столе.</p>
+<p>Что это даёт на практике. Модель работает у вас: запросы и документы не уходят в чужой облачный сервис, нет абонентской платы за токены, всё ограничено только мощностью вашего железа. Это ценно там, где важна приватность (договоры, персональные данные, коммерческая тайна) и где нужна предсказуемая стоимость без счёта за каждый запрос.</p>
+
+<h2 id="pochemu">Чем отличается от Ollama и LM Studio</h2>
+<p>Резонный вопрос: если есть удобные Ollama и LM Studio, зачем вообще трогать llama.cpp напрямую? Ответ — в контроле. Готовые оболочки выбирают настройки за вас, ориентируясь на «чтобы просто заработало». Это правильно для старта, но если вы упёрлись в скорость или в нехватку памяти, именно ручная настройка движка даёт выигрыш.</p>
+<ul>
+<li><strong>Ollama и LM Studio — это оболочки.</strong> Они дают удобный интерфейс, каталог моделей в один клик и разумные настройки по умолчанию. Для большинства задач этого достаточно, и я сам часто рекомендую начинать с них.</li>
+<li><strong>llama.cpp — это движок.</strong> Работая с ним напрямую (через сервер или командную строку), вы сами управляете тем, сколько слоёв модели уйдёт на видеокарту, какой размер контекста выделить, сколько потоков процессора задействовать. Это и есть точки, где прячется скорость.</li>
+<li><strong>Когда нужен прямой доступ.</strong> Если вы разворачиваете модель на сервере под нагрузку, хотите выжать максимум из скромного железа или встроить локальный ИИ в своё приложение через API, гибкость движка важнее простоты оболочки.</li>
+</ul>
+<p>Хорошая новость: одно не противоречит другому. Можно начать с Ollama, понять, что упираетесь в производительность, и перейти на тонкую настройку llama.cpp под конкретную задачу. Понимание базовых рычагов помогает в любом случае — даже внутри оболочек часть этих параметров доступна.</p>
+
+<h2 id="ustanovka">Как запустить</h2>
+<p>В общих чертах путь такой: взять собранную версию llama.cpp (или собрать самому под своё железо), скачать модель в формате GGUF и запустить — либо как локальный сервер с веб-интерфейсом и API, либо в режиме диалога в командной строке. GGUF — это специальный формат файла модели, оптимизированный как раз под llama.cpp; именно в нём модели обычно и распространяются для локального запуска.</p>
+<p>Ключевые шаги без привязки к конкретной версии (команды и точные имена флагов сверяйте в документации репозитория — проект активно развивается):</p>
+<ul>
+<li><strong>Получить движок.</strong> Скачать готовую сборку под вашу систему (Windows, Linux, macOS) или собрать из исходников — для сборки под видеокарту это даёт лучшую производительность.</li>
+<li><strong>Скачать модель в GGUF.</strong> Выбрать модель под задачу и под объём памяти. К одной и той же модели обычно есть несколько вариантов квантизации (об этом ниже) — от более лёгких и быстрых до более тяжёлых и точных.</li>
+<li><strong>Запустить сервер или чат.</strong> llama.cpp умеет поднимать локальный веб-сервер с интерфейсом и API, совместимым с распространёнными стандартами, — к нему можно подключать свои приложения. Или запустить простой диалог в терминале.</li>
+<li><strong>Проверить, что модель «влезла».</strong> Если памяти не хватает, модель либо не запустится, либо начнёт работать очень медленно из-за обращения к диску. Это первый сигнал, что нужно брать более лёгкую квантизацию или модель поменьше.</li>
+</ul>
+<p>Если вся эта возня с командной строкой кажется лишней — это нормально. Для рабочего внедрения на сервере я обычно настраиваю запуск как сервис, чтобы он стартовал сам и держался стабильно, а пользователи просто заходили в готовый интерфейс.</p>
+
+<h2 id="optimizaciya">Что реально влияет на скорость</h2>
+<p>Здесь — самое важное. Скорость локальной модели на llama.cpp определяется в основном тремя вещами. Я опишу их по сути, а точные имена параметров вы сверите в документации, потому что флаги от версии к версии меняются, и слепо копировать команды из чужих постов не стоит.</p>
+<ul>
+<li><strong>Выгрузка слоёв на видеокарту (GPU offload).</strong> Модель состоит из «слоёв». Можно указать, сколько из них считать на видеокарте вместо процессора. Видеокарта на таких задачах в разы быстрее, поэтому чем больше слоёв помещается в её память (VRAM), тем быстрее ответы. Если VRAM хватает на всю модель — отдавайте на GPU всё; если нет — часть слоёв оставляют процессору. Это, как правило, рычаг скорости номер один.</li>
+<li><strong>Размер контекста.</strong> Контекст — это сколько текста модель «держит в голове» за один раз (запрос плюс ответ плюс история). Чем он больше, тем больше памяти нужно и тем медленнее работа. Не нужно ставить максимум «про запас»: выделяйте столько, сколько реально требует ваша задача. Раздутый контекст — частая причина того, что памяти вдруг перестало хватать.</li>
+<li><strong>Потоки процессора и размер пакета.</strong> Для той части, что считается на процессоре, важно число рабочих потоков — обычно его имеет смысл соотносить с числом физических ядер, а не выкручивать вслепую. Параметры обработки входного текста (размер пакета) тоже влияют на скорость на старте ответа.</li>
+</ul>
+<p>Отдельно стоит современная автоматика: новые версии llama.cpp учатся сами подбирать часть этих настроек под доступную память, чтобы пользователю не приходилось вручную считать слои. Это удобно, но именно поэтому конкретные имена флагов лучше брать из актуальной документации — то, что вчера называлось одним ключом, сегодня может работать иначе или включаться автоматически. Принцип же остаётся прежним: больше слоёв на быстрый GPU, разумный (не раздутый) контекст, адекватное число потоков.</p>
+
+<h2 id="vybor-modeli">Выбор модели и квантизации</h2>
+<p>Вторая половина успеха — правильно выбрать саму модель и её квантизацию. Квантизация — это «сжатие» модели: числа внутри неё хранят с меньшей точностью, чтобы файл занимал меньше памяти и быстрее считался. Платой за это становится небольшая потеря качества ответов. Хитрость в том, чтобы найти баланс под своё железо.</p>
+<ul>
+<li><strong>Чем сильнее сжатие — тем меньше памяти и выше скорость, но ниже точность.</strong> Слишком агрессивная квантизация заметно «глупит» модель. Слишком слабая — может не влезть в память. Для большинства задач есть «золотая середина», которую подбирают опытным путём.</li>
+<li><strong>Размер модели важнее, чем кажется.</strong> Модель поменьше с хорошей квантизацией, которая целиком помещается в память видеокарты, часто работает приятнее и быстрее, чем огромная модель, которая еле влезает и тормозит. Не гонитесь за самой большой моделью ради цифры.</li>
+<li><strong>Под русский язык и под задачу.</strong> Выбирайте модель, которая хорошо работает с русским и с вашим типом задач (диалог, работа с документами, код). Самая «общеумная» модель не всегда лучшая для конкретного применения.</li>
+</ul>
+<p>Какая именно модель и квантизация подойдут — зависит от вашего железа и задачи, поэтому я не называю «магические» цифры заранее. Подробно вопрос «сколько нужно видеопамяти и оперативки под разные модели» я разбираю в отдельной статье — это логичное продолжение, потому что выбор флагов и выбор железа связаны напрямую.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+<p><strong>Можно запустить llama.cpp без видеокарты?</strong> Да, проект изначально для этого и создавался — он умеет работать на обычном процессоре. Но без видеокарты ответы идут медленнее, и есть смысл брать модели поменьше и с более сильной квантизацией. Видеокарта сильно ускоряет работу, но не является обязательной для старта.</p>
+<p><strong>Чем это лучше, чем просто поставить Ollama?</strong> Для простого старта Ollama удобнее, и я часто с неё и рекомендую начинать — под капотом там во многом тот же движок. Прямая работа с llama.cpp нужна, когда вы упёрлись в скорость или память и хотите вручную управлять выгрузкой на видеокарту, контекстом и потоками, либо встраиваете модель в своё приложение.</p>
+<p><strong>Откуда брать актуальные флаги оптимизации?</strong> Только из официальной документации репозитория llama.cpp. Проект активно развивается, имена и поведение параметров меняются, появляются автоматические режимы подбора настроек. Команды из случайных постов в соцсетях могут быть устаревшими или просто неверными — сверяйтесь с первоисточником.</p>
+<p><strong>Это законно и безопасно для бизнеса?</strong> Да. llama.cpp — открытый проект со свободной лицензией, а сами модели вы выбираете с подходящими условиями использования. Поскольку всё работает локально, данные не уходят наружу — это плюс для приватности и для соблюдения 152-ФЗ. Важно только корректно организовать доступ и хранение на сервере; это решается на этапе внедрения.</p>
+<p><strong>Какой результат по скорости реально получить?</strong> Честно — зависит от железа и модели, универсальной цифры нет. Главный прирост обычно даёт перенос слоёв на видеокарту и отказ от раздутого контекста. Я не обещаю «икс раз быстрее», а измеряю на вашей конфигурации и подбираю настройки под неё.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+<p>llama.cpp — это движок, который делает локальный запуск ИИ массово доступным: на нём держатся удобные оболочки вроде Ollama и LM Studio, а прямой доступ к нему даёт контроль над скоростью. Три главных рычага — выгрузка слоёв модели на видеокарту, разумный размер контекста и адекватное число потоков процессора, плюс грамотный выбор модели и её квантизации под ваше железо. Конкретные имена флагов стоит брать из официальной документации, а не из случайных постов: проект быстро меняется, и часть настроек теперь подбирается автоматически. Если не хочется разбираться в командной строке и считать слои вручную, я разверну локальный ИИ под ключ — подберу модель и железо, настрою производительность и интегрирую в ваши процессы с учётом приватности и 152-ФЗ.</p>
+
+                    </div>
+
+                    <div class="blog-callout"><i class="ph-fill ph-git-branch" aria-hidden="true"></i><div><strong>Где взять</strong> — Официальный репозиторий на GitHub: <a href="https://github.com/ggml-org/llama.cpp" target="_blank" rel="noopener">github.com/ggml-org/llama.cpp</a>. Развернуть и настроить под ключ помогу — <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener">напишите в Telegram</a>.</div></div>
+                    
+                    <div class="blog-cta-card">
+                        <div class="blog-cta-card-body">
+                            <h3>Ещё open-source для бизнеса</h3>
+                            <p>Эта статья — часть каталога бесплатных решений, которые я разворачиваю на вашем сервере под ключ: CRM, аналитика, документы, почта, безопасность, магазины, AI.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="/blog/katalog-open-source-resheniy-dlya-biznesa-2026/" class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Каталог open-source решений</a>
+                        </div>
+                    </div>
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Что я делаю с локальным ИИ</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-cpu"></i> <span>Локальные LLM на вашем сервере</span></li>
+    
+    <li><i class="ph-fill ph-gauge"></i> <span>Подбор модели и оптимизация</span></li>
+    
+    <li><i class="ph-fill ph-hard-drives"></i> <span>Сервер и self-hosted</span></li>
+    
+    <li><i class="ph-fill ph-shield-check"></i> <span>Приватность и 152-ФЗ</span></li>
+    
+    <li><i class="ph-fill ph-lifebuoy"></i> <span>Внедрение и поддержка</span></li>
+    
+  </ul>
+  <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
+  </a>
+</div>
+                    
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/predlozheniya/open-source-pod-klyuch/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Развернуть локальный ИИ под ключ</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/skolko-zheleza-nuzhno-lokalnomu-ii-2026/" data-category="ai-dev" data-clicks="0">
+  <span class="blog-card-fresh">Свежее</span>
+  <div class="blog-card-icon"><i class="ph-fill ph-graphics-card"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>AI для разработчиков</span>
+  <h3>Сколько железа нужно локальному ИИ: GPU, RAM, VRAM по моделям</h3>
+  <p>Главный ограничитель локального ИИ — не скорость, а память: оперативная и видеопамять. Разбираю, сколько нужно под модели 7B/13B/70B, что важнее — GPU или RAM, и как выбрать железо под задачу без переплаты.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 25 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 10 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/lokalnyy-llm-na-noutbuke-2026/" data-category="ai-dev" data-clicks="57">
+  <span class="blog-card-popular"><i class="ph-fill ph-fire" aria-hidden="true"></i> Популярное</span>
+  <div class="blog-card-icon"><i class="ph-fill ph-cpu"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>AI для разработчиков</span>
+  <h3>Локальный LLM на ноутбуке 2026: Ollama, LM Studio, vLLM — практическое руководство</h3>
+  <p>Как поднять локальный LLM за час: Ollama, LM Studio, vLLM. Какие модели выбрать в 2026, бенчмарки скорости на M3 Max / RTX 4090 / H100, локальный RAG за 40 строк, экономика владения.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 20 мая 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 22 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/ollama-svoy-chatgpt-na-servere-2026/" data-category="opensource" data-clicks="1">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-brain"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>Ollama: свой ChatGPT на своём сервере без утечки данных</h3>
+  <p>Ollama позволяет держать собственный «ChatGPT» на своём сервере — данные не уходят в чужое облако. Разбираю, кому это нужно, что умеет и что требуется для запуска.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 14 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    
+                    
+                    
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовые решения под ключ</span>
+                            <span class="blog-offer-cta-title">449 готовых IT-решений для бизнеса</span>
+                            <span class="blog-offer-cta-price">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Смотреть каталог</span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#chto-eto"><span class="blog-toc-num">01</span> Что такое llama.cpp</a></li>
+<li><a href="#pochemu"><span class="blog-toc-num">02</span> Чем отличается от Ollama и LM Studio</a></li>
+<li><a href="#ustanovka"><span class="blog-toc-num">03</span> Как запустить</a></li>
+<li><a href="#optimizaciya"><span class="blog-toc-num">04</span> Что реально влияет на скорость</a></li>
+<li><a href="#vybor-modeli"><span class="blog-toc-num">05</span> Выбор модели и квантизации</a></li>
+<li><a href="#faq"><span class="blog-toc-num">06</span> FAQ</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">07</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=23" defer></script>
+<script src="/services-i18n.js?v=23" defer></script>
+<script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>
