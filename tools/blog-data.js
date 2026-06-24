@@ -2993,7 +2993,7 @@ print(r.json()["choices"][0]["message"]["content"])
 </div>
 `;
 
-module.exports = [
+const ALL_ARTICLES = [
   {
     slug: 'kak-kreatoru-postavit-kontent-na-potok-2027',
     category: 'media',
@@ -10692,3 +10692,40 @@ module.exports = [
     },
   },
 ].concat(antigravityEntries, blogBatchA, blogBatchB, blogBatchC, blogBatchPillars, blogBatchMaxMkt, blogBatchLocal, blogBatchChita, blogBatchShkola, blogBatchSetevik, blogBatchMlmBrands, blogBatchMlmBrands2, blogBatchMlmBrands3, blogBatchPraktiki, blogBatchEvents, blogBatchBiznesIdei, blogBatchOpenSource, blogBatchOpenSource2, blogBatchZarabotok, blogBatchOpenSource3, blogBatchOpenSource4, blogBatchOpenSource5, blogBatchOpenSource6, blogBatchOpenSource7, blogBatchOpenSource8, blogBatchOpenSource9, blogBatchOpenSource10, blogBatchOpenSource11, blogBatchOpenSource12, blogBatchOpenSource13, blogBatchOpenSource14, blogBatchOpenSource15, blogBatchOpenSource16, blogBatchOpenSource17, blogBatchOpenSource18, blogBatchOpenSource19, blogBatchOpenSource20, blogBatchOpenSource21, blogBatchOpenSource22, blogBatchOpenSource23, blogBatchOpenSource24, blogBatchNishiIt, blogBatchNishiIt2, blogBatchMwrTravel, blogBatchBiznesTechGaps, blogBatchBiznesKrugozor, blogBatchSkolkoStoit, blogBatchLocalDengi, blogBatchZaschitaOsint, blogBatchOpenSourceHub, blogBatchAiTrends, blogBatchCommercialJun, blogBatchExpert, blogBatchMisc2, blogBatchCfa, blogBatchGrants, blogBatchOpenHw, blogBatchLlmLocal);
+
+// --- Проход взаимной перелинковки ---------------------------------------
+// Гарантирует, что у каждой опубликованной статьи есть хотя бы одна входящая
+// контекстная ссылка из блока «Читайте также» другой статьи. Для каждой
+// «сироты» (0 входящих) берём статью, на которую она сама уже ссылается
+// (значит тема близкая), и добавляем обратную ссылку — связь становится
+// взаимной. Среди кандидатов выбираем наименее загруженного «хоста», чтобы
+// не раздувать карточки у одной популярной статьи. Детерминированно.
+(function ensureReciprocalLinks() {
+  const pub = ALL_ARTICLES.filter(a => a && a.published !== false && a.contentHtml);
+  const bySlug = new Map(pub.map(a => [a.slug, a]));
+  const incoming = new Map(pub.map(a => [a.slug, 0]));
+  for (const a of pub) {
+    for (const r of (a.relatedSlugs || [])) {
+      if (incoming.has(r) && r !== a.slug) incoming.set(r, incoming.get(r) + 1);
+    }
+  }
+  // Стабильный порядок обработки — по slug, чтобы результат не зависел от случая.
+  const orphans = pub.filter(a => incoming.get(a.slug) === 0)
+    .sort((x, y) => x.slug.localeCompare(y.slug));
+  for (const orphan of orphans) {
+    // Кандидаты в «хосты» — статьи, на которые ссылается сама сирота.
+    const candidates = (orphan.relatedSlugs || [])
+      .map(s => bySlug.get(s))
+      .filter(h => h && h.slug !== orphan.slug && !(h.relatedSlugs || []).includes(orphan.slug));
+    if (!candidates.length) continue;
+    // Берём наименее загруженного по числу исходящих ссылок (стабильно).
+    candidates.sort((a, b) =>
+      (a.relatedSlugs || []).length - (b.relatedSlugs || []).length || a.slug.localeCompare(b.slug));
+    const host = candidates[0];
+    if (!Array.isArray(host.relatedSlugs)) host.relatedSlugs = [];
+    host.relatedSlugs.push(orphan.slug);
+    incoming.set(orphan.slug, 1);
+  }
+})();
+
+module.exports = ALL_ARTICLES;
