@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ЧПУ и лазерная резка на open source</title>
+    <meta name="description" content="ЧПУ и лазерная резка на открытом железе для малого производства: станки с открытой прошивкой (GRBL) для деталей, гравировки, вывесок и мелкосерийки.">
+    <meta name="keywords" content="ЧПУ, лазерная резка, GRBL, производство">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/chpu-lazernaya-rezka-open-source-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/chpu-lazernaya-rezka-open-source-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/chpu-lazernaya-rezka-open-source-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/chpu-lazernaya-rezka-open-source-2026/">
+    <meta property="og:title" content="ЧПУ и лазерная резка на open source">
+    <meta property="og:description" content="ЧПУ и лазерная резка на открытом железе для малого производства: станки с открытой прошивкой (GRBL) для деталей, гравировки, вывесок и мелкосерийки.">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/chpu-lazernaya-rezka-open-source-2026/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ЧПУ и лазерная резка на open source">
+    <meta name="twitter:description" content="ЧПУ и лазерная резка на открытом железе для малого производства: станки с открытой прошивкой (GRBL) для деталей, гравировки, вывесок и мелкосерийки.">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/chpu-lazernaya-rezka-open-source-2026/cover.png">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor-Fill.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=45">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "ЧПУ и лазерная резка на открытом железе: как малому производству начать",
+  "description": "ЧПУ и лазерная резка на открытом железе для малого производства: станки с открытой прошивкой (GRBL) для деталей, гравировки, вывесок и мелкосерийки. Применение, открытые решения, как внедрить и техника безопасности. Где взять прошивку GRBL.",
+  "image": "https://chimitdorzhi.tech/blog/chpu-lazernaya-rezka-open-source-2026/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/chpu-lazernaya-rezka-open-source-2026/"
+  },
+  "datePublished": "2026-06-23",
+  "dateModified": "2026-06-23",
+  "keywords": "ЧПУ, лазерная резка, GRBL, производство",
+  "articleSection": "Open-source и свой сервер",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "ЧПУ и лазерная резка на открытом железе: как малому производству начать",
+      "item": "https://chimitdorzhi.tech/blog/chpu-lazernaya-rezka-open-source-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Это правда доступно малому бизнесу по деньгам?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да. Настольные и компактные ЧПУ-станки на открытой прошивке стоят несопоставимо дешевле промышленных комплексов, а софт и прошивка вроде GRBL — бесплатные и открытые. Основные траты — это сам станок, организация рабочего места с вытяжкой и обучение оператора. Абонентской платы за программу, как у закрытых систем, здесь нет."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что лучше для старта — лазер или фрезер?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Зависит от продукта. Если вы планируете резать и гравировать тонкие материалы (фанера, акрил, кожа, картон) и делать вывески, сувенирку, мерч — обычно начинают с лазера. Если нужно обрабатывать дерево и пластик на глубину, делать детали и мебельные элементы — берут фрезер. Универсального ответа нет, выбираем под задачу."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужны ли навыки программиста, чтобы работать со станком?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет. Прошивку и софт настраивают один раз при запуске, а дальше оператор работает в понятных программах: рисует контур, задаёт параметры, отправляет задание на станок. Это ремесленный навык, который осваивается практикой, а не программирование. Сложную первичную настройку можно отдать специалисту."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что такое GRBL и зачем она нужна?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "GRBL — это популярная открытая прошивка, которая управляет движением станка по командам. Она бесплатна, надёжна и поддерживается огромным числом недорогих фрезеров и лазерных гравёров. Скачать и почитать о ней можно на странице проекта на GitHub. Благодаря таким открытым прошивкам станок не привязан к одному производителю."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Насколько это опасно?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "При несоблюдении правил — серьёзно: травмы от фрезы, повреждение глаз лазером, пожар, вредные испарения. При правильной организации (защита, вытяжка, обучение, пожарная безопасность, присмотр за работающим станком) риски снижаются до приемлемых. Безопасность — это не формальность, а условие работы, и я об этом говорю прямо."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужна ли сертификация на то, что я делаю?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Зависит от вида продукции. Для части товаров (детские, контактирующие с пищей и другие регулируемые категории) может требоваться сертификация или декларирование. Я не дам гарантий «всё можно продавать без бумаг» — наоборот, советую заранее уточнить требования по вашей категории, чтобы не получить проблем при продаже."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько времени занимает запуск производства?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Сам станок можно собрать и настроить за несколько дней. Дольше идёт освоение процесса оператором и доводка качества на ваших материалах. Реальный выход на стабильное производство — это вопрос не недель установки, а практики и накопленного опыта работы с конкретными изделиями."
+      }
+    }
+  ]
+}
+    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+var inject=function(){for (var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)};
+var run=function(){('requestIdleCallback' in window)?requestIdleCallback(inject,{timeout:5000}):setTimeout(inject,3000)};
+(e.readyState==='complete')?run():m.addEventListener('load',run);})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109281884" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+            <li><a href="/#services" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li class="nav-dropdown">
+                <a href="/#projects" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--arey"><i class="ph-fill ph-vinyl-record" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-airplane-tilt" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#cases" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            </div>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/#about">Обо мне</a></li>
+        <li><a href="/#services">Услуги</a></li>
+        <li><a href="/services/">Каталог услуг</a></li>
+        <li><a href="/predlozheniya/">Предложения</a></li>
+        <li><a href="/#cases">Кейсы</a></li>
+        <li><a href="/blog/">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+        <li><a href="/#contact">Контакт</a></li>
+    </ul>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">ЧПУ и лазерная резка на открытом железе: как малому производству начать</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/opensource/"><i class="ph ph-bookmark" aria-hidden="true"></i> Open-source и свой сервер</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин чтения</span>
+                        <time datetime="2026-06-23"><i class="ph ph-calendar" aria-hidden="true"></i> 23 июня 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">ЧПУ и лазерная резка на открытом железе: как малому производству начать</h1>
+
+                    <p class="blog-lead">ЧПУ-станки и лазерные резаки с открытой прошивкой — доступный вход в малое производство: детали, гравировка, вывески, мерч. Разбираю применение, открытые решения, внедрение и безопасность. Со ссылкой на GRBL.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>ЧПУ</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>лазерная резка</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>GRBL</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>производство</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
+<li>ЧПУ-станки (фрезеры, гравёры, лазерные резаки) с открытой прошивкой и софтом — доступный способ для малого производства начать делать детали, вывески и мелкосерийку без дорогих промышленных комплексов.</li>
+<li>Открытые решения вроде прошивки GRBL, открытых контроллеров и бесплатного софта для подготовки заданий снимают зависимость от закрытых вендоров и платных лицензий.</li>
+<li>Такой станок применяют для изготовления деталей и оснастки, гравировки и резки по дереву, акрилу и металлу, вывесок, сувенирки, мерча, прототипов и мелких серий.</li>
+<li>Главные нюансы — безопасность: лазер и фрезер травмоопасны и пожароопасны, нужны защита, вытяжка, обучение оператора и калибровка; при продаже продукции учитывайте сертификацию.</li>
+<li>Я помогаю подобрать тип станка под материал и задачу, разобраться с контроллером и софтом и организовать рабочее место без лишних трат.</li>
+</ul></div>
+
+<p>Малое производство часто упирается в один и тот же барьер: чтобы делать детали, вывески или сувенирку своими силами, кажется, что нужен дорогой промышленный станок и команда инженеров. На деле порог входа давно ниже. ЧПУ-станки с открытой прошивкой и бесплатным софтом позволяют небольшой мастерской начать выпускать продукцию на понятном и недорогом железе. Ниже разберу простыми словами, что такое ЧПУ и лазерная резка на open source, для чего это бизнесу, какие открытые решения существуют, как всё это внедрить и о какой безопасности нельзя забывать.</p>
+
+<h2 id="chto-eto">Что такое ЧПУ и лазерная резка на open source</h2>
+<p>ЧПУ расшифровывается как «числовое программное управление». Если объяснять простыми словами, это станок, которым управляет не рука человека, а программа: вы задаёте на компьютере, что и где вырезать, выфрезеровать или выгравировать, а станок точно повторяет это по координатам. К ЧПУ-станкам относятся фрезеры (снимают материал вращающейся фрезой), гравёры и лазерные резаки (режут и гравируют сфокусированным лучом лазера).</p>
+<p>Слово «open source» (открытый исходный код) здесь означает, что управляющая станком программа — прошивка контроллера — и софт для подготовки заданий распространяются открыто и бесплатно. Вы не привязаны к одному производителю, не платите за лицензии и при желании можете заглянуть «под капот» или попросить специалиста доработать настройки под вашу задачу. Самый известный пример такой прошивки — <a href="https://github.com/gnea/grbl" target="_blank" rel="noopener">GRBL на GitHub</a>: это популярная открытая прошивка управления ЧПУ-станками, на которой работает огромное число недорогих фрезеров и лазерных гравёров.</p>
+<p>Что такая связка заменяет. По задачам она закрывает то, ради чего раньше шли к дорогим промышленным комплексам с закрытым софтом и платными лицензиями: точное изготовление деталей и резку по контуру. Разница в том, что закрытое решение часто стоит как небольшой автомобиль и привязывает вас к одному вендору, а станок на открытой прошивке доступен малому бизнесу по цене и не требует абонентской платы за софт. Вы платите за само железо и за настройку, а не за подписку на программу.</p>
+
+<h2 id="primenenie">Для чего это бизнесу</h2>
+<p>ЧПУ-станок — это не игрушка, а рабочий инструмент, который окупается на конкретных задачах. Вот типичные сценарии для малого производства:</p>
+<ul>
+<li><strong>Изготовление деталей и оснастки.</strong> Можно делать детали для собственного производства, ремонтные запчасти, шаблоны, кондукторы и приспособления — то, что иначе пришлось бы заказывать на стороне с ожиданием и наценкой.</li>
+<li><strong>Гравировка и резка по дереву, акрилу и металлу.</strong> Лазер аккуратно режет фанеру, акрил, картон, кожу и наносит гравировку, в том числе по металлу (в зависимости от типа и мощности станка). Фрезер обрабатывает дерево, пластик, композиты, мягкие металлы.</li>
+<li><strong>Вывески и сувенирка.</strong> Объёмные буквы, таблички, указатели, элементы декора, корпоративные сувениры — востребованный и понятный по спросу продукт.</li>
+<li><strong>Мелкосерийное производство.</strong> Небольшие партии однотипных изделий, где промышленный станок избыточен, а ручная работа слишком долгая.</li>
+<li><strong>Прототипы.</strong> Быстро сделать образец изделия или детали, проверить идею «в железе» до запуска серии.</li>
+<li><strong>Мерч и подарочная продукция.</strong> Брелоки, бирки, упаковка, именные изделия, мерч под мероприятия и бренды — то, что хорошо продаётся малыми тиражами.</li>
+</ul>
+<p>На практике это выглядит как конкретные мастерские. Небольшая столярная мастерская ставит фрезер на открытой прошивке и начинает делать фасады, декоративные панели и мебельные детали по своим эскизам, не отдавая работу на сторону. Рекламное агентство покупает лазерный станок и закрывает заказы на вывески, таблички и сувенирку внутри, повышая маржу. Частный мастер запускает производство мерча и именных изделий из фанеры и акрила, начав буквально с одного настольного станка. Ценность не в «модном станке» как таковом, а в том, что производство переходит к вам внутрь: быстрее сроки, ниже себестоимость, больше контроля над качеством.</p>
+
+<h2 id="resheniya">Открытые решения</h2>
+<p>Экосистема открытых решений для ЧПУ сложилась давно и проверена тысячами мастерских по всему миру. Если разложить по полкам, она состоит из трёх частей: прошивка, контроллер и софт для подготовки заданий.</p>
+<p><strong>Открытые прошивки.</strong> Прошивка — это программа, которая живёт внутри контроллера станка и превращает команды в движение моторов. Самая известная открытая прошивка — GRBL: она компактная, надёжная и поддерживает огромное количество недорогих фрезеров и лазерных гравёров. Скачать её и почитать документацию можно на странице <a href="https://github.com/gnea/grbl" target="_blank" rel="noopener">GRBL на GitHub</a>. Есть и другие открытые прошивки того же семейства, рассчитанные на более сложные станки и большее число осей, — выбор зависит от вашей задачи и железа. Для лазерной резки и гравировки существуют свои открытые наработки и режимы, в том числе на базе той же GRBL.</p>
+<p><strong>Открытые контроллеры.</strong> Контроллер — это «мозг» станка, плата, на которую заливается прошивка. Многие недорогие контроллеры построены на открытых платформах, их легко купить, заменить и обслуживать. Это снижает зависимость от одного поставщика: если плата вышла из строя, вы не привязаны к конкретному вендору и его ценам.</p>
+<p><strong>Открытый софт для подготовки заданий.</strong> Прежде чем станок что-то вырежет, задание нужно подготовить: нарисовать контур, задать траектории и параметры, превратить всё это в управляющий файл (так называемый G-код — язык команд для станка). Для этого есть бесплатные и открытые программы — как для проектирования и подготовки траекторий, так и для отправки задания на станок и управления процессом. Для лазерной резки и гравировки существует отдельный удобный софт, в том числе бесплатные варианты. Конкретный набор программ подбирается под тип станка и материалы.</p>
+<p>Главное преимущество открытого стека в том, что все его части совместимы между собой и заменяемы. Вы не оказываетесь в ситуации, когда поломка одной детали или прекращение поддержки софта останавливает производство. И почти всё это либо бесплатно, либо стоит символических денег по сравнению с закрытыми промышленными системами.</p>
+
+<h2 id="kak-vnedrit">Как внедрить</h2>
+<p>Запуск ЧПУ-производства — это проект, а не покупка коробки. Чтобы не потратить деньги впустую, удобнее идти по понятным шагам. Обычно маршрут такой:</p>
+<ul>
+<li><strong>Выбрать тип станка под материал и задачу.</strong> Сначала определяемся, что и из чего вы будете делать. Лазер хорош для резки и гравировки тонких материалов — фанеры, акрила, кожи, картона, для гравировки по металлу. Фрезер нужен там, где требуется снимать материал на глубину: дерево, пластик, композиты, мягкие металлы. От этого зависит и размер рабочего поля, и мощность. Покупать «самый мощный на всякий случай» обычно не нужно — берём под реальную задачу.</li>
+<li><strong>Подобрать контроллер и софт.</strong> Под выбранный станок подбираем контроллер на открытой платформе и прошивку (например, GRBL), а также набор программ для проектирования, подготовки траекторий и управления станком. Здесь важно, чтобы все части были совместимы и проверены, а не собраны наугад.</li>
+<li><strong>Освоить процесс или нанять оператора.</strong> Станок сам по себе ничего не делает — нужен человек, который умеет готовить задания, выставлять параметры под материал и следить за процессом. Можно обучить своего сотрудника или нанять оператора с опытом. Базовые навыки осваиваются за несколько дней практики, мастерство приходит с количеством работ.</li>
+<li><strong>Организовать рабочее место.</strong> Станку нужно подходящее помещение: ровная поверхность, электропитание, вытяжка для отвода дыма и пыли, место для материалов и готовых изделий. Для лазера и фрезера вытяжка и уборка стружки — не опция, а обязательное условие безопасной и стабильной работы.</li>
+</ul>
+<p>Я 16+ лет в IT и помогаю малому бизнесу внедрять доступные открытые инструменты под реальные задачи, без переплат за бренд. Если хотите запустить ЧПУ- или лазерное производство, помогу подобрать связку станок–контроллер–софт под ваш материал и задачу и разобраться с настройкой. Подробнее о форматах работы — на странице <a href="https://chimitdorzhi.tech/predlozheniya/">мои предложения и услуги</a>.</p>
+
+<h2 id="bezopasnost">Безопасность и нюансы</h2>
+<p>Об этом нужно говорить честно и в первую очередь: ЧПУ-станки, и особенно лазер и фрезер, — травмоопасное и пожароопасное оборудование. Это не повод отказываться, но повод относиться к технике безопасности серьёзно.</p>
+<p><strong>Защита оператора.</strong> Фреза вращается на высоких оборотах и может травмировать; лазерный луч опасен для глаз и кожи. Нужны защитные очки правильного типа под конкретный лазер, ограждения, аккуратная работа без посторонних предметов и одежды, которая может попасть в станок. Оператор должен понимать, что делает, а не нажимать кнопки наугад.</p>
+<p><strong>Вытяжка и воздух.</strong> При резке и гравировке выделяются дым, пыль и вредные испарения — особенно при работе с пластиками и акрилом. Без хорошей вытяжки это вредно для здоровья и для самого станка. Вентиляция и фильтрация — обязательная часть рабочего места.</p>
+<p><strong>Пожарная безопасность.</strong> Лазер режет за счёт нагрева, а многие материалы горючи. Нельзя оставлять работающий станок без присмотра, рядом должны быть средства пожаротушения, а помещение — соответствовать требованиям. Это особенно важно при работе с деревом, фанерой и бумагой.</p>
+<p><strong>Обучение.</strong> Большинство инцидентов случается из-за неопытности. Прежде чем запускать производство, оператор должен пройти обучение: как безопасно работать со станком, как вести себя при сбоях, как обслуживать оборудование. Это снижает и риск травм, и риск порчи дорогого материала.</p>
+<p><strong>Качество и калибровка.</strong> Точность станка не вечна: ремни растягиваются, узлы изнашиваются, настройки сбиваются. Чтобы изделия выходили ровными и в размер, станок нужно периодически калибровать и обслуживать. Без этого со временем растёт брак.</p>
+<p><strong>Сертификация продукции при продаже.</strong> Если вы делаете изделия на продажу, особенно детские товары, посуду, элементы, контактирующие с пищей, или продукцию, к которой по закону есть требования, может потребоваться сертификация или декларирование соответствия. Это зависит от вида продукции, и я честно скажу: тут лучше заранее уточнить требования по вашей категории товаров, а не разбираться постфактум. Само по себе наличие станка не снимает с вас обязательств производителя.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+<p><strong>Это правда доступно малому бизнесу по деньгам?</strong> Да. Настольные и компактные ЧПУ-станки на открытой прошивке стоят несопоставимо дешевле промышленных комплексов, а софт и прошивка вроде GRBL — бесплатные и открытые. Основные траты — это сам станок, организация рабочего места с вытяжкой и обучение оператора. Абонентской платы за программу, как у закрытых систем, здесь нет.</p>
+<p><strong>Что лучше для старта — лазер или фрезер?</strong> Зависит от продукта. Если вы планируете резать и гравировать тонкие материалы (фанера, акрил, кожа, картон) и делать вывески, сувенирку, мерч — обычно начинают с лазера. Если нужно обрабатывать дерево и пластик на глубину, делать детали и мебельные элементы — берут фрезер. Универсального ответа нет, выбираем под задачу.</p>
+<p><strong>Нужны ли навыки программиста, чтобы работать со станком?</strong> Нет. Прошивку и софт настраивают один раз при запуске, а дальше оператор работает в понятных программах: рисует контур, задаёт параметры, отправляет задание на станок. Это ремесленный навык, который осваивается практикой, а не программирование. Сложную первичную настройку можно отдать специалисту.</p>
+<p><strong>Что такое GRBL и зачем она нужна?</strong> GRBL — это популярная открытая прошивка, которая управляет движением станка по командам. Она бесплатна, надёжна и поддерживается огромным числом недорогих фрезеров и лазерных гравёров. Скачать и почитать о ней можно на странице проекта на GitHub. Благодаря таким открытым прошивкам станок не привязан к одному производителю.</p>
+<p><strong>Насколько это опасно?</strong> При несоблюдении правил — серьёзно: травмы от фрезы, повреждение глаз лазером, пожар, вредные испарения. При правильной организации (защита, вытяжка, обучение, пожарная безопасность, присмотр за работающим станком) риски снижаются до приемлемых. Безопасность — это не формальность, а условие работы, и я об этом говорю прямо.</p>
+<p><strong>Нужна ли сертификация на то, что я делаю?</strong> Зависит от вида продукции. Для части товаров (детские, контактирующие с пищей и другие регулируемые категории) может требоваться сертификация или декларирование. Я не дам гарантий «всё можно продавать без бумаг» — наоборот, советую заранее уточнить требования по вашей категории, чтобы не получить проблем при продаже.</p>
+<p><strong>Сколько времени занимает запуск производства?</strong> Сам станок можно собрать и настроить за несколько дней. Дольше идёт освоение процесса оператором и доводка качества на ваших материалах. Реальный выход на стабильное производство — это вопрос не недель установки, а практики и накопленного опыта работы с конкретными изделиями.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+<p>ЧПУ и лазерная резка на открытом железе — это реальный и недорогой способ для малого производства начать делать продукцию своими силами: детали и оснастку, вывески и сувенирку, мерч, прототипы и мелкие серии. Открытые решения вроде прошивки GRBL, открытых контроллеров и бесплатного софта снимают зависимость от дорогих закрытых систем и платных лицензий, а порог входа оказывается ниже, чем кажется. Взамен нужны осознанный выбор станка под материал и задачу, грамотная настройка связки контроллер–софт, обученный оператор и серьёзное отношение к безопасности: защита, вытяжка, пожарные правила и калибровка. Отдельно стоит заранее разобраться с сертификацией продукции, если вы продаёте изделия. Без громких обещаний: это рабочий инструмент, который окупается, если подойти к нему с умом. Если идея собственного ЧПУ-производства вам близка, я помогу пройти путь от выбора станка до рабочего процесса.</p>
+
+                    </div>
+
+                    <div class="blog-callout"><i class="ph-fill ph-git-branch" aria-hidden="true"></i><div><strong>Где взять</strong> — Официальный репозиторий на GitHub: <a href="https://github.com/gnea/grbl" target="_blank" rel="noopener">github.com/gnea/grbl</a>. Развернуть и настроить под ключ помогу — <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener">напишите в Telegram</a>.</div></div>
+                    
+                    <div class="blog-cta-card">
+                        <div class="blog-cta-card-body">
+                            <h3>Ещё open-source для бизнеса</h3>
+                            <p>Эта статья — часть каталога бесплатных решений, которые я разворачиваю на вашем сервере под ключ: CRM, аналитика, документы, почта, безопасность, магазины, AI.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="/blog/katalog-open-source-resheniy-dlya-biznesa-2026/" class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Каталог open-source решений</a>
+                        </div>
+                    </div>
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Что я делаю с open-source и железом</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-cpu"></i> <span>IoT-датчики и мониторинг</span></li>
+    
+    <li><i class="ph-fill ph-hard-drives"></i> <span>Мини-серверы и self-hosted</span></li>
+    
+    <li><i class="ph-fill ph-flow-arrow"></i> <span>Автоматизация процессов</span></li>
+    
+    <li><i class="ph-fill ph-shield-check"></i> <span>Безопасность и 152-ФЗ</span></li>
+    
+    <li><i class="ph-fill ph-lifebuoy"></i> <span>Внедрение и поддержка</span></li>
+    
+  </ul>
+  <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
+  </a>
+</div>
+                    
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/predlozheniya/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Обсудить задачу</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/3d-pechat-dlya-biznesa-prusa-2026/" data-category="opensource" data-clicks="0">
+  <span class="blog-card-fresh">Свежее</span>
+  <div class="blog-card-icon"><i class="ph-fill ph-cube"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>3D-печать для бизнеса на Prusa: прототипы, запчасти и мелкосерийка</h3>
+  <p>3D-печать даёт бизнесу быстрые прототипы, запчасти под заказ и мелкосерийку. Разбираю, для каких задач подходит, как внедрить на открытых решениях Prusa и когда выгоднее своё, а когда печать на заказ.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 23 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/open-hardware-otkrytoe-zhelezo-2026/" data-category="opensource" data-clicks="0">
+  <span class="blog-card-fresh">Свежее</span>
+  <div class="blog-card-icon"><i class="ph-fill ph-circuitry"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>Открытое железо (open hardware): что это и зачем бизнесу</h3>
+  <p>Открытое железо — это устройства с открытыми схемами и прошивками, которые можно повторять и дорабатывать, как open-source софт. Разбираю, что это, известные проекты и зачем бизнесу. Со ссылкой на подборку.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 23 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/iot-na-otkrytom-zheleze-dlya-biznesa-2026/" data-category="opensource" data-clicks="0">
+  <span class="blog-card-fresh">Свежее</span>
+  <div class="blog-card-icon"><i class="ph-fill ph-thermometer"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>IoT на открытом железе для бизнеса: датчики, мониторинг и автоматизация</h3>
+  <p>Недорогие датчики на Arduino и ESP32 с открытой прошивкой следят за температурой, оборудованием и ресурсами и шлют уведомления. Разбираю сценарии для бизнеса, как внедрить и как с безопасностью данных.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 23 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    
+                    
+                    
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовые решения под ключ</span>
+                            <span class="blog-offer-cta-title">449 готовых IT-решений для бизнеса</span>
+                            <span class="blog-offer-cta-price">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Смотреть каталог</span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#chto-eto"><span class="blog-toc-num">01</span> Что это такое</a></li>
+<li><a href="#primenenie"><span class="blog-toc-num">02</span> Для чего это бизнесу</a></li>
+<li><a href="#resheniya"><span class="blog-toc-num">03</span> Открытые решения</a></li>
+<li><a href="#kak-vnedrit"><span class="blog-toc-num">04</span> Как внедрить</a></li>
+<li><a href="#bezopasnost"><span class="blog-toc-num">05</span> Безопасность и нюансы</a></li>
+<li><a href="#faq"><span class="blog-toc-num">06</span> FAQ</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">07</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=23" defer></script>
+<script src="/services-i18n.js?v=23" defer></script>
+<script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>
