@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Железо для локального ИИ: GPU, RAM, VRAM</title>
+    <meta name="description" content="Сколько железа нужно для локального ИИ: разбор по VRAM, RAM и квантизации. Сколько памяти требуют модели на 7B, 13B, 30B, 70B параметров, видеокарта или…">
+    <meta name="keywords" content="локальный ИИ, железо, GPU, VRAM">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/skolko-zheleza-nuzhno-lokalnomu-ii-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/skolko-zheleza-nuzhno-lokalnomu-ii-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/skolko-zheleza-nuzhno-lokalnomu-ii-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/skolko-zheleza-nuzhno-lokalnomu-ii-2026/">
+    <meta property="og:title" content="Железо для локального ИИ: GPU, RAM, VRAM">
+    <meta property="og:description" content="Сколько железа нужно для локального ИИ: разбор по VRAM, RAM и квантизации. Сколько памяти требуют модели на 7B, 13B, 30B, 70B параметров, видеокарта или…">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/skolko-zheleza-nuzhno-lokalnomu-ii-2026/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Железо для локального ИИ: GPU, RAM, VRAM">
+    <meta name="twitter:description" content="Сколько железа нужно для локального ИИ: разбор по VRAM, RAM и квантизации. Сколько памяти требуют модели на 7B, 13B, 30B, 70B параметров, видеокарта или…">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/skolko-zheleza-nuzhno-lokalnomu-ii-2026/cover.png">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor-Fill.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=45">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Сколько железа нужно локальному ИИ: GPU, RAM, VRAM по моделям",
+  "description": "Сколько железа нужно для локального ИИ: разбор по VRAM, RAM и квантизации. Сколько памяти требуют модели на 7B, 13B, 30B, 70B параметров, видеокарта или процессор, и как выбрать конфигурацию под задачу без переплаты. Практические ориентиры с честными оговорками.",
+  "image": "https://chimitdorzhi.tech/blog/skolko-zheleza-nuzhno-lokalnomu-ii-2026/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/skolko-zheleza-nuzhno-lokalnomu-ii-2026/"
+  },
+  "datePublished": "2026-06-25",
+  "dateModified": "2026-06-25",
+  "keywords": "локальный ИИ, железо, GPU, VRAM",
+  "articleSection": "AI для разработчиков",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Сколько железа нужно локальному ИИ: GPU, RAM, VRAM по моделям",
+      "item": "https://chimitdorzhi.tech/blog/skolko-zheleza-nuzhno-lokalnomu-ii-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Хватит ли обычного ноутбука для локального ИИ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Для небольших моделей (около 7–8 миллиардов параметров) в сжатом виде — обычно да, особенно если в ноутбуке 16 ГБ оперативной памяти и есть видеокарта. Ответы будут не мгновенными, но рабочими. Для крупных моделей ноутбука уже не хватит — нужна видеокарта с большим объёмом VRAM или сервер."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что важнее — видеокарта или оперативная память?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Видеокарта (точнее, объём её видеопамяти) даёт скорость, потому что считает модель в разы быстрее процессора. Оперативная память позволяет запускать модели на процессоре, когда видеопамяти не хватает, но медленнее. Идеально, когда модель целиком помещается в VRAM; если нет — выручает сочетание VRAM и RAM."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько VRAM нужно конкретно?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Грубый ориентир: примерно столько, сколько весит файл модели в выбранной квантизации, плюс запас на контекст. Для небольших моделей хватает 8 ГБ, для средних комфортнее 12–16 ГБ, для крупных — 24 ГБ и больше. Точную цифру даю после того, как определимся с моделью и задачей."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли обойтись без покупки железа?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да — можно арендовать сервер с видеокартой у хостера и платить помесячно. На старте это часто разумнее, чем сразу покупать дорогую видеокарту: вы проверяете идею с меньшим риском, а железо берёте, когда уже понятна реальная нагрузка."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Большая модель всегда лучше маленькой?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет. Крупная модель в среднем «умнее», но если она еле влезает в память и тормозит, работать с ней некомфортно. Часто модель поменьше, которая целиком помещается в видеопамять и отвечает быстро, на практике полезнее. Размер выбирают под задачу, а не ради цифры."
+      }
+    }
+  ]
+}
+    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+var inject=function(){for (var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)};
+var run=function(){('requestIdleCallback' in window)?requestIdleCallback(inject,{timeout:5000}):setTimeout(inject,3000)};
+(e.readyState==='complete')?run():m.addEventListener('load',run);})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109281884" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+            <li><a href="/#services" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li class="nav-dropdown">
+                <a href="/#projects" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--arey"><i class="ph-fill ph-vinyl-record" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-airplane-tilt" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#cases" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            </div>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/#about">Обо мне</a></li>
+        <li><a href="/#services">Услуги</a></li>
+        <li><a href="/services/">Каталог услуг</a></li>
+        <li><a href="/predlozheniya/">Предложения</a></li>
+        <li><a href="/#cases">Кейсы</a></li>
+        <li><a href="/blog/">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+        <li><a href="/#contact">Контакт</a></li>
+    </ul>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Сколько железа нужно локальному ИИ: GPU, RAM, VRAM по моделям</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/ai-dev/"><i class="ph ph-bookmark" aria-hidden="true"></i> AI для разработчиков</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 10 мин чтения</span>
+                        <time datetime="2026-06-25"><i class="ph ph-calendar" aria-hidden="true"></i> 25 июня 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Сколько железа нужно локальному ИИ: GPU, RAM, VRAM по моделям</h1>
+
+                    <p class="blog-lead">Главный ограничитель локального ИИ — не скорость, а память: оперативная и видеопамять. Разбираю, сколько нужно под модели 7B/13B/70B, что важнее — GPU или RAM, и как выбрать железо под задачу без переплаты.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>локальный ИИ</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>железо</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>GPU</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>VRAM</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
+<li>Главный ограничитель для локального ИИ — не скорость процессора, а объём памяти: оперативной (RAM) и видеопамяти (VRAM). Модель должна целиком в неё поместиться.</li>
+<li>Грубый ориентир: сколько гигабайт весит файл модели в выбранной квантизации — столько примерно памяти и нужно, плюс запас на контекст. Видеопамять ускоряет всё в разы.</li>
+<li>На ноутбуке с 16 ГБ комфортно идут небольшие модели (примерно 7–8 млрд параметров) в сжатом виде; для крупных моделей нужна видеокарта с большим объёмом VRAM или сервер.</li>
+<li>Часто умнее взять модель поменьше, которая целиком влезает в видеопамять и работает быстро, чем огромную, которая еле помещается и тормозит.</li>
+<li>Я подбираю железо и модель под конкретную задачу и бюджет, чтобы вы не переплатили за «всё самое мощное» и не уткнулись в нехватку памяти.</li>
+</ul></div>
+
+<p>«Хочу свой ИИ на своём железе — что для этого нужно купить?» Это первый вопрос, который задают перед локальным запуском нейросети. И ответ почти всегда упирается не в процессор, а в память: оперативную и видеопамять видеокарты. Если модель в память не помещается — она либо не запустится, либо будет работать мучительно медленно. Ниже разберу простыми словами, от чего зависят требования, сколько памяти нужно под популярные размеры моделей и как выбрать железо под задачу, не переплачивая за лишнюю мощность. Без «магических» цифр-гарантий — с честными ориентирами и оговорками.</p>
+
+<h2 id="chto-vliyaet">От чего зависят требования</h2>
+<p>Чтобы понимать, что покупать, важно разобраться, что вообще нагружает железо при работе локальной модели. Ключевых факторов три, и почти все они про память, а не про «скорость камня».</p>
+<ul>
+<li><strong>Размер модели.</strong> Модели измеряют в миллиардах параметров: 7B, 8B, 13B, 70B (B — billion, миллиард). Чем больше параметров, тем «умнее» модель в среднем, но тем больше памяти ей нужно. Это главный фактор.</li>
+<li><strong>Квантизация.</strong> Это «сжатие» модели: числа внутри хранят с меньшей точностью, чтобы файл занимал меньше места. Сильнее сжали — меньше памяти и выше скорость, но немного ниже качество. Именно квантизация позволяет большим моделям влезать в скромное железо.</li>
+<li><strong>Размер контекста.</strong> Контекст — это сколько текста модель держит «в уме» за раз (запрос, ответ, история). Чем он больше, тем больше дополнительной памяти нужно сверх самой модели. Длинный контекст «про запас» легко съедает гигабайты.</li>
+</ul>
+<p>Скорость процессора и видеокарты влияет на то, как быстро идут ответы, но первично — поместится ли модель в память вообще. Поэтому планирование железа начинается с вопроса «сколько памяти», а уже потом — «насколько быстро».</p>
+
+<h2 id="vram-ram">VRAM, RAM и квантизация</h2>
+<p>Разберём два вида памяти, потому что путаница тут — главная причина неудачных покупок.</p>
+<p><strong>VRAM (видеопамять).</strong> Это память видеокарты. Когда модель целиком помещается в VRAM, видеокарта считает её сама — и это в разы быстрее процессора. Поэтому объём видеопамяти — самый ценный ресурс для локального ИИ. Видеокарта на 8 ГБ, 12 ГБ, 16 ГБ, 24 ГБ — это разные «весовые категории» по тому, какая модель в неё влезет.</p>
+<p><strong>RAM (оперативная память).</strong> Это обычная память компьютера. На ней модель тоже может работать — через процессор — но заметно медленнее. Если видеопамяти не хватает, llama.cpp и подобные движки умеют часть модели держать в VRAM, а часть — в RAM на процессоре. Это спасает, когда видеокарта маленькая, но снижает скорость.</p>
+<p><strong>Простое правило прикидки.</strong> Грубый ориентир: посмотрите, сколько весит файл модели в выбранной квантизации (например, 5 ГБ или 40 ГБ), — примерно столько памяти и понадобится, плюс небольшой запас на контекст и служебные нужды. Если этот объём влезает в VRAM — будет быстро. Если только в RAM — будет работать, но медленнее. Если не влезает никуда — модель надо брать меньше или сильнее сжать.</p>
+
+<h2 id="po-modelyam">Сколько нужно по моделям</h2>
+<p>Дам практические ориентиры по популярным размерам моделей. Важная оговорка: это именно ориентиры «комфортного» запуска в разумной квантизации, а не точные требования — они зависят от конкретной модели, квантизации и размера контекста. Цифры могут отличаться, поэтому финально всегда проверяю на реальной конфигурации.</p>
+<ul>
+<li><strong>Небольшие модели (около 7–8 млрд параметров).</strong> В сжатом виде такая модель занимает примерно несколько гигабайт. Комфортно идёт на ноутбуке с 16 ГБ оперативной памяти, а с видеокартой на 8 ГБ VRAM — уже бодро. Это рабочая «рабочая лошадка» для диалога, помощи с текстами и несложных задач.</li>
+<li><strong>Средние модели (примерно 13–14 млрд параметров).</strong> Заметно требовательнее. Хочется видеокарту с 12–16 ГБ VRAM, чтобы работала быстро; на одной оперативке пойдёт, но медленнее. Дают более качественные ответы на сложных запросах.</li>
+<li><strong>Крупные модели (примерно 30 млрд параметров и выше).</strong> Здесь уже нужна видеокарта с большим объёмом VRAM (24 ГБ и больше) или сервер, а иногда и несколько видеокарт. Для домашнего ноутбука это обычно перебор.</li>
+<li><strong>Очень большие модели (порядка 70 млрд параметров).</strong> Это уже серверная история: либо мощные видеокарты с десятками гигабайт VRAM, либо запуск с сильным сжатием и частичной выгрузкой в RAM ценой скорости. Для большинства бизнес-задач столько обычно и не требуется.</li>
+</ul>
+<p>Вывод из этих ориентиров простой: для старта и многих рабочих сценариев небольшой модели на скромном железе достаточно, а гнаться за «семидесятками» имеет смысл только под конкретную задачу, где они реально лучше.</p>
+
+<h2 id="gpu-cpu">Видеокарта или процессор</h2>
+<p>Частый вопрос: обязательно ли покупать видеокарту? Нет, но она кардинально меняет ощущения от работы.</p>
+<ul>
+<li><strong>Без видеокарты (только процессор и RAM).</strong> Работать будет, особенно с небольшими моделями и сильной квантизацией. Подходит, чтобы попробовать, для нечастых запросов и для фоновых задач, где скорость ответа некритична. Минус — заметные задержки на каждый ответ.</li>
+<li><strong>С видеокартой (VRAM).</strong> Главный ускоритель. Если модель целиком влезает в видеопамять, ответы идут в разы быстрее и работать комфортно, как с облачным сервисом. Объём VRAM при этом важнее, чем «топовость» карты: лучше больше памяти, чем чуть быстрее, но мало.</li>
+<li><strong>Гибрид.</strong> Современные движки умеют делить модель между видеокартой и процессором. Это разумный компромисс, когда видеокарта есть, но её памяти не хватает на всю модель: часть слоёв ускоряется на GPU, остальное — на CPU.</li>
+</ul>
+<p>Отдельно про технику настройки выгрузки слоёв на видеокарту, размер контекста и потоки я подробно пишу в статье про llama.cpp — это второй рычаг после выбора самого железа. Железо и настройки работают в паре: можно недокупить и грамотно настроить, а можно переплатить и не использовать половину.</p>
+
+<h2 id="kak-vybrat">Как выбрать железо под задачу</h2>
+<p>Главная ошибка — покупать «самое мощное на всякий случай». Правильнее идти от задачи. Я обычно рассуждаю так:</p>
+<ul>
+<li><strong>Сначала — задача, потом железо.</strong> Диалоговый помощник, работа с документами, генерация кода, обработка больших объёмов — у всего разные требования. От задачи зависит, какая модель нужна, а уже от модели — сколько памяти.</li>
+<li><strong>Выбираем минимально достаточную модель.</strong> Часто небольшая модель отлично решает задачу. Нет смысла платить за железо под «семидесятку», если для вашего сценария хватает модели на 7–8 миллиардов параметров.</li>
+<li><strong>Память важнее скорости.</strong> При выборе видеокарты ориентируйтесь в первую очередь на объём VRAM — он определяет, какая модель влезет. Карта поскромнее, но с большим объёмом памяти часто полезнее «быстрой, но маленькой».</li>
+<li><strong>Сервер или рабочее место.</strong> Если ИИ нужен одному человеку иногда — хватит мощного ноутбука или ПК. Если это сервис для команды под нагрузкой — это уже сервер с подходящей видеокартой, и считать нужно иначе.</li>
+<li><strong>Аренда против покупки.</strong> Иногда выгоднее арендовать сервер с видеокартой у хостера, чем покупать железо, — особенно на старте, пока проверяете идею. Это снижает риск переплаты.</li>
+</ul>
+<p>Я 16+ лет в IT и подбираю конфигурацию под конкретную задачу и бюджет: какая модель решит вопрос, сколько под неё нужно памяти, брать своё железо или арендовать сервер. Так вы не переплачиваете за лишнюю мощность и не упираетесь в нехватку памяти на второй день.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+<p><strong>Хватит ли обычного ноутбука для локального ИИ?</strong> Для небольших моделей (около 7–8 миллиардов параметров) в сжатом виде — обычно да, особенно если в ноутбуке 16 ГБ оперативной памяти и есть видеокарта. Ответы будут не мгновенными, но рабочими. Для крупных моделей ноутбука уже не хватит — нужна видеокарта с большим объёмом VRAM или сервер.</p>
+<p><strong>Что важнее — видеокарта или оперативная память?</strong> Видеокарта (точнее, объём её видеопамяти) даёт скорость, потому что считает модель в разы быстрее процессора. Оперативная память позволяет запускать модели на процессоре, когда видеопамяти не хватает, но медленнее. Идеально, когда модель целиком помещается в VRAM; если нет — выручает сочетание VRAM и RAM.</p>
+<p><strong>Сколько VRAM нужно конкретно?</strong> Грубый ориентир: примерно столько, сколько весит файл модели в выбранной квантизации, плюс запас на контекст. Для небольших моделей хватает 8 ГБ, для средних комфортнее 12–16 ГБ, для крупных — 24 ГБ и больше. Точную цифру даю после того, как определимся с моделью и задачей.</p>
+<p><strong>Можно ли обойтись без покупки железа?</strong> Да — можно арендовать сервер с видеокартой у хостера и платить помесячно. На старте это часто разумнее, чем сразу покупать дорогую видеокарту: вы проверяете идею с меньшим риском, а железо берёте, когда уже понятна реальная нагрузка.</p>
+<p><strong>Большая модель всегда лучше маленькой?</strong> Нет. Крупная модель в среднем «умнее», но если она еле влезает в память и тормозит, работать с ней некомфортно. Часто модель поменьше, которая целиком помещается в видеопамять и отвечает быстро, на практике полезнее. Размер выбирают под задачу, а не ради цифры.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+<p>Требования к железу для локального ИИ упираются прежде всего в память: модель должна поместиться в видеопамять (быстро) или хотя бы в оперативную (медленнее). Грубый ориентир — вес файла модели в выбранной квантизации плюс запас на контекст. Небольшие модели на 7–8 миллиардов параметров комфортно идут на ноутбуке с 16 ГБ памяти, средним нужна видеокарта на 12–16 ГБ VRAM, а крупные — это уже сервер. Главный совет — не покупать «самое мощное на всякий случай», а идти от задачи: выбрать минимально достаточную модель, смотреть в первую очередь на объём видеопамяти и рассмотреть аренду сервера вместо покупки. Если не хотите гадать с конфигурацией, я подберу железо и модель под вашу задачу и бюджет — без переплаты и без упора в нехватку памяти.</p>
+
+                    </div>
+
+                    
+                    
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Что я делаю с ИИ под ключ</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-robot"></i> <span>ИИ-ассистенты и агенты</span></li>
+    
+    <li><i class="ph-fill ph-cpu"></i> <span>Локальные модели без облака</span></li>
+    
+    <li><i class="ph-fill ph-stack"></i> <span>Подбор железа и стека</span></li>
+    
+    <li><i class="ph-fill ph-shield-check"></i> <span>Приватность и 152-ФЗ</span></li>
+    
+    <li><i class="ph-fill ph-lifebuoy"></i> <span>Поддержка и сопровождение</span></li>
+    
+  </ul>
+  <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
+  </a>
+</div>
+                    
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/services/ai-agents/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Внедрить ИИ под ключ</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/llama-cpp-zapusk-i-optimizaciya-2026/" data-category="opensource" data-clicks="0">
+  <span class="blog-card-fresh">Свежее</span>
+  <div class="blog-card-icon"><i class="ph-fill ph-cpu"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>llama.cpp: как запустить и ускорить локальный LLM</h3>
+  <p>llama.cpp — движок, на котором держатся Ollama и LM Studio. Разбираю простыми словами, как запустить локальный LLM и что реально ускоряет работу: выгрузка слоёв на видеокарту, контекст, потоки и квантизация. Со ссылкой на репозиторий.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 25 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 10 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/lokalnyy-llm-na-noutbuke-2026/" data-category="ai-dev" data-clicks="57">
+  <span class="blog-card-popular"><i class="ph-fill ph-fire" aria-hidden="true"></i> Популярное</span>
+  <div class="blog-card-icon"><i class="ph-fill ph-cpu"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>AI для разработчиков</span>
+  <h3>Локальный LLM на ноутбуке 2026: Ollama, LM Studio, vLLM — практическое руководство</h3>
+  <p>Как поднять локальный LLM за час: Ollama, LM Studio, vLLM. Какие модели выбрать в 2026, бенчмарки скорости на M3 Max / RTX 4090 / H100, локальный RAG за 40 строк, экономика владения.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 20 мая 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 22 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/rossiyskiy-ai-stack-2026/" data-category="ai-dev" data-clicks="3">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-brain"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>AI для разработчиков</span>
+  <h3>Российский AI-стек 2026: чем заменить OpenAI, Claude и Gemini</h3>
+  <p>Что есть в РФ вместо OpenAI и Claude: YandexGPT 5, GigaChat 3, T-Pro, Cotype, Kandinsky 4, open-source self-hosting. Цены, код подключения, кейсы.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 20 мая 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 21 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    
+                    
+                    
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовые решения под ключ</span>
+                            <span class="blog-offer-cta-title">449 готовых IT-решений для бизнеса</span>
+                            <span class="blog-offer-cta-price">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Смотреть каталог</span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#chto-vliyaet"><span class="blog-toc-num">01</span> От чего зависят требования</a></li>
+<li><a href="#vram-ram"><span class="blog-toc-num">02</span> VRAM, RAM и квантизация</a></li>
+<li><a href="#po-modelyam"><span class="blog-toc-num">03</span> Сколько нужно по моделям</a></li>
+<li><a href="#gpu-cpu"><span class="blog-toc-num">04</span> Видеокарта или процессор</a></li>
+<li><a href="#kak-vybrat"><span class="blog-toc-num">05</span> Как выбрать железо под задачу</a></li>
+<li><a href="#faq"><span class="blog-toc-num">06</span> FAQ</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">07</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=23" defer></script>
+<script src="/services-i18n.js?v=23" defer></script>
+<script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>
