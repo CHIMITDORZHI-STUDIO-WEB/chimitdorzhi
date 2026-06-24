@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Почему российский стек и self-hosted</title>
+    <meta name="description" content="Авторская позиция: почему по умолчанию я выбираю российский стек и self-hosted — 152-ФЗ и локализация данных, риск ухода вендора, контроль и нет платы за…">
+    <meta name="keywords" content="российский стек, self-hosted, 152-ФЗ, авторская колонка">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/pochemu-rossiyskiy-stek-i-self-hosted-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/pochemu-rossiyskiy-stek-i-self-hosted-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/pochemu-rossiyskiy-stek-i-self-hosted-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/pochemu-rossiyskiy-stek-i-self-hosted-2026/">
+    <meta property="og:title" content="Почему российский стек и self-hosted">
+    <meta property="og:description" content="Авторская позиция: почему по умолчанию я выбираю российский стек и self-hosted — 152-ФЗ и локализация данных, риск ухода вендора, контроль и нет платы за…">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/pochemu-rossiyskiy-stek-i-self-hosted-2026/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Почему российский стек и self-hosted">
+    <meta name="twitter:description" content="Авторская позиция: почему по умолчанию я выбираю российский стек и self-hosted — 152-ФЗ и локализация данных, риск ухода вендора, контроль и нет платы за…">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/pochemu-rossiyskiy-stek-i-self-hosted-2026/cover.png">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor-Fill.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=45">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Почему я ставлю на российский стек и self-hosted",
+  "description": "Авторская позиция: почему по умолчанию я выбираю российский стек и self-hosted — 152-ФЗ и локализация данных, риск ухода вендора, контроль и нет платы за пользователя. И честно о минусах своего сервера и когда облако всё же лучше.",
+  "image": "https://chimitdorzhi.tech/blog/pochemu-rossiyskiy-stek-i-self-hosted-2026/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/pochemu-rossiyskiy-stek-i-self-hosted-2026/"
+  },
+  "datePublished": "2026-06-23",
+  "dateModified": "2026-06-23",
+  "keywords": "российский стек, self-hosted, 152-ФЗ, авторская колонка",
+  "articleSection": "Экспертный блог",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  },
+  "about": [
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://chimitdorzhi.tech/slovar/#152-fz",
+      "name": "152-ФЗ"
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://chimitdorzhi.tech/slovar/#self-hosted",
+      "name": "Self-hosted"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Почему я ставлю на российский стек и self-hosted",
+      "item": "https://chimitdorzhi.tech/blog/pochemu-rossiyskiy-stek-i-self-hosted-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Российский стек — это всегда хуже по технологиям?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет. Во многом это те же open-source-инструменты, что используют во всём мире, просто размещённые на российской инфраструктуре. Разница не в качестве технологий, а в том, где лежат данные и от кого вы зависите. По части задач отечественные решения уже вполне зрелые, по части — есть нюансы, и я честно говорю, где они есть."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Self-hosted действительно дешевле облака?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Не всегда и не сразу. На старте и при маленькой команде облако часто дешевле. Self-hosted выигрывает на длинной дистанции и при росте числа пользователей, когда абонентская плата за каждого начинает суммироваться. Я считаю общую стоимость владения с учётом сервера, настройки и сопровождения, чтобы сравнение было честным, а не на эмоциях."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "А если у меня нет своего администратора?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Тогда есть три пути: нанять специалиста, отдать систему на сопровождение или остаться в облаке, где инфраструктурой занимается провайдер. Я предлагаю сопровождение для тех, кто хочет свой сервер, но не хочет держать админа в штате. Если же и это не подходит, честно посоветую управляемое облако — без своего сервера тоже можно жить."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Гарантирует ли российский сервер соответствие 152-ФЗ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Сам по себе — нет. Размещение данных в России это важный и базовый шаг, но соответствие закону складывается из многих вещей: как организованы хранение, доступ, согласия, регламенты. Я учитываю эти моменты при внедрении, но не обещаю «волшебную галочку» от одного лишь факта российского хостинга. Юридическую часть в спорных случаях стоит проверить с профильным специалистом."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли совместить своё и облако?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, и часто это лучшее решение. Гибридный подход позволяет держать чувствительные данные на своём российском сервере, а некритичные или временные нагрузки оставить в облаке. Не обязательно выбирать одну крайность — баланс подбирается под задачу."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Вы навязываете self-hosted всем клиентам?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет. Это моя позиция по умолчанию, но если вижу, что вашей задаче больше подходит облако, я так и скажу. Мне важнее, чтобы решение работало и было выгодно вам, чем продать именно сервер. Честный разговор об ограничениях — часть моей работы."
+      }
+    }
+  ]
+}
+    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+var inject=function(){for (var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)};
+var run=function(){('requestIdleCallback' in window)?requestIdleCallback(inject,{timeout:5000}):setTimeout(inject,3000)};
+(e.readyState==='complete')?run():m.addEventListener('load',run);})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109281884" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+            <li><a href="/#services" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li class="nav-dropdown">
+                <a href="/#projects" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--arey"><i class="ph-fill ph-vinyl-record" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-airplane-tilt" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#cases" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            </div>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/#about">Обо мне</a></li>
+        <li><a href="/#services">Услуги</a></li>
+        <li><a href="/services/">Каталог услуг</a></li>
+        <li><a href="/predlozheniya/">Предложения</a></li>
+        <li><a href="/#cases">Кейсы</a></li>
+        <li><a href="/blog/">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+        <li><a href="/#contact">Контакт</a></li>
+    </ul>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Почему я ставлю на российский стек и self-hosted</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/expert/"><i class="ph ph-bookmark" aria-hidden="true"></i> Экспертный блог</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 8 мин чтения</span>
+                        <time datetime="2026-06-23"><i class="ph ph-calendar" aria-hidden="true"></i> 23 июня 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Почему я ставлю на российский стек и self-hosted</h1>
+
+                    <p class="blog-lead">Объясняю свою позицию: почему по умолчанию ставлю на российский стек и свой сервер — данные, 152-ФЗ, контроль. И честно о минусах self-hosted и случаях, когда облако оправдано.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>российский стек</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>self-hosted</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>152-ФЗ</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>авторская колонка</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
+<li>По умолчанию я предлагаю клиентам российский стек и собственный сервер (self-hosted), но это позиция, а не догма — выбор всегда зависит от задачи.</li>
+<li>Российский стек снижает юридические риски (152-ФЗ, локализация данных), защищает от внезапной блокировки или ухода зарубежного вендора и вписывается в курс на <a href="https://chimitdorzhi.tech/services/russian-stack-migration/" class="blog-inline-link">импортозамещение</a>.</li>
+<li>Self-hosted даёт контроль над данными, отсутствие абонентской платы за каждого пользователя и свободу кастомизации под ваши задачи.</li>
+<li>Честно про минусы: своему серверу нужен администратор, регулярные бэкапы и понимание, что ответственность за работу системы лежит на вас.</li>
+<li>Облако и зарубежные сервисы тоже бывают правильным выбором — для быстрого старта, когда нет чувствительных данных или ресурсов на администрирование.</li>
+</ul></div>
+
+<p>Меня часто спрашивают, почему я по умолчанию советую клиентам российский стек технологий и собственный сервер вместо привычных зарубежных облаков. За этим стоит не мода и не патриотический лозунг, а практика последних лет: я видел, как компании теряли доступ к сервисам, попадали под санкционные ограничения вендоров и переплачивали за подписки, которые росли вместе с командой. В этой статье я честно изложу свою позицию — почему я ставлю на российский стек и self-hosted, в каких случаях это действительно выгодно, а когда я сам отговариваю клиента и советую остаться в облаке. Это не догма, а аргументированный взгляд человека, который занимается этим больше 16 лет.</p>
+
+<h2 id="pozicia">Моя позиция</h2>
+<p>Моя позиция по умолчанию простая: если задача позволяет, я предлагаю российский стек и собственный сервер. Под российским стеком я понимаю инфраструктуру у отечественных хостеров, российские облачные сервисы и модели (например, GigaChat или YandexGPT, если речь про ИИ), а также open-source-инструменты, которые не зависят от конкретного зарубежного вендора. Под self-hosted — размещение приложений на сервере, который контролируете вы, а не на чужой платформе с помесячной подпиской.</p>
+<p>Но я сразу хочу подчеркнуть: это позиция, а не религия. Я не считаю, что всё зарубежное и облачное плохо, а всё своё и российское хорошо. Бывают задачи, где собственный сервер — это лишние расходы и головная боль, а готовое облако решает вопрос за день. Я честно говорю об этом клиентам и не навязываю свой сервер там, где он не нужен. Хороший подход — это не «всегда self-hosted» и не «всегда облако», а выбор под конкретную ситуацию: какие данные, какой бюджет, есть ли кому администрировать, какие юридические требования.</p>
+<p>Дальше я разберу аргументы за российский стек и за self-hosted по отдельности, а потом честно расскажу, когда облако и зарубежные сервисы — правильный выбор. Так вы сможете принять решение осознанно, а не по чьему-то лозунгу.</p>
+
+<h2 id="pochemu-rf">Почему российский стек</h2>
+<p>Аргументы за российский стек — это в основном про снижение рисков. Не про то, что отечественные технологии «лучше» сами по себе, а про то, что в текущих условиях они дают компании устойчивость и предсказуемость.</p>
+<ul>
+<li><strong>152-ФЗ и локализация данных.</strong> Закон о персональных данных требует, чтобы персональные данные россиян хранились и обрабатывались на серверах в России. Если ваши данные лежат у российского хостера, это заметно упрощает соблюдение требования о локализации. С зарубежным облаком приходится отдельно разбираться, где физически находятся серверы и как это согласуется с законом. Важно понимать: само по себе размещение в России не делает систему «автоматически законной» — нужно ещё правильно организовать хранение и доступ, но первый и базовый шаг это решает.</li>
+<li><strong>Риск блокировок и ухода вендора.</strong> За последние годы мы не раз видели, как зарубежные сервисы внезапно ограничивали доступ для российских пользователей: отключали оплату, переставали продлевать подписки, закрывали аккаунты. Когда ваш бизнес завязан на такой сервис, любое его решение становится вашей проблемой. Российский стек и open-source убирают этот риск: сервис не может «уйти» с рынка вместе с вашими данными и процессами.</li>
+<li><strong>Импортозамещение и требования регуляторов.</strong> Для части компаний — особенно работающих с госсектором или в регулируемых отраслях — переход на отечественные решения уже не пожелание, а требование. Реестр отечественного ПО, политика импортозамещения, отраслевые нормативы — всё это толкает бизнес к российскому стеку. Заложить его сразу дешевле, чем потом мигрировать под давлением.</li>
+<li><strong>Поддержка и оплата без барьеров.</strong> С российским хостером проще решать вопросы оплаты (никаких заблокированных карт и обходных путей), проще получать поддержку на русском языке в одном часовом поясе и проще заключать нормальный договор с юрлицом. Это бытовые, но реальные удобства, которые экономят нервы и время.</li>
+<li><strong>Предсказуемость в валюте.</strong> Оплата в рублях у российского поставщика избавляет от скачков курса и проблем с международными платежами. Бюджет проще планировать, а счета не зависят от того, что происходит с трансграничными переводами.</li>
+</ul>
+<p>Обобщая: российский стек — это про снижение юридических и операционных рисков и про устойчивость бизнеса к внешним потрясениям. Если ваши данные чувствительны, а простой недопустим, эти аргументы перевешивают. Если же вы делаете пет-проект или тестируете гипотезу, где нет персональных данных и критичности, то жёсткой необходимости в российском стеке может и не быть — и это нормально.</p>
+
+<h2 id="pochemu-self-hosted">Почему self-hosted</h2>
+<p>Self-hosted — это про контроль. Когда приложение работает на вашем сервере, вы хозяин ситуации: вы решаете, где лежат данные, кто имеет доступ, как настроена система и сколько вы за это платите. Вот ключевые аргументы.</p>
+<ul>
+<li><strong>Контроль над данными.</strong> При self-hosted ваши данные физически находятся там, где вы решили, и не уходят в чужой сервис. Это особенно важно для документов, договоров, клиентских баз и любой конфиденциальной информации. Вы не зависите от того, как чужая платформа обращается с вашими данными, что прописано в её пользовательском соглашении и куда она их передаёт.</li>
+<li><strong>Нет платы за каждого пользователя.</strong> Облачные SaaS-сервисы обычно берут абонентскую плату за каждого пользователя в месяц. Пока команда маленькая — терпимо, но с ростом счёт растёт линейно и быстро превращается в заметную статью расходов. При self-hosted вы платите за сервер и настройку, а не за головы. Добавить десятого или пятидесятого сотрудника обычно ничего не стоит сверху — и на длинной дистанции это часто выходит дешевле.</li>
+<li><strong>Свобода кастомизации.</strong> Своё приложение на своём сервере можно дорабатывать под ваши процессы: менять логику, добавлять интеграции, настраивать под отраслевую специфику. В чужом облаке вы ограничены тем, что предусмотрел разработчик сервиса. С open-source и собственным размещением потолок возможностей куда выше.</li>
+<li><strong>Независимость от чужих решений.</strong> Облачный сервис может поднять цены, изменить условия, убрать нужную функцию или вовсе закрыться. При self-hosted версия, которая у вас работает, продолжит работать вне зависимости от чужих бизнес-решений. Вы обновляетесь тогда, когда сами этого хотите.</li>
+<li><strong>Интеграция в свою инфраструктуру.</strong> Собственный сервер удобнее встроить в уже существующий контур компании: связать с внутренними системами, настроить единый доступ, держать всё в одном защищённом периметре. Это особенно ценно, когда у вас уже есть своя ИТ-инфраструктура.</li>
+</ul>
+<p>Если коротко, self-hosted даёт максимум контроля и независимости, а на длинной дистанции при растущей команде часто оказывается выгоднее по деньгам. Я разворачиваю такие решения под ключ — от подбора сервера до настройки и поддержки. Подробнее о формате можно посмотреть на странице <a href="https://chimitdorzhi.tech/predlozheniya/open-source-pod-klyuch/">open-source под ключ</a>, где я как раз ставлю проверенные инструменты на ваш сервер.</p>
+<p>Но у медали есть обратная сторона, и я обязан о ней сказать честно. Self-hosted — это не только свобода, но и ответственность:</p>
+<ul>
+<li><strong>Нужен администратор.</strong> Сервер кто-то должен настроить, следить за ним, обновлять и чинить, если что-то пошло не так. Если в команде нет такого человека, эту функцию нужно либо нанять, либо отдать на сопровождение. «Поставил и забыл» с серьёзной системой не работает.</li>
+<li><strong>Бэкапы — на вас.</strong> В облаке резервные копии часто делает сам сервис. На своём сервере за бэкапы отвечаете вы. Настроить их, проверять, что они реально восстанавливаются, хранить копии в надёжном месте — это обязательная рутина, без которой один сбой может стоить всех данных.</li>
+<li><strong>Ответственность за безопасность и доступность.</strong> Обновления безопасности, защита от атак, мониторинг доступности — всё это переходит в вашу зону ответственности. Это решаемо, но требует внимания и компетенций.</li>
+</ul>
+<p>Я не прячу эти минусы под ковёр. Наоборот, при внедрении сразу проговариваю, как закрыть каждый из них — настроить автоматические бэкапы, организовать мониторинг, договориться о сопровождении. Self-hosted окупается, когда эти вещи учтены, а не когда про них вспоминают после первого сбоя.</p>
+
+<h2 id="kogda-oblako">Когда облако и зарубежное всё же ок</h2>
+<p>Теперь честная часть, которую редко говорят те, кто продаёт только свои серверы. Бывают ситуации, где облако или даже зарубежный сервис — это правильный и разумный выбор, и я сам в таких случаях отговариваю клиента от self-hosted. Вот когда:</p>
+<ul>
+<li><strong>Нужен быстрый старт.</strong> Если вы тестируете гипотезу, запускаете MVP или вам нужно решение «уже завтра», готовое облако часто стартует за часы. Поднимать и настраивать собственный сервер ради проверки идеи — это лишние затраты времени и денег. Сначала проверьте, что продукт нужен, а инфраструктуру под него выстроите потом.</li>
+<li><strong>Нет чувствительных данных.</strong> Если в системе нет персональных данных, коммерческой тайны и ничего критичного — например, это публичный контент или внутренний инструмент с неважной информацией, — то главный аргумент за self-hosted (контроль над данными) теряет вес. В таком случае удобство облака может перевесить.</li>
+<li><strong>Нет ресурсов на администрирование.</strong> Если в команде некому следить за сервером, делать бэкапы и реагировать на сбои, то собственный сервер превратится в источник проблем. Облако, где за инфраструктуру отвечает провайдер, в этой ситуации надёжнее. Лучше платить за управляемый сервис, чем иметь свой сервер, за которым никто не смотрит.</li>
+<li><strong>Маленькая команда и небольшой масштаб.</strong> Когда пользователей мало, абонентская плата за них невелика, и экономия от self-hosted не покрывает затрат на его обслуживание. Здесь облако может быть просто дешевле в пересчёте на общую стоимость владения.</li>
+<li><strong>Нужны специфические возможности облака.</strong> Иногда конкретный облачный сервис даёт функции, которые на своём сервере воспроизводить долго и дорого. Если они критичны для бизнеса, имеет смысл ими пользоваться, а не изобретать заново.</li>
+</ul>
+<p>Здравый подход — смотреть на общую стоимость владения и на риски, а не на лозунг. Иногда правильное решение — гибрид: чувствительные данные держать у себя на российском сервере, а часть нагрузки или некритичные сервисы оставить в облаке. Я помогаю выбрать этот баланс честно, отталкиваясь от вашей задачи, а не от того, что мне выгоднее продать. Если же речь идёт про ИИ-системы и работу с документами, то здесь как раз чаще оправдан свой контур — об этом подробнее на странице про <a href="https://chimitdorzhi.tech/services/rag-systems/">RAG-системы</a>.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+<p><strong>Российский стек — это всегда хуже по технологиям?</strong> Нет. Во многом это те же open-source-инструменты, что используют во всём мире, просто размещённые на российской инфраструктуре. Разница не в качестве технологий, а в том, где лежат данные и от кого вы зависите. По части задач отечественные решения уже вполне зрелые, по части — есть нюансы, и я честно говорю, где они есть.</p>
+<p><strong>Self-hosted действительно дешевле облака?</strong> Не всегда и не сразу. На старте и при маленькой команде облако часто дешевле. Self-hosted выигрывает на длинной дистанции и при росте числа пользователей, когда абонентская плата за каждого начинает суммироваться. Я считаю общую стоимость владения с учётом сервера, настройки и сопровождения, чтобы сравнение было честным, а не на эмоциях.</p>
+<p><strong>А если у меня нет своего администратора?</strong> Тогда есть три пути: нанять специалиста, отдать систему на сопровождение или остаться в облаке, где инфраструктурой занимается провайдер. Я предлагаю сопровождение для тех, кто хочет свой сервер, но не хочет держать админа в штате. Если же и это не подходит, честно посоветую управляемое облако — без своего сервера тоже можно жить.</p>
+<p><strong>Гарантирует ли российский сервер соответствие 152-ФЗ?</strong> Сам по себе — нет. Размещение данных в России это важный и базовый шаг, но соответствие закону складывается из многих вещей: как организованы хранение, доступ, согласия, регламенты. Я учитываю эти моменты при внедрении, но не обещаю «волшебную галочку» от одного лишь факта российского хостинга. Юридическую часть в спорных случаях стоит проверить с профильным специалистом.</p>
+<p><strong>Можно ли совместить своё и облако?</strong> Да, и часто это лучшее решение. Гибридный подход позволяет держать чувствительные данные на своём российском сервере, а некритичные или временные нагрузки оставить в облаке. Не обязательно выбирать одну крайность — баланс подбирается под задачу.</p>
+<p><strong>Вы навязываете self-hosted всем клиентам?</strong> Нет. Это моя позиция по умолчанию, но если вижу, что вашей задаче больше подходит облако, я так и скажу. Мне важнее, чтобы решение работало и было выгодно вам, чем продать именно сервер. Честный разговор об ограничениях — часть моей работы.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+<p>Я ставлю на российский стек и self-hosted, потому что в текущих условиях это даёт компаниям главное — устойчивость и контроль. Российская инфраструктура снижает юридические и операционные риски: помогает с локализацией данных по 152-ФЗ, защищает от блокировок и ухода вендоров, вписывается в курс на импортозамещение. Собственный сервер даёт контроль над данными, избавляет от платы за каждого пользователя и открывает свободу кастомизации. Но это позиция, а не догма: self-hosted требует администратора, бэкапов и ответственности, а для быстрого старта, некритичных данных или команды без ИТ-ресурсов облако может оказаться правильнее. Я выбираю не лозунг, а решение под задачу — и честно говорю клиенту, когда свой сервер не нужен. Если хотите разобраться, что подойдёт именно вам, я помогу взвесить риски и стоимость и выстроить инфраструктуру под ваши реальные потребности.</p>
+
+                    </div>
+
+                    
+                    
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Чем я помогаю бизнесу</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-robot"></i> <span>ИИ-агенты, боты, голосовые роботы</span></li>
+    
+    <li><i class="ph-fill ph-flow-arrow"></i> <span>Автоматизация процессов</span></li>
+    
+    <li><i class="ph-fill ph-brain"></i> <span>База знаний и ИИ-поиск (RAG)</span></li>
+    
+    <li><i class="ph-fill ph-shield-check"></i> <span>Безопасность и 152-ФЗ</span></li>
+    
+    <li><i class="ph-fill ph-hard-drives"></i> <span>Свой сервер и российский стек</span></li>
+    
+    <li><i class="ph-fill ph-lifebuoy"></i> <span>Сопровождение и обучение команды</span></li>
+    
+  </ul>
+  <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
+  </a>
+</div>
+                    
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/services/ai-agents/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Внедрить ИИ под ключ</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/moy-stek-instrumentov-2026/" data-category="expert" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-stack"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Экспертный блог</span>
+  <h3>Мой стек инструментов 2026: что я выбираю для клиентов и почему</h3>
+  <p>Какими инструментами я решаю задачи клиентов в 2026 и почему именно ими: российский стек, self-hosted, ИИ на YandexGPT/GigaChat и локальных моделях, боты в Telegram и MAX. Разбираю по полочкам.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 23 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 8 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/lokalizaciya-baz-dannyh-rf-152-fz-2026/" data-category="legal" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-database"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Право и compliance</span>
+  <h3>Локализация баз данных в РФ по 152-ФЗ: как перенести и не попасть на штраф</h3>
+  <p>По 152-ФЗ персональные данные россиян должны храниться в РФ, а многие сервисы — за рубежом. Разбираю, как проверить, где ваши данные, и перенести их на российскую инфраструктуру без простоя.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 23 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/svoya-crm-na-servere-vs-oblachnaya-2026/" data-category="sales" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-scales"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Продажи и стартап</span>
+  <h3>Своя CRM на сервере против облачной: что выгоднее малому бизнесу</h3>
+  <p>Облачная CRM по подписке или своя на сервере? Сравниваю честно по цене, контролю данных и 152-ФЗ, кастомизации и поддержке — и показываю, кому что подходит и где своя выгоднее облака.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 23 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    
+                    
+                    
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовые решения под ключ</span>
+                            <span class="blog-offer-cta-title">449 готовых IT-решений для бизнеса</span>
+                            <span class="blog-offer-cta-price">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Смотреть каталог</span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#pozicia"><span class="blog-toc-num">01</span> Моя позиция</a></li>
+<li><a href="#pochemu-rf"><span class="blog-toc-num">02</span> Почему российский стек</a></li>
+<li><a href="#pochemu-self-hosted"><span class="blog-toc-num">03</span> Почему self-hosted</a></li>
+<li><a href="#kogda-oblako"><span class="blog-toc-num">04</span> Когда облако всё же ок</a></li>
+<li><a href="#faq"><span class="blog-toc-num">05</span> FAQ</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">06</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=23" defer></script>
+<script src="/services-i18n.js?v=23" defer></script>
+<script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>
