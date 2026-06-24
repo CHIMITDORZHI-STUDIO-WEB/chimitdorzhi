@@ -1,0 +1,117 @@
+// Коммерческие статьи под заявки (июнь 2026): голосовой ИИ, боты, сезон, CRM.
+// Разные рубрики, индивидуальное оглавление и CTA под каждую.
+const C = (s) => require('./blog-content-' + s + '.js');
+const D = '2026-06-23';
+const SVC_AI = {
+  title: 'Что я делаю с ИИ под ключ',
+  services: [
+    { icon: 'ph-fill ph-phone-call', label: 'Голосовые ИИ-роботы и обзвон' },
+    { icon: 'ph-fill ph-robot', label: 'Чат-боты и ИИ-агенты' },
+    { icon: 'ph-fill ph-brain', label: 'База знаний с ИИ-поиском' },
+    { icon: 'ph-fill ph-shield-check', label: 'Приватность и 152-ФЗ' },
+    { icon: 'ph-fill ph-lifebuoy', label: 'Поддержка и доработка' },
+  ],
+};
+const SVC_AUTO = {
+  title: 'Что я делаю под ключ',
+  services: [
+    { icon: 'ph-fill ph-chat-circle-dots', label: 'Чат-боты Telegram/MAX' },
+    { icon: 'ph-fill ph-calendar-check', label: 'Онлайн-запись и напоминания' },
+    { icon: 'ph-fill ph-credit-card', label: 'Приём заявок и оплат' },
+    { icon: 'ph-fill ph-kanban', label: 'CRM и автоматизация процессов' },
+    { icon: 'ph-fill ph-lifebuoy', label: 'Поддержка и сопровождение' },
+  ],
+};
+const AGENTS = { url: 'https://chimitdorzhi.tech/services/ai-agents/', label: 'Внедрить ИИ-робота под ключ' };
+const AUTO = { url: 'https://chimitdorzhi.tech/services/business-automation/', label: 'Автоматизировать бизнес под ключ' };
+const E = (o, cat) => Object.assign({
+  category: cat, published: true, datePublished: D, dateModified: D, readingMinutes: 9,
+}, o, { contentHtml: C(o.slug) });
+
+module.exports = [
+  E({ slug: 'golosovoy-ii-robot-obzvon-zayavki-2026', heroIcon: 'ph-fill ph-phone-call', ctaInternal: AGENTS, servicesOffer: SVC_AI,
+    title: 'Голосовой ИИ-робот для приёма заявок и обзвона: как внедрить в России',
+    metaTitle: 'Голосовой ИИ-робот: обзвон и приём заявок',
+    metaDescription: 'Голосовой ИИ-робот для бизнеса: принимает входящие заявки 24/7, обзванивает, записывает и напоминает, понимает живую речь. Как внедрить в России на российском стеке (распознавание и синтез речи, CRM) с учётом 152-ФЗ. Сценарии, стоимость, шаги.',
+    excerpt: 'Голосовой ИИ-робот принимает звонки и заявки круглосуточно, записывает клиентов и напоминает о визите — понимает живую речь, а не «нажмите 1». Разбираю, как внедрить в России и из чего цена.',
+    tags: ['голосовой ИИ', 'обзвон', 'ИИ-робот', 'автоматизация'],
+    toc: [
+      { id: 'chto-eto', text: 'Что такое голосовой ИИ-робот' },
+      { id: 'zadachi', text: 'Какие задачи закрывает' },
+      { id: 'kak-rabotaet', text: 'Как это работает' },
+      { id: 'scenarii', text: 'Сценарии для бизнеса' },
+      { id: 'kak-vnedrit', text: 'Как внедрить под ключ' },
+      { id: 'stoimost', text: 'Из чего складывается стоимость' },
+      { id: 'faq', text: 'FAQ' },
+      { id: 'vyvody', text: 'Коротко о главном' },
+    ],
+    relatedSlugs: ['ii-assistent-otdela-prodazh-2026', 'rag-sistemy-dlya-biznesa-2026', 'telegram-bot-priema-zayavok-i-oplat-2026'] }, 'ai-dev'),
+  E({ slug: 'telegram-bot-priema-zayavok-i-oplat-2026', heroIcon: 'ph-fill ph-chat-circle-dots', ctaInternal: AUTO, servicesOffer: SVC_AUTO,
+    title: 'Telegram-бот приёма заявок и оплат под ключ: что умеет и за сколько собрать',
+    metaTitle: 'Telegram-бот приёма заявок и оплат',
+    metaDescription: 'Telegram-бот, который принимает заявки и оплату 24/7: квиз-заявки, каталог, корзина, приём оплаты (эквайринг/СБП), уведомления, запись, интеграция с CRM. Что умеет, сколько стоит и как собрать под ключ за неделю.',
+    excerpt: 'Telegram-бот заменяет «напишите в директ»: принимает заявки и оплату круглосуточно, ничего не теряется. Разбираю, что умеет, как устроен приём оплат и за сколько собрать под ключ.',
+    tags: ['Telegram-бот', 'приём заявок', 'оплата', 'автоматизация'],
+    toc: [
+      { id: 'chto-eto', text: 'Что это и зачем' },
+      { id: 'chto-umeet', text: 'Что умеет бот' },
+      { id: 'scenarii', text: 'Сценарии применения' },
+      { id: 'oplata', text: 'Приём оплат в боте' },
+      { id: 'skolko-stoit', text: 'Сколько стоит и сроки' },
+      { id: 'kak-zakazat', text: 'Как заказать под ключ' },
+      { id: 'faq', text: 'FAQ' },
+      { id: 'vyvody', text: 'Коротко о главном' },
+    ],
+    relatedSlugs: ['skolko-stoit-chat-bot-2026', 'golosovoy-ii-robot-obzvon-zayavki-2026', 'onlayn-zapis-k-letnemu-sezonu-2026'] }, 'development'),
+  E({ slug: 'ne-teryat-zayavki-letom-avtomatizaciya-2026', heroIcon: 'ph-fill ph-sun', ctaInternal: AUTO, servicesOffer: SVC_AUTO,
+    title: 'Как не терять заявки летом: автоматизация бизнеса на время отпусков',
+    metaTitle: 'Не терять заявки летом: автоматизация',
+    metaDescription: 'Как не терять заявки летом, когда сотрудники в отпусках: мгновенный автоответ и приём заявки, онлайн-запись без человека, автонапоминания, распределение заявок, FAQ-бот. Что успеть к сезону за 1-2 недели на российском стеке (152-ФЗ).',
+    excerpt: 'Летом сотрудники в отпусках, ответы клиентам задерживаются — и заявки уходят к конкурентам. Разбираю, что автоматизировать в первую очередь, чтобы не терять входящие в сезон.',
+    tags: ['автоматизация', 'лето', 'заявки', 'сезон'],
+    toc: [
+      { id: 'problema', text: 'Летом заявки теряются' },
+      { id: 'chto-avtomatizirovat', text: 'Что автоматизировать' },
+      { id: 'instrumenty', text: 'Инструменты' },
+      { id: 'kak-vnedrit', text: 'Как внедрить быстро' },
+      { id: 'primer', text: 'Пример' },
+      { id: 'oshibki', text: 'Частые ошибки' },
+      { id: 'faq', text: 'FAQ' },
+      { id: 'vyvody', text: 'Коротко о главном' },
+    ],
+    relatedSlugs: ['onlayn-zapis-k-letnemu-sezonu-2026', 'telegram-bot-priema-zayavok-i-oplat-2026', 'svoya-crm-na-servere-vs-oblachnaya-2026', 'skolko-stoit-avtomatizaciya-biznesa-2026'] }, 'sales'),
+  E({ slug: 'onlayn-zapis-k-letnemu-sezonu-2026', heroIcon: 'ph-fill ph-calendar-check', ctaInternal: AUTO, servicesOffer: SVC_AUTO,
+    title: 'Онлайн-запись к летнему сезону: для туризма, кафе и выездных услуг',
+    metaTitle: 'Онлайн-запись к летнему сезону',
+    metaDescription: 'Онлайн-запись к лету для сезонного бизнеса: туризм и аренда, кафе и веранды, выездные услуги. Календарь слотов и ресурсов, предоплата против неявок, напоминания, интеграции с сайтом, ботами, картами и СБП. Что успеть к сезону.',
+    excerpt: 'Летом всплеск спроса, а телефон не справляется. Онлайн-запись берёт брони 24/7, снижает неявки через предоплату и напоминания. Разбираю, что нужно сезонному бизнесу и как запустить быстро.',
+    tags: ['онлайн-запись', 'сезон', 'туризм', 'услуги'],
+    toc: [
+      { id: 'zachem', text: 'Зачем онлайн-запись к лету' },
+      { id: 'dlya-kogo', text: 'Для кого актуально' },
+      { id: 'chto-nuzhno', text: 'Что должно уметь' },
+      { id: 'kak-zapustit', text: 'Как запустить быстро' },
+      { id: 'integracii', text: 'Интеграции' },
+      { id: 'oshibki', text: 'Частые ошибки' },
+      { id: 'faq', text: 'FAQ' },
+      { id: 'vyvody', text: 'Коротко о главном' },
+    ],
+    relatedSlugs: ['cal-com-onlayn-zapis-2026', 'ne-teryat-zayavki-letom-avtomatizaciya-2026', 'telegram-bot-priema-zayavok-i-oplat-2026'] }, 'sales'),
+  E({ slug: 'svoya-crm-na-servere-vs-oblachnaya-2026', heroIcon: 'ph-fill ph-scales', ctaInternal: AUTO, servicesOffer: SVC_AUTO,
+    title: 'Своя CRM на сервере против облачной: что выгоднее малому бизнесу',
+    metaTitle: 'Своя CRM на сервере vs облачная',
+    metaDescription: 'Своя CRM на своём сервере (на open-source вроде EspoCRM) против облачной по подписке (amoCRM, Битрикс24): сравнение по стоимости, контролю данных и 152-ФЗ, кастомизации, поддержке. Кому что подходит и где своя CRM выгоднее по числу пользователей.',
+    excerpt: 'Облачная CRM по подписке или своя на сервере? Сравниваю честно по цене, контролю данных и 152-ФЗ, кастомизации и поддержке — и показываю, кому что подходит и где своя выгоднее облака.',
+    tags: ['CRM', 'свой сервер', 'облако', 'выбор'],
+    toc: [
+      { id: 'chto-eto', text: 'Два пути к CRM' },
+      { id: 'sravnenie', text: 'Сравнение по параметрам' },
+      { id: 'svoy-server-plyusy', text: 'Своя на сервере: плюсы и минусы' },
+      { id: 'oblako-plyusy', text: 'Облачная: плюсы и минусы' },
+      { id: 'komu-chto', text: 'Кому что подходит' },
+      { id: 'stoimost', text: 'Стоимость владения' },
+      { id: 'faq', text: 'FAQ' },
+      { id: 'vyvody', text: 'Коротко о главном' },
+    ],
+    relatedSlugs: ['crm-dlya-malogo-biznesa-2026', 'espocrm-besplatnaya-crm-2026', 'skolko-stoit-crm-vnedrenie-2026'] }, 'sales'),
+];
