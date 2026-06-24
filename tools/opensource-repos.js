@@ -149,5 +149,10 @@ module.exports = {
   "khoj-ii-assistent-baza-znaniy-2026": "https://github.com/khoj-ai/khoj",
   "open-notebook-analog-notebooklm-2026": "https://github.com/lfnovo/open-notebook",
   "pangolin-bezopasnyy-dostup-k-servisam-2026": "https://github.com/fosrl/pangolin",
-  "minio-svoyo-s3-hranilishche-2026": "https://github.com/minio/minio"
+  "minio-svoyo-s3-hranilishche-2026": "https://github.com/minio/minio",
+  "open-hardware-otkrytoe-zhelezo-2026": "https://github.com/delftopenhardware/awesome-open-hardware",
+  "3d-pechat-dlya-biznesa-prusa-2026": "https://github.com/prusa3d/PrusaSlicer",
+  "iot-na-otkrytom-zheleze-dlya-biznesa-2026": "https://github.com/esphome/esphome",
+  "raspberry-pi-dlya-biznesa-2026": "https://github.com/thibmaek/awesome-raspberry-pi",
+  "chpu-lazernaya-rezka-open-source-2026": "https://github.com/gnea/grbl"
 };
