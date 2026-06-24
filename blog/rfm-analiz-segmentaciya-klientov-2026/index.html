@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RFM-анализ и сегментация клиентов</title>
+    <meta name="description" content="RFM-анализ и сегментация клиентов: разбить базу по давности, частоте и сумме покупок и работать с каждым сегментом по-своему — чемпионы, под угрозой оттока…">
+    <meta name="keywords" content="RFM, сегментация, клиенты, маркетинг">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/rfm-analiz-segmentaciya-klientov-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/rfm-analiz-segmentaciya-klientov-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/rfm-analiz-segmentaciya-klientov-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/rfm-analiz-segmentaciya-klientov-2026/">
+    <meta property="og:title" content="RFM-анализ и сегментация клиентов">
+    <meta property="og:description" content="RFM-анализ и сегментация клиентов: разбить базу по давности, частоте и сумме покупок и работать с каждым сегментом по-своему — чемпионы, под угрозой оттока…">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/rfm-analiz-segmentaciya-klientov-2026/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="RFM-анализ и сегментация клиентов">
+    <meta name="twitter:description" content="RFM-анализ и сегментация клиентов: разбить базу по давности, частоте и сумме покупок и работать с каждым сегментом по-своему — чемпионы, под угрозой оттока…">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/rfm-analiz-segmentaciya-klientov-2026/cover.png">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor-Fill.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=45">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "RFM-анализ и сегментация клиентов: кому слать и что, чтобы вернуть покупателей",
+  "description": "RFM-анализ и сегментация клиентов: разбить базу по давности, частоте и сумме покупок и работать с каждым сегментом по-своему — чемпионы, под угрозой оттока, спящие. Как считать, что делать с каждым и как автоматизировать рассылки (152-ФЗ).",
+  "image": "https://chimitdorzhi.tech/blog/rfm-analiz-segmentaciya-klientov-2026/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/rfm-analiz-segmentaciya-klientov-2026/"
+  },
+  "datePublished": "2026-06-23",
+  "dateModified": "2026-06-23",
+  "keywords": "RFM, сегментация, клиенты, маркетинг",
+  "articleSection": "Продажи и стартап",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "RFM-анализ и сегментация клиентов: кому слать и что, чтобы вернуть покупателей",
+      "item": "https://chimitdorzhi.tech/blog/rfm-analiz-segmentaciya-klientov-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Подходит ли RFM малому бизнесу?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, и часто именно малому бизнесу он даёт самый быстрый эффект. Даже база в несколько сотен клиентов выигрывает от того, что вы перестаёте слать всем одно и то же. Чем меньше у вас ресурсов на маркетинг, тем важнее тратить их точечно — а RFM как раз показывает, куда."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужны ли специальные инструменты?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет, для начала достаточно данных о покупках и обычной таблицы. Специальные инструменты — CRM, BI, сервисы рассылок — нужны не для самого анализа, а для автоматизации, когда вы хотите, чтобы всё пересчитывалось и отправлялось без ручной работы. Начать можно с малого и расти по мере необходимости."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько нужно данных, чтобы это работало?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нужны данные о покупках хотя бы за несколько месяцев и база, где есть повторные клиенты. Если почти все покупают у вас один раз и больше не возвращаются, RFM покажет это, но пользы от сегментации будет меньше — сначала стоит поработать над повторными продажами. Чем длиннее история покупок, тем точнее картина."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как часто пересчитывать сегменты?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Зависит от того, как часто у вас покупают. Для бизнеса с регулярными покупками разумно пересчитывать раз в месяц, для более редких — раз в квартал. Главное — делать это регулярно, потому что клиенты постоянно перемещаются между группами. При автоматизации пересчёт идёт сам."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Чем RFM отличается от ABC-анализа?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ABC-анализ делит на группы по одному признаку — обычно по вкладу в выручку (группа A приносит больше всего, C — меньше всего). RFM смотрит сразу на три признака и учитывает поведение во времени, а не только сумму. Поэтому RFM точнее показывает, кто уходит и кого пора возвращать, тогда как ABC отвечает скорее на вопрос «кто приносит деньги». Методы не противоречат друг другу и хорошо дополняют один другой."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как не нарушить 152-ФЗ при рассылках?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ключевых моментов два. Первое — персональные данные клиентов нужно хранить и обрабатывать в соответствии с требованиями закона, для российской базы это обычно означает серверы в РФ. Второе — на рассылки нужно согласие получателя, с понятной возможностью отписаться в любой момент. Сегментация сама по себе закон не нарушает; важно, как вы собираете данные и шлёте сообщения. Я выстраиваю эту часть аккуратно ещё на этапе настройки."
+      }
+    }
+  ]
+}
+    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+var inject=function(){for (var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)};
+var run=function(){('requestIdleCallback' in window)?requestIdleCallback(inject,{timeout:5000}):setTimeout(inject,3000)};
+(e.readyState==='complete')?run():m.addEventListener('load',run);})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109281884" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+            <li><a href="/#services" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li class="nav-dropdown">
+                <a href="/#projects" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--arey"><i class="ph-fill ph-vinyl-record" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-airplane-tilt" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#cases" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            </div>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/#about">Обо мне</a></li>
+        <li><a href="/#services">Услуги</a></li>
+        <li><a href="/services/">Каталог услуг</a></li>
+        <li><a href="/predlozheniya/">Предложения</a></li>
+        <li><a href="/#cases">Кейсы</a></li>
+        <li><a href="/blog/">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+        <li><a href="/#contact">Контакт</a></li>
+    </ul>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">RFM-анализ и сегментация клиентов: кому слать и что, чтобы вернуть покупателей</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/sales/"><i class="ph ph-bookmark" aria-hidden="true"></i> Продажи и стартап</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин чтения</span>
+                        <time datetime="2026-06-23"><i class="ph ph-calendar" aria-hidden="true"></i> 23 июня 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">RFM-анализ и сегментация клиентов: кому слать и что, чтобы вернуть покупателей</h1>
+
+                    <p class="blog-lead">RFM делит клиентов по давности, частоте и сумме покупок — видно, кто ценен, кто уходит и кому что предлагать. Разбираю, как считать, что делать с каждым сегментом и как автоматизировать.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>RFM</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>сегментация</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>клиенты</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>маркетинг</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
+<li>RFM-анализ — это способ разделить клиентов на группы по трём признакам: давность последней покупки (Recency), частота покупок (Frequency) и сумма покупок (Monetary).</li>
+<li>Он помогает понять, кто из клиентов самый ценный, кто вот-вот уйдёт, а кого пора будить спецпредложением, — и не слать всем подряд одно и то же сообщение.</li>
+<li>Для анализа не нужны дорогие инструменты: достаточно данных о покупках из CRM или обычной таблицы и базовых расчётов.</li>
+<li>На каждый сегмент — своя коммуникация: чемпионов беречь, уходящих реактивировать, спящих будить, новичков мягко онбордить.</li>
+<li>Я настраиваю сегментацию и триггерные цепочки рассылок под ключ на российском стеке, с учётом 152-ФЗ и согласий на рассылки.</li>
+</ul></div>
+
+<p>Почти в любом бизнесе с повторными покупками есть одна и та же проблема: рассылки и акции уходят «всем сразу». В результате лучшие клиенты получают скидки, которые им не нужны, уходящие — не получают ничего, а новички теряются и не возвращаются. RFM-анализ решает эту задачу просто: он делит клиентов на понятные группы по их поведению, и для каждой группы становится ясно, что именно ей предложить. Ниже разберу человеческим языком, что такое RFM, как его посчитать без сложных инструментов, какие бывают сегменты, что с ними делать и какие ошибки чаще всего всё портят.</p>
+
+<h2 id="chto-eto">Что такое RFM-анализ</h2>
+<p>RFM-анализ — это метод сегментации клиентов, то есть разделения их на группы по поведению. Название складывается из трёх английских слов, которые описывают три признака покупателя:</p>
+<ul>
+<li><strong>Recency (давность)</strong> — как давно человек покупал в последний раз. Чем недавнее покупка, тем «теплее» клиент.</li>
+<li><strong>Frequency (частота)</strong> — как часто он покупает. Чем чаще, тем сильнее привязан к вам.</li>
+<li><strong>Monetary (сумма)</strong> — сколько денег он принёс за всё время. Чем больше, тем ценнее клиент.</li>
+</ul>
+<p>Идея в том, что эти три цифры вместе дают на удивление точный портрет. Человек, который покупал недавно, делает это часто и оставляет много денег, — это ваш лучший клиент. Тот, кто когда-то покупал часто и на крупные суммы, но в последние полгода молчит, — это уходящий клиент, которого ещё можно вернуть. А тот, кто купил один раз на небольшую сумму давно, — скорее всего, потерян, и тратить на него много усилий не стоит.</p>
+<p>Главная ценность RFM в том, что он превращает безликую базу контактов в понятную картину: видно, кто ценен, кто уходит, кому что предлагать. Вместо того чтобы слать одно сообщение на всех, вы начинаете разговаривать с каждой группой на её языке. И что важно — для этого не нужны ни искусственный интеллект, ни сложная аналитика: достаточно данных о покупках, которые у вас уже есть.</p>
+
+<h2 id="kak-schitat">Как считать RFM</h2>
+<p>Считать RFM проще, чем кажется. Всё, что нужно, — это данные о покупках: кто покупал, когда и на какую сумму. Эти данные обычно уже лежат в CRM, в системе учёта или хотя бы в таблице с заказами. Никаких дополнительных опросов и сложных метрик не требуется.</p>
+<p>Суть метода — присвоить каждому клиенту баллы по каждому из трёх признаков. Чаще всего используют шкалу от 1 до 3 (для небольшой базы это удобнее) или от 1 до 5 (для базы покрупнее, где нужно больше градаций). Логика одинаковая:</p>
+<ul>
+<li><strong>Recency:</strong> чем недавнее последняя покупка, тем выше балл. Купил на этой неделе — 3, купил полгода назад — 1.</li>
+<li><strong>Frequency:</strong> чем больше покупок, тем выше балл. Покупает регулярно — 3, купил один раз — 1.</li>
+<li><strong>Monetary:</strong> чем больше суммарно потратил, тем выше балл. Крупные суммы — 3, мелкие — 1.</li>
+</ul>
+<p>Как расставить границы баллов. Не нужно придумывать «правильные» цифры из головы — лучше отталкиваться от вашей же базы. Например, отсортируйте всех клиентов по давности покупки и разделите на три равные части: верхняя треть получает 3, средняя — 2, нижняя — 1. То же самое отдельно по частоте и по сумме. Так баллы будут отражать реальную картину именно вашего бизнеса, а не абстрактные нормы.</p>
+<p>Простой пример. Возьмём трёх условных клиентов магазина:</p>
+<ul>
+<li><strong>Анна:</strong> купила 3 дня назад, делает заказы каждый месяц, потратила за год 80 000 рублей. Баллы: R=3, F=3, M=3. Итог — 333. Это явный чемпион.</li>
+<li><strong>Борис:</strong> покупал активно весь прошлый год, но последняя покупка была 5 месяцев назад, суммарно потратил 60 000 рублей. Баллы: R=1, F=3, M=3. Итог — 133. Это ценный клиент под угрозой оттока: раньше был отличным, а теперь замолчал.</li>
+<li><strong>Вера:</strong> купила один раз неделю назад на 1 500 рублей. Баллы: R=3, F=1, M=1. Итог — 311. Это новичок, которого важно правильно встретить.</li>
+</ul>
+<p>Из этих трёх цифр и собираются сегменты. Не обязательно разбирать все возможные комбинации (их при шкале 1–3 получается 27, а при 1–5 — целых 125) — на практике достаточно объединить близкие по смыслу в несколько понятных групп. О них — дальше.</p>
+
+<h2 id="segmenty">Ключевые сегменты</h2>
+<p>Полный список комбинаций RFM большой, но в работе обычно хватает шести-семи укрупнённых сегментов. Вот ключевые из них:</p>
+<ul>
+<li><strong>Чемпионы.</strong> Высокие баллы по всем трём признакам: покупали недавно, делают это часто и приносят много денег. Это ядро вашей базы — небольшая группа, которая часто даёт большую долю выручки.</li>
+<li><strong>Лояльные клиенты.</strong> Покупают регулярно и стабильно, пусть и не на самые крупные суммы. Надёжная основа бизнеса, на которую можно опираться.</li>
+<li><strong>Под угрозой оттока.</strong> Раньше покупали часто и хорошо, но в последнее время затихли (низкий Recency при высоких F и M). Самая важная для внимания группа: их ещё можно вернуть, и они того стоят.</li>
+<li><strong>Спящие.</strong> Давно не покупали, активность невысокая, но когда-то они были вашими клиентами. Их можно попробовать разбудить, хотя усилий потребуется больше.</li>
+<li><strong>Новички.</strong> Купили недавно, но пока всего один-два раза, сумма небольшая (высокий Recency, низкие F и M). Их будущее ещё не определено — от первого опыта зависит, станут ли они постоянными.</li>
+<li><strong>Потерянные.</strong> Низкие баллы по всем признакам: покупали давно, редко и на малые суммы. Вернуть их сложно и часто невыгодно, поэтому вкладываться в них стоит в последнюю очередь.</li>
+</ul>
+<p>Названия сегментов могут отличаться — кто-то добавляет группы вроде «перспективных» или «нуждающихся во внимании». Это нормально: подстраивайте набор под свой бизнес. Главное — не утонуть в десятках микрогрупп, а выделить столько сегментов, со сколькими вы реально готовы работать по-разному.</p>
+
+<h2 id="chto-delat">Что делать с каждым сегментом</h2>
+<p>Сама по себе сегментация ничего не меняет — ценность появляется, когда для каждой группы вы выстраиваете свою коммуникацию. Главный принцип простой: не слать всем одно и то же. Вот как это выглядит по сегментам:</p>
+<ul>
+<li><strong>Чемпионов — беречь и поощрять.</strong> Им не нужны скидки, чтобы покупать, — они и так с вами. Лучше дать им ощущение особого отношения: ранний доступ к новинкам, закрытые предложения, персональное внимание, бонусы за лояльность. И точно не стоит закидывать их теми же агрессивными скидками, что и всех остальных.</li>
+<li><strong>Лояльных — удерживать и развивать.</strong> Поддерживайте регулярный контакт, предлагайте сопутствующие товары и поводы покупать чаще. Это та группа, которую можно аккуратно растить до чемпионов.</li>
+<li><strong>Под угрозой оттока — реактивировать.</strong> Это приоритет. Напомните о себе, узнайте, всё ли устроило, предложите вескую причину вернуться. Здесь персональное предложение оправдано: вы спасаете ценного клиента, пока он не ушёл окончательно.</li>
+<li><strong>Спящих — будить спецпредложением.</strong> Им нужен более сильный стимул, чем активным клиентам: ощутимая выгода, ограниченная по времени акция, напоминание о том, чем вы были им полезны. Часть откликнется, часть — нет, и это нормально.</li>
+<li><strong>Новичков — онбордить.</strong> Первое впечатление решает, вернётся ли человек. Поблагодарите за покупку, расскажите, как пользоваться продуктом, мягко подведите ко второму заказу. Цель — не выжать максимум сразу, а превратить разовую покупку в привычку.</li>
+<li><strong>Потерянных — не тратить лишнего.</strong> Можно сделать одну-две попытки вернуть их недорогими средствами, но не вкладывать в эту группу основной бюджет. Иногда честнее отпустить.</li>
+</ul>
+<p>Если свести всё к одной мысли: разным людям — разные сообщения. Скидка, которая спасёт уходящего клиента, будет потерей денег, если отправить её чемпиону, который и так купит. А тёплое письмо-онбординг, уместное для новичка, ничего не даст тому, кто покупает у вас третий год.</p>
+
+<h2 id="instrumenty">Инструменты и автоматизация</h2>
+<p>Разовый RFM-анализ можно сделать руками в обычной таблице. Но чтобы он приносил пользу постоянно, процесс стоит автоматизировать. Тогда сегменты пересчитываются сами, а сообщения уходят нужным людям без ручной работы. Вот из чего обычно складывается такая система на российском стеке:</p>
+<ul>
+<li><strong>CRM или система учёта.</strong> Это источник данных о покупках. Если у вас уже есть CRM, скорее всего, в ней есть встроенная сегментация или хотя бы выгрузка заказов, из которой можно посчитать RFM.</li>
+<li><strong>Выгрузки и таблицы.</strong> Для небольшой базы достаточно периодической выгрузки в таблицу с формулами. Это бесплатно и понятно, хотя и требует ручного запуска.</li>
+<li><strong>BI-инструменты.</strong> Для крупной базы удобнее аналитическая система, которая сама строит сегменты и наглядно показывает динамику — кто перешёл из чемпионов в уходящие, какая группа растёт, какая тает.</li>
+<li><strong>Триггерные рассылки.</strong> Это автоматические сообщения, которые уходят при срабатывании условия — например, «клиент не покупал 90 дней». Каналы выбираются под вашу аудиторию: email, Telegram, мессенджер MAX, SMS. Связка «сегмент + триггер» и есть сердце автоматизации: попал клиент в группу «под угрозой оттока» — ему ушла нужная цепочка.</li>
+</ul>
+<p>Отдельно про данные и закон. Если вы работаете с базой клиентов в России, важно держать персональные данные на серверах в РФ и соблюдать требования 152-ФЗ. А для рассылок нужно согласие получателя: человек должен сам подтвердить, что готов получать от вас сообщения, и иметь возможность отписаться. Это не формальность, а условие, без которого автоматизация рассылок превращается в риск. Я учитываю эти моменты при настройке: подбираю российские сервисы, выстраиваю хранение данных и механику согласий так, чтобы система работала и не создавала проблем.</p>
+
+<h2 id="oshibki">Частые ошибки</h2>
+<p>RFM — простой метод, но на нём же легко споткнуться. Вот ошибки, которые встречаются чаще всего:</p>
+<ul>
+<li><strong>Слать всем одинаково.</strong> Главная и самая частая ошибка. Если после сегментации вы всё равно отправляете одно сообщение на всю базу, весь смысл анализа теряется.</li>
+<li><strong>Вообще не сегментировать.</strong> Работать со всей базой как с однородной массой — значит одновременно переплачивать за тех, кто купит и так, и недорабатывать с теми, кого можно было вернуть.</li>
+<li><strong>Делать анализ один раз.</strong> Клиенты переходят из сегмента в сегмент: чемпион может затихнуть, новичок — стать лояльным. Разовый RFM устаревает за пару месяцев. Его нужно пересчитывать регулярно.</li>
+<li><strong>Спамить чемпионов скидками.</strong> Лучшим клиентам не нужны постоянные акции — они покупают и без них. Заваливая их скидками, вы теряете маржу и приучаете ждать распродаж вместо того, чтобы покупать по обычной цене.</li>
+<li><strong>Игнорировать спящих и уходящих.</strong> Эти группы как раз требуют действий, но про них часто забывают, потому что они «молчат». А ведь вернуть бывшего клиента обычно дешевле, чем привлечь нового.</li>
+</ul>
+<p>Заметьте: большинство ошибок — не технические, а про подход. Посчитать RFM несложно; сложнее выстроить дисциплину, при которой сегменты регулярно обновляются, а коммуникация под них действительно меняется.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+<p><strong>Подходит ли RFM малому бизнесу?</strong> Да, и часто именно малому бизнесу он даёт самый быстрый эффект. Даже база в несколько сотен клиентов выигрывает от того, что вы перестаёте слать всем одно и то же. Чем меньше у вас ресурсов на маркетинг, тем важнее тратить их точечно — а RFM как раз показывает, куда.</p>
+<p><strong>Нужны ли специальные инструменты?</strong> Нет, для начала достаточно данных о покупках и обычной таблицы. Специальные инструменты — CRM, BI, сервисы рассылок — нужны не для самого анализа, а для автоматизации, когда вы хотите, чтобы всё пересчитывалось и отправлялось без ручной работы. Начать можно с малого и расти по мере необходимости.</p>
+<p><strong>Сколько нужно данных, чтобы это работало?</strong> Нужны данные о покупках хотя бы за несколько месяцев и база, где есть повторные клиенты. Если почти все покупают у вас один раз и больше не возвращаются, RFM покажет это, но пользы от сегментации будет меньше — сначала стоит поработать над повторными продажами. Чем длиннее история покупок, тем точнее картина.</p>
+<p><strong>Как часто пересчитывать сегменты?</strong> Зависит от того, как часто у вас покупают. Для бизнеса с регулярными покупками разумно пересчитывать раз в месяц, для более редких — раз в квартал. Главное — делать это регулярно, потому что клиенты постоянно перемещаются между группами. При автоматизации пересчёт идёт сам.</p>
+<p><strong>Чем RFM отличается от ABC-анализа?</strong> ABC-анализ делит на группы по одному признаку — обычно по вкладу в выручку (группа A приносит больше всего, C — меньше всего). RFM смотрит сразу на три признака и учитывает поведение во времени, а не только сумму. Поэтому RFM точнее показывает, кто уходит и кого пора возвращать, тогда как ABC отвечает скорее на вопрос «кто приносит деньги». Методы не противоречат друг другу и хорошо дополняют один другой.</p>
+<p><strong>Как не нарушить 152-ФЗ при рассылках?</strong> Ключевых моментов два. Первое — персональные данные клиентов нужно хранить и обрабатывать в соответствии с требованиями закона, для российской базы это обычно означает серверы в РФ. Второе — на рассылки нужно согласие получателя, с понятной возможностью отписаться в любой момент. Сегментация сама по себе закон не нарушает; важно, как вы собираете данные и шлёте сообщения. Я выстраиваю эту часть аккуратно ещё на этапе настройки.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+<p>RFM-анализ — это простой и честный способ перестать слать всем одно и то же. Он делит клиентов на понятные группы по трём признакам — давности, частоте и сумме покупок — и сразу подсказывает, кого беречь, кого возвращать, а кого будить спецпредложением. Для старта не нужны ни дорогие инструменты, ни искусственный интеллект: достаточно данных о покупках, которые у вас уже есть. Реальная польза появляется, когда сегментация становится регулярной, а на каждую группу настроена своя коммуникация — и желательно автоматическая, через триггерные цепочки. При этом важно не забывать про закон: хранить данные в России и слать сообщения только тем, кто дал согласие. Если хотите получить работающую сегментацию и триггерные цепочки рассылок без лишней ручной работы и с учётом 152-ФЗ, я настрою это под ключ на российском стеке.</p>
+
+                    </div>
+
+                    
+                    
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Что я делаю под ключ</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-chat-circle-dots"></i> <span>Чат-боты Telegram/MAX</span></li>
+    
+    <li><i class="ph-fill ph-calendar-check"></i> <span>Онлайн-запись и напоминания</span></li>
+    
+    <li><i class="ph-fill ph-credit-card"></i> <span>Приём заявок и оплат</span></li>
+    
+    <li><i class="ph-fill ph-kanban"></i> <span>CRM и автоматизация процессов</span></li>
+    
+    <li><i class="ph-fill ph-lifebuoy"></i> <span>Поддержка и сопровождение</span></li>
+    
+  </ul>
+  <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
+  </a>
+</div>
+                    
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/services/business-analytics-unit-economics/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Аналитика и сегментация под ключ</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/abc-analiz-2026/" data-category="biznes-krugozor" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-chart-donut"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Бизнес-кругозор</span>
+  <h3>ABC-анализ: какие 20% товаров и клиентов дают 80% результата</h3>
+  <p>ABC-анализ показывает, какие товары и клиенты реально кормят бизнес, а какие почти не вносят вклад. Разбираю по шагам с примером расчёта — куда направить фокус и ресурсы.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 17 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 8 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/dashbord-rukovoditelyu-v-telegram-max-2026/" data-category="development" data-clicks="0">
+  <span class="blog-card-fresh">Свежее</span>
+  <div class="blog-card-icon"><i class="ph-fill ph-chart-bar"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
+  <h3>Дашборд для руководителя в Telegram и MAX: цифры бизнеса в телефоне каждое утро</h3>
+  <p>Бот присылает руководителю сводку ключевых цифр бизнеса прямо в Telegram или MAX каждое утро — без таблиц и совещаний. Разбираю, какие метрики выводить и как это собрать.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 23 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/ottok-uderzhanie-churn-retention-2026/" data-category="biznes-krugozor" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-user-minus"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Бизнес-кругозор</span>
+  <h3>Отток (churn) и удержание (retention) клиентов</h3>
+  <p>Привлекать клиентов дорого, а терять — обидно. Разбираю, как считать отток и удержание, почему удержание выгоднее привлечения и что реально снижает churn (спойлер: не скидки).</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 17 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 8 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/crm-dlya-malogo-biznesa-2026/" data-category="sales" data-clicks="2">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-address-book"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Продажи и стартап</span>
+  <h3>CRM для малого бизнеса 2026: amoCRM vs Bitrix24 vs RetailCRM vs Notion — что выбрать без переплаты</h3>
+  <p>Малый бизнес 2026 теряет деньги, выбирая CRM по принципу «надо корпоративное» или «у всех amoCRM». Разбираю топ-5 CRM (amoCRM, Bitrix24, RetailCRM, Notion, Kommo, HubSpot Free) с ценами 2026, AI-фичами, обязательными интеграциями, миграцией, полной стоимостью владения и финальной рекомендацией под каждый сегмент бизнеса.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 25 мая 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 26 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    
+                    
+                    
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовые решения под ключ</span>
+                            <span class="blog-offer-cta-title">449 готовых IT-решений для бизнеса</span>
+                            <span class="blog-offer-cta-price">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Смотреть каталог</span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#chto-eto"><span class="blog-toc-num">01</span> Что такое RFM-анализ</a></li>
+<li><a href="#kak-schitat"><span class="blog-toc-num">02</span> Как считать RFM</a></li>
+<li><a href="#segmenty"><span class="blog-toc-num">03</span> Ключевые сегменты</a></li>
+<li><a href="#chto-delat"><span class="blog-toc-num">04</span> Что делать с сегментами</a></li>
+<li><a href="#instrumenty"><span class="blog-toc-num">05</span> Инструменты и автоматизация</a></li>
+<li><a href="#oshibki"><span class="blog-toc-num">06</span> Частые ошибки</a></li>
+<li><a href="#faq"><span class="blog-toc-num">07</span> FAQ</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">08</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=23" defer></script>
+<script src="/services-i18n.js?v=23" defer></script>
+<script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>
