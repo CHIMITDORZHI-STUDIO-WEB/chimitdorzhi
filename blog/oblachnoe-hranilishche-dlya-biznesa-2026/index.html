@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Облачное хранилище для бизнеса: своё или чужое</title>
+    <meta name="description" content="Облачное хранилище файлов для бизнеса: сравнение чужого публичного облака (аренда, удобно, но данные у провайдера) и своего self-hosted облака на своём сервере…">
+    <meta name="keywords" content="облако, self-hosted, Nextcloud, 152-ФЗ">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/oblachnoe-hranilishche-dlya-biznesa-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/oblachnoe-hranilishche-dlya-biznesa-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/oblachnoe-hranilishche-dlya-biznesa-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/oblachnoe-hranilishche-dlya-biznesa-2026/">
+    <meta property="og:title" content="Облачное хранилище для бизнеса: своё или чужое">
+    <meta property="og:description" content="Облачное хранилище файлов для бизнеса: сравнение чужого публичного облака (аренда, удобно, но данные у провайдера) и своего self-hosted облака на своём сервере…">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/oblachnoe-hranilishche-dlya-biznesa-2026/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Облачное хранилище для бизнеса: своё или чужое">
+    <meta name="twitter:description" content="Облачное хранилище файлов для бизнеса: сравнение чужого публичного облака (аренда, удобно, но данные у провайдера) и своего self-hosted облака на своём сервере…">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/oblachnoe-hranilishche-dlya-biznesa-2026/cover.png">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor-Fill.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=45">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Облачное хранилище для бизнеса: своё или чужое",
+  "description": "Облачное хранилище файлов для бизнеса: сравнение чужого публичного облака (аренда, удобно, но данные у провайдера) и своего self-hosted облака на своём сервере (контроль, приватность, но нужна настройка). Когда что выбрать, риски вендор-лока и блокировок, безопасность и 152-ФЗ. Пример открытого решения — Nextcloud.",
+  "image": "https://chimitdorzhi.tech/blog/oblachnoe-hranilishche-dlya-biznesa-2026/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/oblachnoe-hranilishche-dlya-biznesa-2026/"
+  },
+  "datePublished": "2026-06-25",
+  "dateModified": "2026-06-25",
+  "keywords": "облако, self-hosted, Nextcloud, 152-ФЗ",
+  "articleSection": "Open-source и свой сервер",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  },
+  "about": [
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://chimitdorzhi.tech/slovar/#152-fz",
+      "name": "152-ФЗ"
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://chimitdorzhi.tech/slovar/#self-hosted",
+      "name": "Self-hosted"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Облачное хранилище для бизнеса: своё или чужое",
+      "item": "https://chimitdorzhi.tech/blog/oblachnoe-hranilishche-dlya-biznesa-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Своё облако — это обязательно дорого?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Не обязательно. Само приложение Nextcloud бесплатное, платить нужно только за сервер и обслуживание. На заметных объёмах это часто дешевле помесячной аренды чужого облака, хотя точные цифры зависят от нагрузки."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что будет с моими файлами, если зарубежный сервис заблокируют?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Доступ может стать затруднённым или невозможным, а оплата картой — не пройти. Поэтому критичные данные разумно держать там, где вы не зависите от внешних блокировок, — например, в своём облаке на сервере в России."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Насколько сложно обслуживать своё облако?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "После грамотной настройки возни немного: обновления и присмотр за копиями. Эту часть можно отдать на сопровождение, чтобы вообще не думать о технике."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли перенести данные из чужого облака в своё?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да. Файлы выгружаются из текущего сервиса и загружаются в новое хранилище. При переезде на открытое решение вы перестаёте зависеть от одного поставщика."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "А если у меня нет технического специалиста?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Тогда логично либо начать с удобного чужого облака, либо заказать своё под ключ с сопровождением. Во втором случае настройку и обслуживание берёт на себя подрядчик, а вы просто пользуетесь готовым сервисом."
+      }
+    }
+  ]
+}
+    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+var inject=function(){for (var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)};
+var run=function(){('requestIdleCallback' in window)?requestIdleCallback(inject,{timeout:5000}):setTimeout(inject,3000)};
+(e.readyState==='complete')?run():m.addEventListener('load',run);})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109281884" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+            <li><a href="/#services" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li class="nav-dropdown">
+                <a href="/#projects" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--arey"><i class="ph-fill ph-vinyl-record" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-airplane-tilt" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#cases" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            </div>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/#about">Обо мне</a></li>
+        <li><a href="/#services">Услуги</a></li>
+        <li><a href="/services/">Каталог услуг</a></li>
+        <li><a href="/predlozheniya/">Предложения</a></li>
+        <li><a href="/#cases">Кейсы</a></li>
+        <li><a href="/blog/">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+        <li><a href="/#contact">Контакт</a></li>
+    </ul>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Облачное хранилище для бизнеса: своё или чужое</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/opensource/"><i class="ph ph-bookmark" aria-hidden="true"></i> Open-source и свой сервер</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 8 мин чтения</span>
+                        <time datetime="2026-06-25"><i class="ph ph-calendar" aria-hidden="true"></i> 25 июня 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Облачное хранилище для бизнеса: своё или чужое</h1>
+
+                    <p class="blog-lead">Где держать рабочие файлы компании — в чужом облаке или на своём сервере? Разбираю плюсы и минусы обоих вариантов, риски блокировок и вендор-лока, приватность и 152-ФЗ. На примере открытого Nextcloud.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>облако</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>self-hosted</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>Nextcloud</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>152-ФЗ</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
+<li>Облачное хранилище нужно бизнесу, чтобы файлы были в одном месте, доступны с любого устройства и защищены от потери при поломке локального диска.</li>
+<li>Чужое (публичное) облако — это аренда: быстро, удобно, без забот об оборудовании, но данные физически лежат у провайдера, а правила и цены диктует он.</li>
+<li>Своё (self-hosted) облако — это сервис на вашем сервере: полный контроль и приватность, но нужны настройка, обслуживание и ответственность за бэкапы.</li>
+<li>Выбор зависит от чувствительности данных, бюджета, требований 152-ФЗ и того, насколько вам важна независимость от чужих правил и блокировок.</li>
+<li>Если хочется своего облака без возни с настройкой — открытое решение Nextcloud можно развернуть под ключ, и я помогаю это сделать.</li>
+</ul></div>
+
+<p>Файлы бизнеса — договоры, сканы, бухгалтерия, проекты, база клиентов — давно не умещаются на одном рабочем компьютере. Их нужно открывать с телефона, передавать сотрудникам, не терять при поломке диска и не отдавать кому попало. Эту задачу решает облачное хранилище. Но за словом «облако» прячутся два разных подхода: арендовать место у крупного провайдера или поднять собственный сервис на своём сервере. У каждого пути своя цена, свои удобства и риски. Разберу по делу, без рекламы тарифов, чтобы вы могли выбрать осознанно под свою ситуацию.</p>
+
+<h2 id="zachem">Зачем бизнесу облачное хранилище</h2>
+<p>Зачем вообще облако, если есть папка на компьютере и флешка в ящике стола. Затем, что флешка теряется, диск выходит из строя, а сотрудник, уходя в отпуск, уносит файлы в ноутбуке. Облачное хранилище убирает эти болевые точки сразу.</p>
+<ul>
+<li><strong>Единое место для файлов.</strong> Все документы в одном хранилище, а не разбросаны по десятку компьютеров и мессенджеров. Не нужно искать, у кого «последняя версия» договора.</li>
+<li><strong>Доступ с любого устройства.</strong> Компьютер в офисе, ноутбук дома, телефон в дороге — везде те же файлы и папки. Особенно ценно для команд, работающих не только из офиса.</li>
+<li><strong>Защита от потери данных.</strong> Сломался диск, украли ноутбук, залили кофе — файлы остаются в хранилище. При правильной настройке есть и резервные копии на случай ошибочного удаления.</li>
+<li><strong>Совместная работа.</strong> Можно дать доступ к папке сотруднику или подрядчику, поделиться ссылкой с клиентом, вести общие документы без пересылки версий.</li>
+<li><strong>Порядок и контроль.</strong> Видно, кто и когда менял файл, можно восстановить прежнюю версию, разграничить права между отделами.</li>
+</ul>
+<p>То есть облако — про надёжность, удобство и порядок. Дальше вопрос один: где данные будут храниться — у чужого провайдера или у вас.</p>
+
+<h2 id="svoy-vs-chuzhoy">Своё или чужое: плюсы и минусы</h2>
+<p>Это главная развилка. Оба варианта рабочие: один не всегда лучше другого. Они решают задачу по-разному и подходят разным компаниям. Разберём честно обе стороны.</p>
+<p><strong>Чужое облако — это аренда места у крупного провайдера.</strong> Вы регистрируетесь, платите за объём и пользуетесь готовым сервисом. Оборудование, обслуживание и обновления — забота провайдера.</p>
+<ul>
+<li><strong>Плюс: быстрый старт.</strong> Завели аккаунт за пять минут, и хранилище готово. Не нужно покупать сервер, нанимать администратора, разбираться в настройках.</li>
+<li><strong>Плюс: надёжность инфраструктуры.</strong> У серьёзных провайдеров есть резервирование, дежурные инженеры и дата-центры. Вам не нужно думать о вышедшем из строя диске.</li>
+<li><strong>Плюс: масштабируемость.</strong> Нужно больше места — увеличили тариф, без покупки железа заранее «на вырост».</li>
+<li><strong>Минус: данные физически у провайдера.</strong> Файлы лежат на чужих серверах. Вы доверяете их сохранность стороне, которую не контролируете.</li>
+<li><strong>Минус: зависимость от чужих правил.</strong> Провайдер может поднять цены, изменить условия или вовсе закрыть сервис. Это и называется вендор-лок — привязка к поставщику.</li>
+<li><strong>Минус: риск блокировок.</strong> Зарубежный сервис может перестать работать в стране или с вашими картами, а доступ к данным окажется затруднён в неподходящий момент.</li>
+</ul>
+<p><strong>Своё облако — это собственный сервис на вашем сервере.</strong> Сервер может стоять в офисе или быть арендован у хостинга, но программа-хранилище и сами данные принадлежат вам. Типичный пример — открытая платформа Nextcloud: бесплатное приложение с открытым кодом, которое разворачивается на вашем сервере и даёт привычный интерфейс с папками, ссылками и мобильным доступом.</p>
+<ul>
+<li><strong>Плюс: полный контроль.</strong> Вы решаете, где лежат данные, кто имеет доступ, как настроены права и копии. Никто не меняет правила в одностороннем порядке.</li>
+<li><strong>Плюс: приватность.</strong> Файлы не уходят к стороннему провайдеру. Для чувствительных данных — договоров, данных клиентов, коммерческой тайны — это серьёзный аргумент.</li>
+<li><strong>Плюс: независимость.</strong> Нет вендор-лока: сервис ваш, открытый код никуда не денется, перенести его на другой сервер можно без потери данных.</li>
+<li><strong>Плюс: предсказуемые расходы.</strong> Вы платите за сервер, а не за каждый гигабайт по тарифу. На больших объёмах это часто выгоднее.</li>
+<li><strong>Минус: нужна настройка.</strong> Сервер надо развернуть, защитить, обновлять. Это требует компетенций или подрядчика.</li>
+<li><strong>Минус: ответственность на вас.</strong> Резервные копии, безопасность, доступность — теперь ваша зона ответственности. Если бэкапы не настроены, винить некого.</li>
+</ul>
+<p>Если коротко: чужое облако снимает заботы, но забирает контроль. Своё даёт контроль, но требует заботы. Что выбрать — зависит от того, что для вашего бизнеса важнее.</p>
+
+<h2 id="kak-vybrat">Как выбрать под свою задачу</h2>
+<p>Чтобы не выбирать вслепую, ответьте себе на несколько вопросов. Они быстро показывают, в какую сторону смотреть.</p>
+<ul>
+<li><strong>Насколько чувствительны данные?</strong> Если вы храните данные клиентов, медицинские карты, финансовую отчётность или коммерческую тайну — аргументы в пользу своего облака сильнее. Для нейтральных файлов чужое облако вполне годится.</li>
+<li><strong>Какой объём и как он растёт?</strong> Небольшие объёмы проще держать в чужом облаке. Когда речь о терабайтах, своя инфраструктура в долгую часто выгоднее по деньгам.</li>
+<li><strong>Есть ли требования по 152-ФЗ?</strong> Если вы обрабатываете персональные данные россиян, закон требует хранить их на серверах в России. Своё облако на российском сервере решает это прозрачно.</li>
+<li><strong>Насколько критична независимость?</strong> Если важно не зависеть от чужих цен, правил и риска блокировок, своё облако даёт эту устойчивость.</li>
+<li><strong>Есть ли кому обслуживать?</strong> Если нет технического специалиста и подрядчика, чужое облако проще. Хотя своё можно развернуть и отдать на сопровождение — об этом ниже.</li>
+</ul>
+<p>На практике многие приходят к смешанному подходу: нечувствительные файлы — в удобном чужом облаке, а критичные документы и персональные данные — в своём, на контролируемом сервере. Разумный компромисс между удобством и контролем.</p>
+<p>Если вам ближе своё облако, но настраивать сервер самому не хочется, — это частая ситуация. Я разворачиваю Nextcloud и другие открытые решения под ключ: ставлю на ваш сервер, настраиваю безопасность, доступы и резервные копии, показываю, как пользоваться. Вы получаете своё облако без необходимости вникать в технику.</p>
+
+<h2 id="bezopasnost">Безопасность данных и 152-ФЗ</h2>
+<p>Безопасность — это не «есть пароль, значит всё хорошо». Это несколько уровней, важных независимо от того, чьё у вас облако. Разберу ключевые моменты простым языком.</p>
+<ul>
+<li><strong>Шифрование.</strong> Данные должны передаваться по защищённому соединению, а на сервере храниться так, чтобы при краже диска их нельзя было просто прочитать.</li>
+<li><strong>Резервные копии.</strong> Хранилище без бэкапов — бомба замедленного действия. Копии должны делаться автоматически и храниться отдельно от основного сервера, чтобы пережить и поломку, и ошибочное удаление.</li>
+<li><strong>Разграничение доступа.</strong> Не у всех сотрудников должен быть доступ ко всем папкам. Бухгалтерия — отдельно, продажи — отдельно. Это снижает риск утечки и ошибок.</li>
+<li><strong>Двухфакторная аутентификация.</strong> Пароль можно подсмотреть или подобрать, поэтому для важных аккаунтов нужен второй фактор — код из приложения. Открытые платформы вроде Nextcloud это поддерживают.</li>
+</ul>
+<p>Отдельно про закон. Если вы работаете с персональными данными граждан России — а это почти любой бизнес с клиентами, — действует 152-ФЗ «О персональных данных». Один из его ключевых пунктов: первичная обработка и хранение таких данных должны происходить на серверах в России. Зарубежное публичное облако этому требованию по умолчанию не отвечает, и это реальный риск претензии от регулятора. Своё облако на российском сервере либо чужое облако российского провайдера с серверами в стране закрывают этот вопрос. Здесь контроль над тем, где физически лежат данные, — не абстрактная приватность, а буквальное требование закона.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+<p><strong>Своё облако — это обязательно дорого?</strong> Не обязательно. Само приложение Nextcloud бесплатное, платить нужно только за сервер и обслуживание. На заметных объёмах это часто дешевле помесячной аренды чужого облака, хотя точные цифры зависят от нагрузки.</p>
+<p><strong>Что будет с моими файлами, если зарубежный сервис заблокируют?</strong> Доступ может стать затруднённым или невозможным, а оплата картой — не пройти. Поэтому критичные данные разумно держать там, где вы не зависите от внешних блокировок, — например, в своём облаке на сервере в России.</p>
+<p><strong>Насколько сложно обслуживать своё облако?</strong> После грамотной настройки возни немного: обновления и присмотр за копиями. Эту часть можно отдать на сопровождение, чтобы вообще не думать о технике.</p>
+<p><strong>Можно ли перенести данные из чужого облака в своё?</strong> Да. Файлы выгружаются из текущего сервиса и загружаются в новое хранилище. При переезде на открытое решение вы перестаёте зависеть от одного поставщика.</p>
+<p><strong>А если у меня нет технического специалиста?</strong> Тогда логично либо начать с удобного чужого облака, либо заказать своё под ключ с сопровождением. Во втором случае настройку и обслуживание берёт на себя подрядчик, а вы просто пользуетесь готовым сервисом.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+<p>Облачное хранилище нужно почти любому бизнесу — оно избавляет от потери файлов, даёт доступ с любого устройства и наводит порядок в документах. Развилка не в том, нужно ли облако, а в том, чьё оно. Чужое облако — это удобство и быстрый старт ценой контроля и зависимости от провайдера. Своё облако — это контроль, приватность и независимость ценой настройки и ответственности за обслуживание. Чем чувствительнее данные и строже требования 152-ФЗ, тем сильнее аргументы в пользу своего хранилища; чем проще задача и меньше объём, тем спокойнее можно остаться в чужом. Если хотите своё облако, но не хотите разбираться в технике, — я разворачиваю Nextcloud и другие открытые решения под ключ, с настройкой безопасности, доступов и копий. Получается надёжное хранилище, которое полностью принадлежит вам.</p>
+
+                    </div>
+
+                    <div class="blog-callout"><i class="ph-fill ph-git-branch" aria-hidden="true"></i><div><strong>Где взять</strong> — Официальный репозиторий на GitHub: <a href="https://github.com/nextcloud/server" target="_blank" rel="noopener">github.com/nextcloud/server</a>. Развернуть и настроить под ключ помогу — <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener">напишите в Telegram</a>.</div></div>
+                    
+                    <div class="blog-cta-card">
+                        <div class="blog-cta-card-body">
+                            <h3>Ещё open-source для бизнеса</h3>
+                            <p>Эта статья — часть каталога бесплатных решений, которые я разворачиваю на вашем сервере под ключ: CRM, аналитика, документы, почта, безопасность, магазины, AI.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="/blog/katalog-open-source-resheniy-dlya-biznesa-2026/" class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Каталог open-source решений</a>
+                        </div>
+                    </div>
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Что я делаю с self-hosted</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-cloud"></i> <span>Своё облако (Nextcloud)</span></li>
+    
+    <li><i class="ph-fill ph-hard-drives"></i> <span>Сервер и хранилище</span></li>
+    
+    <li><i class="ph-fill ph-shield-check"></i> <span>Безопасность и 152-ФЗ</span></li>
+    
+    <li><i class="ph-fill ph-arrows-clockwise"></i> <span>Бэкапы и синхронизация</span></li>
+    
+    <li><i class="ph-fill ph-lifebuoy"></i> <span>Внедрение и поддержка</span></li>
+    
+  </ul>
+  <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
+  </a>
+</div>
+                    
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/predlozheniya/open-source-pod-klyuch/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Развернуть своё облако под ключ</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/nextcloud-svoy-oblachnyy-disk-2026/" data-category="opensource" data-clicks="1">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-cloud"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>Nextcloud: свой облачный диск компании вместо Google Drive</h3>
+  <p>Nextcloud — это своё облако компании: файлы, общий доступ и документы на своём сервере, как Google Drive, но с данными у себя. Разбираю, что умеет и что нужно для запуска.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 14 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/self-hosted-infrastruktura-2026/" data-category="development" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-hard-drives"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
+  <h3>Self-hosted всё 2026: своя инфраструктура вместо SaaS — Nextcloud, Gitea, n8n</h3>
+  <p>Вендоры уходят, цены SaaS растут, данные хочется держать у себя. Я сам держу инфраструктуру на VPS и перевожу клиентов с зарубежных SaaS. Полный гайд: Nextcloud, Gitea, n8n, Plausible, Vaultwarden, Metabase на Docker. С docker-compose, nginx-конфигом, restic-бэкапами, безопасностью и экономикой. Российские VPS и соответствие 152-ФЗ.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 28 мая 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 26 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/kiberbezopasnost-udalennoy-komandy-2026/" data-category="security" data-clicks="0">
+  <span class="blog-card-fresh">Свежее</span>
+  <div class="blog-card-icon"><i class="ph-fill ph-shield-check"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Безопасность</span>
+  <h3>Кибербезопасность удалённой команды: доступы, устройства и утечки</h3>
+  <p>Сотрудники работают из дома, с личных ноутбуков и домашнего Wi-Fi — и каждый становится точкой входа. Разбираю правила кибербезопасности удалённой команды: доступы, устройства, утечки и что делать при увольнении.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 25 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 8 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/priem-oplaty-iz-za-rubezha-2026/" data-category="finance" data-clicks="0">
+  <span class="blog-card-fresh">Свежее</span>
+  <div class="blog-card-icon"><i class="ph-fill ph-currency-circle-dollar"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Финансы</span>
+  <h3>Приём оплаты из-за рубежа в 2026: какие способы есть у бизнеса и фрилансера</h3>
+  <p>Принимать оплату от зарубежных клиентов стало сложнее, но способы есть. Разбираю обзорно, какие варианты бывают у бизнеса и фрилансера, что такое валютный контроль и почему без бухгалтера и юриста тут не обойтись.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 25 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 8 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    
+                    
+                    
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовые решения под ключ</span>
+                            <span class="blog-offer-cta-title">449 готовых IT-решений для бизнеса</span>
+                            <span class="blog-offer-cta-price">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Смотреть каталог</span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#zachem"><span class="blog-toc-num">01</span> Зачем бизнесу облачное хранилище</a></li>
+<li><a href="#svoy-vs-chuzhoy"><span class="blog-toc-num">02</span> Своё или чужое: плюсы и минусы</a></li>
+<li><a href="#kak-vybrat"><span class="blog-toc-num">03</span> Как выбрать под свою задачу</a></li>
+<li><a href="#bezopasnost"><span class="blog-toc-num">04</span> Безопасность данных и 152-ФЗ</a></li>
+<li><a href="#faq"><span class="blog-toc-num">05</span> FAQ</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">06</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=23" defer></script>
+<script src="/services-i18n.js?v=23" defer></script>
+<script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>
