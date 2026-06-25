@@ -2,6 +2,7 @@
 // Рендерится блоком «Где взять» в статьях рубрики opensource.
 module.exports = {
   "llama-cpp-zapusk-i-optimizaciya-2026": "https://github.com/ggml-org/llama.cpp",
+  "oblachnoe-hranilishche-dlya-biznesa-2026": "https://github.com/nextcloud/server",
   "n8n-avtomatizaciya-bez-zapier-2026": "https://github.com/n8n-io/n8n",
   "ollama-svoy-chatgpt-na-servere-2026": "https://github.com/ollama/ollama",
   "flowise-konstruktor-ai-botov-2026": "https://github.com/FlowiseAI/Flowise",
