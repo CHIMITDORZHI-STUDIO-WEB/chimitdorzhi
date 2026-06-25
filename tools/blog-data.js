@@ -12,6 +12,7 @@ const blogBatchGrants = require('./blog-batch-grants-2026.js');
 const blogBatchOpenHw = require('./blog-batch-openhw-2026.js');
 const blogBatchLlmLocal = require('./blog-batch-llm-local-2026.js');
 const blogBatchPraktJun2 = require('./blog-batch-prakt-jun2-2026.js');
+const blogBatchYtJun = require('./blog-batch-yt-jun-2026.js');
 const blogBatchA = require('./blog-batch-a.js');
 const blogBatchB = require('./blog-batch-b.js');
 const blogBatchC = require('./blog-batch-c.js');
@@ -10104,7 +10105,7 @@ const ALL_ARTICLES = [
     metaKeywords: 'контент под ИИ, форматы для нейросетей, как цитируют ChatGPT, GEO контент, TL;DR FAQ таблицы, оптимизация текста под ИИ',
     excerpt: 'Нейросети не цитируют всё подряд — они извлекают самодостаточные фрагменты. Показываю, как оформлять контент (TL;DR, FAQ, таблицы, определения), чтобы ИИ брал именно ваш текст.',
     datePublished: '2026-06-03',
-    dateModified: '2026-06-03',
+    dateModified: '2026-06-25',
     readingMinutes: 13,
     heroIcon: 'ph-quotes',
     tags: ['GEO', 'контент', 'AI-поиск', 'копирайтинг', 'нейросети'],
@@ -10116,9 +10117,10 @@ const ALL_ARTICLES = [
       { id: 'opredeleniya-i-terminy', text: 'Определения и термины' },
       { id: 'struktura-i-zagolovki', text: 'Структура, заголовки и цифры' },
       { id: 'chego-izbegat', text: 'Чего избегать' },
+      { id: 'svezhest-2026', text: 'Свежие данные 2026' },
       { id: 'faq', text: 'Частые вопросы' },
     ],
-    relatedSlugs: ['geo-optimizaciya-chto-eto-2026', 'geo-chek-list-30-punktov-2026', 'llms-txt-standart-2026'],
+    relatedSlugs: ['geo-optimizaciya-chto-eto-2026', 'geo-chek-list-30-punktov-2026', 'geo-pochemu-net-zakazov-iz-ai-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/services/digital-marketing/', label: 'Контент под ИИ-поиск' },
     servicesOffer: {
       title: 'Чем помогу с GEO и продвижением в ИИ',
@@ -10692,7 +10694,7 @@ const ALL_ARTICLES = [
       ],
     },
   },
-].concat(antigravityEntries, blogBatchA, blogBatchB, blogBatchC, blogBatchPillars, blogBatchMaxMkt, blogBatchLocal, blogBatchChita, blogBatchShkola, blogBatchSetevik, blogBatchMlmBrands, blogBatchMlmBrands2, blogBatchMlmBrands3, blogBatchPraktiki, blogBatchEvents, blogBatchBiznesIdei, blogBatchOpenSource, blogBatchOpenSource2, blogBatchZarabotok, blogBatchOpenSource3, blogBatchOpenSource4, blogBatchOpenSource5, blogBatchOpenSource6, blogBatchOpenSource7, blogBatchOpenSource8, blogBatchOpenSource9, blogBatchOpenSource10, blogBatchOpenSource11, blogBatchOpenSource12, blogBatchOpenSource13, blogBatchOpenSource14, blogBatchOpenSource15, blogBatchOpenSource16, blogBatchOpenSource17, blogBatchOpenSource18, blogBatchOpenSource19, blogBatchOpenSource20, blogBatchOpenSource21, blogBatchOpenSource22, blogBatchOpenSource23, blogBatchOpenSource24, blogBatchNishiIt, blogBatchNishiIt2, blogBatchMwrTravel, blogBatchBiznesTechGaps, blogBatchBiznesKrugozor, blogBatchSkolkoStoit, blogBatchLocalDengi, blogBatchZaschitaOsint, blogBatchOpenSourceHub, blogBatchAiTrends, blogBatchCommercialJun, blogBatchExpert, blogBatchMisc2, blogBatchCfa, blogBatchGrants, blogBatchOpenHw, blogBatchLlmLocal, blogBatchPraktJun2);
+].concat(antigravityEntries, blogBatchA, blogBatchB, blogBatchC, blogBatchPillars, blogBatchMaxMkt, blogBatchLocal, blogBatchChita, blogBatchShkola, blogBatchSetevik, blogBatchMlmBrands, blogBatchMlmBrands2, blogBatchMlmBrands3, blogBatchPraktiki, blogBatchEvents, blogBatchBiznesIdei, blogBatchOpenSource, blogBatchOpenSource2, blogBatchZarabotok, blogBatchOpenSource3, blogBatchOpenSource4, blogBatchOpenSource5, blogBatchOpenSource6, blogBatchOpenSource7, blogBatchOpenSource8, blogBatchOpenSource9, blogBatchOpenSource10, blogBatchOpenSource11, blogBatchOpenSource12, blogBatchOpenSource13, blogBatchOpenSource14, blogBatchOpenSource15, blogBatchOpenSource16, blogBatchOpenSource17, blogBatchOpenSource18, blogBatchOpenSource19, blogBatchOpenSource20, blogBatchOpenSource21, blogBatchOpenSource22, blogBatchOpenSource23, blogBatchOpenSource24, blogBatchNishiIt, blogBatchNishiIt2, blogBatchMwrTravel, blogBatchBiznesTechGaps, blogBatchBiznesKrugozor, blogBatchSkolkoStoit, blogBatchLocalDengi, blogBatchZaschitaOsint, blogBatchOpenSourceHub, blogBatchAiTrends, blogBatchCommercialJun, blogBatchExpert, blogBatchMisc2, blogBatchCfa, blogBatchGrants, blogBatchOpenHw, blogBatchLlmLocal, blogBatchPraktJun2, blogBatchYtJun);
 
 // --- Проход взаимной перелинковки ---------------------------------------
 // Гарантирует, что у каждой опубликованной статьи есть хотя бы одна входящая
