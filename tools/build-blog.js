@@ -6,9 +6,47 @@
 // Usage: node tools/build-blog.js
 
 const fs = require('fs');
+const { execSync } = require('child_process');
 const { clampTitle, clampDesc } = require("./meta-clamp.js");
 const path = require('path');
 const articles = require('./blog-data');
+
+// --- Честная дата изменения из git -------------------------------------------
+// dateModified берётся из последнего коммита, который реально менял контент-файл
+// статьи (tools/blog-content-<slug>.js). Никакой накрутки: не редактировал статью —
+// дата честно старая; отредактировал и закоммитил — дата сама обновится. Если у
+// статьи нет отдельного контент-файла (инлайн-контент) или git недоступен,
+// остаётся дата, объявленная в данных. Дату изменения не уводим раньше публикации.
+function buildGitDateMap() {
+  const map = new Map();
+  try {
+    const out = execSync('git log --no-renames --name-only --pretty=format:@%cs -- tools/', {
+      cwd: path.join(__dirname, '..'), maxBuffer: 128 * 1024 * 1024, encoding: 'utf8',
+    });
+    let cur = null;
+    for (const line of out.split('\n')) {
+      if (line[0] === '@') { cur = line.slice(1).trim(); continue; }
+      const f = line.trim();
+      if (cur && f && !map.has(f)) map.set(f, cur); // git log идёт от свежих к старым → первый = самый свежий
+    }
+  } catch (e) {
+    console.warn('  git недоступен — даты изменения берутся из данных:', String(e.message).split('\n')[0]);
+  }
+  return map;
+}
+(function applyGitDates() {
+  const gitDates = buildGitDateMap();
+  if (!gitDates.size) return;
+  let updated = 0;
+  for (const a of articles) {
+    if (!a || !a.slug) continue;
+    const g = gitDates.get('tools/blog-content-' + a.slug + '.js');
+    if (!g) continue;
+    const next = (a.datePublished && g < a.datePublished) ? a.datePublished : g;
+    if (next !== a.dateModified) { a.dateModified = next; updated++; }
+  }
+  console.log(`  Даты изменения из git: обновлено ${updated} статей (источников в карте: ${gitDates.size})`);
+})();
 const OFFERS = require('./offers-data.js');
 // Живое число опубликованных предложений — подставляется вместо токена {{OFFERS_COUNT}}.
 const OFFERS_COUNT = OFFERS.filter(o => o && o.published !== false).length;
