@@ -97,34 +97,51 @@ async function main() {
     const db = (a.datePublished || '') + (a.dateModified || '');
     return da < db ? -1 : da > db ? 1 : (a.slug < b.slug ? -1 : 1);
   });
-  const pick = sorted.slice(0, N);
+  const ALL_MODE = String(process.argv[2] || '').toLowerCase() === 'all';
+  const pick = ALL_MODE ? sorted : sorted.slice(0, N);
 
   const outDir = path.join(ROOT, 'pinterest');
   fs.mkdirSync(outDir, { recursive: true });
-  const rows = [['Title', 'Media URL', 'Pinterest board', 'Thumbnail', 'Description', 'Link', 'Publish date', 'Keywords']];
+  const HEADER = ['Title', 'Media URL', 'Pinterest board', 'Thumbnail', 'Description', 'Link', 'Publish date', 'Keywords'];
+  const pad = n => String(n).padStart(3, '0');
+  const PAGE = 200;
+
+  // строка CSV из статьи
+  const rowOf = a => [
+    clip(a.title, 100),
+    `${SITE}/blog/${a.slug}/pin.png`,
+    BOARD, '',
+    clip(a.excerpt || a.metaDescription || a.title, 480),
+    `${SITE}/blog/${a.slug}/`,
+    '',
+    (a.tags || []).slice(0, 10).join(', '),
+  ];
+  const writeCsv = (file, articles) => {
+    const csv = [HEADER, ...articles.map(rowOf)].map(r => r.map(csvCell).join(',')).join('\r\n');
+    fs.writeFileSync(path.join(outDir, file), '﻿' + csv, 'utf8'); // BOM для кириллицы
+  };
+
   let done = 0;
   for (const a of pick) {
     const dir = path.join(ROOT, 'blog', a.slug);
     if (!fs.existsSync(dir)) { console.warn('  нет каталога статьи:', a.slug); continue; }
-    const svg = buildPinSvg(a);
-    await sharp(Buffer.from(svg)).png({ quality: 90, compressionLevel: 9 }).toFile(path.join(dir, 'pin.png'));
-    const url = `${SITE}/blog/${a.slug}/`;
-    rows.push([
-      clip(a.title, 100),
-      `${SITE}/blog/${a.slug}/pin.png`,
-      BOARD,
-      '',
-      clip(a.excerpt || a.metaDescription || a.title, 480),
-      url,
-      '',
-      (a.tags || []).slice(0, 10).join(', '),
-    ]);
-    if (++done % 25 === 0) console.log(`  обложек: ${done}/${pick.length}`);
+    await sharp(Buffer.from(buildPinSvg(a))).png({ quality: 90, compressionLevel: 9 }).toFile(path.join(dir, 'pin.png'));
+    if (++done % 50 === 0) console.log(`  обложек: ${done}/${pick.length}`);
   }
-  const csv = rows.map(r => r.map(csvCell).join(',')).join('\r\n');
-  const csvPath = path.join(outDir, `pinterest-${N}.csv`);
-  fs.writeFileSync(csvPath, '﻿' + csv, 'utf8'); // BOM для корректной кириллицы
-  console.log(`\nГотово: ${done} вертикальных обложек (1000x1500), CSV: ${path.relative(ROOT, csvPath)} (${rows.length - 1} строк)`);
+
+  if (ALL_MODE) {
+    const files = [];
+    for (let start = 0; start < pick.length; start += PAGE) {
+      const page = pick.slice(start, start + PAGE);
+      const file = `pinterest-${pad(start + 1)}-${pad(start + page.length)}.csv`;
+      writeCsv(file, page);
+      files.push(`${file} (${page.length})`);
+    }
+    console.log(`\nГотово: ${done} вертикальных обложек (1000x1500). CSV-файлы:\n  ${files.join('\n  ')}`);
+  } else {
+    writeCsv(`pinterest-${N}.csv`, pick);
+    console.log(`\nГотово: ${done} вертикальных обложек (1000x1500), CSV: pinterest/pinterest-${N}.csv (${pick.length} строк)`);
+  }
 }
 if (require.main === module) {
   main().catch(e => { console.error(e); process.exit(1); });
