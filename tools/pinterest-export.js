@@ -79,6 +79,16 @@ function buildPinSvg(a) {
 </svg>`;
 }
 
+// Отрендерить вертикальную обложку pin.png для одной статьи (для встраивания в сборку).
+async function renderPin(a) {
+  const dir = path.join(ROOT, 'blog', a.slug);
+  if (!fs.existsSync(dir)) return false;
+  await sharp(Buffer.from(buildPinSvg(a))).png({ quality: 90, compressionLevel: 9 }).toFile(path.join(dir, 'pin.png'));
+  return true;
+}
+
+module.exports = { buildPinSvg, renderPin };
+
 async function main() {
   const all = require('./blog-data.js').filter(a => a && a.published !== false && a.contentHtml);
   // Самые свежие: по дате публикации (затем изменения), tiebreak — slug для детерминизма.
@@ -116,4 +126,6 @@ async function main() {
   fs.writeFileSync(csvPath, '﻿' + csv, 'utf8'); // BOM для корректной кириллицы
   console.log(`\nГотово: ${done} вертикальных обложек (1000x1500), CSV: ${path.relative(ROOT, csvPath)} (${rows.length - 1} строк)`);
 }
-main().catch(e => { console.error(e); process.exit(1); });
+if (require.main === module) {
+  main().catch(e => { console.error(e); process.exit(1); });
+}

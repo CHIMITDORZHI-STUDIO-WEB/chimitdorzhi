@@ -522,6 +522,7 @@ const ROOT = path.resolve(__dirname, '..');
 const OUT_BLOG = path.join(ROOT, 'blog');
 const OUT_SITEMAP = path.join(ROOT, 'sitemap.xml');
 const OUT_FEED    = path.join(OUT_BLOG, 'feed.xml');
+const OUT_PIN_FEED = path.join(OUT_BLOG, 'pinterest-feed.xml');
 const OUT_LLMS      = path.join(ROOT, 'llms.txt');
 const OUT_LLMS_FULL = path.join(ROOT, 'llms-full.txt');
 
@@ -2074,6 +2075,51 @@ ${items}
 </rss>`;
 }
 
+// Отдельный фид под Pinterest: вертикальные обложки 2:3 (pin.png) вместо
+// горизонтальных cover.png. Pinterest «любит» вертикаль — так авто-пины из RSS
+// выглядят нормально. Этот фид НЕ трогает основной feed.xml (он кормит Дзен).
+const PIN_FEED_MAX = 40;
+function buildPinterestRss(published) {
+  const drip = loadDripState();
+  const feedDate = a => drip[a.slug] || a.datePublished;
+  const sorted = [...published].sort((a, b) => (feedDate(b) || '').localeCompare(feedDate(a) || ''));
+  const itemsArr = sorted.slice(0, PIN_FEED_MAX);
+  const items = itemsArr.map(a => {
+    const url = `${SITE}/blog/${a.slug}/`;
+    const cat = CATEGORY_LABELS[a.category] || a.category || '';
+    const pin = `${SITE}/blog/${a.slug}/pin.png`;
+    const html = `<p><img src="${pin}" alt="${esc(a.title)}"/></p>\n<p>${esc(a.excerpt || '')}</p>`;
+    return `    <item>
+      <title>${esc(a.title)}</title>
+      <link>${url}</link>
+      <guid isPermaLink="true">${url}</guid>
+      <description><![CDATA[${a.excerpt || ''}]]></description>
+      <content:encoded><![CDATA[${html}]]></content:encoded>
+      <pubDate>${rssDate(feedDate(a))}</pubDate>
+      <category>${esc(cat)}</category>
+      <author>noreply@chimitdorzhi.tech (Чимитдоржи Дарижапов)</author>
+      <enclosure url="${pin}" type="image/png" length="0"/>
+      <media:thumbnail url="${pin}"/>
+      <media:content url="${pin}" medium="image" type="image/png"/>
+    </item>`;
+  }).join('\n');
+  const latest = itemsArr[0] ? (feedDate(itemsArr[0]) || new Date().toISOString().slice(0, 10)) : new Date().toISOString().slice(0, 10);
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title>Блог Чимитдоржи Дарижапова — Pinterest</title>
+    <link>${SITE}/blog/</link>
+    <atom:link href="${SITE}/blog/pinterest-feed.xml" rel="self" type="application/rss+xml" />
+    <description>Свежие статьи блога с вертикальными обложками для Pinterest.</description>
+    <language>ru</language>
+    <lastBuildDate>${rssDate(latest)}</lastBuildDate>
+    <ttl>60</ttl>
+${items}
+  </channel>
+</rss>`;
+  return { xml, items: itemsArr };
+}
+
 // ---------- main ----------
 
 function ensureDir(p) { fs.mkdirSync(p, { recursive: true }); }
@@ -2200,6 +2246,17 @@ async function main() {
     console.log(`  ⚠ Пропуск генерации обложек (${e.message}) — использую существующие.`);
   }
 
+  // Вертикальные обложки 2:3 (pin.png) для статей в Pinterest-фиде.
+  try {
+    const pin = require('./pinterest-export.js');
+    const { items } = buildPinterestRss(published);
+    let n = 0;
+    for (const a of items) { if (await pin.renderPin(a)) n++; }
+    console.log(`  Generated ${n} Pinterest cover(s) (pin.png)`);
+  } catch (e) {
+    console.log(`  ⚠ Пропуск Pinterest-обложек (${e.message}).`);
+  }
+
   let pages = 0;
   for (const a of published) {
     const dir = path.join(OUT_BLOG, a.slug);
@@ -2234,6 +2291,8 @@ async function main() {
   updateSitemap(published);
   writeLlms(published);
   fs.writeFileSync(OUT_FEED, subOffersCount(buildRss(published)), 'utf8');
+  // Отдельный RSS под Pinterest: вертикальные обложки pin.png.
+  fs.writeFileSync(OUT_PIN_FEED, buildPinterestRss(published).xml, 'utf8');
   // Отдельный RSS под ТенЧат-репостер (богатый текст + картинка, без ссылок)
   try { require('./build-tenchat-feed.js')(); } catch (e) { console.log('  tenchat-feed: пропуск (' + e.message + ')'); }
 
