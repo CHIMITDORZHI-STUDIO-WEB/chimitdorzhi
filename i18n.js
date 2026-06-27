@@ -34,7 +34,7 @@ const translations = {
         "useful.all.link": "Смотреть все",
         "useful.read": "Читать",
         "useful.cta": "Все статьи в блоге",
-        "nav.cta": "СВЯЗАТЬСЯ",
+        "nav.cta": "Связаться",
 
         "hero.eyebrow": "16+ лет в IT · AI/ML · 152-ФЗ · Разработка",
         "hero.line1": "IT и AI для",
