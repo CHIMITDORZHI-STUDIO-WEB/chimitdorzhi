@@ -349,7 +349,21 @@ const translations = {
         "off.os.desc": "Свои инструменты на своём сервере, без подписок.",
         "off.ransom.title": "Защита от шифровальщиков",
         "off.ransom.desc": "Бэкапы, доступы, обучение команды.",
-        "off.all": "Все предложения"
+        "off.all": "Все предложения",
+        "faq.label": "Вопросы и ответы",
+        "faq.heading": "Частые <span class=\"text-gradient\">вопросы</span>",
+        "faq.q1": "Сколько стоит разработка сайта, бота или внедрение ИИ?",
+        "faq.a1": "Зависит от задачи и объёма. После короткого разговора я даю честную оценку и предлагаю варианты под ваш бюджет — без навязывания лишнего.",
+        "faq.q2": "Вы работаете удалённо или только в Чите и Забайкалье?",
+        "faq.a2": "Работаю удалённо со всей Россией. В Чите при необходимости можем встретиться очно.",
+        "faq.q3": "Можно ли внедрить ИИ с соблюдением 152-ФЗ?",
+        "faq.a3": "Да. Использую российский стек (YandexGPT, GigaChat) или локальные модели на вашем сервере — данные клиентов не уходят за рубеж.",
+        "faq.q4": "Что значит «под ключ»?",
+        "faq.a4": "Беру задачу от аудита и проектирования до работающего решения и поддержки. Вы получаете готовый результат, а не набор инструкций.",
+        "faq.q5": "Поможете с 152-ФЗ и уведомлением в РКН?",
+        "faq.a5": "Да — аудит обработки данных, подготовка документов, подача уведомления в реестр операторов и базовая защита данных. Это образовательная помощь, не юридическая консультация.",
+        "faq.q6": "С чего начать сотрудничество?",
+        "faq.a6": "Напишите в Telegram или на почту и коротко опишите задачу. Я предложу формат, сроки и честную оценку."
     },
 
     en: {
@@ -700,7 +714,21 @@ const translations = {
         "off.os.desc": "Your own tools on your own server, no subscriptions.",
         "off.ransom.title": "Ransomware protection",
         "off.ransom.desc": "Backups, access control, team training.",
-        "off.all": "All offers"
+        "off.all": "All offers",
+        "faq.label": "Q&A",
+        "faq.heading": "Frequently asked <span class=\"text-gradient\">questions</span>",
+        "faq.q1": "How much does it cost to build a website, a bot or implement AI?",
+        "faq.a1": "It depends on the task and scope. After a short conversation I give an honest estimate and offer options that fit your budget — without pushing anything extra.",
+        "faq.q2": "Do you work remotely or only in Chita and Zabaikalye?",
+        "faq.a2": "I work remotely across all of Russia. In Chita we can meet in person if needed.",
+        "faq.q3": "Can AI be implemented in compliance with 152-FZ?",
+        "faq.a3": "Yes. I use the Russian stack (YandexGPT, GigaChat) or local models on your own server — client data never leaves the country.",
+        "faq.q4": "What does «turnkey» mean?",
+        "faq.a4": "I take the task from audit and design all the way to a working solution and support. You get a finished result, not a set of instructions.",
+        "faq.q5": "Can you help with 152-FZ and the notification to Roskomnadzor (RKN)?",
+        "faq.a5": "Yes — an audit of data processing, preparation of documents, filing the notification to the register of operators and basic data protection. This is educational assistance, not legal advice.",
+        "faq.q6": "How do we start working together?",
+        "faq.a6": "Write to me on Telegram or by email and briefly describe the task. I'll suggest a format, timeline and an honest estimate."
     },
 
     cn: {
@@ -1051,7 +1079,21 @@ const translations = {
         "off.os.desc": "在您自己的服务器上部署自有工具，无需订阅。",
         "off.ransom.title": "勒索软件防护",
         "off.ransom.desc": "备份、访问权限、团队培训。",
-        "off.all": "全部方案"
+        "off.all": "全部方案",
+        "faq.label": "常见问答",
+        "faq.heading": "常见<span class=\"text-gradient\">问题</span>",
+        "faq.q1": "开发网站、机器人或引入 AI 的费用是多少？",
+        "faq.a1": "取决于任务和工作量。简短沟通后，我会给出诚实的报价，并提供适合您预算的方案——绝不强加多余内容。",
+        "faq.q2": "您是远程工作，还是只在赤塔和外贝加尔地区？",
+        "faq.a2": "我面向全俄罗斯远程工作。如有需要，也可在赤塔当面会面。",
+        "faq.q3": "可以在符合 152-ФЗ 的前提下引入 AI 吗？",
+        "faq.a3": "可以。我使用俄罗斯技术栈（YandexGPT、GigaChat）或部署在您自有服务器上的本地模型——客户数据不会流出境外。",
+        "faq.q4": "「交钥匙」是什么意思？",
+        "faq.a4": "我从审计与设计一直负责到可运行的解决方案与后续支持。您得到的是成品，而不是一堆操作说明。",
+        "faq.q5": "您能协助处理 152-ФЗ 以及向 РКН 提交通知吗？",
+        "faq.a5": "可以——数据处理审计、文件准备、向运营者登记册提交通知以及基础数据保护。这是教育性协助，并非法律咨询。",
+        "faq.q6": "如何开始合作？",
+        "faq.a6": "通过 Telegram 或邮件联系我，简要描述您的任务。我会提出合作形式、时间安排和诚实的报价。"
     },
 
     mn: {
@@ -1400,7 +1442,21 @@ const translations = {
         "off.os.desc": "Өөрийн сервер дээрх өөрийн багаж хэрэгсэл, захиалгагүйгээр.",
         "off.ransom.title": "Шифрлэгчээс хамгаалах",
         "off.ransom.desc": "Нөөцлөлт, хандалт, багийн сургалт.",
-        "off.all": "Бүх санал"
+        "off.all": "Бүх санал",
+        "faq.label": "Асуулт хариулт",
+        "faq.heading": "Түгээмэл <span class=\"text-gradient\">асуултууд</span>",
+        "faq.q1": "Вэбсайт, бот хийлгэх эсвэл ИИ нэвтрүүлэх хэр зэрэг үнэтэй вэ?",
+        "faq.a1": "Даалгавар, хэмжээнээс хамаарна. Богино ярилцлагын дараа би шударга үнэлгээ өгч, таны төсөвт тохирох хувилбаруудыг санал болгоно — илүүцийг тулгахгүй.",
+        "faq.q2": "Та зайнаас ажилладаг уу, эсвэл зөвхөн Чита болон Забайкальд уу?",
+        "faq.a2": "Би Орос даяар зайнаас ажилладаг. Чита хотод шаардлагатай бол биечлэн уулзаж болно.",
+        "faq.q3": "152-ФЗ-ийг баримталж ИИ нэвтрүүлэх боломжтой юу?",
+        "faq.a3": "Тийм. Би Оросын стек (YandexGPT, GigaChat) эсвэл таны өөрийн сервер дээрх дотоод загваруудыг ашигладаг — үйлчлүүлэгчийн өгөгдөл хилийн чанадад гардаггүй.",
+        "faq.q4": "«Түлхүүр гардуулах» гэдэг нь юу гэсэн үг вэ?",
+        "faq.a4": "Би даалгаврыг аудит, төлөвлөлтөөс эхлээд ажиллаж буй шийдэл, дэмжлэг хүртэл хариуцна. Та зааварчилгааны цуглуулга биш, бэлэн үр дүнг авна.",
+        "faq.q5": "152-ФЗ болон РКН-д мэдэгдэл өгөхөд тусалж чадах уу?",
+        "faq.a5": "Тийм — өгөгдөл боловсруулалтын аудит, бичиг баримт бэлтгэх, операторуудын бүртгэлд мэдэгдэл өгөх болон өгөгдлийн суурь хамгаалалт. Энэ нь хууль зүйн зөвлөгөө биш, боловсролын тусламж юм.",
+        "faq.q6": "Хамтын ажиллагааг хаанаас эхлэх вэ?",
+        "faq.a6": "Telegram эсвэл и-мэйлээр бичиж, даалгавраа товч тайлбарлаарай. Би хэлбэр, хугацаа болон шударга үнэлгээг санал болгоно."
     }
 };
 
