@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
         gsap.from('.hero-title', { opacity: 0, y: 50, duration: 1, delay: 0.4, ease: 'power3.out' });
         gsap.from('.hero-sub', { opacity: 0, y: 30, duration: 0.8, delay: 0.7 });
         gsap.from('.hero-actions', { opacity: 0, y: 20, duration: 0.6, delay: 0.9 });
-        gsap.from('.htag', { opacity: 0, y: 15, duration: 0.5, stagger: 0.1, delay: 1.1 });
+        gsap.from('.hero-tags .htag', { opacity: 0, y: 15, duration: 0.5, stagger: 0.1, delay: 1.1 });
 
         // Section headers
         gsap.utils.toArray('.section-header').forEach(header => {
