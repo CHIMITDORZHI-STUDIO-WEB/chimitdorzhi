@@ -574,7 +574,10 @@ function homeSnippet() {
 function sitemap() {
   const today = new Date().toISOString().slice(0, 10);
   const entries = [
-    { loc: `${SITE}/`,           priority: '1.0', freq: 'weekly' },
+    { loc: `${SITE}/`,           priority: '1.0', freq: 'weekly', alts: true },
+    { loc: `${SITE}/en/`,        priority: '0.9', freq: 'weekly', alts: true },
+    { loc: `${SITE}/cn/`,        priority: '0.9', freq: 'weekly', alts: true },
+    { loc: `${SITE}/mn/`,        priority: '0.9', freq: 'weekly', alts: true },
     { loc: `${SITE}/services/`,  priority: '0.9', freq: 'weekly' },
   ];
   for (const svc of services) {
@@ -598,11 +601,12 @@ function sitemap() {
     { loc: `${SITE}/legal.html`,          priority: '0.3', freq: 'yearly' },
   );
 
+  const ALTS = `\n    <xhtml:link rel="alternate" hreflang="ru" href="${SITE}/"/>\n    <xhtml:link rel="alternate" hreflang="en" href="${SITE}/en/"/>\n    <xhtml:link rel="alternate" hreflang="cn" href="${SITE}/cn/"/>\n    <xhtml:link rel="alternate" hreflang="mn" href="${SITE}/mn/"/>\n    <xhtml:link rel="alternate" hreflang="x-default" href="${SITE}/"/>`;
   const urls = entries.map((e) =>
-    `  <url>\n    <loc>${e.loc}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>${e.freq}</changefreq>\n    <priority>${e.priority}</priority>\n  </url>`,
+    `  <url>\n    <loc>${e.loc}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>${e.freq}</changefreq>\n    <priority>${e.priority}</priority>${e.alts ? ALTS : ''}\n  </url>`,
   ).join('\n');
 
-  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`;
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n${urls}\n</urlset>\n`;
 }
 
 // ---------- i18n bundle (services-i18n.js) ----------
