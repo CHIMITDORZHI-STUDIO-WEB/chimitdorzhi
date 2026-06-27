@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ---- LANGUAGE SWITCHER ----
     const langBtns = document.querySelectorAll('.lang-btn');
-    const savedLang = localStorage.getItem('lang') || 'ru';
+    const savedLang = localStorage.getItem('lang') || document.documentElement.getAttribute('data-lang') || 'ru';
 
     // Apply saved language
     langBtns.forEach(btn => {
