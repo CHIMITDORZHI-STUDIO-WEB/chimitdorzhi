@@ -21,11 +21,12 @@ const PER_RUN = 1; // сколько статей за один запуск (а
 const REMEMBER = process.env.VC_OSNOVA_REMEMBER;
 const REFRESH = process.env.VC_AUTH_REFRESH;
 const SUBSITE = process.env.VC_SUBSITE_ID;
+const JWT = (process.env.VC_JWT || '').replace(/^Bearer\s+/i, '').trim();
 
 function log(...a) { console.log('[vc-poster]', ...a); }
 
-if (!REMEMBER || !SUBSITE) {
-  log('Нет VC_OSNOVA_REMEMBER / VC_SUBSITE_ID в env — пропускаю (секреты не заданы).');
+if (!SUBSITE || (!REMEMBER && !JWT)) {
+  log('Нет VC_SUBSITE_ID и (VC_JWT или VC_OSNOVA_REMEMBER) в env — пропускаю.');
   process.exit(0);
 }
 
@@ -40,13 +41,17 @@ function cookieHeader() {
   if (REFRESH) parts.push(`auth-refresh-remember=${REFRESH}`);
   return parts.join('; ');
 }
-const baseHeaders = () => ({
-  'Cookie': cookieHeader(),
-  'Origin': 'https://vc.ru',
-  'Referer': 'https://vc.ru/',
-  'User-Agent': 'Mozilla/5.0 (autopost; chimitdorzhi.tech)',
-  'Accept': '*/*',
-});
+const baseHeaders = () => {
+  const h = {
+    'Cookie': cookieHeader(),
+    'Origin': 'https://vc.ru',
+    'Referer': 'https://vc.ru/',
+    'User-Agent': 'Mozilla/5.0 (autopost; chimitdorzhi.tech)',
+    'Accept': '*/*',
+  };
+  if (JWT) h['Jwtauthorization'] = `Bearer ${JWT}`;
+  return h;
+};
 
 // Текст тизера: анонс + ссылка на полную статью (бэклинк, без дубля)
 function teaser(a) {
