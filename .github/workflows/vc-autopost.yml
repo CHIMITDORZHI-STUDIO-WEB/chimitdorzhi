@@ -37,5 +37,9 @@ jobs:
             echo "Состояние не изменилось"
           else
             git commit -m "VC autopost: обновление состояния [skip ci]"
-            git push
+            for i in 1 2 3 4 5; do
+              git pull --rebase origin main && git push && exit 0
+              echo "push отклонён (main сдвинулся), повтор $i..."; sleep 5
+            done
+            echo "не удалось запушить состояние после ретраев"; exit 1
           fi
