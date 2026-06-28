@@ -58,13 +58,19 @@ async function refreshAuth() {
     headers: { 'Origin': 'https://vc.ru', 'Referer': 'https://vc.ru/', 'User-Agent': UA, 'Accept': '*/*', 'Cookie': cookieHeader() },
     body: fd,
   });
-  let jwt = res.headers.get('jwtauthorization') || res.headers.get('authorization') || '';
-  jwt = jwt.replace(/^Bearer\s+/i, '').trim();
-  let newRefresh = null;
-  const sc = typeof res.headers.getSetCookie === 'function' ? res.headers.getSetCookie().join('; ') : (res.headers.get('set-cookie') || '');
-  const m = /auth-refresh-remember=([^;]+)/.exec(sc);
-  if (m) newRefresh = m[1];
   const bodyTxt = await res.text().catch(() => '');
+  let jwt = '', newRefresh = null;
+  try {
+    const j = JSON.parse(bodyTxt);
+    jwt = (j && j.data && (j.data.accessToken || j.data.access_token) || '').replace(/^Bearer\s+/i, '').trim();
+    newRefresh = (j && j.data && (j.data.refreshToken || j.data.refresh_token)) || null;
+  } catch { /* not json */ }
+  if (!jwt) jwt = (res.headers.get('jwtauthorization') || res.headers.get('authorization') || '').replace(/^Bearer\s+/i, '').trim();
+  if (!newRefresh) {
+    const sc = typeof res.headers.getSetCookie === 'function' ? res.headers.getSetCookie().join('; ') : (res.headers.get('set-cookie') || '');
+    const m = /auth-refresh-remember=([^;]+)/.exec(sc);
+    if (m) newRefresh = m[1];
+  }
   return { status: res.status, jwt, newRefresh, body: bodyTxt };
 }
 
