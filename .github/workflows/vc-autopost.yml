@@ -2,8 +2,8 @@ name: VC autopost (drafts)
 
 on:
   schedule:
-    - cron: '*/5 * * * *'   # каждые 5 минут; скрипт сам решает по таймеру 1–30 мин
-  workflow_dispatch:         # ручной запуск из вкладки Actions
+    - cron: '0 6 * * *'    # ежедневно — добор новых статей в черновики
+  workflow_dispatch:         # ручной запуск (в т.ч. для разовой заливки всех статей)
 
 permissions:
   contents: write
@@ -15,6 +15,7 @@ concurrency:
 jobs:
   post:
     runs-on: ubuntu-latest
+    timeout-minutes: 180
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4

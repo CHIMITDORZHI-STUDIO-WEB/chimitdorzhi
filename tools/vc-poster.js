@@ -26,10 +26,8 @@ let   REFRESH  = process.env.VC_AUTH_REFRESH || '';
 const SUBSITE  = process.env.VC_SUBSITE_ID || '';
 let   JWT      = (process.env.VC_JWT || '').replace(/^Bearer\s+/i, '').trim();
 
-const MIN_GAP  = Number(process.env.VC_MIN_MIN  || 1);   // минимум минут между постами
-const MAX_GAP  = Number(process.env.VC_MAX_MIN  || 30);  // максимум минут
-const HOUR_FROM = Number(process.env.VC_HOUR_FROM || 8);  // активные часы по МСК
-const HOUR_TO   = Number(process.env.VC_HOUR_TO   || 23);
+const PER_RUN  = Number(process.env.VC_PER_RUN  || 1000); // макс статей за один прогон
+const DELAY_MS = Number(process.env.VC_DELAY_MS || 1500); // пауза между постами
 
 function log(...a) { console.log('[vc-poster]', ...a); }
 const sleep = (ms) => new Promise(r => setTimeout(r, ms));
@@ -107,63 +105,46 @@ async function createDraft(a) {
   return { status: res.status, body: await res.text(), withCover: !!image };
 }
 
-function nextGapMin() { return Math.round((MIN_GAP + Math.random() * (MAX_GAP - MIN_GAP)) * 100) / 100; }
+async function ensureAuth() {
+  if (!REFRESH) return !!JWT;
+  const rf = await refreshAuth();
+  if (rf.jwt) JWT = rf.jwt;
+  if (rf.newRefresh) REFRESH = rf.newRefresh;
+  return !!rf.jwt;
+}
 
 (async () => {
   if (typeof fetch !== 'function') { log('Нужен Node 18+.'); process.exit(1); }
 
   const state = loadState();
   const posted = new Set(state.posted || []);
-  const now = Date.now();
 
-  // 1) Таймер: рано?
-  if (state.nextAt && now < new Date(state.nextAt).getTime()) {
-    const left = Math.round((new Date(state.nextAt).getTime() - now) / 60000);
-    log(`Ещё рано: следующий пост через ~${left} мин (${state.nextAt}). Пропускаю.`);
-    return;
-  }
-
-  // 2) Дневные часы (МСК)? Ночью молчим, как человек.
-  const mskHour = (new Date(now).getUTCHours() + 3) % 24;
-  if (mskHour < HOUR_FROM || mskHour >= HOUR_TO) {
-    log(`Сейчас ~${mskHour}:00 МСК — вне активных часов (${HOUR_FROM}–${HOUR_TO}). Не постим.`);
-    return;
-  }
-
-  // 3) Берём 1 новую статью (новые сначала)
   const published = ALL.filter(a => a && a.published === true && a.slug)
     .sort((x, y) => String(y.datePublished).localeCompare(String(x.datePublished)));
-  const article = published.find(a => !posted.has(a.slug));
-  if (!article) { log('Новых статей для постинга нет — всё уже в VC.'); return; }
+  const queue = published.filter(a => !posted.has(a.slug)).slice(0, PER_RUN);
+  if (!queue.length) { log('Новых статей нет — все уже в черновиках VC.'); return; }
+  log(`В очереди: ${queue.length}. Заливаю черновиками (пауза ${DELAY_MS}мс)...`);
 
-  // 4) Авторизация
-  if (REFRESH) {
-    const rf = await refreshAuth();
-    if (rf.jwt) JWT = rf.jwt;
-    if (rf.newRefresh) REFRESH = rf.newRefresh;
-    log(`refresh → ${rf.status} | JWT: ${rf.jwt ? 'ok' : 'НЕТ'}`);
-    if (!rf.jwt) { log('Не удалось получить JWT — секреты протухли, обнови osnova-remember/auth-refresh.'); process.exit(1); }
-  }
+  if (!(await ensureAuth())) { log('Не удалось авторизоваться — обнови секреты VC_*.'); process.exit(1); }
   const me = await fetch(`${API}/v2.1/subsite/me`, { headers: authHeaders() });
   if (me.status !== 200) { log('Авторизация не прошла:', (await me.text()).slice(0, 150)); process.exit(1); }
 
-  // 5) Постим 1 черновик
-  const r = await createDraft(article);
-  log(`Пост: ${article.slug} → ${r.status} (обложка: ${r.withCover ? 'да' : 'нет'})`);
-
-  if (r.status >= 200 && r.status < 300) {
-    posted.add(article.slug);
-    const gap = nextGapMin();
-    state.posted = [...posted];
-    state.nextAt = new Date(now + gap * 60000).toISOString();
-    state.lastPostedAt = new Date(now).toISOString();
-    saveState(state);
-    log(`OK. Опубликовано всего: ${state.posted.length}. Следующий — через ~${gap} мин (${state.nextAt}).`);
-  } else {
-    // ошибка — отложим на 30–60 мин, чтобы не долбить
-    const back = 30 + Math.floor(Math.random() * 30);
-    state.nextAt = new Date(now + back * 60000).toISOString();
-    saveState(state);
-    log(`Ошибка постинга: ${r.body.slice(0, 200)}. Повтор через ~${back} мин.`);
+  let done = 0, fails = 0;
+  for (let i = 0; i < queue.length; i++) {
+    if (i > 0 && i % 8 === 0) await ensureAuth(); // JWT живёт 5 мин
+    const a = queue[i];
+    let r;
+    try { r = await createDraft(a); } catch (e) { r = { status: 0, body: e.message, withCover: false }; }
+    if (r.status >= 200 && r.status < 300) {
+      posted.add(a.slug); done++;
+      if (done % 20 === 0 || i === queue.length - 1) log(`...${i + 1}/${queue.length} готово (создано ${done})`);
+    } else {
+      fails++;
+      log(`[${i + 1}/${queue.length}] ${a.slug} → ${r.status}: ${String(r.body).slice(0, 150)}`);
+      if (r.status === 429 || r.status === 403) { log('Лимит/блок VC — стоп, прогресс сохранён, продолжим следующим прогоном.'); break; }
+    }
+    saveState({ posted: [...posted], lastRun: new Date().toISOString() });
+    await sleep(DELAY_MS);
   }
+  log(`Готово за прогон: создано ${done}, ошибок ${fails}. Всего в черновиках: ${posted.size} из ${published.length}.`);
 })();
