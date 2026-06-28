@@ -74,28 +74,33 @@ async function refreshAuth() {
   return { status: res.status, jwt, newRefresh, body: bodyTxt };
 }
 
-function teaser(a) {
+function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+
+// Тело поста: анонс + ссылка на оригинал (блоки Osnova)
+function entryPayload(a) {
   const desc = (a.excerpt || a.metaDescription || '').trim();
-  return `${desc}\n\nЧитать статью полностью: ${SITE}/blog/${a.slug}/`;
+  const url = `${SITE}/blog/${a.slug}/`;
+  const html = `<p>${esc(desc)}</p><p>Читать статью полностью: <a href="${url}">${url}</a></p>`;
+  return {
+    id: 0,
+    user_id: Number(SUBSITE),
+    type: 1,
+    subsite_id: Number(SUBSITE),
+    title: a.title,
+    entry: { blocks: [{ type: 'text', cover: false, hidden: false, anchor: '', data: { text: html } }] },
+    external_access_link: '', path: '',
+    is_editorial: false, is_advertisement: false, is_enabled_comments: true, is_enabled_likes: true,
+    withheld: false, is_enabled_ad: true, is_holdonflash: false, forced_to_mainpage: 0,
+    is_holdonmain: false, is_published: false, is_adult: false, repostId: null, repostData: null,
+  };
 }
 
-const CREATE_ENDPOINTS = [
-  '/v2.1/entry/create', '/v2.5/entry/create', '/v3.4/entry/create',
-  '/v2.1/entry', '/v3.4/entry', '/v1.9/entry/create',
-];
 async function createDraft(article) {
-  for (const ep of CREATE_ENDPOINTS) {
-    const fd = new FormData();
-    fd.set('title', article.title);
-    fd.set('text', teaser(article));
-    fd.set('subsite_id', String(SUBSITE));
-    fd.set('is_draft', '1');
-    const res = await fetch(`${API}${ep}`, { method: 'POST', headers: authHeaders(), body: fd });
-    const txt = await res.text();
-    log(`  пробую ${ep} → ${res.status} ${txt.slice(0, 140)}`);
-    if (res.status !== 404) return { status: res.status, body: txt, endpoint: ep };
-  }
-  return { status: 404, body: 'все кандидаты вернули 404' };
+  const fd = new FormData();
+  fd.set('entry', JSON.stringify(entryPayload(article)));
+  const res = await fetch(`${API}/v2.1/editor`, { method: 'POST', headers: authHeaders(), body: fd });
+  const txt = await res.text();
+  return { status: res.status, body: txt };
 }
 
 (async () => {
