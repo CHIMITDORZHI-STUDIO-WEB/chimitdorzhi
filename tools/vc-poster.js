@@ -79,15 +79,23 @@ function teaser(a) {
   return `${desc}\n\nЧитать статью полностью: ${SITE}/blog/${a.slug}/`;
 }
 
+const CREATE_ENDPOINTS = [
+  '/v2.1/entry/create', '/v2.5/entry/create', '/v3.4/entry/create',
+  '/v2.1/entry', '/v3.4/entry', '/v1.9/entry/create',
+];
 async function createDraft(article) {
-  const fd = new FormData();
-  fd.set('title', article.title);
-  fd.set('text', teaser(article));
-  fd.set('subsite_id', String(SUBSITE));
-  fd.set('is_draft', '1');
-  const res = await fetch(`${API}/v1.9/entry/create`, { method: 'POST', headers: authHeaders(), body: fd });
-  const txt = await res.text();
-  return { status: res.status, body: txt };
+  for (const ep of CREATE_ENDPOINTS) {
+    const fd = new FormData();
+    fd.set('title', article.title);
+    fd.set('text', teaser(article));
+    fd.set('subsite_id', String(SUBSITE));
+    fd.set('is_draft', '1');
+    const res = await fetch(`${API}${ep}`, { method: 'POST', headers: authHeaders(), body: fd });
+    const txt = await res.text();
+    log(`  пробую ${ep} → ${res.status} ${txt.slice(0, 140)}`);
+    if (res.status !== 404) return { status: res.status, body: txt, endpoint: ep };
+  }
+  return { status: 404, body: 'все кандидаты вернули 404' };
 }
 
 (async () => {
