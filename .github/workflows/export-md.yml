@@ -1,0 +1,40 @@
+name: Export blog to Markdown mirror
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/blog-content-*.js'
+      - 'tools/blog-batch-*.js'
+      - 'tools/blog-data.js'
+      - 'tools/build-md.js'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: export-md
+  cancel-in-progress: true
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Build markdown mirror
+        run: node tools/build-md.js
+      - name: Commit changes
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add gh-articles/
+          if git diff --cached --quiet; then
+            echo "Нет изменений в gh-articles/"
+          else
+            git commit -m "Auto: синхронизация markdown-зеркала блога [skip ci]"
+            git push
+          fi
