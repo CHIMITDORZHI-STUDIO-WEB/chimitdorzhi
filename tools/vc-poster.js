@@ -1,13 +1,13 @@
 // Автопостинг анонсов статей в VC.ru (Osnova) — ТИЗЕР + ссылка на оригинал.
-// Безопасность: токены берутся ТОЛЬКО из переменных окружения (GitHub Secrets),
-// в коде/репозитории их нет. Постит ЧЕРНОВИКАМИ (is_draft), 1 статью за запуск.
+// Безопасность: токены ТОЛЬКО из env (GitHub Secrets), в коде их нет.
+// Постит ЧЕРНОВИКАМИ, 1 статью за запуск.
 //
-// Нужные секреты (env):
-//   VC_OSNOVA_REMEMBER  — значение cookie osnova-remember
-//   VC_AUTH_REFRESH     — значение cookie auth-refresh-remember
-//   VC_SUBSITE_ID       — id твоего блога в VC (число)
+// Авторизация VC: JWT живёт 5 минут, добывается через POST /v3.4/auth/refresh
+// по refresh-токену (auth-refresh-remember). VC РОТИРУЕТ refresh при каждом
+// обновлении (старый умирает) — новый возвращается в Set-Cookie. Скрипт
+// выводит новый refresh, чтобы Action обновил секрет VC_AUTH_REFRESH.
 //
-// Состояние (какие статьи уже отправлены) — в tools/vc-posted.json.
+// env: VC_AUTH_REFRESH (обязателен), VC_OSNOVA_REMEMBER, VC_SUBSITE_ID, [VC_JWT]
 
 const fs = require('fs');
 const path = require('path');
@@ -16,57 +16,70 @@ const ALL = require('./blog-data.js');
 const SITE = 'https://chimitdorzhi.tech';
 const API = 'https://api.vc.ru';
 const STATE_FILE = path.join(__dirname, 'vc-posted.json');
-const PER_RUN = 1; // сколько статей за один запуск (анти-спам)
+const PER_RUN = 1;
+const UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36';
 
-const REMEMBER = process.env.VC_OSNOVA_REMEMBER;
-const REFRESH = process.env.VC_AUTH_REFRESH;
-const SUBSITE = process.env.VC_SUBSITE_ID;
-const JWT = (process.env.VC_JWT || '').replace(/^Bearer\s+/i, '').trim();
+const REMEMBER = process.env.VC_OSNOVA_REMEMBER || '';
+let   REFRESH  = process.env.VC_AUTH_REFRESH || '';
+const SUBSITE  = process.env.VC_SUBSITE_ID || '';
+let   JWT      = (process.env.VC_JWT || '').replace(/^Bearer\s+/i, '').trim();
 
 function log(...a) { console.log('[vc-poster]', ...a); }
 
-if (!SUBSITE || (!REMEMBER && !JWT)) {
-  log('Нет VC_SUBSITE_ID и (VC_JWT или VC_OSNOVA_REMEMBER) в env — пропускаю.');
+if (!SUBSITE || (!REFRESH && !JWT)) {
+  log('Нет VC_SUBSITE_ID и (VC_AUTH_REFRESH или VC_JWT) — пропускаю (секреты не заданы).');
   process.exit(0);
 }
 
-function loadState() {
-  try { return JSON.parse(fs.readFileSync(STATE_FILE, 'utf8')); }
-  catch { return { posted: [] }; }
-}
+function loadState() { try { return JSON.parse(fs.readFileSync(STATE_FILE, 'utf8')); } catch { return { posted: [] }; } }
 function saveState(s) { fs.writeFileSync(STATE_FILE, JSON.stringify(s, null, 2) + '\n', 'utf8'); }
 
 function cookieHeader() {
-  const parts = [`osnova-remember=${REMEMBER}`];
-  if (REFRESH) parts.push(`auth-refresh-remember=${REFRESH}`);
-  return parts.join('; ');
+  const p = [];
+  if (REMEMBER) p.push(`osnova-remember=${REMEMBER}`);
+  if (REFRESH)  p.push(`auth-refresh-remember=${REFRESH}`);
+  return p.join('; ');
 }
-const baseHeaders = () => {
-  const h = {
-    'Cookie': cookieHeader(),
-    'Origin': 'https://vc.ru',
-    'Referer': 'https://vc.ru/',
-    'User-Agent': 'Mozilla/5.0 (autopost; chimitdorzhi.tech)',
-    'Accept': '*/*',
-  };
+
+function authHeaders() {
+  const h = { 'Origin': 'https://vc.ru', 'Referer': 'https://vc.ru/', 'User-Agent': UA, 'Accept': '*/*' };
+  const ck = cookieHeader();
+  if (ck) h['Cookie'] = ck;
   if (JWT) h['Jwtauthorization'] = `Bearer ${JWT}`;
   return h;
-};
+}
 
-// Текст тизера: анонс + ссылка на полную статью (бэклинк, без дубля)
+// Обновить JWT по refresh-токену. Возвращает {jwt, newRefresh}.
+async function refreshAuth() {
+  const fd = new FormData();
+  if (REFRESH) fd.set('token', REFRESH);
+  const res = await fetch(`${API}/v3.4/auth/refresh`, {
+    method: 'POST',
+    headers: { 'Origin': 'https://vc.ru', 'Referer': 'https://vc.ru/', 'User-Agent': UA, 'Accept': '*/*', 'Cookie': cookieHeader() },
+    body: fd,
+  });
+  let jwt = res.headers.get('jwtauthorization') || res.headers.get('authorization') || '';
+  jwt = jwt.replace(/^Bearer\s+/i, '').trim();
+  let newRefresh = null;
+  const sc = typeof res.headers.getSetCookie === 'function' ? res.headers.getSetCookie().join('; ') : (res.headers.get('set-cookie') || '');
+  const m = /auth-refresh-remember=([^;]+)/.exec(sc);
+  if (m) newRefresh = m[1];
+  const bodyTxt = await res.text().catch(() => '');
+  return { status: res.status, jwt, newRefresh, body: bodyTxt };
+}
+
 function teaser(a) {
   const desc = (a.excerpt || a.metaDescription || '').trim();
   return `${desc}\n\nЧитать статью полностью: ${SITE}/blog/${a.slug}/`;
 }
 
 async function createDraft(article) {
-  const url = `${API}/v1.9/entry/create`;
-  const form = new URLSearchParams();
-  form.set('title', article.title);
-  form.set('text', teaser(article));
-  form.set('subsite_id', String(SUBSITE));
-  form.set('is_draft', '1');
-  const res = await fetch(url, { method: 'POST', headers: { ...baseHeaders(), 'Content-Type': 'application/x-www-form-urlencoded' }, body: form.toString() });
+  const fd = new FormData();
+  fd.set('title', article.title);
+  fd.set('text', teaser(article));
+  fd.set('subsite_id', String(SUBSITE));
+  fd.set('is_draft', '1');
+  const res = await fetch(`${API}/v1.9/entry/create`, { method: 'POST', headers: authHeaders(), body: fd });
   const txt = await res.text();
   return { status: res.status, body: txt };
 }
@@ -74,38 +87,46 @@ async function createDraft(article) {
 (async () => {
   if (typeof fetch !== 'function') { log('Нужен Node 18+ (нет fetch).'); process.exit(1); }
 
-  // Проверка авторизации
-  try {
-    const me = await fetch(`${API}/v2.1/subsite/me`, { headers: baseHeaders() });
-    log('Проверка авторизации /subsite/me →', me.status);
-    if (me.status !== 200) {
-      log('Авторизация не прошла. Токены протухли — обнови osnova-remember в секретах.');
-      process.exit(1);
+  // 1) Получаем свежий JWT через refresh (если нет готового VC_JWT)
+  if (!JWT && REFRESH) {
+    log('Обновляю JWT через /v3.4/auth/refresh ...');
+    const r = await refreshAuth();
+    log('  refresh →', r.status, '| JWT получен:', r.jwt ? 'да' : 'НЕТ', '| новый refresh:', r.newRefresh ? 'да' : 'нет');
+    if (r.jwt) JWT = r.jwt;
+    if (r.newRefresh) {
+      REFRESH = r.newRefresh;
+      // Отдаём новый refresh в Action (для обновления секрета VC_AUTH_REFRESH)
+      if (process.env.GITHUB_OUTPUT) fs.appendFileSync(process.env.GITHUB_OUTPUT, `new_refresh=${r.newRefresh}\n`);
+      log('  >>> НОВЫЙ refresh-токен получен (Action обновит секрет).');
     }
-  } catch (e) { log('Ошибка сети при проверке авторизации:', e.message); process.exit(1); }
+    if (!r.jwt) { log('  Не удалось получить JWT. Ответ:', r.body.slice(0, 300)); process.exit(1); }
+  }
 
+  // 2) Проверка авторизации
+  const me = await fetch(`${API}/v2.1/subsite/me`, { headers: authHeaders() });
+  log('Проверка /subsite/me →', me.status);
+  if (me.status !== 200) {
+    const t = await me.text().catch(() => '');
+    log('Авторизация не прошла:', t.slice(0, 200));
+    process.exit(1);
+  }
+
+  // 3) Постим черновик
   const state = loadState();
   const posted = new Set(state.posted || []);
-  const published = ALL.filter(a => a && a.published === true && a.slug);
-  // новые сначала
-  published.sort((x, y) => String(y.datePublished).localeCompare(String(x.datePublished)));
+  const published = ALL.filter(a => a && a.published === true && a.slug)
+    .sort((x, y) => String(y.datePublished).localeCompare(String(x.datePublished)));
   const queue = published.filter(a => !posted.has(a.slug)).slice(0, PER_RUN);
-
   if (!queue.length) { log('Новых статей для постинга нет.'); return; }
 
   for (const a of queue) {
     log('Постю черновик:', a.slug);
     const r = await createDraft(a);
-    log('  ответ:', r.status, r.body.slice(0, 300));
-    if (r.status >= 200 && r.status < 300) {
-      posted.add(a.slug);
-      log('  OK — добавил в state.');
-    } else {
-      log('  НЕ опубликовано. Останавливаюсь (разберём формат запроса по этому ответу).');
-      break;
-    }
+    log('  ответ:', r.status, r.body.slice(0, 400));
+    if (r.status >= 200 && r.status < 300) { posted.add(a.slug); log('  OK.'); }
+    else { log('  НЕ опубликовано — разберём формат по ответу выше.'); break; }
   }
   state.posted = [...posted];
   saveState(state);
-  log('Готово. Всего отмечено опубликованными:', state.posted.length);
+  log('Готово. Опубликовано всего:', state.posted.length);
 })();
