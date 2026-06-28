@@ -76,18 +76,42 @@ async function refreshAuth() {
 
 function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
 
-// Тело поста: анонс + ссылка на оригинал (блоки Osnova)
-function entryPayload(a) {
+// Загрузка обложки в VC по URL (uploader/extract) → объект картинки с uuid
+async function uploadCover(coverUrl) {
+  const candidates = ['/v2.8/uploader/extract', '/v2.1/uploader/extract', '/v2.8/uploader/upload'];
+  for (const ep of candidates) {
+    try {
+      const fd = new FormData();
+      fd.set('url', coverUrl);
+      const res = await fetch(`${API}${ep}`, { method: 'POST', headers: authHeaders(), body: fd });
+      const txt = await res.text();
+      log(`  upload ${ep} → ${res.status} ${txt.slice(0, 200)}`);
+      if (res.status >= 200 && res.status < 300) {
+        const j = JSON.parse(txt);
+        const item = (j.result && (Array.isArray(j.result) ? j.result[0] : j.result)) || null;
+        if (item) return item;
+      }
+      if (res.status !== 404) break; // эндпоинт найден, но другой ответ — разберём по логу
+    } catch (e) { log('  upload err:', e.message); }
+  }
+  return null;
+}
+
+// Тело поста: (обложка) + анонс + ссылка на оригинал (блоки Osnova)
+function entryPayload(a, image) {
   const desc = (a.excerpt || a.metaDescription || '').trim();
   const url = `${SITE}/blog/${a.slug}/`;
   const html = `<p>${esc(desc)}</p><p>Читать статью полностью: <a href="${url}">${url}</a></p>`;
+  const blocks = [];
+  if (image) blocks.push({ type: 'media', cover: false, hidden: false, anchor: '', data: { items: [{ title: '', image }] } });
+  blocks.push({ type: 'text', cover: false, hidden: false, anchor: '', data: { text: html } });
   return {
     id: 0,
     user_id: Number(SUBSITE),
     type: 1,
     subsite_id: Number(SUBSITE),
     title: a.title,
-    entry: { blocks: [{ type: 'text', cover: false, hidden: false, anchor: '', data: { text: html } }] },
+    entry: { blocks },
     external_access_link: '', path: '',
     is_editorial: false, is_advertisement: false, is_enabled_comments: true, is_enabled_likes: true,
     withheld: false, is_enabled_ad: true, is_holdonflash: false, forced_to_mainpage: 0,
@@ -96,8 +120,12 @@ function entryPayload(a) {
 }
 
 async function createDraft(article) {
+  const coverUrl = `${SITE}/blog/${article.slug}/cover.png`;
+  let image = null;
+  try { image = await uploadCover(coverUrl); } catch (e) { log('  cover upload fail:', e.message); }
+  log('  обложка:', image ? 'загружена' : 'без обложки');
   const fd = new FormData();
-  fd.set('entry', JSON.stringify(entryPayload(article)));
+  fd.set('entry', JSON.stringify(entryPayload(article, image)));
   const res = await fetch(`${API}/v2.1/editor`, { method: 'POST', headers: authHeaders(), body: fd });
   const txt = await res.text();
   return { status: res.status, body: txt };
