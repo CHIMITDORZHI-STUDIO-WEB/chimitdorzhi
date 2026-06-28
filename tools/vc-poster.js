@@ -87,8 +87,8 @@ async function createDraft(article) {
 (async () => {
   if (typeof fetch !== 'function') { log('Нужен Node 18+ (нет fetch).'); process.exit(1); }
 
-  // 1) Получаем свежий JWT через refresh (если нет готового VC_JWT)
-  if (!JWT && REFRESH) {
+  // 1) Всегда добываем свежий JWT через refresh (VC_JWT живёт 5 мин — на него не полагаемся)
+  if (REFRESH) {
     log('Обновляю JWT через /v3.4/auth/refresh ...');
     const r = await refreshAuth();
     log('  refresh →', r.status, '| JWT получен:', r.jwt ? 'да' : 'НЕТ', '| новый refresh:', r.newRefresh ? 'да' : 'нет');
