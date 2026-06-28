@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LocateAnything-3B NVIDIA: распознавание объектов</title>
+    <meta name="description" content="LocateAnything-3B — открытая модель компьютерного зрения от NVIDIA (3 млрд параметров): находит объекты даже в очень плотных сценах, распознаёт элементы…">
+    <meta name="keywords" content="LocateAnything, компьютерное зрение, NVIDIA, open-source">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/locateanything-nvidia-lokalnoe-raspoznavanie-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/locateanything-nvidia-lokalnoe-raspoznavanie-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/locateanything-nvidia-lokalnoe-raspoznavanie-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/locateanything-nvidia-lokalnoe-raspoznavanie-2026/">
+    <meta property="og:title" content="LocateAnything-3B NVIDIA: распознавание объектов">
+    <meta property="og:description" content="LocateAnything-3B — открытая модель компьютерного зрения от NVIDIA (3 млрд параметров): находит объекты даже в очень плотных сценах, распознаёт элементы…">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/locateanything-nvidia-lokalnoe-raspoznavanie-2026/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="LocateAnything-3B NVIDIA: распознавание объектов">
+    <meta name="twitter:description" content="LocateAnything-3B — открытая модель компьютерного зрения от NVIDIA (3 млрд параметров): находит объекты даже в очень плотных сценах, распознаёт элементы…">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/locateanything-nvidia-lokalnoe-raspoznavanie-2026/cover.png">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor-Fill.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=45">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "LocateAnything-3B от NVIDIA: открытая модель распознавания объектов и документов",
+  "description": "LocateAnything-3B — открытая модель компьютерного зрения от NVIDIA (3 млрд параметров): находит объекты даже в очень плотных сценах, распознаёт элементы интерфейса, текст (OCR) и структуру документов. Отличие — параллельное декодирование рамок: быстрее и стабильнее. Где это полезно бизнесу и как запустить локально.",
+  "image": "https://chimitdorzhi.tech/blog/locateanything-nvidia-lokalnoe-raspoznavanie-2026/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/locateanything-nvidia-lokalnoe-raspoznavanie-2026/"
+  },
+  "datePublished": "2026-06-22",
+  "dateModified": "2026-06-22",
+  "keywords": "LocateAnything, компьютерное зрение, NVIDIA, open-source",
+  "articleSection": "AI для разработчиков",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "LocateAnything-3B от NVIDIA: открытая модель распознавания объектов и документов",
+      "item": "https://chimitdorzhi.tech/blog/locateanything-nvidia-lokalnoe-raspoznavanie-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Это готовый сервис, которым можно сразу пользоваться?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет, это исследовательская модель с открытым кодом для разработчиков. Её нужно развернуть и встроить в свой пайплайн. «Коробочного» приложения с кнопкой у неё нет — зато есть полная свобода в том, как её применить."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Зачем параллельное декодирование, если последовательное и так работает?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Последовательный способ хорош, пока объектов мало. На плотных сценах он медленнее и накапливает ошибки. Параллельное декодирование выдаёт рамки целиком и сразу, поэтому детекция стабильнее и быстрее именно там, где объектов много."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли распознавать документы и таблицы, а не только предметы?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да. Модель обучали в том числе на OCR и на структуре документов, поэтому она находит текстовые области и элементы разметки. Это делает её пригодной для разбора сканов и анкет, а не только для фотографий объектов."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Данные при этом уходят в облако?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет, если запускать модель у себя. Локальный запуск означает, что изображения обрабатываются на вашем железе и не покидают компанию. Для документов с персональными данными это важное преимущество."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Справится ли наш офисный компьютер?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Скорее всего нет — нужна видеокарта с достаточной видеопамятью. Без подходящего железа модель будет работать слишком медленно. Конфигурацию лучше подобрать под объём задач заранее, до закупки."
+      }
+    }
+  ]
+}
+    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+var inject=function(){for (var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)};
+var run=function(){('requestIdleCallback' in window)?requestIdleCallback(inject,{timeout:5000}):setTimeout(inject,3000)};
+(e.readyState==='complete')?run():m.addEventListener('load',run);})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109281884" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+            <li><a href="/#services" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li class="nav-dropdown">
+                <a href="/#projects" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--arey"><i class="ph-fill ph-vinyl-record" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-airplane-tilt" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#cases" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            </div>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/#about">Обо мне</a></li>
+        <li><a href="/#services">Услуги</a></li>
+        <li><a href="/services/">Каталог услуг</a></li>
+        <li><a href="/predlozheniya/">Предложения</a></li>
+        <li><a href="/#cases">Кейсы</a></li>
+        <li><a href="/blog/">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+        <li><a href="/#contact">Контакт</a></li>
+    </ul>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">LocateAnything-3B от NVIDIA: открытая модель распознавания объектов и документов</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/ai-dev/"><i class="ph ph-bookmark" aria-hidden="true"></i> AI для разработчиков</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 10 мин чтения</span>
+                        <time datetime="2026-06-22"><i class="ph ph-calendar" aria-hidden="true"></i> 22 июня 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">LocateAnything-3B от NVIDIA: открытая модель распознавания объектов и документов</h1>
+
+                    <p class="blog-lead">NVIDIA открыла LocateAnything-3B — модель, которая находит объекты в очень плотных сценах, распознаёт интерфейсы и структуру документов. За счёт параллельного декодирования рамок она быстрее и точнее обычных. Разбираю, что умеет и где это полезно бизнесу.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>LocateAnything</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>компьютерное зрение</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>NVIDIA</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>open-source</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
+<li>NVIDIA открыла исходный код модели визуальной локализации LocateAnything-3B (репозиторий NVlabs/Eagle, раздел Embodied) — она находит объекты на изображении и выделяет каждый отдельной рамкой.</li>
+<li>Модель уверенно работает даже в очень плотных сценах: например, на картинке с десятками персонажей, стоящих вплотную, корректно выделяет каждого, не сливая их в одно пятно.</li>
+<li>Главная техническая особенность — параллельное декодирование рамок: модель сразу выдаёт готовые координаты целиком, а не строит их цифра за цифрой, как это обычно делается. Из-за этого детекция стабильнее и быстрее.</li>
+<li>Обучали её не только на классических объектах, но и на интерфейсах, тексте (OCR) и структуре документов — поэтому она находит и реальные предметы, и элементы экрана, и текстовые области.</li>
+<li>Это исследовательская модель для разработчиков, не «коробочный» сервис; под конкретную задачу из неё можно собрать пайплайн, например чтобы <a href="https://chimitdorzhi.tech/services/business-automation/">автоматизировать обработку документов</a> локально.</li>
+</ul></div>
+
+<p>Распознавание объектов на изображениях — давно решённая задача в целом, но «в целом» и «надёжно на плотных сценах» — это разные уровни. Когда на картинке три предмета, справится почти любая модель. Когда их пятьдесят и они перекрывают друг друга, большинство решений начинают ошибаться. NVIDIA выложила в открытый доступ модель LocateAnything-3B, которая как раз нацелена на такие сложные случаи. Ниже — что это за модель, чем она отличается от привычных детекторов, что умеет и где это применимо в бизнесе.</p>
+
+<h2 id="chto-eto">Что это за модель</h2>
+<p><strong>Суть.</strong> LocateAnything-3B — это модель визуальной локализации с открытым исходным кодом от NVIDIA. Её опубликовали в репозитории NVlabs/Eagle, в разделе Embodied. Задача модели — по изображению находить объекты и обводить каждый ограничивающей рамкой (bounding box), указывая, где именно на картинке он расположен. В названии «3B» — это число параметров, около трёх миллиардов.</p>
+<p><strong>Чем она примечательна на практике.</strong> Главная демонстрация её возможностей — работа в очень плотных сценах. Показателен пример с изображением, где десятки персонажей стоят вплотную друг к другу: модель корректно выделяет каждого отдельной рамкой, не пропуская соседей и не сливая толпу в одно сплошное пятно. Именно стабильность на «густых» картинках, где объектов много и они перекрываются, отличает её от обычных детекторов.</p>
+<p><strong>Что значит «открытый исходный код».</strong> Веса и код доступны публично, их можно скачать и запустить у себя. Это не сервис с кнопкой и подпиской, а инструмент для разработчиков: чтобы получить от него пользу, нужно развернуть окружение, загрузить веса и встроить модель в свой код. Зато и работать всё может локально, без обращений в чужое облако.</p>
+
+<h2 id="chem-otlichaetsya">Чем отличается от других</h2>
+<p><strong>Как обычно строят рамки.</strong> В типичных моделях координаты рамки — четыре числа (x1, y1, x2, y2) — предсказываются последовательно, цифра за цифрой, как будто модель «пишет» их по одной. Подход рабочий, но у него два минуса. Во-первых, это медленно: чем больше объектов, тем длиннее цепочка предсказаний. Во-вторых, он хрупкий: ошибка в начале тянет за собой все последующие цифры, и в плотных сценах с множеством объектов такие ошибки накапливаются.</p>
+<p><strong>Что сделали в LocateAnything-3B.</strong> Здесь используется параллельное декодирование: модель предсказывает готовую рамку целиком, а не собирает её поэтапно из отдельных цифр. Грубо говоря, вместо того чтобы диктовать координаты по одной, она сразу выдаёт результат. За счёт этого ранние ошибки не разрастаются, а сама детекция получается и стабильнее, и быстрее — особенно заметно это именно там, где объектов много.</p>
+<p><strong>Почему это важно для сложных картинок.</strong> Последовательный способ хорошо работает, пока объектов мало. Как только сцена становится плотной, преимущество параллельного подхода выходит на первый план: модель не «захлёбывается» длинной цепочкой и не теряет точность к концу. Поэтому LocateAnything-3B особенно хорошо показывает себя там, где классические детекторы начинают путаться и пропускать объекты.</p>
+
+<h2 id="chto-umeet">Что умеет распознавать</h2>
+<p><strong>Реальные объекты.</strong> Базовый сценарий — находить предметы и людей на фотографиях, в том числе на плотных и загруженных сценах. Это пригодится везде, где нужно не просто понять, «что на картинке», а точно указать, где каждый объект находится и сколько их.</p>
+<p><strong>Элементы интерфейсов.</strong> Для обучения использовали не только классические датасеты с объектами, но и данные по распознаванию пользовательских интерфейсов. Поэтому модель умеет находить кнопки, поля, иконки и прочие элементы экрана — то, что критично для автоматизации действий в приложениях и для тестирования.</p>
+<p><strong>Текст и структуру документов.</strong> В обучение вошли данные по OCR (распознавание текста) и по анализу структуры документов. Благодаря этому модель находит текстовые области и понимает разметку документа — где заголовок, где таблица, где блок текста. В сумме получается универсальный «локализатор»: и реальные объекты, и элементы интерфейса, и текст — всё в одной модели.</p>
+
+<h2 id="gde-polezno">Где полезно бизнесу</h2>
+<p><strong>Обработка документов и сканов.</strong> Самый понятный прикладной сценарий — разбор документов: счетов, договоров, актов, анкет. Модель помогает точно находить нужные области — поля с реквизитами, таблицы, печати — чтобы затем извлечь из них данные. Это основа для того, чтобы автоматизировать обработку документов и убрать ручной ввод. Под конкретные формы такой разбор настраивается отдельно — универсальной кнопки «распознать всё идеально» не существует.</p>
+<p><strong>Разбор скриншотов и интерфейсов.</strong> Умение находить элементы экрана полезно в RPA (автоматизация рутинных действий в программах) и в тестировании. Модель определяет, где на скриншоте кнопка или поле, и это позволяет строить сценарии, которые «видят» интерфейс, а не привязаны жёстко к координатам. Для тестировщиков это способ проверять, что нужные элементы на месте и расположены правильно.</p>
+<p><strong>Подсчёт и инвентаризация.</strong> Там, где надо посчитать объекты на фотографии — товары на полке, единицы на складе, элементы на снимке, — стабильность на плотных сценах особенно ценна. И ключевой момент: всё это можно гонять локально, на своём железе, не отправляя изображения в облако. Для документов с персональными данными это снимает значительную часть вопросов и хорошо согласуется с логикой 152-ФЗ о локализации обработки данных.</p>
+
+<h2 id="kak-zapustit">Как запустить локально</h2>
+<p><strong>Что понадобится из железа.</strong> Скажу честно: «в один клик» здесь не получится. Нужна видеокарта с достаточным объёмом видеопамяти — модель с тремя миллиардами параметров требует ресурсов, и без подходящей карты она либо не запустится, либо будет работать слишком медленно для практического применения. Запас по видеопамяти лучше заложить заранее.</p>
+<p><strong>Окружение и веса.</strong> Дальше нужно подготовить окружение: Python и PyTorch нужных версий, зависимости из репозитория, скачанные с GitHub веса модели. Это стандартный, но требующий аккуратности процесс — несоответствие версий библиотек или драйверов видеокарты часто и есть причина, почему «не запускается». Поэтому развёртывание такой модели — задача для технического специалиста, а не для пользователя без опыта.</p>
+<p><strong>Почему версии так важны.</strong> На практике львиная доля проблем при запуске связана не с самой моделью, а с окружением: несовместимая версия PyTorch, устаревший драйвер видеокарты, не тот набор библиотек. Поэтому разумный порядок — сначала поднять чистое окружение точно по инструкции из репозитория, убедиться, что видеокарта корректно определяется, и только потом подключать модель и нагружать её реальными изображениями. Такой подход экономит часы на разборе непонятных ошибок.</p>
+<p><strong>От модели к рабочему решению.</strong> Сама по себе модель — это «движок», а не готовый продукт. Чтобы получить пользу для бизнеса, вокруг неё собирают пайплайн: загрузка изображения, распознавание, извлечение нужных данных, передача результата в учётную систему. Под конкретную задачу — будь то разбор счетов или подсчёт товара — такой пайплайн можно собрать и <a href="https://chimitdorzhi.tech/services/business-automation/">настроить распознавание под задачу</a>, чтобы на выходе были не рамки на картинке, а готовые данные в нужном виде.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+<p><strong>Это готовый сервис, которым можно сразу пользоваться?</strong> Нет, это исследовательская модель с открытым кодом для разработчиков. Её нужно развернуть и встроить в свой пайплайн. «Коробочного» приложения с кнопкой у неё нет — зато есть полная свобода в том, как её применить.</p>
+<p><strong>Зачем параллельное декодирование, если последовательное и так работает?</strong> Последовательный способ хорош, пока объектов мало. На плотных сценах он медленнее и накапливает ошибки. Параллельное декодирование выдаёт рамки целиком и сразу, поэтому детекция стабильнее и быстрее именно там, где объектов много.</p>
+<p><strong>Можно ли распознавать документы и таблицы, а не только предметы?</strong> Да. Модель обучали в том числе на OCR и на структуре документов, поэтому она находит текстовые области и элементы разметки. Это делает её пригодной для разбора сканов и анкет, а не только для фотографий объектов.</p>
+<p><strong>Данные при этом уходят в облако?</strong> Нет, если запускать модель у себя. Локальный запуск означает, что изображения обрабатываются на вашем железе и не покидают компанию. Для документов с персональными данными это важное преимущество.</p>
+<p><strong>Справится ли наш офисный компьютер?</strong> Скорее всего нет — нужна видеокарта с достаточной видеопамятью. Без подходящего железа модель будет работать слишком медленно. Конфигурацию лучше подобрать под объём задач заранее, до закупки.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+<p>LocateAnything-3B — это открытая модель визуальной локализации от NVIDIA, которая уверенно находит объекты даже на плотных, перегруженных сценах. Её отличает параллельное декодирование рамок: модель выдаёт координаты целиком, а не собирает их цифра за цифрой, поэтому работает стабильнее и быстрее там, где обычные детекторы начинают ошибаться. Благодаря обучению на объектах, интерфейсах, тексте и структуре документов она находит и реальные предметы, и элементы экрана, и текстовые области.</p>
+<p>Для бизнеса это полезный «движок» под локальные задачи: разбор документов и сканов, анализ скриншотов и интерфейсов, подсчёт объектов — всё на своём железе, без передачи данных в чужое облако. Но важно держать в голове, что это инструмент для разработчиков, а не готовый сервис: нужна подходящая видеокарта, корректное окружение и собранный под задачу пайплайн. При таком подходе модель превращается из исследовательской разработки в работающую часть автоматизации, которая выдаёт готовые данные, а не просто рамки на картинке.</p>
+
+                    </div>
+
+                    
+                    
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Что я делаю с ИИ под ключ</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-robot"></i> <span>ИИ-агенты и чат-боты</span></li>
+    
+    <li><i class="ph-fill ph-flow-arrow"></i> <span>Агентные конвейеры и автоматизация</span></li>
+    
+    <li><i class="ph-fill ph-brain"></i> <span>База знаний с ИИ-поиском (RAG)</span></li>
+    
+    <li><i class="ph-fill ph-hard-drives"></i> <span>Локальные модели на своём сервере</span></li>
+    
+    <li><i class="ph-fill ph-shield-check"></i> <span>Приватность и 152-ФЗ</span></li>
+    
+    <li><i class="ph-fill ph-graduation-cap"></i> <span>Обучение команды работе с ИИ</span></li>
+    
+  </ul>
+  <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
+  </a>
+</div>
+                    
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/services/business-automation/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Автоматизировать процесс с ИИ</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/malenkie-domennye-modeli-slm-2026/" data-category="ai-dev" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-cube"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>AI для разработчиков</span>
+  <h3>Маленькие доменные модели (SLM): почему не один гигант, а узкие модели под задачу</h3>
+  <p>Вместо одной гигантской модели «на всё» — маленькие модели под конкретную задачу: дешевле, быстрее, можно развернуть локально в РФ. Разбираю тренд SLM и угол импортозамещения и 152-ФЗ.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 22 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 10 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/lokalnyy-llm-na-noutbuke-2026/" data-category="ai-dev" data-clicks="57">
+  <span class="blog-card-popular"><i class="ph-fill ph-fire" aria-hidden="true"></i> Популярное</span>
+  <div class="blog-card-icon"><i class="ph-fill ph-cpu"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>AI для разработчиков</span>
+  <h3>Локальный LLM на ноутбуке 2026: Ollama, LM Studio, vLLM — практическое руководство</h3>
+  <p>Как поднять локальный LLM за час: Ollama, LM Studio, vLLM. Какие модели выбрать в 2026, бенчмарки скорости на M3 Max / RTX 4090 / H100, локальный RAG за 40 строк, экономика владения.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 20 мая 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 22 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/comfyui-generaciya-izobrazheniy-2026/" data-category="opensource" data-clicks="1">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-graph"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>ComfyUI: профессиональная генерация изображений на своём сервере</h3>
+  <p>ComfyUI даёт профессиональный контроль над генерацией изображений: нодовые пайплайны, пакетная обработка, расширения — для студий и маркетинга, на своём сервере. Разбираю, кому подходит и что нужно.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 15 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    
+                    
+                    
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовые решения под ключ</span>
+                            <span class="blog-offer-cta-title">449 готовых IT-решений для бизнеса</span>
+                            <span class="blog-offer-cta-price">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Смотреть каталог</span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#chto-eto"><span class="blog-toc-num">01</span> Что это за модель</a></li>
+<li><a href="#chem-otlichaetsya"><span class="blog-toc-num">02</span> Чем отличается от других</a></li>
+<li><a href="#chto-umeet"><span class="blog-toc-num">03</span> Что умеет распознавать</a></li>
+<li><a href="#gde-polezno"><span class="blog-toc-num">04</span> Где полезно бизнесу</a></li>
+<li><a href="#kak-zapustit"><span class="blog-toc-num">05</span> Как запустить локально</a></li>
+<li><a href="#faq"><span class="blog-toc-num">06</span> FAQ</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">07</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=23" defer></script>
+<script src="/services-i18n.js?v=23" defer></script>
+<script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>
