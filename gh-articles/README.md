@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **915**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **919**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -767,6 +767,8 @@
 
 ## Разработка
 
+- [Как сделать платёжного бота в MAX и не застрять на публикации](./kak-sdelat-platezhnogo-bota-v-max-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-sdelat-platezhnogo-bota-v-max-2027/)
+- [Реферальная механика в MAX: deep links, проверка подписки и антифрод (разбор кейса)](./referalnaya-mehanika-v-max-keys-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/referalnaya-mehanika-v-max-keys-2027/)
 - [Заказать Telegram-бота для бизнеса: что входит, сроки и от чего зависит цена](./zakazat-telegram-bota-cena-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zakazat-telegram-bota-cena-2027/)
 - [Заказать автоматизацию бизнеса под ключ: с чего начать и сколько стоит](./zakazat-avtomatizaciyu-biznesa-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zakazat-avtomatizaciyu-biznesa-2027/)
 - [Внедрить ИИ в бизнес под ключ: что входит, сроки и стоимость](./vnedrit-ii-pod-klyuch-cena-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vnedrit-ii-pod-klyuch-cena-2027/)
@@ -870,6 +872,7 @@
 
 ## Финансы
 
+- [54-ФЗ для приёма оплаты: что нужно самозанятому, ИП и ООО](./54-fz-dlya-platezhey-samozanyatyy-ip-ooo-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/54-fz-dlya-platezhey-samozanyatyy-ip-ooo-2027/)
 - [Приём оплаты из-за рубежа в 2026: какие способы есть у бизнеса и фрилансера](./priem-oplaty-iz-za-rubezha-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/priem-oplaty-iz-za-rubezha-2026/)
 - [Грант на ИИ-проект: конкурс «Развитие-Искусственный интеллект» Фонда содействия инновациям](./grant-na-ii-proekt-razvitie-ii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/grant-na-ii-proekt-razvitie-ii-2026/)
 - [Меры поддержки креативных индустрий Дальнего Востока в 2026](./podderzhka-kreativnyh-industriy-dfo-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/podderzhka-kreativnyh-industriy-dfo-2026/)
@@ -885,6 +888,7 @@
 
 ## Экспертное
 
+- [Фиксированная цена или почасовка: как платить за разработку и не переплатить](./fiksirovannaya-cena-vs-pochasovka-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/fiksirovannaya-cena-vs-pochasovka-2027/)
 - [Скрытая цена дешёвого сайта или бота: почему экономия выходит дороже](./skrytaya-cena-deshevogo-sayta-bota-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skrytaya-cena-deshevogo-sayta-bota-2026/)
 - [Почему я отказываюсь от части проектов — и почему это в плюс клиенту](./pochemu-ya-otkazyvayus-ot-proektov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pochemu-ya-otkazyvayus-ot-proektov-2026/)
 - [Почему я не обещаю «+X% к продажам» — и что обещаю вместо этого](./pochemu-ne-obeshchayu-rost-prodazh-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pochemu-ne-obeshchayu-rost-prodazh-2026/)
