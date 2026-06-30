@@ -933,6 +933,18 @@ function catalogHtml(a) {
                     </div>`;
 }
 
+function leadMagnetCard() {
+  return `<div class="blog-cta-card">
+                        <div class="blog-cta-card-body">
+                            <h3>Бесплатно: чек-лист «Готов ли ваш бизнес к 152-ФЗ»</h3>
+                            <p>12 пунктов, которые проверяют готовность за час: данные, согласия, уведомление в РКН, локализация, защита. Отметьте, что уже сделано, и увидите дыры, за которые сейчас штрафуют.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="/checklist-152-fz/" class="btn btn-accent"><i class="ph-fill ph-clipboard-text" aria-hidden="true"></i> Открыть чек-лист</a>
+                        </div>
+                    </div>`;
+}
+
 function servicesOfferCard(article) {
   if (!article.servicesOffer) return '';
   const s = article.servicesOffer;
@@ -1297,6 +1309,7 @@ ${faqLd(a)}${METRIKA}</head>
                     ${seriesHtml(a, published)}
                     ${catalogHtml(a)}
                     ${servicesOfferCard(a)}
+                    ${leadMagnetCard()}
                     ${blogOfferCta(a)}
 
                     <div class="blog-cta-card blog-cta-card-final">
