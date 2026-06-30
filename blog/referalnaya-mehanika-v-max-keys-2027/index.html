@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Реферальная механика в MAX: как устроена</title>
+    <meta name="description" content="Как устроена реферальная кампания «приведи друга» в мессенджере MAX: deep links с payload, отслеживание приглашений, проверка подписки на канал, защита от…">
+    <meta name="keywords" content="MAX, реферальная программа, антифрод, кейс">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/referalnaya-mehanika-v-max-keys-2027/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/referalnaya-mehanika-v-max-keys-2027/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/referalnaya-mehanika-v-max-keys-2027/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/referalnaya-mehanika-v-max-keys-2027/">
+    <meta property="og:title" content="Реферальная механика в MAX: как устроена">
+    <meta property="og:description" content="Как устроена реферальная кампания «приведи друга» в мессенджере MAX: deep links с payload, отслеживание приглашений, проверка подписки на канал, защита от…">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/referalnaya-mehanika-v-max-keys-2027/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Реферальная механика в MAX: как устроена">
+    <meta name="twitter:description" content="Как устроена реферальная кампания «приведи друга» в мессенджере MAX: deep links с payload, отслеживание приглашений, проверка подписки на канал, защита от…">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/referalnaya-mehanika-v-max-keys-2027/cover.png">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor-Fill.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=45">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Реферальная механика в MAX: deep links, проверка подписки и антифрод (разбор кейса)",
+  "description": "Как устроена реферальная кампания «приведи друга» в мессенджере MAX: deep links с payload, отслеживание приглашений, проверка подписки на канал, защита от накруток и антифрод. Разбор на реальном кейсе и что нужно, чтобы запустить такую механику под ключ.",
+  "image": "https://chimitdorzhi.tech/blog/referalnaya-mehanika-v-max-keys-2027/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/referalnaya-mehanika-v-max-keys-2027/"
+  },
+  "datePublished": "2026-06-30",
+  "dateModified": "2026-06-30",
+  "keywords": "MAX, реферальная программа, антифрод, кейс",
+  "articleSection": "Разработка",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Реферальная механика в MAX: deep links, проверка подписки и антифрод (разбор кейса)",
+      "item": "https://chimitdorzhi.tech/blog/referalnaya-mehanika-v-max-keys-2027/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Чем deep links в MAX отличаются от Telegram?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Концептуально — почти ничем: и там и там это ссылка на бота с полезной нагрузкой, которую бот получает при старте. MAX вырос из TamTam, и его Bot API идеологически близок к Telegram — есть событие старта бота, есть передача payload, есть проверка членства в канале. Отличия в деталях реализации: конкретные имена методов, формат событий, нюансы лимитов. Кто работал с реферальными ботами в Telegram, перенесёт логику в MAX без концептуальной ломки — но именно реализацию придётся делать под MAX, готовых разборов по площадке почти нет."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как не раздать призы ботам?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Многослойным антифродом. Уникальность пользователей и привязка при первом старте отсекают примитивную накрутку, проверка условий (подписка, действие) убирает «мёртвые души», флаги для модератора ловят подозрительные паттерны без жёстких автоблокировок, а ручная проверка топа лидерборда перед награждением гарантирует, что призы уйдут к тем, кто привёл живых людей. Одной кнопки «защита от накруток» не существует — работает именно сумма мер."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли требовать подписку на канал как условие?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, и это одно из самых популярных условий. Бот проверяет через API, состоит ли новый пользователь в нужном канале, и засчитывает приглашение только после подтверждённой подписки. Это превращает реферальную кампанию ещё и в инструмент роста вашего сообщества — вы получаете не просто клики, а реальных подписчиков."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужна ли админка с лидербордом?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Для серьёзной кампании — да. Лидерборд подстёгивает вирусность (люди соревнуются за призовые места), а админка даёт организатору контроль: видеть участников, проверять подозрительную активность по флагам и осознанно подтверждать выдачу наград. Технически кампанию можно запустить и без админки, но управлять ею и доверять результатам без неё тяжело, особенно на потоке."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Получу ли я исходники?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, по итогам работы вы получаете исходный код решения — это ваш проект, и вы не оказываетесь привязаны к одному подрядчику. Конкретные условия передачи кода обсуждаются на старте, чтобы не было сюрпризов."
+      }
+    }
+  ]
+}
+    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+var inject=function(){for (var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)};
+var run=function(){('requestIdleCallback' in window)?requestIdleCallback(inject,{timeout:5000}):setTimeout(inject,3000)};
+(e.readyState==='complete')?run():m.addEventListener('load',run);})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109281884" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+            <li><a href="/#services" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li class="nav-dropdown">
+                <a href="/#projects" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--arey"><i class="ph-fill ph-vinyl-record" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-airplane-tilt" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#cases" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            </div>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/#about">Обо мне</a></li>
+        <li><a href="/#services">Услуги</a></li>
+        <li><a href="/services/">Каталог услуг</a></li>
+        <li><a href="/predlozheniya/">Предложения</a></li>
+        <li><a href="/#cases">Кейсы</a></li>
+        <li><a href="/blog/">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+        <li><a href="/#contact">Контакт</a></li>
+    </ul>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Реферальная механика в MAX: deep links, проверка подписки и антифрод (разбор кейса)</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/development/"><i class="ph ph-bookmark" aria-hidden="true"></i> Разработка</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин чтения</span>
+                        <time datetime="2026-06-30"><i class="ph ph-calendar" aria-hidden="true"></i> 30 июня 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Реферальная механика в MAX: deep links, проверка подписки и антифрод (разбор кейса)</h1>
+
+                    <p class="blog-lead">Хотите вирусную механику «приведи друга» в MAX, но боитесь накруток? Разбираю на реальном кейсе, как работают deep links, проверка подписки и антифрод — и что нужно, чтобы это не превратилось в раздачу призов ботам.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>MAX</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>реферальная программа</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>антифрод</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>кейс</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
+<li>Реферальная механика «приведи друга» — один из самых дешёвых каналов привлечения: вас рекламируют сами клиенты, а вы платите только за результат.</li>
+<li>В MAX (российский мессенджер, форк TamTam с Bot API в духе Telegram) такая механика почти никем не описана — рынок пустой, конкуренции за внимание мало.</li>
+<li>Технически всё держится на deep links с payload: уникальный код пригласившего ловится при старте бота и привязывает нового пользователя к тому, кто его привёл.</li>
+<li>Чтобы засчитывать только «настоящих» приглашённых, бот проверяет условия через API — подписку на канал, регистрацию или целевое действие.</li>
+<li>Главная боль реферальных кампаний — накрутки. Защита строится на уникальности пользователей, отсечении самоприглашений и мультиаккаунтов, флагах для модератора и ручной проверке топа перед выдачей призов.</li>
+</ul></div>
+
+<p>Реферальные программы — старая и понятная идея: дайте людям повод рассказать о вас друзьям, и они приведут вам новых клиентов почти бесплатно. В Telegram такие механики реализованы сотни раз, по ним написаны десятки статей, и любой подрядчик знает, как это собрать. А вот в MAX — российском мессенджере, который вырос из TamTam и получил похожий на Telegram Bot API, — всё иначе. Площадка молодая, аудитория растёт, а вот готовых решений и внятных разборов почти нет. Когда я собирал реферального бота «приведи друга» в MAX (кейс «Манго за приглашения»), выяснилось, что описывать механику приходится буквально с нуля: примеров мало, граблей много, а спрос на такие штуки только формируется.</p>
+
+<p>Эта статья — технический разбор того, как устроена реферальная механика в MAX: как работают deep links с payload, как бот проверяет условия засчитывания приглашений и как защититься от накруток. Я намеренно не привожу выдуманных цифр и клиентов — речь о механике и принципах, которые я проверил на практике. Если после прочтения вам станет понятно, как это устроено и зачем оно вашему бизнесу, — отлично, значит, статья своё дело сделала. А если захочется такое же, но под свой проект, в конце расскажу, как это выглядит под ключ.</p>
+
+<h2 id="zachem-referalka">Зачем бизнесу реферальная механика</h2>
+
+<p>Начнём с простого вопроса: зачем вообще городить реферальную программу, если можно просто купить рекламу? Ответ в экономике канала. Платная реклама — это аукцион, где вы конкурируете за внимание с десятками других рекламодателей, и стоимость привлечения растёт год от года. Реферальная механика устроена иначе: вашим «рекламным каналом» становятся сами клиенты. Человек, которому вы понравились, рассказывает о вас друзьям — и приводит их по личной рекомендации.</p>
+
+<p>У этого есть три фундаментальных преимущества. Первое — дешевизна. Вы платите не за показы и клики, а за результат: привёл друга, который выполнил нужное действие, — получил награду. Никаких сгоревших впустую бюджетов на нецелевые показы. Второе — доверие. Рекомендация от знакомого работает в разы сильнее любого баннера: человек приходит к вам уже «прогретым», потому что ему посоветовал тот, кому он верит. Третье — вирусность. Если механика выстроена грамотно, каждый новый участник сам становится источником приглашений, и аудитория растёт по цепочке, а не линейно.</p>
+
+<p>Кому это подходит? Практически любому бизнесу, у которого есть повторяющийся контакт с клиентом и понятная награда за приглашение. Ритейл и магазины — приведи друга, получи бонус или скидку на следующую покупку. Сфера услуг — салоны, студии, мастерские, где сарафанное радио и так работает, а реферальная механика просто оцифровывает и усиливает его. Мероприятия и события — раздача билетов, мест, доступа за приглашённых. Локальные сообщества и клубы, где важна именно «своя» аудитория, а не случайный трафик. Общий критерий простой: если вам выгодно, чтобы текущие клиенты приводили новых, реферальная механика окупается.</p>
+
+<p>Теперь — почему именно MAX. Мессенджер активно растёт, на него смотрят как на отечественную альтернативу, а значит, аудитория туда постепенно перетекает. И вот что важно: пока площадка молодая, на ней мало конкуренции за внимание. В Telegram ваш реферальный бот — один из тысяч, в MAX — один из единиц. Тот, кто заходит в новый канал первым, собирает аудиторию дешевле и быстрее, потому что место ещё не занято. Я делал реферальную механику в MAX именно тогда, когда внятных разборов по ней почти не было, — и это как раз тот случай, когда «рынок пустой» работает на вас.</p>
+
+<h2 id="deep-links">Deep links и отслеживание приглашений</h2>
+
+<p>Сердце любой реферальной механики — способ понять, кто кого привёл. В мессенджерах эту задачу решают deep links, то есть «глубокие ссылки» с полезной нагрузкой (payload). Разберём по шагам, как это работает в MAX.</p>
+
+<p>Каждому участнику кампании бот выдаёт персональную ссылку. Внешне это обычная ссылка на бота, но с добавленным параметром — уникальным кодом пригласившего. Этот код (payload) и есть «подпись» того, кто делится ссылкой. Условно: у Анны код A123, у Бориса — B456. Анна отправляет свою ссылку другу, друг по ней переходит, открывает бота и нажимает «Старт». В этот момент бот получает событие старта (в Bot API MAX это аналог того, как Telegram присылает <code>bot_started</code> с параметром <code>start</code>) — и вместе с ним приходит тот самый payload A123.</p>
+
+<p>Дальше логика простая, но именно она делает всю механику. Бот видит: пришёл новый пользователь, и в его payload зашит код Анны. Значит, нового пользователя нужно привязать к Анне как к пригласившей. Бот записывает эту связь в базу: «пользователь X пришёл по приглашению Анны». С этого момента у Анны в счётчике приглашений становится на одного человека больше — при условии, что новичок выполнит условия засчитывания (об этом в следующем разделе).</p>
+
+<p>Важных нюансов здесь несколько. Payload привязывается к пользователю один раз — при первом старте. Если человек уже был в боте раньше, повторный переход по чьей-то ссылке его «перепривязать» не должен: первое касание решает, иначе механику легко сломать. Сам payload должен быть коротким и однозначным — это, по сути, идентификатор пригласившего, а не произвольный текст. И каждая ссылка должна быть устойчивой: пользователь делится ею в чатах, постит у себя, отправляет в личку — и во всех случаях код должен доезжать до бота в целости.</p>
+
+<p>На основе этих записей строится вся отчётность кампании. Самое наглядное — счётчик приглашений у каждого участника и лидерборд: рейтинг тех, кто привёл больше всего людей. Лидерборд не только нужен организатору, чтобы понимать, кому выдавать награды, — он сам по себе подстёгивает вирусность. Люди видят, что до призового места не хватает пары приглашений, и идут звать ещё друзей. Грамотно сделанный лидерборд превращает реферальную кампанию в небольшую игру, а игровой азарт — мощный двигатель распространения.</p>
+
+<h2 id="proverka-podpiski">Проверка подписки и условия</h2>
+
+<p>Засчитывать приглашение по одному только факту перехода по ссылке — плохая идея. Так вы соберёте кучу «мёртвых душ»: люди нажали «Старт» и исчезли, а пригласившему уже накапали баллы. Поэтому в нормальной реферальной механике есть условия засчитывания — действие, которое новый пользователь обязан выполнить, чтобы приглашение зачлось.</p>
+
+<p>Самое распространённое условие — подписка на канал. Логика бизнеса понятна: вам нужны не абстрактные клики, а живые подписчики вашего сообщества. Работает это так. Новичок переходит по реферальной ссылке, открывает бота, и бот сообщает: чтобы приглашение зачлось (а самому новичку, например, получить welcome-бонус), нужно подписаться на такой-то канал. Пользователь подписывается и нажимает кнопку «Проверить». Бот через API запрашивает у площадки статус этого пользователя в канале — состоит он там или нет. Если состоит — условие выполнено, приглашение засчитывается пригласившему, связь фиксируется. Если не состоит — бот вежливо просит сначала подписаться.</p>
+
+<p>Подписка — не единственный вариант условия. В зависимости от задачи целевым действием может быть регистрация в мини-приложении (заполнил форму, оставил телефон), совершение покупки, прохождение квиза, посещение мероприятия. Принцип везде один: приглашение засчитывается не за переход, а за выполнение действия, которое реально ценно для бизнеса. Это сразу отсекает большую часть пустого трафика — тех, кто пришёл и ушёл, не сделав ничего полезного.</p>
+
+<p>Технически проверка условий — это диалог бота с API площадки и запись результата в базу. Здесь важно аккуратно обрабатывать пограничные случаи: пользователь подписался, нажал «Проверить», потом отписался — как быть? Обычно фиксируют факт выполнения условия на момент проверки, но для дорогих наград добавляют повторную проверку перед выдачей приза. Ещё момент — нельзя злоупотреблять частотой запросов к API: проверки делаются по нажатию кнопки, а не в бесконечном цикле, иначе можно упереться в лимиты площадки. Эти детали кажутся мелочью, но именно из них складывается разница между «вроде работает» и «работает надёжно даже на потоке».</p>
+
+<h2 id="antifrod">Антифрод: защита от накруток</h2>
+
+<p>Вот мы и добрались до главной боли любой реферальной кампании. Как только за приглашения начинают выдавать что-то ценное, находятся люди, которые попытаются эту систему обмануть. Создают фейковые аккаунты, приглашают «сами себя», накручивают счётчики — и если не подумать об антифроде заранее, призы уедут не к тем, кто реально привёл живых людей, а к самым изобретательным накрутчикам. Это убивает и доверие к кампании, и её экономику.</p>
+
+<p>Базовая линия защиты — уникальность пользователей. Один человек должен засчитываться как приглашённый ровно один раз, и привязка к пригласившему фиксируется только при первом старте. Повторные переходы, повторные старты, попытки «переприглашения» не должны добавлять новых баллов. Это отсекает самый примитивный способ накрутки — гонять одного и того же человека по ссылке.</p>
+
+<p>Дальше — отсечение самоприглашений. Пользователь не может быть собственным рефералом: если payload в его ссылке указывает на него же, приглашение не засчитывается. Звучит очевидно, но без явной проверки эту дыру легко оставить открытой. Сюда же — борьба с мультиаккаунтами: когда один человек заводит десяток аккаунтов и «приглашает» их все. Полностью вычислить мультиаккаунты автоматически почти невозможно, но можно ловить подозрительные паттерны — резкий всплеск приглашений за короткое время, цепочки регистраций с одинаковым поведением, аккаунты без какой-либо активности кроме «прихода по ссылке».</p>
+
+<p>И вот здесь — ключевой принцип, к которому я пришёл на практике: не блокировать автоматически, а помечать флагами для модератора. Жёсткие автоблокировки выглядят красиво в теории, но на деле дают много ложных срабатываний — под раздачу попадают честные участники, которые просто активно звали друзей. Лучше, когда система не выносит приговор сама, а поднимает флаг: «вот этот участник выглядит подозрительно — посмотрите глазами». Финальное решение принимает человек. Это резко снижает число обиженных честных пользователей и при этом не пропускает явных накрутчиков.</p>
+
+<p>В арсенал антифрода также входят задержки и лимиты — например, ограничение на число засчитываемых приглашений за единицу времени, чтобы массовая накрутка упёрлась в потолок. И обязательный финальный рубеж — ручная проверка топа лидерборда перед выдачей призов. Призы получают единицы — те, кто на верхних строчках. Проверить вручную десяток лидеров перед награждением несложно, а это гарантирует, что награды уедут к тем, кто действительно привёл живых людей, а не к тем, кто ловчее всех накрутил счётчик. Антифрод — это не одна волшебная кнопка, а несколько слоёв защиты, где автоматика отсекает грубые случаи, а человек выносит финальный вердикт по спорным.</p>
+
+<h2 id="keys">Как это выглядит на практике</h2>
+
+<p>Соберём всё вместе и пройдём путь реферальной кампании от запуска до выдачи наград — обобщённо, на основе того, как я собирал такую механику в MAX.</p>
+
+<p>Всё начинается с бота. Бот — это точка входа: участник запускает его, получает свою персональную реферальную ссылку с payload и видит понятную инструкцию, как звать друзей и за что положена награда. Бот же встречает новичков, ловит их payload при старте, привязывает к пригласившим и ведёт диалог по условиям засчитывания — подписка, регистрация, целевое действие. По сути, бот — это и интерфейс участника, и движок учёта приглашений одновременно.</p>
+
+<p>Часто к боту добавляется лендинг или мини-приложение. Лендинг нужен, чтобы человек со стороны мог зайти, прочитать правила кампании, понять выгоду и перейти в бота — это «витрина» акции. Мини-приложение внутри мессенджера удобно для целевых действий, которые неудобно делать в переписке: заполнить форму, посмотреть свой прогресс, увидеть текущее место в рейтинге. Чем сложнее условия кампании, тем больше пользы от отдельного интерфейса помимо самого диалога с ботом.</p>
+
+<p>Третий обязательный элемент — админка. Это рабочее место организатора, где видно всё: список участников, кто кого привёл, счётчики приглашений и лидерборд в реальном времени. Здесь же живёт антифрод — те самые флаги подозрительной активности, по которым модератор принимает решения. Перед выдачей наград организатор открывает лидерборд, просматривает топ, проверяет помеченных флагами участников и подтверждает, кому уходят призы. Без админки кампанию можно запустить, но управлять ею и доверять результатам будет тяжело — особенно когда участников становится много.</p>
+
+<p>Итого связка получается такая: бот ловит приглашения и ведёт учёт, лендинг или мини-приложение работают витриной и интерфейсом действий, админка с лидербордом и антифрод-флагами даёт организатору контроль и финальное слово при награждении. Это рабочий каркас, который дальше настраивается под конкретную задачу — какие условия засчитывать, какие награды, насколько строгий антифрод. Если у вас есть похожая идея для MAX, можно <a href="https://chimitdorzhi.tech/predlozheniya/">обсудить проект</a> и собрать механику под ваши условия.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+
+<p><strong>Чем deep links в MAX отличаются от Telegram?</strong> Концептуально — почти ничем: и там и там это ссылка на бота с полезной нагрузкой, которую бот получает при старте. MAX вырос из TamTam, и его Bot API идеологически близок к Telegram — есть событие старта бота, есть передача payload, есть проверка членства в канале. Отличия в деталях реализации: конкретные имена методов, формат событий, нюансы лимитов. Кто работал с реферальными ботами в Telegram, перенесёт логику в MAX без концептуальной ломки — но именно реализацию придётся делать под MAX, готовых разборов по площадке почти нет.</p>
+
+<p><strong>Как не раздать призы ботам?</strong> Многослойным антифродом. Уникальность пользователей и привязка при первом старте отсекают примитивную накрутку, проверка условий (подписка, действие) убирает «мёртвые души», флаги для модератора ловят подозрительные паттерны без жёстких автоблокировок, а ручная проверка топа лидерборда перед награждением гарантирует, что призы уйдут к тем, кто привёл живых людей. Одной кнопки «защита от накруток» не существует — работает именно сумма мер.</p>
+
+<p><strong>Можно ли требовать подписку на канал как условие?</strong> Да, и это одно из самых популярных условий. Бот проверяет через API, состоит ли новый пользователь в нужном канале, и засчитывает приглашение только после подтверждённой подписки. Это превращает реферальную кампанию ещё и в инструмент роста вашего сообщества — вы получаете не просто клики, а реальных подписчиков.</p>
+
+<p><strong>Нужна ли админка с лидербордом?</strong> Для серьёзной кампании — да. Лидерборд подстёгивает вирусность (люди соревнуются за призовые места), а админка даёт организатору контроль: видеть участников, проверять подозрительную активность по флагам и осознанно подтверждать выдачу наград. Технически кампанию можно запустить и без админки, но управлять ею и доверять результатам без неё тяжело, особенно на потоке.</p>
+
+<p><strong>Получу ли я исходники?</strong> Да, по итогам работы вы получаете исходный код решения — это ваш проект, и вы не оказываетесь привязаны к одному подрядчику. Конкретные условия передачи кода обсуждаются на старте, чтобы не было сюрпризов.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+
+<p>Реферальная механика «приведи друга» — это дешёвый, основанный на доверии и склонный к вирусному росту канал привлечения, который подходит ритейлу, услугам, магазинам и мероприятиям. В MAX она особенно интересна тем, что площадка молодая, аудитория растёт, а конкуренции и готовых решений почти нет — кто заходит первым, собирает аудиторию дешевле.</p>
+
+<p>Технически всё держится на трёх китах: deep links с payload, которые ловят, кто кого привёл; проверка условий через API, которая отсекает пустой трафик и засчитывает только целевые действия; и многослойный антифрод, где автоматика ловит грубые накрутки, а человек выносит финальный вердикт по спорным случаям и проверяет топ перед награждением. Связка бот плюс лендинг или мини-приложение плюс админка с лидербордом и флагами даёт рабочий каркас, который настраивается под конкретную задачу.</p>
+
+<p>Я уже собирал такую механику в MAX, когда внятных разборов по ней почти не существовало, — и именно поэтому уверен, что тут есть простор для тех, кто зайдёт раньше других. Если хотите запустить реферальную кампанию «приведи друга» в MAX под свои условия, давайте <a href="https://chimitdorzhi.tech/predlozheniya/">обсудим проект</a> — разберём задачу и соберём механику под ключ.</p>
+
+                    </div>
+
+                    
+                    
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Что я делаю под ключ</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-code"></i> <span>Сайты и веб-приложения</span></li>
+    
+    <li><i class="ph-fill ph-robot"></i> <span>Боты в Telegram и MAX, ИИ-агенты</span></li>
+    
+    <li><i class="ph-fill ph-flow-arrow"></i> <span>Автоматизация процессов</span></li>
+    
+    <li><i class="ph-fill ph-shield-check"></i> <span>Безопасность и 152-ФЗ</span></li>
+    
+    <li><i class="ph-fill ph-lifebuoy"></i> <span>Внедрение и поддержка</span></li>
+    
+  </ul>
+  <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Обсудить ваш проект
+  </a>
+</div>
+                    <div class="blog-cta-card">
+                        <div class="blog-cta-card-body">
+                            <h3>Бесплатно: чек-лист «Готов ли ваш бизнес к 152-ФЗ»</h3>
+                            <p>12 пунктов, которые проверяют готовность за час: данные, согласия, уведомление в РКН, локализация, защита. Отметьте, что уже сделано, и увидите дыры, за которые сейчас штрафуют.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="/checklist-152-fz/" class="btn btn-accent"><i class="ph-fill ph-clipboard-text" aria-hidden="true"></i> Открыть чек-лист</a>
+                        </div>
+                    </div>
+                    
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/predlozheniya/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Обсудить ваш проект</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/kak-sdelat-platezhnogo-bota-v-max-2027/" data-category="development" data-clicks="0">
+  <span class="blog-card-fresh">Свежее</span>
+  <div class="blog-card-icon"><i class="ph-fill ph-robot"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
+  <h3>Как сделать платёжного бота в MAX и не застрять на публикации</h3>
+  <p>Хотите бота с оплатой в MAX, но непонятно, как его собрать и, главное, опубликовать? Разбираю по шагам: что умеет MAX-бот, как устроен приём платежей и что нужно для верификации и выхода в прод.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 30 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/konkurs-priglasheniy-max-virusnyy-rost-2027/" data-category="marketing" data-clicks="2">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-rocket-launch"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Маркетинг и контент</span>
+  <h3>Конкурс приглашений в MAX: вирусный рост аудитории и продаж 2027</h3>
+  <p>Реклама дорожает, а доверие к ней падает — снова в цене сарафан, только теперь системный. Разбираю, как растить аудиторию и продажи руками самих клиентов в MAX: конкурс приглашений, рефералки, UGC, геймификация, удержание и как не получить накрутку вместо роста.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 10 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 18 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/magazin-bot-max-2026/" data-category="development" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-storefront"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
+  <h3>Магазин в МАХ за неделю: каталог, корзина и оплата без своего сайта</h3>
+  <p>Запуск магазина в МАХ-боте быстрее и дешевле чем сайт: от 80 тыс. ₽ и за неделю. Разбираю как сделать каталог в Mini App, корзину, оплату через СБП/ЮKassa/СберПэй, доставку через СДЭК/Boxberry и интеграцию с 1С/МойСклад. С реальными SQL-схемами, кодом интеграций и бюджетами 2026.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 25 мая 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 22 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    
+                    
+                    
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовые решения под ключ</span>
+                            <span class="blog-offer-cta-title">449 готовых IT-решений для бизнеса</span>
+                            <span class="blog-offer-cta-price">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Смотреть каталог</span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#zachem-referalka"><span class="blog-toc-num">01</span> Зачем бизнесу реферальная механика</a></li>
+<li><a href="#deep-links"><span class="blog-toc-num">02</span> Deep links и отслеживание приглашений</a></li>
+<li><a href="#proverka-podpiski"><span class="blog-toc-num">03</span> Проверка подписки и условия</a></li>
+<li><a href="#antifrod"><span class="blog-toc-num">04</span> Антифрод: защита от накруток</a></li>
+<li><a href="#keys"><span class="blog-toc-num">05</span> Как это выглядит на практике</a></li>
+<li><a href="#faq"><span class="blog-toc-num">06</span> FAQ</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">07</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=23" defer></script>
+<script src="/services-i18n.js?v=23" defer></script>
+<script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>
