@@ -34,4 +34,11 @@ module.exports = [
     excerpt: 'DreamServer ставит и связывает локальный AI-стек одной установкой — Ollama, Open WebUI, n8n и ComfyUI на вашем железе, без ручной возни с каждым. Свой ChatGPT и автоматизация без облака. Разбираю, кому подходит и как развернуть под ключ.',
     tags: ['DreamServer', 'локальный AI-сервер', 'Ollama', 'open-source'],
     relatedSlugs: ['ollama-svoy-chatgpt-na-servere-2026', 'open-webui-svoy-chatgpt-2026', 'n8n-avtomatizaciya-bez-zapier-2026'] }),
+  E({ slug: 'ai-assistent-telegram-business-2027', heroIcon: 'ph-fill ph-robot',
+    title: 'ИИ-ассистент для Telegram Business: что умеет, чем рискует и как сделать безопасно',
+    metaTitle: 'ИИ-ассистент Telegram Business: риски и под ключ',
+    metaDescription: 'ИИ-ассистент для Telegram Business отвечает клиентам от вашего имени, ведёт разные стили общения, имеет утилиты и админ-панель. Разбираю, что умеют такие боты, чем они опасны для бизнеса (переписка с клиентами уходит в чужой LLM — риск по 152-ФЗ, безопасность чужого кода и API-ключей) и как внедрить безопасно под ключ на своём сервере.',
+    excerpt: 'ИИ-ассистенты для Telegram Business отвечают клиентам за вас — удобно, но переписка с клиентами уходит в чужой ИИ, а это риск по 152-ФЗ и безопасности. Разбираю, что умеют такие боты, чем рискованны и как сделать безопасно под ключ.',
+    tags: ['Telegram', 'ИИ-ассистент', '152-ФЗ', 'open-source'],
+    relatedSlugs: ['dreamserver-lokalnyy-ai-server-2026', 'ne-otdayu-dannye-klientov-v-chuzhoy-ii-2026', 'chatbot-telegram-max-vk-2026'] }),
 ];
