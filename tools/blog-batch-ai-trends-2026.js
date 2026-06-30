@@ -104,6 +104,7 @@ module.exports = [
     ],
     relatedSlugs: ['malenkie-domennye-modeli-slm-2026', 'lokalnyy-llm-na-noutbuke-2026', 'comfyui-generaciya-izobrazheniy-2026'] }),
   E({ slug: 'kak-ocenit-kachestvo-ii-bota-2027', heroIcon: 'ph-fill ph-gauge', ctaInternal: AGENTS,
+    datePublished: '2026-06-28', dateModified: '2026-06-28',
     title: 'Как оценить качество ИИ-бота: метод LLM-as-Judge простыми словами',
     metaTitle: 'Как оценить качество ИИ-бота (LLM-as-Judge)',
     metaDescription: 'Вы внедрили ИИ-бота — как понять, что он отвечает хорошо, а не выдумывает? Разбираю метод LLM-as-Judge (ИИ оценивает ответы ИИ) и свежий подход: разбить каждый критерий на простые вопросы «да/нет» и проверять по отдельности. Зачем бизнесу измерять качество ИИ, как это делать и где такая оценка ошибается.',
