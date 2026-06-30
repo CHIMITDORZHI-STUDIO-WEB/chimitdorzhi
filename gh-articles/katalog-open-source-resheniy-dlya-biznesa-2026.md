@@ -11,7 +11,7 @@ canonical: https://chimitdorzhi.tech/blog/katalog-open-source-resheniy-dlya-bizn
 >
 ### Коротко (TL;DR)
 
-- Каталог из 166+ бесплатных open-source решений, которые можно развернуть на своём сервере вместо платных облачных сервисов.
+- Каталог из 167+ бесплатных open-source решений, которые можно развернуть на своём сервере вместо платных облачных сервисов.
 
 - Сгруппированы по задачам: AI, CRM, аналитика, документы, безопасность, магазины, команда, инфраструктура.
 
@@ -372,6 +372,8 @@ canonical: https://chimitdorzhi.tech/blog/katalog-open-source-resheniy-dlya-bizn
 - [**TensorFlow.js: AI прямо в браузере без сервера**](/blog/tensorflow-js-ai-v-brauzere-2026/) — TensorFlow.
 
 - [**DreamServer: локальный AI-сервер (Ollama, Open WebUI, n8n, ComfyUI) одной установкой**](/blog/dreamserver-lokalnyy-ai-server-2026/) — DreamServer ставит и связывает локальный AI-стек одной установкой — Ollama, Open WebUI, n8n и ComfyUI на вашем железе, без…
+
+- [**ИИ-ассистент для Telegram Business: что умеет, чем рискует и как сделать безопасно**](/blog/ai-assistent-telegram-business-2027/) — ИИ-ассистенты для Telegram Business отвечают клиентам за вас — удобно, но переписка с клиентами уходит в чужой ИИ, а это риск…
 
 ## Частые вопросы
 
