@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **907**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **915**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -767,6 +767,14 @@
 
 ## Разработка
 
+- [Заказать Telegram-бота для бизнеса: что входит, сроки и от чего зависит цена](./zakazat-telegram-bota-cena-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zakazat-telegram-bota-cena-2027/)
+- [Заказать автоматизацию бизнеса под ключ: с чего начать и сколько стоит](./zakazat-avtomatizaciyu-biznesa-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zakazat-avtomatizaciyu-biznesa-2027/)
+- [Внедрить ИИ в бизнес под ключ: что входит, сроки и стоимость](./vnedrit-ii-pod-klyuch-cena-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vnedrit-ii-pod-klyuch-cena-2027/)
+- [Настройка 152-ФЗ под ключ: что сделаю, чтобы не было штрафов](./nastroyka-152fz-pod-klyuch-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nastroyka-152fz-pod-klyuch-2027/)
+- [Заказать сайт для бизнеса в Чите и Забайкалье: этапы, сроки и на что смотреть](./zakazat-sayt-biznes-chita-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zakazat-sayt-biznes-chita-2027/)
+- [Как выбрать IT-подрядчика для бизнеса: чек-лист, чтобы не переплатить и не остаться с недоделкой](./kak-vybrat-it-podryadchika-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-vybrat-it-podryadchika-2027/)
+- [IT-сопровождение бизнеса: абонентка или разовые задачи — что выгоднее](./it-soprovozhdenie-biznesa-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/it-soprovozhdenie-biznesa-2027/)
+- [Заказать чат-бота для записи клиентов: цена и за сколько окупается](./zakazat-chat-bota-zapis-cena-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zakazat-chat-bota-zapis-cena-2027/)
 - [Оплата звёздами в Telegram (Stars): как работает и кому это нужно](./oplata-zvezdami-telegram-stars-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/oplata-zvezdami-telegram-stars-2026/)
 - [Telegram-бот приёма заявок и оплат под ключ: что умеет и за сколько собрать](./telegram-bot-priema-zayavok-i-oplat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/telegram-bot-priema-zayavok-i-oplat-2026/)
 - [Mini App магазин в Telegram и MAX: интернет-магазин внутри мессенджера](./mini-app-magazin-telegram-max-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/mini-app-magazin-telegram-max-2026/)
