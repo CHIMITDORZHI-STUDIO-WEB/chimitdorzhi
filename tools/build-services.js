@@ -578,6 +578,7 @@ function sitemap() {
     { loc: `${SITE}/en/`,        priority: '0.9', freq: 'weekly', alts: true },
     { loc: `${SITE}/cn/`,        priority: '0.9', freq: 'weekly', alts: true },
     { loc: `${SITE}/mn/`,        priority: '0.9', freq: 'weekly', alts: true },
+    { loc: `${SITE}/checklist-152-fz/`, priority: '0.7', freq: 'monthly' },
     { loc: `${SITE}/services/`,  priority: '0.9', freq: 'weekly' },
   ];
   for (const svc of services) {
