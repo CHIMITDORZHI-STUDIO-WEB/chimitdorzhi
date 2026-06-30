@@ -22,6 +22,7 @@
 
 ## AI для разработчиков
 
+- [Как оценить качество ИИ-бота: метод LLM-as-Judge простыми словами](./kak-ocenit-kachestvo-ii-bota-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-ocenit-kachestvo-ii-bota-2027/)
 - [Сколько железа нужно локальному ИИ: GPU, RAM, VRAM по моделям](./skolko-zheleza-nuzhno-lokalnomu-ii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-zheleza-nuzhno-lokalnomu-ii-2026/)
 - [ИИ-агент для онлайн-записи на услуги: бот, который сам записывает клиентов](./ai-agent-onlayn-zapis-na-uslugi-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ai-agent-onlayn-zapis-na-uslugi-2026/)
 - [Новые OCR-модели 2026: превращаем документы в данные без облака](./novye-ocr-modeli-2026-dokumenty-bez-oblaka.md) · [читать на сайте](https://chimitdorzhi.tech/blog/novye-ocr-modeli-2026-dokumenty-bez-oblaka/)
@@ -32,7 +33,6 @@
 - [Окупаемость ИИ-агентов в месяцах: как собрать бизнес-кейс](./okupaemost-ii-agentov-biznes-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/okupaemost-ii-agentov-biznes-keys-2026/)
 - [Маленькие доменные модели (SLM): почему не один гигант, а узкие модели под задачу](./malenkie-domennye-modeli-slm-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/malenkie-domennye-modeli-slm-2026/)
 - [LocateAnything-3B от NVIDIA: открытая модель распознавания объектов и документов](./locateanything-nvidia-lokalnoe-raspoznavanie-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/locateanything-nvidia-lokalnoe-raspoznavanie-2026/)
-- [Как оценить качество ИИ-бота: метод LLM-as-Judge простыми словами](./kak-ocenit-kachestvo-ii-bota-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-ocenit-kachestvo-ii-bota-2027/)
 - [Сколько стоит внедрить ИИ в бизнес в 2026](./skolko-stoit-vnedrit-ii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-stoit-vnedrit-ii-2026/)
 - [GigaChat vs YandexGPT vs ChatGPT: что выбрать бизнесу в РФ в 2026](./gigachat-vs-yandexgpt-vs-chatgpt-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gigachat-vs-yandexgpt-vs-chatgpt-2026/)
 - [ИИ для отдела продаж: 10 задач, которые он закрывает](./ii-dlya-otdela-prodazh-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-dlya-otdela-prodazh-2026/)
