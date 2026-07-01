@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Как устроены облачные вычисления</title>
+    <meta name="description" content="Облачные вычисления простыми словами: что на самом деле означает «облако», где физически находятся ваши данные, чем отличаются IaaS, PaaS и SaaS, зачем бизнесу…">
+    <meta name="keywords" content="облачные вычисления, облако, IT-инфраструктура, научпоп">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/kak-ustroeny-oblachnye-vychisleniya-2027/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/kak-ustroeny-oblachnye-vychisleniya-2027/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/kak-ustroeny-oblachnye-vychisleniya-2027/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/kak-ustroeny-oblachnye-vychisleniya-2027/">
+    <meta property="og:title" content="Как устроены облачные вычисления">
+    <meta property="og:description" content="Облачные вычисления простыми словами: что на самом деле означает «облако», где физически находятся ваши данные, чем отличаются IaaS, PaaS и SaaS, зачем бизнесу…">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/kak-ustroeny-oblachnye-vychisleniya-2027/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Как устроены облачные вычисления">
+    <meta name="twitter:description" content="Облачные вычисления простыми словами: что на самом деле означает «облако», где физически находятся ваши данные, чем отличаются IaaS, PaaS и SaaS, зачем бизнесу…">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/kak-ustroeny-oblachnye-vychisleniya-2027/cover.png">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor-Fill.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=45">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Как устроены облачные вычисления простыми словами",
+  "description": "Облачные вычисления простыми словами: что на самом деле означает «облако», где физически находятся ваши данные, чем отличаются IaaS, PaaS и SaaS, зачем бизнесу переходить в облако и какие есть риски. Экспертный разбор без технического жаргона.",
+  "image": "https://chimitdorzhi.tech/blog/kak-ustroeny-oblachnye-vychisleniya-2027/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/kak-ustroeny-oblachnye-vychisleniya-2027/"
+  },
+  "datePublished": "2026-07-01",
+  "dateModified": "2026-07-01",
+  "keywords": "облачные вычисления, облако, IT-инфраструктура, научпоп",
+  "articleSection": "Экспертный блог",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Как устроены облачные вычисления простыми словами",
+      "item": "https://chimitdorzhi.tech/blog/kak-ustroeny-oblachnye-vychisleniya-2027/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Облако — это безопасно?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Само по себе облако не более и не менее безопасно, чем собственный сервер — уровень защиты определяется тем, насколько грамотно оно настроено. У крупных провайдеров физическая защита дата-центров и базовая сетевая безопасность обычно на порядок выше, чем может обеспечить малый или средний бизнес самостоятельно. Но настройка доступов, шифрования и политик внутри вашего облачного окружения — ваша зона ответственности."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Где хранятся данные российских компаний?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "По закону 152-ФЗ персональные данные граждан России при первичном сборе должны обрабатываться на серверах, физически расположенных на территории РФ. Это не зависит от того, каким облачным провайдером вы пользуетесь — международным или локальным, — важна именно физическая локация конкретного дата-центра, которую нужно проверять и фиксировать в договоре."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что выбрать: облако или свой сервер?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Универсального ответа нет — это зависит от масштаба бизнеса, характера нагрузки, требований к безопасности и наличия своей IT-команды. Облако обычно выгоднее для растущих компаний с переменной нагрузкой и ограниченным капиталом на старте. Собственная инфраструктура иногда оправдана при стабильно высокой постоянной нагрузке или специфичных требованиях к контролю данных. Решение стоит принимать после расчёта конкретных сценариев, а не по общим соображениям."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что будет, если облачный провайдер отключится?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Именно поэтому важно закладывать план на случай сбоя: резервные копии данных, документированный процесс миграции, а для критичных сервисов — возможность быстрого переключения на альтернативного провайдера. Крупные провайдеры редко полностью прекращают работу без предупреждения, но локальные сбои, изменения условий обслуживания или технические проблемы случаются, и разумный бизнес всегда имеет план Б."
+      }
+    }
+  ]
+}
+    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+var inject=function(){for (var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)};
+var run=function(){('requestIdleCallback' in window)?requestIdleCallback(inject,{timeout:5000}):setTimeout(inject,3000)};
+(e.readyState==='complete')?run():m.addEventListener('load',run);})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109281884" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+            <li><a href="/#services" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li class="nav-dropdown">
+                <a href="/#projects" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--arey"><i class="ph-fill ph-vinyl-record" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-airplane-tilt" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#cases" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            </div>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/#about">Обо мне</a></li>
+        <li><a href="/#services">Услуги</a></li>
+        <li><a href="/services/">Каталог услуг</a></li>
+        <li><a href="/predlozheniya/">Предложения</a></li>
+        <li><a href="/#cases">Кейсы</a></li>
+        <li><a href="/blog/">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+        <li><a href="/#contact">Контакт</a></li>
+    </ul>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Как устроены облачные вычисления простыми словами</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/expert/"><i class="ph ph-bookmark" aria-hidden="true"></i> Экспертный блог</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 6 мин чтения</span>
+                        <time datetime="2026-07-01"><i class="ph ph-calendar" aria-hidden="true"></i> 1 июля 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Как устроены облачные вычисления простыми словами</h1>
+
+                    <p class="blog-lead">«Всё в облаке» — но где именно? Разбираю простыми словами, что такое облачные вычисления, чем отличаются разные модели облака (IaaS, PaaS, SaaS) и зачем это бизнесу.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>облачные вычисления</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>облако</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>IT-инфраструктура</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>научпоп</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
+<li>«Облако» — это не абстракция, а тысячи реальных серверов в конкретных дата-центрах, к которым вы получаете доступ через интернет.</li>
+<li>Вместо покупки собственного железа вы арендуете вычислительные мощности и платите только за то, что реально используете.</li>
+<li>Есть три модели аренды: IaaS (голая инфраструктура), PaaS (платформа с готовым окружением) и SaaS (готовый сервис).</li>
+<li>Для российского бизнеса критично знать, в какой стране физически стоит сервер — от этого зависит соответствие 152-ФЗ.</li>
+<li>Облако снижает капитальные затраты и повышает отказоустойчивость, но добавляет зависимость от провайдера и требует дисциплины в вопросах безопасности.</li>
+</ul></div>
+<p>Когда предприниматель слышит слово «облако», у него часто рождается образ чего-то неосязаемого — данные будто растворяются в эфире и существуют одновременно везде и нигде. Это красивая метафора, но она мешает понимать, как всё работает на самом деле и, что важнее, где реально лежит ответственность за ваши данные. За словом «облако» стоит вполне земная, тяжёлая и осязаемая инфраструктура: здания, стойки с серверами, кондиционеры, дизель-генераторы и километры оптоволокна.</p>
+<p>Я много лет консультирую бизнес по IT-инфраструктуре и почти в каждом проекте сталкиваюсь с одним и тем же вопросом: переходить в облако или оставаться на своих серверах. Правильный ответ невозможен без понимания базовых механик — что вы на самом деле покупаете, за что платите и какие риски берёте на себя. В этой статье разберём облачные вычисления без маркетингового тумана, простым и точным языком.</p>
+<h2 id="chto-takoe-oblako">Что на самом деле означает «облако»</h2>
+<p>Облачные вычисления — это модель, при которой вы получаете доступ к вычислительным ресурсам (процессору, памяти, дисковому пространству, сетевым каналам) не через покупку физического оборудования, а через аренду мощностей, которые физически принадлежат провайдеру и находятся в его дата-центрах. Провайдер — это компания, которая построила или арендовала огромные помещения, заставленные серверными стойками, и продаёт доступ к вычислительной мощности этих серверов множеству клиентов одновременно.</p>
+<p>Ключевая технология, которая делает это возможным, — виртуализация. Один физический сервер программно делится на десятки или сотни изолированных виртуальных машин, каждая из которых ведёт себя как отдельный независимый компьютер. Именно поэтому облако экономически выгодно: провайдер загружает одно и то же железо работой множества клиентов, а не простаивает, как это часто бывает с собственными серверами компаний, которые покупают технику «с запасом на будущее» и потом годами используют её на 20-30%.</p>
+<p>Важно понимать: когда вы «арендуете облако», вы не получаете какой-то эфемерный ресурс. Вы получаете гарантированный (или условно гарантированный, в зависимости от тарифа) кусок вполне конкретного физического сервера, стоящего в конкретной стойке конкретного дата-центра. Просто вам не нужно знать, в какой именно — провайдер абстрагирует эту сложность и даёт удобный интерфейс управления.</p>
+<h2 id="gde-fizicheski-dannye">Где физически находятся данные</h2>
+<p>Это один из самых недооценённых вопросов при выборе облачного провайдера. Любые данные — файлы, базы данных, резервные копии — физически записаны на жёсткие диски или SSD-накопители, установленные в серверах определённого дата-центра, который стоит в определённой стране и даже определённом городе. «Облако» не размывает эту географию, оно её просто скрывает от пользователя за удобным интерфейсом.</p>
+<p>Для российского бизнеса это не абстрактный технический вопрос, а прямая юридическая обязанность. Федеральный закон №152-ФЗ «О персональных данных» требует, чтобы персональные данные граждан России при первичном сборе обрабатывались на серверах, физически расположенных на территории РФ. Если вы используете зарубежное облако без должной настройки региона хранения, вы рискуете нарушить закон — даже если сами об этом не подозреваете, потому что интерфейс провайдера был удобным и вопрос локации показался второстепенным.</p>
+<p>Практический вывод простой: при выборе облачного провайдера всегда уточняйте, в каком именно дата-центре и в какой стране будут физически размещены ваши данные, и фиксируйте это в договоре. Крупные международные провайдеры обычно дают выбор региона — но за российский рынок отвечают локальные площадки, соответствующие требованиям закона. Если сомневаетесь, какая конфигурация подходит именно вашему бизнесу, есть смысл <a href="https://chimitdorzhi.tech/predlozheniya/">обсудить проект</a> с консультантом, который разберётся в юридических и технических деталях одновременно.</p>
+<h2 id="iaas-paas-saas">IaaS, PaaS и SaaS: в чём разница</h2>
+<p>Облачные услуги делятся на три модели, и путаница между ними — источник большинства недопониманий в разговорах про облака. Проще всего объяснить разницу через аналогию с арендой жилья.</p>
+<p><strong>IaaS (Infrastructure as a Service)</strong> — это аренда «пустой квартиры». Вы получаете голые стены: виртуальный сервер с процессором, памятью и диском, но без операционной системы, без настроенного программного обеспечения. Всё остальное — установка ОС, настройка баз данных, обновления безопасности — ваша забота, точнее, забота вашего технического специалиста. Это максимальная гибкость и максимальная ответственность одновременно. Типичные примеры — виртуальные серверы облачных провайдеров, которые вы настраиваете с нуля.</p>
+<p><strong>PaaS (Platform as a Service)</strong> — это «квартира с мебелью». Провайдер уже установил операционную систему, настроил среду выполнения (например, для запуска приложений на определённом языке программирования), обеспечивает автоматические обновления и резервное копирование инфраструктурного уровня. Вам остаётся заниматься только своим приложением — кодом, логикой бизнеса, — а не администрированием серверов. Это удобно для разработчиков, которые хотят сосредоточиться на продукте, а не на поддержке инфраструктуры.</p>
+<p><strong>SaaS (Software as a Service)</strong> — это «готовый сервис под ключ», как заселение в отель с ежедневной уборкой. Вы вообще не думаете об инфраструктуре — ни о серверах, ни о платформе. Вы просто пользуетесь готовым программным продуктом через браузер или приложение: облачная почта, CRM-система, сервис видеоконференций. Провайдер полностью отвечает за то, чтобы всё работало, а вы платите за использование функциональности, а не за вычислительные ресурсы.</p>
+<p>Чем ближе к SaaS, тем меньше контроля вы имеете, но и меньше требуется технических компетенций для эксплуатации. Чем ближе к IaaS, тем больше свободы настройки, но и больше ответственности лежит на вашей команде.</p>
+<h2 id="zachem-biznesu">Зачем бизнесу переходить в облако</h2>
+<p>Главное экономическое преимущество облака — переход от капитальных затрат к операционным. Вместо того чтобы единовременно вложить крупную сумму в покупку серверов, которые морально устареют через несколько лет, вы платите за использование ресурсов постепенно, по мере роста бизнеса. Это особенно важно для стартапов и растущих компаний, у которых нет возможности заморозить капитал в оборудовании.</p>
+<p>Второе преимущество — гибкость масштабирования. Если у вашего интернет-магазина резкий всплеск трафика в период распродажи, облачная инфраструктура позволяет автоматически или полуавтоматически увеличить вычислительные мощности на время пиковой нагрузки, а затем вернуться к базовому уровню, не переплачивая за простаивающее железо в обычные дни. Собственный сервер вы либо покупаете «с запасом», который простаивает большую часть года, либо рискуете не выдержать нагрузку в критический момент.</p>
+<p>Третье — отказоустойчивость. Серьёзные облачные провайдеры строят инфраструктуру с резервированием: если один физический сервер выходит из строя, нагрузка автоматически переключается на резервный без остановки сервиса. Дублировать такой уровень надёжности на собственном оборудовании силами небольшой компании практически невозможно экономически — это требует нескольких дата-центров, резервных каналов связи и штата инженеров, которые следят за инфраструктурой круглосуточно.</p>
+<p>Наконец, облако снимает с бизнеса непрофильную нагрузку: не нужно нанимать специалистов по обслуживанию физического оборудования, договариваться с дата-центром о размещении, следить за охлаждением и электропитанием. Эту работу берёт на себя провайдер, а ваша команда сосредотачивается на продукте.</p>
+<h2 id="riski">Риски и на что смотреть</h2>
+<p>У облачной модели есть обратная сторона, о которой стоит говорить так же прямо, как о преимуществах. Первый риск — зависимость от провайдера, которую в индустрии называют vendor lock-in. Чем глубже вы интегрируетесь в специфичные инструменты конкретной облачной платформы, тем сложнее и дороже будет переезд к другому провайдеру, если вас перестанут устраивать условия, цены или качество обслуживания.</p>
+<p>Второй риск — вопросы безопасности и разграничения ответственности. В облаке действует так называемая модель разделённой ответственности: провайдер отвечает за безопасность инфраструктуры (физическая защита дата-центра, отказоустойчивость сети), но безопасность внутри вашего облачного окружения — настройка доступов, шифрование, политики паролей — остаётся на вашей стороне. Многие утечки данных в облаке происходят не потому, что провайдер оказался ненадёжным, а потому что клиент неправильно настроил права доступа.</p>
+<p>Третий момент — резервное копирование. Наличие данных в облаке не равно автоматическому наличию резервных копий. Некоторые тарифы включают бэкапы, некоторые нет — это нужно уточнять отдельно и, что важно, периодически проверять, что резервные копии действительно создаются и действительно восстанавливаются, а не существуют только в теории.</p>
+<p>И четвёртое — стоимость при неправильном использовании. Гибкость облака работает в обе стороны: если инфраструктура не настроена и не контролируется, легко получить неожиданно высокие счета за ресурсы, которые никто не отключил после завершения проекта, или за трафик, который никто не ограничил. Облако требует финансовой дисциплины и мониторинга так же, как требует технической грамотности.</p>
+<h2 id="faq">Частые вопросы</h2>
+<p><strong>Облако — это безопасно?</strong> Само по себе облако не более и не менее безопасно, чем собственный сервер — уровень защиты определяется тем, насколько грамотно оно настроено. У крупных провайдеров физическая защита дата-центров и базовая сетевая безопасность обычно на порядок выше, чем может обеспечить малый или средний бизнес самостоятельно. Но настройка доступов, шифрования и политик внутри вашего облачного окружения — ваша зона ответственности.</p>
+<p><strong>Где хранятся данные российских компаний?</strong> По закону 152-ФЗ персональные данные граждан России при первичном сборе должны обрабатываться на серверах, физически расположенных на территории РФ. Это не зависит от того, каким облачным провайдером вы пользуетесь — международным или локальным, — важна именно физическая локация конкретного дата-центра, которую нужно проверять и фиксировать в договоре.</p>
+<p><strong>Что выбрать: облако или свой сервер?</strong> Универсального ответа нет — это зависит от масштаба бизнеса, характера нагрузки, требований к безопасности и наличия своей IT-команды. Облако обычно выгоднее для растущих компаний с переменной нагрузкой и ограниченным капиталом на старте. Собственная инфраструктура иногда оправдана при стабильно высокой постоянной нагрузке или специфичных требованиях к контролю данных. Решение стоит принимать после расчёта конкретных сценариев, а не по общим соображениям.</p>
+<p><strong>Что будет, если облачный провайдер отключится?</strong> Именно поэтому важно закладывать план на случай сбоя: резервные копии данных, документированный процесс миграции, а для критичных сервисов — возможность быстрого переключения на альтернативного провайдера. Крупные провайдеры редко полностью прекращают работу без предупреждения, но локальные сбои, изменения условий обслуживания или технические проблемы случаются, и разумный бизнес всегда имеет план Б.</p>
+<h2 id="vyvody">Коротко о главном</h2>
+<p>Облачные вычисления — это не магия и не абстракция, а понятная экономическая и техническая модель: аренда чужих серверов вместо покупки собственных. Она даёт бизнесу гибкость, снижает капитальные затраты и повышает отказоустойчивость, но требует осознанного подхода к выбору провайдера, региона размещения данных и настройке безопасности. Если вы понимаете, где физически находятся ваши данные, какую модель — IaaS, PaaS или SaaS — вы используете, и кто отвечает за что в разделённой модели безопасности, облако становится не источником тревоги, а разумным инструментом развития бизнеса.</p>
+
+                    </div>
+
+                    
+                    
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Что я делаю под ключ</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-code"></i> <span>Сайты и веб-приложения</span></li>
+    
+    <li><i class="ph-fill ph-robot"></i> <span>Боты в Telegram и MAX, ИИ-агенты</span></li>
+    
+    <li><i class="ph-fill ph-flow-arrow"></i> <span>Автоматизация и интеграции</span></li>
+    
+    <li><i class="ph-fill ph-shield-check"></i> <span>Безопасность и 152-ФЗ</span></li>
+    
+    <li><i class="ph-fill ph-lifebuoy"></i> <span>Внедрение и поддержка</span></li>
+    
+  </ul>
+  <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Обсудить ваш проект
+  </a>
+</div>
+                    <div class="blog-cta-card">
+                        <div class="blog-cta-card-body">
+                            <h3>Бесплатно: чек-лист «Готов ли ваш бизнес к 152-ФЗ»</h3>
+                            <p>12 пунктов, которые проверяют готовность за час: данные, согласия, уведомление в РКН, локализация, защита. Отметьте, что уже сделано, и увидите дыры, за которые сейчас штрафуют.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="/checklist-152-fz/" class="btn btn-accent"><i class="ph-fill ph-clipboard-text" aria-hidden="true"></i> Открыть чек-лист</a>
+                        </div>
+                    </div>
+                    
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/predlozheniya/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Обсудить ваш проект</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/svoy-vps-dlya-razrabotchika-2026/" data-category="development" data-clicks="46">
+  <span class="blog-card-popular"><i class="ph-fill ph-fire" aria-hidden="true"></i> Популярное</span>
+  <div class="blog-card-icon"><i class="ph-fill ph-hard-drives"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
+  <h3>Свой VPS для разработчика в 2026: Selectel vs RuVDS vs Timeweb vs Yandex Cloud — реальное сравнение</h3>
+  <p>Реальный опыт инженера, пять лет живущего на Selectel + RuVDS + Yandex Cloud. Цены 2026, плюсы и минусы провайдеров, таблица сравнения 14 параметров, пошаговая настройка VPS за 30 минут с bash-скриптами, топ-15 self-hosted приложений и расчёт ROI.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 21 мая 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 25 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/self-hosted-infrastruktura-2026/" data-category="development" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-hard-drives"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
+  <h3>Self-hosted всё 2026: своя инфраструктура вместо SaaS — Nextcloud, Gitea, n8n</h3>
+  <p>Вендоры уходят, цены SaaS растут, данные хочется держать у себя. Я сам держу инфраструктуру на VPS и перевожу клиентов с зарубежных SaaS. Полный гайд: Nextcloud, Gitea, n8n, Plausible, Vaultwarden, Metabase на Docker. С docker-compose, nginx-конфигом, restic-бэкапами, безопасностью и экономикой. Российские VPS и соответствие 152-ФЗ.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 28 мая 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 26 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/zabbix-monitoring-infrastruktury-2026/" data-category="opensource" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-pulse"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>Zabbix: мониторинг ИТ-инфраструктуры на своём сервере</h3>
+  <p>Zabbix следит за серверами, сетью и сервисами и предупреждает о сбоях до того, как их заметят клиенты. Популярен в РФ, разворачивается на своём сервере. Разбираю, кому нужен и что требуется.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 15 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    
+                    
+                    
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовые решения под ключ</span>
+                            <span class="blog-offer-cta-title">449 готовых IT-решений для бизнеса</span>
+                            <span class="blog-offer-cta-price">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Смотреть каталог</span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#chto-takoe-oblako"><span class="blog-toc-num">01</span> Что на самом деле означает «облако»</a></li>
+<li><a href="#gde-fizicheski-dannye"><span class="blog-toc-num">02</span> Где физически находятся данные</a></li>
+<li><a href="#iaas-paas-saas"><span class="blog-toc-num">03</span> IaaS, PaaS и SaaS: в чём разница</a></li>
+<li><a href="#zachem-biznesu"><span class="blog-toc-num">04</span> Зачем бизнесу переходить в облако</a></li>
+<li><a href="#riski"><span class="blog-toc-num">05</span> Риски и на что смотреть</a></li>
+<li><a href="#faq"><span class="blog-toc-num">06</span> FAQ</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">07</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=23" defer></script>
+<script src="/services-i18n.js?v=23" defer></script>
+<script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>
