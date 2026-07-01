@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **919**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **924**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -288,6 +288,7 @@
 
 ## Безопасность
 
+- [AML и KYC как ИТ-задача: как автоматизировать проверку клиентов](./aml-kyc-avtomatizaciya-proverki-klientov-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/aml-kyc-avtomatizaciya-proverki-klientov-2027/)
 - [Кибербезопасность удалённой команды: доступы, устройства и утечки](./kiberbezopasnost-udalennoy-komandy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kiberbezopasnost-udalennoy-komandy-2026/)
 - [Что делать при утечке данных: план реагирования для бизнеса](./plan-na-sluchay-utechki-dannyh-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/plan-na-sluchay-utechki-dannyh-2026/)
 - [Угон аккаунта Telegram и MAX: как защититься и что делать, если взломали](./ugon-akkaunta-telegram-max-zashchita-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ugon-akkaunta-telegram-max-zashchita-2026/)
@@ -873,6 +874,8 @@
 ## Финансы
 
 - [54-ФЗ для приёма оплаты: что нужно самозанятому, ИП и ООО](./54-fz-dlya-platezhey-samozanyatyy-ip-ooo-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/54-fz-dlya-platezhey-samozanyatyy-ip-ooo-2027/)
+- [ЦФА или криптовалюта: что легально для бизнеса в России и в чём разница](./cfa-vs-kriptovalyuta-biznes-rf-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/cfa-vs-kriptovalyuta-biznes-rf-2027/)
+- [Цифровой рубль для бизнеса: что меняется технически и как к этому готовиться](./cifrovoy-rubl-dlya-biznesa-tehnicheski-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/cifrovoy-rubl-dlya-biznesa-tehnicheski-2027/)
 - [Приём оплаты из-за рубежа в 2026: какие способы есть у бизнеса и фрилансера](./priem-oplaty-iz-za-rubezha-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/priem-oplaty-iz-za-rubezha-2026/)
 - [Грант на ИИ-проект: конкурс «Развитие-Искусственный интеллект» Фонда содействия инновациям](./grant-na-ii-proekt-razvitie-ii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/grant-na-ii-proekt-razvitie-ii-2026/)
 - [Меры поддержки креативных индустрий Дальнего Востока в 2026](./podderzhka-kreativnyh-industriy-dfo-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/podderzhka-kreativnyh-industriy-dfo-2026/)
@@ -889,6 +892,8 @@
 ## Экспертное
 
 - [Фиксированная цена или почасовка: как платить за разработку и не переплатить](./fiksirovannaya-cena-vs-pochasovka-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/fiksirovannaya-cena-vs-pochasovka-2027/)
+- [Web3, DeFi и DAO простыми словами: что это как технологии, а не как инвестиции](./web3-defi-dao-prostymi-slovami-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/web3-defi-dao-prostymi-slovami-2027/)
+- [Как в мире регулируют цифровые активы: MiCA, VARA, MAS — образовательный обзор](./regulirovanie-cifrovyh-aktivov-mira-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/regulirovanie-cifrovyh-aktivov-mira-2027/)
 - [Скрытая цена дешёвого сайта или бота: почему экономия выходит дороже](./skrytaya-cena-deshevogo-sayta-bota-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skrytaya-cena-deshevogo-sayta-bota-2026/)
 - [Почему я отказываюсь от части проектов — и почему это в плюс клиенту](./pochemu-ya-otkazyvayus-ot-proektov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pochemu-ya-otkazyvayus-ot-proektov-2026/)
 - [Почему я не обещаю «+X% к продажам» — и что обещаю вместо этого](./pochemu-ne-obeshchayu-rost-prodazh-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pochemu-ne-obeshchayu-rost-prodazh-2026/)
