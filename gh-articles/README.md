@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **954**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **974**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -605,6 +605,26 @@
 
 ## Отрасли
 
+- [TaskRabbit по-русски: маркетплейс мелких поручений, которого у нас нет](./marketplace-melkih-poruchenij-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/marketplace-melkih-poruchenij-2027/)
+- [Thumbtack по-русски: одна заявка — несколько предложений от мастеров](./zayavka-neskolko-predlozheniy-masterov-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zayavka-neskolko-predlozheniy-masterov-2027/)
+- [Rover и Wag по-русски: маркетплейс выгула собак и передержки животных](./vygul-sobak-marketplace-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vygul-sobak-marketplace-2027/)
+- [Care.com по-русски: маркетплейс нянь, сиделок и помощников по дому](./nyani-sidelki-marketplace-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nyani-sidelki-marketplace-2027/)
+- [Angi по-русски: маркетплейс подрядчиков по ремонту с проверкой](./remont-podryadchiki-marketplace-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/remont-podryadchiki-marketplace-2027/)
+- [Turo по-русски: аренда авто напрямую у частных владельцев](./arenda-avto-mezhdu-chastnymi-vladeltsami-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/arenda-avto-mezhdu-chastnymi-vladeltsami-2027/)
+- [Peerspace по-русски: почасовая аренда необычных площадок для мероприятий](./pochasovaya-arenda-ploshchadok-meropriyatiy-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pochasovaya-arenda-ploshchadok-meropriyatiy-2027/)
+- [BorrowMyDoggy по-русски: одолжи соседского пса вместо покупки](./odolzhi-sosedskuyu-sobaku-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/odolzhi-sosedskuyu-sobaku-2027/)
+- [Nextdoor по-русски: закрытая соцсеть для соседей одного района](./socset-dlya-sosedey-rayona-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/socset-dlya-sosedey-rayona-2027/)
+- [Buy Nothing Project по-русски: бесплатный обмен вещами внутри района](./besplatnyy-obmen-veshchami-rayon-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/besplatnyy-obmen-veshchami-rayon-2027/)
+- [ZocDoc по-русски: единый агрегатор записи к врачам разных клиник](./agregator-zapisi-k-vracham-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/agregator-zapisi-k-vracham-2027/)
+- [OpenTable по-русски: агрегатор бронирования столиков в ресторанах города](./agregator-bronirovaniya-restoranov-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/agregator-bronirovaniya-restoranov-2027/)
+- [ClassPass по-русски: единый абонемент на занятия в разных фитнес-студиях](./edinyy-abonement-fitnes-studii-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/edinyy-abonement-fitnes-studii-2027/)
+- [Mindbody по-русски: SaaS-платформа для студий с записью, оплатой и CRM](./saas-dlya-studiy-zapis-oplata-crm-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/saas-dlya-studiy-zapis-oplata-crm-2027/)
+- [Depop и Vinted по-русски: маркетплейс перепродажи одежды между людьми](./marketplace-pereprodazhi-odezhdy-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/marketplace-pereprodazhi-odezhdy-2027/)
+- [StockX по-русски: маркетплейс перепродажи с проверкой подлинности](./marketplace-pereprodazhi-s-proverkoy-podlinnosti-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/marketplace-pereprodazhi-s-proverkoy-podlinnosti-2027/)
+- [Faire по-русски: оптовый маркетплейс, где магазины закупаются у местных брендов](./optovyy-marketplace-lokalnyh-brendov-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/optovyy-marketplace-lokalnyh-brendov-2027/)
+- [Cameo по-русски: персональные видеообращения от локальных блогеров и экспертов](./personalnye-videoobrashcheniya-ot-blogerov-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/personalnye-videoobrashcheniya-ot-blogerov-2027/)
+- [Gumroad по-русски: простая площадка для продажи цифровых продуктов творцами](./platforma-prodazhi-cifrovyh-produktov-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/platforma-prodazhi-cifrovyh-produktov-2027/)
+- [GoFundMe по-русски: платформа сбора средств на личные события](./platforma-sbora-sredstv-na-lichnye-sobytiya-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/platforma-sbora-sredstv-na-lichnye-sobytiya-2027/)
 - [Спутниковый мониторинг сельского хозяйства: как это помогает фермеру](./sputnikovyy-monitoring-selskogo-hozyaystva-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sputnikovyy-monitoring-selskogo-hozyaystva-2027/)
 - [Электронное QR-меню для кафе с заказом со стола: как внедрить](./elektronnoe-qr-menyu-dlya-kafe-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/elektronnoe-qr-menyu-dlya-kafe-2026/)
 - [Онлайн-бронирование столиков для кафе и ресторанов: как настроить](./onlayn-bronirovanie-stolikov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/onlayn-bronirovanie-stolikov-2026/)
