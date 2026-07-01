@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Агрегатор записи к врачам (аналог ZocDoc)</title>
+    <meta name="description" content="Разбираю модель зарубежного сервиса ZocDoc: единая платформа, где можно сравнить врачей из разных клиник города по специализации, отзывам и ближайшему…">
+    <meta name="keywords" content="стартап-идея, агрегатор, медицина, бизнес-модель">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/agregator-zapisi-k-vracham-2027/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/agregator-zapisi-k-vracham-2027/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/agregator-zapisi-k-vracham-2027/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/agregator-zapisi-k-vracham-2027/">
+    <meta property="og:title" content="Агрегатор записи к врачам (аналог ZocDoc)">
+    <meta property="og:description" content="Разбираю модель зарубежного сервиса ZocDoc: единая платформа, где можно сравнить врачей из разных клиник города по специализации, отзывам и ближайшему…">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/agregator-zapisi-k-vracham-2027/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Агрегатор записи к врачам (аналог ZocDoc)">
+    <meta name="twitter:description" content="Разбираю модель зарубежного сервиса ZocDoc: единая платформа, где можно сравнить врачей из разных клиник города по специализации, отзывам и ближайшему…">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/agregator-zapisi-k-vracham-2027/cover.png">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor-Fill.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=45">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "ZocDoc по-русски: единый агрегатор записи к врачам разных клиник",
+  "description": "Разбираю модель зарубежного сервиса ZocDoc: единая платформа, где можно сравнить врачей из разных клиник города по специализации, отзывам и ближайшему свободному времени и записаться сразу. Почему в России запись к врачу разбросана по сайтам отдельных клиник, и как выглядел бы такой агрегатор.",
+  "image": "https://chimitdorzhi.tech/blog/agregator-zapisi-k-vracham-2027/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/agregator-zapisi-k-vracham-2027/"
+  },
+  "datePublished": "2026-07-02",
+  "dateModified": "2026-07-02",
+  "keywords": "стартап-идея, агрегатор, медицина, бизнес-модель",
+  "articleSection": "Отрасли",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "ZocDoc по-русски: единый агрегатор записи к врачам разных клиник",
+      "item": "https://chimitdorzhi.tech/blog/agregator-zapisi-k-vracham-2027/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Чем это отличается от сайта одной клиники?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Сайт клиники показывает только её врачей и её расписание. Агрегатор объединяет несколько независимых клиник в одном месте, поэтому пациент может сравнивать и выбирать между ними, а не ограничиваться одним поставщиком услуг."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужно ли согласие клиник на интеграцию?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, работа с расписанием и данными врачей клиники требует её явного согласия и договорённости об условиях сотрудничества — это партнёрская модель, а не одностороннее размещение информации без ведома клиники."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "С чего начать в небольшом городе — с одной-двух клиник?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, это разумный путь. Пилот с парой лояльных клиник позволяет проверить, работает ли модель, собрать первую обратную связь от пациентов и только потом расширяться на остальной рынок."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как обеспечивается конфиденциальность данных пациентов?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Через соблюдение требований к обработке персональных данных: понятную политику конфиденциальности, явное согласие пациента при записи и аккуратное хранение и передачу информации между платформой и клиникой, без лишнего доступа третьих лиц."
+      }
+    }
+  ]
+}
+    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+var inject=function(){for (var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)};
+var run=function(){('requestIdleCallback' in window)?requestIdleCallback(inject,{timeout:5000}):setTimeout(inject,3000)};
+(e.readyState==='complete')?run():m.addEventListener('load',run);})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109281884" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+            <li><a href="/#services" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li class="nav-dropdown">
+                <a href="/#projects" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--arey"><i class="ph-fill ph-vinyl-record" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-airplane-tilt" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#cases" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            </div>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/#about">Обо мне</a></li>
+        <li><a href="/#services">Услуги</a></li>
+        <li><a href="/services/">Каталог услуг</a></li>
+        <li><a href="/predlozheniya/">Предложения</a></li>
+        <li><a href="/#cases">Кейсы</a></li>
+        <li><a href="/blog/">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+        <li><a href="/#contact">Контакт</a></li>
+    </ul>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">ZocDoc по-русски: единый агрегатор записи к врачам разных клиник</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/industries/"><i class="ph ph-bookmark" aria-hidden="true"></i> Отрасли</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 5 мин чтения</span>
+                        <time datetime="2026-07-02"><i class="ph ph-calendar" aria-hidden="true"></i> 2 июля 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">ZocDoc по-русски: единый агрегатор записи к врачам разных клиник</h1>
+
+                    <p class="blog-lead">За рубежом можно за минуту сравнить врачей из разных клиник города и записаться к ближайшему свободному. У нас для этого приходится обходить сайты клиник по одной. Разбираю модель ZocDoc.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>стартап-идея</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>агрегатор</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>медицина</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>бизнес-модель</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
+<li>ZocDoc — американский сервис, где пациент сравнивает врачей из разных независимых клиник по специализации, отзывам и ближайшему свободному времени, и записывается онлайн за пару минут.</li>
+<li>В России запись к врачу раздроблена: у каждой клиники свой сайт, своя форма и свой телефон, а сравнить расписания в одном месте почти нигде нельзя.</li>
+<li>Локальный агрегатор для города или района вполне реален: карточки врачей, фильтры по специализации и району, отзывы, форма записи и напоминания.</li>
+<li>Начинать разумно не со всего рынка сразу, а с партнёрства с одной-двумя клиниками и ручного обновления расписания — это рабочий MVP без сложных интеграций.</li>
+<li>Главные сложности — не в коде, а в договорённостях с клиниками и в аккуратной работе с персональными данными пациентов.</li>
+</ul></div>
+
+<p>Когда нужно записаться к врачу, человек обычно делает одно и то же: открывает поиск, находит несколько клиник, заходит на каждый сайт по очереди, где-то звонит, где-то пишет в мессенджер, и в итоге тратит на выбор куда больше времени, чем на сам приём. При этом сравнить врачей разных клиник по одному критерию — например, кто из терапевтов принимает завтра утром рядом с домом — практически невозможно, потому что у каждой клиники своя изолированная система записи.</p>
+
+<p>За рубежом эта проблема давно решена — и решена не государством, а частным сервисом, который стал привычной частью медицинской инфраструктуры. Я хочу разобрать эту модель подробно: как она устроена, почему у нас похожего почти нет и что нужно, чтобы собрать локальный аналог для конкретного города. Дальше в тексте — не только описание идеи, но и трезвый взгляд на то, что в ней действительно сложно.</p>
+
+<h2 id="chto-eto">Что это за модель за рубежом</h2>
+<p>ZocDoc — это платформа, на которой пациент вводит специализацию врача и район или город, а сервис показывает список подходящих специалистов из разных, никак не связанных между собой клиник. У каждого врача — карточка с рейтингом, отзывами реальных пациентов, стоимостью приёма и, что важнее всего, ближайшими свободными окнами в расписании. Пациент сравнивает варианты по существу: кто ближе, кто свободен раньше, у кого выше рейтинг, — и записывается прямо на платформе в несколько кликов, без звонков и без ожидания ответа в чате.</p>
+
+<p>Ключевая техническая деталь в том, что ZocDoc не просто каталог с контактами. Платформа интегрирована с расписаниями клиник и врачей, поэтому свободные слоты обновляются в реальном времени, а не «уточните по телефону». Именно это превращает справочник в инструмент: пользователь видит не абстрактный список адресов, а конкретное время, на которое можно записаться прямо сейчас. Для клиник это дополнительный канал привлечения пациентов, а для пациента — экономия времени и возможность выбирать, а не соглашаться на первый найденный вариант.</p>
+
+<h2 id="pochemu-net-v-rf">Почему такого нет у нас</h2>
+<p>В России запись к врачу устроена принципиально иначе — она раздроблена по отдельным клиникам. У каждой частной клиники обычно есть свой сайт с формой заявки или номер телефона, и вся эта информация никак не связана с соседней клиникой через дорогу. Чтобы сравнить двух специалистов из разных клиник, пациенту нужно открыть два разных сайта, а иногда ещё и позвонить, чтобы уточнить реальное расписание, потому что онлайн-форма показывает не окна времени, а просто «оставить заявку, мы перезвоним».</p>
+
+<p>Отдельные крупные агрегаторы записи существуют, но чаще всего они работают в масштабах больших городов, охватывают далеко не все клиники и специализации, и почти никогда не доходят до среднего и небольшого города. В результате там, где ZocDoc решает задачу в масштабе целой страны, у нас эта ниша либо пустует, либо закрыта частично — а значит, для локального рынка место остаётся свободным.</p>
+
+<p>Есть и ещё одна причина, почему такая модель у нас пока редкость: она требует не столько технологии, сколько готовности разных клиник договориться и открыть часть своего расписания стороннему сервису. Это управленческая и коммерческая задача, а не только разработка, и именно поэтому крупные федеральные игроки не спешат заходить в каждый отдельный город — им проще концентрироваться там, где рынок уже большой и плотный. А значит, для локального предпринимателя, который готов методично договариваться с клиниками своего города, здесь остаётся окно возможностей, которое федеральные агрегаторы просто не успевают закрыть.</p>
+
+<h2 id="kak-mogla-by-vyglyadet">Как это могло бы выглядеть здесь</h2>
+<p>Идея переносится на локальный масштаб довольно естественно: агрегатор для конкретного города, который объединяет расписание нескольких независимых клиник в одном месте — на сайте или в боте, смотря что удобнее аудитории. Пациент выбирает специализацию врача и район, видит список подходящих специалистов с отзывами, ценами и ближайшим свободным временем, и записывается через одну простую форму, вместо того чтобы обзванивать клиники по очереди.</p>
+
+<p>Для клиник такой сервис — дополнительный канал, который приводит пациентов, а не отнимает их: они по-прежнему принимают у себя, просто получают ещё один источник записи. Для пациента это экономия времени и возможность реально сравнивать, а не гадать. А для самой платформы это модель с понятной монетизацией — комиссия с записи или подписка для клиник за размещение и приоритет в выдаче. Разумно строить такой сервис сразу с прицелом на удобный мобильный сценарий, потому что запись к врачу чаще всего срочная и происходит с телефона — здесь может пригодиться отдельное <a href="https://chimitdorzhi.tech/services/mobile-apps/">мобильное направление</a> или бот, если аудитория привыкла жить в мессенджере. Если вы уже прикидываете, каким должен быть такой сервис именно у вас в городе, разумнее не гадать в одиночку, а сразу <a href="https://chimitdorzhi.tech/predlozheniya/">обсудить проект</a> с тем, кто такие платформы уже собирал под ключ.</p>
+
+<h2 id="chto-nuzhno-dlya-zapuska">Что нужно для запуска</h2>
+<p>Запускать такой проект сразу в полном виде — с интеграциями во все клиники города — не нужно и, скорее всего, невозможно на старте. Разумный MVP выглядит скромнее. Сначала — партнёрство с одной-двумя клиниками, готовыми попробовать новый канал привлечения пациентов; на этом этапе расписание можно обновлять вручную или полуавтоматически, без сложной интеграции с их внутренними системами. Дальше — карточки врачей с понятной информацией: специализация, район, отзывы, цена приёма. Затем — простая форма записи, которая доходит до администратора клиники, и напоминания пациенту о приёме, чтобы снизить количество неявок, что выгодно и клинике, и платформе.</p>
+
+<p>Такой MVP можно собрать и проверить на реальном спросе за разумный срок, не дожидаясь, пока согласятся все клиники города. Если модель показывает результат — растёт число записей и клиники сами просят подключить их, — уже на этом этапе есть смысл двигаться к более глубокой интеграции с их системами записи и расширять список специализаций и районов.</p>
+
+<h2 id="riski-i-slozhnosti">Риски и сложности</h2>
+<p>Главная сложность здесь не в коде, а в переговорах и в данных. Во-первых, интеграция с медицинскими информационными системами разных клиник — штука неоднородная: у каждой клиники может быть своя учётная система, свой формат расписания, и универсального способа подключиться ко всем сразу не существует. Поэтому на старте приходится либо договариваться о ручном обновлении, либо интегрироваться с каждой клиникой отдельно.</p>
+
+<p>Во-вторых, с каждой клиникой нужно выстраивать отношения индивидуально: убеждать, что платформа приносит пациентов, а не создаёт лишнюю административную нагрузку. Это медленный процесс, который не ускоряется одним только хорошим интерфейсом. И в-третьих — конфиденциальность данных пациентов. Раз сервис работает с именами, телефонами и сведениями о записи к врачу, это персональные данные, и здесь действуют требования 152-ФЗ, а для части сведений — ещё и специфика работы с врачебной информацией. Нужны политика конфиденциальности, согласие пациента на обработку данных и аккуратное хранение и передачу информации между платформой и клиникой. Это решаемо, но закладывать это нужно с самого начала проекта, а не добавлять постфактум.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+<p><strong>Чем это отличается от сайта одной клиники?</strong> Сайт клиники показывает только её врачей и её расписание. Агрегатор объединяет несколько независимых клиник в одном месте, поэтому пациент может сравнивать и выбирать между ними, а не ограничиваться одним поставщиком услуг.</p>
+<p><strong>Нужно ли согласие клиник на интеграцию?</strong> Да, работа с расписанием и данными врачей клиники требует её явного согласия и договорённости об условиях сотрудничества — это партнёрская модель, а не одностороннее размещение информации без ведома клиники.</p>
+<p><strong>С чего начать в небольшом городе — с одной-двух клиник?</strong> Да, это разумный путь. Пилот с парой лояльных клиник позволяет проверить, работает ли модель, собрать первую обратную связь от пациентов и только потом расширяться на остальной рынок.</p>
+<p><strong>Как обеспечивается конфиденциальность данных пациентов?</strong> Через соблюдение требований к обработке персональных данных: понятную политику конфиденциальности, явное согласие пациента при записи и аккуратное хранение и передачу информации между платформой и клиникой, без лишнего доступа третьих лиц.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+<p>Модель ZocDoc решает конкретную и знакомую проблему: пациенту неудобно сравнивать врачей из разных клиник и записываться отдельно на каждом сайте. У нас эта проблема тоже есть, а вот решения на уровне отдельного города или района почти нет — крупные агрегаторы существуют, но далеко не везде и не для всех специализаций. Это оставляет свободную нишу для локального сервиса, который начинается скромно — с пары клиник-партнёров и ручного расписания — и постепенно превращается в полноценную платформу записи.</p>
+<p>Если вам интересно разобрать, как такая модель могла бы выглядеть именно в вашем городе или в вашей нише, и с чего разумно начать, — <a href="https://chimitdorzhi.tech/predlozheniya/">обсудить проект</a> можно напрямую со мной, я сам занимаюсь разработкой подобных платформ под ключ.</p>
+
+                    </div>
+
+                    
+                    
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Что я делаю под ключ</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-code"></i> <span>Сайты и веб-приложения</span></li>
+    
+    <li><i class="ph-fill ph-robot"></i> <span>Боты в Telegram и MAX, ИИ-агенты</span></li>
+    
+    <li><i class="ph-fill ph-flow-arrow"></i> <span>Автоматизация и интеграции</span></li>
+    
+    <li><i class="ph-fill ph-storefront"></i> <span>Маркетплейсы и платформы</span></li>
+    
+    <li><i class="ph-fill ph-lifebuoy"></i> <span>Внедрение и поддержка</span></li>
+    
+  </ul>
+  <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Обсудить ваш проект
+  </a>
+</div>
+                    <div class="blog-cta-card">
+                        <div class="blog-cta-card-body">
+                            <h3>Бесплатно: чек-лист «Готов ли ваш бизнес к 152-ФЗ»</h3>
+                            <p>12 пунктов, которые проверяют готовность за час: данные, согласия, уведомление в РКН, локализация, защита. Отметьте, что уже сделано, и увидите дыры, за которые сейчас штрафуют.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="/checklist-152-fz/" class="btn btn-accent"><i class="ph-fill ph-clipboard-text" aria-hidden="true"></i> Открыть чек-лист</a>
+                        </div>
+                    </div>
+                    
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/predlozheniya/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Обсудить ваш проект</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/agregator-bronirovaniya-restoranov-2027/" data-category="industries" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-fork-knife"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Отрасли</span>
+  <h3>OpenTable по-русски: агрегатор бронирования столиков в ресторанах города</h3>
+  <p>За рубежом столик в любом из десятков ресторанов бронируют за минуту через одно приложение. У нас это чаще звонок и «перезвоните позже». Разбираю модель OpenTable и что нужно для запуска.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 2 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 5 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/edinyy-abonement-fitnes-studii-2027/" data-category="industries" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-barbell"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Отрасли</span>
+  <h3>ClassPass по-русски: единый абонемент на занятия в разных фитнес-студиях</h3>
+  <p>Один абонемент — доступ к десяткам студий: йога сегодня, бассейн завтра, кроссфит послезавтра. За рубежом это привычно, у нас почти нет. Разбираю модель ClassPass и что нужно для запуска.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 2 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 5 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/saas-dlya-studiy-zapis-oplata-crm-2027/" data-category="industries" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-calendar-check"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Отрасли</span>
+  <h3>Mindbody по-русски: SaaS-платформа для студий с записью, оплатой и CRM</h3>
+  <p>Малым студиям — йоге, фитнесу, салонам — нужна не одна функция, а целая система: запись, оплата, расписание, клиенты. За рубежом это готовый SaaS. Разбираю модель Mindbody и адаптацию под наш рынок.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 2 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 5 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    
+                    
+                    
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовые решения под ключ</span>
+                            <span class="blog-offer-cta-title">449 готовых IT-решений для бизнеса</span>
+                            <span class="blog-offer-cta-price">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Смотреть каталог</span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#chto-eto"><span class="blog-toc-num">01</span> Что это за модель за рубежом</a></li>
+<li><a href="#pochemu-net-v-rf"><span class="blog-toc-num">02</span> Почему такого нет у нас</a></li>
+<li><a href="#kak-mogla-by-vyglyadet"><span class="blog-toc-num">03</span> Как это могло бы выглядеть здесь</a></li>
+<li><a href="#chto-nuzhno-dlya-zapuska"><span class="blog-toc-num">04</span> Что нужно для запуска</a></li>
+<li><a href="#riski-i-slozhnosti"><span class="blog-toc-num">05</span> Риски и сложности</a></li>
+<li><a href="#faq"><span class="blog-toc-num">06</span> FAQ</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">07</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=23" defer></script>
+<script src="/services-i18n.js?v=23" defer></script>
+<script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>
