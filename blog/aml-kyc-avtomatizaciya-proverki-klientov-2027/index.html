@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AML/KYC: как автоматизировать проверку клиентов</title>
+    <meta name="description" content="AML и KYC простыми словами: зачем бизнесу проверять клиентов, как устроена проверка (идентификация, санкционные и другие списки, оценка риска), что можно…">
+    <meta name="keywords" content="AML, KYC, автоматизация, комплаенс">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/aml-kyc-avtomatizaciya-proverki-klientov-2027/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/aml-kyc-avtomatizaciya-proverki-klientov-2027/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/aml-kyc-avtomatizaciya-proverki-klientov-2027/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/aml-kyc-avtomatizaciya-proverki-klientov-2027/">
+    <meta property="og:title" content="AML/KYC: как автоматизировать проверку клиентов">
+    <meta property="og:description" content="AML и KYC простыми словами: зачем бизнесу проверять клиентов, как устроена проверка (идентификация, санкционные и другие списки, оценка риска), что можно…">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/aml-kyc-avtomatizaciya-proverki-klientov-2027/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AML/KYC: как автоматизировать проверку клиентов">
+    <meta name="twitter:description" content="AML и KYC простыми словами: зачем бизнесу проверять клиентов, как устроена проверка (идентификация, санкционные и другие списки, оценка риска), что можно…">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/aml-kyc-avtomatizaciya-proverki-klientov-2027/cover.png">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor-Fill.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=45">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "AML и KYC как ИТ-задача: как автоматизировать проверку клиентов",
+  "description": "AML и KYC простыми словами: зачем бизнесу проверять клиентов, как устроена проверка (идентификация, санкционные и другие списки, оценка риска), что можно автоматизировать и как внедрять такие системы. Образовательный разбор с IT-стороны, не юридическая консультация.",
+  "image": "https://chimitdorzhi.tech/blog/aml-kyc-avtomatizaciya-proverki-klientov-2027/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/aml-kyc-avtomatizaciya-proverki-klientov-2027/"
+  },
+  "datePublished": "2026-06-30",
+  "dateModified": "2026-06-30",
+  "keywords": "AML, KYC, автоматизация, комплаенс",
+  "articleSection": "Безопасность",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "AML и KYC как ИТ-задача: как автоматизировать проверку клиентов",
+      "item": "https://chimitdorzhi.tech/blog/aml-kyc-avtomatizaciya-proverki-klientov-2027/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Что такое KYC простыми словами?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Это процедура «знай своего клиента»: бизнес убеждается, что клиент — реальный человек или компания, что он тот, за кого себя выдаёт, и оценивает, насколько с ним рискованно работать. На практике это сбор данных, проверка документов и подтверждение личности перед тем, как допустить клиента к сервису с деньгами."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли полностью убрать человека из проверки?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Полностью — нет, и не нужно к этому стремиться. Автоматика отлично снимает рутину: распознаёт документы, сверяет списки, считает риск, ловит подозрительные операции. Но спорные случаи — неточные совпадения, пограничные ситуации, нестандартное поведение — должны попадать к человеку. Правильная модель: машина размечает и отсекает очевидное, комплаенс-офицер решает по исключениям. Так меньше ошибок и ложных срабатываний, чем при слепой автоблокировке."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как автоматизировать сверку со списками?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Через провайдеров проверок, которые отдают санкционные, розыскные и другие списки по API. Система по каждому клиенту делает запрос, получает точные и неточные совпадения и подсвечивает их для разбора. Списки подтягиваются свежими, так что проверка не устаревает. Технически это интеграция с внешними источниками плюс логика обработки совпадений — включая работу с похожими именами, чтобы не блокировать однофамильцев."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Это дорого и долго?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Без конкретных цифр: масштаб проекта зависит от того, сколько этапов проверки вам реально нужно, какие источники данных подключать и насколько сложна интеграция в вашу систему. Начать можно с малого — автоматизировать самую тяжёлую рутину и расширяться дальше. Аудит на старте как раз помогает понять объём и не платить за то, что вам пока не требуется. Важнее считать не только затраты на внедрение, но и стоимость ручной работы и риск ошибок, которые эта работа порождает."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Заменит ли это юриста или комплаенс-офицера?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет. Автоматизация меняет их работу, но не отменяет. Юрист и комплаенс определяют, что и как проверять по требованиям; система избавляет их от ручной рутины и даёт удобные инструменты для решений. Я отвечаю за техническую сторону — как это построить и внедрить. За юридическую корректность требований отвечает профильный специалист. Это партнёрство, а не замена."
+      }
+    }
+  ]
+}
+    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+var inject=function(){for (var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)};
+var run=function(){('requestIdleCallback' in window)?requestIdleCallback(inject,{timeout:5000}):setTimeout(inject,3000)};
+(e.readyState==='complete')?run():m.addEventListener('load',run);})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109281884" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+            <li><a href="/#services" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li class="nav-dropdown">
+                <a href="/#projects" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--arey"><i class="ph-fill ph-vinyl-record" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-airplane-tilt" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#cases" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            </div>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/#about">Обо мне</a></li>
+        <li><a href="/#services">Услуги</a></li>
+        <li><a href="/services/">Каталог услуг</a></li>
+        <li><a href="/predlozheniya/">Предложения</a></li>
+        <li><a href="/#cases">Кейсы</a></li>
+        <li><a href="/blog/">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+        <li><a href="/#contact">Контакт</a></li>
+    </ul>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">AML и KYC как ИТ-задача: как автоматизировать проверку клиентов</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/security/"><i class="ph ph-bookmark" aria-hidden="true"></i> Безопасность</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 7 мин чтения</span>
+                        <time datetime="2026-06-30"><i class="ph ph-calendar" aria-hidden="true"></i> 30 июня 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">AML и KYC как ИТ-задача: как автоматизировать проверку клиентов</h1>
+
+                    <p class="blog-lead">Проверка клиентов (KYC) и противодействие отмыванию (AML) — это рутина, которую можно и нужно автоматизировать. Разбираю с IT-стороны: как устроена проверка, что автоматизировать и как внедрять.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>AML</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>KYC</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>автоматизация</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>комплаенс</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul><li>AML — это про то, как не пропустить отмывание денег через ваш бизнес, а KYC — про то, чтобы точно знать, кто ваш клиент. Обе задачи стоят на трёх китах: идентификация личности, оценка риска и мониторинг операций.</li><li>Заниматься этим приходится финтеху, платёжным сервисам, обменникам, всем, кто работает с цифровыми активами, и многим маркетплейсам — по сути, любому, кто принимает платежи и обязан идентифицировать плательщика.</li><li>Автоматизировать реально почти всю рутину: распознавание документов, сверку со списками через API, риск-скоринг по правилам, флаги подозрительных операций и отчёты — человек остаётся только там, где нужно решение.</li><li>Ключевой принцип грамотной системы — «флаги для человека, а не жёсткие автоблокировки»: машина размечает риск, а финальное решение по спорным случаям принимает комплаенс-офицер. Это резко снижает ложные срабатывания.</li><li>Это полноценный ИТ-проект под ключ: аудит процесса, выбор провайдеров проверок, проектирование правил, интеграция в CRM или личный кабинет, тестирование и поддержка. Право и комплаенс уточняйте у профильного специалиста — я отвечаю за техническую сторону.</li></ul></div>
+
+<p>Когда бизнес начинает принимать платежи и работать с деньгами клиентов, рано или поздно всплывают две аббревиатуры: AML и KYC. Звучат они как что-то из юридического кабинета, и первая реакция обычно одна — «это про бумаги и юристов, к разработке отношения не имеет». На практике всё наоборот. Проверка клиентов — это в первую очередь поток данных: документы, списки, правила, флаги, отчёты. А работа с потоком данных — это ровно то, что автоматизируется. И именно здесь бизнес чаще всего теряет время и деньги, заставляя сотрудников вручную делать то, что давно должна делать система.</p>
+
+<p>Сразу важная оговорка: это образовательный материал, а не юридическая консультация. Требования финмониторинга, конкретные списки, глубина проверки и регуляторные нюансы в каждой отрасли и юрисдикции свои — их обязательно уточнять у профильного специалиста по праву и комплаенсу. Я в этой статье смотрю на задачу с инженерной стороны: как устроена проверка, что в ней рутина, и как эту рутину переложить на софт так, чтобы люди занимались решениями, а не копированием паспортных данных из мессенджера в таблицу.</p>
+
+<h2 id="chto-takoe">Что такое AML и KYC</h2>
+
+<p>KYC расшифровывается как Know Your Customer — «знай своего клиента». Это про идентификацию: бизнес должен убедиться, что клиент — это реально существующий человек (или компания), что он тот, за кого себя выдаёт, и понять, с каким уровнем риска этот клиент связан. Проще говоря, KYC отвечает на вопрос «кто передо мной».</p>
+
+<p>AML — это Anti-Money Laundering, противодействие отмыванию денег. Задача шире: не допустить, чтобы через ваш бизнес прогоняли деньги сомнительного происхождения, финансировали запрещённую деятельность или дробили подозрительные суммы. AML отвечает на вопрос «что происходит с деньгами и не пахнет ли это криминалом». KYC — это входная дверь и часть AML: сначала вы узнаёте клиента, а затем следите за его операциями.</p>
+
+<p>Зачем это бизнесу вообще нужно? Есть три практических причины. Первая — идентификация личности: чтобы не работать с фейковыми аккаунтами, ботами и подставными лицами. Вторая — понимание происхождения средств и оценка риска: один клиент переводит зарплату, другой прогоняет странные суммы туда-сюда, и относиться к ним одинаково нельзя. Третья — требования регуляторов. В России базовый контекст задаёт 115-ФЗ о противодействии легализации доходов, полученных преступным путём; в мире есть рекомендации FATF и локальные аналоги. В юридические детали я здесь не углубляюсь — важно другое: за невыполнение этих требований бизнес отвечает деньгами, лицензией и репутацией. Поэтому проверка клиентов — это не «бюрократия ради бюрократии», а условие, при котором вам вообще разрешают работать с платежами.</p>
+
+<p>С технической точки зрения всё это — набор проверок над данными клиента и его операциями. А значит, это можно спроектировать, описать правилами и в значительной части автоматизировать.</p>
+
+<h2 id="komu-nuzhno">Кому это нужно</h2>
+
+<p>Разберёмся честно: кому действительно приходится строить AML/KYC, а кто пока может не тратить на это ресурсы.</p>
+
+<p>Реально заниматься проверкой клиентов обязаны те, кто работает с деньгами и обязан идентифицировать плательщика. В первую очередь это финтех и любые финансовые сервисы: необанки, кошельки, кредитные и рассрочечные платформы. Дальше — платёжные сервисы и агрегаторы, которые проводят чужие деньги через себя. Отдельная большая категория — обмен и работа с цифровыми активами: криптообменники, кошельки, площадки, где деньги превращаются в актив и обратно, находятся под особенно пристальным вниманием, потому что это классический канал для отмывания.</p>
+
+<p>Маркетплейсы и платформы с выплатами продавцам или исполнителям тоже попадают в зону: как только вы не просто сводите покупателя с продавцом, а держите деньги на счетах и распределяете выплаты, вы фактически становитесь оператором платежей со всеми вытекающими обязанностями. Сюда же — краудфандинг, P2P-платформы, сервисы аренды с депозитами, игровые платформы с выводом денег.</p>
+
+<p>Общее правило простое: если вы принимаете платежи и по закону обязаны идентифицировать клиента или отслеживать операции — AML/KYC вас касается. Если объём и характер операций большие, ручная проверка быстро упирается в потолок: сотрудники не справляются, ошибки накапливаются, регулятор задаёт вопросы.</p>
+
+<p>А кому пока можно не тревожиться? Обычному интернет-магазину, который принимает оплату через сторонний платёжный шлюз и сам денег клиентов не держит — за него KYC делает эквайер. Информационным сайтам, блогам, сервисам по подписке без работы с чужими деньгами. Малому b2b, где расчёты идут по договорам и банк сам проводит комплаенс. Здесь важно не путать: если проверку за вас уже делает банк или платёжный провайдер, дублировать её не нужно. Но как только вы начинаете сами держать и распределять деньги, ситуация меняется — и лучше подумать об этом заранее, а не когда придёт запрос.</p>
+
+<h2 id="kak-rabotaet">Как устроена проверка</h2>
+
+<p>Чтобы понять, что автоматизировать, надо разложить проверку на этапы. В большинстве случаев она выглядит как конвейер из нескольких шагов, и каждый шаг — это отдельная техническая задача.</p>
+
+<p><strong>Сбор данных.</strong> Всё начинается с того, что клиент оставляет о себе информацию: имя, дата рождения, контакты, для юрлиц — реквизиты и данные о бенефициарах. На этом же шаге собираются документы. Технически это форма в личном кабинете, боте или мобильном приложении, где важно не просто «принять файлы», а сразу проверить полноту и корректность введённого.</p>
+
+<p><strong>Идентификация.</strong> Дальше нужно убедиться, что клиент — тот, за кого себя выдаёт. Здесь работают с документами: распознаётся паспорт или иной документ, сверяются данные, иногда добавляется подтверждение — селфи с документом, проверка «живости» (что перед камерой живой человек, а не фото), подтверждение телефона и почты. Цель шага — связать конкретного реального человека с введёнными данными.</p>
+
+<p><strong>Сверка со списками.</strong> Один из самых важных этапов. Клиента проверяют по санкционным спискам, спискам розыска, реестрам лиц, связанных с терроризмом, и по спискам публичных должностных лиц (PEP — politically exposed persons, чиновники и их окружение, которых проверяют строже). Списки большие, регулярно обновляются, и сверять их руками бессмысленно.</p>
+
+<p><strong>Скоринг риска.</strong> По собранным данным клиенту присваивается уровень риска — низкий, средний, высокий. На оценку влияет всё: страна, тип операций, суммы, попадание в чувствительные категории, поведение. Это набор правил, который превращает разрозненные факты в понятную метку риска.</p>
+
+<p><strong>Мониторинг операций.</strong> Проверка не заканчивается на входе. Дальше система следит за транзакциями: резкие всплески сумм, нетипичные схемы, дробление платежей, переводы в подозрительные направления. Подозрительное поведение помечается для разбора.</p>
+
+<p><strong>Хранение и аудит.</strong> Наконец, всё это нужно сохранять: кто, когда, на каком основании был проверен и какое решение принято. Регулятор может запросить историю, и она должна быть полной, неизменяемой и быстро поднимаемой. Это требование к архитектуре хранения и логированию, а не к людям.</p>
+
+<h2 id="chto-avtomatizirovat">Что можно автоматизировать</h2>
+
+<p>Теперь главное — что из этого конвейера реально снимается с людей. Ответ: почти вся рутина. Человек нужен там, где принимается решение по спорному случаю, а не там, где данные надо сверить и разметить.</p>
+
+<p><strong>Распознавание и валидация документов.</strong> Загруженный документ можно автоматически распознать, вытащить поля, проверить их на соответствие введённым данным и на очевидные несостыковки: срок действия, формат, читаемость. Система сама отсекает мусорные и нечитаемые загрузки и просит клиента переснять — до того, как файл дойдёт до сотрудника.</p>
+
+<p><strong>Автоматическая сверка со списками через API.</strong> Санкционные и прочие списки предоставляются провайдерами проверок через API. Система по каждому клиенту делает запрос, получает совпадения (в том числе неточные, по похожим именам) и подсвечивает их. Это то, что вручную занимает часы, а автоматически — доли секунды, и главное — не устаревает, потому что списки подтягиваются свежими.</p>
+
+<p><strong>Риск-скоринг по правилам.</strong> Логику оценки риска можно описать явными правилами: комбинация факторов даёт балл, балл — уровень риска. Правила прозрачны, их видно, можно объяснить регулятору, почему клиент получил именно такую метку. При изменении требований правила корректируются без переписывания всей системы.</p>
+
+<p><strong>Флаги подозрительных операций.</strong> Мониторинг транзакций настраивается на паттерны: превышение порогов, нетипичная частота, странные направления, дробление. При срабатывании система не блокирует всё подряд, а ставит флаг и кладёт кейс в очередь на разбор.</p>
+
+<p><strong>Формирование отчётов.</strong> Отчётность — отдельная боль ручного комплаенса. Регулярные и разовые отчёты можно собирать автоматически из уже накопленных данных в нужном формате. Сотрудник проверяет и отправляет, а не собирает всё заново из десяти таблиц.</p>
+
+<p><strong>Дашборд для комплаенс-офицера.</strong> Всё сходится в одном интерфейсе: очередь кейсов, флаги, уровни риска, история по клиенту, кнопки решений. Комплаенс-офицер видит картину целиком и работает с исключениями, а не перелопачивает всех клиентов подряд.</p>
+
+<p>И вот тут — ключевой инженерный принцип, который отличает хорошую систему от плохой: <strong>флаги для человека, а не жёсткие автоблокировки</strong>. Соблазн велик — «нашли совпадение, сразу блокируем». Но автоматические жёсткие блокировки дают лавину ложных срабатываний: однофамильцы, похожие имена, обычные, но нестандартные операции. Клиенты злятся, поддержка тонет, бизнес теряет нормальных пользователей. Правильно построенная система размечает риск и передаёт спорные случаи человеку с полным контекстом, а автоматически отсекает только совсем очевидное. Меньше ложных срабатываний, выше доверие, и регулятор видит осмысленный процесс, а не слепой автомат. Именно так я и подхожу к таким задачам — если вам близка эта логика, её можно <a href="https://chimitdorzhi.tech/services/cybersecurity/">автоматизировать комплаенс</a> под ваш конкретный процесс.</p>
+
+<h2 id="kak-vnedryat">Как внедрять систему</h2>
+
+<p>Автоматизация AML/KYC — это не покупка «коробки», а ИТ-проект под ключ, который встраивается в ваши процессы. Разложу его на понятные этапы.</p>
+
+<p><strong>Аудит текущего процесса.</strong> Сначала разбираемся, как проверка устроена у вас сейчас: где данные, кто и что делает руками, где узкие места и где реально теряется время. Часто уже на этом шаге видно, что половина ручной работы — это переписывание данных из одного места в другое, и её можно убрать почти сразу.</p>
+
+<p><strong>Выбор источников данных и провайдеров проверок.</strong> Дальше определяем, откуда система будет брать списки, как распознавать документы, какие внешние сервисы подключить через API. Выбор зависит от отрасли, требований и того, с какими данными вы работаете. Это техническое и одновременно стратегическое решение: от источников зависит качество проверок.</p>
+
+<p><strong>Проектирование правил.</strong> Самая содержательная часть. Вместе с вашим комплаенсом (и, при необходимости, профильным юристом) формализуем: какие факторы влияют на риск, какие пороги считать подозрительными, какие случаи уходят на ручной разбор, а какие проходят автоматически. Здесь моя роль — переложить требования в чёткую, работающую логику; юридическую корректность самих требований подтверждает специалист по комплаенсу.</p>
+
+<p><strong>Интеграция в вашу систему.</strong> Проверка встраивается туда, где живёт клиент: в CRM, личный кабинет, <a href="https://chimitdorzhi.tech/services/mobile-apps/" class="blog-inline-link">мобильное приложение</a> или бота. Клиент проходит идентификацию там же, где регистрируется, а сотрудники видят результаты в привычных инструментах. Никаких отдельных «систем сбоку», в которые надо руками переносить данные.</p>
+
+<p><strong>Тестирование.</strong> Прогоняем систему на реальных и краевых сценариях: однофамильцы, нечитаемые документы, пограничные суммы, попытки обойти проверку. Настраиваем чувствительность правил так, чтобы ловить реальный риск и не заваливать людей ложными флагами. Этот этап определяет, будет система помогать или мешать.</p>
+
+<p><strong>Поддержка.</strong> Списки обновляются, требования меняются, появляются новые схемы обхода — система должна жить и адаптироваться. Поддержка это правила, обновления интеграций, донастройка порогов и реакция на изменения в регулировании.</p>
+
+<p>В сумме получается не «внедрили и забыли», а живой контур проверки, встроенный в бизнес. Если у вас уже есть понимание, что рутина съедает ресурсы, разумно начать с аудита — на нём хорошо видно, что автоматизируется в первую очередь. Такой проект можно <a href="https://chimitdorzhi.tech/predlozheniya/">обсудить проект</a> и оценить под вашу конкретную ситуацию.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+
+<p><strong>Что такое KYC простыми словами?</strong> Это процедура «знай своего клиента»: бизнес убеждается, что клиент — реальный человек или компания, что он тот, за кого себя выдаёт, и оценивает, насколько с ним рискованно работать. На практике это сбор данных, проверка документов и подтверждение личности перед тем, как допустить клиента к сервису с деньгами.</p>
+
+<p><strong>Можно ли полностью убрать человека из проверки?</strong> Полностью — нет, и не нужно к этому стремиться. Автоматика отлично снимает рутину: распознаёт документы, сверяет списки, считает риск, ловит подозрительные операции. Но спорные случаи — неточные совпадения, пограничные ситуации, нестандартное поведение — должны попадать к человеку. Правильная модель: машина размечает и отсекает очевидное, комплаенс-офицер решает по исключениям. Так меньше ошибок и ложных срабатываний, чем при слепой автоблокировке.</p>
+
+<p><strong>Как автоматизировать сверку со списками?</strong> Через провайдеров проверок, которые отдают санкционные, розыскные и другие списки по API. Система по каждому клиенту делает запрос, получает точные и неточные совпадения и подсвечивает их для разбора. Списки подтягиваются свежими, так что проверка не устаревает. Технически это интеграция с внешними источниками плюс логика обработки совпадений — включая работу с похожими именами, чтобы не блокировать однофамильцев.</p>
+
+<p><strong>Это дорого и долго?</strong> Без конкретных цифр: масштаб проекта зависит от того, сколько этапов проверки вам реально нужно, какие источники данных подключать и насколько сложна интеграция в вашу систему. Начать можно с малого — автоматизировать самую тяжёлую рутину и расширяться дальше. Аудит на старте как раз помогает понять объём и не платить за то, что вам пока не требуется. Важнее считать не только затраты на внедрение, но и стоимость ручной работы и риск ошибок, которые эта работа порождает.</p>
+
+<p><strong>Заменит ли это юриста или комплаенс-офицера?</strong> Нет. Автоматизация меняет их работу, но не отменяет. Юрист и комплаенс определяют, что и как проверять по требованиям; система избавляет их от ручной рутины и даёт удобные инструменты для решений. Я отвечаю за техническую сторону — как это построить и внедрить. За юридическую корректность требований отвечает профильный специалист. Это партнёрство, а не замена.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+
+<p>AML и KYC только кажутся чисто юридической темой. По сути это работа с потоком данных: собрать, идентифицировать, сверить со списками, оценить риск, отследить операции, сохранить и отчитаться. А поток данных — это то, что автоматизируется, и именно здесь бизнес чаще всего теряет время сотрудников на рутину, которую давно должна делать система.</p>
+
+<p>Автоматизировать реально почти всё: распознавание документов, сверку со списками через API, риск-скоринг по правилам, флаги подозрительных операций, отчёты и единый дашборд для комплаенс-офицера. Главный принцип — флаги для человека, а не жёсткие автоблокировки: машина размечает риск и отсекает очевидное, человек решает по спорным случаям. Так меньше ложных срабатываний и выше доверие клиентов. Внедряется это как полноценный ИТ-проект: аудит, выбор источников, проектирование правил, интеграция в вашу систему, тестирование и поддержка.</p>
+
+<p>Ещё раз оговорюсь: это образовательный материал, а не юридическая консультация. Право и требования комплаенса обязательно уточняйте у профильного специалиста — я отвечаю за ИТ-сторону: как переложить проверку на софт грамотно и без лишних блокировок. Если ручная проверка клиентов у вас уже упирается в потолок или вы только выходите на работу с платежами, разумный первый шаг — <a href="https://chimitdorzhi.tech/predlozheniya/">обсудить проект</a> и посмотреть, что автоматизируется в вашем случае в первую очередь.</p>
+
+                    </div>
+
+                    
+                    
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Что я делаю под ключ</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-code"></i> <span>Сайты и веб-приложения</span></li>
+    
+    <li><i class="ph-fill ph-robot"></i> <span>Боты в Telegram и MAX, ИИ-агенты</span></li>
+    
+    <li><i class="ph-fill ph-flow-arrow"></i> <span>Автоматизация процессов</span></li>
+    
+    <li><i class="ph-fill ph-shield-check"></i> <span>Безопасность, 152-ФЗ, комплаенс</span></li>
+    
+    <li><i class="ph-fill ph-lifebuoy"></i> <span>Внедрение и поддержка</span></li>
+    
+  </ul>
+  <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Обсудить ваш проект
+  </a>
+</div>
+                    <div class="blog-cta-card">
+                        <div class="blog-cta-card-body">
+                            <h3>Бесплатно: чек-лист «Готов ли ваш бизнес к 152-ФЗ»</h3>
+                            <p>12 пунктов, которые проверяют готовность за час: данные, согласия, уведомление в РКН, локализация, защита. Отметьте, что уже сделано, и увидите дыры, за которые сейчас штрафуют.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="/checklist-152-fz/" class="btn btn-accent"><i class="ph-fill ph-clipboard-text" aria-hidden="true"></i> Открыть чек-лист</a>
+                        </div>
+                    </div>
+                    
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/services/cybersecurity/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Автоматизировать комплаенс</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/audit-152-fz-2026/" data-category="legal" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-shield-check"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Право и compliance</span>
+  <h3>Аудит сайта по 152-ФЗ в 2026: полная инструкция для бизнеса</h3>
+  <p>Новые штрафы по 152-ФЗ доходят до 500 млн ₽. Чек-лист из 32 пунктов, пошаговый план устранения нарушений и сравнение цен на аудит.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 19 мая 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 12 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/zashchita-sayta-ot-botov-parsinga-2027/" data-category="security" data-clicks="1">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-shield-check"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Безопасность</span>
+  <h3>Как защитить сайт от ботов, парсинга и накруток без вреда SEO</h3>
+  <p>Парсинг цен, накрутка заявок и корзин, скликивание рекламы — боты воруют деньги и данные. Разбираю, как грамотно защититься и при этом не заблокировать поисковики Яндекса и Google и не уронить SEO.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 6 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 18 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/iz-excel-v-crm-za-mesyac-2027/" data-category="sales" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-table"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Продажи и стартап</span>
+  <h3>Как перевести бизнес из тетради и Excel в CRM за месяц</h3>
+  <p>Учёт в тетради и таблицах тормозит бизнес, но переход на CRM кажется страшным и долгим. Даю пошаговый план за месяц: когда пора, как выбрать систему, перенести данные без потерь и обучить команду так, чтобы CRM реально заработала.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 6 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 17 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    
+                    
+                    
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовые решения под ключ</span>
+                            <span class="blog-offer-cta-title">449 готовых IT-решений для бизнеса</span>
+                            <span class="blog-offer-cta-price">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Смотреть каталог</span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#chto-takoe"><span class="blog-toc-num">01</span> Что такое AML и KYC</a></li>
+<li><a href="#komu-nuzhno"><span class="blog-toc-num">02</span> Кому это нужно</a></li>
+<li><a href="#kak-rabotaet"><span class="blog-toc-num">03</span> Как устроена проверка</a></li>
+<li><a href="#chto-avtomatizirovat"><span class="blog-toc-num">04</span> Что можно автоматизировать</a></li>
+<li><a href="#kak-vnedryat"><span class="blog-toc-num">05</span> Как внедрять систему</a></li>
+<li><a href="#faq"><span class="blog-toc-num">06</span> FAQ</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">07</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=23" defer></script>
+<script src="/services-i18n.js?v=23" defer></script>
+<script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>
