@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **931**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **932**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -110,6 +110,7 @@
 
 ## Open-source и свой сервер
 
+- [Leantime и бесплатные системы управления проектами: обзор для тех, кто не проджект-менеджер](./leantime-besplatnaya-sistema-upravleniya-proektami-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/leantime-besplatnaya-sistema-upravleniya-proektami-2027/)
 - [DreamServer: локальный AI-сервер (Ollama, Open WebUI, n8n, ComfyUI) одной установкой](./dreamserver-lokalnyy-ai-server-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/dreamserver-lokalnyy-ai-server-2026/)
 - [ИИ-ассистент для Telegram Business: что умеет, чем рискует и как сделать безопасно](./ai-assistent-telegram-business-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ai-assistent-telegram-business-2027/)
 - [llama.cpp: как запустить и ускорить локальный LLM](./llama-cpp-zapusk-i-optimizaciya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/llama-cpp-zapusk-i-optimizaciya-2026/)
