@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Как работает распознавание речи</title>
+    <meta name="description" content="Как работает распознавание речи (speech-to-text) простыми словами: что происходит со звуком после того, как вы сказали фразу голосовому помощнику, как модель…">
+    <meta name="keywords" content="распознавание речи, ИИ, голосовые технологии, научпоп">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/kak-rabotaet-raspoznavanie-rechi-2027/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/kak-rabotaet-raspoznavanie-rechi-2027/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/kak-rabotaet-raspoznavanie-rechi-2027/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/kak-rabotaet-raspoznavanie-rechi-2027/">
+    <meta property="og:title" content="Как работает распознавание речи">
+    <meta property="og:description" content="Как работает распознавание речи (speech-to-text) простыми словами: что происходит со звуком после того, как вы сказали фразу голосовому помощнику, как модель…">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/kak-rabotaet-raspoznavanie-rechi-2027/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Как работает распознавание речи">
+    <meta name="twitter:description" content="Как работает распознавание речи (speech-to-text) простыми словами: что происходит со звуком после того, как вы сказали фразу голосовому помощнику, как модель…">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/kak-rabotaet-raspoznavanie-rechi-2027/cover.png">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor-Fill.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=45">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Как работает распознавание речи: от звука до текста",
+  "description": "Как работает распознавание речи (speech-to-text) простыми словами: что происходит со звуком после того, как вы сказали фразу голосовому помощнику, как модель превращает звуковую волну в текст, почему акценты и шум мешают распознаванию. Экспертный разбор без формул.",
+  "image": "https://chimitdorzhi.tech/blog/kak-rabotaet-raspoznavanie-rechi-2027/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/kak-rabotaet-raspoznavanie-rechi-2027/"
+  },
+  "datePublished": "2026-07-01",
+  "dateModified": "2026-07-01",
+  "keywords": "распознавание речи, ИИ, голосовые технологии, научпоп",
+  "articleSection": "AI для разработчиков",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Как работает распознавание речи: от звука до текста",
+      "item": "https://chimitdorzhi.tech/blog/kak-rabotaet-raspoznavanie-rechi-2027/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Почему голосовой помощник не понимает акцент?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Потому что акустическая модель обучена на определённом наборе голосов и произношений, и если реальное произношение сильно отличается от того, что было в обучающих данных, система хуже распознаёт фонемы. Решение — дообучение модели на данных с нужным акцентом или диалектом."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужен ли интернет для распознавания речи?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Зависит от системы. Простые команды многие устройства распознают локально, без сети, используя компактную модель прямо на устройстве. Но для точного распознавания сложной, спонтанной речи обычно используются более мощные модели в облаке, для чего нужно подключение к интернету."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли распознавать несколько языков одновременно?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Современные многоязычные модели умеют определять язык на лету и переключаться между языками внутри одного аудиофайла, но точность обычно ниже, чем у модели, настроенной на один конкретный язык. Для смешанной речи, где чередуются, например, русский и английский, качество распознавания стоит проверять отдельно под конкретный сценарий."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Насколько точно распознавание речи сегодня?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Для чистой речи на распространённых языках без сильного шума современные системы достигают точности, сопоставимой с человеческим восприятием на слух. Но точность заметно падает при сочетании нескольких сложных факторов сразу — например, сильный акцент плюс фоновый шум плюс специфическая терминология."
+      }
+    }
+  ]
+}
+    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+var inject=function(){for (var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)};
+var run=function(){('requestIdleCallback' in window)?requestIdleCallback(inject,{timeout:5000}):setTimeout(inject,3000)};
+(e.readyState==='complete')?run():m.addEventListener('load',run);})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109281884" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+            <li><a href="/#services" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li class="nav-dropdown">
+                <a href="/#projects" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--arey"><i class="ph-fill ph-vinyl-record" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-airplane-tilt" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#cases" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            </div>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/#about">Обо мне</a></li>
+        <li><a href="/#services">Услуги</a></li>
+        <li><a href="/services/">Каталог услуг</a></li>
+        <li><a href="/predlozheniya/">Предложения</a></li>
+        <li><a href="/#cases">Кейсы</a></li>
+        <li><a href="/blog/">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+        <li><a href="/#contact">Контакт</a></li>
+    </ul>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Как работает распознавание речи: от звука до текста</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/ai-dev/"><i class="ph ph-bookmark" aria-hidden="true"></i> AI для разработчиков</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 6 мин чтения</span>
+                        <time datetime="2026-07-01"><i class="ph ph-calendar" aria-hidden="true"></i> 1 июля 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Как работает распознавание речи: от звука до текста</h1>
+
+                    <p class="blog-lead">Вы говорите фразу голосовому помощнику — и через секунду видите текст. Что происходит между звуком и буквами? Разбираю, как устроено распознавание речи и почему оно иногда ошибается.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>распознавание речи</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>ИИ</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>голосовые технологии</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>научпоп</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
+<li>Голос — это звуковая волна, микрофон превращает её в цифровой сигнал, набор чисел, описывающих колебания давления воздуха во времени.</li>
+<li>Из сигнала выделяются акустические признаки, и они сопоставляются со звуками речи — фонемами, из которых складываются слоги и слова.</li>
+<li>Современное распознавание почти никогда не работает «на слух в одиночку»: языковая модель выбирает наиболее вероятную фразу из нескольких похожих по звучанию вариантов.</li>
+<li>Ошибки чаще всего связаны не с «глухотой» системы, а с акцентом, шумом, омофонами и редкими именами, которых не было в обучающих данных.</li>
+<li>Технология уже прочно стоит в бизнес-процессах: голосовые помощники, транскрипция совещаний, субтитры, голосовой ввод, колл-центры.</li>
+</ul></div>
+<p>Когда вы диктуете сообщение телефону или просите умную колонку поставить таймер, происходит цепочка вычислений, которая на первый взгляд кажется почти магией. Звук — это просто колебания воздуха, а на выходе вы получаете связный текст с знаками препинания и, что важнее, с правильно угаданным смыслом. Многие клиенты, с которыми я обсуждаю голосовые интерфейсы для бизнеса — от ботов для записи в клинику до транскрибации совещаний — задают один и тот же вопрос: как машина вообще понимает, что я сказал, если я говорю с акцентом или в шумном помещении?</p>
+<p>В этой статье разберём путь от звуковой волны до текста на экране без глубокого погружения в математику, но с достаточной технической точностью, чтобы вы могли осознанно выбирать голосовые решения для своего проекта и понимать, почему они иногда ошибаются.</p>
+<h2 id="chto-proishodit-so-zvukom">Что происходит со звуком</h2>
+<p>Звук — это физическое явление: источник (голосовые связки, точнее — весь речевой тракт человека) создаёт колебания давления воздуха, которые распространяются волной и достигают микрофона. Чем выше частота колебаний, тем выше воспринимаемая высота звука, а амплитуда колебаний соответствует громкости. Человеческая речь — это сложная, постоянно меняющаяся волна, в которой одновременно присутствуют десятки частотных составляющих: основной тон голоса и множество обертонов, формирующих узнаваемый тембр и артикуляцию конкретных звуков.</p>
+<p>Микрофон превращает эти механические колебания в электрический сигнал: мембрана внутри микрофона физически колеблется вместе с воздухом, и это движение преобразуется в переменное напряжение. Дальше в дело вступает аналого-цифровой преобразователь: он много тысяч раз в секунду измеряет уровень этого напряжения и записывает результат в виде числа. Типичная частота дискретизации для распознавания речи — 16 000 измерений в секунду, для музыки и более требовательных задач — 44 100 и выше. В итоге секунда вашей речи превращается в последовательность из тысяч чисел — это и есть тот самый «цифровой сигнал», с которым дальше работает алгоритм. Ничего мистического: аналоговая физика мира становится набором данных, понятных компьютеру.</p>
+<h2 id="ot-volny-k-tekstu">От звуковой волны к тексту</h2>
+<p>Сырой цифровой сигнал сам по себе почти бесполезен для распознавания — это слишком «сырые» данные, в которых полезная информация о звуках речи перемешана с шумом, интонацией и индивидуальными особенностями голоса. Поэтому первый шаг — выделение акустических признаков. Сигнал делят на короткие отрезки, обычно по 20-30 миллисекунд, и для каждого такого фрагмента вычисляют его частотный состав: какие частоты присутствуют и с какой интенсивностью. Этот процесс математически похож на то, как призма раскладывает белый свет на спектр — только здесь «раскладывается» не свет, а звук, а результат называют спектрограммой.</p>
+<p>Полученные признаки затем сопоставляются со звуками речи — фонемами. Фонема — это минимальная смыслоразличительная единица звучания языка: например, звуки «б» и «п» отличаются друг от друга ровно настолько, что меняют смысл слова («бочка» и «почка»). Акустическая модель — специально обученная нейросеть — анализирует последовательность признаков и оценивает, какой фонеме или последовательности фонем соответствует каждый фрагмент звука. Дальше фонемы собираются в слоги и слова примерно так же, как из букв в азбуке собирается текст, только с поправкой на то, что границы между звуками в реальной речи размыты, а не чёткие, как в письме. Именно поэтому одного акустического анализа недостаточно — на этом этапе система получает лишь набор гипотез о том, что могло прозвучать.</p>
+<h2 id="rol-modeli">Роль языковой модели в распознавании</h2>
+<p>Здесь и раскрывается ключевая идея современного распознавания речи: акустика говорит нам, «как это прозвучало», а решает, «что было сказано», языковая модель. Дело в том, что многие слова и фразы на слух почти неотличимы. Классический пример из английского — «recognize speech» и «wreck a nice beach»: акустически варианты очень близки, и только знание о том, какие сочетания слов вообще встречаются в языке и в каком контексте, позволяет выбрать правильный. В русском языке похожая история: «сорок лет» и «сорока лет», «ты знаешь» и «ты знаешь ли» — система должна учитывать не только звук, но и вероятность самой фразы.</p>
+<p>Языковая модель обучена на огромных объёмах текста и «знает», какие последовательности слов встречаются часто, а какие практически невозможны в естественной речи. Когда акустическая модель выдаёт несколько похожих по звучанию гипотез, языковая модель ранжирует их по вероятности и выбирает наиболее правдоподобный вариант с учётом контекста всего предложения, а иногда и предыдущих реплик в разговоре. Современные системы, построенные на моделях-трансформерах, во многом объединяют эти два этапа в единую нейросеть, но логика остаётся той же: звук даёт кандидатов, язык — контекст, который помогает выбрать между ними. Это же объясняет, почему распознавание специализированной терминологии — медицинской, юридической, отраслевой — часто требует дополнительной настройки: общая языковая модель просто не «ожидает» встретить редкие для бытовой речи слова.</p>
+<h2 id="pochemu-oshibaetsya">Почему распознавание ошибается</h2>
+<p>Зная устройство системы, легко понять, откуда берутся её типичные ошибки. Акцент и диалект меняют акустические характеристики звуков речи: человек может произносить фонемы иначе, чем это заложено в обучающих данных модели, из-за чего акустическая модель ошибается уже на первом этапе. То же касается индивидуальных особенностей — скорости речи, тембра, дефектов дикции: система обучена на усреднённых данных большого числа дикторов, и чем сильнее конкретный голос отклоняется от этого усреднения, тем выше риск ошибки.</p>
+<p>Фоновый шум — ещё один частый источник проблем: разговор в кафе, шум улицы, наложение нескольких голосов сильно искажают спектр полезного сигнала, и акустической модели становится труднее выделить признаки речи на фоне помех. Омофоны — слова, которые звучат одинаково, но пишутся и значат по-разному, — систему может «сбить с толку» даже при идеальном звуке, если контекст фразы допускает оба варианта. Наконец, редкие слова и имена собственные — географические названия, фамилии, названия брендов — часто отсутствуют или крайне редко встречаются в обучающих текстах языковой модели, из-за чего система заменяет их на более «вероятные», но неверные слова. Именно поэтому в профессиональных сценариях — например, при транскрибации деловых переговоров — качество ощутимо растёт, если заранее «подсказать» системе словарь имён и терминов, которые будут встречаться.</p>
+<h2 id="gde-primenyaetsya">Где это применяется</h2>
+<p>Голосовые помощники на телефонах и умных колонках — самый заметный пример: они распознают команду, передают текст языковой модели более высокого уровня для понимания намерения и выполняют действие. Транскрипция совещаний и созвонов экономит часы ручной работы — вместо конспектирования участники получают текстовую расшифровку разговора почти сразу после его окончания, а в паре с языковой моделью — ещё и краткое резюме с выделенными задачами. Автоматические субтитры для видео — тоже прямое следствие тех же технологий: система распознаёт речь на лету и синхронизирует текст с видеорядом, что особенно ценно для образовательного и корпоративного контента.</p>
+<p>Голосовой ввод текста в мессенджерах и заметках давно стал бытовой привычкой — многие печатают голосом быстрее, чем руками, особенно на телефоне. В колл-центрах распознавание речи используют для автоматического анализа звонков: система расшифровывает разговор оператора с клиентом, а затем алгоритмы ищут в тексте ключевые фразы, оценивают тональность или проверяют, что оператор произнёс обязательные скрипты. Если вы планируете внедрить голосовой интерфейс или автоматическую обработку звонков в своём бизнесе, разумно заранее оценить, какие данные и словарь понадобятся системе для приемлемой точности — это можно <a href="https://chimitdorzhi.tech/predlozheniya/">обсудить проект</a> и подобрать решение под конкретную задачу.</p>
+<h2 id="faq">Частые вопросы</h2>
+<p><strong>Почему голосовой помощник не понимает акцент?</strong> Потому что акустическая модель обучена на определённом наборе голосов и произношений, и если реальное произношение сильно отличается от того, что было в обучающих данных, система хуже распознаёт фонемы. Решение — дообучение модели на данных с нужным акцентом или диалектом.</p>
+<p><strong>Нужен ли интернет для распознавания речи?</strong> Зависит от системы. Простые команды многие устройства распознают локально, без сети, используя компактную модель прямо на устройстве. Но для точного распознавания сложной, спонтанной речи обычно используются более мощные модели в облаке, для чего нужно подключение к интернету.</p>
+<p><strong>Можно ли распознавать несколько языков одновременно?</strong> Современные многоязычные модели умеют определять язык на лету и переключаться между языками внутри одного аудиофайла, но точность обычно ниже, чем у модели, настроенной на один конкретный язык. Для смешанной речи, где чередуются, например, русский и английский, качество распознавания стоит проверять отдельно под конкретный сценарий.</p>
+<p><strong>Насколько точно распознавание речи сегодня?</strong> Для чистой речи на распространённых языках без сильного шума современные системы достигают точности, сопоставимой с человеческим восприятием на слух. Но точность заметно падает при сочетании нескольких сложных факторов сразу — например, сильный акцент плюс фоновый шум плюс специфическая терминология.</p>
+<h2 id="vyvody">Коротко о главном</h2>
+<p>Распознавание речи — это не одна «умная» технология, а слаженная цепочка из нескольких этапов: превращение звуковой волны в цифровой сигнал, выделение акустических признаков, сопоставление их с фонемами и, наконец, выбор наиболее вероятной фразы с помощью языковой модели, которая учитывает контекст. Понимание этой цепочки объясняет, почему система хорошо справляется с чистой, стандартной речью и почему спотыкается на акцентах, шуме, омофонах и редких именах. Для бизнеса это значит одно: качество голосового решения определяется не только выбором технологии, но и тем, насколько тщательно подготовлены данные, словарь терминов и сценарии использования под конкретную задачу.</p>
+
+                    </div>
+
+                    
+                    
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Что я делаю под ключ</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-code"></i> <span>Сайты и веб-приложения</span></li>
+    
+    <li><i class="ph-fill ph-robot"></i> <span>Боты в Telegram и MAX, ИИ-агенты</span></li>
+    
+    <li><i class="ph-fill ph-flow-arrow"></i> <span>Автоматизация и интеграции</span></li>
+    
+    <li><i class="ph-fill ph-shield-check"></i> <span>Безопасность и 152-ФЗ</span></li>
+    
+    <li><i class="ph-fill ph-lifebuoy"></i> <span>Внедрение и поддержка</span></li>
+    
+  </ul>
+  <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Обсудить ваш проект
+  </a>
+</div>
+                    <div class="blog-cta-card">
+                        <div class="blog-cta-card-body">
+                            <h3>Бесплатно: чек-лист «Готов ли ваш бизнес к 152-ФЗ»</h3>
+                            <p>12 пунктов, которые проверяют готовность за час: данные, согласия, уведомление в РКН, локализация, защита. Отметьте, что уже сделано, и увидите дыры, за которые сейчас штрафуют.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="/checklist-152-fz/" class="btn btn-accent"><i class="ph-fill ph-clipboard-text" aria-hidden="true"></i> Открыть чек-лист</a>
+                        </div>
+                    </div>
+                    
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/predlozheniya/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Обсудить ваш проект</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/ai-transkripciya-soveshchaniy-2026/" data-category="ai-life" data-clicks="1">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-microphone"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>AI для жизни и работы</span>
+  <h3>Whisper + GPT для транскрипции совещаний 2026: AI-ассистент для встреч</h3>
+  <p>Полный путь к AI-ассистенту для встреч за выходные: Whisper, диаризация, саммари через Claude/GPT/YandexGPT, интеграция с Notion/Trello/Telegram. Юр-нюансы РФ, кейс автора.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 20 мая 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 24 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/moss-tts-nano-sintez-rechi-2026/" data-category="opensource" data-clicks="1">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-waveform"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>MOSS-TTS-Nano: синтез речи на своём сервере без GPU</h3>
+  <p>MOSS-TTS-Nano озвучивает текст человеческим голосом на своём сервере — без видеокарты и без отправки данных наружу. Для роликов, голосовых ботов и IVR. Разбираю возможности и запуск.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 15 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/kak-ustroeny-bolshie-yazykovye-modeli-2027/" data-category="ai-dev" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-brain"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>AI для разработчиков</span>
+  <h3>Как устроены большие языковые модели: как ИИ «понимает» текст</h3>
+  <p>ChatGPT и подобные модели будто понимают язык — но что происходит внутри на самом деле? Разбираю простыми словами, как большие языковые модели предсказывают текст и почему это работает.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 1 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 6 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    
+                    
+                    
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовые решения под ключ</span>
+                            <span class="blog-offer-cta-title">449 готовых IT-решений для бизнеса</span>
+                            <span class="blog-offer-cta-price">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Смотреть каталог</span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#chto-proishodit-so-zvukom"><span class="blog-toc-num">01</span> Что происходит со звуком</a></li>
+<li><a href="#ot-volny-k-tekstu"><span class="blog-toc-num">02</span> От звуковой волны к тексту</a></li>
+<li><a href="#rol-modeli"><span class="blog-toc-num">03</span> Роль языковой модели в распознавании</a></li>
+<li><a href="#pochemu-oshibaetsya"><span class="blog-toc-num">04</span> Почему распознавание ошибается</a></li>
+<li><a href="#gde-primenyaetsya"><span class="blog-toc-num">05</span> Где это применяется</a></li>
+<li><a href="#faq"><span class="blog-toc-num">06</span> FAQ</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">07</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=23" defer></script>
+<script src="/services-i18n.js?v=23" defer></script>
+<script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>
