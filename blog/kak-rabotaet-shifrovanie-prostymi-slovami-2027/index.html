@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Как работает шифрование простыми словами</title>
+    <meta name="description" content="Как работает шифрование простыми словами: зачем оно нужно, чем отличается симметричное и асимметричное шифрование, что такое сквозное шифрование (E2E) в…">
+    <meta name="keywords" content="шифрование, безопасность, приватность, научпоп">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/kak-rabotaet-shifrovanie-prostymi-slovami-2027/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/kak-rabotaet-shifrovanie-prostymi-slovami-2027/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/kak-rabotaet-shifrovanie-prostymi-slovami-2027/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/kak-rabotaet-shifrovanie-prostymi-slovami-2027/">
+    <meta property="og:title" content="Как работает шифрование простыми словами">
+    <meta property="og:description" content="Как работает шифрование простыми словами: зачем оно нужно, чем отличается симметричное и асимметричное шифрование, что такое сквозное шифрование (E2E) в…">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/kak-rabotaet-shifrovanie-prostymi-slovami-2027/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Как работает шифрование простыми словами">
+    <meta name="twitter:description" content="Как работает шифрование простыми словами: зачем оно нужно, чем отличается симметричное и асимметричное шифрование, что такое сквозное шифрование (E2E) в…">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/kak-rabotaet-shifrovanie-prostymi-slovami-2027/cover.png">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor-Fill.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=45">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Как работает шифрование простыми словами: от переписки до платежей",
+  "description": "Как работает шифрование простыми словами: зачем оно нужно, чем отличается симметричное и асимметричное шифрование, что такое сквозное шифрование (E2E) в мессенджерах, где вы сталкиваетесь с ним каждый день и какие мифы вокруг темы. Без формул.",
+  "image": "https://chimitdorzhi.tech/blog/kak-rabotaet-shifrovanie-prostymi-slovami-2027/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/kak-rabotaet-shifrovanie-prostymi-slovami-2027/"
+  },
+  "datePublished": "2026-06-30",
+  "dateModified": "2026-06-30",
+  "keywords": "шифрование, безопасность, приватность, научпоп",
+  "articleSection": "Безопасность",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Как работает шифрование простыми словами: от переписки до платежей",
+      "item": "https://chimitdorzhi.tech/blog/kak-rabotaet-shifrovanie-prostymi-slovami-2027/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Можно ли взломать шифрование?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Теоретически любой замок можно вскрыть, но на практике современное стойкое шифрование подобрать перебором невозможно — на это не хватит и миллиардов лет даже у самых мощных компьютеров. Поэтому злоумышленники почти никогда не ломают само шифрование. Они идут в обход: крадут пароли обманом, заражают устройство или подсовывают поддельный сайт. Слабое звено — почти всегда человек и его привычки, а не сам алгоритм."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Замедляет ли шифрование работу устройств?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Для обычного пользователя — практически нет. Современные телефоны и компьютеры имеют встроенную поддержку шифрования, и оно работает настолько быстро, что вы не заметите разницы при просмотре сайтов, переписке или оплате. Небольшая нагрузка есть, но она давно перестала быть заметной в повседневных задачах."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужно ли мне что-то настраивать самому, чтобы пользоваться шифрованием?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "В большинстве случаев нет — оно уже включено по умолчанию. Сайты работают по HTTPS, банковские приложения защищают соединение, современные телефоны шифруют память из коробки. От вас требуется скорее не «включить» шифрование, а не отключать защиту: не игнорировать предупреждения браузера, ставить пароль на экран и не отключать шифрование диска."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Если сервис использует сквозное шифрование, значит, моя переписка защищена полностью?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Содержание сообщений — да, защищено надёжно, даже от самого сервиса. Но остаются метаданные (кто, кому и когда писал) и уязвимость самого устройства: если ваш телефон разблокирован в чужих руках или заражён, переписку прочитают в открытом виде. Сквозное шифрование — сильная защита содержания, но не полная невидимость."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Стоит ли доверять сайту только потому, что у него есть замочек и HTTPS?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Замок означает, что соединение зашифровано, но не гарантирует честность самого сайта. Мошенники тоже умеют ставить HTTPS на свои поддельные страницы. Поэтому кроме замка всегда проверяйте сам адрес: нет ли лишних букв, подмены домена, странного написания. Замок защищает канал связи, а не намерения владельца сайта."
+      }
+    }
+  ]
+}
+    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+var inject=function(){for (var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)};
+var run=function(){('requestIdleCallback' in window)?requestIdleCallback(inject,{timeout:5000}):setTimeout(inject,3000)};
+(e.readyState==='complete')?run():m.addEventListener('load',run);})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109281884" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+            <li><a href="/#services" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li class="nav-dropdown">
+                <a href="/#projects" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--arey"><i class="ph-fill ph-vinyl-record" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-airplane-tilt" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#cases" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            </div>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/#about">Обо мне</a></li>
+        <li><a href="/#services">Услуги</a></li>
+        <li><a href="/services/">Каталог услуг</a></li>
+        <li><a href="/predlozheniya/">Предложения</a></li>
+        <li><a href="/#cases">Кейсы</a></li>
+        <li><a href="/blog/">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+        <li><a href="/#contact">Контакт</a></li>
+    </ul>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Как работает шифрование простыми словами: от переписки до платежей</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/security/"><i class="ph ph-bookmark" aria-hidden="true"></i> Безопасность</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 7 мин чтения</span>
+                        <time datetime="2026-06-30"><i class="ph ph-calendar" aria-hidden="true"></i> 30 июня 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Как работает шифрование простыми словами: от переписки до платежей</h1>
+
+                    <p class="blog-lead">Замочек в браузере, «сквозное шифрование» в мессенджере — что за этим стоит? Объясняю простыми словами, как работает шифрование, где вы встречаете его каждый день и каким мифам не верить.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>шифрование</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>безопасность</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>приватность</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>научпоп</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr"><h3>Коротко (TL;DR)</h3>
+<ul>
+  <li>Шифрование превращает понятный текст в набор символов, который прочитать может только тот, у кого есть правильный ключ. Это защита переписки, платежей и файлов от чужих глаз.</li>
+  <li>Есть два подхода: симметричный (один общий ключ на двоих) и асимметричный (пара ключей — открытый для замка, закрытый для его открытия). В реальной жизни они работают вместе.</li>
+  <li>Вы сталкиваетесь с шифрованием каждый день: замочек в браузере (HTTPS), банковское приложение, домашний Wi-Fi, защищённый диск телефона, электронная подпись документа.</li>
+  <li>Сквозное шифрование (E2E) в мессенджерах прячет содержание сообщений даже от самого сервиса, но не скрывает факт переписки и не спасает, если ваш телефон уже в чужих руках.</li>
+  <li>Шифрование — это не анонимность и не «волшебная кнопка приватности». Оно защищает содержание, но не делает вас невидимым. Практика важнее мифов: обновления, разные пароли и привычка проверять адрес сайта.</li>
+</ul></div>
+
+<p>Слово «шифрование» звучит как что-то из фильмов про хакеров: тёмные экраны, бегущие цифры, гениальный взломщик за минуту вскрывает секретный код. В реальности шифрование — это спокойная бытовая технология, которая работает вокруг вас прямо сейчас: пока вы читаете эту статью, оплачиваете кофе картой или пишете сообщение близкому человеку. Оно не про кино, а про доверие: чтобы вы могли отправить номер карты и не бояться, что его подсмотрит кто-то по дороге.</p>
+
+<p>Я Чимитдоржи Дарижапов, IT-консультант из Читы, и в этой статье разберу шифрование простыми словами — без формул и без математики. Мы пройдём весь путь: зачем оно вообще нужно, чем отличаются два главных способа шифрования, где вы встречаетесь с ним в обычной жизни, что такое сквозное шифрование в мессенджерах и почему вокруг темы столько мифов. В конце — практические выводы, которые пригодятся любому пользователю, а не только специалисту.</p>
+
+<h2 id="zachem">Зачем вообще нужно шифрование</h2>
+<p>Представьте, что вы отправляете открытку. Её прочитает любой, кто держал конверт в руках: почтальон, сосед, случайный человек на сортировке. А теперь представьте письмо в запечатанном конверте, который невозможно вскрыть незаметно, и которое к тому же может открыть только адресат. Именно это и делает шифрование с вашими данными в интернете — превращает открытку в такой невскрываемый конверт.</p>
+
+<p>У шифрования три главные задачи, и их удобно запомнить на бытовых примерах. Первая — конфиденциальность: чтобы содержимое видел только тот, кому оно предназначено. Когда вы вводите пароль от онлайн-банка, между вашим телефоном и банком идёт зашифрованный поток, и оператор связи, владелец Wi-Fi в кафе или случайный любопытный не увидят ваш пароль, даже если перехватят сам трафик. Они получат бессмысленный набор символов.</p>
+
+<p>Вторая задача — целостность: гарантия, что данные не подменили по дороге. Это как пломба на посылке. Если кто-то попытается изменить сумму перевода или подставить чужой номер счёта, получатель это заметит, потому что «пломба» окажется сорвана. Шифрование и связанные с ним технологии позволяют убедиться, что сообщение дошло ровно таким, каким его отправили, без единой правки.</p>
+
+<p>Третья задача — доверие и подлинность: уверенность, что вы общаетесь именно с тем, с кем думаете. Когда вы заходите на сайт банка, важно знать, что это настоящий банк, а не поддельная копия, сделанная мошенниками. Здесь помогают цифровые сертификаты — своего рода электронные удостоверения личности для сайтов. Без этого механизма любой мог бы выдать себя за кого угодно, и интернет-платежи были бы невозможны в принципе.</p>
+
+<p>Проще говоря, шифрование — это фундамент доверия в цифровом мире. Без него нельзя было бы безопасно оплачивать покупки, хранить документы в облаке, вести деловую переписку или пользоваться госуслугами. Мы просто не замечаем эту технологию, потому что она работает тихо и постоянно — как водопровод или электричество в доме.</p>
+
+<h2 id="simmetrichnoe-asimmetrichnoe">Симметричное и асимметричное: на пальцах</h2>
+<p>Есть два основных способа шифрования, и разница между ними легче всего объясняется через замки и ключи. Не пугайтесь названий — за сложными словами скрываются очень простые бытовые идеи.</p>
+
+<p>Симметричное шифрование — это когда у отправителя и получателя есть один и тот же общий ключ. Представьте обычный дверной замок: одним и тем же ключом вы дверь и запираете, и отпираете. Если вы дадите такой же ключ другу, он сможет открывать вашу дверь. Быстро, удобно, надёжно — но есть загвоздка: как передать этот ключ другу так, чтобы по дороге его никто не скопировал? Отправить ключ по той же линии, которую вы хотите защитить, — всё равно что положить ключ от квартиры в тот самый конверт, который вы боитесь потерять. Это и есть главная проблема симметричного подхода: договориться об общем ключе на расстоянии сложно.</p>
+
+<p>Асимметричное шифрование решает именно эту проблему, и решение поначалу кажется почти волшебным. Здесь у каждого человека не один ключ, а пара — открытый и закрытый. Они математически связаны, но из открытого нельзя вычислить закрытый. Хорошая аналогия — почтовый ящик на улице. Прорезь, куда любой прохожий может опустить письмо, — это открытый ключ. Вы раздаёте его всем желающим, публикуете открыто, ничего страшного. А вот ключ, которым ящик отпирают, чтобы достать письма, — закрытый, и он есть только у вас. Кто угодно может положить вам письмо, но достать его можете только вы.</p>
+
+<p>Разберём на примере. Вы хотите получить от собеседника секретное сообщение. Вы даёте ему свой открытый ключ — «прорезь ящика». Он «опускает» зашифрованное сообщение, и с этого момента прочитать его сможете только вы своим закрытым ключом. Даже сам отправитель, уже зашифровав письмо, назад его расшифровать не сможет. Ключ для запирания и ключ для отпирания — разные. Именно поэтому открытый ключ не страшно раздавать хоть на весь мир.</p>
+
+<p>Тот же механизм работает и в обратную сторону — для подписи. Если вы зашифруете что-то своим закрытым ключом, любой сможет проверить это вашим открытым ключом и убедиться, что подпись поставили именно вы. Так работает электронная подпись документов: она подтверждает и авторство, и то, что документ не меняли после подписания.</p>
+
+<p>На практике эти два способа не соперничают, а работают в паре, дополняя друг друга. Асимметричное шифрование медленнее, зато отлично решает задачу «как безопасно договориться о ключе на расстоянии». Симметричное — очень быстрое, но требует общего ключа. Поэтому системы поступают хитро: сначала с помощью асимметричного шифрования собеседники безопасно договариваются об одном общем секретном ключе, а дальше уже быстро переписываются симметричным способом. Лучшее от обоих миров: надёжный обмен ключом и скорость последующей передачи.</p>
+
+<h2 id="gde-vstrechaetes">Где вы встречаетесь с этим каждый день</h2>
+<p>Самое частое место встречи — замочек в адресной строке браузера. Когда адрес сайта начинается с «https», а рядом виден значок замка, это значит, что соединение между вашим устройством и сайтом зашифровано. Всё, что вы вводите — логины, пароли, номера карт, — уходит в защищённом виде. Буква «s» в «https» как раз и означает «secure», защищённый. Если замка нет и адрес начинается с «http» без «s», вводить чувствительные данные на таком сайте не стоит.</p>
+
+<p>Банковские операции — второй очевидный пример. <a href="https://chimitdorzhi.tech/services/mobile-apps/" class="blog-inline-link">Мобильное приложение</a> банка и его серверы обмениваются данными в зашифрованном виде, поэтому ваш баланс и переводы защищены даже в публичной сети. Именно шифрование позволяет спокойно платить картой в интернете: данные карты передаются так, что перехватить и использовать их посторонний не может.</p>
+
+<p>Домашний и общественный Wi-Fi тоже опирается на шифрование. Когда вы вводите пароль от роутера, вы не просто «пускаете» устройство в сеть — вы включаете шифрование радиосигнала между устройством и роутером. Без него любой сосед с нужной программой мог бы читать, что передаётся по воздуху. Вот почему открытые сети без пароля в кафе и аэропортах считаются менее безопасными: там этот слой защиты либо слабее, либо отсутствует.</p>
+
+<p>Ваш собственный телефон и ноутбук тоже шифруют данные. Современные смартфоны хранят содержимое памяти в зашифрованном виде: если аппарат потеряется или его украдут, без пароля или отпечатка достать фотографии, переписку и документы будет крайне сложно. То же касается защищённых дисков на компьютерах — при включённом шифровании диска вынутый из ноутбука накопитель окажется для вора бесполезным набором нечитаемых данных.</p>
+
+<p>Наконец, электронная подпись. Когда вы подписываете документ через госуслуги или сдаёте отчётность, за кулисами работает та самая асимметричная пара ключей. Подпись подтверждает, что документ исходит именно от вас и что после подписания его не редактировали. Это делает электронный документооборот юридически значимым — не менее надёжным, чем подпись ручкой на бумаге, а во многом и более защищённым.</p>
+
+<h2 id="e2e">Сквозное шифрование: что оно даёт и чего нет</h2>
+<p>Сквозное шифрование, или E2E (от английского «end-to-end», «от конца до конца»), — это режим, при котором сообщение шифруется прямо на устройстве отправителя и расшифровывается только на устройстве получателя. Ключевая деталь: сам сервис-посредник, через который идёт переписка, содержание сообщений прочитать не может. Он видит лишь зашифрованный поток, который проходит через его серверы транзитом.</p>
+
+<p>Обычное шифрование защищает переписку по дороге, но на сервере сообщения могут храниться в читаемом виде. Сквозное шифрование закрывает и эту дверь: даже если серверы взломают или к ним получат доступ, злоумышленник увидит только бессмысленные символы. Ключи для расшифровки есть только у вас и вашего собеседника — они не покидают ваших устройств. Это серьёзный уровень защиты содержания, и именно поэтому E2E ценят, когда речь идёт о личной или деловой переписке.</p>
+
+<p>Но у сквозного шифрования есть важные границы, о которых часто забывают. Первое — оно защищает содержание сообщений, но не всегда скрывает метаданные. Метаданные — это данные о переписке: кто с кем общался, когда, как часто, какого размера были сообщения. Само письмо запечатано, но по конверту всё ещё видно, кому и когда вы его отправили. Для многих ситуаций уже сам факт общения между двумя людьми может быть чувствительной информацией.</p>
+
+<p>Второе ограничение ещё важнее: сквозное шифрование бессильно, если ваше устройство скомпрометировано. Сообщение расшифровывается на экране вашего телефона — значит, если у кого-то есть доступ к самому телефону, разблокированному или заражённому вредоносной программой, он прочитает переписку прямо в открытом виде, минуя всю защиту. Шифрование охраняет данные в пути и на серверах, но не спасёт, если ваш телефон разблокирован в чужих руках или заражён. Никакой самый стойкий алгоритм не поможет, если враг сидит внутри вашего же устройства.</p>
+
+<p>Отсюда простой вывод: E2E — это мощный и правильный инструмент, но он часть общей картины, а не замена базовой цифровой гигиене. Он отлично защищает содержание переписки от посторонних и от самого сервиса, но не делает вас невидимым и не отменяет необходимости беречь само устройство: ставить пароль на экран, не устанавливать сомнительные приложения и не давать телефон кому попало.</p>
+
+<h2 id="mify">Три главных мифа о шифровании</h2>
+<p>Первый миф: «Если у меня всё зашифровано, значит, я в полной анонимности». Это не так. Шифрование прячет содержание, но не личность и не факт вашего присутствия. Вернёмся к аналогии с конвертом: письмо внутри никто не прочитает, но на конверте виден адрес отправителя, адрес получателя и штемпель с датой. Шифрование и анонимность — разные вещи. Первое отвечает на вопрос «что вы передаёте», второе — «кто вы и с кем общаетесь». Одно не заменяет другое.</p>
+
+<p>Второй миф: «VPN всё шифрует и полностью скрывает меня». VPN действительно создаёт защищённый туннель между вашим устройством и своим сервером — это полезно, например, в публичном Wi-Fi. Но у этой защиты есть чёткие границы. Во-первых, за пределами туннеля, от VPN-сервера до конечного сайта, трафик дальше защищён уже только тем шифрованием, которое обеспечивает сам сайт. Во-вторых, вы просто переносите доверие: раньше ваш трафик видел интернет-провайдер, теперь его видит владелец VPN-сервиса. VPN — это смена того, кому вы доверяете, а не плащ-невидимка. Он не делает вас анонимным и не защищает от вредоносных программ на вашем же устройстве.</p>
+
+<p>Третий миф: «Сложный пароль — это и есть шифрование». Пароль и шифрование связаны, но это не одно и то же. Пароль — это способ доказать, что вы имеете право войти, своего рода ключ от двери. Шифрование — это процесс превращения самих данных в нечитаемый вид. Можно поставить самый длинный и сложный пароль в мире, но если данные хранятся или передаются в незашифрованном виде, пароль защитит только вход, а не сами данные, если к ним доберутся в обход двери. Хороший пароль необходим, но он решает свою задачу, а шифрование — свою. Сильная защита получается, когда работают оба.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+<p><strong>Можно ли взломать шифрование?</strong> Теоретически любой замок можно вскрыть, но на практике современное стойкое шифрование подобрать перебором невозможно — на это не хватит и миллиардов лет даже у самых мощных компьютеров. Поэтому злоумышленники почти никогда не ломают само шифрование. Они идут в обход: крадут пароли обманом, заражают устройство или подсовывают поддельный сайт. Слабое звено — почти всегда человек и его привычки, а не сам алгоритм.</p>
+
+<p><strong>Замедляет ли шифрование работу устройств?</strong> Для обычного пользователя — практически нет. Современные телефоны и компьютеры имеют встроенную поддержку шифрования, и оно работает настолько быстро, что вы не заметите разницы при просмотре сайтов, переписке или оплате. Небольшая нагрузка есть, но она давно перестала быть заметной в повседневных задачах.</p>
+
+<p><strong>Нужно ли мне что-то настраивать самому, чтобы пользоваться шифрованием?</strong> В большинстве случаев нет — оно уже включено по умолчанию. Сайты работают по HTTPS, банковские приложения защищают соединение, современные телефоны шифруют память из коробки. От вас требуется скорее не «включить» шифрование, а не отключать защиту: не игнорировать предупреждения браузера, ставить пароль на экран и не отключать шифрование диска.</p>
+
+<p><strong>Если сервис использует сквозное шифрование, значит, моя переписка защищена полностью?</strong> Содержание сообщений — да, защищено надёжно, даже от самого сервиса. Но остаются метаданные (кто, кому и когда писал) и уязвимость самого устройства: если ваш телефон разблокирован в чужих руках или заражён, переписку прочитают в открытом виде. Сквозное шифрование — сильная защита содержания, но не полная невидимость.</p>
+
+<p><strong>Стоит ли доверять сайту только потому, что у него есть замочек и HTTPS?</strong> Замок означает, что соединение зашифровано, но не гарантирует честность самого сайта. Мошенники тоже умеют ставить HTTPS на свои поддельные страницы. Поэтому кроме замка всегда проверяйте сам адрес: нет ли лишних букв, подмены домена, странного написания. Замок защищает канал связи, а не намерения владельца сайта.</p>
+
+<h2 id="vyvody">Выводы и что делать на практике</h2>
+<p>Шифрование — это не магия и не удел хакеров из кино, а тихая повседневная технология доверия. Оно превращает ваши данные в запечатанный конверт, который может открыть только адресат, и решает три задачи сразу: хранит содержание в секрете, защищает его от подмены и подтверждает, с кем вы на самом деле общаетесь. Симметричный и асимметричный способы работают в паре, а сквозное шифрование добавляет защиту переписки даже от самого сервиса — но не отменяет заботы о собственном устройстве.</p>
+
+<p>Из всего сказанного вытекает несколько простых практических привычек. Устанавливайте обновления системы и приложений — большая часть защиты держится именно на свежих версиях, где закрыты известные дыры. Используйте разные пароли для разных сервисов и по возможности менеджер паролей: тогда утечка на одном сайте не откроет доступ ко всем остальным. Проверяйте адресную строку перед вводом важных данных: должен быть замочек, HTTPS и правильный, без подмены, адрес сайта. Ставьте пароль или биометрию на экран телефона и не отключайте шифрование диска — это ваш последний рубеж, если устройство попадёт в чужие руки.</p>
+
+<p>И главное — помните, что технология защищает данные, но решения принимает человек. Самое стойкое шифрование не спасёт от того, кто добровольно продиктует пароль «сотруднику банка» по телефону или перейдёт по ссылке из поддельного письма. Понимание того, как всё устроено, и есть лучшая защита: когда вы знаете, что и от чего вас оберегает, вас гораздо сложнее обмануть.</p>
+
+<p>Если вы отвечаете за бизнес, сайт или сервис, где люди оставляют свои данные, к вопросу защиты стоит подойти системно, а не по остаточному принципу. Готов помочь разобраться, где у вас передаются и хранятся чувствительные данные и что стоит усилить в первую очередь — можно <a href="https://chimitdorzhi.tech/predlozheniya/">обсудить проект</a> и наметить понятные шаги без лишней технической воды.</p>
+
+                    </div>
+
+                    
+                    
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Что я делаю под ключ</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-code"></i> <span>Сайты и веб-приложения</span></li>
+    
+    <li><i class="ph-fill ph-robot"></i> <span>Боты в Telegram и MAX, ИИ-агенты</span></li>
+    
+    <li><i class="ph-fill ph-flow-arrow"></i> <span>Автоматизация и интеграции</span></li>
+    
+    <li><i class="ph-fill ph-shield-check"></i> <span>Безопасность и 152-ФЗ</span></li>
+    
+    <li><i class="ph-fill ph-lifebuoy"></i> <span>Внедрение и поддержка</span></li>
+    
+  </ul>
+  <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Обсудить ваш проект
+  </a>
+</div>
+                    <div class="blog-cta-card">
+                        <div class="blog-cta-card-body">
+                            <h3>Бесплатно: чек-лист «Готов ли ваш бизнес к 152-ФЗ»</h3>
+                            <p>12 пунктов, которые проверяют готовность за час: данные, согласия, уведомление в РКН, локализация, защита. Отметьте, что уже сделано, и увидите дыры, за которые сейчас штрафуют.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="/checklist-152-fz/" class="btn btn-accent"><i class="ph-fill ph-clipboard-text" aria-hidden="true"></i> Открыть чек-лист</a>
+                        </div>
+                    </div>
+                    
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/predlozheniya/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Обсудить ваш проект</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/menedzher-paroley-vazhnee-antivirusa-2026/" data-category="expert" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-key"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Экспертный блог</span>
+  <h3>Менеджер паролей важнее антивируса: с чего реально начинать защиту</h3>
+  <p>Бизнес покупает антивирус, а ломают его через пароль «123456», который стоит на всех сервисах сразу. Разбираю, почему менеджер паролей сегодня важнее антивируса, как он работает и как приучить к нему команду без сопротивления.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 25 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 10 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/kibergigiena-sotrudnikov-2026/" data-category="security" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-shield-warning"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Безопасность</span>
+  <h3>Кибергигиена для сотрудников 2026: защита компании от человеческого фактора</h3>
+  <p>80%+ инцидентов — человеческий фактор: фишинг, социнженерия, слабые пароли. Разбираю, как обучить команду и закрыть дыру: фишинг и BEC, менеджеры паролей, 2FA, BYOD, Wi-Fi/VPN, управление доступами, фишинг-симуляции, реагирование на инцидент и 152-ФЗ с оборотными штрафами. С чек-листом.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 30 мая 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 21 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/kak-obnaruzhit-fishing-2026/" data-category="security" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-fish-simple"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Безопасность</span>
+  <h3>Как обнаружить фишинг в письме, SMS и Telegram за 10 секунд — гид 2026</h3>
+  <p>В 2026 году с фишингом сталкивается почти каждый: SMS от «Госуслуг», звонки от «службы безопасности банка», письма от «налоговой». 99% атак вскрывается за 10 секунд если знать что искать. Гид для родителей, пенсионеров, бизнеса и айтишников: 10-секундный чек-лист, признаки по каждому каналу, AI и deepfake, топ-5 схем в РФ и план действий если попался.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 22 мая 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 22 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    
+                    
+                    
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовые решения под ключ</span>
+                            <span class="blog-offer-cta-title">449 готовых IT-решений для бизнеса</span>
+                            <span class="blog-offer-cta-price">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Смотреть каталог</span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#zachem"><span class="blog-toc-num">01</span> Зачем нужно шифрование</a></li>
+<li><a href="#simmetrichnoe-asimmetrichnoe"><span class="blog-toc-num">02</span> Симметричное и асимметричное</a></li>
+<li><a href="#gde-vstrechaetes"><span class="blog-toc-num">03</span> Где вы с ним встречаетесь</a></li>
+<li><a href="#e2e"><span class="blog-toc-num">04</span> Что такое сквозное шифрование</a></li>
+<li><a href="#mify"><span class="blog-toc-num">05</span> Мифы и заблуждения</a></li>
+<li><a href="#faq"><span class="blog-toc-num">06</span> FAQ</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">07</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=23" defer></script>
+<script src="/services-i18n.js?v=23" defer></script>
+<script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>

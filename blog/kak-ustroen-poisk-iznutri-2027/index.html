@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Как устроен поиск изнутри</title>
+    <meta name="description" content="Как устроен интернет-поиск изнутри простыми словами: что происходит за доли секунды после запроса, что такое индекс и краулер, как работает ранжирование, как…">
+    <meta name="keywords" content="поиск, SEO, алгоритмы, научпоп">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/kak-ustroen-poisk-iznutri-2027/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/kak-ustroen-poisk-iznutri-2027/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/kak-ustroen-poisk-iznutri-2027/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/kak-ustroen-poisk-iznutri-2027/">
+    <meta property="og:title" content="Как устроен поиск изнутри">
+    <meta property="og:description" content="Как устроен интернет-поиск изнутри простыми словами: что происходит за доли секунды после запроса, что такое индекс и краулер, как работает ранжирование, как…">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/kak-ustroen-poisk-iznutri-2027/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Как устроен поиск изнутри">
+    <meta name="twitter:description" content="Как устроен интернет-поиск изнутри простыми словами: что происходит за доли секунды после запроса, что такое индекс и краулер, как работает ранжирование, как…">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/kak-ustroen-poisk-iznutri-2027/cover.png">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor-Fill.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=45">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Как устроен поиск изнутри: что решает, кто окажется в топе",
+  "description": "Как устроен интернет-поиск изнутри простыми словами: что происходит за доли секунды после запроса, что такое индекс и краулер, как работает ранжирование, как поиск меняют нейросети и что это значит для бизнеса и сайтов. Понятный разбор.",
+  "image": "https://chimitdorzhi.tech/blog/kak-ustroen-poisk-iznutri-2027/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/kak-ustroen-poisk-iznutri-2027/"
+  },
+  "datePublished": "2026-06-30",
+  "dateModified": "2026-06-30",
+  "keywords": "поиск, SEO, алгоритмы, научпоп",
+  "articleSection": "Экспертный блог",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Как устроен поиск изнутри: что решает, кто окажется в топе",
+      "item": "https://chimitdorzhi.tech/blog/kak-ustroen-poisk-iznutri-2027/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Поиск ищет по всему интернету в момент запроса?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет. Он ищет по своему индексу — базе, которую роботы собрали заранее. Поэтому ответ приходит за доли секунды, а свежие страницы попадают в выдачу не мгновенно, а после того, как их обойдёт краулер и обработает система."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли гарантированно попасть в топ за деньги или хитрость?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Гарантированно — нет, если речь про обычную (не рекламную) выдачу. Место определяется сочетанием многих сигналов, которые нельзя купить напрямую. Любой, кто обещает «первое место навсегда», либо имеет в виду платную рекламу, либо вводит в заблуждение. Реально влиять можно на качество сайта и содержимого — и это работает вдолгую."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Мой сайт есть в интернете, но его не находят. Почему?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Скорее всего, он либо не попал в индекс, либо попал, но проигрывает по сигналам ранжирования. Причины бывают техническими (робот не может обойти сайт, медленная загрузка, ошибки) или содержательными (страница слабо отвечает на запрос, нет доверия, мало пользы). Начинать диагностику стоит с проверки индексации и технического состояния."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Убьют ли генеративные ответы обычные сайты?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Не убьют, но изменят расклад. Простое справочное содержимое потеряет часть трафика: ответ дадут прямо в поиске. А содержимое с глубиной, экспертизой, живым опытом и возможностью совершить действие останется востребованным — за ним человек по-прежнему будет переходить. Выигрывают те, кто делает ставку на пользу, которую нельзя пересказать одной фразой."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что важнее сегодня — SEO или GEO?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Это не выбор «или — или». SEO обеспечивает позиции в обычной выдаче, GEO — присутствие в генеративных ответах. И то и другое опирается на одну основу: ясное, экспертное, технически исправное содержимое. Разумно заниматься обоими направлениями сразу, тем более что усилия во многом пересекаются."
+      }
+    }
+  ]
+}
+    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+var inject=function(){for (var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)};
+var run=function(){('requestIdleCallback' in window)?requestIdleCallback(inject,{timeout:5000}):setTimeout(inject,3000)};
+(e.readyState==='complete')?run():m.addEventListener('load',run);})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109281884" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+            <li><a href="/#services" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li class="nav-dropdown">
+                <a href="/#projects" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--arey"><i class="ph-fill ph-vinyl-record" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-airplane-tilt" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#cases" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            </div>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/#about">Обо мне</a></li>
+        <li><a href="/#services">Услуги</a></li>
+        <li><a href="/services/">Каталог услуг</a></li>
+        <li><a href="/predlozheniya/">Предложения</a></li>
+        <li><a href="/#cases">Кейсы</a></li>
+        <li><a href="/blog/">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+        <li><a href="/#contact">Контакт</a></li>
+    </ul>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Как устроен поиск изнутри: что решает, кто окажется в топе</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/expert/"><i class="ph ph-bookmark" aria-hidden="true"></i> Экспертный блог</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 7 мин чтения</span>
+                        <time datetime="2026-06-30"><i class="ph ph-calendar" aria-hidden="true"></i> 30 июня 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Как устроен поиск изнутри: что решает, кто окажется в топе</h1>
+
+                    <p class="blog-lead">Вы вводите запрос — и за долю секунды получаете миллионы ответов в нужном порядке. Как это устроено? Разбираю простыми словами индекс, ранжирование и то, как поиск меняет ИИ.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>поиск</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>SEO</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>алгоритмы</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>научпоп</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr"><h3>Коротко (TL;DR)</h3>
+<ul>
+  <li>Между вводом запроса и появлением выдачи проходит меньше секунды, но за это время поисковик разбирает ваш вопрос, ищет по заранее собранному индексу и сортирует найденное по десяткам сигналов.</li>
+  <li>Сам поиск идёт не по «живому» интернету, а по индексу — гигантской картотеке страниц, которую круглосуточно обновляют роботы-краулеры.</li>
+  <li>Порядок выдачи определяет не одно число, а сочетание релевантности, авторитетности сайта, поведения людей, свежести материала и технического состояния страниц.</li>
+  <li>Нейропоиск и генеративные ответы (Алиса, Нейро и подобные) всё чаще дают ответ прямо на странице результатов — без перехода на сайт.</li>
+  <li>Для бизнеса вывод простой: недостаточно быть в индексе, нужно быть понятным и людям, и алгоритмам, и генеративным моделям — это классическое SEO плюс новая работа с GEO.</li>
+</ul></div>
+
+<p>Мы задаём поисковику вопросы десятки раз в день и почти никогда не задумываемся, что происходит после нажатия Enter. Кажется, что где-то там «интернет» мгновенно находит нужное. На деле за этой простотой стоит одна из самых сложных инженерных систем, которые человечество вообще построило: она обходит миллиарды страниц, хранит их у себя, а потом за доли секунды решает, какие десять из них показать именно вам.</p>
+
+<p>Эта статья — экскурсия внутрь. Без формул и без обещаний «вывести сайт в топ за неделю». Я разберу, как поиск устроен на уровне принципов: что происходит после запроса, что такое индекс, по каким сигналам сортируется выдача и как всё это меняет искусственный интеллект. А в конце — что из этого практически следует для вашего сайта и бизнеса.</p>
+
+<h2 id="chto-proishodit">Что происходит за доли секунды после запроса</h2>
+
+<p>Представьте, что вы ввели запрос и нажали поиск. С вашей стороны — короткая пауза и страница с результатами. Со стороны системы за эту паузу успевает произойти четыре крупных этапа, и каждый из них — отдельная инженерная задача.</p>
+
+<p><strong>Первый этап — разбор запроса.</strong> Поисковик не воспринимает вашу фразу как набор символов. Он пытается понять смысл. Исправляет опечатки, раскрывает сокращения, определяет язык, отсекает лишние слова и — самое важное — угадывает намерение. Запрос «ремонт стиральной машины» может означать «хочу инструкцию, чтобы починить самому» или «ищу мастера, который приедет». Это разные намерения, и выдача под них должна быть разной. Современные системы также учитывают контекст: ваш регион, время, историю недавних запросов, тип устройства. Один и тот же текст в Чите и в Москве нередко даёт разные результаты.</p>
+
+<p><strong>Второй этап — поиск по индексу.</strong> Здесь ключевой момент, который многих удивляет: поисковик в момент запроса не бегает по всему интернету. Он обращается к своей внутренней базе — индексу, который собрал заранее. По этому индексу находятся все страницы, где встречаются нужные слова и смыслы. Таких страниц могут быть миллионы. На этом шаге задача — не выбрать лучшие, а быстро отобрать всех подходящих кандидатов.</p>
+
+<p><strong>Третий этап — ранжирование.</strong> Вот теперь из миллионов кандидатов нужно выбрать и упорядочить десятки лучших. Система прогоняет каждую страницу через множество сигналов и вычисляет для неё оценку. Именно этот этап определяет, кто окажется на первой строчке, а кто — на десятой странице, куда почти никто не заглядывает. Про сигналы подробно поговорим ниже.</p>
+
+<p><strong>Четвёртый этап — формирование выдачи.</strong> Результат — это уже не просто «десять синих ссылок». Поисковик собирает страницу из блоков: обычные ссылки, картинки, видео, карты, быстрые ответы, реклама, а в последние годы — сгенерированный нейросетью ответ прямо наверху. Что именно показать и в каком порядке — тоже решает алгоритм, исходя из того, какой формат лучше отвечает на ваш запрос.</p>
+
+<p>Всё это — от разбора запроса до готовой страницы — укладывается в сотни миллисекунд. Быстрее, чем вы успеваете моргнуть.</p>
+
+<h2 id="indeks">Индекс: картотека всего интернета</h2>
+
+<p>Чтобы отвечать мгновенно, поисковик заранее знает содержимое интернета. Это знание хранится в индексе. Понять, что это такое, проще всего по аналогии с предметным указателем в конце толстой книги: вместо того чтобы перечитывать всю книгу в поисках нужного слова, вы открываете указатель и сразу видите, на каких страницах оно встречается. Индекс поисковика — тот же указатель, только для миллиардов веб-страниц.</p>
+
+<p>Наполняют этот указатель специальные программы — их называют краулерами, пауками или ботами. Робот заходит на страницу, считывает её содержимое, находит на ней ссылки, переходит по ним на следующие страницы, и так по кругу — обход не заканчивается никогда. Интернет постоянно меняется, поэтому пауки возвращаются на уже известные страницы снова и снова, проверяя, не появилось ли новое.</p>
+
+<p>Обойти страницу — половина дела. Дальше её содержимое нужно обработать и разложить по индексу так, чтобы потом молниеносно находить. Система разбирает текст на слова и смыслы, отмечает заголовки, ссылки, картинки, оценивает структуру и тематику. По сути, для каждого значимого слова строится список: «вот все страницы, где оно встречается, и вот насколько важно оно на каждой из них». Именно к этим спискам поиск обращается в момент запроса.</p>
+
+<p>Отсюда следует практический вывод, о который спотыкаются многие владельцы сайтов. Если робот по каким-то причинам не может зайти на вашу страницу или не понимает её содержимого, она просто не попадёт в индекс. А чего нет в индексе — того нет и в выдаче. Сайт может быть прекрасным, но если он закрыт от роботов техническими ошибками, медленно грузится или сделан так, что содержимое подгружается способом, который робот не считывает, — для поиска его как будто не существует. Поэтому техническое здоровье сайта — это не про эстетику, а про сам факт присутствия в поиске.</p>
+
+<h2 id="ranzhirovanie">Ранжирование: по каким сигналам сортируется выдача</h2>
+
+<p>Самый интересный и самый закрытый этап. Точные формулы ранжирования не раскрывает ни один поисковик — это коммерческая тайна, к тому же они постоянно меняются. Но общие группы сигналов известны, и понимать их полезно, чтобы не гоняться за мифическими «секретами топа», а работать с реальными вещами.</p>
+
+<p><strong>Релевантность.</strong> Насколько содержимое страницы соответствует смыслу запроса. Раньше это сводилось к совпадению слов, теперь — к совпадению смыслов. Страница про «как выбрать надёжного подрядчика» может отлично отвечать на запрос «кому доверить ремонт», хотя дословных совпадений почти нет. Современный поиск понимает синонимы и близкие темы.</p>
+
+<p><strong>Авторитетность.</strong> Поисковик оценивает, можно ли доверять источнику. Один из старейших способов измерить доверие — ссылки: если на страницу ссылаются другие уважаемые сайты, это косвенный знак, что материал ценный. Учитывается и репутация сайта в целом, и то, насколько экспертным выглядит содержимое, особенно в чувствительных темах вроде медицины, финансов или права.</p>
+
+<p><strong>Поведение людей.</strong> Алгоритмы наблюдают, как посетители реагируют на выдачу. Если люди массово кликают на определённый результат, задерживаются на нём и не возвращаются тут же обратно за другим вариантом, — это сигнал, что страница решила их задачу. Если же они мгновенно уходят назад, поиск делает вывод, что ответ оказался неудачным.</p>
+
+<p><strong>Свежесть.</strong> Для одних запросов важна актуальность, для других — нет. По запросу «новости региона» вчерашняя страница почти бесполезна, а по запросу «как варить гречку» материал десятилетней давности так же хорош, как свежий. Поиск умеет различать эти ситуации и подмешивает свежесть там, где она нужна.</p>
+
+<p><strong>Техническое состояние сайта.</strong> Скорость загрузки, удобство на телефоне, безопасное соединение, отсутствие навязчивой рекламы, перекрывающей содержимое, — всё это влияет на оценку. Логика проста: даже релевантную страницу нет смысла показывать первой, если пользоваться ею неудобно и она раздражает.</p>
+
+<p>Важно понять главное: ни один из этих сигналов не работает в одиночку. Итоговое место — результат их сложения. Нельзя «накрутить» один параметр и оказаться в топе, если остальные проседают. Именно поэтому честная, ровная работа по всем направлениям надёжнее любых трюков — трюки алгоритмы со временем распознают и обесценивают.</p>
+
+<h2 id="kak-menyaet-ii">Как меняет поиск искусственный интеллект</h2>
+
+<p>Последние годы переписывают привычные правила. Искусственный интеллект встроился в поиск на всех уровнях — и как инструмент понимания запросов, и как способ подачи ответа.</p>
+
+<p>Сначала нейросети улучшили понимание смысла. Поиск научился разбираться в запросах, сформулированных живым языком, длинных и неаккуратных. Вы можете спросить так, как спросили бы у знакомого, и система вас поймёт — это и есть нейропоиск. Он опирается не на совпадение слов, а на близость смыслов, поэтому старая игра в «подбор ключевых слов» постепенно теряет силу.</p>
+
+<p>Затем изменилась сама подача. Появились генеративные ответы: вместо списка ссылок наверху выдачи вы всё чаще видите готовый текст, собранный нейросетью из нескольких источников. В экосистеме Яндекса это Алиса и Нейро, у других поисковиков — свои аналоги. Система читает несколько страниц, выжимает суть и сразу выдаёт вам сводку.</p>
+
+<p>Отсюда явление, которое сильно волнует владельцев сайтов, — «ответ без клика». Если пользователь получил исчерпывающий ответ прямо на странице результатов, ему незачем переходить на сайт-источник. Человек доволен: он сэкономил время. А вот сайт, из которого этот ответ был собран, не получил посетителя. Часть трафика, которая раньше доставалась сайтам, теперь остаётся внутри поисковика.</p>
+
+<p>Что это значит на практике? Ценность простого, легко копируемого содержимого падает. Если ваша страница отвечает на вопрос «сколько варить яйцо», нейросеть возьмёт этот факт и покажет его сама. А вот содержимое, которое даёт глубину, экспертизу, живой опыт, конкретные расчёты или помогает совершить действие — записаться, заказать, посчитать, — по-прежнему заставляет человека перейти. Именно поэтому появилась новая дисциплина: работа над тем, чтобы генеративные модели цитировали и рекомендовали именно ваш сайт. Её называют GEO — оптимизация под генеративные ответы. Это уже не вопрос будущего, а сегодняшняя реальность, которую разумно закладывать в стратегию. Если вы не уверены, как ваш сайт выглядит в этой новой картине, имеет смысл <a href="https://chimitdorzhi.tech/predlozheniya/">обсудить проект</a> и посмотреть на него свежим взглядом.</p>
+
+<h2 id="chto-znachit-biznesu">Что это значит для вашего бизнеса и сайта</h2>
+
+<p>Теперь переведём всё сказанное в практические выводы. Понимание устройства поиска нужно не ради любопытства, а чтобы принимать верные решения по сайту. Вот три направления, на которых стоит сосредоточиться.</p>
+
+<p><strong>Первое — техническое здоровье.</strong> Это фундамент, без которого остальное не имеет смысла. Сайт должен быстро грузиться, быть удобным на телефоне, работать по защищённому протоколу, не прятать содержимое за элементами, которые робот не читает. Если пауки не могут нормально обойти сайт, вы даже не попадёте в игру. Проверить это стоит в первую очередь, особенно если сайт делался давно и с тех пор не обновлялся.</p>
+
+<p><strong>Второе — качество содержимого.</strong> Эпоха, когда можно было напихать в текст ключевых слов и подняться в выдаче, закончилась. Сегодня выигрывает содержимое, которое реально отвечает на вопрос человека: полно, честно, с экспертизой и практической пользой. Отдельно важна тема доверия. Покажите, кто стоит за материалом, откуда взяты данные, есть ли реальный опыт. Для поиска и для людей это всё сильнее становится критерием. И помните про эффект «ответа без клика»: делайте ставку на содержимое, которое нельзя пересказать одной строкой, — глубокие разборы, кейсы, инструменты, расчёты.</p>
+
+<p><strong>Третье — двойная оптимизация: SEO и GEO.</strong> Классическое SEO (работа над тем, чтобы сайт хорошо ранжировался в обычной выдаче) никуда не делось. Но к нему добавилось GEO — забота о том, чтобы генеративные ответы опирались на ваш сайт и упоминали его. На практике эти задачи во многом пересекаются: и алгоритмам ранжирования, и нейросетям нравится ясное, структурированное, экспертное, технически исправное содержимое. Хорошая новость в том, что честная работа над сайтом улучшает позиции сразу по обоим фронтам.</p>
+
+<p>Общий принцип, который я советую держать в голове: не пытайтесь обмануть алгоритм. Поисковые системы построили десятки тысяч инженеров, их единственная цель — показывать людям лучшее. Как только вы начинаете делать сайт по-настоящему полезным и удобным, вы автоматически двигаетесь в ту же сторону, что и алгоритм. Это долгая, но самая надёжная стратегия. Если хочется разобрать конкретно ваш случай — что чинить в первую очередь и где точки роста, — можно <a href="https://chimitdorzhi.tech/predlozheniya/">обсудить проект</a> и составить понятный план действий.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+
+<p><strong>Поиск ищет по всему интернету в момент запроса?</strong> Нет. Он ищет по своему индексу — базе, которую роботы собрали заранее. Поэтому ответ приходит за доли секунды, а свежие страницы попадают в выдачу не мгновенно, а после того, как их обойдёт краулер и обработает система.</p>
+
+<p><strong>Можно ли гарантированно попасть в топ за деньги или хитрость?</strong> Гарантированно — нет, если речь про обычную (не рекламную) выдачу. Место определяется сочетанием многих сигналов, которые нельзя купить напрямую. Любой, кто обещает «первое место навсегда», либо имеет в виду платную рекламу, либо вводит в заблуждение. Реально влиять можно на качество сайта и содержимого — и это работает вдолгую.</p>
+
+<p><strong>Мой сайт есть в интернете, но его не находят. Почему?</strong> Скорее всего, он либо не попал в индекс, либо попал, но проигрывает по сигналам ранжирования. Причины бывают техническими (робот не может обойти сайт, медленная загрузка, ошибки) или содержательными (страница слабо отвечает на запрос, нет доверия, мало пользы). Начинать диагностику стоит с проверки индексации и технического состояния.</p>
+
+<p><strong>Убьют ли генеративные ответы обычные сайты?</strong> Не убьют, но изменят расклад. Простое справочное содержимое потеряет часть трафика: ответ дадут прямо в поиске. А содержимое с глубиной, экспертизой, живым опытом и возможностью совершить действие останется востребованным — за ним человек по-прежнему будет переходить. Выигрывают те, кто делает ставку на пользу, которую нельзя пересказать одной фразой.</p>
+
+<p><strong>Что важнее сегодня — SEO или GEO?</strong> Это не выбор «или — или». SEO обеспечивает позиции в обычной выдаче, GEO — присутствие в генеративных ответах. И то и другое опирается на одну основу: ясное, экспертное, технически исправное содержимое. Разумно заниматься обоими направлениями сразу, тем более что усилия во многом пересекаются.</p>
+
+<h2 id="vyvody">Выводы</h2>
+
+<p>Поиск только выглядит как магия, а на деле это последовательность понятных этапов: разбор запроса, поиск по заранее собранному индексу, ранжирование по множеству сигналов и сборка выдачи. Роботы-краулеры непрерывно обходят интернет и наполняют индекс — и если вашего сайта там нет, для поиска он не существует. Порядок результатов определяет не один параметр, а сумма релевантности, авторитета, поведения людей, свежести и технического состояния.</p>
+
+<p>Искусственный интеллект сдвинул правила: поиск лучше понимает живой язык, а генеративные ответы всё чаще решают задачу пользователя прямо на странице результатов, забирая часть трафика у сайтов. Отвечать на это стоит не паникой и не поиском волшебных кнопок, а спокойной системной работой — техническим здоровьем сайта, честным качественным содержимым и вниманием сразу к двум фронтам: SEO и GEO.</p>
+
+<p>Главный вывод простой: интересы алгоритма и интересы вашего посетителя давно сошлись. Делайте сайт по-настоящему полезным, понятным и быстрым — и вы двигаетесь туда же, куда и поисковые системы. Это медленный путь без обещаний мгновенного топа, но именно он даёт устойчивый результат. А если хочется превратить общее понимание в конкретный план по вашему сайту, всегда можно разобрать его предметно и наметить первые шаги.</p>
+
+                    </div>
+
+                    
+                    
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Что я делаю под ключ</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-code"></i> <span>Сайты и веб-приложения</span></li>
+    
+    <li><i class="ph-fill ph-robot"></i> <span>Боты в Telegram и MAX, ИИ-агенты</span></li>
+    
+    <li><i class="ph-fill ph-flow-arrow"></i> <span>Автоматизация и интеграции</span></li>
+    
+    <li><i class="ph-fill ph-shield-check"></i> <span>Безопасность и 152-ФЗ</span></li>
+    
+    <li><i class="ph-fill ph-lifebuoy"></i> <span>Внедрение и поддержка</span></li>
+    
+  </ul>
+  <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Обсудить ваш проект
+  </a>
+</div>
+                    <div class="blog-cta-card">
+                        <div class="blog-cta-card-body">
+                            <h3>Бесплатно: чек-лист «Готов ли ваш бизнес к 152-ФЗ»</h3>
+                            <p>12 пунктов, которые проверяют готовность за час: данные, согласия, уведомление в РКН, локализация, защита. Отметьте, что уже сделано, и увидите дыры, за которые сейчас штрафуют.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="/checklist-152-fz/" class="btn btn-accent"><i class="ph-fill ph-clipboard-text" aria-hidden="true"></i> Открыть чек-лист</a>
+                        </div>
+                    </div>
+                    
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/predlozheniya/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Обсудить ваш проект</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/kak-rabotayut-rekomendatelnye-algoritmy-2027/" data-category="ai-dev" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-shuffle"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>AI для разработчиков</span>
+  <h3>Как работают рекомендательные алгоритмы: почему лента будто читает мысли</h3>
+  <p>Лента будто знает, чего вы хотите, ещё до вас самих. Как это работает? Разбираю простыми словами, что учитывают рекомендательные алгоритмы, где их ловушки и как управлять своей лентой.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 30 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 7 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/geo-optimizaciya-chto-eto-2026/" data-category="geo" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-sparkle"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>GEO и AI-поиск</span>
+  <h3>GEO-оптимизация: что такое генеративная оптимизация и зачем она бизнесу в 2026</h3>
+  <p>Поиск переезжает в ответы нейросетей, и привычное SEO перестаёт работать в одиночку. Разбираю, что такое GEO, как ИИ выбирают источники и с чего начать, чтобы вас цитировали ChatGPT, Perplexity и Алиса.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 3 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 13 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/kontent-kotoryy-citiruyut-ii-2026/" data-category="geo" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-quotes"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>GEO и AI-поиск</span>
+  <h3>Контент, который ИИ цитируют дословно: TL;DR, FAQ, таблицы, определения</h3>
+  <p>Нейросети не цитируют всё подряд — они извлекают самодостаточные фрагменты. Показываю, как оформлять контент (TL;DR, FAQ, таблицы, определения), чтобы ИИ брал именно ваш текст.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 3 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 13 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    
+                    
+                    
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовые решения под ключ</span>
+                            <span class="blog-offer-cta-title">449 готовых IT-решений для бизнеса</span>
+                            <span class="blog-offer-cta-price">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Смотреть каталог</span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#chto-proishodit"><span class="blog-toc-num">01</span> Что происходит при запросе</a></li>
+<li><a href="#indeks"><span class="blog-toc-num">02</span> Индекс и краулеры</a></li>
+<li><a href="#ranzhirovanie"><span class="blog-toc-num">03</span> Как работает ранжирование</a></li>
+<li><a href="#kak-menyaet-ii"><span class="blog-toc-num">04</span> Как поиск меняют нейросети</a></li>
+<li><a href="#chto-znachit-biznesu"><span class="blog-toc-num">05</span> Что это значит для бизнеса</a></li>
+<li><a href="#faq"><span class="blog-toc-num">06</span> FAQ</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">07</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=23" defer></script>
+<script src="/services-i18n.js?v=23" defer></script>
+<script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>
