@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **924**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **931**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -770,6 +770,8 @@
 
 - [Как сделать платёжного бота в MAX и не застрять на публикации](./kak-sdelat-platezhnogo-bota-v-max-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-sdelat-platezhnogo-bota-v-max-2027/)
 - [Реферальная механика в MAX: deep links, проверка подписки и антифрод (разбор кейса)](./referalnaya-mehanika-v-max-keys-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/referalnaya-mehanika-v-max-keys-2027/)
+- [Как технически устроен выпуск ЦФА: блокчейн-платформа, смарт-контракты и учёт](./kak-ustroen-vypusk-cfa-tehnicheski-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-ustroen-vypusk-cfa-tehnicheski-2027/)
+- [Токенизация реальных активов: как «оцифровать» недвижимость, металл или дебиторку](./tokenizaciya-realnyh-aktivov-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/tokenizaciya-realnyh-aktivov-2027/)
 - [Заказать Telegram-бота для бизнеса: что входит, сроки и от чего зависит цена](./zakazat-telegram-bota-cena-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zakazat-telegram-bota-cena-2027/)
 - [Заказать автоматизацию бизнеса под ключ: с чего начать и сколько стоит](./zakazat-avtomatizaciyu-biznesa-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zakazat-avtomatizaciyu-biznesa-2027/)
 - [Внедрить ИИ в бизнес под ключ: что входит, сроки и стоимость](./vnedrit-ii-pod-klyuch-cena-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vnedrit-ii-pod-klyuch-cena-2027/)
@@ -876,6 +878,11 @@
 - [54-ФЗ для приёма оплаты: что нужно самозанятому, ИП и ООО](./54-fz-dlya-platezhey-samozanyatyy-ip-ooo-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/54-fz-dlya-platezhey-samozanyatyy-ip-ooo-2027/)
 - [ЦФА или криптовалюта: что легально для бизнеса в России и в чём разница](./cfa-vs-kriptovalyuta-biznes-rf-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/cfa-vs-kriptovalyuta-biznes-rf-2027/)
 - [Цифровой рубль для бизнеса: что меняется технически и как к этому готовиться](./cifrovoy-rubl-dlya-biznesa-tehnicheski-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/cifrovoy-rubl-dlya-biznesa-tehnicheski-2027/)
+- [Как бизнесу привлечь финансирование через ЦФА: альтернатива кредиту и облигациям](./privlech-finansirovanie-cherez-cfa-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/privlech-finansirovanie-cherez-cfa-2027/)
+- [Операторы информсистем ЦФА в России: кто выпускает цифровые активы и как выбрать площадку](./operatory-informsistem-cfa-rossiya-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/operatory-informsistem-cfa-rossiya-2027/)
+- [Виды ЦФА на примерах: долговые, на металлы, на недвижимость и в валюте](./vidy-cfa-na-primerah-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vidy-cfa-na-primerah-2027/)
+- [ЦФА, облигации или краудлендинг: чем отличается привлечение денег для бизнеса](./cfa-vs-obligacii-vs-kraudlending-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/cfa-vs-obligacii-vs-kraudlending-2027/)
+- [Кто может покупать ЦФА: квалифицированные и неквалифицированные инвесторы и лимиты](./kto-mozhet-pokupat-cfa-kvaly-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kto-mozhet-pokupat-cfa-kvaly-2027/)
 - [Приём оплаты из-за рубежа в 2026: какие способы есть у бизнеса и фрилансера](./priem-oplaty-iz-za-rubezha-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/priem-oplaty-iz-za-rubezha-2026/)
 - [Грант на ИИ-проект: конкурс «Развитие-Искусственный интеллект» Фонда содействия инновациям](./grant-na-ii-proekt-razvitie-ii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/grant-na-ii-proekt-razvitie-ii-2026/)
 - [Меры поддержки креативных индустрий Дальнего Востока в 2026](./podderzhka-kreativnyh-industriy-dfo-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/podderzhka-kreativnyh-industriy-dfo-2026/)
