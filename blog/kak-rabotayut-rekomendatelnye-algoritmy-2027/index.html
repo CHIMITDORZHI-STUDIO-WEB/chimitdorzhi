@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Как работают рекомендательные алгоритмы</title>
+    <meta name="description" content="Как работают рекомендательные алгоритмы простыми словами: почему лента соцсетей и маркетплейсов будто читает ваши мысли, что именно учитывают алгоритмы, в чём…">
+    <meta name="keywords" content="алгоритмы, рекомендации, соцсети, научпоп">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/kak-rabotayut-rekomendatelnye-algoritmy-2027/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/kak-rabotayut-rekomendatelnye-algoritmy-2027/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/kak-rabotayut-rekomendatelnye-algoritmy-2027/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/kak-rabotayut-rekomendatelnye-algoritmy-2027/">
+    <meta property="og:title" content="Как работают рекомендательные алгоритмы">
+    <meta property="og:description" content="Как работают рекомендательные алгоритмы простыми словами: почему лента соцсетей и маркетплейсов будто читает ваши мысли, что именно учитывают алгоритмы, в чём…">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/kak-rabotayut-rekomendatelnye-algoritmy-2027/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Как работают рекомендательные алгоритмы">
+    <meta name="twitter:description" content="Как работают рекомендательные алгоритмы простыми словами: почему лента соцсетей и маркетплейсов будто читает ваши мысли, что именно учитывают алгоритмы, в чём…">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/kak-rabotayut-rekomendatelnye-algoritmy-2027/cover.png">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor-Fill.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=45">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Как работают рекомендательные алгоритмы: почему лента будто читает мысли",
+  "description": "Как работают рекомендательные алгоритмы простыми словами: почему лента соцсетей и маркетплейсов будто читает ваши мысли, что именно учитывают алгоритмы, в чём их плюсы и ловушки и как управлять своей лентой. Понятный разбор без формул.",
+  "image": "https://chimitdorzhi.tech/blog/kak-rabotayut-rekomendatelnye-algoritmy-2027/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/kak-rabotayut-rekomendatelnye-algoritmy-2027/"
+  },
+  "datePublished": "2026-06-30",
+  "dateModified": "2026-06-30",
+  "keywords": "алгоритмы, рекомендации, соцсети, научпоп",
+  "articleSection": "AI для разработчиков",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Как работают рекомендательные алгоритмы: почему лента будто читает мысли",
+      "item": "https://chimitdorzhi.tech/blog/kak-rabotayut-rekomendatelnye-algoritmy-2027/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Правда ли, что телефон подслушивает разговоры для рекламы?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "В подавляющем большинстве случаев нет. Постоянная запись и распознавание речи требовали бы огромных ресурсов, заметно сажали бы батарею и генерировали бы трафик, который давно бы вычислили. Ощущение подслушивания создают другие, гораздо более мощные источники: история поиска, посещённые сайты, геолокация, действия людей из вашего окружения и статистические совпадения с похожими на вас пользователями. Этого достаточно, чтобы попадать в цель пугающе точно."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Почему после одной случайной покупки лента месяц показывает одно и то же?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Потому что явное действие вроде покупки или заказа — очень сильный сигнал, и система переоценивает его вес. Она решает, что тема для вас важна, и раскручивает её. Лечится это негативными сигналами: жмите «не интересно», отписывайтесь от таких категорий, при возможности удалите соответствующую запись из истории. Через несколько дней активных сигналов лента перестроится."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли полностью отключить рекомендации и видеть всё подряд?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Частично. Многие сервисы позволяют переключиться в хронологическую ленту, показать только подписки или отключить персонализированную рекламу. Полностью убрать любую сортировку почти невозможно, потому что каталог слишком велик и какой-то отбор всё равно нужен. Но снизить степень персонализации и вернуть себе больше контроля реально почти везде — загляните в настройки ленты и конфиденциальности."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Рекомендательные алгоритмы — это уже искусственный интеллект?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "И да, и нет. Современные рекомендательные системы используют машинное обучение и нейросети, так что формально это часть той же области. Но это узкоспециализированный инструмент: он не понимает смысла контента как человек и не мыслит. Он очень хорошо решает одну конкретную задачу — предсказывает вероятность вашей реакции по прошлым данным. Никакого сознания или намерений за этим нет, только статистика на огромных объёмах."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Вредно ли пользоваться лентами, или это нормально?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Сами по себе рекомендации нейтральны — это просто инструмент. Проблемы начинаются, когда вы теряете контроль: залипаете против воли, чувствуете тревогу, не можете оторваться. Здоровый подход в том, чтобы пользоваться осознанно: понимать механику, подавать алгоритму нужные сигналы, ставить границы по времени. Тогда лента остаётся тем, чем должна быть, — удобным помощником, а не поглотителем вашего внимания."
+      }
+    }
+  ]
+}
+    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+var inject=function(){for (var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)};
+var run=function(){('requestIdleCallback' in window)?requestIdleCallback(inject,{timeout:5000}):setTimeout(inject,3000)};
+(e.readyState==='complete')?run():m.addEventListener('load',run);})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109281884" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+            <li><a href="/#services" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li class="nav-dropdown">
+                <a href="/#projects" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--arey"><i class="ph-fill ph-vinyl-record" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-airplane-tilt" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#cases" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            </div>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/#about">Обо мне</a></li>
+        <li><a href="/#services">Услуги</a></li>
+        <li><a href="/services/">Каталог услуг</a></li>
+        <li><a href="/predlozheniya/">Предложения</a></li>
+        <li><a href="/#cases">Кейсы</a></li>
+        <li><a href="/blog/">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+        <li><a href="/#contact">Контакт</a></li>
+    </ul>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Как работают рекомендательные алгоритмы: почему лента будто читает мысли</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/ai-dev/"><i class="ph ph-bookmark" aria-hidden="true"></i> AI для разработчиков</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 7 мин чтения</span>
+                        <time datetime="2026-06-30"><i class="ph ph-calendar" aria-hidden="true"></i> 30 июня 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Как работают рекомендательные алгоритмы: почему лента будто читает мысли</h1>
+
+                    <p class="blog-lead">Лента будто знает, чего вы хотите, ещё до вас самих. Как это работает? Разбираю простыми словами, что учитывают рекомендательные алгоритмы, где их ловушки и как управлять своей лентой.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>алгоритмы</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>рекомендации</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>соцсети</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>научпоп</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr">
+  <p><strong>Коротко о главном:</strong></p>
+  <ul>
+    <li>Рекомендательный алгоритм не читает мысли, а угадывает вероятность вашей реакции по огромному массиву прошлых действий: ваших и миллионов похожих людей.</li>
+    <li>В основе лежат две простые идеи: похожим на вас пользователям нравится похожий контент, а сам контент можно описать набором признаков и сопоставить с вашими интересами.</li>
+    <li>Система учится на каждом вашем движении: не только на лайках, но и на времени просмотра, паузах, дочитываниях, отписках и даже времени суток.</li>
+    <li>Удобство ленты оборачивается ловушками: пузырём фильтров, залипанием и борьбой платформ за ваше внимание любой ценой.</li>
+    <li>Лентой можно управлять: осознанные сигналы, кнопка «не интересно», чистка истории и подписки возвращают вам контроль над тем, что вы видите.</li>
+  </ul>
+</div>
+
+<p>Вы наверняка ловили себя на этом ощущении: только подумали о новых кроссовках или о поездке в горы, а лента уже показывает именно их. Кажется, будто телефон подслушивает или читает мысли. На самом деле всё гораздо прозаичнее и одновременно интереснее. За «магией» стоит математика, статистика и огромный объём данных о вашем поведении и поведении миллионов других людей.</p>
+
+<p>В этой статье я разберу на пальцах, как устроены рекомендательные системы, какие сигналы они собирают, почему лента бывает такой затягивающей и, главное, как вернуть себе контроль над тем, что вы видите каждый день. Без формул и сложных терминов, но по существу.</p>
+
+<h2 id="chto-eto">Что такое рекомендательные системы</h2>
+
+<p>Рекомендательная система — это программа, которая из гигантского каталога выбирает для вас несколько объектов, которые с наибольшей вероятностью вам понравятся или окажутся полезными. Каталог может быть каким угодно: ролики, статьи, товары, музыкальные треки, посты друзей и незнакомцев, вакансии, попутчики. Задача всегда одна: показать нужное здесь и сейчас, не заставляя вас искать это вручную.</p>
+
+<p>Вы сталкиваетесь с такими системами буквально каждый день, даже если не задумываетесь об этом. Лента социальной сети решает, чей пост показать вам первым. Видеосервис подбирает следующий ролик и выстраивает бесконечную рекомендательную стену. Маркетплейс на главной странице раскладывает товары так, чтобы вы что-то купили. Музыкальный сервис собирает персональный плейлист из треков, которые вы ещё ни разу не слышали, но которые вам, скорее всего, зайдут.</p>
+
+<p>Почему это вообще понадобилось? Потому что выбора стало слишком много. На крупном видеосервисе загружаются сотни тысяч часов контента в сутки, в большом магазине — десятки миллионов товаров. Ни один человек не способен просмотреть даже сотую долю этого. Рекомендательная система выступает фильтром, который сокращает бесконечность до десятка вариантов, помещающихся на экране. Именно поэтому она стала сердцем почти любого крупного цифрового продукта: без неё пользователь просто утонет в изобилии и уйдёт.</p>
+
+<p>Важно понимать: у платформы и у вас цели совпадают лишь частично. Вам нужно, чтобы было интересно и полезно. Платформе нужно, чтобы вы проводили больше времени, чаще возвращались и совершали целевые действия — покупки, подписки, просмотры рекламы. Эти цели часто идут рука об руку, но иногда расходятся. Понимание этого расхождения — ключ ко всему, что будет дальше.</p>
+
+<h2 id="kak-rabotaet">Как это работает на пальцах</h2>
+
+<p>Представьте огромную таблицу. По строкам — пользователи, по столбцам — все объекты каталога, а в клетках — оценки: понравилось, не понравилось, досмотрел, пропустил. Проблема в том, что таблица почти пустая: каждый человек взаимодействовал с ничтожной долей контента. Вся задача рекомендательной системы — угадать, что стояло бы в пустых клетках. Как бы вы оценили тот ролик, который ещё не видели? Вот это она и предсказывает.</p>
+
+<p>Первый большой подход — коллаборативная фильтрация, то есть «совместная». Логика простая и очень человеческая: найдём людей, чьи вкусы похожи на ваши, и порекомендуем то, что понравилось им, но чего вы ещё не видели. Если вы и ещё тысяча человек одинаково реагировали на сотню роликов, а потом эта тысяча пришла в восторг от нового видео, велика вероятность, что и вам оно зайдёт. Отсюда знаменитое «с этим товаром часто покупают» и «пользователи, похожие на вас, слушали».</p>
+
+<p>Красота коллаборативной фильтрации в том, что системе не нужно понимать сам контент. Ей всё равно, о чём ролик и на каком языке песня. Она смотрит только на паттерны совпадений между людьми. Но у этого подхода есть слабое место: новому объекту, у которого ещё нет истории оценок, нечего показать. И новому пользователю, о котором система ничего не знает, тоже сложно что-то предложить. Это называют проблемой холодного старта.</p>
+
+<p>Тут на помощь приходит второй подход — контентные признаки. Каждый объект описывается набором характеристик. У ролика это тема, длительность, автор, теги, язык, темп монтажа. У товара — категория, цена, бренд, цвет. У песни — жанр, темп, настроение, инструменты. Система строит профиль ваших предпочтений в терминах этих признаков: вы любите короткие ролики про технологии, недорогие товары определённого бренда, спокойную электронную музыку. И подбирает новое по совпадению признаков, даже если у объекта пока нет истории.</p>
+
+<p>На практике современные системы объединяют оба подхода и добавляют поведенческие сигналы. Они не просто спрашивают «понравилось или нет», а следят за десятками мелких реакций в реальном времени. И самое важное: система постоянно обучается. Каждый раз, когда она вам что-то показала, а вы отреагировали, это становится новым уроком. Угадала — закрепляет успех, промахнулась — корректирует модель. Этот цикл «показали — измерили реакцию — обновили модель» крутится непрерывно, миллиарды раз в сутки. Именно поэтому лента со временем становится всё точнее: она в буквальном смысле тренируется на вас.</p>
+
+<p>Отдельно стоит сказать про ранжирование. Даже отобрав пару тысяч кандидатов, система должна решить, в каком порядке их показать, ведь первые позиции получают больше всего внимания. Здесь отдельная модель оценивает для каждого кандидата вероятность того, что вы кликнете, досмотрите, поставите реакцию, и выстраивает всё по убыванию ожидаемой ценности. То, что вы видите сверху ленты, — это не случайность, а тщательно рассчитанная ставка алгоритма на вашу реакцию.</p>
+
+<h2 id="chto-uchityvaet">Что именно учитывает алгоритм</h2>
+
+<p>Многие думают, что алгоритм ориентируется в основном на лайки. На деле лайк — лишь верхушка айсберга и далеко не самый честный сигнал: люди ставят его редко и не всегда искренне. Гораздо больше информации система черпает из вашего пассивного, неосознанного поведения, которое вы даже не замечаете.</p>
+
+<p>Вот основные группы сигналов, которые собираются почти на любой платформе:</p>
+
+<ul>
+  <li><strong>Просмотры и клики.</strong> Сам факт того, что вы остановились и открыли объект, — уже сигнал интереса, пусть и слабый.</li>
+  <li><strong>Время взаимодействия.</strong> Досмотрели ли вы ролик до конца или пролистнули на третьей секунде. Сколько минут провели над постом. Это один из самых сильных сигналов, потому что временем не соврёшь.</li>
+  <li><strong>Дочитывания и глубина.</strong> Долистали ли статью до конца, докрутили ли карточки товара, развернули ли комментарии. Глубина погружения говорит о реальной вовлечённости.</li>
+  <li><strong>Паузы и скорость прокрутки.</strong> Задержались ли вы взглядом на конкретном кадре, замедлили ли пролистывание. Даже микроостановка на пару секунд фиксируется и трактуется как интерес.</li>
+  <li><strong>Явные реакции.</strong> Лайки, сохранения, репосты, комментарии, покупки. Сохранение и репост часто ценятся выше лайка: они означают, что контент для вас достаточно ценен, чтобы вернуться или поделиться.</li>
+  <li><strong>Негативные сигналы.</strong> Быстрый пропуск, скрытие, жалоба, отписка, нажатие «не интересно». Это прямые указания алгоритму убрать подобное.</li>
+</ul>
+
+<p>Поверх этого накладывается контекст, и он важнее, чем кажется. Время суток: утром вы читаете новости, вечером смотрите развлекательное. День недели: в выходные поведение другое. Устройство: с телефона в дороге вы потребляете короткое, с большого экрана дома — длинное. Даже тип подключения и уровень заряда иногда учитываются, чтобы не подсунуть тяжёлое видео там, где связь слабая.</p>
+
+<p>Из всех этих сигналов складывается ваш цифровой портрет — не то, что вы о себе говорите, а то, как вы себя реально ведёте. И вот здесь кроется разгадка ощущения, будто телефон подслушивает. Он не подслушивает. Просто вы, скорее всего, недавно искали что-то в поиске, задержались на паре роликов по теме или зашли на сайт с похожим товаром. А ещё тысячи людей с похожим на ваш поведением интересовались тем же примерно в то же время. Алгоритм сложил эти сигналы и сделал ставку. Она оказалась точной — и вам стало не по себе. Но это статистика, а не телепатия.</p>
+
+<h2 id="plyusy-lovushki">Плюсы и ловушки</h2>
+
+<p>Будет нечестно рисовать рекомендательные системы одной чёрной краской. Пользы в них действительно много. Они экономят время: не нужно вручную перебирать миллионы вариантов. Они помогают открывать новое — музыку, авторов, темы, до которых вы сами вряд ли бы добрались. Для небольших авторов и продавцов это шанс быть замеченными без огромных рекламных бюджетов: хороший контент алгоритм может вынести в топ сам. Всё это реальные, ощутимые преимущества.</p>
+
+<p>Но у той же медали есть обратная сторона, и о ней важно говорить прямо.</p>
+
+<p>Первая ловушка — пузырь фильтров. Раз система показывает то, что вам уже нравится, она постепенно сужает картину мира. Вы всё чаще видите созвучные вам мнения, товары одного ценового сегмента, музыку одного настроения. Альтернативные точки зрения и новые категории вымываются из ленты просто потому, что вы на них реже реагировали. Со временем можно оказаться в уютном, но тесном мирке, где кажется, что все думают и покупают так же, как вы.</p>
+
+<p>Вторая ловушка — залипание. Механизм бесконечной ленты и автовоспроизведения устроен так, чтобы вы не находили естественной точки остановки. Досмотрел ролик — тут же играет следующий, ещё точнее подобранный. Каждый следующий объект чуть-чуть интереснее предыдущего, потому что алгоритм подстраивается на лету. В итоге «загляну на пять минут» превращается в час, а вы даже не заметили, как он прошёл.</p>
+
+<p>Третья, самая тонкая ловушка — манипуляция вниманием. Здесь и всплывает то расхождение целей, о котором я говорил в начале. Если платформа оптимизирует чистое время в приложении, алгоритм невольно начинает поощрять контент, который цепляет сильнее всего: тревожный, возмущающий, поляризующий. Не потому что кто-то злонамеренно хочет вас расстроить, а потому что такой контент статистически удерживает лучше спокойного и вдумчивого. Ваше внимание становится товаром, а сильные эмоции — способом его удержать. Понимание этого механизма — уже половина защиты от него.</p>
+
+<h2 id="kak-upravlyat">Как управлять своей лентой</h2>
+
+<p>Хорошая новость в том, что вы не пассивный получатель. Раз алгоритм учится на ваших действиях, вы можете осознанно подавать ему правильные сигналы и перенастроить ленту под себя. Это не мгновенно, но работает. Вот что реально помогает.</p>
+
+<ul>
+  <li><strong>Пользуйтесь кнопкой «не интересно».</strong> Это самый прямой канал связи с алгоритмом. Каждое такое нажатие — чёткое указание убрать подобный контент. Не ленитесь его использовать, когда что-то раздражает или не нужно.</li>
+  <li><strong>Осознанно управляйте временем просмотра.</strong> Помните, что время — сильнейший сигнал. Если вы не хотите видеть больше похожего, не досматривайте и не задерживайтесь, даже если контент цепляет. И наоборот: досматривайте до конца то, чего хотите больше.</li>
+  <li><strong>Активно подписывайтесь и отписывайтесь.</strong> Явные подписки — самый честный способ сказать системе, что вам действительно интересно. А отписка от того, что вы переросли, чистит ленту эффективнее любых лайков.</li>
+  <li><strong>Сохраняйте ценное.</strong> Сохранения и репосты система ценит высоко. Сохраняя то, к чему хотите вернуться, вы одновременно и делаете закладку, и учите алгоритм.</li>
+  <li><strong>Чистите историю просмотров и поиска.</strong> Во многих сервисах можно удалить отдельные записи или всю историю. Это сбрасывает случайно набранные интересы: посмотрели что-то один раз для друга, а лента месяц долбит этой темой. Удалите запись — и сигнал уйдёт.</li>
+  <li><strong>Проверяйте настройки персонализации.</strong> В большинстве приложений есть раздел, где можно ограничить сбор данных, отключить персонализацию рекламы или сбросить рекомендательный профиль. Загляните туда хотя бы раз.</li>
+</ul>
+
+<p>Но настройки — это только полдела. Вторая половина — цифровая осознанность, то есть привычка замечать, что происходит с вашим вниманием. Полезно время от времени задавать себе простой вопрос: я сейчас смотрю это, потому что мне правда интересно, или потому что меня удачно подцепили? Уже сама эта пауза разрывает автоматизм.</p>
+
+<p>Работают и бытовые приёмы: отключить автовоспроизведение, убрать лишние уведомления, которые затягивают обратно в приложение, поставить себе мягкий лимит времени. Смысл не в том, чтобы отказаться от лент — они удобны и полезны. Смысл в том, чтобы вы управляли алгоритмом, а не он вами. Инструмент должен работать на вас, а не наоборот.</p>
+
+<p>Если вы делаете цифровой продукт и хотите выстроить рекомендации, которые удерживают пользователя пользой, а не манипуляцией, — это отдельная и очень интересная инженерная задача. Такие вещи можно спроектировать честно, и при желании можно <a href="https://chimitdorzhi.tech/predlozheniya/">обсудить проект</a> под вашу задачу.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+
+<p><strong>Правда ли, что телефон подслушивает разговоры для рекламы?</strong> В подавляющем большинстве случаев нет. Постоянная запись и распознавание речи требовали бы огромных ресурсов, заметно сажали бы батарею и генерировали бы трафик, который давно бы вычислили. Ощущение подслушивания создают другие, гораздо более мощные источники: история поиска, посещённые сайты, геолокация, действия людей из вашего окружения и статистические совпадения с похожими на вас пользователями. Этого достаточно, чтобы попадать в цель пугающе точно.</p>
+
+<p><strong>Почему после одной случайной покупки лента месяц показывает одно и то же?</strong> Потому что явное действие вроде покупки или заказа — очень сильный сигнал, и система переоценивает его вес. Она решает, что тема для вас важна, и раскручивает её. Лечится это негативными сигналами: жмите «не интересно», отписывайтесь от таких категорий, при возможности удалите соответствующую запись из истории. Через несколько дней активных сигналов лента перестроится.</p>
+
+<p><strong>Можно ли полностью отключить рекомендации и видеть всё подряд?</strong> Частично. Многие сервисы позволяют переключиться в хронологическую ленту, показать только подписки или отключить персонализированную рекламу. Полностью убрать любую сортировку почти невозможно, потому что каталог слишком велик и какой-то отбор всё равно нужен. Но снизить степень персонализации и вернуть себе больше контроля реально почти везде — загляните в настройки ленты и конфиденциальности.</p>
+
+<p><strong>Рекомендательные алгоритмы — это уже искусственный интеллект?</strong> И да, и нет. Современные рекомендательные системы используют машинное обучение и нейросети, так что формально это часть той же области. Но это узкоспециализированный инструмент: он не понимает смысла контента как человек и не мыслит. Он очень хорошо решает одну конкретную задачу — предсказывает вероятность вашей реакции по прошлым данным. Никакого сознания или намерений за этим нет, только статистика на огромных объёмах.</p>
+
+<p><strong>Вредно ли пользоваться лентами, или это нормально?</strong> Сами по себе рекомендации нейтральны — это просто инструмент. Проблемы начинаются, когда вы теряете контроль: залипаете против воли, чувствуете тревогу, не можете оторваться. Здоровый подход в том, чтобы пользоваться осознанно: понимать механику, подавать алгоритму нужные сигналы, ставить границы по времени. Тогда лента остаётся тем, чем должна быть, — удобным помощником, а не поглотителем вашего внимания.</p>
+
+<h2 id="vyvody">Выводы</h2>
+
+<p>Рекомендательные алгоритмы кажутся волшебством ровно до того момента, пока вы не понимаете их устройство. За ощущением, что лента читает мысли, стоит не телепатия, а холодный расчёт: система собирает сотни мелких сигналов о вашем поведении, сравнивает вас с миллионами похожих людей и делает статистическую ставку на то, что вам понравится. Иногда она промахивается, но за счёт непрерывного обучения на ваших реакциях попадает всё чаще.</p>
+
+<p>Понимание этой механики меняет ваши отношения с технологией. Вы перестаёте быть просто топливом для чужого счётчика вовлечённости и становитесь тем, кто осознанно настраивает инструмент под себя. Пузырь фильтров, залипание, борьба за внимание — всё это реальные риски, но они перестают быть ловушками, как только вы их видите и знаете, какие рычаги в ваших руках.</p>
+
+<p>Мой главный совет простой: относитесь к ленте как к сотруднику, которого вы обучаете. Подавайте ему честные сигналы, поправляйте, когда он ошибается, и не позволяйте ему подменять ваши собственные интересы своими метриками. Тогда рекомендации будут работать на вас. А если вы строите собственный цифровой продукт и хотите, чтобы персонализация в нём была честной и полезной, — приходите <a href="https://chimitdorzhi.tech/predlozheniya/">обсудить проект</a>.</p>
+
+                    </div>
+
+                    
+                    
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Что я делаю под ключ</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-code"></i> <span>Сайты и веб-приложения</span></li>
+    
+    <li><i class="ph-fill ph-robot"></i> <span>Боты в Telegram и MAX, ИИ-агенты</span></li>
+    
+    <li><i class="ph-fill ph-flow-arrow"></i> <span>Автоматизация и интеграции</span></li>
+    
+    <li><i class="ph-fill ph-shield-check"></i> <span>Безопасность и 152-ФЗ</span></li>
+    
+    <li><i class="ph-fill ph-lifebuoy"></i> <span>Внедрение и поддержка</span></li>
+    
+  </ul>
+  <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Обсудить ваш проект
+  </a>
+</div>
+                    <div class="blog-cta-card">
+                        <div class="blog-cta-card-body">
+                            <h3>Бесплатно: чек-лист «Готов ли ваш бизнес к 152-ФЗ»</h3>
+                            <p>12 пунктов, которые проверяют готовность за час: данные, согласия, уведомление в РКН, локализация, защита. Отметьте, что уже сделано, и увидите дыры, за которые сейчас штрафуют.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="/checklist-152-fz/" class="btn btn-accent"><i class="ph-fill ph-clipboard-text" aria-hidden="true"></i> Открыть чек-лист</a>
+                        </div>
+                    </div>
+                    
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/predlozheniya/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Обсудить ваш проект</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/kak-ustroen-poisk-iznutri-2027/" data-category="expert" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-magnifying-glass"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Экспертный блог</span>
+  <h3>Как устроен поиск изнутри: что решает, кто окажется в топе</h3>
+  <p>Вы вводите запрос — и за долю секунды получаете миллионы ответов в нужном порядке. Как это устроено? Разбираю простыми словами индекс, ранжирование и то, как поиск меняет ИИ.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 30 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 7 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/cifrovoy-detoks-produktivnost-2027/" data-category="ai-life" data-clicks="0">
+  <span class="blog-card-fresh">Свежее</span>
+  <div class="blog-card-icon"><i class="ph-fill ph-brain"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>AI для жизни и работы</span>
+  <h3>Цифровой детокс и продуктивность: меньше экрана — больше сделано</h3>
+  <p>Постоянные уведомления и бесконечная лента крадут внимание незаметно. Разбираю без фанатизма, как перегрузка бьёт по продуктивности и какие простые шаги помогают вернуть фокус.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 30 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 7 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/seo-internet-magazina-yandex-30-hakov-2026/" data-category="marketing" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-magnifying-glass-plus"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Маркетинг и контент</span>
+  <h3>SEO для интернет-магазина в Яндексе 2026: 30 хаков от практика</h3>
+  <p>30 конкретных SEO-хаков для интернет-магазина под Яндекс 2026: технический SEO, карточки товара, категории и навигация, блог, аналитика и Я.Вебмастер. Прирост органики 30-70% за 3 месяца.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 21 мая 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 23 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    
+                    
+                    
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовые решения под ключ</span>
+                            <span class="blog-offer-cta-title">449 готовых IT-решений для бизнеса</span>
+                            <span class="blog-offer-cta-price">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Смотреть каталог</span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#chto-eto"><span class="blog-toc-num">01</span> Что такое рекомендательный алгоритм</a></li>
+<li><a href="#kak-rabotaet"><span class="blog-toc-num">02</span> Как он работает</a></li>
+<li><a href="#chto-uchityvaet"><span class="blog-toc-num">03</span> Что именно учитывается</a></li>
+<li><a href="#plyusy-lovushki"><span class="blog-toc-num">04</span> Плюсы и ловушки</a></li>
+<li><a href="#kak-upravlyat"><span class="blog-toc-num">05</span> Как управлять своей лентой</a></li>
+<li><a href="#faq"><span class="blog-toc-num">06</span> FAQ</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">07</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=23" defer></script>
+<script src="/services-i18n.js?v=23" defer></script>
+<script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>
