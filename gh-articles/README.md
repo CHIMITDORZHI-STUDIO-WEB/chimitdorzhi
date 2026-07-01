@@ -2,10 +2,11 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **932**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **945**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
+- [Цифровой детокс и продуктивность: меньше экрана — больше сделано](./cifrovoy-detoks-produktivnost-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/cifrovoy-detoks-produktivnost-2027/)
 - [ИИ для интернет-магазина: карточки и описания товаров пачкой](./ii-dlya-internet-magazina-kartochki-tovarov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-dlya-internet-magazina-kartochki-tovarov-2026/)
 - [ИИ для управления личными финансами: как навести порядок в деньгах](./ii-dlya-lichnyh-finansov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-dlya-lichnyh-finansov-2026/)
 - [Заработок на нейросетях: реальные способы для новичка 2026](./zarabotok-na-neyrosetyah-novichku-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zarabotok-na-neyrosetyah-novichku-2026/)
@@ -22,6 +23,8 @@
 
 ## AI для разработчиков
 
+- [Синтетические данные: на чём учат ИИ, когда реальных данных мало](./sinteticheskie-dannye-dlya-ii-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sinteticheskie-dannye-dlya-ii-2027/)
+- [Как работают рекомендательные алгоритмы: почему лента будто читает мысли](./kak-rabotayut-rekomendatelnye-algoritmy-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-rabotayut-rekomendatelnye-algoritmy-2027/)
 - [Как оценить качество ИИ-бота: метод LLM-as-Judge простыми словами](./kak-ocenit-kachestvo-ii-bota-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-ocenit-kachestvo-ii-bota-2027/)
 - [Сколько железа нужно локальному ИИ: GPU, RAM, VRAM по моделям](./skolko-zheleza-nuzhno-lokalnomu-ii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-zheleza-nuzhno-lokalnomu-ii-2026/)
 - [ИИ-агент для онлайн-записи на услуги: бот, который сам записывает клиентов](./ai-agent-onlayn-zapis-na-uslugi-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ai-agent-onlayn-zapis-na-uslugi-2026/)
@@ -290,6 +293,8 @@
 ## Безопасность
 
 - [AML и KYC как ИТ-задача: как автоматизировать проверку клиентов](./aml-kyc-avtomatizaciya-proverki-klientov-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/aml-kyc-avtomatizaciya-proverki-klientov-2027/)
+- [Как работает шифрование простыми словами: от переписки до платежей](./kak-rabotaet-shifrovanie-prostymi-slovami-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-rabotaet-shifrovanie-prostymi-slovami-2027/)
+- [Цифровая гигиена подростка: как защитить, не запрещая](./cifrovaya-gigiena-podrostka-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/cifrovaya-gigiena-podrostka-2027/)
 - [Кибербезопасность удалённой команды: доступы, устройства и утечки](./kiberbezopasnost-udalennoy-komandy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kiberbezopasnost-udalennoy-komandy-2026/)
 - [Что делать при утечке данных: план реагирования для бизнеса](./plan-na-sluchay-utechki-dannyh-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/plan-na-sluchay-utechki-dannyh-2026/)
 - [Угон аккаунта Telegram и MAX: как защититься и что делать, если взломали](./ugon-akkaunta-telegram-max-zashchita-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ugon-akkaunta-telegram-max-zashchita-2026/)
@@ -584,6 +589,7 @@
 
 ## Медиа
 
+- [Голограммы и цифровые ведущие для мероприятий: как это работает](./gologrammy-cifrovye-vedushchie-meropriyatiya-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gologrammy-cifrovye-vedushchie-meropriyatiya-2027/)
 - [OSINT для расследований и журналистики: методы и этика](./osint-dlya-rassledovaniy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/osint-dlya-rassledovaniy-2026/)
 - [Гибридная конференция: онлайн и офлайн на российском стеке](./gibridnaya-konferenciya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gibridnaya-konferenciya-2026/)
 - [Бизнес на контенте: каналы, медиа и платный доступ — идеи 2026](./biznes-na-kontente-platnyy-dostup-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/biznes-na-kontente-platnyy-dostup-2026/)
@@ -902,6 +908,13 @@
 - [Фиксированная цена или почасовка: как платить за разработку и не переплатить](./fiksirovannaya-cena-vs-pochasovka-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/fiksirovannaya-cena-vs-pochasovka-2027/)
 - [Web3, DeFi и DAO простыми словами: что это как технологии, а не как инвестиции](./web3-defi-dao-prostymi-slovami-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/web3-defi-dao-prostymi-slovami-2027/)
 - [Как в мире регулируют цифровые активы: MiCA, VARA, MAS — образовательный обзор](./regulirovanie-cifrovyh-aktivov-mira-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/regulirovanie-cifrovyh-aktivov-mira-2027/)
+- [Квантовые вычисления простыми словами: зачем они и когда коснутся бизнеса](./kvantovye-vychisleniya-prostymi-slovami-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kvantovye-vychisleniya-prostymi-slovami-2027/)
+- [Робототехника для малого бизнеса: доставщики, склады и уборка без фантастики](./robototehnika-dlya-malogo-biznesa-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/robototehnika-dlya-malogo-biznesa-2027/)
+- [Как устроен поиск изнутри: что решает, кто окажется в топе](./kak-ustroen-poisk-iznutri-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-ustroen-poisk-iznutri-2027/)
+- [Как работает мобильная связь и что такое 5G простыми словами](./kak-rabotaet-mobilnaya-svyaz-5g-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-rabotaet-mobilnaya-svyaz-5g-2027/)
+- [Новые профессии эпохи ИИ: какие навыки прокачивать уже сейчас](./novye-professii-epohi-ii-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/novye-professii-epohi-ii-2027/)
+- [Цифровое неравенство регионов: почему глубинка отстаёт и как догнать](./cifrovoe-neravenstvo-regionov-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/cifrovoe-neravenstvo-regionov-2027/)
+- [ИИ для сохранения бурятского языка: как технологии помогают родной речи](./ii-dlya-sohraneniya-buryatskogo-yazyka-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-dlya-sohraneniya-buryatskogo-yazyka-2027/)
 - [Скрытая цена дешёвого сайта или бота: почему экономия выходит дороже](./skrytaya-cena-deshevogo-sayta-bota-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skrytaya-cena-deshevogo-sayta-bota-2026/)
 - [Почему я отказываюсь от части проектов — и почему это в плюс клиенту](./pochemu-ya-otkazyvayus-ot-proektov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pochemu-ya-otkazyvayus-ot-proektov-2026/)
 - [Почему я не обещаю «+X% к продажам» — и что обещаю вместо этого](./pochemu-ne-obeshchayu-rost-prodazh-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pochemu-ne-obeshchayu-rost-prodazh-2026/)
