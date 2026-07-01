@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **945**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **954**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -23,6 +23,9 @@
 
 ## AI для разработчиков
 
+- [Как устроены большие языковые модели: как ИИ «понимает» текст](./kak-ustroeny-bolshie-yazykovye-modeli-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-ustroeny-bolshie-yazykovye-modeli-2027/)
+- [Компьютерное зрение: как машины «видят» мир](./kompyuternoe-zrenie-kak-mashiny-vidyat-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kompyuternoe-zrenie-kak-mashiny-vidyat-2027/)
+- [Как работает распознавание речи: от звука до текста](./kak-rabotaet-raspoznavanie-rechi-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-rabotaet-raspoznavanie-rechi-2027/)
 - [Синтетические данные: на чём учат ИИ, когда реальных данных мало](./sinteticheskie-dannye-dlya-ii-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sinteticheskie-dannye-dlya-ii-2027/)
 - [Как работают рекомендательные алгоритмы: почему лента будто читает мысли](./kak-rabotayut-rekomendatelnye-algoritmy-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-rabotayut-rekomendatelnye-algoritmy-2027/)
 - [Как оценить качество ИИ-бота: метод LLM-as-Judge простыми словами](./kak-ocenit-kachestvo-ii-bota-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-ocenit-kachestvo-ii-bota-2027/)
@@ -292,6 +295,7 @@
 
 ## Безопасность
 
+- [Социальная инженерия: как обманывают людей, а не компьютеры](./socialnaya-inzheneriya-kak-obmanyvayut-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/socialnaya-inzheneriya-kak-obmanyvayut-2027/)
 - [AML и KYC как ИТ-задача: как автоматизировать проверку клиентов](./aml-kyc-avtomatizaciya-proverki-klientov-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/aml-kyc-avtomatizaciya-proverki-klientov-2027/)
 - [Как работает шифрование простыми словами: от переписки до платежей](./kak-rabotaet-shifrovanie-prostymi-slovami-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-rabotaet-shifrovanie-prostymi-slovami-2027/)
 - [Цифровая гигиена подростка: как защитить, не запрещая](./cifrovaya-gigiena-podrostka-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/cifrovaya-gigiena-podrostka-2027/)
@@ -516,6 +520,7 @@
 
 ## Маркетинг
 
+- [Как работает реклама в интернете: почему она будто следит за вами](./kak-rabotaet-reklama-v-internete-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-rabotaet-reklama-v-internete-2027/)
 - [Репёрпосинг контента: как из одного материала сделать 10 форматов](./reperposing-kontenta-1-v-10-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/reperposing-kontenta-1-v-10-2026/)
 - [Конкурентная разведка легально: что можно узнать из открытых источников](./konkurentnaya-razvedka-legalno-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/konkurentnaya-razvedka-legalno-2026/)
 - [WhatsApp Business для бизнеса: каталог, рассылки и автоответы](./whatsapp-business-dlya-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/whatsapp-business-dlya-biznesa-2026/)
@@ -600,6 +605,7 @@
 
 ## Отрасли
 
+- [Спутниковый мониторинг сельского хозяйства: как это помогает фермеру](./sputnikovyy-monitoring-selskogo-hozyaystva-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sputnikovyy-monitoring-selskogo-hozyaystva-2027/)
 - [Электронное QR-меню для кафе с заказом со стола: как внедрить](./elektronnoe-qr-menyu-dlya-kafe-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/elektronnoe-qr-menyu-dlya-kafe-2026/)
 - [Онлайн-бронирование столиков для кафе и ресторанов: как настроить](./onlayn-bronirovanie-stolikov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/onlayn-bronirovanie-stolikov-2026/)
 - [Электронная очередь и талоны: убрать живую очередь в клинике, сервисе, офисе](./elektronnaya-ochered-i-talony-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/elektronnaya-ochered-i-talony-2026/)
@@ -905,6 +911,9 @@
 
 ## Экспертное
 
+- [Как работает электронная почта под капотом](./kak-rabotaet-elektronnaya-pochta-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-rabotaet-elektronnaya-pochta-2027/)
+- [Как устроены облачные вычисления простыми словами](./kak-ustroeny-oblachnye-vychisleniya-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-ustroeny-oblachnye-vychisleniya-2027/)
+- [История искусственного интеллекта: от мечты до нейросетей](./istoriya-iskusstvennogo-intellekta-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/istoriya-iskusstvennogo-intellekta-2027/)
 - [Фиксированная цена или почасовка: как платить за разработку и не переплатить](./fiksirovannaya-cena-vs-pochasovka-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/fiksirovannaya-cena-vs-pochasovka-2027/)
 - [Web3, DeFi и DAO простыми словами: что это как технологии, а не как инвестиции](./web3-defi-dao-prostymi-slovami-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/web3-defi-dao-prostymi-slovami-2027/)
 - [Как в мире регулируют цифровые активы: MiCA, VARA, MAS — образовательный обзор](./regulirovanie-cifrovyh-aktivov-mira-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/regulirovanie-cifrovyh-aktivov-mira-2027/)
