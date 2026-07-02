@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1030**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1050**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -325,6 +325,26 @@
 
 ## Бизнес-кругозор
 
+- [Balanced Scorecard: сбалансированная система показателей простыми словами](./balanced-scorecard-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/balanced-scorecard-2027/)
+- [VRIO-анализ: даёт ли ваш ресурс реальное конкурентное преимущество](./vrio-analiz-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vrio-analiz-2027/)
+- [Value Proposition Canvas: карта ценностного предложения простыми словами](./value-proposition-canvas-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/value-proposition-canvas-2027/)
+- [STP-маркетинг: сегментация, таргетинг, позиционирование простыми словами](./stp-marketing-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/stp-marketing-2027/)
+- [Cynefin: как понять, какая перед вами задача и что с ней делать](./cynefin-framework-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/cynefin-framework-2027/)
+- [OODA-петля Бойда: как принимать решения быстрее конкурентов](./ooda-petlya-boyda-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ooda-petlya-boyda-2027/)
+- [Margin of Safety: запас прочности в решениях по принципу Баффета](./margin-of-safety-baffet-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/margin-of-safety-baffet-2027/)
+- [Метод Айви Ли: шесть задач на завтра, которые реально закрываются](./metod-ayvi-li-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/metod-ayvi-li-2027/)
+- [Модель Такмана: четыре стадии развития команды простыми словами](./tuckman-model-komandy-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/tuckman-model-komandy-2027/)
+- [Круг компетенций: принцип Баффета — решать только там, где реально разбираешься](./circle-of-competence-baffet-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/circle-of-competence-baffet-2027/)
+- [«Nudge: архитектура выбора» Талера и Санстейна: краткий пересказ](./nudge-taler-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nudge-taler-2027/)
+- [«Позиционирование» Райса и Траута: краткий пересказ](./positioning-rays-traut-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/positioning-rays-traut-2027/)
+- [«Начни с "Почему?"» Саймона Синека: краткий пересказ](./start-with-why-sinek-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/start-with-why-sinek-2027/)
+- [«Трэкшн» Джино Уикмана: краткий пересказ операционной системы EOS](./traction-eos-uikman-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/traction-eos-uikman-2027/)
+- [«Преодоление пропасти» Джеффри Мура: краткий пересказ](./crossing-the-chasm-mur-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/crossing-the-chasm-mur-2027/)
+- [«Scaling Up» Верна Харниша: краткий пересказ четырёх решений роста](./scaling-up-harnish-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/scaling-up-harnish-2027/)
+- [«Высокоэффективный менеджмент» Энди Гроува: краткий пересказ](./high-output-management-grouv-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/high-output-management-grouv-2027/)
+- [«Путь к согласию» Фишера и Юри: краткий пересказ](./getting-to-yes-fisher-yuri-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/getting-to-yes-fisher-yuri-2027/)
+- [«Сделано, чтобы прилипать» братьев Хиз: краткий пересказ](./made-to-stick-hiz-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/made-to-stick-hiz-2027/)
+- [«Заразительный» Джоны Бергера: краткий пересказ](./contagious-berger-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/contagious-berger-2027/)
 - [«Цель» Элияху Голдратта: краткий пересказ и главные идеи](./cel-goldratt-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/cel-goldratt-2026/)
 - [«Дао Toyota» Джеффри Лайкера: краткий пересказ и главные идеи](./dao-toyota-layker-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/dao-toyota-layker-2026/)
 - [«Бизнес с нуля» (Lean Startup) Эрика Риса: краткий пересказ](./lin-startap-ris-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/lin-startap-ris-2026/)
