@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1022**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1030**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -625,6 +625,14 @@
 - [Peloton по-русски: фитнес-оборудование и подписка на live-тренировки в комплекте](./fitnes-oborudovanie-plyus-podpiska-na-trenirovki-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/fitnes-oborudovanie-plyus-podpiska-na-trenirovki-2027/)
 - [Trainerize по-русски: SaaS для персональных тренеров — ведение клиентов и программ](./saas-dlya-personalnyh-trenerov-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/saas-dlya-personalnyh-trenerov-2027/)
 - [YourMechanic по-русски: выездной автомеханик к вам по записи](./vyezdnoy-avtomehanik-po-zapisi-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vyezdnoy-avtomehanik-po-zapisi-2027/)
+- [SimplePractice по-русски: практика-менеджер для частнопрактикующего психолога](./praktika-menedzher-dlya-psihologov-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/praktika-menedzher-dlya-psihologov-2027/)
+- [TherapyNotes по-русски: защищённые клинические заметки для психолога](./klinicheskie-zametki-dlya-psihologov-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/klinicheskie-zametki-dlya-psihologov-2027/)
+- [Co-Star по-русски: персонализированные уведомления по натальной карте](./uvedomleniya-po-natalnoy-karte-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uvedomleniya-po-natalnoy-karte-2027/)
+- [Rank Tracker по-русски: независимый трекер ранга и структуры для сетевика](./reyting-tracker-dlya-setevikov-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/reyting-tracker-dlya-setevikov-2027/)
+- [Team Dashboard по-русски: единая панель лидера структуры сетевого маркетинга](./panel-lidera-strukturi-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/panel-lidera-strukturi-2027/)
+- [Wyzant по-русски: маркетплейс репетиторов по любым школьным и вузовским предметам](./marketplace-repetitorov-po-predmetam-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/marketplace-repetitorov-po-predmetam-2027/)
+- [CoachAccountable по-русски: практика-менеджер для коуча — цели, задания и прогресс клиента](./praktika-menedzher-dlya-kouchey-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/praktika-menedzher-dlya-kouchey-2027/)
+- [Paperbell по-русски: онбординг, контракты и оплата клиента коуча в одном месте](./onboarding-kontrakty-dlya-kouchey-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/onboarding-kontrakty-dlya-kouchey-2027/)
 - [TaskRabbit по-русски: маркетплейс мелких поручений, которого у нас нет](./marketplace-melkih-poruchenij-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/marketplace-melkih-poruchenij-2027/)
 - [Thumbtack по-русски: одна заявка — несколько предложений от мастеров](./zayavka-neskolko-predlozheniy-masterov-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zayavka-neskolko-predlozheniy-masterov-2027/)
 - [Rover и Wag по-русски: маркетплейс выгула собак и передержки животных](./vygul-sobak-marketplace-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vygul-sobak-marketplace-2027/)
