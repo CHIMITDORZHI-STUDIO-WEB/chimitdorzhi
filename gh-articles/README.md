@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1017**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1022**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -620,6 +620,11 @@
 - [Function of Beauty по-русски: персонализированный шампунь, смешанный под вас](./personalizirovannyy-shampun-pod-zakazchika-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/personalizirovannyy-shampun-pod-zakazchika-2027/)
 - [Turno по-русски: SaaS-координация клинеров между заездами гостей посуточной аренды](./koordinaciya-klinerov-mezhdu-zaezdami-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/koordinaciya-klinerov-mezhdu-zaezdami-2027/)
 - [Updater по-русски: автоматизация переезда — смена адреса и перенос коммунальных услуг](./avtomatizaciya-pereezda-smena-adresa-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avtomatizaciya-pereezda-smena-adresa-2027/)
+- [Honor по-русски: маркетплейс сиделок для пожилых с координацией смен](./marketplace-sidelok-dlya-pozhilyh-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/marketplace-sidelok-dlya-pozhilyh-2027/)
+- [Homebase по-русски: расписание смен и учёт времени для почасового персонала](./raspisanie-smen-dlya-pochasovogo-personala-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/raspisanie-smen-dlya-pochasovogo-personala-2027/)
+- [Peloton по-русски: фитнес-оборудование и подписка на live-тренировки в комплекте](./fitnes-oborudovanie-plyus-podpiska-na-trenirovki-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/fitnes-oborudovanie-plyus-podpiska-na-trenirovki-2027/)
+- [Trainerize по-русски: SaaS для персональных тренеров — ведение клиентов и программ](./saas-dlya-personalnyh-trenerov-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/saas-dlya-personalnyh-trenerov-2027/)
+- [YourMechanic по-русски: выездной автомеханик к вам по записи](./vyezdnoy-avtomehanik-po-zapisi-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vyezdnoy-avtomehanik-po-zapisi-2027/)
 - [TaskRabbit по-русски: маркетплейс мелких поручений, которого у нас нет](./marketplace-melkih-poruchenij-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/marketplace-melkih-poruchenij-2027/)
 - [Thumbtack по-русски: одна заявка — несколько предложений от мастеров](./zayavka-neskolko-predlozheniy-masterov-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zayavka-neskolko-predlozheniy-masterov-2027/)
 - [Rover и Wag по-русски: маркетплейс выгула собак и передержки животных](./vygul-sobak-marketplace-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vygul-sobak-marketplace-2027/)
