@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1008**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1017**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -611,6 +611,15 @@
 - [Bbot по-русски: QR-заказ и оплата счёта прямо за столом](./qr-zakaz-i-oplata-scheta-za-stolom-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/qr-zakaz-i-oplata-scheta-za-stolom-2027/)
 - [Homer Logistics по-русски: своя курьерская служба под брендом ресторана](./svoya-kurerskaya-sluzhba-restorana-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/svoya-kurerskaya-sluzhba-restorana-2027/)
 - [MarketMan по-русски: учёт себестоимости блюд и управление закупками ресторана](./uchet-sebestoimosti-blyud-i-zakupok-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uchet-sebestoimosti-blyud-i-zakupok-2027/)
+- [StyleSeat по-русски: маркетплейс независимых мастеров красоты с бронированием](./marketplace-nezavisimyh-masterov-krasoty-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/marketplace-nezavisimyh-masterov-krasoty-2027/)
+- [Fresha по-русски: бесплатное бронирование для салона, доход с платежей](./besplatnoe-bronirovanie-dlya-salona-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/besplatnoe-bronirovanie-dlya-salona-2027/)
+- [GlossGenius по-русски: запись, оплата и маркетинг для мастера-одиночки в одном приложении](./vsyo-v-odnom-dlya-mastera-odinochki-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vsyo-v-odnom-dlya-mastera-odinochki-2027/)
+- [Glamsquad по-русски: выездной бьюти-мастер на дом по заказу](./vyezdnoy-byuti-master-na-dom-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vyezdnoy-byuti-master-na-dom-2027/)
+- [Urban Company по-русски: маркетплейс бытовых услуг на дом в одном приложении](./marketplace-bytovyh-uslug-na-dom-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/marketplace-bytovyh-uslug-na-dom-2027/)
+- [LawnStarter по-русски: маркетплейс ухода за газоном и ландшафтом](./uhod-za-gazonom-marketplace-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uhod-za-gazonom-marketplace-2027/)
+- [Function of Beauty по-русски: персонализированный шампунь, смешанный под вас](./personalizirovannyy-shampun-pod-zakazchika-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/personalizirovannyy-shampun-pod-zakazchika-2027/)
+- [Turno по-русски: SaaS-координация клинеров между заездами гостей посуточной аренды](./koordinaciya-klinerov-mezhdu-zaezdami-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/koordinaciya-klinerov-mezhdu-zaezdami-2027/)
+- [Updater по-русски: автоматизация переезда — смена адреса и перенос коммунальных услуг](./avtomatizaciya-pereezda-smena-adresa-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avtomatizaciya-pereezda-smena-adresa-2027/)
 - [TaskRabbit по-русски: маркетплейс мелких поручений, которого у нас нет](./marketplace-melkih-poruchenij-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/marketplace-melkih-poruchenij-2027/)
 - [Thumbtack по-русски: одна заявка — несколько предложений от мастеров](./zayavka-neskolko-predlozheniy-masterov-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zayavka-neskolko-predlozheniy-masterov-2027/)
 - [Rover и Wag по-русски: маркетплейс выгула собак и передержки животных](./vygul-sobak-marketplace-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vygul-sobak-marketplace-2027/)
