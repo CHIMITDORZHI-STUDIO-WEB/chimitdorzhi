@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Агрегатор экскурсий и активностей (аналог GetYourGuide)</title>
+    <meta name="description" content="Разбираю модель зарубежного сервиса GetYourGuide: единая платформа, где собраны экскурсии, мастер-классы и активности от разных профессиональных туроператоров…">
+    <meta name="keywords" content="стартап-идея, маркетплейс, туризм, бизнес-модель">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/agregator-ekskursiy-ot-turoperatorov-2027/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/agregator-ekskursiy-ot-turoperatorov-2027/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/agregator-ekskursiy-ot-turoperatorov-2027/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/agregator-ekskursiy-ot-turoperatorov-2027/">
+    <meta property="og:title" content="Агрегатор экскурсий и активностей (аналог GetYourGuide)">
+    <meta property="og:description" content="Разбираю модель зарубежного сервиса GetYourGuide: единая платформа, где собраны экскурсии, мастер-классы и активности от разных профессиональных туроператоров…">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/agregator-ekskursiy-ot-turoperatorov-2027/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Агрегатор экскурсий и активностей (аналог GetYourGuide)">
+    <meta name="twitter:description" content="Разбираю модель зарубежного сервиса GetYourGuide: единая платформа, где собраны экскурсии, мастер-классы и активности от разных профессиональных туроператоров…">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/agregator-ekskursiy-ot-turoperatorov-2027/cover.png">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor-Fill.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=45">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "GetYourGuide по-русски: агрегатор экскурсий и активностей от туроператоров",
+  "description": "Разбираю модель зарубежного сервиса GetYourGuide: единая платформа, где собраны экскурсии, мастер-классы и активности от разных профессиональных туроператоров города или региона с онлайн-бронированием. Как такая платформа могла бы работать для туристических направлений вроде Байкала и Забайкалья.",
+  "image": "https://chimitdorzhi.tech/blog/agregator-ekskursiy-ot-turoperatorov-2027/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/agregator-ekskursiy-ot-turoperatorov-2027/"
+  },
+  "datePublished": "2026-07-02",
+  "dateModified": "2026-07-02",
+  "keywords": "стартап-идея, маркетплейс, туризм, бизнес-модель",
+  "articleSection": "Отрасли",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "GetYourGuide по-русски: агрегатор экскурсий и активностей от туроператоров",
+      "item": "https://chimitdorzhi.tech/blog/agregator-ekskursiy-ot-turoperatorov-2027/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Чем это отличается от сайта одного туроператора?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Сайт одного оператора показывает только его программы, и турист, чтобы сравнить варианты, всё равно обходит сайты конкурентов вручную. Агрегатор собирает предложения разных операторов в одном месте с единым поиском, фильтрацией, бронированием и оплатой. Его ценность не в том, что он заменяет сайты операторов, а в том, что даёт туристу единую точку сравнения."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как убедить операторов подключиться?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Честной логикой: платформа не забирает существующих клиентов оператора, а приводит новых, которые иначе прошли бы мимо. Помогает невысокая стартовая комиссия, простая регистрация и личная работа с первыми операторами — показать реальные брони, а не обещания. Доверие в этой нише строится медленно, но первые успешные кейсы работают лучше презентаций."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Подходит ли для сезонного направления вроде Байкала?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, но с поправкой на архитектуру. Сезонность нужно закладывать заранее: пиковые месяцы дают основной поток бронирований, а в межсезонье важно удерживать операторов и предлагать альтернативные форматы активностей, чтобы площадка не выглядела мёртвой полгода. Это не повод отказываться от идеи, а параметр, который нужно учесть в планировании нагрузки и маркетинга."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли начать с одного региона?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Не просто можно, а нужно. Запуск сразу в масштабе всей страны требует ресурсов, которых на старте обычно нет, и распыляет усилия по привлечению операторов. Разумнее выбрать один туристический регион — например, Байкал или конкретный город Забайкалья, — собрать пул операторов, отладить процессы бронирования и оплаты, и только после этого масштабировать модель на соседние территории."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько операторов нужно для старта?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Для пилотного MVP достаточно пяти-десяти операторов с разнообразными программами — это позволяет каталогу выглядеть живым и предлагать туристу реальный выбор. Дальше рост числа операторов становится органическим: увидев, что площадка приносит бронирования первым партнёрам, к ней охотнее присоединяются остальные."
+      }
+    }
+  ]
+}
+    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+var inject=function(){for (var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)};
+var run=function(){('requestIdleCallback' in window)?requestIdleCallback(inject,{timeout:5000}):setTimeout(inject,3000)};
+(e.readyState==='complete')?run():m.addEventListener('load',run);})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109281884" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+            <li><a href="/#services" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li class="nav-dropdown">
+                <a href="/#projects" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--arey"><i class="ph-fill ph-vinyl-record" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-airplane-tilt" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#cases" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            </div>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/#about">Обо мне</a></li>
+        <li><a href="/#services">Услуги</a></li>
+        <li><a href="/services/">Каталог услуг</a></li>
+        <li><a href="/predlozheniya/">Предложения</a></li>
+        <li><a href="/#cases">Кейсы</a></li>
+        <li><a href="/blog/">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+        <li><a href="/#contact">Контакт</a></li>
+    </ul>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">GetYourGuide по-русски: агрегатор экскурсий и активностей от туроператоров</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/industries/"><i class="ph ph-bookmark" aria-hidden="true"></i> Отрасли</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 5 мин чтения</span>
+                        <time datetime="2026-07-02"><i class="ph ph-calendar" aria-hidden="true"></i> 2 июля 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">GetYourGuide по-русски: агрегатор экскурсий и активностей от туроператоров</h1>
+
+                    <p class="blog-lead">Все экскурсии и активности региона в одном каталоге с ценами и мгновенной бронью — за рубежом это стандарт. У нас туристу приходится обзванивать разных туроператоров по отдельности. Разбираю модель GetYourGuide для туристических направлений вроде Байкала.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>стартап-идея</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>маркетплейс</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>туризм</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>бизнес-модель</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
+<li>GetYourGuide за рубежом — это единая витрина, где собраны экскурсии, мастер-классы и активности от разных профессиональных туроператоров города или региона с онлайн-бронированием и мгновенным подтверждением.</li>
+<li>В России такого системного каталога почти нигде нет: турист ищет экскурсии по десяткам разрозненных сайтов и групп в соцсетях и сравнивает предложения вручную.</li>
+<li>Модель хорошо ложится на туристические регионы вроде Байкала и Забайкалья, где турпоток растёт, а операторов много, но найти их все в одном месте невозможно.</li>
+<li>Технически это решаемая задача: каталог с фильтрами, карточки экскурсий с расписанием, бронирование и оплата, отзывы после поездки — MVP можно собрать без миллионных бюджетов.</li>
+<li>Ключевая сложность не в коде, а в договорённостях с операторами и в сезонности; я разбираю, как это обходят, и что нужно для запуска именно вашего региона.</li>
+</ul></div>
+
+<p>Если вы бывали за границей и бронировали там экскурсию или мастер-класс через интернет, скорее всего, вы пользовались GetYourGuide, Viator или похожим сервисом. Открываете сайт, вбиваете город, видите десятки предложений от разных местных туроператоров — от обзорной экскурсии до дегустации вина или похода в горы — сравниваете отзывы и цену, бронируете и оплачиваете за пару минут, получаете мгновенное подтверждение. Но стоит вернуться в Россию и попробовать так же спланировать поездку, скажем, на Байкал, и привычная лёгкость исчезает: приходится вручную обходить сайты турагентств, читать посты в закрытых группах, писать в директ и ждать ответа менеджера.</p>
+
+<p>Разрыв между этими двумя опытами — не случайность, а вопрос инфраструктуры, которой у нас пока просто нет в большинстве регионов. В этой статье я разберу, как устроена модель GetYourGuide, почему аналога нет в России, как такая платформа могла бы выглядеть для туристического региона и что реально нужно, чтобы её запустить. Я сам разрабатываю такие продукты под ключ, поэтому говорю не абстрактно, а с точки зрения того, что технически и организационно потребуется, если вы решите собрать что-то подобное для своего города.</p>
+
+<h2 id="chto-eto">Что это за модель за рубежом</h2>
+<p>GetYourGuide и похожие сервисы решают простую на первый взгляд задачу: агрегируют предложения от множества профессиональных туроператоров и гидов конкретного города или региона в единый каталог. Это не одна компания, которая продаёт свои экскурсии, а маркетплейс — площадка, где десятки и сотни независимых операторов размещают свои продукты: обзорные экскурсии, тематические туры, мастер-классы, входные билеты в музеи, активности вроде рафтинга или дегустаций. Турист видит всё это в одном месте, может отфильтровать по тематике, длительности, цене и дате, почитать отзывы, сравнить варианты и забронировать с оплатой прямо на месте.</p>
+<p>Важное отличие от площадок вроде Airbnb Experiences в том, что GetYourGuide в первую очередь работает с профессиональными туроператорами и лицензированными гидами, а не с частными людьми, которые проводят экскурсию как хобби. Это меняет модель доверия: турист бронирует не у незнакомца, а у компании с репутацией и отзывами. Площадка выступает не продавцом, а посредником, который берёт на себя технологическую часть — каталог, поиск, оплату, подтверждение — и получает за это комиссию с каждого бронирования. Оператору не нужно вкладываться в собственный сайт с онлайн-оплатой и продвижение в поиске: он получает поток клиентов через уже раскрученную площадку.</p>
+<p>Для туриста ценность в том, что он экономит время и снижает риск: вместо того чтобы гуглить «экскурсии в городе N» и обходить десяток сайтов, он получает готовую подборку с прозрачными ценами, рейтингами и мгновенным подтверждением брони — особенно важно для коротких поездок, когда каждый час на планирование отнят у самой поездки.</p>
+
+<h2 id="pochemu-net-v-rf">Почему такого нет у нас</h2>
+<p>В России системного аналога такой площадки для внутреннего туризма фактически нет, и дело не в том, что рынок маленький. Турпоток внутри страны растёт годами, и туристические регионы вроде Байкала и Забайкалья принимают тысячи гостей за сезон. Проблема в том, что предложение экскурсий и активностей остаётся сильно раздробленным. У каждого туроператора свой сайт, часто устаревший или без онлайн-оплаты, своя группа во ВКонтакте или Telegram-канал, а иногда и вовсе только номер телефона и сарафанное радио. Турист, который планирует поездку на Байкал, вынужден вручную искать эти точки контакта, писать каждому оператору отдельно, сравнивать цены и условия без единой системы координат.</p>
+<p>Часть причины — в том, что сама индустрия внутреннего туризма долго развивалась без давления со стороны технологичных посредников: крупные агрегаторы фокусировались на пакетных турах и авиабилетах, а нишу локальных экскурсий системно никто не занял. Отдельные региональные порталы существуют, но чаще это справочники без полноценного бронирования и оплаты — каталог телефонов, а не рабочий инструмент для планирования поездки. К этому добавляется то, что небольшие туроператоры часто не готовы вкладываться в собственную digital-инфраструктуру: сайт с онлайн-бронированием и оплатой — отдельная статья расходов и компетенций, которых у небольшой команды гидов может не быть. У нас тот же структурный разрыв, который в своё время закрыли зарубежные агрегаторы: спрос на удобное бронирование экскурсий растёт, а предложение остаётся на уровне «звоните нам».</p>
+
+<h2 id="kak-mogla-by-vyglyadet">Как это могло бы выглядеть здесь</h2>
+<p>Представьте платформу — сайт и, возможно, бот-каталог в дополнение к нему — заточенную под конкретный туристический регион, например Байкал или Забайкалье в целом. На входе турист выбирает даты поездки и локацию, видит каталог экскурсий и активностей от разных операторов: обзорные туры по озеру, этнографические программы, треккинг, мастер-классы по местным ремёслам, гастрономические туры. Каждая карточка — продукт конкретного оператора с описанием, фотографиями, длительностью, ценой, отзывами и доступными датами.</p>
+<p>Фильтры позволяют сузить выбор по тематике, длительности и цене. Турист выбирает вариант, видит доступные слоты по датам, бронирует и оплачивает онлайн — без переписки и ожидания ответа менеджера. Оператор получает уведомление о брони и подтверждает участие, система автоматически отправляет подтверждение и напоминание накануне. После поездки турист оставляет отзыв, который видят следующие пользователи, — это механизм доверия, заменяющий личные рекомендации из соцсетей.</p>
+<p>Для операторов такая платформа — не конкурент, а дополнительный канал продаж: они продолжают работать со своими постоянными клиентами напрямую, но получают поток туристов, которые иначе не узнали бы об их существовании. Комиссия площадки с каждого бронирования становится источником дохода для владельца платформы — рабочая, проверенная за рубежом бизнес-модель, которую нужно грамотно адаптировать к местным реалиям.</p>
+
+<h2 id="chto-nuzhno-dlya-zapuska">Что нужно для запуска</h2>
+<p>Запускать сразу платформу федерального масштаба не нужно — правильный путь начинается с MVP под один конкретный регион. Первый шаг — не технический, а организационный: договориться с несколькими туроператорами на старте. Для пилота достаточно пяти-десяти операторов с разнообразными предложениями, чтобы каталог выглядел живым.</p>
+<p>Дальше идёт техническая часть, и объём вполне посильный для MVP. Нужны карточки экскурсий с описанием, фотографиями, ценой и расписанием — возможность оператору или администратору платформы указать, на какие даты есть свободные места. Нужна форма бронирования, которая проверяет доступность слота и фиксирует заявку, интеграция с оплатой, чтобы турист мог оплатить сразу, и механизм отзывов после поездки — без него площадка не наберёт доверия, а без доверия туристы не будут бронировать через незнакомый сайт вместо привычного поиска в соцсетях.</p>
+<p>На старте не обязательно строить сложную систему синхронизации расписаний с внутренними инструментами каждого оператора — администратор платформы может вручную актуализировать доступные даты, а автоматизацию добавлять по мере роста. Это позволяет запустить рабочую версию быстро и проверить, откликается ли турист на такой формат. Если вы задумываетесь о такой платформе для своего региона, есть смысл сразу <a href="https://chimitdorzhi.tech/predlozheniya/">обсудить проект</a> и посчитать, какой объём MVP реально нужен именно вам.</p>
+
+<h2 id="riski-i-slozhnosti">Риски и сложности</h2>
+<p>Главный риск такой модели — сезонность турпотока, особенно актуальная для направлений вроде Байкала, где основной поток приходится на несколько месяцев, а зимой активность падает в разы. Платформу нужно проектировать с расчётом на неравномерную нагрузку: пиковые месяцы дают основной доход, а в межсезонье важно удерживать операторов и предлагать альтернативные форматы — зимние активности, короткие городские программы, мастер-классы в помещении.</p>
+<p>Вторая сложность — договориться с операторами о комиссии и синхронизации расписания. Небольшие компании часто настороженно относятся к новым посредникам: боятся отдавать процент с брони и накладок в расписании при двух параллельных каналах бронирования. Здесь помогает прозрачная модель: невысокая стартовая комиссия, простой интерфейс, чтобы оператор сам управлял своими слотами, и постепенное расширение функциональности по мере роста доверия.</p>
+<p>Третий момент — конкуренция с уже существующими каналами продаж операторов: сарафанным радио, соцсетями, повторными обращениями. Платформа не должна заменять эти каналы, а встраиваться рядом как дополнительный источник новых туристов, которые иначе прошли бы мимо. Важно честно объяснять операторам эту логику — не «мы заберём ваших клиентов», а «мы приведём вам тех, кого вы бы не нашли сами».</p>
+
+<h2 id="faq">Частые вопросы</h2>
+<p><strong>Чем это отличается от сайта одного туроператора?</strong> Сайт одного оператора показывает только его программы, и турист, чтобы сравнить варианты, всё равно обходит сайты конкурентов вручную. Агрегатор собирает предложения разных операторов в одном месте с единым поиском, фильтрацией, бронированием и оплатой. Его ценность не в том, что он заменяет сайты операторов, а в том, что даёт туристу единую точку сравнения.</p>
+<p><strong>Как убедить операторов подключиться?</strong> Честной логикой: платформа не забирает существующих клиентов оператора, а приводит новых, которые иначе прошли бы мимо. Помогает невысокая стартовая комиссия, простая регистрация и личная работа с первыми операторами — показать реальные брони, а не обещания. Доверие в этой нише строится медленно, но первые успешные кейсы работают лучше презентаций.</p>
+<p><strong>Подходит ли для сезонного направления вроде Байкала?</strong> Да, но с поправкой на архитектуру. Сезонность нужно закладывать заранее: пиковые месяцы дают основной поток бронирований, а в межсезонье важно удерживать операторов и предлагать альтернативные форматы активностей, чтобы площадка не выглядела мёртвой полгода. Это не повод отказываться от идеи, а параметр, который нужно учесть в планировании нагрузки и маркетинга.</p>
+<p><strong>Можно ли начать с одного региона?</strong> Не просто можно, а нужно. Запуск сразу в масштабе всей страны требует ресурсов, которых на старте обычно нет, и распыляет усилия по привлечению операторов. Разумнее выбрать один туристический регион — например, Байкал или конкретный город Забайкалья, — собрать пул операторов, отладить процессы бронирования и оплаты, и только после этого масштабировать модель на соседние территории.</p>
+<p><strong>Сколько операторов нужно для старта?</strong> Для пилотного MVP достаточно пяти-десяти операторов с разнообразными программами — это позволяет каталогу выглядеть живым и предлагать туристу реальный выбор. Дальше рост числа операторов становится органическим: увидев, что площадка приносит бронирования первым партнёрам, к ней охотнее присоединяются остальные.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+<p>GetYourGuide и подобные сервисы показывают модель, которая пока почти не представлена во внутреннем туризме России: единый каталог экскурсий и активностей от разных профессиональных операторов региона с онлайн-бронированием и мгновенным подтверждением. У нас турист вместо этого вручную обходит разрозненные сайты и группы в соцсетях, а туроператоры теряют клиентов, которые просто не успели их найти. Для регионов вроде Байкала и Забайкалья, где турпоток растёт, а предложение остаётся раздробленным, такая платформа закрывает реальный разрыв между спросом и доступом к нему. Технически MVP — посильная задача: каталог с фильтрами, карточки с расписанием, бронирование и оплата, отзывы. Главная работа не в коде, а в том, чтобы выстроить доверие с первыми операторами и учесть сезонность в модели роста. Если вы видите такой разрыв в своём регионе, есть смысл сначала <a href="https://chimitdorzhi.tech/predlozheniya/">обсудить проект</a> и понять, какой объём работ реально нужен для вашего рынка.</p>
+
+                    </div>
+
+                    
+                    
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Что я делаю под ключ</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-code"></i> <span>Сайты и веб-приложения</span></li>
+    
+    <li><i class="ph-fill ph-robot"></i> <span>Боты в Telegram и MAX, ИИ-агенты</span></li>
+    
+    <li><i class="ph-fill ph-flow-arrow"></i> <span>Автоматизация и интеграции</span></li>
+    
+    <li><i class="ph-fill ph-storefront"></i> <span>Маркетплейсы и платформы</span></li>
+    
+    <li><i class="ph-fill ph-lifebuoy"></i> <span>Внедрение и поддержка</span></li>
+    
+  </ul>
+  <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Обсудить ваш проект
+  </a>
+</div>
+                    <div class="blog-cta-card">
+                        <div class="blog-cta-card-body">
+                            <h3>Бесплатно: чек-лист «Готов ли ваш бизнес к 152-ФЗ»</h3>
+                            <p>12 пунктов, которые проверяют готовность за час: данные, согласия, уведомление в РКН, локализация, защита. Отметьте, что уже сделано, и увидите дыры, за которые сейчас штрафуют.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="/checklist-152-fz/" class="btn btn-accent"><i class="ph-fill ph-clipboard-text" aria-hidden="true"></i> Открыть чек-лист</a>
+                        </div>
+                    </div>
+                    
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/predlozheniya/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Обсудить ваш проект</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/marketplace-vpechatleniy-i-ekskursiy-2027/" data-category="industries" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-map-trifold"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Отрасли</span>
+  <h3>Airbnb Experiences по-русски: маркетплейс впечатлений от местных жителей</h3>
+  <p>В любом городе за рубежом можно заказать необычную экскурсию напрямую у местного жителя через одну платформу. У нас это либо крупные турагентства, либо случайные знакомства. Разбираю модель Airbnb Experiences.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 2 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 5 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/bronirovanie-turov-ekskursiy-baykal-2026/" data-category="industries" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-path"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Отрасли</span>
+  <h3>Онлайн-бронирование туров и экскурсий на Байкале: продавать без посредников</h3>
+  <p>Гиду и турфирме на Байкале онлайн-бронирование даёт продажи напрямую, без больших комиссий агрегаторов: расписание, предоплата, напоминания. Разбираю, что нужно и как запустить к летнему сезону.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 23 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/arenda-zemli-pod-kemping-2027/" data-category="industries" data-clicks="0">
+  <span class="blog-card-fresh">Свежее</span>
+  <div class="blog-card-icon"><i class="ph-fill ph-tent"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Отрасли</span>
+  <h3>Hipcamp по-русски: маркетплейс аренды земли под кемпинг у частных владельцев</h3>
+  <p>Владелец участка у леса или озера сдаёт кусочек земли под палатку путешественникам и получает доход — за рубежом это целый маркетплейс. У нас формата организованного частного кемпинга почти нет. Разбираю модель Hipcamp для природных territorий Забайкалья.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 2 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 5 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/dostupnye-tury-dlya-lyudey-s-invalidnostyu-2027/" data-category="industries" data-clicks="0">
+  <span class="blog-card-fresh">Свежее</span>
+  <div class="blog-card-icon"><i class="ph-fill ph-wheelchair"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Отрасли</span>
+  <h3>Wheel the World по-русски: платформа доступных туров для людей с инвалидностью</h3>
+  <p>Спланировать поездку, если нужна доступная среда, — за рубежом для этого есть платформа с честной проверенной информацией о доступности каждого места. У нас туристу приходится узнавать это вслепую. Разбираю модель Wheel the World.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 2 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 5 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    
+                    
+                    
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовые решения под ключ</span>
+                            <span class="blog-offer-cta-title">449 готовых IT-решений для бизнеса</span>
+                            <span class="blog-offer-cta-price">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Смотреть каталог</span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#chto-eto"><span class="blog-toc-num">01</span> Что это за модель за рубежом</a></li>
+<li><a href="#pochemu-net-v-rf"><span class="blog-toc-num">02</span> Почему такого нет у нас</a></li>
+<li><a href="#kak-mogla-by-vyglyadet"><span class="blog-toc-num">03</span> Как это могло бы выглядеть здесь</a></li>
+<li><a href="#chto-nuzhno-dlya-zapuska"><span class="blog-toc-num">04</span> Что нужно для запуска</a></li>
+<li><a href="#riski-i-slozhnosti"><span class="blog-toc-num">05</span> Риски и сложности</a></li>
+<li><a href="#faq"><span class="blog-toc-num">06</span> FAQ</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">07</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=23" defer></script>
+<script src="/services-i18n.js?v=23" defer></script>
+<script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>
