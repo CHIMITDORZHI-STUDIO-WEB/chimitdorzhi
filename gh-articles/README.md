@@ -583,7 +583,7 @@
 - [Связка бот + рассылка в MAX: повторные продажи на автомате](./bot-plus-rassylka-max-povtornye-prodazhi-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bot-plus-rassylka-max-povtornye-prodazhi-2027/)
 - [Сегментация подписчиков MAX: персональные рассылки](./segmentaciya-podpischikov-max-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/segmentaciya-podpischikov-max-2027/)
 - [Как монетизировать канал в MAX: 8 рабочих моделей](./monetizaciya-kanala-max-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/monetizaciya-kanala-max-2027/)
-- [Аналитика MAX-канала: какие метрики считать и как](./analitika-max-kanala-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/analitika-max-kanala-2027/)
+- [Аналитика MAX-канала: какие метрики считать и как принимать решения по цифрам](./analitika-max-kanala-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/analitika-max-kanala-2027/)
 - [MAX или Telegram для бизнеса в 2027: где дешевле трафик](./max-ili-telegram-dlya-biznesa-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/max-ili-telegram-dlya-biznesa-2027/)
 - [Локальный маркетинг в MAX: как привести клиентов из города](./lokalnyy-marketing-v-max-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/lokalnyy-marketing-v-max-2027/)
 - [Настройка Яндекс.Директа для бизнеса в Улан-Удэ](./yandex-direkt-ulan-ude-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/yandex-direkt-ulan-ude-2026/)
