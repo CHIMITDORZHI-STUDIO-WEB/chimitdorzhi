@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учёт себестоимости блюд и закупок (аналог MarketMan)</title>
+    <meta name="description" content="Разбираю модель зарубежного сервиса MarketMan: SaaS для ресторанов, который автоматически считает себестоимость каждого блюда по рецепту и текущим ценам…">
+    <meta name="keywords" content="стартап-идея, SaaS, общепит, бизнес-модель">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/uchet-sebestoimosti-blyud-i-zakupok-2027/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/uchet-sebestoimosti-blyud-i-zakupok-2027/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/uchet-sebestoimosti-blyud-i-zakupok-2027/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/uchet-sebestoimosti-blyud-i-zakupok-2027/">
+    <meta property="og:title" content="Учёт себестоимости блюд и закупок (аналог MarketMan)">
+    <meta property="og:description" content="Разбираю модель зарубежного сервиса MarketMan: SaaS для ресторанов, который автоматически считает себестоимость каждого блюда по рецепту и текущим ценам…">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/uchet-sebestoimosti-blyud-i-zakupok-2027/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Учёт себестоимости блюд и закупок (аналог MarketMan)">
+    <meta name="twitter:description" content="Разбираю модель зарубежного сервиса MarketMan: SaaS для ресторанов, который автоматически считает себестоимость каждого блюда по рецепту и текущим ценам…">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/uchet-sebestoimosti-blyud-i-zakupok-2027/cover.png">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor-Fill.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=45">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "MarketMan по-русски: учёт себестоимости блюд и управление закупками ресторана",
+  "description": "Разбираю модель зарубежного сервиса MarketMan: SaaS для ресторанов, который автоматически считает себестоимость каждого блюда по рецепту и текущим ценам поставщиков, отслеживает остатки и подсказывает, когда пора заказывать продукты. Как такая система помогает не терять маржу и что нужно для запуска в России.",
+  "image": "https://chimitdorzhi.tech/blog/uchet-sebestoimosti-blyud-i-zakupok-2027/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/uchet-sebestoimosti-blyud-i-zakupok-2027/"
+  },
+  "datePublished": "2026-07-03",
+  "dateModified": "2026-07-03",
+  "keywords": "стартап-идея, SaaS, общепит, бизнес-модель",
+  "articleSection": "Отрасли",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "MarketMan по-русски: учёт себестоимости блюд и управление закупками ресторана",
+      "item": "https://chimitdorzhi.tech/blog/uchet-sebestoimosti-blyud-i-zakupok-2027/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Чем это лучше учёта в Excel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Таблица в Excel считает себестоимость на момент, когда её последний раз обновили вручную, и дальше не меняется, пока кто-то не сядет и не пересчитает всё заново. Система с автоматическим расчётом пересчитывает себестоимость каждого блюда сразу, как только меняется цена хотя бы одного ингредиента, и не требует, чтобы кто-то помнил об этом и делал вручную."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужно ли вручную обновлять цены поставщиков?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Зависит от того, готов ли поставщик делиться прайсом в электронном виде. Если да, цены можно подтягивать автоматически. Если нет, обновление вручную после каждой поставки занимает пару минут и всё равно значительно быстрее, чем пересчёт себестоимости по всему меню в Excel."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как быстро видна экономия от такой системы?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Первый эффект заметен, как только в системе набирается достаточно рецептов и актуальных цен: управляющий сразу видит, какие блюда стали менее прибыльными, и может отреагировать — поднять цену, изменить рецептуру или сменить поставщика, — вместо того чтобы узнать об этом по итогам месяца."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Подходит ли для небольшого кафе или только для сетей?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Подходит и для одной точки. Даже небольшому кафе с ограниченным меню полезно видеть реальную себестоимость каждого блюда и не терять маржу незаметно. Для сети добавляется возможность сравнивать точки между собой и видеть закупки в одном месте, но базовая логика работает одинаково хорошо и для одного заведения."
+      }
+    }
+  ]
+}
+    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+var inject=function(){for (var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)};
+var run=function(){('requestIdleCallback' in window)?requestIdleCallback(inject,{timeout:5000}):setTimeout(inject,3000)};
+(e.readyState==='complete')?run():m.addEventListener('load',run);})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109281884" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+            <li><a href="/#services" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li class="nav-dropdown">
+                <a href="/#projects" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--arey"><i class="ph-fill ph-vinyl-record" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-airplane-tilt" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#cases" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            </div>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/#about">Обо мне</a></li>
+        <li><a href="/#services">Услуги</a></li>
+        <li><a href="/services/">Каталог услуг</a></li>
+        <li><a href="/predlozheniya/">Предложения</a></li>
+        <li><a href="/#cases">Кейсы</a></li>
+        <li><a href="/blog/">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+        <li><a href="/#contact">Контакт</a></li>
+    </ul>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">MarketMan по-русски: учёт себестоимости блюд и управление закупками ресторана</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/industries/"><i class="ph ph-bookmark" aria-hidden="true"></i> Отрасли</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 5 мин чтения</span>
+                        <time datetime="2026-07-03"><i class="ph ph-calendar" aria-hidden="true"></i> 3 июля 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">MarketMan по-русски: учёт себестоимости блюд и управление закупками ресторана</h1>
+
+                    <p class="blog-lead">Кафе часто не знает точную себестоимость каждого блюда и теряет маржу на скачках цен поставщиков. За рубежом это решает отдельный SaaS с автоматическим расчётом. У нас чаще Excel вручную. Разбираю модель MarketMan.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>стартап-идея</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>SaaS</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>общепит</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>бизнес-модель</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
+<li>За рубежом есть сервисы вроде MarketMan: ресторан вносит рецепты блюд, система сама считает реальную себестоимость по актуальным ценам поставщиков и отслеживает маржу каждой позиции меню.</li>
+<li>В России подобные системы почти не встречаются: себестоимость блюд чаще считают вручную в Excel или вообще на глаз, а о падении маржи узнают постфактум, когда прибыль уже просела.</li>
+<li>Закупки в большинстве заведений идут «по привычке», а не по фактическому расходу, из-за чего склад то простаивает с излишками, то заканчивается в разгар смены.</li>
+<li>Такую систему можно собрать под конкретное заведение: база рецептов, учёт цен ингредиентов, автоматический пересчёт себестоимости и остатков, уведомления о падении маржи.</li>
+<li>Я показываю, как устроена эта модель, что нужно для запуска MVP и в каких случаях лучше начать с малого — например, с перевода учёта из Excel в нормальную систему.</li>
+</ul></div>
+
+<p>Ресторанный бизнес живёт на тонкой марже, и главная угроза для неё — не воровство и не низкая посещаемость, а незаметное подорожание ингредиентов. Цена на масло, мясо или сыр может вырасти на десять-пятнадцать процентов за пару месяцев, а меню и цены в нём останутся прежними. Ресторан продолжает готовить те же блюда по тем же ценам, не замечая, что маржа на каждой тарелке медленно тает. Узнают об этом обычно в конце месяца, когда бухгалтер сводит цифры и оказывается, что прибыль просела, а объяснить почему — сложно, потому что никто не считал себестоимость блюд в моменте.</p>
+
+<p>За рубежом эту проблему давно закрывают специализированным софтом. Один из известных примеров — сервис MarketMan, который используют тысячи ресторанов и сетей общественного питания. Идея простая и при этом мощная: если каждое блюдо разложено на ингредиенты с точной граммовкой, а цены поставщиков обновляются, то себестоимость можно считать не раз в месяц вручную, а постоянно и автоматически. В этой статье разберу, как устроена такая модель, почему в России она почти не встречается и что нужно, чтобы запустить нечто подобное для конкретного заведения.</p>
+
+<h2 id="chto-eto">Что это за модель за рубежом</h2>
+<p>MarketMan и похожие на него сервисы — это, по сути, панель управления закупками и себестоимостью для ресторана. Работает это так: заведение вносит в систему рецептуру каждого блюда — какие ингредиенты нужны и в каком количестве, вплоть до граммов и миллилитров. Отдельно в систему попадают цены поставщиков: либо через интеграцию с их прайс-листами, либо через ручное обновление после каждой поставки.</p>
+
+<p>Дальше начинается автоматика. Система умножает граммовку каждого ингредиента на его текущую закупочную цену и складывает всё в реальную себестоимость блюда. Как только цена на один из ингредиентов меняется — например, поставщик поднял цену на сыр или рыбу, — себестоимость всех блюд, где этот ингредиент используется, пересчитывается сама. Ресторан сразу видит, какая позиция меню стала менее прибыльной, а не узнаёт об этом через месяц по итоговым цифрам.</p>
+
+<p>Вторая часть модели — управление складом и закупками. Система учитывает, сколько сырья должно оставаться на складе исходя из проданных блюд, сравнивает это с фактическими остатками и подсказывает, когда и что нужно заказать у поставщика. Это снимает с шеф-повара и управляющего рутину «на глаз прикинуть, чего не хватает» и переводит закупки в режим, основанный на реальном расходе, а не на интуиции или привычке заказывать одно и то же количество каждую неделю.</p>
+
+<h2 id="pochemu-net-v-rf">Почему такого нет у нас</h2>
+<p>В российских ресторанах, кафе и кофейнях себестоимость блюд чаще всего считается вручную. Технолог или управляющий заводит калькуляционные карты в Excel, вписывает туда цены ингредиентов на момент составления меню — и на этом расчёт замирает. Цены у поставщиков меняются постоянно, а пересчитывать вручную десятки и сотни позиций меню при каждом изменении прайса практически никто не успевает. В итоге калькуляционная карта живёт своей жизнью, а реальная себестоимость блюда — своей.</p>
+
+<p>Из-за этого узнают о проблеме постфактум. Бухгалтерия сводит месяц, считает фудкост в процентах от выручки, и если он вырос — начинают разбираться, что подорожало. К этому моменту убыток от заниженных цен на несколько позиций меню уже накопился, а исправить задним числом ничего нельзя. Заранее увидеть, что конкретное блюдо стало менее прибыльным из-за подорожавшего ингредиента, без ручного расчёта почти невозможно.</p>
+
+<p>Похожая история с закупками. Часто заказ поставщику формируется по привычке: «берём столько же, сколько на прошлой неделе» или «как обычно на выходные». Это работает, пока продажи стабильны, но не учитывает реальные колебания — сезонность, изменение спроса, новые позиции в меню. В результате склад то забит продуктами, которые портятся раньше, чем их успевают использовать, то в разгар смены выясняется, что закончился ключевой ингредиент и часть меню на сегодня недоступна. Готовых нишевых сервисов под такую задачу на российском рынке практически нет — заведения либо мирятся с Excel и интуицией, либо пытаются приспособить под себя большие ERP-системы, которые избыточны и неудобны для отдельного ресторана или небольшой сети.</p>
+
+<h2 id="kak-mogla-by-vyglyadet">Как это могло бы выглядеть здесь</h2>
+<p>Российскому заведению не нужна копия зарубежного сервиса со всеми его модулями — нужна рабочая версия под конкретный масштаб и конкретных поставщиков. По сути это веб-панель, доступная управляющему, шеф-повару и, при необходимости, закупщику, с несколькими связанными блоками.</p>
+
+<p>Первый блок — база рецептов. Каждое блюдо меню описывается как список ингредиентов с точной граммовкой: сколько муки, масла, мяса, специй уходит на одну порцию. Это разовая, но важная работа: чем точнее внесены рецепты, тем точнее потом считается себестоимость.</p>
+
+<p>Второй блок — цены поставщиков. Здесь возможны варианты: если поставщик готов делиться прайсом в электронном виде, цены подтягиваются автоматически; если нет — управляющий вносит их вручную после каждой поставки, и это занимает пару минут, а не часы, как пересчёт вручную в Excel.</p>
+
+<p>Третий блок — автоматический расчёт. Система на основе рецептов и текущих цен считает себестоимость и маржу каждого блюда и показывает это одной понятной таблицей: что дорожает, где маржа падает, какие позиции меню сейчас наименее выгодны. Управляющий видит это сразу, а не по итогам месяца.</p>
+
+<p>Четвёртый блок — склад и закупки. Система списывает ингредиенты по мере продаж блюд, сравнивает остатки с реальным расходом и подсказывает, когда пора заказывать конкретный продукт. Здесь же удобно вести историю закупок, чтобы видеть, у кого из поставщиков цена росла быстрее и стоит ли пересмотреть условия.</p>
+
+<h2 id="chto-nuzhno-dlya-zapuska">Что нужно для запуска</h2>
+<p>Чтобы не пытаться сразу построить полный аналог зарубежного сервиса, разумно начать с рабочего MVP — минимальной версии, которая уже приносит пользу и может обрастать функциями по ходу использования.</p>
+
+<p>В базовую версию стоит заложить: ввод рецептов блюд с точной граммовкой ингредиентов; базу цен на ингредиенты, которую можно обновлять вручную или подгружать периодически; автоматический расчёт себестоимости и маржи по каждому блюду меню на основе этих двух источников; и базовый учёт остатков на складе, который списывает ингредиенты по факту продаж и показывает, что заканчивается.</p>
+
+<p>Такой набор уже закрывает главную боль — управляющий перестаёт держать себестоимость в голове или в устаревшей таблице и видит реальную картину по каждому блюду в любой момент. Дальше систему можно расширять: добавить уведомления о падении маржи ниже заданного порога, интеграцию с кассой для автоматического списания по чекам, работу с несколькими точками, если речь о сети. Но начинать лучше с ядра — рецепты, цены, расчёт, остатки, — а не пытаться сразу сделать всё сразу.</p>
+
+<h2 id="riski-i-slozhnosti">Риски и сложности</h2>
+<p>Главный риск такой системы — не техническая сложность, а дисциплина ввода данных. Если персонал не обновляет рецепты при изменении рецептуры или забывает вносить цены при поступлении товара, расчёты быстро расходятся с реальностью и доверие к системе падает. Поэтому важно с самого начала выстроить простой и понятный процесс: кто и когда вносит данные, и сделать этот процесс максимально коротким, чтобы он не превращался в дополнительную нагрузку на кухню.</p>
+
+<p>Вторая сложность — интеграция с реальными поставщиками. Не все поставщики готовы делиться актуальными прайсами в электронном виде или через API; многие продолжают работать по звонку и бумажной накладной. В таких случаях автоматизация ограничивается ручным обновлением цен, и это нормально на старте — система всё равно даёт выигрыш за счёт автоматического пересчёта себестоимости, даже если ввод цен остаётся ручным.</p>
+
+<p>Третья сложность — конкуренция с привычкой. Многие управляющие годами считают фудкост в Excel и воспринимают это как рабочий процесс, который «и так работает». Переход на новую систему требует времени на освоение и первичный ввод данных, и первую пользу заведение почувствует не в первый день, а когда база рецептов и цен наберёт достаточную полноту. Это стоит проговаривать заранее, чтобы ожидания были реалистичными.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+<p><strong>Чем это лучше учёта в Excel?</strong> Таблица в Excel считает себестоимость на момент, когда её последний раз обновили вручную, и дальше не меняется, пока кто-то не сядет и не пересчитает всё заново. Система с автоматическим расчётом пересчитывает себестоимость каждого блюда сразу, как только меняется цена хотя бы одного ингредиента, и не требует, чтобы кто-то помнил об этом и делал вручную.</p>
+<p><strong>Нужно ли вручную обновлять цены поставщиков?</strong> Зависит от того, готов ли поставщик делиться прайсом в электронном виде. Если да, цены можно подтягивать автоматически. Если нет, обновление вручную после каждой поставки занимает пару минут и всё равно значительно быстрее, чем пересчёт себестоимости по всему меню в Excel.</p>
+<p><strong>Как быстро видна экономия от такой системы?</strong> Первый эффект заметен, как только в системе набирается достаточно рецептов и актуальных цен: управляющий сразу видит, какие блюда стали менее прибыльными, и может отреагировать — поднять цену, изменить рецептуру или сменить поставщика, — вместо того чтобы узнать об этом по итогам месяца.</p>
+<p><strong>Подходит ли для небольшого кафе или только для сетей?</strong> Подходит и для одной точки. Даже небольшому кафе с ограниченным меню полезно видеть реальную себестоимость каждого блюда и не терять маржу незаметно. Для сети добавляется возможность сравнивать точки между собой и видеть закупки в одном месте, но базовая логика работает одинаково хорошо и для одного заведения.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+<p>Модель, которую за рубежом реализует MarketMan, решает конкретную и понятную проблему: ресторан теряет маржу незаметно, потому что не видит, как меняется себестоимость блюд вслед за ценами поставщиков. В России такой софт под нишу практически не представлен, и заведения по-прежнему считают фудкост вручную или на глаз, узнавая о проблеме, когда прибыль уже упала. Рабочую версию такой системы можно собрать под конкретное заведение — с базой рецептов, учётом цен, автоматическим расчётом себестоимости и контролем остатков, — начав с компактного MVP и постепенно его расширяя. Если сейчас весь учёт держится на разрозненных таблицах, разумный первый шаг — не сразу строить полную систему, а <a href="https://chimitdorzhi.tech/predlozheniya/">обсудить проект</a> и начать с перевода учёта из Excel в нормальную CRM, на основе которой потом наращивать автоматизацию себестоимости и закупок. Если хотите разобраться, что из этого реально нужно именно вашему заведению, тоже лучше всего <a href="https://chimitdorzhi.tech/predlozheniya/">обсудить проект</a> напрямую.</p>
+
+                    </div>
+
+                    
+                    
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Что я делаю под ключ</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-code"></i> <span>Сайты и веб-приложения</span></li>
+    
+    <li><i class="ph-fill ph-robot"></i> <span>Боты в Telegram и MAX, ИИ-агенты</span></li>
+    
+    <li><i class="ph-fill ph-flow-arrow"></i> <span>Автоматизация и интеграции</span></li>
+    
+    <li><i class="ph-fill ph-storefront"></i> <span>Маркетплейсы и платформы</span></li>
+    
+    <li><i class="ph-fill ph-lifebuoy"></i> <span>Внедрение и поддержка</span></li>
+    
+  </ul>
+  <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Обсудить ваш проект
+  </a>
+</div>
+                    <div class="blog-cta-card">
+                        <div class="blog-cta-card-body">
+                            <h3>Бесплатно: чек-лист «Готов ли ваш бизнес к 152-ФЗ»</h3>
+                            <p>12 пунктов, которые проверяют готовность за час: данные, согласия, уведомление в РКН, локализация, защита. Отметьте, что уже сделано, и увидите дыры, за которые сейчас штрафуют.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="/checklist-152-fz/" class="btn btn-accent"><i class="ph-fill ph-clipboard-text" aria-hidden="true"></i> Открыть чек-лист</a>
+                        </div>
+                    </div>
+                    
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/predlozheniya/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Обсудить ваш проект</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/pos-sistema-dlya-restorana-pod-klyuch-2027/" data-category="industries" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-cash-register"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Отрасли</span>
+  <h3>Toast по-русски: POS-система и управление рестораном под ключ</h3>
+  <p>Касса, кухня, склад и зарплаты персонала ресторана — за рубежом это одна система. У нас чаще набор несвязанных программ и таблиц. Разбираю модель Toast и что нужно для похожей платформы у нас.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 2 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 5 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/qr-zakaz-i-oplata-scheta-za-stolom-2027/" data-category="industries" data-clicks="0">
+  <span class="blog-card-fresh">Свежее</span>
+  <div class="blog-card-icon"><i class="ph-fill ph-qr-code"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Отрасли</span>
+  <h3>Bbot по-русски: QR-заказ и оплата счёта прямо за столом</h3>
+  <p>Отсканировал QR за столом, заказал, оплатил — и не ждёшь официанта ни на одном из этих шагов. За рубежом это готовая система. У нас QR-меню часто останавливается на просмотре без заказа и оплаты. Разбираю модель Bbot.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 3 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 5 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/iz-excel-v-crm-za-mesyac-2027/" data-category="sales" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-table"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Продажи и стартап</span>
+  <h3>Как перевести бизнес из тетради и Excel в CRM за месяц</h3>
+  <p>Учёт в тетради и таблицах тормозит бизнес, но переход на CRM кажется страшным и долгим. Даю пошаговый план за месяц: когда пора, как выбрать систему, перенести данные без потерь и обучить команду так, чтобы CRM реально заработала.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 6 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 17 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    
+                    
+                    
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовые решения под ключ</span>
+                            <span class="blog-offer-cta-title">449 готовых IT-решений для бизнеса</span>
+                            <span class="blog-offer-cta-price">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Смотреть каталог</span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#chto-eto"><span class="blog-toc-num">01</span> Что это за модель за рубежом</a></li>
+<li><a href="#pochemu-net-v-rf"><span class="blog-toc-num">02</span> Почему такого нет у нас</a></li>
+<li><a href="#kak-mogla-by-vyglyadet"><span class="blog-toc-num">03</span> Как это могло бы выглядеть здесь</a></li>
+<li><a href="#chto-nuzhno-dlya-zapuska"><span class="blog-toc-num">04</span> Что нужно для запуска</a></li>
+<li><a href="#riski-i-slozhnosti"><span class="blog-toc-num">05</span> Риски и сложности</a></li>
+<li><a href="#faq"><span class="blog-toc-num">06</span> FAQ</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">07</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=23" defer></script>
+<script src="/services-i18n.js?v=23" defer></script>
+<script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>
