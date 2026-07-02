@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Клинические заметки для психологов (аналог TherapyNotes)</title>
+    <meta name="description" content="Разбираю модель зарубежного сервиса TherapyNotes: специализированное защищённое хранилище клинических заметок и документации по клиентам для практикующего…">
+    <meta name="keywords" content="стартап-идея, SaaS, психология, бизнес-модель">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/klinicheskie-zametki-dlya-psihologov-2027/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/klinicheskie-zametki-dlya-psihologov-2027/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/klinicheskie-zametki-dlya-psihologov-2027/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/klinicheskie-zametki-dlya-psihologov-2027/">
+    <meta property="og:title" content="Клинические заметки для психологов (аналог TherapyNotes)">
+    <meta property="og:description" content="Разбираю модель зарубежного сервиса TherapyNotes: специализированное защищённое хранилище клинических заметок и документации по клиентам для практикующего…">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/klinicheskie-zametki-dlya-psihologov-2027/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Клинические заметки для психологов (аналог TherapyNotes)">
+    <meta name="twitter:description" content="Разбираю модель зарубежного сервиса TherapyNotes: специализированное защищённое хранилище клинических заметок и документации по клиентам для практикующего…">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/klinicheskie-zametki-dlya-psihologov-2027/cover.png">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor-Fill.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=45">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "TherapyNotes по-русски: защищённые клинические заметки для психолога",
+  "description": "Разбираю модель зарубежного сервиса TherapyNotes: специализированное защищённое хранилище клинических заметок и документации по клиентам для практикующего психолога, с шаблонами под разные подходы терапии и строгим контролем доступа к конфиденциальным данным. Как такой инструмент мог бы работать в России с учётом 152-ФЗ. Это разбор бизнес-инструмента, не медицинская консультация.",
+  "image": "https://chimitdorzhi.tech/blog/klinicheskie-zametki-dlya-psihologov-2027/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/klinicheskie-zametki-dlya-psihologov-2027/"
+  },
+  "datePublished": "2026-07-03",
+  "dateModified": "2026-07-03",
+  "keywords": "стартап-идея, SaaS, психология, бизнес-модель",
+  "articleSection": "Отрасли",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "TherapyNotes по-русски: защищённые клинические заметки для психолога",
+      "item": "https://chimitdorzhi.tech/blog/klinicheskie-zametki-dlya-psihologov-2027/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Чем это отличается от обычного текстового файла?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Текстовый файл не имеет встроенного шифрования, разграничения доступа и истории изменений — открыть и отредактировать его может любой, кто получил доступ к устройству или облачному хранилищу. Специализированная система хранит данные в зашифрованном виде, разграничивает доступ по ролям и фиксирует каждое изменение записи с указанием, кто и когда его внёс."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Какие требования 152-ФЗ применимы к таким данным?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Данные о психологическом здоровье относятся к специальной категории персональных данных, что означает более строгие требования к их обработке, хранению и передаче по сравнению с обычными персональными данными. Конкретный перечень мер и порядок оформления согласий зависит от вашей ситуации — это стоит обсуждать отдельно со специалистом по защите персональных данных, а не опираться на общие формулировки из статьи."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Кто имеет доступ к заметкам?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "В логике подобной системы доступ к клинической записи есть только у самого специалиста, который её ведёт, и у явно уполномоченных лиц — например, супервизора, которому психолог сам открыл доступ. Административный персонал, если он есть, видит организационные данные, но не содержание заметок."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли использовать вместе с практика-менеджером для записи клиентов?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, логично устроить это как отдельный, но связанный модуль: система записи и оплаты клиентов решает организационные задачи, а модуль клинических заметок — задачу защищённой документации. Они могут работать в связке, но чувствительная часть данных остаётся в отдельном контуре с собственным уровнем защиты."
+      }
+    }
+  ]
+}
+    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+var inject=function(){for (var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)};
+var run=function(){('requestIdleCallback' in window)?requestIdleCallback(inject,{timeout:5000}):setTimeout(inject,3000)};
+(e.readyState==='complete')?run():m.addEventListener('load',run);})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109281884" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+            <li><a href="/#services" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li class="nav-dropdown">
+                <a href="/#projects" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--arey"><i class="ph-fill ph-vinyl-record" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-airplane-tilt" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#cases" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            </div>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/#about">Обо мне</a></li>
+        <li><a href="/#services">Услуги</a></li>
+        <li><a href="/services/">Каталог услуг</a></li>
+        <li><a href="/predlozheniya/">Предложения</a></li>
+        <li><a href="/#cases">Кейсы</a></li>
+        <li><a href="/blog/">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+        <li><a href="/#contact">Контакт</a></li>
+    </ul>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">TherapyNotes по-русски: защищённые клинические заметки для психолога</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/industries/"><i class="ph ph-bookmark" aria-hidden="true"></i> Отрасли</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 5 мин чтения</span>
+                        <time datetime="2026-07-03"><i class="ph ph-calendar" aria-hidden="true"></i> 3 июля 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">TherapyNotes по-русски: защищённые клинические заметки для психолога</h1>
+
+                    <p class="blog-lead">Заметки о клиентах психолог часто ведёт в обычных текстовых файлах без должной защиты. За рубежом есть специализированное защищённое хранилище именно под клиническую документацию. Разбираю модель TherapyNotes и вопросы защиты данных.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>стартап-идея</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>SaaS</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>психология</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>бизнес-модель</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
+<li>TherapyNotes за рубежом — не CRM и не сервис онлайн-записи, а специализированное защищённое хранилище клинических заметок психолога: шаблоны под разные подходы терапии, контроль доступа и история изменений.</li>
+<li>В России психологи чаще ведут заметки о клиентах в обычных документах, заметках на телефоне или бумажных блокнотах — без шифрования и разграничения доступа.</li>
+<li>Данные о психологическом состоянии клиента — специальная категория персональных данных по 152-ФЗ, и здесь нужна не только технология, но и консультация с юристом по защите данных.</li>
+<li>Технически подобную систему можно собрать: шаблоны заметок, шифрование хранилища, аутентификация, аудит-лог правок — это решаемая задача для веб-разработки.</li>
+<li>Материал — образовательный разбор бизнес-инструмента, а не медицинская или юридическая консультация; перед запуском такой системы нужна консультация со специалистом по защите персональных данных.</li>
+</ul></div>
+<p>Этот материал — образовательный разбор зарубежного бизнес-инструмента для практикующих психологов, а не медицинская консультация и не готовая юридическая инструкция. Речь пойдёт о категории SaaS-продуктов, которые за рубежом называют «practice management для психотерапевтов», но конкретно о той их части, что отвечает за ведение клинической документации. Тема прямо затрагивает 152-ФЗ, потому что данные о психологическом здоровье клиента относятся к специальной категории персональных данных — и тут одной разработки недостаточно, нужна консультация со специалистом по защите данных.</p>
+<p>Поводом для разбора стал сервис TherapyNotes — американская платформа, которую часто путают с более известным SimplePractice. Разница принципиальная: SimplePractice в первую очередь решает задачи записи клиентов, оплаты и телемедицины, а TherapyNotes специализируется именно на клинической документации — на том, как психолог фиксирует, хранит и защищает записи о сессиях. В России специализированного инструмента такого рода почти нет, хотя потребность есть у каждого практикующего психолога, ведущего частную практику.</p>
+<h2 id="chto-eto">Что это за модель за рубежом</h2>
+<p>TherapyNotes построен вокруг одной задачи: дать психологу удобный и защищённый способ фиксировать, что происходило на сессии, и держать эти записи так, чтобы к ним не было случайного или несанкционированного доступа. В основе — библиотека шаблонов заметок под разные терапевтические подходы: отдельные формы для когнитивно-поведенческой терапии, для семейной терапии, для работы с парами, для первичной диагностической оценки. Психолог не пишет заметку с нуля каждый раз, а заполняет структурированную форму, которая уже учитывает, какие поля важны именно для этого метода работы.</p>
+<p>Вторая часть модели — история сессий. Записи выстраиваются в хронологию по каждому клиенту, и психолог в любой момент может открыть карточку клиента и увидеть развитие терапии от первой встречи до последней. Это не просто журнал, а структурированная база, которую удобно перечитывать перед следующей сессией или при передаче клиента коллеге по объективным причинам.</p>
+<p>Третья часть — контроль доступа и аудит. К заметкам имеет доступ только сам специалист или явно уполномоченные коллеги, например, супервизор. Каждое изменение записи фиксируется: кто, когда и что поменял. Это принципиально отличает инструмент от обычного текстового редактора — там правки бесследно перезаписывают друг друга, а здесь остаётся прослеживаемая история. Именно этот набор функций — шаблоны, структура, контроль доступа, аудит — делает сервис специализированным документо-ориентированным инструментом, а не универсальным менеджером практики.</p>
+<h2 id="pochemu-net-v-rf">Почему такого нет у нас</h2>
+<p>В российской практике психологи чаще всего ведут клинические заметки одним из трёх способов: в обычном текстовом файле на компьютере, в заметках на телефоне или в бумажном блокноте. Все три варианта объединяет одно — отсутствие какого-либо контроля доступа и шифрования, соответствующего чувствительности этих данных. Файл на ноутбуке можно открыть кому угодно, кто получил доступ к устройству. Блокнот можно потерять или оставить на столе. Заметки в облачных сервисах общего назначения синхронизируются на несколько устройств без разграничения прав и без аудита изменений.</p>
+<p>При этом спрос на специализированный инструмент растёт вместе с самим рынком психологических услуг: частная практика становится массовым форматом, психологи всё чаще работают с клиентами дистанционно и ведут параллельно десятки, а иногда сотни клиентских историй. В этой ситуации обычный текстовый файл перестаёт быть просто неудобным — он становится источником риска. Специализированного русскоязычного сервиса, который решал бы именно задачу защищённой документации, а не записи и оплаты, на рынке практически нет. Существующие платформы для психологов концентрируются на других задачах: расписании, видеосвязи, приёме платежей.</p>
+<h2 id="kak-mogla-by-vyglyadet">Как это могло бы выглядеть здесь</h2>
+<p>Логичный сценарий для российского рынка — защищённое веб-приложение, доступное психологу с любого устройства через браузер, без необходимости устанавливать что-либо локально. Внутри — библиотека шаблонов заметок, адаптированная под подходы, которые реально практикуются в России: когнитивно-поведенческая терапия, гештальт-подход, семейная и парная терапия, работа с травмой. Психолог выбирает шаблон под конкретную сессию, заполняет структурированные поля, и запись автоматически привязывается к карточке клиента и дате.</p>
+<p>Технически данные должны шифроваться как при хранении, так и при передаче, а доступ к каждой карточке клиента — разграничиваться на уровне ролей: сам специалист видит всё, супервизор — только то, что ему явно открыли, администратор кабинета — вообще не видит содержание заметок, только факт их существования. Отдельный слой — история изменений: если психолог редактирует старую запись, система сохраняет, что именно изменилось и когда, не давая тихо переписать историю задним числом.</p>
+<p>Такой инструмент логично делать отдельным модулем, который можно использовать как самостоятельно, так и в связке с другими сервисами психолога — например, с системой записи клиентов или с сайтом-визиткой. Смысл в том, чтобы самая чувствительная часть работы психолога — записи о клиентах — была отделена от менее чувствительных операционных задач и защищена отдельным контуром.</p>
+<h2 id="chto-nuzhno-dlya-zapuska">Что нужно для запуска</h2>
+<p>С технической стороны задача решаемая и по составу похожа на другие проекты веб-разработки: нужна система хранения данных с шифрованием, конструктор шаблонов заметок под разные терапевтические подходы, механизм аутентификации специалиста и разграничения доступа по ролям, а также журнал аудита, фиксирующий все изменения записей. Отдельно стоит продумать резервное копирование и восстановление данных на случай сбоя — для клинической документации это не опция, а обязательное требование.</p>
+<p>Но здесь важна оговорка, которая касается не только технологии. Данные о психологическом состоянии клиента, диагнозах, содержании терапевтических сессий — это специальная категория персональных данных по 152-ФЗ, и обработка таких данных подчиняется более строгим требованиям, чем обработка обычных контактных данных. Прежде чем запускать подобную систему в реальную эксплуатацию, необходима консультация с юристом или специалистом по защите персональных данных: он оценит, какие организационные и технические меры нужны конкретно для вашей ситуации, как оформить согласия клиентов на обработку таких данных, где и как физически должны храниться серверы. Это не чисто техническая задача — правовая часть здесь минимум так же важна, как код.</p>
+<h2 id="riski-i-slozhnosti">Риски и сложности</h2>
+<p>Главный риск такого проекта — не в разработке, а в цене ошибки. Данные о здоровье клиентов, в том числе психологическом, отнесены к специальной категории персональных данных, что означает повышенные требования к их обработке и повышенную ответственность за нарушения. Именно поэтому консультация со специалистом по защите данных обязательна ещё на этапе проектирования системы, а не постфактум.</p>
+<p>Утечка клинических заметок особенно критична — гораздо больше, чем утечка, скажем, базы контактов интернет-магазина. Речь идёт о доверительной информации, которую клиент делится с психологом в расчёте на полную конфиденциальность. Репутационные и юридические последствия такой утечки для практикующего специалиста несопоставимы с обычными инцидентами по персональным данным. Отсюда и требование к самому психологу: он должен понимать и доверять тому, как устроено хранение данных в системе, которой пользуется, — где физически находятся серверы, кто имеет техническую возможность получить доступ к базе, как организовано резервное копирование.</p>
+<p>Дополнительная сложность — конфликт между удобством и безопасностью. Психологу нужен быстрый доступ к заметкам с разных устройств, но каждое новое устройство и каждый новый способ входа — это дополнительная поверхность для потенциальной утечки. Баланс между удобством использования и строгостью контроля доступа — тонкая настройка, которую нужно продумывать индивидуально под каждый кабинет или практику.</p>
+<h2 id="faq">Частые вопросы</h2>
+<p><strong>Чем это отличается от обычного текстового файла?</strong> Текстовый файл не имеет встроенного шифрования, разграничения доступа и истории изменений — открыть и отредактировать его может любой, кто получил доступ к устройству или облачному хранилищу. Специализированная система хранит данные в зашифрованном виде, разграничивает доступ по ролям и фиксирует каждое изменение записи с указанием, кто и когда его внёс.</p>
+<p><strong>Какие требования 152-ФЗ применимы к таким данным?</strong> Данные о психологическом здоровье относятся к специальной категории персональных данных, что означает более строгие требования к их обработке, хранению и передаче по сравнению с обычными персональными данными. Конкретный перечень мер и порядок оформления согласий зависит от вашей ситуации — это стоит обсуждать отдельно со специалистом по защите персональных данных, а не опираться на общие формулировки из статьи.</p>
+<p><strong>Кто имеет доступ к заметкам?</strong> В логике подобной системы доступ к клинической записи есть только у самого специалиста, который её ведёт, и у явно уполномоченных лиц — например, супервизора, которому психолог сам открыл доступ. Административный персонал, если он есть, видит организационные данные, но не содержание заметок.</p>
+<p><strong>Можно ли использовать вместе с практика-менеджером для записи клиентов?</strong> Да, логично устроить это как отдельный, но связанный модуль: система записи и оплаты клиентов решает организационные задачи, а модуль клинических заметок — задачу защищённой документации. Они могут работать в связке, но чувствительная часть данных остаётся в отдельном контуре с собственным уровнем защиты.</p>
+<h2 id="vyvody">Коротко о главном (с оговоркой)</h2>
+<p>TherapyNotes показывает нишу, которая в России пока закрыта самодельными решениями — текстовыми файлами и блокнотами без должной защиты. Специализированный инструмент для клинических заметок психолога — с шаблонами под разные терапевтические подходы, контролем доступа и историей изменений — технически реализуем и решает реальную проблему практикующих специалистов. Но напоминаем: это образовательный материал, а не медицинская консультация, и тема прямо затрагивает 152-ФЗ — обработку специальной категории персональных данных о здоровье. Перед запуском подобной системы обязательна консультация со специалистом по защите данных, который оценит юридическую сторону именно вашего случая.</p>
+<p>Если вам как психологу или руководителю психологического центра интересно обсудить, как могла бы выглядеть такая система именно для вашей практики — с учётом ваших процессов и требований к конфиденциальности, — можно <a href="https://chimitdorzhi.tech/predlozheniya/">обсудить проект</a>. Также если у вас уже есть представление о задаче и вы хотите оценить объём работ, приходите <a href="https://chimitdorzhi.tech/predlozheniya/">обсудить проект</a> и разобрать детали.</p>
+
+                    </div>
+
+                    
+                    
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Что я делаю под ключ</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-code"></i> <span>Сайты и веб-приложения</span></li>
+    
+    <li><i class="ph-fill ph-robot"></i> <span>Боты в Telegram и MAX, ИИ-агенты</span></li>
+    
+    <li><i class="ph-fill ph-flow-arrow"></i> <span>Автоматизация и интеграции</span></li>
+    
+    <li><i class="ph-fill ph-storefront"></i> <span>Маркетплейсы и платформы</span></li>
+    
+    <li><i class="ph-fill ph-lifebuoy"></i> <span>Внедрение и поддержка</span></li>
+    
+  </ul>
+  <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Обсудить ваш проект
+  </a>
+</div>
+                    <div class="blog-cta-card">
+                        <div class="blog-cta-card-body">
+                            <h3>Бесплатно: чек-лист «Готов ли ваш бизнес к 152-ФЗ»</h3>
+                            <p>12 пунктов, которые проверяют готовность за час: данные, согласия, уведомление в РКН, локализация, защита. Отметьте, что уже сделано, и увидите дыры, за которые сейчас штрафуют.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="/checklist-152-fz/" class="btn btn-accent"><i class="ph-fill ph-clipboard-text" aria-hidden="true"></i> Открыть чек-лист</a>
+                        </div>
+                    </div>
+                    
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/predlozheniya/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Обсудить ваш проект</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/praktika-menedzher-dlya-psihologov-2027/" data-category="industries" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-notebook"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Отрасли</span>
+  <h3>SimplePractice по-русски: практика-менеджер для частнопрактикующего психолога</h3>
+  <p>Психолог в частной практике часто ведёт запись клиентов в блокноте и переписке, теряя время на организацию. За рубежом есть специализированный SaaS именно под эту практику. Разбираю модель SimplePractice.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 3 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 5 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/marketplace-onlayn-psihologov-2027/" data-category="industries" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-chat-circle-dots"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Отрасли</span>
+  <h3>BetterHelp и Talkspace по-русски: маркетплейс онлайн-психологов по подписке</h3>
+  <p>Найти психолога под свой запрос и формат за рубежом можно через одну платформу с подбором и подпиской. У нас поиск идёт вручную по разрозненным профилям. Разбираю модель BetterHelp/Talkspace и её нюансы.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 2 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 5 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/152-fz-dlya-psihologa-2026/" data-category="legal" data-clicks="1">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-shield-check"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Право и compliance</span>
+  <h3>152-ФЗ для психолога: данные клиентов без штрафов в 2026</h3>
+  <p>Психолог работает с особо чувствительными данными, а про 152-ФЗ обычно не думает — пока не приходит проверка или утечка. Разбираю по делу: какое согласие нужно, где хранить записи сессий, чем рискуют онлайн-консультации и как привести всё в соответствие.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 14 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 10 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    
+                    
+                    
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовые решения под ключ</span>
+                            <span class="blog-offer-cta-title">449 готовых IT-решений для бизнеса</span>
+                            <span class="blog-offer-cta-price">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Смотреть каталог</span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#chto-eto"><span class="blog-toc-num">01</span> Что это за модель за рубежом</a></li>
+<li><a href="#pochemu-net-v-rf"><span class="blog-toc-num">02</span> Почему такого нет у нас</a></li>
+<li><a href="#kak-mogla-by-vyglyadet"><span class="blog-toc-num">03</span> Как это могло бы выглядеть здесь</a></li>
+<li><a href="#chto-nuzhno-dlya-zapuska"><span class="blog-toc-num">04</span> Что нужно для запуска</a></li>
+<li><a href="#riski-i-slozhnosti"><span class="blog-toc-num">05</span> Риски и сложности</a></li>
+<li><a href="#faq"><span class="blog-toc-num">06</span> FAQ</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">07</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=23" defer></script>
+<script src="/services-i18n.js?v=23" defer></script>
+<script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>
