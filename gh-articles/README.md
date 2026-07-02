@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1002**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1008**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -605,6 +605,12 @@
 
 ## Отрасли
 
+- [ChowNow по-русски: свой онлайн-заказ для кафе без высокой комиссии агрегаторов](./belyy-leybl-onlayn-zakaza-dlya-kafe-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/belyy-leybl-onlayn-zakaza-dlya-kafe-2027/)
+- [Olio по-русски: сосед соседу бесплатно отдаёт лишнюю еду](./besplatnaya-razdacha-lishney-edy-sosedyam-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/besplatnaya-razdacha-lishney-edy-sosedyam-2027/)
+- [Farmstead по-русски: подписка на продукты напрямую от фермеров](./podpiska-na-produkty-ot-fermerov-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/podpiska-na-produkty-ot-fermerov-2027/)
+- [Bbot по-русски: QR-заказ и оплата счёта прямо за столом](./qr-zakaz-i-oplata-scheta-za-stolom-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/qr-zakaz-i-oplata-scheta-za-stolom-2027/)
+- [Homer Logistics по-русски: своя курьерская служба под брендом ресторана](./svoya-kurerskaya-sluzhba-restorana-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/svoya-kurerskaya-sluzhba-restorana-2027/)
+- [MarketMan по-русски: учёт себестоимости блюд и управление закупками ресторана](./uchet-sebestoimosti-blyud-i-zakupok-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uchet-sebestoimosti-blyud-i-zakupok-2027/)
 - [TaskRabbit по-русски: маркетплейс мелких поручений, которого у нас нет](./marketplace-melkih-poruchenij-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/marketplace-melkih-poruchenij-2027/)
 - [Thumbtack по-русски: одна заявка — несколько предложений от мастеров](./zayavka-neskolko-predlozheniy-masterov-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zayavka-neskolko-predlozheniy-masterov-2027/)
 - [Rover и Wag по-русски: маркетплейс выгула собак и передержки животных](./vygul-sobak-marketplace-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vygul-sobak-marketplace-2027/)
