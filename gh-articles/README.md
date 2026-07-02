@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **994**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1002**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -645,6 +645,14 @@
 - [Rocket Lawyer по-русски: генератор типовых юридических документов онлайн](./generator-yuridicheskih-dokumentov-onlayn-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/generator-yuridicheskih-dokumentov-onlayn-2027/)
 - [SmartRent по-русски: IoT-платформа для арендодателей многоквартирных домов](./iot-platforma-dlya-arendodateley-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/iot-platforma-dlya-arendodateley-2027/)
 - [DailyPay и Even по-русски: доступ к уже заработанной зарплате до дня выплаты](./dostup-k-zarplate-do-dnya-vyplaty-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/dostup-k-zarplate-do-dnya-vyplaty-2027/)
+- [GetYourGuide по-русски: агрегатор экскурсий и активностей от туроператоров](./agregator-ekskursiy-ot-turoperatorov-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/agregator-ekskursiy-ot-turoperatorov-2027/)
+- [Couchsurfing по-русски: бесплатный обмен ночлегом между путешественниками](./besplatnyy-obmen-nochlegom-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/besplatnyy-obmen-nochlegom-2027/)
+- [Workaway по-русски: работа в обмен на проживание](./rabota-v-obmen-na-prozhivanie-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/rabota-v-obmen-na-prozhivanie-2027/)
+- [Selina по-русски: коливинги и коворкинги-хостелы для цифровых кочевников](./kolivingi-dlya-cifrovyh-kochevnikov-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kolivingi-dlya-cifrovyh-kochevnikov-2027/)
+- [Roadtrippers по-русски: планировщик автопутешествий с точками интереса](./planirovshchik-avtoputeshestviy-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/planirovshchik-avtoputeshestviy-2027/)
+- [Hipcamp по-русски: маркетплейс аренды земли под кемпинг у частных владельцев](./arenda-zemli-pod-kemping-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/arenda-zemli-pod-kemping-2027/)
+- [Flytographer по-русски: маркетплейс локальных фотографов для съёмки в отпуске](./fotografy-dlya-semki-v-otpuske-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/fotografy-dlya-semki-v-otpuske-2027/)
+- [Wheel the World по-русски: платформа доступных туров для людей с инвалидностью](./dostupnye-tury-dlya-lyudey-s-invalidnostyu-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/dostupnye-tury-dlya-lyudey-s-invalidnostyu-2027/)
 - [Спутниковый мониторинг сельского хозяйства: как это помогает фермеру](./sputnikovyy-monitoring-selskogo-hozyaystva-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sputnikovyy-monitoring-selskogo-hozyaystva-2027/)
 - [Электронное QR-меню для кафе с заказом со стола: как внедрить](./elektronnoe-qr-menyu-dlya-kafe-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/elektronnoe-qr-menyu-dlya-kafe-2026/)
 - [Онлайн-бронирование столиков для кафе и ресторанов: как настроить](./onlayn-bronirovanie-stolikov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/onlayn-bronirovanie-stolikov-2026/)
