@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **974**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **988**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -625,6 +625,20 @@
 - [Cameo по-русски: персональные видеообращения от локальных блогеров и экспертов](./personalnye-videoobrashcheniya-ot-blogerov-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/personalnye-videoobrashcheniya-ot-blogerov-2027/)
 - [Gumroad по-русски: простая площадка для продажи цифровых продуктов творцами](./platforma-prodazhi-cifrovyh-produktov-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/platforma-prodazhi-cifrovyh-produktov-2027/)
 - [GoFundMe по-русски: платформа сбора средств на личные события](./platforma-sbora-sredstv-na-lichnye-sobytiya-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/platforma-sbora-sredstv-na-lichnye-sobytiya-2027/)
+- [Neighbor.com по-русски: маркетплейс хранения вещей у соседей](./hranenie-veshchey-u-sosedey-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/hranenie-veshchey-u-sosedey-2027/)
+- [HopSkipDrive по-русски: перевозка детей проверенными водителями](./perevozka-detey-proverennymi-voditelyami-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/perevozka-detey-proverennymi-voditelyami-2027/)
+- [Wonolo и Instawork по-русски: маркетплейс временного персонала на смену](./marketplace-vremennogo-personala-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/marketplace-vremennogo-personala-2027/)
+- [Vetster по-русски: телемедицина для животных](./telemedicina-dlya-zhivotnyh-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/telemedicina-dlya-zhivotnyh-2027/)
+- [BetterHelp и Talkspace по-русски: маркетплейс онлайн-психологов по подписке](./marketplace-onlayn-psihologov-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/marketplace-onlayn-psihologov-2027/)
+- [StitchFix по-русски: персональный стилист присылает коробку одежды по подписке](./stilist-po-podpiske-korobka-odezhdy-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/stilist-po-podpiske-korobka-odezhdy-2027/)
+- [Blue Apron и HelloFresh по-русски: наборы продуктов с рецептом для готовки дома](./nabory-dlya-gotovki-s-receptom-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nabory-dlya-gotovki-s-receptom-2027/)
+- [Chairish и 1stDibs по-русски: маркетплейс дизайнерской и винтажной мебели](./marketplace-dizaynerskoy-mebeli-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/marketplace-dizaynerskoy-mebeli-2027/)
+- [Feastly и EatWith по-русски: домашние ужины от локальных поваров](./domashnie-uzhiny-ot-lokalnyh-povarov-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/domashnie-uzhiny-ot-lokalnyh-povarov-2027/)
+- [Airbnb Experiences по-русски: маркетплейс впечатлений от местных жителей](./marketplace-vpechatleniy-i-ekskursiy-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/marketplace-vpechatleniy-i-ekskursiy-2027/)
+- [Outschool по-русски: маркетплейс детских онлайн-занятий от частных педагогов](./marketplace-detskih-onlayn-zanyatiy-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/marketplace-detskih-onlayn-zanyatiy-2027/)
+- [Life360 по-русски: семейное приложение геолокации и безопасности](./semeynoe-prilozhenie-geolokacii-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/semeynoe-prilozhenie-geolokacii-2027/)
+- [Getir и Gorillas по-русски: мини-дарксторы мгновенной доставки в жилых районах](./darkstory-momentalnaya-dostavka-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/darkstory-momentalnaya-dostavka-2027/)
+- [Toast по-русски: POS-система и управление рестораном под ключ](./pos-sistema-dlya-restorana-pod-klyuch-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pos-sistema-dlya-restorana-pod-klyuch-2027/)
 - [Спутниковый мониторинг сельского хозяйства: как это помогает фермеру](./sputnikovyy-monitoring-selskogo-hozyaystva-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sputnikovyy-monitoring-selskogo-hozyaystva-2027/)
 - [Электронное QR-меню для кафе с заказом со стола: как внедрить](./elektronnoe-qr-menyu-dlya-kafe-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/elektronnoe-qr-menyu-dlya-kafe-2026/)
 - [Онлайн-бронирование столиков для кафе и ресторанов: как настроить](./onlayn-bronirovanie-stolikov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/onlayn-bronirovanie-stolikov-2026/)
