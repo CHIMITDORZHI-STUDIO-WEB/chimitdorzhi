@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **988**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **994**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -639,6 +639,12 @@
 - [Life360 по-русски: семейное приложение геолокации и безопасности](./semeynoe-prilozhenie-geolokacii-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/semeynoe-prilozhenie-geolokacii-2027/)
 - [Getir и Gorillas по-русски: мини-дарксторы мгновенной доставки в жилых районах](./darkstory-momentalnaya-dostavka-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/darkstory-momentalnaya-dostavka-2027/)
 - [Toast по-русски: POS-система и управление рестораном под ключ](./pos-sistema-dlya-restorana-pod-klyuch-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pos-sistema-dlya-restorana-pod-klyuch-2027/)
+- [TrustedHousesitters по-русски: обмен присмотром за домом и питомцем по членству](./obmen-prisotrom-dom-pitomec-po-chlenstvu-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/obmen-prisotrom-dom-pitomec-po-chlenstvu-2027/)
+- [Instacart по-русски: личный шоппер закупает продукты в магазине и доставляет](./personalnyy-shopper-dostavka-produktov-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/personalnyy-shopper-dostavka-produktov-2027/)
+- [Autohost и Superhog по-русски: верификация гостей краткосрочной аренды жилья](./verifikaciya-gostey-kratkosrochnoy-arendy-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/verifikaciya-gostey-kratkosrochnoy-arendy-2027/)
+- [Rocket Lawyer по-русски: генератор типовых юридических документов онлайн](./generator-yuridicheskih-dokumentov-onlayn-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/generator-yuridicheskih-dokumentov-onlayn-2027/)
+- [SmartRent по-русски: IoT-платформа для арендодателей многоквартирных домов](./iot-platforma-dlya-arendodateley-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/iot-platforma-dlya-arendodateley-2027/)
+- [DailyPay и Even по-русски: доступ к уже заработанной зарплате до дня выплаты](./dostup-k-zarplate-do-dnya-vyplaty-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/dostup-k-zarplate-do-dnya-vyplaty-2027/)
 - [Спутниковый мониторинг сельского хозяйства: как это помогает фермеру](./sputnikovyy-monitoring-selskogo-hozyaystva-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sputnikovyy-monitoring-selskogo-hozyaystva-2027/)
 - [Электронное QR-меню для кафе с заказом со стола: как внедрить](./elektronnoe-qr-menyu-dlya-kafe-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/elektronnoe-qr-menyu-dlya-kafe-2026/)
 - [Онлайн-бронирование столиков для кафе и ресторанов: как настроить](./onlayn-bronirovanie-stolikov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/onlayn-bronirovanie-stolikov-2026/)
