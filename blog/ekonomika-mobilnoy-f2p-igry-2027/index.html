@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Экономика мобильной F2P-игры: LTV, ARPU, ARPPU просто</title>
+    <meta name="description" content="Объясняю ключевые метрики экономики бесплатных мобильных игр простым языком: что такое LTV, ARPU и ARPPU, зачем нужен когортный анализ и как с помощью этих…">
+    <meta name="keywords" content="игровая индустрия, мобильные игры, метрики, бизнес-модель">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/ekonomika-mobilnoy-f2p-igry-2027/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/ekonomika-mobilnoy-f2p-igry-2027/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/ekonomika-mobilnoy-f2p-igry-2027/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/ekonomika-mobilnoy-f2p-igry-2027/">
+    <meta property="og:title" content="Экономика мобильной F2P-игры: LTV, ARPU, ARPPU просто">
+    <meta property="og:description" content="Объясняю ключевые метрики экономики бесплатных мобильных игр простым языком: что такое LTV, ARPU и ARPPU, зачем нужен когортный анализ и как с помощью этих…">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/ekonomika-mobilnoy-f2p-igry-2027/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Экономика мобильной F2P-игры: LTV, ARPU, ARPPU просто">
+    <meta name="twitter:description" content="Объясняю ключевые метрики экономики бесплатных мобильных игр простым языком: что такое LTV, ARPU и ARPPU, зачем нужен когортный анализ и как с помощью этих…">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/ekonomika-mobilnoy-f2p-igry-2027/cover.png">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor-Fill.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=45">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Экономика мобильной F2P-игры: LTV, ARPU, ARPPU, когортный анализ на пальцах",
+  "description": "Объясняю ключевые метрики экономики бесплатных мобильных игр простым языком: что такое LTV, ARPU и ARPPU, зачем нужен когортный анализ и как с помощью этих цифр понять, окупается ли игра.",
+  "image": "https://chimitdorzhi.tech/blog/ekonomika-mobilnoy-f2p-igry-2027/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/ekonomika-mobilnoy-f2p-igry-2027/"
+  },
+  "datePublished": "2026-07-03",
+  "dateModified": "2026-07-03",
+  "keywords": "игровая индустрия, мобильные игры, метрики, бизнес-модель",
+  "articleSection": "Киберспорт",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Экономика мобильной F2P-игры: LTV, ARPU, ARPPU, когортный анализ на пальцах",
+      "item": "https://chimitdorzhi.tech/blog/ekonomika-mobilnoy-f2p-igry-2027/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Чем LTV отличается от ARPU?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ARPU — это доход на пользователя за конкретный период (например, за месяц), посчитанный по факту уже случившихся платежей. LTV — это прогноз или накопленная сумма дохода с игрока за весь ожидаемый срок его жизни в игре, обычно на горизонте 30, 90 или 180 дней от момента установки."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Почему конверсия в плательщика такая низкая — всего 1-5%?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Потому что модель F2P специально спроектирована так, чтобы вход был бесплатным и доступным максимально широкой аудитории. Вся экономика строится не на массовых, а на редких, но регулярных и крупных платежах небольшой части аудитории."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что важнее — высокий retention или высокий ARPPU?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Они работают последовательно, а не конкурируют. Без хорошего retention аудитория не доживёт до момента, когда увидит платный контент. Поэтому в здоровой модели сначала чинят удержание, а уже затем оптимизируют монетизацию."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли доверять LTV, посчитанному через неделю после запуска рекламы?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "С осторожностью. Ранний LTV почти всегда занижен, потому что часть покупок случается позже — например, когда прогресс в игре упирается в стену и человек готов заплатить за ускорение. Лучше использовать кривую LTV, построенную по прошлым когортам."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как понять, что рекламный канал стоит отключать?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Если по нескольким последовательным когортам, привлечённым через этот канал, спрогнозированный LTV стабильно оказывается ниже CAC — это сигнал остановить закупку через данный канал и перераспределить бюджет туда, где LTV с запасом превышает CAC."
+      }
+    }
+  ]
+}
+    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+var inject=function(){for (var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)};
+var run=function(){('requestIdleCallback' in window)?requestIdleCallback(inject,{timeout:5000}):setTimeout(inject,3000)};
+(e.readyState==='complete')?run():m.addEventListener('load',run);})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109281884" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+            <li><a href="/#services" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li class="nav-dropdown">
+                <a href="/#projects" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--arey"><i class="ph-fill ph-vinyl-record" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-airplane-tilt" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#cases" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            </div>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/#about">Обо мне</a></li>
+        <li><a href="/#services">Услуги</a></li>
+        <li><a href="/services/">Каталог услуг</a></li>
+        <li><a href="/predlozheniya/">Предложения</a></li>
+        <li><a href="/#cases">Кейсы</a></li>
+        <li><a href="/blog/">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+        <li><a href="/#contact">Контакт</a></li>
+    </ul>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Экономика мобильной F2P-игры: LTV, ARPU, ARPPU, когортный анализ на пальцах</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/esports/"><i class="ph ph-bookmark" aria-hidden="true"></i> Киберспорт</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 8 мин чтения</span>
+                        <time datetime="2026-07-03"><i class="ph ph-calendar" aria-hidden="true"></i> 3 июля 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Экономика мобильной F2P-игры: LTV, ARPU, ARPPU, когортный анализ на пальцах</h1>
+
+                    <p class="blog-lead">LTV, ARPU, ARPPU и когортный анализ звучат сложно, но за ними простая логика: сколько денег приносит игрок и окупает ли он себя. Разбираю на понятных числовых примерах.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>игровая индустрия</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>мобильные игры</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>метрики</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>бизнес-модель</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr">
+<strong>TL;DR:</strong> Экономика мобильной free-to-play игры держится на нескольких простых цифрах: LTV показывает, сколько денег в среднем принесёт игрок за всё время, ARPU и ARPPU — сколько платят все и сколько платят именно плательщики, а retention D1/D7/D30 говорит, остаются ли люди в игре вообще. Как только LTV игрока становится больше стоимости его привлечения (CAC), у продукта появляется устойчивая <a href="https://chimitdorzhi.tech/services/business-analytics-unit-economics/" class="blog-inline-link">юнит-экономика</a> — и именно к этому неравенству сводится вся аналитика мобильного геймдева.
+</div>
+
+<p>Если вы когда-нибудь разговаривали с продюсером мобильной игры, наверняка слышали набор аббревиатур, который звучит как код: LTV, ARPU, ARPPU, D1, D7, D30, cohort. Для человека без опыта в геймдеве это выглядит как отдельный язык. На самом деле за этими буквами стоит понятная логика, знакомая любому, кто хоть раз считал окупаемость рекламы. Разница лишь в том, что в мобильных играх её довели до предельной детализации, потому что игроков миллионы, а решения о том, куда вложить следующий рубль на рекламу, принимаются каждый день. Разберём ключевые метрики по порядку, на простых числах, и в конце соберём это в одно рабочее правило юнит-экономики.</p>
+
+<h2 id="model">Как устроена модель F2P</h2>
+<p>Free-to-play — это модель, в которой сама игра бесплатна, а разработчик зарабатывает на дополнительных покупках внутри игры: ускорениях, косметике, наборах ресурсов, отключении рекламы. Это принципиально другая экономика по сравнению с продажей игры за фиксированную цену: там вы зарабатываете с каждого установившего человека одинаково, а в F2P подавляющее большинство игроков вообще никогда ничего не покупают, и вся выручка держится на небольшой доле платящих пользователей.</p>
+<p>Это не баг модели, а её осознанная конструкция. Разработчик специально делает вход бесплатным, чтобы собрать максимально широкую аудиторию — чем больше людей играет, тем больше шансов, что среди них найдутся те немногие, кто готов платить. Дальше вся экономика строится вокруг вопроса: сколько стоит привести одного нового игрока в игру (это называется CAC, cost of acquisition) и сколько денег этот игрок принесёт за всё время, пока играет (это LTV). Если второе больше первого — модель работает и рекламу можно масштабировать. Если меньше — каждый новый игрок приносит убыток, и чем агрессивнее закупается реклама, тем быстрее сгорает бюджет.</p>
+<p>Именно поэтому команды мобильных игр одержимы метриками — это единственный способ понять, жизнеспособен продукт или нет, ещё до того, как деньги закончатся.</p>
+
+<h2 id="metriki">Ключевые метрики: LTV, ARPU, ARPPU</h2>
+<p>Прежде чем двигаться дальше, разложим три главные аббревиатуры по полочкам. Они часто путаются между собой, потому что все три про деньги, но отвечают на разные вопросы.</p>
+
+<h3>LTV (lifetime value)</h3>
+<p>LTV — это прогнозируемая сумма денег, которую в среднем принесёт один игрок за всё время, пока он играет в игру. Ключевое слово здесь — «в среднем»: LTV считается не для одного конкретного человека, а как усреднённая величина по большой группе игроков. Если у вас есть тысяча игроков, и суммарно за полгода они потратили в игре 500 000 рублей, то LTV за этот период составляет 500 рублей на игрока — даже если 950 из них не заплатили ни копейки.</p>
+<p>LTV обычно считают не «навсегда», а на конкретном временном горизонте: LTV за 30 дней, LTV за 90 дней, LTV за 180 дней. Это важно, потому что игра может «дозревать» месяцами: человек установил игру, месяц играл бесплатно, а на втором месяце купил первый набор ресурсов. Поэтому короткий LTV (за неделю) почти всегда занижает реальную ценность игрока.</p>
+
+<h3>ARPU и ARPPU</h3>
+<p>ARPU расшифровывается как average revenue per user — средний доход на одного пользователя, включая тех, кто вообще не платил. Формула простая: делим всю выручку игры за период на общее число активных игроков за этот же период. Если за месяц игра заработала 1 000 000 рублей, а активных игроков было 50 000, то ARPU составит 20 рублей. Это полезный общий термометр здоровья игры, но он плохо описывает реальное поведение людей, потому что размывает картину между теми, кто платит щедро, и теми, кто не платит вообще.</p>
+<p>ARPPU — average revenue per paying user — тот же расчёт, но только по платящим игрокам. Берём ту же выручку 1 000 000 рублей, но делим не на всех 50 000 игроков, а только на тех, кто реально совершил хотя бы одну покупку. Допустим, заплатили только 1 500 человек (это 3% — типичная конверсия в плательщика для мобильной F2P-игры, обычно она в диапазоне 1-5%). Тогда ARPPU составит 1 000 000 / 1 500 = около 667 рублей.</p>
+<p>Разница между ARPU в 20 рублей и ARPPU в 667 рублей — это и есть суть модели free-to-play. Игра выглядит «дешёвой» для подавляющего большинства, но по-настоящему кормит её небольшая группа увлечённых плательщиков, которых в индустрии иногда называют китами (whales).</p>
+
+<h3>Retention (D1/D7/D30)</h3>
+<p>Retention, или удержание, отвечает на другой вопрос: сколько людей вообще осталось в игре спустя определённое время после установки. D1 (day 1 retention) — доля игроков, которые вернулись в игру на следующий день после установки. D7 — доля тех, кто ещё играет на седьмой день. D30 — доля оставшихся через месяц.</p>
+<p>Считается это так: если игру установили 10 000 человек в один день, а на следующий день в неё зашли 4 000 из них, то D1 = 40%. Это довольно хороший результат — приличным D1 для казуальной мобильной игры считается диапазон 35-45%, D7 обычно падает до 15-20%, а D30 — до 5-10%. Цифры зависят от жанра: у гиперказуальных игр удержание проседает быстрее, у стратегий и RPG держится дольше за счёт вложенного времени и социальных связей.</p>
+<p>Retention критически важен, потому что напрямую влияет на LTV. Если игрок ушёл на второй день, он физически не успеет ничего потратить. Поэтому в геймдеве принято говорить: сначала чинят retention, а потом монетизацию.</p>
+
+<h2 id="kogortnyy-analiz">Когортный анализ на пальцах</h2>
+<p>Когортный анализ — это способ смотреть не на всех игроков сразу единой массой, а разбивать их на группы (когорты) по дате установки игры и дальше следить, как ведёт себя именно эта группа с течением времени. Слово «когорта» можно мысленно заменить на «партия» — как партия товара, выпущенная в один день на заводе и отслеживаемая отдельно от других партий.</p>
+<p>Зачем это нужно? Потому что если просто смотреть на общую выручку игры по дням, картина смазывается: в игру постоянно приходят новые люди, старые уходят, и понять, какая конкретно группа приносит деньги, невозможно. Когортный анализ решает эту проблему, сравнивая группы «яблоки к яблокам»: как вела себя когорта из понедельника на 7-й день своей жизни в игре, и как вела себя когорта из вторника на тот же самый 7-й день их жизни, а не в один календарный день.</p>
+<p>Разберём на простом числовом примере. Допустим, 1 марта в игру установились 1 000 новых игроков — когорта 1 марта.</p>
+<ul>
+<li>День 0 (день установки): играют все 1 000 человек, выручка с них — 0 рублей (никто ещё не осмотрелся).</li>
+<li>День 1: из 1 000 вернулись 400 человек (D1 = 40%), из них 5 человек совершили первую покупку на общую сумму 1 500 рублей.</li>
+<li>День 7: из исходной 1 000 играют уже 180 человек (D7 = 18%), когорта суммарно потратила 12 000 рублей — кумулятивный LTV на 7-й день составляет 12 рублей на игрока (12 000 / 1 000 изначальных установок).</li>
+<li>День 30: играют 70 человек (D30 = 7%), выручка когорты выросла до 45 000 рублей, кумулятивный LTV на 30-й день — 45 рублей на игрока.</li>
+</ul>
+<p>Дальше эту же табличку строят для когорты 2 марта, 3 марта и так далее — и сравнивают между собой. Если когорта, привлечённая через один рекламный канал, показывает LTV на 30-й день в 45 рублей, а через другой канал — только 15 рублей при одинаковой стоимости привлечения, вывод очевиден: первый канал выгоднее. Именно так и работает оптимизация маркетингового бюджета в мобильном геймдеве — не по общим цифрам, а по когортам, разбитым по источнику трафика, дате, стране, устройству.</p>
+<p>Второй практический смысл когортного анализа — прогнозирование. Зная, как обычно кривая LTV продолжает расти дальше (это называется LTV curve), можно предсказать LTV на 90-й или 180-й день по данным всего за первую неделю жизни когорты.</p>
+
+<h2 id="kak-primenit">Как это применять на практике</h2>
+<p>Всё, о чём мы говорили выше, сходится к одному неравенству — основе юнит-экономики любой мобильной F2P-игры: LTV должен быть больше CAC (customer acquisition cost — стоимость привлечения одного игрока через рекламу). Если LTV больше CAC — каждый новый игрок в среднем приносит прибыль, и рекламный бюджет можно наращивать. Если LTV меньше CAC — каждая новая установка приносит убыток, сколько бы игроков вы ни приводили.</p>
+<p>Возьмём числовой пример. Допустим, вы закупаете рекламу в мобильной сети, и одна установка обходится в 80 рублей (это и есть CAC). Если по когортному анализу LTV на 90-й день составляет 120 рублей на игрока — юнит-экономика сходится: с каждого игрока в среднем остаётся 40 рублей прибыли (без учёта прочих издержек вроде серверов и зарплат команды). Такую кампанию можно масштабировать. Но если LTV на 90-й день составляет всего 50 рублей при том же CAC в 80 рублей, вы теряете 30 рублей на каждой установке — и чем больше вложите в такую рекламу, тем больше потеряете.</p>
+<p>На практике применение этих метрик выглядит примерно так:</p>
+<ul>
+<li>Считайте LTV не по всей игре сразу, а по когортам, разбитым по рекламному источнику — так вы увидите, какой канал трафика реально окупается.</li>
+<li>Следите за D1 retention как за индикатором первого впечатления: если люди не возвращаются даже на следующий день, проблема в онбординге, а не в ценах на покупки.</li>
+<li>Сравнивайте ARPU и ARPPU в динамике: если ARPPU растёт, а конверсия в плательщика падает, магазин мог стать агрессивнее выжимать деньги из немногих, вместо того чтобы вовлекать новых людей.</li>
+<li>Не принимайте решение по LTV за первые 1-3 дня — используйте кривую LTV, экстраполированную по историческим когортам, иначе рискуете закрыть канал, который просто «долго раскачивается».</li>
+<li>Помните, что CAC со временем растёт: чем больше тратится на рекламу, тем дороже становится каждая следующая установка, поэтому окно, где LTV с запасом превышает CAC, стоит использовать для масштабирования, пока оно есть.</li>
+</ul>
+
+<h2 id="faq">FAQ</h2>
+<p><strong>Чем LTV отличается от ARPU?</strong> ARPU — это доход на пользователя за конкретный период (например, за месяц), посчитанный по факту уже случившихся платежей. LTV — это прогноз или накопленная сумма дохода с игрока за весь ожидаемый срок его жизни в игре, обычно на горизонте 30, 90 или 180 дней от момента установки.</p>
+<p><strong>Почему конверсия в плательщика такая низкая — всего 1-5%?</strong> Потому что модель F2P специально спроектирована так, чтобы вход был бесплатным и доступным максимально широкой аудитории. Вся экономика строится не на массовых, а на редких, но регулярных и крупных платежах небольшой части аудитории.</p>
+<p><strong>Что важнее — высокий retention или высокий ARPPU?</strong> Они работают последовательно, а не конкурируют. Без хорошего retention аудитория не доживёт до момента, когда увидит платный контент. Поэтому в здоровой модели сначала чинят удержание, а уже затем оптимизируют монетизацию.</p>
+<p><strong>Можно ли доверять LTV, посчитанному через неделю после запуска рекламы?</strong> С осторожностью. Ранний LTV почти всегда занижен, потому что часть покупок случается позже — например, когда прогресс в игре упирается в стену и человек готов заплатить за ускорение. Лучше использовать кривую LTV, построенную по прошлым когортам.</p>
+<p><strong>Как понять, что рекламный канал стоит отключать?</strong> Если по нескольким последовательным когортам, привлечённым через этот канал, спрогнозированный LTV стабильно оказывается ниже CAC — это сигнал остановить закупку через данный канал и перераспределить бюджет туда, где LTV с запасом превышает CAC.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+<ul>
+<li>LTV — сколько в среднем приносит игрок за всё время игры, ARPU — средний доход на любого пользователя, ARPPU — средний доход только на тех, кто платит; конверсия в плательщика в мобильных F2P-играх обычно составляет 1-5%.</li>
+<li>Retention (D1/D7/D30) показывает, сколько игроков остаётся в игре со временем, и напрямую ограничивает потенциальный LTV — без удержания нет и дохода.</li>
+<li>Когортный анализ группирует игроков по дате установки и отслеживает их поведение во времени отдельно от остальной аудитории — это единственный способ честно сравнить эффективность разных рекламных источников и предсказать доход наперёд.</li>
+<li>Базовое правило юнит-экономики мобильной игры простое: LTV должен быть больше CAC. Если это неравенство выполняется — рекламу можно масштабировать, если нет — каждая новая установка приносит убыток.</li>
+</ul>
+
+                    </div>
+
+                    
+                    
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Что я делаю под ключ</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-code"></i> <span>Сайты и веб-приложения</span></li>
+    
+    <li><i class="ph-fill ph-robot"></i> <span>Боты в Telegram и MAX, ИИ-агенты</span></li>
+    
+    <li><i class="ph-fill ph-flow-arrow"></i> <span>Автоматизация и интеграции</span></li>
+    
+    <li><i class="ph-fill ph-storefront"></i> <span>Маркетплейсы и платформы</span></li>
+    
+    <li><i class="ph-fill ph-lifebuoy"></i> <span>Внедрение и поддержка</span></li>
+    
+  </ul>
+  <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Обсудить ваш проект
+  </a>
+</div>
+                    <div class="blog-cta-card">
+                        <div class="blog-cta-card-body">
+                            <h3>Бесплатно: чек-лист «Готов ли ваш бизнес к 152-ФЗ»</h3>
+                            <p>12 пунктов, которые проверяют готовность за час: данные, согласия, уведомление в РКН, локализация, защита. Отметьте, что уже сделано, и увидите дыры, за которые сейчас штрафуют.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="/checklist-152-fz/" class="btn btn-accent"><i class="ph-fill ph-clipboard-text" aria-hidden="true"></i> Открыть чек-лист</a>
+                        </div>
+                    </div>
+                    
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/predlozheniya/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Обсудить ваш проект</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/user-acquisition-mobilnyh-igr-2027/" data-category="esports" data-clicks="0">
+  <span class="blog-card-fresh">Свежее</span>
+  <div class="blog-card-icon"><i class="ph-fill ph-target"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Киберспорт</span>
+  <h3>UA (User Acquisition) для мобильных игр: во сколько обходится один игрок и как считать окупаемость</h3>
+  <p>Каждый игрок в мобильной игре что-то стоит привлечь — вопрос в том, окупается ли эта стоимость. Разбираю, как устроен User Acquisition и как считать окупаемость по CAC и LTV.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 3 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 8 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/hosting-igrovyh-serverov-saas-2027/" data-category="esports" data-clicks="0">
+  <span class="blog-card-fresh">Свежее</span>
+  <div class="blog-card-icon"><i class="ph-fill ph-cloud"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Киберспорт</span>
+  <h3>Хостинг игровых серверов как SaaS-бизнес: аналог Pterodactyl-платформ «под ключ»</h3>
+  <p>Аренда сервера Minecraft или Rust в один клик без настройки — за этим стоит целый SaaS-бизнес на базе панелей вроде Pterodactyl. Разбираю модель game server hosting.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 3 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 8 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/geymifikaciya-saas-2026/" data-category="sales" data-clicks="1">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-trophy"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Продажи и стартап</span>
+  <h3>Геймификация SaaS-продукта 2026: 7 механик которые поднимают retention в 2 раза</h3>
+  <p>В 2026 году retention — главная метрика SaaS: привлечь клиента стоит в 5–10 раз дороже, чем удержать. Разбираю 7 рабочих механик геймификации (Duolingo, Strava, Spotify, Notion AI), даю SQL-схемы, React-компоненты и Node.js-код для share-картинок. Российские кейсы Тинькофф Pulse, Я.Музыка, Skyeng. Пошаговое внедрение за месяц, метрики, бенчмарки, AI-персонализация 2026.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 25 мая 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 23 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    
+                    
+                    
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовые решения под ключ</span>
+                            <span class="blog-offer-cta-title">449 готовых IT-решений для бизнеса</span>
+                            <span class="blog-offer-cta-price">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Смотреть каталог</span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#model"><span class="blog-toc-num">01</span> Как устроена модель F2P</a></li>
+<li><a href="#metriki"><span class="blog-toc-num">02</span> Ключевые метрики: LTV, ARPU, ARPPU</a></li>
+<li><a href="#kogortnyy-analiz"><span class="blog-toc-num">03</span> Когортный анализ на пальцах</a></li>
+<li><a href="#kak-primenit"><span class="blog-toc-num">04</span> Как это применять на практике</a></li>
+<li><a href="#faq"><span class="blog-toc-num">05</span> FAQ</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">06</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=23" defer></script>
+<script src="/services-i18n.js?v=23" defer></script>
+<script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>
