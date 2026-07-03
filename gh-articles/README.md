@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1050**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1057**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -531,6 +531,13 @@
 
 ## Киберспорт
 
+- [Бизнес на приватном сервере GTA/CS/Minecraft: юнит-экономика, донат-система, риски с правообладателями](./biznes-privatnyy-server-gta-cs-minecraft-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/biznes-privatnyy-server-gta-cs-minecraft-2027/)
+- [Хостинг игровых серверов как SaaS-бизнес: аналог Pterodactyl-платформ «под ключ»](./hosting-igrovyh-serverov-saas-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/hosting-igrovyh-serverov-saas-2027/)
+- [Экономика мобильной F2P-игры: LTV, ARPU, ARPPU, когортный анализ на пальцах](./ekonomika-mobilnoy-f2p-igry-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ekonomika-mobilnoy-f2p-igry-2027/)
+- [UA (User Acquisition) для мобильных игр: во сколько обходится один игрок и как считать окупаемость](./user-acquisition-mobilnyh-igr-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/user-acquisition-mobilnyh-igr-2027/)
+- [Как устроен маркетплейс скинов (Steam Community Market/CS2): комиссия площадки, эскроу, антифрод](./marketplace-skinov-steam-cs2-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/marketplace-skinov-steam-cs2-2027/)
+- [Буст аккаунтов и рейтинга: юридическая серая зона, спрос и почему платформы банят](./bust-akkauntov-reytinga-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bust-akkauntov-reytinga-2027/)
+- [Продажа и передача игровых аккаунтов: риски для покупателя и продавца, эскроу-сервисы](./prodazha-peredacha-igrovyh-akkauntov-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/prodazha-peredacha-igrovyh-akkauntov-2027/)
 - [Турниры по киберспорту в РФ 2026: организация под ключ — площадка, призовой фонд, спонсоры](./kibertirniry-organizaciya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kibertirniry-organizaciya-2026/)
 - [Спонсорство в киберспорте и стриминге 2026: как привлечь, сколько просить, что давать взамен](./sponsorstvo-kibersport-streaming-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sponsorstvo-kibersport-streaming-2026/)
 - [Брендированная киберспорт-лига 2026: годовая активация вместо разового турнира](./brendirovannaya-kibersport-liga-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/brendirovannaya-kibersport-liga-2026/)
