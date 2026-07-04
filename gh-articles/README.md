@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1077**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1079**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -888,6 +888,8 @@
 
 ## Разработка
 
+- [Сайт-каталог для производителя оборудования: B2B-продажи вместо PDF-прайса](./sayt-katalog-proizvoditelya-oborudovaniya-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-katalog-proizvoditelya-oborudovaniya-2027/)
+- [Автоматизация для сети из нескольких магазинов: единая база вместо разрозненных таблиц](./avtomatizaciya-seti-magazinov-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avtomatizaciya-seti-magazinov-2027/)
 - [Автоотчёты руководителю в Telegram: выручка, заявки и задачи каждое утро](./avtootchety-rukovoditelyu-telegram-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avtootchety-rukovoditelyu-telegram-2027/)
 - [Приём заявок с Авито прямо в CRM без ручного копирования](./priem-zayavok-s-avito-v-crm-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/priem-zayavok-s-avito-v-crm-2027/)
 - [Свой виджет онлайн-чата на сайт вместо ушедших зарубежных сервисов](./svoy-vidzhet-onlayn-chata-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/svoy-vidzhet-onlayn-chata-2027/)
