@@ -83,6 +83,7 @@ function navbar() {
     <div class="container nav-inner">
         <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
         <ul class="nav-links" id="navLinks">
+            <li><a href="/market/">Собрать проект</a></li>
             <li><a href="/#about">Обо мне</a></li>
             <li><a href="/#services">Услуги</a></li>
             <li><a href="/predlozheniya/">Предложения</a></li>
@@ -99,6 +100,7 @@ function navbar() {
 </nav>
 <div class="mobile-menu" id="mobileMenu">
     <ul>
+        <li><a href="/market/">Собрать проект</a></li>
         <li><a href="/#about">Обо мне</a></li>
         <li><a href="/#services">Услуги</a></li>
         <li><a href="/predlozheniya/">Предложения</a></li>
