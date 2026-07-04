@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1057**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1077**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -23,6 +23,10 @@
 
 ## AI для разработчиков
 
+- [ИИ-агент для заявок с сайта: отвечает 24/7 и заносит лида в CRM](./ii-agent-zayavki-s-sayta-crm-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-agent-zayavki-s-sayta-crm-2027/)
+- [ИИ отвечает на отзывы и вопросы на Wildberries и Ozon за селлера](./ii-otvety-na-otzyvy-wb-ozon-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-otvety-na-otzyvy-wb-ozon-2027/)
+- [ИИ разбирает входящую почту и документы: сортирует и извлекает данные](./ii-razbor-vhodyashchey-pochty-dokumentov-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-razbor-vhodyashchey-pochty-dokumentov-2027/)
+- [Бот записи в 2 клика вместо звонка администратору](./bot-zapis-v-2-klika-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bot-zapis-v-2-klika-2027/)
 - [Как устроены большие языковые модели: как ИИ «понимает» текст](./kak-ustroeny-bolshie-yazykovye-modeli-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-ustroeny-bolshie-yazykovye-modeli-2027/)
 - [Компьютерное зрение: как машины «видят» мир](./kompyuternoe-zrenie-kak-mashiny-vidyat-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kompyuternoe-zrenie-kak-mashiny-vidyat-2027/)
 - [Как работает распознавание речи: от звука до текста](./kak-rabotaet-raspoznavanie-rechi-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-rabotaet-raspoznavanie-rechi-2027/)
@@ -884,6 +888,22 @@
 
 ## Разработка
 
+- [Автоотчёты руководителю в Telegram: выручка, заявки и задачи каждое утро](./avtootchety-rukovoditelyu-telegram-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avtootchety-rukovoditelyu-telegram-2027/)
+- [Приём заявок с Авито прямо в CRM без ручного копирования](./priem-zayavok-s-avito-v-crm-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/priem-zayavok-s-avito-v-crm-2027/)
+- [Свой виджет онлайн-чата на сайт вместо ушедших зарубежных сервисов](./svoy-vidzhet-onlayn-chata-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/svoy-vidzhet-onlayn-chata-2027/)
+- [Бот-квиз для расчёта сметы прямо в переписке](./bot-kviz-raschet-smety-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bot-kviz-raschet-smety-2027/)
+- [Автоматизация счетов и актов: от заявки до закрывающих документов](./avtomatizaciya-schetov-aktov-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avtomatizaciya-schetov-aktov-2027/)
+- [Бот-автоответчик на нерабочее время, который дожимает лида до утра](./bot-avtootvetchik-nerabochee-vremya-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bot-avtootvetchik-nerabochee-vremya-2027/)
+- [Личный кабинет клиента: когда окупается, а когда выброшенные деньги](./lichnyy-kabinet-klienta-okupaemost-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/lichnyy-kabinet-klienta-okupaemost-2027/)
+- [Уйти с Тильды и Wix на свой сайт: когда пора и что это даёт](./uyti-s-tildy-wix-na-svoy-sayt-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uyti-s-tildy-wix-na-svoy-sayt-2027/)
+- [Единое окно заявок: сайт, телефон, Директ и мессенджеры в одном месте](./edinoe-okno-zayavok-omnikanalnost-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/edinoe-okno-zayavok-omnikanalnost-2027/)
+- [Своя онлайн-запись вместо ушедшего Calendly под ваш процесс](./svoya-onlayn-zapis-zamena-calendly-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/svoya-onlayn-zapis-zamena-calendly-2027/)
+- [Почему ваш сайт не приносит заявок: аудит из 12 точек](./pochemu-sayt-ne-prinosit-zayavok-audit-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pochemu-sayt-ne-prinosit-zayavok-audit-2027/)
+- [Как составить техзадание на сайт или бот, чтобы не переплатить](./kak-sostavit-tz-na-sayt-bot-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-sostavit-tz-na-sayt-bot-2027/)
+- [Сколько стоит автоматизация бизнеса и когда она окупается](./skolko-stoit-avtomatizaciya-okupaemost-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-stoit-avtomatizaciya-okupaemost-2027/)
+- [Заказать ИИ-агента в Чите и Улан-Удэ: что автоматизируют местные бизнесы](./zakazat-ii-agenta-chita-ulan-ude-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zakazat-ii-agenta-chita-ulan-ude-2027/)
+- [Внедрение CRM в Забайкалье: с чего начать малому бизнесу](./vnedrenie-crm-zabaykalye-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vnedrenie-crm-zabaykalye-2027/)
+- [Бот для записи клиентов в Улан-Удэ: салоны, клиники, автосервисы](./bot-zapis-klientov-ulan-ude-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bot-zapis-klientov-ulan-ude-2027/)
 - [Как сделать платёжного бота в MAX и не застрять на публикации](./kak-sdelat-platezhnogo-bota-v-max-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-sdelat-platezhnogo-bota-v-max-2027/)
 - [Реферальная механика в MAX: deep links, проверка подписки и антифрод (разбор кейса)](./referalnaya-mehanika-v-max-keys-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/referalnaya-mehanika-v-max-keys-2027/)
 - [Как технически устроен выпуск ЦФА: блокчейн-платформа, смарт-контракты и учёт](./kak-ustroen-vypusk-cfa-tehnicheski-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-ustroen-vypusk-cfa-tehnicheski-2027/)
