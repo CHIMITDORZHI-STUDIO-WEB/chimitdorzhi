@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1079**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1097**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -23,6 +23,7 @@
 
 ## AI для разработчиков
 
+- [AI-ассистент на данных бизнеса: как он отвечает клиентам вместо вас](./ai-assistent-otvechaet-vmesto-vas-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ai-assistent-otvechaet-vmesto-vas-2026/)
 - [ИИ-агент для заявок с сайта: отвечает 24/7 и заносит лида в CRM](./ii-agent-zayavki-s-sayta-crm-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-agent-zayavki-s-sayta-crm-2027/)
 - [ИИ отвечает на отзывы и вопросы на Wildberries и Ozon за селлера](./ii-otvety-na-otzyvy-wb-ozon-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-otvety-na-otzyvy-wb-ozon-2027/)
 - [ИИ разбирает входящую почту и документы: сортирует и извлекает данные](./ii-razbor-vhodyashchey-pochty-dokumentov-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-razbor-vhodyashchey-pochty-dokumentov-2027/)
@@ -551,6 +552,13 @@
 
 ## Маркетинг
 
+- [Яндекс.Директ с нуля: сколько нужно на старт и куда уходят деньги](./yandex-direkt-s-nulya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/yandex-direkt-s-nulya-2026/)
+- [Почему реклама «не работает»: 5 причин, не связанных с бюджетом](./pochemu-reklama-ne-rabotaet-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pochemu-reklama-ne-rabotaet-2026/)
+- [Куда ведёт реклама: почему без нормального сайта бюджет сливается](./kuda-vedet-reklama-sayt-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kuda-vedet-reklama-sayt-2026/)
+- [Как понять, окупается ли реклама: простая настройка целей в Метрике](./okupaemost-reklamy-metrika-celi-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/okupaemost-reklamy-metrika-celi-2026/)
+- [Программа лояльности для кафе и салона: баллы, которые реально возвращают](./programma-loyalnosti-kafe-salon-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/programma-loyalnosti-kafe-salon-2026/)
+- [Почему клиенты не возвращаются — и как это чинится без вечных скидок](./pochemu-klienty-ne-vozvrashchayutsya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pochemu-klienty-ne-vozvrashchayutsya-2026/)
+- [Реферальная программа: как превратить клиентов в источник новых клиентов](./referalnaya-programma-novye-klienty-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/referalnaya-programma-novye-klienty-2026/)
 - [Как работает реклама в интернете: почему она будто следит за вами](./kak-rabotaet-reklama-v-internete-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-rabotaet-reklama-v-internete-2027/)
 - [Репёрпосинг контента: как из одного материала сделать 10 форматов](./reperposing-kontenta-1-v-10-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/reperposing-kontenta-1-v-10-2026/)
 - [Конкурентная разведка легально: что можно узнать из открытых источников](./konkurentnaya-razvedka-legalno-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/konkurentnaya-razvedka-legalno-2026/)
@@ -837,6 +845,10 @@
 
 ## Продажи
 
+- [МАКС-бот или живой менеджер: где бот выигрывает, а где только мешает](./chat-bot-ili-zhivoy-menedzher-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chat-bot-ili-zhivoy-menedzher-2026/)
+- [Как перестать терять заявки: 7 мест, где они утекают, и как закрыть каждое](./kuda-utekayut-zayavki-7-mest-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kuda-utekayut-zayavki-7-mest-2026/)
+- [CRM для маленькой компании: нужна ли и с чего начать без бюджета](./crm-nuzhna-li-vam-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/crm-nuzhna-li-vam-2026/)
+- [Онлайн-курс как продукт: как упаковать свои знания и начать продавать](./onlayn-kurs-kak-produkt-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/onlayn-kurs-kak-produkt-2026/)
 - [Как не терять заявки летом: автоматизация бизнеса на время отпусков](./ne-teryat-zayavki-letom-avtomatizaciya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ne-teryat-zayavki-letom-avtomatizaciya-2026/)
 - [Онлайн-запись к летнему сезону: для туризма, кафе и выездных услуг](./onlayn-zapis-k-letnemu-sezonu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/onlayn-zapis-k-letnemu-sezonu-2026/)
 - [Своя CRM на сервере против облачной: что выгоднее малому бизнесу](./svoya-crm-na-servere-vs-oblachnaya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/svoya-crm-na-servere-vs-oblachnaya-2026/)
@@ -890,6 +902,8 @@
 
 - [Сайт-каталог для производителя оборудования: B2B-продажи вместо PDF-прайса](./sayt-katalog-proizvoditelya-oborudovaniya-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-katalog-proizvoditelya-oborudovaniya-2027/)
 - [Автоматизация для сети из нескольких магазинов: единая база вместо разрозненных таблиц](./avtomatizaciya-seti-magazinov-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avtomatizaciya-seti-magazinov-2027/)
+- [Мини-апп в MAX: что это и каким бизнесам он реально нужен](./mini-app-v-max-dlya-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/mini-app-v-max-dlya-biznesa-2026/)
+- [МАКС-бот для бизнеса: что он реально экономит и когда окупается](./max-bot-dlya-biznesa-okupaemost-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/max-bot-dlya-biznesa-okupaemost-2026/)
 - [Автоотчёты руководителю в Telegram: выручка, заявки и задачи каждое утро](./avtootchety-rukovoditelyu-telegram-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avtootchety-rukovoditelyu-telegram-2027/)
 - [Приём заявок с Авито прямо в CRM без ручного копирования](./priem-zayavok-s-avito-v-crm-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/priem-zayavok-s-avito-v-crm-2027/)
 - [Свой виджет онлайн-чата на сайт вместо ушедших зарубежных сервисов](./svoy-vidzhet-onlayn-chata-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/svoy-vidzhet-onlayn-chata-2027/)
@@ -1003,6 +1017,10 @@
 
 ## Сетевой бизнес
 
+- [Учёт структуры в МЛМ: почему Excel тормозит рост и что ставить вместо него](./uchet-struktury-mlm-bez-excel-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uchet-struktury-mlm-bez-excel-2026/)
+- [Маркетинг-планы простыми словами: бинар, матрица, юнилевел — что выбрать](./marketing-plany-mlm-kak-vybrat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/marketing-plany-mlm-kak-vybrat-2026/)
+- [Личный кабинет дистрибьютора: что в нём должно быть, чтобы команда росла](./lichnyy-kabinet-distributora-mlm-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/lichnyy-kabinet-distributora-mlm-2026/)
+- [Автоматизация начислений и выплат партнёрам: как убрать ручные ошибки](./avtomatizaciya-vyplat-partnyoram-mlm-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avtomatizaciya-vyplat-partnyoram-mlm-2026/)
 - [МЛМ-индустрии 2026: где сетевой ещё работает, а где умер — БАДы, косметика, travel](./mlm-industrii-gde-rabotaet-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/mlm-industrii-gde-rabotaet-2026/)
 - [Как сетевику перейти в новую компанию и не потерять команду 2026](./kak-seteviku-pereyti-v-novuyu-kompaniyu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-seteviku-pereyti-v-novuyu-kompaniyu-2026/)
 - [Личный бренд vs продвижение компании: что выбрать сетевику 2026](./lichnyy-brend-vs-kompaniya-setevik-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/lichnyy-brend-vs-kompaniya-setevik-2026/)
