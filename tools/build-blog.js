@@ -527,6 +527,7 @@ const OUT_LLMS      = path.join(ROOT, 'llms.txt');
 const OUT_LLMS_FULL = path.join(ROOT, 'llms-full.txt');
 
 const CATEGORY_LABELS = {
+  cases:       'Кейсы',
   legal:       'Право и compliance',
   'ai-dev':    'AI для разработчиков',
   'ai-life':   'AI для жизни и работы',
@@ -1487,6 +1488,7 @@ ${METRIKA}</head>
                     <button class="filter-btn active" data-blog-cat="all"><i class="ph ph-squares-four" aria-hidden="true"></i> Все <span class="filter-count">${published.length}</span></button>
                     ${POPULAR_SLUGS.size ? '<button class="filter-btn" data-blog-cat="__popular"><i class="ph-fill ph-fire" aria-hidden="true"></i> Популярное</button>' : ''}
                     ${[
+                      { key: 'cases',       label: 'Кейсы',          icon: 'ph-briefcase' },
                       { key: 'legal',       label: 'Право',          icon: 'ph-scales' },
                       { key: 'ai-dev',      label: 'AI для кода',    icon: 'ph-cpu' },
                       { key: 'ai-life',     label: 'AI в работе',    icon: 'ph-sparkle' },
@@ -1699,6 +1701,12 @@ function searchScript() {
 // ---------- category pillar pages ----------
 
 const CATEGORY_META = {
+  cases: {
+    h1: 'Кейсы разработки под ключ',
+    title: 'Кейсы: реальные проекты — боты, сайты, платформы и лояльность',
+    intro: 'Реальные завершённые проекты студии Chimitdorzhi Studio: боты и мини-аппы в MAX и Telegram, официальные сайты с личными кабинетами, программы лояльности, реферальные и МЛМ-системы, городские справочники и нетворкинг-платформы для мероприятий. По каждому кейсу разбираю, какая была задача у клиента, что я построил технически и какой результат это дало. Узнали свою ситуацию — соберём похожее решение под ваш бизнес.',
+    service: { url: 'https://chimitdorzhi.tech/market/#checklist', label: 'Собрать похожий проект' },
+  },
   legal: {
     h1: 'Право и 152-ФЗ',
     intro: 'Всё о защите персональных данных и соответствии 152-ФЗ для бизнеса: согласия, уведомление в РКН, утечки, cookie-баннеры, локализация данных и новые оборотные штрафы. Практические разборы от специалиста, который проводит аудиты на соответствие закону.',
@@ -1815,7 +1823,7 @@ function categoryPage(key, catArticles) {
     ],
   };
   return `${head({
-    title: `${meta.h1}: статьи и гайды 2026 | Чимитдоржи Дарижапов`,
+    title: `${meta.title || `${meta.h1}: статьи и гайды 2026`} | Чимитдоржи Дарижапов`,
     description: meta.intro.slice(0, 300),
     keywords: `${label}, ${meta.h1}, статьи, гайды, 2026`,
     canonical: url,

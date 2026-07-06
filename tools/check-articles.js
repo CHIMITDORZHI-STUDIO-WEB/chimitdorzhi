@@ -28,6 +28,7 @@ const META_DESC_MIN = 60;
 const META_DESC_MAX = 350;
 
 const VALID_CATEGORIES = new Set([
+  'cases',
   'legal', 'ai-dev', 'ai-life', 'marketing', 'geo', 'sales', 'media', 'industries',
   'esports', 'development', 'security', 'finance', 'mlm', 'mwrlife', 'opensource',
   'biznes-krugozor', 'expert',
