@@ -2,7 +2,7 @@
 title: "Как я построил семейную соцсеть с родовым древом для бурят-монгольской аудитории"
 description: "Кейс разработки семейной соцсети Гэрэл с интерактивным родовым древом, лентой семьи и приглашениями по ссылке для бурят-монгольской аудитории."
 date: 2026-07-06
-category: development
+category: cases
 canonical: https://chimitdorzhi.tech/blog/gerel-semeynaya-set-keys-2026/
 ---
 

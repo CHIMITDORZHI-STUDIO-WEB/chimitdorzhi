@@ -2,7 +2,7 @@
 title: "Как вырастить канал в MAX руками подписчиков: кейс «Хантууз»"
 description: "Разработал игровую систему конкурса приглашений для канала бренда Хантууз в MAX: бот с реферальными ссылками, честный антифрод, таблица лидеров и админка для заказчика."
 date: 2026-07-06
-category: marketing
+category: cases
 canonical: https://chimitdorzhi.tech/blog/hantuuz-konkurs-priglasheniy-keys-2026/
 ---
 
