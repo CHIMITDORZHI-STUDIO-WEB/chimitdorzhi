@@ -2,7 +2,7 @@
 title: "Как я построил городской справочник по типу 2ГИС с нуля: кейс AlexMap для Куско"
 description: "Построил AlexMap — городской справочник заведений по типу 2ГИС для Куско (Перу): карта с кластерами, рубрикатор, поиск, геолокация и админка модерации. Мультигород и мультиязычность с первого дня."
 date: 2026-07-06
-category: development
+category: cases
 canonical: https://chimitdorzhi.tech/blog/alexmap-spravochnik-kusko-keys-2026/
 ---
 

@@ -2,7 +2,7 @@
 title: "Как я превратил офлайн-мероприятие в цифровую нетворкинг-платформу: кейс MEDIABIZ"
 description: "Кейс: разработал нетворкинг-платформу MEDIABIZ Interactive для крупного офлайн медиа-ивента — Telegram-бот и мини-апп с каталогом участников, баллами, бейджами и лидербордами."
 date: 2026-07-06
-category: media
+category: cases
 canonical: https://chimitdorzhi.tech/blog/mediabiz-networking-keys-2026/
 ---
 
