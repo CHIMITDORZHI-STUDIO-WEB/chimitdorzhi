@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Реферальный бот в MAX для раздачи призов: кейс кооператива…</title>
+    <meta name="description" content="Кейс разработки реферального бота в мессенджере MAX для кооператива Артель: учёт приглашённых по городам, антифрод-защита, автоматическое начисление призов и…">
+    <meta name="keywords" content="реферальный бот, бот в MAX, автоматизация конкурса, антифрод, начисление призов, учёт приглашений, конкурс для кооператива">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/mango-bot-artel-keys-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/mango-bot-artel-keys-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/mango-bot-artel-keys-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/mango-bot-artel-keys-2026/">
+    <meta property="og:title" content="Реферальный бот в MAX для раздачи призов: кейс кооператива…">
+    <meta property="og:description" content="Кейс разработки реферального бота в мессенджере MAX для кооператива Артель: учёт приглашённых по городам, антифрод-защита, автоматическое начисление призов и…">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/mango-bot-artel-keys-2026/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Реферальный бот в MAX для раздачи призов: кейс кооператива…">
+    <meta name="twitter:description" content="Кейс разработки реферального бота в мессенджере MAX для кооператива Артель: учёт приглашённых по городам, антифрод-защита, автоматическое начисление призов и…">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/mango-bot-artel-keys-2026/cover.png">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor-Fill.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=45">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Как я автоматизировал раздачу призов за приглашения в разных городах без ручного учёта",
+  "description": "Кейс разработки реферального бота в мессенджере MAX для кооператива Артель: учёт приглашённых по городам, антифрод-защита, автоматическое начисление призов и админ-панель для управления конкурсом.",
+  "image": "https://chimitdorzhi.tech/blog/mango-bot-artel-keys-2026/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/mango-bot-artel-keys-2026/"
+  },
+  "datePublished": "2026-07-06",
+  "dateModified": "2026-07-06",
+  "keywords": "MAX, реферальный бот, антифрод, автоматизация, конкурс",
+  "articleSection": "Маркетинг и контент",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Как я автоматизировал раздачу призов за приглашения в разных городах без ручного учёта",
+      "item": "https://chimitdorzhi.tech/blog/mango-bot-artel-keys-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Как быстро можно запустить такого бота для нового конкурса?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Базовая версия с учётом приглашений, антифрод-логикой и автоматическим начислением призов обычно занимает от трёх до шести недель в зависимости от сложности условий вашего конкурса и числа задействованных городов."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли полностью исключить накрутки техническими средствами?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Полностью исключить нельзя ни одной системой, но многоуровневая защита — подтверждение реального участия, технические признаки, ограничение скорости приглашений — снижает риск накруток до управляемого уровня и оставляет финальное решение по спорным случаям за администратором."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Подходит ли такая система для конкурса в одном городе, а не в семи?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, архитектура одинаково хорошо работает и для одного города, и для распределённой сети — разница только в объёме данных, которые видит администратор в панели."
+      }
+    }
+  ]
+}
+    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+var inject=function(){for (var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)};
+var run=function(){('requestIdleCallback' in window)?requestIdleCallback(inject,{timeout:5000}):setTimeout(inject,3000)};
+(e.readyState==='complete')?run():m.addEventListener('load',run);})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109281884" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/market/">Собрать проект</a></li>
+            <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+            <li><a href="/#services" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li class="nav-dropdown">
+                <a href="/#projects" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--arey"><i class="ph-fill ph-vinyl-record" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-airplane-tilt" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#cases" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            </div>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/market/">Собрать проект</a></li>
+        <li><a href="/#about">Обо мне</a></li>
+        <li><a href="/#services">Услуги</a></li>
+        <li><a href="/services/">Каталог услуг</a></li>
+        <li><a href="/predlozheniya/">Предложения</a></li>
+        <li><a href="/#cases">Кейсы</a></li>
+        <li><a href="/blog/">Блог</a></li>
+            <li><a href="/infografika/">Инфографика</a></li>
+        <li><a href="/#contact">Контакт</a></li>
+    </ul>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Как я автоматизировал раздачу призов за приглашения в разных городах без ручного учёта</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/marketing/"><i class="ph ph-bookmark" aria-hidden="true"></i> Маркетинг и контент</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 7 мин чтения</span>
+                        <time datetime="2026-07-06"><i class="ph ph-calendar" aria-hidden="true"></i> 6 июля 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Как я автоматизировал раздачу призов за приглашения в разных городах без ручного учёта</h1>
+
+                    <p class="blog-lead">Кооператив Артель раздавал призы за приглашённых участников в семи городах, но считал их вручную в таблицах. Я построил реферального бота в MAX с антифрод-защитой и автоматическим начислением призов, который снял ручной учёт полностью.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>MAX</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>реферальный бот</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>антифрод</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>автоматизация</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>конкурс</span></div>
+
+                    <div class="blog-body">
+                        <div class="blog-tldr"><strong>TL;DR:</strong> Для кооператива Артель я разработал реферального бота в мессенджере MAX — Манго-бот, который учитывает приглашённых участников по семи городам, защищён от накруток антифрод-механизмом и автоматически начисляет призы без участия администратора. Система запущена и реально работает в живом трафике с десятками участников.</div>
+<p>Кооператив «Артель» решил провести конкурс с призами за приглашённых участников сразу в семи городах. Идея была понятная: каждый действующий член кооператива приводит новых людей, а за это получает вознаграждение. Но на этапе реализации всё уперлось в один и тот же вопрос — как считать, кто кого привёл, если участники разбросаны по разным городам и общаются в разных группах.</p>
+<p>Первый запуск конкурса пробовали вести вручную: администраторы в каждом городе собирали списки приглашённых в таблицы, сверяли их между собой, чтобы не задвоить призы, и вручную решали, кому и сколько начислить. При десятках участников в каждом городе это превратилось в постоянную головную боль — таблицы расходились, кто-то указывал одного и того же приглашённого дважды в разных городах, а разбор спорных случаев занимал часы административного времени каждую неделю.</p>
+<h2 id="problema">Проблема: ручной учёт приглашений в семи городах</h2>
+<p>Главная сложность была не в самом факте подсчёта, а в масштабе и распределённости. Семь городов означали семь разных локальных администраторов, которые физически не видели общую картину и не могли синхронизировать данные друг с другом в реальном времени. Один и тот же человек мог быть приглашён одновременно двумя разными участниками из разных городов, и без единой системы учёта это выявлялось только постфактум, вызывая конфликты и недовольство.</p>
+<p>Вторая проблема — риск накруток. Как только участники поняли, что призы даются за число приглашённых, у части из них появился соблазн создавать фиктивные аккаунты или уговаривать знакомых зарегистрироваться формально, без реального участия в жизни кооператива, просто ради галочки в таблице. Ручной учёт не давал никакой защиты от этого — администратор физически не мог проверить, реальный человек стоит за приглашением или фиктивный.</p>
+<h2 id="arhitektura">Из чего состоит реферальный бот Манго</h2>
+<p>Я спроектировал Манго-бот как единую систему для мессенджера MAX, работающую поверх общей базы данных вне зависимости от города участника. Каждый участник кооператива получает персональную реферальную ссылку сразу при первом обращении к боту. Ссылка привязана к его идентификатору, а не к городу, поэтому вся система работает как единое целое, а не как семь независимых локальных реестров.</p>
+<p>Когда новый человек переходит по ссылке и регистрируется в боте, система сразу фиксирует, из какого города пришёл приглашённый и кто именно его пригласил. Эта запись попадает в общую базу мгновенно, что исключает саму возможность рассинхронизации между городами — больше не нужно сверять таблицы вручную, потому что таблицы просто не существует, есть одна база с реальными данными.</p>
+<p>Админ-панель даёт организаторам конкурса полную картину: список участников по каждому городу, число приглашённых у каждого, статус проверки на признаки накрутки, история начисленных призов. Администратор может в любой момент посмотреть свежий рейтинг участников по количеству реальных, а не формальных приглашений, без сбора данных вручную из семи источников.</p>
+<h2 id="antifrod">Антифрод-защита от накруток</h2>
+<p>Ключевое требование клиента было защитить конкурс от накруток, потому что первая же неудачная попытка ручного запуска показала — как только на кону реальные призы, часть аудитории начинает искать обходные пути. Я заложил в систему несколько уровней проверки, которые работают вместе, а не полагаются на один признак.</p>
+<p>Во-первых, система засчитывает приглашённого как полноценного участника не в момент простой регистрации, а после того, как он выполнит определённые действия внутри бота, подтверждающие реальное участие, а не формальный переход по ссылке. Это отсекает ситуацию, когда человек регистрируется по просьбе знакомого, ничего больше не делает, и на этом фиктивное приглашение засчитывается.</p>
+<p>Во-вторых, бот отслеживает технические признаки накруток: несколько регистраций с одного и того же устройства или в подозрительно короткий промежуток времени от одного и того же приглашающего. Такие случаи не блокируются автоматически без разбора, а помечаются в админ-панели как подозрительные, и администратор принимает финальное решение, глядя на конкретные данные, а не действует вслепую.</p>
+<p>В-третьих, есть ограничение по разумной скорости приглашений — если один участник вдруг приводит аномально много людей за короткий срок, что нетипично для органического сарафанного роста, система выделяет такие аккаунты для ручной проверки. Это не мешает по-настоящему активным амбассадорам кооператива, потому что порог настроен с запасом относительно нормальной активности, но отсекает явные попытки массовой накрутки.</p>
+<h2 id="nachislenie">Автоматическое начисление призов</h2>
+<p>После того как приглашённый участник прошёл проверку и признан полноценным, а не формальным, бот автоматически начисляет приглашающему баллы или очки, которые переводятся в призы согласно условиям конкурса, заданным в админ-панели. Администратору не нужно вручную считать, кому сколько положено — система делает это на основе реальных данных о приглашениях по каждому городу.</p>
+<p>Участник в любой момент может открыть бота и увидеть свой текущий счёт: сколько человек он привёл, сколько из них подтверждено, какой приз ему полагается на данный момент и сколько нужно ещё приглашений до следующего уровня вознаграждения. Это работает как встроенная мотивация продолжать приглашать людей, потому что прогресс виден в реальном времени, а не узнаётся только в конце конкурса от администратора.</p>
+<p>Для организаторов автоматическое начисление означает, что финал конкурса не превращается в аврал со сверкой данных за несколько дней до раздачи призов — все цифры уже посчитаны системой на протяжении всего периода, и остаётся только выгрузить финальный рейтинг из админ-панели.</p>
+<h2 id="rezultat">Что получил кооператив в итоге</h2>
+<p>Манго-бот был запущен и реально работает в живом трафике: участники семи городов приглашают друзей и получают призы без единого случая ручного пересчёта со стороны администраторов. Десятки участников уже прошли через систему, а рейтинг приглашений формируется автоматически на основе реальных, проверенных антифродом данных.</p>
+<p>Административная нагрузка на организаторов конкурса сократилась в разы: вместо постоянной сверки таблиц по городам они видят готовую картину в единой панели и тратят время на разбор только тех случаев, которые система сама пометила как подозрительные, а не проверяют вручную каждую запись подряд.</p>
+<p>Для кооператива это стало доказательством, что механику стимулирования сарафанного роста можно масштабировать сразу на несколько городов без пропорционального роста административных затрат — система одинаково хорошо работает и при десятках, и при существенно большем числе участников, потому что вся логика подсчёта и проверки автоматизирована с самого начала.</p>
+<h2 id="dlya-kogo">Кому подойдёт такое же решение</h2>
+<p>Такой бот подойдёт любым кооперативам, ассоциациям и объединениям, которые растут за счёт привлечения новых членов через действующих участников и хотят поощрять это материально, но не готовы содержать штат администраторов для ручного учёта. Особенно актуально, если организация работает сразу в нескольких городах или регионах.</p>
+<p>Хорошо ложится на MLM-структуры и партнёрские сети, где вознаграждение прямо привязано к числу приглашённых, и где риск накруток традиционно высок — антифрод-защита здесь не опция, а обязательное условие, чтобы конкурс не разрушился под собственной популярностью.</p>
+<p>Подойдёт также локальному бизнесу, который проводит разовые конкурсы или акции «приведи друга» и хочет запустить их без риска потерять контроль над учётом, если аудитория окажется больше, чем ожидалось изначально.</p>
+<p>Отдельный сценарий — сезонные акции с ограниченным сроком: система одинаково хорошо работает и на постоянной основе, и как разовый инструмент под конкретную кампанию, после которой её можно отключить, сохранив данные для отчётности.</p>
+<h2 id="faq">Частые вопросы</h2>
+<p><strong>Как быстро можно запустить такого бота для нового конкурса?</strong> Базовая версия с учётом приглашений, антифрод-логикой и автоматическим начислением призов обычно занимает от трёх до шести недель в зависимости от сложности условий вашего конкурса и числа задействованных городов.</p>
+<p><strong>Можно ли полностью исключить накрутки техническими средствами?</strong> Полностью исключить нельзя ни одной системой, но многоуровневая защита — подтверждение реального участия, технические признаки, ограничение скорости приглашений — снижает риск накруток до управляемого уровня и оставляет финальное решение по спорным случаям за администратором.</p>
+<p><strong>Подходит ли такая система для конкурса в одном городе, а не в семи?</strong> Да, архитектура одинаково хорошо работает и для одного города, и для распределённой сети — разница только в объёме данных, которые видит администратор в панели.</p>
+<h2 id="vyvody">Коротко о главном</h2>
+<p>Реферальный Манго-бот для кооператива «Артель» снял с организаторов ручной учёт приглашений по семи городам и заменил его автоматической системой с защитой от накруток и мгновенным начислением призов. Конкурс запущен и реально работает: десятки участников приглашают друзей, и вся математика считается системой, а не таблицами администраторов.</p>
+<p>Если вам нужно провести конкурс или запустить программу поощрения за приглашения, но вы не хотите вручную сверять данные и рисковать накрутками — соберём похожую систему под масштаб и специфику вашей аудитории, от одного города до федеральной сети.</p>
+                    </div>
+
+                    
+                    
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Что я делаю под ключ</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-robot"></i> <span>Реферальные боты в MAX и Telegram</span></li>
+    
+    <li><i class="ph-fill ph-shield-check"></i> <span>Антифрод-защита от накруток</span></li>
+    
+    <li><i class="ph-fill ph-coins"></i> <span>Автоматическое начисление призов и бонусов</span></li>
+    
+    <li><i class="ph-fill ph-gauge"></i> <span>Админ-панель для управления конкурсом</span></li>
+    
+    <li><i class="ph-fill ph-lifebuoy"></i> <span>Внедрение и поддержка после запуска</span></li>
+    
+  </ul>
+  <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Обсудить проект
+  </a>
+</div>
+                    <div class="blog-cta-card">
+                        <div class="blog-cta-card-body">
+                            <h3>Бесплатно: чек-лист «Готов ли ваш бизнес к 152-ФЗ»</h3>
+                            <p>12 пунктов, которые проверяют готовность за час: данные, согласия, уведомление в РКН, локализация, защита. Отметьте, что уже сделано, и увидите дыры, за которые сейчас штрафуют.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="/checklist-152-fz/" class="btn btn-accent"><i class="ph-fill ph-clipboard-text" aria-hidden="true"></i> Открыть чек-лист</a>
+                        </div>
+                    </div>
+                    
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/market/#checklist" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Собрать похожий проект</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/avtovse-max-bot-miniapp-keys-2026/" data-category="development" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-car"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
+  <h3>Как я собрал разрозненное сообщество автовладельцев в одну платформу с геймификацией в MAX</h3>
+  <p>Сообщество автовладельцев АвтоВсё жило в десятке разрозненных чатов, а заявки и приглашения терялись без учёта. Я построил бота и мини-апп в MAX с геймификацией и реферальной системой, которые собрали всё сообщество в одном месте.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 6 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 7 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/arey-promotion-keys-2026/" data-category="sales" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-ticket"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Продажи и стартап</span>
+  <h3>Как я превратил организацию мероприятий в системный бизнес с билетами и рефералкой</h3>
+  <p>Организатор мероприятий вёл продажи и учёт гостей вручную по чатам и таблицам. Я построил Telegram-платформу с афишей, продажей билетов, программой лояльности и многоуровневой рефералкой, которая перевела бизнес на системные рельсы.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 6 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 7 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/hantuuz-konkurs-priglasheniy-keys-2026/" data-category="marketing" data-clicks="0">
+  <span class="blog-card-fresh">Свежее</span>
+  <div class="blog-card-icon"><i class="ph-fill ph-trophy"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Маркетинг и контент</span>
+  <h3>Как вырастить канал в MAX руками подписчиков: кейс «Хантууз»</h3>
+  <p>Бренд Хантууз хотел растить канал в MAX без рекламного бюджета. Я построил игровую систему конкурса приглашений с ботом, честным подсчётом приглашений и админкой, которой заказчик управляет сам.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 6 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 7 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    
+                    
+                    
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовые решения под ключ</span>
+                            <span class="blog-offer-cta-title">449 готовых IT-решений для бизнеса</span>
+                            <span class="blog-offer-cta-price">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Смотреть каталог</span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#problema"><span class="blog-toc-num">01</span> Проблема: ручной учёт приглашений в семи городах</a></li>
+<li><a href="#arhitektura"><span class="blog-toc-num">02</span> Из чего состоит реферальный бот Манго</a></li>
+<li><a href="#antifrod"><span class="blog-toc-num">03</span> Антифрод-защита от накруток</a></li>
+<li><a href="#nachislenie"><span class="blog-toc-num">04</span> Автоматическое начисление призов</a></li>
+<li><a href="#rezultat"><span class="blog-toc-num">05</span> Что получил кооператив в итоге</a></li>
+<li><a href="#dlya-kogo"><span class="blog-toc-num">06</span> Кому подойдёт такое же решение</a></li>
+<li><a href="#faq"><span class="blog-toc-num">07</span> Частые вопросы</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">08</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=23" defer></script>
+<script src="/services-i18n.js?v=23" defer></script>
+<script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>
