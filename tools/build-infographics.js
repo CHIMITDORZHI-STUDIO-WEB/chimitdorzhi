@@ -361,39 +361,7 @@ function head({ title, description, canonical, ogImage }) {
     <link rel="stylesheet" href="/style.css?v=41">
 `;
 }
-function navbar() {
-  return `<nav class="navbar" id="navbar">
-    <div class="container nav-inner">
-        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
-        <ul class="nav-links" id="navLinks">
-            <li><a href="/market/">Собрать проект</a></li>
-            <li><a href="/#about">Обо мне</a></li>
-            <li><a href="/#services">Услуги</a></li>
-            <li><a href="/predlozheniya/" class="nav-link-highlight">Предложения</a></li>
-            <li><a href="/blog/">Блог</a></li>
-            <li><a href="/infografika/">Инфографика</a></li>
-            <li><a href="/#contact">Контакт</a></li>
-        </ul>
-        <div class="nav-controls">
-            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
-            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent nav-cta">Связаться</a>
-        </div>
-        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
-    </div>
-</nav>
-<div class="mobile-menu" id="mobileMenu">
-    <ul>
-        <li><a href="/market/">Собрать проект</a></li>
-        <li><a href="/#about">Обо мне</a></li>
-        <li><a href="/#services">Услуги</a></li>
-        <li><a href="/predlozheniya/">Предложения</a></li>
-        <li><a href="/blog/">Блог</a></li>
-        <li><a href="/infografika/">Инфографика</a></li>
-        <li><a href="/#contact">Контакт</a></li>
-    </ul>
-</div>
-${require('./search-modal.js')}`;
-}
+const navbar = require('./navbar.js');
 function footer() {
   return `<footer id="contact" class="footer">
     <div class="container footer-inner">
