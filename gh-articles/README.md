@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1097**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1107**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -552,6 +552,9 @@
 
 ## Маркетинг
 
+- [Как я автоматизировал раздачу призов за приглашения в разных городах без ручного учёта](./mango-bot-artel-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/mango-bot-artel-keys-2026/)
+- [Как вырастить канал в MAX руками подписчиков: кейс «Хантууз»](./hantuuz-konkurs-priglasheniy-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/hantuuz-konkurs-priglasheniy-keys-2026/)
+- [Как одна платформа лояльности обслуживает сразу несколько независимых кафе в Куско](./peru-loyalty-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/peru-loyalty-keys-2026/)
 - [Яндекс.Директ с нуля: сколько нужно на старт и куда уходят деньги](./yandex-direkt-s-nulya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/yandex-direkt-s-nulya-2026/)
 - [Почему реклама «не работает»: 5 причин, не связанных с бюджетом](./pochemu-reklama-ne-rabotaet-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pochemu-reklama-ne-rabotaet-2026/)
 - [Куда ведёт реклама: почему без нормального сайта бюджет сливается](./kuda-vedet-reklama-sayt-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kuda-vedet-reklama-sayt-2026/)
@@ -633,6 +636,7 @@
 
 ## Медиа
 
+- [Как я превратил офлайн-мероприятие в цифровую нетворкинг-платформу: кейс MEDIABIZ](./mediabiz-networking-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/mediabiz-networking-keys-2026/)
 - [Голограммы и цифровые ведущие для мероприятий: как это работает](./gologrammy-cifrovye-vedushchie-meropriyatiya-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gologrammy-cifrovye-vedushchie-meropriyatiya-2027/)
 - [OSINT для расследований и журналистики: методы и этика](./osint-dlya-rassledovaniy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/osint-dlya-rassledovaniy-2026/)
 - [Гибридная конференция: онлайн и офлайн на российском стеке](./gibridnaya-konferenciya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gibridnaya-konferenciya-2026/)
@@ -644,6 +648,7 @@
 
 ## Отрасли
 
+- [Как я сделал сайт РСО с электронной подачей заявок на техприсоединение по 416-ФЗ](./teplovik-gossayt-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/teplovik-gossayt-keys-2026/)
 - [ChowNow по-русски: свой онлайн-заказ для кафе без высокой комиссии агрегаторов](./belyy-leybl-onlayn-zakaza-dlya-kafe-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/belyy-leybl-onlayn-zakaza-dlya-kafe-2027/)
 - [Olio по-русски: сосед соседу бесплатно отдаёт лишнюю еду](./besplatnaya-razdacha-lishney-edy-sosedyam-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/besplatnaya-razdacha-lishney-edy-sosedyam-2027/)
 - [Farmstead по-русски: подписка на продукты напрямую от фермеров](./podpiska-na-produkty-ot-fermerov-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/podpiska-na-produkty-ot-fermerov-2027/)
@@ -845,6 +850,7 @@
 
 ## Продажи
 
+- [Как я превратил организацию мероприятий в системный бизнес с билетами и рефералкой](./arey-promotion-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/arey-promotion-keys-2026/)
 - [МАКС-бот или живой менеджер: где бот выигрывает, а где только мешает](./chat-bot-ili-zhivoy-menedzher-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chat-bot-ili-zhivoy-menedzher-2026/)
 - [Как перестать терять заявки: 7 мест, где они утекают, и как закрыть каждое](./kuda-utekayut-zayavki-7-mest-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kuda-utekayut-zayavki-7-mest-2026/)
 - [CRM для маленькой компании: нужна ли и с чего начать без бюджета](./crm-nuzhna-li-vam-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/crm-nuzhna-li-vam-2026/)
@@ -900,6 +906,10 @@
 
 ## Разработка
 
+- [Как я собрал разрозненное сообщество автовладельцев в одну платформу с геймификацией в MAX](./avtovse-max-bot-miniapp-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avtovse-max-bot-miniapp-keys-2026/)
+- [Зачем турфирме отдельный сайт, если есть страница в соцсети: кейс ДельТур](./deltour-sayt-turfirmy-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/deltour-sayt-turfirmy-keys-2026/)
+- [Как я построил городской справочник по типу 2ГИС с нуля: кейс AlexMap для Куско](./alexmap-spravochnik-kusko-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/alexmap-spravochnik-kusko-keys-2026/)
+- [Как я построил семейную соцсеть с родовым древом для бурят-монгольской аудитории](./gerel-semeynaya-set-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gerel-semeynaya-set-keys-2026/)
 - [Сайт-каталог для производителя оборудования: B2B-продажи вместо PDF-прайса](./sayt-katalog-proizvoditelya-oborudovaniya-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-katalog-proizvoditelya-oborudovaniya-2027/)
 - [Автоматизация для сети из нескольких магазинов: единая база вместо разрозненных таблиц](./avtomatizaciya-seti-magazinov-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avtomatizaciya-seti-magazinov-2027/)
 - [Мини-апп в MAX: что это и каким бизнесам он реально нужен](./mini-app-v-max-dlya-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/mini-app-v-max-dlya-biznesa-2026/)
