@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1107**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1121**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -23,6 +23,8 @@
 
 ## AI для разработчиков
 
+- [Как мы автоматизируем разработку и контент с помощью LLM](./llm-avtomatizaciya-razrabotki-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/llm-avtomatizaciya-razrabotki-2027/)
+- [Иллюзия идеального ИИ: почему карты и логотипы всё ещё правит человек](./illuziya-idealnogo-ii-human-in-the-loop-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/illuziya-idealnogo-ii-human-in-the-loop-2027/)
 - [AI-ассистент на данных бизнеса: как он отвечает клиентам вместо вас](./ai-assistent-otvechaet-vmesto-vas-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ai-assistent-otvechaet-vmesto-vas-2026/)
 - [ИИ-агент для заявок с сайта: отвечает 24/7 и заносит лида в CRM](./ii-agent-zayavki-s-sayta-crm-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-agent-zayavki-s-sayta-crm-2027/)
 - [ИИ отвечает на отзывы и вопросы на Wildberries и Ozon за селлера](./ii-otvety-na-otzyvy-wb-ozon-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-otvety-na-otzyvy-wb-ozon-2027/)
@@ -70,6 +72,14 @@
 
 ## cases
 
+- [Онбординг-бот на MAX для сетевого бизнеса: как достроить выпадающее звено](./onboarding-bot-setevoy-biznes-max-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/onboarding-bot-setevoy-biznes-max-2027/)
+- [Бот лояльности на MAX для цветочного магазина: баллы, даты и безопасный реферал](./bot-loyalnosti-cvetochnyy-max-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bot-loyalnosti-cvetochnyy-max-2027/)
+- [Розыгрыши для кафе: онлайн-оплата и математически проверяемая честность](./rozygryshi-kafe-chestnost-commit-reveal-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/rozygryshi-kafe-chestnost-commit-reveal-2027/)
+- [Игра-толкователь: веб-игра про этимологию и общие корни слов](./igra-tolkovatel-etimologiya-web-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/igra-tolkovatel-etimologiya-web-2027/)
+- [Как мы оцифровали мифологию и родословные народа в единую цифровую экосистему](./cifrovizaciya-mifologii-rodoslovnyh-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/cifrovizaciya-mifologii-rodoslovnyh-2027/)
+- [Цифровые этно-раскраски нового поколения: вектор, фактчекинг и сакральная палитра](./etno-raskraski-vektor-pipeline-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/etno-raskraski-vektor-pipeline-2027/)
+- [Этно-мюзикл с цифровым иммерсивом: как мы синхронизировали видеопроекцию с живой сценой](./etno-myuzikl-immersiv-taymkod-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/etno-myuzikl-immersiv-taymkod-2027/)
+- [Туристический портал региона с нуля: почему мы не собираем такие проекты на конструкторах](./turportal-regiona-bez-konstruktorov-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/turportal-regiona-bez-konstruktorov-2027/)
 - [Как я собрал разрозненное сообщество автовладельцев в одну платформу с геймификацией в MAX](./avtovse-max-bot-miniapp-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avtovse-max-bot-miniapp-keys-2026/)
 - [Как я превратил организацию мероприятий в системный бизнес с билетами и рефералкой](./arey-promotion-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/arey-promotion-keys-2026/)
 - [Как я автоматизировал раздачу призов за приглашения в разных городах без ручного учёта](./mango-bot-artel-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/mango-bot-artel-keys-2026/)
@@ -313,6 +323,8 @@
 
 ## Безопасность
 
+- [Свой сервер вместо публичного VPN: VLESS, Reality и Hysteria 2 глазами студии](./svoy-server-privatnost-vless-reality-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/svoy-server-privatnost-vless-reality-2027/)
+- [Автоматизация обхода блокировок: PowerShell-скрипт и Amnezia для команды](./anticenzura-powershell-amnezia-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/anticenzura-powershell-amnezia-2027/)
 - [Социальная инженерия: как обманывают людей, а не компьютеры](./socialnaya-inzheneriya-kak-obmanyvayut-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/socialnaya-inzheneriya-kak-obmanyvayut-2027/)
 - [AML и KYC как ИТ-задача: как автоматизировать проверку клиентов](./aml-kyc-avtomatizaciya-proverki-klientov-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/aml-kyc-avtomatizaciya-proverki-klientov-2027/)
 - [Как работает шифрование простыми словами: от переписки до платежей](./kak-rabotaet-shifrovanie-prostymi-slovami-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-rabotaet-shifrovanie-prostymi-slovami-2027/)
@@ -913,6 +925,8 @@
 
 ## Разработка
 
+- [Почему мы не делаем сайты на конструкторах: честный технический разбор](./pochemu-ne-delaem-sayty-na-konstruktorah-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pochemu-ne-delaem-sayty-na-konstruktorah-2027/)
+- [Этно-авангард в веб-дизайне: национальные коды без китча](./etno-avangard-v-veb-dizayne-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/etno-avangard-v-veb-dizayne-2027/)
 - [Сайт-каталог для производителя оборудования: B2B-продажи вместо PDF-прайса](./sayt-katalog-proizvoditelya-oborudovaniya-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-katalog-proizvoditelya-oborudovaniya-2027/)
 - [Автоматизация для сети из нескольких магазинов: единая база вместо разрозненных таблиц](./avtomatizaciya-seti-magazinov-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avtomatizaciya-seti-magazinov-2027/)
 - [Мини-апп в MAX: что это и каким бизнесам он реально нужен](./mini-app-v-max-dlya-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/mini-app-v-max-dlya-biznesa-2026/)
