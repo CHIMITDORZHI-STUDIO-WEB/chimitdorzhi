@@ -43,6 +43,7 @@ const blogBatchMaxAvtomatizaciya = require('./blog-batch-max-avtomatizaciya-2027
 const blogBatchCases = require('./blog-batch-cases-2027.js');
 const blogBatchStudio = require('./blog-batch-studio-2027.js');
 const blogBatchSmartContracts = require('./blog-batch-smartcontracts-2027.js');
+const blogBatchSeoCommercial = require('./blog-batch-seo-commercial-2027.js');
 const blogBatchA = require('./blog-batch-a.js');
 const blogBatchB = require('./blog-batch-b.js');
 const blogBatchC = require('./blog-batch-c.js');
@@ -3482,8 +3483,8 @@ const ALL_ARTICLES = [
     category: 'security',
     published: true,
     title: 'Как защитить сайт от ботов, парсинга и накруток без вреда SEO',
-    metaTitle: 'Как защитить сайт от ботов, парсинга и накруток без вреда',
-    metaDescription: 'Конкуренты парсят цены, боты накручивают заявки и скликивают рекламу. Как защититься и при этом не закрыть путь YandexBot и Googlebot: rate limiting, поведенческий анализ, капча и WAF в меру, мониторинг атак. Чек-лист защиты за 30 дней без потери SEO.',
+    metaTitle: 'Как защитить сайт от накрутки посещаемости, ботов и парсинга',
+    metaDescription: 'Накрутка посещаемости, боты, парсинг цен и скликивание рекламы бьют по сайту и рекламному бюджету. Как защититься и не закрыть путь YandexBot и Googlebot: rate limiting, поведенческий анализ, капча и WAF в меру. Чек-лист защиты за 30 дней без потери SEO.',
     metaKeywords: 'защита от ботов, защита от парсинга, накрутка заявок, скликивание рекламы, WAF, капча, антибот без вреда SEO',
     excerpt: 'Парсинг цен, накрутка заявок и корзин, скликивание рекламы — боты воруют деньги и данные. Разбираю, как грамотно защититься и при этом не заблокировать поисковики Яндекса и Google и не уронить SEO.',
     datePublished: '2026-06-06',
@@ -4850,7 +4851,7 @@ const ALL_ARTICLES = [
     category: 'development',
     published: true,
     title: 'Свой VPS для разработчика в 2026: Selectel vs RuVDS vs Timeweb vs Yandex Cloud — реальное сравнение',
-    metaTitle: 'Какой VPS выбрать в 2026: Selectel, RuVDS, Timeweb, Yandex',
+    metaTitle: 'VPS в 2026: сравнение Selectel, RuVDS, Timeweb и Yandex Cloud по цене',
     metaDescription: 'Какой VPS взять разработчику в 2026: сравниваю Selectel, RuVDS, Timeweb и Yandex Cloud по цене и скорости на личном опыте. Таблица, плюсы и минусы, настройка за 30 минут и 15 self-hosted сервисов для своего сервера.',
     metaKeywords: 'VPS, VDS, хостинг, Selectel, RuVDS, Timeweb, Yandex Cloud, self-hosted, Docker, Caddy, DevOps, выбор VPS, сравнение хостинга',
     excerpt: 'Реальный опыт инженера, пять лет живущего на Selectel + RuVDS + Yandex Cloud. Цены 2026, плюсы и минусы провайдеров, таблица сравнения 14 параметров, пошаговая настройка VPS за 30 минут с bash-скриптами, топ-15 self-hosted приложений и расчёт ROI.',
@@ -5513,7 +5514,7 @@ const ALL_ARTICLES = [
     category: 'media',
     published: true,
     title: 'Своя стрим-студия 2026: оборудование, ПО, бюджеты от 50к ₽ до 1М ₽',
-    metaTitle: 'Своя стрим-студия 2026: оборудование, ПО, бюджеты от 50к ₽',
+    metaTitle: 'Студия для стрима 2026: оборудование, ПО и бюджеты от 50к ₽',
     metaDescription: 'Полный гид по созданию стрим-студии 2026: 3 уровня бюджета (50–100к, 200–400к, 800к–1М ₽), выбор микрофонов (Shure SM7B, Maono PD400X, Rode Wireless Pro), камер (Sony ZV-1, iPhone+EpocCam, Obsbot Tail Air), ПО (OBS, vMix, Riverside), настройка multi-camera, акустическая обработка, окупаемость. Основано на опыте 100+ подкастов и стримов.',
     metaKeywords: 'стрим-студия, оборудование для стрима, OBS Studio, Shure SM7B, RodeCaster Pro II, подкаст оборудование, стриминг 2026',
     excerpt: 'Своя стрим-студия в 2026 — рабочий инструмент для подкастов, киберспорта, Live Commerce и образования. Разбираю 3 бюджетных уровня (50–100к / 200–400к / 800к–1М ₽), выбор микрофонов, камер, освещения, ПО, настройку OBS с MIDI-контроллерами и Python-автоматизацией, multi-camera setup, акустику комнаты. Опыт 100+ записанных стримов.',
@@ -10725,7 +10726,7 @@ const ALL_ARTICLES = [
       ],
     },
   },
-].concat(antigravityEntries, blogBatchA, blogBatchB, blogBatchC, blogBatchPillars, blogBatchMaxMkt, blogBatchLocal, blogBatchChita, blogBatchShkola, blogBatchSetevik, blogBatchMlmBrands, blogBatchMlmBrands2, blogBatchMlmBrands3, blogBatchPraktiki, blogBatchEvents, blogBatchBiznesIdei, blogBatchOpenSource, blogBatchOpenSource2, blogBatchZarabotok, blogBatchOpenSource3, blogBatchOpenSource4, blogBatchOpenSource5, blogBatchOpenSource6, blogBatchOpenSource7, blogBatchOpenSource8, blogBatchOpenSource9, blogBatchOpenSource10, blogBatchOpenSource11, blogBatchOpenSource12, blogBatchOpenSource13, blogBatchOpenSource14, blogBatchOpenSource15, blogBatchOpenSource16, blogBatchOpenSource17, blogBatchOpenSource18, blogBatchOpenSource19, blogBatchOpenSource20, blogBatchOpenSource21, blogBatchOpenSource22, blogBatchOpenSource23, blogBatchOpenSource24, blogBatchOpenSource25, blogBatchNishiIt, blogBatchNishiIt2, blogBatchMwrTravel, blogBatchBiznesTechGaps, blogBatchBiznesKrugozor, blogBatchSkolkoStoit, blogBatchLocalDengi, blogBatchZaschitaOsint, blogBatchOpenSourceHub, blogBatchAiTrends, blogBatchCommercialJun, blogBatchExpert, blogBatchMisc2, blogBatchCfa, blogBatchGrants, blogBatchOpenHw, blogBatchLlmLocal, blogBatchPraktJun2, blogBatchYtJun, blogBatchExpertJun, blogBatchExpertJun2, blogBatchExpertJun3, blogBatchExpertJun4, blogBatchKnigi, blogBatchKnigi2, blogBatchKnigi3, blogBatchCommercialZakaz, blogBatchConvLeadgen, blogBatchCifrovyeAktivy, blogBatchCfaRynok, blogBatchLeantime, blogBatchNauchpop, blogBatchKakEtoUstroeno, blogBatchStartupIdei, blogBatchStartupIdei2, blogBatchStartupIdei3, blogBatchStartupIdei4, blogBatchStartupIdei5, blogBatchStartupIdei6, blogBatchStartupIdei7, blogBatchStartupIdei8, blogBatchKrugozor2, blogBatchGeymindustriya, blogBatchLeadgen2, blogBatchLeadgen3, blogBatchMaxAvtomatizaciya, blogBatchCases, blogBatchStudio, blogBatchSmartContracts);
+].concat(antigravityEntries, blogBatchA, blogBatchB, blogBatchC, blogBatchPillars, blogBatchMaxMkt, blogBatchLocal, blogBatchChita, blogBatchShkola, blogBatchSetevik, blogBatchMlmBrands, blogBatchMlmBrands2, blogBatchMlmBrands3, blogBatchPraktiki, blogBatchEvents, blogBatchBiznesIdei, blogBatchOpenSource, blogBatchOpenSource2, blogBatchZarabotok, blogBatchOpenSource3, blogBatchOpenSource4, blogBatchOpenSource5, blogBatchOpenSource6, blogBatchOpenSource7, blogBatchOpenSource8, blogBatchOpenSource9, blogBatchOpenSource10, blogBatchOpenSource11, blogBatchOpenSource12, blogBatchOpenSource13, blogBatchOpenSource14, blogBatchOpenSource15, blogBatchOpenSource16, blogBatchOpenSource17, blogBatchOpenSource18, blogBatchOpenSource19, blogBatchOpenSource20, blogBatchOpenSource21, blogBatchOpenSource22, blogBatchOpenSource23, blogBatchOpenSource24, blogBatchOpenSource25, blogBatchNishiIt, blogBatchNishiIt2, blogBatchMwrTravel, blogBatchBiznesTechGaps, blogBatchBiznesKrugozor, blogBatchSkolkoStoit, blogBatchLocalDengi, blogBatchZaschitaOsint, blogBatchOpenSourceHub, blogBatchAiTrends, blogBatchCommercialJun, blogBatchExpert, blogBatchMisc2, blogBatchCfa, blogBatchGrants, blogBatchOpenHw, blogBatchLlmLocal, blogBatchPraktJun2, blogBatchYtJun, blogBatchExpertJun, blogBatchExpertJun2, blogBatchExpertJun3, blogBatchExpertJun4, blogBatchKnigi, blogBatchKnigi2, blogBatchKnigi3, blogBatchCommercialZakaz, blogBatchConvLeadgen, blogBatchCifrovyeAktivy, blogBatchCfaRynok, blogBatchLeantime, blogBatchNauchpop, blogBatchKakEtoUstroeno, blogBatchStartupIdei, blogBatchStartupIdei2, blogBatchStartupIdei3, blogBatchStartupIdei4, blogBatchStartupIdei5, blogBatchStartupIdei6, blogBatchStartupIdei7, blogBatchStartupIdei8, blogBatchKrugozor2, blogBatchGeymindustriya, blogBatchLeadgen2, blogBatchLeadgen3, blogBatchMaxAvtomatizaciya, blogBatchCases, blogBatchStudio, blogBatchSmartContracts, blogBatchSeoCommercial);
 
 // --- Проход взаимной перелинковки ---------------------------------------
 // Гарантирует, что у каждой опубликованной статьи есть хотя бы одна входящая
