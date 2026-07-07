@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кейс: цифровизация мифологии и родословных — граф данных и SVG</title>
+    <meta name="description" content="Разбираем изнутри, как мы собрали разрозненные предания, монографии и родовые древа в единый культурный портал: граф связей, генеалогия родов, тамги в SVG и…">
+    <meta name="keywords" content="цифровое наследие, граф данных, генеалогия, SVG, headless CMS, локализация, бурят-монгольская культура, культурный портал">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/cifrovizaciya-mifologii-rodoslovnyh-2027/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/cifrovizaciya-mifologii-rodoslovnyh-2027/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/cifrovizaciya-mifologii-rodoslovnyh-2027/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/cifrovizaciya-mifologii-rodoslovnyh-2027/">
+    <meta property="og:title" content="Кейс: цифровизация мифологии и родословных — граф данных и SVG">
+    <meta property="og:description" content="Разбираем изнутри, как мы собрали разрозненные предания, монографии и родовые древа в единый культурный портал: граф связей, генеалогия родов, тамги в SVG и…">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/cifrovizaciya-mifologii-rodoslovnyh-2027/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Кейс: цифровизация мифологии и родословных — граф данных и SVG">
+    <meta name="twitter:description" content="Разбираем изнутри, как мы собрали разрозненные предания, монографии и родовые древа в единый культурный портал: граф связей, генеалогия родов, тамги в SVG и…">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/cifrovizaciya-mifologii-rodoslovnyh-2027/cover.png">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor-Fill.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=45">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Как мы оцифровали мифологию и родословные народа в единую цифровую экосистему",
+  "description": "Разбираем изнутри, как мы собрали разрозненные предания, монографии и родовые древа в единый культурный портал: граф связей, генеалогия родов, тамги в SVG и headless-архитектура с корректной бурятской типографикой.",
+  "image": "https://chimitdorzhi.tech/blog/cifrovizaciya-mifologii-rodoslovnyh-2027/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/cifrovizaciya-mifologii-rodoslovnyh-2027/"
+  },
+  "datePublished": "2026-07-07",
+  "dateModified": "2026-07-07",
+  "keywords": "цифровое наследие, граф данных, SVG, headless, локализация",
+  "articleSection": "Кейсы",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Как мы оцифровали мифологию и родословные народа в единую цифровую экосистему",
+      "item": "https://chimitdorzhi.tech/blog/cifrovizaciya-mifologii-rodoslovnyh-2027/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Почему граф, а не обычная база статей?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Потому что ценность мифологии и генеалогии — именно в связях. Граф позволяет автоматически показывать, как род связан с божеством, местом и легендой, и держать эти связи непротиворечивыми при любых правках. В плоской структуре пришлось бы дублировать одни и те же сведения в десятках мест."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Зачем кодировать тамги в SVG, а не просто загрузить картинки?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Вектор остаётся идеально чётким на любом экране и при печати, легко масштабируется от иконки до крупного акцента и обычно весит меньше растра. Для родовых знаков, где важна точная узнаваемая геометрия, это единственный корректный формат."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что даёт headless-архитектура именно культурному проекту?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Она отделяет выверенный контент от способа показа. Материал собирается один раз, а отдавать его можно и на сайт, и в будущее мобильное приложение, и на музейный экран — из одного источника, без переписывания."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как вы решаете вопрос достоверности сведений?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "На уровне схемы данных у единиц знания и у связей между ними есть поля источника и достоверности. Спорные версии преданий не конкурируют за одну строку, а честно сосуществуют как разные рёбра графа с пометками."
+      }
+    }
+  ]
+}
+    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+var inject=function(){for (var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)};
+var run=function(){('requestIdleCallback' in window)?requestIdleCallback(inject,{timeout:5000}):setTimeout(inject,3000)};
+(e.readyState==='complete')?run():m.addEventListener('load',run);})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109281884" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/market/">Собрать проект</a></li>
+            <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+            <li style="display:none"><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li class="nav-dropdown">
+                <a href="/#projects" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="/blog/category/cases/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-briefcase" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Кейсы</span>
+                            <span class="nav-dropdown-desc">Реальные проекты под ключ</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li style="display:none"><a href="/#cases" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li style="display:none"><a href="/infografika/">Инфографика</a></li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+                <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему" aria-pressed="false">
+                <i class="ph ph-moon" aria-hidden="true"></i>
+            </button>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/market/">Собрать проект</a></li>
+        <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+        <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+        <li class="mobile-has-submenu">
+            <details>
+                <summary aria-label="Проекты — развернуть"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down" aria-hidden="true"></i></summary>
+                <ul class="mobile-submenu">
+                    <li>
+                        <a href="/blog/category/cases/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-briefcase" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">Кейсы</span>
+                                <span class="mobile-sub-desc">Реальные проекты под ключ</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://gerel.space" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">Gerel.space</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/universe_buryat/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/arey/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.arey">AREY</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/mwrlife/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">MWR Life</span>
+                                <span class="mobile-sub-desc">Travel-клуб и партнёрка</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </details>
+        </li>
+        <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+        <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+    </ul>
+    <div class="mobile-controls">
+        <div class="mobile-lang-switcher" role="group" aria-label="Выбор языка">
+            <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+            <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+            <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+        </div>
+        <button class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle" aria-label="Переключить тему" aria-pressed="false">
+            <i class="ph ph-moon" aria-hidden="true"></i>
+        </button>
+    </div>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Как мы оцифровали мифологию и родословные народа в единую цифровую экосистему</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/cases/"><i class="ph ph-bookmark" aria-hidden="true"></i> Кейсы</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 6 мин чтения</span>
+                        <time datetime="2026-07-07"><i class="ph ph-calendar" aria-hidden="true"></i> 7 июля 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Как мы оцифровали мифологию и родословные народа в единую цифровую экосистему</h1>
+
+                    <p class="blog-lead">Устные предания, редкие монографии и веб-страницы из 2000-х жили отдельно друг от друга — искать и связывать было невозможно. Показываем, как мы спроектировали граф данных, закодировали родовые тамги в векторе и решили вопрос вертикальной старомонгольской письменности в современной вёрстке.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>цифровое наследие</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>граф данных</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>SVG</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>headless</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>локализация</span></div>
+
+                    <div class="blog-body">
+                        <div class="blog-tldr"><strong>TL;DR:</strong> Мы собрали наш культурный портал о бурят-монгольской культуре как единую цифровую экосистему. Ключевое решение — представить мифологию не как набор статей, а как граф связей между божествами, родами, локациями и текстами. Родословные одиннадцати родов мы построили в коде от общего предка, а родовые знаки-тамги закодировали в векторный SVG, чтобы они оставались чёткими на любом экране. Контент раздаётся через headless-архитектуру, а бурятские буквы ү, ө, һ и вертикальная старомонгольская письменность корректно живут в современных CSS-сетках.</div>
+
+<p>К нам обратились с задачей, которая на первый взгляд выглядела как «сделать красивый сайт про культуру», а на деле оказалась инженерным вызовом. Историческое и мифологическое знание народа существовало в виде осколков: часть жила в устных преданиях, которые помнили лишь несколько пожилых носителей; часть — в редких монографиях, изданных крошечными тиражами; часть — на разрозненных веб-страницах, свёрстанных ещё в начале 2000-х, с битыми ссылками и таблицами вместо вёрстки. Никакой единой точки входа не было. Нельзя было ни найти, кто из божеств связан с каким родом, ни проследить родословную от общего предка, ни просто уверенно сказать, что источник достоверен. Ниже мы честно рассказываем внутреннюю кухню: как думали, где ошибались и какие решения в итоге приняли.</p>
+
+<h2 id="problema">Проблема: наследие, рассыпанное по осколкам</h2>
+<p>Первое, что мы поняли на этапе обследования: перед нами не задача «наполнить сайт текстами», а задача восстановить структуру знания, которая в культуре есть, но нигде не зафиксирована целиком. Мифология и генеалогия народа — это плотная сеть отношений. Одно божество покровительствует конкретному роду; род связан с определённой территорией и сакральными местами на ней; каждое такое место обрастает легендами, а легенды, в свою очередь, снова отсылают к божествам и предкам. Если сложить всё это в плоские статьи, читатель утонет: он будет открывать страницу за страницей и терять нить связей, ради которых материал вообще ценен.</p>
+<p>Вторая сложность — достоверность. У устного предания часто есть несколько версий, и они противоречат друг другу. Монографии разных десятилетий по-разному называют одни и те же сущности. Мы сразу заложили принцип: у каждой единицы знания должен быть источник, а спорные места должны честно помечаться как спорные, а не выдаваться за единственную истину. Это повлияло и на схему данных, и на интерфейс — но об этом ниже. Третья проблема — сохранность: носителей мало, время работает против материала, и цифровизация нужна была не «для галочки», а как способ зафиксировать знание, пока его есть у кого записать.</p>
+
+<h2 id="graf-dannyh">Мифология как граф, а не как текст</h2>
+<p>Ключевое проектное решение мы приняли в самом начале: моделировать предметную область как граф. В обычной CMS сущностью является «страница», и всё, что вы можете, — связать страницы ссылками. Нам этого категорически не хватало. Мы выделили несколько базовых типов сущностей: «Божество», «Род», «Локация» (сакральное место, гора, источник, местность) и «Текст/Легенда». Каждая сущность — это отдельная запись со своими полями, а не абзац внутри чужой статьи. И самое важное — связи между ними стали полноценными объектами первого класса, а не просто гиперссылками.</p>
+<p>Разберём на примере. Связь «Род — Божество» несёт смысл «этот род поклонялся этому божеству», и у неё есть собственные атрибуты: характер покровительства, источник сведений, степень достоверности. Связь «Божество — Локация» означает «это место посвящено этому божеству». Связь «Локация — Легенда» соединяет сакральную точку с текстом предания. Когда связи сами по себе несут данные, у нас появляется возможность строить сквозные маршруты: пользователь открывает страницу рода и видит не только его историю, но и божеств-покровителей, их сакральные места на карте и связанные с ними легенды — всё это подтягивается автоматически, потому что зафиксировано в графе, а не переписано руками в десяти местах.</p>
+<p>Такой подход дал ещё один выигрыш: непротиворечивость. Когда мы уточняем сведения об одном божестве, они мгновенно корректно отображаются везде, где на него ссылаются, — на страницах родов, локаций и легенд. В плоской структуре пришлось бы вручную искать и править каждое упоминание, неизбежно что-то пропуская. Мы также заложили в модель поле достоверности и поле источника прямо на уровне связей: если предание существует в нескольких версиях, они не спорят между собой за одну строку, а сосуществуют как разные рёбра графа с честными пометками. Отдельно продумали навигацию: у графа нет «первой страницы», поэтому мы спроектировали несколько точек входа — по родам, по божествам, по карте сакральных мест, — чтобы человек мог зайти с той стороны, которая ему ближе.</p>
+
+<h2 id="genealogiya">Генеалогия родов и тамги в векторе</h2>
+<p>Отдельный большой блок — родословные. Генеалогия одиннадцати родов имеет ясную логику: есть общий предок, от которого происходят одиннадцать сыновей-родоначальников, а от них — разветвлённая структура потомков. В коде мы описали это как древовидную структуру: узел «предок» с одиннадцатью дочерними узлами первого уровня, каждый из которых раскрывается в собственную ветвь. Технически это направленный граф без циклов, но с точки зрения интерфейса — привычное родовое древо, которое можно разворачивать и сворачивать. Мы сознательно не хардкодили уровни: структура рекурсивна, поэтому добавить новое поколение или уточнить ветвь можно данными, не трогая вёрстку.</p>
+<p>Самой красивой инженерной частью стали тамги — родовые знаки. Это графические символы с чёткой геометрией, по которым род опознаётся веками. Растровая картинка тут не годится: на ретине она мылится, при масштабировании рассыпается, а на печати выглядит бедно. Мы закодировали каждую тамгу в векторный SVG — как набор математически описанных линий и кривых. Это дало три вещи сразу. Во-первых, идеальную чёткость на любом разрешении: знак остаётся острым и на телефоне, и на большом экране. Во-вторых, адаптивное масштабирование без потери качества — одна и та же тамга работает и как крошечная иконка рядом с названием рода, и как крупный акцентный элемент на странице. В-третьих, малый вес: аккуратный SVG обычно легче растровой картинки того же назначения, а значит страница грузится быстрее. Мы держали дисциплину чистоты контуров — знак должен быть узнаваемым силуэтом, поэтому лишние точки и разрывы убирались, а геометрия выверялась так, чтобы символ читался мгновенно.</p>
+
+<h2 id="stek-lokalizaciya">Стек, шрифты и вертикальная письменность</h2>
+<p>Мы выбрали headless-подход осознанно. Смысл в том, чтобы отделить хранилище и логику контента от способа его показа. Контент живёт в структурированном виде и раздаётся через API, а «витрин» может быть несколько: сегодня это веб-портал, завтра — <a href="https://chimitdorzhi.tech/services/mobile-apps/" class="blog-inline-link">мобильное приложение</a> или киоск в музее, и всем им отдаётся один и тот же выверенный источник данных. Для проекта о наследии это принципиально: материал собирается один раз и надолго, а каналы его показа будут меняться. Headless избавляет от переписывания контента под каждый новый формат.</p>
+<p>Самая недооценённая, но критичная часть — типографика. Бурятский язык использует буквы ү, ө, һ, и их нельзя «примерно» отобразить: многие популярные веб-шрифты либо не содержат нужных глифов, либо подставляют их из случайного запасного шрифта, отчего текст выглядит рвано — буквы разной толщины и высоты в одном слове. Мы подобрали шрифтовые пары с полным покрытием нужного диапазона символов, настроили корректные fallback-цепочки и проверили отображение на разных платформах, потому что операционные системы по-разному подставляют шрифты. Цель была простая: слово с ү, ө и һ должно выглядеть цельным, а не собранным из разных гарнитур.</p>
+<p>Отдельный вызов — старомонгольская вертикальная письменность. Это письмо идёт сверху вниз, а строки — слева направо, что ортогонально всей логике привычной горизонтальной вёрстки. Мы интегрировали вертикальные фрагменты в современные CSS-сетки аккуратно: выделили для них отдельные контейнеры с вертикальным направлением письма, но вписали эти контейнеры в общую сеточную раскладку страницы так, чтобы они соседствовали с горизонтальным текстом, не ломая ни поток, ни адаптивность на мобильных. В результате вертикальная письменность живёт на странице как полноценный дизайн-элемент, а не как вставленная картинка, — её можно выделить, скопировать, она масштабируется вместе с макетом.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+<p><strong>Почему граф, а не обычная база статей?</strong> Потому что ценность мифологии и генеалогии — именно в связях. Граф позволяет автоматически показывать, как род связан с божеством, местом и легендой, и держать эти связи непротиворечивыми при любых правках. В плоской структуре пришлось бы дублировать одни и те же сведения в десятках мест.</p>
+<p><strong>Зачем кодировать тамги в SVG, а не просто загрузить картинки?</strong> Вектор остаётся идеально чётким на любом экране и при печати, легко масштабируется от иконки до крупного акцента и обычно весит меньше растра. Для родовых знаков, где важна точная узнаваемая геометрия, это единственный корректный формат.</p>
+<p><strong>Что даёт headless-архитектура именно культурному проекту?</strong> Она отделяет выверенный контент от способа показа. Материал собирается один раз, а отдавать его можно и на сайт, и в будущее мобильное приложение, и на музейный экран — из одного источника, без переписывания.</p>
+<p><strong>Как вы решаете вопрос достоверности сведений?</strong> На уровне схемы данных у единиц знания и у связей между ними есть поля источника и достоверности. Спорные версии преданий не конкурируют за одну строку, а честно сосуществуют как разные рёбра графа с пометками.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+<p>Цифровизация наследия — это не про «залить тексты на сайт», а про восстановление структуры знания. Когда мифология описана как граф связей, генеалогия — как рекурсивное древо, а родовые знаки — как чистый вектор, портал перестаёт быть архивом и становится живой экосистемой, по которой удобно двигаться и в которой каждый факт стоит на своём месте и опирается на источник.</p>
+<p>Мы сознательно вложились в неочевидные, но решающие детали: корректную типографику бурятских букв, интеграцию вертикальной письменности в современную вёрстку и headless-подход, дающий проекту запас на годы вперёд. Если вам нужно собрать похожую систему — с графом данных, векторной графикой и бережной локализацией, — мы делаем это под ключ и рады обсудить вашу задачу.</p>
+                    </div>
+
+                    
+                    
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Что я делаю под ключ</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-tree-structure"></i> <span>Проектирование графа данных и связей</span></li>
+    
+    <li><i class="ph-fill ph-vector-two"></i> <span>Векторизация символов и знаков в SVG</span></li>
+    
+    <li><i class="ph-fill ph-database"></i> <span>Headless-архитектура и API контента</span></li>
+    
+    <li><i class="ph-fill ph-translate"></i> <span>Локализация и корректная типографика</span></li>
+    
+    <li><i class="ph-fill ph-books"></i> <span>Цифровизация архивов и наследия</span></li>
+    
+  </ul>
+  <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Обсудить проект
+  </a>
+</div>
+                    <div class="blog-cta-card">
+                        <div class="blog-cta-card-body">
+                            <h3>Бесплатно: чек-лист «Готов ли ваш бизнес к 152-ФЗ»</h3>
+                            <p>12 пунктов, которые проверяют готовность за час: данные, согласия, уведомление в РКН, локализация, защита. Отметьте, что уже сделано, и увидите дыры, за которые сейчас штрафуют.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="/checklist-152-fz/" class="btn btn-accent"><i class="ph-fill ph-clipboard-text" aria-hidden="true"></i> Открыть чек-лист</a>
+                        </div>
+                    </div>
+                    
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/market/#checklist" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Собрать похожий проект</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/turportal-regiona-bez-konstruktorov-2027/" data-category="cases" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-map-trifold"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Кейсы</span>
+  <h3>Туристический портал региона с нуля: почему мы не собираем такие проекты на конструкторах</h3>
+  <p>Региональные турсайты — это обычно унылые списки ссылок с неработающей картой, из которых пользователь уходит в соцсети. Рассказываем, как собрать портал, где маршрут — живой объект, а не абзац текста.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 7 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 6 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/etno-raskraski-vektor-pipeline-2027/" data-category="cases" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-paint-brush"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Кейсы</span>
+  <h3>Цифровые этно-раскраски нового поколения: вектор, фактчекинг и сакральная палитра</h3>
+  <p>Молодёжь считает традиционную культуру музейной, а обычные цифровые раскраски строятся на чужих стоковых шаблонах. Показываем изнутри, как мы сделали аутентичный продукт: конвейер векторизации с математически замкнутыми контурами, фактчекинг орнаментов с экспертами и интерфейс с пятью сакральными цветами вместо случайного спектра.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 7 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 6 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/gerel-semeynaya-set-keys-2026/" data-category="cases" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-tree-structure"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Кейсы</span>
+  <h3>Как я построил семейную соцсеть с родовым древом для бурят-монгольской аудитории</h3>
+  <p>Разработал семейную соцсеть Гэрэл с интерактивным родовым древом, лентой семьи и картой рода для бурят-монгольской аудитории. Рассказываю, как устроена система защиты от ошибок в родословной и почему магия — в приглашениях без пароля.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 6 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 7 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    
+                    
+                    
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовые решения под ключ</span>
+                            <span class="blog-offer-cta-title">449 готовых IT-решений для бизнеса</span>
+                            <span class="blog-offer-cta-price">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Смотреть каталог</span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#problema"><span class="blog-toc-num">01</span> Проблема: наследие, рассыпанное по осколкам</a></li>
+<li><a href="#graf-dannyh"><span class="blog-toc-num">02</span> Мифология как граф, а не как текст</a></li>
+<li><a href="#genealogiya"><span class="blog-toc-num">03</span> Генеалогия родов и тамги в векторе</a></li>
+<li><a href="#stek-lokalizaciya"><span class="blog-toc-num">04</span> Стек, шрифты и вертикальная письменность</a></li>
+<li><a href="#faq"><span class="blog-toc-num">05</span> Частые вопросы</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">06</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=23" defer></script>
+<script src="/services-i18n.js?v=23" defer></script>
+<script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>

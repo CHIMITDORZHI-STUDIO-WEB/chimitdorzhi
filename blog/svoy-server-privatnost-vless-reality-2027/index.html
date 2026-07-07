@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Свой сервер, VLESS + Reality и Hysteria 2: приватность для…</title>
+    <meta name="description" content="Почему IT-студии и бизнесу нужен собственный сервер вместо публичных VPN: логи и утечки данных, блокировки по fingerprint, просадки скорости.">
+    <meta name="keywords" content="DevSecOps, приватность, VLESS, Reality, XTLS, Hysteria 2, QUIC, кибербезопасность, свой сервер, DPI">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/svoy-server-privatnost-vless-reality-2027/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/svoy-server-privatnost-vless-reality-2027/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/svoy-server-privatnost-vless-reality-2027/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/svoy-server-privatnost-vless-reality-2027/">
+    <meta property="og:title" content="Свой сервер, VLESS + Reality и Hysteria 2: приватность для…">
+    <meta property="og:description" content="Почему IT-студии и бизнесу нужен собственный сервер вместо публичных VPN: логи и утечки данных, блокировки по fingerprint, просадки скорости.">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/svoy-server-privatnost-vless-reality-2027/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Свой сервер, VLESS + Reality и Hysteria 2: приватность для…">
+    <meta name="twitter:description" content="Почему IT-студии и бизнесу нужен собственный сервер вместо публичных VPN: логи и утечки данных, блокировки по fingerprint, просадки скорости.">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/svoy-server-privatnost-vless-reality-2027/cover.png">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor-Fill.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=45">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Свой сервер вместо публичного VPN: VLESS, Reality и Hysteria 2 глазами студии",
+  "description": "Почему IT-студии и бизнесу нужен собственный сервер вместо публичных VPN: логи и утечки данных, блокировки по fingerprint, просадки скорости. Разбираем DevSecOps-стек VLESS + XTLS + Reality и Hysteria 2 на базе QUIC.",
+  "image": "https://chimitdorzhi.tech/blog/svoy-server-privatnost-vless-reality-2027/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/svoy-server-privatnost-vless-reality-2027/"
+  },
+  "datePublished": "2026-07-07",
+  "dateModified": "2026-07-07",
+  "keywords": "DevSecOps, приватность, VLESS, Reality, кибербезопасность",
+  "articleSection": "Безопасность",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Свой сервер вместо публичного VPN: VLESS, Reality и Hysteria 2 глазами студии",
+      "item": "https://chimitdorzhi.tech/blog/svoy-server-privatnost-vless-reality-2027/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Чем свой сервер принципиально лучше платного VPN?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Отсутствием третьей стороны. На своём сервере вы сами определяете политику логирования, сами выбираете протокол и дата-центр, и вам не нужно верить чужим обещаниям «мы не храним логи». Для команды, работающей с клиентскими доступами, это разница между доверием на слово и технической гарантией."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Почему нельзя просто пользоваться WireGuard — он же современный и быстрый?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "WireGuard отличный протокол для соединения точек, но у него узнаваемый цифровой отпечаток. DPI распознаёт его по рукопожатию и блокирует независимо от того, насколько хорошо зашифровано содержимое. Reality решает именно эту проблему — он не имеет VPN-отпечатка и выглядит как обычная TLS-сессия к реальному сайту."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Когда вы выбираете Hysteria 2, а когда Reality?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Reality — для стабильных каналов, где нужна максимальная незаметность. Hysteria 2 на базе QUIC — для мобильных и нестабильных сетей с потерей пакетов, где обычный TCP-VPN отваливается по таймауту. Часто держим оба и переключаемся по ситуации."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Это сложно поддерживать своими силами?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Настройка требует навыков администрирования Linux и понимания протоколов, но это разовая инвестиция, которая окупается стабильностью и контролем. Мы автоматизируем развёртывание и обслуживание такого контура — об этом у нас есть отдельный технический материал."
+      }
+    }
+  ]
+}
+    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+var inject=function(){for (var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)};
+var run=function(){('requestIdleCallback' in window)?requestIdleCallback(inject,{timeout:5000}):setTimeout(inject,3000)};
+(e.readyState==='complete')?run():m.addEventListener('load',run);})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109281884" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/market/">Собрать проект</a></li>
+            <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+            <li style="display:none"><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li class="nav-dropdown">
+                <a href="/#projects" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="/blog/category/cases/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-briefcase" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Кейсы</span>
+                            <span class="nav-dropdown-desc">Реальные проекты под ключ</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li style="display:none"><a href="/#cases" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li style="display:none"><a href="/infografika/">Инфографика</a></li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+                <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему" aria-pressed="false">
+                <i class="ph ph-moon" aria-hidden="true"></i>
+            </button>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/market/">Собрать проект</a></li>
+        <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+        <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+        <li class="mobile-has-submenu">
+            <details>
+                <summary aria-label="Проекты — развернуть"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down" aria-hidden="true"></i></summary>
+                <ul class="mobile-submenu">
+                    <li>
+                        <a href="/blog/category/cases/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-briefcase" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">Кейсы</span>
+                                <span class="mobile-sub-desc">Реальные проекты под ключ</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://gerel.space" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">Gerel.space</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/universe_buryat/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/arey/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.arey">AREY</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/mwrlife/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">MWR Life</span>
+                                <span class="mobile-sub-desc">Travel-клуб и партнёрка</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </details>
+        </li>
+        <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+        <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+    </ul>
+    <div class="mobile-controls">
+        <div class="mobile-lang-switcher" role="group" aria-label="Выбор языка">
+            <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+            <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+            <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+        </div>
+        <button class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle" aria-label="Переключить тему" aria-pressed="false">
+            <i class="ph ph-moon" aria-hidden="true"></i>
+        </button>
+    </div>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Свой сервер вместо публичного VPN: VLESS, Reality и Hysteria 2 глазами студии</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/security/"><i class="ph ph-bookmark" aria-hidden="true"></i> Безопасность</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 6 мин чтения</span>
+                        <time datetime="2026-07-07"><i class="ph ph-calendar" aria-hidden="true"></i> 7 июля 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Свой сервер вместо публичного VPN: VLESS, Reality и Hysteria 2 глазами студии</h1>
+
+                    <p class="blog-lead">Публичные VPN собирают логи, продают данные и блокируются по цифровому отпечатку. Рассказываем, почему студия держит собственный сервер и какой стек — VLESS + XTLS + Reality и Hysteria 2 на QUIC — обеспечивает стабильный доступ без потери скорости.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>DevSecOps</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>приватность</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>VLESS</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>Reality</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>кибербезопасность</span></div>
+
+                    <div class="blog-body">
+                        <div class="blog-tldr"><strong>TL;DR:</strong> Публичные и «народные» VPN — это чужой сервер, который видит ваш трафик, пишет логи и торгует данными, а вдобавок регулярно блокируется и тормозит. Для IT-студии, у которой в руках доступы к серверам клиентов и репозиториям, это неприемлемый риск. Мы держим собственный сервер и стек нового поколения: <code>VLESS + XTLS + Reality</code> маскирует трафик под обычную TLS 1.3-сессию к реальному сайту, поэтому DPI не отличает нас от легального веб-сёрфинга; <code>Hysteria 2</code> на базе <code>QUIC</code> (UDP) держит соединение там, где обычный TCP-VPN отваливается по таймауту — на нестабильных мобильных сетях.</div>
+
+<p>Для нас доступ к внешним ресурсам — не удобство, а рабочий инструмент. Разработчику ежедневно нужны зарубежная документация, панели облачных провайдеров, API языковых моделей, GitHub, тестовые среды. Если этот доступ пропадает или начинает «плавать» по скорости, встаёт работа, а вместе с ней — сроки клиентских проектов. При этом мы работаем с чувствительными вещами: SSH-ключами к серверам заказчиков, доступами к их базам данных, приватными репозиториями. В такой ситуации вопрос «через что ходит наш трафик» перестаёт быть бытовым и становится вопросом безопасности бизнеса. Ниже — почему мы отказались от публичных VPN и как устроен наш собственный контур.</p>
+
+<h2 id="zachem-svoy-server">Зачем студии собственный сервер</h2>
+<p>Первая и главная причина — <strong>контроль над данными</strong>. Когда вы пользуетесь чужим VPN, весь ваш трафик выходит в интернет через инфраструктуру, которой вы не управляете. Владелец сервиса технически способен видеть, куда вы ходите, а при слабом шифровании прикладного уровня — и что вы передаёте. Для частного пользователя это неприятно, для студии — недопустимо: через тот же канал идут аутентификации к клиентским системам.</p>
+<p>Собственный сервер снимает эту проблему в корне. Мы сами арендуем VPS, сами его настраиваем, сами решаем, ведутся ли логи и как долго они хранятся. Никакой третьей стороны в цепочке нет. Ключи, конфиги и правила маршрутизации находятся под нашим контролем, и мы точно знаем, что за нашим трафиком не наблюдает чужой сервис с непрозрачной политикой.</p>
+<p>Вторая причина — <strong>предсказуемость и скорость</strong>. Публичные сервисы делят один сервер между тысячами пользователей, поэтому скорость «пляшет» в зависимости от нагрузки и времени суток. Свой сервер — это ваши ресурсы, ваш выбор дата-центра поближе к нужным ресурсам, стабильный канал без соседей, которые качают торренты на том же IP. Для работы с API и облаками, где важна и полоса, и низкие задержки, это критично.</p>
+<p>Третья причина — <strong>устойчивость к блокировкам</strong>. Массовые сервисы — это известные, публичные IP-адреса и узнаваемые протоколы. Их блокируют пачками. Собственный сервер с правильно подобранным протоколом гораздо менее заметен, потому что это одиночный адрес, не фигурирующий ни в каких публичных списках, а его трафик неотличим от обычного веба.</p>
+
+<h2 id="problema-publichnyh-vpn">Чем плохи публичные VPN</h2>
+<p>Разберём подробнее, почему «скачал приложение — и работает» — это плохая стратегия для команды, которая отвечает за чужие данные. У бесплатных VPN бизнес-модель одна: если вы не платите за продукт, продукт — это вы. Монетизация идёт через сбор и перепродажу поведенческих данных, встраивание рекламы, а иногда и через прямое использование вашего устройства как выходного узла для чужого трафика. Вы не знаете, где физически стоят их серверы и под чьей юрисдикцией они находятся.</p>
+<p>Платные сервисы честнее, но и там вы упираетесь в фундаментальное ограничение: <strong>вы вынуждены доверять</strong>. Заявления «мы не храним логи» невозможно проверить изнутри. Вы полагаетесь на маркетинг и репутацию, а не на техническую гарантию. Для личного использования это, возможно, приемлемо. Для студии, у которой в кармане доступы к продакшену клиентов, «поверьте нам на слово» — не аргумент.</p>
+<p>Добавьте к этому операционную ненадёжность. Популярные сервисы блокируют первыми, и вы регулярно оказываетесь в ситуации, когда посреди рабочего дня канал просто перестаёт работать, а вы сидите и ждёте, пока сервис «придумает» новый способ обхода. Мы не можем строить рабочий процесс на инфраструктуре, надёжность которой от нас не зависит.</p>
+
+<h2 id="fingerprint-i-dpi">Fingerprint и DPI: почему старые протоколы падают</h2>
+<p>Теперь техническая суть — почему привычные протоколы перестали быть надёжными. Классические VPN-протоколы — <code>OpenVPN</code>, <code>WireGuard</code>, <code>L2TP/IPsec</code> — были спроектированы для решения задачи «безопасно соединить две точки», а не «остаться незаметным». У каждого из них есть узнаваемый <strong>цифровой отпечаток</strong> (fingerprint): характерный паттерн рукопожатия, размеры и тайминги первых пакетов, структура заголовков.</p>
+<p>На стороне провайдера работает <code>DPI</code> — Deep Packet Inspection, глубокий анализ пакетов. Эта система не обязана расшифровывать трафик, чтобы его заблокировать. Ей достаточно распознать характерный узор соединения. <code>WireGuard</code>, например, узнаётся по структуре начального handshake; <code>OpenVPN</code> — по своей сигнатуре, даже когда работает поверх TLS. Как только DPI видит знакомый отпечаток, соединение режется или деградирует до неработоспособного состояния. Именно поэтому протокол, который вчера работал, сегодня внезапно «умирает»: обновились не вы, а сигнатурные базы на стороне фильтрации.</p>
+<p>Ключевой вывод: в современных условиях недостаточно, чтобы трафик был зашифрован. Он должен быть <strong>неотличим от обычного, разрешённого трафика</strong>. Шифрование защищает содержимое, но не прячет сам факт использования VPN. А блокируют именно по факту, а не по содержимому. Это меняет требования к протоколу: нужна не просто защита, нужна маскировка.</p>
+
+<h2 id="stek-studii">Наш стек: VLESS + XTLS + Reality и Hysteria 2</h2>
+<p>Мы строим свой контур на протоколах нового поколения, которые проектировались именно под задачу незаметности.</p>
+<p><strong><code>VLESS + XTLS + Reality</code></strong> — основа нашего стека. Идея Reality элегантна: соединение маскируется под настоящую TLS 1.3-сессию к реальному, публично доступному и разрешённому сайту. Для системы фильтрации это выглядит как обычный пользователь, который открыл легальный веб-ресурс по HTTPS и листает страницы. Нет отдельного «VPN-сертификата», который можно вычислить, нет поддельного домена — используется TLS-рукопожатие, ведущее к реально существующему сайту-донору. <code>XTLS</code> при этом убирает лишний слой двойного шифрования, снижая накладные расходы и повышая скорость. В результате трафик и защищён, и <em>выглядит как легальный веб-сёрфинг по TLS 1.3</em> — DPI не за что зацепиться, потому что отпечатка VPN попросту нет.</p>
+<p><strong><code>Hysteria 2</code></strong> — наш второй протокол, для других условий. Он построен на базе <code>QUIC</code>, то есть работает поверх <code>UDP</code>, а не <code>TCP</code>. Это принципиально для нестабильных сетей. Классический TCP-VPN на мобильном интернете с потерей пакетов начинает лавинообразно деградировать: TCP воспринимает потерю как сигнал перегрузки, сбрасывает скорость и в плохих условиях просто отваливается по таймауту. <code>QUIC</code> устроен иначе — он умеет управлять потерями на уровне приложения, не роняя всё соединение, и заметно лучше держит канал там, где TCP сдаётся. Поэтому <code>Hysteria 2</code> мы используем на мобильных и «капризных» сетях: в дороге, на слабом сигнале, при переключениях между вышками, где стабильность важнее теоретического максимума скорости.</p>
+<p>Комбинация даёт нам гибкость: <code>Reality</code> — для тихого, незаметного, «домашнего» доступа по стабильному каналу; <code>Hysteria 2</code> — для мобильности и плохих сетей. Оба протокола живут на нашем собственном сервере, под нашим контролем, без третьих лиц в цепочке. Это и есть DevSecOps-подход в чистом виде: безопасность не прикручена сбоку, а заложена в саму архитектуру доступа.</p>
+<p>Отдельно подчеркнём: мы говорим здесь о технологиях и протоколах, а не о способах нарушать закон. Собственный защищённый контур — это стандартная инженерная практика для команды, которая работает с зарубежными API, облаками и чувствительными доступами и обязана гарантировать их конфиденциальность и бесперебойность.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+<p><strong>Чем свой сервер принципиально лучше платного VPN?</strong> Отсутствием третьей стороны. На своём сервере вы сами определяете политику логирования, сами выбираете протокол и дата-центр, и вам не нужно верить чужим обещаниям «мы не храним логи». Для команды, работающей с клиентскими доступами, это разница между доверием на слово и технической гарантией.</p>
+<p><strong>Почему нельзя просто пользоваться WireGuard — он же современный и быстрый?</strong> WireGuard отличный протокол для соединения точек, но у него узнаваемый цифровой отпечаток. DPI распознаёт его по рукопожатию и блокирует независимо от того, насколько хорошо зашифровано содержимое. Reality решает именно эту проблему — он не имеет VPN-отпечатка и выглядит как обычная TLS-сессия к реальному сайту.</p>
+<p><strong>Когда вы выбираете Hysteria 2, а когда Reality?</strong> Reality — для стабильных каналов, где нужна максимальная незаметность. Hysteria 2 на базе QUIC — для мобильных и нестабильных сетей с потерей пакетов, где обычный TCP-VPN отваливается по таймауту. Часто держим оба и переключаемся по ситуации.</p>
+<p><strong>Это сложно поддерживать своими силами?</strong> Настройка требует навыков администрирования Linux и понимания протоколов, но это разовая инвестиция, которая окупается стабильностью и контролем. Мы автоматизируем развёртывание и обслуживание такого контура — об этом у нас есть отдельный технический материал.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+<p>Публичные VPN — это чужой сервер, чужие логи и узнаваемые протоколы, которые блокируются по цифровому отпечатку. Для IT-студии, отвечающей за доступы к клиентским системам, репозиториям и облакам, это неприемлемый риск и постоянная операционная нестабильность. Собственный сервер возвращает контроль над данными, скоростью и устойчивостью канала.</p>
+<p>Технически ответ на современный DPI — не просто шифровать трафик, а делать его неотличимым от легального веба. <code>VLESS + XTLS + Reality</code> маскирует соединение под обычную TLS 1.3-сессию, а <code>Hysteria 2</code> на <code>QUIC</code> держит канал на нестабильных мобильных сетях. Если вам нужен надёжный и приватный доступ для команды, а не «приложение, которое иногда работает», — давайте обсудим ваш проект.</p>
+                    </div>
+
+                    
+                    
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Что я делаю под ключ</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-shield-check"></i> <span>Приватный контур VLESS + Reality</span></li>
+    
+    <li><i class="ph-fill ph-hard-drives"></i> <span>Настройка и обслуживание VPS</span></li>
+    
+    <li><i class="ph-fill ph-lock-key"></i> <span>Защита доступов и SSH-ключей</span></li>
+    
+    <li><i class="ph-fill ph-gauge"></i> <span>Стабильный доступ к API и облакам</span></li>
+    
+    <li><i class="ph-fill ph-broadcast"></i> <span>Hysteria 2 для мобильных сетей</span></li>
+    
+  </ul>
+  <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Обсудить проект
+  </a>
+</div>
+                    <div class="blog-cta-card">
+                        <div class="blog-cta-card-body">
+                            <h3>Бесплатно: чек-лист «Готов ли ваш бизнес к 152-ФЗ»</h3>
+                            <p>12 пунктов, которые проверяют готовность за час: данные, согласия, уведомление в РКН, локализация, защита. Отметьте, что уже сделано, и увидите дыры, за которые сейчас штрафуют.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="/checklist-152-fz/" class="btn btn-accent"><i class="ph-fill ph-clipboard-text" aria-hidden="true"></i> Открыть чек-лист</a>
+                        </div>
+                    </div>
+                    
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/market/#checklist" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Обсудить проект</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/anticenzura-powershell-amnezia-2027/" data-category="security" data-clicks="0">
+  <span class="blog-card-fresh">Свежее</span>
+  <div class="blog-card-icon"><i class="ph-fill ph-terminal"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Безопасность</span>
+  <h3>Автоматизация обхода блокировок: PowerShell-скрипт и Amnezia для команды</h3>
+  <p>Ручная настройка протоколов обхода на 15 машинах — ад для сисадмина. Показываем, как один .ps1 скрипт делает всё из коробки, а Amnezia даёт централизованное управление доступом команды: развёртывание VPS в клик, QR-конфиги и отзыв доступа.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 7 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 6 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/llm-avtomatizaciya-razrabotki-2027/" data-category="ai-dev" data-clicks="0">
+  <span class="blog-card-fresh">Свежее</span>
+  <div class="blog-card-icon"><i class="ph-fill ph-robot"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>AI для разработчиков</span>
+  <h3>Как мы автоматизируем разработку и контент с помощью LLM</h3>
+  <p>Многие используют нейросети для развлечения. Мы показываем, как бизнес превращает LLM в рабочий конвейер, который экономит сотни человеко-часов: генерация тестов по схеме базы, обработка сырых сканов в структурированные данные — и почему последнее слово всегда за инженером.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 7 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 6 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/pochemu-ne-delaem-sayty-na-konstruktorah-2027/" data-category="development" data-clicks="0">
+  <span class="blog-card-fresh">Свежее</span>
+  <div class="blog-card-icon"><i class="ph-fill ph-gauge"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
+  <h3>Почему мы не делаем сайты на конструкторах: честный технический разбор</h3>
+  <p>Нам часто говорят: «на Тильде обещают за три дня и двадцать тысяч, почему у вас дороже?». Отвечаем инженерно — про мусорный код, вес страниц, метрики скорости и ловушку, из которой потом не выбраться.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 7 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 6 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    
+                    
+                    
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовые решения под ключ</span>
+                            <span class="blog-offer-cta-title">449 готовых IT-решений для бизнеса</span>
+                            <span class="blog-offer-cta-price">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Смотреть каталог</span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#zachem-svoy-server"><span class="blog-toc-num">01</span> Зачем студии собственный сервер</a></li>
+<li><a href="#problema-publichnyh-vpn"><span class="blog-toc-num">02</span> Чем плохи публичные VPN</a></li>
+<li><a href="#fingerprint-i-dpi"><span class="blog-toc-num">03</span> Fingerprint и DPI: почему старые протоколы падают</a></li>
+<li><a href="#stek-studii"><span class="blog-toc-num">04</span> Наш стек: VLESS + XTLS + Reality и Hysteria 2</a></li>
+<li><a href="#faq"><span class="blog-toc-num">05</span> Частые вопросы</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">06</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=23" defer></script>
+<script src="/services-i18n.js?v=23" defer></script>
+<script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>

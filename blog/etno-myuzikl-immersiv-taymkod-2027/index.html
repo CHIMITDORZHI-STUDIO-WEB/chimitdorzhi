@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кейс ArtTech: синхронизация проекции и живой сцены в…</title>
+    <meta name="description" content="Производственный кейс: как мы построили 83 минуты непрерывного таймкода для этно-мюзикла, привязали проекционную графику к темпу оркестра и заставили…">
+    <meta name="keywords" content="ArtTech, иммерсив, видеопроекция, генеративная графика, таймкод, мультимедиа-шоу, синхронизация проекции, сценография">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/etno-myuzikl-immersiv-taymkod-2027/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/etno-myuzikl-immersiv-taymkod-2027/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/etno-myuzikl-immersiv-taymkod-2027/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/etno-myuzikl-immersiv-taymkod-2027/">
+    <meta property="og:title" content="Кейс ArtTech: синхронизация проекции и живой сцены в…">
+    <meta property="og:description" content="Производственный кейс: как мы построили 83 минуты непрерывного таймкода для этно-мюзикла, привязали проекционную графику к темпу оркестра и заставили…">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/etno-myuzikl-immersiv-taymkod-2027/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Кейс ArtTech: синхронизация проекции и живой сцены в…">
+    <meta name="twitter:description" content="Производственный кейс: как мы построили 83 минуты непрерывного таймкода для этно-мюзикла, привязали проекционную графику к темпу оркестра и заставили…">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/etno-myuzikl-immersiv-taymkod-2027/cover.png">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor-Fill.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=45">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Этно-мюзикл с цифровым иммерсивом: как мы синхронизировали видеопроекцию с живой сценой",
+  "description": "Производственный кейс: как мы построили 83 минуты непрерывного таймкода для этно-мюзикла, привязали проекционную графику к темпу оркестра и заставили генеративные частицы реагировать на живой звук.",
+  "image": "https://chimitdorzhi.tech/blog/etno-myuzikl-immersiv-taymkod-2027/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/etno-myuzikl-immersiv-taymkod-2027/"
+  },
+  "datePublished": "2026-07-07",
+  "dateModified": "2026-07-07",
+  "keywords": "ArtTech, иммерсив, проекции, генеративная графика, мультимедиа",
+  "articleSection": "Кейсы",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Этно-мюзикл с цифровым иммерсивом: как мы синхронизировали видеопроекцию с живой сценой",
+      "item": "https://chimitdorzhi.tech/blog/etno-myuzikl-immersiv-taymkod-2027/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Почему нельзя просто запустить готовое видео синхронно с музыкой?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Потому что живое выступление каждый вечер идёт с разным темпом и дыханием. Готовый ролик не умеет ждать и ускоряться вместе с оркестром, поэтому даже небольшой дрейф темпа за 80 минут накапливается в заметный рассинхрон. Нужна архитектура с таймкодом, операторским люфтом и генеративным слоем, который реагирует на звук в моменте."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что самое сложное в таком проекте — графика или инженерия?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Инженерия синхронизации и геометрии. Нарисовать красивые сцены важно, но провалить проект гораздо легче на калибровке проекции под кривизну сцены и на удержании единого времени по всему шоу. Именно здесь чаще всего ломаются подобные постановки."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли перенести такое шоу на другую площадку?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, если заранее вынести всю калибровку в единую конфигурацию показа: углы проекторов, сшивку экранов, цветовые профили и коррекцию геометрии. Тогда на новой сцене разворачивание становится управляемой процедурой, а не настройкой с нуля перед каждым выступлением."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Насколько такой формат зависит от конкретных артистов?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Визуальная партитура пишется под драматургию и темп конкретной постановки, но сама архитектура — таймлайн, сцены, привязка к BPM, генеративная реакция на звук — переиспользуема. Её можно адаптировать под другой материал, не переизобретая подход."
+      }
+    }
+  ]
+}
+    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+var inject=function(){for (var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)};
+var run=function(){('requestIdleCallback' in window)?requestIdleCallback(inject,{timeout:5000}):setTimeout(inject,3000)};
+(e.readyState==='complete')?run():m.addEventListener('load',run);})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109281884" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/market/">Собрать проект</a></li>
+            <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+            <li style="display:none"><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li class="nav-dropdown">
+                <a href="/#projects" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="/blog/category/cases/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-briefcase" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Кейсы</span>
+                            <span class="nav-dropdown-desc">Реальные проекты под ключ</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li style="display:none"><a href="/#cases" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li style="display:none"><a href="/infografika/">Инфографика</a></li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+                <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему" aria-pressed="false">
+                <i class="ph ph-moon" aria-hidden="true"></i>
+            </button>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/market/">Собрать проект</a></li>
+        <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+        <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+        <li class="mobile-has-submenu">
+            <details>
+                <summary aria-label="Проекты — развернуть"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down" aria-hidden="true"></i></summary>
+                <ul class="mobile-submenu">
+                    <li>
+                        <a href="/blog/category/cases/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-briefcase" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">Кейсы</span>
+                                <span class="mobile-sub-desc">Реальные проекты под ключ</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://gerel.space" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">Gerel.space</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/universe_buryat/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/arey/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.arey">AREY</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/mwrlife/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">MWR Life</span>
+                                <span class="mobile-sub-desc">Travel-клуб и партнёрка</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </details>
+        </li>
+        <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+        <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+    </ul>
+    <div class="mobile-controls">
+        <div class="mobile-lang-switcher" role="group" aria-label="Выбор языка">
+            <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+            <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+            <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+        </div>
+        <button class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle" aria-label="Переключить тему" aria-pressed="false">
+            <i class="ph ph-moon" aria-hidden="true"></i>
+        </button>
+    </div>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Этно-мюзикл с цифровым иммерсивом: как мы синхронизировали видеопроекцию с живой сценой</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/cases/"><i class="ph ph-bookmark" aria-hidden="true"></i> Кейсы</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 6 мин чтения</span>
+                        <time datetime="2026-07-07"><i class="ph ph-calendar" aria-hidden="true"></i> 7 июля 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Этно-мюзикл с цифровым иммерсивом: как мы синхронизировали видеопроекцию с живой сценой</h1>
+
+                    <p class="blog-lead">Если проекция отстаёт от оркестра на две секунды, иммерсивное шоу превращается в дешёвое караоке. Рассказываем, как мы построили непрерывный таймкод на 83 минуты и связали графику с живым звуком.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>ArtTech</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>иммерсив</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>проекции</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>генеративная графика</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>мультимедиа</span></div>
+
+                    <div class="blog-body">
+                        <div class="blog-tldr"><strong>TL;DR:</strong> Мы спроектировали цифровой иммерсив для этно-мюзикла: около 83 минут непрерывного таймкода, проекционная графика, привязанная к темпу живого оркестра, короткофокусные проекторы со сшивкой экранов и генеративные частицы, которые реагируют на частоту и амплитуду живого звука. Главная инженерная задача была не «нарисовать красиво», а не дать картинке разъехаться с артистами ни на кадр.</div>
+
+<p>К нам пришёл театр-партнёр с задачей, которая на словах звучит просто, а на практике ломает большинство подрядчиков: сделать так, чтобы видеопроекция на сцене жила единым организмом с живыми артистами. Не фоновая заставка, не слайд-шоу за спинами танцоров, а полноценный визуальный слой, который дышит вместе с оркестром и горловым пением. В этом материале мы от первого лица разбираем внутреннюю кухню такого проекта: как устроен таймкод длиной в целое отделение, почему мы отказались от «просто нажать плей» и как заставили генеративную графику слушать живой звук в реальном времени.</p>
+
+<h2 id="problema">Проблема: две секунды до провала</h2>
+<p>Иммерсивность — вещь хрупкая. Она держится на ощущении, что мир на сцене цельный: свет, звук, движение и изображение существуют в одном времени. Стоит одному слою отстать от другого — и мозг зрителя мгновенно ловит рассинхрон. Если видеопроекция опаздывает за оркестром хотя бы на полторы-две секунды, всё волшебство рассыпается. Костёр «вспыхивает» уже после удара барабана, частицы разлетаются, когда музыкальная фраза уже кончилась, а искры взлетают в тишине. В этот момент дорогое иммерсивное шоу превращается в дешёвое караоке-шоу: картинка отдельно, люди отдельно.</p>
+<p>Коварство в том, что живое выступление принципиально нельзя «залочить» под видео. Артисты дышат, оркестр то ускоряется на эмоциональном пике, то оседает в лирической части, дирижёр ведёт темп по-своему каждый вечер. Значит, мы не можем просто запустить готовый ролик и надеяться, что все под него подстроятся. Нам нужна была архитектура, в которой визуальный слой заранее знает структуру шоу, но при этом оставляет операторский люфт для ручной подстройки под конкретный прогон. Именно вокруг этого противоречия — жёсткая структура против живого дыхания сцены — и строилась вся инженерия проекта.</p>
+
+<h2 id="timeline">Таймлайн и архитектура шоу</h2>
+<p>Мы начали не с графики, а с таблицы. Совместно с режиссёром и артистами мы разложили всё представление — около 83 минут непрерывного действия — на единый таймлайн. Это не метафора: физически существует один сквозной таймкод, вдоль которого выстроены все визуальные события. Шоу мы разбили на сцены, у каждой сцены — своя драматургия, своя палитра и свой визуальный язык. Для каждой сцены отдельно писалась проекционная графика, и писалась она не «на глаз», а с привязкой к темпу музыки, к BPM конкретного номера.</p>
+<p>Привязка к BPM — ключевое решение. Когда графика анимирована в тех же долях, что и музыка, любое движение на экране попадает в ритм: волна расходится ровно на сильную долю, орнамент раскрывается в такт мелодии, вспышка ложится на акцент ударных. Мы фактически положили визуальную партитуру поверх музыкальной. Внутри каждой сцены есть опорные точки-маркеры — вступление инструмента, кульминация, переход, — и графика знает, что в этих точках должна происходить конкретная визуальная реакция.</p>
+<p>Отдельно мы продумали переходы между сценами. Это самые опасные участки: именно на стыках чаще всего вылезает рассинхрон, потому что меняется темп, состав на сцене и логика картинки. Мы проектировали переходы так, чтобы они могли эластично растягиваться и сжиматься — если один вечер оркестр входит в новую сцену чуть позже, оператор мягко удерживает предыдущее визуальное состояние, а не обрывает его рывком. Такой подход дал нам главное: структуру, которая держит всё шоу, и одновременно живой люфт под каждый конкретный прогон. Артисты ведут представление, а не подчиняются экрану, но при этом экран всегда с ними.</p>
+
+<h2 id="tehnicheskiy-setup">Технический сетап: проекторы и геометрия зала</h2>
+<p>Красивая графика в редакторе и та же графика на реальной сцене — это две очень разные картинки. Между ними стоит физика зала: расстояния, углы, кривизна поверхностей и тени от актёров. Поэтому параллельно с контентом мы проектировали техническую схему подачи изображения.</p>
+<p>Мы использовали короткофокусные проекторы. Такой выбор не про экономию, а про геометрию: короткий фокус позволяет ставить проекторы близко к поверхности и резко снижает риск того, что артист, выйдя вперёд, перекроет луч и отбросит на экран огромную тень. Дальше начиналась сшивка экранов — несколько проекционных зон мы сводили в единое бесшовное полотно, выравнивая яркость и цвет на стыках, чтобы зритель видел одно изображение, а не набор прямоугольников с заметными швами.</p>
+<p>Мы работали и с прямой, и с обратной проекцией на сетку. Это дало объём: часть изображения живёт перед артистами, часть — за ними, и человек оказывается буквально внутри визуального пространства, а не перед плоской картинкой. Самое трудоёмкое здесь — подгонка графики под реальную поверхность. Сцена не идеально плоская, у неё есть кривизна, а зал имеет свою геометрию и точки обзора. Мы искажали и калибровали изображение так, чтобы для зрителя оно читалось правильно: прямые линии выглядели прямыми, орнамент не «плыл» по краям, а перспектива совпадала с реальной сценографией. По сути, мы натягивали цифровую картинку на физический мир так, чтобы стык между ними стал невидимым.</p>
+<p>Каждый такой параметр — угол, наложение, цветовой профиль, коррекция геометрии — фиксировался в единой конфигурации показа. Это критично для тура и для повторных прогонов: собранная один раз калибровка позволяет разворачивать шоу на новой площадке предсказуемо, а не настраивать всё заново вслепую перед каждым выступлением.</p>
+
+<h2 id="zvuk-vizual">Живой звук как источник графики</h2>
+<p>Самая интересная часть проекта — интеграция звука и визуала. Мы не хотели, чтобы традиционные инструменты и горловое пение просто «сопровождались» абстрактной анимацией. Мы хотели, чтобы звук был источником изображения. Поэтому часть графики у нас генеративная: она не проигрывается из готового файла, а рождается прямо во время выступления, реагируя на живой звук по частоте и амплитуде в реальном времени.</p>
+<p>Работает это так. Мы снимаем характеристики звучащего материала — где сейчас энергия по спектру, насколько громко, какая фактура, — и подаём эти данные в визуальную систему как управляющие сигналы. Низкие частоты барабана раскачивают крупные формы, обертоны горлового пения превращаются в тонкую вибрацию текстур, громкость управляет плотностью и яркостью. В результате на экране живёт динамический туман, который сгущается и рассеивается в такт дыханию номера, и искры костра, которые вспыхивают вокруг актёров ровно тогда, когда музыка набирает силу.</p>
+<p>Такой генеративный слой решает сразу две задачи. Во-первых, он снимает проблему рассинхрона в самом уязвимом месте: если графика рождается из живого звука, ей физически нечему отставать — она и есть отражение того, что звучит здесь и сейчас. Во-вторых, он делает каждый вечер по-настоящему уникальным. Оркестр сыграл чуть иначе — и туман лёг иначе, искры разлетелись по-другому. Зритель это не анализирует рационально, но чувствует: перед ним не запись, а живое явление, где технологии и артисты работают как единое целое. Именно ради этого ощущения и затевается весь ArtTech.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+<p><strong>Почему нельзя просто запустить готовое видео синхронно с музыкой?</strong> Потому что живое выступление каждый вечер идёт с разным темпом и дыханием. Готовый ролик не умеет ждать и ускоряться вместе с оркестром, поэтому даже небольшой дрейф темпа за 80 минут накапливается в заметный рассинхрон. Нужна архитектура с таймкодом, операторским люфтом и генеративным слоем, который реагирует на звук в моменте.</p>
+<p><strong>Что самое сложное в таком проекте — графика или инженерия?</strong> Инженерия синхронизации и геометрии. Нарисовать красивые сцены важно, но провалить проект гораздо легче на калибровке проекции под кривизну сцены и на удержании единого времени по всему шоу. Именно здесь чаще всего ломаются подобные постановки.</p>
+<p><strong>Можно ли перенести такое шоу на другую площадку?</strong> Да, если заранее вынести всю калибровку в единую конфигурацию показа: углы проекторов, сшивку экранов, цветовые профили и коррекцию геометрии. Тогда на новой сцене разворачивание становится управляемой процедурой, а не настройкой с нуля перед каждым выступлением.</p>
+<p><strong>Насколько такой формат зависит от конкретных артистов?</strong> Визуальная партитура пишется под драматургию и темп конкретной постановки, но сама архитектура — таймлайн, сцены, привязка к BPM, генеративная реакция на звук — переиспользуема. Её можно адаптировать под другой материал, не переизобретая подход.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+<p>Цифровой иммерсив на живой сцене — это в первую очередь задача про время, а не про картинки. Мы построили единый таймкод почти на полтора часа действия, привязали графику к темпу музыки, откалибровали проекцию под реальную геометрию зала и добавили генеративный слой, который берёт живой звук как источник изображения. Вместе это убирает главную угрозу — рассинхрон, из-за которого дорогое шоу мгновенно скатывается в караоке.</p>
+<p>Если вам нужен мультимедийный слой, который не сопровождает выступление, а становится его частью, мы собираем такие проекты под ключ: от архитектуры таймлайна и технической схемы проекции до генеративной графики, реагирующей на живой звук. Приходите с задачей — разложим её на понятные этапы и доведём до сцены.</p>
+                    </div>
+
+                    
+                    
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Что я делаю под ключ</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-projector-screen"></i> <span>Проекционный маппинг и сшивка экранов</span></li>
+    
+    <li><i class="ph-fill ph-waveform"></i> <span>Генеративная графика на живой звук</span></li>
+    
+    <li><i class="ph-fill ph-timer"></i> <span>Таймкод и синхронизация шоу</span></li>
+    
+    <li><i class="ph-fill ph-sparkle"></i> <span>Визуальная партитура сцен</span></li>
+    
+    <li><i class="ph-fill ph-sliders"></i> <span>Калибровка под геометрию зала</span></li>
+    
+  </ul>
+  <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Обсудить проект
+  </a>
+</div>
+                    <div class="blog-cta-card">
+                        <div class="blog-cta-card-body">
+                            <h3>Бесплатно: чек-лист «Готов ли ваш бизнес к 152-ФЗ»</h3>
+                            <p>12 пунктов, которые проверяют готовность за час: данные, согласия, уведомление в РКН, локализация, защита. Отметьте, что уже сделано, и увидите дыры, за которые сейчас штрафуют.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="/checklist-152-fz/" class="btn btn-accent"><i class="ph-fill ph-clipboard-text" aria-hidden="true"></i> Открыть чек-лист</a>
+                        </div>
+                    </div>
+                    
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/market/#checklist" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Собрать похожий проект</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/etno-avangard-v-veb-dizayne-2027/" data-category="development" data-clicks="0">
+  <span class="blog-card-fresh">Свежее</span>
+  <div class="blog-card-icon"><i class="ph-fill ph-compass-tool"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
+  <h3>Этно-авангард в веб-дизайне: национальные коды без китча</h3>
+  <p>Национальный дизайн часто превращается в аляповатый китч из 90-х: кислотные цвета, орнамент на весь экран, нечитаемый текст. Рассказываем, как мы вплетаем культурные коды в интерфейс через форму и геометрию, а не через ковёр из узоров.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 7 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 6 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/cifrovizaciya-mifologii-rodoslovnyh-2027/" data-category="cases" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-tree-structure"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Кейсы</span>
+  <h3>Как мы оцифровали мифологию и родословные народа в единую цифровую экосистему</h3>
+  <p>Устные предания, редкие монографии и веб-страницы из 2000-х жили отдельно друг от друга — искать и связывать было невозможно. Показываем, как мы спроектировали граф данных, закодировали родовые тамги в векторе и решили вопрос вертикальной старомонгольской письменности в современной вёрстке.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 7 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 6 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/etno-raskraski-vektor-pipeline-2027/" data-category="cases" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-paint-brush"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Кейсы</span>
+  <h3>Цифровые этно-раскраски нового поколения: вектор, фактчекинг и сакральная палитра</h3>
+  <p>Молодёжь считает традиционную культуру музейной, а обычные цифровые раскраски строятся на чужих стоковых шаблонах. Показываем изнутри, как мы сделали аутентичный продукт: конвейер векторизации с математически замкнутыми контурами, фактчекинг орнаментов с экспертами и интерфейс с пятью сакральными цветами вместо случайного спектра.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 7 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 6 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    
+                    
+                    
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовые решения под ключ</span>
+                            <span class="blog-offer-cta-title">449 готовых IT-решений для бизнеса</span>
+                            <span class="blog-offer-cta-price">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Смотреть каталог</span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#problema"><span class="blog-toc-num">01</span> Проблема: две секунды до провала</a></li>
+<li><a href="#timeline"><span class="blog-toc-num">02</span> Таймлайн и архитектура шоу</a></li>
+<li><a href="#tehnicheskiy-setup"><span class="blog-toc-num">03</span> Технический сетап: проекторы и геометрия зала</a></li>
+<li><a href="#zvuk-vizual"><span class="blog-toc-num">04</span> Живой звук как источник графики</a></li>
+<li><a href="#faq"><span class="blog-toc-num">05</span> Частые вопросы</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">06</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=23" defer></script>
+<script src="/services-i18n.js?v=23" defer></script>
+<script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>

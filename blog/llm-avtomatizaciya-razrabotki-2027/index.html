@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM в разработке: как автоматизировать код и контент…</title>
+    <meta name="description" content="Практическое руководство: как студия превращает большие языковые модели в инструмент, экономящий сотни человеко-часов.">
+    <meta name="keywords" content="AI, LLM, автоматизация, разработка, OCR, генерация тестов, human-in-the-loop, искусственный интеллект">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/llm-avtomatizaciya-razrabotki-2027/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/llm-avtomatizaciya-razrabotki-2027/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/llm-avtomatizaciya-razrabotki-2027/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/llm-avtomatizaciya-razrabotki-2027/">
+    <meta property="og:title" content="LLM в разработке: как автоматизировать код и контент…">
+    <meta property="og:description" content="Практическое руководство: как студия превращает большие языковые модели в инструмент, экономящий сотни человеко-часов.">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/llm-avtomatizaciya-razrabotki-2027/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="LLM в разработке: как автоматизировать код и контент…">
+    <meta name="twitter:description" content="Практическое руководство: как студия превращает большие языковые модели в инструмент, экономящий сотни человеко-часов.">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/llm-avtomatizaciya-razrabotki-2027/cover.png">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor-Fill.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=45">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Как мы автоматизируем разработку и контент с помощью LLM",
+  "description": "Практическое руководство: как студия превращает большие языковые модели в инструмент, экономящий сотни человеко-часов. Пайплайн генерации тестов, обработка контента через OCR и LLM в чистый JSON, роль человека-валидатора.",
+  "image": "https://chimitdorzhi.tech/blog/llm-avtomatizaciya-razrabotki-2027/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/llm-avtomatizaciya-razrabotki-2027/"
+  },
+  "datePublished": "2026-07-07",
+  "dateModified": "2026-07-07",
+  "keywords": "AI, LLM, автоматизация, разработка, OCR",
+  "articleSection": "AI для разработчиков",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  },
+  "about": [
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://chimitdorzhi.tech/slovar/#llm",
+      "name": "LLM (большая языковая модель)"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Как мы автоматизируем разработку и контент с помощью LLM",
+      "item": "https://chimitdorzhi.tech/blog/llm-avtomatizaciya-razrabotki-2027/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Не опасно ли отдавать данные компании в нейросеть?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Опасно, если делать это бездумно через публичный чат-бот. Мы работаем через приватные API и, где нужно, изолированные окружения, чтобы данные проекта не использовались для обучения сторонних моделей и не утекали. Конфиденциальность закладывается в архитектуру пайплайна с самого начала."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Если AI всё равно проверяет человек, где же экономия?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "В смене роли человека. Написать сотню тестов с нуля или перепечатать книгу вручную — это часы монотонного труда. Проверить и поправить готовый результат — в разы быстрее. Экономия именно в том, что дорогое время специалиста уходит на суждение и контроль, а не на механический набор."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Заменит ли AI программистов и наборщиков совсем?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "В наших процессах — нет, и мы считаем это правильным. Модель убирает рутину, но ответственность, архитектурные решения и контроль качества остаются за человеком. Меняется не наличие специалиста, а то, на что он тратит время: меньше механики, больше мышления."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "С какого процесса начать, если бюджет ограничен?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "С самого объёмного и монотонного участка, который проще всего формализовать. Один хорошо выстроенный пайплайн на такой задаче окупается быстро и наглядно показывает отдачу — после этого проще расширять автоматизацию на другие процессы."
+      }
+    }
+  ]
+}
+    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+var inject=function(){for (var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)};
+var run=function(){('requestIdleCallback' in window)?requestIdleCallback(inject,{timeout:5000}):setTimeout(inject,3000)};
+(e.readyState==='complete')?run():m.addEventListener('load',run);})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109281884" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/market/">Собрать проект</a></li>
+            <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+            <li style="display:none"><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li class="nav-dropdown">
+                <a href="/#projects" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="/blog/category/cases/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-briefcase" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Кейсы</span>
+                            <span class="nav-dropdown-desc">Реальные проекты под ключ</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li style="display:none"><a href="/#cases" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li style="display:none"><a href="/infografika/">Инфографика</a></li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+                <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему" aria-pressed="false">
+                <i class="ph ph-moon" aria-hidden="true"></i>
+            </button>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/market/">Собрать проект</a></li>
+        <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+        <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+        <li class="mobile-has-submenu">
+            <details>
+                <summary aria-label="Проекты — развернуть"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down" aria-hidden="true"></i></summary>
+                <ul class="mobile-submenu">
+                    <li>
+                        <a href="/blog/category/cases/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-briefcase" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">Кейсы</span>
+                                <span class="mobile-sub-desc">Реальные проекты под ключ</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://gerel.space" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">Gerel.space</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/universe_buryat/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/arey/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.arey">AREY</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/mwrlife/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">MWR Life</span>
+                                <span class="mobile-sub-desc">Travel-клуб и партнёрка</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </details>
+        </li>
+        <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+        <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+    </ul>
+    <div class="mobile-controls">
+        <div class="mobile-lang-switcher" role="group" aria-label="Выбор языка">
+            <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+            <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+            <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+        </div>
+        <button class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle" aria-label="Переключить тему" aria-pressed="false">
+            <i class="ph ph-moon" aria-hidden="true"></i>
+        </button>
+    </div>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Как мы автоматизируем разработку и контент с помощью LLM</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/ai-dev/"><i class="ph ph-bookmark" aria-hidden="true"></i> AI для разработчиков</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 6 мин чтения</span>
+                        <time datetime="2026-07-07"><i class="ph ph-calendar" aria-hidden="true"></i> 7 июля 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Как мы автоматизируем разработку и контент с помощью LLM</h1>
+
+                    <p class="blog-lead">Многие используют нейросети для развлечения. Мы показываем, как бизнес превращает LLM в рабочий конвейер, который экономит сотни человеко-часов: генерация тестов по схеме базы, обработка сырых сканов в структурированные данные — и почему последнее слово всегда за инженером.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>AI</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>LLM</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>автоматизация</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>разработка</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>OCR</span></div>
+
+                    <div class="blog-body">
+                        <div class="blog-tldr"><strong>TL;DR:</strong> Большинство относится к нейросетям как к игрушке для развлечения, а бизнес не понимает, как превратить их в инструмент, экономящий сотни человеко-часов. Мы встраиваем LLM в реальные конвейеры. В коде — генерируем юнит-тесты по схеме базы данных: то, на что раньше уходило до трети времени разработчика, теперь готовится за минуты, а инженер валидирует. В контенте — прогоняем сырой скан через OCR, затем через LLM с жёстким системным промптом, который извлекает сущности и отдаёт чистый JSON, автоматически импортируемый в базу. Ключевой принцип: AI ускоряет, но не заменяет инженера — последнее слово и ответственность всегда за человеком.</div>
+
+<p>С искусственным интеллектом сейчас происходит любопытная вещь. С одной стороны, о нём говорят все и постоянно. С другой — большинство людей и компаний используют его на уровне «спросить у <a href="https://chimitdorzhi.tech/services/telegram-bots/" class="blog-inline-link">чат-бота</a> рецепт» или «сгенерировать смешную картинку». Это весело, но к бизнес-результату отношения не имеет. И когда предприниматель слышит про «революцию AI», он справедливо недоумевает: где здесь деньги, где экономия, что конкретно менять в своей работе? В этой статье мы без хайпа показываем, как встраиваем большие языковые модели в реальные производственные процессы студии — так, что они экономят сотни человеко-часов и при этом не роняют качество. Это не футурология, это наша ежедневная практика.</p>
+
+<h2 id="problema">Почему бизнес не видит пользы от AI</h2>
+<p>Разрыв между «поиграться с чат-ботом» и «получить экономию» возникает из-за одной подмены. AI-инструмент сам по себе не приносит пользы — пользу приносит встроенный в процесс AI-инструмент. Разница как между отдельно лежащим двигателем и двигателем, установленным в автомобиль и соединённый с колёсами. Пока модель отвечает на разовые вопросы в браузере, она остаётся любопытной диковинкой. Как только она становится звеном конвейера — принимает на вход данные в строгом формате, выполняет узкую задачу и отдаёт результат в следующий этап автоматически, — начинается настоящая экономия.</p>
+<p>Второе заблуждение — ожидание, что AI всё сделает сам и без ошибок. Это ведёт либо к разочарованию, когда модель ошибается, либо к опасной беспечности, когда её вывод принимают на веру. Правильная модель мышления другая: LLM — это очень быстрый и очень старательный, но не всегда аккуратный помощник, работу которого обязательно проверяет специалист. Именно на этих двух принципах — встроенность в процесс и обязательная валидация человеком — держатся все наши пайплайны. Разберём два конкретных.</p>
+
+<h2 id="kod">Пайплайн работы с кодом: генерация тестов</h2>
+<p>Наши инженеры используют LLM прямо в процессе разработки — через интеграции в редактор кода или через приватные API, чтобы данные проекта не утекали на сторону. Один из самых наглядных примеров отдачи — генерация юнит-тестов.</p>
+<p>Немного контекста для тех, кто не в теме. Юнит-тесты — это маленькие проверочные программы, которые автоматически убеждаются, что каждый кусочек кода работает правильно: при таких-то входных данных функция обязана вернуть такой-то результат, а на некорректный ввод — корректно ошибиться. Тесты критически важны: они ловят ошибки до того, как их увидит пользователь, и позволяют безбоязненно менять код, зная, что если что-то сломается, тест сразу это покажет. Проблема в том, что писать тесты долго и монотонно. Исторически разработчик мог тратить до трети рабочего времени именно на покрытие кода тестами — особенно для API, где нужно перебрать множество вариантов входных данных.</p>
+<p>Здесь LLM даёт огромный выигрыш. У нас есть схема базы данных — точное описание того, какие сущности хранятся, какие у них поля, типы и ограничения. Мы отдаём эту схему и код проверяемой функции модели, и она генерирует набор тестов: проверку корректных сценариев, граничных случаев, некорректных вводов, пропущенных полей. То, что инженер писал бы полдня вручную, появляется за минуты. Но — и это принципиально — сгенерированные тесты не идут в проект автоматически. Инженер читает каждый, проверяет, что тест проверяет действительно важную логику, а не «отписку», убирает лишнее, дописывает специфичные для бизнеса случаи, которые модель знать не могла. В результате скорость релиза заметно выросла: рутинная часть, отнимавшая существенную долю времени, ужалась в разы, а высвободившиеся часы инженер тратит на архитектуру и сложную логику — на то, что машине пока не под силу.</p>
+
+<h2 id="kontent">Автоматизация контента: от скана к JSON</h2>
+<p>Второй пайплайн — из мира данных и контента, и он показывает, как LLM решает задачу, которая раньше была почти неподъёмной по трудозатратам. Представьте, что нужно оцифровать большой массив информации из бумажного источника — например, старой книги: извлечь оттуда все имена, названия, даты, географические привязки и сложить это в аккуратную базу данных, по которой потом можно искать и строить связи.</p>
+<p>Классический путь — посадить человека, который вручную вычитывает страницу за страницей и вбивает данные в таблицу. Это сотни часов монотонного труда с неизбежными опечатками и пропусками. Наш конвейер устроен иначе и состоит из нескольких автоматических звеньев. Сначала бумажный источник сканируется, и скан прогоняется через OCR — технологию оптического распознавания символов, которая превращает изображение страницы в текст. Текст на этом этапе ещё сырой: с ошибками распознавания, без структуры, сплошным потоком.</p>
+<p>Дальше вступает LLM с жёстким системным промптом. Системный промпт — это подробная инструкция, которая задаёт модели строгие рамки: что именно извлекать, в каком формате, что игнорировать, как поступать в спорных случаях. Мы говорим модели: «вот сырой текст, найди в нём все персоны, географические названия, даты и события; для каждой сущности верни строго структурированный JSON с такими-то полями; ничего не выдумывай, если данных нет — оставь поле пустым». JSON — это стандартный машиночитаемый формат данных, который умеет прочитать любая программа. На выходе мы получаем не «пересказ своими словами», а чистую структуру, готовую к загрузке. И этот JSON автоматически импортируется в базу данных проекта — без ручного ввода. Задача, которая раньше означала месяцы работы наборщика, сжимается до управляемого автоматического процесса.</p>
+<p>Здесь особенно важна дисциплина промпта. Чем жёстче рамки и чем однозначнее требуемый формат, тем меньше у модели пространства для «фантазии» и тем предсказуемее результат. Хороший системный промпт для такой задачи мы пишем и отлаживаем не один час — но он потом отрабатывает на тысячах страниц.</p>
+
+<h2 id="chelovek">Почему последнее слово всегда за инженером</h2>
+<p>И вот главное, что мы хотим донести и что отличает ответственное применение AI от безрассудного: искусственный интеллект ускоряет работу, но не заменяет инженера. В обоих пайплайнах последнее слово — за человеком.</p>
+<p>Языковые модели обладают неприятным свойством: они могут уверенно выдавать правдоподобный, но неверный результат — это называют галлюцинациями. В тесте это может быть проверка, которая на самом деле ничего не проверяет. В извлечении данных — красиво оформленная, но выдуманная дата или перепутанная связь между людьми. Если такой результат принять на веру и пустить в продакшн, ошибка расползётся по всей системе, и найти её потом будет дорого. Поэтому в наших процессах между выводом модели и попаданием результата «в бой» всегда стоит этап валидации специалистом. Инженер вычитывает тесты. Редактор выборочно сверяет извлечённые сущности с оригиналом, а на спорных местах — сплошняком.</p>
+<p>Такой подход часто называют human-in-the-loop — «человек в контуре». AI берёт на себя объём, скорость и рутину, где машина непобедима; человек берёт на себя суждение, ответственность и контроль качества, где машина ненадёжна. Это не компромисс и не недоверие к технологии — это единственный способ получить одновременно и скорость, и надёжность. Компания, которая убирает человека из контура ради экономии ещё нескольких часов, рано или поздно платит за это качеством и репутацией. Мы этот урок усвоили заранее и в контур человека закладываем всегда.</p>
+
+<h2 id="vnedrenie">С чего начать внедрение</h2>
+<p>Если вы владелец бизнеса и хотите не «поиграть с нейросетью», а получить реальную экономию, начинать стоит не с покупки модного инструмента, а с поиска процесса. Ищите у себя работу, которая одновременно объёмная, монотонная и формализуемая: ручной перенос данных из одного формата в другой, разбор однотипных документов, первичная сортировка обращений, подготовка типовых текстов по шаблону. Именно такие процессы — идеальные кандидаты на конвейер с LLM, потому что там машина берёт объём, а человек оставляет за собой проверку.</p>
+<p>Дальше задача инженерная: выстроить конвейер — вход, строгий промпт, формат вывода, автоматический импорт, этап валидации — и отладить его на реальных данных. Это не разовая магия, а нормальная разработка, где AI является одним из компонентов системы, а не самой системой. Мы делаем именно это: смотрим на ваши процессы, находим, что можно автоматизировать без потери качества, и собираем работающий пайплайн под ключ.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+<p><strong>Не опасно ли отдавать данные компании в нейросеть?</strong> Опасно, если делать это бездумно через публичный чат-бот. Мы работаем через приватные API и, где нужно, изолированные окружения, чтобы данные проекта не использовались для обучения сторонних моделей и не утекали. Конфиденциальность закладывается в архитектуру пайплайна с самого начала.</p>
+<p><strong>Если AI всё равно проверяет человек, где же экономия?</strong> В смене роли человека. Написать сотню тестов с нуля или перепечатать книгу вручную — это часы монотонного труда. Проверить и поправить готовый результат — в разы быстрее. Экономия именно в том, что дорогое время специалиста уходит на суждение и контроль, а не на механический набор.</p>
+<p><strong>Заменит ли AI программистов и наборщиков совсем?</strong> В наших процессах — нет, и мы считаем это правильным. Модель убирает рутину, но ответственность, архитектурные решения и контроль качества остаются за человеком. Меняется не наличие специалиста, а то, на что он тратит время: меньше механики, больше мышления.</p>
+<p><strong>С какого процесса начать, если бюджет ограничен?</strong> С самого объёмного и монотонного участка, который проще всего формализовать. Один хорошо выстроенный пайплайн на такой задаче окупается быстро и наглядно показывает отдачу — после этого проще расширять автоматизацию на другие процессы.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+<p>AI приносит бизнесу пользу не как игрушка, а как встроенное в процесс звено конвейера. Мы используем LLM там, где машина сильна: генерируем юнит-тесты по схеме базы данных, экономя разработчику существенную долю времени, и превращаем сырые сканы через OCR и жёсткий системный промпт в чистый JSON, автоматически попадающий в базу. Это реально экономит сотни человеко-часов.</p>
+<p>Но фундаментальный принцип неизменен: AI ускоряет, а не заменяет инженера. Между выводом модели и результатом всегда стоит человек-валидатор — только так достигается и скорость, и надёжность. Если у вас есть объёмный монотонный процесс, который хочется автоматизировать без потери качества, — напишите нам, разберём вашу задачу и предложим конкретный пайплайн.</p>
+                    </div>
+
+                    
+                    
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Что я делаю под ключ</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-robot"></i> <span>Внедрение LLM в бизнес-процессы</span></li>
+    
+    <li><i class="ph-fill ph-flask"></i> <span>Автоматизация тестирования кода</span></li>
+    
+    <li><i class="ph-fill ph-scan"></i> <span>OCR и оцифровка данных в структуру</span></li>
+    
+    <li><i class="ph-fill ph-brackets-curly"></i> <span>Пайплайны извлечения сущностей в JSON</span></li>
+    
+    <li><i class="ph-fill ph-user-check"></i> <span>Процессы human-in-the-loop с валидацией</span></li>
+    
+  </ul>
+  <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Обсудить проект
+  </a>
+</div>
+                    <div class="blog-cta-card">
+                        <div class="blog-cta-card-body">
+                            <h3>Бесплатно: чек-лист «Готов ли ваш бизнес к 152-ФЗ»</h3>
+                            <p>12 пунктов, которые проверяют готовность за час: данные, согласия, уведомление в РКН, локализация, защита. Отметьте, что уже сделано, и увидите дыры, за которые сейчас штрафуют.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="/checklist-152-fz/" class="btn btn-accent"><i class="ph-fill ph-clipboard-text" aria-hidden="true"></i> Открыть чек-лист</a>
+                        </div>
+                    </div>
+                    
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/market/#checklist" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Обсудить проект</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/illuziya-idealnogo-ii-human-in-the-loop-2027/" data-category="ai-dev" data-clicks="0">
+  <span class="blog-card-fresh">Свежее</span>
+  <div class="blog-card-icon"><i class="ph-fill ph-magic-wand"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>AI для разработчиков</span>
+  <h3>Иллюзия идеального ИИ: почему карты и логотипы всё ещё правит человек</h3>
+  <p>Генеративный ИИ рисует красивую картинку, но не понимает физический мир и локальный контекст. Показываем, где он ломается на картах и логотипах, и почему финальное качество всегда обеспечивает человек.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 7 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 6 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/cifrovizaciya-mifologii-rodoslovnyh-2027/" data-category="cases" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-tree-structure"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Кейсы</span>
+  <h3>Как мы оцифровали мифологию и родословные народа в единую цифровую экосистему</h3>
+  <p>Устные предания, редкие монографии и веб-страницы из 2000-х жили отдельно друг от друга — искать и связывать было невозможно. Показываем, как мы спроектировали граф данных, закодировали родовые тамги в векторе и решили вопрос вертикальной старомонгольской письменности в современной вёрстке.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 7 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 6 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/pochemu-ne-delaem-sayty-na-konstruktorah-2027/" data-category="development" data-clicks="0">
+  <span class="blog-card-fresh">Свежее</span>
+  <div class="blog-card-icon"><i class="ph-fill ph-gauge"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
+  <h3>Почему мы не делаем сайты на конструкторах: честный технический разбор</h3>
+  <p>Нам часто говорят: «на Тильде обещают за три дня и двадцать тысяч, почему у вас дороже?». Отвечаем инженерно — про мусорный код, вес страниц, метрики скорости и ловушку, из которой потом не выбраться.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 7 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 6 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    
+                    
+                    
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовые решения под ключ</span>
+                            <span class="blog-offer-cta-title">449 готовых IT-решений для бизнеса</span>
+                            <span class="blog-offer-cta-price">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Смотреть каталог</span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#problema"><span class="blog-toc-num">01</span> Почему бизнес не видит пользы от AI</a></li>
+<li><a href="#kod"><span class="blog-toc-num">02</span> Пайплайн работы с кодом: генерация тестов</a></li>
+<li><a href="#kontent"><span class="blog-toc-num">03</span> Автоматизация контента: от скана к JSON</a></li>
+<li><a href="#chelovek"><span class="blog-toc-num">04</span> Почему последнее слово всегда за инженером</a></li>
+<li><a href="#vnedrenie"><span class="blog-toc-num">05</span> С чего начать внедрение</a></li>
+<li><a href="#faq"><span class="blog-toc-num">06</span> Частые вопросы</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">07</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=23" defer></script>
+<script src="/services-i18n.js?v=23" defer></script>
+<script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>

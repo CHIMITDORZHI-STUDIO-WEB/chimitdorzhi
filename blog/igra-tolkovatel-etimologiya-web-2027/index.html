@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Веб-игра про этимологию: кейс разработки движка-трафарета</title>
+    <meta name="description" content="Кейс: интерактивная веб-игра про этимологию, где игрок доказывает общий корень слов из разных языков через кодированные звуковые пары.">
+    <meta name="keywords" content="веб-игра, этимология, edtech, data-driven, геймификация, разработка игр, движок игры">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/igra-tolkovatel-etimologiya-web-2027/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/igra-tolkovatel-etimologiya-web-2027/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/igra-tolkovatel-etimologiya-web-2027/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/igra-tolkovatel-etimologiya-web-2027/">
+    <meta property="og:title" content="Веб-игра про этимологию: кейс разработки движка-трафарета">
+    <meta property="og:description" content="Кейс: интерактивная веб-игра про этимологию, где игрок доказывает общий корень слов из разных языков через кодированные звуковые пары.">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/igra-tolkovatel-etimologiya-web-2027/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Веб-игра про этимологию: кейс разработки движка-трафарета">
+    <meta name="twitter:description" content="Кейс: интерактивная веб-игра про этимологию, где игрок доказывает общий корень слов из разных языков через кодированные звуковые пары.">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/igra-tolkovatel-etimologiya-web-2027/cover.png">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor-Fill.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=45">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Игра-толкователь: веб-игра про этимологию и общие корни слов",
+  "description": "Кейс: интерактивная веб-игра про этимологию, где игрок доказывает общий корень слов из разных языков через кодированные звуковые пары. Data-driven движок, авторская лингвистическая концепция и наша роль как технического исполнителя.",
+  "image": "https://chimitdorzhi.tech/blog/igra-tolkovatel-etimologiya-web-2027/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/igra-tolkovatel-etimologiya-web-2027/"
+  },
+  "datePublished": "2026-07-07",
+  "dateModified": "2026-07-07",
+  "keywords": "веб-игра, этимология, edtech, data-driven, геймификация",
+  "articleSection": "Кейсы",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Игра-толкователь: веб-игра про этимологию и общие корни слов",
+      "item": "https://chimitdorzhi.tech/blog/igra-tolkovatel-etimologiya-web-2027/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Игра учит настоящей этимологии?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Игра построена на авторской концепции, которая не является общепризнанной наукой. Она отлично развивает внимание к звучанию слов и активное мышление, но подаётся как авторская перспектива, а не как строгий научный курс. Мы честно обозначаем это и игроку, и в описании проекта."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что значит «движок-трафарет» и зачем он нужен?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Это архитектура, где логика игры зафиксирована, а уровни — это данные. Благодаря ей новый уровень добавляется как блок конфигурации, без написания нового кода. Автор может наращивать число заданий сколько угодно, не привлекая разработчика к каждому добавлению."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Кто отвечал за содержание, а кто за технику?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Идея, лингвистическая концепция и наполнение — авторские. Мы выступали техническим исполнителем: спроектировали движок, интерфейс, механику подсказок и проверки, систему уровней. Границу ответственности мы проговорили сразу."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли так сделать любую обучающую игру?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да. Data-driven движок-трафарет подходит везде, где механика повторяется, а меняется наполнение: языковые тренажёры, викторины, карточные и логические игры. Один раз строим механизм — дальше он масштабируется данными."
+      }
+    }
+  ]
+}
+    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+var inject=function(){for (var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)};
+var run=function(){('requestIdleCallback' in window)?requestIdleCallback(inject,{timeout:5000}):setTimeout(inject,3000)};
+(e.readyState==='complete')?run():m.addEventListener('load',run);})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109281884" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/market/">Собрать проект</a></li>
+            <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+            <li style="display:none"><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li class="nav-dropdown">
+                <a href="/#projects" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="/blog/category/cases/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-briefcase" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Кейсы</span>
+                            <span class="nav-dropdown-desc">Реальные проекты под ключ</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li style="display:none"><a href="/#cases" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li style="display:none"><a href="/infografika/">Инфографика</a></li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+                <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему" aria-pressed="false">
+                <i class="ph ph-moon" aria-hidden="true"></i>
+            </button>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/market/">Собрать проект</a></li>
+        <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+        <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+        <li class="mobile-has-submenu">
+            <details>
+                <summary aria-label="Проекты — развернуть"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down" aria-hidden="true"></i></summary>
+                <ul class="mobile-submenu">
+                    <li>
+                        <a href="/blog/category/cases/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-briefcase" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">Кейсы</span>
+                                <span class="mobile-sub-desc">Реальные проекты под ключ</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://gerel.space" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">Gerel.space</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/universe_buryat/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/arey/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.arey">AREY</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/mwrlife/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">MWR Life</span>
+                                <span class="mobile-sub-desc">Travel-клуб и партнёрка</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </details>
+        </li>
+        <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+        <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+    </ul>
+    <div class="mobile-controls">
+        <div class="mobile-lang-switcher" role="group" aria-label="Выбор языка">
+            <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+            <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+            <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+        </div>
+        <button class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle" aria-label="Переключить тему" aria-pressed="false">
+            <i class="ph ph-moon" aria-hidden="true"></i>
+        </button>
+    </div>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Игра-толкователь: веб-игра про этимологию и общие корни слов</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/cases/"><i class="ph ph-bookmark" aria-hidden="true"></i> Кейсы</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 6 мин чтения</span>
+                        <time datetime="2026-07-07"><i class="ph ph-calendar" aria-hidden="true"></i> 7 июля 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Игра-толкователь: веб-игра про этимологию и общие корни слов</h1>
+
+                    <p class="blog-lead">Автор книги о смыслах слов придумала игру, где игрок сам доказывает родство слов из разных языков. Мы сделали технику: движок-трафарет, где логика зашита раз и навсегда, а новые уровни добавляются данными без единой строчки нового кода.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>веб-игра</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>этимология</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>edtech</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>data-driven</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>геймификация</span></div>
+
+                    <div class="blog-body">
+                        <div class="blog-tldr"><strong>TL;DR:</strong> К нам пришла автор книги о смыслах слов с идеей игры про этимологию: игроку дают цепочку внешне не связанных слов из разных языков, а он доказывает их общий корень через кодированные буквенно-звуковые пары. Мы отвечали за технику. Главное архитектурное решение — движок-трафарет: логика игры зафиксирована, а уровни задаются отдельными данными, поэтому новые задания добавляются конфигом без переписывания кода. Методика опирается на авторскую, не общепризнанную научно концепцию — мы честно подаём её как авторскую перспективу.</div>
+
+<p>Иногда самое интересное в проекте — не технология, а идея, которую она обслуживает. К нам обратилась автор книги о смыслах слов и словарях: у неё была концепция игры, в которой человек не пассивно читает про происхождение слов, а сам, шаг за шагом, доказывает, что слова из совсем разных языков растут из одного корня. Автор отвечала за содержание и лингвистическую концепцию, мы — за то, чтобы это превратилось в работающую веб-игру. В этом кейсе рассказываем, как устроена игра, какое инженерное решение позволило легко наращивать число уровней, и почему мы с самого начала честно обозначили границу: за технику отвечаем мы, за научную валидацию концепции — нет.</p>
+
+<h2 id="problema">Идея автора и задача</h2>
+<p>Суть игры проста для описания и глубока по содержанию. Игроку показывают цепочку слов из разных языков, которые на первый взгляд не имеют друг к другу отношения. Задача — доказать, что у них общий корень. Доказательство ведётся не на глаз, а по правилам: есть система соответствий между буквами и звуками, и, применяя её, игрок раскрывает, как одно слово связано с другим, а где связь ложная.</p>
+<p>Автор хотела не викторину с готовыми ответами, а инструмент активного мышления: чтобы игрок формулировал и проверял гипотезу сам, а не просто угадывал вариант из списка. Наша задача как технического исполнителя была двоякой. Во-первых, точно передать авторскую механику: подсказки, разбор, кодировку звуков. Во-вторых, сделать это так, чтобы игру можно было наполнять новыми уровнями практически бесконечно и без нашего участия в каждом добавлении — потому что материала у автора много, и он будет прирастать.</p>
+
+<h2 id="klyuch-alfavit">Ключ-алфавит УХО</h2>
+<p>В основе игры лежит ключ — алфавит соответствий, по которому игрок кодирует и сравнивает звуки. Это русский алфавит, дополненный тремя бурятскими буквами: Ү (читается как У), Һ (читается как Х) и Ө (читается как О). Автор неслучайно собрала их в мнемоническое слово «УХО»: игра — про слух, про звучание слова, а не про его написание в конкретном алфавите. Именно звук, а не буква, тянется сквозь века и языки, и именно на звук опирается вся механика.</p>
+<p>Эти три дополнительные буквы дают инструмент для аккуратной работы с оттенками произношения, которые в стандартной кириллице или латинице сливаются или теряются. Для игрока ключ — это его рабочий инструмент: он смотрит на слово, переводит его в звуки по ключу и сравнивает с другим словом, приведённым к тем же звукам. Технически ключ — это часть данных игры, а не логики, и это важно для архитектуры, о которой ниже.</p>
+
+<h2 id="gipoteza">Лингвистическая гипотеза</h2>
+<p>Центральная идея, которую предлагает игра, — авторская гипотеза о судьбе греческой буквы ипсилон. По этой гипотезе, ипсилон, которая в ранних передачах записывалась как сочетание вроде «Yu», при переходе в латиницу разделилась на две разные буквы: Y, закрепившую звук «и», и U, закрепившую звук «ю»/«у». Это разделение, по мысли автора, как ножницами разрезало этимологические связи: слова, которые звучали и родственно, и узнаваемо, разошлись по написанию и со временем перестали опознаваться как родня.</p>
+<p>Игра предлагает игроку роль реставратора этих связей. Восстанавливая исходное звучание по ключу, он как бы сшивает то, что разрезала история письменности, и видит родство там, где современное написание его прячет. Мы подаём эту идею именно как авторскую перспективу — увлекательную оптику, через которую интересно смотреть на слова, а не как установленный факт исторической лингвистики. Об этом отдельная секция ниже, и для нас это принципиально.</p>
+
+<h2 id="mehanika">Смешанная механика проверки</h2>
+<p>Механику мы сделали «смешанной» — и это ответ на желание автора активировать мышление игрока, а не кормить его готовым. С одной стороны, игроку доступны подсказки и разбор: по клику он может раскрыть, как звук в одном слове соответствует звуку в другом, увидеть промежуточные формы, получить наводку. С другой стороны, финальный вердикт выносит сам игрок: он решает, родственные ли перед ним слова или это «ложные родственники» — внешне похожие, но этимологически чужие.</p>
+<p>Эта развилка — ядро вовлечения. Пассивное чтение статьи об этимологии забывается через минуту. Активная проверка гипотезы, когда ты сам берёшь на себя ответственность за вывод «да, родственные» или «нет, ложный след», заставляет думать и запоминается. Подсказки при этом не превращают игру в чтение с подглядыванием: они помогают дойти до решения, но не выносят его за игрока. Технически это означало аккуратно развести в интерфейсе две сущности — вспомогательный материал, который можно раскрывать, и собственно решение игрока, которое фиксируется и потом сверяется с авторским разбором.</p>
+
+<h2 id="primer-tur">Пример уровня: корень ТУР</h2>
+<p>Чтобы было предметно, разберём устройство одного уровня — с корнем ТУР. Цепочка начинается со слова ТУРИСТ и ведёт через ряд форм, включая тюркские. Здесь важна деталь, которую задаёт автор: форма TURIST в цепочке стоит раньше тюркской формы, потому что сохраняет чистый звук «у» — тот самый исходный звук, который по гипотезе тянется от ипсилона. Порядок в цепочке несёт смысл: он показывает, где звук ближе к предполагаемому истоку, а где уже видоизменился.</p>
+<p>В том же уровне есть ловушки — ложные родственники. Некоторые греческие слова (например, обозначающие сыр или шину) внешне будто просятся в ту же семью, но на самом деле не родня: их греческие транскрипции идут через звук «и», а не через «ю»/«у», и по ключу это сразу видно. Задача игрока — не попасться: применить ключ, услышать, что звук не тот, и вынести вердикт «ложные родственники». Так один уровень одновременно и обучает правилу, и проверяет, усвоил ли игрок его на слух, а не на глаз.</p>
+<p>С точки зрения данных уровень — это набор: цепочка слов, их звуковые разборы по ключу, пометки о порядке, список ложных родственников с объяснением, почему они ложные, и авторский эталонный разбор, с которым сверяется решение игрока. Ничего из этого не «зашито» в код — всё это описание уровня.</p>
+
+<h2 id="trafaret">Движок как трафарет</h2>
+<p>Вот главное инженерное решение проекта, и оно определило всю архитектуру. Мы построили игру по принципу трафарета: логика игры — движок — зафиксирована раз и навсегда, а уровни задаются отдельными данными. Движок умеет одно и то же для любого уровня: показать цепочку слов, дать применить ключ, раскрыть подсказки по клику, принять вердикт игрока, сверить его с эталонным разбором и показать результат. Что именно за слова, какая цепочка, какие ложные родственники, какой разбор — движок не знает и знать не должен. Он берёт это из конфигурации уровня.</p>
+<p>Такой data-driven подход означает, что добавить новый уровень — значит добавить новый блок данных, а не написать новый код. Автор может придумывать десятки новых цепочек — про любой корень, с любыми языками и ловушками, — и каждая станет полноценным уровнем без переписывания движка, без рисков что-то сломать в уже работающих уровнях, без релиза новой версии логики. Конфиг уровней живёт отдельно от движка, и это разделение — не косметика, а стратегическое решение, которое определяет стоимость роста игры на годы вперёд.</p>
+<p>Почему это важно именно здесь? Потому что ценность игры — в объёме и разнообразии материала. Если бы каждый уровень требовал программирования, игра застряла бы на первых нескольких заданиях: любое пополнение упиралось бы в разработчика. Сделав движок трафаретом, мы передали автору контроль над содержанием: техника перестала быть узким горлышком. Мы один раз построили механизм, а дальше он штампует уровни из данных, как трафарет — одинаковый контур по любому листу.</p>
+<p>Для нас это ещё и вопрос надёжности. Когда логика не меняется от уровня к уровню, её достаточно один раз выверить — и все уровни автоматически ведут себя предсказуемо. Ошибка в данных одного уровня не роняет остальные, а исправляется правкой этого блока данных. Чем строже граница между движком и данными, тем спокойнее жизнь проекта.</p>
+
+<h2 id="poziciya">Честная позиция по контенту</h2>
+<p>Здесь мы обязаны быть прямыми, и мы были такими с автором с самого начала. Методика игры опирается на авторскую концепцию, которая включает отсылки к спорным идеям — в том числе к представлениям вроде «волновой генетики». Эти идеи не являются общепризнанными в науке. Мы не выдаём их за установленный факт исторической лингвистики или биологии и не хотим, чтобы игрок так их воспринимал.</p>
+<p>Наша роль в проекте была технической: мы отвечали за то, чтобы игра работала, была удобной, честно передавала авторскую механику и легко росла. За научную валидацию концепции мы не отвечали и не выдаём себя за арбитров в этом вопросе. Мы считаем правильным сказать это открыто — и по отношению к игроку, которому честно предлагается авторская перспектива, а не «доказанная истина», и по отношению к автору, чью идею мы уважаем как творческую оптику и способ увлечь людей словами и языками. Игра ценна как инструмент любопытства и активного мышления; воспринимать её как учебник по сравнительно-историческому языкознанию не следует, и мы этого не скрываем.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+<p><strong>Игра учит настоящей этимологии?</strong> Игра построена на авторской концепции, которая не является общепризнанной наукой. Она отлично развивает внимание к звучанию слов и активное мышление, но подаётся как авторская перспектива, а не как строгий научный курс. Мы честно обозначаем это и игроку, и в описании проекта.</p>
+<p><strong>Что значит «движок-трафарет» и зачем он нужен?</strong> Это архитектура, где логика игры зафиксирована, а уровни — это данные. Благодаря ей новый уровень добавляется как блок конфигурации, без написания нового кода. Автор может наращивать число заданий сколько угодно, не привлекая разработчика к каждому добавлению.</p>
+<p><strong>Кто отвечал за содержание, а кто за технику?</strong> Идея, лингвистическая концепция и наполнение — авторские. Мы выступали техническим исполнителем: спроектировали движок, интерфейс, механику подсказок и проверки, систему уровней. Границу ответственности мы проговорили сразу.</p>
+<p><strong>Можно ли так сделать любую обучающую игру?</strong> Да. Data-driven движок-трафарет подходит везде, где механика повторяется, а меняется наполнение: языковые тренажёры, викторины, карточные и логические игры. Один раз строим механизм — дальше он масштабируется данными.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+<p>Этот проект — пример того, как техническое решение впрямую определяет судьбу продукта. Сделав движок трафаретом и отделив данные уровней от логики, мы превратили игру из «нескольких заданий, упирающихся в разработчика» в растущую платформу, которую наполняет сам автор. Механика активной проверки гипотезы делает игру вовлекающей, а не пассивной, а честная позиция по научному статусу концепции — вопросом профессиональной порядочности.</p>
+<p>Если у вас есть сильная идея обучающей или геймифицированной механики и много контента, который будет прибывать, — мы умеем строить движки, которые растут данными, а не кодом. Придумываете вы, масштабирует техника.</p>
+                    </div>
+
+                    
+                    
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Что я делаю под ключ</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-game-controller"></i> <span>Интерактивные веб-игры и тренажёры</span></li>
+    
+    <li><i class="ph-fill ph-stack"></i> <span>Data-driven движки и конфиги уровней</span></li>
+    
+    <li><i class="ph-fill ph-graduation-cap"></i> <span>Edtech и обучающие механики</span></li>
+    
+    <li><i class="ph-fill ph-puzzle-piece"></i> <span>Геймификация под ваш контент</span></li>
+    
+    <li><i class="ph-fill ph-devices"></i> <span>Веб-приложения без конструкторов</span></li>
+    
+  </ul>
+  <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Обсудить проект
+  </a>
+</div>
+                    <div class="blog-cta-card">
+                        <div class="blog-cta-card-body">
+                            <h3>Бесплатно: чек-лист «Готов ли ваш бизнес к 152-ФЗ»</h3>
+                            <p>12 пунктов, которые проверяют готовность за час: данные, согласия, уведомление в РКН, локализация, защита. Отметьте, что уже сделано, и увидите дыры, за которые сейчас штрафуют.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="/checklist-152-fz/" class="btn btn-accent"><i class="ph-fill ph-clipboard-text" aria-hidden="true"></i> Открыть чек-лист</a>
+                        </div>
+                    </div>
+                    
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/market/#checklist" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Собрать похожий проект</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/cifrovizaciya-mifologii-rodoslovnyh-2027/" data-category="cases" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-tree-structure"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Кейсы</span>
+  <h3>Как мы оцифровали мифологию и родословные народа в единую цифровую экосистему</h3>
+  <p>Устные предания, редкие монографии и веб-страницы из 2000-х жили отдельно друг от друга — искать и связывать было невозможно. Показываем, как мы спроектировали граф данных, закодировали родовые тамги в векторе и решили вопрос вертикальной старомонгольской письменности в современной вёрстке.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 7 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 6 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/etno-myuzikl-immersiv-taymkod-2027/" data-category="cases" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-projector-screen"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Кейсы</span>
+  <h3>Этно-мюзикл с цифровым иммерсивом: как мы синхронизировали видеопроекцию с живой сценой</h3>
+  <p>Если проекция отстаёт от оркестра на две секунды, иммерсивное шоу превращается в дешёвое караоке. Рассказываем, как мы построили непрерывный таймкод на 83 минуты и связали графику с живым звуком.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 7 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 6 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/pochemu-ne-delaem-sayty-na-konstruktorah-2027/" data-category="development" data-clicks="0">
+  <span class="blog-card-fresh">Свежее</span>
+  <div class="blog-card-icon"><i class="ph-fill ph-gauge"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
+  <h3>Почему мы не делаем сайты на конструкторах: честный технический разбор</h3>
+  <p>Нам часто говорят: «на Тильде обещают за три дня и двадцать тысяч, почему у вас дороже?». Отвечаем инженерно — про мусорный код, вес страниц, метрики скорости и ловушку, из которой потом не выбраться.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 7 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 6 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    
+                    
+                    
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовые решения под ключ</span>
+                            <span class="blog-offer-cta-title">449 готовых IT-решений для бизнеса</span>
+                            <span class="blog-offer-cta-price">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Смотреть каталог</span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#problema"><span class="blog-toc-num">01</span> Идея автора и задача</a></li>
+<li><a href="#klyuch-alfavit"><span class="blog-toc-num">02</span> Ключ-алфавит УХО</a></li>
+<li><a href="#gipoteza"><span class="blog-toc-num">03</span> Лингвистическая гипотеза</a></li>
+<li><a href="#mehanika"><span class="blog-toc-num">04</span> Смешанная механика проверки</a></li>
+<li><a href="#primer-tur"><span class="blog-toc-num">05</span> Пример уровня: корень ТУР</a></li>
+<li><a href="#trafaret"><span class="blog-toc-num">06</span> Движок как трафарет</a></li>
+<li><a href="#poziciya"><span class="blog-toc-num">07</span> Честная позиция по контенту</a></li>
+<li><a href="#faq"><span class="blog-toc-num">08</span> Частые вопросы</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">09</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=23" defer></script>
+<script src="/services-i18n.js?v=23" defer></script>
+<script src="/script.js?v=23" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>
