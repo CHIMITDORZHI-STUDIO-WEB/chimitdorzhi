@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1142**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1141**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -598,7 +598,6 @@
 - [Как работает реклама в интернете: почему она будто следит за вами](./kak-rabotaet-reklama-v-internete-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-rabotaet-reklama-v-internete-2027/)
 - [Репёрпосинг контента: как из одного материала сделать 10 форматов](./reperposing-kontenta-1-v-10-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/reperposing-kontenta-1-v-10-2026/)
 - [Конкурентная разведка легально: что можно узнать из открытых источников](./konkurentnaya-razvedka-legalno-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/konkurentnaya-razvedka-legalno-2026/)
-- [WhatsApp Business для бизнеса: каталог, рассылки и автоответы](./whatsapp-business-dlya-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/whatsapp-business-dlya-biznesa-2026/)
 - [Мониторинг упоминаний бренда и репутации: где о вас пишут и как это отслеживать](./monitoring-upominaniy-brenda-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/monitoring-upominaniy-brenda-2026/)
 - [Заработок на геймификации и розыгрышах для бизнеса](./zarabotok-na-geymifikacii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zarabotok-na-geymifikacii-2026/)
 - [Как зарабатывать на рассылках и CRM как услуге](./zarabotok-na-rassylkah-crm-uslugi-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zarabotok-na-rassylkah-crm-uslugi-2026/)
