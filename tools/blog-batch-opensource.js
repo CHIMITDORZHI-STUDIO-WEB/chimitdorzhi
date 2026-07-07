@@ -127,7 +127,7 @@ module.exports = [
     relatedSlugs: ['nextcloud-svoy-oblachnyy-disk-2026', 'outline-baza-znaniy-2026', 'jitsi-videokonferencii-bez-zoom-2026'] }),
   E({ slug: 'nextcloud-svoy-oblachnyy-disk-2026', heroIcon: 'ph-fill ph-cloud',
     title: 'Nextcloud: свой облачный диск компании вместо Google Drive',
-    metaTitle: 'Nextcloud: свой облачный диск вместо Google Drive',
+    metaTitle: 'Nextcloud: установка и настройка своего облачного диска',
     metaDescription: 'Nextcloud — open-source облако и совместная работа (аналог Google Drive/Dropbox/Office 365): файлы, доступы, календарь, документы, на своём сервере. Данные в РФ по 152-ФЗ — разверну под ключ.',
     excerpt: 'Nextcloud — это своё облако компании: файлы, общий доступ и документы на своём сервере, как Google Drive, но с данными у себя. Разбираю, что умеет и что нужно для запуска.',
     tags: ['Nextcloud', 'облако', 'хранилище', 'open-source'],

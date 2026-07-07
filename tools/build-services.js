@@ -154,7 +154,7 @@ function footer() {
 </footer>
 <script src="/i18n.js?v=21" defer></script>
 <script src="/services-i18n.js?v=21" defer></script>
-<script src="/script.js?v=21" defer></script>`;
+<script src="/script.js?v=30" defer></script>`;
 }
 
 // ---------- service card (used in homepage grid + catalog + related) ----------

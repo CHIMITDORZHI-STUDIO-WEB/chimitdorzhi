@@ -252,3 +252,23 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+/* Лид-цели в Яндекс.Метрике (счётчик 109281884).
+   Один делегированный слушатель ловит клики по всем CTA на любой странице
+   и шлёт цель. В интерфейсе Метрики создайте цели типа «JavaScript-событие»
+   с идентификаторами: lead_telegram, lead_market, lead_email, lead_call. */
+(function () {
+    var YM_ID = 109281884;
+    function goal(name) {
+        try { if (typeof ym === 'function') ym(YM_ID, 'reachGoal', name); } catch (e) {}
+    }
+    document.addEventListener('click', function (e) {
+        var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+        if (!a) return;
+        var h = a.getAttribute('href') || '';
+        if (/t\.me\/chimitdorzhi/i.test(h)) goal('lead_telegram');
+        else if (/(^https?:\/\/[^/]*chimitdorzhi\.tech)?\/market\//i.test(h) || /#checklist/i.test(h)) goal('lead_market');
+        else if (/^mailto:/i.test(h)) goal('lead_email');
+        else if (/^tel:/i.test(h)) goal('lead_call');
+    }, true);
+})();
