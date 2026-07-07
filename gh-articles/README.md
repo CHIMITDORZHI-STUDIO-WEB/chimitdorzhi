@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1134**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1142**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -29,6 +29,13 @@
 - [Разработка ИИ-агентов под ключ: что это, применение и цена в 2027](./razrabotka-ai-agentov-pod-klyuch-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/razrabotka-ai-agentov-pod-klyuch-2027/)
 - [Распознавание паспортов и документов (OCR) для бизнеса под ключ](./raspoznavanie-pasporta-ocr-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/raspoznavanie-pasporta-ocr-2027/)
 - [Компьютерное зрение на производстве: сколько стоит внедрить и как рассчитать окупаемость](./kompyuternoe-zrenie-proizvodstvo-stoimost-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kompyuternoe-zrenie-proizvodstvo-stoimost-2027/)
+- [Как установить Ollama для Windows: запуск локальных нейросетей за 10 минут](./ustanovit-ollama-windows-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ustanovit-ollama-windows-2027/)
+- [Что такое RAG простыми словами: как научить нейросеть отвечать по вашим документам](./rag-prostymi-slovami-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/rag-prostymi-slovami-2027/)
+- [Свой AI-сервер для бизнеса: зачем нужен и как его собрать](./svoy-ai-server-dlya-biznesa-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/svoy-ai-server-dlya-biznesa-2027/)
+- [Какая видеокарта нужна для локальных LLM: гид по GPU и VRAM](./gpu-dlya-lokalnyh-llm-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gpu-dlya-lokalnyh-llm-2027/)
+- [Локальный LLM против облака: что выбрать бизнесу в 2027](./lokalnyy-llm-vs-oblako-biznes-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/lokalnyy-llm-vs-oblako-biznes-2027/)
+- [Векторные базы данных для RAG: что это и как выбрать в 2027](./vektornye-bazy-dlya-rag-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vektornye-bazy-dlya-rag-2027/)
+- [Self-hosted AI-стек для бизнеса: Ollama, Dify и автоматизация](./selfhosted-ai-stack-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/selfhosted-ai-stack-2027/)
 - [AI-ассистент на данных бизнеса: как он отвечает клиентам вместо вас](./ai-assistent-otvechaet-vmesto-vas-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ai-assistent-otvechaet-vmesto-vas-2026/)
 - [ИИ-агент для заявок с сайта: отвечает 24/7 и заносит лида в CRM](./ii-agent-zayavki-s-sayta-crm-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-agent-zayavki-s-sayta-crm-2027/)
 - [ИИ отвечает на отзывы и вопросы на Wildberries и Ozon за селлера](./ii-otvety-na-otzyvy-wb-ozon-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-otvety-na-otzyvy-wb-ozon-2027/)
@@ -935,6 +942,7 @@
 - [Заказать разработку мобильной игры под ключ: этапы, сроки и из чего складывается цена](./razrabotka-mobilnoy-igry-pod-klyuch-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/razrabotka-mobilnoy-igry-pod-klyuch-2027/)
 - [Сколько стоит внедрение CRM и из чего складывается цена](./vnedrenie-crm-stoimost-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vnedrenie-crm-stoimost-2027/)
 - [Файл llms.txt: что это и зачем он нужен сайту в эпоху ИИ-поиска](./llms-txt-dlya-sayta-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/llms-txt-dlya-sayta-2027/)
+- [Что такое VPS простыми словами и как выбрать виртуальный сервер под задачу](./chto-takoe-vps-kak-vybrat-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chto-takoe-vps-kak-vybrat-2027/)
 - [Сайт-каталог для производителя оборудования: B2B-продажи вместо PDF-прайса](./sayt-katalog-proizvoditelya-oborudovaniya-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-katalog-proizvoditelya-oborudovaniya-2027/)
 - [Автоматизация для сети из нескольких магазинов: единая база вместо разрозненных таблиц](./avtomatizaciya-seti-magazinov-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avtomatizaciya-seti-magazinov-2027/)
 - [Мини-апп в MAX: что это и каким бизнесам он реально нужен](./mini-app-v-max-dlya-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/mini-app-v-max-dlya-biznesa-2026/)
