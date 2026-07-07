@@ -54,7 +54,8 @@ module.exports = [
     "relatedSlugs": [
       "smart-kontrakty-cifrovoy-rubl-scenarii-2027",
       "doklad-cb-smart-kontrakty-biznes-2027",
-      "cifrovoy-rubl-dlya-biznesa-tehnicheski-2027"
+      "cifrovoy-rubl-dlya-biznesa-tehnicheski-2027",
+      "smart-kontrakty-cbdc-mirovoy-opyt-2027"
     ],
     "ctaInternal": {
       "url": "https://chimitdorzhi.tech/market/#checklist",
@@ -146,7 +147,8 @@ module.exports = [
     "relatedSlugs": [
       "smart-kontrakty-cifrovoy-rubl-prosto-2027",
       "smart-kontrakty-riski-pravo-otvetstvennost-2027",
-      "cifrovoy-rubl-dlya-biznesa-tehnicheski-2027"
+      "cifrovoy-rubl-dlya-biznesa-tehnicheski-2027",
+      "smart-kontrakty-cbdc-mirovoy-opyt-2027"
     ],
     "ctaInternal": {
       "url": "https://chimitdorzhi.tech/market/#checklist",
