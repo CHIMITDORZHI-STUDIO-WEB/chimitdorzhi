@@ -44,6 +44,7 @@ const blogBatchCases = require('./blog-batch-cases-2027.js');
 const blogBatchStudio = require('./blog-batch-studio-2027.js');
 const blogBatchSmartContracts = require('./blog-batch-smartcontracts-2027.js');
 const blogBatchSeoCommercial = require('./blog-batch-seo-commercial-2027.js');
+const blogBatchLlmCluster = require('./blog-batch-llm-cluster-2027.js');
 const blogBatchA = require('./blog-batch-a.js');
 const blogBatchB = require('./blog-batch-b.js');
 const blogBatchC = require('./blog-batch-c.js');
@@ -4496,7 +4497,7 @@ const ALL_ARTICLES = [
     category: 'ai-dev',
     published: true,
     title: 'Локальный LLM на ноутбуке 2026: Ollama, LM Studio, vLLM — практическое руководство',
-    metaTitle: 'Локальный LLM на ноутбуке: своя нейросеть без интернета 2026',
+    metaTitle: 'Локальный LLM на ноутбуке (Ollama): своя нейросеть без интернета',
     metaDescription: 'Запустите свой AI на ноутбуке за час — бесплатно, без интернета и подписок. Ollama, LM Studio, vLLM: установка по шагам, какие модели потянет ваш ПК, бенчмарки скорости и локальный RAG. Данные не утекают (152-ФЗ).',
     metaKeywords: 'локальный LLM, Ollama, LM Studio, vLLM, Llama 3.3, Qwen 2.5, DeepSeek, локальная нейросеть, self-hosted LLM, AI на ноутбуке',
     excerpt: 'Как поднять локальный LLM за час: Ollama, LM Studio, vLLM. Какие модели выбрать в 2026, бенчмарки скорости на M3 Max / RTX 4090 / H100, локальный RAG за 40 строк, экономика владения.',
@@ -10542,7 +10543,7 @@ const ALL_ARTICLES = [
     category: 'ai-dev',
     published: true,
     title: 'AI-бот в МАКС: подключаем GigaChat или YandexGPT',
-    metaTitle: 'AI-бот в МАХ на GigaChat и YandexGPT: как сделать (2026)',
+    metaTitle: 'Бот с нейросетями в МАХ на GigaChat и YandexGPT: как сделать',
     metaDescription: 'Как сделать умного AI-бота в мессенджере МАКС на российских нейросетях: архитектура (Bot API + LLM), выбор между GigaChat и YandexGPT, подключение по шагам, сценарии и риски.',
     metaKeywords: 'AI-бот МАКС, GigaChat бот, YandexGPT бот, нейросеть в МАКС, умный бот MAX, чат-бот на нейросети, MAX Bot API',
     excerpt: 'Обычный бот отвечает по сценарию, а AI-бот понимает живые вопросы и отвечает по вашей базе знаний. Разбираю, как подключить GigaChat или YandexGPT к боту в МАКС: архитектуру, выбор модели и подводные камни.',
@@ -10726,7 +10727,7 @@ const ALL_ARTICLES = [
       ],
     },
   },
-].concat(antigravityEntries, blogBatchA, blogBatchB, blogBatchC, blogBatchPillars, blogBatchMaxMkt, blogBatchLocal, blogBatchChita, blogBatchShkola, blogBatchSetevik, blogBatchMlmBrands, blogBatchMlmBrands2, blogBatchMlmBrands3, blogBatchPraktiki, blogBatchEvents, blogBatchBiznesIdei, blogBatchOpenSource, blogBatchOpenSource2, blogBatchZarabotok, blogBatchOpenSource3, blogBatchOpenSource4, blogBatchOpenSource5, blogBatchOpenSource6, blogBatchOpenSource7, blogBatchOpenSource8, blogBatchOpenSource9, blogBatchOpenSource10, blogBatchOpenSource11, blogBatchOpenSource12, blogBatchOpenSource13, blogBatchOpenSource14, blogBatchOpenSource15, blogBatchOpenSource16, blogBatchOpenSource17, blogBatchOpenSource18, blogBatchOpenSource19, blogBatchOpenSource20, blogBatchOpenSource21, blogBatchOpenSource22, blogBatchOpenSource23, blogBatchOpenSource24, blogBatchOpenSource25, blogBatchNishiIt, blogBatchNishiIt2, blogBatchMwrTravel, blogBatchBiznesTechGaps, blogBatchBiznesKrugozor, blogBatchSkolkoStoit, blogBatchLocalDengi, blogBatchZaschitaOsint, blogBatchOpenSourceHub, blogBatchAiTrends, blogBatchCommercialJun, blogBatchExpert, blogBatchMisc2, blogBatchCfa, blogBatchGrants, blogBatchOpenHw, blogBatchLlmLocal, blogBatchPraktJun2, blogBatchYtJun, blogBatchExpertJun, blogBatchExpertJun2, blogBatchExpertJun3, blogBatchExpertJun4, blogBatchKnigi, blogBatchKnigi2, blogBatchKnigi3, blogBatchCommercialZakaz, blogBatchConvLeadgen, blogBatchCifrovyeAktivy, blogBatchCfaRynok, blogBatchLeantime, blogBatchNauchpop, blogBatchKakEtoUstroeno, blogBatchStartupIdei, blogBatchStartupIdei2, blogBatchStartupIdei3, blogBatchStartupIdei4, blogBatchStartupIdei5, blogBatchStartupIdei6, blogBatchStartupIdei7, blogBatchStartupIdei8, blogBatchKrugozor2, blogBatchGeymindustriya, blogBatchLeadgen2, blogBatchLeadgen3, blogBatchMaxAvtomatizaciya, blogBatchCases, blogBatchStudio, blogBatchSmartContracts, blogBatchSeoCommercial);
+].concat(antigravityEntries, blogBatchA, blogBatchB, blogBatchC, blogBatchPillars, blogBatchMaxMkt, blogBatchLocal, blogBatchChita, blogBatchShkola, blogBatchSetevik, blogBatchMlmBrands, blogBatchMlmBrands2, blogBatchMlmBrands3, blogBatchPraktiki, blogBatchEvents, blogBatchBiznesIdei, blogBatchOpenSource, blogBatchOpenSource2, blogBatchZarabotok, blogBatchOpenSource3, blogBatchOpenSource4, blogBatchOpenSource5, blogBatchOpenSource6, blogBatchOpenSource7, blogBatchOpenSource8, blogBatchOpenSource9, blogBatchOpenSource10, blogBatchOpenSource11, blogBatchOpenSource12, blogBatchOpenSource13, blogBatchOpenSource14, blogBatchOpenSource15, blogBatchOpenSource16, blogBatchOpenSource17, blogBatchOpenSource18, blogBatchOpenSource19, blogBatchOpenSource20, blogBatchOpenSource21, blogBatchOpenSource22, blogBatchOpenSource23, blogBatchOpenSource24, blogBatchOpenSource25, blogBatchNishiIt, blogBatchNishiIt2, blogBatchMwrTravel, blogBatchBiznesTechGaps, blogBatchBiznesKrugozor, blogBatchSkolkoStoit, blogBatchLocalDengi, blogBatchZaschitaOsint, blogBatchOpenSourceHub, blogBatchAiTrends, blogBatchCommercialJun, blogBatchExpert, blogBatchMisc2, blogBatchCfa, blogBatchGrants, blogBatchOpenHw, blogBatchLlmLocal, blogBatchPraktJun2, blogBatchYtJun, blogBatchExpertJun, blogBatchExpertJun2, blogBatchExpertJun3, blogBatchExpertJun4, blogBatchKnigi, blogBatchKnigi2, blogBatchKnigi3, blogBatchCommercialZakaz, blogBatchConvLeadgen, blogBatchCifrovyeAktivy, blogBatchCfaRynok, blogBatchLeantime, blogBatchNauchpop, blogBatchKakEtoUstroeno, blogBatchStartupIdei, blogBatchStartupIdei2, blogBatchStartupIdei3, blogBatchStartupIdei4, blogBatchStartupIdei5, blogBatchStartupIdei6, blogBatchStartupIdei7, blogBatchStartupIdei8, blogBatchKrugozor2, blogBatchGeymindustriya, blogBatchLeadgen2, blogBatchLeadgen3, blogBatchMaxAvtomatizaciya, blogBatchCases, blogBatchStudio, blogBatchSmartContracts, blogBatchSeoCommercial, blogBatchLlmCluster);
 
 // --- Проход взаимной перелинковки ---------------------------------------
 // Гарантирует, что у каждой опубликованной статьи есть хотя бы одна входящая
