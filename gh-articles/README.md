@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1121**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1126**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -1058,6 +1058,11 @@
 
 ## Финансы
 
+- [Смарт-контракты на цифровом рубле простыми словами](./smart-kontrakty-cifrovoy-rubl-prosto-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/smart-kontrakty-cifrovoy-rubl-prosto-2027/)
+- [Смарт-контракты на цифровом рубле: сценарии для бизнеса](./smart-kontrakty-cifrovoy-rubl-scenarii-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/smart-kontrakty-cifrovoy-rubl-scenarii-2027/)
+- [Смарт-контракты на CBDC: мировой опыт цифровых валют](./smart-kontrakty-cbdc-mirovoy-opyt-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/smart-kontrakty-cbdc-mirovoy-opyt-2027/)
+- [Смарт-контракты на цифровом рубле: риски, право и ответственность](./smart-kontrakty-riski-pravo-otvetstvennost-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/smart-kontrakty-riski-pravo-otvetstvennost-2027/)
+- [Доклад Банка России о смарт-контрактах: что он значит для бизнеса](./doklad-cb-smart-kontrakty-biznes-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/doklad-cb-smart-kontrakty-biznes-2027/)
 - [54-ФЗ для приёма оплаты: что нужно самозанятому, ИП и ООО](./54-fz-dlya-platezhey-samozanyatyy-ip-ooo-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/54-fz-dlya-platezhey-samozanyatyy-ip-ooo-2027/)
 - [ЦФА или криптовалюта: что легально для бизнеса в России и в чём разница](./cfa-vs-kriptovalyuta-biznes-rf-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/cfa-vs-kriptovalyuta-biznes-rf-2027/)
 - [Цифровой рубль для бизнеса: что меняется технически и как к этому готовиться](./cifrovoy-rubl-dlya-biznesa-tehnicheski-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/cifrovoy-rubl-dlya-biznesa-tehnicheski-2027/)
