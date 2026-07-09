@@ -1620,6 +1620,7 @@ const CATEGORY_META = {
     title: 'Кейсы: реальные проекты — боты, сайты, платформы и лояльность',
     intro: 'Реальные завершённые проекты студии Chimitdorzhi Studio: боты и мини-аппы в MAX и Telegram, официальные сайты с личными кабинетами, программы лояльности, реферальные и МЛМ-системы, городские справочники и нетворкинг-платформы для мероприятий. По каждому кейсу разбираю, какая была задача у клиента, что я построил технически и какой результат это дало. Узнали свою ситуацию — соберём похожее решение под ваш бизнес.',
     service: { url: 'https://chimitdorzhi.tech/market/#checklist', label: 'Собрать похожий проект' },
+    cover: 'https://chimitdorzhi.tech/blog/category/cases/cover.png',
   },
   legal: {
     h1: 'Право и 152-ФЗ',
@@ -1741,6 +1742,7 @@ function categoryPage(key, catArticles) {
     description: meta.intro.slice(0, 300),
     keywords: `${label}, ${meta.h1}, статьи, гайды, 2026`,
     canonical: url,
+    ogImage: meta.cover,
   })}    <script type="application/ld+json">
 ${JSON.stringify(ld, null, 2)}
     </script>
