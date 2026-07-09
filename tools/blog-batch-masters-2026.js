@@ -3,4 +3,8 @@ module.exports = [
   require('./blog-masters/elektrik.js'),
   require('./blog-masters/santehnik.js'),
   require('./blog-masters/stroitel.js'),
+  require('./blog-masters/malyar.js'),
+  require('./blog-masters/plitochnik.js'),
+  require('./blog-masters/krovelshchik.js'),
+  require('./blog-masters/svarshchik.js'),
 ];
