@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1144**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1152**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -83,6 +83,14 @@
 
 ## cases
 
+- [Суперапп для сообщества автовладельцев внутри мессенджера](./superapp-avtovladeltsev-messendzher-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/superapp-avtovladeltsev-messendzher-keys-2026/)
+- [Реферальный бот-конкурс приглашений: кейс разработки](./referalnyy-bot-konkurs-priglasheniy-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/referalnyy-bot-konkurs-priglasheniy-keys-2026/)
+- [Платформа афиши и билетов в мессенджере: кейс разработки](./platforma-afishi-biletov-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/platforma-afishi-biletov-keys-2026/)
+- [Платформа делового нетворкинга для крупного мероприятия: кейс](./platforma-networkinga-meropriyatie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/platforma-networkinga-meropriyatie-keys-2026/)
+- [Цифровая карта лояльности для кафе: PWA вместо бумажных штампов](./tsifrovaya-karta-loyalnosti-pwa-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/tsifrovaya-karta-loyalnosti-pwa-keys-2026/)
+- [Городской справочник организаций с картой: кейс разработки под ключ](./gorodskoy-spravochnik-karta-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gorodskoy-spravochnik-karta-keys-2026/)
+- [Медиа-портал под ключ: редакция, SEO и заготовка под ИИ-контент](./media-portal-onlayn-smi-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/media-portal-onlayn-smi-keys-2026/)
+- [База знаний с собственной CMS: кейс разработки под ключ](./baza-znaniy-spravochnyy-portal-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/baza-znaniy-spravochnyy-portal-keys-2026/)
 - [Лендинг для эксперта по недвижимости: упаковал оффер «0 ₽ для покупателя» и приём заявок без сервера](./sayt-eksperta-nedvizhimosti-lending-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-eksperta-nedvizhimosti-lending-keys-2026/)
 - [Система онлайн-управления общежитием: места, договоры, финансы и оплата вместо бумаги и таблиц](./sistema-upravleniya-obshchezhitiem-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sistema-upravleniya-obshchezhitiem-keys-2026/)
 - [Сайт кафе национальной кухни с доставкой: меню, сеты, заказ через мессенджеры и соответствие 152-ФЗ](./sayt-kafe-dostavka-natsionalnoy-kuhni-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-kafe-dostavka-natsionalnoy-kuhni-keys-2026/)
