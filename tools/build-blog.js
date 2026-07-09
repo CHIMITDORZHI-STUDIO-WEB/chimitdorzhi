@@ -821,6 +821,44 @@ function faqLd(a) {
   return `    <script type="application/ld+json">\n${json}\n    </script>\n`;
 }
 
+// HowTo — пошаговая инструкция для нейросетей и rich-результатов (GEO).
+// Активируется, если у статьи есть поле howTo: { name, description?, steps: [{name, text}] }.
+function howToLd(a) {
+  const h = a.howTo;
+  if (!h || !Array.isArray(h.steps) || h.steps.length < 2) return '';
+  const json = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: h.name,
+    ...(h.description ? { description: h.description } : {}),
+    step: h.steps.map((s, i) => ({
+      '@type': 'HowToStep',
+      position: i + 1,
+      name: s.name,
+      text: s.text,
+    })),
+  }, null, 2);
+  return `    <script type="application/ld+json">\n${json}\n    </script>\n`;
+}
+
+// ItemList — список-навигатор для страниц-хабов (кластер статей), сигнал GEO.
+// Активируется, если у статьи есть поле itemList: [{url, name}].
+function itemListLd(a) {
+  const items = a.itemList;
+  if (!Array.isArray(items) || items.length < 2) return '';
+  const json = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    itemListElement: items.map((it, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      url: it.url,
+      name: it.name,
+    })),
+  }, null, 2);
+  return `    <script type="application/ld+json">\n${json}\n    </script>\n`;
+}
+
 function tocHtml(toc) {
   if (!toc || !toc.length) return '';
   const items = toc.map((t, i) =>
@@ -1184,7 +1222,7 @@ ${blogPostingLd(a, url)}
     <script type="application/ld+json">
 ${breadcrumbLd(a, url)}
     </script>
-${faqLd(a)}${METRIKA}</head>
+${faqLd(a)}${howToLd(a)}${itemListLd(a)}${METRIKA}</head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
     <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
