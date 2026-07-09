@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Система управления общежитием под ключ — кейс разработки</title>
+    <meta name="description" content="Кейс: информационная система онлайн-управления общежитием на ~200 мест. Роли администратора, коменданта и жильца, учёт мест без двойных броней, договоры…">
+    <meta name="keywords" content="система управления общежитием, учёт мест, бронирование общежития, автоматизация общежития, FastAPI, PostgreSQL, онлайн-оплата, 152-ФЗ">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/sistema-upravleniya-obshchezhitiem-keys-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/sistema-upravleniya-obshchezhitiem-keys-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/sistema-upravleniya-obshchezhitiem-keys-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/sistema-upravleniya-obshchezhitiem-keys-2026/">
+    <meta property="og:title" content="Система управления общежитием под ключ — кейс разработки">
+    <meta property="og:description" content="Кейс: информационная система онлайн-управления общежитием на ~200 мест. Роли администратора, коменданта и жильца, учёт мест без двойных броней, договоры…">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/sistema-upravleniya-obshchezhitiem-keys-2026/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Система управления общежитием под ключ — кейс разработки">
+    <meta name="twitter:description" content="Кейс: информационная система онлайн-управления общежитием на ~200 мест. Роли администратора, коменданта и жильца, учёт мест без двойных броней, договоры…">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/sistema-upravleniya-obshchezhitiem-keys-2026/cover.png">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor-Fill.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=45">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Система онлайн-управления общежитием: места, договоры, финансы и оплата вместо бумаги и таблиц",
+  "description": "Кейс: информационная система онлайн-управления общежитием на ~200 мест. Роли администратора, коменданта и жильца, учёт мест без двойных броней, договоры, финансы и должники, онлайн-оплата с проверяемым вебхуком, аналитика, личный кабинет, HTTPS и автобэкапы. FastAPI, PostgreSQL, React.",
+  "image": "https://chimitdorzhi.tech/blog/sistema-upravleniya-obshchezhitiem-keys-2026/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/sistema-upravleniya-obshchezhitiem-keys-2026/"
+  },
+  "datePublished": "2026-07-09",
+  "dateModified": "2026-07-09",
+  "keywords": "система управления, общежитие, автоматизация, финансы, 152-ФЗ",
+  "articleSection": "Кейсы",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  },
+  "about": [
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://chimitdorzhi.tech/slovar/#152-fz",
+      "name": "152-ФЗ"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Система онлайн-управления общежитием: места, договоры, финансы и оплата вместо бумаги и таблиц",
+      "item": "https://chimitdorzhi.tech/blog/sistema-upravleniya-obshchezhitiem-keys-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Как система защищает от двойного заселения?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Одно место не может быть занято двумя активными проживающими — это гарантируется ограничениями на уровне базы данных, а не проверками в интерфейсе. Заселение выполняется атомарно: если место уже занято, операция не проходит и не создаёт скрытого конфликта."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Насколько надёжно считаются деньги?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Начисления не задваиваются, должники считаются только среди реально проживающих, отрицательные суммы запрещены, а онлайн-оплата подтверждается серверным вебхуком с проверкой суммы, принадлежности жильцу и идемпотентностью. Каждое финансовое изменение фиксируется в аудите."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Где хранятся данные жильцов и как с 152-ФЗ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Данные жильцов — персональные, поэтому система спроектирована под хранение на подконтрольном сервере, а не в чужом облаке, с авторизацией по ролям, защищённым хранением паролей и автоматическими резервными копиями базы. Это соответствует требованиям к хранению персональных данных."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли адаптировать систему под наше общежитие и правила?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да. Архитектура универсальна: роли, начисления, договоры и правила размещения настраиваются под конкретную организацию. Стек полностью открытый, код передаётся заказчику, поэтому систему можно развивать и масштабировать дальше."
+      }
+    }
+  ]
+}
+    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+var inject=function(){for (var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)};
+var run=function(){('requestIdleCallback' in window)?requestIdleCallback(inject,{timeout:5000}):setTimeout(inject,3000)};
+(e.readyState==='complete')?run():m.addEventListener('load',run);})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109281884" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/market/">Собрать проект</a></li>
+            <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+            <li style="display:none"><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li class="nav-dropdown">
+                <a href="/#projects" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="/blog/category/cases/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-briefcase" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Кейсы</span>
+                            <span class="nav-dropdown-desc">Реальные проекты под ключ</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li style="display:none"><a href="/#cases" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li style="display:none"><a href="/infografika/">Инфографика</a></li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+                <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему" aria-pressed="false">
+                <i class="ph ph-moon" aria-hidden="true"></i>
+            </button>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/market/">Собрать проект</a></li>
+        <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+        <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+        <li class="mobile-has-submenu">
+            <details>
+                <summary aria-label="Проекты — развернуть"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down" aria-hidden="true"></i></summary>
+                <ul class="mobile-submenu">
+                    <li>
+                        <a href="/blog/category/cases/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-briefcase" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">Кейсы</span>
+                                <span class="mobile-sub-desc">Реальные проекты под ключ</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://gerel.space" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">Gerel.space</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/universe_buryat/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/arey/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.arey">AREY</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/mwrlife/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">MWR Life</span>
+                                <span class="mobile-sub-desc">Travel-клуб и партнёрка</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </details>
+        </li>
+        <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+        <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+    </ul>
+    <div class="mobile-controls">
+        <div class="mobile-lang-switcher" role="group" aria-label="Выбор языка">
+            <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+            <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+            <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+        </div>
+        <button class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle" aria-label="Переключить тему" aria-pressed="false">
+            <i class="ph ph-moon" aria-hidden="true"></i>
+        </button>
+    </div>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Система онлайн-управления общежитием: места, договоры, финансы и оплата вместо бумаги и таблиц</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/cases/"><i class="ph ph-bookmark" aria-hidden="true"></i> Кейсы</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 8 мин чтения</span>
+                        <time datetime="2026-07-09"><i class="ph ph-calendar" aria-hidden="true"></i> 9 июля 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Система онлайн-управления общежитием: места, договоры, финансы и оплата вместо бумаги и таблиц</h1>
+
+                    <p class="blog-lead">Оператор общежития на две сотни мест управлял всем вручную — бумага, таблицы, риск двойных броней и непрозрачные финансы. Я построил информационную систему с ролями администратора, коменданта и жильца: учёт мест без пересечений, договоры, финансы и должники, онлайн-оплата, аналитика и личный кабинет.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>система управления</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>общежитие</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>автоматизация</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>финансы</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>152-ФЗ</span></div>
+
+                    <div class="blog-body">
+                        <div class="blog-tldr"><strong>TL;DR:</strong> Для оператора общежития на две сотни мест я построил информационную систему онлайн-управления под ключ. В ней три роли: администратор, комендант и жилец с личным кабинетом. Система ведёт учёт мест и размещения без двойных броней, хранит проживающих и договоры, считает финансы и показывает должников, принимает онлайн-оплату с проверяемым серверным вебхуком, даёт аналитику по занятости и деньгам, а также личный кабинет жильца с заявками и уведомлениями. Всё на надёжном стеке — FastAPI, PostgreSQL, React — с HTTPS, автоматическими бэкапами базы и соблюдением 152-ФЗ по данным жильцов.</div>
+<p>Общежитие — это маленькое государство: сотни людей, места, договоры, деньги, заявки и постоянное движение — кто-то заезжает, кто-то съезжает, кто-то переселяется. Когда всё это ведётся на бумаге и в таблицах, система держится на памяти коменданта и рушится при первой же ошибке. Ко мне обратился оператор общежития примерно на две сотни мест с задачей перевести управление на нормальную информационную систему. В этом кейсе я разберу, что именно мы автоматизировали и какие инженерные решения сделали учёт мест и денег надёжным.</p>
+<h2 id="problema">Проблема: общежитие на ручном управлении</h2>
+<p>Ручное управление общежитием протекает по нескольким швам сразу. Первый — места. Кто где живёт, какие места свободны, кого куда можно поселить — всё это держалось в таблицах и в голове коменданта. Отсюда главный риск: двойное заселение, когда одно место по ошибке отдают двум людям, и постоянные споры при заезде. Отследить реальную занятость в моменте было почти невозможно.</p>
+<p>Второй шов — финансы. Начисления за проживание, кто заплатил, кто должен, за какой период — вся эта картина размазана по таблицам и квитанциям. Найти должников, свести оплаты с начислениями, понять реальную собираемость — отдельная головная боль, которая съедала время и всё равно оставляла дыры. Деньги в такой системе теряются тихо и незаметно.</p>
+<p>Третий шов — прозрачность и коммуникация. Жилец не видел ни своих начислений, ни статуса своих обращений; заявки на ремонт или вопросы терялись между устными просьбами и записками. Руководство не имело сводной картины: сколько мест занято, сколько денег собрано, где узкие места. Задача формулировалась комплексно: собрать единую систему, которая наведёт порядок в местах, людях, договорах и деньгах и даст каждой роли ровно тот доступ, который ей нужен.</p>
+<h2 id="roli">Три роли: администратор, комендант, жилец</h2>
+<p>Основа любой такой системы — правильное разграничение доступа, поэтому я начал с ролей. Их получилось три, и у каждой своя зона ответственности и свой интерфейс.</p>
+<p><strong>Администратор</strong> — верхний уровень: настройки системы, управление пользователями и доступами, полная картина по всему общежитию, финансы и аналитика. Это роль владельца процесса. <strong>Комендант</strong> — операционный уровень: он ведёт ежедневную работу с местами и жильцами, заселяет и выселяет, оформляет переселения, работает с заявками и видит занятость в реальном времени. <strong>Жилец</strong> получает личный кабинет с доступом только на чтение своей информации: его начисления, статус оплаты, его заявки и уведомления. Он не может ничего сломать в общей системе, но всегда видит свою ситуацию.</p>
+<p>Такое разделение решает сразу и вопрос безопасности данных, и вопрос удобства: каждый видит ровно то, что ему нужно, и не путается в лишнем. Комендант не тонет в настройках, а жилец не имеет доступа к чужим данным.</p>
+<h2 id="mesta">Учёт мест без двойных броней</h2>
+<p>Сердце системы — учёт мест и размещения, и именно здесь была ключевая инженерная задача. Главную боль ручного управления, двойное заселение, нельзя было решить просто «аккуратной таблицей» — её нужно было сделать технически невозможной.</p>
+<p>Я спроектировал модель размещения так, что одно место физически не может быть занято двумя активными проживающими одновременно: это гарантируется на уровне базы данных ограничениями целостности, а не проверками «на глаз» в интерфейсе. Когда коменданта заселяет человека, система атомарно проверяет и занимает место — если оно уже занято, операция не проходит, а не создаёт скрытый конфликт. Переселение из комнаты в комнату оформляется как связанная пара операций: старое место освобождается, новое занимается, и движение при этом не задваивается в отчётах. А когда жилец выселяется или его карточка архивируется, место автоматически освобождается и связанные с ним начисления корректно останавливаются — чтобы система не продолжала «считать» человека, который давно уехал.</p>
+<p>Отдельно я заложил дисциплину состояний: занятость места нельзя выставить вручную в обход логики заселения, а любое изменение фиксируется в аудите. Это защищает данные от рассогласования, когда кто-то «поправил» статус мимо процесса и сломал всю картину. В результате занятость общежития всегда достоверна, и в неё можно верить.</p>
+<h2 id="finansy">Договоры, финансы и должники</h2>
+<p>Вторая крупная часть — люди, договоры и деньги. Система хранит проживающих и их договоры и на их основе ведёт финансы: начисления за проживание за периоды, оплаты и текущее сальдо по каждому жильцу. Из этого автоматически вырастает список должников — но не абы какой, а корректный: в него попадают только реально проживающие, а выселенные и архивные из биллинга исключаются, чтобы не пугать руководство мёртвыми долгами.</p>
+<p>Я отдельно вычищал логику начислений, потому что именно в деньгах ошибки дороже всего. Система не задваивает начисления, корректно пересчитывает статус при оплате, поддерживает и регулярные, и разовые начисления, и не позволяет ввести отрицательную сумму. Каждое изменение проходит через аудит. Всё это звучит как мелочи, но именно из таких мелочей складывается доверие к цифрам: руководитель должен открыть отчёт и знать, что сумма собранного и список должников — правда, а не приблизительная оценка.</p>
+<h2 id="oplata">Онлайн-оплата с проверяемым вебхуком</h2>
+<p>Чтобы жильцам не приходилось носить наличные, а бухгалтерии — сверять квитанции вручную, я заложил онлайн-оплату через платёжный эквайринг. И здесь важна не сама кнопка «оплатить», а надёжность подтверждения платежа.</p>
+<p>Факт оплаты система принимает не по возврату пользователя на страницу «спасибо» — такой сигнал легко потерять или подделать, — а по серверному вебхуку от платёжного шлюза. Этот вебхук защищён по всем правилам: проверяется, что сумма платежа совпадает с суммой начисления в базе, что оплата относится именно к этому жильцу и начислению, и что одно и то же уведомление не будет засчитано дважды за счёт идемпотентности по уникальному идентификатору операции. Только после этих проверок начисление помечается оплаченным. Такой подход исключает и потерянные платежи, и двойные списания, и попытки выдать чужую оплату за свою — деньги в системе считаются строго и проверяемо.</p>
+<h2 id="analitika">Аналитика, личный кабинет и заявки</h2>
+<p>Над учётом я собрал слой, который превращает данные в управляемость. Аналитика показывает руководству сводную картину: занятость мест, динамику заездов и выездов, собранные и ожидаемые деньги, должников. Это те цифры, ради которых всё и затевалось, — на них можно опираться в решениях, а не гадать.</p>
+<p>Жилец получил личный кабинет, где видит свои начисления и статус оплаты, подаёт заявки (например, на ремонт или бытовые вопросы) и получает уведомления. Заявки перестают теряться между устными просьбами: они попадают в систему, у них есть статус, и комендант работает с ними как с очередью, а не как с ворохом записок. Уведомления держат жильца в курсе — о новом начислении, о статусе заявки, о важных событиях. Так система закрывает не только учёт, но и живую коммуникацию между общежитием и его жителями.</p>
+<h2 id="stek">Стек, безопасность и 152-ФЗ</h2>
+<p>Систему я построил на надёжном и полностью открытом стеке: серверная часть на FastAPI с базой данных PostgreSQL, интерфейс на React. Никакой привязки к проприетарным платформам — заказчик владеет всем кодом и может развивать систему дальше с любым разработчиком. Разворачивается всё в контейнерах, что делает переустановку и перенос предсказуемыми, а за фасадом стоит веб-сервер с HTTPS-шифрованием.</p>
+<p>Отдельно я заложил эксплуатационную надёжность и требования к персональным данным. Данные жильцов — это персональные данные, к хранению которых есть требования 152-ФЗ, поэтому система с самого начала спроектирована под хранение данных на подконтрольном сервере, а не в чужом облаке. Автоматические резервные копии базы делаются по расписанию с ротацией, чтобы при любом сбое данные можно было восстановить, а не собирать заново. Доступ к системе защищён авторизацией с ролями, пароли хранятся в защищённом виде, критичные операции пишутся в аудит. Для системы, которая ведёт людей и деньги, это не опция, а фундамент.</p>
+<h2 id="rezultat">Что получил заказчик</h2>
+<p>Оператор общежития получил единую систему вместо разрозненных таблиц и бумаги. Занятость мест теперь достоверна и видна в реальном времени, двойное заселение стало технически невозможным. Финансы прозрачны: начисления, оплаты и должники считаются автоматически и корректно, а онлайн-оплата снимает нагрузку с бухгалтерии и наличных.</p>
+<p>У каждой роли — свой удобный интерфейс: администратор видит всю картину и аналитику, комендант ведёт операционку без бумаги, жилец имеет личный кабинет со своими начислениями и заявками. Система развёрнута на собственном сервере под HTTPS, с автоматическими бэкапами и соблюдением требований к персональным данным. По сути, ручное управление на памяти и записках заменилось управляемым, прозрачным и надёжным процессом.</p>
+<h2 id="dlya-kogo">Кому подойдёт такое же решение</h2>
+<p>Такая система подойдёт любым организациям, которые размещают людей на койко-местах и ведут по ним учёт, договоры и деньги: студенческие и рабочие общежития, ведомственные и корпоративные, общежития колледжей и вузов. Логика мест, договоров, финансов и ролей у них общая, а конкретные правила легко настраиваются.</p>
+<p>Близко ложится решение и на смежные форматы: коливинги и апарт-отели с долгим проживанием, хостелы с постоянными жильцами, маневренный и социальный жилой фонд, вахтовые городки. Везде, где есть ограниченный номерной фонд, повторяющиеся начисления, риск двойных броней и потребность в прозрачных финансах и личном кабинете жильца, — эта архитектура работает.</p>
+<h2 id="faq">Частые вопросы</h2>
+<p><strong>Как система защищает от двойного заселения?</strong> Одно место не может быть занято двумя активными проживающими — это гарантируется ограничениями на уровне базы данных, а не проверками в интерфейсе. Заселение выполняется атомарно: если место уже занято, операция не проходит и не создаёт скрытого конфликта.</p>
+<p><strong>Насколько надёжно считаются деньги?</strong> Начисления не задваиваются, должники считаются только среди реально проживающих, отрицательные суммы запрещены, а онлайн-оплата подтверждается серверным вебхуком с проверкой суммы, принадлежности жильцу и идемпотентностью. Каждое финансовое изменение фиксируется в аудите.</p>
+<p><strong>Где хранятся данные жильцов и как с 152-ФЗ?</strong> Данные жильцов — персональные, поэтому система спроектирована под хранение на подконтрольном сервере, а не в чужом облаке, с авторизацией по ролям, защищённым хранением паролей и автоматическими резервными копиями базы. Это соответствует требованиям к хранению персональных данных.</p>
+<p><strong>Можно ли адаптировать систему под наше общежитие и правила?</strong> Да. Архитектура универсальна: роли, начисления, договоры и правила размещения настраиваются под конкретную организацию. Стек полностью открытый, код передаётся заказчику, поэтому систему можно развивать и масштабировать дальше.</p>
+<h2 id="vyvody">Коротко о главном</h2>
+<p>Общежитие на две сотни мест управлялось вручную — бумага, таблицы, риск двойных броней и непрозрачные финансы. Я построил единую информационную систему с ролями администратора, коменданта и жильца: учёт мест без пересечений на уровне базы данных, договоры, корректные финансы и список должников, онлайн-оплата с проверяемым вебхуком, аналитика и личный кабинет жильца с заявками и уведомлениями.</p>
+<p>Всё это на надёжном открытом стеке, с HTTPS, автоматическими бэкапами и соблюдением требований к персональным данным. Ручное управление на памяти коменданта заменилось прозрачным и защищённым процессом. Если у вас общежитие, коливинг или похожий жилой фонд и учёт держится на таблицах — соберём такую же систему под ваши правила.</p>
+                    </div>
+
+                    
+                    
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Что я делаю под ключ</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-buildings"></i> <span>Системы учёта мест и размещения</span></li>
+    
+    <li><i class="ph-fill ph-users-three"></i> <span>Ролевой доступ и личные кабинеты</span></li>
+    
+    <li><i class="ph-fill ph-currency-circle-dollar"></i> <span>Финансы, начисления и онлайн-оплата</span></li>
+    
+    <li><i class="ph-fill ph-chart-bar"></i> <span>Аналитика и отчёты для руководства</span></li>
+    
+    <li><i class="ph-fill ph-shield-check"></i> <span>HTTPS, бэкапы и хранение данных по 152-ФЗ</span></li>
+    
+  </ul>
+  <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Обсудить проект
+  </a>
+</div>
+                    <div class="blog-cta-card">
+                        <div class="blog-cta-card-body">
+                            <h3>Бесплатно: чек-лист «Готов ли ваш бизнес к 152-ФЗ»</h3>
+                            <p>12 пунктов, которые проверяют готовность за час: данные, согласия, уведомление в РКН, локализация, защита. Отметьте, что уже сделано, и увидите дыры, за которые сейчас штрафуют.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="/checklist-152-fz/" class="btn btn-accent"><i class="ph-fill ph-clipboard-text" aria-hidden="true"></i> Открыть чек-лист</a>
+                        </div>
+                    </div>
+                    
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/market/#checklist" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Собрать похожий проект</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/teplovik-gossayt-keys-2026/" data-category="cases" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-fire"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Кейсы</span>
+  <h3>Как я сделал сайт РСО с электронной подачей заявок на техприсоединение по 416-ФЗ</h3>
+  <p>Ресурсоснабжающей организации в Забайкалье нужен был официальный сайт с электронной подачей заявок на техприсоединение — по закону и по требованию надзорных органов. Я построил личный кабинет заявителя, раздел раскрытия информации и админку для приёма обращений.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 6 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 7 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/sayt-eksperta-nedvizhimosti-lending-keys-2026/" data-category="cases" data-clicks="0">
+  <span class="blog-card-fresh">Свежее</span>
+  <div class="blog-card-icon"><i class="ph-fill ph-buildings"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Кейсы</span>
+  <h3>Лендинг для эксперта по недвижимости: упаковал оффер «0 ₽ для покупателя» и приём заявок без сервера</h3>
+  <p>Эксперт по недвижимости с 15-летним опытом работал на сарафане и в мессенджерах, но не имел солидной точки входа и не мог внятно донести свой оффер. Я собрал премиальный лендинг: упаковал позиционирование, услуги и оффер «0 ₽ для покупателя», настроил приём заявок на почту с фолбэком в Telegram — без своего сервера.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 9 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 7 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/rozygryshi-kafe-chestnost-commit-reveal-2027/" data-category="cases" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-shield-check"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Кейсы</span>
+  <h3>Розыгрыши для кафе: онлайн-оплата и математически проверяемая честность</h3>
+  <p>Кафе вело розыгрыши вручную и постоянно слышало «вы сами себе накрутили». Мы сделали веб-систему, где гость выбирает номерной билет, платит онлайн, а победитель определяется так, что подкрутить результат физически невозможно.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 7 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 6 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    
+                    
+                    
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовые решения под ключ</span>
+                            <span class="blog-offer-cta-title">449 готовых IT-решений для бизнеса</span>
+                            <span class="blog-offer-cta-price">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Смотреть каталог</span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#problema"><span class="blog-toc-num">01</span> Проблема: общежитие на ручном управлении</a></li>
+<li><a href="#roli"><span class="blog-toc-num">02</span> Три роли: администратор, комендант, жилец</a></li>
+<li><a href="#mesta"><span class="blog-toc-num">03</span> Учёт мест без двойных броней</a></li>
+<li><a href="#finansy"><span class="blog-toc-num">04</span> Договоры, финансы и должники</a></li>
+<li><a href="#oplata"><span class="blog-toc-num">05</span> Онлайн-оплата с проверяемым вебхуком</a></li>
+<li><a href="#analitika"><span class="blog-toc-num">06</span> Аналитика, личный кабинет и заявки</a></li>
+<li><a href="#stek"><span class="blog-toc-num">07</span> Стек, безопасность и 152-ФЗ</a></li>
+<li><a href="#rezultat"><span class="blog-toc-num">08</span> Что получил заказчик</a></li>
+<li><a href="#dlya-kogo"><span class="blog-toc-num">09</span> Кому подойдёт такое же решение</a></li>
+<li><a href="#faq"><span class="blog-toc-num">10</span> Частые вопросы</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">11</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=23" defer></script>
+<script src="/services-i18n.js?v=23" defer></script>
+<script src="/script.js?v=30" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>
