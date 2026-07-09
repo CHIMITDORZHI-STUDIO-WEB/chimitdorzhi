@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Афиша и билеты в мессенджере — кейс разработки</title>
+    <meta name="description" content="Как я собрал Telegram-платформу афиши событий с QR-билетами, честной онлайн-оплатой, геймификацией и кабинетом организатора. Стек, решения, результат.">
+    <meta name="keywords" content="афиша событий, продажа билетов, telegram платформа событий, геймификация, реферальная программа, кабинет организатора, qr билеты, разработка под ключ">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/platforma-afishi-biletov-keys-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/platforma-afishi-biletov-keys-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/platforma-afishi-biletov-keys-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/platforma-afishi-biletov-keys-2026/">
+    <meta property="og:title" content="Афиша и билеты в мессенджере — кейс разработки">
+    <meta property="og:description" content="Как я собрал Telegram-платформу афиши событий с QR-билетами, честной онлайн-оплатой, геймификацией и кабинетом организатора. Стек, решения, результат.">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/platforma-afishi-biletov-keys-2026/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Афиша и билеты в мессенджере — кейс разработки">
+    <meta name="twitter:description" content="Как я собрал Telegram-платформу афиши событий с QR-билетами, честной онлайн-оплатой, геймификацией и кабинетом организатора. Стек, решения, результат.">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/platforma-afishi-biletov-keys-2026/cover.png">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor-Fill.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=45">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Платформа афиши и билетов в мессенджере: кейс разработки",
+  "description": "Как я собрал Telegram-платформу афиши событий с QR-билетами, честной онлайн-оплатой, геймификацией и кабинетом организатора. Стек, решения, результат.",
+  "image": "https://chimitdorzhi.tech/blog/platforma-afishi-biletov-keys-2026/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/platforma-afishi-biletov-keys-2026/"
+  },
+  "datePublished": "2026-07-10",
+  "dateModified": "2026-07-10",
+  "keywords": "афиша событий, продажа билетов, геймификация, мессенджер",
+  "articleSection": "Кейсы",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Платформа афиши и билетов в мессенджере: кейс разработки",
+      "item": "https://chimitdorzhi.tech/blog/platforma-afishi-biletov-keys-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Можно ли обойтись без отдельного мобильного приложения?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, в этом и была суть решения. Мини-приложение внутри мессенджера открывается мгновенно, без установки, и покрывает весь пользовательский путь — от афиши до билета."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что если платёжная система пришлёт уведомление об оплате дважды?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Система проверяет идемпотентность операции и не зачислит билет повторно — даже если вебхук по какой-то причине придёт несколько раз."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужна ли геймификация, если цель — просто продавать билеты?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Не обязательно с первого дня, но баллы и реферальная программа обычно окупаются быстро: они превращают разовых покупателей в постоянную аудиторию без дополнительных затрат на рекламу."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как быстро можно проверить билет на входе?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Сканирование QR-кода и подтверждение занимает секунду — организатору не нужно листать списки или спрашивать имя гостя."
+      }
+    }
+  ]
+}
+    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+var inject=function(){for (var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)};
+var run=function(){('requestIdleCallback' in window)?requestIdleCallback(inject,{timeout:5000}):setTimeout(inject,3000)};
+(e.readyState==='complete')?run():m.addEventListener('load',run);})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109281884" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/market/">Собрать проект</a></li>
+            <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+            <li style="display:none"><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li class="nav-dropdown">
+                <a href="/#projects" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="/blog/category/cases/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-briefcase" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Кейсы</span>
+                            <span class="nav-dropdown-desc">Реальные проекты под ключ</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li style="display:none"><a href="/#cases" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li style="display:none"><a href="/infografika/">Инфографика</a></li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+                <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему" aria-pressed="false">
+                <i class="ph ph-moon" aria-hidden="true"></i>
+            </button>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/market/">Собрать проект</a></li>
+        <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+        <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+        <li class="mobile-has-submenu">
+            <details>
+                <summary aria-label="Проекты — развернуть"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down" aria-hidden="true"></i></summary>
+                <ul class="mobile-submenu">
+                    <li>
+                        <a href="/blog/category/cases/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-briefcase" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">Кейсы</span>
+                                <span class="mobile-sub-desc">Реальные проекты под ключ</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://gerel.space" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">Gerel.space</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/universe_buryat/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/arey/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.arey">AREY</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/mwrlife/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">MWR Life</span>
+                                <span class="mobile-sub-desc">Travel-клуб и партнёрка</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </details>
+        </li>
+        <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+        <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+    </ul>
+    <div class="mobile-controls">
+        <div class="mobile-lang-switcher" role="group" aria-label="Выбор языка">
+            <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+            <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+            <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+        </div>
+        <button class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle" aria-label="Переключить тему" aria-pressed="false">
+            <i class="ph ph-moon" aria-hidden="true"></i>
+        </button>
+    </div>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Платформа афиши и билетов в мессенджере: кейс разработки</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/cases/"><i class="ph ph-bookmark" aria-hidden="true"></i> Кейсы</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 6 мин чтения</span>
+                        <time datetime="2026-07-10"><i class="ph ph-calendar" aria-hidden="true"></i> 10 июля 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Платформа афиши и билетов в мессенджере: кейс разработки</h1>
+
+                    <p class="blog-lead">Клиенту нужна была не просто афиша, а полноценный сервис билетов внутри мессенджера — с честной оплатой, QR-контролем на входе и инструментами удержания аудитории. Рассказываю, как это устроено внутри.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>афиша событий</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>продажа билетов</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>геймификация</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>мессенджер</span></div>
+
+                    <div class="blog-body">
+                        <div class="blog-tldr"><strong>TL;DR:</strong> Собрал Telegram-платформу событий и билетов: афиша с поиском и категориями, QR-билеты с контролем на входе, онлайн-оплата с проверкой через серверный вебхук, геймификация с баллами и рефералкой, кабинет организатора со статистикой и рассылками. Всё работает внутри мессенджера, без отдельного приложения.</p></div>
+<p>Ко мне пришёл запрос, знакомый почти любому, кто организует события: продавать билеты через сторонние сервисы неудобно и дорого, а вести учёт вручную — в таблицах и переписке — не масштабируется. Нужен был свой инструмент. Не просто список мероприятий, а полноценный цикл: от афиши до билета в руках у гостя и данных о том, кто вообще пришёл.</p>
+<h2 id="problema">Проблема: разрозненные инструменты и недоверие к оплате</h2>
+<p>До разработки события анонсировались в постах, билеты продавались через сторонние формы или вовсе на словах, а деньги принимались переводом на карту. Это создавало сразу несколько проблем.</p>
+<ul>
+<li>Не было единой точки, где человек видит все ближайшие события, может отфильтровать их по интересу и сразу купить билет.</li>
+<li>Оплата переводом не даёт гарантий: сложно проверить, что деньги действительно пришли, легко потерять заявку или продать один билет дважды.</li>
+<li>На входе на мероприятие невозможно было быстро подтвердить, что у человека есть билет — приходилось сверяться со списками вручную.</li>
+<li>Не было инструментов удержания аудитории: кто пришёл один раз, тот легко забывал про следующее событие.</li>
+<li>Организатор не видел картины целиком — сколько билетов продано, кто эти люди, какая у них демография.</li>
+</ul>
+<p>Задача была не в том, чтобы сделать красивую афишу, а в том, чтобы построить систему, которой можно доверять в вопросах денег и посещаемости.</p>
+<h2 id="reshenie">Решение: платформа целиком в мессенджере</h2>
+<p>Мы договорились строить всё внутри мессенджера — без отдельного <a href="https://chimitdorzhi.tech/services/mobile-apps/" class="blog-inline-link">мобильного приложения</a>, которое нужно скачивать и объяснять, как им пользоваться. Архитектура получилась из трёх частей: бот на aiogram как точка входа и уведомлений, мини-приложение на React для пользователей и отдельная админ-панель на React для организаторов.</p>
+<p>Backend собран на FastAPI с асинхронной работой с PostgreSQL — это важно при пиковой нагрузке в момент старта продаж на популярное событие. Redis и фоновые задачи взяли на себя всё, что не должно тормозить отклик интерфейса: обработку платежей, рассылки, пересчёт баллов и рангов.</p>
+<p>Афиша умеет то, чего обычно не хватает простым спискам: категории событий, поиск по названию, сортировка по популярности. Человек открывает мини-приложение и за секунды находит то, что ему интересно, вместо того чтобы листать ленту постов.</p>
+<h2 id="oplata">Честная оплата: вебхук, идемпотентность, никаких потерь</h2>
+<p>Это была одна из ключевых зон ответственности в проекте. Онлайн-оплата подключена через эквайринг, но факт оплаты подтверждается не на клиенте, а исключительно серверным вебхуком от платёжной системы. Это принципиальное решение: клиентское приложение может закрыться, зависнуть или обмануть — а вебхук от банка не подделаешь.</p>
+<p>При обработке вебхука сервер проверяет три вещи: совпадает ли сумма с ожидаемой, принадлежит ли платёж нужному заказу и пользователю, и не обрабатывался ли этот платёж уже раньше. Последняя проверка — идемпотентность — защищает от двойного зачисления билета, если платёжная система по какой-то причине пришлёт уведомление повторно. На практике такое случается чаще, чем кажется, и без этой защиты можно случайно выдать два билета за одну оплату или наоборот потерять оплаченный заказ.</p>
+<p>Отдельно важно, что состояние заказа меняется атомарно: пока вебхук не подтвердил оплату, билет не считается выданным, а если что-то пошло не так, заказ остаётся в понятном промежуточном статусе, а не исчезает. Все входящие уведомления от платёжной системы логируются, поэтому по любому спорному платежу можно поднять историю и увидеть, что именно и когда пришло. Для сервиса, где речь идёт о реальных деньгах гостей, это не перестраховка, а базовая гигиена: доверие к платформе рушится ровно в тот момент, когда человек заплатил, а билет не пришёл.</p>
+<h2 id="bilety">QR-билеты и контроль на входе</h2>
+<p>После оплаты пользователь получает билет с QR-кодом прямо в мини-приложении — показывать бумагу или скриншот из переписки не нужно. На входе на событие организатор сканирует код своим устройством, и система мгновенно подтверждает подлинность билета и отмечает гостя как пришедшего.</p>
+<p>Это решает сразу две задачи: исключает проход по поддельным или повторно использованным билетам и даёт организатору живой список тех, кто фактически присутствует на мероприятии — без сверки бумажных списков на входе.</p>
+<h2 id="geymifikatsiya">Геймификация: баллы, ранги, рефералка, конкурсы</h2>
+<p>Отдельный блок системы отвечает за то, чтобы аудитория возвращалась снова. В основе — два вида баллов, начисляемых за разные действия, трёхуровневая реферальная программа и система рангов с бейджами-достижениями за конкретные результаты.</p>
+<p>Поверх этого работают сезоны и стрики — механики, которые поощряют регулярную активность, а не разовое участие. Дополняют картину конкурсы приглашений с призами: пользователь зовёт друзей на событие и получает за это бонусы, что органично увеличивает охват без затрат на рекламу.</p>
+<p>Здесь важна экономическая логика, а не просто «значки ради значков». Два вида баллов позволяют разделить внутреннюю валюту и репутационный счёт: одни баллы можно тратить, другие только копятся и определяют ранг. Трёхуровневая реферальная программа устроена так, что пригласивший получает выгоду не только от прямого друга, но и от тех, кого привёл уже этот друг, — это и есть механизм органического роста, когда аудитория расширяет сама себя. А конкурсы приглашений с призами превращают разовую вспышку интереса к конкретному событию в измеримый прирост базы пользователей, который остаётся с платформой и после того, как событие прошло.</p>
+<p>Отдельно стоит социальный слой: подписки между пользователями и функция «друзья идут» на конкретное событие — но только с учётом согласия каждого участника, без раскрытия чужих данных без разрешения.</p>
+<h2 id="kabinet">Кабинет организатора и рассылки</h2>
+<p>Организатор работает в собственном кабинете: полный CRUD по своим событиям, статистика продаж, список пришедших гостей и рассылки собственной аудитории. Демография участников выводится прямо на дашборд, чтобы организатор понимал, кто на самом деле приходит на его события.</p>
+<p>Рассылки сделаны сегментированными — по городу, полу, возрасту, интересам и активности пользователя, что заметно повышает отклик по сравнению с рассылкой «всем подряд». При этом на рассылки новостей и акций действует строгий opt-in: без явного согласия пользователя такие сообщения не отправляются, что закрывает и юридические риски, и вопрос доверия аудитории.</p>
+<p>Сегментация здесь — не косметика, а прямой рычаг эффективности. Организатор камерного мероприятия может обратиться только к тем, кому оно объективно интересно по возрасту и интересам, и не жечь доверие остальной базы нерелевантными сообщениями. Данные для сегментов берутся из того же профиля и истории активности, поэтому настраивать ничего вручную не нужно — достаточно выбрать условия. А поскольку демография сразу видна на дашборде, организатор принимает решения по цифрам, а не по ощущениям: видно, какая аудитория реально формируется вокруг его событий и куда её стоит развивать.</p>
+<h2 id="ekspluatatsiya">Эксплуатация: бэкапы, мониторинг, стабильность</h2>
+<p>Для проекта, где крутятся реальные деньги за билеты, эксплуатация не менее важна, чем функциональность. Настроены автоматические бэкапы базы данных по расписанию, мониторинг здоровья сервисов с алертами прямо в мессенджер и журнал ошибок в админ-панели, чтобы проблема была видна до того, как о ней напишут пользователи. Рейт-лимиты защищают систему от случайной или намеренной перегрузки запросами.</p>
+<p>Смысл этого блока в том, чтобы платформа не требовала ручного присмотра каждый день. Бэкапы по расписанию означают, что даже при сбое базы данные о продажах и гостях восстанавливаются, а не теряются безвозвратно. Алерты в мессенджер приходят туда, где организатор и так находится, поэтому о падении сервиса он узнаёт за минуты, а не из жалоб гостей на входе. Журнал ошибок в админке избавляет от необходимости лезть в серверные логи, чтобы понять, что пошло не так. Юридический слой тоже не остался на потом: согласия пользователей и политика обработки данных встроены в интерфейс с самого начала, а не добавлены задним числом.</p>
+<h2 id="rezultat">Что получил клиент</h2>
+<p>На выходе у клиента появился единый канал, где событие живёт целиком: анонс, продажа, оплата, вход и последующая работа с аудиторией. Пропали ручные списки, переводы на карту и разрозненные формы — вместо них один понятный поток внутри мессенджера, который не нужно объяснять новым гостям. Организатор впервые увидел свою аудиторию в цифрах: сколько продано, кто пришёл, какая демография и кого стоит позвать на следующее событие. А заложенные в систему бэкапы, мониторинг и юридический слой означают, что платформу можно развивать и передавать в эксплуатацию, не переписывая фундамент.</p>
+<h2 id="faq">Частые вопросы</h2>
+<p><strong>Можно ли обойтись без отдельного мобильного приложения?</strong> Да, в этом и была суть решения. Мини-приложение внутри мессенджера открывается мгновенно, без установки, и покрывает весь пользовательский путь — от афиши до билета.</p>
+<p><strong>Что если платёжная система пришлёт уведомление об оплате дважды?</strong> Система проверяет идемпотентность операции и не зачислит билет повторно — даже если вебхук по какой-то причине придёт несколько раз.</p>
+<p><strong>Нужна ли геймификация, если цель — просто продавать билеты?</strong> Не обязательно с первого дня, но баллы и реферальная программа обычно окупаются быстро: они превращают разовых покупателей в постоянную аудиторию без дополнительных затрат на рекламу.</p>
+<p><strong>Как быстро можно проверить билет на входе?</strong> Сканирование QR-кода и подтверждение занимает секунду — организатору не нужно листать списки или спрашивать имя гостя.</p>
+<h2 id="vyvody">Коротко о главном</h2>
+<p>Получившаяся платформа закрывает полный цикл события: от афиши и покупки билета до контроля на входе и удержания аудитории через геймификацию. Ключевое отличие от типового решения — надёжность в деньгах: оплата подтверждается только сервером, с проверкой суммы, принадлежности и идемпотентности, что исключает потери и задвоения.</p>
+<p>Такой подход подойдёт организаторам регулярных событий — от локальных сообществ до сетей мероприятий, — которым важно не просто продавать билеты, а строить постоянную аудиторию и не переживать за сохранность оплат. Если у вас похожая задача — афиша, билеты, лояльность или всё вместе, — обсудим ваш случай и соберём под ключ.</p>
+                    </div>
+
+                    
+                    
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Что я делаю под ключ</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-ticket"></i> <span>Афиша событий и продажа билетов</span></li>
+    
+    <li><i class="ph-fill ph-qr-code"></i> <span>QR-билеты и контроль на входе</span></li>
+    
+    <li><i class="ph-fill ph-trophy"></i> <span>Геймификация: баллы, ранги, рефералка</span></li>
+    
+    <li><i class="ph-fill ph-credit-card"></i> <span>Онлайн-оплата с проверкой вебхука</span></li>
+    
+    <li><i class="ph-fill ph-chart-bar"></i> <span>Кабинет организатора и аналитика</span></li>
+    
+  </ul>
+  <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Обсудить проект
+  </a>
+</div>
+                    <div class="blog-cta-card">
+                        <div class="blog-cta-card-body">
+                            <h3>Бесплатно: чек-лист «Готов ли ваш бизнес к 152-ФЗ»</h3>
+                            <p>12 пунктов, которые проверяют готовность за час: данные, согласия, уведомление в РКН, локализация, защита. Отметьте, что уже сделано, и увидите дыры, за которые сейчас штрафуют.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="/checklist-152-fz/" class="btn btn-accent"><i class="ph-fill ph-clipboard-text" aria-hidden="true"></i> Открыть чек-лист</a>
+                        </div>
+                    </div>
+                    
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/market/#checklist" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Собрать похожий проект</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/platforma-networkinga-meropriyatie-keys-2026/" data-category="cases" data-clicks="0">
+  <span class="blog-card-fresh">Свежее</span>
+  <div class="blog-card-icon"><i class="ph-fill ph-users-four"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Кейсы</span>
+  <h3>Платформа делового нетворкинга для крупного мероприятия: кейс</h3>
+  <p>Организатор крупного офлайн-мероприятия хотел, чтобы гости не просто ходили по залу с бейджем, а реально знакомились и обменивались контактами. Рассказываю, как мы собрали платформу нетворкинга из бота, мини-приложения, конкурсов и экрана проекции на одном бэкенде.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 10 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 6 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/superapp-avtovladeltsev-messendzher-keys-2026/" data-category="cases" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-car"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Кейсы</span>
+  <h3>Суперапп для сообщества автовладельцев внутри мессенджера</h3>
+  <p>Заказчик хотел собрать активное сообщество автовладельцев без отдельного мобильного приложения. Я спроектировал платформу из бота, мини-приложения с форумами и админки на едином бэкенде — с честным реферальным зачётом и антифродом без ложных банов.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 10 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 6 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/tsifrovaya-karta-loyalnosti-pwa-keys-2026/" data-category="cases" data-clicks="0">
+  <span class="blog-card-fresh">Свежее</span>
+  <div class="blog-card-icon"><i class="ph-fill ph-stamp"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Кейсы</span>
+  <h3>Цифровая карта лояльности для кафе: PWA вместо бумажных штампов</h3>
+  <p>Сети маленьких заведений нужна была программа лояльности без затрат на два нативных приложения и без пересборки кода под каждое новое кафе. Рассказываю, как устроена мультитенантная PWA с цифровой штамп-картой изнутри.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 10 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 6 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    
+                    
+                    
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовые решения под ключ</span>
+                            <span class="blog-offer-cta-title">449 готовых IT-решений для бизнеса</span>
+                            <span class="blog-offer-cta-price">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Смотреть каталог</span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#problema"><span class="blog-toc-num">01</span> Проблема: разрозненные инструменты и недоверие к оплате</a></li>
+<li><a href="#reshenie"><span class="blog-toc-num">02</span> Решение: платформа целиком в мессенджере</a></li>
+<li><a href="#oplata"><span class="blog-toc-num">03</span> Честная оплата: вебхук, идемпотентность, никаких потерь</a></li>
+<li><a href="#bilety"><span class="blog-toc-num">04</span> QR-билеты и контроль на входе</a></li>
+<li><a href="#geymifikatsiya"><span class="blog-toc-num">05</span> Геймификация: баллы, ранги, рефералка, конкурсы</a></li>
+<li><a href="#kabinet"><span class="blog-toc-num">06</span> Кабинет организатора и рассылки</a></li>
+<li><a href="#ekspluatatsiya"><span class="blog-toc-num">07</span> Эксплуатация: бэкапы, мониторинг, стабильность</a></li>
+<li><a href="#rezultat"><span class="blog-toc-num">08</span> Что получил клиент</a></li>
+<li><a href="#faq"><span class="blog-toc-num">09</span> Частые вопросы</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">10</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=23" defer></script>
+<script src="/services-i18n.js?v=23" defer></script>
+<script src="/script.js?v=30" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>

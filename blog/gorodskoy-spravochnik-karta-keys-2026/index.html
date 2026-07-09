@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Городской справочник с картой — кейс разработки</title>
+    <meta name="description" content="Как я сделал городской справочник организаций с интерактивной картой, рубрикатором и админкой: архитектура, стек, очереди развития и результат для заказчика.">
+    <meta name="keywords" content="городской справочник, карта организаций, геосервис, каталог заведений, разработка карты, FastAPI React">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/gorodskoy-spravochnik-karta-keys-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/gorodskoy-spravochnik-karta-keys-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/gorodskoy-spravochnik-karta-keys-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/gorodskoy-spravochnik-karta-keys-2026/">
+    <meta property="og:title" content="Городской справочник с картой — кейс разработки">
+    <meta property="og:description" content="Как я сделал городской справочник организаций с интерактивной картой, рубрикатором и админкой: архитектура, стек, очереди развития и результат для заказчика.">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/gorodskoy-spravochnik-karta-keys-2026/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Городской справочник с картой — кейс разработки">
+    <meta name="twitter:description" content="Как я сделал городской справочник организаций с интерактивной картой, рубрикатором и админкой: архитектура, стек, очереди развития и результат для заказчика.">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/gorodskoy-spravochnik-karta-keys-2026/cover.png">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor-Fill.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=45">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Городской справочник организаций с картой: кейс разработки под ключ",
+  "description": "Как я сделал городской справочник организаций с интерактивной картой, рубрикатором и админкой: архитектура, стек, очереди развития и результат для заказчика.",
+  "image": "https://chimitdorzhi.tech/blog/gorodskoy-spravochnik-karta-keys-2026/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/gorodskoy-spravochnik-karta-keys-2026/"
+  },
+  "datePublished": "2026-07-10",
+  "dateModified": "2026-07-10",
+  "keywords": "городской справочник, карта организаций, геосервис, каталог",
+  "articleSection": "Кейсы",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Городской справочник организаций с картой: кейс разработки под ключ",
+      "item": "https://chimitdorzhi.tech/blog/gorodskoy-spravochnik-karta-keys-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Можно ли использовать бесплатную карту-подложку в продакшене?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, выбранная подложка не требует платных ключей и подходит для рабочего запуска. Если в будущем понадобится другая подложка с расширенными возможностями, замена делается через конфигурацию, без переписывания карты."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сложно ли добавить второй город?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет, потому что город изначально спроектирован как отдельная сущность в базе. Добавление нового города - это операция через админку, а не доработка кода."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как быстро можно запустить платные кабинеты для бизнеса?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Модель данных и адаптер оплаты уже заложены как заготовка, поэтому подключение реальной оплаты и личного кабинета бизнеса - это следующая очередь разработки, а не пересборка всей системы."
+      }
+    }
+  ]
+}
+    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+var inject=function(){for (var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)};
+var run=function(){('requestIdleCallback' in window)?requestIdleCallback(inject,{timeout:5000}):setTimeout(inject,3000)};
+(e.readyState==='complete')?run():m.addEventListener('load',run);})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109281884" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/market/">Собрать проект</a></li>
+            <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+            <li style="display:none"><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li class="nav-dropdown">
+                <a href="/#projects" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="/blog/category/cases/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-briefcase" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Кейсы</span>
+                            <span class="nav-dropdown-desc">Реальные проекты под ключ</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li style="display:none"><a href="/#cases" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li style="display:none"><a href="/infografika/">Инфографика</a></li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+                <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему" aria-pressed="false">
+                <i class="ph ph-moon" aria-hidden="true"></i>
+            </button>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/market/">Собрать проект</a></li>
+        <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+        <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+        <li class="mobile-has-submenu">
+            <details>
+                <summary aria-label="Проекты — развернуть"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down" aria-hidden="true"></i></summary>
+                <ul class="mobile-submenu">
+                    <li>
+                        <a href="/blog/category/cases/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-briefcase" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">Кейсы</span>
+                                <span class="mobile-sub-desc">Реальные проекты под ключ</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://gerel.space" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">Gerel.space</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/universe_buryat/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/arey/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.arey">AREY</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/mwrlife/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">MWR Life</span>
+                                <span class="mobile-sub-desc">Travel-клуб и партнёрка</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </details>
+        </li>
+        <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+        <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+    </ul>
+    <div class="mobile-controls">
+        <div class="mobile-lang-switcher" role="group" aria-label="Выбор языка">
+            <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+            <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+            <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+        </div>
+        <button class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle" aria-label="Переключить тему" aria-pressed="false">
+            <i class="ph ph-moon" aria-hidden="true"></i>
+        </button>
+    </div>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Городской справочник организаций с картой: кейс разработки под ключ</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/cases/"><i class="ph ph-bookmark" aria-hidden="true"></i> Кейсы</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 6 мин чтения</span>
+                        <time datetime="2026-07-10"><i class="ph ph-calendar" aria-hidden="true"></i> 10 июля 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Городской справочник организаций с картой: кейс разработки под ключ</h1>
+
+                    <p class="blog-lead">Заказчику нужен был собственный городской справочник по типу известных картографических сервисов, но заточенный под его город и бизнес-модель. Рассказываю, как собрал карту, рубрикатор, поиск и админку с заделом на монетизацию.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>городской справочник</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>карта организаций</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>геосервис</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>каталог</span></div>
+
+                    <div class="blog-body">
+                        <div class="blog-tldr"><strong>TL;DR:</strong> Собрал городской справочник организаций с интерактивной картой, рубрикатором, поиском по подсказкам и админкой модерации. Архитектура сразу заложена под несколько городов, несколько языков и будущую монетизацию через кабинеты бизнеса. Стек: FastAPI, асинхронная PostgreSQL, React с Leaflet.</p></div>
+<p>Ко мне пришел заказчик с идеей, которую многие пробовали сформулировать проще: "хочу карту города, как в известных картографических справочниках, но свою". За этой простой фразой стоит на самом деле большой продукт: карта с заведениями, рубрикатор на десятки категорий, поиск, карточки организаций и админка, которая позволяет управлять всем этим без разработчика. Ниже - как я это спроектировал и собрал.</p>
+<h2 id="problema">Проблема заказчика</h2>
+<p>Готовые картографические сервисы решают задачу навигации по городу в целом, но не дают заказчику контроля над контентом, витриной и монетизацией. Заказчику же было важно:</p>
+<ul>
+<li>иметь собственную карту с организациями именно своего города, без зависимости от чужой платформы;</li>
+<li>управлять контентом - добавлять, редактировать и модерировать заведения самостоятельно;</li>
+<li>заложить возможность зарабатывать на размещении бизнеса в будущем;</li>
+<li>не платить за карту и картографические ключи, пока проект не вышел на окупаемость.</li>
+</ul>
+<p>Требовалось не подобие существующего сервиса, а полноценный продукт с собственной базой данных, витриной и админкой, спроектированный под конкретный город и конкретную бизнес-модель заказчика.</p>
+<h2 id="reshenie">Какое решение предложил</h2>
+<p>Я предложил разделить продукт на публичную витрину и админку, и построить все на связке FastAPI и асинхронной PostgreSQL на бэкенде, React с картографической библиотекой Leaflet на фронтенде. Такой выбор дал три вещи сразу: бесплатную карту-подложку без платных ключей, гибкость в верстке карточек и рубрикатора, и возможность в любой момент заменить подложку на другую через настройку, если у заказчика появятся иные требования.</p>
+<p>Ключевое архитектурное решение - проектировать сразу с прицелом на очереди развития. Базовая очередь (карта, справочник, админка с модерацией) была сделана и сдана в бою. Но модели данных, структура таблиц и API с самого начала учитывали то, что появится позже: кабинеты бизнеса с платными тарифами, отзывы и рейтинги, добавление новых городов из админки. Это избавляет заказчика от переписывания системы, когда он захочет расти.</p>
+<h2 id="karta">Карта с кластеризацией</h2>
+<p>Центр продукта - интерактивная карта. Каждое заведение отмечено каплевидным маркером, цвет которого зависит от категории: так пользователь визуально различает кафе, аптеки, магазины и сервисы, не читая подписи. При отдалении карты одиночные маркеры объединяются в кластеры с числом заведений внутри - это стандартный прием, без которого карта с сотнями точек превращается в кашу.</p>
+<p>Отдельно реализована геолокация "где я": пользователь разрешает доступ к своему местоположению, и сервис показывает расстояние до каждого заведения, сортируя список по близости. Для города это критично полезная функция - человек ищет "что рядом", а не абстрактный список по алфавиту. Расчет расстояния идет на лету при перемещении по городу, поэтому список остается актуальным, даже если пользователь уходит из одного района в другой.</p>
+<h2 id="rubrikator">Рубрикатор и фильтры</h2>
+<p>Рубрикатор сделан в стиле крупных справочников: десятки топ-рубрик (еда, красота, медицина, авто, услуги и так далее) и подрубрики внутри каждой. На главном экране - сетка категорий с иконками, чтобы пользователь мог сразу перейти к нужному разделу, а не искать через поиск.</p>
+<p>Поверх рубрикатора добавлены быстрые фильтры, которые реально влияют на поведение пользователей: "открыто сейчас" отсекает закрытые в моменте заведения, а фильтры по удобствам (например, наличие определенных условий у заведения) сужают выдачу под конкретный запрос. Иконки категорий взяты из открытого набора и хранятся в базе как имя иконки, а не как эмодзи или картинка - это упрощает смену визуального стиля в будущем без миграции данных.</p>
+<p>Отдельно я продумал, как рубрикатор ведет себя вместе с картой. Выбор категории - это не просто фильтр списка, а изменение того, что показано на карте: маркеры перерисовываются, кластеры пересобираются, а быстрые фильтры применяются поверх выбранной рубрики. То есть пользователь может открыть рубрику "еда", включить "открыто сейчас" и сразу видеть на карте только те кафе и рестораны, куда можно пойти прямо сейчас. Такое связывание рубрикатора, фильтров и карты в единое состояние - это то, что отличает удобный справочник от простого каталога со списком, и именно на это ушла заметная часть работы над фронтендом.</p>
+<h2 id="poisk">Поиск и карточки организаций</h2>
+<p>Поиск сделан с живыми подсказками: пользователь начинает вводить запрос, и система на лету предлагает совпадения по названиям заведений, рубрикам и адресам. Это тот элемент, который определяет ощущение "быстрого" сервиса - без подсказок поиск по городскому справочнику превращается в угадайку.</p>
+<p>Важная деталь - поиск ищет сразу по трем типам сущностей и показывает их вперемешку, но с понятными подписями: где название заведения, где рубрика, а где адрес. Пользователь не обязан заранее знать, что именно он вводит, - будь то "аптека", конкретное название или улица, система подберет релевантные подсказки и приведет к нужной точке на карте. Под капотом это сделано так, чтобы подсказки приходили быстро и не нагружали базу лишними запросами при каждом нажатии клавиши.</p>
+<p>Каждое заведение на карте подписано, а по клику открывается карточка организации с основной информацией. Карточки и подписи спроектированы так, чтобы в будущем в них можно было добавить отзывы, рейтинг и расширенные данные без изменения структуры страницы.</p>
+<h2 id="admin">Админка и модерация</h2>
+<p>Вся содержательная часть - организации, категории, города - управляется через отдельную админку. Заказчик и его команда могут добавлять и редактировать заведения, распределять их по рубрикам, отклонять или подтверждать записи через модерацию. Это снимает с меня как с разработчика обязанность вручную наполнять базу и дает заказчику полный контроль над контентом.</p>
+<p>Модерация здесь не формальность: справочник живет за счет качества данных, и без фильтра "что попадает на карту" сервис быстро зарастет мусором или дублями. Поэтому механизм проверки заложен с первой версии, а не добавлен постфактум.</p>
+<h2 id="multigorod">Задел на мультигород и монетизацию</h2>
+<p>Один из самых важных архитектурных выборов - город как отдельная сущность в базе данных, а не жестко зашитая константа в коде. Это значит, что добавить второй, третий и последующие города можно будет через админку, без участия разработчика. Названия рубрик и элементов интерфейса хранятся на нескольких языках с фолбэком на основной - если перевода нет, показывается базовый язык, и интерфейс не ломается.</p>
+<p>Мультиязычность я заложил не как отдельную "версию сайта", а как свойство самих данных: у названий и подписей может быть несколько языковых вариантов, и витрина выбирает нужный в зависимости от языка пользователя. Это принципиально дешевле в поддержке, чем держать параллельные копии контента, и позволяет запускать новый язык без пересборки. Для города, где живут люди с разными языками, или для последующего выхода в другой регион это дает заказчику готовую основу, а не обещание "когда-нибудь переделаем".</p>
+<p>Для будущей монетизации в модели данных уже предусмотрен адаптер оплаты - пока это заглушка, но структура таблиц и связи между организацией и ее тарифом готовы к тому, что в следующей очереди появятся платные кабинеты бизнеса с расширенными возможностями размещения. Логика очередей развития здесь такая: сначала боевая базовая версия, которая уже приносит пользу городу, а затем поэтапно - кабинеты бизнеса, отзывы и рейтинги, самостоятельное добавление городов. Каждая следующая очередь опирается на уже существующие модели, а не ломает их. Это тот случай, когда проектирование "на вырост" экономит заказчику существенные деньги и время в будущем, потому что не требует переписывания ядра системы.</p>
+<h2 id="stek">Стек и почему именно он</h2>
+<p>На бэкенде я выбрал FastAPI и асинхронную PostgreSQL с фоновыми задачами. Асинхронность важна именно для справочника: карта и поиск порождают много коротких запросов, и синхронный сервер быстро уперся бы в ожидание базы. Фоновые задачи вынесены отдельно, чтобы тяжелые операции - пересчеты, обработка данных, будущие интеграции - не блокировали ответы пользователю.</p>
+<p>На фронтенде - React с Leaflet и кластеризацией. Leaflet дал ту самую бесплатную карту без платных ключей и полный контроль над маркерами, кластерами и слоями. Публичная витрина и админка разведены как отдельные приложения, но работают с одним бэкендом: это упрощает и безопасность (админка не светится в публичном коде), и развитие каждой части своим темпом. В сумме стек подобран так, чтобы проект был дешевым в старте, предсказуемым в поддержке и готовым к росту нагрузки, когда городов и заведений станет больше.</p>
+<h2 id="faq">Частые вопросы</h2>
+<p><strong>Можно ли использовать бесплатную карту-подложку в продакшене?</strong> Да, выбранная подложка не требует платных ключей и подходит для рабочего запуска. Если в будущем понадобится другая подложка с расширенными возможностями, замена делается через конфигурацию, без переписывания карты.</p>
+<p><strong>Сложно ли добавить второй город?</strong> Нет, потому что город изначально спроектирован как отдельная сущность в базе. Добавление нового города - это операция через админку, а не доработка кода.</p>
+<p><strong>Как быстро можно запустить платные кабинеты для бизнеса?</strong> Модель данных и адаптер оплаты уже заложены как заготовка, поэтому подключение реальной оплаты и личного кабинета бизнеса - это следующая очередь разработки, а не пересборка всей системы.</p>
+<h2 id="vyvody">Коротко о главном</h2>
+<p>Городской справочник с картой - это не копия известного сервиса, а отдельный продукт под конкретный город и конкретную бизнес-модель. Ключевые решения, которые определили успех проекта: бесплатная карта без платных ключей, рубрикатор и фильтры, заточенные под реальные сценарии поиска, админка с модерацией и, главное, архитектура, которая с первого дня закладывает мультигородность, мультиязычность и монетизацию.</p>
+<p>Если вам нужен похожий сервис - городской справочник, отраслевой каталог с картой или геосервис под конкретный регион - готов обсудить задачу и собрать под ключ.</p>
+                    </div>
+
+                    
+                    
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Что я делаю под ключ</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-map-trifold"></i> <span>Городские справочники и геосервисы</span></li>
+    
+    <li><i class="ph-fill ph-map-pin"></i> <span>Интерактивные карты с рубрикатором</span></li>
+    
+    <li><i class="ph-fill ph-magnifying-glass"></i> <span>Поиск с подсказками и фильтрами</span></li>
+    
+    <li><i class="ph-fill ph-buildings"></i> <span>Каталог организаций и модерация</span></li>
+    
+    <li><i class="ph-fill ph-translate"></i> <span>Мультигород и мультиязык</span></li>
+    
+  </ul>
+  <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Обсудить проект
+  </a>
+</div>
+                    <div class="blog-cta-card">
+                        <div class="blog-cta-card-body">
+                            <h3>Бесплатно: чек-лист «Готов ли ваш бизнес к 152-ФЗ»</h3>
+                            <p>12 пунктов, которые проверяют готовность за час: данные, согласия, уведомление в РКН, локализация, защита. Отметьте, что уже сделано, и увидите дыры, за которые сейчас штрафуют.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="/checklist-152-fz/" class="btn btn-accent"><i class="ph-fill ph-clipboard-text" aria-hidden="true"></i> Открыть чек-лист</a>
+                        </div>
+                    </div>
+                    
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/market/#checklist" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Собрать похожий проект</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/superapp-avtovladeltsev-messendzher-keys-2026/" data-category="cases" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-car"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Кейсы</span>
+  <h3>Суперапп для сообщества автовладельцев внутри мессенджера</h3>
+  <p>Заказчик хотел собрать активное сообщество автовладельцев без отдельного мобильного приложения. Я спроектировал платформу из бота, мини-приложения с форумами и админки на едином бэкенде — с честным реферальным зачётом и антифродом без ложных банов.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 10 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 6 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/sistema-upravleniya-obshchezhitiem-keys-2026/" data-category="cases" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-buildings"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Кейсы</span>
+  <h3>Система онлайн-управления общежитием: места, договоры, финансы и оплата вместо бумаги и таблиц</h3>
+  <p>Оператор общежития на две сотни мест управлял всем вручную — бумага, таблицы, риск двойных броней и непрозрачные финансы. Я построил информационную систему с ролями администратора, коменданта и жильца: учёт мест без пересечений, договоры, финансы и должники, онлайн-оплата, аналитика и личный кабинет.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 9 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 8 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/media-portal-onlayn-smi-keys-2026/" data-category="cases" data-clicks="0">
+  <span class="blog-card-fresh">Свежее</span>
+  <div class="blog-card-icon"><i class="ph-fill ph-newspaper"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Кейсы</span>
+  <h3>Медиа-портал под ключ: редакция, SEO и заготовка под ИИ-контент</h3>
+  <p>Редакция-заказчик пришла с растущим тематическим изданием, которое упиралось в ручной труд и медленную выдачу в поиске. Я собрал медиа-портал с полноценным редакционным контуром, SEO/GEO-слоем и точкой для ИИ-агента, готовящего черновики статей.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 10 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 6 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    
+                    
+                    
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовые решения под ключ</span>
+                            <span class="blog-offer-cta-title">449 готовых IT-решений для бизнеса</span>
+                            <span class="blog-offer-cta-price">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Смотреть каталог</span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#problema"><span class="blog-toc-num">01</span> Проблема заказчика</a></li>
+<li><a href="#reshenie"><span class="blog-toc-num">02</span> Какое решение предложил</a></li>
+<li><a href="#karta"><span class="blog-toc-num">03</span> Карта с кластеризацией</a></li>
+<li><a href="#rubrikator"><span class="blog-toc-num">04</span> Рубрикатор и фильтры</a></li>
+<li><a href="#poisk"><span class="blog-toc-num">05</span> Поиск и карточки организаций</a></li>
+<li><a href="#admin"><span class="blog-toc-num">06</span> Админка и модерация</a></li>
+<li><a href="#multigorod"><span class="blog-toc-num">07</span> Задел на мультигород и монетизацию</a></li>
+<li><a href="#stek"><span class="blog-toc-num">08</span> Стек и почему именно он</a></li>
+<li><a href="#faq"><span class="blog-toc-num">09</span> Частые вопросы</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">10</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=23" defer></script>
+<script src="/services-i18n.js?v=23" defer></script>
+<script src="/script.js?v=30" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>
