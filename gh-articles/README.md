@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1141**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1143**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -83,6 +83,8 @@
 
 ## cases
 
+- [Лендинг для эксперта по недвижимости: упаковал оффер «0 ₽ для покупателя» и приём заявок без сервера](./sayt-eksperta-nedvizhimosti-lending-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-eksperta-nedvizhimosti-lending-keys-2026/)
+- [Система онлайн-управления общежитием: места, договоры, финансы и оплата вместо бумаги и таблиц](./sistema-upravleniya-obshchezhitiem-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sistema-upravleniya-obshchezhitiem-keys-2026/)
 - [Онбординг-бот на MAX для сетевого бизнеса: как достроить выпадающее звено](./onboarding-bot-setevoy-biznes-max-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/onboarding-bot-setevoy-biznes-max-2027/)
 - [Бот лояльности на MAX для цветочного магазина: баллы, даты и безопасный реферал](./bot-loyalnosti-cvetochnyy-max-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bot-loyalnosti-cvetochnyy-max-2027/)
 - [Розыгрыши для кафе: онлайн-оплата и математически проверяемая честность](./rozygryshi-kafe-chestnost-commit-reveal-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/rozygryshi-kafe-chestnost-commit-reveal-2027/)
