@@ -505,6 +505,8 @@ function catalogBanner() {
 }
 
 const SITE = 'https://chimitdorzhi.tech';
+const TG_URL = 'https://t.me/chimitdorzhi';
+const MAX_URL = 'https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs';
 let FRESH_SLUGS = new Set(); // слаги самых свежих статей, задаётся в main()
 let POPULAR_SLUGS = new Set(); // топ статей по кликам из Вебмастера, задаётся в main()
 // Поисковая статистика из Вебмастера (slug → {c: клики, i: показы}). Обновляется выгрузкой.
@@ -516,7 +518,7 @@ function repoBlockHtml(a) {
   if (!url) return '';
   const isGh = /github\.com/.test(url);
   const linkText = isGh ? 'Официальный репозиторий на GitHub' : 'Официальный сайт проекта';
-  return `<div class="blog-callout"><i class="ph-fill ph-git-branch" aria-hidden="true"></i><div><strong>Где взять</strong> — ${linkText}: <a href="${esc(url)}" target="_blank" rel="noopener">${esc(url.replace(/^https?:\/\//, ''))}</a>. Развернуть и настроить под ключ помогу — <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener">напишите в Telegram</a>.</div></div>`;
+  return `<div class="blog-callout"><i class="ph-fill ph-git-branch" aria-hidden="true"></i><div><strong>Где взять</strong> — ${linkText}: <a href="${esc(url)}" target="_blank" rel="noopener">${esc(url.replace(/^https?:\/\//, ''))}</a>. Развернуть и настроить под ключ помогу — напишите в <a href="${TG_URL}" target="_blank" rel="noopener">Telegram</a> или <a href="${MAX_URL}" target="_blank" rel="noopener">MAX</a>.</div></div>`;
 }
 const ROOT = path.resolve(__dirname, '..');
 const OUT_BLOG = path.join(ROOT, 'blog');
@@ -607,7 +609,7 @@ function head({ title, description, keywords, canonical, ogImage = `${SITE}/hero
         <link rel="stylesheet" href="/assets/phosphor/regular.css">
         <link rel="stylesheet" href="/assets/phosphor/fill.css">
     </noscript>
-    <link rel="stylesheet" href="/style.css?v=45">
+    <link rel="stylesheet" href="/style.css?v=65">
 `;
 }
 
@@ -621,7 +623,8 @@ function footer() {
             <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
             <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
             <div class="footer-actions">
-                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="${TG_URL}" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="${MAX_URL}" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
                 <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
                 <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
             </div>
@@ -912,9 +915,14 @@ function servicesOfferCard(article) {
     <li><i class="${item.icon}"></i> <span>${esc(item.label)}</span></li>
     `).join('')}
   </ul>
-  <a href="${esc(s.ctaUrl || 'https://t.me/chimitdorzhi')}" target="_blank" rel="noopener" class="blog-services-offer-cta">
-    <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> ${esc(s.ctaLabel || 'Написать в Telegram')}
-  </a>
+  <div class="blog-services-offer-ctas">
+    <a href="${esc(s.ctaUrl || TG_URL)}" target="_blank" rel="noopener" class="blog-services-offer-cta">
+      <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> ${esc(s.ctaLabel || 'Написать в Telegram')}
+    </a>
+    <a href="${MAX_URL}" target="_blank" rel="noopener" class="blog-services-offer-cta blog-services-offer-cta-max">
+      <i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> Написать в MAX
+    </a>
+  </div>
 </div>`;
 }
 
@@ -1091,7 +1099,8 @@ function krugozorClusterHtml(a, published) {
   <h2>Вся рубрика «Бизнес-кругозор»: карта тем</h2>
   <p class="mwr-cluster-lead">Методологии, стратегия, продуктивность, деньги, психология и знания — выберите, что разобрать сейчас.</p>
   <div class="mwr-cluster-grid">${groups}</div>
-  <a class="mwr-cluster-cta" href="https://t.me/chimitdorzhi" target="_blank" rel="noopener"><i class="ph-fill ph-chats-circle" aria-hidden="true"></i> Прочитали — а как применить у вас? Разберём на вашем примере: бесплатная консультация</a>
+  <a class="mwr-cluster-cta" href="${TG_URL}" target="_blank" rel="noopener"><i class="ph-fill ph-chats-circle" aria-hidden="true"></i> Прочитали — а как применить у вас? Разберём на вашем примере: бесплатная консультация</a>
+  <a class="mwr-cluster-cta mwr-cluster-cta-max" href="${MAX_URL}" target="_blank" rel="noopener"><i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> Написать в MAX</a>
 </section>`;
 }
 
@@ -1126,7 +1135,8 @@ function commercialClusterHtml(a, published) {
   <h2>Сколько стоит и что выбрать: навигатор</h2>
   <p class="mwr-cluster-lead">Цены, сравнения и что важно знать до заказа — выберите свой вопрос.</p>
   <div class="mwr-cluster-grid">${groups}</div>
-  <a class="mwr-cluster-cta" href="https://t.me/chimitdorzhi" target="_blank" rel="noopener"><i class="ph-fill ph-chats-circle" aria-hidden="true"></i> Опишите задачу — пришлю бесплатный расчёт и смету</a>
+  <a class="mwr-cluster-cta" href="${TG_URL}" target="_blank" rel="noopener"><i class="ph-fill ph-chats-circle" aria-hidden="true"></i> Опишите задачу — пришлю бесплатный расчёт и смету</a>
+  <a class="mwr-cluster-cta mwr-cluster-cta-max" href="${MAX_URL}" target="_blank" rel="noopener"><i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> Написать в MAX</a>
 </section>`;
 }
 
