@@ -699,7 +699,7 @@ module.exports = [
     relatedSlugs: ['marzha-i-nacenka-raznica-2026', 'utp-kak-sformulirovat-2026', 'podpiska-mrr-arr-2026'] }),
   E({ slug: 'podpiska-mrr-arr-2026', heroIcon: 'ph-fill ph-arrows-clockwise', ctaInternal: ANALYTICS,
     title: 'Подписочная модель: MRR и ARR простыми словами',
-    metaTitle: 'MRR и ARR: метрики подписки просто',
+    metaTitle: 'MRR и ARR простыми словами: как считать (с примерами)',
     metaDescription: 'MRR (ежемесячная регулярная выручка) и ARR (годовая) простыми словами: как считать с примером, движения MRR (new, expansion, contraction, churned), почему подписка предсказуема и кому подходит. Связь с churn и LTV.',
     excerpt: 'Подписка ценна предсказуемостью дохода — а измеряют её через MRR и ARR. Разбираю, как их считать, из чего складывается рост и почему отток так важен.',
     tags: ['MRR', 'ARR', 'подписка', 'метрики'],
