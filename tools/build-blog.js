@@ -1180,17 +1180,60 @@ function osintClusterHtml(a, published) {
 // Contextual auto-linking: link the FIRST occurrence of a keyword phrase inside
 // a prose <p> to the matching service page. Skips headings, code, tables, existing
 // links and the lead. Caps total links to avoid over-optimization.
+const SVC = 'https://chimitdorzhi.tech/services';
+// Порядок = приоритет: коммерчески ценные и специфичные термины выше (линкуется
+// первое вхождение, максимум MAX ссылок на статью, каждый URL — один раз).
 const AUTOLINK_RULES = [
-  { re: /Telegram-бот(?:а|ы|ов|у)?/i,        url: 'https://chimitdorzhi.tech/services/telegram-bots/' },
-  { re: /чат-бот(?:а|ы|ов|у)?/i,             url: 'https://chimitdorzhi.tech/services/telegram-bots/' },
-  { re: /AI-агент(?:а|ы|ов|у)?/i,            url: 'https://chimitdorzhi.tech/services/ai-agents/' },
-  { re: /RAG-систем(?:а|ы|у)/i,              url: 'https://chimitdorzhi.tech/services/rag-systems/' },
-  { re: /кибербезопасност(?:ь|и)/i,          url: 'https://chimitdorzhi.tech/services/cybersecurity/' },
-  { re: /аудит(?:а)? 152-ФЗ/i,               url: 'https://audit.chimitdorzhi.tech/' },
-  { re: /юнит-экономик(?:а|и|у)/i,           url: 'https://chimitdorzhi.tech/services/business-analytics-unit-economics/' },
-  { re: /импортозамещени(?:е|я)/i,           url: 'https://chimitdorzhi.tech/services/russian-stack-migration/' },
-  { re: /мобильн(?:ое|ого) приложени(?:е|я)/i, url: 'https://chimitdorzhi.tech/services/mobile-apps/' },
-  { re: /разработк(?:а|и|у) сайта/i,         url: 'https://chimitdorzhi.tech/services/web-development/' },
+  // Заказ сайта/бота — верх коммерческой воронки
+  { re: /заказать (?:сайт|лендинг)/i,          url: `${SVC}/web-development/` },
+  { re: /сайт(?:а)? под ключ/i,                 url: `${SVC}/web-development/` },
+  { re: /разработк(?:а|и|у) сайта/i,            url: `${SVC}/web-development/` },
+  { re: /создани(?:е|я) сайта/i,                url: `${SVC}/web-development/` },
+  { re: /интернет-магазин(?:а|ы|ов)?/i,         url: `${SVC}/web-development/` },
+  { re: /лендинг(?:а|и|ов)?/i,                  url: `${SVC}/web-development/` },
+  // Боты и ИИ
+  { re: /Telegram-бот(?:а|ы|ов|у)?/i,           url: `${SVC}/telegram-bots/` },
+  { re: /чат-бот(?:а|ы|ов|у)?/i,                url: `${SVC}/telegram-bots/` },
+  { re: /бот(?:а|ы|ов)? для бизнеса/i,          url: `${SVC}/telegram-bots/` },
+  { re: /AI-агент(?:а|ы|ов|у)?/i,               url: `${SVC}/ai-agents/` },
+  { re: /ИИ-агент(?:а|ы|ов|у)?/i,               url: `${SVC}/ai-agents/` },
+  { re: /AI-ассистент(?:а|ы|ов|у)?/i,           url: `${SVC}/ai-agents/` },
+  { re: /внедрени(?:е|я) ИИ/i,                   url: `${SVC}/ai-agents/` },
+  { re: /внедрить ИИ/i,                          url: `${SVC}/ai-agents/` },
+  { re: /нейросет(?:ь|и|ей) для бизнеса/i,       url: `${SVC}/ai-agents/` },
+  { re: /RAG-систем(?:а|ы|у)/i,                  url: `${SVC}/rag-systems/` },
+  { re: /компьютерн(?:ое|ого) зрени(?:е|я)/i,    url: `${SVC}/computer-vision/` },
+  { re: /голосов(?:ой|ого|ые) (?:ИИ|бот)/i,      url: `${SVC}/voice-ai/` },
+  // Автоматизация и учёт
+  { re: /автоматизаци(?:я|и|ю) бизнеса/i,        url: `${SVC}/business-automation/` },
+  { re: /автоматизаци(?:я|и|ю) бухгалтери/i,     url: `${SVC}/accounting-automation/` },
+  { re: /внедрени(?:е|я) (?:1С|CRM)/i,           url: `${SVC}/business-automation/` },
+  { re: /CRM[- ]систем(?:а|ы|у)/i,               url: `${SVC}/business-automation/` },
+  { re: /автоматизаци(?:я|и|ю) (?:HR|найма)/i,   url: `${SVC}/hr-team-management/` },
+  { re: /автоматизаци(?:я|и|ю) логистик/i,       url: `${SVC}/logistics-automation/` },
+  // Инфраструктура и безопасность
+  { re: /мобильн(?:ое|ого) приложени(?:е|я)/i,   url: `${SVC}/mobile-apps/` },
+  { re: /(?:свой|собственный) сервер/i,          url: `${SVC}/devops/` },
+  { re: /self-hosted/i,                          url: `${SVC}/devops/` },
+  { re: /IT-инфраструктур(?:а|ы|у)/i,            url: `${SVC}/it-infrastructure/` },
+  { re: /удал[её]нн(?:ый|ого) доступ/i,          url: `${SVC}/secure-remote-access/` },
+  { re: /импортозамещени(?:е|я)/i,               url: `${SVC}/russian-stack-migration/` },
+  { re: /Astra Linux/i,                          url: `${SVC}/russian-stack-migration/` },
+  { re: /кибербезопасност(?:ь|и)/i,              url: `${SVC}/cybersecurity/` },
+  { re: /аудит(?:а)? 152-ФЗ/i,                   url: 'https://audit.chimitdorzhi.tech/' },
+  { re: /IT-аудит(?:а)?/i,                       url: `${SVC}/it-audit/` },
+  // Аналитика, маркетинг, бренд
+  { re: /дашборд(?:а|ы|ов)?/i,                   url: `${SVC}/ai-analytics/` },
+  { re: /юнит-экономик(?:а|и|у)/i,               url: `${SVC}/business-analytics-unit-economics/` },
+  { re: /контекстн(?:ая|ой) реклам/i,            url: `${SVC}/digital-marketing/` },
+  { re: /личн(?:ый|ого) бренд/i,                 url: `${SVC}/personal-brand/` },
+  { re: /дизайн(?:а)? и брендинг/i,              url: `${SVC}/design-branding/` },
+  // Ниши
+  { re: /торговл(?:я|и) с Китаем/i,              url: `${SVC}/china-it/` },
+  { re: /ЦФА|цифров(?:ые|ых) финансов(?:ые|ых) актив/i, url: `${SVC}/cfa-issuance/` },
+  { re: /смарт-контракт(?:а|ы|ов)?/i,            url: `${SVC}/web3-development/` },
+  { re: /IT для клиник|цифровизаци(?:я|и) клиник/i, url: `${SVC}/clinics-digitalization/` },
+  { re: /IT-грант(?:а|ы|ов)?|грант(?:а)? на (?:IT|ИИ)/i, url: `${SVC}/it-grants/` },
 ];
 
 function autolinkServices(html, selfUrl) {
