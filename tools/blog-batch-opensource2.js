@@ -64,7 +64,7 @@ module.exports = [
     relatedSlugs: ['bagisto-internet-magazin-2026', 'nocodb-airtable-svoy-server-2026', 'metabase-dashbordy-bi-2026'] }),
   E({ slug: 'openproject-upravlenie-proektami-2026', heroIcon: 'ph-fill ph-kanban',
     title: 'OpenProject: управление проектами на своём сервере под ключ',
-    metaTitle: 'OpenProject: управление проектами на сервере',
+    metaTitle: 'OpenProject: бесплатный аналог Jira на своём сервере',
     metaDescription: 'OpenProject — open-source система управления проектами (аналог MS Project/Jira): задачи, диаграммы Ганта, спринты, дорожные карты. Без дорогих лицензий, данные у себя — разверну под ключ.',
     excerpt: 'OpenProject держит проекты, задачи и сроки команды на вашем сервере — как Jira/MS Project, но без лицензий и с данными у себя. Разбираю возможности и запуск.',
     tags: ['OpenProject', 'управление проектами', 'Jira', 'open-source'],
