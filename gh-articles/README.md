@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1192**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1201**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -971,6 +971,15 @@
 
 ## Разработка
 
+- [Как создать бота в MAX: пошаговая инструкция 2026](./kak-sozdat-bota-v-max-poshagovo-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-sozdat-bota-v-max-poshagovo-2026/)
+- [Чат-бот в MAX: что умеет и сколько стоит заказать](./chat-bot-v-max-zakazat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chat-bot-v-max-zakazat-2026/)
+- [Написать скрипт на заказ: автоматизация рутины за вечер](./napisat-skript-na-zakaz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/napisat-skript-na-zakaz-2026/)
+- [Интеграция API на заказ: связать сервисы, CRM и 1С](./integraciya-api-na-zakaz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/integraciya-api-na-zakaz-2026/)
+- [Парсер данных на заказ: сбор информации легально](./parser-dannyh-na-zakaz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/parser-dannyh-na-zakaz-2026/)
+- [Доработка сайта: доделать за прошлым исполнителем](./dorabotka-sayta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/dorabotka-sayta-2026/)
+- [Создать свой веб-сервис или SaaS под ваш процесс](./sozdat-svoy-veb-servis-saas-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sozdat-svoy-veb-servis-saas-2026/)
+- [Автоматизация Excel на заказ: от макросов до веб-таблиц](./avtomatizaciya-excel-na-zakaz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avtomatizaciya-excel-na-zakaz-2026/)
+- [Нанять программиста или заказать под ключ: что выгоднее](./nanyat-programmista-ili-pod-klyuch-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nanyat-programmista-ili-pod-klyuch-2026/)
 - [Бесплатный VPS: миф или реальность в 2026 году](./besplatnyy-vps-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/besplatnyy-vps-2026/)
 - [IT-подрядчик в Чите: как выбрать и не переплатить](./it-podryadchik-chita-kak-vybrat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/it-podryadchik-chita-kak-vybrat-2026/)
 - [Как настроить VPS с нуля: пошаговый гайд для нетехнического владельца](./kak-nastroit-vps-s-nulya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-nastroit-vps-s-nulya-2026/)
