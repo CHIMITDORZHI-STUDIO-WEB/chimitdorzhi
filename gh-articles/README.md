@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1175**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1184**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -23,6 +23,9 @@
 
 ## AI для разработчиков
 
+- [Лучшие локальные нейросети 2026: какую выбрать и зачем](./luchshie-lokalnye-neyroseti-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/luchshie-lokalnye-neyroseti-2026/)
+- [Ollama vs LM Studio: что выбрать для локального ИИ](./ollama-vs-lm-studio-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ollama-vs-lm-studio-2026/)
+- [Сколько нужно RAM и видеокарты для локального ИИ](./skolko-ram-dlya-lokalnogo-ii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-ram-dlya-lokalnogo-ii-2026/)
 - [Внедрение ИИ для бизнеса в Бурятии: с чего начать](./vnedrenie-ii-buryatiya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vnedrenie-ii-buryatiya-2026/)
 - [Как мы автоматизируем разработку и контент с помощью LLM](./llm-avtomatizaciya-razrabotki-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/llm-avtomatizaciya-razrabotki-2027/)
 - [Иллюзия идеального ИИ: почему карты и логотипы всё ещё правит человек](./illuziya-idealnogo-ii-human-in-the-loop-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/illuziya-idealnogo-ii-human-in-the-loop-2027/)
@@ -167,6 +170,7 @@
 
 ## Open-source и свой сервер
 
+- [Лучшие self-hosted сервисы для бизнеса в 2026 году](./luchshie-self-hosted-servisy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/luchshie-self-hosted-servisy-2026/)
 - [Leantime и бесплатные системы управления проектами: обзор для тех, кто не проджект-менеджер](./leantime-besplatnaya-sistema-upravleniya-proektami-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/leantime-besplatnaya-sistema-upravleniya-proektami-2027/)
 - [DreamServer: локальный AI-сервер (Ollama, Open WebUI, n8n, ComfyUI) одной установкой](./dreamserver-lokalnyy-ai-server-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/dreamserver-lokalnyy-ai-server-2026/)
 - [ИИ-ассистент для Telegram Business: что умеет, чем рискует и как сделать безопасно](./ai-assistent-telegram-business-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ai-assistent-telegram-business-2027/)
@@ -346,6 +350,8 @@
 
 ## Безопасность
 
+- [Бесплатные OSINT-инструменты 2026: легальный разбор](./besplatnye-osint-instrumenty-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/besplatnye-osint-instrumenty-2026/)
+- [Как искать информацию о человеке легально: OSINT без нарушений](./osint-poisk-informacii-legalno-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/osint-poisk-informacii-legalno-2026/)
 - [Свой сервер вместо публичного VPN: VLESS, Reality и Hysteria 2 глазами студии](./svoy-server-privatnost-vless-reality-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/svoy-server-privatnost-vless-reality-2027/)
 - [Автоматизация обхода блокировок: PowerShell-скрипт и Amnezia для команды](./anticenzura-powershell-amnezia-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/anticenzura-powershell-amnezia-2027/)
 - [Социальная инженерия: как обманывают людей, а не компьютеры](./socialnaya-inzheneriya-kak-obmanyvayut-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/socialnaya-inzheneriya-kak-obmanyvayut-2027/)
@@ -957,9 +963,12 @@
 
 ## Разработка
 
+- [Бесплатный VPS: миф или реальность в 2026 году](./besplatnyy-vps-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/besplatnyy-vps-2026/)
 - [IT-подрядчик в Чите: как выбрать и не переплатить](./it-podryadchik-chita-kak-vybrat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/it-podryadchik-chita-kak-vybrat-2026/)
+- [Как настроить VPS с нуля: пошаговый гайд для нетехнического владельца](./kak-nastroit-vps-s-nulya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-nastroit-vps-s-nulya-2026/)
 - [Мобильное приложение на заказ в Чите и Улан-Удэ: цена и сроки](./mobilnoe-prilozhenie-chita-ulan-ude-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/mobilnoe-prilozhenie-chita-ulan-ude-2026/)
 - [Сколько стоит сайт, бот и автоматизация в Забайкалье](./skolko-stoit-sayt-bot-zabaykalye-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-stoit-sayt-bot-zabaykalye-2026/)
+- [VPS или обычный хостинг: что выбрать для сайта](./vps-vs-hosting-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vps-vs-hosting-2026/)
 - [Заказать лендинг в Иркутске: цена, сроки, что входит](./zakazat-lending-irkutsk-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zakazat-lending-irkutsk-2026/)
 - [Заказать сайт в Улан-Удэ: цены, сроки и этапы](./zakazat-sayt-ulan-ude-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zakazat-sayt-ulan-ude-2026/)
 - [Заказать Telegram-бота в Чите: цена и что входит](./zakazat-telegram-bota-chita-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zakazat-telegram-bota-chita-2026/)
