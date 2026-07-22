@@ -19,6 +19,7 @@ const path = require('path');
 
 // Требования (откалиброваны по текущим 123 статьям)
 const MIN_WORDS = 1300;
+const SHORT_MIN_WORDS = 700; // для статей с shortForm:true (справочные, ~4 мин чтения)
 const MIN_TAGS = 3;
 const MIN_TOC = 3;
 // Потолки — санитарные (проект осознанно использует длинные мета-описания);
@@ -83,7 +84,8 @@ function checkArticle(a, allSlugs) {
 
   // длина
   const w = wordCount(html);
-  if (w < MIN_WORDS) errors.push(`мало слов: ${w} (нужно ≥${MIN_WORDS})`);
+  const minW = a.shortForm ? SHORT_MIN_WORDS : MIN_WORDS;
+  if (w < minW) errors.push(`мало слов: ${w} (нужно ≥${minW})`);
 
   // структурные блоки
   if (!/blog-tldr/.test(html)) errors.push('нет блока TL;DR (<div class="blog-tldr">)');
