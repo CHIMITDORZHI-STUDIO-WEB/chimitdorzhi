@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кэш и CDN простыми словами — как ускорить сайт</title>
+    <meta name="description" content="Объясняю простыми словами, что такое кэш и CDN: зачем они нужны, как ускоряют загрузку сайта и почему иногда изменения на сайте не видны сразу.">
+    <meta name="keywords" content="что такое кэш, что такое cdn, кэш простыми словами, ускорение сайта, cdn для сайта">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/kak-rabotaet-cdn-kesh-prostymi-slovami-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/kak-rabotaet-cdn-kesh-prostymi-slovami-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/kak-rabotaet-cdn-kesh-prostymi-slovami-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/kak-rabotaet-cdn-kesh-prostymi-slovami-2026/">
+    <meta property="og:title" content="Кэш и CDN простыми словами — как ускорить сайт">
+    <meta property="og:description" content="Объясняю простыми словами, что такое кэш и CDN: зачем они нужны, как ускоряют загрузку сайта и почему иногда изменения на сайте не видны сразу.">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/kak-rabotaet-cdn-kesh-prostymi-slovami-2026/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Кэш и CDN простыми словами — как ускорить сайт">
+    <meta name="twitter:description" content="Объясняю простыми словами, что такое кэш и CDN: зачем они нужны, как ускоряют загрузку сайта и почему иногда изменения на сайте не видны сразу.">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/kak-rabotaet-cdn-kesh-prostymi-slovami-2026/cover.png">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor-Fill.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=65">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Как работают кэш и CDN простыми словами",
+  "description": "Объясняю простыми словами, что такое кэш и CDN: зачем они нужны, как ускоряют загрузку сайта и почему иногда изменения на сайте не видны сразу.",
+  "image": "https://chimitdorzhi.tech/blog/kak-rabotaet-cdn-kesh-prostymi-slovami-2026/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/kak-rabotaet-cdn-kesh-prostymi-slovami-2026/"
+  },
+  "datePublished": "2026-07-20",
+  "dateModified": "2026-07-20",
+  "keywords": "кэш, CDN, простыми словами, скорость сайта",
+  "articleSection": "Экспертный блог",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Как работают кэш и CDN простыми словами",
+      "item": "https://chimitdorzhi.tech/blog/kak-rabotaet-cdn-kesh-prostymi-slovami-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Чем кэш отличается от CDN?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Кэш — это про то, чтобы не пересчитывать одно и то же заново: готовый результат хранится под рукой — в браузере, на сервере или ещё где-то. CDN — это про расстояние: копии сайта размещаются на серверах ближе к пользователям по всему миру. Часто CDN использует кэш внутри себя, поэтому термины и путают."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Зачем сайту CDN?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Чтобы посетители из разных городов и стран получали контент с ближайшего сервера, а не с единственного сервера-источника, до которого может быть далеко. Это ускоряет загрузку, снижает нагрузку на основной сервер и повышает устойчивость сайта к перебоям."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужен ли CDN небольшому сайту?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Не всегда обязателен, но чаще всего не помешает: базовые CDN-сервисы (например, Cloudflare) бесплатны на начальном уровне и настраиваются один раз. Для сайта с локальной аудиторией эффект будет скромнее, чем для сайта с посетителями по всей стране, но грамотный кэш пригодится в любом случае."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Почему изменения на сайте не сразу видны (кэш)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Скорее всего, где-то в цепочке — в браузере, на сервере сайта или на стороне CDN — сохранилась старая версия страницы. Нужно либо подождать, пока кэш устареет сам, либо сбросить его вручную (инвалидировать). Это нормальная особенность работы кэша, а не сбой."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько стоит CDN?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Базовые CDN-сервисы часто бесплатны или недороги на старте, а стоимость растёт вместе с объёмом трафика и дополнительными функциями. Для типичного сайта расходы на CDN обычно намного ниже, чем экономия на более мощном хостинге, который иначе пришлось бы держать про запас."
+      }
+    }
+  ]
+}
+    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+var inject=function(){for (var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)};
+var run=function(){('requestIdleCallback' in window)?requestIdleCallback(inject,{timeout:5000}):setTimeout(inject,3000)};
+(e.readyState==='complete')?run():m.addEventListener('load',run);})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109281884" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/market/">Собрать проект</a></li>
+            <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+            <li style="display:none"><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li class="nav-dropdown">
+                <a href="/#projects" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="/blog/category/cases/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-briefcase" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Кейсы</span>
+                            <span class="nav-dropdown-desc">Реальные проекты под ключ</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li style="display:none"><a href="/#cases" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li style="display:none"><a href="/infografika/">Инфографика</a></li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+                <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему" aria-pressed="false">
+                <i class="ph ph-moon" aria-hidden="true"></i>
+            </button>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/market/">Собрать проект</a></li>
+        <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+        <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+        <li class="mobile-has-submenu">
+            <details>
+                <summary aria-label="Проекты — развернуть"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down" aria-hidden="true"></i></summary>
+                <ul class="mobile-submenu">
+                    <li>
+                        <a href="/blog/category/cases/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-briefcase" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">Кейсы</span>
+                                <span class="mobile-sub-desc">Реальные проекты под ключ</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://gerel.space" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">Gerel.space</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/universe_buryat/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/arey/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.arey">AREY</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/mwrlife/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">MWR Life</span>
+                                <span class="mobile-sub-desc">Travel-клуб и партнёрка</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </details>
+        </li>
+        <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+        <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+    </ul>
+    <div class="mobile-controls">
+        <div class="mobile-lang-switcher" role="group" aria-label="Выбор языка">
+            <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+            <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+            <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+        </div>
+        <button class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle" aria-label="Переключить тему" aria-pressed="false">
+            <i class="ph ph-moon" aria-hidden="true"></i>
+        </button>
+    </div>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Как работают кэш и CDN простыми словами</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/expert/"><i class="ph ph-bookmark" aria-hidden="true"></i> Экспертный блог</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 5 мин чтения</span>
+                        <time datetime="2026-07-20"><i class="ph ph-calendar" aria-hidden="true"></i> 20 июля 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Как работают кэш и CDN простыми словами</h1>
+
+                    <p class="blog-lead">Кэш и CDN — два слова, которые часто путают, хотя за ними простая идея: держать нужное под рукой и поближе к клиенту. Объясняю, как это работает и почему без этого сайт грузится медленнее, чем мог бы.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>кэш</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>CDN</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>простыми словами</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>скорость сайта</span></div>
+
+                    <div class="blog-body">
+                        <div class="blog-tldr"><strong>TL;DR:</strong> Кэш — это когда компьютер или сервер держит уже готовый результат под рукой, чтобы не считать его заново каждый раз. CDN — это сеть складов-копий вашего сайта, расставленных по разным городам и странам, чтобы отдавать контент клиенту с ближайшего склада, а не с единственного сервера за тысячи километров. Вместе они делают одно и то же: убирают лишнюю работу и лишний путь, из-за чего сайт открывается быстрее.</div>
+<p>Когда заказчики слышат «кэш» и «CDN», у многих в голове одна каша: что-то техническое, вроде бы полезное, но непонятно зачем платить отдельно. На деле обе идеи очень бытовые, и я обычно объясняю их без технических терминов. Разложу по порядку — сначала кэш, потом CDN, потом как они работают вместе.</p>
+<p><strong>Коротко:</strong> кэш — это хранить готовый результат под рукой, чтобы не считать и не собирать его заново каждый раз; CDN — это копии сайта на серверах ближе к пользователю, чтобы данные не летели через полмира. Вместе они ускоряют загрузку сайта, снижают нагрузку на сервер и экономят деньги на хостинге. Нужно это почти любому сайту с посетителями — от небольшого лендинга до <a href="https://chimitdorzhi.tech/services/web-development/" class="blog-inline-link">интернет-магазина</a> с тысячами товаров.</p>
+
+<h2 id="kesh">Что такое кэш</h2>
+<p>Представьте, что вы каждый день готовите один и тот же салат для гостей. Можно каждый раз идти в магазин за огурцом и резать заново — а можно один раз нарезать побольше и держать готовое в холодильнике под рукой. В следующий раз вы просто достаёте готовое, вместо того чтобы повторять всю работу с нуля. Это и есть суть кэша: держать под рукой уже готовый результат, чтобы не считать его заново.</p>
+<p>В мире сайтов происходит то же самое. Когда посетитель открывает страницу, сервер обычно должен сходить в базу данных, собрать нужные записи, оформить их в HTML-страницу и только потом отдать браузеру. Если делать это заново для каждого посетителя, сервер быстро устаёт — особенно если страницу за минуту открывают сотни людей. Кэш решает это просто: один раз собрал страницу — сохранил результат — и следующим посетителям отдаёт уже готовое, без повторного похода в базу данных.</p>
+<p>Кэш бывает на разных уровнях. Есть кэш браузера — когда ваш компьютер запоминает картинки и стили сайта, чтобы при повторном визите не скачивать их заново. Есть кэш сервера — когда сайт хранит готовые страницы или результаты сложных запросов у себя, чтобы не пересчитывать их каждый раз. И есть кэш на уровне CDN, о котором расскажу дальше, — он хранит копии контента ближе к пользователю. Все три вида работают по одному принципу: не делать одну и ту же работу дважды.</p>
+<p>Есть и побочный эффект: иногда кэш играет против вас. Если вы обновили текст на сайте, а браузер или сервер продолжает показывать старую сохранённую версию, кажется, что изменения «не применились». На деле применились — просто где-то в цепочке лежит старая копия, которую ещё не обновили. Об этом подробнее — в разделе про нюансы.</p>
+
+<h2 id="cdn">Что такое CDN</h2>
+<p>CDN расшифровывается как Content Delivery Network — «сеть доставки контента». Лучшая аналогия — сеть складов интернет-магазина. Представьте компанию с единственным складом в Москве, а заказы идут со всей страны и из-за рубежа: покупателю из Владивостока товар едет долго просто из-за расстояния. Логичное решение — открыть склады поближе к покупателям: во Владивостоке, в Новосибирске, за границей. Тогда товар едет с ближайшего склада, а не через всю страну.</p>
+<p>CDN делает ровно это, только с сайтом вместо товаров. У вас есть один основной сервер — скажем, в Москве или на любом другом хостинге. Без CDN каждый посетитель сайта тянет данные именно с этого одного сервера. Если он из другого города или страны, запрос летит через полмира и обратно — а это время, которое ощущается как «сайт тормозит». CDN расставляет копии вашего сайта (его статичных частей — картинок, стилей, скриптов, а иногда и целых страниц) на серверах по разным точкам мира. Когда человек открывает сайт, его запрос уходит не на основной сервер, а на ближайший к нему сервер CDN — и получает контент оттуда за доли секунды.</p>
+<p>Важно понимать: CDN не заменяет ваш хостинг и не переносит сайт целиком. Основной сервер по-прежнему хранит всю логику, базу данных, обработку форм — это «главный офис». CDN — это распределённая сеть «складов» с копиями контента, которая разгружает главный офис и ускоряет доставку до клиента. Крупные CDN-сети — вроде Cloudflare — имеют сотни точек присутствия по всему миру, поэтому почти для любого посетителя находится сервер в паре сотен, а не в паре тысяч километров.</p>
+
+<h2 id="kak-uskoryaet">Как это ускоряет сайт</h2>
+<p>Если сложить кэш и CDN вместе, получается двойная экономия. Кэш убирает лишнюю работу — серверу не нужно каждый раз заново собирать страницу или выполнять тяжёлый запрос к базе данных, если готовый результат уже есть под рукой. CDN убирает лишний путь — данным не нужно лететь через полмира, если рядом с посетителем есть склад с готовой копией. Одно решает проблему «долго считать», второе — проблему «долго везти».</p>
+<p>На практике это ощущается конкретно. Страница, которая без кэша и CDN грузилась бы полторы-две секунды, с ними может открываться за доли секунды. Для посетителя это не абстрактная метрика, а разница между «открылся мгновенно» и «полистаю пока, подожду» — а значит, останется он на сайте или закроет вкладку, особенно на мобильном интернете, где каждая секунда чувствуется острее.</p>
+<p>Есть и вторая, менее заметная выгода — снижение нагрузки на сервер. Если тысяча человек одновременно заходят на сайт, а кэш и CDN отдают им уже готовый контент вместо того, чтобы сервер пересчитывал всё тысячу раз, — сервер справляется легче и не «падает» в моменты пиковой посещаемости, например во время рекламной акции. Это тоже экономия — на более мощном хостинге, который иначе пришлось бы держать про запас. Плюс CDN — устойчивость к перебоям: если основной сервер на секунду «моргнул», трафик продолжают обслуживать серверы CDN, и посетители этого даже не замечают.</p>
+
+<h2 id="komu">Кому нужно</h2>
+<p>Кэш в том или ином виде нужен практически любому сайту — это скорее вопрос «насколько тонко настроено», а не «нужен ли вообще». Даже простому лендингу выгодно кэшировать статичные файлы, чтобы повторные посетители не скачивали одно и то же заново.</p>
+<p>CDN особенно оправдан в нескольких случаях: аудитория географически широкая — не только соседний город, а вся страна или разные страны; на сайте много изображений, видео или другого «тяжёлого» контента — интернет-магазины, каталоги, медиа; ожидаются всплески трафика — реклама, распродажи, публикации в соцсетях; важна отказоустойчивость — например, для сайта, который приносит бизнесу деньги напрямую, и простой в несколько минут бьёт по выручке.</p>
+<p>Для небольшого локального сайта эффект от CDN будет менее заметен, но правильно настроенный кэш пригодится в любом случае — это почти всегда бесплатное ускорение без побочных рисков. Когда я делаю разработку сайта под ключ, кэш и, при необходимости, CDN закладываю сразу — дешевле настроить один раз на старте, чем «допиливать» скорость постфактум.</p>
+
+<h2 id="nyuansy">Нюансы и подводные камни</h2>
+<p>Главный подводный камень кэша — устаревание данных. Если сайт показывает цену товара или количество мест из закэшированной версии, а цена уже изменилась, посетитель увидит неактуальную информацию, пока кэш не обновится. Поэтому для «живых» данных — остатки на складе, цены, статусы заказов — кэш либо не используют вовсе, либо ставят на короткое время жизни.</p>
+<p>Отсюда частая жалоба заказчиков: «я обновил текст на сайте, а на странице всё старое». Обычно дело в кэше — где-то в цепочке (браузер, сервер или CDN) лежит старая копия, и её нужно либо подождать, пока она устареет сама, либо сбросить вручную — это называется «очистить кэш» или «инвалидация». Это нормальная штатная ситуация, а не поломка сайта.</p>
+<p>Со стороны CDN тоже есть особенности: это дополнительный элемент инфраструктуры, который нужно правильно настроить — какие файлы кэшировать, а какие всегда брать «живыми» с основного сервера, как долго хранить копию, как быстро сбрасывать её при обновлении сайта. Настроено криво — эффект может быть обратным, и посетители увидят устаревший контент. Поэтому подключение CDN — не просто «включил галочку», а настройка, которую стоит доверить тому, кто понимает, что и зачем кэшируется.</p>
+<p>И ещё момент: кэш и CDN ускоряют доставку готового контента, но не заменяют оптимизацию самого сайта. Если сайт написан тяжело, изображения не сжаты, а код перегружен — они сгладят часть проблемы, но не решат её полностью. Это дополняющие меры, а не замена нормальной разработки сайта и его дальнейшей поддержки.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+<p><strong>Чем кэш отличается от CDN?</strong> Кэш — это про то, чтобы не пересчитывать одно и то же заново: готовый результат хранится под рукой — в браузере, на сервере или ещё где-то. CDN — это про расстояние: копии сайта размещаются на серверах ближе к пользователям по всему миру. Часто CDN использует кэш внутри себя, поэтому термины и путают.</p>
+<p><strong>Зачем сайту CDN?</strong> Чтобы посетители из разных городов и стран получали контент с ближайшего сервера, а не с единственного сервера-источника, до которого может быть далеко. Это ускоряет загрузку, снижает нагрузку на основной сервер и повышает устойчивость сайта к перебоям.</p>
+<p><strong>Нужен ли CDN небольшому сайту?</strong> Не всегда обязателен, но чаще всего не помешает: базовые CDN-сервисы (например, Cloudflare) бесплатны на начальном уровне и настраиваются один раз. Для сайта с локальной аудиторией эффект будет скромнее, чем для сайта с посетителями по всей стране, но грамотный кэш пригодится в любом случае.</p>
+<p><strong>Почему изменения на сайте не сразу видны (кэш)?</strong> Скорее всего, где-то в цепочке — в браузере, на сервере сайта или на стороне CDN — сохранилась старая версия страницы. Нужно либо подождать, пока кэш устареет сам, либо сбросить его вручную (инвалидировать). Это нормальная особенность работы кэша, а не сбой.</p>
+<p><strong>Сколько стоит CDN?</strong> Базовые CDN-сервисы часто бесплатны или недороги на старте, а стоимость растёт вместе с объёмом трафика и дополнительными функциями. Для типичного сайта расходы на CDN обычно намного ниже, чем экономия на более мощном хостинге, который иначе пришлось бы держать про запас.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+<p>Кэш и CDN решают одну задачу с разных сторон: убрать лишнюю работу и лишний путь между сайтом и посетителем. Кэш держит готовый результат под рукой, чтобы не пересчитывать его заново. CDN держит копии сайта ближе к пользователю, чтобы данным не приходилось лететь через полмира. Вместе они дают то, что чувствует любой посетитель, даже не зная этих терминов, — сайт, который открывается мгновенно, а не «подвисает».</p>
+<p>Для бизнеса это не абстрактная деталь, а ощутимые вещи: меньше отказов из-за медленной загрузки, устойчивость к всплескам трафика и экономия на хостинге. Если вы делаете разработку сайта с нуля, разворачиваете <a href="https://chimitdorzhi.tech/services/devops/" class="blog-inline-link">свой сервер</a> под проект или чувствуете, что текущий сайт открывается медленнее, чем хотелось бы, — напишите, разберёмся, где теряется скорость, и настроим кэш и CDN под вашу задачу.</p>
+                    </div>
+
+                    
+                    
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Что я делаю под ключ</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-lightning"></i> <span>Ускорение и оптимизация сайтов</span></li>
+    
+    <li><i class="ph-fill ph-browser"></i> <span>Сайты и лендинги под ключ</span></li>
+    
+    <li><i class="ph-fill ph-hard-drives"></i> <span>Свой сервер, DevOps, хостинг</span></li>
+    
+    <li><i class="ph-fill ph-gear"></i> <span>Автоматизация бизнеса</span></li>
+    
+    <li><i class="ph-fill ph-headset"></i> <span>Поддержка и мониторинг</span></li>
+    
+  </ul>
+  <div class="blog-services-offer-ctas">
+    <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+      <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Обсудить задачу
+    </a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="blog-services-offer-cta blog-services-offer-cta-max">
+      <i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> Написать в MAX
+    </a>
+  </div>
+</div>
+                    <div class="blog-cta-card">
+                        <div class="blog-cta-card-body">
+                            <h3>Бесплатно: чек-лист «Готов ли ваш бизнес к 152-ФЗ»</h3>
+                            <p>12 пунктов, которые проверяют готовность за час: данные, согласия, уведомление в РКН, локализация, защита. Отметьте, что уже сделано, и увидите дыры, за которые сейчас штрафуют.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="/checklist-152-fz/" class="btn btn-accent"><i class="ph-fill ph-clipboard-text" aria-hidden="true"></i> Открыть чек-лист</a>
+                        </div>
+                    </div>
+                    
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/market/#checklist" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Обсудить задачу</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/hosting-domen-prostymi-slovami-2026/" data-category="expert" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-hard-drives"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Экспертный блог</span>
+  <h3>Что такое хостинг и домен простыми словами</h3>
+  <p>Домен и хостинг путают почти все, кто впервые заказывает сайт. На самом деле разница простая: домен — это адрес, хостинг — это участок земли, на котором стоит дом. Объясняю на аналогиях, без сложных терминов.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 20 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 5 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/ssl-https-prostymi-slovami-2026/" data-category="expert" data-clicks="0">
+  <span class="blog-card-fresh">Свежее</span>
+  <div class="blog-card-icon"><i class="ph-fill ph-lock-key"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Экспертный блог</span>
+  <h3>Что такое SSL и HTTPS простыми словами: замочек в браузере</h3>
+  <p>Замочек рядом с адресом сайта видели все, а что он значит — понимают немногие. Объясняю простыми словами, что такое SSL и HTTPS, зачем это нужно любому сайту и как быстро получить сертификат.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 20 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 5 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/chto-takoe-api-prostymi-slovami-2026/" data-category="expert" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-plugs-connected"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Экспертный блог</span>
+  <h3>Что такое API простыми словами: объясняю на примерах</h3>
+  <p>Слово «API» пугает многих владельцев бизнеса, хотя за ним прячется простая идея — способ, которым две программы договариваются друг с другом. Объясняю на живых примерах: официант, розетка, доставка и Telegram-бот.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 20 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 5 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    
+                    
+                    
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовые решения под ключ</span>
+                            <span class="blog-offer-cta-title">449 готовых IT-решений для бизнеса</span>
+                            <span class="blog-offer-cta-price">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Смотреть каталог</span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#kesh"><span class="blog-toc-num">01</span> Что такое кэш</a></li>
+<li><a href="#cdn"><span class="blog-toc-num">02</span> Что такое CDN</a></li>
+<li><a href="#kak-uskoryaet"><span class="blog-toc-num">03</span> Как это ускоряет сайт</a></li>
+<li><a href="#komu"><span class="blog-toc-num">04</span> Кому нужно</a></li>
+<li><a href="#nyuansy"><span class="blog-toc-num">05</span> Нюансы и подводные камни</a></li>
+<li><a href="#faq"><span class="blog-toc-num">06</span> Частые вопросы</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">07</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=23" defer></script>
+<script src="/services-i18n.js?v=23" defer></script>
+<script src="/script.js?v=30" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>
