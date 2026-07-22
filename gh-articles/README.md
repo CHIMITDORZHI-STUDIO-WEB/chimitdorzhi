@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1184**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1185**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -131,6 +131,7 @@
 
 ## MWR Life
 
+- [Travel Advantage: отзывы, что за компания и не пирамида ли — честный разбор](./travel-advantage-otzyvy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/travel-advantage-otzyvy-2026/)
 - [Travel Advantage: как устроена платформа клуба путешественников](./travel-advantage-platforma-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/travel-advantage-platforma-2026/)
 - [Life Experience: групповые путешествия MWR — что это и чем отличается от тура](./life-experience-gruppovye-tury-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/life-experience-gruppovye-tury-2026/)
 - [Тематические туры MWR: йога, дайвинг, бизнес, гастрономия, спорт](./tematicheskie-tury-mwr-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/tematicheskie-tury-mwr-2026/)
