@@ -1211,6 +1211,16 @@ const AUTOLINK_RULES = [
   { re: /CRM[- ]систем(?:а|ы|у)/i,               url: `${SVC}/business-automation/` },
   { re: /автоматизаци(?:я|и|ю) (?:HR|найма)/i,   url: `${SVC}/hr-team-management/` },
   { re: /автоматизаци(?:я|и|ю) логистик/i,       url: `${SVC}/logistics-automation/` },
+  // Коммерческие фразы-заказы (force — инлайн даже при совпадении с CTA статьи)
+  { re: /заказать бота|бота под ключ/i,          url: `${SVC}/telegram-bots/`, force: true },
+  { re: /бот(?:а)? в MAX/i,                       url: `${SVC}/telegram-bots/`, force: true },
+  { re: /написать скрипт|скрипт на заказ/i,       url: `${SVC}/business-automation/`, force: true },
+  { re: /интеграци(?:я|и|ю) API/i,               url: `${SVC}/business-automation/`, force: true },
+  { re: /парсер(?:а)?|парсинг(?:а)?/i,            url: `${SVC}/business-automation/`, force: true },
+  { re: /автоматизаци(?:я|и|ю) Excel/i,          url: `${SVC}/business-automation/`, force: true },
+  { re: /доработк(?:а|и|у) сайта/i,               url: `${SVC}/web-development/`, force: true },
+  { re: /свой веб-сервис|веб-сервис(?:а)?|SaaS/i, url: `${SVC}/web-development/`, force: true },
+  { re: /нанять программиста|разработку под ключ/i, url: `${SVC}/web-development/`, force: true },
   // Инфраструктура и безопасность
   { re: /мобильн(?:ое|ого) приложени(?:е|я)/i,   url: `${SVC}/mobile-apps/` },
   { re: /(?:свой|собственный) сервер/i,          url: `${SVC}/devops/` },
