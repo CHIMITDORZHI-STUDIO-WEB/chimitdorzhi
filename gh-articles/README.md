@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1185**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1192**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -698,6 +698,7 @@
 
 ## Отрасли
 
+- [Честный знак: подключение пошагово в 2026 — что нужно и с чего начать](./chestnyy-znak-podklyuchenie-poshagovo-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chestnyy-znak-podklyuchenie-poshagovo-2026/)
 - [Мастерам и подрядчикам: расчёты, сметы, документы и автоматизация заявок](./masteram-i-podryadchikam-raschety-smety-avtomatizaciya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/masteram-i-podryadchikam-raschety-smety-avtomatizaciya-2026/)
 - [Электрику: расчёты, схемы, сметы и автоматизация заявок](./uslugi-dlya-elektrika-raschety-smety-avtomatizaciya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uslugi-dlya-elektrika-raschety-smety-avtomatizaciya-2026/)
 - [Сантехнику: расчёты, схемы, сметы и приём заявок 24/7](./uslugi-dlya-santehnika-raschety-smety-avtomatizaciya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uslugi-dlya-santehnika-raschety-smety-avtomatizaciya-2026/)
@@ -874,6 +875,12 @@
 
 ## Право и 152-ФЗ
 
+- [Политика обработки персональных данных: образец 2026 и что в ней должно быть](./politika-obrabotki-pd-obrazec-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/politika-obrabotki-pd-obrazec-2026/)
+- [Что считается персональными данными: имя, телефон, cookie и IP — простыми словами](./chto-schitaetsya-personalnymi-dannymi-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chto-schitaetsya-personalnymi-dannymi-2026/)
+- [Как проходит проверка Роскомнадзора по персональным данным в 2026](./proverka-roskomnadzora-kak-prohodit-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/proverka-roskomnadzora-kak-prohodit-2026/)
+- [Штрафы за персональные данные в 2026: таблица по статьям](./shtrafy-za-pd-2026-tablica.md) · [читать на сайте](https://chimitdorzhi.tech/blog/shtrafy-za-pd-2026-tablica/)
+- [Согласие на обработку ПД: как отозвать и как оформить за несовершеннолетнего](./otzyv-soglasiya-i-soglasie-za-rebenka-pd-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/otzyv-soglasiya-i-soglasie-za-rebenka-pd-2026/)
+- [Договор поручения на обработку персональных данных: когда нужен и что включить](./dogovor-porucheniya-obrabotka-pd-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/dogovor-porucheniya-obrabotka-pd-2026/)
 - [Онлайн-касса и 54-ФЗ в 2026: кому нужна, как выбрать и подключить](./onlayn-kassa-54-fz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/onlayn-kassa-54-fz-2026/)
 - [Локализация баз данных в РФ по 152-ФЗ: как перенести и не попасть на штраф](./lokalizaciya-baz-dannyh-rf-152-fz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/lokalizaciya-baz-dannyh-rf-152-fz-2026/)
 - [152-ФЗ для чат-ботов и мессенджеров: как собирать заявки и не нарушить закон](./152-fz-dlya-chat-botov-i-messendzherov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/152-fz-dlya-chat-botov-i-messendzherov-2026/)
