@@ -1221,6 +1221,15 @@ const AUTOLINK_RULES = [
   { re: /Astra Linux/i,                          url: `${SVC}/russian-stack-migration/` },
   { re: /кибербезопасност(?:ь|и)/i,              url: `${SVC}/cybersecurity/` },
   { re: /аудит(?:а)? 152-ФЗ/i,                   url: 'https://audit.chimitdorzhi.tech/' },
+  // 152-ФЗ / персональные данные — ведём на аудит-лендинг (Директ-воронка)
+  { re: /привести сайт в соответстви(?:е|и)/i,   url: 'https://audit.chimitdorzhi.tech/', force: true },
+  { re: /политик(?:а|и|у) обработки персональных данных/i, url: 'https://audit.chimitdorzhi.tech/', force: true },
+  { re: /политик(?:а|и|у) конфиденциальности/i,  url: 'https://audit.chimitdorzhi.tech/', force: true },
+  { re: /согласи(?:е|я|ю) на обработку персональных данных/i, url: 'https://audit.chimitdorzhi.tech/', force: true },
+  { re: /проверк(?:а|и|у|е) Роскомнадзора/i,     url: 'https://audit.chimitdorzhi.tech/', force: true },
+  { re: /уведомлени(?:е|я|ю) в РКН/i,            url: 'https://audit.chimitdorzhi.tech/', force: true },
+  { re: /договор(?:а)? поручения на обработку/i, url: 'https://audit.chimitdorzhi.tech/', force: true },
+  { re: /оборотн(?:ый|ые|ых) штраф(?:ов|ы)?/i,   url: 'https://audit.chimitdorzhi.tech/', force: true },
   { re: /IT-аудит(?:а)?/i,                       url: `${SVC}/it-audit/` },
   // Аналитика, маркетинг, бренд
   { re: /дашборд(?:а|ы|ов)?/i,                   url: `${SVC}/ai-analytics/` },
@@ -1250,7 +1259,7 @@ function autolinkServices(html, selfUrl) {
     for (const rule of AUTOLINK_RULES) {
       if (count >= MAX) break;
       if (used.has(rule.url)) continue;
-      if (rule.url === selfUrl) continue; // don't self-link
+      if (!rule.force && rule.url === selfUrl) continue; // don't self-link (force:true — ставим инлайн даже если совпадает с CTA)
       const m = s.match(rule.re);
       if (!m) continue;
       const idx = s.indexOf(m[0]);
