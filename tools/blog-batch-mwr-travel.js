@@ -28,7 +28,26 @@ const E = (o) => Object.assign({
   servicesOffer: SVC, toc: toc(), ctaInternal: CTA,
 }, o, { contentHtml: C(o.slug) });
 
+const tocReview = () => ([
+  { id: 'chto-eto', text: 'Что за компания' },
+  { id: 'kak-rabotaet', text: 'Членство и личный кабинет' },
+  { id: 'piramida', text: 'МЛМ или пирамида?' },
+  { id: 'otzyvy', text: 'Плюсы и минусы из отзывов' },
+  { id: 'komu', text: 'Кому подходит' },
+  { id: 'faq', text: 'FAQ' },
+  { id: 'vyvody', text: 'Коротко о главном' },
+]);
+
 module.exports = [
+  E({ slug: 'travel-advantage-otzyvy-2026', heroIcon: 'ph-fill ph-chat-circle-text',
+    toc: tocReview(),
+    title: 'Travel Advantage: отзывы, что за компания и не пирамида ли — честный разбор',
+    metaTitle: 'Travel Advantage: отзывы, что за компания, пирамида ли',
+    metaDescription: 'Travel Advantage (тревел эдвентедж) — отзывы и честный разбор: что за компания, как работает членство и личный кабинет, сетевой маркетинг это или пирамида, кому реально подходит клуб путешествий, а кому нет.',
+    excerpt: 'Тревел эдвентедж, тревел адвантаж, Travel Advantage — разбираю нейтрально: что это за компания, как устроено членство и личный кабинет, пирамида ли это и кому клуб путешествий реально выгоден.',
+    metaKeywords: 'travel advantage, travel advantage отзывы, тревел эдвентедж отзывы, тревел адвантаж отзывы, travel advantage что за компания, travel advantage личный кабинет, travel advantage пирамида, travel advantage войти, клуб travel advantage отзывы, mwr life',
+    tags: ['Travel Advantage', 'MWR Life', 'отзывы', 'обзор'],
+    relatedSlugs: ['travel-advantage-platforma-2026', 'mwr-life-otzyvy-2026', 'travel-advantage-vs-turagentstvo-2026'] }),
   E({ slug: 'travel-advantage-platforma-2026', heroIcon: 'ph-fill ph-globe-hemisphere-east',
     title: 'Travel Advantage: как устроена платформа клуба путешественников',
     metaTitle: 'Travel Advantage: как устроена платформа клуба',

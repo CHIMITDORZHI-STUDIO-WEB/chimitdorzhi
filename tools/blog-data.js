@@ -4866,7 +4866,7 @@ const ALL_ARTICLES = [
     title: 'Свой VPS для разработчика в 2026: Selectel vs RuVDS vs Timeweb vs Yandex Cloud — реальное сравнение',
     metaTitle: 'Какой VPS выбрать разработчику в 2026: сравнение и цены',
     metaDescription: 'Какой VPS взять разработчику в 2026: сравниваю Selectel, RuVDS, Timeweb и Yandex Cloud по цене и скорости на личном опыте. Таблица, плюсы и минусы, настройка за 30 минут и 15 self-hosted сервисов для своего сервера.',
-    metaKeywords: 'VPS, VDS, хостинг, Selectel, RuVDS, Timeweb, Yandex Cloud, self-hosted, Docker, Caddy, DevOps, выбор VPS, сравнение хостинга',
+    metaKeywords: 'VPS, VDS, хостинг, Selectel, RuVDS, Timeweb, Yandex Cloud, nova vps, nova хостинг, яндекс vps, яндекс vds, яндекс клауд vps, vps selectel, selectel vps, сравнение vds, self-hosted, Docker, Caddy, DevOps, выбор VPS, сравнение хостинга',
     excerpt: 'Реальный опыт инженера, пять лет живущего на Selectel + RuVDS + Yandex Cloud. Цены 2026, плюсы и минусы провайдеров, таблица сравнения 14 параметров, пошаговая настройка VPS за 30 минут с bash-скриптами, топ-15 self-hosted приложений и расчёт ROI.',
     datePublished: '2026-05-21',
     dateModified: '2026-05-21',
