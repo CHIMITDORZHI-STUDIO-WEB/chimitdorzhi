@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1160**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1175**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -23,6 +23,7 @@
 
 ## AI для разработчиков
 
+- [Внедрение ИИ для бизнеса в Бурятии: с чего начать](./vnedrenie-ii-buryatiya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vnedrenie-ii-buryatiya-2026/)
 - [Как мы автоматизируем разработку и контент с помощью LLM](./llm-avtomatizaciya-razrabotki-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/llm-avtomatizaciya-razrabotki-2027/)
 - [Иллюзия идеального ИИ: почему карты и логотипы всё ещё правит человек](./illuziya-idealnogo-ii-human-in-the-loop-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/illuziya-idealnogo-ii-human-in-the-loop-2027/)
 - [Сколько стоит внедрение ИИ в компанию: из чего складывается цена в 2027](./vnedrenie-ii-stoimost-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vnedrenie-ii-stoimost-2027/)
@@ -899,6 +900,8 @@
 
 ## Продажи
 
+- [Автоматизация бизнеса в Бурятии: с чего начать в 2026](./avtomatizaciya-biznesa-buryatiya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avtomatizaciya-biznesa-buryatiya-2026/)
+- [Внедрение CRM в Иркутске под ключ: этапы и цена](./vnedrenie-crm-irkutsk-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vnedrenie-crm-irkutsk-2026/)
 - [МАКС-бот или живой менеджер: где бот выигрывает, а где только мешает](./chat-bot-ili-zhivoy-menedzher-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chat-bot-ili-zhivoy-menedzher-2026/)
 - [Как перестать терять заявки: 7 мест, где они утекают, и как закрыть каждое](./kuda-utekayut-zayavki-7-mest-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kuda-utekayut-zayavki-7-mest-2026/)
 - [CRM для маленькой компании: нужна ли и с чего начать без бюджета](./crm-nuzhna-li-vam-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/crm-nuzhna-li-vam-2026/)
@@ -954,6 +957,12 @@
 
 ## Разработка
 
+- [IT-подрядчик в Чите: как выбрать и не переплатить](./it-podryadchik-chita-kak-vybrat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/it-podryadchik-chita-kak-vybrat-2026/)
+- [Мобильное приложение на заказ в Чите и Улан-Удэ: цена и сроки](./mobilnoe-prilozhenie-chita-ulan-ude-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/mobilnoe-prilozhenie-chita-ulan-ude-2026/)
+- [Сколько стоит сайт, бот и автоматизация в Забайкалье](./skolko-stoit-sayt-bot-zabaykalye-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-stoit-sayt-bot-zabaykalye-2026/)
+- [Заказать лендинг в Иркутске: цена, сроки, что входит](./zakazat-lending-irkutsk-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zakazat-lending-irkutsk-2026/)
+- [Заказать сайт в Улан-Удэ: цены, сроки и этапы](./zakazat-sayt-ulan-ude-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zakazat-sayt-ulan-ude-2026/)
+- [Заказать Telegram-бота в Чите: цена и что входит](./zakazat-telegram-bota-chita-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zakazat-telegram-bota-chita-2026/)
 - [Почему мы не делаем сайты на конструкторах: честный технический разбор](./pochemu-ne-delaem-sayty-na-konstruktorah-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pochemu-ne-delaem-sayty-na-konstruktorah-2027/)
 - [Этно-авангард в веб-дизайне: национальные коды без китча](./etno-avangard-v-veb-dizayne-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/etno-avangard-v-veb-dizayne-2027/)
 - [Сколько стоит разработка ПО на заказ в 2027: из чего складывается смета](./skolko-stoit-razrabotka-po-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-stoit-razrabotka-po-2027/)
@@ -1120,6 +1129,12 @@
 
 ## Экспертное
 
+- [Что такое API простыми словами: объясняю на примерах](./chto-takoe-api-prostymi-slovami-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chto-takoe-api-prostymi-slovami-2026/)
+- [Что такое CRM простыми словами (с примерами)](./chto-takoe-crm-prostymi-slovami-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chto-takoe-crm-prostymi-slovami-2026/)
+- [Что такое нейросеть простыми словами: объясняю на пальцах](./chto-takoe-neyroset-prostymi-slovami-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chto-takoe-neyroset-prostymi-slovami-2026/)
+- [Что такое хостинг и домен простыми словами](./hosting-domen-prostymi-slovami-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/hosting-domen-prostymi-slovami-2026/)
+- [Как работают кэш и CDN простыми словами](./kak-rabotaet-cdn-kesh-prostymi-slovami-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-rabotaet-cdn-kesh-prostymi-slovami-2026/)
+- [Что такое SSL и HTTPS простыми словами: замочек в браузере](./ssl-https-prostymi-slovami-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ssl-https-prostymi-slovami-2026/)
 - [Как работает электронная почта под капотом](./kak-rabotaet-elektronnaya-pochta-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-rabotaet-elektronnaya-pochta-2027/)
 - [Как устроены облачные вычисления простыми словами](./kak-ustroeny-oblachnye-vychisleniya-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-ustroeny-oblachnye-vychisleniya-2027/)
 - [История искусственного интеллекта: от мечты до нейросетей](./istoriya-iskusstvennogo-intellekta-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/istoriya-iskusstvennogo-intellekta-2027/)
