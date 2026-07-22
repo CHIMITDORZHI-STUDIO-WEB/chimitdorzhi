@@ -1227,6 +1227,11 @@ const AUTOLINK_RULES = [
   { re: /разработк(?:а|и|у) маркетплейс/i,        url: `${SVC}/web-development/`, force: true },
   { re: /этап(?:ы|ов|ах) разработки/i,            url: `${SVC}/web-development/`, force: true },
   { re: /час(?:а)? разработки|час(?:а)? программиста/i, url: `${SVC}/web-development/`, force: true },
+  { re: /SEO-продвижени(?:е|я|ю)|продвижени(?:е|я|ю) сайта|раскрутк(?:а|и|у) сайта/i, url: `${SVC}/digital-marketing/`, force: true },
+  { re: /продвижени(?:е|я|ю) на Авито|поднять объявлени/i, url: `${SVC}/digital-marketing/`, force: true },
+  { re: /Авито для бизнеса|магазин(?:а)? на Авито/i,  url: `${SVC}/business-automation/`, force: true },
+  { re: /двухфакторн(?:ая|ой|ую) аутентификаци(?:я|и|ю)|2FA/i, url: `${SVC}/cybersecurity/`, force: true },
+  { re: /самозапрет(?:а)?/i,                      url: `${SVC}/cybersecurity/`, force: true },
   // Инфраструктура и безопасность
   { re: /мобильн(?:ое|ого) приложени(?:е|я)/i,   url: `${SVC}/mobile-apps/` },
   { re: /(?:свой|собственный) сервер/i,          url: `${SVC}/devops/` },
