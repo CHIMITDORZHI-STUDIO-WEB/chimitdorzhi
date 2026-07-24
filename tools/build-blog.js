@@ -1241,6 +1241,13 @@ const AUTOLINK_RULES = [
   { re: /распознавани(?:е|я) текста|OCR/i,        url: `${SVC}/business-automation/`, force: true },
   { re: /проверк(?:а|и|у) контрагент/i,          url: `${SVC}/business-automation/`, force: true },
   { re: /патент(?:а)? или УСН|УСН для ИП|ПСН(?: для| или)|патентн(?:ая|ой) систем/i, url: `${SVC}/accounting-automation/`, force: true },
+  { re: /электронн(?:ые|ых) путев(?:ые|ых) лист|путев(?:ой|ые) лист(?:а|ов)? электронно/i, url: `${SVC}/business-automation/`, force: true },
+  { re: /программ(?:а|ы|у) для автосервиса|программ(?:а|ы|у) для СТО/i, url: `${SVC}/business-automation/`, force: true },
+  { re: /программ(?:а|ы|у) для ломбарда/i,        url: `${SVC}/business-automation/`, force: true },
+  { re: /взломали сайт|вирус на сайте/i,          url: `${SVC}/cybersecurity/`, force: true },
+  { re: /разработчик пропал|забрать сайт/i,       url: `${SVC}/web-development/`, force: true },
+  { re: /RAG-бот|бот(?:а)? с базой знаний/i,      url: `${SVC}/ai-agents/`, force: true },
+  { re: /интеграци(?:я|и|ю) Wildberries.{0,6}1С|Wildberries с 1С|WB с 1С/i, url: `${SVC}/business-automation/`, force: true },
   // Инфраструктура и безопасность
   { re: /мобильн(?:ое|ого) приложени(?:е|я)/i,   url: `${SVC}/mobile-apps/` },
   { re: /(?:свой|собственный) сервер/i,          url: `${SVC}/devops/` },
