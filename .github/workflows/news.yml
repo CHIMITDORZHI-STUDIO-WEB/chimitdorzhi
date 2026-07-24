@@ -1,0 +1,46 @@
+# Обновление ленты новостей портала «Тэнгэри» (режим «только RSS», без ИИ-перевода).
+# Разместить как .github/workflows/news.yml в нужном репозитории.
+# Секреты НЕ требуются.
+name: Refresh news
+
+on:
+  schedule:
+    - cron: '0 */3 * * *'   # каждые 3 часа (UTC)
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-news
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install deps
+        run: npm i rss-parser
+
+      - name: Aggregate RSS -> data/news.json
+        run: OUT=novosti/data/news.json node novosti/aggregator/aggregate.mjs
+
+      - name: Commit & push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add novosti/data/news.json
+          if git diff --cached --quiet; then
+            echo "Изменений нет — коммит не требуется."
+          else
+            git commit -m "chore: refresh news"
+            git push
+          fi
