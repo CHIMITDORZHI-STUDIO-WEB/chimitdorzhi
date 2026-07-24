@@ -2,10 +2,12 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1218**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1229**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
+- [Нейросеть для видео: чем создать ролик в 2026](./neyroset-dlya-video-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/neyroset-dlya-video-2026/)
+- [OCR: как распознать текст с фото и скана](./ocr-raspoznat-tekst-s-foto-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ocr-raspoznat-tekst-s-foto-2026/)
 - [Цифровой детокс и продуктивность: меньше экрана — больше сделано](./cifrovoy-detoks-produktivnost-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/cifrovoy-detoks-produktivnost-2027/)
 - [ИИ для интернет-магазина: карточки и описания товаров пачкой](./ii-dlya-internet-magazina-kartochki-tovarov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-dlya-internet-magazina-kartochki-tovarov-2026/)
 - [ИИ для управления личными финансами: как навести порядок в деньгах](./ii-dlya-lichnyh-finansov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-dlya-lichnyh-finansov-2026/)
@@ -706,6 +708,10 @@
 ## Отрасли
 
 - [Честный знак: подключение пошагово в 2026 — что нужно и с чего начать](./chestnyy-znak-podklyuchenie-poshagovo-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chestnyy-znak-podklyuchenie-poshagovo-2026/)
+- [1688: как заказывать напрямую и через посредника](./zakaz-s-1688-napryamuyu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zakaz-s-1688-napryamuyu-2026/)
+- [Карго-доставка из Китая: как работает и какие риски](./kargo-dostavka-iz-kitaya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kargo-dostavka-iz-kitaya-2026/)
+- [Таможенное оформление импорта: пошагово в 2026](./tamozhennoe-oformlenie-importa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/tamozhennoe-oformlenie-importa-2026/)
+- [Как платить поставщику в Китай в 2026: переводы и юани](./kak-platit-postavshchiku-v-kitay-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-platit-postavshchiku-v-kitay-2026/)
 - [Мастерам и подрядчикам: расчёты, сметы, документы и автоматизация заявок](./masteram-i-podryadchikam-raschety-smety-avtomatizaciya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/masteram-i-podryadchikam-raschety-smety-avtomatizaciya-2026/)
 - [Электрику: расчёты, схемы, сметы и автоматизация заявок](./uslugi-dlya-elektrika-raschety-smety-avtomatizaciya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uslugi-dlya-elektrika-raschety-smety-avtomatizaciya-2026/)
 - [Сантехнику: расчёты, схемы, сметы и приём заявок 24/7](./uslugi-dlya-santehnika-raschety-smety-avtomatizaciya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uslugi-dlya-santehnika-raschety-smety-avtomatizaciya-2026/)
@@ -888,6 +894,9 @@
 - [Штрафы за персональные данные в 2026: таблица по статьям](./shtrafy-za-pd-2026-tablica.md) · [читать на сайте](https://chimitdorzhi.tech/blog/shtrafy-za-pd-2026-tablica/)
 - [Согласие на обработку ПД: как отозвать и как оформить за несовершеннолетнего](./otzyv-soglasiya-i-soglasie-za-rebenka-pd-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/otzyv-soglasiya-i-soglasie-za-rebenka-pd-2026/)
 - [Договор поручения на обработку персональных данных: когда нужен и что включить](./dogovor-porucheniya-obrabotka-pd-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/dogovor-porucheniya-obrabotka-pd-2026/)
+- [Возврат товара в интернет-магазине: правила 2026](./vozvrat-tovara-internet-magazin-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vozvrat-tovara-internet-magazin-2026/)
+- [Пользовательское соглашение для сайта: образец 2026](./polzovatelskoe-soglashenie-obrazec-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/polzovatelskoe-soglashenie-obrazec-2026/)
+- [Выписка из ЕГРЮЛ бесплатно: как получить за 5 минут](./vypiska-iz-egryul-besplatno-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vypiska-iz-egryul-besplatno-2026/)
 - [Онлайн-касса и 54-ФЗ в 2026: кому нужна, как выбрать и подключить](./onlayn-kassa-54-fz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/onlayn-kassa-54-fz-2026/)
 - [Локализация баз данных в РФ по 152-ФЗ: как перенести и не попасть на штраф](./lokalizaciya-baz-dannyh-rf-152-fz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/lokalizaciya-baz-dannyh-rf-152-fz-2026/)
 - [152-ФЗ для чат-ботов и мессенджеров: как собирать заявки и не нарушить закон](./152-fz-dlya-chat-botov-i-messendzherov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/152-fz-dlya-chat-botov-i-messendzherov-2026/)
@@ -996,6 +1005,7 @@
 - [Как заказать разработку и не потерять деньги: чек-лист договора](./kak-zakazat-razrabotku-ne-poteryat-dengi-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-zakazat-razrabotku-ne-poteryat-dengi-2026/)
 - [Этапы разработки: что происходит после предоплаты](./etapy-razrabotki-posle-predoplaty-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/etapy-razrabotki-posle-predoplaty-2026/)
 - [Сколько стоит час разработки и почему дёшево = дорого](./skolko-stoit-chas-razrabotki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-stoit-chas-razrabotki-2026/)
+- [Приём оплаты на сайт: ЮKassa и альтернативы](./priem-oplaty-na-sayt-yukassa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/priem-oplaty-na-sayt-yukassa-2026/)
 - [Бесплатный VPS: миф или реальность в 2026 году](./besplatnyy-vps-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/besplatnyy-vps-2026/)
 - [IT-подрядчик в Чите: как выбрать и не переплатить](./it-podryadchik-chita-kak-vybrat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/it-podryadchik-chita-kak-vybrat-2026/)
 - [Как настроить VPS с нуля: пошаговый гайд для нетехнического владельца](./kak-nastroit-vps-s-nulya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-nastroit-vps-s-nulya-2026/)
@@ -1144,6 +1154,7 @@
 ## Финансы
 
 - [Онлайн-бухгалтерия для ИП: Эльба, Моё дело и Т-Банк](./onlayn-buhgalteriya-sravnenie-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/onlayn-buhgalteriya-sravnenie-2026/)
+- [Патент или УСН для ИП в 2026: что выбрать](./patent-ili-usn-dlya-ip-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/patent-ili-usn-dlya-ip-2026/)
 - [Смарт-контракты на цифровом рубле простыми словами](./smart-kontrakty-cifrovoy-rubl-prosto-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/smart-kontrakty-cifrovoy-rubl-prosto-2027/)
 - [Смарт-контракты на цифровом рубле: сценарии для бизнеса](./smart-kontrakty-cifrovoy-rubl-scenarii-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/smart-kontrakty-cifrovoy-rubl-scenarii-2027/)
 - [Смарт-контракты на CBDC: мировой опыт цифровых валют](./smart-kontrakty-cbdc-mirovoy-opyt-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/smart-kontrakty-cbdc-mirovoy-opyt-2027/)
