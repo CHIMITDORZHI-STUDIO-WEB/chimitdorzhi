@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1210**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1218**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -351,6 +351,9 @@
 
 ## Безопасность
 
+- [Двухфакторная аутентификация (2FA): полный гид 2026](./dvuhfaktornaya-autentifikaciya-gid-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/dvuhfaktornaya-autentifikaciya-gid-2026/)
+- [Самозапрет на кредиты через Госуслуги: как оформить в 2026](./samozapret-na-kredity-gosuslugi-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/samozapret-na-kredity-gosuslugi-2026/)
+- [Взломали Госуслуги: что делать в первый час](./vzlomali-gosuslugi-chto-delat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vzlomali-gosuslugi-chto-delat-2026/)
 - [Бесплатные OSINT-инструменты 2026: легальный разбор](./besplatnye-osint-instrumenty-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/besplatnye-osint-instrumenty-2026/)
 - [Как искать информацию о человеке легально: OSINT без нарушений](./osint-poisk-informacii-legalno-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/osint-poisk-informacii-legalno-2026/)
 - [Свой сервер вместо публичного VPN: VLESS, Reality и Hysteria 2 глазами студии](./svoy-server-privatnost-vless-reality-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/svoy-server-privatnost-vless-reality-2027/)
@@ -607,6 +610,10 @@
 
 ## Маркетинг
 
+- [SEO-продвижение сайта в 2026: что реально работает](./seo-prodvizhenie-sayta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/seo-prodvizhenie-sayta-2026/)
+- [Продвижение на Авито: как поднять объявления в 2026](./prodvizhenie-na-avito-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/prodvizhenie-na-avito-2026/)
+- [Авито для бизнеса: магазин, доставка и автоответы](./avito-dlya-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avito-dlya-biznesa-2026/)
+- [Аналитика Wildberries: какие сервисы и метрики нужны селлеру](./analitika-wildberries-servisy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/analitika-wildberries-servisy-2026/)
 - [Яндекс.Директ с нуля: сколько нужно на старт и куда уходят деньги](./yandex-direkt-s-nulya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/yandex-direkt-s-nulya-2026/)
 - [Почему реклама «не работает»: 5 причин, не связанных с бюджетом](./pochemu-reklama-ne-rabotaet-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pochemu-reklama-ne-rabotaet-2026/)
 - [Куда ведёт реклама: почему без нормального сайта бюджет сливается](./kuda-vedet-reklama-sayt-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kuda-vedet-reklama-sayt-2026/)
@@ -1136,6 +1143,7 @@
 
 ## Финансы
 
+- [Онлайн-бухгалтерия для ИП: Эльба, Моё дело и Т-Банк](./onlayn-buhgalteriya-sravnenie-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/onlayn-buhgalteriya-sravnenie-2026/)
 - [Смарт-контракты на цифровом рубле простыми словами](./smart-kontrakty-cifrovoy-rubl-prosto-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/smart-kontrakty-cifrovoy-rubl-prosto-2027/)
 - [Смарт-контракты на цифровом рубле: сценарии для бизнеса](./smart-kontrakty-cifrovoy-rubl-scenarii-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/smart-kontrakty-cifrovoy-rubl-scenarii-2027/)
 - [Смарт-контракты на CBDC: мировой опыт цифровых валют](./smart-kontrakty-cbdc-mirovoy-opyt-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/smart-kontrakty-cbdc-mirovoy-opyt-2027/)
