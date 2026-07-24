@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1229**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1236**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -25,6 +25,7 @@
 
 ## AI для разработчиков
 
+- [Бот с базой знаний (RAG): отвечает по вашим документам](./bot-s-bazoy-znaniy-rag-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bot-s-bazoy-znaniy-rag-2026/)
 - [Лучшие локальные нейросети 2026: какую выбрать и зачем](./luchshie-lokalnye-neyroseti-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/luchshie-lokalnye-neyroseti-2026/)
 - [Ollama vs LM Studio: что выбрать для локального ИИ](./ollama-vs-lm-studio-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ollama-vs-lm-studio-2026/)
 - [Сколько нужно RAM и видеокарты для локального ИИ](./skolko-ram-dlya-lokalnogo-ii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-ram-dlya-lokalnogo-ii-2026/)
@@ -356,6 +357,7 @@
 - [Двухфакторная аутентификация (2FA): полный гид 2026](./dvuhfaktornaya-autentifikaciya-gid-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/dvuhfaktornaya-autentifikaciya-gid-2026/)
 - [Самозапрет на кредиты через Госуслуги: как оформить в 2026](./samozapret-na-kredity-gosuslugi-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/samozapret-na-kredity-gosuslugi-2026/)
 - [Взломали Госуслуги: что делать в первый час](./vzlomali-gosuslugi-chto-delat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vzlomali-gosuslugi-chto-delat-2026/)
+- [Взломали сайт: что делать и как найти вирус](./vzlomali-sayt-chto-delat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vzlomali-sayt-chto-delat-2026/)
 - [Бесплатные OSINT-инструменты 2026: легальный разбор](./besplatnye-osint-instrumenty-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/besplatnye-osint-instrumenty-2026/)
 - [Как искать информацию о человеке легально: OSINT без нарушений](./osint-poisk-informacii-legalno-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/osint-poisk-informacii-legalno-2026/)
 - [Свой сервер вместо публичного VPN: VLESS, Reality и Hysteria 2 глазами студии](./svoy-server-privatnost-vless-reality-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/svoy-server-privatnost-vless-reality-2027/)
@@ -712,6 +714,9 @@
 - [Карго-доставка из Китая: как работает и какие риски](./kargo-dostavka-iz-kitaya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kargo-dostavka-iz-kitaya-2026/)
 - [Таможенное оформление импорта: пошагово в 2026](./tamozhennoe-oformlenie-importa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/tamozhennoe-oformlenie-importa-2026/)
 - [Как платить поставщику в Китай в 2026: переводы и юани](./kak-platit-postavshchiku-v-kitay-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-platit-postavshchiku-v-kitay-2026/)
+- [Путевые листы электронно: как перейти в 2026](./putevye-listy-elektronno-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/putevye-listy-elektronno-2026/)
+- [Программа для автосервиса: обзор и что выбрать](./programma-dlya-avtoservisa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/programma-dlya-avtoservisa-2026/)
+- [Программа для ломбарда: учёт, залоги и отчётность в ЦБ](./programma-dlya-lombarda-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/programma-dlya-lombarda-2026/)
 - [Мастерам и подрядчикам: расчёты, сметы, документы и автоматизация заявок](./masteram-i-podryadchikam-raschety-smety-avtomatizaciya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/masteram-i-podryadchikam-raschety-smety-avtomatizaciya-2026/)
 - [Электрику: расчёты, схемы, сметы и автоматизация заявок](./uslugi-dlya-elektrika-raschety-smety-avtomatizaciya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uslugi-dlya-elektrika-raschety-smety-avtomatizaciya-2026/)
 - [Сантехнику: расчёты, схемы, сметы и приём заявок 24/7](./uslugi-dlya-santehnika-raschety-smety-avtomatizaciya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uslugi-dlya-santehnika-raschety-smety-avtomatizaciya-2026/)
@@ -1006,6 +1011,8 @@
 - [Этапы разработки: что происходит после предоплаты](./etapy-razrabotki-posle-predoplaty-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/etapy-razrabotki-posle-predoplaty-2026/)
 - [Сколько стоит час разработки и почему дёшево = дорого](./skolko-stoit-chas-razrabotki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-stoit-chas-razrabotki-2026/)
 - [Приём оплаты на сайт: ЮKassa и альтернативы](./priem-oplaty-na-sayt-yukassa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/priem-oplaty-na-sayt-yukassa-2026/)
+- [Разработчик пропал: как забрать сайт, домен и доступы](./razrabotchik-propal-zabrat-sayt-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/razrabotchik-propal-zabrat-sayt-2026/)
+- [Интеграция Wildberries с 1С: как связать и что даёт](./integraciya-wildberries-1c-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/integraciya-wildberries-1c-2026/)
 - [Бесплатный VPS: миф или реальность в 2026 году](./besplatnyy-vps-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/besplatnyy-vps-2026/)
 - [IT-подрядчик в Чите: как выбрать и не переплатить](./it-podryadchik-chita-kak-vybrat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/it-podryadchik-chita-kak-vybrat-2026/)
 - [Как настроить VPS с нуля: пошаговый гайд для нетехнического владельца](./kak-nastroit-vps-s-nulya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-nastroit-vps-s-nulya-2026/)
