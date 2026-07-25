@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1260**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1268**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -620,6 +620,7 @@
 - [Аналитика Wildberries: какие сервисы и метрики нужны селлеру](./analitika-wildberries-servisy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/analitika-wildberries-servisy-2026/)
 - [Всплывающее окно на сайте: когда помогает, а когда бесит](./vsplyvayushchee-okno-na-sayte-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vsplyvayushchee-okno-na-sayte-2026/)
 - [Как удалить отзыв с Яндекс.Карт: что реально работает](./udalit-otzyv-s-yandex-kart-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/udalit-otzyv-s-yandex-kart-2026/)
+- [Мониторинг цен конкурентов: сервисы и свой парсер](./monitoring-cen-konkurentov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/monitoring-cen-konkurentov-2026/)
 - [Яндекс.Директ с нуля: сколько нужно на старт и куда уходят деньги](./yandex-direkt-s-nulya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/yandex-direkt-s-nulya-2026/)
 - [Почему реклама «не работает»: 5 причин, не связанных с бюджетом](./pochemu-reklama-ne-rabotaet-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pochemu-reklama-ne-rabotaet-2026/)
 - [Куда ведёт реклама: почему без нормального сайта бюджет сливается](./kuda-vedet-reklama-sayt-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kuda-vedet-reklama-sayt-2026/)
@@ -733,6 +734,7 @@
 - [Электронная медкарта и МИС: что может клиника в 2026](./elektronnaya-medkarta-mis-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/elektronnaya-medkarta-mis-2026/)
 - [Тахограф: кому обязателен, сроки и штрафы в 2026](./tahograf-komu-obyazatelen-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/tahograf-komu-obyazatelen-2026/)
 - [Электронный ПТС: что это и как проверить в 2026](./elektronnyy-pts-kak-proverit-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/elektronnyy-pts-kak-proverit-2026/)
+- [Программа для НКО: учёт пожертвований, доноры и прозрачность](./programma-dlya-nko-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/programma-dlya-nko-2026/)
 - [Мастерам и подрядчикам: расчёты, сметы, документы и автоматизация заявок](./masteram-i-podryadchikam-raschety-smety-avtomatizaciya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/masteram-i-podryadchikam-raschety-smety-avtomatizaciya-2026/)
 - [Электрику: расчёты, схемы, сметы и автоматизация заявок](./uslugi-dlya-elektrika-raschety-smety-avtomatizaciya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uslugi-dlya-elektrika-raschety-smety-avtomatizaciya-2026/)
 - [Сантехнику: расчёты, схемы, сметы и приём заявок 24/7](./uslugi-dlya-santehnika-raschety-smety-avtomatizaciya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uslugi-dlya-santehnika-raschety-smety-avtomatizaciya-2026/)
@@ -920,6 +922,9 @@
 - [Выписка из ЕГРЮЛ бесплатно: как получить за 5 минут](./vypiska-iz-egryul-besplatno-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vypiska-iz-egryul-besplatno-2026/)
 - [Электронные трудовые книжки: что обязан работодатель](./elektronnye-trudovye-knizhki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/elektronnye-trudovye-knizhki-2026/)
 - [Охрана труда: обязательные документы для ИП и ООО](./ohrana-truda-dokumenty-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ohrana-truda-dokumenty-2026/)
+- [Как проверить долги через ФССП и контрагента: сервисы и автоматизация](./proverit-dolgi-fssp-kontragenta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/proverit-dolgi-fssp-kontragenta-2026/)
+- [Отчётность НКО: какие отчёты сдавать и как не запутаться](./otchetnost-nko-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/otchetnost-nko-2026/)
+- [Программа контроля сотрудников: что законно и как не нарушить 152-ФЗ](./programma-kontrolya-sotrudnikov-152fz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/programma-kontrolya-sotrudnikov-152fz-2026/)
 - [Онлайн-касса и 54-ФЗ в 2026: кому нужна, как выбрать и подключить](./onlayn-kassa-54-fz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/onlayn-kassa-54-fz-2026/)
 - [Локализация баз данных в РФ по 152-ФЗ: как перенести и не попасть на штраф](./lokalizaciya-baz-dannyh-rf-152-fz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/lokalizaciya-baz-dannyh-rf-152-fz-2026/)
 - [152-ФЗ для чат-ботов и мессенджеров: как собирать заявки и не нарушить закон](./152-fz-dlya-chat-botov-i-messendzherov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/152-fz-dlya-chat-botov-i-messendzherov-2026/)
@@ -953,6 +958,7 @@
 
 ## Продажи
 
+- [Скрипты продаж и их внедрение в CRM](./skripty-prodazh-v-crm-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skripty-prodazh-v-crm-2026/)
 - [Автоматизация бизнеса в Бурятии: с чего начать в 2026](./avtomatizaciya-biznesa-buryatiya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avtomatizaciya-biznesa-buryatiya-2026/)
 - [Внедрение CRM в Иркутске под ключ: этапы и цена](./vnedrenie-crm-irkutsk-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vnedrenie-crm-irkutsk-2026/)
 - [МАКС-бот или живой менеджер: где бот выигрывает, а где только мешает](./chat-bot-ili-zhivoy-menedzher-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chat-bot-ili-zhivoy-menedzher-2026/)
@@ -1036,6 +1042,8 @@
 - [Сайт для юриста: как получать заявки, а не просто визитку](./sayt-dlya-yurista-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-dlya-yurista-2026/)
 - [Онлайн-прайс-лист: как сделать удобно и с пользой](./onlayn-prays-list-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/onlayn-prays-list-2026/)
 - [CRM для оптовых продаж: дилеры, прайсы и повторные заказы](./crm-dlya-optovyh-prodazh-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/crm-dlya-optovyh-prodazh-2026/)
+- [Учёт рабочего времени и табель: от Excel к автоматизации](./uchet-rabochego-vremeni-tabel-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uchet-rabochego-vremeni-tabel-2026/)
+- [Технический аудит сайта: 404, битые ссылки, robots и sitemap](./tehnicheskiy-audit-sayta-404-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/tehnicheskiy-audit-sayta-404-2026/)
 - [Бесплатный VPS: миф или реальность в 2026 году](./besplatnyy-vps-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/besplatnyy-vps-2026/)
 - [IT-подрядчик в Чите: как выбрать и не переплатить](./it-podryadchik-chita-kak-vybrat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/it-podryadchik-chita-kak-vybrat-2026/)
 - [Как настроить VPS с нуля: пошаговый гайд для нетехнического владельца](./kak-nastroit-vps-s-nulya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-nastroit-vps-s-nulya-2026/)
