@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1244**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1252**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -719,6 +719,12 @@
 - [Путевые листы электронно: как перейти в 2026](./putevye-listy-elektronno-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/putevye-listy-elektronno-2026/)
 - [Программа для автосервиса: обзор и что выбрать](./programma-dlya-avtoservisa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/programma-dlya-avtoservisa-2026/)
 - [Программа для ломбарда: учёт, залоги и отчётность в ЦБ](./programma-dlya-lombarda-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/programma-dlya-lombarda-2026/)
+- [Чертежи онлайн: как открыть и работать с DWG и PDF](./chertezhi-onlayn-dwg-pdf-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chertezhi-onlayn-dwg-pdf-2026/)
+- [MES-система для производства: что это и когда нужна](./mes-sistema-dlya-proizvodstva-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/mes-sistema-dlya-proizvodstva-2026/)
+- [Платежи из-за рубежа в 2026: как получать оплату](./platezhi-iz-za-rubezha-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/platezhi-iz-za-rubezha-2026/)
+- [Экспорт товаров из России для малого бизнеса: с чего начать](./eksport-tovarov-iz-rossii-msb-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/eksport-tovarov-iz-rossii-msb-2026/)
+- [Фулфилмент для маркетплейсов: что это и как выбрать](./fulfilment-dlya-marketpleysov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/fulfilment-dlya-marketpleysov-2026/)
+- [Чаевые по QR-коду: как подключить в кафе и салоне](./chaevye-po-qr-kodu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chaevye-po-qr-kodu-2026/)
 - [Мастерам и подрядчикам: расчёты, сметы, документы и автоматизация заявок](./masteram-i-podryadchikam-raschety-smety-avtomatizaciya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/masteram-i-podryadchikam-raschety-smety-avtomatizaciya-2026/)
 - [Электрику: расчёты, схемы, сметы и автоматизация заявок](./uslugi-dlya-elektrika-raschety-smety-avtomatizaciya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uslugi-dlya-elektrika-raschety-smety-avtomatizaciya-2026/)
 - [Сантехнику: расчёты, схемы, сметы и приём заявок 24/7](./uslugi-dlya-santehnika-raschety-smety-avtomatizaciya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uslugi-dlya-santehnika-raschety-smety-avtomatizaciya-2026/)
@@ -1021,6 +1027,7 @@
 - [Сайт для врача: запись, доверие и закон о рекламе](./sayt-dlya-vracha-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-dlya-vracha-2026/)
 - [Сайт для юриста: как получать заявки, а не просто визитку](./sayt-dlya-yurista-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-dlya-yurista-2026/)
 - [Онлайн-прайс-лист: как сделать удобно и с пользой](./onlayn-prays-list-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/onlayn-prays-list-2026/)
+- [CRM для оптовых продаж: дилеры, прайсы и повторные заказы](./crm-dlya-optovyh-prodazh-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/crm-dlya-optovyh-prodazh-2026/)
 - [Бесплатный VPS: миф или реальность в 2026 году](./besplatnyy-vps-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/besplatnyy-vps-2026/)
 - [IT-подрядчик в Чите: как выбрать и не переплатить](./it-podryadchik-chita-kak-vybrat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/it-podryadchik-chita-kak-vybrat-2026/)
 - [Как настроить VPS с нуля: пошаговый гайд для нетехнического владельца](./kak-nastroit-vps-s-nulya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-nastroit-vps-s-nulya-2026/)
@@ -1170,6 +1177,7 @@
 
 - [Онлайн-бухгалтерия для ИП: Эльба, Моё дело и Т-Банк](./onlayn-buhgalteriya-sravnenie-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/onlayn-buhgalteriya-sravnenie-2026/)
 - [Патент или УСН для ИП в 2026: что выбрать](./patent-ili-usn-dlya-ip-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/patent-ili-usn-dlya-ip-2026/)
+- [Самозанятый: как принимать оплату легально в 2026](./samozanyatyy-priem-oplaty-legalno-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/samozanyatyy-priem-oplaty-legalno-2026/)
 - [Смарт-контракты на цифровом рубле простыми словами](./smart-kontrakty-cifrovoy-rubl-prosto-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/smart-kontrakty-cifrovoy-rubl-prosto-2027/)
 - [Смарт-контракты на цифровом рубле: сценарии для бизнеса](./smart-kontrakty-cifrovoy-rubl-scenarii-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/smart-kontrakty-cifrovoy-rubl-scenarii-2027/)
 - [Смарт-контракты на CBDC: мировой опыт цифровых валют](./smart-kontrakty-cbdc-mirovoy-opyt-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/smart-kontrakty-cbdc-mirovoy-opyt-2027/)
