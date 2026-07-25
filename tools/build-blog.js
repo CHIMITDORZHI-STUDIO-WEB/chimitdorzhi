@@ -1272,6 +1272,13 @@ const AUTOLINK_RULES = [
   { re: /электронн(?:ая|ой) медкарт|МИС\b/i,     url: `${SVC}/clinics-digitalization/`, force: true },
   { re: /тахограф/i,                              url: `${SVC}/business-automation/`, force: true },
   { re: /электронн(?:ый|ого) ПТС|ЭПТС/i,         url: `${SVC}/business-automation/`, force: true },
+  { re: /проверк(?:а|и|у) контрагент|долги через ФССП|исполнительн(?:ое|ых) производств|массов(?:ая|ой) проверк/i, url: `${SVC}/business-automation/`, force: true },
+  { re: /отчетност(?:ь|и) НКО|программ(?:а|ы|у) для НКО|учет пожертвован|некоммерческ(?:ая|ой|их) организ|\bНКО\b/i, url: `${SVC}/business-automation/`, force: true },
+  { re: /контрол(?:ь|я) сотрудников|слежк(?:а|и) за сотрудник/i, url: `${SVC}/hr-team-management/`, force: true },
+  { re: /учет(?:а)? рабочего времени|табел(?:ь|я)/i, url: `${SVC}/hr-team-management/`, force: true },
+  { re: /техническ(?:ий|ого) аудит сайта|ошибк(?:а|и) 404|битые ссылки/i, url: 'https://audit.chimitdorzhi.tech/', force: true },
+  { re: /мониторинг цен конкурент|парсер цен/i,   url: `${SVC}/business-automation/`, force: true },
+  { re: /скрипт(?:ы|ов)? продаж/i,                url: `${SVC}/business-automation/`, force: true },
   // Инфраструктура и безопасность
   { re: /мобильн(?:ое|ого) приложени(?:е|я)/i,   url: `${SVC}/mobile-apps/` },
   { re: /(?:свой|собственный) сервер/i,          url: `${SVC}/devops/` },

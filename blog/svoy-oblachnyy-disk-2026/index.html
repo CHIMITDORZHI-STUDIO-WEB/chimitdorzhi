@@ -638,7 +638,7 @@ server {
         proxy_request_buffering off;   # стримим большие загрузки, не буферизуем
     }
 }</code></pre>
-<p>Два момента, на которых спотыкаются все новички. Первый — client_max_body_size: по умолчанию nginx не даст залить файл больше 1 МБ и вернёт ошибку 413. Ставьте лимит щедро. Второй — заголовок X-Forwarded-Proto и переменная OVERWRITEPROTOCOL в compose: без них Nextcloud думает, что работает по HTTP, и генерирует битые ссылки на ресурсы, отчего веб-интерфейс ломается. После правки конфига — nginx -t && systemctl reload nginx.</p>
+<p>Два момента, на которых спотыкаются все новички. Первый — client_max_body_size: по умолчанию nginx не даст залить файл больше 1 МБ и вернёт ошибку 413. Ставьте лимит щедро. Второй — заголовок X-Forwarded-Proto и переменная OVERWRITEPROTOCOL в compose: без них Nextcloud думает, что работает по HTTP, и генерирует <a href="https://audit.chimitdorzhi.tech/" class="blog-inline-link">битые ссылки</a> на ресурсы, отчего веб-интерфейс ломается. После правки конфига — nginx -t && systemctl reload nginx.</p>
 
 <h2 id="sinhronizaciya">Синхронизация: десктоп, мобильный, WebDAV</h2>
 <p>Облачный диск бесполезен, если файлы не синхронизируются автоматически. У Nextcloud с этим всё хорошо, и работает оно как у Dropbox.</p>
