@@ -2138,7 +2138,7 @@ function buildRss(published) {
   // Лимит RSS: последние N статей. Держим запас выше дневной drip-порции (25),
   // чтобы вся суточная пачка помещалась в фид и оставалась видимой ~2 дня —
   // тогда Дзен гарантированно успевает забрать каждую выпущенную статью.
-  const FEED_MAX = 60;
+  const FEED_MAX = 90;
   const items = sorted.slice(0, FEED_MAX).map(a => {
     const url = `${SITE}/blog/${a.slug}/`;
     const cat = CATEGORY_LABELS[a.category] || a.category || '';
