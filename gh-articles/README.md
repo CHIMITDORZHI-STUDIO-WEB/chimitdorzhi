@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1252**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1260**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -725,6 +725,14 @@
 - [Экспорт товаров из России для малого бизнеса: с чего начать](./eksport-tovarov-iz-rossii-msb-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/eksport-tovarov-iz-rossii-msb-2026/)
 - [Фулфилмент для маркетплейсов: что это и как выбрать](./fulfilment-dlya-marketpleysov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/fulfilment-dlya-marketpleysov-2026/)
 - [Чаевые по QR-коду: как подключить в кафе и салоне](./chaevye-po-qr-kodu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chaevye-po-qr-kodu-2026/)
+- [Электронные накладные (УПД): переход на ЭДО в торговле](./elektronnye-nakladnye-upd-edo-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/elektronnye-nakladnye-upd-edo-2026/)
+- [Электронная транспортная накладная (ЭТрН): как перейти](./elektronnaya-transportnaya-nakladnaya-etrn-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/elektronnaya-transportnaya-nakladnaya-etrn-2026/)
+- [Маркировка остатков на складе: как промаркировать товар](./markirovka-ostatkov-na-sklade-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/markirovka-ostatkov-na-sklade-2026/)
+- [Диспетчерская ЖКХ 24/7: приём заявок и приложение для жильцов](./dispetcherskaya-zhkh-24-7-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/dispetcherskaya-zhkh-24-7-2026/)
+- [Показания счётчиков онлайн: сервис для УК и ТСЖ](./pokazaniya-schetchikov-onlayn-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pokazaniya-schetchikov-onlayn-2026/)
+- [Электронная медкарта и МИС: что может клиника в 2026](./elektronnaya-medkarta-mis-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/elektronnaya-medkarta-mis-2026/)
+- [Тахограф: кому обязателен, сроки и штрафы в 2026](./tahograf-komu-obyazatelen-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/tahograf-komu-obyazatelen-2026/)
+- [Электронный ПТС: что это и как проверить в 2026](./elektronnyy-pts-kak-proverit-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/elektronnyy-pts-kak-proverit-2026/)
 - [Мастерам и подрядчикам: расчёты, сметы, документы и автоматизация заявок](./masteram-i-podryadchikam-raschety-smety-avtomatizaciya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/masteram-i-podryadchikam-raschety-smety-avtomatizaciya-2026/)
 - [Электрику: расчёты, схемы, сметы и автоматизация заявок](./uslugi-dlya-elektrika-raschety-smety-avtomatizaciya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uslugi-dlya-elektrika-raschety-smety-avtomatizaciya-2026/)
 - [Сантехнику: расчёты, схемы, сметы и приём заявок 24/7](./uslugi-dlya-santehnika-raschety-smety-avtomatizaciya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uslugi-dlya-santehnika-raschety-smety-avtomatizaciya-2026/)
