@@ -1,4 +1,4 @@
-// Tengeri news aggregator — режим «только RSS» (без ИИ-перевода).
+// X&X NEWS aggregator — режим «только RSS» (без ИИ-перевода).
 // Тянет реальные RSS-ленты, нормализует в фиксированный JSON-контракт, пишет файл.
 //
 // Запуск:   node aggregate.mjs
@@ -23,7 +23,7 @@ const FETCH_TIMEOUT_MS = Number(process.env.FETCH_TIMEOUT_MS || 20000);
 
 const parser = new Parser({
   timeout: FETCH_TIMEOUT_MS,
-  headers: { 'User-Agent': 'Mozilla/5.0 (compatible; TengeriNewsBot/1.0; +https://tengeri.example)' },
+  headers: { 'User-Agent': 'Mozilla/5.0 (compatible; XXNewsBot/1.0; +https://xxnews.example)' },
   customFields: {
     item: [
       ['media:content', 'mediaContent', { keepArray: true }],
@@ -124,7 +124,7 @@ async function fetchFeedText(url) {
     const res = await fetch(url, {
       redirect: 'follow',
       signal: ctrl.signal,
-      headers: { 'User-Agent': 'Mozilla/5.0 (compatible; TengeriNewsBot/1.0)' },
+      headers: { 'User-Agent': 'Mozilla/5.0 (compatible; XXNewsBot/1.0)' },
     });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const buf = Buffer.from(await res.arrayBuffer());
