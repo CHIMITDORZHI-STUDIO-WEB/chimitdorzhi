@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1276**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1284**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -90,6 +90,7 @@
 
 ## cases
 
+- [Кейс: что изменилось у клиента за 6 месяцев сопровождения](./keys-6-mesyacev-cifry-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/keys-6-mesyacev-cifry-2026/)
 - [Суперапп для сообщества автовладельцев внутри мессенджера](./superapp-avtovladeltsev-messendzher-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/superapp-avtovladeltsev-messendzher-keys-2026/)
 - [Реферальный бот-конкурс приглашений: кейс разработки](./referalnyy-bot-konkurs-priglasheniy-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/referalnyy-bot-konkurs-priglasheniy-keys-2026/)
 - [Платформа афиши и билетов в мессенджере: кейс разработки](./platforma-afishi-biletov-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/platforma-afishi-biletov-keys-2026/)
@@ -1052,6 +1053,13 @@
 - [Интеграция сайта с 1С: товары, заказы и остатки](./integraciya-sayta-s-1c-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/integraciya-sayta-s-1c-2026/)
 - [Техподдержка сайта: что входит и сколько стоит](./tehpodderzhka-sayta-skolko-stoit-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/tehpodderzhka-sayta-skolko-stoit-2026/)
 - [Приходящий сисадмин или штатный: когда что выгоднее](./prihodyashchiy-sisadmin-vs-shtatnyy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/prihodyashchiy-sisadmin-vs-shtatnyy-2026/)
+- [Форматы сотрудничества: проект, часы, подписка или внешний IT-отдел](./formaty-sotrudnichestva-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/formaty-sotrudnichestva-2026/)
+- [Внешний IT-директор (CTO as a Service): кому нужен и сколько стоит](./vneshniy-it-direktor-cto-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vneshniy-it-direktor-cto-2026/)
+- [Внешний IT-отдел для компании без своих айтишников](./vneshniy-it-otdel-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vneshniy-it-otdel-2026/)
+- [Пилотный проект за 2 недели: проверить подрядчика малой кровью](./pilotnyy-proekt-2-nedeli-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pilotnyy-proekt-2-nedeli-2026/)
+- [Как я работаю: процесс от задачи до релиза и поддержки](./kak-ya-rabotayu-process-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-ya-rabotayu-process-2026/)
+- [IT-стратегия для малого бизнеса: план на год без лишних трат](./it-strategiya-malyy-biznes-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/it-strategiya-malyy-biznes-2026/)
+- [Почему я беру не все проекты — и почему это в ваших интересах](./pochemu-beru-ne-vse-proekty-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pochemu-beru-ne-vse-proekty-2026/)
 - [Бесплатный VPS: миф или реальность в 2026 году](./besplatnyy-vps-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/besplatnyy-vps-2026/)
 - [IT-подрядчик в Чите: как выбрать и не переплатить](./it-podryadchik-chita-kak-vybrat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/it-podryadchik-chita-kak-vybrat-2026/)
 - [Как настроить VPS с нуля: пошаговый гайд для нетехнического владельца](./kak-nastroit-vps-s-nulya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-nastroit-vps-s-nulya-2026/)
