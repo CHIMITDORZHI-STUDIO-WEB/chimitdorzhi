@@ -1,4 +1,4 @@
-// Tengeri news aggregator — режим «только RSS» (без ИИ-перевода).
+// X&X NEWS aggregator — режим «только RSS» (без ИИ-перевода).
 // Тянет реальные RSS-ленты, нормализует в фиксированный JSON-контракт, пишет файл.
 //
 // Запуск:   node aggregate.mjs
@@ -23,7 +23,7 @@ const FETCH_TIMEOUT_MS = Number(process.env.FETCH_TIMEOUT_MS || 20000);
 
 const parser = new Parser({
   timeout: FETCH_TIMEOUT_MS,
-  headers: { 'User-Agent': 'Mozilla/5.0 (compatible; TengeriNewsBot/1.0; +https://tengeri.example)' },
+  headers: { 'User-Agent': 'Mozilla/5.0 (compatible; XXNewsBot/1.0; +https://xxnews.example)' },
   customFields: {
     item: [
       ['media:content', 'mediaContent', { keepArray: true }],
@@ -85,17 +85,27 @@ function categorize(title = '', catsRaw = '') {
   return 'regions';
 }
 
+// портал отдаётся по HTTPS, поэтому http-картинки браузер заблокирует как mixed content
+const httpsify = (url) => (url ? String(url).replace(/^http:\/\//i, 'https://') : null);
+
+const isImageUrl = (url, type) =>
+  /^https?:\/\//i.test(url || '') && /image|\.(jpe?g|png|webp|gif)(\?|$)/i.test(type || url || '');
+
 // вытащить картинку из разных RSS-полей
 function extractImage(item) {
-  const enc = item.enclosureRaw || item.enclosure;
-  if (enc?.url && /^https?:\/\//.test(enc.url) && /image|jpg|jpeg|png|webp|gif/i.test(enc.type || enc.url)) return enc.url;
+  // enclosure объявлен кастомным полем, поэтому атрибуты лежат в .$ — но подстрахуемся обоими вариантами
+  const encNode = item.enclosureRaw || item.enclosure;
+  for (const enc of Array.isArray(encNode) ? encNode : [encNode]) {
+    const attrs = enc?.$ || enc;
+    if (isImageUrl(attrs?.url, attrs?.type)) return httpsify(attrs.url);
+  }
   const mc = item.mediaContent?.[0]?.$ || item.mediaContent?.$;
-  if (mc?.url) return mc.url;
+  if (mc?.url) return httpsify(mc.url);
   const mt = item.mediaThumbnail?.[0]?.$ || item.mediaThumbnail?.$;
-  if (mt?.url) return mt.url;
-  const html = item['content:encoded'] || item.content || '';
+  if (mt?.url) return httpsify(mt.url);
+  const html = item['content:encoded'] || item.content || item.description || item.summary || '';
   const m = String(html).match(/<img[^>]+src=["']([^"']+)["']/i);
-  if (m) return m[1];
+  if (m) return httpsify(m[1]);
   return null;
 }
 
@@ -114,7 +124,7 @@ async function fetchFeedText(url) {
     const res = await fetch(url, {
       redirect: 'follow',
       signal: ctrl.signal,
-      headers: { 'User-Agent': 'Mozilla/5.0 (compatible; TengeriNewsBot/1.0)' },
+      headers: { 'User-Agent': 'Mozilla/5.0 (compatible; XXNewsBot/1.0)' },
     });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const buf = Buffer.from(await res.arrayBuffer());

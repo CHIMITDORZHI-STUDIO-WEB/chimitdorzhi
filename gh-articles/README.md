@@ -2,12 +2,20 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1284**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1292**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
 - [Нейросеть для видео: чем создать ролик в 2026](./neyroset-dlya-video-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/neyroset-dlya-video-2026/)
 - [OCR: как распознать текст с фото и скана](./ocr-raspoznat-tekst-s-foto-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ocr-raspoznat-tekst-s-foto-2026/)
+- [Нейросеть для генерации картинок: чем создать изображение в 2026](./neyroset-dlya-kartinok-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/neyroset-dlya-kartinok-2026/)
+- [Нейросеть для текста и копирайтинга: чем писать в 2026](./neyroset-dlya-teksta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/neyroset-dlya-teksta-2026/)
+- [Нейросеть для презентаций: сделать слайды из текста](./neyroset-dlya-prezentaciy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/neyroset-dlya-prezentaciy-2026/)
+- [Нейросеть для кода: AI-ассистенты для разработчика в 2026](./neyroset-dlya-koda-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/neyroset-dlya-koda-2026/)
+- [Бесплатные нейросети: аналоги ChatGPT, доступные в России](./besplatnye-neyroseti-analogi-chatgpt-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/besplatnye-neyroseti-analogi-chatgpt-2026/)
+- [Нейросеть для логотипа и дизайна: что реально можно сделать](./neyroset-dlya-logotipa-dizayna-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/neyroset-dlya-logotipa-dizayna-2026/)
+- [Нейросеть для перевода: чем переводить точнее обычного](./neyroset-dlya-perevoda-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/neyroset-dlya-perevoda-2026/)
+- [Нейросеть для резюме и сопроводительного письма](./neyroset-dlya-rezyume-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/neyroset-dlya-rezyume-2026/)
 - [Цифровой детокс и продуктивность: меньше экрана — больше сделано](./cifrovoy-detoks-produktivnost-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/cifrovoy-detoks-produktivnost-2027/)
 - [ИИ для интернет-магазина: карточки и описания товаров пачкой](./ii-dlya-internet-magazina-kartochki-tovarov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-dlya-internet-magazina-kartochki-tovarov-2026/)
 - [ИИ для управления личными финансами: как навести порядок в деньгах](./ii-dlya-lichnyh-finansov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-dlya-lichnyh-finansov-2026/)
