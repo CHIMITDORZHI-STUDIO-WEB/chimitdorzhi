@@ -57,7 +57,7 @@ module.exports = [
     excerpt: 'Кому обязательны электронные путевые листы, что нужно для перехода, как это работает и как автоматизировать выпуск под свой автопарк.',
     tags: ['путевые листы', 'ЭДО', 'транспорт', 'автоматизация'],
     toc: T([{ id: 'chto-eto', text: 'Что это и кому обязательно' }, { id: 'chto-nuzhno', text: 'Что нужно для перехода' }, { id: 'kak-rabotaet', text: 'Как это работает' }, { id: 'avtomatizaciya', text: 'Автоматизация выпуска' }]),
-    relatedSlugs: ['programma-dlya-avtoservisa-2026', 'integraciya-api-na-zakaz-2026', 'ai-dlya-logistiki-2026'] }),
+    relatedSlugs: ['tahograf-komu-obyazatelen-2026', 'traccar-gps-monitoring-transporta-2026', 'programma-dlya-avtoservisa-2026'] }),
 
   E({ slug: 'programma-dlya-avtoservisa-2026', category: 'industries', heroIcon: 'ph-fill ph-wrench',
     servicesOffer: SVC_SOFT, ctaInternal: CTA_SOFT,

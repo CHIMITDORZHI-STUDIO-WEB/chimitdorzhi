@@ -54,7 +54,7 @@ module.exports = [
     metaDescription: 'Traccar — open-source платформа GPS-мониторинга: живая карта, история перемещений, геозоны, отчёты по пробегу и стоянкам, оповещения. Для автопарка, курьеров и спецтехники без абонентки, данные у себя — внедрю под ключ.',
     excerpt: 'Traccar показывает, где транспорт, курьеры и спецтехника прямо сейчас, ведёт историю и геозоны — без абонентки за каждый объект и с данными у себя. Разбираю применение, нюансы 152-ФЗ и как на этом зарабатывать.',
     tags: ['Traccar', 'GPS', 'мониторинг транспорта', 'open-source'],
-    relatedSlugs: ['vroom-optimizaciya-marshrutov-2026', 'openrouteservice-svoi-karty-marshruty-2026', 'ai-dlya-logistiki-2026'] }),
+    relatedSlugs: ['tahograf-komu-obyazatelen-2026', 'putevye-listy-elektronno-2026', 'prihodyashchiy-sisadmin-vs-shtatnyy-2026'] }),
   E({ slug: 'openrouteservice-svoi-karty-marshruty-2026', heroIcon: 'ph-fill ph-map-trifold',
     title: 'OpenRouteService и Nominatim: своя карта и маршруты без оплаты API',
     metaTitle: 'OpenRouteService: свои карты и маршруты на сервере',

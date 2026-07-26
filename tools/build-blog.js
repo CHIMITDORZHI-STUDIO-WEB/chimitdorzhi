@@ -1294,6 +1294,7 @@ const AUTOLINK_RULES = [
   { re: /IT-стратеги(?:я|и|ю)|план цифровизаци/i, url: `${SVC}/it-infrastructure/`, force: true },
   { re: /сопровождени(?:е|я|и) бизнеса|на сопровождени|полгода сопровождени/i, url: `${SVC}/it-infrastructure/`, force: true },
   { re: /процесс(?:а)? (?:работы|разработки)|от задачи до релиза/i, url: `${SVC}/web-development/`, force: true },
+  { re: /GPS-мониторинг|Traccar|мониторинг(?:а)? (?:транспорта|автопарка)/i, url: `${SVC}/business-automation/`, force: true },
   // Инфраструктура и безопасность
   { re: /мобильн(?:ое|ого) приложени(?:е|я)/i,   url: `${SVC}/mobile-apps/` },
   { re: /(?:свой|собственный) сервер/i,          url: `${SVC}/devops/` },
