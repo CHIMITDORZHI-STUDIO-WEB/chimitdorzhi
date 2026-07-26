@@ -1306,6 +1306,11 @@ const AUTOLINK_RULES = [
   { re: /конвертер(?:а)? документов|конвертер(?:а)? файлов/i, url: `${SVC}/it-infrastructure/`, force: true },
   { re: /оцифровк(?:а|и|у) (?:бумажных )?(?:форм|документ|бланк)|заполняем(?:ые|ых) (?:PDF|формы)|электронн(?:ые|ых) анкет/i, url: `${SVC}/business-automation/`, force: true },
   { re: /шаблонн(?:ый|ого) сайт|редизайн(?:а)? сайта/i, url: `${SVC}/web-development/`, force: true },
+  { re: /безопасн(?:ый|ое|ого) (?:ИИ|использовани(?:е|я) ИИ)|ИИ-контур|данные в ChatGPT/i, url: `${SVC}/ai-agents/`, force: true },
+  { re: /прогноз(?:а|ы)? спроса|прогнозировани(?:е|я) продаж|прогноз(?:а)? продаж/i, url: `${SVC}/ai-analytics/`, force: true },
+  { re: /\bRPA\b|роботизаци(?:я|и|ю) (?:процессов|рутины)|программн(?:ый|ого) робот/i, url: `${SVC}/business-automation/`, force: true },
+  { re: /гостев(?:ой|ого|ая) (?:Wi-Fi|сет)|captive portal|публичн(?:ый|ая) (?:Wi-Fi|сеть)/i, url: `${SVC}/it-infrastructure/`, force: true },
+  { re: /фото блюд|визуал(?:а)? меню/i,           url: `${SVC}/web-development/`, force: true },
   // Инфраструктура и безопасность
   { re: /мобильн(?:ое|ого) приложени(?:е|я)/i,   url: `${SVC}/mobile-apps/` },
   { re: /(?:свой|собственный) сервер/i,          url: `${SVC}/devops/` },
