@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1292**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1299**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -630,6 +630,7 @@
 - [Всплывающее окно на сайте: когда помогает, а когда бесит](./vsplyvayushchee-okno-na-sayte-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vsplyvayushchee-okno-na-sayte-2026/)
 - [Как удалить отзыв с Яндекс.Карт: что реально работает](./udalit-otzyv-s-yandex-kart-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/udalit-otzyv-s-yandex-kart-2026/)
 - [Мониторинг цен конкурентов: сервисы и свой парсер](./monitoring-cen-konkurentov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/monitoring-cen-konkurentov-2026/)
+- [Почему сайт выглядит «сделанным нейросетью» — и как это исправить](./priznaki-shablonnogo-ii-sayta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/priznaki-shablonnogo-ii-sayta-2026/)
 - [Яндекс.Директ с нуля: сколько нужно на старт и куда уходят деньги](./yandex-direkt-s-nulya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/yandex-direkt-s-nulya-2026/)
 - [Почему реклама «не работает»: 5 причин, не связанных с бюджетом](./pochemu-reklama-ne-rabotaet-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pochemu-reklama-ne-rabotaet-2026/)
 - [Куда ведёт реклама: почему без нормального сайта бюджет сливается](./kuda-vedet-reklama-sayt-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kuda-vedet-reklama-sayt-2026/)
@@ -744,6 +745,10 @@
 - [Тахограф: кому обязателен, сроки и штрафы в 2026](./tahograf-komu-obyazatelen-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/tahograf-komu-obyazatelen-2026/)
 - [Электронный ПТС: что это и как проверить в 2026](./elektronnyy-pts-kak-proverit-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/elektronnyy-pts-kak-proverit-2026/)
 - [Программа для НКО: учёт пожертвований, доноры и прозрачность](./programma-dlya-nko-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/programma-dlya-nko-2026/)
+- [Программа для управления арендой: учёт объектов, жильцов и платежей](./programma-dlya-upravleniya-arendoy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/programma-dlya-upravleniya-arendoy-2026/)
+- [GPS-трекинг сотрудников через телефон: без покупки трекеров](./gps-trekking-sotrudnikov-cherez-telefon-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gps-trekking-sotrudnikov-cherez-telefon-2026/)
+- [GPS-трекинг скота: ошейники, геозоны и защита от угона](./gps-trekking-skota-osheyniki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gps-trekking-skota-osheyniki-2026/)
+- [Подсчёт посетителей магазина без камер: как это работает](./podschet-posetiteley-magazina-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/podschet-posetiteley-magazina-2026/)
 - [Мастерам и подрядчикам: расчёты, сметы, документы и автоматизация заявок](./masteram-i-podryadchikam-raschety-smety-avtomatizaciya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/masteram-i-podryadchikam-raschety-smety-avtomatizaciya-2026/)
 - [Электрику: расчёты, схемы, сметы и автоматизация заявок](./uslugi-dlya-elektrika-raschety-smety-avtomatizaciya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uslugi-dlya-elektrika-raschety-smety-avtomatizaciya-2026/)
 - [Сантехнику: расчёты, схемы, сметы и приём заявок 24/7](./uslugi-dlya-santehnika-raschety-smety-avtomatizaciya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uslugi-dlya-santehnika-raschety-smety-avtomatizaciya-2026/)
@@ -1068,6 +1073,8 @@
 - [Как я работаю: процесс от задачи до релиза и поддержки](./kak-ya-rabotayu-process-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-ya-rabotayu-process-2026/)
 - [IT-стратегия для малого бизнеса: план на год без лишних трат](./it-strategiya-malyy-biznes-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/it-strategiya-malyy-biznes-2026/)
 - [Почему я беру не все проекты — и почему это в ваших интересах](./pochemu-beru-ne-vse-proekty-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pochemu-beru-ne-vse-proekty-2026/)
+- [Свой конвертер документов: файлы не уходят в чужое облако](./svoy-konverter-dokumentov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/svoy-konverter-dokumentov-2026/)
+- [Оцифровка бумажных форм: анкеты и бланки в электронный вид](./ocifrovka-bumazhnyh-form-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ocifrovka-bumazhnyh-form-2026/)
 - [Бесплатный VPS: миф или реальность в 2026 году](./besplatnyy-vps-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/besplatnyy-vps-2026/)
 - [IT-подрядчик в Чите: как выбрать и не переплатить](./it-podryadchik-chita-kak-vybrat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/it-podryadchik-chita-kak-vybrat-2026/)
 - [Как настроить VPS с нуля: пошаговый гайд для нетехнического владельца](./kak-nastroit-vps-s-nulya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-nastroit-vps-s-nulya-2026/)
