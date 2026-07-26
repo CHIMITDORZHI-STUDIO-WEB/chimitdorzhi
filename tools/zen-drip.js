@@ -38,10 +38,11 @@ function saveState(s) { fs.writeFileSync(STATE, JSON.stringify(s, null, 2) + '\n
 const state = loadState();
 const releasedSlugs = new Set(Object.keys(state));
 
-// Очередь: ещё не выпущенные, от самых старых к новым (хронология архива).
+// Очередь: ещё не выпущенные, от САМЫХ НОВЫХ к старым — чтобы свежие статьи
+// получали сегодняшнюю дату и Дзен видел их как новые (а не тонули под архивом).
 const pending = published
   .filter(a => !releasedSlugs.has(a.slug))
-  .sort((x, y) => (x.datePublished || '').localeCompare(y.datePublished || ''));
+  .sort((x, y) => (y.datePublished || '').localeCompare(x.datePublished || ''));
 
 if (statusOnly) {
   console.log(`Всего опубликовано:        ${published.length}`);
