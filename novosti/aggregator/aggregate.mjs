@@ -85,17 +85,27 @@ function categorize(title = '', catsRaw = '') {
   return 'regions';
 }
 
+// портал отдаётся по HTTPS, поэтому http-картинки браузер заблокирует как mixed content
+const httpsify = (url) => (url ? String(url).replace(/^http:\/\//i, 'https://') : null);
+
+const isImageUrl = (url, type) =>
+  /^https?:\/\//i.test(url || '') && /image|\.(jpe?g|png|webp|gif)(\?|$)/i.test(type || url || '');
+
 // вытащить картинку из разных RSS-полей
 function extractImage(item) {
-  const enc = item.enclosureRaw || item.enclosure;
-  if (enc?.url && /^https?:\/\//.test(enc.url) && /image|jpg|jpeg|png|webp|gif/i.test(enc.type || enc.url)) return enc.url;
+  // enclosure объявлен кастомным полем, поэтому атрибуты лежат в .$ — но подстрахуемся обоими вариантами
+  const encNode = item.enclosureRaw || item.enclosure;
+  for (const enc of Array.isArray(encNode) ? encNode : [encNode]) {
+    const attrs = enc?.$ || enc;
+    if (isImageUrl(attrs?.url, attrs?.type)) return httpsify(attrs.url);
+  }
   const mc = item.mediaContent?.[0]?.$ || item.mediaContent?.$;
-  if (mc?.url) return mc.url;
+  if (mc?.url) return httpsify(mc.url);
   const mt = item.mediaThumbnail?.[0]?.$ || item.mediaThumbnail?.$;
-  if (mt?.url) return mt.url;
-  const html = item['content:encoded'] || item.content || '';
+  if (mt?.url) return httpsify(mt.url);
+  const html = item['content:encoded'] || item.content || item.description || item.summary || '';
   const m = String(html).match(/<img[^>]+src=["']([^"']+)["']/i);
-  if (m) return m[1];
+  if (m) return httpsify(m[1]);
   return null;
 }
 
