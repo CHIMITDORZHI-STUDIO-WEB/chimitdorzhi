@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1268**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1276**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -1044,6 +1044,14 @@
 - [CRM для оптовых продаж: дилеры, прайсы и повторные заказы](./crm-dlya-optovyh-prodazh-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/crm-dlya-optovyh-prodazh-2026/)
 - [Учёт рабочего времени и табель: от Excel к автоматизации](./uchet-rabochego-vremeni-tabel-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uchet-rabochego-vremeni-tabel-2026/)
 - [Технический аудит сайта: 404, битые ссылки, robots и sitemap](./tehnicheskiy-audit-sayta-404-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/tehnicheskiy-audit-sayta-404-2026/)
+- [Сайт не работает: диагностика за 10 минут и что делать](./sayt-ne-rabotaet-diagnostika-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-ne-rabotaet-diagnostika-2026/)
+- [Не приходят заявки с сайта: причины и как починить](./ne-prihodyat-zayavki-s-sayta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ne-prihodyat-zayavki-s-sayta-2026/)
+- [Перенести сайт и домен к другому подрядчику без простоя](./perenesti-sayt-domen-bez-prostoya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/perenesti-sayt-domen-bez-prostoya-2026/)
+- [Обновить старый сайт: редизайн, с нуля или миграция](./obnovit-staryy-sayt-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/obnovit-staryy-sayt-2026/)
+- [Резервное копирование 1С: как настроить автоматический бэкап](./rezervnoe-kopirovanie-1c-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/rezervnoe-kopirovanie-1c-2026/)
+- [Интеграция сайта с 1С: товары, заказы и остатки](./integraciya-sayta-s-1c-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/integraciya-sayta-s-1c-2026/)
+- [Техподдержка сайта: что входит и сколько стоит](./tehpodderzhka-sayta-skolko-stoit-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/tehpodderzhka-sayta-skolko-stoit-2026/)
+- [Приходящий сисадмин или штатный: когда что выгоднее](./prihodyashchiy-sisadmin-vs-shtatnyy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/prihodyashchiy-sisadmin-vs-shtatnyy-2026/)
 - [Бесплатный VPS: миф или реальность в 2026 году](./besplatnyy-vps-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/besplatnyy-vps-2026/)
 - [IT-подрядчик в Чите: как выбрать и не переплатить](./it-podryadchik-chita-kak-vybrat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/it-podryadchik-chita-kak-vybrat-2026/)
 - [Как настроить VPS с нуля: пошаговый гайд для нетехнического владельца](./kak-nastroit-vps-s-nulya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-nastroit-vps-s-nulya-2026/)
