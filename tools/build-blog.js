@@ -1287,6 +1287,13 @@ const AUTOLINK_RULES = [
   { re: /интеграци(?:я|и|ю) сайта с 1С|обмен(?:а)? с 1С|сайт(?:а)? с 1С/i, url: `${SVC}/business-automation/`, force: true },
   { re: /техподдержк(?:а|и|у) сайта|обслуживани(?:е|я) сайта|абонентск(?:ое|ая)/i, url: `${SVC}/it-infrastructure/`, force: true },
   { re: /приходящ(?:ий|его) сисадмин|IT-аутсорсинг|сисадмин на аутсорс/i, url: `${SVC}/it-infrastructure/`, force: true },
+  { re: /формат(?:ы|ов) сотрудничества|проект под ключ.{0,20}почасов/i, url: `${SVC}/it-infrastructure/`, force: true },
+  { re: /внешн(?:ий|его) IT-директор|CTO as a Service|техническ(?:ий|ого) директор/i, url: `${SVC}/it-infrastructure/`, force: true },
+  { re: /внешн(?:ий|его) IT-отдел|IT-отдел на аутсорс/i, url: `${SVC}/it-infrastructure/`, force: true },
+  { re: /пилотн(?:ый|ого) проект/i,              url: `${SVC}/web-development/`, force: true },
+  { re: /IT-стратеги(?:я|и|ю)|план цифровизаци/i, url: `${SVC}/it-infrastructure/`, force: true },
+  { re: /сопровождени(?:е|я|и) бизнеса|на сопровождени|полгода сопровождени/i, url: `${SVC}/it-infrastructure/`, force: true },
+  { re: /процесс(?:а)? (?:работы|разработки)|от задачи до релиза/i, url: `${SVC}/web-development/`, force: true },
   // Инфраструктура и безопасность
   { re: /мобильн(?:ое|ого) приложени(?:е|я)/i,   url: `${SVC}/mobile-apps/` },
   { re: /(?:свой|собственный) сервер/i,          url: `${SVC}/devops/` },
