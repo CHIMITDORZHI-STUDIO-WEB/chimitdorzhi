@@ -1279,6 +1279,30 @@
     <noscript><div><img src="https://mc.yandex.ru/watch/109281884" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     <!-- /Yandex.Metrika counter -->
 
+    <!-- Цели Метрики: клики по контактам и услугам -->
+    <script>
+    (function(){
+      var GOALS = [
+        { re: /t\.me\//i,                            goal: 'tg_click' },
+        { re: /max\.ru\/u\//i,                       goal: 'max_click' },
+        { re: /audit\.chimitdorzhi\.tech/i,          goal: 'audit_click' },
+        { re: /chimitdorzhi\.tech\/services\//i,     goal: 'service_click' },
+        { re: /chimitdorzhi\.tech\/predlozheniya\//i, goal: 'offer_click' }
+      ];
+      document.addEventListener('click', function(e){
+        var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+        if (!a) return;
+        var href = a.getAttribute('href') || '';
+        for (var i = 0; i < GOALS.length; i++) {
+          if (GOALS[i].re.test(href)) {
+            try { if (window.ym) ym(109281884, 'reachGoal', GOALS[i].goal); } catch (err) {}
+            break;
+          }
+        }
+      }, true);
+    })();
+    </script>
+
     <script>
         // Cookie consent — 152-ФЗ: активное согласие, без принуждения, по категориям
         (function () {
