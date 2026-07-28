@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1310**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1318**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -943,6 +943,7 @@
 - [Отчётность НКО: какие отчёты сдавать и как не запутаться](./otchetnost-nko-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/otchetnost-nko-2026/)
 - [Программа контроля сотрудников: что законно и как не нарушить 152-ФЗ](./programma-kontrolya-sotrudnikov-152fz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/programma-kontrolya-sotrudnikov-152fz-2026/)
 - [Гостевой Wi-Fi в кафе и отеле: закон, авторизация и изоляция](./gostevoy-wifi-po-zakonu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gostevoy-wifi-po-zakonu-2026/)
+- [Агентский договор и вознаграждение: как оформить и считать](./agentskiy-dogovor-i-voznagrazhdenie-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/agentskiy-dogovor-i-voznagrazhdenie-2026/)
 - [Онлайн-касса и 54-ФЗ в 2026: кому нужна, как выбрать и подключить](./onlayn-kassa-54-fz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/onlayn-kassa-54-fz-2026/)
 - [Локализация баз данных в РФ по 152-ФЗ: как перенести и не попасть на штраф](./lokalizaciya-baz-dannyh-rf-152-fz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/lokalizaciya-baz-dannyh-rf-152-fz-2026/)
 - [152-ФЗ для чат-ботов и мессенджеров: как собирать заявки и не нарушить закон](./152-fz-dlya-chat-botov-i-messendzherov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/152-fz-dlya-chat-botov-i-messendzherov-2026/)
@@ -977,6 +978,9 @@
 ## Продажи
 
 - [Скрипты продаж и их внедрение в CRM](./skripty-prodazh-v-crm-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skripty-prodazh-v-crm-2026/)
+- [Как найти дилеров и построить дилерскую сеть](./kak-nayti-dilerov-i-postroit-set-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-nayti-dilerov-i-postroit-set-2026/)
+- [Как открыть свою франшизу: упаковка и запуск](./kak-otkryt-svoyu-franshizu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-otkryt-svoyu-franshizu-2026/)
+- [Геймификация партнёров и конкурсы для менеджеров продаж](./geymifikaciya-partnerov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/geymifikaciya-partnerov-2026/)
 - [Автоматизация бизнеса в Бурятии: с чего начать в 2026](./avtomatizaciya-biznesa-buryatiya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avtomatizaciya-biznesa-buryatiya-2026/)
 - [Внедрение CRM в Иркутске под ключ: этапы и цена](./vnedrenie-crm-irkutsk-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vnedrenie-crm-irkutsk-2026/)
 - [МАКС-бот или живой менеджер: где бот выигрывает, а где только мешает](./chat-bot-ili-zhivoy-menedzher-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chat-bot-ili-zhivoy-menedzher-2026/)
@@ -1084,6 +1088,9 @@
 - [amoCRM или Битрикс24: что выбрать под отдел продаж](./amocrm-ili-bitrix24-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/amocrm-ili-bitrix24-2026/)
 - [1С или Битрикс24: где вести учёт, а где продажи](./1c-ili-bitrix24-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/1c-ili-bitrix24-2026/)
 - [Своя разработка или готовое решение: считаем TCO за 3 года](./svoya-razrabotka-ili-gotovoe-tco-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/svoya-razrabotka-ili-gotovoe-tco-2026/)
+- [Личный кабинет партнёра: что внутри и как сделать](./lichnyy-kabinet-partnera-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/lichnyy-kabinet-partnera-2026/)
+- [Учёт партнёрских выплат и отслеживание рефссылок](./uchet-partnerskih-vyplat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uchet-partnerskih-vyplat-2026/)
+- [IT-платформа для франшизы: единая система для всех точек](./it-platforma-dlya-franshizy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/it-platforma-dlya-franshizy-2026/)
 - [Бесплатный VPS: миф или реальность в 2026 году](./besplatnyy-vps-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/besplatnyy-vps-2026/)
 - [IT-подрядчик в Чите: как выбрать и не переплатить](./it-podryadchik-chita-kak-vybrat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/it-podryadchik-chita-kak-vybrat-2026/)
 - [Как настроить VPS с нуля: пошаговый гайд для нетехнического владельца](./kak-nastroit-vps-s-nulya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-nastroit-vps-s-nulya-2026/)
@@ -1236,6 +1243,7 @@
 - [Самозанятый: как принимать оплату легально в 2026](./samozanyatyy-priem-oplaty-legalno-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/samozanyatyy-priem-oplaty-legalno-2026/)
 - [Самозанятый или ИП в 2026: что выбрать и когда нужно ООО](./samozanyatyy-ili-ip-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/samozanyatyy-ili-ip-2026/)
 - [Эквайринг или СБП: что дешевле для приёма оплаты](./ekvayring-ili-sbp-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ekvayring-ili-sbp-2026/)
+- [Паушальный взнос и роялти: как считать и на что смотреть](./paushalnyy-vznos-i-royalti-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/paushalnyy-vznos-i-royalti-2026/)
 - [Смарт-контракты на цифровом рубле простыми словами](./smart-kontrakty-cifrovoy-rubl-prosto-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/smart-kontrakty-cifrovoy-rubl-prosto-2027/)
 - [Смарт-контракты на цифровом рубле: сценарии для бизнеса](./smart-kontrakty-cifrovoy-rubl-scenarii-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/smart-kontrakty-cifrovoy-rubl-scenarii-2027/)
 - [Смарт-контракты на CBDC: мировой опыт цифровых валют](./smart-kontrakty-cbdc-mirovoy-opyt-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/smart-kontrakty-cbdc-mirovoy-opyt-2027/)
