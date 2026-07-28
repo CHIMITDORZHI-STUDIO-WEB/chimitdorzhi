@@ -1316,6 +1316,13 @@ const AUTOLINK_RULES = [
   { re: /amoCRM|Битрикс24|выбор(?:а)? CRM/i,      url: `${SVC}/business-automation/`, force: true },
   { re: /эквайринг(?:а)?|СБП\b|систем(?:а|ы) быстрых платежей/i, url: `${SVC}/web-development/`, force: true },
   { re: /стоимост(?:ь|и) владения|\bTCO\b/i,      url: `${SVC}/business-automation/`, force: true },
+  { re: /кабинет(?:а)? партнера|партнерск(?:ий|ого) кабинет|партнерск(?:ая|ой) систем/i, url: `${SVC}/business-automation/`, force: true },
+  { re: /партнерск(?:их|ие) выплат|реферальн(?:ая|ой|ые) ссылк|атрибуци(?:я|и) продаж/i, url: `${SVC}/business-automation/`, force: true },
+  { re: /дилерск(?:ая|ой|ую) сет|найти дилеров|региональн(?:ый|ого) представител/i, url: `${SVC}/business-automation/`, force: true },
+  { re: /упаковк(?:а|и|у) франшизы|сво(?:ю|я) франшиз|платформ(?:а|ы|у) для франшизы/i, url: `${SVC}/business-automation/`, force: true },
+  { re: /паушальн(?:ый|ого) взнос|роялти/i,       url: `${SVC}/business-automation/`, force: true },
+  { re: /агентск(?:ий|ого) договор|агентск(?:ое|ого) вознагражден/i, url: `${SVC}/business-automation/`, force: true },
+  { re: /геймификаци(?:я|и|ю)|конкурс(?:ы)? для менеджеров/i, url: `${SVC}/business-automation/`, force: true },
   // Инфраструктура и безопасность
   { re: /мобильн(?:ое|ого) приложени(?:е|я)/i,   url: `${SVC}/mobile-apps/` },
   { re: /(?:свой|собственный) сервер/i,          url: `${SVC}/devops/` },
