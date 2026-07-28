@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1304**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1310**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -1080,6 +1080,10 @@
 - [Свой конвертер документов: файлы не уходят в чужое облако](./svoy-konverter-dokumentov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/svoy-konverter-dokumentov-2026/)
 - [Оцифровка бумажных форм: анкеты и бланки в электронный вид](./ocifrovka-bumazhnyh-form-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ocifrovka-bumazhnyh-form-2026/)
 - [RPA: робот делает рутину в браузере вместо сотрудника](./rpa-robot-v-brauzere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/rpa-robot-v-brauzere-2026/)
+- [Тильда или WordPress: что выбрать для сайта бизнеса](./tilda-ili-wordpress-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/tilda-ili-wordpress-2026/)
+- [amoCRM или Битрикс24: что выбрать под отдел продаж](./amocrm-ili-bitrix24-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/amocrm-ili-bitrix24-2026/)
+- [1С или Битрикс24: где вести учёт, а где продажи](./1c-ili-bitrix24-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/1c-ili-bitrix24-2026/)
+- [Своя разработка или готовое решение: считаем TCO за 3 года](./svoya-razrabotka-ili-gotovoe-tco-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/svoya-razrabotka-ili-gotovoe-tco-2026/)
 - [Бесплатный VPS: миф или реальность в 2026 году](./besplatnyy-vps-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/besplatnyy-vps-2026/)
 - [IT-подрядчик в Чите: как выбрать и не переплатить](./it-podryadchik-chita-kak-vybrat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/it-podryadchik-chita-kak-vybrat-2026/)
 - [Как настроить VPS с нуля: пошаговый гайд для нетехнического владельца](./kak-nastroit-vps-s-nulya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-nastroit-vps-s-nulya-2026/)
@@ -1230,6 +1234,8 @@
 - [Онлайн-бухгалтерия для ИП: Эльба, Моё дело и Т-Банк](./onlayn-buhgalteriya-sravnenie-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/onlayn-buhgalteriya-sravnenie-2026/)
 - [Патент или УСН для ИП в 2026: что выбрать](./patent-ili-usn-dlya-ip-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/patent-ili-usn-dlya-ip-2026/)
 - [Самозанятый: как принимать оплату легально в 2026](./samozanyatyy-priem-oplaty-legalno-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/samozanyatyy-priem-oplaty-legalno-2026/)
+- [Самозанятый или ИП в 2026: что выбрать и когда нужно ООО](./samozanyatyy-ili-ip-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/samozanyatyy-ili-ip-2026/)
+- [Эквайринг или СБП: что дешевле для приёма оплаты](./ekvayring-ili-sbp-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ekvayring-ili-sbp-2026/)
 - [Смарт-контракты на цифровом рубле простыми словами](./smart-kontrakty-cifrovoy-rubl-prosto-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/smart-kontrakty-cifrovoy-rubl-prosto-2027/)
 - [Смарт-контракты на цифровом рубле: сценарии для бизнеса](./smart-kontrakty-cifrovoy-rubl-scenarii-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/smart-kontrakty-cifrovoy-rubl-scenarii-2027/)
 - [Смарт-контракты на CBDC: мировой опыт цифровых валют](./smart-kontrakty-cbdc-mirovoy-opyt-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/smart-kontrakty-cbdc-mirovoy-opyt-2027/)
