@@ -131,7 +131,7 @@ module.exports = [
     metaDescription: 'Nextcloud — open-source облако и совместная работа (аналог Google Drive/Dropbox/Office 365): файлы, доступы, календарь, документы, на своём сервере. Данные в РФ по 152-ФЗ — разверну под ключ.',
     excerpt: 'Nextcloud — это своё облако компании: файлы, общий доступ и документы на своём сервере, как Google Drive, но с данными у себя. Разбираю, что умеет и что нужно для запуска.',
     tags: ['Nextcloud', 'облако', 'хранилище', 'open-source'],
-    relatedSlugs: ['outline-baza-znaniy-2026', 'mattermost-korporativnyy-messenger-2026', 'jitsi-videokonferencii-bez-zoom-2026'] }),
+    relatedSlugs: ['svoy-oblachnyy-disk-2026', 'outline-baza-znaniy-2026', 'mattermost-korporativnyy-messenger-2026', 'jitsi-videokonferencii-bez-zoom-2026'] }),
   E({ slug: 'outline-baza-znaniy-2026', heroIcon: 'ph-fill ph-book-open-text',
     title: 'Outline: база знаний команды вместо Notion',
     metaTitle: 'Outline: база знаний команды вместо Notion',

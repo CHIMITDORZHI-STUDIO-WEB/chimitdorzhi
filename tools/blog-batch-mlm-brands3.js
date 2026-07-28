@@ -53,7 +53,7 @@ module.exports = [
     heroIcon: 'ph-fill ph-shield-plus',
     tags: ['4Life', 'Трансфер Фактор', 'МЛМ', 'обзор', '2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/predlozheniya/avtovoronka-rekrutinga/', label: 'Настроить поток партнёров' },
-    relatedSlugs: ['mlm-kompanii-buryatiya-zabaykalye-irkutsk-2026', 'fohow-obzor-2026', 'rekruting-mlm-cherez-internet-2026'],
+    relatedSlugs: ['whieda-obzor-2026', 'mlm-kompanii-buryatiya-zabaykalye-irkutsk-2026', 'fohow-obzor-2026', 'rekruting-mlm-cherez-internet-2026'],
   }),
   E({
     slug: 'm-international-obzor-2026',

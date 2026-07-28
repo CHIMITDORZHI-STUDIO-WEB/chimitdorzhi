@@ -30,7 +30,7 @@ module.exports = [
     tags: ['Орифлэйм', 'Oriflame', 'МЛМ', 'обзор', '2026'],
     toc: BRAND,
     ctaInternal: { url: 'https://chimitdorzhi.tech/predlozheniya/ai-kontent-setevik/', label: 'Выделиться своим контентом' },
-    relatedSlugs: ['mlm-kompanii-buryatiya-zabaykalye-irkutsk-2026', 'oriflame-vs-sibirskoe-zdorovie-vs-faberlik-2026', 'avon-obzor-2026'],
+    relatedSlugs: ['whieda-obzor-2026', 'mlm-kompanii-buryatiya-zabaykalye-irkutsk-2026', 'oriflame-vs-sibirskoe-zdorovie-vs-faberlik-2026', 'avon-obzor-2026'],
   }),
   E({
     slug: 'avon-obzor-2026',

@@ -68,6 +68,6 @@ module.exports = [
     tags: ['Гринвей', 'Greenway', 'МЛМ', 'обзор', '2026'],
     toc: toc(['chto-eto', 'Что это'], ['produkt', 'Продукт'], ['kak-ustroen-biznes', 'Как устроен бизнес'], ['komu-podhodit', 'Кому подходит'], ['plyusy-i-riski', 'Плюсы и риски'], ['kak-nachat', 'Как начать'], ['faq', 'FAQ'], ['vyvody', 'Коротко о главном']),
     ctaInternal: { url: 'https://chimitdorzhi.tech/predlozheniya/sayt-distributora/', label: 'Собрать страницу под заявки' },
-    relatedSlugs: ['mlm-kompanii-buryatiya-zabaykalye-irkutsk-2026', 'sibirskoe-zdorovie-obzor-2026', 'istochniki-zayavok-dlya-setevika-2026'],
+    relatedSlugs: ['whieda-obzor-2026', 'mlm-kompanii-buryatiya-zabaykalye-irkutsk-2026', 'sibirskoe-zdorovie-obzor-2026', 'istochniki-zayavok-dlya-setevika-2026'],
   }),
 ];

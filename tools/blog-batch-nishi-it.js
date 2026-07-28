@@ -35,7 +35,7 @@ module.exports = [
     excerpt: 'Тетрадь записи, неявки и потерянные клиенты — типичные потери салона красоты. Разбираю, что автоматизировать: онлайн-запись, напоминания, CRM, лояльность и отзывы, и как это внедрить под ключ.',
     tags: ['салон красоты', 'онлайн-запись', 'CRM', 'цифровизация'],
     ctaInternal: cta('zapis-salon-krasoty', 'Запись и CRM для салона'),
-    relatedSlugs: ['it-dlya-barbershopa-2026', 'cifrovizaciya-fitnes-kluba-2026', 'it-dlya-detskogo-centra-2026'] }),
+    relatedSlugs: ['avtomatizaciya-salonov-krasoty-yclients', 'it-dlya-barbershopa-2026', 'cifrovizaciya-fitnes-kluba-2026', 'it-dlya-detskogo-centra-2026'] }),
   E({ slug: 'it-dlya-barbershopa-2026', heroIcon: 'ph-fill ph-user-focus',
     title: 'IT для барбершопа: онлайн-запись, абонементы, возврат клиентов',
     metaTitle: 'IT для барбершопа: запись и абонементы',

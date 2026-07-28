@@ -34,7 +34,7 @@ module.exports = [
     excerpt: 'Массаж работает курсом, а клиент бросает на середине — главная потеря салона. Разбираю, как онлайн-запись, абонементы, напоминания и CRM удерживают клиента, и как внедрить под ключ.',
     tags: ['массажный салон', 'онлайн-запись', 'абонементы', 'цифровизация'],
     ctaInternal: cta('massazh-spa-salon', 'Запись и CRM для салона'),
-    relatedSlugs: ['it-dlya-nogtevoy-studii-2026', 'it-dlya-salona-krasoty-2026', 'it-dlya-kosmetologii-2026'] }),
+    relatedSlugs: ['avtomatizaciya-salonov-krasoty-yclients', 'it-dlya-nogtevoy-studii-2026', 'it-dlya-salona-krasoty-2026', 'it-dlya-kosmetologii-2026'] }),
   E({ slug: 'it-dlya-nogtevoy-studii-2026', heroIcon: 'ph-fill ph-hand-palm',
     title: 'IT для ногтевой студии: запись к мастеру, расходники, повторные визиты',
     metaTitle: 'IT для ногтевой студии: запись и учёт',

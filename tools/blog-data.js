@@ -3619,7 +3619,7 @@ const ALL_ARTICLES = [
       { id: 'vyvody', text: 'Как выбрать' },
     ],
     contentHtml: aiAgentyVsChatbotyContent,
-    relatedSlugs: ['ai-agenty-v-biznese-2026', 'rag-sistemy-dlya-biznesa-2026', 'ai-chatbot-na-sayt-bez-programmirovaniya-2026'],
+    relatedSlugs: ['besplatnye-ai-agenty-2026', 'ai-agenty-v-biznese-2026', 'rag-sistemy-dlya-biznesa-2026', 'ai-chatbot-na-sayt-bez-programmirovaniya-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/predlozheniya/', label: 'Подобрать бота или AI-агента' },
     servicesOffer: {
       title: 'Что я делаю с ботами и AI-агентами',
@@ -4381,7 +4381,7 @@ const ALL_ARTICLES = [
       { id: 'vyvody', text: 'Выводы: что делать сейчас' },
     ],
     contentHtml: aiAgentsContent,
-    relatedSlugs: ['rossiyskiy-ai-stack-2026', 'cfa-dlya-biznesa-2026', 'pwa-iz-sayta-za-vyhodnye-2026'],
+    relatedSlugs: ['besplatnye-ai-agenty-2026', 'rossiyskiy-ai-stack-2026', 'cfa-dlya-biznesa-2026', 'pwa-iz-sayta-za-vyhodnye-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/services/ai-agents/', label: 'Заказать AI-агента' },
     servicesOffer: {
       title: "Что я делаю по AI для бизнеса",
@@ -6437,7 +6437,7 @@ const ALL_ARTICLES = [
       { id: 'vyvody', text: 'Чек-лист за неделю' },
     ],
     contentHtml: salonContent,
-    relatedSlugs: ['it-dlya-horeca-2026', 'voronka-prodazh-b2b-2026', 'svoy-sayt-vs-socseti-2026'],
+    relatedSlugs: ['avtomatizaciya-salonov-krasoty-yclients', 'it-dlya-horeca-2026', 'voronka-prodazh-b2b-2026', 'svoy-sayt-vs-socseti-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/services/business-automation/', label: 'Автоматизировать ваш салон' },
     servicesOffer: {
       title: "Что я делаю для салонов красоты",
@@ -7008,7 +7008,7 @@ const ALL_ARTICLES = [
       { id: 'vyvody', text: 'Чек-лист запуска' },
     ],
     contentHtml: selfHostedContent,
-    relatedSlugs: ['svoy-vps-dlya-razrabotchika-2026', 'lokalnyy-llm-na-noutbuke-2026', 'audit-152-fz-2026'],
+    relatedSlugs: ['svoy-oblachnyy-disk-2026', 'svoy-vps-dlya-razrabotchika-2026', 'lokalnyy-llm-na-noutbuke-2026', 'audit-152-fz-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/services/business-automation/', label: 'Поднять свою инфраструктуру' },
     servicesOffer: {
       title: 'Что я делаю по инфраструктуре',
@@ -7721,7 +7721,7 @@ const ALL_ARTICLES = [
       { id: 'vyvody', text: 'Итог' },
     ],
     contentHtml: mwrReviewContent,
-    relatedSlugs: ['travel-klub-po-podpiske-komu-vygodno-2026', 'partnerka-travel-kluba-dohod-2026', 'kak-puteshestvovat-deshevle-2026'],
+    relatedSlugs: ['whieda-obzor-2026', 'travel-klub-po-podpiske-komu-vygodno-2026', 'partnerka-travel-kluba-dohod-2026', 'kak-puteshestvovat-deshevle-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/mwrlife/', label: 'Узнать про MWR Life и записаться' },
     servicesOffer: {
       title: 'MWR Life — узнать подробнее',
@@ -10665,7 +10665,7 @@ const ALL_ARTICLES = [
       { id: 'dlya-kakih-nish', text: 'Для каких ниш подходит' },
       { id: 'faq', text: 'Частые вопросы' },
     ],
-    relatedSlugs: ['max-bot-restoran-kafe-2026', 'max-bot-rieltor-2026', 'crm-dlya-malogo-biznesa-2026'],
+    relatedSlugs: ['avtomatizaciya-salonov-krasoty-yclients', 'max-bot-restoran-kafe-2026', 'max-bot-rieltor-2026', 'crm-dlya-malogo-biznesa-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/services/telegram-bots/', label: 'Заказать бота записи в МАКС' },
     servicesOffer: {
       title: 'Боты записи и автоматизация услуг',
