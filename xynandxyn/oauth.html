@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="robots" content="noindex" />
+    <title>Вход — X&amp;X</title>
+    <style>
+      :root {
+        --ink: #0f172a;
+        --muted: #64748b;
+        --line: #e2e8f0;
+        --brand: #4f46e5;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        min-height: 100dvh;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+        background: #fff;
+        color: var(--ink);
+        font: 400 15px/1.5 Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      }
+      .card {
+        width: 100%;
+        max-width: 380px;
+        text-align: center;
+      }
+      .spinner {
+        width: 34px;
+        height: 34px;
+        margin: 0 auto 18px;
+        border: 3px solid var(--line);
+        border-top-color: var(--brand);
+        border-radius: 50%;
+        animation: spin 0.9s linear infinite;
+      }
+      @keyframes spin { to { transform: rotate(360deg); } }
+      @media (prefers-reduced-motion: reduce) { .spinner { animation-duration: 3s; } }
+      h1 { margin: 0 0 6px; font-size: 17px; font-weight: 700; letter-spacing: -0.01em; }
+      p { margin: 0; color: var(--muted); font-size: 13.5px; }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 44px;
+        margin-top: 18px;
+        padding: 0 20px;
+        border: 0;
+        border-radius: 12px;
+        background: var(--brand);
+        color: #fff;
+        font: 600 14px Inter, sans-serif;
+        text-decoration: none;
+        cursor: pointer;
+      }
+      .hidden { display: none; }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div id="spinner" class="spinner" aria-hidden="true"></div>
+      <h1 id="title">Завершаем вход…</h1>
+      <p id="text">Ещё пара секунд.</p>
+      <a id="back" class="btn hidden" href="/xynandxyn/">Вернуться в X&amp;X</a>
+    </div>
+
+    <script>
+      /*
+       * Страница возврата после входа через ВКонтакте.
+       *
+       * Зачем она нужна: ВК не принимает адрес возврата с нестандартным портом,
+       * а наш API живёт на :8443 (обычный 443 занят другим сервисом). Поэтому ВК
+       * возвращает человека сюда — на обычный адрес сайта, — а страница передаёт
+       * полученный код серверу.
+       *
+       * Важно: секретный ключ приложения здесь НЕ используется. Код меняется на
+       * данные пользователя на сервере; в браузер ключ не попадает никогда.
+       */
+      (function () {
+        var API = 'https://xx.chimitdorzhi.tech:8443/api';
+        var SESSION_KEY = 'xx.session';
+        var RETURN_KEY = 'xx.returnTo';
+        var HUB = '/xynandxyn/';
+
+        var titleEl = document.getElementById('title');
+        var textEl = document.getElementById('text');
+        var spinnerEl = document.getElementById('spinner');
+        var backEl = document.getElementById('back');
+
+        function fail(message) {
+          spinnerEl.classList.add('hidden');
+          titleEl.textContent = 'Не удалось войти';
+          textEl.textContent = message;
+          backEl.classList.remove('hidden');
+        }
+
+        function whereToGo() {
+          try {
+            var saved = localStorage.getItem(RETURN_KEY);
+            var allowed = ['/dating/', '/novosti/', '/stream/', '/marketplace/', '/games/', '/games/shagai/'];
+            if (saved && allowed.indexOf(saved) !== -1) {
+              localStorage.removeItem(RETURN_KEY);
+              return saved;
+            }
+          } catch (e) { /* приватный режим — просто идём в хаб */ }
+          return HUB;
+        }
+
+        var params = new URLSearchParams(window.location.search);
+        var error = params.get('error');
+        if (error) {
+          // ВК присылает причину отказа — показываем её понятным языком.
+          fail(error === 'access_denied'
+            ? 'Вы отменили вход. Можно попробовать ещё раз.'
+            : 'ВКонтакте отклонил вход. Попробуйте ещё раз.');
+          return;
+        }
+
+        var code = params.get('code');
+        var state = params.get('state');
+        var deviceId = params.get('device_id');
+
+        if (!code || !state) {
+          fail('Ссылка неполная — не хватает данных для входа.');
+          return;
+        }
+
+        fetch(API + '/auth/vk/relay', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ code: code, state: state, device_id: deviceId })
+        })
+          .then(function (response) {
+            if (!response.ok) {
+              if (response.status === 401 || response.status === 400) {
+                throw new Error('Данные входа устарели. Начните вход заново.');
+              }
+              if (response.status === 429) {
+                throw new Error('Слишком много попыток подряд. Немного подождите.');
+              }
+              throw new Error('Сервер сейчас недоступен. Попробуйте позже.');
+            }
+            return response.json();
+          })
+          .then(function (data) {
+            if (!data || !data.token || !data.user) {
+              throw new Error('Сервер ответил неожиданно.');
+            }
+            var u = data.user;
+            // Форма сессии — ровно та, что читает приложение (см. lib/xxauth.ts).
+            var session = {
+              token: data.token,
+              user: {
+                tgId: u.tgId != null ? u.tgId : u.tg_id,
+                firstName: u.firstName != null ? u.firstName : u.first_name,
+                username: u.username,
+                photoUrl: u.photoUrl != null ? u.photoUrl : u.photo_url,
+                verified: !!u.verified
+              },
+              savedAt: new Date().toISOString()
+            };
+            try {
+              localStorage.setItem(SESSION_KEY, JSON.stringify(session));
+            } catch (e) {
+              throw new Error('Браузер не разрешил сохранить вход. Отключите приватный режим.');
+            }
+            window.location.replace(whereToGo());
+          })
+          .catch(function (e) {
+            fail(e && e.message ? e.message : 'Не получилось связаться с сервером.');
+          });
+      })();
+    </script>
+  </body>
+</html>

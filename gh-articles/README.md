@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1299**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1304**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -34,6 +34,7 @@
 ## AI для разработчиков
 
 - [Бот с базой знаний (RAG): отвечает по вашим документам](./bot-s-bazoy-znaniy-rag-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bot-s-bazoy-znaniy-rag-2026/)
+- [ИИ-прогноз спроса и продаж: не морозить деньги в товаре](./ii-prognoz-sprosa-prodazh-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-prognoz-sprosa-prodazh-2026/)
 - [Лучшие локальные нейросети 2026: какую выбрать и зачем](./luchshie-lokalnye-neyroseti-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/luchshie-lokalnye-neyroseti-2026/)
 - [Ollama vs LM Studio: что выбрать для локального ИИ](./ollama-vs-lm-studio-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ollama-vs-lm-studio-2026/)
 - [Сколько нужно RAM и видеокарты для локального ИИ](./skolko-ram-dlya-lokalnogo-ii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-ram-dlya-lokalnogo-ii-2026/)
@@ -367,6 +368,7 @@
 - [Самозапрет на кредиты через Госуслуги: как оформить в 2026](./samozapret-na-kredity-gosuslugi-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/samozapret-na-kredity-gosuslugi-2026/)
 - [Взломали Госуслуги: что делать в первый час](./vzlomali-gosuslugi-chto-delat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vzlomali-gosuslugi-chto-delat-2026/)
 - [Взломали сайт: что делать и как найти вирус](./vzlomali-sayt-chto-delat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vzlomali-sayt-chto-delat-2026/)
+- [Сотрудники и ChatGPT: как дать ИИ и не слить данные клиентов](./bezopasnyy-ii-v-kompanii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bezopasnyy-ii-v-kompanii-2026/)
 - [Бесплатные OSINT-инструменты 2026: легальный разбор](./besplatnye-osint-instrumenty-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/besplatnye-osint-instrumenty-2026/)
 - [Как искать информацию о человеке легально: OSINT без нарушений](./osint-poisk-informacii-legalno-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/osint-poisk-informacii-legalno-2026/)
 - [Свой сервер вместо публичного VPN: VLESS, Reality и Hysteria 2 глазами студии](./svoy-server-privatnost-vless-reality-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/svoy-server-privatnost-vless-reality-2027/)
@@ -749,6 +751,7 @@
 - [GPS-трекинг сотрудников через телефон: без покупки трекеров](./gps-trekking-sotrudnikov-cherez-telefon-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gps-trekking-sotrudnikov-cherez-telefon-2026/)
 - [GPS-трекинг скота: ошейники, геозоны и защита от угона](./gps-trekking-skota-osheyniki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gps-trekking-skota-osheyniki-2026/)
 - [Подсчёт посетителей магазина без камер: как это работает](./podschet-posetiteley-magazina-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/podschet-posetiteley-magazina-2026/)
+- [ИИ-фото блюд для меню: когда это работает, а когда вредит](./ii-foto-blyud-dlya-menyu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-foto-blyud-dlya-menyu-2026/)
 - [Мастерам и подрядчикам: расчёты, сметы, документы и автоматизация заявок](./masteram-i-podryadchikam-raschety-smety-avtomatizaciya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/masteram-i-podryadchikam-raschety-smety-avtomatizaciya-2026/)
 - [Электрику: расчёты, схемы, сметы и автоматизация заявок](./uslugi-dlya-elektrika-raschety-smety-avtomatizaciya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uslugi-dlya-elektrika-raschety-smety-avtomatizaciya-2026/)
 - [Сантехнику: расчёты, схемы, сметы и приём заявок 24/7](./uslugi-dlya-santehnika-raschety-smety-avtomatizaciya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uslugi-dlya-santehnika-raschety-smety-avtomatizaciya-2026/)
@@ -939,6 +942,7 @@
 - [Как проверить долги через ФССП и контрагента: сервисы и автоматизация](./proverit-dolgi-fssp-kontragenta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/proverit-dolgi-fssp-kontragenta-2026/)
 - [Отчётность НКО: какие отчёты сдавать и как не запутаться](./otchetnost-nko-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/otchetnost-nko-2026/)
 - [Программа контроля сотрудников: что законно и как не нарушить 152-ФЗ](./programma-kontrolya-sotrudnikov-152fz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/programma-kontrolya-sotrudnikov-152fz-2026/)
+- [Гостевой Wi-Fi в кафе и отеле: закон, авторизация и изоляция](./gostevoy-wifi-po-zakonu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gostevoy-wifi-po-zakonu-2026/)
 - [Онлайн-касса и 54-ФЗ в 2026: кому нужна, как выбрать и подключить](./onlayn-kassa-54-fz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/onlayn-kassa-54-fz-2026/)
 - [Локализация баз данных в РФ по 152-ФЗ: как перенести и не попасть на штраф](./lokalizaciya-baz-dannyh-rf-152-fz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/lokalizaciya-baz-dannyh-rf-152-fz-2026/)
 - [152-ФЗ для чат-ботов и мессенджеров: как собирать заявки и не нарушить закон](./152-fz-dlya-chat-botov-i-messendzherov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/152-fz-dlya-chat-botov-i-messendzherov-2026/)
@@ -1075,6 +1079,7 @@
 - [Почему я беру не все проекты — и почему это в ваших интересах](./pochemu-beru-ne-vse-proekty-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pochemu-beru-ne-vse-proekty-2026/)
 - [Свой конвертер документов: файлы не уходят в чужое облако](./svoy-konverter-dokumentov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/svoy-konverter-dokumentov-2026/)
 - [Оцифровка бумажных форм: анкеты и бланки в электронный вид](./ocifrovka-bumazhnyh-form-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ocifrovka-bumazhnyh-form-2026/)
+- [RPA: робот делает рутину в браузере вместо сотрудника](./rpa-robot-v-brauzere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/rpa-robot-v-brauzere-2026/)
 - [Бесплатный VPS: миф или реальность в 2026 году](./besplatnyy-vps-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/besplatnyy-vps-2026/)
 - [IT-подрядчик в Чите: как выбрать и не переплатить](./it-podryadchik-chita-kak-vybrat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/it-podryadchik-chita-kak-vybrat-2026/)
 - [Как настроить VPS с нуля: пошаговый гайд для нетехнического владельца](./kak-nastroit-vps-s-nulya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-nastroit-vps-s-nulya-2026/)
