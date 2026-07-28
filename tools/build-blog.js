@@ -724,6 +724,8 @@ function blogPostingLd(a, url) {
         'https://t.me/chimitdorzhi',
         'https://vk.com/chimitdorzhi',
         'https://www.youtube.com/@chimitdorzhi_studio',
+        'https://github.com/chimitdorzhi',
+        'https://chimitdorzhi.tech/about/',
       ],
       hasCredential: [
         { '@type': 'EducationalOccupationalCredential', credentialCategory: 'certificate', recognizedBy: { '@type': 'Organization', name: 'Vanderbilt University' } },
@@ -772,6 +774,7 @@ function organizationLd() {
       'https://t.me/chimitdorzhi',
       'https://vk.com/chimitdorzhi',
       'https://www.youtube.com/@chimitdorzhi_studio',
+      'https://github.com/chimitdorzhi',
     ],
     contactPoint: {
       '@type': 'ContactPoint',
@@ -2372,6 +2375,8 @@ const LLMS_TAIL = `## Услуги
 ## Контакты
 - Telegram: https://t.me/chimitdorzhi
 - ВКонтакте: https://vk.com/chimitdorzhi
+- GitHub: https://github.com/chimitdorzhi
+- YouTube: https://www.youtube.com/@chimitdorzhi_studio
 - Телефон: +7 (931) 605-30-07
 - Сайт: https://chimitdorzhi.tech`;
 // Порядок и подписи разделов навигатора

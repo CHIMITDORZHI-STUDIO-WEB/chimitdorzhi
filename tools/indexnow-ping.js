@@ -26,10 +26,15 @@ const catKeys = CAT_KEYS.filter(k => published.some(p => p.category === k));
 
 const staticPages = [
   `https://${HOST}/`,
+  `https://${HOST}/about/`,
   `https://${HOST}/services/`,
   `https://${HOST}/blog/`,
+  `https://${HOST}/slovar/`,
   `https://${HOST}/mwrlife/`,
   `https://${HOST}/accessibility/`,
+  `https://${HOST}/en/`,
+  `https://${HOST}/cn/`,
+  `https://${HOST}/mn/`,
 ];
 
 const urlList = [
