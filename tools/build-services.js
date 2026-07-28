@@ -514,7 +514,7 @@ function sitemap() {
     { loc: `${SITE}/legal.html`,          priority: '0.3', freq: 'yearly' },
   );
 
-  const ALTS = `\n    <xhtml:link rel="alternate" hreflang="ru" href="${SITE}/"/>\n    <xhtml:link rel="alternate" hreflang="en" href="${SITE}/en/"/>\n    <xhtml:link rel="alternate" hreflang="cn" href="${SITE}/cn/"/>\n    <xhtml:link rel="alternate" hreflang="mn" href="${SITE}/mn/"/>\n    <xhtml:link rel="alternate" hreflang="x-default" href="${SITE}/"/>`;
+  const ALTS = `\n    <xhtml:link rel="alternate" hreflang="ru" href="${SITE}/"/>\n    <xhtml:link rel="alternate" hreflang="en" href="${SITE}/en/"/>\n    <xhtml:link rel="alternate" hreflang="zh-Hans" href="${SITE}/cn/"/>\n    <xhtml:link rel="alternate" hreflang="zh-CN" href="${SITE}/cn/"/>\n    <xhtml:link rel="alternate" hreflang="mn" href="${SITE}/mn/"/>\n    <xhtml:link rel="alternate" hreflang="x-default" href="${SITE}/"/>`;
   const urls = entries.map((e) =>
     `  <url>\n    <loc>${e.loc}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>${e.freq}</changefreq>\n    <priority>${e.priority}</priority>${e.alts ? ALTS : ''}\n  </url>`,
   ).join('\n');
