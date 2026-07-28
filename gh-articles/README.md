@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1318**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1326**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -752,6 +752,8 @@
 - [GPS-трекинг скота: ошейники, геозоны и защита от угона](./gps-trekking-skota-osheyniki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gps-trekking-skota-osheyniki-2026/)
 - [Подсчёт посетителей магазина без камер: как это работает](./podschet-posetiteley-magazina-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/podschet-posetiteley-magazina-2026/)
 - [ИИ-фото блюд для меню: когда это работает, а когда вредит](./ii-foto-blyud-dlya-menyu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-foto-blyud-dlya-menyu-2026/)
+- [Электронный каталог библиотеки: оцифровка фонда с нуля](./elektronnyy-katalog-biblioteki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/elektronnyy-katalog-biblioteki-2026/)
+- [Программа для семейного древа и оцифровка семейного архива](./programma-semeynoe-drevo-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/programma-semeynoe-drevo-2026/)
 - [Мастерам и подрядчикам: расчёты, сметы, документы и автоматизация заявок](./masteram-i-podryadchikam-raschety-smety-avtomatizaciya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/masteram-i-podryadchikam-raschety-smety-avtomatizaciya-2026/)
 - [Электрику: расчёты, схемы, сметы и автоматизация заявок](./uslugi-dlya-elektrika-raschety-smety-avtomatizaciya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uslugi-dlya-elektrika-raschety-smety-avtomatizaciya-2026/)
 - [Сантехнику: расчёты, схемы, сметы и приём заявок 24/7](./uslugi-dlya-santehnika-raschety-smety-avtomatizaciya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uslugi-dlya-santehnika-raschety-smety-avtomatizaciya-2026/)
@@ -944,6 +946,9 @@
 - [Программа контроля сотрудников: что законно и как не нарушить 152-ФЗ](./programma-kontrolya-sotrudnikov-152fz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/programma-kontrolya-sotrudnikov-152fz-2026/)
 - [Гостевой Wi-Fi в кафе и отеле: закон, авторизация и изоляция](./gostevoy-wifi-po-zakonu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gostevoy-wifi-po-zakonu-2026/)
 - [Агентский договор и вознаграждение: как оформить и считать](./agentskiy-dogovor-i-voznagrazhdenie-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/agentskiy-dogovor-i-voznagrazhdenie-2026/)
+- [Лицензия на образовательную деятельность: требования к сайту](./licenziya-obrazovatelnaya-trebovaniya-k-saytu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/licenziya-obrazovatelnaya-trebovaniya-k-saytu-2026/)
+- [Аккредитация IT-компании: зачем нужна и как получить](./akkreditaciya-it-kompanii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/akkreditaciya-it-kompanii-2026/)
+- [Требования к сайту школы, детсада и бюджетного учреждения](./trebovaniya-k-saytu-shkoly-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/trebovaniya-k-saytu-shkoly-2026/)
 - [Онлайн-касса и 54-ФЗ в 2026: кому нужна, как выбрать и подключить](./onlayn-kassa-54-fz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/onlayn-kassa-54-fz-2026/)
 - [Локализация баз данных в РФ по 152-ФЗ: как перенести и не попасть на штраф](./lokalizaciya-baz-dannyh-rf-152-fz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/lokalizaciya-baz-dannyh-rf-152-fz-2026/)
 - [152-ФЗ для чат-ботов и мессенджеров: как собирать заявки и не нарушить закон](./152-fz-dlya-chat-botov-i-messendzherov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/152-fz-dlya-chat-botov-i-messendzherov-2026/)
@@ -1091,6 +1096,8 @@
 - [Личный кабинет партнёра: что внутри и как сделать](./lichnyy-kabinet-partnera-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/lichnyy-kabinet-partnera-2026/)
 - [Учёт партнёрских выплат и отслеживание рефссылок](./uchet-partnerskih-vyplat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uchet-partnerskih-vyplat-2026/)
 - [IT-платформа для франшизы: единая система для всех точек](./it-platforma-dlya-franshizy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/it-platforma-dlya-franshizy-2026/)
+- [Купить готовый бизнес: как проверить сайт, базу и IT-активы](./kupit-gotovyy-biznes-proverka-it-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kupit-gotovyy-biznes-proverka-it-2026/)
+- [Цифровое наследство бизнеса: доступы, домены и аккаунты](./cifrovoe-nasledstvo-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/cifrovoe-nasledstvo-biznesa-2026/)
 - [Бесплатный VPS: миф или реальность в 2026 году](./besplatnyy-vps-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/besplatnyy-vps-2026/)
 - [IT-подрядчик в Чите: как выбрать и не переплатить](./it-podryadchik-chita-kak-vybrat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/it-podryadchik-chita-kak-vybrat-2026/)
 - [Как настроить VPS с нуля: пошаговый гайд для нетехнического владельца](./kak-nastroit-vps-s-nulya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-nastroit-vps-s-nulya-2026/)
@@ -1244,6 +1251,7 @@
 - [Самозанятый или ИП в 2026: что выбрать и когда нужно ООО](./samozanyatyy-ili-ip-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/samozanyatyy-ili-ip-2026/)
 - [Эквайринг или СБП: что дешевле для приёма оплаты](./ekvayring-ili-sbp-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ekvayring-ili-sbp-2026/)
 - [Паушальный взнос и роялти: как считать и на что смотреть](./paushalnyy-vznos-i-royalti-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/paushalnyy-vznos-i-royalti-2026/)
+- [Оценка и продажа бизнеса: сколько стоят цифровые активы](./ocenka-i-prodazha-biznesa-cifrovye-aktivy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ocenka-i-prodazha-biznesa-cifrovye-aktivy-2026/)
 - [Смарт-контракты на цифровом рубле простыми словами](./smart-kontrakty-cifrovoy-rubl-prosto-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/smart-kontrakty-cifrovoy-rubl-prosto-2027/)
 - [Смарт-контракты на цифровом рубле: сценарии для бизнеса](./smart-kontrakty-cifrovoy-rubl-scenarii-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/smart-kontrakty-cifrovoy-rubl-scenarii-2027/)
 - [Смарт-контракты на CBDC: мировой опыт цифровых валют](./smart-kontrakty-cbdc-mirovoy-opyt-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/smart-kontrakty-cbdc-mirovoy-opyt-2027/)
