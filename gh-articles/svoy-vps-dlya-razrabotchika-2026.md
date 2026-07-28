@@ -1,6 +1,6 @@
 ---
 title: "Свой VPS для разработчика в 2026: Selectel vs RuVDS vs Timeweb vs Yandex Cloud — реальное сравнение"
-description: "Какой VPS взять разработчику в 2026: сравниваю Selectel, RuVDS, Timeweb и Yandex Cloud по цене и скорости на личном опыте. Таблица, плюсы и минусы, настройка за 30 минут и 15 self-hosted сервисов для своего сервера."
+description: "Сравнил Selectel, RuVDS, Timeweb и Yandex Cloud по цене и скорости на личном опыте: таблица тарифов, что брать под задачу и настройка сервера за 30 минут."
 date: 2026-05-21
 category: development
 canonical: https://chimitdorzhi.tech/blog/svoy-vps-dlya-razrabotchika-2026/
