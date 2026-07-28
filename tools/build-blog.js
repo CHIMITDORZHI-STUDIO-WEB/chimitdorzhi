@@ -992,6 +992,58 @@ function seriesHtml(a, published) {
 </section>`;
 }
 
+// Балансировка внутренней перелинковки.
+// Статьи с малым числом входящих ссылок Google часто оставляет в статусе
+// «Обнаружена, не проиндексирована» — до них не доходит краулинговый бюджет.
+// Здесь мы находим такие статьи и дописываем их в relatedSlugs тематически
+// близких доноров (та же категория, ссылок ещё не под завязку). Исходные
+// данные в blog-batch-*.js не трогаем — правки живут только в памяти билда.
+const LINK_TARGET   = 3; // к скольким входящим стремимся
+const LINK_MAX_REL  = 6; // максимум карточек «Читайте также» у донора
+function balanceInternalLinks(published) {
+  const slugs = new Set(published.map(a => a.slug));
+  const inbound = new Map(published.map(a => [a.slug, 0]));
+  const bump = (s) => { if (inbound.has(s)) inbound.set(s, inbound.get(s) + 1); };
+
+  for (const a of published) {
+    for (const s of (a.relatedSlugs || [])) if (s !== a.slug) bump(s);
+    const inBody = new Set((a.contentHtml.match(/\/blog\/([a-z0-9-]+)\//g) || []).map(m => m.split('/')[2]));
+    for (const s of inBody) if (s !== a.slug) bump(s);
+  }
+
+  // Доноры по категориям — сначала те, у кого больше всего входящих:
+  // такие страницы Google обходит чаще, значит вес передадут быстрее.
+  const byCat = {};
+  for (const a of published) (byCat[a.category] = byCat[a.category] || []).push(a);
+  for (const k of Object.keys(byCat)) {
+    byCat[k].sort((x, y) => inbound.get(y.slug) - inbound.get(x.slug));
+  }
+
+  const weak = published
+    .filter(a => inbound.get(a.slug) < LINK_TARGET)
+    .sort((x, y) => inbound.get(x.slug) - inbound.get(y.slug));
+
+  let added = 0;
+  for (const a of weak) {
+    const pool = byCat[a.category] || [];
+    for (const donor of pool) {
+      if (inbound.get(a.slug) >= LINK_TARGET) break;
+      if (donor.slug === a.slug) continue;
+      donor.relatedSlugs = donor.relatedSlugs || [];
+      if (donor.relatedSlugs.length >= LINK_MAX_REL) continue;
+      if (donor.relatedSlugs.includes(a.slug)) continue;
+      // не создаём взаимную пару там, где слабая статья уже ссылается на донора
+      if ((a.relatedSlugs || []).includes(donor.slug)) continue;
+      if (!slugs.has(donor.slug)) continue;
+      donor.relatedSlugs.push(a.slug);
+      bump(a.slug);
+      added++;
+    }
+  }
+  const still = published.filter(a => inbound.get(a.slug) < LINK_TARGET).length;
+  console.log(`  Перелинковка: +${added} ссылок, слабых осталось ${still} (было ${weak.length})`);
+}
+
 function relatedHtml(a, published) {
   // Resolve relatedSlugs to published articles. If none — fall back to service links.
   const map = new Map(published.map(p => [p.slug, p]));
@@ -2417,6 +2469,10 @@ async function main() {
       return d !== 0 ? d : y.i - x.i;
     })
     .map(o => o.a);
+
+  // Выравниваем внутренние ссылки до генерации HTML: статьи-аутсайдеры
+  // получают входящие от тематических соседей, иначе Google до них не доходит.
+  balanceInternalLinks(published);
 
   // «Свежее»: 6 самых новых статей (весь блог вышел сжатым периодом)
   FRESH_SLUGS = new Set(published.slice(0, 6).map(a => a.slug));
