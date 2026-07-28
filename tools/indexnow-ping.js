@@ -53,19 +53,27 @@ const body = JSON.stringify({
   urlList,
 });
 
-const req = https.request({
-  hostname: 'yandex.com',
-  path: '/indexnow',
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': Buffer.byteLength(body) },
-}, (res) => {
-  let data = '';
-  res.on('data', (c) => { data += c; });
-  res.on('end', () => {
-    console.log(`Yandex IndexNow: ${res.statusCode} (${urlList.length} URLs)`);
-    if (data) console.log(data);
+// Пингуем два эндпоинта: Yandex (для Яндекс.Поиска) и api.indexnow.org
+// (федеративный — форвардит в Bing, Naver, Seznam и других участников).
+// Достаточно одного ключа и одного файла подтверждения в корне сайта.
+function ping(hostname, label) {
+  const req = https.request({
+    hostname,
+    path: '/indexnow',
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': Buffer.byteLength(body) },
+  }, (res) => {
+    let data = '';
+    res.on('data', (c) => { data += c; });
+    res.on('end', () => {
+      console.log(`${label}: ${res.statusCode} (${urlList.length} URLs)`);
+      if (data) console.log(data);
+    });
   });
-});
-req.on('error', (e) => console.error('error:', e.message));
-req.write(body);
-req.end();
+  req.on('error', (e) => console.error(`${label} error:`, e.message));
+  req.write(body);
+  req.end();
+}
+
+ping('yandex.com', 'Yandex IndexNow');
+ping('api.indexnow.org', 'IndexNow (federated → Bing/Naver/Seznam)');
