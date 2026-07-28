@@ -1311,6 +1311,11 @@ const AUTOLINK_RULES = [
   { re: /\bRPA\b|роботизаци(?:я|и|ю) (?:процессов|рутины)|программн(?:ый|ого) робот/i, url: `${SVC}/business-automation/`, force: true },
   { re: /гостев(?:ой|ого|ая) (?:Wi-Fi|сет)|captive portal|публичн(?:ый|ая) (?:Wi-Fi|сеть)/i, url: `${SVC}/it-infrastructure/`, force: true },
   { re: /фото блюд|визуал(?:а)? меню/i,           url: `${SVC}/web-development/`, force: true },
+  { re: /самозанят(?:ый|ости).{0,10}(?:или|vs).{0,10}ИП|стать(?:ся)? ИП/i, url: `${SVC}/business-automation/`, force: true },
+  { re: /Тильд(?:а|е|ы).{0,12}WordPress|WordPress.{0,12}Тильд|конструктор(?:а)? сайтов/i, url: `${SVC}/web-development/`, force: true },
+  { re: /amoCRM|Битрикс24|выбор(?:а)? CRM/i,      url: `${SVC}/business-automation/`, force: true },
+  { re: /эквайринг(?:а)?|СБП\b|систем(?:а|ы) быстрых платежей/i, url: `${SVC}/web-development/`, force: true },
+  { re: /стоимост(?:ь|и) владения|\bTCO\b/i,      url: `${SVC}/business-automation/`, force: true },
   // Инфраструктура и безопасность
   { re: /мобильн(?:ое|ого) приложени(?:е|я)/i,   url: `${SVC}/mobile-apps/` },
   { re: /(?:свой|собственный) сервер/i,          url: `${SVC}/devops/` },
