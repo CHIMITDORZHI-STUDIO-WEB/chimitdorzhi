@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1329**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1331**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -364,6 +364,7 @@
 
 ## Безопасность
 
+- [Скрытые камеры и трекеры: как проверить переговорную, офис и машину](./proverka-na-skrytye-kamery-trekery-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/proverka-na-skrytye-kamery-trekery-2026/)
 - [Двухфакторная аутентификация (2FA): полный гид 2026](./dvuhfaktornaya-autentifikaciya-gid-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/dvuhfaktornaya-autentifikaciya-gid-2026/)
 - [Самозапрет на кредиты через Госуслуги: как оформить в 2026](./samozapret-na-kredity-gosuslugi-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/samozapret-na-kredity-gosuslugi-2026/)
 - [Взломали Госуслуги: что делать в первый час](./vzlomali-gosuslugi-chto-delat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vzlomali-gosuslugi-chto-delat-2026/)
@@ -724,6 +725,7 @@
 
 ## Отрасли
 
+- [BLE-метки для учёта оборудования: где что лежит и куда уехало](./uchet-oborudovaniya-ble-metki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uchet-oborudovaniya-ble-metki-2026/)
 - [Честный знак: подключение пошагово в 2026 — что нужно и с чего начать](./chestnyy-znak-podklyuchenie-poshagovo-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chestnyy-znak-podklyuchenie-poshagovo-2026/)
 - [1688: как заказывать напрямую и через посредника](./zakaz-s-1688-napryamuyu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zakaz-s-1688-napryamuyu-2026/)
 - [Карго-доставка из Китая: как работает и какие риски](./kargo-dostavka-iz-kitaya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kargo-dostavka-iz-kitaya-2026/)
