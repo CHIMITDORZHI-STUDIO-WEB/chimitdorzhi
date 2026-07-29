@@ -2241,9 +2241,17 @@ function updateSitemap(published) {
 
 // ---------- RSS feed ----------
 
-function rssDate(iso) {
-  // RFC 822 — required by RSS 2.0
-  const d = new Date(iso + 'T09:00:00+03:00');
+function rssDate(iso, slot = 0) {
+  // RFC 822 — required by RSS 2.0.
+  // slot разносит статьи одного дня по времени (09:00, 12:30, 16:00 …).
+  // Одинаковый timestamp у пачки статей Дзен читает как массовый вброс и
+  // придерживает публикацию — поэтому выпуск выглядит как обычный график.
+  // Старт 09:00 МСК, шаг 3.5 часа. Ограничиваем 5 слотами (до 23:00), чтобы
+  // время не перевалило за полночь и не сломало порядок внутри дня.
+  const mins = 9 * 60 + Math.min(slot, 4) * 210;
+  const hh = String(Math.floor(mins / 60) % 24).padStart(2, '0');
+  const mm = String(mins % 60).padStart(2, '0');
+  const d = new Date(`${iso}T${hh}:${mm}:00+03:00`);
   return d.toUTCString();
 }
 
@@ -2268,8 +2276,15 @@ function buildRss(published) {
   // Лимит RSS: последние N статей. Держим запас выше дневной drip-порции (25),
   // чтобы вся суточная пачка помещалась в фид и оставалась видимой ~2 дня —
   // тогда Дзен гарантированно успевает забрать каждую выпущенную статью.
-  const FEED_MAX = 90;
+  // Выпускаем по 3 статьи в день (см. .github/workflows/zen-drip.yml),
+  // поэтому 30 записей ≈ десять дней истории — с запасом.
+  const FEED_MAX = 30;
+  // Счётчик позиции внутри одного дня: даёт каждой статье своё время выпуска.
+  const daySlot = {};
   const items = sorted.slice(0, FEED_MAX).map(a => {
+    const fd = feedDate(a);
+    daySlot[fd] = (daySlot[fd] || 0);
+    const slot = daySlot[fd]++;
     const url = `${SITE}/blog/${a.slug}/`;
     const cat = CATEGORY_LABELS[a.category] || a.category || '';
     const cover = `${SITE}/blog/${a.slug}/cover.png`;
@@ -2281,7 +2296,7 @@ function buildRss(published) {
       <guid isPermaLink="true">${url}</guid>
       <description><![CDATA[${a.excerpt || ''}]]></description>
       <content:encoded><![CDATA[${fullHtml}]]></content:encoded>
-      <pubDate>${rssDate(feedDate(a))}</pubDate>
+      <pubDate>${rssDate(fd, slot)}</pubDate>
       <category>${esc(cat)}</category>
       <author>noreply@chimitdorzhi.tech (Чимитдоржи Дарижапов)</author>
       <enclosure url="${cover}" type="image/png" length="0"/>
