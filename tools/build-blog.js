@@ -72,7 +72,7 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 (function(){
   var GOALS = [
     { re: /t\\.me\\//i,                     goal: 'tg_click' },
-    { re: /max\\.ru\\/u\\//i,                goal: 'max_click' },
+    { re: /max\\.ru\\//i,                    goal: 'max_click' },
     { re: /audit\\.chimitdorzhi\\.tech/i,    goal: 'audit_click' },
     { re: /chimitdorzhi\\.tech\\/services\\//i, goal: 'service_click' },
     { re: /chimitdorzhi\\.tech\\/predlozheniya\\//i, goal: 'offer_click' }
@@ -722,6 +722,8 @@ function blogPostingLd(a, url) {
       jobTitle: 'IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ',
       sameAs: [
         'https://t.me/chimitdorzhi',
+        'https://t.me/chimitdorzhi_studio',
+        'https://max.ru/channel_chimitdorzhi',
         'https://vk.com/chimitdorzhi',
         'https://www.youtube.com/@chimitdorzhi_studio',
         'https://github.com/chimitdorzhi',
@@ -772,6 +774,8 @@ function organizationLd() {
     ],
     sameAs: [
       'https://t.me/chimitdorzhi',
+      'https://t.me/chimitdorzhi_studio',
+      'https://max.ru/channel_chimitdorzhi',
       'https://vk.com/chimitdorzhi',
       'https://www.youtube.com/@chimitdorzhi_studio',
       'https://github.com/chimitdorzhi',
@@ -2440,7 +2444,9 @@ const LLMS_TAIL = `## Услуги
 - [Об авторе](https://chimitdorzhi.tech/about/): биография, регалии, сертификаты, экспертиза Чимитдоржи Дарижапова.
 
 ## Контакты
-- Telegram: https://t.me/chimitdorzhi
+- Telegram (личные сообщения): https://t.me/chimitdorzhi
+- Telegram-канал студии: https://t.me/chimitdorzhi_studio
+- Канал в MAX: https://max.ru/channel_chimitdorzhi
 - ВКонтакте: https://vk.com/chimitdorzhi
 - GitHub: https://github.com/chimitdorzhi
 - YouTube: https://www.youtube.com/@chimitdorzhi_studio
