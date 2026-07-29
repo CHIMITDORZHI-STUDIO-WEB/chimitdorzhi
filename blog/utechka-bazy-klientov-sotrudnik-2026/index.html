@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Утечка базы клиентов: как понять и что делать</title>
+    <meta name="description" content="Признаки того, что сотрудник копирует базу клиентов, легальные способы контроля (разграничение доступа, DLP) и что можно по 152-ФЗ, а что нельзя.">
+    <meta name="keywords" content="сотрудник слил базу клиентов, утечка базы данных, dlp система, контроль доступа сотрудников, защита базы клиентов, кража клиентской базы, 152-фз доступ">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/utechka-bazy-klientov-sotrudnik-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/utechka-bazy-klientov-sotrudnik-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/utechka-bazy-klientov-sotrudnik-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/utechka-bazy-klientov-sotrudnik-2026/">
+    <meta property="og:title" content="Утечка базы клиентов: как понять и что делать">
+    <meta property="og:description" content="Признаки того, что сотрудник копирует базу клиентов, легальные способы контроля (разграничение доступа, DLP) и что можно по 152-ФЗ, а что нельзя.">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/utechka-bazy-klientov-sotrudnik-2026/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Утечка базы клиентов: как понять и что делать">
+    <meta name="twitter:description" content="Признаки того, что сотрудник копирует базу клиентов, легальные способы контроля (разграничение доступа, DLP) и что можно по 152-ФЗ, а что нельзя.">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/utechka-bazy-klientov-sotrudnik-2026/cover.png">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor-Fill.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=65">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Слил ли сотрудник базу клиентов: как понять и что делать",
+  "description": "Признаки того, что сотрудник копирует базу клиентов, легальные способы контроля (разграничение доступа, DLP) и что можно по 152-ФЗ, а что нельзя. С чего начать аудит доступа.",
+  "image": "https://chimitdorzhi.tech/blog/utechka-bazy-klientov-sotrudnik-2026/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://t.me/chimitdorzhi_studio",
+      "https://max.ru/channel_chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio",
+      "https://github.com/chimitdorzhi",
+      "https://chimitdorzhi.tech/about/"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/utechka-bazy-klientov-sotrudnik-2026/"
+  },
+  "datePublished": "2026-07-30",
+  "dateModified": "2026-07-30",
+  "keywords": "утечка данных, DLP, база клиентов, 152-ФЗ, 2026",
+  "articleSection": "Безопасность",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  },
+  "about": [
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://chimitdorzhi.tech/slovar/#152-fz",
+      "name": "152-ФЗ"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Слил ли сотрудник базу клиентов: как понять и что делать",
+      "item": "https://chimitdorzhi.tech/blog/utechka-bazy-klientov-sotrudnik-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Можно ли читать личную почту сотрудника, если я подозреваю утечку?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет. Личная почта — это тайна переписки. Читать её тайно нельзя ни при каких подозрениях. Контролировать можно только корпоративный ящик, о чём сотрудник уведомлён."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Законно ли использовать DLP?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, если DLP стоит на корпоративных устройствах, сотрудник уведомлён и подписал политику. Скрытая установка на личные устройства — недопустима."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Поможет ли соглашение о неконкуренции в России?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Не рассчитывайте на него как на основную защиту. В российской практике его применимость ограничена. Как дисциплинирующий и сигнальный документ — полезно, но формулировки согласуйте с юристом."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что делать, если прямых доказательств нет?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Это типичная ситуация. Не обвиняйте на основе догадок. Соберите то, что есть, оцените с юристом перспективу и, что важнее, закройте уязвимости, чтобы следующий раз был отслеживаемым."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли вообще запретить экспорт из CRM?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, технически экспорт можно ограничить ролями или отключить для части сотрудников, а разрешённые выгрузки — логировать и помечать водяными знаками. Это одна из самых полезных мер."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "С чего начать, если ничего из этого пока нет?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "С двух вещей: оформить режим коммерческой тайны с юристом и настроить доступ по ролям. Это даёт наибольший эффект при наименьших усилиях."
+      }
+    }
+  ]
+}
+    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+var inject=function(){for (var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)};
+var run=function(){('requestIdleCallback' in window)?requestIdleCallback(inject,{timeout:5000}):setTimeout(inject,3000)};
+(e.readyState==='complete')?run():m.addEventListener('load',run);})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109281884" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<!-- Цели Метрики: клики по контактам и услугам -->
+<script type="text/javascript">
+(function(){
+  var GOALS = [
+    { re: /t\.me\//i,                     goal: 'tg_click' },
+    { re: /max\.ru\//i,                    goal: 'max_click' },
+    { re: /audit\.chimitdorzhi\.tech/i,    goal: 'audit_click' },
+    { re: /chimitdorzhi\.tech\/services\//i, goal: 'service_click' },
+    { re: /chimitdorzhi\.tech\/predlozheniya\//i, goal: 'offer_click' }
+  ];
+  document.addEventListener('click', function(e){
+    var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    for (var i = 0; i < GOALS.length; i++) {
+      if (GOALS[i].re.test(href)) {
+        try { if (window.ym) ym(109281884, 'reachGoal', GOALS[i].goal); } catch (err) {}
+        break;
+      }
+    }
+  }, true);
+})();
+</script>
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/market/">Собрать проект</a></li>
+            <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+            <li style="display:none"><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li class="nav-dropdown">
+                <a href="/#projects" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="/blog/category/cases/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-briefcase" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Кейсы</span>
+                            <span class="nav-dropdown-desc">Реальные проекты под ключ</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li style="display:none"><a href="/#cases" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li style="display:none"><a href="/infografika/">Инфографика</a></li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+                <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему" aria-pressed="false">
+                <i class="ph ph-moon" aria-hidden="true"></i>
+            </button>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/market/">Собрать проект</a></li>
+        <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+        <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+        <li class="mobile-has-submenu">
+            <details>
+                <summary aria-label="Проекты — развернуть"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down" aria-hidden="true"></i></summary>
+                <ul class="mobile-submenu">
+                    <li>
+                        <a href="/blog/category/cases/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-briefcase" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">Кейсы</span>
+                                <span class="mobile-sub-desc">Реальные проекты под ключ</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://gerel.space" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">Gerel.space</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/universe_buryat/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/arey/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.arey">AREY</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/mwrlife/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">MWR Life</span>
+                                <span class="mobile-sub-desc">Travel-клуб и партнёрка</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </details>
+        </li>
+        <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+        <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+    </ul>
+    <div class="mobile-controls">
+        <div class="mobile-lang-switcher" role="group" aria-label="Выбор языка">
+            <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+            <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+            <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+        </div>
+        <button class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle" aria-label="Переключить тему" aria-pressed="false">
+            <i class="ph ph-moon" aria-hidden="true"></i>
+        </button>
+    </div>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Слил ли сотрудник базу клиентов: как понять и что делать</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/security/"><i class="ph ph-bookmark" aria-hidden="true"></i> Безопасность</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин чтения</span>
+                        <time datetime="2026-07-30"><i class="ph ph-calendar" aria-hidden="true"></i> 30 июля 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Слил ли сотрудник базу клиентов: как понять и что делать</h1>
+
+                    <p class="blog-lead">Клиенты уходят к бывшему менеджеру, а его новая компания как будто знает ваши цены. Разбираю, как понять, что базу скопировали, что с этим можно сделать легально и где проходит граница по 152-ФЗ.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>утечка данных</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>DLP</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>база клиентов</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>152-ФЗ</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>2026</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr">
+  <h3>Коротко (TL;DR)</h3>
+  <ul>
+    <li>База клиентов утекает буднично: выгрузка из CRM в Excel, письмо на личную почту, фото экрана телефоном, флешка или просто увольняющийся менеджер, который «забирает своих».</li>
+    <li>Прямых доказательств почти никогда нет. Признаки косвенные: клиенты уходят пачкой, конкурент знает ваши цены, перед увольнением сотрудник массово выгружал отчёты.</li>
+    <li>Легально контролировать можно то, что принадлежит компании: корпоративные учётные записи, CRM, рабочие устройства. Но только при условии, что сотрудник уведомлён и подписал согласие.</li>
+    <li>Скрытая слежка за личной перепиской, личной почтой и личными телефонами — незаконна, чем бы вы её ни оправдывали.</li>
+    <li>Реальная защита — это профилактика: режим коммерческой тайны на бумаге, доступ по ролям, мгновенный отзыв прав при увольнении и минимизация данных.</li>
+  </ul>
+</div>
+
+<p>Меня зовут Чимитдоржи Дарижапов, я занимаюсь информационной безопасностью. Ко мне регулярно приходят владельцы бизнеса с одной и той же историей: уволился менеджер, а через месяц половина клиентов оказалась у конкурента или у него самого. И первый вопрос почти всегда звучит так: «Как мне за ними следить, чтобы поймать?» Отвечаю сразу и трезво: следить тайно за людьми нельзя, это отдельная проблема, за которую отвечает уже сам работодатель. Зато можно выстроить систему, где утечка становится и заметной, и невыгодной, и трудноосуществимой. Об этом и поговорим — строго со стороны защиты бизнеса и строго в рамках закона.</p>
+
+<p>Сразу договоримся: клиентская база — это не абстрактный актив, а персональные данные ваших клиентов. Компания за них отвечает как оператор. Поэтому защита базы — это не только про «не дать менеджеру увести контакты», но и про вашу собственную ответственность перед клиентами. Эти два интереса совпадают, и это хорошая новость.</p>
+
+<h2 id="kak-eto-proishodit">Как утекает база</h2>
+
+<p>За годы практики я вижу один и тот же короткий список сценариев. Почти все они не про хакеров, а про обычные рабочие действия, которые никто не контролировал.</p>
+
+<ul>
+  <li><strong>Выгрузка из CRM в Excel.</strong> Менеджер нажимает «Экспорт», получает таблицу со всеми клиентами, телефонами и суммами сделок. Дальше файл живёт своей жизнью.</li>
+  <li><strong>Отправка на личную почту.</strong> «Чтобы поработать из дома» или прямо перед увольнением — письмо с вложением уходит на личный ящик, и вы об этом не узнаете, если не логируете исходящую корпоративную почту.</li>
+  <li><strong>Фото экрана телефоном.</strong> Самый примитивный и почти неотслеживаемый способ. Никакая техника его полностью не закроет — только организационные меры и минимизация того, что вообще видно на экране.</li>
+  <li><strong>Копирование на флешку.</strong> Классика. Если USB-порты на рабочих машинах не ограничены, база уходит за десять секунд.</li>
+  <li><strong>Избыточный доступ.</strong> Менеджеру, который ведёт двадцать клиентов, открыт доступ ко всей базе на несколько тысяч. Он видит то, что ему для работы не нужно, — и это ваша недоработка, а не его злой умысел.</li>
+  <li><strong>«Свои» клиенты увольняющегося.</strong> Менеджер искренне считает контакты, которые он вёл, своими и уносит их. Юридически это чаще всего не так, но без оформленного режима коммерческой тайны доказать что-либо крайне сложно.</li>
+  <li><strong>Не отозвали доступ после увольнения.</strong> Человек уволился, а его учётная запись в CRM, почте и мессенджерах живёт ещё недели. Это одна из самых частых и самых обидных дыр.</li>
+</ul>
+
+<p>Обратите внимание: большинство сценариев — не про изощрённую атаку, а про отсутствие элементарных границ. Здесь напрямую помогает базовая <a href="/blog/kibergigiena-sotrudnikov-2026/">кибергигиена сотрудников</a>: понятные правила, кто что может и куда можно, а куда нельзя пересылать данные.</p>
+
+<h2 id="priznaki">Признаки, что базу копируют</h2>
+
+<p>Сразу предупреждаю: признаки почти всегда косвенные. Они дают повод насторожиться и проверить логи, но сами по себе редко являются доказательством. Не спешите с обвинениями — ошибиться здесь очень легко, а испортить отношения с честным сотрудником просто.</p>
+
+<ul>
+  <li><strong>Клиенты уходят пачкой к бывшему сотруднику.</strong> Не один-два, а группа, и все — из портфеля конкретного менеджера, который недавно ушёл.</li>
+  <li><strong>Конкурент знает ваши цены и условия.</strong> Особенно если у него недавно появился ваш бывший сотрудник, и предложения клиентам подозрительно точно бьют по вашим слабым местам.</li>
+  <li><strong>Массовые выгрузки перед увольнением.</strong> В логах CRM видно, что за неделю до заявления человек экспортировал отчёты, которые раньше не открывал годами.</li>
+  <li><strong>Резкий рост экспорта отчётов.</strong> Любая нетипичная активность по выгрузкам — сигнал присмотреться. Для этого выгрузки должны логироваться, иначе смотреть будет не на что.</li>
+  <li><strong>Жалобы клиентов на спам от третьих лиц.</strong> Клиенты пишут, что им звонят или пишут незнакомые компании, которые откуда-то знают о сотрудничестве с вами.</li>
+</ul>
+
+<p>Ещё раз: каждый из этих признаков объясняется и естественными причинами. Клиенты могут уходить из-за цен, конкурент — догадываться о рынке сам. Поэтому признаки — это повод для внутренней проверки, а не приговор.</p>
+
+<h2 id="chto-mozhno-legalno">Что можно контролировать легально</h2>
+
+<p>Здесь проходит главная граница, которую я прошу запомнить: контролировать можно то, что принадлежит компании и о чём сотрудник уведомлён заранее. Всё остальное — зона риска уже для вас.</p>
+
+<p>Легально и разумно:</p>
+
+<ul>
+  <li>Контролировать корпоративные системы и учётные записи — они принадлежат компании, а не сотруднику лично.</li>
+  <li>Логировать действия в CRM: кто, когда, что открывал, экспортировал, редактировал.</li>
+  <li>Ограничивать доступ к данным и вести журнал выгрузок.</li>
+  <li>Использовать DLP-системы на корпоративных устройствах — при условии, что сотрудник об этом уведомлён и подписал соответствующую политику.</li>
+</ul>
+
+<p>Категорически нельзя:</p>
+
+<ul>
+  <li>Тайно читать личную переписку сотрудника.</li>
+  <li>Ставить скрытую слежку на личные устройства.</li>
+  <li>Перехватывать личную почту и личные мессенджеры.</li>
+</ul>
+
+<div class="blog-table">
+  <table>
+    <thead>
+      <tr><th>Можно легально (при уведомлении и согласии)</th><th>Нельзя (нарушение закона)</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Логировать действия в корпоративной CRM</td><td>Тайно читать личную переписку в мессенджерах</td></tr>
+      <tr><td>Контролировать корпоративную почту и учётные записи</td><td>Перехватывать личную почту сотрудника</td></tr>
+      <tr><td>Ставить DLP на рабочие устройства компании</td><td>Ставить скрытые программы на личный телефон</td></tr>
+      <tr><td>Ограничивать USB и экспорт на рабочих машинах</td><td>Вести скрытое видеонаблюдение за личной жизнью</td></tr>
+      <tr><td>Вести журнал выгрузок и доступов</td><td>Собирать данные о человеке вне рабочего контекста</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p>Ключевое слово в левой колонке — прозрачность. Как только контроль становится скрытым и переходит на личное пространство, он превращается в нарушение, и уже вы оказываетесь виноватой стороной.</p>
+
+<h2 id="dlp-i-dostup">Разграничение доступа и DLP</h2>
+
+<p>Начну с принципа, который решает половину проблем ещё до всякой техники, — принцип наименьших привилегий. У сотрудника должен быть доступ только к тем данным, которые нужны ему для работы, и ни к чему сверх этого. Менеджеру, ведущему свой сегмент клиентов, не нужна вся база целиком. Если он её видит — это архитектурная ошибка, а не удобство.</p>
+
+<p>Как это реализуется на практике:</p>
+
+<ul>
+  <li><strong>Ролевая модель.</strong> Права выдаются не человеку напрямую, а роли: «менеджер сегмента», «руководитель отдела», «бухгалтер». Роль определяет, что видно и что можно экспортировать.</li>
+  <li><strong>Логирование.</strong> Каждое чувствительное действие фиксируется. Без журнала вы не только не поймаете утечку, но и не докажете её.</li>
+  <li><strong>DLP-системы.</strong> Это инструменты контроля каналов утечки на рабочих устройствах: корпоративная почта, съёмные носители, печать, мессенджеры. DLP умеет замечать и блокировать попытки отправить чувствительный файл наружу — при условии, что всё это открыто прописано в политике и сотрудник с ней ознакомлен.</li>
+  <li><strong>Водяные знаки в выгрузках.</strong> Если экспорт всё же нужен, в таблицу можно вшивать пометку с именем сотрудника и датой. Это и дисциплинирует, и помогает понять источник, если файл всплывёт.</li>
+</ul>
+
+<p>Отдельно скажу про удалёнку: там периметр размывается, домашние сети и личные устройства перемешиваются с рабочими. Если у вас распределённая команда, стоит отдельно проработать <a href="/blog/kiberbezopasnost-udalennoy-komandy-2026/">кибербезопасность удалённой команды</a> — иначе разграничение доступа в офисе теряет смысл за его пределами.</p>
+
+<h2 id="zakon">152-ФЗ: где граница</h2>
+
+<p>Юридическая рамка тут держится на нескольких простых идеях, но детали я настоятельно прошу проверять с юристом.</p>
+
+<p>Во-первых, клиентская база — это персональные данные. Компания выступает оператором и по закону обязана их защищать. То есть защита базы от утечки — это не только ваше право, но и ваша обязанность перед клиентами.</p>
+
+<p>Во-вторых, <a href="https://chimitdorzhi.tech/services/hr-team-management/" class="blog-inline-link">контроль сотрудников</a> законен, когда он прозрачен. Это значит: сотрудник уведомлён о контроле, подписал согласие, а в компании действуют локальные акты — положение о коммерческой тайне и введённый режим коммерческой тайны. Когда правила игры объявлены заранее, контроль корпоративных систем — нормальная практика.</p>
+
+<p>В-третьих, скрытая слежка нарушает право на частную жизнь и тайну переписки. Как только вы уходите в тайное наблюдение за личным пространством человека, вы сами становитесь нарушителем, и никакая цель это не оправдывает.</p>
+
+<p>Я сознательно не привожу здесь конкретных номеров статей, размеров штрафов и сроков — законодательство меняется, а неточная ссылка хуже её отсутствия. Важно другое: режим коммерческой тайны, политику контроля и согласия нужно оформлять вместе с юристом и обязательно сверять с актуальной редакцией законов на момент внедрения. Считайте этот раздел ориентиром, а не юридической консультацией.</p>
+
+<h2 id="profilaktika">Профилактика: как снизить риск</h2>
+
+<p>Честно скажу: девяносто процентов результата — это профилактика, а не расследования постфактум. Вот что реально работает.</p>
+
+<ul>
+  <li><strong>Режим коммерческой тайны оформлен документально.</strong> Не «мы считаем базу секретной», а введённый режим с перечнем сведений, положением и подписями сотрудников. Без этого юридически защищать почти нечего.</li>
+  <li><strong>Доступ по ролям.</strong> Каждый видит только своё. Это и снижает риск, и упрощает разбор, если что-то случилось.</li>
+  <li><strong>Мгновенный отзыв доступов при увольнении.</strong> Учётные записи, почта, CRM, мессенджеры, VPN — всё закрывается в день ухода, а лучше в час подписания заявления. Это дисциплина, а не техника.</li>
+  <li><strong>NDA и соглашения.</strong> Соглашение о неразглашении полезно как минимум дисциплинирующе. А вот к соглашению о неконкуренции отнеситесь трезво: в России его применимость ограничена, и полагаться на него как на железную защиту нельзя. Обсудите формулировки с юристом.</li>
+  <li><strong>Обучение.</strong> Люди должны понимать, что можно, что нельзя и почему. Многие утечки — от незнания, а не от злого умысла.</li>
+  <li><strong>Минимизация.</strong> Не держите всё в одной большой выгружаемой таблице. Чем труднее собрать всю базу в один файл, тем ниже риск, что она уйдёт целиком.</li>
+</ul>
+
+<p>Полезно ещё понимать, как ваша компания выглядит снаружи и какие данные о ней уже доступны публично, — про это я писал в материале о том, что такое <a href="/blog/osint-cifrovoy-sled-kompanii-2026/">цифровой след компании</a>. Иногда часть информации утекает не через сотрудников, а лежит на виду годами.</p>
+
+<h2 id="nashli-utechku">Нашли утечку — что дальше</h2>
+
+<p>Если вы всё же увидели признаки утечки, действуйте спокойно и по порядку.</p>
+
+<ul>
+  <li><strong>Зафиксируйте логи и факты.</strong> Сохраните журналы CRM, почтовые логи, скриншоты — всё, что показывает нетипичную активность. Сделайте это до того, как что-либо трогать.</li>
+  <li><strong>Не удаляйте доказательства.</strong> Не «наводите порядок» в учётной записи подозреваемого. Удалив данные, вы уничтожите ровно то, что могло бы подтвердить факт.</li>
+  <li><strong>Подключите юриста.</strong> Дальнейшие шаги — от служебной проверки до претензий — должны идти в правовом русле, иначе вы рискуете сами.</li>
+  <li><strong>Оцените перспективу трезво.</strong> Доказать утечку сложно, особенно если режим коммерческой тайны не был оформлен заранее. Иногда разумнее сосредоточиться не на наказании, а на том, чтобы это не повторилось.</li>
+  <li><strong>Усильте режим на будущее.</strong> Закройте дыры, через которые ушли данные: доступы, каналы, регламенты. Инцидент — это неприятный, но честный аудит вашей системы.</li>
+</ul>
+
+<p>Скажу прямо: чаще всего история про утечку — это история про профилактику, которую не сделали вовремя, а не про эффектную поимку виновного. Поэтому основную энергию я всегда предлагаю вкладывать в предотвращение.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+
+<p><strong>Можно ли читать личную почту сотрудника, если я подозреваю утечку?</strong> Нет. Личная почта — это тайна переписки. Читать её тайно нельзя ни при каких подозрениях. Контролировать можно только корпоративный ящик, о чём сотрудник уведомлён.</p>
+
+<p><strong>Законно ли использовать DLP?</strong> Да, если DLP стоит на корпоративных устройствах, сотрудник уведомлён и подписал политику. Скрытая установка на личные устройства — недопустима.</p>
+
+<p><strong>Поможет ли соглашение о неконкуренции в России?</strong> Не рассчитывайте на него как на основную защиту. В российской практике его применимость ограничена. Как дисциплинирующий и сигнальный документ — полезно, но формулировки согласуйте с юристом.</p>
+
+<p><strong>Что делать, если прямых доказательств нет?</strong> Это типичная ситуация. Не обвиняйте на основе догадок. Соберите то, что есть, оцените с юристом перспективу и, что важнее, закройте уязвимости, чтобы следующий раз был отслеживаемым.</p>
+
+<p><strong>Можно ли вообще запретить экспорт из CRM?</strong> Да, технически экспорт можно ограничить ролями или отключить для части сотрудников, а разрешённые выгрузки — логировать и помечать водяными знаками. Это одна из самых полезных мер.</p>
+
+<p><strong>С чего начать, если ничего из этого пока нет?</strong> С двух вещей: оформить режим коммерческой тайны с юристом и настроить доступ по ролям. Это даёт наибольший эффект при наименьших усилиях.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+
+<p>Утечка базы клиентов — это почти всегда следствие отсутствия границ, а не работы гениального злоумышленника. База уходит через будничные действия: экспорт, письмо на личную почту, флешку, неотозванный доступ. Признаки утечки косвенные, и обвинять на их основе опасно. Легально контролировать можно только то, что принадлежит компании, и только открыто — с уведомлением и согласием. Скрытая слежка за личной жизнью незаконна и превращает работодателя в нарушителя. Клиентская база — это персональные данные, и её защита одновременно ваш интерес и ваша обязанность. Режим коммерческой тайны, доступ по ролям, DLP на рабочих устройствах, мгновенный отзыв прав при увольнении и минимизация данных дают куда больше, чем любые расследования постфактум. И всё, что касается закона, оформляйте с юристом и сверяйте с актуальной редакцией норм.</p>
+
+<p>Если вы хотите навести порядок в доступах и снизить риск утечки базы — напишите мне, проведём аудит: посмотрим, где у вас реально утекают данные, и предложим легальные меры под вашу ситуацию.</p>
+
+                    </div>
+
+                    
+                    
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Защита данных от утечек</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-lock-key"></i> <span>Разграничение доступа к базе клиентов</span></li>
+    
+    <li><i class="ph-fill ph-eye"></i> <span>Контроль выгрузок и подозрительных действий</span></li>
+    
+    <li><i class="ph-fill ph-scales"></i> <span>Что законно по 152-ФЗ, а что нельзя</span></li>
+    
+    <li><i class="ph-fill ph-shield-check"></i> <span>Регламент доступа сотрудников</span></li>
+    
+  </ul>
+  <div class="blog-services-offer-ctas">
+    <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+      <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Обсудить аудит доступа
+    </a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="blog-services-offer-cta blog-services-offer-cta-max">
+      <i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> Написать в MAX
+    </a>
+  </div>
+</div>
+                    <div class="blog-cta-card">
+                        <div class="blog-cta-card-body">
+                            <h3>Бесплатно: чек-лист «Готов ли ваш бизнес к 152-ФЗ»</h3>
+                            <p>12 пунктов, которые проверяют готовность за час: данные, согласия, уведомление в РКН, локализация, защита. Отметьте, что уже сделано, и увидите дыры, за которые сейчас штрафуют.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="/checklist-152-fz/" class="btn btn-accent"><i class="ph-fill ph-clipboard-text" aria-hidden="true"></i> Открыть чек-лист</a>
+                        </div>
+                    </div>
+                    
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/services/cybersecurity/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Обсудить аудит доступа</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-subscribe">
+  <div class="blog-subscribe-body">
+    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
+    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
+  </div>
+  <div class="blog-subscribe-actions">
+    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
+  </div>
+</section>
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/kibergigiena-sotrudnikov-2026/" data-category="security" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-shield-warning"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Безопасность</span>
+  <h3>Кибергигиена для сотрудников 2026: защита компании от человеческого фактора</h3>
+  <p>80%+ инцидентов — человеческий фактор: фишинг, социнженерия, слабые пароли. Разбираю, как обучить команду и закрыть дыру: фишинг и BEC, менеджеры паролей, 2FA, BYOD, Wi-Fi/VPN, управление доступами, фишинг-симуляции, реагирование на инцидент и 152-ФЗ с оборотными штрафами. С чек-листом.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 30 мая 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 21 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/kiberbezopasnost-udalennoy-komandy-2026/" data-category="security" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-shield-check"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Безопасность</span>
+  <h3>Кибербезопасность удалённой команды: доступы, устройства и утечки</h3>
+  <p>Сотрудники работают из дома, с личных ноутбуков и домашнего Wi-Fi — и каждый становится точкой входа. Разбираю правила кибербезопасности удалённой команды: доступы, устройства, утечки и что делать при увольнении.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 25 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 8 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/osint-cifrovoy-sled-kompanii-2026/" data-category="security" data-clicks="1">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-detective"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Безопасность</span>
+  <h3>Что о вашей компании можно узнать из открытых источников — и как закрыть дыры</h3>
+  <p>О компании из открытых источников видно куда больше, чем кажется: метаданные файлов, открытые папки, утёкшие пароли сотрудников, лишние реквизиты в соцсетях. Разбираю, что именно видно, чем это грозит и как закрыть дыры — с чек-листом для самопроверки.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 16 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 10 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/zashchita-ot-shifrovalshchikov-2026/" data-category="security" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-lock-key"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Безопасность</span>
+  <h3>Защита от программ-вымогателей 2026: как не потерять бизнес</h3>
+  <p>Шифровальщик может остановить бизнес за одну ночь. Разбираю, как защититься: бэкапы по правилу 3-2-1, закрытие фишинга, RDP и уязвимостей, сегментация сети, план реагирования и почему платить выкуп нельзя. С чек-листом на одну страницу.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 3 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 17 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    
+                    
+                    
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовые решения под ключ</span>
+                            <span class="blog-offer-cta-title">449 готовых IT-решений для бизнеса</span>
+                            <span class="blog-offer-cta-price">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Смотреть каталог</span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#kak-eto-proishodit"><span class="blog-toc-num">01</span> Как утекает база</a></li>
+<li><a href="#priznaki"><span class="blog-toc-num">02</span> Признаки, что базу копируют</a></li>
+<li><a href="#chto-mozhno-legalno"><span class="blog-toc-num">03</span> Что можно контролировать легально</a></li>
+<li><a href="#dlp-i-dostup"><span class="blog-toc-num">04</span> Разграничение доступа и DLP</a></li>
+<li><a href="#zakon"><span class="blog-toc-num">05</span> 152-ФЗ: где граница</a></li>
+<li><a href="#profilaktika"><span class="blog-toc-num">06</span> Профилактика: как снизить риск</a></li>
+<li><a href="#nashli-utechku"><span class="blog-toc-num">07</span> Нашли утечку — что дальше</a></li>
+<li><a href="#faq"><span class="blog-toc-num">08</span> Частые вопросы</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">09</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=23" defer></script>
+<script src="/services-i18n.js?v=23" defer></script>
+<script src="/script.js?v=30" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>

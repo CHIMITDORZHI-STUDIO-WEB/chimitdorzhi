@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Безопасность корпоративного Wi-Fi: практика</title>
+    <meta name="description" content="Левые точки доступа, общая сеть с кассами и камерами, открытая гостевая сеть — как через Wi-Fi утекают данные и как это закрыть.">
+    <meta name="keywords" content="безопасность корпоративного wifi, изоляция гостевой сети, левая точка доступа, защита wifi офис, сегментация сети, изоляция касс камер, rogue access point">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/bezopasnost-korporativnogo-wifi-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/bezopasnost-korporativnogo-wifi-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/bezopasnost-korporativnogo-wifi-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/bezopasnost-korporativnogo-wifi-2026/">
+    <meta property="og:title" content="Безопасность корпоративного Wi-Fi: практика">
+    <meta property="og:description" content="Левые точки доступа, общая сеть с кассами и камерами, открытая гостевая сеть — как через Wi-Fi утекают данные и как это закрыть.">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/bezopasnost-korporativnogo-wifi-2026/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Безопасность корпоративного Wi-Fi: практика">
+    <meta name="twitter:description" content="Левые точки доступа, общая сеть с кассами и камерами, открытая гостевая сеть — как через Wi-Fi утекают данные и как это закрыть.">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/bezopasnost-korporativnogo-wifi-2026/cover.png">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor-Fill.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=65">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Корпоративный Wi-Fi: как чужое устройство крадёт данные",
+  "description": "Левые точки доступа, общая сеть с кассами и камерами, открытая гостевая сеть — как через Wi-Fi утекают данные и как это закрыть. Практическая настройка, а не теория.",
+  "image": "https://chimitdorzhi.tech/blog/bezopasnost-korporativnogo-wifi-2026/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://t.me/chimitdorzhi_studio",
+      "https://max.ru/channel_chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio",
+      "https://github.com/chimitdorzhi",
+      "https://chimitdorzhi.tech/about/"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/bezopasnost-korporativnogo-wifi-2026/"
+  },
+  "datePublished": "2026-07-30",
+  "dateModified": "2026-07-30",
+  "keywords": "Wi-Fi, сеть, кибербезопасность, изоляция, 2026",
+  "articleSection": "Безопасность",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Корпоративный Wi-Fi: как чужое устройство крадёт данные",
+      "item": "https://chimitdorzhi.tech/blog/bezopasnost-korporativnogo-wifi-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Нужен ли отдельный роутер для гостей или хватит настройки?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "В большинстве случаев отдельное железо не нужно. Современные роутеры и точки доступа умеют создавать несколько изолированных сетей на одном устройстве. Важна не покупка второго роутера, а правильная настройка изоляции между гостевой и рабочей сетью."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как изолировать кассу?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Вынести её в отдельный сегмент (VLAN), где нет ни гостей, ни камер, ни личных устройств сотрудников. Между этим сегментом и остальными оставить открытыми только те соединения, которые реально нужны для проведения оплат, всё прочее запретить."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Опасны ли камеры видеонаблюдения в сети?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, это одни из самых уязвимых устройств: старые прошивки, стандартные пароли, доступ из интернета. Сами по себе они не хранят критичных данных, но взломанная камера легко становится точкой входа. Поэтому камеры всегда держат в отдельном изолированном сегменте."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Законна ли гостевая сеть без идентификации?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Публичный доступ в интернет в России связан с требованием идентифицировать пользователя, обычно по номеру телефона через captive-портал. Открытая сеть без идентификации — это правовой риск. Конкретные нормы меняются, поэтому сверяйтесь с актуальной редакцией закона или с юристом."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как найти чужую точку доступа?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ведите список своих легальных точек и периодически осматривайте радиоэфир простыми инструментами. Незнакомое имя сети или дубль вашего SSID — сигнал разобраться. Плюс запрет в регламенте на подключение личного оборудования снимает большую часть проблемы заранее."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Достаточно ли всего этого, если сотрудники работают удалённо?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Настройка офисной сети закрывает офис, но удалённые сотрудники подключаются из дома и кафе, где ваших правил нет. Для них нужны отдельные меры — об этом я писал в материале про кибербезопасность удалённой команды."
+      }
+    }
+  ]
+}
+    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+var inject=function(){for (var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)};
+var run=function(){('requestIdleCallback' in window)?requestIdleCallback(inject,{timeout:5000}):setTimeout(inject,3000)};
+(e.readyState==='complete')?run():m.addEventListener('load',run);})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109281884" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<!-- Цели Метрики: клики по контактам и услугам -->
+<script type="text/javascript">
+(function(){
+  var GOALS = [
+    { re: /t\.me\//i,                     goal: 'tg_click' },
+    { re: /max\.ru\//i,                    goal: 'max_click' },
+    { re: /audit\.chimitdorzhi\.tech/i,    goal: 'audit_click' },
+    { re: /chimitdorzhi\.tech\/services\//i, goal: 'service_click' },
+    { re: /chimitdorzhi\.tech\/predlozheniya\//i, goal: 'offer_click' }
+  ];
+  document.addEventListener('click', function(e){
+    var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    for (var i = 0; i < GOALS.length; i++) {
+      if (GOALS[i].re.test(href)) {
+        try { if (window.ym) ym(109281884, 'reachGoal', GOALS[i].goal); } catch (err) {}
+        break;
+      }
+    }
+  }, true);
+})();
+</script>
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/market/">Собрать проект</a></li>
+            <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+            <li style="display:none"><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li class="nav-dropdown">
+                <a href="/#projects" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="/blog/category/cases/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-briefcase" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Кейсы</span>
+                            <span class="nav-dropdown-desc">Реальные проекты под ключ</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li style="display:none"><a href="/#cases" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li style="display:none"><a href="/infografika/">Инфографика</a></li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+                <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему" aria-pressed="false">
+                <i class="ph ph-moon" aria-hidden="true"></i>
+            </button>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/market/">Собрать проект</a></li>
+        <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+        <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+        <li class="mobile-has-submenu">
+            <details>
+                <summary aria-label="Проекты — развернуть"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down" aria-hidden="true"></i></summary>
+                <ul class="mobile-submenu">
+                    <li>
+                        <a href="/blog/category/cases/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-briefcase" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">Кейсы</span>
+                                <span class="mobile-sub-desc">Реальные проекты под ключ</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://gerel.space" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">Gerel.space</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/universe_buryat/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/arey/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.arey">AREY</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/mwrlife/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">MWR Life</span>
+                                <span class="mobile-sub-desc">Travel-клуб и партнёрка</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </details>
+        </li>
+        <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+        <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+    </ul>
+    <div class="mobile-controls">
+        <div class="mobile-lang-switcher" role="group" aria-label="Выбор языка">
+            <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+            <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+            <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+        </div>
+        <button class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle" aria-label="Переключить тему" aria-pressed="false">
+            <i class="ph ph-moon" aria-hidden="true"></i>
+        </button>
+    </div>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Корпоративный Wi-Fi: как чужое устройство крадёт данные</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/security/"><i class="ph ph-bookmark" aria-hidden="true"></i> Безопасность</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин чтения</span>
+                        <time datetime="2026-07-30"><i class="ph ph-calendar" aria-hidden="true"></i> 30 июля 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Корпоративный Wi-Fi: как чужое устройство крадёт данные</h1>
+
+                    <p class="blog-lead">Одна плоская сеть, где касса, камеры, бухгалтерия и гостевой Wi-Fi живут вместе, — это открытая дверь. Разбираю, как через сеть утекают данные и как её правильно разделить.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>Wi-Fi</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>сеть</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>кибербезопасность</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>изоляция</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>2026</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr">
+  <h3>Коротко (TL;DR)</h3>
+  <ul>
+    <li>Плоская сеть, где касса, камеры, бухгалтерия и <a href="https://chimitdorzhi.tech/services/it-infrastructure/" class="blog-inline-link">гостевой Wi-Fi</a> живут вместе, — это одна большая дыра: взлом любого узла открывает доступ ко всему.</li>
+    <li>Главная практика — сегментация: разделить сеть на изолированные зоны (рабочие места, касса, камеры и IoT, гости, серверы) и по умолчанию закрыть трафик между ними.</li>
+    <li>Касса и камеры видеонаблюдения обязаны жить в отдельных сегментах — это самые частые точки входа для злоумышленника.</li>
+    <li>Гостевой Wi-Fi нужно изолировать от рабочей сети, а публичный доступ в РФ требует идентификации пользователя — сверяйтесь с актуальной редакцией закона.</li>
+    <li>Чужие роутеры и поддельные точки доступа — неконтролируемые дыры; их выявляют аудитом эфира и запрещают регламентом.</li>
+  </ul>
+</div>
+
+<p>Меня зовут Чимитдоржи Дарижапов, я занимаюсь информационной безопасностью для малого и среднего бизнеса. Ко мне часто приходят с одной и той же историей: «У нас же есть пароль на Wi-Fi, что ещё нужно?» А нужно многое. Пароль на точку доступа защищает только от того, кто хочет бесплатно посидеть в интернете с улицы. Он никак не спасает, если внутри вашей сети касса, камеры, бухгалтерский компьютер и телефон случайного гостя видят друг друга напрямую. В этой статье я разберу без теории и заумных терминов, как устроена типичная «дырявая» сеть в офисе или магазине и что с ней делать на практике — так, чтобы это понял владелец бизнеса, а не только системный администратор.</p>
+
+<h2 id="pochemu-set-dyra">Почему плоская сеть — это дыра</h2>
+
+<p>Плоская сеть — это когда все устройства подключены к одному роутеру и находятся в общем адресном пространстве. Проще говоря, всё видит всё. Кассовый терминал, ноутбук бухгалтера, IP-камеры, сетевой принтер, склад с приёмкой товара и гостевой Wi-Fi для посетителей — всё это в одной общей комнате без перегородок. Пока ничего не случилось, кажется, что так удобно: настроил один раз и забыл. Проблема в том, что безопасность такой сети равна безопасности её самого слабого звена.</p>
+
+<p>Разберём на живых примерах. Посетитель зашёл в кафе, подключился к гостевому Wi-Fi, а на его ноутбуке живёт вирус-шифровальщик. Если сеть плоская, этот заражённый ноутбук в тот же момент видит кассу и может попробовать до неё дотянуться. Другой сценарий: вы поставили дешёвые IP-камеры видеонаблюдения с прошивкой десятилетней давности и паролем «admin/admin». Такая камера — это маленький компьютер в вашей сети. Злоумышленник взламывает её из интернета, а дальше использует как плацдарм: с камеры он уже внутри и спокойно осматривается, ищет бухгалтерию и кассу.</p>
+
+<p>Суть проблемы одна: в плоской сети взлом любого узла — самого дешёвого, самого незаметного — открывает дорогу ко всему остальному. Вы можете идеально защитить кассу, но если рядом висит уязвимый принтер или чужой телефон, вся защита кассы обесценивается. Именно поэтому первое, с чего я начинаю аудит, — это вопрос: «А кто с кем в вашей сети вообще может разговаривать?» Ответ почти всегда: «Все со всеми». Это и есть дыра.</p>
+
+<h2 id="ugrozy">Как через Wi-Fi крадут данные</h2>
+
+<p>Чтобы понимать, зачем нужна настройка, полезно знать, как именно происходят атаки. Я специально не гружу техническими деталями — важен принцип.</p>
+
+<p><strong>Перехват трафика в открытой или слабой сети.</strong> Если гостевая сеть открыта или защищена слабым паролем, данные, которые ходят по воздуху, можно подслушать. Современные сайты шифруют соединение, но далеко не всё и не всегда. В слабой сети злоумышленник, сидящий за соседним столиком, может собирать куски трафика.</p>
+
+<p><strong>Подбор пароля Wi-Fi.</strong> Короткий или словарный пароль вроде названия компании подбирается автоматическими инструментами за разумное время. После этого чужой человек уже внутри вашей сети — и если она плоская, он видит всё.</p>
+
+<p><strong>Устройство-посредник (человек посередине).</strong> Атакующий вклинивается между вашим устройством и роутером и пропускает трафик через себя, читая и подменяя его. В незащищённой сети это делается несложно.</p>
+
+<p><strong>Уязвимые IoT-устройства.</strong> Камеры, принтеры, умные розетки, терминалы — всё это устройства с собственной прошивкой, которую почти никто не обновляет. Каждое из них — потенциальная точка входа. Взломали принтер — получили ногу в двери вашей сети.</p>
+
+<p><strong>Подключение через гостевой Wi-Fi без изоляции.</strong> Если гость технически находится в той же сети, что и рабочие компьютеры, то любой посетитель — это уже полулегальный участник вашей внутренней сети. Ему даже взламывать ничего не надо, вы сами его впустили.</p>
+
+<p>Заметьте: почти все эти сценарии становятся по-настоящему опасными именно из-за отсутствия разделения. Перехватить трафик в гостевой сети неприятно, но если гостевая сеть изолирована, дальше кассы и бухгалтерии атакующий не пройдёт. Отсюда следует главный практический вывод.</p>
+
+<h2 id="segmentaciya">Сегментация: разделяем сеть</h2>
+
+<p>Сегментация — это разделение одной большой сети на несколько изолированных зон, которые по умолчанию не видят друг друга. Технически это делается через так называемые VLAN — виртуальные сети внутри одного оборудования. Но вам как владельцу важна не аббревиатура, а принцип: вместо одной общей комнаты вы строите здание с отдельными кабинетами и запертыми дверями между ними.</p>
+
+<p>Я обычно делю сеть офиса или магазина минимум на пять зон:</p>
+
+<div class="blog-table">
+<table>
+  <thead>
+    <tr><th>Сегмент сети</th><th>Что в нём</th><th>Почему изолируем</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Рабочие места</td><td>Компьютеры сотрудников, бухгалтерия, рабочие ноутбуки</td><td>Здесь ценные данные и доступ к учётным системам — держим подальше от всего остального</td></tr>
+    <tr><td>Касса и платёжные терминалы</td><td>Кассовые аппараты, эквайринг, POS-терминалы</td><td>Это деньги и платёжные данные; любой чужой доступ сюда критичен</td></tr>
+    <tr><td>Камеры и IoT</td><td>IP-камеры, принтеры, умные устройства, датчики</td><td>Самые уязвимые устройства с редко обновляемой прошивкой — частая точка входа</td></tr>
+    <tr><td>Гостевой Wi-Fi</td><td>Устройства посетителей и клиентов</td><td>Чужие непроверенные устройства не должны видеть ничего вашего</td></tr>
+    <tr><td>Серверы</td><td>Файловый сервер, внутренние сервисы, базы данных</td><td>Сердце инфраструктуры — доступ только тому, кому он реально нужен</td></tr>
+  </tbody>
+</table>
+</div>
+
+<p>Главный принцип звучит так: между сегментами трафик закрыт по умолчанию, а открывается только то, что действительно нужно для работы. Это называется «принцип наименьших привилегий», но по-человечески — «запрещено всё, кроме прямо разрешённого». Например, компьютеру бухгалтера может понадобиться доступ к серверу с базой 1С — эту дверь мы открываем. А вот доступ от гостевой сети к кассе не нужен никогда — эта дверь заперта наглухо. Управлять такими правилами и раскатывать одинаковые настройки на несколько точек удобно централизованно, например через <a href="/blog/openwisp-upravlenie-wifi-2026/">управление Wi-Fi через OpenWISP</a>.</p>
+
+<p>Отдельно подчеркну про кассу и камеры, потому что это две самые болезненные зоны. <strong>Касса</strong> — это платёжные данные и прямой путь к деньгам. Она обязана жить в собственном сегменте, где нет ни гостей, ни камер, ни личных телефонов сотрудников. В идеале касса вообще общается только с тем, с кем ей нужно для проведения оплат, и ни с кем больше. <strong>Камеры видеонаблюдения</strong> — обратная история: сами по себе они данных не хранят, но это самые уязвимые устройства в сети. Их обязательно выносят в отдельный сегмент, чтобы взломанная камера не стала мостиком к кассе или бухгалтерии. Когда касса и камеры разведены по разным изолированным зонам, взлом одной из них перестаёт быть катастрофой для всего бизнеса.</p>
+
+<h2 id="gostevaya-set">Гостевая сеть по закону</h2>
+
+<p>Гостевой Wi-Fi для клиентов — это хорошо и правильно, но с двумя условиями. Первое — техническое: гостевая сеть должна быть полностью изолирована от рабочей. Посетитель, подключившийся к вашему Wi-Fi, не должен видеть ни кассу, ни рабочие компьютеры, ни сервер. Более того, в правильно настроенной гостевой сети клиенты обычно не видят даже друг друга — так их устройства защищены от соседей по залу.</p>
+
+<p>Второе условие — юридическое. В России предоставление публичного доступа в интернет связано с требованием идентификации пользователя, как правило по номеру телефона. То есть просто раздавать открытый Wi-Fi всем подряд без какой-либо идентификации — это зона правового риска. Я сознательно не привожу здесь номера конкретных постановлений и точные суммы штрафов: нормативная база периодически меняется, и любые цифры быстро устаревают. Обязательно сверяйтесь с актуальной редакцией законодательства или с юристом. Подробнее о том, как это устроено на практике, я разбирал в отдельном материале про <a href="/blog/gostevoy-wifi-po-zakonu-2026/">гостевой Wi-Fi по закону</a>.</p>
+
+<p>Технически идентификация чаще всего реализуется через captive-портал — это та самая страница, которая открывается при подключении к гостевой сети и просит ввести номер телефона, получить код по СМС и согласиться с правилами. Такой портал одновременно решает две задачи: выполняет требование по идентификации и даёт вам контроль над тем, кто и сколько пользуется вашей сетью. Настроить его один раз несложно, а спит спокойнее и владелец, и клиент.</p>
+
+<h2 id="levye-tochki">Чужие точки доступа</h2>
+
+<p>Даже идеально настроенную сеть способен подорвать один сотрудник с добрыми намерениями. Классика: «В дальнем углу склада плохо ловит Wi-Fi, я принёс из дома роутер и воткнул его в розетку — теперь ловит отлично». Проблема в том, что этот роутер никто не настраивал по правилам безопасности: пароль на нём стоит домашний или вообще стандартный, прошивка старая, изоляции никакой. Через такую самодельную точку в вашу тщательно разделённую сеть открывается прямая неконтролируемая дыра, мимо всех перегородок.</p>
+
+<p>Второй сценарий опаснее и делается уже намеренно. Злоумышленник ставит поддельную точку доступа с точно таким же именем сети (SSID), как у вас. Устройства сотрудников и клиентов, привыкшие подключаться к знакомому имени, цепляются к фальшивке автоматически — и весь их трафик идёт через оборудование атакующего. Человек уверен, что сидит в корпоративном Wi-Fi, а на деле его данные проходят через чужие руки.</p>
+
+<p>Как с этим бороться на практике. Во-первых, инвентаризация: у вас должен быть список всех легальных точек доступа — сколько их, где стоят, как называются. Всё, чего в списке нет, — подозрительно. Во-вторых, периодический аудит эфира: с помощью простых инструментов раз в какое-то время осматривается радиоэфир в помещении, и если появляется незнакомая точка или дубль вашего имени сети — это повод разобраться. В-третьих, регламент: во внутренних правилах должно быть прямо написано, что подключать личное сетевое оборудование к корпоративной сети запрещено. Тогда история про «роутер из дома» просто не случится, потому что сотрудник знает, что так нельзя.</p>
+
+<h2 id="chek-list">Чек-лист настройки</h2>
+
+<p>Соберу всё сказанное в практический список. По нему можно пройтись самому или отдать его тому, кто настраивает вашу сеть.</p>
+
+<ul>
+  <li><strong>Сменить пароли по умолчанию.</strong> На всех роутерах, камерах, принтерах, терминалах стандартные логины и пароли меняются в первую очередь. «admin/admin» — это открытая дверь.</li>
+  <li><strong>Включить WPA2 или WPA3 и поставить стойкий пароль.</strong> Длинный, не словарный, не название компании. Для рабочей и гостевой сети — разные пароли.</li>
+  <li><strong>Разделить сеть на сегменты.</strong> Отдельные SSID и VLAN для гостей, кассы, камер, рабочих мест. Трафик между сегментами закрыт по умолчанию.</li>
+  <li><strong>Обновлять прошивки.</strong> Роутеры, камеры, сетевое оборудование получают обновления не просто так — в них закрывают дыры. Проверяйте регулярно.</li>
+  <li><strong>Отключить WPS.</strong> Эта функция «быстрого подключения по кнопке» — известная точка ослабления, её лучше выключить.</li>
+  <li><strong>Скрыть или переименовать техническую сеть.</strong> Служебные сети не должны иметь говорящих имён вроде «Касса-магазина» — это подсказка для атакующего.</li>
+  <li><strong>Вести список легальных точек доступа.</strong> Чтобы любую чужую точку было видно сразу.</li>
+  <li><strong>Проводить регулярный аудит.</strong> Раз в квартал осмотреть эфир, проверить настройки, обновления и список устройств.</li>
+</ul>
+
+<p>Этот список закрывает подавляющее большинство типовых проблем. Он не требует дорогого оборудования — почти всё делается на том, что у вас уже есть, вопрос только в правильной настройке.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+
+<p><strong>Нужен ли отдельный роутер для гостей или хватит настройки?</strong> В большинстве случаев отдельное железо не нужно. Современные роутеры и точки доступа умеют создавать несколько изолированных сетей на одном устройстве. Важна не покупка второго роутера, а правильная настройка изоляции между гостевой и рабочей сетью.</p>
+
+<p><strong>Как изолировать кассу?</strong> Вынести её в отдельный сегмент (VLAN), где нет ни гостей, ни камер, ни личных устройств сотрудников. Между этим сегментом и остальными оставить открытыми только те соединения, которые реально нужны для проведения оплат, всё прочее запретить.</p>
+
+<p><strong>Опасны ли камеры видеонаблюдения в сети?</strong> Да, это одни из самых уязвимых устройств: старые прошивки, стандартные пароли, доступ из интернета. Сами по себе они не хранят критичных данных, но взломанная камера легко становится точкой входа. Поэтому камеры всегда держат в отдельном изолированном сегменте.</p>
+
+<p><strong>Законна ли гостевая сеть без идентификации?</strong> Публичный доступ в интернет в России связан с требованием идентифицировать пользователя, обычно по номеру телефона через captive-портал. Открытая сеть без идентификации — это правовой риск. Конкретные нормы меняются, поэтому сверяйтесь с актуальной редакцией закона или с юристом.</p>
+
+<p><strong>Как найти чужую точку доступа?</strong> Ведите список своих легальных точек и периодически осматривайте радиоэфир простыми инструментами. Незнакомое имя сети или дубль вашего SSID — сигнал разобраться. Плюс запрет в регламенте на подключение личного оборудования снимает большую часть проблемы заранее.</p>
+
+<p><strong>Достаточно ли всего этого, если сотрудники работают удалённо?</strong> Настройка офисной сети закрывает офис, но удалённые сотрудники подключаются из дома и кафе, где ваших правил нет. Для них нужны отдельные меры — об этом я писал в материале про <a href="/blog/kiberbezopasnost-udalennoy-komandy-2026/">кибербезопасность удалённой команды</a>.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+
+<p>Безопасность корпоративного Wi-Fi — это не про один волшебный пароль, а про грамотное разделение. Плоская сеть, где всё видит всё, опасна тем, что взлом самого слабого устройства открывает доступ ко всему бизнесу сразу. Решение — сегментация: развести кассу, камеры, рабочие места, серверы и гостей по изолированным зонам и по умолчанию закрыть трафик между ними, открывая только необходимое. Отдельного внимания требуют касса и камеры, гостевая сеть с изоляцией и идентификацией по закону, а также контроль над тем, чтобы в вашей сети не появлялись чужие и самодельные точки доступа.</p>
+
+<p>Хорошая новость в том, что почти всё это делается на уже имеющемся оборудовании — вопрос в правильной настройке, а не в бюджете. Если вы хотите разделить и защитить сеть офиса или магазина, напишите мне — проведём аудит вашей сети и настроим её так, чтобы касса, камеры, бухгалтерия и гости жили каждый за своей запертой дверью.</p>
+
+                    </div>
+
+                    
+                    
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Безопасность корпоративной сети</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-wifi-x"></i> <span>Поиск чужих точек доступа</span></li>
+    
+    <li><i class="ph-fill ph-network"></i> <span>Изоляция касс, камер и гостей</span></li>
+    
+    <li><i class="ph-fill ph-shield-check"></i> <span>Настройка гостевой сети по закону</span></li>
+    
+    <li><i class="ph-fill ph-list-checks"></i> <span>Аудит и регламент доступа</span></li>
+    
+  </ul>
+  <div class="blog-services-offer-ctas">
+    <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+      <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Обсудить защиту сети
+    </a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="blog-services-offer-cta blog-services-offer-cta-max">
+      <i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> Написать в MAX
+    </a>
+  </div>
+</div>
+                    <div class="blog-cta-card">
+                        <div class="blog-cta-card-body">
+                            <h3>Бесплатно: чек-лист «Готов ли ваш бизнес к 152-ФЗ»</h3>
+                            <p>12 пунктов, которые проверяют готовность за час: данные, согласия, уведомление в РКН, локализация, защита. Отметьте, что уже сделано, и увидите дыры, за которые сейчас штрафуют.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="/checklist-152-fz/" class="btn btn-accent"><i class="ph-fill ph-clipboard-text" aria-hidden="true"></i> Открыть чек-лист</a>
+                        </div>
+                    </div>
+                    
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/services/cybersecurity/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Обсудить защиту сети</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-subscribe">
+  <div class="blog-subscribe-body">
+    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
+    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
+  </div>
+  <div class="blog-subscribe-actions">
+    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
+  </div>
+</section>
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/gostevoy-wifi-po-zakonu-2026/" data-category="legal" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-wifi-high"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Право и compliance</span>
+  <h3>Гостевой Wi-Fi в кафе и отеле: закон, авторизация и изоляция</h3>
+  <p>Почему в кафе и отеле нельзя просто раздать пароль от Wi-Fi, что требует закон об идентификации, как настроить авторизацию и отделить гостей от кассы.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 22 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/openwisp-upravlenie-wifi-2026/" data-category="opensource" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-wifi-high"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>OpenWISP: гостевой Wi-Fi с captive-порталом и сбором лидов на своём сервере</h3>
+  <p>OpenWISP превращает гостевой Wi-Fi в кафе, отеле или ТЦ из «просто раздачи» в инструмент: брендированная страница входа, сбор контактов и согласий (лиды), аналитика. Разбираю применение, 152-ФЗ и как на этом зарабатывать.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 16 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 10 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/kiberbezopasnost-udalennoy-komandy-2026/" data-category="security" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-shield-check"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Безопасность</span>
+  <h3>Кибербезопасность удалённой команды: доступы, устройства и утечки</h3>
+  <p>Сотрудники работают из дома, с личных ноутбуков и домашнего Wi-Fi — и каждый становится точкой входа. Разбираю правила кибербезопасности удалённой команды: доступы, устройства, утечки и что делать при увольнении.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 25 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 8 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/chek-list-bezopasnosti-sayta-47-punktov/" data-category="security" data-clicks="1">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-shield-check"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Безопасность</span>
+  <h3>Чек-лист безопасности сайта: 47 пунктов от практика — что проверить за час</h3>
+  <p>47 пунктов проверки безопасности за час без специального ПО. HTTPS, OWASP Top 10, утечки, инфраструктура. С командами и инструкциями. Закрывает 80% типовых брешей.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 20 мая 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 20 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    
+                    
+                    
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовые решения под ключ</span>
+                            <span class="blog-offer-cta-title">449 готовых IT-решений для бизнеса</span>
+                            <span class="blog-offer-cta-price">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Смотреть каталог</span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#pochemu-set-dyra"><span class="blog-toc-num">01</span> Почему плоская сеть — это дыра</a></li>
+<li><a href="#ugrozy"><span class="blog-toc-num">02</span> Как через Wi-Fi крадут данные</a></li>
+<li><a href="#segmentaciya"><span class="blog-toc-num">03</span> Сегментация: разделяем сеть</a></li>
+<li><a href="#gostevaya-set"><span class="blog-toc-num">04</span> Гостевая сеть по закону</a></li>
+<li><a href="#levye-tochki"><span class="blog-toc-num">05</span> Чужие точки доступа</a></li>
+<li><a href="#chek-list"><span class="blog-toc-num">06</span> Чек-лист настройки</a></li>
+<li><a href="#faq"><span class="blog-toc-num">07</span> Частые вопросы</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">08</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=23" defer></script>
+<script src="/services-i18n.js?v=23" defer></script>
+<script src="/script.js?v=30" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>
