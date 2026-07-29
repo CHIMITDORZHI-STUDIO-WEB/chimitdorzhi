@@ -1048,6 +1048,21 @@ function balanceInternalLinks(published) {
   console.log(`  Перелинковка: +${added} ссылок, слабых осталось ${still} (было ${weak.length})`);
 }
 
+// Блок подписки на каналы под статьёй. Читатель, дочитавший до конца, —
+// самый тёплый: дешевле удержать подпиской, чем ждать повторного визита из поиска.
+function subscribeHtml() {
+  return `<section class="blog-subscribe">
+  <div class="blog-subscribe-body">
+    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
+    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
+  </div>
+  <div class="blog-subscribe-actions">
+    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
+  </div>
+</section>`;
+}
+
 function relatedHtml(a, published) {
   // Resolve relatedSlugs to published articles. If none — fall back to service links.
   const map = new Map(published.map(p => [p.slug, p]));
@@ -1543,6 +1558,7 @@ ${faqLd(a)}${howToLd(a)}${itemListLd(a)}${METRIKA}</head>
                         </div>
                     </div>
 
+                    ${subscribeHtml()}
                     ${relatedHtml(a, published)}
                     ${mwrClusterHtml(a, published)}
                     ${krugozorClusterHtml(a, published)}
