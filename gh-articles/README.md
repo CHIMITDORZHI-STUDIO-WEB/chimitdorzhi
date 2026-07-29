@@ -635,7 +635,7 @@
 - [Почему сайт выглядит «сделанным нейросетью» — и как это исправить](./priznaki-shablonnogo-ii-sayta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/priznaki-shablonnogo-ii-sayta-2026/)
 - [Яндекс.Директ с нуля: сколько нужно на старт и куда уходят деньги](./yandex-direkt-s-nulya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/yandex-direkt-s-nulya-2026/)
 - [Почему реклама «не работает»: 5 причин, не связанных с бюджетом](./pochemu-reklama-ne-rabotaet-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pochemu-reklama-ne-rabotaet-2026/)
-- [Куда ведёт реклама: почему без нормального сайта бюджет сливается](./kuda-vedet-reklama-sayt-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kuda-vedet-reklama-sayt-2026/)
+- [Куда ведёт реклама: почему без сайта бюджет сливается](./kuda-vedet-reklama-sayt-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kuda-vedet-reklama-sayt-2026/)
 - [Как понять, окупается ли реклама: простая настройка целей в Метрике](./okupaemost-reklamy-metrika-celi-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/okupaemost-reklamy-metrika-celi-2026/)
 - [Программа лояльности для кафе и салона: баллы, которые реально возвращают](./programma-loyalnosti-kafe-salon-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/programma-loyalnosti-kafe-salon-2026/)
 - [Почему клиенты не возвращаются — и как это чинится без вечных скидок](./pochemu-klienty-ne-vozvrashchayutsya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pochemu-klienty-ne-vozvrashchayutsya-2026/)
