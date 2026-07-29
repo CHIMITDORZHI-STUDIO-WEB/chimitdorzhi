@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1326**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1329**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -1043,6 +1043,9 @@
 
 ## Разработка
 
+- [Голосовой робот: обзвон и приём звонков без колл-центра](./golosovoy-robot-obzvon-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/golosovoy-robot-obzvon-2026/)
+- [Мониторинг госзакупок 44-ФЗ: как не упустить тендер](./monitoring-goszakupok-44fz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/monitoring-goszakupok-44fz-2026/)
+- [Интеграция с API Wildberries и Ozon: остатки, цены, отзывы](./integraciya-s-api-wb-ozon-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/integraciya-s-api-wb-ozon-2026/)
 - [Как создать бота в MAX: пошаговая инструкция 2026](./kak-sozdat-bota-v-max-poshagovo-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-sozdat-bota-v-max-poshagovo-2026/)
 - [Чат-бот в MAX: что умеет и сколько стоит заказать](./chat-bot-v-max-zakazat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chat-bot-v-max-zakazat-2026/)
 - [Написать скрипт на заказ: автоматизация рутины за вечер](./napisat-skript-na-zakaz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/napisat-skript-na-zakaz-2026/)
@@ -1076,7 +1079,7 @@
 - [Перенести сайт и домен к другому подрядчику без простоя](./perenesti-sayt-domen-bez-prostoya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/perenesti-sayt-domen-bez-prostoya-2026/)
 - [Обновить старый сайт: редизайн, с нуля или миграция](./obnovit-staryy-sayt-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/obnovit-staryy-sayt-2026/)
 - [Резервное копирование 1С: как настроить автоматический бэкап](./rezervnoe-kopirovanie-1c-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/rezervnoe-kopirovanie-1c-2026/)
-- [Интеграция сайта с 1С: товары, заказы и остатки](./integraciya-sayta-s-1c-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/integraciya-sayta-s-1c-2026/)
+- [Интеграция сайта с 1С: обмен товарами, остатками и заказами](./integraciya-sayta-s-1c-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/integraciya-sayta-s-1c-2026/)
 - [Техподдержка сайта: что входит и сколько стоит](./tehpodderzhka-sayta-skolko-stoit-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/tehpodderzhka-sayta-skolko-stoit-2026/)
 - [Приходящий сисадмин или штатный: когда что выгоднее](./prihodyashchiy-sisadmin-vs-shtatnyy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/prihodyashchiy-sisadmin-vs-shtatnyy-2026/)
 - [Форматы сотрудничества: проект, часы, подписка или внешний IT-отдел](./formaty-sotrudnichestva-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/formaty-sotrudnichestva-2026/)
