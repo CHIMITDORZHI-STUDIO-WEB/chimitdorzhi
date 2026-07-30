@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1340**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1341**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -370,6 +370,7 @@
 - [Скрытые камеры и трекеры: как проверить переговорную, офис и машину](./proverka-na-skrytye-kamery-trekery-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/proverka-na-skrytye-kamery-trekery-2026/)
 - [Слил ли сотрудник базу клиентов: как понять и что делать](./utechka-bazy-klientov-sotrudnik-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/utechka-bazy-klientov-sotrudnik-2026/)
 - [Корпоративный Wi-Fi: как чужое устройство крадёт данные](./bezopasnost-korporativnogo-wifi-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bezopasnost-korporativnogo-wifi-2026/)
+- [Могут ли перехватить ваш телефон: как защитить связь на важных переговорах](./zashchita-svyazi-ot-perehvata-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zashchita-svyazi-ot-perehvata-2026/)
 - [Двухфакторная аутентификация (2FA): полный гид 2026](./dvuhfaktornaya-autentifikaciya-gid-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/dvuhfaktornaya-autentifikaciya-gid-2026/)
 - [Самозапрет на кредиты через Госуслуги: как оформить в 2026](./samozapret-na-kredity-gosuslugi-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/samozapret-na-kredity-gosuslugi-2026/)
 - [Взломали Госуслуги: что делать в первый час](./vzlomali-gosuslugi-chto-delat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vzlomali-gosuslugi-chto-delat-2026/)
