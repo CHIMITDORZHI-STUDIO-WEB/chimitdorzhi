@@ -68,8 +68,10 @@ const E = (o) => Object.assign({
 }, o, { contentHtml: C(o.slug) });
 
 module.exports = [
+  // Обновлено 30.07.2026: добавлен кейс с индексацией публичных диалогов Claude
+  // поисковиками — наглядная иллюстрация того, что «поделиться ссылкой» != приватно.
   E({ slug: 'bezopasnyy-ii-v-kompanii-2026', category: 'security', heroIcon: 'ph-fill ph-shield-check',
-    servicesOffer: SVC_AI_SEC, ctaInternal: CTA_AI,
+    servicesOffer: SVC_AI_SEC, ctaInternal: CTA_AI, readingMinutes: 5, dateModified: '2026-07-30',
     title: 'Сотрудники и ChatGPT: как дать ИИ и не слить данные клиентов',
     metaTitle: 'Сотрудники и ChatGPT: как не слить данные клиентов',
     metaDescription: 'Сотрудники загружают договоры и базы клиентов в нейросети — и данные уходят на чужие серверы. Чем это грозит по 152-ФЗ, как выстроить безопасный ИИ-контур в компании и что записать в регламент.',
