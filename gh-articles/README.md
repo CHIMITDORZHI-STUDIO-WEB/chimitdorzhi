@@ -2,12 +2,13 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1339**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1340**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
 - [Голосовой ввод без утечки данных: диктовка для врача, юриста, психолога](./golosovoy-vvod-bez-utechki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/golosovoy-vvod-bez-utechki-2026/)
 - [ИИ-планировщик интерьера: показать клиенту комнату до заказа](./ii-planirovshchik-interyera-prodazhi-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-planirovshchik-interyera-prodazhi-2026/)
+- [ИИ размывает роли: когда один человек делает работу трёх](./ii-razmyvaet-roli-v-komande-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-razmyvaet-roli-v-komande-2026/)
 - [Нейросеть для видео: чем создать ролик в 2026](./neyroset-dlya-video-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/neyroset-dlya-video-2026/)
 - [OCR: как распознать текст с фото и скана](./ocr-raspoznat-tekst-s-foto-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ocr-raspoznat-tekst-s-foto-2026/)
 - [Нейросеть для генерации картинок: чем создать изображение в 2026](./neyroset-dlya-kartinok-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/neyroset-dlya-kartinok-2026/)
