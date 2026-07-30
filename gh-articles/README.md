@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1331**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1337**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -365,6 +365,8 @@
 ## Безопасность
 
 - [Скрытые камеры и трекеры: как проверить переговорную, офис и машину](./proverka-na-skrytye-kamery-trekery-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/proverka-na-skrytye-kamery-trekery-2026/)
+- [Слил ли сотрудник базу клиентов: как понять и что делать](./utechka-bazy-klientov-sotrudnik-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/utechka-bazy-klientov-sotrudnik-2026/)
+- [Корпоративный Wi-Fi: как чужое устройство крадёт данные](./bezopasnost-korporativnogo-wifi-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bezopasnost-korporativnogo-wifi-2026/)
 - [Двухфакторная аутентификация (2FA): полный гид 2026](./dvuhfaktornaya-autentifikaciya-gid-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/dvuhfaktornaya-autentifikaciya-gid-2026/)
 - [Самозапрет на кредиты через Госуслуги: как оформить в 2026](./samozapret-na-kredity-gosuslugi-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/samozapret-na-kredity-gosuslugi-2026/)
 - [Взломали Госуслуги: что делать в первый час](./vzlomali-gosuslugi-chto-delat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vzlomali-gosuslugi-chto-delat-2026/)
@@ -726,6 +728,9 @@
 ## Отрасли
 
 - [BLE-метки для учёта оборудования: где что лежит и куда уехало](./uchet-oborudovaniya-ble-metki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uchet-oborudovaniya-ble-metki-2026/)
+- [NFC-метки на оборудовании: паспорт техники по одному касанию](./nfc-pasport-oborudovaniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nfc-pasport-oborudovaniya-2026/)
+- [Indoor-навигация: поиск людей и техники внутри объекта](./indoor-navigaciya-ble-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/indoor-navigaciya-ble-2026/)
+- [Контроль температуры на складе и в холодильниках](./datchiki-temperatury-sklad-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/datchiki-temperatury-sklad-2026/)
 - [Честный знак: подключение пошагово в 2026 — что нужно и с чего начать](./chestnyy-znak-podklyuchenie-poshagovo-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chestnyy-znak-podklyuchenie-poshagovo-2026/)
 - [1688: как заказывать напрямую и через посредника](./zakaz-s-1688-napryamuyu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zakaz-s-1688-napryamuyu-2026/)
 - [Карго-доставка из Китая: как работает и какие риски](./kargo-dostavka-iz-kitaya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kargo-dostavka-iz-kitaya-2026/)
@@ -1048,6 +1053,7 @@
 - [Голосовой робот: обзвон и приём звонков без колл-центра](./golosovoy-robot-obzvon-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/golosovoy-robot-obzvon-2026/)
 - [Мониторинг госзакупок 44-ФЗ: как не упустить тендер](./monitoring-goszakupok-44fz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/monitoring-goszakupok-44fz-2026/)
 - [Интеграция с API Wildberries и Ozon: остатки, цены, отзывы](./integraciya-s-api-wb-ozon-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/integraciya-s-api-wb-ozon-2026/)
+- [RFID против штрихкодов: когда метка окупает себя](./rfid-vs-shtrihkod-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/rfid-vs-shtrihkod-2026/)
 - [Как создать бота в MAX: пошаговая инструкция 2026](./kak-sozdat-bota-v-max-poshagovo-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-sozdat-bota-v-max-poshagovo-2026/)
 - [Чат-бот в MAX: что умеет и сколько стоит заказать](./chat-bot-v-max-zakazat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chat-bot-v-max-zakazat-2026/)
 - [Написать скрипт на заказ: автоматизация рутины за вечер](./napisat-skript-na-zakaz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/napisat-skript-na-zakaz-2026/)
