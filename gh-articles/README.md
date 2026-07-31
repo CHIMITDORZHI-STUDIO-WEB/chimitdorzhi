@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1341**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1353**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -102,6 +102,9 @@
 
 ## cases
 
+- [Как я собрал каталог на 2000 авто из Китая в одиночку](./wetocar-katalog-avto-kitay-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/wetocar-katalog-avto-kitay-keys-2026/)
+- [Медиа-журнал с нуля: стек, сроки и решения (кейс Сансара)](./sansara-media-zhurnal-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sansara-media-zhurnal-keys-2026/)
+- [Сайт национального театра с админкой: что было под капотом](./amarsain-sayt-teatra-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/amarsain-sayt-teatra-keys-2026/)
 - [Кейс: что изменилось у клиента за 6 месяцев сопровождения](./keys-6-mesyacev-cifry-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/keys-6-mesyacev-cifry-2026/)
 - [Суперапп для сообщества автовладельцев внутри мессенджера](./superapp-avtovladeltsev-messendzher-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/superapp-avtovladeltsev-messendzher-keys-2026/)
 - [Реферальный бот-конкурс приглашений: кейс разработки](./referalnyy-bot-konkurs-priglasheniy-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/referalnyy-bot-konkurs-priglasheniy-keys-2026/)
@@ -1054,6 +1057,10 @@
 
 ## Разработка
 
+- [Студия из одного человека: как ИИ-агенты заменили мне команду](./studiya-iz-odnogo-cheloveka-ai-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/studiya-iz-odnogo-cheloveka-ai-2026/)
+- [Почему я беру заказы, за которые студии просят в разы дороже](./pochemu-beru-deshevle-studiy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pochemu-beru-deshevle-studiy-2026/)
+- [Несколько проектов параллельно, один я: как это устроено](./den-iz-zhizni-solo-razrabotchika-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/den-iz-zhizni-solo-razrabotchika-2026/)
+- [Автоматизация на коленке: что можно без программиста, а где звать меня](./avtomatizaciya-na-kolenke-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avtomatizaciya-na-kolenke-2026/)
 - [Голосовой робот: обзвон и приём звонков без колл-центра](./golosovoy-robot-obzvon-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/golosovoy-robot-obzvon-2026/)
 - [Мониторинг госзакупок 44-ФЗ: как не упустить тендер](./monitoring-goszakupok-44fz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/monitoring-goszakupok-44fz-2026/)
 - [Интеграция с API Wildberries и Ozon: остатки, цены, отзывы](./integraciya-s-api-wb-ozon-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/integraciya-s-api-wb-ozon-2026/)
@@ -1295,6 +1302,11 @@
 
 ## Экспертное
 
+- [Почему я не берусь за некоторые проекты](./pochemu-ne-berus-za-proekty-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pochemu-ne-berus-za-proekty-2026/)
+- [Сайт за 3 дня и 10 тысяч — почему это ловушка](./sayt-za-3-dnya-lovushka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-za-3-dnya-lovushka-2026/)
+- [Как принять сайт у подрядчика и не влететь: чек-лист](./kak-prinyat-sayt-u-podryadchika-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-prinyat-sayt-u-podryadchika-2026/)
+- [5 признаков, что вам продают лишнее](./5-priznakov-prodayut-lishnee-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/5-priznakov-prodayut-lishnee-2026/)
+- [Как проверить разработчика до оплаты](./kak-proverit-razrabotchika-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-proverit-razrabotchika-2026/)
 - [Что такое API простыми словами: объясняю на примерах](./chto-takoe-api-prostymi-slovami-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chto-takoe-api-prostymi-slovami-2026/)
 - [Что такое CRM простыми словами (с примерами)](./chto-takoe-crm-prostymi-slovami-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chto-takoe-crm-prostymi-slovami-2026/)
 - [Что такое нейросеть простыми словами: объясняю на пальцах](./chto-takoe-neyroset-prostymi-slovami-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chto-takoe-neyroset-prostymi-slovami-2026/)
