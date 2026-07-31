@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Бот-монитор чатов: ловить заявки в Telegram</title>
+    <meta name="description" content="Как бот следит за публичными чатами и каналами и ловит сообщения «куплю, ищу, посоветуйте» по вашей теме, а вы отвечаете первым.">
+    <meta name="keywords" content="мониторинг чатов telegram, бот для поиска клиентов, ловить заявки в чатах, парсинг telegram чатов, лиды из telegram, бот монитор ключевых слов">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/bot-monitor-chatov-zayavki-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/bot-monitor-chatov-zayavki-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/bot-monitor-chatov-zayavki-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/bot-monitor-chatov-zayavki-2026/">
+    <meta property="og:title" content="Бот-монитор чатов: ловить заявки в Telegram">
+    <meta property="og:description" content="Как бот следит за публичными чатами и каналами и ловит сообщения «куплю, ищу, посоветуйте» по вашей теме, а вы отвечаете первым.">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/bot-monitor-chatov-zayavki-2026/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Бот-монитор чатов: ловить заявки в Telegram">
+    <meta name="twitter:description" content="Как бот следит за публичными чатами и каналами и ловит сообщения «куплю, ищу, посоветуйте» по вашей теме, а вы отвечаете первым.">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/bot-monitor-chatov-zayavki-2026/cover.png">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor-Fill.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=65">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Бот-монитор чатов: ловим заявки «куплю/ищу» первыми",
+  "description": "Как бот следит за публичными чатами и каналами и ловит сообщения «куплю, ищу, посоветуйте» по вашей теме, а вы отвечаете первым. Что законно, как настроить и кому окупается.",
+  "image": "https://chimitdorzhi.tech/blog/bot-monitor-chatov-zayavki-2026/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://t.me/chimitdorzhi_studio",
+      "https://max.ru/channel_chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio",
+      "https://github.com/chimitdorzhi",
+      "https://chimitdorzhi.tech/about/"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/bot-monitor-chatov-zayavki-2026/"
+  },
+  "datePublished": "2026-07-31",
+  "dateModified": "2026-07-31",
+  "keywords": "бот, мониторинг, лиды, Telegram, 2026",
+  "articleSection": "Разработка",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Бот-монитор чатов: ловим заявки «куплю/ищу» первыми",
+      "item": "https://chimitdorzhi.tech/blog/bot-monitor-chatov-zayavki-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Это вообще законно?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Читать открытые публичные сообщения в открытых чатах — да, это работа с открытой информацией. Проблемы начинаются, если нарушать правила площадки, спамить в ответ, лезть в закрытые переписки или без основания копить персональные данные. Спорные моменты по правилам конкретных площадок и по 152-ФЗ уточняйте у юриста."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Не спам ли это?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет, если понимать разницу. Спам — это когда вы автоматически рассылаете одинаковые сообщения всем подряд. Мониторинг — это когда бот показывает вам конкретную публичную заявку, а вы лично отвечаете человеку по его вопросу. Первое вредит и вам, и людям. Второе — нормальный ответ на открытый запрос."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли отвечать автоматически?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Технически можно, но я настоятельно не рекомендую. Автоответ моментально превращает полезный инструмент в спам-машину: люди это чувствуют, площадки за это банят, репутация падает. Отвечать должен человек — живым текстом и по существу. Бот только приносит вам сигнал вовремя."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "В каких мессенджерах это работает?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Лучше всего механика ложится на Telegram с его открытыми тематическими чатами и каналами. В других площадках возможности зависят от их правил и технических условий — это уточняется под конкретную задачу."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько чатов можно мониторить?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Технически — много, но гнаться за количеством не стоит. Десять точных чатов с вашей аудиторией дают больше толковых заявок, чем сто случайных, и при этом не тонешь в шуме. Лучше начать с небольшого списка и расширять его осознанно."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Будет ли много ложных срабатываний?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "В первую неделю — да, это нормально. Именно поэтому нужна калибровка: настраиваем фразы намерения, добавляем стоп-слова, убираем шумные чаты. После этого поток уведомлений становится осмысленным, и вы получаете в основном то, на что действительно стоит откликнуться."
+      }
+    }
+  ]
+}
+    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+var inject=function(){for (var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)};
+var run=function(){('requestIdleCallback' in window)?requestIdleCallback(inject,{timeout:5000}):setTimeout(inject,3000)};
+(e.readyState==='complete')?run():m.addEventListener('load',run);})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109281884" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<!-- Цели Метрики: клики по контактам и услугам -->
+<script type="text/javascript">
+(function(){
+  var GOALS = [
+    { re: /t\.me\//i,                     goal: 'tg_click' },
+    { re: /max\.ru\//i,                    goal: 'max_click' },
+    { re: /audit\.chimitdorzhi\.tech/i,    goal: 'audit_click' },
+    { re: /chimitdorzhi\.tech\/services\//i, goal: 'service_click' },
+    { re: /chimitdorzhi\.tech\/predlozheniya\//i, goal: 'offer_click' }
+  ];
+  document.addEventListener('click', function(e){
+    var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    for (var i = 0; i < GOALS.length; i++) {
+      if (GOALS[i].re.test(href)) {
+        try { if (window.ym) ym(109281884, 'reachGoal', GOALS[i].goal); } catch (err) {}
+        break;
+      }
+    }
+  }, true);
+})();
+</script>
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/market/">Собрать проект</a></li>
+            <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+            <li style="display:none"><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li class="nav-dropdown">
+                <a href="/#projects" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="/blog/category/cases/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-briefcase" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Кейсы</span>
+                            <span class="nav-dropdown-desc">Реальные проекты под ключ</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li style="display:none"><a href="/#cases" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li style="display:none"><a href="/infografika/">Инфографика</a></li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+                <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему" aria-pressed="false">
+                <i class="ph ph-moon" aria-hidden="true"></i>
+            </button>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/market/">Собрать проект</a></li>
+        <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+        <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+        <li class="mobile-has-submenu">
+            <details>
+                <summary aria-label="Проекты — развернуть"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down" aria-hidden="true"></i></summary>
+                <ul class="mobile-submenu">
+                    <li>
+                        <a href="/blog/category/cases/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-briefcase" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">Кейсы</span>
+                                <span class="mobile-sub-desc">Реальные проекты под ключ</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://gerel.space" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">Gerel.space</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/universe_buryat/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/arey/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.arey">AREY</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/mwrlife/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">MWR Life</span>
+                                <span class="mobile-sub-desc">Travel-клуб и партнёрка</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </details>
+        </li>
+        <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+        <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+    </ul>
+    <div class="mobile-controls">
+        <div class="mobile-lang-switcher" role="group" aria-label="Выбор языка">
+            <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+            <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+            <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+        </div>
+        <button class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle" aria-label="Переключить тему" aria-pressed="false">
+            <i class="ph ph-moon" aria-hidden="true"></i>
+        </button>
+    </div>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Бот-монитор чатов: ловим заявки «куплю/ищу» первыми</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/development/"><i class="ph ph-bookmark" aria-hidden="true"></i> Разработка</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 8 мин чтения</span>
+                        <time datetime="2026-07-31"><i class="ph ph-calendar" aria-hidden="true"></i> 31 июля 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Бот-монитор чатов: ловим заявки «куплю/ищу» первыми</h1>
+
+                    <p class="blog-lead">В тематических чатах каждый день пишут «ищу того, кто сделает сайт», «посоветуйте разработчика», «куплю». Кто ответит первым — заберёт клиента. Разбираю, как бот ловит такие заявки за секунды, что при этом законно, и кому это окупается.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>бот</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>мониторинг</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>лиды</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>Telegram</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>2026</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr">
+  <h3>Коротко (TL;DR)</h3>
+  <ul>
+    <li>В тематических чатах и каналах люди постоянно пишут «ищу того, кто сделает», «посоветуйте подрядчика», «куплю». Кто ответил первым и по делу — забирает клиента.</li>
+    <li>Бот-монитор следит за новыми ПУБЛИЧНЫМИ сообщениями, фильтрует их по вашим ключевым словам и мгновенно шлёт вам уведомление со ссылкой. Отвечаете человеку вы сами, живым текстом.</li>
+    <li>Это радар, а не спам-машина: мы ловим открытые заявки и отвечаем по делу, а не рассылаем автоматические сообщения всем подряд.</li>
+    <li>Легально — работать с открытыми объявлениями в открытых чатах. Нелегально и вредно — спамить, собирать персональные данные без основания и лезть в закрытые переписки.</li>
+    <li>Окупается у услуг и подрядчиков (ремонт, стройка, разработка, дизайн, юристы, репетиторы) и локального бизнеса, у которых есть тематические чаты с их аудиторией.</li>
+  </ul>
+</div>
+
+<p>Меня зовут Чимитдоржи Дарижапов, я IT-специалист и делаю инструменты, которые помогают бизнесу не терять клиентов на ровном месте. Один из самых частых запросов, который я слышу: «В чатах постоянно кто-то ищет исполнителя, но пока я это увижу — уже поздно». Знакомо? Тогда эта статья для вас. Разберу спокойно и честно, как устроен бот-монитор публичных чатов, что он реально умеет, где проходит граница закона и этики, и кому он приносит деньги, а кому — только лишние уведомления.</p>
+
+<p>Сразу обозначу рамку, чтобы не было недопонимания. Речь идёт о мониторинге ПУБЛИЧНЫХ сообщений в открытых тематических чатах и каналах. Это примерно как читать объявления на доске у подъезда: информация выложена открыто, для всех. Я не говорю про слежку за конкретными людьми, чтение личной переписки, сбор персональных данных или массовый спам. Всё это я считаю недопустимым и ниже объясню почему.</p>
+
+<h2 id="problema">Почему заявки уходят к другим</h2>
+
+<p>Представьте городской чат по ремонту квартир или отраслевое сообщество предпринимателей. Каждый день там появляются сообщения вроде: «Посоветуйте, кто недорого сделает натяжные потолки», «Ищу разработчика, нужен небольшой сайт для магазина», «Куплю партию, кто возит из Китая?». Это готовые заявки. Человек прямо сейчас ищет исполнителя и открыт к предложениям.</p>
+
+<p>Проблема в скорости. Такая заявка живёт минуты. Через полчаса под ней уже десять ответов, а через час автор написал в личку двоим и закрыл вопрос. Если вы увидели сообщение вечером, разгребая ленту, — вы опоздали. Клиент уже нашёлся.</p>
+
+<p>Сидеть вручную в двадцати чатах круглые сутки нереально. Даже если вы будете листать их каждый час, вы всё равно пропустите большинство горячих сообщений, потому что они тонут в потоке болтовни, мемов и рекламы. А нанимать человека, который целый день читает чаты, — дорого и всё равно ненадёжно: он спит, ест и отвлекается.</p>
+
+<p>Отсюда простой вывод: выигрывает не тот, у кого лучше услуга, а тот, кто ответил первым и по делу. И вот здесь помогает автоматизация — не чтобы отвечать за вас, а чтобы вовремя показать вам сообщение, на которое стоит откликнуться.</p>
+
+<h2 id="kak-rabotaet">Как работает бот-монитор</h2>
+
+<p>Идея простая. Бот подключается к нужным ПУБЛИЧНЫМ чатам и каналам, следит за новыми сообщениями в реальном времени, прогоняет каждое через ваш фильтр ключевых слов и, если находит совпадение, мгновенно присылает вам уведомление со ссылкой на это сообщение. Вы открываете ссылку, читаете контекст и отвечаете человеку сами — как живой специалист.</p>
+
+<p>Ключевая мысль, которую я всегда проговариваю с заказчиками: бот — это радар, а не автоответчик. Он не пишет за вас, не рассылает шаблоны и не лезет к человеку в личку от вашего имени. Его единственная задача — не дать вам пропустить момент. Дальше работает человек.</p>
+
+<p>Технически для Telegram это делается через пользовательские (клиентские) библиотеки, которые позволяют получать сообщения из открытых чатов так же, как их видит обычный участник. Я не буду углубляться в код — важно понять принцип: бот читает то же самое, что видит любой человек, открывший этот чат. Он не взламывает ничего и не получает доступа к тому, что закрыто.</p>
+
+<p>Уведомление можно направлять туда, где вам удобно реагировать: в личные сообщения, в отдельный рабочий чат для вашей команды или сразу в CRM, если вы хотите вести учёт откликов. Если заявок много и над ними работает несколько человек, отдельный чат-«приёмник» удобнее всего: там сразу видно, кто уже взял обращение в работу.</p>
+
+<p>Если хотите глубже разобраться, как вообще устроены боты для бизнеса и что они умеют помимо мониторинга, у меня есть отдельный разбор про <a href="/blog/chatbot-telegram-max-vk-2026/">чат-бот для бизнеса</a>.</p>
+
+<h2 id="chto-lovit">Что настроить, чтобы не тонуть в шуме</h2>
+
+<p>Самая частая ошибка новичка — задать широкие ключевые слова и получить сто уведомлений в день, которые быстро перестанешь читать. Вторая крайность — настроить слишком узко и пропустить половину заявок. Истина посередине, и туда нужно попадать калибровкой. Разберу по элементам.</p>
+
+<p><strong>Ключевые слова и фразы намерения.</strong> Не просто «сайт», а «нужен сайт», «ищу кто сделает сайт», «посоветуйте разработчика». Слово «сайт» встречается в тысяче контекстов: кто-то жалуется на чужой сайт, кто-то делится ссылкой. А фраза намерения — это когда человек прямо ищет исполнителя. Именно такие формулировки и надо ловить.</p>
+
+<p><strong>Стоп-слова.</strong> Это фильтр против мусора. Если в сообщении есть «продаю», «реклама», «вакансия», «резюме» — часто это не ваш клиент, а конкурент или спам. Стоп-слова отсекают заведомо нерелевантное и заметно снижают количество ложных срабатываний.</p>
+
+<p><strong>Список релевантных чатов.</strong> Нет смысла мониторить всё подряд. Нужны именно те сообщества, где сидит ваша аудитория. Десять точных чатов дадут больше толковых заявок, чем сто случайных.</p>
+
+<p><strong>Фильтр по свежести.</strong> Реагировать имеет смысл на свежие сообщения. Если заявке уже несколько часов, вы, скорее всего, опоздали, и уведомление только отвлекает.</p>
+
+<p>Первую неделю бот стоит держать «на прогреве»: смотреть, что он ловит, и докручивать правила. Где-то добавить фразу, где-то стоп-слово, где-то убрать шумный чат. После такой калибровки поток уведомлений становится осмысленным — приходит не всё подряд, а именно то, на что стоит потратить минуту и написать человеку.</p>
+
+<div class="blog-table">
+  <table>
+    <thead>
+      <tr>
+        <th>Правильно (мониторинг)</th>
+        <th>Неправильно (спам и слежка)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Читаем открытые публичные сообщения в открытых чатах</td>
+        <td>Лезем в закрытые группы и личную переписку</td>
+      </tr>
+      <tr>
+        <td>Ловим заявку и отвечаем лично, по делу, как живой человек</td>
+        <td>Рассылаем автоматические шаблоны всем подряд</td>
+      </tr>
+      <tr>
+        <td>Реагируем на конкретный запрос конкретного человека</td>
+        <td>Собираем базу контактов «на будущее» без основания</td>
+      </tr>
+      <tr>
+        <td>Уважаем правила площадки, где боты и сбор разрешены</td>
+        <td>Игнорируем правила чата, где это запрещено</td>
+      </tr>
+      <tr>
+        <td>Один точный ответ по существу вопроса</td>
+        <td>Навязчивые повторные сообщения и напоминания</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 id="zakon">Что законно, а что нет</h2>
+
+<p>Это самый важный раздел, и я хочу быть с вами предельно честным. Инструмент полезный, но им легко испортить и репутацию, и отношения с законом, если перепутать мониторинг со спамом и слежкой.</p>
+
+<p><strong>Что нормально.</strong> Мониторинг публичных сообщений в открытых чатах — это работа с открытой информацией. Человек сам, добровольно, написал в общий чат «ищу подрядчика». Он ожидает, что это увидят и откликнутся. Ответить ему лично и по делу — это ровно то, ради чего он писал.</p>
+
+<p><strong>Чего делать нельзя.</strong> Перечислю прямо:</p>
+
+<ul>
+  <li>Вступать туда, где правилами площадки или сообщества запрещены боты, автоматический сбор или посторонние предложения. Правила чата — это тоже правила, их надо уважать.</li>
+  <li>Рассылать спам в ответ. Массовая автоматическая рассылка одинаковых сообщений — это и вредно для репутации, и во многих случаях нарушает и правила площадок, и закон о рекламе. Спамера быстро банят и запоминают.</li>
+  <li>Собирать и хранить персональные данные людей без законного основания. В России это регулирует 152-ФЗ «О персональных данных». Складывать в базу имена, контакты и переписку «на всякий случай» — плохая идея.</li>
+  <li>Читать закрытые группы и личные переписки. Открытая доска объявлений и чужой личный разговор — это принципиально разные вещи.</li>
+</ul>
+
+<p><strong>Как правильно.</strong> Увидели публичную заявку — ответили лично, по существу, как живой специалист. Без шаблонов, без навязчивости, без сбора «базы». Один человек, один конкретный запрос, один толковый ответ. Это и работает лучше, и вопросов ни у кого не вызывает.</p>
+
+<p>Важная оговорка: правила конкретных площадок различаются и меняются, а применимость 152-ФЗ к вашей ситуации зависит от деталей. Спорные моменты лучше сверять с юристом. Я намеренно не называю номера статей и суммы штрафов — не хочу вводить вас в заблуждение выдуманной конкретикой. Общий принцип простой: работаете с открытой информацией и отвечаете по делу — вы в порядке; спамите, шпионите и копите чужие данные — ищете себе проблемы.</p>
+
+<h2 id="komu-okupaetsya">Кому это окупается</h2>
+
+<p>Инструмент не универсальный. Давайте честно про то, кому он реально приносит деньги, а кому будет пустой тратой сил.</p>
+
+<p><strong>Кому окупается.</strong> В первую очередь — услугам и подрядчикам: ремонт и отделка, стройка, разработка и дизайн, юристы, бухгалтеры, репетиторы, мастера на выезд. Всем, кого клиенты ищут словами «посоветуйте, кто сделает». Хорошо заходит B2B с понятным запросом, когда человек чётко формулирует, что ему нужно. И локальный бизнес в городских и районных чатах, где люди спрашивают совета у соседей.</p>
+
+<p>Общий признак простой: если ваши клиенты ищут исполнителя в сообществах и чатах, а не через поиск или рекламу, — бот-монитор для вас. Каждая пойманная вовремя заявка может окупить его на месяцы вперёд, потому что один хороший клиент в услугах часто стоит дороже, чем вся настройка.</p>
+
+<p><strong>Кому не надо.</strong> Массовому товару с готовыми рекламными каналами, где проще и дешевле настроить таргет и получать заявки потоком. И тем, у кого просто нет тематических чатов с их аудиторией: если вашу нишу нигде не обсуждают, ловить нечего. В этом случае лучше вложиться в другие каналы — например, выстроить нормальную <a href="/blog/voronka-prodazh-b2b-2026/">воронку продаж B2B</a>, а не искать заявки там, где их нет.</p>
+
+<p>Отдельно отмечу: у мониторинга чатов есть «родственник» — <a href="/blog/monitoring-goszakupok-44fz-2026/">мониторинг госзакупок</a>. Логика та же самая: не пропустить нужный сигнал в потоке информации и среагировать первым. Только источник другой — официальные площадки закупок вместо тематических чатов.</p>
+
+<h2 id="kak-vnedrit">Что нужно для запуска</h2>
+
+<p>Чтобы бот-монитор заработал и приносил пользу, а не шум, нужно подготовить несколько вещей. Ничего сложного, но без этого не обойтись.</p>
+
+<ul>
+  <li><strong>Список целевых чатов.</strong> Соберите открытые тематические чаты и каналы, где сидит ваша аудитория и где разрешено ваше присутствие. Начните с десятка самых живых.</li>
+  <li><strong>Набор ключевых слов и фраз намерения.</strong> Выпишите, как именно ваши клиенты формулируют запрос. Не общими словами, а живыми фразами: «ищу», «посоветуйте», «нужен», «куплю», «кто делает».</li>
+  <li><strong>Стоп-слова.</strong> Составьте список того, что нужно отсекать: реклама, вакансии, продажи, болтовня. Этот список будет пополняться в первую неделю по мере наблюдения.</li>
+  <li><strong>Аккаунт или бот для мониторинга.</strong> То, что технически подключается к чатам и читает сообщения. Настраивается один раз.</li>
+  <li><strong>Точку приёма уведомлений.</strong> Решите, куда падают сигналы: в личку, в рабочий чат команды или в CRM. Если реагируете не вы один — лучше общий чат.</li>
+  <li><strong>Калибровку на реальных данных.</strong> Первую неделю бот работает «вхолостую», а вы смотрите, что он ловит, и докручиваете правила. Это обязательный этап, без него будет либо шум, либо пропуски.</li>
+</ul>
+
+<p>Опционально — выгрузка пойманных заявок в таблицу или CRM, чтобы видеть статистику: сколько сигналов пришло, на сколько вы ответили, сколько превратилось в клиентов. Это помогает понять, какие чаты и слова работают, а какие можно отключить.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+
+<p><strong>Это вообще законно?</strong> Читать открытые публичные сообщения в открытых чатах — да, это работа с открытой информацией. Проблемы начинаются, если нарушать правила площадки, спамить в ответ, лезть в закрытые переписки или без основания копить персональные данные. Спорные моменты по правилам конкретных площадок и по 152-ФЗ уточняйте у юриста.</p>
+
+<p><strong>Не спам ли это?</strong> Нет, если понимать разницу. Спам — это когда вы автоматически рассылаете одинаковые сообщения всем подряд. Мониторинг — это когда бот показывает вам конкретную публичную заявку, а вы лично отвечаете человеку по его вопросу. Первое вредит и вам, и людям. Второе — нормальный ответ на открытый запрос.</p>
+
+<p><strong>Можно ли отвечать автоматически?</strong> Технически можно, но я настоятельно не рекомендую. Автоответ моментально превращает полезный инструмент в спам-машину: люди это чувствуют, площадки за это банят, репутация падает. Отвечать должен человек — живым текстом и по существу. Бот только приносит вам сигнал вовремя.</p>
+
+<p><strong>В каких мессенджерах это работает?</strong> Лучше всего механика ложится на Telegram с его открытыми тематическими чатами и каналами. В других площадках возможности зависят от их правил и технических условий — это уточняется под конкретную задачу.</p>
+
+<p><strong>Сколько чатов можно мониторить?</strong> Технически — много, но гнаться за количеством не стоит. Десять точных чатов с вашей аудиторией дают больше толковых заявок, чем сто случайных, и при этом не тонешь в шуме. Лучше начать с небольшого списка и расширять его осознанно.</p>
+
+<p><strong>Будет ли много ложных срабатываний?</strong> В первую неделю — да, это нормально. Именно поэтому нужна калибровка: настраиваем фразы намерения, добавляем стоп-слова, убираем шумные чаты. После этого поток уведомлений становится осмысленным, и вы получаете в основном то, на что действительно стоит откликнуться.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+
+<p>В тематических чатах постоянно появляются готовые заявки, и забирает клиента тот, кто ответил первым и по делу. Вручную это не отследить — сообщения живут минуты и тонут в потоке. Бот-монитор решает ровно одну задачу: не даёт вам пропустить нужный сигнал, присылая уведомление со ссылкой на публичное сообщение, чтобы вы ответили человеку сами.</p>
+
+<p>Главное — держать в голове рамку. Это радар, а не спам-машина. Мы работаем с открытой информацией в открытых чатах, отвечаем лично и по существу, уважаем правила площадок и не собираем чужие данные без основания. Так инструмент приносит клиентов и не создаёт проблем ни вам, ни людям.</p>
+
+<p>Окупается это прежде всего у услуг, подрядчиков и локального бизнеса — у всех, кого клиенты ищут словами «посоветуйте, кто сделает». Если у вашей ниши есть живые чаты с целевой аудиторией, вы наверняка теряете часть заявок просто потому, что не успеваете их увидеть.</p>
+
+<p>Если хотите ловить заявки в своих нишевых чатах первыми — напишите мне, настроим бота-монитора под ваши слова и чаты, откалибруем на реальных данных и договоримся о том, чтобы всё оставалось честно и по делу.</p>
+
+                    </div>
+
+                    
+                    
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Бот-монитор заявок под ключ</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-magnifying-glass"></i> <span>Отслеживание чатов по вашим словам</span></li>
+    
+    <li><i class="ph-fill ph-bell-ringing"></i> <span>Уведомление о заявке за секунды</span></li>
+    
+    <li><i class="ph-fill ph-funnel"></i> <span>Фильтры и стоп-слова против шума</span></li>
+    
+    <li><i class="ph-fill ph-table"></i> <span>Выгрузка лидов в таблицу или CRM</span></li>
+    
+  </ul>
+  <div class="blog-services-offer-ctas">
+    <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+      <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Обсудить бота
+    </a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="blog-services-offer-cta blog-services-offer-cta-max">
+      <i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> Написать в MAX
+    </a>
+  </div>
+</div>
+                    <div class="blog-cta-card">
+                        <div class="blog-cta-card-body">
+                            <h3>Бесплатно: чек-лист «Готов ли ваш бизнес к 152-ФЗ»</h3>
+                            <p>12 пунктов, которые проверяют готовность за час: данные, согласия, уведомление в РКН, локализация, защита. Отметьте, что уже сделано, и увидите дыры, за которые сейчас штрафуют.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="/checklist-152-fz/" class="btn btn-accent"><i class="ph-fill ph-clipboard-text" aria-hidden="true"></i> Открыть чек-лист</a>
+                        </div>
+                    </div>
+                    
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/services/telegram-bots/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Заказать бота-монитора</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-subscribe">
+  <div class="blog-subscribe-body">
+    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
+    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
+  </div>
+  <div class="blog-subscribe-actions">
+    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
+  </div>
+</section>
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/chatbot-telegram-max-vk-2026/" data-category="development" data-clicks="9">
+  <span class="blog-card-popular"><i class="ph-fill ph-fire" aria-hidden="true"></i> Популярное</span>
+  <div class="blog-card-icon"><i class="ph-fill ph-robot"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
+  <h3>Чат-бот для бизнеса 2026: Telegram, MAX или VK — где не прогадать</h3>
+  <p>Telegram, MAX или VK — на какой платформе делать чат-бота для бизнеса в 2026? Сравниваю по аудитории, API, оплатам и Mini Apps, разбираю приём платежей, AI-ботов на российских моделях, интеграцию с CRM и выбор под тип бизнеса. No-code vs кастом, реальная стоимость. С примерами кода на aiogram.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 29 мая 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 24 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/monitoring-goszakupok-44fz-2026/" data-category="development" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-gavel"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
+  <h3>Мониторинг госзакупок 44-ФЗ: как не упустить тендер</h3>
+  <p>Подходящая закупка вышла в пятницу вечером, а вы увидели её в среду — когда подавать поздно. Разбираю, как настроить мониторинг под свои ОКПД и получать уведомления за минуты.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 30 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/voronka-prodazh-b2b-2026/" data-category="sales" data-clicks="4">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-funnel"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Продажи и стартап</span>
+  <h3>Воронка продаж B2B 2026: как построить и автоматизировать через AI + CRM</h3>
+  <p>B2B-воронка отличается от B2C тремя вещами: длинный цикл сделки, multi-stakeholder, обязательное ROI-обоснование. Разбираю 6 этапов, лид-скоринг по 4 осям, AI-автоматизацию (персонализация писем 1000+ в день, voice-обзвон, классификация лидов), метрики, готовый n8n-скрипт и реальный кейс с окупаемостью 1,5 месяца.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 25 мая 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 24 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/crm-dlya-malogo-biznesa-2026/" data-category="sales" data-clicks="2">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-address-book"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Продажи и стартап</span>
+  <h3>CRM для малого бизнеса 2026: amoCRM vs Bitrix24 vs RetailCRM vs Notion — что выбрать без переплаты</h3>
+  <p>Малый бизнес 2026 теряет деньги, выбирая CRM по принципу «надо корпоративное» или «у всех amoCRM». Разбираю топ-5 CRM (amoCRM, Bitrix24, RetailCRM, Notion, Kommo, HubSpot Free) с ценами 2026, AI-фичами, обязательными интеграциями, миграцией, полной стоимостью владения и финальной рекомендацией под каждый сегмент бизнеса.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 25 мая 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 26 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    
+                    
+                    
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовые решения под ключ</span>
+                            <span class="blog-offer-cta-title">449 готовых IT-решений для бизнеса</span>
+                            <span class="blog-offer-cta-price">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Смотреть каталог</span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#problema"><span class="blog-toc-num">01</span> Почему заявки уходят к другим</a></li>
+<li><a href="#kak-rabotaet"><span class="blog-toc-num">02</span> Как работает бот-монитор</a></li>
+<li><a href="#chto-lovit"><span class="blog-toc-num">03</span> Что настроить, чтобы не тонуть в шуме</a></li>
+<li><a href="#zakon"><span class="blog-toc-num">04</span> Что законно, а что нет</a></li>
+<li><a href="#komu-okupaetsya"><span class="blog-toc-num">05</span> Кому это окупается</a></li>
+<li><a href="#kak-vnedrit"><span class="blog-toc-num">06</span> Что нужно для запуска</a></li>
+<li><a href="#faq"><span class="blog-toc-num">07</span> Частые вопросы</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">08</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=23" defer></script>
+<script src="/services-i18n.js?v=23" defer></script>
+<script src="/script.js?v=30" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>
