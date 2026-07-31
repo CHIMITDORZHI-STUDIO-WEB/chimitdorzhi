@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог 2000 авто из Китая в одиночку: кейс</title>
+    <meta name="description" content="Кейс WeToCar: как один разработчик собрал каталог на 2000 автомобилей из Китая с автоподгрузкой через API, расчётом стоимости с логистикой и таможней.">
+    <meta name="keywords" content="кейс каталог авто, авто из китая сайт, агрегатор автомобилей разработка, next.js каталог, интеграция auto-api, разработка в одиночку">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/wetocar-katalog-avto-kitay-keys-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/wetocar-katalog-avto-kitay-keys-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/wetocar-katalog-avto-kitay-keys-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/wetocar-katalog-avto-kitay-keys-2026/">
+    <meta property="og:title" content="Каталог 2000 авто из Китая в одиночку: кейс">
+    <meta property="og:description" content="Кейс WeToCar: как один разработчик собрал каталог на 2000 автомобилей из Китая с автоподгрузкой через API, расчётом стоимости с логистикой и таможней.">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/wetocar-katalog-avto-kitay-keys-2026/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Каталог 2000 авто из Китая в одиночку: кейс">
+    <meta name="twitter:description" content="Кейс WeToCar: как один разработчик собрал каталог на 2000 автомобилей из Китая с автоподгрузкой через API, расчётом стоимости с логистикой и таможней.">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/wetocar-katalog-avto-kitay-keys-2026/cover.png">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/phosphor/Phosphor-Fill.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=65">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Как я собрал каталог на 2000 авто из Китая в одиночку",
+  "description": "Кейс WeToCar: как один разработчик собрал каталог на 2000 автомобилей из Китая с автоподгрузкой через API, расчётом стоимости с логистикой и таможней. Стек, решения, выводы.",
+  "image": "https://chimitdorzhi.tech/blog/wetocar-katalog-avto-kitay-keys-2026/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://t.me/chimitdorzhi_studio",
+      "https://max.ru/channel_chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio",
+      "https://github.com/chimitdorzhi",
+      "https://chimitdorzhi.tech/about/"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/wetocar-katalog-avto-kitay-keys-2026/"
+  },
+  "datePublished": "2026-07-31",
+  "dateModified": "2026-07-31",
+  "keywords": "кейс, WeToCar, каталог, авто из Китая, 2026",
+  "articleSection": "Кейсы",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Как я собрал каталог на 2000 авто из Китая в одиночку",
+      "item": "https://chimitdorzhi.tech/blog/wetocar-katalog-avto-kitay-keys-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Сколько времени занимает такой каталог?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Зависит от объёма и того, насколько «чистые» данные отдаёт источник. Основное время уходит не на витрину, а на стабильную синхронизацию с внешним API и обработку неполных данных. По срокам под вашу задачу отвечу после короткого разговора."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли подключить другой источник данных, не auto-api?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, архитектура не привязана к одному поставщику. Если у выбранного источника есть API или структурированная выгрузка, интеграцию можно настроить под него."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "А если поставщик поменяет формат данных?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Это обычная ситуация, поэтому обмен строится с обработкой ошибок и журналом: если что-то приходит не так, система это фиксирует, а не молча ломается. Такие вещи закладываются заранее."
+      }
+    }
+  ]
+}
+    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+var inject=function(){for (var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)};
+var run=function(){('requestIdleCallback' in window)?requestIdleCallback(inject,{timeout:5000}):setTimeout(inject,3000)};
+(e.readyState==='complete')?run():m.addEventListener('load',run);})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109281884" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<!-- Цели Метрики: клики по контактам и услугам -->
+<script type="text/javascript">
+(function(){
+  var GOALS = [
+    { re: /t\.me\//i,                     goal: 'tg_click' },
+    { re: /max\.ru\//i,                    goal: 'max_click' },
+    { re: /audit\.chimitdorzhi\.tech/i,    goal: 'audit_click' },
+    { re: /chimitdorzhi\.tech\/services\//i, goal: 'service_click' },
+    { re: /chimitdorzhi\.tech\/predlozheniya\//i, goal: 'offer_click' }
+  ];
+  document.addEventListener('click', function(e){
+    var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    for (var i = 0; i < GOALS.length; i++) {
+      if (GOALS[i].re.test(href)) {
+        try { if (window.ym) ym(109281884, 'reachGoal', GOALS[i].goal); } catch (err) {}
+        break;
+      }
+    }
+  }, true);
+})();
+</script>
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/market/">Собрать проект</a></li>
+            <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+            <li style="display:none"><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li class="nav-dropdown">
+                <a href="/#projects" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="/blog/category/cases/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-briefcase" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Кейсы</span>
+                            <span class="nav-dropdown-desc">Реальные проекты под ключ</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li style="display:none"><a href="/#cases" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li style="display:none"><a href="/infografika/">Инфографика</a></li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+                <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему" aria-pressed="false">
+                <i class="ph ph-moon" aria-hidden="true"></i>
+            </button>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/market/">Собрать проект</a></li>
+        <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
+        <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+        <li class="mobile-has-submenu">
+            <details>
+                <summary aria-label="Проекты — развернуть"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down" aria-hidden="true"></i></summary>
+                <ul class="mobile-submenu">
+                    <li>
+                        <a href="/blog/category/cases/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-briefcase" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">Кейсы</span>
+                                <span class="mobile-sub-desc">Реальные проекты под ключ</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://gerel.space" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">Gerel.space</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/universe_buryat/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/arey/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.arey">AREY</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/mwrlife/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">MWR Life</span>
+                                <span class="mobile-sub-desc">Travel-клуб и партнёрка</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </details>
+        </li>
+        <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+        <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+    </ul>
+    <div class="mobile-controls">
+        <div class="mobile-lang-switcher" role="group" aria-label="Выбор языка">
+            <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+            <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+            <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+        </div>
+        <button class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle" aria-label="Переключить тему" aria-pressed="false">
+            <i class="ph ph-moon" aria-hidden="true"></i>
+        </button>
+    </div>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Как я собрал каталог на 2000 авто из Китая в одиночку</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/cases/"><i class="ph ph-bookmark" aria-hidden="true"></i> Кейсы</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин чтения</span>
+                        <time datetime="2026-07-31"><i class="ph ph-calendar" aria-hidden="true"></i> 31 июля 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Как я собрал каталог на 2000 авто из Китая в одиночку</h1>
+
+                    <p class="blog-lead">Задача звучала как работа для команды: каталог на 2000 автомобилей с живой подгрузкой из Китая, расчётом логистики и таможни. Рассказываю, как собрал это один, на чём и что бы сделал иначе.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>кейс</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>WeToCar</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>каталог</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>авто из Китая</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>2026</span></div>
+
+                    <div class="blog-body">
+                        <div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
+<li>Ко мне пришли с задачей: продавать автомобили из Китая, но вести вручную около 2000 позиций с ценами, логистикой и таможней невозможно.</li>
+<li>Я собрал каталог WeToCar, который сам подгружает данные об авто через внешний API поставщика и не требует ручного ведения.</li>
+<li>Для каждой машины считается итоговая стоимость: цена авто плюс логистика плюс таможенные платежи — покупатель сразу видит финальную цифру.</li>
+<li>Стек — Next.js 15 для быстрых страниц и SEO, Prisma 6 для работы с базой данных, интеграция с auto-api как источником данных.</li>
+<li>Проект запущен на хостинге Beget; я делал его один — от архитектуры до деплоя.</li>
+</ul></div>
+
+<p>Расскажу про проект, которым я занимался от начала и до запуска в одиночку. Называется он WeToCar — это витрина автомобилей из Китая. Меня зовут Чимитдоржи Дарижапов, я делаю сайты и сервисы под задачи бизнеса, и этот кейс хорошо показывает, как обычную «нам нужен сайт с машинами» превращают в работающий инструмент, который не сжирает всё время владельца на ручное обновление данных. Здесь я честно опишу задачу, решение, стек, сложности и то, что сделал бы иначе. Никаких выдуманных цифр про выручку и продажи — только то, что реально было в работе.</p>
+
+<h2 id="zadacha">Задача заказчика</h2>
+<p>Исходная ситуация простая на словах и тяжёлая на практике. Есть бизнес, который возит автомобили из Китая под заказ. Ассортимент — порядка двух тысяч моделей и комплектаций. Клиент хочет зайти на сайт, посмотреть доступные машины, отфильтровать по своим параметрам и сразу понять, во сколько ему обойдётся конкретное авто с учётом доставки и растаможки.</p>
+<p>Проблема в том, что рынок авто из Китая живой. Появляются новые позиции, меняются цены у поставщика, что-то уходит из наличия. Если вести такой каталог руками — в таблице или в самописной админке — это превращается в работу на полную ставку. Две тысячи строк, у каждой десятки характеристик, фотографии, цена, которая ещё и зависит от курса и условий доставки. Человек физически не успеет держать это в актуальном состоянии, а устаревшая витрина хуже, чем её отсутствие: клиент видит цену, звонит, а машина уже стоит иначе или её нет.</p>
+<p>Поэтому настоящая задача звучала не как «сделай сайт с карточками», а как «сделай живую витрину, которая обновляется сама». Ключевое слово — сама. Каталог должен подтягивать данные из внешнего источника, показывать честную итоговую стоимость и давать удобные фильтры, чтобы человек за минуту нашёл то, что ему подходит. Это классическая история про <a href="/blog/avtomatizaciya-riteyla-seti-2026/">автоматизацию ритейла</a>, только вместо товаров на полке — автомобили, а вместо ценника — сложная формула с логистикой и пошлинами.</p>
+
+<h2 id="reshenie">Что я сделал</h2>
+<p>Я собрал каталог, который работает как витрина с автоподгрузкой. Разберу по частям, что именно в нём есть.</p>
+<p><strong>Автоматическая подгрузка данных.</strong> Вместо ручного ведения позиций каталог обращается к внешнему API поставщика данных об автомобилях (auto-api). Оттуда приходят марки, модели, характеристики, изображения и базовые цены. Задача сайта — забрать эти данные, привести их к единому виду, сохранить в свою базу и показать пользователю. Когда у источника что-то меняется, каталог обновляется без того, чтобы кто-то руками правил тысячи строк.</p>
+<p><strong>Расчёт итоговой стоимости.</strong> Это, пожалуй, самая ценная для бизнеса часть. Цена авто у поставщика — это ещё не то, что заплатит клиент. К ней добавляются расходы на логистику и таможенные платежи. Я сделал так, чтобы для каждой машины считалась финальная цифра: стоимость авто плюс доставка плюс таможня. Человек не гадает и не пишет менеджеру «а сколько выйдет с растаможкой» — он сразу видит итог в карточке.</p>
+<p><strong>Фильтрация.</strong> Две тысячи машин без фильтров — это стена, в которой невозможно ничего найти. Я сделал фильтры по марке, модели, цене и характеристикам. Пользователь сужает выборку под себя: например, конкретная марка в конкретном ценовом диапазоне — и получает короткий понятный список вместо бесконечной ленты.</p>
+<p><strong>Карточки авто с галереями.</strong> У каждой машины своя страница-карточка с галереей фотографий и характеристиками. Это то место, где клиент принимает решение, поэтому карточка показывает и внешний вид, и параметры, и ту самую итоговую цену.</p>
+<p>Ниже — короткая сводка, как задачи заказчика легли на конкретные решения в каталоге.</p>
+<div class="blog-table"><table>
+<thead><tr><th>Задача бизнеса</th><th>Как я решил</th></tr></thead>
+<tbody>
+<tr><td>Не вести 2000 позиций вручную</td><td>Автоподгрузка данных через внешний API поставщика (auto-api)</td></tr>
+<tr><td>Показывать честную цену для клиента</td><td>Автоматический расчёт: авто + логистика + таможенные платежи</td></tr>
+<tr><td>Помочь найти нужную машину</td><td>Фильтры по марке, модели, цене и характеристикам</td></tr>
+<tr><td>Дать клиенту принять решение</td><td>Карточка авто с галереей фотографий и параметрами</td></tr>
+<tr><td>Быстрые страницы и видимость в поиске</td><td>Next.js 15 с серверным рендерингом</td></tr>
+</tbody>
+</table></div>
+
+<h2 id="stek">Стек и архитектура</h2>
+<p>Постараюсь объяснить выбор инструментов простыми словами, без лишнего жаргона, потому что за каждым из них стоит понятная бизнес-причина.</p>
+<p><strong>Next.js 15.</strong> Это фреймворк для сайтов на JavaScript. Мне он нужен по двум причинам. Первая — скорость страниц: Next.js умеет отдавать готовую HTML-страницу, а не заставлять браузер собирать её с нуля, поэтому каталог открывается быстро даже на большом количестве машин. Вторая — SEO, то есть видимость в поисковиках. Для витрины, куда клиенты приходят по запросам вроде «купить такую-то марку из Китая», важно, чтобы страницы хорошо индексировались. Next.js отдаёт поисковику полноценную страницу с содержимым, а не пустой каркас, и это напрямую влияет на то, найдут вас люди или нет.</p>
+<p><strong>Prisma 6.</strong> Это инструмент для работы с базой данных, так называемый ORM. База нужна, чтобы хранить у себя все машины, их характеристики и посчитанные цены, а не дёргать внешний API на каждый чих. Prisma позволяет описывать структуру данных понятным образом и обращаться к базе из кода без ручного написания сложных запросов. Проще говоря, Prisma — это прослойка, которая делает работу с базой предсказуемой и аккуратной, а значит, меньше ошибок и меньше сюрпризов на проде.</p>
+<p><strong>Интеграция с внешним API.</strong> Источник данных об авто — внешний сервис auto-api. Схема такая: каталог обращается к этому API, получает данные, обрабатывает их и складывает в собственную базу через Prisma. То есть внешний API — это первоисточник, а моя база — актуальная копия, из которой быстро строятся страницы. Такой подход даёт устойчивость: если у источника временные проблемы, сайт всё равно показывает последние сохранённые данные, а не падает.</p>
+<p><strong>Хостинг Beget.</strong> Запущено всё на Beget. Это рабочий вариант размещения для проекта такого масштаба — предсказуемо и без лишней возни с инфраструктурой.</p>
+<p>Архитектурно получается связка: внешний API как источник, база данных как хранилище, Prisma как слой доступа к данным, Next.js как то, что превращает данные в быстрые страницы с фильтрами и карточками. Всё это я собрал и связал сам. Тем, кому интересно, как подобные проекты доводятся до запуска, я отдельно разбирал путь <a href="/blog/mvp-to-production-3-mesyatsa-2026/">от MVP до продакшена</a>.</p>
+
+<h2 id="slozhnosti">Что было сложно</h2>
+<p>Простым такой проект только выглядит со стороны. На деле было несколько мест, где пришлось повозиться.</p>
+<p><strong>Синхронизация двух тысяч позиций с внешним источником.</strong> Когда данные приходят извне и их много, надо аккуратно решать: что делать с новыми машинами, что с исчезнувшими, как обновлять уже существующие. Нельзя просто каждый раз стирать всё и заливать заново — это и медленно, и рискованно. Нужно сопоставлять то, что уже есть в базе, с тем, что пришло, и обновлять по-умному.</p>
+<p><strong>Неполные данные.</strong> Внешний источник — это всегда лотерея по качеству. У одной машины нет части характеристик, у другой странно оформлены фотографии, у третьей чего-то не хватает в описании. Каталог не должен из-за этого ломаться или показывать пустые дыры. Пришлось закладывать обработку таких случаев: где-то подставлять разумные значения по умолчанию, где-то аккуратно скрывать пустые поля, чтобы карточка выглядела прилично при любых входных данных.</p>
+<p><strong>Расчёт стоимости с переменными параметрами.</strong> Итоговая цена — это не одно число из API, а результат формулы, где участвуют логистика и таможенные платежи. Эти составляющие зависят от параметров, и логику расчёта надо было выстроить так, чтобы она была прозрачной и её можно было менять, не переписывая половину проекта. Ошибка в цене на витрине с автомобилями стоит дорого в прямом смысле, поэтому этой части я уделил особое внимание.</p>
+<p><strong>Производительность каталога.</strong> Две тысячи машин с фотографиями и фильтрами — это нагрузка. Нужно, чтобы список открывался быстро, фильтры срабатывали без задержек, а страницы не тормозили. Здесь помогло то, что данные лежат в собственной базе и отдаются через быстрый серверный рендеринг Next.js, а не собираются на лету из внешнего API.</p>
+
+<h2 id="rezultat">Что получилось</h2>
+<p>Получилась рабочая витрина автомобилей из Китая, которую не нужно вести руками. Это главный результат, и я специально описываю его качественно, без придуманных метрик про клиентов и продажи, потому что честнее говорить о том, что реально сделано.</p>
+<p>Что это даёт бизнесу на практике. Во-первых, каталог сам поддерживает актуальность за счёт подгрузки данных из внешнего источника — владелец не тратит рабочие часы на переписывание тысяч позиций. Во-вторых, клиент видит честную итоговую стоимость с логистикой и таможней сразу, а не после долгой переписки с менеджером, и это снимает часть вопросов ещё до первого контакта. В-третьих, фильтры превращают неподъёмный список из двух тысяч машин в удобный инструмент подбора: человек быстро находит то, что ему подходит, и попадает на карточку с галереей и параметрами.</p>
+<p>Проект запущен на Beget и работает. Для бизнеса это значит, что вместо ручной таблицы у него теперь есть живая площадка, которая экономит время и делает предложение прозрачным для покупателя. По сути, ручная рутина заменена автоматикой — а это и есть смысл затеи.</p>
+
+<h2 id="inache">Что бы сделал иначе</h2>
+<p>Здесь без прикрас, чисто технические рефлексии — то, о чём думаешь уже после запуска.</p>
+<p><strong>Кэширование.</strong> Я бы с самого начала продумал более выраженный слой кэширования для тяжёлых страниц каталога и результатов фильтрации. Когда позиций много, грамотный кэш заметно снимает нагрузку и ускоряет отклик, и закладывать его лучше на старте, а не докручивать потом.</p>
+<p><strong>Обработка ошибок API.</strong> Внешний источник живёт своей жизнью: может отвечать медленно, отдавать неполный ответ или временно быть недоступным. Стоит с первого дня относиться к этому как к норме, а не как к исключению — предусматривать повторные попытки, аккуратные таймауты и понятное поведение, когда данные не пришли. Это делает синхронизацию надёжнее и избавляет от неприятных сюрпризов.</p>
+<p><strong>Структура данных.</strong> Раз источник отдаёт неполные и неоднородные данные, я бы ещё тщательнее спроектировал внутреннюю модель хранения — так, чтобы она изначально была устойчива к пропускам и разнобою в характеристиках. Чем строже и продуманнее схема в базе, тем меньше костылей приходится городить на уровне отображения карточек.</p>
+<p>Ни одна из этих вещей не мешает проекту работать сейчас — это скорее заметки на будущее, которые сделали бы систему ещё крепче при росте ассортимента. Кстати, вопрос «во сколько обходятся такие доработки» я разбирал отдельно в материале о том, <a href="/blog/skolko-stoit-sayt-2026/">сколько стоит сайт</a>.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+
+<p><strong>Сколько времени занимает такой каталог?</strong> Зависит от объёма и того, насколько «чистые» данные отдаёт источник. Основное время уходит не на витрину, а на стабильную синхронизацию с внешним API и обработку неполных данных. По срокам под вашу задачу отвечу после короткого разговора.</p>
+
+<p><strong>Можно ли подключить другой источник данных, не auto-api?</strong> Да, архитектура не привязана к одному поставщику. Если у выбранного источника есть API или структурированная выгрузка, интеграцию можно настроить под него.</p>
+
+<p><strong>А если поставщик поменяет формат данных?</strong> Это обычная ситуация, поэтому обмен строится с обработкой ошибок и журналом: если что-то приходит не так, система это фиксирует, а не молча ломается. Такие вещи закладываются заранее.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+<p>WeToCar — это пример того, как задача «продавать авто из Китая» решается не ещё одной ручной таблицей, а живой витриной с автоподгрузкой. Каталог примерно на две тысячи машин сам тянет данные из внешнего API, считает итоговую стоимость с логистикой и таможней, даёт фильтры по марке, модели, цене и характеристикам и показывает карточки с галереями. Под капотом — Next.js 15 ради скорости и SEO, Prisma 6 для аккуратной работы с базой, интеграция с auto-api как источником данных и запуск на Beget. Всё это я собрал один, от архитектуры до деплоя.</p>
+<p>Главная ценность здесь не в конкретной технологии, а в подходе: рутину, которую человек физически не потянет, забирает на себя автоматика, а бизнес получает актуальную и честную витрину. Если вам нужен каталог или агрегатор с автоподгрузкой данных — напишите мне, обсудим вашу задачу спокойно и по делу.</p>
+                    </div>
+
+                    
+                    
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Что я делаю под ключ</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-code"></i> <span>Сайты, веб-приложения, MVP</span></li>
+    
+    <li><i class="ph-fill ph-robot"></i> <span>Боты и AI-агенты</span></li>
+    
+    <li><i class="ph-fill ph-plugs-connected"></i> <span>Интеграции и автоматизация</span></li>
+    
+    <li><i class="ph-fill ph-headset"></i> <span>Поддержка и развитие проекта</span></li>
+    
+  </ul>
+  <div class="blog-services-offer-ctas">
+    <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+      <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Обсудить проект
+    </a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="blog-services-offer-cta blog-services-offer-cta-max">
+      <i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> Написать в MAX
+    </a>
+  </div>
+</div>
+                    <div class="blog-cta-card">
+                        <div class="blog-cta-card-body">
+                            <h3>Бесплатно: чек-лист «Готов ли ваш бизнес к 152-ФЗ»</h3>
+                            <p>12 пунктов, которые проверяют готовность за час: данные, согласия, уведомление в РКН, локализация, защита. Отметьте, что уже сделано, и увидите дыры, за которые сейчас штрафуют.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="/checklist-152-fz/" class="btn btn-accent"><i class="ph-fill ph-clipboard-text" aria-hidden="true"></i> Открыть чек-лист</a>
+                        </div>
+                    </div>
+                    
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/services/web-development/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Обсудить проект</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-subscribe">
+  <div class="blog-subscribe-body">
+    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
+    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
+  </div>
+  <div class="blog-subscribe-actions">
+    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
+  </div>
+</section>
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/avtomatizaciya-riteyla-seti-2026/" data-category="industries" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-storefront"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Отрасли</span>
+  <h3>Автоматизация ритейла 2026: кассы, остатки, маркировка, лояльность, омниканальность</h3>
+  <p>Ритейл РФ 2026 — рынок после ухода H&amp;M, IKEA, Decathlon. Полный стек: онлайн-кассы (Эвотор, АТОЛ, Дримкас), товароучётка (МойСклад, 1С:Розница), маркировка «Честный знак» по 20+ категориям, ЕГАИС для алкомаркетов, интеграция с маркетплейсами, лояльность Mindbox, computer vision на полках. С TypeScript-кодом синхронизации остатков МойСклад → Wildberries API.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 28 мая 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 25 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/mvp-to-production-3-mesyatsa-2026/" data-category="sales" data-clicks="1">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-rocket-launch"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Продажи и стартап</span>
+  <h3>От MVP до Production за 3 месяца: реальный roadmap для стартапа 2026</h3>
+  <p>Реальный план запуска MVP за 3 месяца от инженера, который провёл 15+ проектов от идеи до прод-релиза. По неделям: discovery, foundation, product, production. Стек инструментов с ценами, команда, юр.форма, метрики, кейс RAG-системы для юр-компании, которая окупилась за 4 месяца.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 22 мая 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 28 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/skolko-stoit-sayt-2026/" data-category="development" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-currency-circle-dollar"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
+  <h3>Сколько стоит сделать сайт в 2026: 5 категорий с реальными ценами от практика</h3>
+  <p>Реальные расценки на разработку в РФ 2026 года от практика, который видит рынок изнутри. 5 категорий проектов с подробной разбивкой цен — лендинг, корпоратив, магазин, SaaS, мобильно-веб. Скрытые расходы, факторы цены, как сэкономить без потери качества и чек-лист выбора подрядчика.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 26 мая 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 22 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    
+                    
+                    
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовые решения под ключ</span>
+                            <span class="blog-offer-cta-title">449 готовых IT-решений для бизнеса</span>
+                            <span class="blog-offer-cta-price">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Смотреть каталог</span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#zadacha"><span class="blog-toc-num">01</span> Задача заказчика</a></li>
+<li><a href="#reshenie"><span class="blog-toc-num">02</span> Что я сделал</a></li>
+<li><a href="#stek"><span class="blog-toc-num">03</span> Стек и архитектура</a></li>
+<li><a href="#slozhnosti"><span class="blog-toc-num">04</span> Что было сложно</a></li>
+<li><a href="#rezultat"><span class="blog-toc-num">05</span> Что получилось</a></li>
+<li><a href="#inache"><span class="blog-toc-num">06</span> Что бы сделал иначе</a></li>
+<li><a href="#faq"><span class="blog-toc-num">07</span> Частые вопросы</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">08</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=23" defer></script>
+<script src="/services-i18n.js?v=23" defer></script>
+<script src="/script.js?v=30" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>
