@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1360**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1362**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -196,6 +196,8 @@
 - [Portainer: панель управления Docker и своим сервером](./portainer-upravlenie-docker-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/portainer-upravlenie-docker-2026/)
 - [Airbyte: синхронизация данных между 1С, CRM и магазином](./airbyte-sinhronizaciya-dannyh-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/airbyte-sinhronizaciya-dannyh-2026/)
 - [Strapi: headless CMS как бэкенд для сайта и приложения](./strapi-headless-cms-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/strapi-headless-cms-2026/)
+- [HumHub: корпоративный портал и интранет на своём сервере](./humhub-korporativnyy-portal-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/humhub-korporativnyy-portal-2026/)
+- [FreePBX и Asterisk: своя виртуальная АТС для бизнеса](./freepbx-asterisk-virtualnaya-ats-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/freepbx-asterisk-virtualnaya-ats-2026/)
 - [Лучшие self-hosted сервисы для бизнеса в 2026 году](./luchshie-self-hosted-servisy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/luchshie-self-hosted-servisy-2026/)
 - [Leantime и бесплатные системы управления проектами: обзор для тех, кто не проджект-менеджер](./leantime-besplatnaya-sistema-upravleniya-proektami-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/leantime-besplatnaya-sistema-upravleniya-proektami-2027/)
 - [DreamServer: локальный AI-сервер (Ollama, Open WebUI, n8n, ComfyUI) одной установкой](./dreamserver-lokalnyy-ai-server-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/dreamserver-lokalnyy-ai-server-2026/)
