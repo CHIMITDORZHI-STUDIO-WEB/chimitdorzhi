@@ -995,7 +995,7 @@
 - [Оборотные штрафы за утечки персональных данных 2026: первая практика, как защититься](./oborotnye-shtrafy-utechki-pd-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/oborotnye-shtrafy-utechki-pd-2026/)
 - [Согласие на обработку персональных данных 2026: как составить, шаблоны, штрафы](./soglasie-na-obrabotku-pd-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/soglasie-na-obrabotku-pd-2026/)
 - [Защита бренда 2026: товарный знак, домен, авторские права для IT и инфобизнеса](./zashchita-brenda-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zashchita-brenda-2026/)
-- [Доступность сайта (a11y) 2026: что требует закон и почему это даст +30% трафика](./dostupnost-sayta-a11y-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/dostupnost-sayta-a11y-2026/)
+- [Доступность сайта (a11y) 2026: что требует закон и зачем это бизнесу](./dostupnost-sayta-a11y-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/dostupnost-sayta-a11y-2026/)
 - [Утечки персональных данных: что делать в первые 24 часа](./utechki-pd-24-chasa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/utechki-pd-24-chasa-2026/)
 - [Аудит сайта по 152-ФЗ в 2026: полная инструкция для бизнеса](./audit-152-fz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/audit-152-fz-2026/)
 - [Cookie-баннер по закону: как сделать правильно и не получить штраф](./cookie-banner-zakon.md) · [читать на сайте](https://chimitdorzhi.tech/blog/cookie-banner-zakon/)
