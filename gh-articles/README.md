@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1362**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1365**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -1070,6 +1070,9 @@
 - [Несколько проектов параллельно, один я: как это устроено](./den-iz-zhizni-solo-razrabotchika-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/den-iz-zhizni-solo-razrabotchika-2026/)
 - [Автоматизация на коленке: что можно без программиста, а где звать меня](./avtomatizaciya-na-kolenke-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avtomatizaciya-na-kolenke-2026/)
 - [Бот-монитор чатов: ловим заявки «куплю/ищу» первыми](./bot-monitor-chatov-zayavki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bot-monitor-chatov-zayavki-2026/)
+- [NFC-табличка для отзывов: как поднять рейтинг заведения](./nfc-tablichka-dlya-otzyvov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nfc-tablichka-dlya-otzyvov-2026/)
+- [Электронная NFC-визитка: контакты по одному касанию](./elektronnaya-nfc-vizitka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/elektronnaya-nfc-vizitka-2026/)
+- [NFC-метки для бизнеса: 7 применений, которые приносят деньги](./nfc-metki-dlya-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nfc-metki-dlya-biznesa-2026/)
 - [Голосовой робот: обзвон и приём звонков без колл-центра](./golosovoy-robot-obzvon-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/golosovoy-robot-obzvon-2026/)
 - [Мониторинг госзакупок 44-ФЗ: как не упустить тендер](./monitoring-goszakupok-44fz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/monitoring-goszakupok-44fz-2026/)
 - [Интеграция с API Wildberries и Ozon: остатки, цены, отзывы](./integraciya-s-api-wb-ozon-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/integraciya-s-api-wb-ozon-2026/)
