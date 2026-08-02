@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1365**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1370**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -378,6 +378,9 @@
 
 ## Безопасность
 
+- [Передача файлов в изолированный контур: без флешки, без сети](./peredacha-faylov-v-izolirovannyy-kontur-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/peredacha-faylov-v-izolirovannyy-kontur-2026/)
+- [Почему на предприятиях блокируют USB и чем заменить перенос](./zapret-usb-na-predpriyatii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zapret-usb-na-predpriyatii-2026/)
+- [Передача данных без связи: как работать в поле, где нет сети](./peredacha-dannyh-bez-svyazi-v-pole-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/peredacha-dannyh-bez-svyazi-v-pole-2026/)
 - [Скрытые камеры и трекеры: как проверить переговорную, офис и машину](./proverka-na-skrytye-kamery-trekery-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/proverka-na-skrytye-kamery-trekery-2026/)
 - [Слил ли сотрудник базу клиентов: как понять и что делать](./utechka-bazy-klientov-sotrudnik-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/utechka-bazy-klientov-sotrudnik-2026/)
 - [Корпоративный Wi-Fi: как чужое устройство крадёт данные](./bezopasnost-korporativnogo-wifi-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bezopasnost-korporativnogo-wifi-2026/)
@@ -742,6 +745,7 @@
 
 ## Отрасли
 
+- [Как снять данные с оборудования без сети: QR с экрана в учёт](./snyat-dannye-s-oborudovaniya-bez-seti-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/snyat-dannye-s-oborudovaniya-bez-seti-2026/)
 - [BLE-метки для учёта оборудования: где что лежит и куда уехало](./uchet-oborudovaniya-ble-metki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uchet-oborudovaniya-ble-metki-2026/)
 - [NFC-метки на оборудовании: паспорт техники по одному касанию](./nfc-pasport-oborudovaniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nfc-pasport-oborudovaniya-2026/)
 - [Indoor-навигация: поиск людей и техники внутри объекта](./indoor-navigaciya-ble-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/indoor-navigaciya-ble-2026/)
@@ -1314,6 +1318,7 @@
 
 ## Экспертное
 
+- [Анимированные QR и фонтанные коды: как файл летит через экран](./animirovannye-qr-fontannye-kody-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/animirovannye-qr-fontannye-kody-2026/)
 - [Почему я не берусь за некоторые проекты](./pochemu-ne-berus-za-proekty-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pochemu-ne-berus-za-proekty-2026/)
 - [Сайт за 3 дня и 10 тысяч — почему это ловушка](./sayt-za-3-dnya-lovushka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-za-3-dnya-lovushka-2026/)
 - [Как принять сайт у подрядчика и не влететь: чек-лист](./kak-prinyat-sayt-u-podryadchika-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-prinyat-sayt-u-podryadchika-2026/)
