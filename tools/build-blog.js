@@ -780,6 +780,7 @@ function organizationLd() {
       'https://www.youtube.com/@chimitdorzhi_studio',
       'https://github.com/chimitdorzhi',
       'https://ruward.ru/catalog/chimitdorzhi-tech/',
+      'https://workspace.ru/contractors/chimitdorzhi-studio/',
     ],
     contactPoint: {
       '@type': 'ContactPoint',
