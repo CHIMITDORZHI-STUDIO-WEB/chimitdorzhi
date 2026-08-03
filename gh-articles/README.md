@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1377**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1383**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -102,6 +102,12 @@
 
 ## cases
 
+- [Сайт и админка для сети кофеен самообслуживания «Горячий момент»](./goryachiy-moment-sayt-kofeen-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/goryachiy-moment-sayt-kofeen-keys-2026/)
+- [ИИ-проверка кодов ТН ВЭД: фура из 50 000 посылок за минуты](./ved-checker-proverka-tnved-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ved-checker-proverka-tnved-keys-2026/)
+- [X&X Dating: сервис знакомств с проверкой родства в Telegram](./xx-dating-znakomstva-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/xx-dating-znakomstva-keys-2026/)
+- [X&X NEWS: новостная лента внутри супер-аппа в Telegram](./xx-news-lenta-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/xx-news-lenta-keys-2026/)
+- [X&X CINEMA: онлайн-кинотеатр внутри супер-аппа в Telegram](./xx-cinema-kino-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/xx-cinema-kino-keys-2026/)
+- [X&X Market: маркетплейс услуг и объявлений в Telegram](./xx-market-obyavleniya-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/xx-market-obyavleniya-keys-2026/)
 - [Как я собрал каталог на 2000 авто из Китая в одиночку](./wetocar-katalog-avto-kitay-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/wetocar-katalog-avto-kitay-keys-2026/)
 - [Медиа-журнал с нуля: стек, сроки и решения (кейс Сансара)](./sansara-media-zhurnal-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sansara-media-zhurnal-keys-2026/)
 - [Сайт национального театра с админкой: что было под капотом](./amarsain-sayt-teatra-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/amarsain-sayt-teatra-keys-2026/)
