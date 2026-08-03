@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1375**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1377**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -192,6 +192,7 @@
 
 - [Учёт небольшого автопарка без дорогих систем мониторинга](./uchet-nebolshogo-avtoparka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uchet-nebolshogo-avtoparka-2026/)
 - [Свой сервер учёта авто против мобильных приложений](./svoy-server-ucheta-avto-vs-prilozheniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/svoy-server-ucheta-avto-vs-prilozheniya-2026/)
+- [Moondream: ИИ, который видит картинки, на ноутбуке без интернета](./moondream-vision-model-na-noutbuke-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/moondream-vision-model-na-noutbuke-2026/)
 - [ERPNext: бесплатная ERP для учёта, склада, продаж и HR](./erpnext-besplatnaya-erp-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/erpnext-besplatnaya-erp-2026/)
 - [Directus: CMS и API поверх вашей базы данных](./directus-headless-bekend-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/directus-headless-bekend-2026/)
 - [Snipe-IT: учёт и инвентаризация оргтехники в компании](./snipe-it-uchet-orgtehniki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/snipe-it-uchet-orgtehniki-2026/)
@@ -961,6 +962,7 @@
 
 ## Право и 152-ФЗ
 
+- [Presidio: как автоматически найти и обезличить персональные данные](./presidio-obezlichivanie-personalnyh-dannyh-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/presidio-obezlichivanie-personalnyh-dannyh-2026/)
 - [Политика обработки персональных данных: образец 2026 и что в ней должно быть](./politika-obrabotki-pd-obrazec-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/politika-obrabotki-pd-obrazec-2026/)
 - [Что считается персональными данными: имя, телефон, cookie и IP — простыми словами](./chto-schitaetsya-personalnymi-dannymi-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chto-schitaetsya-personalnymi-dannymi-2026/)
 - [Как проходит проверка Роскомнадзора по персональным данным в 2026](./proverka-roskomnadzora-kak-prohodit-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/proverka-roskomnadzora-kak-prohodit-2026/)
