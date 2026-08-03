@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1370**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1375**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -190,6 +190,8 @@
 
 ## Open-source и свой сервер
 
+- [Учёт небольшого автопарка без дорогих систем мониторинга](./uchet-nebolshogo-avtoparka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uchet-nebolshogo-avtoparka-2026/)
+- [Свой сервер учёта авто против мобильных приложений](./svoy-server-ucheta-avto-vs-prilozheniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/svoy-server-ucheta-avto-vs-prilozheniya-2026/)
 - [ERPNext: бесплатная ERP для учёта, склада, продаж и HR](./erpnext-besplatnaya-erp-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/erpnext-besplatnaya-erp-2026/)
 - [Directus: CMS и API поверх вашей базы данных](./directus-headless-bekend-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/directus-headless-bekend-2026/)
 - [Snipe-IT: учёт и инвентаризация оргтехники в компании](./snipe-it-uchet-orgtehniki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/snipe-it-uchet-orgtehniki-2026/)
@@ -745,6 +747,9 @@
 
 ## Отрасли
 
+- [Электронная сервисная книжка авто: вся история ТО в одном месте](./elektronnaya-servisnaya-knizhka-avto-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/elektronnaya-servisnaya-knizhka-avto-2026/)
+- [Сколько реально стоит владеть машиной: как вести учёт расходов](./skolko-stoit-vladet-avtomobilem-uchet-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-stoit-vladet-avtomobilem-uchet-2026/)
+- [Чтобы не проспать ОСАГО и техосмотр: напоминания по авто](./napominaniya-osago-tehosmotr-to-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/napominaniya-osago-tehosmotr-to-2026/)
 - [Как снять данные с оборудования без сети: QR с экрана в учёт](./snyat-dannye-s-oborudovaniya-bez-seti-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/snyat-dannye-s-oborudovaniya-bez-seti-2026/)
 - [BLE-метки для учёта оборудования: где что лежит и куда уехало](./uchet-oborudovaniya-ble-metki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uchet-oborudovaniya-ble-metki-2026/)
 - [NFC-метки на оборудовании: паспорт техники по одному касанию](./nfc-pasport-oborudovaniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nfc-pasport-oborudovaniya-2026/)
