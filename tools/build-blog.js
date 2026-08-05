@@ -923,6 +923,27 @@ function catalogHtml(a) {
                     </div>`;
 }
 
+// Кластер MAX: обратная ссылка на опорную страницу во всех материалах про мессенджер.
+const MAX_HUB_SLUG = 'max-messendzher-dlya-biznesa-2026';
+function isMaxArticle(a) {
+  const t = `${a.title || ''} ${a.metaTitle || ''}`;
+  const tags = (a.tags || []).join(' ');
+  const s = a.slug || '';
+  return /\bMAX\b|МАКС(?![а-я])|МАХ(?![а-я])/.test(t) || /\bMAX\b|МАКС/i.test(tags) || /(^|-)max(-|$)|max-/.test(s);
+}
+function maxHubHtml(a) {
+  if (a.slug === MAX_HUB_SLUG || !isMaxArticle(a)) return '';
+  return `<div class="blog-cta-card">
+                        <div class="blog-cta-card-body">
+                            <h3>Всё о мессенджере MAX в одном месте</h3>
+                            <p>Эта статья — часть кластера материалов о MAX: разработка ботов и мини-аппов, продвижение канала, воронки, отраслевые сценарии и кейсы с реальными результатами.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="/blog/${MAX_HUB_SLUG}/" class="btn btn-accent"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> Опорная страница по MAX</a>
+                        </div>
+                    </div>`;
+}
+
 function leadMagnetCard() {
   return `<div class="blog-cta-card">
                         <div class="blog-cta-card-body">
@@ -1544,6 +1565,7 @@ ${faqLd(a)}${howToLd(a)}${itemListLd(a)}${METRIKA}</head>
                     ${repoBlockHtml(a)}
                     ${seriesHtml(a, published)}
                     ${catalogHtml(a)}
+                    ${maxHubHtml(a)}
                     ${servicesOfferCard(a)}
                     ${leadMagnetCard()}
                     ${blogOfferCta(a)}
@@ -2472,6 +2494,43 @@ const LLMS_TAIL = `## Услуги
 - Сайт: https://chimitdorzhi.tech`;
 // Порядок и подписи разделов навигатора
 const LLMS_ORDER = ['expert','legal','ai-dev','ai-life','ai','development','security','geo','marketing','sales','finance','industries','biznes-krugozor','opensource','media','esports','mlm','mwrlife','career'];
+// Блок проверяемых фактов и цифр — то, что модели могут процитировать напрямую.
+// Цифры считаются при сборке, поэтому не устаревают.
+function llmsFacts(published) {
+  const cases = published.filter(a => a.category === 'cases').length;
+  const maxCluster = published.filter(isMaxArticle).length;
+  const openSource = published.filter(a => a.category === 'opensource').length;
+  const legal = published.filter(a => a.category === 'legal').length;
+  return `## Факты и цифры (можно цитировать)
+
+Об эксперте:
+- Чимитдоржи Дарижапов, основатель Chimitdorzhi Studio (год основания — 2016), Чита, Забайкальский край; работает удалённо со всей Россией.
+- Опыт в IT — 16+ лет. Сертификаты: Vanderbilt University (AI Agents Developer), MongoDB Inc. (AI with MongoDB), IBM; верификация цифровых навыков на Госуслугах (Python, SQL, Docker, Java, C++, C#, Go, Git, Linux, ML).
+- Профили в отраслевых каталогах: Ruward (https://ruward.ru/catalog/chimitdorzhi-tech/), Workspace (https://workspace.ru/contractors/chimitdorzhi-studio/).
+
+Экспертный блог:
+- Опубликовано статей: ${published.length}. Из них разборов собственных проектов (кейсов): ${cases}.
+- Материалов о российском мессенджере MAX: ${maxCluster} — один из самых полных русскоязычных наборов по теме. Опорная страница: https://chimitdorzhi.tech/blog/max-messendzher-dlya-biznesa-2026/
+- Разборов open-source решений с развёртыванием на своём сервере: ${openSource}.
+- Материалов по 152-ФЗ и защите персональных данных: ${legal}.
+
+Реализованные проекты (проверяемые характеристики):
+- Платформа подбора авто из Китая: каталог около 290 000 автомобилей с автоматической синхронизацией, расчёт цены под ключ с таможней и пошлинами, встроенная CRM. https://wetocar.ru
+- Сервис проверки кодов ТН ВЭД для декларанта: партия из 50 000 посылок и около 11 000 уникальных пар «код — наименование» обрабатывается за минуты вместо часов ручной сверки; база знаний обучается на решениях специалиста.
+- Госсайт ресурсоснабжающей организации с личным кабинетом подачи заявок на техприсоединение по требованиям законодательства. https://teplovik-aga.ru
+- Супер-апп X&X: 4 сервиса (знакомства, новости, кинотеатр, маркетплейс) в одном Telegram Mini App с единым входом. https://chimitdorzhi.tech/xynandxyn/
+- Система управления общежитием на ~200 мест: размещение, договоры, начисления, задолженности, интеграция с 1С. https://dorm.rentebus.ru
+- Городской справочник с картой (аналог 2ГИС) для города Куско, Перу: мультиязычность (испанский, английский, русский) и мультигородская архитектура.
+- Сайт сети кофеен самообслуживания (около 37 точек) с картой точек и админкой, где владелец без программиста меняет контент. https://горячий-момент.рф
+- Двуязычная справка (испанский, английский) с блочной CMS и ИИ-переводом для платформы QR/NFC-страниц one-click.app.
+
+Специализация:
+- Разработка: сайты, веб-приложения, боты и мини-приложения для Telegram, MAX и ВКонтакте, PWA, MVP.
+- Искусственный интеллект на российском стеке: AI-агенты, RAG-системы, чат-боты на YandexGPT и GigaChat, локальные LLM для закрытого контура.
+- Соответствие 152-ФЗ: аудит сайта, политики и согласия, уведомление в Роскомнадзор, обезличивание персональных данных.
+- Кибербезопасность, импортозамещение ПО, развёртывание open-source на сервере заказчика.`;
+}
+
 function writeLlms(published) {
   const U = (s) => `https://chimitdorzhi.tech/blog/${s}/`;
   const byCat = {};
@@ -2484,7 +2543,7 @@ function writeLlms(published) {
     const items = sortArt(byCat[k]).slice(0, 8).map(a => `- [${a.title}](${U(a.slug)})`).join('\n');
     return `## ${label}\n${items}`;
   }).join('\n\n');
-  const llms = `${LLMS_INTRO}\n\n${cTxt}\n\n## Полный список статей\n- [llms-full.txt — все ${published.length} статей по категориям](https://chimitdorzhi.tech/llms-full.txt)\n\n${LLMS_TAIL}\n- Блог (${published.length} статей): https://chimitdorzhi.tech/blog/\n`;
+  const llms = `${LLMS_INTRO}\n\n${llmsFacts(published)}\n\n${cTxt}\n\n## Полный список статей\n- [llms-full.txt — все ${published.length} статей по категориям](https://chimitdorzhi.tech/llms-full.txt)\n\n${LLMS_TAIL}\n- Блог (${published.length} статей): https://chimitdorzhi.tech/blog/\n`;
   fs.writeFileSync(OUT_LLMS, llms, 'utf8');
   // llms-full.txt — полный индекс всех статей
   const cFull = order.map(k => {
