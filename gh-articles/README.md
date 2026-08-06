@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1386**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1387**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -1085,6 +1085,7 @@
 
 ## Разработка
 
+- [MAX для бизнеса: всё о ботах, мини-аппах и продвижении в мессенджере](./max-messendzher-dlya-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/max-messendzher-dlya-biznesa-2026/)
 - [Студия из одного человека: как ИИ-агенты заменили мне команду](./studiya-iz-odnogo-cheloveka-ai-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/studiya-iz-odnogo-cheloveka-ai-2026/)
 - [Почему я беру заказы, за которые студии просят в разы дороже](./pochemu-beru-deshevle-studiy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pochemu-beru-deshevle-studiy-2026/)
 - [Несколько проектов параллельно, один я: как это устроено](./den-iz-zhizni-solo-razrabotchika-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/den-iz-zhizni-solo-razrabotchika-2026/)
