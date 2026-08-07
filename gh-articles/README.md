@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1387**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1389**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -36,6 +36,7 @@
 
 ## AI для разработчиков
 
+- [Память ИИ-агента: чтобы бот не забывал клиента после каждого разговора](./pamyat-ii-agentov-mezhdu-sessiyami-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pamyat-ii-agentov-mezhdu-sessiyami-2026/)
 - [Бот с базой знаний (RAG): отвечает по вашим документам](./bot-s-bazoy-znaniy-rag-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bot-s-bazoy-znaniy-rag-2026/)
 - [ИИ-прогноз спроса и продаж: не морозить деньги в товаре](./ii-prognoz-sprosa-prodazh-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-prognoz-sprosa-prodazh-2026/)
 - [Лучшие локальные нейросети 2026: какую выбрать и зачем](./luchshie-lokalnye-neyroseti-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/luchshie-lokalnye-neyroseti-2026/)
@@ -971,6 +972,7 @@
 
 ## Право и 152-ФЗ
 
+- [Как автоматически замазывать лица на фото: обезличивание по 152-ФЗ](./razmytie-lic-na-foto-152-fz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/razmytie-lic-na-foto-152-fz-2026/)
 - [Presidio: как автоматически найти и обезличить персональные данные](./presidio-obezlichivanie-personalnyh-dannyh-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/presidio-obezlichivanie-personalnyh-dannyh-2026/)
 - [Политика обработки персональных данных: образец 2026 и что в ней должно быть](./politika-obrabotki-pd-obrazec-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/politika-obrabotki-pd-obrazec-2026/)
 - [Что считается персональными данными: имя, телефон, cookie и IP — простыми словами](./chto-schitaetsya-personalnymi-dannymi-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chto-schitaetsya-personalnymi-dannymi-2026/)
