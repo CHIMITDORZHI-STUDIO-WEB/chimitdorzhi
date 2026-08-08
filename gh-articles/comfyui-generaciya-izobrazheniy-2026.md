@@ -1,6 +1,6 @@
 ---
 title: "ComfyUI: профессиональная генерация изображений на своём сервере"
-description: "ComfyUI — open-source нодовый редактор генерации изображений (на базе Stable Diffusion): гибкие пайплайны, контроль процесса, пакетная генерация. Для студий и маркетинга, локально без подписок — разверну под ключ."
+description: "ComfyUI — open-source нодовый редактор генерации изображений (на базе Stable Diffusion): гибкие пайплайны, контроль процесса, пакетная генерация."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/comfyui-generaciya-izobrazheniy-2026/

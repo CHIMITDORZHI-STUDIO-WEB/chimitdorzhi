@@ -1,6 +1,6 @@
 ---
 title: "Fine-tuning, RAG или API: что выбрать бизнесу для AI"
-description: "Чем отличаются fine-tuning, RAG и вызов модели через API, когда что выбирать бизнесу, как считать бюджет и учитывать 152-ФЗ. Пошаговый алгоритм выбора AI-подхода без переплат."
+description: "Чем отличаются fine-tuning, RAG и вызов модели через API, когда что выбирать бизнесу, как считать бюджет и учитывать 152-ФЗ."
 date: 2026-06-11
 category: ai-dev
 canonical: https://chimitdorzhi.tech/blog/finetuning-rag-api-chto-vybrat-2027/

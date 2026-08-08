@@ -1,6 +1,6 @@
 ---
 title: "Travel Advantage vs Inteletravel и Incruises: сравнение travel-клубов"
-description: "Сравнение travel-клубов: Incruises (фокус на круизах), Inteletravel/Traverus (агентская модель) и Travel Advantage / MWR (подписка + баллы + Life Experience). На что смотреть при выборе клуба. Нейтрально и честно."
+description: "Incruises, Inteletravel и Travel Advantage — три разные модели travel-клубов. Нейтральное сравнение: продукт, доступность, накопление, сообщество."
 date: 2026-06-17
 category: mwrlife
 canonical: https://chimitdorzhi.tech/blog/travel-advantage-vs-inteletravel-incruises-2026/

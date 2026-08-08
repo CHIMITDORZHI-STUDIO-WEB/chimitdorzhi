@@ -1,6 +1,6 @@
 ---
 title: "RACI-матрица: кто за что отвечает в проекте"
-description: "RACI-матрица простыми словами: Responsible (исполнитель), Accountable (ответственный), Consulted (консультируют), Informed (информируют). Зачем нужна, как построить с примером, правило одного Accountable и ошибки."
+description: "RACI-матрица простыми словами: Responsible (исполнитель), Accountable (ответственный), Consulted (консультируют), Informed (информируют)."
 date: 2026-06-17
 category: biznes-krugozor
 canonical: https://chimitdorzhi.tech/blog/raci-matrica-2026/

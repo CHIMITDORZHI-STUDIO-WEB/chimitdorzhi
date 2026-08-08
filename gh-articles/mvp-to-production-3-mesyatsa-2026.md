@@ -1,6 +1,6 @@
 ---
 title: "От MVP до Production за 3 месяца: реальный roadmap для стартапа 2026"
-description: "Конкретный план запуска MVP за 3 месяца от практика с 15+ запущенных проектов. По неделям: дискавери, фундамент, биллинг, аналитика, soft launch, public launch. Стек инструментов, бюджет, юр.форма, кейс RAG-системы для юр-компании."
+description: "План запуска MVP за 3 месяца по неделям: дискавери, фундамент, биллинг, аналитика, soft и public launch. Стек, бюджет, юрформа, кейс RAG."
 date: 2026-05-22
 category: sales
 canonical: https://chimitdorzhi.tech/blog/mvp-to-production-3-mesyatsa-2026/

@@ -1,6 +1,6 @@
 ---
 title: "MoneyPrinterTurbo: авто-генерация коротких видео на своём сервере"
-description: "MoneyPrinterTurbo — open-source инструмент авто-генерации коротких видео для соцсетей: тема → сценарий, видеоряд, субтитры, музыка. Ускоритель производства черновиков (не «деньги с кнопки»), на своём сервере. Разверну под ключ."
+description: "MoneyPrinterTurbo — open-source инструмент авто-генерации коротких видео для соцсетей: тема → сценарий, видеоряд, субтитры, музыка."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/moneyprinterturbo-ai-video-2026/

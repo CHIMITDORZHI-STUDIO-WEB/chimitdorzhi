@@ -1,6 +1,6 @@
 ---
 title: "Аналитика Wildberries: какие сервисы и метрики нужны селлеру"
-description: "Аналитика Wildberries для селлера: какие метрики отслеживать (выкуп, оборачиваемость, реклама, юнит-экономика), какие сервисы аналитики есть и когда нужна своя система отчётов."
+description: "Аналитика Wildberries для селлера: какие метрики отслеживать (выкуп, оборачиваемость, реклама, юнит-экономика)."
 date: 2026-07-22
 category: marketing
 canonical: https://chimitdorzhi.tech/blog/analitika-wildberries-servisy-2026/

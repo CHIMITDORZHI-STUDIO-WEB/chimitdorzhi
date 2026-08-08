@@ -1,6 +1,6 @@
 ---
 title: "IT для HoReCa 2026: iiko, r_keeper, доставка, программа лояльности — полный стек"
-description: "IT-стек для ресторанов и кафе 2026: POS-системы iiko, r_keeper, Quick Resto, Frontpad, Poster. Складской учёт + 1С. Доставка vs агрегаторы: экономия 15-25%. Программа лояльности +30% LTV. AI-прогноз выручки, OCR накладных. Бюджеты от 50 тыс. до 10 млн ₽."
+description: "IT-стек для ресторана и кафе: POS iiko, r_keeper, Quick Resto, склад и 1С, своя доставка против агрегаторов, лояльность. Бюджеты от 50 тыс. ₽."
 date: 2026-05-27
 category: industries
 canonical: https://chimitdorzhi.tech/blog/it-dlya-horeca-2026/

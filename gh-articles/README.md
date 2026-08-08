@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1389**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1393**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -758,6 +758,9 @@
 
 ## Отрасли
 
+- [Чаевые по QR в кафе и ресторане: как внедрить, чтобы официанты реально получали](./chaevye-po-qr-v-kafe-i-restorane-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chaevye-po-qr-v-kafe-i-restorane-2026/)
+- [Чаевые по QR в салоне красоты и барбершопе: мастеру, а не в общую кассу](./chaevye-po-qr-v-salone-i-barbershope-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chaevye-po-qr-v-salone-i-barbershope-2026/)
+- [QR-табличка для чаевых: что напечатать, где поставить и почему её не сканируют](./qr-tablichka-dlya-chaevyh-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/qr-tablichka-dlya-chaevyh-2026/)
 - [Электронная сервисная книжка авто: вся история ТО в одном месте](./elektronnaya-servisnaya-knizhka-avto-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/elektronnaya-servisnaya-knizhka-avto-2026/)
 - [Сколько реально стоит владеть машиной: как вести учёт расходов](./skolko-stoit-vladet-avtomobilem-uchet-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-stoit-vladet-avtomobilem-uchet-2026/)
 - [Чтобы не проспать ОСАГО и техосмотр: напоминания по авто](./napominaniya-osago-tehosmotr-to-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/napominaniya-osago-tehosmotr-to-2026/)
@@ -1302,6 +1305,7 @@
 
 ## Финансы
 
+- [Налоги с чаевых: кто и когда платит, при чём тут самозанятость](./nalogi-s-chaevyh-samozanyatost-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nalogi-s-chaevyh-samozanyatost-2026/)
 - [Онлайн-бухгалтерия для ИП: Эльба, Моё дело и Т-Банк](./onlayn-buhgalteriya-sravnenie-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/onlayn-buhgalteriya-sravnenie-2026/)
 - [Патент или УСН для ИП в 2026: что выбрать](./patent-ili-usn-dlya-ip-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/patent-ili-usn-dlya-ip-2026/)
 - [Самозанятый: как принимать оплату легально в 2026](./samozanyatyy-priem-oplaty-legalno-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/samozanyatyy-priem-oplaty-legalno-2026/)

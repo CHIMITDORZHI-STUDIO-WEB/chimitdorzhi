@@ -1,6 +1,6 @@
 ---
 title: "Как устроен маркетплейс скинов (Steam Community Market/CS2): комиссия площадки, эскроу, антифрод"
-description: "Разбираю бизнес-модель торговли игровыми предметами: как устроен официальный Steam Community Market, зачем нужны сторонние маркетплейсы скинов, что такое эскроу-система Steam и как площадки борются со скам-трейдами."
+description: "Разбираю бизнес-модель торговли игровыми предметами: как устроен официальный Steam Community Market, зачем нужны сторонние маркетплейсы скинов."
 date: 2026-07-03
 category: esports
 canonical: https://chimitdorzhi.tech/blog/marketplace-skinov-steam-cs2-2027/

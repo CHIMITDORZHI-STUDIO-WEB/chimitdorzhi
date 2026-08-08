@@ -1,6 +1,6 @@
 ---
 title: "Stalwart Mail: свой современный почтовый сервер на своём сервере"
-description: "Stalwart Mail — современный open-source почтовый сервер «всё-в-одном» (SMTP, IMAP, JMAP): свой корпоративный e-mail на своём домене, антиспам, шифрование, веб-админка. Переписка у себя, без абонентки за ящик, импортозамещение — разверну под ключ."
+description: "Stalwart Mail — почтовый сервер всё-в-одном (SMTP, IMAP, JMAP) на своём домене: антиспам, шифрование, веб-админка и никакой платы за ящик."
 date: 2026-06-16
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/stalwart-pochtovyy-server-2026/

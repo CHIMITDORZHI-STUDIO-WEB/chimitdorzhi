@@ -1,6 +1,6 @@
 ---
 title: "GLPI: ITSM и учёт ИТ-активов на своём сервере"
-description: "GLPI — open-source система ITSM и учёта ИТ-активов: служба поддержки (тикеты), инвентаризация техники и ПО, SLA, база знаний. Популярна в РФ и госсекторе. Данные у себя, импортозамещение — разверну под ключ."
+description: "GLPI — open-source система ITSM и учёта ИТ-активов: служба поддержки (тикеты), инвентаризация техники и ПО, SLA, база знаний."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/glpi-itsm-uchet-aktivov-2026/

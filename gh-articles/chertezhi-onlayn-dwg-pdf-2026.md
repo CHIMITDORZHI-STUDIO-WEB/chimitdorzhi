@@ -1,6 +1,6 @@
 ---
 title: "Чертежи онлайн: как открыть и работать с DWG и PDF"
-description: "Чертежи онлайн: как открыть и посмотреть DWG, DXF и PDF без AutoCAD, чем измерять и конвертировать, как согласовывать правки и автоматизировать работу конструкторского отдела."
+description: "Чертежи онлайн: как открыть и посмотреть DWG, DXF и PDF без AutoCAD, чем измерять и конвертировать."
 date: 2026-07-22
 category: industries
 canonical: https://chimitdorzhi.tech/blog/chertezhi-onlayn-dwg-pdf-2026/

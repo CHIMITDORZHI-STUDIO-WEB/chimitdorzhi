@@ -1,6 +1,6 @@
 ---
 title: "Working Backwards и PRFAQ: метод Amazon начинать с пресс-релиза"
-description: "Working Backwards (работа от результата) и PRFAQ (пресс-релиз + FAQ) — метод Amazon: проектировать продукт с будущего пресс-релиза для клиента, а не с фич. Как написать PRFAQ по шагам, пример и частые ошибки."
+description: "Метод Amazon: продукт проектируют от будущего пресс-релиза для клиента, а не от фич. Как написать PRFAQ по шагам, пример и типичные ошибки."
 date: 2026-06-17
 category: biznes-krugozor
 canonical: https://chimitdorzhi.tech/blog/working-backwards-prfaq-amazon-2026/

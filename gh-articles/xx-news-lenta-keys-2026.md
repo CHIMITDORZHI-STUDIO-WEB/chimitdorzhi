@@ -1,6 +1,6 @@
 ---
 title: "X&X NEWS: новостная лента внутри супер-аппа в Telegram"
-description: "Кейс X&X NEWS — новостной сервис внутри супер-аппа в Telegram Mini App: агрегация новостей из источников, лента плиткой, дайджест по подписке, единый вход с остальными сервисами X&X. Как устроено и кому подойдёт."
+description: "Кейс X&X NEWS — новостной сервис внутри супер-аппа в Telegram Mini App: агрегация новостей из источников, лента плиткой, дайджест по подписке."
 date: 2026-08-04
 category: cases
 canonical: https://chimitdorzhi.tech/blog/xx-news-lenta-keys-2026/

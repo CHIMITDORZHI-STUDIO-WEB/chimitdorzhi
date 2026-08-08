@@ -1,6 +1,6 @@
 ---
 title: "Appsmith: админ-панели и внутренние инструменты на своём сервере"
-description: "Appsmith — open-source платформа для быстрой сборки админ-панелей и внутренних инструментов: подключение к базам и API, drag-and-drop виджеты, JS-логика, роли. Удобный интерфейс к данным для сотрудников, данные у себя — соберу под ключ."
+description: "Appsmith — open-source платформа для быстрой сборки админ-панелей и внутренних инструментов: подключение к базам и API, drag-and-drop виджеты, JS-логика."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/appsmith-admin-paneli-2026/

@@ -1,6 +1,6 @@
 ---
 title: "Self-hosted AI-стек для бизнеса: Ollama, Dify и автоматизация"
-description: "Как собрать собственный AI-контур на своём сервере без зависимости от чужих облаков: Ollama или vLLM для моделей, Dify для приложений и RAG, векторная база, n8n для автоматизации — всё в Docker. Что можно построить, плюсы и подводные камни."
+description: "Как собрать собственный AI-контур на своём сервере без зависимости от чужих облаков: Ollama или vLLM для моделей, Dify для приложений и RAG."
 date: 2026-07-07
 category: ai-dev
 canonical: https://chimitdorzhi.tech/blog/selfhosted-ai-stack-2027/

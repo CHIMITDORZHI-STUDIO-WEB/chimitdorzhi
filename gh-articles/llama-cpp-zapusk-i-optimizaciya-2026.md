@@ -1,6 +1,6 @@
 ---
 title: "llama.cpp: как запустить и ускорить локальный LLM"
-description: "llama.cpp простыми словами: open-source движок для запуска локальных LLM на своём железе. Чем отличается от Ollama и LM Studio, как запустить (GGUF, сервер) и что реально влияет на скорость — выгрузка слоёв на видеокарту, размер контекста, потоки и квантизация. Где взять репозиторий."
+description: "llama.cpp простыми словами: open-source движок для запуска локальных LLM на своём железе. Чем отличается от Ollama и LM Studio, как запустить (GGUF."
 date: 2026-06-25
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/llama-cpp-zapusk-i-optimizaciya-2026/

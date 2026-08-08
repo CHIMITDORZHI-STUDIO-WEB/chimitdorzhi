@@ -1,6 +1,6 @@
 ---
 title: "Jobs To Be Done (JTBD): зачем клиент «нанимает» ваш продукт"
-description: "Jobs To Be Done (JTBD) простыми словами: люди «нанимают» продукт, чтобы выполнить свою «работу». Пример с дрелью и дыркой, функциональные, эмоциональные и социальные job, как сформулировать job-стейтмент и не путать с фичами."
+description: "Jobs To Be Done (JTBD) простыми словами: люди «нанимают» продукт, чтобы выполнить свою «работу»."
 date: 2026-06-17
 category: biznes-krugozor
 canonical: https://chimitdorzhi.tech/blog/jobs-to-be-done-jtbd-2026/

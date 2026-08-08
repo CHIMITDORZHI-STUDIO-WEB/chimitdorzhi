@@ -1,6 +1,6 @@
 ---
 title: "Mobilizon: своя площадка мероприятий и сообщества (аналог Meetup)"
-description: "Mobilizon — open-source платформа мероприятий и сообществ (аналог Meetup): события, группы, регистрация участников, без рекламы и слежки. Своя витрина анонсов и база участников, аудитория и данные у себя — разверну под ключ."
+description: "Mobilizon — open-source платформа мероприятий и сообществ (аналог Meetup): события, группы, регистрация участников, без рекламы и слежки."
 date: 2026-06-16
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/mobilizon-svoya-ploschadka-meropriyatiy-2026/

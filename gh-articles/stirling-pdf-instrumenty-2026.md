@@ -1,6 +1,6 @@
 ---
 title: "Stirling-PDF: 50+ инструментов для PDF на своём сервере"
-description: "Stirling-PDF — open-source набор из 50+ инструментов для PDF через веб: объединение, разделение, сжатие, OCR, водяные знаки, конвертация. Self-hosted, документы не уходят в чужие сервисы (152-ФЗ) — разверну под ключ."
+description: "Stirling-PDF — open-source набор из 50+ инструментов для PDF через веб: объединение, разделение, сжатие, OCR, водяные знаки, конвертация."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/stirling-pdf-instrumenty-2026/

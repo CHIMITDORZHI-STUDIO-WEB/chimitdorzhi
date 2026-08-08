@@ -1,6 +1,6 @@
 ---
 title: "Своя LMS-платформа под брендом: white-label на базе Moodle / Open edX"
-description: "Как запустить свою брендированную платформу онлайн-обучения на open-source Moodle или Open edX и продавать её онлайн-школам и учебным центрам. Мультитенантность, биллинг, лицензии (GPL/AGPL, товарный знак), 152-ФЗ. Соберу под ключ."
+description: "Как запустить свою брендированную платформу онлайн-обучения на open-source Moodle или Open edX и продавать её онлайн-школам и учебным центрам."
 date: 2026-06-16
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/white-label-lms-platforma-2026/

@@ -1,6 +1,6 @@
 ---
 title: "Autohost и Superhog по-русски: верификация гостей краткосрочной аренды жилья"
-description: "Разбираю модель зарубежных сервисов Autohost и Superhog: B2B-платформа для владельцев квартир посуточной аренды, которая проверяет гостя перед заселением и оценивает риск вечеринок или ущерба имуществу. Как такой сервис мог бы работать для арендодателей в России."
+description: "Разбираю модель зарубежных сервисов Autohost и Superhog: B2B-платформа для владельцев квартир посуточной аренды."
 date: 2026-07-02
 category: industries
 canonical: https://chimitdorzhi.tech/blog/verifikaciya-gostey-kratkosrochnoy-arendy-2027/

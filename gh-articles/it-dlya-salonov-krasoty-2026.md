@@ -1,6 +1,6 @@
 ---
 title: "IT для салонов красоты 2026: онлайн-запись, CRM, мобильное приложение, маркетплейс"
-description: "IT-стек для салонов красоты 2026: онлайн-запись YClients/Sonline/Dikidi, борьба с no-show (с 20% до 3-5%), программа лояльности (+30% LTV), AI-консультант, мобильные приложения и PWA. Бюджеты от соло-мастера до сети, кейсы и Node.js-код."
+description: "IT-стек для салонов красоты 2026: онлайн-запись YClients/Sonline/Dikidi, борьба с no-show (с 20% до 3-5%), программа лояльности (+30% LTV)."
 date: 2026-05-27
 category: industries
 canonical: https://chimitdorzhi.tech/blog/it-dlya-salonov-krasoty-2026/

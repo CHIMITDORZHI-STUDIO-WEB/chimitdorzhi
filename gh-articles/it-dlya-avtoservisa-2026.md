@@ -1,6 +1,6 @@
 ---
 title: "IT для автосервиса 2026: запись на ТО, parts.ru, диагностика, отзывы"
-description: "IT-стек для СТО 2026: CRM (TyreScanner, Garage 47, AutoDealer), интеграция с exist.ru/parts.ru/emex.ru, электронный заказ-наряд, AI-расшифровка OBD-кодов, программа лояльности, нормо-часы и KPI механиков. Бюджеты от соло-СТО до сети 10+ боксов."
+description: "IT-стек для СТО 2026: CRM (TyreScanner, Garage 47, AutoDealer), интеграция с exist."
 date: 2026-05-27
 category: industries
 canonical: https://chimitdorzhi.tech/blog/it-dlya-avtoservisa-2026/

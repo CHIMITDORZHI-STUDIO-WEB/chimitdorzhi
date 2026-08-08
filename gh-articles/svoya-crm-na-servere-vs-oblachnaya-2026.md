@@ -1,6 +1,6 @@
 ---
 title: "Своя CRM на сервере против облачной: что выгоднее малому бизнесу"
-description: "Своя CRM на своём сервере (на open-source вроде EspoCRM) против облачной по подписке (amoCRM, Битрикс24): сравнение по стоимости, контролю данных и 152-ФЗ, кастомизации, поддержке. Кому что подходит и где своя CRM выгоднее по числу пользователей."
+description: "Своя CRM на своём сервере (на open-source вроде EspoCRM) против облачной по подписке (amoCRM, Битрикс24): сравнение по стоимости."
 date: 2026-06-23
 category: sales
 canonical: https://chimitdorzhi.tech/blog/svoya-crm-na-servere-vs-oblachnaya-2026/

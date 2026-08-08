@@ -1,6 +1,6 @@
 ---
 title: "Open Loyalty: программа лояльности с геймификацией на своём сервере"
-description: "Open Loyalty — open-source платформа программы лояльности с геймификацией: баллы, уровни, награды, кэшбэк, челленджи, рефералы. Своя лояльность без дорогих SaaS, данные клиентов у себя (152-ФЗ) — разверну под ключ."
+description: "Open Loyalty — open-source платформа программы лояльности с геймификацией: баллы, уровни, награды, кэшбэк, челленджи, рефералы."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/open-loyalty-programma-loyalnosti-2026/

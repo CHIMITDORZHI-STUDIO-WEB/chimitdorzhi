@@ -1,6 +1,6 @@
 ---
 title: "Formbricks: формы и опросы на своём сервере вместо Typeform"
-description: "Formbricks — open-source инструмент для форм, опросов и анкет (аналог Typeform/Google Forms): ветвление, файловые загрузки, вебхуки, опросы на сайте. Данные у себя по 152-ФЗ, без подписок — разверну под ключ."
+description: "Formbricks — open-source инструмент для форм, опросов и анкет (аналог Typeform/Google Forms): ветвление, файловые загрузки, вебхуки, опросы на сайте."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/formbricks-formy-oprosy-2026/

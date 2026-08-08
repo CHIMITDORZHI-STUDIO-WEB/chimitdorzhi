@@ -1,6 +1,6 @@
 ---
 title: "Как настроить VPS с нуля: пошаговый гайд для нетехнического владельца"
-description: "Пошагово объясняю, как настроить VPS с нуля: доступ по SSH, обновления, пользователь, файрвол, Docker, домен и HTTPS. Разбираю базовую безопасность и ошибки новичков."
+description: "Пошагово объясняю, как настроить VPS с нуля: доступ по SSH, обновления, пользователь, файрвол, Docker, домен и HTTPS."
 date: 2026-07-20
 category: development
 canonical: https://chimitdorzhi.tech/blog/kak-nastroit-vps-s-nulya-2026/

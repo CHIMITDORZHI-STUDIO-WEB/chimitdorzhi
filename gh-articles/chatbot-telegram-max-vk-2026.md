@@ -1,6 +1,6 @@
 ---
 title: "Чат-бот для бизнеса 2026: Telegram, MAX или VK — где не прогадать"
-description: "Не на той платформе бот теряет клиентов и деньги. Сравниваю Telegram, MAX и VK по аудитории, API, оплатам и Mini Apps, помогаю выбрать под ваш бизнес. С ценами и кодом на aiogram."
+description: "Не на той платформе бот теряет клиентов и деньги. Сравниваю Telegram, MAX и VK по аудитории, API, оплатам и Mini Apps, помогаю выбрать под ваш бизнес."
 date: 2026-05-29
 category: development
 canonical: https://chimitdorzhi.tech/blog/chatbot-telegram-max-vk-2026/

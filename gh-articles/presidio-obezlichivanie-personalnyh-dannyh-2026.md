@@ -1,6 +1,6 @@
 ---
 title: "Presidio: как автоматически найти и обезличить персональные данные"
-description: "Открытый инструмент Microsoft Presidio находит в текстах и базах имена, телефоны, паспорта, карты и заменяет их — обезличивает данные. Зачем это по 152-ФЗ, где применяют и как внедрить на своём сервере."
+description: "Открытый инструмент Microsoft Presidio находит в текстах и базах имена, телефоны, паспорта, карты и заменяет их — обезличивает данные."
 date: 2026-08-03
 category: legal
 canonical: https://chimitdorzhi.tech/blog/presidio-obezlichivanie-personalnyh-dannyh-2026/

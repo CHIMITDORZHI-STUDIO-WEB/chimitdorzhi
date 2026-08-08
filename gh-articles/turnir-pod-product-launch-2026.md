@@ -1,6 +1,6 @@
 ---
 title: "Турнир под product launch 2026: киберспорт как канал запуска нового продукта"
-description: "Полный гайд: как запустить продукт через кибер-турнир в 2026. 3 модели (Premiere/Build-up/Anniversary), категории продуктов (gaming gear, ПО, энергетики, финтех, электроника), таймлайн T-90 → T+30 дней, бюджеты 500 тыс. — 30 млн ₽, метрики (sales lift, brand search, конверсия по промокодам), кейсы Razer/Logitech/HyperX. Опыт автора — 50+ ивентов."
+description: "Полный гайд: как запустить продукт через кибер-турнир в 2026. 3 модели (Premiere/Build-up/Anniversary), категории продуктов (gaming gear, ПО, энергетики."
 date: 2026-05-25
 category: esports
 canonical: https://chimitdorzhi.tech/blog/turnir-pod-product-launch-2026/

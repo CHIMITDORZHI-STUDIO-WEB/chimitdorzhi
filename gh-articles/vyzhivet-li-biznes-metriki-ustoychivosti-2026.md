@@ -1,6 +1,6 @@
 ---
 title: "Выживет ли бизнес: метрики устойчивости (default alive, Rule of 40, burn multiple)"
-description: "Метрики устойчивости бизнеса: default alive или default dead (Пол Грэм), Rule of 40, burn multiple и денежный цикл (cash conversion cycle). Как понять, доживёт ли бизнес до прибыльности без новых денег — с формулами и примерами."
+description: "Метрики устойчивости бизнеса: default alive или default dead (Пол Грэм), Rule of 40, burn multiple и денежный цикл (cash conversion cycle)."
 date: 2026-06-17
 category: biznes-krugozor
 canonical: https://chimitdorzhi.tech/blog/vyzhivet-li-biznes-metriki-ustoychivosti-2026/

@@ -1,6 +1,6 @@
 ---
 title: "Mixpost: командный SMM-центр и автопостинг во все соцсети на своём сервере"
-description: "Mixpost — open-source платформа планирования и автопостинга во все соцсети (аналог Buffer/Hootsuite): единый календарь, очередь, командная работа, мультиаккаунты, аналитика. Без абонентки, данные у себя — разверну под ключ."
+description: "Mixpost — open-source платформа планирования и автопостинга во все соцсети (аналог Buffer/Hootsuite): единый календарь, очередь, командная работа."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/mixpost-smm-tsentr-2026/

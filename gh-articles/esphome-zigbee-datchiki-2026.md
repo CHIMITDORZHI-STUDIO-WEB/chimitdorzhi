@@ -1,6 +1,6 @@
 ---
 title: "ESPHome и Zigbee2MQTT: свои датчики умного здания без вендора"
-description: "ESPHome и Zigbee2MQTT — open-source основа умного здания без вендора и облака: свои датчики температуры, протечки, открытия дверей, управление светом и реле, локально и в связке с Home Assistant. Без абонентки, данные у себя — соберу под ключ."
+description: "ESPHome и Zigbee2MQTT — open-source основа умного здания без вендора и облака: свои датчики температуры, протечки, открытия дверей."
 date: 2026-06-16
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/esphome-zigbee-datchiki-2026/

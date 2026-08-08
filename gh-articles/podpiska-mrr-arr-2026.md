@@ -1,6 +1,6 @@
 ---
 title: "Подписочная модель: MRR и ARR простыми словами"
-description: "MRR (ежемесячная регулярная выручка) и ARR (годовая) простыми словами: как считать с примером, движения MRR (new, expansion, contraction, churned), почему подписка предсказуема и кому подходит. Связь с churn и LTV."
+description: "MRR (ежемесячная регулярная выручка) и ARR (годовая) простыми словами: как считать с примером, движения MRR (new, expansion, contraction, churned)."
 date: 2026-06-17
 category: biznes-krugozor
 canonical: https://chimitdorzhi.tech/blog/podpiska-mrr-arr-2026/

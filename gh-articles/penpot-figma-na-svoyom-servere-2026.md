@@ -1,6 +1,6 @@
 ---
 title: "Penpot: Figma на своём сервере под ключ"
-description: "Penpot — open-source инструмент дизайна и прототипирования (аналог Figma): макеты, прототипы, совместная работа. Без подписки, данные у себя — разверну на вашем сервере под ключ."
+description: "Penpot — open-source инструмент дизайна и прототипирования (аналог Figma): макеты, прототипы, совместная работа."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/penpot-figma-na-svoyom-servere-2026/

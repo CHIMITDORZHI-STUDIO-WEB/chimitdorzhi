@@ -1,6 +1,6 @@
 ---
 title: "Радикальная прямота (Radical Candor): забота + честность"
-description: "Радикальная прямота (Radical Candor, Ким Скотт) простыми словами: сочетание личной заботы и прямого вызова. Матрица 2x2 и 4 квадранта (разрушительная эмпатия, агрессивная враждебность), как практиковать и ошибки."
+description: "Радикальная прямота (Radical Candor, Ким Скотт) простыми словами: сочетание личной заботы и прямого вызова."
 date: 2026-06-17
 category: biznes-krugozor
 canonical: https://chimitdorzhi.tech/blog/radikalnaya-pryamota-radical-candor-2026/

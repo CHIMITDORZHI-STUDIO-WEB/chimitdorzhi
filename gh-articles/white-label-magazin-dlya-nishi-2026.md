@@ -1,6 +1,6 @@
 ---
 title: "Свой конструктор магазинов для ниши под брендом: white-label на Medusa / Vendure"
-description: "Как запустить свой брендированный конструктор интернет-магазинов под нишу на open-source Medusa или Vendure и тиражировать его клиентам как свой продукт. Permissive-лицензия, мультитенантность, шаблон витрины, оплата, 152-ФЗ. Соберу под ключ."
+description: "Как запустить свой брендированный конструктор интернет-магазинов под нишу на open-source Medusa или Vendure и тиражировать его клиентам как свой продукт."
 date: 2026-06-16
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/white-label-magazin-dlya-nishi-2026/

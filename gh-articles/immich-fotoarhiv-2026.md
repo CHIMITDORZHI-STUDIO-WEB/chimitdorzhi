@@ -1,6 +1,6 @@
 ---
 title: "Immich: свой фотоархив на сервере под ключ"
-description: "Immich — open-source фотоархив и хранилище фото/видео (аналог Google Photos): загрузка, альбомы, поиск, доступ команды. Без подписки за объём, данные у себя — разверну на вашем сервере под ключ."
+description: "Immich — open-source фотоархив и хранилище фото/видео (аналог Google Photos): загрузка, альбомы, поиск, доступ команды."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/immich-fotoarhiv-2026/

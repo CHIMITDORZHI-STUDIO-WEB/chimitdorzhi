@@ -1,6 +1,6 @@
 ---
 title: "Moodle: платформа онлайн-обучения (LMS) на своём сервере"
-description: "Moodle — самая известная open-source платформа онлайн-обучения (LMS): курсы, уроки, тесты, задания, оценки, сертификаты. Для онлайн-школ и обучения персонала, данные учеников у себя (152-ФЗ) — разверну под ключ."
+description: "Moodle — самая известная open-source платформа онлайн-обучения (LMS): курсы, уроки, тесты, задания, оценки, сертификаты."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/moodle-onlayn-obuchenie-2026/

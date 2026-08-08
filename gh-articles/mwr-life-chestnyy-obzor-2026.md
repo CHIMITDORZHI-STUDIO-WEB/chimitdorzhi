@@ -1,6 +1,6 @@
 ---
 title: "MWR Life / Travel Advantage: честный обзор от участника 2026"
-description: "Честный обзор travel-клуба MWR Life (Travel Advantage) от участника: как работает платформа, реальные кейсы экономии, баллы лояльности, групповые туры Life Experience, стоимость подписки и пакетов, партнёрская программа. Плюсы, минусы и кому подойдёт. Развод или нет — честный ответ."
+description: "MWR Life и Travel Advantage глазами участника: как работает платформа, баллы лояльности, групповые туры и подписка. Кому подойдёт, а кому нет."
 date: 2026-05-29
 category: mwrlife
 canonical: https://chimitdorzhi.tech/blog/mwr-life-chestnyy-obzor-2026/

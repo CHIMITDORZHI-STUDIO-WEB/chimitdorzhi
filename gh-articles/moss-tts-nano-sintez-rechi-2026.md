@@ -1,6 +1,6 @@
 ---
 title: "MOSS-TTS-Nano: синтез речи на своём сервере без GPU"
-description: "MOSS-TTS-Nano — open-source компактная модель синтеза речи (TTS): до 20 языков, работает на CPU, клонирование голоса и стриминг. Своя озвучка и голосовые сервисы с данными у себя — разверну под ключ."
+description: "MOSS-TTS-Nano — open-source компактная модель синтеза речи (TTS): до 20 языков, работает на CPU, клонирование голоса и стриминг."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/moss-tts-nano-sintez-rechi-2026/

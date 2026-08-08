@@ -1,6 +1,6 @@
 ---
 title: "Marzipano: мультисценовые виртуальные туры с навигацией"
-description: "Marzipano — open-source движок мультисценовых туров 360° (от Google): переходы между комнатами, точки-хотспоты с инфо, карта-навигация. Для ЖК, музеев, кампусов, заводов и ТЦ. Данные у себя. Соберу тур под ключ."
+description: "Marzipano — open-source движок мультисценовых туров 360° (от Google): переходы между комнатами, точки-хотспоты с инфо, карта-навигация."
 date: 2026-06-16
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/marzipano-virtualnye-tury-navigaciya-2026/

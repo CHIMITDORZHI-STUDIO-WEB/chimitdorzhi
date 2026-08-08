@@ -1,6 +1,6 @@
 ---
 title: "Свой корпоративный мессенджер под брендом: white-label на Mattermost / Rocket.Chat"
-description: "Как запустить свой брендированный корпоративный мессенджер на open-source Mattermost или Rocket.Chat и поставлять его отраслям и госсектору как импортозамещающее решение. Лицензии, безопасность, размещение в РФ, 152-ФЗ. Соберу под ключ."
+description: "Как запустить свой брендированный корпоративный мессенджер на open-source Mattermost или Rocket."
 date: 2026-06-16
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/white-label-korporativnyy-messendzher-2026/

@@ -1,6 +1,6 @@
 ---
 title: "RICE и ICE: как приоритизировать задачи и фичи"
-description: "RICE (Reach, Impact, Confidence, Effort) и ICE (Impact, Confidence, Ease) — фреймворки приоритизации простыми словами. Формулы с числовым примером расчёта, когда что применять, связь с матрицей Эйзенхауэра и ошибки."
+description: "RICE и ICE простыми словами: формулы приоритизации задач с примером расчёта, когда какой фреймворк брать, связь с матрицей Эйзенхауэра и ошибки."
 date: 2026-06-17
 category: biznes-krugozor
 canonical: https://chimitdorzhi.tech/blog/rice-ice-prioritizaciya-2026/

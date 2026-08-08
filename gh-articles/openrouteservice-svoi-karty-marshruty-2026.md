@@ -1,6 +1,6 @@
 ---
 title: "OpenRouteService и Nominatim: своя карта и маршруты без оплаты API"
-description: "OpenRouteService и Nominatim на данных OpenStreetMap — open-source маршрутизация и геокодинг на своём сервере: маршруты, расстояния, геокодирование адресов, зоны доставки. Без лимитов и оплаты API Яндекс/Google — внедрю под ключ."
+description: "OpenRouteService и Nominatim на своём сервере: маршруты, расстояния, геокодинг адресов и зоны доставки на OpenStreetMap без лимитов и оплаты API."
 date: 2026-06-16
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/openrouteservice-svoi-karty-marshruty-2026/

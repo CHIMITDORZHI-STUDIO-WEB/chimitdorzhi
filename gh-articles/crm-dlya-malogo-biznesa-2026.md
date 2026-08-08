@@ -1,6 +1,6 @@
 ---
 title: "CRM для малого бизнеса 2026: amoCRM vs Bitrix24 vs RetailCRM vs Notion — что выбрать без переплаты"
-description: "Сравнение CRM для малого бизнеса 2026: amoCRM (продажи), Bitrix24 (комбайн), RetailCRM (e-commerce), Notion (микро-команда), Kommo, HubSpot. Цены 2026, AI-фичи, обязательные интеграции, миграция, стоимость владения и рекомендация под каждый сегмент."
+description: "Сравнение CRM для малого бизнеса 2026: amoCRM (продажи), Bitrix24 (комбайн), RetailCRM (e-commerce), Notion (микро-команда), Kommo, HubSpot."
 date: 2026-05-25
 category: sales
 canonical: https://chimitdorzhi.tech/blog/crm-dlya-malogo-biznesa-2026/

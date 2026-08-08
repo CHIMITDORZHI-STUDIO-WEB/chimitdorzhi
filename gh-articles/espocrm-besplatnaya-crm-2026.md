@@ -1,6 +1,6 @@
 ---
 title: "EspoCRM: бесплатная CRM на своём сервере для малого бизнеса"
-description: "EspoCRM — open-source CRM на вашем сервере: клиенты, сделки, воронки, кастомизация. Бесплатно, данные клиентов у себя (152-ФЗ), но нужны установка, настройка и перенос — разверну под ключ."
+description: "EspoCRM — open-source CRM на вашем сервере: клиенты, сделки, воронки, кастомизация."
 date: 2026-06-14
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/espocrm-besplatnaya-crm-2026/

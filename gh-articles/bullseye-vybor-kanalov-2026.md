@@ -1,6 +1,6 @@
 ---
 title: "Bullseye Framework: как выбрать канал привлечения через тестирование"
-description: "Bullseye Framework из книги «Traction»: как системно найти рабочий канал привлечения через 19 каналов трекшна и «мишень» из трёх колец. Как дёшево тестировать каналы и не слить бюджет — с адаптацией под Россию (Яндекс.Директ, VK, Telegram)."
+description: "Bullseye Framework из книги «Traction»: как системно найти рабочий канал привлечения через 19 каналов трекшна и «мишень» из трёх колец."
 date: 2026-06-17
 category: biznes-krugozor
 canonical: https://chimitdorzhi.tech/blog/bullseye-vybor-kanalov-2026/

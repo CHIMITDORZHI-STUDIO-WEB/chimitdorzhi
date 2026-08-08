@@ -1,6 +1,6 @@
 ---
 title: "OpenProject: управление проектами на своём сервере под ключ"
-description: "OpenProject — open-source система управления проектами (аналог MS Project/Jira): задачи, диаграммы Ганта, спринты, дорожные карты. Без дорогих лицензий, данные у себя — разверну под ключ."
+description: "OpenProject — open-source система управления проектами (аналог MS Project/Jira): задачи, диаграммы Ганта, спринты, дорожные карты."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/openproject-upravlenie-proektami-2026/

@@ -1,6 +1,6 @@
 ---
 title: "Чат-бот FAQ для поддержки в Telegram и MAX: снять до 70% типовых вопросов"
-description: "Чат-бот FAQ для поддержки в Telegram, MAX (МАКС) и VK: отвечает на типовые вопросы 24/7, ищет по базе знаний, передаёт сложное оператору, снимает рутину с поддержки. Что умеет, как внедрить под ключ и почему стоит быть в MAX уже сейчас."
+description: "Чат-бот FAQ для поддержки в Telegram, MAX (МАКС) и VK: отвечает на типовые вопросы 24/7, ищет по базе знаний, передаёт сложное оператору."
 date: 2026-06-23
 category: development
 canonical: https://chimitdorzhi.tech/blog/chat-bot-faq-podderzhka-telegram-max-2026/

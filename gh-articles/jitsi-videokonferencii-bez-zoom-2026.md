@@ -1,6 +1,6 @@
 ---
 title: "Jitsi: видеоконференции без Zoom на своём домене"
-description: "Jitsi Meet — open-source видеоконференции (аналог Zoom): видеозвонки, демонстрация экрана, без обязательной установки, на своём домене. Без лимитов подписки — разверну на вашем сервере под ключ."
+description: "Jitsi Meet — open-source видеоконференции (аналог Zoom): видеозвонки, демонстрация экрана, без обязательной установки, на своём домене."
 date: 2026-06-14
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/jitsi-videokonferencii-bez-zoom-2026/

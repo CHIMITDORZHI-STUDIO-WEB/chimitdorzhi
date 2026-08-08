@@ -1,6 +1,6 @@
 ---
 title: "Мышление роста (growth mindset): как развивать"
-description: "Мышление роста (growth mindset) Кэрол Дуэк против фиксированного: способности развиваются, а не даны раз и навсегда. Почему важно отношение к ошибкам и критике, сила «пока», как развивать и ошибки (фейковый growth mindset)."
+description: "Мышление роста (growth mindset) Кэрол Дуэк против фиксированного: способности развиваются, а не даны раз и навсегда."
 date: 2026-06-17
 category: biznes-krugozor
 canonical: https://chimitdorzhi.tech/blog/myshlenie-rosta-growth-mindset-2026/

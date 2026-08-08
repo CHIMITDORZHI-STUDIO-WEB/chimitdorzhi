@@ -1,6 +1,6 @@
 ---
 title: "Cal.com: онлайн-запись на своём домене вместо Calendly"
-description: "Cal.com — open-source система онлайн-записи (аналог Calendly): слоты, напоминания, интеграция с календарями, на своём домене. Без подписки, данные у себя — разверну под ключ."
+description: "Cal.com — open-source система онлайн-записи (аналог Calendly): слоты, напоминания, интеграция с календарями, на своём домене. Без подписки."
 date: 2026-06-14
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/cal-com-onlayn-zapis-2026/

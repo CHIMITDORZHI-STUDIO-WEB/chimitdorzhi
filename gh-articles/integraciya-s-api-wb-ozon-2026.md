@@ -1,6 +1,6 @@
 ---
 title: "Интеграция с API Wildberries и Ozon: остатки, цены, отзывы"
-description: "Как связать свою учётную систему с кабинетами WB и Ozon через API: автообновление остатков и цен, сбор отзывов, контроль штрафов. Что даёт API и где его пределы."
+description: "Остатки и цены на WB и Ozon вручную? Как связать учётную систему с кабинетами через API: автообновление, сбор отзывов, контроль штрафов."
 date: 2026-07-30
 category: development
 canonical: https://chimitdorzhi.tech/blog/integraciya-s-api-wb-ozon-2026/

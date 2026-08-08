@@ -1,6 +1,6 @@
 ---
 title: "Baserow: база данных без кода на своём сервере"
-description: "Baserow — open-source база данных без кода (аналог Airtable): таблицы, связи, формы, без платы за пользователя. Стройте CRM, трекеры и базы клиентов на своём сервере. Данные у себя — разверну под ключ."
+description: "Baserow — open-source база данных без кода (аналог Airtable): таблицы, связи, формы, без платы за пользователя."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/baserow-baza-dannyh-bez-koda-2026/

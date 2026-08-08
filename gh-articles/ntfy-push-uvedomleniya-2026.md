@@ -1,6 +1,6 @@
 ---
 title: "ntfy: свои push-уведомления на своём сервере"
-description: "ntfy — open-source сервис своих push-уведомлений: мгновенные оповещения на телефон из любых систем (заявка с сайта, сбой сервера, новый заказ). Без чужих облаков, данные у себя — разверну под ключ."
+description: "ntfy — open-source push-уведомления на своём сервере: заявка с сайта, сбой или новый заказ падают прямо в телефон. Без чужих облаков, данные у себя."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/ntfy-push-uvedomleniya-2026/

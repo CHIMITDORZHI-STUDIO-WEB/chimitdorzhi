@@ -1,6 +1,6 @@
 ---
 title: "Почему у вас нет заказов из ChatGPT и Алисы — и что с этим делать"
-description: "Почему бизнес может вообще не получать заявок из ChatGPT, Алисы, Perplexity и Gemini и что с этим делать. ИИ-чаты как новый вход в интернет, эффект zero-click, как проверить свою видимость в ответах ИИ, с чего начать (техаудит, Schema, контент) и как измерить эффект. По наблюдениям практиков GEO."
+description: "Почему бизнес может вообще не получать заявок из ChatGPT, Алисы, Perplexity и Gemini и что с этим делать."
 date: 2026-06-25
 category: geo
 canonical: https://chimitdorzhi.tech/blog/geo-pochemu-net-zakazov-iz-ai-2026/

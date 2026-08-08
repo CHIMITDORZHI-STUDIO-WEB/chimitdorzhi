@@ -1,6 +1,6 @@
 ---
 title: "Безопасная корпоративная почта: как развернуть свой почтовый сервер на Linux и защититься от спама"
-description: "Пошаговое руководство по развертыванию собственного безопасного корпоративного почтового сервера на Linux. Настройка Postfix, Dovecot, Rspamd, SPF, DKIM, DMARC и современные стратегии фильтрации спама."
+description: "Пошаговое руководство по развертыванию собственного безопасного корпоративного почтового сервера на Linux."
 date: 2026-06-09
 category: development
 canonical: https://chimitdorzhi.tech/blog/korporativnaya-pochta-linux/

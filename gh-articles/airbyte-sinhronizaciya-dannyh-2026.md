@@ -1,6 +1,6 @@
 ---
 title: "Airbyte: синхронизация данных между 1С, CRM и магазином"
-description: "Airbyte собирает данные из разных систем — CRM, магазин, база, сервисы — в одно место для отчётов и аналитики. Что такое ETL простыми словами, кому нужно и как настроить."
+description: "Airbyte собирает данные из разных систем — CRM, магазин, база, сервисы — в одно место для отчётов и аналитики."
 date: 2026-07-31
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/airbyte-sinhronizaciya-dannyh-2026/

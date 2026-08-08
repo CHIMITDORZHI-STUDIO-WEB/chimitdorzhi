@@ -1,6 +1,6 @@
 ---
 title: "Excalidraw: свой редактор инфографики и каруселей для соцсетей"
-description: "Excalidraw — open-source редактор схем, инфографики и каруселей: командная работа в реальном времени, фирменные шаблоны, экспорт в PNG/SVG. Визуальный контент без водяных знаков и лимитов Canva, файлы у себя — разверну под ключ."
+description: "Excalidraw — open-source редактор схем, инфографики и каруселей: командная работа в реальном времени, фирменные шаблоны, экспорт в PNG/SVG."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/excalidraw-infografika-karuseli-2026/

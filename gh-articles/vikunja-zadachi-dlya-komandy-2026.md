@@ -1,6 +1,6 @@
 ---
 title: "Vikunja: задачи и to-do для команды на своём сервере"
-description: "Vikunja — open-source менеджер задач (аналог Todoist, Asana, Trello): задачи и подзадачи, списки и проекты, канбан, Ганта, календарь, напоминания, команды. Порядок в задачах без подписки за пользователя, данные у себя — разверну под ключ."
+description: "Vikunja — open-source менеджер задач (аналог Todoist, Asana, Trello): задачи и подзадачи, списки и проекты, канбан, Ганта, календарь, напоминания, команды."
 date: 2026-06-16
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/vikunja-zadachi-dlya-komandy-2026/

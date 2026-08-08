@@ -1,6 +1,6 @@
 ---
 title: "Бесплатные нейросети: аналоги ChatGPT, доступные в России"
-description: "Бесплатные нейросети-чаты в 2026: какие аналоги ChatGPT доступны из России (в том числе российские GigaChat, YandexGPT), что они умеют, чем отличаются и как выбрать под задачу без VPN и оплаты."
+description: "Бесплатные нейросети-чаты в 2026: какие аналоги ChatGPT доступны из России (в том числе российские GigaChat, YandexGPT), что они умеют."
 date: 2026-07-22
 category: ai-life
 canonical: https://chimitdorzhi.tech/blog/besplatnye-neyroseti-analogi-chatgpt-2026/

@@ -1,6 +1,6 @@
 ---
 title: "Ускорение 1С: тонкая настройка СУБД PostgreSQL на Linux без покупки нового сервера"
-description: "Практическое руководство по оптимизации СУБД PostgreSQL на Linux для работы с 1С:Предприятие. Настройка параметров ядра Linux, тестирование SSD с помощью FIO, конфигурация postgresql.conf и автовакуума."
+description: "Практическое руководство по оптимизации СУБД PostgreSQL на Linux для работы с 1С:Предприятие."
 date: 2026-06-09
 category: development
 canonical: https://chimitdorzhi.tech/blog/uskorenie-1c-postgresql/

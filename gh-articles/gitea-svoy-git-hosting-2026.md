@@ -1,6 +1,6 @@
 ---
 title: "Gitea и Forgejo: свой Git-хостинг для команды на своём сервере"
-description: "Gitea (и форк Forgejo) — лёгкий open-source Git-хостинг (аналог GitHub/GitLab): репозитории, issues, pull requests, code review, CI/CD, права доступа. Код компании на своём сервере, импортозамещение и контроль ИС (152-ФЗ) — разверну под ключ."
+description: "Gitea и Forgejo — свой Git-хостинг на своём сервере: репозитории, pull requests, code review, CI/CD. Код компании не уходит наружу, 152-ФЗ соблюдён."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/gitea-svoy-git-hosting-2026/

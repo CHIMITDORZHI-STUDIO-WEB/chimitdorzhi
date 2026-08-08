@@ -1,6 +1,6 @@
 ---
 title: "IT для туризма и отелей 2026: бронирование, AI-гид, после Booking"
-description: "IT-стек для отелей и туризма после ухода Booking: PMS (TravelLine, Bnovo, Otelms), Channel Manager на Я.Путешествия/Островок/Bronevik, AI-консьерж, динамическое ценообразование, прямое бронирование без 15-22% комиссии OTA. Бюджеты от мини-отеля до сети."
+description: "IT-стек для отелей и туризма после ухода Booking: PMS (TravelLine, Bnovo, Otelms), Channel Manager на Я."
 date: 2026-05-27
 category: industries
 canonical: https://chimitdorzhi.tech/blog/it-dlya-turizma-otelei-2026/

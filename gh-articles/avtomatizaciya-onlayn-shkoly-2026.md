@@ -1,6 +1,6 @@
 ---
 title: "Автоматизация онлайн-школ 2026: LMS, оплаты, прокторинг, AI-проверка работ"
-description: "IT-стек для онлайн-школы и образовательного центра 2026: LMS (GetCourse, AntiTreningi, iSpring Learn), оплаты с рассрочкой (ЮKassa, Долями), хостинг видео (Kinescope, Rutube после ухода Vimeo), вебинары (Bizon365, МТС Линк), прокторинг Examus, AI-проверка эссе через GigaChat. Бюджеты от эксперт-соло до EdTech на 50К учеников."
+description: "IT-стек для онлайн-школы и образовательного центра 2026: LMS (GetCourse, AntiTreningi, iSpring Learn), оплаты с рассрочкой (ЮKassa, Долями)."
 date: 2026-05-28
 category: industries
 canonical: https://chimitdorzhi.tech/blog/avtomatizaciya-onlayn-shkoly-2026/

@@ -1,6 +1,6 @@
 ---
 title: "Typebot: чат-боты и квизы для заявок на своём сервере"
-description: "Typebot — open-source конструктор квизов, форм и чат-ботов для сбора заявок (аналог платных квиз-сервисов). Ветвящиеся сценарии, лиды у себя — соберу и разверну на вашем сервере под ключ."
+description: "Typebot — open-source конструктор квизов, форм и чат-ботов для сбора заявок (аналог платных квиз-сервисов)."
 date: 2026-06-14
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/typebot-chat-boty-kvizy-2026/

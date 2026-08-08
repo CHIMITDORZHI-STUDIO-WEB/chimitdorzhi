@@ -1,6 +1,6 @@
 ---
 title: "Автоматизация саун, бань, спа 2026: онлайн-бронь, депозит, IoT-парная, видео"
-description: "IT-стек для сауны, бани, спа 2026: онлайн-бронирование (Yclients, GBooking, Otelms), депозит и предоплата, графики парных и уборки, IoT-управление котельной (Smart Sauna, Tor), Telegram-бот, СБП-оплаты, программа лояльности. Бюджеты от мини-сауны до спа-комплекса."
+description: "IT-стек для сауны, бани, спа 2026: онлайн-бронирование (Yclients, GBooking, Otelms), депозит и предоплата, графики парных и уборки."
 date: 2026-05-28
 category: industries
 canonical: https://chimitdorzhi.tech/blog/avtomatizaciya-saun-ban-spa-2026/

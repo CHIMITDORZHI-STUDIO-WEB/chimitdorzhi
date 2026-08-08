@@ -1,6 +1,6 @@
 ---
 title: "SRS: свой стриминг-сервер для live commerce и трансляций"
-description: "SRS (Simple Realtime Server) — мощный open-source стриминг-сервер (RTMP, WebRTC, HLS, SRT, кластеризация, низкая задержка). Фундамент своей трансляционной площадки и live-shopping без комиссий за зрителей, поток у себя — разверну под ключ."
+description: "SRS (Simple Realtime Server) — мощный open-source стриминг-сервер (RTMP, WebRTC, HLS, SRT, кластеризация, низкая задержка)."
 date: 2026-06-16
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/srs-strim-server-2026/

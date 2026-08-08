@@ -1,6 +1,6 @@
 ---
 title: "Свой сервер вместо публичного VPN: VLESS, Reality и Hysteria 2 глазами студии"
-description: "Почему IT-студии и бизнесу нужен собственный сервер вместо публичных VPN: логи и утечки данных, блокировки по fingerprint, просадки скорости. Разбираем DevSecOps-стек VLESS + XTLS + Reality и Hysteria 2 на базе QUIC."
+description: "Публичный VPN течёт логами и режет скорость. Разбираю свой сервер на VLESS с XTLS и Reality плюс Hysteria 2 на QUIC глазами IT-студии."
 date: 2026-07-07
 category: security
 canonical: https://chimitdorzhi.tech/blog/svoy-server-privatnost-vless-reality-2027/

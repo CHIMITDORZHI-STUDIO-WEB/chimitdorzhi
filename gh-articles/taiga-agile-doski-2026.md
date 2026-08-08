@@ -1,6 +1,6 @@
 ---
 title: "Taiga: agile и scrum-доски для команд на своём сервере"
-description: "Taiga — open-source система управления проектами по agile/scrum (аналог Jira): kanban и scrum-доски, бэклог, спринты, задачи. Без дорогих лицензий, данные у себя — разверну на вашем сервере под ключ."
+description: "Taiga — open-source система управления проектами по agile/scrum (аналог Jira): kanban и scrum-доски, бэклог, спринты, задачи."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/taiga-agile-doski-2026/

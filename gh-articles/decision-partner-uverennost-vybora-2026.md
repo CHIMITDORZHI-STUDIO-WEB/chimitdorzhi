@@ -1,6 +1,6 @@
 ---
 title: "Партнёр по решению: как помогать клиенту выбрать, а не заваливать вариантами"
-description: "Партнёр по решению (Decision Partner) и уверенность выбора (Decision Confidence) — тренд 2026: ИИ ведёт клиента к уверенному выбору, а не заваливает вариантами. Умный квиз-подбор с обоснованием вместо каталога. Как применить в ботах и мини-приложениях."
+description: "Партнёр по решению (Decision Partner) и уверенность выбора (Decision Confidence) — тренд 2026: ИИ ведёт клиента к уверенному выбору."
 date: 2026-06-17
 category: biznes-krugozor
 canonical: https://chimitdorzhi.tech/blog/decision-partner-uverennost-vybora-2026/

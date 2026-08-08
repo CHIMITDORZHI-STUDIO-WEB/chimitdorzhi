@@ -1,6 +1,6 @@
 ---
 title: "Phaser: браузерные промо-игры для бизнеса (вовлечение, акции, лиды)"
-description: "Phaser — open-source движок HTML5-игр для бизнеса: колесо фортуны, аркада за приз, мини-квиз в сайт, лендинг и бот. Вовлечение в акциях и сбор лидов, данные у себя. Разработаю промо-игру под ключ."
+description: "Phaser — open-source движок HTML5-игр для бизнеса: колесо фортуны, аркада за приз, мини-квиз в сайт, лендинг и бот."
 date: 2026-06-16
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/phaser-promo-igry-dlya-biznesa-2026/

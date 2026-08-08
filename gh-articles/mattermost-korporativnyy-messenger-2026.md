@@ -1,6 +1,6 @@
 ---
 title: "Mattermost: корпоративный мессенджер на своём сервере вместо Slack"
-description: "Mattermost — open-source корпоративный мессенджер (аналог Slack/Teams): каналы, треды, файлы, интеграции, на своём сервере. Данные у себя (важно для безопасности и 152-ФЗ) — разверну под ключ."
+description: "Mattermost — open-source корпоративный мессенджер (аналог Slack/Teams): каналы, треды, файлы, интеграции, на своём сервере."
 date: 2026-06-14
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/mattermost-korporativnyy-messenger-2026/

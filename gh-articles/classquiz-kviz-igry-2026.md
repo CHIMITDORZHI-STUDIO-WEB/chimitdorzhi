@@ -1,6 +1,6 @@
 ---
 title: "ClassQuiz: квизы-игры в реальном времени на своём сервере (аналог Kahoot)"
-description: "ClassQuiz — open-source платформа квизов-игр в реальном времени (аналог Kahoot): участники отвечают с телефонов, рейтинг на экране. Вовлечение на ивентах, в обучении и в команде, данные у себя — разверну под ключ."
+description: "ClassQuiz — open-source платформа квизов-игр в реальном времени (аналог Kahoot): участники отвечают с телефонов, рейтинг на экране."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/classquiz-kviz-igry-2026/

@@ -1,6 +1,6 @@
 ---
 title: "Рентабельность: ROS, ROA, ROE без зауми"
-description: "Рентабельность простыми словами: ROS (продаж), ROA (активов), ROE (собственного капитала). Формулы с числовыми примерами, чем отличаются и что показывает каждая, связь с маржой и ROI, частые ошибки."
+description: "Рентабельность простыми словами: ROS (продаж), ROA (активов), ROE (собственного капитала)."
 date: 2026-06-17
 category: biznes-krugozor
 canonical: https://chimitdorzhi.tech/blog/rentabelnost-ros-roa-roe-2026/

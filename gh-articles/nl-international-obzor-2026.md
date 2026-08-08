@@ -1,6 +1,6 @@
 ---
 title: "NL International: как устроен бизнес и реально ли заработать"
-description: "NL International (родом из Новосибирска): что за компания, продукт (питание Energy Diet, косметика, быт), как устроен бизнес и доход, кому подходит, плюсы и риски, как начать. Нейтрально, без обещаний."
+description: "NL International из Новосибирска: питание Energy Diet и косметика, как устроены бизнес и доход, кому подходит, плюсы и риски. Без обещаний."
 date: 2026-06-13
 category: marketing
 canonical: https://chimitdorzhi.tech/blog/nl-international-obzor-2026/

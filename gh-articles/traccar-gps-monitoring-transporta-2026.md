@@ -1,6 +1,6 @@
 ---
 title: "Traccar: GPS-мониторинг транспорта и сотрудников на своём сервере"
-description: "Traccar — open-source платформа GPS-мониторинга: живая карта, история перемещений, геозоны, отчёты по пробегу и стоянкам, оповещения. Для автопарка, курьеров и спецтехники без абонентки, данные у себя — внедрю под ключ."
+description: "Traccar — open-source платформа GPS-мониторинга: живая карта, история перемещений, геозоны, отчёты по пробегу и стоянкам, оповещения."
 date: 2026-06-16
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/traccar-gps-monitoring-transporta-2026/

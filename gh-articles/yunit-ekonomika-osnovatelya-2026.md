@@ -1,6 +1,6 @@
 ---
 title: "Юнит-экономика для основателя 2026: считаем на пальцах — LTV, CAC, когорты"
-description: "Юнит-экономика для основателя простыми словами с расчётами в рублях: как выбрать юнит, метрики CAC/LTV/ARPU/AOV, правило LTV/CAC≥3, CAC payback, когортный анализ, contribution margin, точка безубыточности. Полные разборы SaaS и интернет-магазина на цифрах. С формулами на JS/Python и шаблоном."
+description: "Юнит-экономика для основателя простыми словами с расчётами в рублях: как выбрать юнит, метрики CAC/LTV/ARPU/AOV, правило LTV/CAC≥3, CAC payback."
 date: 2026-05-28
 category: sales
 canonical: https://chimitdorzhi.tech/blog/yunit-ekonomika-osnovatelya-2026/

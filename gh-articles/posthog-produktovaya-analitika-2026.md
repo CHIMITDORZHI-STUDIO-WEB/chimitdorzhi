@@ -1,6 +1,6 @@
 ---
 title: "PostHog: продуктовая аналитика на своём сервере"
-description: "PostHog — open-source платформа продуктовой аналитики (аналог Mixpanel/Amplitude): события, воронки, запись сессий, A/B-тесты, фиче-флаги. Данные у себя по 152-ФЗ, без дорогих подписок — разверну под ключ."
+description: "PostHog — open-source платформа продуктовой аналитики (аналог Mixpanel/Amplitude): события, воронки, запись сессий, A/B-тесты, фиче-флаги."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/posthog-produktovaya-analitika-2026/

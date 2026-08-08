@@ -1,6 +1,6 @@
 ---
 title: "Свой сервис email-рассылок под брендом: white-label на базе Listmonk / Keila"
-description: "Как запустить свой брендированный сервис email-рассылок на open-source Listmonk или Keila и продавать его бизнесу и агентствам. Доставляемость (SPF/DKIM/DMARC, репутация), мультитенантность, биллинг, лицензия AGPL, 152-ФЗ. Соберу под ключ."
+description: "Как запустить свой брендированный сервис email-рассылок на open-source Listmonk или Keila и продавать его бизнесу и агентствам."
 date: 2026-06-16
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/white-label-email-rassylki-2026/

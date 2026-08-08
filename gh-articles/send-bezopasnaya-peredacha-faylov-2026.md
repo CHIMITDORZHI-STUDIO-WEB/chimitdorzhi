@@ -1,6 +1,6 @@
 ---
 title: "Send: безопасная передача файлов на своём сервере вместо WeTransfer"
-description: "Send (форк Firefox Send) — open-source сервер безопасной передачи файлов: end-to-end шифрование, авто-удаление после скачивания или по сроку. Импортозамещение WeTransfer, данные у себя по 152-ФЗ — разверну под ключ."
+description: "Send (форк Firefox Send) — open-source сервер безопасной передачи файлов: end-to-end шифрование, авто-удаление после скачивания или по сроку."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/send-bezopasnaya-peredacha-faylov-2026/

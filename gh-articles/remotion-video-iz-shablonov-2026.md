@@ -1,6 +1,6 @@
 ---
 title: "Remotion: массовое производство коротких видео из шаблонов"
-description: "Remotion — open-source фреймворк для создания видео кодом: один шаблон плюс данные из таблицы дают десятки роликов автоматически. Конвейер коротких видео (Reels/Shorts) для охватов, рендер на сервере — соберу под ключ."
+description: "Remotion — open-source фреймворк для создания видео кодом: один шаблон плюс данные из таблицы дают десятки роликов автоматически."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/remotion-video-iz-shablonov-2026/

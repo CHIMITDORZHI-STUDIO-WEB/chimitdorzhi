@@ -1,6 +1,6 @@
 ---
 title: "Umami: веб-аналитика сайта без Google и по 152-ФЗ"
-description: "Umami (и Plausible) — open-source веб-аналитика на своём сервере: посещаемость и источники без cookie-баннеров и передачи данных Google. Приватно, проще с 152-ФЗ — разверну под ключ."
+description: "Umami (и Plausible) — open-source веб-аналитика на своём сервере: посещаемость и источники без cookie-баннеров и передачи данных Google."
 date: 2026-06-14
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/umami-analitika-bez-google-2026/

@@ -1,6 +1,6 @@
 ---
 title: "Xibo: цифровые вывески и экраны для заведения на своём сервере"
-description: "Xibo (и лёгкий Anthias) — open-source система цифровых вывесок (digital signage): управление контентом на экранах заведения — меню, акции, объявления, расписание. Без подписок, всё из одного места — настрою под ключ."
+description: "Xibo (и лёгкий Anthias) — open-source система цифровых вывесок (digital signage): управление контентом на экранах заведения — меню, акции, объявления."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/xibo-cifrovye-vyveski-2026/

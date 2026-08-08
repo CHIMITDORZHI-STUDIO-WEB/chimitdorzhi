@@ -1,6 +1,6 @@
 ---
 title: "Как попасть в ответы ChatGPT, Perplexity и Алисы: чек-лист из 30 пунктов"
-description: "Практический GEO-аудит сайта: 30 конкретных пунктов, которые делают вас источником для ChatGPT, Perplexity, Алисы и Яндекс Нейро. robots.txt, llms.txt, schema, контент, авторитетность — внедряйте сами."
+description: "Практический GEO-аудит сайта: 30 конкретных пунктов, которые делают вас источником для ChatGPT, Perplexity, Алисы и Яндекс Нейро."
 date: 2026-06-03
 category: geo
 canonical: https://chimitdorzhi.tech/blog/geo-chek-list-30-punktov-2026/

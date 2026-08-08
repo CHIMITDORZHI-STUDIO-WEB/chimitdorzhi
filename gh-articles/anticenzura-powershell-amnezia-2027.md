@@ -1,6 +1,6 @@
 ---
 title: "Автоматизация обхода блокировок: PowerShell-скрипт и Amnezia для команды"
-description: "Технический How-To: как одним PowerShell-скриптом развернуть средства обхода блокировок на всех рабочих местах Windows и macOS и как Amnezia помогает централизованно управлять доступом команды — разворачивать VPS, раздавать QR-конфиги и отзывать доступ."
+description: "Один скрипт .ps1 вместо ручной настройки 15 машин на Windows и macOS. Плюс Amnezia: развёртывание VPS в клик, QR-конфиги и отзыв доступа у людей."
 date: 2026-07-07
 category: security
 canonical: https://chimitdorzhi.tech/blog/anticenzura-powershell-amnezia-2027/

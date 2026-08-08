@@ -1,6 +1,6 @@
 ---
 title: "Свой облачный диск вместо Google Drive 2026: Nextcloud и аналоги на своём сервере"
-description: "Как поднять свой облачный диск вместо Google Drive и Dropbox в 2026: Nextcloud и альтернативы (Seafile, ownCloud), размещение на VPS/российских облаках/NAS, Docker, SSL, синхронизация, OnlyOffice, бэкапы restic, безопасность. Данные в РФ (152-ФЗ). С docker-compose и nginx-конфигом."
+description: "Как поднять свой облачный диск вместо Google Drive и Dropbox в 2026: Nextcloud и альтернативы (Seafile, ownCloud)."
 date: 2026-05-30
 category: development
 canonical: https://chimitdorzhi.tech/blog/svoy-oblachnyy-disk-2026/

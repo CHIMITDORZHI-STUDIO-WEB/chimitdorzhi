@@ -1,6 +1,6 @@
 ---
 title: "Bagisto: интернет-магазин на открытом коде под ключ"
-description: "Bagisto — open-source платформа интернет-магазина на Laravel (аналог Shopify): каталог, корзина, заказы, админка. Без платы платформам, данные у себя — разверну на вашем сервере под ключ."
+description: "Bagisto — open-source платформа интернет-магазина на Laravel (аналог Shopify): каталог, корзина, заказы, админка."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/bagisto-internet-magazin-2026/

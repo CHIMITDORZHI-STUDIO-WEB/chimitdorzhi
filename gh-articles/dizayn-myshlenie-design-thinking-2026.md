@@ -1,6 +1,6 @@
 ---
 title: "Дизайн-мышление (Design Thinking): 5 этапов простыми словами"
-description: "Дизайн-мышление (Design Thinking) простыми словами: 5 этапов (эмпатия, фокусировка, генерация идей, прототип, тест), зачем бизнесу создавать от потребности человека, как применить в команде и какие ошибки убивают результат."
+description: "Дизайн-мышление (Design Thinking) простыми словами: 5 этапов (эмпатия, фокусировка, генерация идей, прототип, тест)."
 date: 2026-06-17
 category: biznes-krugozor
 canonical: https://chimitdorzhi.tech/blog/dizayn-myshlenie-design-thinking-2026/

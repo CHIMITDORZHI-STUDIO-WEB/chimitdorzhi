@@ -1,6 +1,6 @@
 ---
 title: "Owncast: своя платформа трансляций на своём сервере"
-description: "Owncast — open-source платформа прямых трансляций (аналог Twitch/YouTube Live): свой стрим на своём домене, чат, без рекламы и зависимости от площадки. Для вебинаров, ивентов и обучения — разверну под ключ."
+description: "Owncast — open-source платформа прямых трансляций (аналог Twitch/YouTube Live): свой стрим на своём домене, чат, без рекламы и зависимости от площадки."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/owncast-svoya-strim-platforma-2026/

@@ -1,6 +1,6 @@
 ---
 title: "Restreamer: свой стрим и мультитрансляция во все площадки сразу"
-description: "Restreamer (datarhei) — open-source приём одного потока и одновременная ретрансляция в VK Видео, Telegram, YouTube и на свой сайт, плюс плеер и запись. Максимум охвата эфира без дублирования, поток у себя — настрою под ключ."
+description: "Restreamer (datarhei) — open-source приём одного потока и одновременная ретрансляция в VK Видео, Telegram, YouTube и на свой сайт, плюс плеер и запись."
 date: 2026-06-16
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/restreamer-multistream-2026/

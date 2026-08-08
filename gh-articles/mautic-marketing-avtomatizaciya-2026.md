@@ -1,6 +1,6 @@
 ---
 title: "Mautic: маркетинговая автоматизация без HubSpot"
-description: "Mautic — open-source платформа маркетинговой автоматизации (аналог HubSpot): сегментация, триггерные цепочки, лид-скоринг, формы, кампании. Без дорогой подписки, данные у себя — разверну под ключ."
+description: "Mautic — open-source платформа маркетинговой автоматизации (аналог HubSpot): сегментация, триггерные цепочки, лид-скоринг, формы, кампании."
 date: 2026-06-14
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/mautic-marketing-avtomatizaciya-2026/

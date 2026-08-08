@@ -1,6 +1,6 @@
 ---
 title: "See-Think-Do-Care: маркетинг по стадиям готовности аудитории"
-description: "See-Think-Do-Care (STDC) от Google и Авинаша Кошика: фреймворк, который делит аудиторию по стадиям готовности — See, Think, Do, Care. Свой контент, каналы и метрики под каждую стадию, чтобы не продавать в лоб холодным. Как применить в России."
+description: "See-Think-Do-Care (STDC) от Google и Авинаша Кошика: фреймворк, который делит аудиторию по стадиям готовности — See, Think, Do, Care."
 date: 2026-06-17
 category: biznes-krugozor
 canonical: https://chimitdorzhi.tech/blog/see-think-do-care-2026/

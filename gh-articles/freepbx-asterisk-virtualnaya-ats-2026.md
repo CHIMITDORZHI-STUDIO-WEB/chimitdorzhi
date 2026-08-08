@@ -1,6 +1,6 @@
 ---
 title: "FreePBX и Asterisk: своя виртуальная АТС для бизнеса"
-description: "FreePBX на базе Asterisk — своя виртуальная АТС: многоканальный номер, голосовое меню, запись звонков, распределение и статистика. На своём сервере, без абонплаты за каждого. Как внедрить."
+description: "FreePBX на базе Asterisk — своя виртуальная АТС: многоканальный номер, голосовое меню, запись звонков, распределение и статистика."
 date: 2026-07-31
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/freepbx-asterisk-virtualnaya-ats-2026/

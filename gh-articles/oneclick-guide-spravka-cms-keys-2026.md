@@ -1,6 +1,6 @@
 ---
 title: "One Click: справочный портал ES/EN с редактором для заказчика"
-description: "Кейс One Click — двуязычная справка (испанский/английский) для платформы QR/NFC-страниц с собственной CMS: заказчик сам редактирует инструкцию блоками, встроен ИИ-перевод ES→EN, тёмная тема, отдаётся под one-click.app/help. Как устроено."
+description: "Кейс One Click — двуязычная справка (испанский/английский) для платформы QR/NFC-страниц с собственной CMS: заказчик сам редактирует инструкцию блоками."
 date: 2026-08-04
 category: cases
 canonical: https://chimitdorzhi.tech/blog/oneclick-guide-spravka-cms-keys-2026/

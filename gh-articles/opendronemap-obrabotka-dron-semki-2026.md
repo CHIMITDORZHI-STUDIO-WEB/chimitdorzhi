@@ -1,6 +1,6 @@
 ---
 title: "OpenDroneMap: обработка аэрофотосъёмки с дронов на своём сервере"
-description: "OpenDroneMap (ODM) — open-source обработка снимков с дронов в геоданные: ортофотопланы, 3D-модели, облака точек, модели рельефа. Для агро, стройки, геодезии и кадастра, данные у себя — разверну под ключ."
+description: "OpenDroneMap (ODM) — open-source обработка снимков с дронов в геоданные: ортофотопланы, 3D-модели, облака точек, модели рельефа."
 date: 2026-06-16
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/opendronemap-obrabotka-dron-semki-2026/

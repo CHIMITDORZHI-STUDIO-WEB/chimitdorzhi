@@ -1,6 +1,6 @@
 ---
 title: "Leantime и бесплатные системы управления проектами: обзор для тех, кто не проджект-менеджер"
-description: "Обзор Leantime — бесплатной self-hosted системы управления проектами (Гант, канбан, календарь, списки), заточенной под людей без опыта в проджект-менеджменте и под особенности восприятия при СДВГ, дислексии и аутизме. Плюс бесплатные open-source альтернативы Jira, Trello и Notion и как выбрать своё."
+description: "Обзор Leantime — бесплатной self-hosted системы управления проектами (Гант, канбан, календарь, списки)."
 date: 2026-06-30
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/leantime-besplatnaya-sistema-upravleniya-proektami-2027/

@@ -1,6 +1,6 @@
 ---
 title: "Свой сервис онлайн-записи под брендом: white-label на базе Cal.com"
-description: "Как запустить свой брендированный сервис онлайн-записи на open-source Cal.com и перепродавать его салонам, клиникам и мастерам как свой продукт. Мультитенантность, биллинг, нюансы лицензии и 152-ФЗ. Соберу white-label под ключ."
+description: "Как запустить свой брендированный сервис онлайн-записи на open-source Cal."
 date: 2026-06-16
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/white-label-onlayn-zapis-cal-com-2026/

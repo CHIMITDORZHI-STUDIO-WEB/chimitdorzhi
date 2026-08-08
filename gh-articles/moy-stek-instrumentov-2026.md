@@ -1,6 +1,6 @@
 ---
 title: "Мой стек инструментов 2026: что я выбираю для клиентов и почему"
-description: "Авторский разбор: какой стек я выбираю для клиентов в 2026 и почему — российский стек и 152-ФЗ, self-hosted, ИИ (YandexGPT/GigaChat, Ollama, RAG), боты Telegram и MAX, n8n, открытые CRM, свой сервер. Принципы выбора без рекламы вендоров."
+description: "Авторский разбор: какой стек я выбираю для клиентов в 2026 и почему — российский стек и 152-ФЗ, self-hosted, ИИ (YandexGPT/GigaChat, Ollama, RAG)."
 date: 2026-06-23
 category: expert
 canonical: https://chimitdorzhi.tech/blog/moy-stek-instrumentov-2026/

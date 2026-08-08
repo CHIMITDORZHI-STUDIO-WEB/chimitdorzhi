@@ -1,6 +1,6 @@
 ---
 title: "ИИ для HR: как автоматизировать первичный отбор резюме и переписку с кандидатами"
-description: "Техническое руководство по автоматизации подбора персонала с помощью ИИ: парсинг PDF/DOCX резюме, скоринг на базе LLM (GPT-4/Llama), интеграция с ATS (Huntflow, Talantix) и чат-ботами."
+description: "Техническое руководство по автоматизации подбора персонала с помощью ИИ: парсинг PDF/DOCX резюме, скоринг на базе LLM (GPT-4/Llama)."
 date: 2026-06-09
 category: development
 canonical: https://chimitdorzhi.tech/blog/ai-hr-avtomatizaciya/

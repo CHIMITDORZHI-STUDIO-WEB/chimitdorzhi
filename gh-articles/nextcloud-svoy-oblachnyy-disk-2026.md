@@ -1,6 +1,6 @@
 ---
 title: "Nextcloud: свой облачный диск компании вместо Google Drive"
-description: "Nextcloud — open-source облако и совместная работа (аналог Google Drive/Dropbox/Office 365): файлы, доступы, календарь, документы, на своём сервере. Данные в РФ по 152-ФЗ — разверну под ключ."
+description: "Nextcloud — open-source облако и совместная работа (аналог Google Drive/Dropbox/Office 365): файлы, доступы, календарь, документы, на своём сервере."
 date: 2026-06-14
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/nextcloud-svoy-oblachnyy-disk-2026/

@@ -1,6 +1,6 @@
 ---
 title: "Открытое железо (open hardware): что это и зачем бизнесу"
-description: "Открытое железо (open hardware) простыми словами: аппаратные проекты с открытыми схемами и прошивками (Arduino, Prusa, Raspberry Pi, RISC-V). Зачем бизнесу — дешевле кастомные устройства, нет вендор-лока, прототипирование. Где взять подборку проектов и как начать."
+description: "Открытое железо (open hardware) простыми словами: аппаратные проекты с открытыми схемами и прошивками (Arduino, Prusa, Raspberry Pi, RISC-V)."
 date: 2026-06-23
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/open-hardware-otkrytoe-zhelezo-2026/

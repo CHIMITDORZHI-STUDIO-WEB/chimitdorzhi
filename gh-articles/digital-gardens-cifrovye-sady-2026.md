@@ -1,6 +1,6 @@
 ---
 title: "Digital Gardens (цифровые сады): личное знание, которое растёт"
-description: "Digital Garden (цифровой сад) простыми словами: личная публичная база знаний, которую «выращивают» — заметки связаны ссылками и развиваются (seedling, budding, evergreen). Чем отличается от блога, инструменты и как начать."
+description: "Digital Garden (цифровой сад) простыми словами: личная публичная база знаний, которую «выращивают» — заметки связаны ссылками и развиваются (seedling."
 date: 2026-06-17
 category: biznes-krugozor
 canonical: https://chimitdorzhi.tech/blog/digital-gardens-cifrovye-sady-2026/

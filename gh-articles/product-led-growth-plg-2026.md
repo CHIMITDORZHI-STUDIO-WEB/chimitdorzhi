@@ -1,6 +1,6 @@
 ---
 title: "Product-Led Growth (PLG): когда продукт продаёт себя сам"
-description: "Product-Led Growth (рост за счёт продукта) простыми словами: freemium, free trial и self-serve вместо отдела продаж. Aha-момент, продуктовая аналитика, PQL, кому подходит модель и какие ошибки её убивают."
+description: "Product-Led Growth (рост за счёт продукта) простыми словами: freemium, free trial и self-serve вместо отдела продаж."
 date: 2026-06-17
 category: biznes-krugozor
 canonical: https://chimitdorzhi.tech/blog/product-led-growth-plg-2026/

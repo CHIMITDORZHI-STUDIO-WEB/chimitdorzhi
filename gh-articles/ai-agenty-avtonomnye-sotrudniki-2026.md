@@ -1,6 +1,6 @@
 ---
 title: "AI-агенты как автономные сотрудники 2026: multi-agent системы и оркестрация"
-description: "Следующий уровень AI-агентов: multi-agent системы, где агенты работают как команда. Архитектуры (supervisor, sequential, hierarchical, swarm), фреймворки 2026 (LangGraph, CrewAI, AutoGen), кейсы автономных отделов, память, human-in-the-loop, guardrails. Российский стек и 152-ФЗ. С Python-кодом."
+description: "Следующий уровень AI-агентов: multi-agent системы, где агенты работают как команда."
 date: 2026-05-28
 category: ai-dev
 canonical: https://chimitdorzhi.tech/blog/ai-agenty-avtonomnye-sotrudniki-2026/

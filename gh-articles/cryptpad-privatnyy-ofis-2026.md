@@ -1,6 +1,6 @@
 ---
 title: "CryptPad: приватный онлайн-офис с шифрованием на своём сервере"
-description: "CryptPad — open-source приватный онлайн-офис (аналог Google Docs): документы, таблицы, презентации, совместная работа с шифрованием. Данные у себя и по 152-ФЗ — разверну на вашем сервере под ключ."
+description: "CryptPad — open-source приватный онлайн-офис (аналог Google Docs): документы, таблицы, презентации, совместная работа с шифрованием."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/cryptpad-privatnyy-ofis-2026/

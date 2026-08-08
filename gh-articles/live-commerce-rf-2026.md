@@ -1,6 +1,6 @@
 ---
 title: "Live Commerce 2026 в РФ: продажи через стримы — VK Live, OK Live, TG Stories — гид от практика"
-description: "Гайд по Live Commerce 2026 в РФ: 8 платформ (VK Live, OK Live, Telegram Stories/Mini App, Я.Прямые эфиры, MAX, RUTUBE), 6 форматов эфиров, технический стек с n8n-webhook, сценарий 60-минутного шоу-стрима, юр-нюансы (54-ФЗ, маркировка, 152-ФЗ), реальные кейсы с конверсией 5–10%, ROI 50–80х."
+description: "Гайд по Live Commerce 2026 в РФ: 8 платформ (VK Live, OK Live, Telegram Stories/Mini App, Я."
 date: 2026-05-25
 category: media
 canonical: https://chimitdorzhi.tech/blog/live-commerce-rf-2026/

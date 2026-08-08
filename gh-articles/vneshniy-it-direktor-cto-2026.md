@@ -1,6 +1,6 @@
 ---
 title: "Внешний IT-директор (CTO as a Service): кому нужен и сколько стоит"
-description: "Внешний IT-директор (CTO as a Service): что это, кому нужен без штатного технического директора, чем занимается, как выбирает решения и подрядчиков и во сколько обходится по сравнению со штатным."
+description: "Внешний IT-директор (CTO as a Service): что это, кому нужен без штатного технического директора, чем занимается."
 date: 2026-07-22
 category: development
 canonical: https://chimitdorzhi.tech/blog/vneshniy-it-direktor-cto-2026/

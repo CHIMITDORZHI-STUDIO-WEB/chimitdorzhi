@@ -1,6 +1,6 @@
 ---
 title: "Хостинг игровых серверов как SaaS-бизнес: аналог Pterodactyl-платформ «под ключ»"
-description: "Разбираю бизнес-модель game server hosting: как устроена подписочная аренда игровых серверов «в один клик» на базе панелей вроде Pterodactyl, технический стек, юнит-экономика и что нужно для запуска."
+description: "Разбираю бизнес-модель game server hosting: как устроена подписочная аренда игровых серверов «в один клик» на базе панелей вроде Pterodactyl."
 date: 2026-07-03
 category: esports
 canonical: https://chimitdorzhi.tech/blog/hosting-igrovyh-serverov-saas-2027/

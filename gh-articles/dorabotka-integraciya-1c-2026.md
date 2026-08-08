@@ -1,6 +1,6 @@
 ---
 title: "Доработка и интеграция 1С с сайтом, маркетплейсом и CRM"
-description: "Типовые сценарии интеграции 1С: обмен с сайтом (заказы, остатки, цены), маркетплейсы WB/Ozon, CRM Битрикс24/amoCRM, банк и ОФД, обмен по API/EnterpriseData. Чем грозит ручной перенос и как не сломать учёт."
+description: "Типовые сценарии интеграции 1С: обмен с сайтом (заказы, остатки, цены), маркетплейсы WB/Ozon, CRM Битрикс24/amoCRM, банк и ОФД."
 date: 2026-06-17
 category: development
 canonical: https://chimitdorzhi.tech/blog/dorabotka-integraciya-1c-2026/

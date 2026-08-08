@@ -1,6 +1,6 @@
 ---
 title: "Своя площадка live-commerce на open-source: из чего собрать"
-description: "Из чего собрать свою площадку live-commerce (продажи в прямом эфире) на open-source: низколатентный стрим (LiveKit, SRS, Owncast), headless-магазин (Vendure, Medusa), живой чат, виджет покупки в эфире и мультистрим (Restreamer). Без комиссий, данные у себя — соберу под ключ."
+description: "Из чего собрать свою площадку live-commerce (продажи в прямом эфире) на open-source: низколатентный стрим (LiveKit, SRS, Owncast)."
 date: 2026-06-16
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/live-commerce-svoya-ploschadka-opensource-2026/

@@ -1,6 +1,6 @@
 ---
 title: "LibreChat: корпоративный ChatGPT для команды"
-description: "LibreChat — open-source веб-кабинет для работы команды с разными LLM в одном месте (аналог ChatGPT Team): общий доступ, свои ключи или локальные модели, контроль данных. Разверну под ключ."
+description: "LibreChat — open-source веб-кабинет для работы команды с разными LLM в одном месте (аналог ChatGPT Team): общий доступ, свои ключи или локальные модели."
 date: 2026-06-14
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/librechat-korporativnyy-chatgpt-2026/

@@ -1,6 +1,6 @@
 ---
 title: "Chandra: AI-OCR для извлечения данных из документов на своём сервере"
-description: "Chandra — open-source AI-OCR модель: превращает изображения и PDF в структурированные данные (таблицы, рукописный текст, формы, формулы, 90+ языков). Автоматизация документооборота локально по 152-ФЗ — внедрю под ключ."
+description: "Chandra — open-source AI-OCR модель: превращает изображения и PDF в структурированные данные (таблицы, рукописный текст, формы, формулы, 90+ языков)."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/chandra-ai-ocr-dokumenty-2026/

@@ -1,6 +1,6 @@
 ---
 title: "Корпоративный AI-ассистент на своих данных: приватный RAG без утечек"
-description: "Как построить корпоративный AI-ассистент на своих данных: приватный RAG-контур без утечек, российский AI-стек GigaChat и YandexGPT, соответствие 152-ФЗ и поэтапное внедрение."
+description: "Как построить корпоративный AI-ассистент на своих данных: приватный RAG-контур без утечек, российский AI-стек GigaChat и YandexGPT."
 date: 2026-06-11
 category: ai-dev
 canonical: https://chimitdorzhi.tech/blog/korporativnyy-ai-assistent-na-svoih-dannyh-2027/

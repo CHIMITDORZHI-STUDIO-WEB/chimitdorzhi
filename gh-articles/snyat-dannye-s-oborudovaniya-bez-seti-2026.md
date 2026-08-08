@@ -1,6 +1,6 @@
 ---
 title: "Как снять данные с оборудования без сети: QR с экрана в учёт"
-description: "Станки, контроллеры и приборы часто без Ethernet и Wi-Fi, но с экраном. Как переносить показания и логи через QR-код с дисплея в учётную систему, кому это нужно и как внедрить без прокладки сети."
+description: "Станки, контроллеры и приборы часто без Ethernet и Wi-Fi, но с экраном."
 date: 2026-08-02
 category: industries
 canonical: https://chimitdorzhi.tech/blog/snyat-dannye-s-oborudovaniya-bez-seti-2026/

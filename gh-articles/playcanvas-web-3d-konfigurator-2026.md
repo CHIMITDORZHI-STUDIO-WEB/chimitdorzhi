@@ -1,6 +1,6 @@
 ---
 title: "PlayCanvas: лёгкий web-3D и конфигураторы с быстрой загрузкой"
-description: "PlayCanvas — open-source веб-движок 3D с онлайн-редактором и упором на быструю загрузку и мобильные: 3D-конфигураторы, рекламные интерактивные 3D, продуктовые сцены. Для e-commerce и рекламы. Разработаю под ключ."
+description: "PlayCanvas — open-source веб-движок 3D с онлайн-редактором и упором на быструю загрузку и мобильные: 3D-конфигураторы, рекламные интерактивные 3D."
 date: 2026-06-16
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/playcanvas-web-3d-konfigurator-2026/

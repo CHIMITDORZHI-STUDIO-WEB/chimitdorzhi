@@ -1,6 +1,6 @@
 ---
 title: "A-Frame: WebAR и VR в браузере без приложения"
-description: "A-Frame — open-source фреймворк WebXR (VR и AR в браузере) на простой HTML-разметке: виртуальные шоурумы и стенды, 3D-сцены, VR-обучение — по ссылке, без приложения, VR-шлем опционален. Для ритейла и выставок. Разработаю под ключ."
+description: "A-Frame — open-source фреймворк WebXR (VR и AR в браузере) на простой HTML-разметке: виртуальные шоурумы и стенды, 3D-сцены, VR-обучение — по ссылке."
 date: 2026-06-16
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/a-frame-webxr-ar-vr-2026/

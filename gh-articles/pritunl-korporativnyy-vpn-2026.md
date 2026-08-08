@@ -1,6 +1,6 @@
 ---
 title: "Pritunl: корпоративный VPN на своём сервере"
-description: "Pritunl — open-source корпоративный VPN с веб-админкой (OpenVPN/WireGuard): управление пользователями, серверами и доступом к ресурсам компании. Защищённый удалённый доступ, контроль и 152-ФЗ — разверну под ключ."
+description: "Pritunl — open-source корпоративный VPN с веб-админкой (OpenVPN/WireGuard): управление пользователями, серверами и доступом к ресурсам компании."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/pritunl-korporativnyy-vpn-2026/

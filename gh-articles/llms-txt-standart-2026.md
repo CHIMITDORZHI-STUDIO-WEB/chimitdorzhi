@@ -1,6 +1,6 @@
 ---
 title: "llms.txt: новый стандарт для нейросетей — что это и как сделать"
-description: "llms.txt — новый стандарт-карта сайта для нейросетей. Разбираю, что это, кто его читает, чем отличается от robots.txt и sitemap, показываю готовый пример и как внедрить и проверить на своём сайте."
+description: "llms.txt — новый стандарт-карта сайта для нейросетей. Разбираю, что это, кто его читает, чем отличается от robots.txt и sitemap."
 date: 2026-06-03
 category: geo
 canonical: https://chimitdorzhi.tech/blog/llms-txt-standart-2026/

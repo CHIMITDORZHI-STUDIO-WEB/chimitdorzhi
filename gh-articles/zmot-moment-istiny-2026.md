@@ -1,6 +1,6 @@
 ---
 title: "Моменты истины и ZMOT: где клиент на самом деле принимает решение"
-description: "Моменты истины и ZMOT простыми словами: FMOT (полка), SMOT (опыт) от Procter & Gamble и Zero Moment of Truth от Google — момент, когда клиент гуглит отзывы до контакта с продавцом. Как выигрывать ZMOT в России: поиск, карты, отзывы, контент."
+description: "Моменты истины и ZMOT простыми словами: FMOT (полка), SMOT (опыт) от Procter & Gamble и Zero Moment of Truth от Google — момент."
 date: 2026-06-17
 category: biznes-krugozor
 canonical: https://chimitdorzhi.tech/blog/zmot-moment-istiny-2026/

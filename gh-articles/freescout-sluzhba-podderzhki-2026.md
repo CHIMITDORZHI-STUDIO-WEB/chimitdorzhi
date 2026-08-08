@@ -1,6 +1,6 @@
 ---
 title: "FreeScout: служба поддержки по email (аналог Help Scout) на своём сервере"
-description: "FreeScout — open-source служба поддержки на основе общего почтового ящика (аналог Help Scout, Zendesk): письма становятся тикетами, распределение, статусы, шаблоны, база знаний. Управляемая поддержка без подписки, переписка у себя — разверну под ключ."
+description: "FreeScout — open-source служба поддержки на основе общего почтового ящика (аналог Help Scout, Zendesk): письма становятся тикетами, распределение."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/freescout-sluzhba-podderzhki-2026/

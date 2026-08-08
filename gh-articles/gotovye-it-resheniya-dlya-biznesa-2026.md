@@ -1,6 +1,6 @@
 ---
 title: "Готовые IT-решения для бизнеса: {{OFFERS_COUNT}} решений под ключ"
-description: "Каталог из {{OFFERS_COUNT}} готовых IT-решений для бизнеса: автоматизация по нишам, чат-боты и AI, геймификация, 152-ФЗ и флагманские платформы. Под ключ, с бесплатной консультацией."
+description: "Каталог из {{OFFERS_COUNT}} готовых IT-решений для бизнеса: автоматизация по нишам, чат-боты и AI, геймификация, 152-ФЗ и флагманские платформы."
 date: 2026-06-03
 category: development
 canonical: https://chimitdorzhi.tech/blog/gotovye-it-resheniya-dlya-biznesa-2026/

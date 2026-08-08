@@ -1,6 +1,6 @@
 ---
 title: "Supabase: backend для приложений на своём сервере"
-description: "Supabase — open-source backend-платформа (аналог Firebase): база PostgreSQL, авторизация, API, файловое хранилище, реалтайм. Готовая техбаза для приложения с данными у себя по 152-ФЗ — разверну под ключ."
+description: "Supabase — open-source backend-платформа (аналог Firebase): база PostgreSQL, авторизация, API, файловое хранилище, реалтайм."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/supabase-backend-dlya-prilozheniy-2026/

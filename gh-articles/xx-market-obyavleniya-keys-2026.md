@@ -1,6 +1,6 @@
 ---
 title: "X&X Market: маркетплейс услуг и объявлений в Telegram"
-description: "Кейс X&X Market — маркетплейс объявлений и услуг мастеров внутри супер-аппа в Telegram Mini App: каталог, избранное, чаты, заявки мастерам, отметка «подтверждён сообществом», единый вход. Как устроено и кому подойдёт."
+description: "Кейс X&X Market — маркетплейс объявлений и услуг мастеров внутри супер-аппа в Telegram Mini App: каталог, избранное, чаты, заявки мастерам."
 date: 2026-08-04
 category: cases
 canonical: https://chimitdorzhi.tech/blog/xx-market-obyavleniya-keys-2026/

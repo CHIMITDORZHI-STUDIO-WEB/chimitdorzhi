@@ -1,6 +1,6 @@
 ---
 title: "Mayan EDMS: управление документами предприятия на своём сервере"
-description: "Mayan EDMS — open-source система управления документами (DMS): хранение, версии, метаданные, рабочие процессы, права доступа, OCR-поиск. Корпоративный документооборот на своём сервере по 152-ФЗ — внедрю под ключ."
+description: "Mayan EDMS — open-source система управления документами (DMS): хранение, версии, метаданные, рабочие процессы, права доступа, OCR-поиск."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/mayan-edms-upravlenie-dokumentami-2026/

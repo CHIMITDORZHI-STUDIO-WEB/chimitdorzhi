@@ -1,6 +1,6 @@
 ---
 title: "MWR Life vs WorldVentures / DreamTrips: что осталось в travel-MLM в 2026"
-description: "История travel-MLM: DreamTrips и WorldVentures как пионеры формата, что с ними стало по открытым данным (банкротство около 2020), и чем отличается современная модель MWR Life / Travel Advantage. Нейтрально."
+description: "История travel-MLM: DreamTrips и WorldVentures как пионеры формата, что с ними стало по открытым данным (банкротство около 2020)."
 date: 2026-06-17
 category: mwrlife
 canonical: https://chimitdorzhi.tech/blog/mwr-vs-worldventures-dreamtrips-2026/

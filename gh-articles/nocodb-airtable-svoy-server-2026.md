@@ -1,6 +1,6 @@
 ---
 title: "NocoDB: Airtable на своём сервере под ключ"
-description: "NocoDB — open-source база данных в виде умных таблиц (аналог Airtable): таблицы, представления, формы, связи без программирования. Без подписки, данные у себя — разверну на вашем сервере под ключ."
+description: "NocoDB — open-source база данных в виде умных таблиц (аналог Airtable): таблицы, представления, формы, связи без программирования."
 date: 2026-06-14
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/nocodb-airtable-svoy-server-2026/

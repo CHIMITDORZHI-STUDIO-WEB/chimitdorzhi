@@ -1,6 +1,6 @@
 ---
 title: "North Star Metric: одна метрика, ведущая бизнес"
-description: "North Star Metric (главная метрика) простыми словами: единый показатель ценности для клиента, вокруг которого работает команда. Чем отличается от выручки, примеры, как выбрать свою и разложить на input-метрики, ошибки."
+description: "North Star Metric (главная метрика) простыми словами: единый показатель ценности для клиента, вокруг которого работает команда."
 date: 2026-06-17
 category: biznes-krugozor
 canonical: https://chimitdorzhi.tech/blog/north-star-metric-2026/

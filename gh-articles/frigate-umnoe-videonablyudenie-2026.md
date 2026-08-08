@@ -1,6 +1,6 @@
 ---
 title: "Frigate: умное видеонаблюдение с AI-распознаванием объектов"
-description: "Frigate — open-source система видеонаблюдения (NVR) с real-time AI-детекцией объектов: распознаёт людей и машины, фильтрует ложные срабатывания, зоны, поиск по событиям. Оповещения только на реальные события, данные у себя — внедрю под ключ."
+description: "Frigate — open-source система видеонаблюдения (NVR) с real-time AI-детекцией объектов: распознаёт людей и машины, фильтрует ложные срабатывания, зоны."
 date: 2026-06-16
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/frigate-umnoe-videonablyudenie-2026/

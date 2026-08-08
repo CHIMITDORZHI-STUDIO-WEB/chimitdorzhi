@@ -1,6 +1,6 @@
 ---
 title: "Apache Superset: BI и дашборды на своём сервере вместо Tableau"
-description: "Apache Superset — мощная open-source BI-платформа (аналог Tableau/Power BI): подключение к базам, интерактивные дашборды, графики, SQL-исследование. Без дорогих лицензий, данные у себя — разверну под ключ."
+description: "Apache Superset — мощная open-source BI-платформа (аналог Tableau/Power BI): подключение к базам, интерактивные дашборды, графики, SQL-исследование."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/apache-superset-bi-dashbordy-2026/

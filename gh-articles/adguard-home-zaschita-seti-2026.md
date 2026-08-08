@@ -1,6 +1,6 @@
 ---
 title: "AdGuard Home: защита и фильтрация сети офиса на своём сервере"
-description: "AdGuard Home — open-source DNS-сервер с блокировкой рекламы, трекеров и вредоносных сайтов на уровне всей сети. Чистый и безопасный интернет в офисе и гостевом Wi-Fi без расширений — настрою под ключ."
+description: "AdGuard Home — open-source DNS-сервер с блокировкой рекламы, трекеров и вредоносных сайтов на уровне всей сети."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/adguard-home-zaschita-seti-2026/

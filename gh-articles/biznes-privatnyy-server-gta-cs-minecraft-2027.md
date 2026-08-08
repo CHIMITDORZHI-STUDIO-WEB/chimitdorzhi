@@ -1,6 +1,6 @@
 ---
 title: "Бизнес на приватном сервере GTA/CS/Minecraft: юнит-экономика, донат-система, риски с правообладателями"
-description: "Разбираю бизнес-модель приватных серверов GTA (FiveM/RP), CS2 и Minecraft: как устроена монетизация через донат, юнит-экономика запуска и риски нарушения пользовательских соглашений разработчиков игр."
+description: "Разбираю бизнес-модель приватных серверов GTA (FiveM/RP), CS2 и Minecraft: как устроена монетизация через донат."
 date: 2026-07-03
 category: esports
 canonical: https://chimitdorzhi.tech/blog/biznes-privatnyy-server-gta-cs-minecraft-2027/
