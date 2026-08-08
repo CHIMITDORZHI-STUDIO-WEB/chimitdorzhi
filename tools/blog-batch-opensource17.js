@@ -30,7 +30,7 @@ module.exports = [
   E({ slug: 'open-webui-svoy-chatgpt-2026', heroIcon: 'ph-fill ph-chat-circle-dots',
     title: 'Open WebUI: приватный «свой ChatGPT» на своём сервере',
     metaTitle: 'Open WebUI: приватный свой ChatGPT на сервере',
-    metaDescription: 'Open WebUI — open-source веб-интерфейс для языковых моделей, как ChatGPT, но на своём сервере: чат, работа с локальными моделями через Ollama, ответы по своим документам (RAG), роли. Переписка и данные не уходят в чужое облако (152-ФЗ) — разверну под ключ.',
+    metaDescription: 'Open WebUI — свой ChatGPT на своём сервере: чат, локальные модели через Ollama, ответы по своим документам, роли. Переписка не уходит в чужое облако.',
     excerpt: 'Open WebUI выглядит как ChatGPT, но работает на вашем сервере и с локальными моделями: чат, ответы по своим документам, роли для команды. Переписка и данные компании не уходят наружу. Разбираю возможности и как на этом зарабатывать.',
     tags: ['Open WebUI', 'AI', 'свой ChatGPT', 'open-source'],
     relatedSlugs: ['ollama-svoy-chatgpt-na-servere-2026', 'librechat-korporativnyy-chatgpt-2026', 'dify-ai-prilozheniya-2026'] }),

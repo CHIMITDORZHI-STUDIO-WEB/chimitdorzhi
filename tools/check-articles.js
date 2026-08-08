@@ -26,7 +26,9 @@ const MIN_TOC = 3;
 // ловим только явные выбросы, а не штатный стиль.
 const META_TITLE_MAX = 100;
 const META_DESC_MIN = 60;
-const META_DESC_MAX = 350;
+// Поисковики обрезают сниппет на ~155 символах. Всё, что длиннее, обрывается
+// на полуслове и режет CTR — особенно на позициях 4-10, где сниппет решает.
+const META_DESC_MAX = 160;
 
 const VALID_CATEGORIES = new Set([
   'cases',
