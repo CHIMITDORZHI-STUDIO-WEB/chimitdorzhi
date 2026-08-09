@@ -57,6 +57,7 @@ module.exports = [
     relatedSlugs: ['kak-ustroeny-bolshie-yazykovye-modeli-2027', 'viseron-ai-videonablyudenie-2026', 'robototehnika-dlya-malogo-biznesa-2027'] }),
 
   E({ slug: 'kak-rabotaet-raspoznavanie-rechi-2027', category: 'ai-dev', heroIcon: 'ph-fill ph-waveform',
+    dateModified: '2026-08-10',
     title: 'Как работает распознавание речи: от звука до текста',
     metaTitle: 'Как работает распознавание речи',
     metaDescription: 'Как работает распознавание речи (speech-to-text) простыми словами: что происходит со звуком после того, как вы сказали фразу голосовому помощнику.',
