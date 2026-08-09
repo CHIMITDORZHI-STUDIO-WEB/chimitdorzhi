@@ -102,6 +102,7 @@ module.exports = [
     relatedSlugs: ['it-dlya-fermerov-zabaykalya-buryatii-2026', 'traccar-gps-monitoring-transporta-2026', 'cifrovizaciya-agrosektora-2026'] }),
 
   E({ slug: 'podschet-posetiteley-magazina-2026', category: 'industries', heroIcon: 'ph-fill ph-users-three',
+    dateModified: '2026-08-10',
     servicesOffer: SVC_RETAIL, ctaInternal: CTA_UCHET,
     title: 'Подсчёт посетителей магазина без камер: как это работает',
     metaTitle: 'Подсчёт посетителей магазина без камер',

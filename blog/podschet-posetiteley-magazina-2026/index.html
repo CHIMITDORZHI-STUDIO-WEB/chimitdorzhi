@@ -502,7 +502,8 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 <p>Безопасный инженерный подход простой: сырые MAC-адреса не хранить вообще. Идентификатор хешируется с «солью» прямо на устройстве или на первом шаге обработки, исходное значение сразу отбрасывается. Хеш не даёт восстановить адрес, но позволяет понять, что это то же устройство в пределах суток. Ещё надёжнее регулярно менять соль — тогда сквозная слежка технически невозможна.</p>
 <p>Дальше в базе оседают не идентификаторы, а агрегаты: «в 14:00 у входа зафиксировано 120 уникальных устройств, из них 31 задержалось дольше трёх минут». Такие данные описывают поток людей, но не позволяют выделить конкретного человека. Это и есть цель: система измеряет посещаемость, а не следит за посетителями.</p>
 <p>Оговорка обязательна: трактовки по идентификаторам устройств меняются, поэтому схему обработки стоит согласовать с юристом. Правило простое — чем меньше храните и чем раньше обезличиваете, тем спокойнее. Работать с обезличенными агрегатами безопаснее, чем копить сырые идентификаторы «на всякий случай».</p>
-<p>Отдельно про точность, честно. Современные мобильные ОС подменяют MAC-адрес случайным значением при каждом сканировании сети. Из-за этого один человек может быть посчитан несколько раз, а часть устройств выпадет из статистики. Абсолютные цифры счётчика — оценка, а не факт. Но методика ошибается примерно одинаково изо дня в день, поэтому сравнение периодов, дней недели, часов и точек остаётся корректным. Смотрите на тренды и динамику, а не на конкретное число.</p>
+<p>Отдельно про точность, честно. Современные мобильные ОС подменяют MAC-адрес случайным значением при каждом сканировании сети. С iOS 14 и Android 10 это стало стандартом и работает агрессивно: один человек за визит порождает не одно, а десятки разных «устройств», и завышение неравномерное — зависит от модели телефона и версии ОС. Поэтому к абсолютным цифрам счётчика по Wi-Fi нужно относиться как к грубой оценке, а не к факту. Подробный разбор, почему этим цифрам нельзя верить, я собрал отдельно: <a href="/blog/wifi-analitika-mac-ne-rabotaet-2026/">Wi-Fi-аналитика по MAC больше не работает</a>.</p>
+<p>Если нужен именно точный подсчёт людей, честнее считать не радиосигналы, а самих людей — датчиком присутствия (mmWave-радаром), который фиксирует человека физически и не зависит от того, что у него в кармане и как настроен телефон. Как собрать из радара, BLE и Wi-Fi-портала целостную систему аналитики трафика, я разбираю в статье <a href="/blog/analitika-oflayn-trafika-2026/">аналитика офлайн-трафика</a>. Wi-Fi при этом остаётся полезен, но в своей честной роли — опознавать повторных гостей среди тех, кто подключился к сети через <a href="/blog/gostevoy-wifi-po-zakonu-2026/">гостевой портал</a>, а не считать прохожих.</p>
 
 <h2 id="vnedrenie">Сколько стоит и как внедрить</h2>
 <p>Стартовый комплект скромный: одно устройство на вход, при большой площади — два-три на зоны. Оборудование недорогое, счёт идёт на несколько тысяч рублей за единицу; данные уходят на ваш сервер сбора, где происходит обезличивание, хранение агрегатов и построение отчётов. Отдельная лицензия за каждую точку не нужна.</p>
@@ -620,39 +621,39 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
   </div>
   <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
 </a>
-<a class="blog-card" href="/blog/uvedomleniya-po-natalnoy-karte-2027/" data-category="industries" data-clicks="0">
+<a class="blog-card" href="/blog/ii-foto-blyud-dlya-menyu-2026/" data-category="industries" data-clicks="0">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-moon-stars"></i></div>
+  <div class="blog-card-icon"><i class="ph-fill ph-image"></i></div>
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Отрасли</span>
-  <h3>Co-Star по-русски: персонализированные уведомления по натальной карте</h3>
-  <p>Приложение само присылает персональное астрологическое уведомление в нужный момент дня — за рубежом это отдельная категория развлекательных приложений с миллионами пользователей. У нас формата почти нет. Разбираю модель Co-Star.</p>
+  <h3>ИИ-фото блюд для меню: когда это работает, а когда вредит</h3>
+  <p>Как получить визуал блюд без фотосессии с помощью нейросетей, где это уместно, а где обманывает гостя, и как совместить ИИ с реальной съёмкой.</p>
   <div class="blog-card-meta">
-    <span><i class="ph ph-calendar" aria-hidden="true"></i> 3 июля 2026</span>
-    <span><i class="ph ph-clock" aria-hidden="true"></i> 5 мин</span>
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 22 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
   </div>
   <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
 </a>
-<a class="blog-card" href="/blog/klinicheskie-zametki-dlya-psihologov-2027/" data-category="industries" data-clicks="0">
+<a class="blog-card" href="/blog/gps-trekking-skota-osheyniki-2026/" data-category="industries" data-clicks="0">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-lock-key"></i></div>
+  <div class="blog-card-icon"><i class="ph-fill ph-cow"></i></div>
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Отрасли</span>
-  <h3>TherapyNotes по-русски: защищённые клинические заметки для психолога</h3>
-  <p>Заметки о клиентах психолог часто ведёт в обычных текстовых файлах без должной защиты. За рубежом есть специализированное защищённое хранилище именно под клиническую документацию. Разбираю модель TherapyNotes и вопросы защиты данных.</p>
+  <h3>GPS-трекинг скота: ошейники, геозоны и защита от угона</h3>
+  <p>Как отслеживать скот на пастбище: ошейники-трекеры, геозоны и оповещения об уходе стада, что делать без GSM-связи в степи и сколько это стоит на практике.</p>
   <div class="blog-card-meta">
-    <span><i class="ph ph-calendar" aria-hidden="true"></i> 3 июля 2026</span>
-    <span><i class="ph ph-clock" aria-hidden="true"></i> 5 мин</span>
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 22 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
   </div>
   <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
 </a>
-<a class="blog-card" href="/blog/vyezdnoy-avtomehanik-po-zapisi-2027/" data-category="industries" data-clicks="0">
+<a class="blog-card" href="/blog/gps-trekking-sotrudnikov-cherez-telefon-2026/" data-category="industries" data-clicks="0">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-wrench"></i></div>
+  <div class="blog-card-icon"><i class="ph-fill ph-device-mobile"></i></div>
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Отрасли</span>
-  <h3>YourMechanic по-русски: выездной автомеханик к вам по записи</h3>
-  <p>Не нужно везти машину в сервис и ждать — за рубежом механик сам приезжает к вам на парковку в назначенное время и чинит на месте. У нас такой платформы почти нет. Разбираю модель YourMechanic и что нужно для запуска.</p>
+  <h3>GPS-трекинг сотрудников через телефон: без покупки трекеров</h3>
+  <p>Как отслеживать выездных сотрудников и курьеров через обычный смартфон без покупки трекеров, что законно по 152-ФЗ и как развернуть систему у себя.</p>
   <div class="blog-card-meta">
-    <span><i class="ph ph-calendar" aria-hidden="true"></i> 3 июля 2026</span>
-    <span><i class="ph ph-clock" aria-hidden="true"></i> 5 мин</span>
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 22 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
   </div>
   <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
 </a></div>
