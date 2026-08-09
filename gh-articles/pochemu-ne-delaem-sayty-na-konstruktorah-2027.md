@@ -1,6 +1,6 @@
 ---
 title: "Почему мы не делаем сайты на конструкторах: честный технический разбор"
-description: "Разбираем по-инженерному, почему мы принципиально не собираем сайты на конструкторах: мусорный код, вес страниц, Core Web Vitals, SEO и vendor lock-in. Обоснование чека без маркетинговой воды."
+description: "Инженерный разбор конструкторов сайтов: мусорный код, вес страниц, провалы Core Web Vitals, SEO и vendor lock-in. Почему мы их не берём."
 date: 2026-07-07
 category: development
 canonical: https://chimitdorzhi.tech/blog/pochemu-ne-delaem-sayty-na-konstruktorah-2027/

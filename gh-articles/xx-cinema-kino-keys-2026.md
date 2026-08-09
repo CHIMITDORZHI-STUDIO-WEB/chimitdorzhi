@@ -1,6 +1,6 @@
 ---
 title: "X&X CINEMA: онлайн-кинотеатр внутри супер-аппа в Telegram"
-description: "Кейс X&X CINEMA — сервис онлайн-кинотеатра внутри супер-аппа в Telegram Mini App: каталог кино, продолжить просмотр, раздел «Моё», тарифы, единый вход с остальными сервисами X&X. Как устроено и кому подойдёт."
+description: "Кейс X&X CINEMA — сервис онлайн-кинотеатра внутри супер-аппа в Telegram Mini App: каталог кино, продолжить просмотр, раздел «Моё», тарифы."
 date: 2026-08-04
 category: cases
 canonical: https://chimitdorzhi.tech/blog/xx-cinema-kino-keys-2026/

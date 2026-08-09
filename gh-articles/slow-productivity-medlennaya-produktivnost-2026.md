@@ -1,6 +1,6 @@
 ---
 title: "Slow Productivity: медленная продуктивность Кэла Ньюпорта"
-description: "Slow Productivity (медленная продуктивность) Кэла Ньюпорта: против культа занятости и псевдопродуктивности. Три принципа — делать меньше дел, работать в естественном темпе, одержимость качеством. Как применять и ошибки."
+description: "Slow Productivity (медленная продуктивность) Кэла Ньюпорта: против культа занятости и псевдопродуктивности."
 date: 2026-06-17
 category: biznes-krugozor
 canonical: https://chimitdorzhi.tech/blog/slow-productivity-medlennaya-produktivnost-2026/

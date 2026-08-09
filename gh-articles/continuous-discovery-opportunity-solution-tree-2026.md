@@ -1,6 +1,6 @@
 ---
 title: "Continuous Discovery и дерево возможностей: как находить, что строить"
-description: "Continuous Discovery (непрерывное исследование) и Opportunity Solution Tree (дерево возможностей и решений) по Терезе Торрес: еженедельные интервью с клиентами, связь результата с болями и решениями. Как внедрить и ошибки."
+description: "Continuous Discovery (непрерывное исследование) и Opportunity Solution Tree (дерево возможностей и решений) по Терезе Торрес."
 date: 2026-06-17
 category: biznes-krugozor
 canonical: https://chimitdorzhi.tech/blog/continuous-discovery-opportunity-solution-tree-2026/

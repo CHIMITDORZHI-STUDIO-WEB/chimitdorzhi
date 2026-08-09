@@ -1,6 +1,6 @@
 ---
 title: "Tilda vs WordPress: на чём делать сайт в 2026"
-description: "Tilda vs WordPress в 2026: объективное сравнение по скорости запуска, гибкости, стоимости владения, SEO и поддержке. Tilda — быстро и без кода, WordPress — гибко и своё. Кому что подходит и когда нужна своя разработка."
+description: "Tilda vs WordPress в 2026: объективное сравнение по скорости запуска, гибкости, стоимости владения, SEO и поддержке."
 date: 2026-06-19
 category: development
 canonical: https://chimitdorzhi.tech/blog/tilda-vs-wordpress-2026/

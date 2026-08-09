@@ -1,6 +1,6 @@
 ---
 title: "Ghost: свой блог с платной подпиской вместо Substack"
-description: "Ghost — open-source платформа для блога, медиа и платных подписок (аналог Substack/Medium): статьи, рассылки, членство. Без комиссий платформ, аудитория у себя — разверну под ключ."
+description: "Ghost — open-source платформа для блога, медиа и платных подписок (аналог Substack/Medium): статьи, рассылки, членство."
 date: 2026-06-14
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/ghost-blog-s-podpiskoy-2026/

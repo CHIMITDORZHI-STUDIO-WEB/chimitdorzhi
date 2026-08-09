@@ -1,6 +1,6 @@
 ---
 title: "Wanderer: своя платформа туристических маршрутов и гидов"
-description: "Wanderer — open-source платформа туристических маршрутов: GPS-треки, карта, фото, профиль высот, описания и категории. Своя витрина маршрутов для турбизнеса, гидов и баз отдыха (Байкал, Забайкалье), данные у себя — разверну под ключ."
+description: "Wanderer — open-source платформа туристических маршрутов: GPS-треки, карта, фото, профиль высот, описания и категории."
 date: 2026-06-16
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/wanderer-turisticheskie-marshruty-2026/

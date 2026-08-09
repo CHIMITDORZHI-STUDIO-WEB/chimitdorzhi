@@ -1,6 +1,6 @@
 ---
 title: "AI для родителей 2026: домашка, развитие, дисциплина — практический гид"
-description: "Как родителю в 2026 настроить AI-связку для семьи: YandexGPT, GigaChat, Claude. 8 сценариев с готовыми промптами, развитие ребёнка, дисциплина, разговор с подростком, безопасность по 152-ФЗ, реальный кейс."
+description: "Как родителю в 2026 настроить AI-связку для семьи: YandexGPT, GigaChat, Claude."
 date: 2026-05-22
 category: ai-life
 canonical: https://chimitdorzhi.tech/blog/ai-dlya-roditeley-2026/

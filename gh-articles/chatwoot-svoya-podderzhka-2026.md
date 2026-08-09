@@ -1,6 +1,6 @@
 ---
 title: "Chatwoot: своя омниканальная поддержка вместо Intercom"
-description: "Chatwoot — open-source платформа поддержки (аналог Intercom/Zendesk): чат на сайте и мессенджеры в одном окне, команда, история. Без подписки, данные у себя — разверну на вашем сервере под ключ."
+description: "Chatwoot — open-source платформа поддержки (аналог Intercom/Zendesk): чат на сайте и мессенджеры в одном окне, команда, история."
 date: 2026-06-14
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/chatwoot-svoya-podderzhka-2026/

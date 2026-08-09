@@ -1,6 +1,6 @@
 ---
 title: "Strapi: headless CMS как бэкенд для сайта и приложения"
-description: "Strapi — открытая headless CMS: один контент-бэкенд с API для сайта, мобильного приложения и других каналов сразу. Чем отличается от обычной CMS, кому подходит и как внедрить."
+description: "Strapi — открытая headless CMS: один контент-бэкенд с API сразу для сайта и мобильного приложения. Чем отличается от обычной CMS и как внедрить."
 date: 2026-07-31
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/strapi-headless-cms-2026/

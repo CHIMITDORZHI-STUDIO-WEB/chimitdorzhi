@@ -1,6 +1,6 @@
 ---
 title: "Life Experience: групповые путешествия MWR — что это и чем отличается от тура"
-description: "Life Experience — главный продукт MWR Life: групповые путешествия с нетворкингом и эмоциями, на которые можно накопить баллами лояльности. Чем отличается от пакетного тура, какие локации. Без обещаний дохода."
+description: "Life Experience — главный продукт MWR Life: групповые путешествия с нетворкингом и эмоциями, на которые можно накопить баллами лояльности."
 date: 2026-06-17
 category: mwrlife
 canonical: https://chimitdorzhi.tech/blog/life-experience-gruppovye-tury-2026/

@@ -1,6 +1,6 @@
 ---
 title: "model-viewer: 3D-просмотр и AR-примерка товара «поставь в комнату»"
-description: "model-viewer — open-source веб-компонент от Google для 3D-просмотра товара и AR «поставить в комнату с телефона» парой строк кода. Для мебели, декора и маркетплейс-селлеров: меньше возвратов, выше доверие. Внедрю под ключ."
+description: "model-viewer — open-source веб-компонент от Google для 3D-просмотра товара и AR «поставить в комнату с телефона» парой строк кода."
 date: 2026-06-16
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/model-viewer-ar-prosmotr-tovara-2026/

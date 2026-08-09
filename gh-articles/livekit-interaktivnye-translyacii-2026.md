@@ -1,6 +1,6 @@
 ---
 title: "LiveKit: интерактивные трансляции с минимальной задержкой для live commerce"
-description: "LiveKit — open-source WebRTC-платформа для real-time трансляций с суб-секундной задержкой: комнаты, запись, ingress/egress. Живой диалог в эфире и покупка по горячим следам для live-shopping, на своём сервере — соберу под ключ."
+description: "LiveKit — open-source WebRTC-платформа для real-time трансляций с суб-секундной задержкой: комнаты, запись, ingress/egress."
 date: 2026-06-16
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/livekit-interaktivnye-translyacii-2026/

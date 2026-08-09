@@ -1,6 +1,6 @@
 ---
 title: "AI-чат-бот на сайт за 2 дня без программирования 2026: n8n + Claude + Bubble"
-description: "Связка n8n + Claude/YandexGPT + готовый виджет позволяет за 2 дня собрать production-уровень AI-бота для сайта без программирования. Полная архитектура, system prompt, интеграция с CRM и Telegram."
+description: "Связка n8n + Claude/YandexGPT + готовый виджет позволяет за 2 дня собрать production-уровень AI-бота для сайта без программирования."
 date: 2026-05-21
 category: ai-dev
 canonical: https://chimitdorzhi.tech/blog/ai-chatbot-na-sayt-bez-programmirovaniya-2026/

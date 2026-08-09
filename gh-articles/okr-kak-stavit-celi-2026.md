@@ -1,6 +1,6 @@
 ---
 title: "OKR: как ставить цели, чтобы их достигали"
-description: "OKR простыми словами: Objective (цель) и Key Results (измеримые результаты), примеры хороших и плохих OKR, квартальный цикл, оценка 0–1, отличие от KPI. Для компании и личные OKR, частые ошибки."
+description: "OKR простыми словами: Objective (цель) и Key Results (измеримые результаты), примеры хороших и плохих OKR, квартальный цикл, оценка 0–1, отличие от KPI."
 date: 2026-06-17
 category: biznes-krugozor
 canonical: https://chimitdorzhi.tech/blog/okr-kak-stavit-celi-2026/

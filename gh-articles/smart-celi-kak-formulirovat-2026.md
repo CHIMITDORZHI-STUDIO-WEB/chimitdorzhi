@@ -1,6 +1,6 @@
 ---
 title: "SMART-цели: что это и как формулировать (с примерами)"
-description: "SMART-цели простыми словами: расшифровка Specific, Measurable, Achievable, Relevant, Time-bound с примерами «было → стало», где применять, ограничения метода и связь с OKR и KPI. Готовые примеры SMART-целей."
+description: "SMART-цели простыми словами: расшифровка Specific, Measurable, Achievable, Relevant, Time-bound с примерами «было → стало», где применять."
 date: 2026-06-17
 category: biznes-krugozor
 canonical: https://chimitdorzhi.tech/blog/smart-celi-kak-formulirovat-2026/

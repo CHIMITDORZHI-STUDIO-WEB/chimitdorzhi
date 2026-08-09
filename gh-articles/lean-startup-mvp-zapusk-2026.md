@@ -1,6 +1,6 @@
 ---
 title: "Lean Startup и MVP: запуск без слива бюджета"
-description: "Lean Startup и MVP простыми словами: цикл «построй — измерь — научись», проверка гипотез до больших вложений, что такое MVP и чем не является, виды MVP (лендинг, концьерж), метрики и pivot. Как запускать дёшево."
+description: "Lean Startup и MVP простыми словами: цикл «построй — измерь — научись», проверка гипотез до больших вложений, что такое MVP и чем не является."
 date: 2026-06-17
 category: biznes-krugozor
 canonical: https://chimitdorzhi.tech/blog/lean-startup-mvp-zapusk-2026/

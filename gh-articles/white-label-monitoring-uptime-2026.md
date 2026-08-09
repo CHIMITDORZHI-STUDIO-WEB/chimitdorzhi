@@ -1,6 +1,6 @@
 ---
 title: "Свой сервис мониторинга под брендом: white-label на базе Uptime Kuma"
-description: "Как запустить свой брендированный сервис мониторинга доступности и статус-страниц на open-source Uptime Kuma (лицензия MIT) и предлагать его веб-студиям, хостингам и бизнесу по подписке. Мультитенантность, оповещения, биллинг. Соберу под ключ."
+description: "Как запустить свой брендированный сервис мониторинга доступности и статус-страниц на open-source Uptime Kuma (лицензия MIT) и предлагать его веб-студиям."
 date: 2026-06-16
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/white-label-monitoring-uptime-2026/

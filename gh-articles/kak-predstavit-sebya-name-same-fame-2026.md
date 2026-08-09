@@ -1,6 +1,6 @@
 ---
 title: "Как представить себя за 30 секунд: формула Name-Same-Fame-Aim-Game"
-description: "Формула самопрезентации Name-Same-Fame-Aim-Game по Дэниелу Пристли: имя, понятная ассоциация, чем интересны, над чем работаете и большое видение. Как представить себя за 30 секунд на нетворкинге, подкасте и в профиле — с примерами."
+description: "Формула самопрезентации Name-Same-Fame-Aim-Game по Дэниелу Пристли: имя, понятная ассоциация, чем интересны, над чем работаете и большое видение."
 date: 2026-06-17
 category: biznes-krugozor
 canonical: https://chimitdorzhi.tech/blog/kak-predstavit-sebya-name-same-fame-2026/

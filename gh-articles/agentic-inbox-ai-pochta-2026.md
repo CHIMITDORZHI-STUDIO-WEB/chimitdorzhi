@@ -1,6 +1,6 @@
 ---
 title: "agentic-inbox: AI-помощник для почты на своём контуре"
-description: "agentic-inbox (Cloudflare) — open-source почтовый клиент с AI-агентом: читает входящие, ищет по переписке, готовит черновики ответов (отправка только после подтверждения). Разгрузка от рутины в почте — внедрю под ключ."
+description: "agentic-inbox (Cloudflare) — open-source почтовый клиент с AI-агентом: читает входящие, ищет по переписке."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/agentic-inbox-ai-pochta-2026/

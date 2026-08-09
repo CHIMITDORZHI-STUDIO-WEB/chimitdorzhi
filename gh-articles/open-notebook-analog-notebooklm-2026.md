@@ -1,6 +1,6 @@
 ---
 title: "Open Notebook: открытый аналог Google NotebookLM на своём сервере"
-description: "Open Notebook — open-source альтернатива Google NotebookLM на своём сервере: ИИ-исследователь по вашим источникам, заметки, сводки и аудио-обзоры. Данные не уходят в облако Google (152-ФЗ), Ollama или GigaChat/YandexGPT. Разверну под ключ."
+description: "Open Notebook — open-source альтернатива Google NotebookLM на своём сервере: ИИ-исследователь по вашим источникам, заметки, сводки и аудио-обзоры."
 date: 2026-06-14
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/open-notebook-analog-notebooklm-2026/

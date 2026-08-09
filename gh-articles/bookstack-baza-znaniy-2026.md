@@ -1,6 +1,6 @@
 ---
 title: "BookStack: база знаний и документация компании на своём сервере"
-description: "BookStack — open-source база знаний и документация (аналог Confluence/Notion): книги, главы, страницы, поиск, права доступа. Бесплатно, данные у себя, но нужны сервер и настройка — разверну под ключ."
+description: "BookStack — open-source база знаний и документация (аналог Confluence/Notion): книги, главы, страницы, поиск, права доступа."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/bookstack-baza-znaniy-2026/

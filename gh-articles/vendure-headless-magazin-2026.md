@@ -1,6 +1,6 @@
 ---
 title: "Vendure: headless-магазин — товарная основа для live commerce"
-description: "Vendure — современный open-source headless commerce (Node/TypeScript, GraphQL): товары, заказы, оплата, скидки, плагины, админка. API-first — витрина любая, вплоть до кнопки «купить в эфире» для live-commerce. Гибкий магазин, данные у себя — внедрю под ключ."
+description: "Vendure — современный open-source headless commerce (Node/TypeScript, GraphQL): товары, заказы, оплата, скидки, плагины, админка."
 date: 2026-06-16
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/vendure-headless-magazin-2026/

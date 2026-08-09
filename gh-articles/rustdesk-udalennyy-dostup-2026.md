@@ -1,6 +1,6 @@
 ---
 title: "RustDesk: удалённый доступ на своём сервере вместо TeamViewer"
-description: "RustDesk — open-source аналог TeamViewer/AnyDesk: удалённый доступ к компьютерам со своим сервером. Импортозамещение (TeamViewer/AnyDesk в РФ ограничены), трафик и данные у себя по 152-ФЗ — разверну под ключ."
+description: "RustDesk — open-source аналог TeamViewer/AnyDesk: удалённый доступ к компьютерам со своим сервером."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/rustdesk-udalennyy-dostup-2026/

@@ -1,6 +1,6 @@
 ---
 title: "BigBlueButton: вебинары и онлайн-обучение на своём сервере"
-description: "BigBlueButton — open-source платформа вебинаров и онлайн-обучения: видео, доска, опросы, комнаты, запись. Заточена под обучение. Свои вебинары без подписок и лимитов, данные у себя — разверну под ключ."
+description: "BigBlueButton — open-source платформа вебинаров и онлайн-обучения: видео, доска, опросы, комнаты, запись."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/bigbluebutton-vebinary-2026/

@@ -1,6 +1,6 @@
 ---
 title: "White-label на open-source: как запустить свой IT-продукт без разработки с нуля"
-description: "White-label на open-source: взять готовое решение, оформить под своим брендом и продавать как свой SaaS. Модель, лицензии (что можно и нельзя: MIT/Apache vs AGPL/SSPL), мультитенантность, биллинг подписок, брендинг. Соберу платформу под ключ."
+description: "White-label на open-source: взять готовое решение, оформить под своим брендом и продавать как свой SaaS."
 date: 2026-06-16
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/white-label-na-open-source-2026/

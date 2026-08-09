@@ -1,6 +1,6 @@
 ---
 title: "Async-first: асинхронная работа без бесконечных созвонов"
-description: "Async-first (асинхронный подход) простыми словами: по умолчанию общаемся письменно, созвон — крайняя мера. Зачем (фокус, распределённые команды, часовые пояса), принципы, инструменты и частые ошибки. Опыт GitLab/Basecamp."
+description: "Async-first (асинхронный подход) простыми словами: по умолчанию общаемся письменно, созвон — крайняя мера."
 date: 2026-06-17
 category: biznes-krugozor
 canonical: https://chimitdorzhi.tech/blog/async-first-asinhronnaya-rabota-2026/

@@ -1,6 +1,6 @@
 ---
 title: "Counter-positioning и дилемма инноватора: почему лидеры проигрывают новичкам"
-description: "Почему сильные лидеры рынка проигрывают новичкам: дилемма инноватора Кристенсена, counter-positioning (позиция, которую лидер не скопирует без вреда себе) и издержки переключения как ров. Как малому бизнесу и студии использовать это в стратегии."
+description: "Почему сильные лидеры рынка проигрывают новичкам: дилемма инноватора Кристенсена, counter-positioning (позиция."
 date: 2026-06-17
 category: biznes-krugozor
 canonical: https://chimitdorzhi.tech/blog/counter-positioning-dilemma-innovatora-2026/

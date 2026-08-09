@@ -1,6 +1,6 @@
 ---
 title: "AI-агенты в бизнесе 2026: что реально работает, а что — маркетинг"
-description: "Сертифицированный практик с 10+ внедрениями: что такое настоящий AI-агент, какие use cases работают, фреймворки 2026 (LangChain, AutoGen, CrewAI, Pydantic AI), реальные цены, юридические нюансы РФ."
+description: "Сертифицированный практик с 10+ внедрениями: что такое настоящий AI-агент, какие use cases работают, фреймворки 2026 (LangChain, AutoGen, CrewAI."
 date: 2026-05-20
 category: ai-dev
 canonical: https://chimitdorzhi.tech/blog/ai-agenty-v-biznese-2026/

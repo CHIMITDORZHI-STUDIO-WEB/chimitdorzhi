@@ -1,6 +1,6 @@
 ---
 title: "Отток (churn) и удержание (retention) клиентов"
-description: "Отток (churn) и удержание (retention) клиентов простыми словами: формулы с примером, почему удерживать дешевле, чем привлекать, виды оттока, когортный подход и что снижает отток. Частые ошибки в расчётах."
+description: "Отток (churn) и удержание (retention) клиентов простыми словами: формулы с примером, почему удерживать дешевле, чем привлекать, виды оттока."
 date: 2026-06-17
 category: biznes-krugozor
 canonical: https://chimitdorzhi.tech/blog/ottok-uderzhanie-churn-retention-2026/

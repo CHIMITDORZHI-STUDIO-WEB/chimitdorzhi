@@ -1,6 +1,6 @@
 ---
 title: "ThingsBoard: IoT-платформа для датчиков и телеметрии на своём сервере"
-description: "ThingsBoard — open-source IoT-платформа: подключение датчиков, сбор телеметрии, дашборды в реальном времени, правила и тревоги. Контроль температуры, ЖКХ, агро, оборудования; данные у себя — внедрю под ключ."
+description: "ThingsBoard — open-source IoT-платформа: подключение датчиков, сбор телеметрии, дашборды в реальном времени, правила и тревоги."
 date: 2026-06-16
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/thingsboard-iot-platforma-2026/

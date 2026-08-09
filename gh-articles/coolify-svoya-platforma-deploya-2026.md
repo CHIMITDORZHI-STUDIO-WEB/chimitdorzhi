@@ -1,6 +1,6 @@
 ---
 title: "Coolify: своя платформа деплоя приложений на сервере"
-description: "Coolify — open-source платформа деплоя приложений и сервисов (аналог Vercel/Heroku/Netlify): развёртывание сайтов, приложений и self-hosted-сервисов в пару кликов. Без растущих счетов облака — разверну под ключ."
+description: "Coolify — open-source платформа деплоя приложений и сервисов (аналог Vercel/Heroku/Netlify): развёртывание сайтов."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/coolify-svoya-platforma-deploya-2026/

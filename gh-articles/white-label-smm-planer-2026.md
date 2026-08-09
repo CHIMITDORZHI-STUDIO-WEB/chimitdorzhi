@@ -1,6 +1,6 @@
 ---
 title: "Свой SMM-планировщик под брендом: white-label на базе Mixpost / Postiz"
-description: "Как запустить свой брендированный SMM-планировщик на open-source Mixpost или Postiz и перепродавать его SMM-специалистам и агентствам. Мультитенантность, подключение соцсетей, биллинг, нюансы лицензии. Соберу white-label под ключ."
+description: "Как запустить свой брендированный SMM-планировщик на open-source Mixpost или Postiz и перепродавать его SMM-специалистам и агентствам."
 date: 2026-06-16
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/white-label-smm-planer-2026/

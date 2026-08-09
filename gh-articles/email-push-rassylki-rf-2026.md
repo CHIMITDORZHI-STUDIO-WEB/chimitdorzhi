@@ -1,6 +1,6 @@
 ---
 title: "Email и push-рассылки в РФ 2026 без зарубежных сервисов"
-description: "Как настроить email и push-рассылки в России в 2026 после ухода зарубежных сервисов: российские платформы (Unisender, DashaMail, Sendsay, Mindbox), свой SMTP, доставляемость (SPF/DKIM/DMARC), прогрев домена, web-push и mobile-push, согласие на рассылку и закон. С кодом отправки."
+description: "Email и push-рассылки в РФ без зарубежных сервисов: российские платформы или свой SMTP, доставляемость через SPF, DKIM и DMARC, прогрев домена."
 date: 2026-05-30
 category: marketing
 canonical: https://chimitdorzhi.tech/blog/email-push-rassylki-rf-2026/

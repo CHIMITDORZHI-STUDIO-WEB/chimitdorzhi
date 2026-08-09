@@ -1,6 +1,6 @@
 ---
 title: "changedetection.io: мониторинг изменений на сайтах на своём сервере"
-description: "changedetection.io — open-source мониторинг изменений веб-страниц: следит за ценами конкурентов, новыми тендерами и госзакупками, прайсами поставщиков, правками в законах; шлёт уведомления при изменении. Без подписки, данные у себя — разверну под ключ."
+description: "changedetection.io — open-source мониторинг изменений веб-страниц: следит за ценами конкурентов, новыми тендерами и госзакупками, прайсами поставщиков."
 date: 2026-06-16
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/changedetection-monitoring-saytov-2026/

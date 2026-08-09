@@ -1,6 +1,6 @@
 ---
 title: "AI-бот в МАКС: подключаем GigaChat или YandexGPT"
-description: "Как сделать умного AI-бота в мессенджере МАКС на российских нейросетях: архитектура (Bot API + LLM), выбор между GigaChat и YandexGPT, подключение по шагам, сценарии и риски."
+description: "Как сделать умного AI-бота в мессенджере МАКС на российских нейросетях: архитектура (Bot API + LLM), выбор между GigaChat и YandexGPT."
 date: 2026-06-03
 category: ai-dev
 canonical: https://chimitdorzhi.tech/blog/ai-bot-v-max-gigachat-yandexgpt-2026/

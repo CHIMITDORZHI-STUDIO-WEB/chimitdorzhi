@@ -1,6 +1,6 @@
 ---
 title: "Badgr и Open Badges: цифровые бейджи и сертификаты на своём сервере"
-description: "Badgr Server (Open Badges) — open-source платформа выдачи цифровых бейджей и сертификатов за достижения: создание, выдача, проверка, коллекции. Для обучения, HR и лояльности, данные у себя (152-ФЗ) — разверну под ключ."
+description: "Badgr Server (Open Badges) — open-source платформа выдачи цифровых бейджей и сертификатов за достижения: создание, выдача, проверка, коллекции."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/badgr-cifrovye-beydzhi-2026/

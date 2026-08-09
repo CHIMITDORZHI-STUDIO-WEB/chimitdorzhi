@@ -1,6 +1,6 @@
 ---
 title: "Fooocus: генерация изображений локально вместо Midjourney"
-description: "Fooocus — open-source генерация изображений по тексту (на базе Stable Diffusion, аналог Midjourney): качественные картинки локально, без подписки и интернета. Своя генерация для контента — разверну под ключ."
+description: "Fooocus — open-source генерация изображений по тексту (на базе Stable Diffusion, аналог Midjourney): качественные картинки локально."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/fooocus-generaciya-izobrazheniy-2026/

@@ -1,6 +1,6 @@
 ---
 title: "Векторные базы данных для RAG: что это и как выбрать в 2027"
-description: "Что такое векторные базы данных и эмбеддинги простыми словами, зачем они нужны для RAG и поиска по смыслу. Сравнение Qdrant, Chroma, pgvector, Weaviate и Milvus, self-hosted против облака, критерии выбора под задачу и объём данных."
+description: "Векторные базы и эмбеддинги простыми словами: зачем нужны для RAG и поиска по смыслу. Сравниваю Qdrant, Chroma, pgvector, Weaviate и Milvus."
 date: 2026-07-07
 category: ai-dev
 canonical: https://chimitdorzhi.tech/blog/vektornye-bazy-dlya-rag-2027/

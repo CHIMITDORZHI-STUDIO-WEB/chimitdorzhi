@@ -1,6 +1,6 @@
 ---
 title: "Канбан vs Scrum: в чём разница и что выбрать"
-description: "Канбан и Scrum простыми словами: спринты против непрерывного потока, роли, метрики (velocity и lead time), лимит WIP. Чем отличаются, когда что выбрать, что такое Scrumban и какие ошибки совершают команды."
+description: "Канбан и Scrum простыми словами: спринты против непрерывного потока, роли, метрики (velocity и lead time), лимит WIP."
 date: 2026-06-17
 category: biznes-krugozor
 canonical: https://chimitdorzhi.tech/blog/kanban-vs-scrum-2026/

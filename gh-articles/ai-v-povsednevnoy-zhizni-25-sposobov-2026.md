@@ -1,6 +1,6 @@
 ---
 title: "AI в повседневной жизни 2026: 25 способов использовать GPT/Claude/YandexGPT каждый день"
-description: "25 конкретных сценариев применения AI в повседневной жизни 2026: здоровье, финансы, карьера, творчество, семья. Готовые промпты для YandexGPT, GigaChat, Claude, ChatGPT, DeepSeek. Сравнительная таблица моделей и стек под бюджет."
+description: "25 конкретных сценариев применения AI в повседневной жизни 2026: здоровье, финансы, карьера, творчество, семья."
 date: 2026-05-22
 category: ai-life
 canonical: https://chimitdorzhi.tech/blog/ai-v-povsednevnoy-zhizni-25-sposobov-2026/

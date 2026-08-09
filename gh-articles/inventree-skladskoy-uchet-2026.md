@@ -1,6 +1,6 @@
 ---
 title: "InvenTree: складской учёт и управление запасами на своём сервере"
-description: "InvenTree — open-source система складского учёта и управления запасами: товары, остатки, поставщики, штрихкоды, закупки. Без подписки, данные у себя — разверну на вашем сервере под ключ."
+description: "InvenTree — open-source система складского учёта и управления запасами: товары, остатки, поставщики, штрихкоды, закупки."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/inventree-skladskoy-uchet-2026/

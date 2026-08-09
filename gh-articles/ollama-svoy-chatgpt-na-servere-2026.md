@@ -1,6 +1,6 @@
 ---
 title: "Ollama: свой ChatGPT на своём сервере без утечки данных"
-description: "Ollama — запуск локальных нейросетей (LLM) на своём сервере: свой ChatGPT без отправки данных наружу. Приватность и без подписки, но нужен сервер с ресурсами и настройка — разверну под ключ по 152-ФЗ."
+description: "Ollama — запуск локальных нейросетей (LLM) на своём сервере: свой ChatGPT без отправки данных наружу."
 date: 2026-06-14
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/ollama-svoy-chatgpt-na-servere-2026/

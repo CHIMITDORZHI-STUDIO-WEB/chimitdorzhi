@@ -1,6 +1,6 @@
 ---
 title: "Как создать AI-агента в 2026: первый рабочий агент без кода за вечер"
-description: "Соберите первого AI-агента без кода через n8n или на Claude API и YandexGPT. Пошаговый гайд практика: выбор инструмента, пример сборки, локальный агент, частые ошибки и цена в продакшне."
+description: "Соберите первого AI-агента без кода через n8n или на Claude API и YandexGPT."
 date: 2026-06-13
 category: ai-dev
 canonical: https://chimitdorzhi.tech/blog/kak-sozdat-ai-agenta-2026/

@@ -1,6 +1,6 @@
 ---
 title: "n8n: автоматизация бизнес-процессов без Zapier на своём сервере"
-description: "n8n — open-source платформа автоматизации (аналог Zapier/Make) на вашем сервере: сценарии, вебхуки, интеграции. Бесплатно, но нужен сервер, настройка и поддержка — разверну под ключ с соблюдением 152-ФЗ."
+description: "n8n — open-source платформа автоматизации (аналог Zapier/Make) на вашем сервере: сценарии, вебхуки, интеграции."
 date: 2026-06-14
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/n8n-avtomatizaciya-bez-zapier-2026/

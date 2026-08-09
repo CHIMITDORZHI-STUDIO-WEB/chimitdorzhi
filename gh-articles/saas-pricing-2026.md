@@ -1,6 +1,6 @@
 ---
 title: "SaaS-pricing 2026: как назначать цены для подписочного бизнеса"
-description: "Полный гид по ценообразованию SaaS в 2026: 7 моделей pricing (flat-rate, per-seat, tiered, usage-based, freemium), психология цен, unit-экономика (CAC, LTV, MRR), реальные кейсы российских SaaS, специфика для AI-продуктов и РФ-рынка."
+description: "Полный гид по ценообразованию SaaS в 2026: 7 моделей pricing (flat-rate, per-seat, tiered, usage-based, freemium), психология цен, unit-экономика (CAC."
 date: 2026-05-23
 category: sales
 canonical: https://chimitdorzhi.tech/blog/saas-pricing-2026/

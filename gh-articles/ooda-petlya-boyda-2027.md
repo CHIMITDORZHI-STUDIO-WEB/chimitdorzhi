@@ -1,6 +1,6 @@
 ---
 title: "OODA-петля Бойда: как принимать решения быстрее конкурентов"
-description: "OODA-петля (Observe-Orient-Decide-Act) военного стратега Джона Бойда простыми словами: наблюдай, ориентируйся, решай, действуй — и почему побеждает не тот, у кого план лучше, а тот, кто быстрее проходит этот цикл и адаптируется."
+description: "OODA-петля (Observe-Orient-Decide-Act) военного стратега Джона Бойда простыми словами: наблюдай, ориентируйся, решай, действуй."
 date: 2026-07-03
 category: biznes-krugozor
 canonical: https://chimitdorzhi.tech/blog/ooda-petlya-boyda-2027/

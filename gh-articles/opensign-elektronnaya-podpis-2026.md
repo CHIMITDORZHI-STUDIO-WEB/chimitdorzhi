@@ -1,6 +1,6 @@
 ---
 title: "OpenSign: электронная подпись документов на своём сервере"
-description: "OpenSign — open-source сервис электронной подписи документов (аналог DocuSign): отправка на подпись, поля, шаблоны, статус, аудит. Подписывайте договоры онлайн, документы и данные у себя (152-ФЗ) — разверну под ключ."
+description: "OpenSign — open-source сервис электронной подписи документов (аналог DocuSign): отправка на подпись, поля, шаблоны, статус, аудит."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/opensign-elektronnaya-podpis-2026/

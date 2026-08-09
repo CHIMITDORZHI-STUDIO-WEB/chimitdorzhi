@@ -1,6 +1,6 @@
 ---
 title: "MWR Life и Travel Advantage: отзывы — реально ли экономит на путешествиях"
-description: "Честный разбор отзывов о MWR Life и Travel Advantage: что хвалят (туры, скидки, сообщество), на что жалуются (абонентка, «это пирамида?»), и реально ли клуб экономит на путешествиях. Без накрутки и обещаний."
+description: "Честный разбор отзывов о MWR Life и Travel Advantage: что хвалят (туры, скидки, сообщество), на что жалуются (абонентка, «это пирамида?"
 date: 2026-06-17
 category: mwrlife
 canonical: https://chimitdorzhi.tech/blog/mwr-life-otzyvy-2026/

@@ -1,6 +1,6 @@
 ---
 title: "GEO как новый передел: окно возможностей для нишевого бизнеса"
-description: "GEO (Generative Engine Optimization) как новый передел рынка видимости: пока поиск превращается в ИИ-ответы, идёт перераспределение — кто попадёт в ответы моделей сейчас, закрепится надолго, как в ранние годы SEO. Почему нишевому бизнесу проще занять место и как успеть в это окно."
+description: "GEO (Generative Engine Optimization) как новый передел рынка видимости: пока поиск превращается в ИИ-ответы, идёт перераспределение."
 date: 2026-06-25
 category: expert
 canonical: https://chimitdorzhi.tech/blog/geo-novyy-peredel-okno-dlya-nishi-2026/

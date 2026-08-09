@@ -1,6 +1,6 @@
 ---
 title: "Смарт-контракты на CBDC: мировой опыт цифровых валют"
-description: "Аналитический обзор смарт-контрактов на цифровых валютах центробанков: e-CNY Китая, Drex Бразилии, e-HKD Гонконга, Project Orchid Сингапура, цифровой евро и фунт. Что тестируют в мире и что релевантно России."
+description: "Аналитический обзор смарт-контрактов на цифровых валютах центробанков: e-CNY Китая, Drex Бразилии, e-HKD Гонконга, Project Orchid Сингапура."
 date: 2026-07-07
 category: finance
 canonical: https://chimitdorzhi.tech/blog/smart-kontrakty-cbdc-mirovoy-opyt-2027/

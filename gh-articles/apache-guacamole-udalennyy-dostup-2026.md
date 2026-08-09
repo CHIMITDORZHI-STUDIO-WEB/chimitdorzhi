@@ -1,6 +1,6 @@
 ---
 title: "Apache Guacamole: удалённый доступ к ПК и серверам через браузер"
-description: "Apache Guacamole — open-source шлюз удалённого доступа без клиента: подключение к компьютерам и серверам (RDP, VNC, SSH) прямо из браузера через свой сервер. Контроль и 152-ФЗ — разверну под ключ."
+description: "Apache Guacamole — open-source шлюз удалённого доступа без клиента: подключение к компьютерам и серверам (RDP, VNC."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/apache-guacamole-udalennyy-dostup-2026/

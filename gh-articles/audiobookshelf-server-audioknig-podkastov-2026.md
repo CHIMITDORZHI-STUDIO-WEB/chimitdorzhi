@@ -1,6 +1,6 @@
 ---
 title: "AudioBookshelf: свой сервер аудиокниг и подкастов"
-description: "AudioBookshelf — open-source сервер аудиокниг и подкастов: своя медиатека, стриминг на телефон, отметки прогресса, главы, мультипользователи. Для онлайн-школ, авторов курсов и личной коллекции, контент у себя — разверну под ключ."
+description: "AudioBookshelf — open-source сервер аудиокниг и подкастов: своя медиатека, стриминг на телефон, отметки прогресса, главы, мультипользователи."
 date: 2026-06-16
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/audiobookshelf-server-audioknig-podkastov-2026/

@@ -1,6 +1,6 @@
 ---
 title: "Postiz: автопостинг в соцсети на своём сервере под ключ"
-description: "Postiz — open-source планировщик соцсетей и автопостинг (аналог Buffer/SMMplanner): отложенные публикации, очереди, несколько аккаунтов. Без подписки, данные у себя — разверну под ключ."
+description: "Postiz — open-source планировщик соцсетей вместо Buffer и SMMplanner: отложенные посты, очереди, много аккаунтов. Данные у себя, разверну под ключ."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/postiz-avtoposting-socseti-2026/

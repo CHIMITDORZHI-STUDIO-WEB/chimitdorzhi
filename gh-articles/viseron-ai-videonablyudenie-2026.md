@@ -1,6 +1,6 @@
 ---
 title: "Viseron: AI-видеонаблюдение на своём сервере без облака"
-description: "Viseron — open-source система видеонаблюдения с ИИ: распознавание людей, машин и движения, запись по событиям, всё локально без облака. Видео у себя по 152-ФЗ — разверну на вашем сервере под ключ."
+description: "Viseron — open-source система видеонаблюдения с ИИ: распознавание людей, машин и движения, запись по событиям, всё локально без облака."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/viseron-ai-videonablyudenie-2026/

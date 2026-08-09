@@ -1,6 +1,6 @@
 ---
 title: "Listmonk: email-рассылки без Mailchimp на своём сервере"
-description: "Listmonk — open-source система email-рассылок (аналог Mailchimp/SendPulse): списки, сегменты, кампании, высокая производительность. Без платы за объём, база у себя — разверну под ключ."
+description: "Listmonk — open-source система email-рассылок (аналог Mailchimp/SendPulse): списки, сегменты, кампании, высокая производительность."
 date: 2026-06-14
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/listmonk-rassylki-bez-mailchimp-2026/

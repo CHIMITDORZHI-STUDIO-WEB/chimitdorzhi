@@ -1,6 +1,6 @@
 ---
 title: "MediaPipe: виртуальная примерка и AR-маски в браузере"
-description: "MediaPipe — open-source компьютерное зрение от Google в браузере (лицо, руки, поза): виртуальная примерка очков, украшений, головных уборов и макияжа, AR-маски, жестовое управление. Обработка на устройстве (152-ФЗ). Разработаю под ключ."
+description: "MediaPipe — open-source компьютерное зрение от Google в браузере (лицо, руки, поза): виртуальная примерка очков, украшений, головных уборов и макияжа."
 date: 2026-06-16
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/mediapipe-virtualnaya-primerka-2026/

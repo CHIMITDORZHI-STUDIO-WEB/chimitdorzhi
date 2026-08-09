@@ -1,6 +1,6 @@
 ---
 title: "Оптимизация скорости сайта: технический гайд по ускорению загрузки страниц на WordPress и 1С-Битрикс"
-description: "Подробный технический гайд по оптимизации скорости загрузки сайтов на CMS WordPress и 1С-Битрикс. Разбор TTFB, critical rendering path, кэширования, баз данных, настроек VPS/VDS и сравнительный анализ."
+description: "Подробный технический гайд по оптимизации скорости загрузки сайтов на CMS WordPress и 1С-Битрикс."
 date: 2026-06-09
 category: development
 canonical: https://chimitdorzhi.tech/blog/optimizaciya-skorosti-sayta/

@@ -1,6 +1,6 @@
 ---
 title: "Paperless-ngx: электронный архив документов с OCR на своём сервере"
-description: "Paperless-ngx — open-source электронный архив документов: сканируете и загружаете, система распознаёт текст (OCR) и ищет по содержимому. Документооборот на своём сервере, данные у себя по 152-ФЗ — разверну под ключ."
+description: "Paperless-ngx — open-source электронный архив документов: сканируете и загружаете, система распознаёт текст (OCR) и ищет по содержимому."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/paperless-ngx-arhiv-dokumentov-2026/

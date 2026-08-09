@@ -1,6 +1,6 @@
 ---
 title: "Как обнаружить фишинг в письме, SMS и Telegram за 10 секунд — гид 2026"
-description: "Практический гид 2026: как за 10 секунд распознать фишинг в email, SMS, Telegram, WhatsApp и звонках. 10-секундный чек-лист, топ-5 схем в РФ, защита родителей и бизнеса, AI и deepfake, план действий если попался."
+description: "Практический гид 2026: как за 10 секунд распознать фишинг в email, SMS, Telegram, WhatsApp и звонках."
 date: 2026-05-22
 category: security
 canonical: https://chimitdorzhi.tech/blog/kak-obnaruzhit-fishing-2026/

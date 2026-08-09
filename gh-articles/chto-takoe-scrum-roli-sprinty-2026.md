@@ -1,6 +1,6 @@
 ---
 title: "Что такое Scrum: роли, спринты и доска простыми словами"
-description: "Scrum простыми словами: роли (Product Owner, Scrum Master, команда), спринты, бэклог, дейли, ревью и ретро, доска и сторипоинты — с примером. Где буксует у новичков и как внедрить по шагам."
+description: "Scrum простыми словами: роли (Product Owner, Scrum Master, команда), спринты, бэклог, дейли, ревью и ретро, доска и сторипоинты — с примером."
 date: 2026-06-17
 category: biznes-krugozor
 canonical: https://chimitdorzhi.tech/blog/chto-takoe-scrum-roli-sprinty-2026/

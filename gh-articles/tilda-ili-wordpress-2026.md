@@ -1,6 +1,6 @@
 ---
 title: "Тильда или WordPress: что выбрать для сайта бизнеса"
-description: "Тильда или WordPress: чем отличаются по стоимости владения, скорости запуска, SEO и свободе доработок, кому что подходит и во что обойдётся каждый вариант за три года."
+description: "Тильда или WordPress: чем отличаются по стоимости владения, скорости запуска, SEO и свободе доработок."
 date: 2026-07-22
 category: development
 canonical: https://chimitdorzhi.tech/blog/tilda-ili-wordpress-2026/

@@ -1,6 +1,6 @@
 ---
 title: "GTD (Getting Things Done): система продуктивности без хаоса"
-description: "GTD (Getting Things Done) простыми словами: 5 шагов (собрать, прояснить, организовать, обдумать, сделать), «выгрузи всё из головы», правило 2 минут, контексты и проекты, еженедельный обзор и инструменты."
+description: "GTD (Getting Things Done) простыми словами: 5 шагов (собрать, прояснить, организовать, обдумать, сделать), «выгрузи всё из головы», правило 2 минут."
 date: 2026-06-17
 category: biznes-krugozor
 canonical: https://chimitdorzhi.tech/blog/gtd-getting-things-done-2026/

@@ -1,6 +1,6 @@
 ---
 title: "Leaflet: интерактивные карты на сайте (филиалы, зоны доставки)"
-description: "Leaflet — лёгкая open-source библиотека интерактивных карт (на данных OpenStreetMap): карта филиалов и пунктов выдачи, зоны доставки, метки и маршруты — без оплаты за запросы к API Яндекс/Google. Для сетей и доставки. Разработаю под ключ."
+description: "Leaflet: карты филиалов, пунктов выдачи и зон доставки на сайте без оплаты за запросы к API Яндекс и Google. Open-source на данных OpenStreetMap."
 date: 2026-06-16
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/leaflet-interaktivnye-karty-2026/

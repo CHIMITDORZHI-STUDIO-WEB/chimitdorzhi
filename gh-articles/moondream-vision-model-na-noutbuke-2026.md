@@ -1,6 +1,6 @@
 ---
 title: "Moondream: ИИ, который видит картинки, на ноутбуке без интернета"
-description: "Moondream — крошечная открытая vision-модель: описывает фото, находит объекты, читает документы и отвечает на вопросы о картинке. Работает офлайн на ноутбуке и даже Raspberry Pi без GPU. Где применить и как внедрить."
+description: "Moondream — крошечная открытая vision-модель: описывает фото, находит объекты, читает документы и отвечает на вопросы о картинке."
 date: 2026-08-03
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/moondream-vision-model-na-noutbuke-2026/

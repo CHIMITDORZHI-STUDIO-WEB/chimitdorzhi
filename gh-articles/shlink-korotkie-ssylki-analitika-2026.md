@@ -1,6 +1,6 @@
 ---
 title: "Shlink: короткие ссылки с аналитикой на своём домене"
-description: "Shlink — open-source сокращатель ссылок с аналитикой (аналог Bitly): короткие ссылки на своём домене, статистика переходов, QR-коды, метки. Видно, что реально приводит людей, данные у себя — разверну под ключ."
+description: "Shlink — open-source сокращатель ссылок с аналитикой (аналог Bitly): короткие ссылки на своём домене, статистика переходов, QR-коды, метки."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/shlink-korotkie-ssylki-analitika-2026/

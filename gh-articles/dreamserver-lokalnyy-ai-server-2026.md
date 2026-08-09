@@ -1,6 +1,6 @@
 ---
 title: "DreamServer: локальный AI-сервер (Ollama, Open WebUI, n8n, ComfyUI) одной установкой"
-description: "DreamServer — open-source инструмент, который ставит и связывает на вашем компьютере или сервере локальный AI-стек: Ollama (запуск LLM), Open WebUI (свой ChatGPT в браузере), n8n (автоматизация) и ComfyUI (генерация картинок) — без ручной настройки каждого. Данные не уходят в облако, соответствие 152-ФЗ. Разверну под ключ."
+description: "DreamServer — open-source инструмент, который ставит и связывает на вашем компьютере или сервере локальный AI-стек: Ollama (запуск LLM)."
 date: 2026-06-28
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/dreamserver-lokalnyy-ai-server-2026/

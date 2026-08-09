@@ -1,6 +1,6 @@
 ---
 title: "Docling: превращение PDF и сканов в данные для AI на своём сервере"
-description: "Docling — open-source инструмент преобразования документов (PDF, сканы, офис) в структурированные данные (Markdown/JSON) с таблицами и макетом. Подготовка корпоративной базы знаний для AI-поиска и RAG, данные у себя — внедрю под ключ."
+description: "Docling — open-source инструмент преобразования документов (PDF, сканы, офис) в структурированные данные (Markdown/JSON) с таблицами и макетом."
 date: 2026-06-16
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/docling-pdf-v-dannye-dlya-ai-2026/

@@ -1,6 +1,6 @@
 ---
 title: "Travel Advantage: как устроена платформа клуба путешественников"
-description: "Что такое Travel Advantage и как устроена платформа клуба путешественников: ~2 млн отелей со скидками 10–70%, авиа, круизы, виллы, аутлеты, AI-подбор и групповые туры Life Experience. Обзор без обещаний дохода."
+description: "Travel Advantage изнутри: около 2 млн отелей со скидками 10-70%, авиа, круизы, виллы, AI-подбор и групповые туры. Нейтрально, без обещаний дохода."
 date: 2026-06-17
 category: mwrlife
 canonical: https://chimitdorzhi.tech/blog/travel-advantage-platforma-2026/

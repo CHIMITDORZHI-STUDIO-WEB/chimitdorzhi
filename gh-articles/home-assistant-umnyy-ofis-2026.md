@@ -1,6 +1,6 @@
 ---
 title: "Home Assistant: умный офис и здание на своём сервере"
-description: "Home Assistant — open-source система автоматизации (умный дом/офис/здание): объединяет свет, климат, камеры, датчики и доступ, сценарии, локально без облака. Экономия и безопасность, данные у себя — настрою под ключ."
+description: "Home Assistant — open-source система автоматизации (умный дом/офис/здание): объединяет свет, климат, камеры, датчики и доступ, сценарии."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/home-assistant-umnyy-ofis-2026/

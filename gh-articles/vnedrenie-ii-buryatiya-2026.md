@@ -1,6 +1,6 @@
 ---
 title: "Внедрение ИИ для бизнеса в Бурятии: с чего начать"
-description: "Разбираю пошагово, как внедрить ИИ в малый и средний бизнес Бурятии: AI-агент, чат-бот на GigaChat/YandexGPT, RAG по базе знаний. Опыт удалённых внедрений по РФ."
+description: "Разбираю пошагово, как внедрить ИИ в малый и средний бизнес Бурятии: AI-агент, чат-бот на GigaChat/YandexGPT, RAG по базе знаний."
 date: 2026-07-20
 category: ai-dev
 canonical: https://chimitdorzhi.tech/blog/vnedrenie-ii-buryatiya-2026/

@@ -1,6 +1,6 @@
 ---
 title: "EBITDA простыми словами"
-description: "EBITDA простыми словами: прибыль до вычета процентов, налогов и амортизации. Зачем нужна, формула с числовым примером, разница с операционной и чистой прибылью, EBITDA-маржа, критика показателя и ошибки."
+description: "EBITDA простыми словами: прибыль до вычета процентов, налогов и амортизации."
 date: 2026-06-17
 category: biznes-krugozor
 canonical: https://chimitdorzhi.tech/blog/ebitda-prostymi-slovami-2026/

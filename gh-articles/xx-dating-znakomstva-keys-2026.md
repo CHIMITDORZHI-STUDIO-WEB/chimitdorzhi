@@ -1,6 +1,6 @@
 ---
 title: "X&X Dating: сервис знакомств с проверкой родства в Telegram"
-description: "Кейс X&X Dating — сервис знакомств внутри супер-аппа в Telegram Mini App: верификация по номеру, проверка родственных связей перед знакомством, единый вход со всеми сервисами X&X. Как устроено и кому подойдёт."
+description: "Кейс X&X Dating — сервис знакомств внутри супер-аппа в Telegram Mini App: верификация по номеру, проверка родственных связей перед знакомством."
 date: 2026-08-04
 category: cases
 canonical: https://chimitdorzhi.tech/blog/xx-dating-znakomstva-keys-2026/

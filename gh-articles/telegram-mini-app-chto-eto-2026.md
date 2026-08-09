@@ -1,6 +1,6 @@
 ---
 title: "Telegram Mini App: что это и когда заказывать"
-description: "Telegram Mini App простыми словами: что это, чем отличается от обычного бота и от сайта, что можно сделать (магазин, запись, оплата, кабинет) и сколько стоит разработка."
+description: "Telegram Mini App простыми словами: что это, чем отличается от обычного бота и от сайта, что можно сделать (магазин, запись, оплата."
 date: 2026-07-22
 category: development
 canonical: https://chimitdorzhi.tech/blog/telegram-mini-app-chto-eto-2026/

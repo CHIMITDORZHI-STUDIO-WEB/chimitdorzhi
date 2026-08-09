@@ -1,6 +1,6 @@
 ---
 title: "Uptime Kuma: мониторинг доступности сайтов и статус-страница на своём сервере"
-description: "Uptime Kuma — open-source мониторинг доступности (uptime): следит за сайтами, API и серверами, шлёт уведомления при сбое (Telegram, email), ведёт историю и публичную статус-страницу. Узнавайте о падении раньше клиентов — разверну под ключ."
+description: "Uptime Kuma — open-source мониторинг доступности (uptime): следит за сайтами, API и серверами, шлёт уведомления при сбое (Telegram, email)."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/uptime-kuma-monitoring-dostupnosti-2026/

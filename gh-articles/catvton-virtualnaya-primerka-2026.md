@@ -1,6 +1,6 @@
 ---
 title: "CatVTON: виртуальная примерка одежды на своём сервере"
-description: "CatVTON — open-source AI-модель виртуальной примерки одежды: фото человека + вещь = реалистичный результат «как сидит». Для магазинов одежды и маркетплейсов: меньше возвратов, выше конверсия. Разверну под ключ."
+description: "CatVTON — open-source AI-модель виртуальной примерки одежды: фото человека + вещь = реалистичный результат «как сидит»."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/catvton-virtualnaya-primerka-2026/

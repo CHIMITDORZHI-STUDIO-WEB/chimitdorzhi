@@ -1,6 +1,6 @@
 ---
 title: "Three.js: 3D-конфигуратор товара на сайте"
-description: "Three.js — open-source библиотека 3D-графики (WebGL) для 3D-конфигуратора товара на сайте: вращать модель, менять цвет, материал и комплектацию в реальном времени. Выше вовлечённость, меньше возвратов. Разработаю под ключ."
+description: "Three.js — open-source библиотека 3D-графики (WebGL) для 3D-конфигуратора товара на сайте: вращать модель, менять цвет."
 date: 2026-06-16
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/three-js-3d-konfigurator-tovara-2026/

@@ -1,6 +1,6 @@
 ---
 title: "PDCA: цикл Деминга для постоянных улучшений"
-description: "PDCA (Plan-Do-Check-Act) — цикл Деминга простыми словами: планируй, делай, проверяй, действуй. Непрерывное улучшение через короткие циклы, связь с Кайдзен, вариант PDSA, как применять с примером и частые ошибки."
+description: "PDCA (Plan-Do-Check-Act) — цикл Деминга простыми словами: планируй, делай, проверяй, действуй."
 date: 2026-06-17
 category: biznes-krugozor
 canonical: https://chimitdorzhi.tech/blog/pdca-cikl-deminga-2026/

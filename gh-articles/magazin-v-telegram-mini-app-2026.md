@@ -1,6 +1,6 @@
 ---
 title: "Магазин в Telegram (Mini App): запуск продаж без сайта"
-description: "Как запустить магазин-Mini App в Telegram без классического сайта: каталог, корзина, оплата ЮKassa/СБП, уведомления о заказах, бот поддержки. Кому подходит, плюсы и ограничения, сроки и стоимость запуска."
+description: "Как запустить магазин-Mini App в Telegram без классического сайта: каталог, корзина, оплата ЮKassa/СБП, уведомления о заказах, бот поддержки."
 date: 2026-06-17
 category: development
 canonical: https://chimitdorzhi.tech/blog/magazin-v-telegram-mini-app-2026/

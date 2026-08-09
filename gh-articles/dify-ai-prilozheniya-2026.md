@@ -1,6 +1,6 @@
 ---
 title: "Dify: платформа для AI-приложений и ассистентов на своём сервере"
-description: "Dify — open-source платформа для создания AI-приложений и ассистентов (LLMOps): конструктор, чат-боты с базой знаний (RAG), агенты, разные модели. Данные у себя, без привязки к облаку — разверну под ключ."
+description: "Dify — open-source платформа для создания AI-приложений и ассистентов (LLMOps): конструктор, чат-боты с базой знаний (RAG), агенты, разные модели."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/dify-ai-prilozheniya-2026/

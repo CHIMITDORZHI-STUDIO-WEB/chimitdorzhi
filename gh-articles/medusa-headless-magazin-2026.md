@@ -1,6 +1,6 @@
 ---
 title: "Medusa: headless интернет-магазин без комиссий на своём сервере"
-description: "Medusa — open-source headless-платформа для интернет-магазина (аналог Shopify, гибче и без комиссий): API-first, кастомная витрина, заказы, платежи. Каждая продажа ваша, данные у себя — разверну под ключ."
+description: "Medusa — open-source headless-платформа для интернет-магазина (аналог Shopify, гибче и без комиссий): API-first, кастомная витрина, заказы, платежи."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/medusa-headless-magazin-2026/

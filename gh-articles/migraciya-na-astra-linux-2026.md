@@ -1,6 +1,6 @@
 ---
 title: "Миграция на Astra Linux: как уйти с Windows без боли"
-description: "Зачем и кому переходить на Astra Linux, как мигрировать с Windows по шагам, чем заменить привычный софт (МойОфис/Р7), сроки и стоимость. Честно про сложности: несовместимый софт, привыкание сотрудников."
+description: "Зачем и кому переходить на Astra Linux, как мигрировать с Windows по шагам, чем заменить привычный софт (МойОфис/Р7), сроки и стоимость."
 date: 2026-06-17
 category: development
 canonical: https://chimitdorzhi.tech/blog/migraciya-na-astra-linux-2026/

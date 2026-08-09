@@ -1,6 +1,6 @@
 ---
 title: "Удаленный офис под ключ: организация безопасного удаленного доступа (VPN, телефония, таск-трекеры)"
-description: "Техническое руководство по организации безопасного удаленного офиса. Сравнение WireGuard/OpenVPN, интеграция с AD/LDAP, настройка Asterisk/FreePBX, выбор таск-трекеров и внедрение политик безопасности (2FA, DLP)."
+description: "Техническое руководство по организации безопасного удаленного офиса. Сравнение WireGuard/OpenVPN, интеграция с AD/LDAP, настройка Asterisk/FreePBX."
 date: 2026-06-09
 category: development
 canonical: https://chimitdorzhi.tech/blog/udalenniy-ofis-vpn-telefoniya/

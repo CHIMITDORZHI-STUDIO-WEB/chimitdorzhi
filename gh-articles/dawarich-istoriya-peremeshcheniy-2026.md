@@ -1,6 +1,6 @@
 ---
 title: "Dawarich: приватная история перемещений на своём сервере"
-description: "Dawarich — open-source хранилище истории перемещений (приватная альтернатива Google Timeline): геотреки со смартфона, карта, статистика, посещённые места. Личный архив или учёт поездок выездных сотрудников, данные у себя — внедрю под ключ."
+description: "Dawarich — open-source хранилище истории перемещений (приватная альтернатива Google Timeline): геотреки со смартфона, карта, статистика, посещённые места."
 date: 2026-06-16
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/dawarich-istoriya-peremeshcheniy-2026/

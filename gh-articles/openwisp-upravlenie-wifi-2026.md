@@ -1,6 +1,6 @@
 ---
 title: "OpenWISP: гостевой Wi-Fi с captive-порталом и сбором лидов на своём сервере"
-description: "OpenWISP — open-source управление Wi-Fi сетями: централизованная настройка точек, captive-портал (страница входа), авторизация гостей, сбор контактов, мониторинг. Гостевой Wi-Fi как маркетинг-инструмент, данные у себя — настрою под ключ."
+description: "OpenWISP — open-source управление Wi-Fi сетями: централизованная настройка точек, captive-портал (страница входа), авторизация гостей, сбор контактов."
 date: 2026-06-16
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/openwisp-upravlenie-wifi-2026/

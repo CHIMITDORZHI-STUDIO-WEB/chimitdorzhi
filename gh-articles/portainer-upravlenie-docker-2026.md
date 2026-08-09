@@ -1,6 +1,6 @@
 ---
 title: "Portainer: панель управления Docker и своим сервером"
-description: "Portainer — веб-панель для управления Docker и контейнерами без командной строки: запуск, обновление, логи, мониторинг сервисов. Кому это упрощает жизнь и как поставить."
+description: "Portainer позволяет управлять Docker без командной строки: запуск и обновление контейнеров, логи, мониторинг. Кому это упрощает жизнь и как поставить."
 date: 2026-07-31
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/portainer-upravlenie-docker-2026/

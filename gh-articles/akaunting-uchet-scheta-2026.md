@@ -1,6 +1,6 @@
 ---
 title: "Akaunting: учёт финансов и счета для малого бизнеса на своём сервере"
-description: "Akaunting — open-source система учёта финансов и счетов для малого бизнеса (аналог QuickBooks): доходы, расходы, счета, клиенты, отчёты. Простой учёт денег на своём сервере, данные у себя — разверну под ключ."
+description: "Akaunting — open-source система учёта финансов и счетов для малого бизнеса (аналог QuickBooks): доходы, расходы, счета, клиенты, отчёты."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/akaunting-uchet-scheta-2026/

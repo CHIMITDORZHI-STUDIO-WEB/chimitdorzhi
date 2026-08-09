@@ -1,6 +1,6 @@
 ---
 title: "CapEx и OpEx простыми словами"
-description: "CapEx (капитальные затраты) и OpEx (операционные затраты) простыми словами: чем отличаются, как влияют на бюджет и налоги, пример «купить сервер или взять облако», тренд перехода CapEx в OpEx и частые ошибки."
+description: "CapEx (капитальные затраты) и OpEx (операционные затраты) простыми словами: чем отличаются, как влияют на бюджет и налоги."
 date: 2026-06-17
 category: biznes-krugozor
 canonical: https://chimitdorzhi.tech/blog/capex-opex-prostymi-slovami-2026/

@@ -1,6 +1,6 @@
 ---
 title: "Participation Loyalty: лояльность через участие, а не только через покупки"
-description: "Participation Loyalty — тренд 2026: лояльность измеряется участием, а не только покупками. Отзывы, рефералы, контент и активность в сообществе становятся «валютой». Как построить такую программу в России: реферальный трекинг, баллы за участие, защита от накрутки."
+description: "Participation Loyalty — тренд 2026: лояльность измеряется участием, а не только покупками."
 date: 2026-06-17
 category: biznes-krugozor
 canonical: https://chimitdorzhi.tech/blog/participation-loyalty-loyalnost-cherez-uchastie-2026/

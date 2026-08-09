@@ -1,6 +1,6 @@
 ---
 title: "IT для строительных компаний 2026: BIM, CRM застройщика, ЛК дольщика, контроль подрядчиков"
-description: "IT-стек для застройщика и подрядчика 2026: BIM (Renga, nanoCAD, Pilot-BIM), CRM застройщика (Profitbase, Macro, Domalogic), личный кабинет дольщика, эскроу-счета и 214-ФЗ, контроль стройплощадки AI (СИЗ-детекция), Гранд-смета, 1С:Застройщик. Бюджеты от соло-подрядчика до девелопера."
+description: "IT-стек для застройщика и подрядчика 2026: BIM (Renga, nanoCAD, Pilot-BIM), CRM застройщика (Profitbase, Macro, Domalogic), личный кабинет дольщика."
 date: 2026-05-28
 category: industries
 canonical: https://chimitdorzhi.tech/blog/it-dlya-stroitelnyh-kompaniy-2026/

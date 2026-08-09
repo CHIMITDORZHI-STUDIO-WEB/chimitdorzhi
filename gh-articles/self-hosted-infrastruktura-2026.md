@@ -1,6 +1,6 @@
 ---
 title: "Self-hosted всё 2026: своя инфраструктура вместо SaaS — Nextcloud, Gitea, n8n"
-description: "Как поднять свою инфраструктуру вместо зарубежных SaaS в 2026: Nextcloud вместо облачных дисков, Gitea/Forgejo вместо внешнего git, n8n вместо Zapier, Plausible/Matomo вместо Google Analytics, Vaultwarden, Metabase, бэкапы restic. Docker Compose, nginx, SSL, безопасность. Российские VPS (Selectel, Timeweb, RuVDS), экономика и 152-ФЗ."
+description: "Своя инфраструктура вместо зарубежных SaaS: Nextcloud, Gitea, n8n, Matomo, бэкапы restic. Docker, nginx, SSL, российские VPS, экономика и 152-ФЗ."
 date: 2026-05-28
 category: development
 canonical: https://chimitdorzhi.tech/blog/self-hosted-infrastruktura-2026/

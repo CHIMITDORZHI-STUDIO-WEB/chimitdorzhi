@@ -1,6 +1,6 @@
 ---
 title: "Свой конструктор ботов и автоворонок под брендом: white-label на Typebot / Botpress"
-description: "Как запустить свой брендированный конструктор чат-ботов и автоворонок на open-source Typebot или Botpress и перепродавать его маркетологам и агентствам. Мультитенантность, каналы, AI, биллинг, лицензия AGPL, 152-ФЗ. Соберу под ключ."
+description: "Как запустить свой брендированный конструктор чат-ботов и автоворонок на open-source Typebot или Botpress и перепродавать его маркетологам и агентствам."
 date: 2026-06-16
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/white-label-konstruktor-botov-2026/

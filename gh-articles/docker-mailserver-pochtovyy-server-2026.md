@@ -1,6 +1,6 @@
 ---
 title: "docker-mailserver: корпоративная почта на своём сервере"
-description: "docker-mailserver — open-source почтовый сервер в Docker: SMTP, IMAP, спам-фильтры, SSL. Корпоративная почта на своём домене, импортозамещение Gmail/Outlook, данные у себя по 152-ФЗ — разверну под ключ."
+description: "docker-mailserver — open-source почтовый сервер в Docker: SMTP, IMAP, спам-фильтры, SSL."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/docker-mailserver-pochtovyy-server-2026/

@@ -1,6 +1,6 @@
 ---
 title: "Open WebUI: приватный «свой ChatGPT» на своём сервере"
-description: "Open WebUI — open-source веб-интерфейс для языковых моделей, как ChatGPT, но на своём сервере: чат, работа с локальными моделями через Ollama, ответы по своим документам (RAG), роли. Переписка и данные не уходят в чужое облако (152-ФЗ) — разверну под ключ."
+description: "Open WebUI — свой ChatGPT на своём сервере: чат, локальные модели через Ollama, ответы по своим документам, роли. Переписка не уходит в чужое облако."
 date: 2026-06-16
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/open-webui-svoy-chatgpt-2026/

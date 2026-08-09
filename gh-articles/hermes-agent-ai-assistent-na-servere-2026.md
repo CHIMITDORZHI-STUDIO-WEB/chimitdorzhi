@@ -1,6 +1,6 @@
 ---
 title: "Hermes-agent: персональный AI-агент на своём сервере"
-description: "Hermes-agent — open-source самообучающийся AI-агент на сервере: память между сессиями, создание навыков, задачи по расписанию через мессенджеры. Передовая технология, данные у себя — разверну и сопровожу под ключ."
+description: "Hermes-agent — open-source самообучающийся AI-агент на сервере: память между сессиями, создание навыков, задачи по расписанию через мессенджеры."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/hermes-agent-ai-assistent-na-servere-2026/

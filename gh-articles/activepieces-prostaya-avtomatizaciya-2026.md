@@ -1,6 +1,6 @@
 ---
 title: "Activepieces: простая автоматизация процессов на своём сервере"
-description: "Activepieces — open-source платформа автоматизации (аналог Zapier/Make, проще n8n): соединяет сервисы, сценарии, no-code, AI-шаги. Без платы за задачи, данные у себя — разверну на вашем сервере под ключ."
+description: "Activepieces — open-source платформа автоматизации (аналог Zapier/Make, проще n8n): соединяет сервисы, сценарии, no-code, AI-шаги."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/activepieces-prostaya-avtomatizaciya-2026/

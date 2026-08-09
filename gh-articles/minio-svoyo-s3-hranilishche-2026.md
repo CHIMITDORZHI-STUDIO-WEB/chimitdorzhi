@@ -1,6 +1,6 @@
 ---
 title: "MinIO: своё S3-совместимое хранилище файлов на своём сервере"
-description: "MinIO — open-source объектное хранилище, совместимое с Amazon S3, на своём сервере: файлы, бэкапы, медиа без оплаты облаку за объём и трафик. Данные в РФ (152-ФЗ), отказоустойчивость, шифрование. Замена S3 и Yandex Object Storage. Разверну под ключ."
+description: "MinIO — open-source объектное хранилище, совместимое с Amazon S3, на своём сервере: файлы, бэкапы, медиа без оплаты облаку за объём и трафик."
 date: 2026-06-14
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/minio-svoyo-s3-hranilishche-2026/

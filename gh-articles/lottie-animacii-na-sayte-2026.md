@@ -1,6 +1,6 @@
 ---
 title: "Lottie: лёгкие анимации и иконки на сайте без тяжёлого видео"
-description: "Lottie — open-source формат и движок векторных анимаций (из After Effects в лёгкий JSON): микроанимации, анимированные иконки и иллюстрации, онбординг-экраны, лоадеры. Чёткие на любом экране, весят меньше видео. Внедрю под ключ."
+description: "Lottie — open-source формат и движок векторных анимаций (из After Effects в лёгкий JSON): микроанимации, анимированные иконки и иллюстрации."
 date: 2026-06-16
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/lottie-animacii-na-sayte-2026/

@@ -1,6 +1,6 @@
 ---
 title: "Технический аудит сайта: 404, битые ссылки, robots и sitemap"
-description: "Технический аудит сайта: что такое ошибка 404 и как её исправить, как найти битые ссылки, настроить robots.txt и sitemap.xml, добавить микроразметку — чтобы сайт лучше индексировался."
+description: "Технический аудит сайта: откуда берутся ошибки 404, как найти битые ссылки, настроить robots.txt, sitemap.xml и микроразметку для индексации."
 date: 2026-07-22
 category: development
 canonical: https://chimitdorzhi.tech/blog/tehnicheskiy-audit-sayta-404-2026/

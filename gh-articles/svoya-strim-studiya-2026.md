@@ -1,6 +1,6 @@
 ---
 title: "Своя стрим-студия 2026: оборудование, ПО, бюджеты от 50к ₽ до 1М ₽"
-description: "Полный гид по созданию стрим-студии 2026: 3 уровня бюджета (50–100к, 200–400к, 800к–1М ₽), выбор микрофонов (Shure SM7B, Maono PD400X, Rode Wireless Pro), камер (Sony ZV-1, iPhone+EpocCam, Obsbot Tail Air), ПО (OBS, vMix, Riverside), настройка multi-camera, акустическая обработка, окупаемость. Основано на опыте 100+ подкастов и стримов."
+description: "Полный гид по созданию стрим-студии 2026: 3 уровня бюджета (50–100к, 200–400к, 800к–1М ₽), выбор микрофонов (Shure SM7B, Maono PD400X, Rode Wireless Pro)."
 date: 2026-05-25
 category: media
 canonical: https://chimitdorzhi.tech/blog/svoya-strim-studiya-2026/

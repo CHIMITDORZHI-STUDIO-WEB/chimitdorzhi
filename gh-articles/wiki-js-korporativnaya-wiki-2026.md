@@ -1,6 +1,6 @@
 ---
 title: "Wiki.js: корпоративная вики и база знаний на своём сервере"
-description: "Wiki.js — open-source корпоративная вики и база знаний (аналог Confluence/Notion): документы, иерархия, поиск, права доступа. Бесплатно, данные у себя, но нужны сервер и настройка — разверну под ключ."
+description: "Wiki.js — open-source корпоративная вики и база знаний (аналог Confluence/Notion): документы, иерархия, поиск, права доступа. Бесплатно, данные у себя."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/wiki-js-korporativnaya-wiki-2026/

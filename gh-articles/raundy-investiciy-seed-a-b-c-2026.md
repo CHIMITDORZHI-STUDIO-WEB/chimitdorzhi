@@ -1,6 +1,6 @@
 ---
 title: "Раунды инвестиций: seed, A, B, C — кто, когда, сколько"
-description: "Раунды финансирования стартапа простыми словами: Pre-seed, Seed, Series A/B/C. Кто инвестирует на каждой стадии, как растёт оценка и размывается доля, что такое valuation, dilution, term sheet. Не инвестрекомендация."
+description: "Раунды финансирования стартапа простыми словами: Pre-seed, Seed, Series A/B/C."
 date: 2026-06-17
 category: biznes-krugozor
 canonical: https://chimitdorzhi.tech/blog/raundy-investiciy-seed-a-b-c-2026/

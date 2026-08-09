@@ -1,6 +1,6 @@
 ---
 title: "Plane: управление проектами и задачами (аналог Jira) на своём сервере"
-description: "Plane — современная open-source система управления проектами (аналог Jira, Linear, Asana): задачи, спринты, модули, доски, роадмапы. Удобный трекер для команды без лицензий за пользователя, данные у себя (152-ФЗ) — разверну под ключ."
+description: "Plane — современная open-source система управления проектами (аналог Jira, Linear, Asana): задачи, спринты, модули, доски, роадмапы."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/plane-upravlenie-proektami-2026/

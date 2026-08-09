@@ -1,6 +1,6 @@
 ---
 title: "LinkStack: мультиссылка на своём домене вместо Taplink"
-description: "LinkStack — open-source мультиссылка (link-in-bio, аналог Taplink/Linktree): все контакты, соцсети, каталог и запись на одной странице на своём домене. Без подписки и чужого бренда, статистика, данные у себя — соберу под ключ."
+description: "LinkStack — open-source мультиссылка (link-in-bio, аналог Taplink/Linktree): все контакты, соцсети, каталог и запись на одной странице на своём домене."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/linkstack-multissylka-2026/

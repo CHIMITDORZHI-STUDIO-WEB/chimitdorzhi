@@ -1,6 +1,6 @@
 ---
 title: "Babylon.js: интерактивная 3D-визуализация для бизнеса"
-description: "Babylon.js — мощный open-source веб-движок 3D (WebGL/WebGPU) для сложной интерактивной визуализации: оборудование, недвижимость в 3D, виртуальные туры по объекту, обучающие 3D-сцены. Данные у себя. Разработаю под ключ."
+description: "Babylon.js — мощный open-source веб-движок 3D (WebGL/WebGPU) для сложной интерактивной визуализации: оборудование, недвижимость в 3D."
 date: 2026-06-16
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/babylonjs-3d-vizualizaciya-2026/

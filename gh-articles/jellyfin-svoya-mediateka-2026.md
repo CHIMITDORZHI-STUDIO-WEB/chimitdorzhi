@@ -1,6 +1,6 @@
 ---
 title: "Jellyfin: своя медиатека и ТВ для заведения на своём сервере"
-description: "Jellyfin — open-source медиасервер (аналог Plex): своя медиатека видео и музыки, стриминг на ТВ и устройства. Для HoReCa, фитнеса, отелей: свой контент без подписок и рекламы. Разверну на вашем сервере под ключ."
+description: "Jellyfin — open-source медиасервер (аналог Plex): своя медиатека видео и музыки, стриминг на ТВ и устройства."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/jellyfin-svoya-mediateka-2026/

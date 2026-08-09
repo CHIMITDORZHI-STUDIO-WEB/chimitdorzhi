@@ -1,6 +1,6 @@
 ---
 title: "LibreTranslate: свой переводчик на своём сервере вместо Google"
-description: "LibreTranslate — open-source сервис машинного перевода (аналог Google Translate/DeepL): перевод текста через веб и API на своём сервере. Тексты не уходят в чужие облака (152-ФЗ), без платы за объём — разверну под ключ."
+description: "LibreTranslate — open-source сервис машинного перевода (аналог Google Translate/DeepL): перевод текста через веб и API на своём сервере."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/libretranslate-svoy-perevodchik-2026/

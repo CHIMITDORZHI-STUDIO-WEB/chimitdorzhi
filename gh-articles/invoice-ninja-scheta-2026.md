@@ -1,6 +1,6 @@
 ---
 title: "Invoice Ninja: счета и оплаты для бизнеса на своём сервере"
-description: "Invoice Ninja — open-source система счетов и учёта оплат: счета, повторяющиеся платежи, расходы, клиентский портал. Без подписки, данные у себя — разверну на вашем сервере под ключ."
+description: "Invoice Ninja — open-source система счетов и учёта оплат: счета, повторяющиеся платежи, расходы, клиентский портал."
 date: 2026-06-14
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/invoice-ninja-scheta-2026/

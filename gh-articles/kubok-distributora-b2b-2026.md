@@ -1,6 +1,6 @@
 ---
 title: "Кубок дистрибьютора 2026: турнир как инструмент работы с дилерами B2B"
-description: "Гайд по организации Кубка [Бренда] для дилеров: какие бренды это делают (Logitech G, ASUS ROG, Red Bull), форматы, дисциплины под возраст менеджеров (FIFA, CS2, шахматы), бюджеты 200 тыс. — 8 млн ₽, призовой фонд без денег, метрики ROI (NPS, retention, sales growth). Опыт 50+ ивентов."
+description: "Гайд по организации Кубка [Бренда] для дилеров: какие бренды это делают (Logitech G, ASUS ROG, Red Bull), форматы."
 date: 2026-05-25
 category: esports
 canonical: https://chimitdorzhi.tech/blog/kubok-distributora-b2b-2026/

@@ -1,6 +1,6 @@
 ---
 title: "Партнёрский маркетинг 2026: канал, где лид в 3–5 раз дешевле рекламы"
-description: "Affiliate — самый недооценённый канал роста в РФ: партнёрский лид дешевле платного. Разбираю 4 модели вознаграждения, платформы, договор и налоги, tracking без cookies и код на Node.js."
+description: "Партнёрский маркетинг — канал, где лид дешевле платной рекламы. Четыре модели вознаграждения, платформы, договор, налоги и tracking без cookies."
 date: 2026-05-25
 category: sales
 canonical: https://chimitdorzhi.tech/blog/partnerskiy-marketing-affiliate-2026/

@@ -1,6 +1,6 @@
 ---
 title: "Documenso: электронная подпись документов (аналог DocuSign) на своём сервере"
-description: "Documenso — open-source платформа электронной подписи документов (аналог DocuSign): поля для подписи, отправка подписантам, статусы, аудит-трейл, шаблоны. Подписывайте договоры онлайн, документы клиентов у себя (152-ФЗ) — разверну под ключ."
+description: "Documenso — open-source платформа электронной подписи документов (аналог DocuSign): поля для подписи, отправка подписантам, статусы, аудит-трейл, шаблоны."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/documenso-elektronnaya-podpis-2026/

@@ -1,6 +1,6 @@
 ---
 title: "Защита сайтов от парсинга: как закрыть свои каталоги от воровства цен и контента конкурентами"
-description: "Детальное техническое руководство по защите интернет-магазинов и каталогов от автоматического парсинга. Разбираем методы обхода блокировок, настройку Cloudflare WAF, Rate Limiting, Canvas Fingerprinting, подпись API-запросов, Shadow DOM, Honeypots и юридические аспекты."
+description: "Детальное техническое руководство по защите интернет-магазинов и каталогов от автоматического парсинга."
 date: 2026-06-09
 category: development
 canonical: https://chimitdorzhi.tech/blog/zaschita-sayta-ot-parsinga/

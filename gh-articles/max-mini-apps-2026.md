@@ -1,6 +1,6 @@
 ---
 title: "Mini Apps в МАХ 2026: ниша без конкуренции, пока её не заняли"
-description: "Telegram Mini Apps уже перегреты, а в МАХ ниша почти пустая. Что такое Mini Apps в МАХ, стек на React + MAX SDK, разработка за 2 недели, бюджеты и монетизация в 2026."
+description: "Telegram Mini Apps перегреты, а в МАХ ниша пустая. Что это за формат, стек React и MAX SDK, сроки разработки, бюджеты и способы монетизации."
 date: 2026-05-25
 category: development
 canonical: https://chimitdorzhi.tech/blog/max-mini-apps-2026/

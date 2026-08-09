@@ -1,6 +1,6 @@
 ---
 title: "MCP — Model Context Protocol 2026: как Anthropic меняет интеграции с AI"
-description: "Первый практический разбор Model Context Protocol на русском: архитектура, готовые серверы (filesystem, github, postgres, slack), как поднять свой MCP-сервер, безопасность, реальные кейсы."
+description: "Model Context Protocol на практике: архитектура, готовые серверы filesystem, github, postgres и slack, как поднять свой MCP-сервер, безопасность."
 date: 2026-05-20
 category: ai-dev
 canonical: https://chimitdorzhi.tech/blog/mcp-model-context-protocol-2026/

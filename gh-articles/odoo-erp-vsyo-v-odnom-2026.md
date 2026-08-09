@@ -1,6 +1,6 @@
 ---
 title: "Odoo: ERP всё-в-одном на своём сервере"
-description: "Odoo — open-source ERP «всё-в-одном» (Community): CRM, продажи, склад, закупки, бухгалтерия, проекты, магазин — модулями. Единая система управления бизнесом без дорогих лицензий, данные у себя — внедрю под ключ."
+description: "Odoo — open-source ERP «всё-в-одном» (Community): CRM, продажи, склад, закупки, бухгалтерия, проекты, магазин — модулями."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/odoo-erp-vsyo-v-odnom-2026/

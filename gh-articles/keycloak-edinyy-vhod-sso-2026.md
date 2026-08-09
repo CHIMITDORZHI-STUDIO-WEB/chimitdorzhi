@@ -1,6 +1,6 @@
 ---
 title: "Keycloak: единый вход (SSO) для сотрудников на своём сервере"
-description: "Keycloak — open-source система единого входа (SSO) и управления доступом (аналог Okta/Auth0): один логин ко всем сервисам, двухфакторная аутентификация, роли, OAuth/OIDC/SAML. Контроль доступа, данные у себя — разверну под ключ."
+description: "Keycloak — open-source система единого входа (SSO) и управления доступом (аналог Okta/Auth0): один логин ко всем сервисам, двухфакторная аутентификация."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/keycloak-edinyy-vhod-sso-2026/

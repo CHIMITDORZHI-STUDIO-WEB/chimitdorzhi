@@ -1,6 +1,6 @@
 ---
 title: "Строителю: сметы, расчёты под климат и учёт объектов"
-description: "Сводная смета на дом в Excel, расчёт бетона и арматуры на фундамент, утепление под -40 и график работ. Бот заявок, калькулятор стройки, CRM для подрядчика в Чите."
+description: "Сводная смета на дом в Excel, расчёт бетона и арматуры на фундамент, утепление под -40 и график работ."
 date: 2026-07-10
 category: industries
 canonical: https://chimitdorzhi.tech/blog/uslugi-dlya-stroitelya-smety-grafiki-avtomatizaciya-2026/

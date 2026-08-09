@@ -1,6 +1,6 @@
 ---
 title: "PeerTube: своя видеоплатформа (аналог YouTube) на своём сервере"
-description: "PeerTube — open-source видеоплатформа (аналог YouTube): загрузка и хостинг видео, каналы, подписки, плейлисты, встраивание плеера, трансляции. Канал не заблокируют и не урежут алгоритмом, контент у вас — разверну под ключ."
+description: "PeerTube — open-source видеоплатформа (аналог YouTube): загрузка и хостинг видео, каналы, подписки, плейлисты, встраивание плеера, трансляции."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/peertube-svoya-videoplatforma-2026/

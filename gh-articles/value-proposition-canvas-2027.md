@@ -1,6 +1,6 @@
 ---
 title: "Value Proposition Canvas: карта ценностного предложения простыми словами"
-description: "Value Proposition Canvas простыми словами: как состыковать то, что вы предлагаете (продукты, обезболивающие, создатели выгод), с тем, что реально нужно клиенту (задачи, боли, выгоды). Дополнение к Business Model Canvas именно для проверки продукта."
+description: "Value Proposition Canvas простыми словами: как состыковать продукт с задачами, болями и выгодами клиента. Дополнение к Business Model Canvas."
 date: 2026-07-03
 category: biznes-krugozor
 canonical: https://chimitdorzhi.tech/blog/value-proposition-canvas-2027/

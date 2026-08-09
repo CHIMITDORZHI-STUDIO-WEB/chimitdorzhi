@@ -1,6 +1,6 @@
 ---
 title: "Matomo: веб-аналитика, полный аналог Google Analytics на своём сервере"
-description: "Matomo — open-source веб-аналитика, полный аналог Google Analytics: посещаемость, источники, цели, карты кликов, без передачи данных Google. Данные у себя по 152-ФЗ, контроль — разверну на вашем сервере под ключ."
+description: "Matomo — open-source веб-аналитика, полный аналог Google Analytics: посещаемость, источники, цели, карты кликов, без передачи данных Google."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/matomo-veb-analitika-2026/

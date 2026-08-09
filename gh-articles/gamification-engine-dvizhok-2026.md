@@ -1,6 +1,6 @@
 ---
 title: "Gamification Engine: движок игровых механик для продукта"
-description: "Gamification Engine — open-source движок геймификации: баллы, бейджи, рейтинги, достижения, уровни, правила начисления — через API встраивается в приложение, сайт или бота. Игровые механики без разработки с нуля — встрою под ключ."
+description: "Gamification Engine — open-source движок геймификации: баллы, бейджи, рейтинги, достижения, уровни, правила начисления."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/gamification-engine-dvizhok-2026/

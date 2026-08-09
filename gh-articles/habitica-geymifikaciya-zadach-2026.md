@@ -1,6 +1,6 @@
 ---
 title: "Habitica: геймификация задач и мотивации команды на своём сервере"
-description: "Habitica — open-source геймифицированный трекер задач и привычек (в стиле RPG): опыт, уровни, награды, гильдии, командные квесты. Геймификация продуктивности и мотивация команды на своём сервере — разверну под ключ."
+description: "Habitica — open-source геймифицированный трекер задач и привычек (в стиле RPG): опыт, уровни, награды, гильдии, командные квесты."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/habitica-geymifikaciya-zadach-2026/

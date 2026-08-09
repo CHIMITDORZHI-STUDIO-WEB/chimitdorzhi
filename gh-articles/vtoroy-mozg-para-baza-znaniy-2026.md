@@ -1,6 +1,6 @@
 ---
 title: "«Второй мозг»: личная база знаний по системе PARA"
-description: "«Второй мозг» простыми словами: концепция Тиаго Форте, метод CODE и система PARA (Projects, Areas, Resources, Archives), инструменты Notion и Obsidian, как не превратить базу в свалку и связь с ИИ-поиском."
+description: "«Второй мозг» простыми словами: концепция Тиаго Форте, метод CODE и система PARA (Projects, Areas, Resources, Archives), инструменты Notion и Obsidian."
 date: 2026-06-17
 category: biznes-krugozor
 canonical: https://chimitdorzhi.tech/blog/vtoroy-mozg-para-baza-znaniy-2026/

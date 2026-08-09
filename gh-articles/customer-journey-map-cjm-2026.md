@@ -1,6 +1,6 @@
 ---
 title: "Customer Journey Map: карта пути клиента простыми словами"
-description: "Customer Journey Map (CJM) простыми словами: визуализация пути клиента от осознания потребности до повторной покупки, точки контакта, эмоции и барьеры. Как построить карту по шагам и найти, где теряются клиенты и деньги."
+description: "Customer Journey Map (CJM) простыми словами: визуализация пути клиента от осознания потребности до повторной покупки, точки контакта, эмоции и барьеры."
 date: 2026-06-17
 category: biznes-krugozor
 canonical: https://chimitdorzhi.tech/blog/customer-journey-map-cjm-2026/

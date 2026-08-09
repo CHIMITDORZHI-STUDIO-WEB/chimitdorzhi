@@ -1,6 +1,6 @@
 ---
 title: "OpenCart: интернет-магазин на своём сервере без комиссий"
-description: "OpenCart — популярная open-source CMS для интернет-магазина: каталог, корзина, заказы, оплата, модули и темы. Готовый магазин без комиссий с продаж, данные у себя — разверну на вашем сервере под ключ."
+description: "OpenCart — популярная open-source CMS для интернет-магазина: каталог, корзина, заказы, оплата, модули и темы."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/opencart-internet-magazin-2026/

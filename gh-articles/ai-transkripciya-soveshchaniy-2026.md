@@ -1,6 +1,6 @@
 ---
 title: "Whisper + GPT для транскрипции совещаний 2026: AI-ассистент для встреч"
-description: "Практик о том, как поднять AI-ассистент для встреч за выходные: Whisper, диаризация, саммари через Claude/GPT/YandexGPT, интеграция с Notion/Trello/Telegram. Юр-нюансы РФ, реальный кейс автора."
+description: "Практик о том, как поднять AI-ассистент для встреч за выходные: Whisper, диаризация, саммари через Claude/GPT/YandexGPT."
 date: 2026-05-20
 category: ai-life
 canonical: https://chimitdorzhi.tech/blog/ai-transkripciya-soveshchaniy-2026/

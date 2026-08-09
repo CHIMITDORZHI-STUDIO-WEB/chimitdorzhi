@@ -1,6 +1,6 @@
 ---
 title: "Novu: единый центр уведомлений (email, SMS, push) на своём сервере"
-description: "Novu — open-source инфраструктура уведомлений: единое управление оповещениями по всем каналам (email, SMS, push, мессенджеры) из одного места, шаблоны, рабочие процессы, настройки пользователя. Уведомления клиентам без хаоса — внедрю под ключ."
+description: "Novu — open-source инфраструктура уведомлений: единое управление оповещениями по всем каналам (email, SMS, push, мессенджеры) из одного места, шаблоны."
 date: 2026-06-16
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/novu-centr-uvedomleniy-2026/

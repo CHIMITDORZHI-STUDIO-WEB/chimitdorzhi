@@ -1,6 +1,6 @@
 ---
 title: "GigaChat vs YandexGPT vs ChatGPT: что выбрать бизнесу в РФ в 2026"
-description: "GigaChat vs YandexGPT vs ChatGPT для бизнеса в РФ в 2026: сравнение по юрисдикции данных и 152-ФЗ, оплате, качеству на русском, цене API и интеграциям. Российские модели против OpenAI. Кому что подходит. Объективно."
+description: "GigaChat vs YandexGPT vs ChatGPT для бизнеса в РФ в 2026: сравнение по юрисдикции данных и 152-ФЗ, оплате, качеству на русском, цене API и интеграциям."
 date: 2026-06-19
 category: ai-dev
 canonical: https://chimitdorzhi.tech/blog/gigachat-vs-yandexgpt-vs-chatgpt-2026/

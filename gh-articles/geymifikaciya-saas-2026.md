@@ -1,6 +1,6 @@
 ---
 title: "Геймификация SaaS-продукта 2026: 7 механик которые поднимают retention в 2 раза"
-description: "Полный гайд по геймификации SaaS 2026: 7 рабочих механик (streaks, progress bars, leaderboards, badges, variable rewards, quests, social proof) с рабочим кодом (SQL, React, Node.js), кейсы Duolingo, Strava, Notion, российские примеры (Тинькофф Pulse, Я.Музыка, Skyeng), пошаговое внедрение за 4 недели, метрики и unit-экономика."
+description: "Полный гайд по геймификации SaaS 2026: 7 рабочих механик (streaks, progress bars, leaderboards, badges, variable rewards, quests."
 date: 2026-05-25
 category: sales
 canonical: https://chimitdorzhi.tech/blog/geymifikaciya-saas-2026/

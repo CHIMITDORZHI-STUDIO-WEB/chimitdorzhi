@@ -1,6 +1,6 @@
 ---
 title: "Budibase: low-code конструктор внутренних приложений на своём сервере"
-description: "Budibase — open-source low-code платформа: формы, таблицы, админ-панели и CRUD-интерфейсы поверх ваших данных, без полноценной разработки. Внутренние инструменты вместо зоопарка Excel, данные у себя — соберу под ключ."
+description: "Budibase — open-source low-code платформа: формы, таблицы, админ-панели и CRUD-интерфейсы поверх ваших данных, без полноценной разработки."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/budibase-vnutrennie-prilozheniya-2026/

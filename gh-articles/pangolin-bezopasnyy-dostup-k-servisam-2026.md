@@ -1,6 +1,6 @@
 ---
 title: "Pangolin: безопасный доступ к внутренним сервисам без проброса портов"
-description: "Pangolin — open-source self-hosted туннель и reverse proxy: безопасный доступ к внутренним сервисам без проброса портов и без белого IP. Своя альтернатива Cloudflare Tunnel, трафик под вашим контролем (152-ФЗ). WireGuard, SSL, авторизация. Разверну под ключ."
+description: "Pangolin — open-source self-hosted туннель и reverse proxy: безопасный доступ к внутренним сервисам без проброса портов и без белого IP."
 date: 2026-06-14
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/pangolin-bezopasnyy-dostup-k-servisam-2026/

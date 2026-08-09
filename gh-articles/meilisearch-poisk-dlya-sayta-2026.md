@@ -1,6 +1,6 @@
 ---
 title: "Meilisearch: быстрый поиск для сайта и каталога на своём сервере"
-description: "Meilisearch — open-source движок быстрого поиска (аналог Algolia): мгновенный поиск с опечатками, фильтры, ранжирование для сайта, каталога и магазина. Без подписки, данные у себя — внедрю под ключ."
+description: "Meilisearch — open-source движок быстрого поиска (аналог Algolia): мгновенный поиск с опечатками, фильтры, ранжирование для сайта, каталога и магазина."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/meilisearch-poisk-dlya-sayta-2026/

@@ -1,6 +1,6 @@
 ---
 title: "Bitwarden и Vaultwarden: менеджер паролей для команды на своём сервере"
-description: "Bitwarden (и лёгкий сервер Vaultwarden) — open-source менеджер паролей для команды: шифрование, общие хранилища, расширения и приложения. Импортозамещение 1Password/LastPass, данные у себя по 152-ФЗ — разверну под ключ."
+description: "Bitwarden (и лёгкий сервер Vaultwarden) — open-source менеджер паролей для команды: шифрование, общие хранилища, расширения и приложения."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/bitwarden-menedzher-paroley-2026/

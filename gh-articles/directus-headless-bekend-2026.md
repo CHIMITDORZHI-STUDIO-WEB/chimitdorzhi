@@ -1,6 +1,6 @@
 ---
 title: "Directus: CMS и API поверх вашей базы данных"
-description: "Directus превращает вашу SQL-базу в удобную админку и готовый API за минуты: контент, данные, интеграции для сайта и приложения. Кому подходит headless-подход и как внедрить."
+description: "Directus делает из SQL-базы удобную админку и готовый API за минуты: контент, данные, интеграции для сайта. Кому подходит headless-подход."
 date: 2026-07-31
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/directus-headless-bekend-2026/
