@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1393**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1396**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -659,6 +659,7 @@
 
 ## Маркетинг
 
+- [Wi-Fi-аналитика по MAC больше не работает: почему коробки завышают трафик](./wifi-analitika-mac-ne-rabotaet-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/wifi-analitika-mac-ne-rabotaet-2026/)
 - [SEO-продвижение сайта в 2026: что реально работает](./seo-prodvizhenie-sayta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/seo-prodvizhenie-sayta-2026/)
 - [Продвижение на Авито: как поднять объявления в 2026](./prodvizhenie-na-avito-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/prodvizhenie-na-avito-2026/)
 - [Авито для бизнеса: магазин, доставка и автоответы](./avito-dlya-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avito-dlya-biznesa-2026/)
@@ -758,6 +759,8 @@
 
 ## Отрасли
 
+- [Аналитика офлайн-трафика: как считать посетителей и превращать в выручку](./analitika-oflayn-trafika-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/analitika-oflayn-trafika-2026/)
+- [IT для фитнес-клуба: удержание, загрузка залов и аналитика без слежки](./it-dlya-fitnes-kluba-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/it-dlya-fitnes-kluba-2026/)
 - [Чаевые по QR в кафе и ресторане: как внедрить, чтобы официанты реально получали](./chaevye-po-qr-v-kafe-i-restorane-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chaevye-po-qr-v-kafe-i-restorane-2026/)
 - [Чаевые по QR в салоне красоты и барбершопе: мастеру, а не в общую кассу](./chaevye-po-qr-v-salone-i-barbershope-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chaevye-po-qr-v-salone-i-barbershope-2026/)
 - [QR-табличка для чаевых: что напечатать, где поставить и почему её не сканируют](./qr-tablichka-dlya-chaevyh-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/qr-tablichka-dlya-chaevyh-2026/)
