@@ -1514,6 +1514,24 @@ function autolinkServices(html, selfUrl) {
   return parts.join('');
 }
 
+// Юридическая пометка: Meta признана экстремистской и запрещена в РФ.
+// Штрафы по ст. 13.15 КоАП за упоминание без пометки. Добавляется
+// автоматически в конце статьи, если упомянута компания Meta или её
+// соцсети Facebook / Instagram.
+function metaDisclaimer(html) {
+  const s = html || '';
+  const mentionsMeta = /(^|[^0-9A-Za-zА-Яа-я])Meta([^0-9A-Za-zА-Яа-я]|$)/.test(s);
+  const mentionsNet = /instagram|инстаграм|facebook|фейсбук/i.test(s);
+  if (!mentionsMeta && !mentionsNet) return '';
+  const what = mentionsNet
+    ? 'Instagram и Facebook принадлежат компании Meta, которая'
+    : 'Meta —';
+  return `
+                    <aside class="blog-legal-note" role="note">
+                        <p><strong>Важно.</strong> ${what} признана в России экстремистской организацией, её деятельность на территории Российской Федерации запрещена.</p>
+                    </aside>`;
+}
+
 function articlePage(a, published) {
   const url = `${SITE}/blog/${a.slug}/`;
   const cat = CATEGORY_LABELS[a.category] || 'Блог';
@@ -1561,6 +1579,7 @@ ${faqLd(a)}${howToLd(a)}${itemListLd(a)}${METRIKA}</head>
                     <div class="blog-body">
                         ${bodyHtml}
                     </div>
+                    ${metaDisclaimer(a.contentHtml)}
 
                     ${repoBlockHtml(a)}
                     ${seriesHtml(a, published)}
