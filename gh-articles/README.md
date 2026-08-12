@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1398**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1399**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -38,6 +38,7 @@
 
 - [ИИ-агент на вашем компьютере: автоматизация рутины без облака](./ii-agent-na-svoem-pk-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-agent-na-svoem-pk-2026/)
 - [Задачи по расписанию для бизнеса: что можно поручить ИИ-агенту](./ii-agent-zadachi-po-raspisaniyu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-agent-zadachi-po-raspisaniyu-2026/)
+- [Muse Glimmer: агентная ИИ-модель, которая влезает на обычный ПК](./muse-glimmer-agentnaya-model-lokalno-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/muse-glimmer-agentnaya-model-lokalno-2026/)
 - [Память ИИ-агента: чтобы бот не забывал клиента после каждого разговора](./pamyat-ii-agentov-mezhdu-sessiyami-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pamyat-ii-agentov-mezhdu-sessiyami-2026/)
 - [Бот с базой знаний (RAG): отвечает по вашим документам](./bot-s-bazoy-znaniy-rag-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bot-s-bazoy-znaniy-rag-2026/)
 - [ИИ-прогноз спроса и продаж: не морозить деньги в товаре](./ii-prognoz-sprosa-prodazh-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-prognoz-sprosa-prodazh-2026/)
