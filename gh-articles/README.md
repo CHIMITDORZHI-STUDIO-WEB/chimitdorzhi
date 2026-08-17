@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1401**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1408**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -108,6 +108,13 @@
 
 ## cases
 
+- [Онлайн-запись для салона красоты: кейс автоматизации записи](./onlayn-zapis-salon-krasoty-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/onlayn-zapis-salon-krasoty-keys-2026/)
+- [Ежедневник с голосовым вводом: кейс планировщика, который слушает](./golosovoy-ezhednevnik-planer-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/golosovoy-ezhednevnik-planer-keys-2026/)
+- [Софт для заполнения ВЭД-документов: кейс автозаполнения деклараций](./soft-zapolnenie-ved-deklaraciy-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/soft-zapolnenie-ved-deklaraciy-keys-2026/)
+- [Сервис OCR и расшифровки аудио: кейс распознавания без облака](./ocr-transkribaciya-servis-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ocr-transkribaciya-servis-keys-2026/)
+- [Интерактивная карта расселения народа: кейс данные на карте](./karta-rasseleniya-naroda-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/karta-rasseleniya-naroda-keys-2026/)
+- [WebAR-экскурсия для туризма: кейс дополненной реальности в браузере](./webar-ekskursiya-turizm-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/webar-ekskursiya-turizm-keys-2026/)
+- [Русификация головного устройства авто: кейс перевода интерфейса](./rusifikaciya-golovnogo-ustroystva-avto-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/rusifikaciya-golovnogo-ustroystva-avto-keys-2026/)
 - [Сайт и админка для сети кофеен самообслуживания «Горячий момент»](./goryachiy-moment-sayt-kofeen-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/goryachiy-moment-sayt-kofeen-keys-2026/)
 - [ИИ-проверка кодов ТН ВЭД: фура из 50 000 посылок за минуты](./ved-checker-proverka-tnved-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ved-checker-proverka-tnved-keys-2026/)
 - [X&X Dating: сервис знакомств с проверкой родства в Telegram](./xx-dating-znakomstva-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/xx-dating-znakomstva-keys-2026/)
