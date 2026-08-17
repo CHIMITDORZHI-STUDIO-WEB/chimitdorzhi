@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1408**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1420**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -36,6 +36,8 @@
 
 ## AI для разработчиков
 
+- [Сколько стоит ИИ-агент для продаж: из чего складывается цена](./skolko-stoit-ai-agent-dlya-prodazh-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-stoit-ai-agent-dlya-prodazh-2026/)
+- [ИИ под ключ или по абонементу: какая модель оплаты выгоднее](./ii-pod-klyuch-ili-abonement-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-pod-klyuch-ili-abonement-2026/)
 - [ИИ-агент на вашем компьютере: автоматизация рутины без облака](./ii-agent-na-svoem-pk-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-agent-na-svoem-pk-2026/)
 - [Задачи по расписанию для бизнеса: что можно поручить ИИ-агенту](./ii-agent-zadachi-po-raspisaniyu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-agent-zadachi-po-raspisaniyu-2026/)
 - [Muse Glimmer: агентная ИИ-модель, которая влезает на обычный ПК](./muse-glimmer-agentnaya-model-lokalno-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/muse-glimmer-agentnaya-model-lokalno-2026/)
@@ -212,6 +214,7 @@
 
 ## Open-source и свой сервер
 
+- [Open-source для импортозамещения: чем заменить платный софт](./open-source-dlya-importozameshcheniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/open-source-dlya-importozameshcheniya-2026/)
 - [Учёт небольшого автопарка без дорогих систем мониторинга](./uchet-nebolshogo-avtoparka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uchet-nebolshogo-avtoparka-2026/)
 - [Свой сервер учёта авто против мобильных приложений](./svoy-server-ucheta-avto-vs-prilozheniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/svoy-server-ucheta-avto-vs-prilozheniya-2026/)
 - [Moondream: ИИ, который видит картинки, на ноутбуке без интернета](./moondream-vision-model-na-noutbuke-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/moondream-vision-model-na-noutbuke-2026/)
@@ -671,6 +674,10 @@
 
 ## Маркетинг
 
+- [Социальный контракт на своё дело: как получить и на что потратить](./socialnyy-kontrakt-svoe-delo-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/socialnyy-kontrakt-svoe-delo-2026/)
+- [Грант начинающему предпринимателю 2026: кому дают и как оформить](./grant-nachinayushchemu-predprinimatelyu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/grant-nachinayushchemu-predprinimatelyu-2026/)
+- [Субсидии фермерам 2026: агростартап и семейная ферма](./subsidii-fermeram-agrostartap-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/subsidii-fermeram-agrostartap-2026/)
+- [Как включить сайт и автоматизацию в заявку на грант](./cifrovizaciya-pod-grant-zayavka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/cifrovizaciya-pod-grant-zayavka-2026/)
 - [Wi-Fi-аналитика по MAC больше не работает: почему коробки завышают трафик](./wifi-analitika-mac-ne-rabotaet-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/wifi-analitika-mac-ne-rabotaet-2026/)
 - [SEO-продвижение сайта в 2026: что реально работает](./seo-prodvizhenie-sayta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/seo-prodvizhenie-sayta-2026/)
 - [Продвижение на Авито: как поднять объявления в 2026](./prodvizhenie-na-avito-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/prodvizhenie-na-avito-2026/)
@@ -771,6 +778,8 @@
 
 ## Отрасли
 
+- [Чаевые по QR в отеле: горничным и персоналу без наличных](./chaevye-po-qr-v-otele-gornichnym-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chaevye-po-qr-v-otele-gornichnym-2026/)
+- [Как справедливо распределять чаевые между сотрудниками](./raspredelenie-chaevyh-mezhdu-sotrudnikami-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/raspredelenie-chaevyh-mezhdu-sotrudnikami-2026/)
 - [Аналитика офлайн-трафика: как считать посетителей и превращать в выручку](./analitika-oflayn-trafika-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/analitika-oflayn-trafika-2026/)
 - [IT для фитнес-клуба: удержание, загрузка залов и аналитика без слежки](./it-dlya-fitnes-kluba-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/it-dlya-fitnes-kluba-2026/)
 - [Чаевые по QR в кафе и ресторане: как внедрить, чтобы официанты реально получали](./chaevye-po-qr-v-kafe-i-restorane-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chaevye-po-qr-v-kafe-i-restorane-2026/)
@@ -1105,6 +1114,9 @@
 
 ## Разработка
 
+- [Сколько стоит разработка ПО на заказ и от чего зависит цена](./skolko-stoit-razrabotka-po-na-zakaz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-stoit-razrabotka-po-na-zakaz-2026/)
+- [Чем заменить Microsoft Office: российские и open-source офисы](./importozameshchenie-ofisnogo-paketa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/importozameshchenie-ofisnogo-paketa-2026/)
+- [Импортозамещение CRM: чем заменить зарубежную систему](./importozameshchenie-crm-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/importozameshchenie-crm-2026/)
 - [MAX для бизнеса: всё о ботах, мини-аппах и продвижении в мессенджере](./max-messendzher-dlya-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/max-messendzher-dlya-biznesa-2026/)
 - [Студия из одного человека: как ИИ-агенты заменили мне команду](./studiya-iz-odnogo-cheloveka-ai-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/studiya-iz-odnogo-cheloveka-ai-2026/)
 - [Почему я беру заказы, за которые студии просят в разы дороже](./pochemu-beru-deshevle-studiy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pochemu-beru-deshevle-studiy-2026/)
