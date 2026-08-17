@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1420**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1421**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -38,6 +38,7 @@
 
 - [Сколько стоит ИИ-агент для продаж: из чего складывается цена](./skolko-stoit-ai-agent-dlya-prodazh-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-stoit-ai-agent-dlya-prodazh-2026/)
 - [ИИ под ключ или по абонементу: какая модель оплаты выгоднее](./ii-pod-klyuch-ili-abonement-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-pod-klyuch-ili-abonement-2026/)
+- [ИИ-агент на n8n: связать нейросеть с мессенджерами и CRM без кода](./ai-agent-na-n8n-messendzhery-crm-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ai-agent-na-n8n-messendzhery-crm-2026/)
 - [ИИ-агент на вашем компьютере: автоматизация рутины без облака](./ii-agent-na-svoem-pk-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-agent-na-svoem-pk-2026/)
 - [Задачи по расписанию для бизнеса: что можно поручить ИИ-агенту](./ii-agent-zadachi-po-raspisaniyu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-agent-zadachi-po-raspisaniyu-2026/)
 - [Muse Glimmer: агентная ИИ-модель, которая влезает на обычный ПК](./muse-glimmer-agentnaya-model-lokalno-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/muse-glimmer-agentnaya-model-lokalno-2026/)
