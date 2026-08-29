@@ -308,9 +308,11 @@ document.addEventListener('DOMContentLoaded', () => {
     h+=n('/services/','ph-stack','Все услуги',false);
     h+=n('/blog/','ph-newspaper','Блог',false);
   }
-  h+='<div class="wx-grp">Связь</div>';
-  h+=n('https://t.me/chimitdorzhi','ph-telegram-logo','Telegram',false,true);
-  h+=n('https://vk.com/chimitdorzhi','ph-chat-circle-dots','ВКонтакте',false,true);
+  h+='<div class="wx-sp"></div><div class="wx-social">'
+    +'<a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" aria-label="Telegram"><i class="ph-fill ph-telegram-logo"></i></a>'
+    +'<a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" aria-label="ВКонтакте"><i class="ph-fill ph-chat-circle-dots"></i></a>'
+    +'<a href="/#contact" aria-label="Контакт"><i class="ph-fill ph-phone"></i></a>'
+    +'</div>';
   var aside=document.createElement('aside');
   aside.className='wx-rail'; aside.setAttribute('aria-label','Разделы сайта'); aside.innerHTML=h;
   document.body.insertBefore(aside, document.body.firstChild);
