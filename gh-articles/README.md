@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1421**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1429**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -675,6 +675,10 @@
 
 ## Маркетинг
 
+- [Истории (сторис) в MAX: как использовать для бизнеса](./istorii-storis-v-max-dlya-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/istorii-storis-v-max-dlya-biznesa-2026/)
+- [Прямые эфиры и стримы в MAX: как проводить и зачем бизнесу](./strimy-efiry-v-max-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/strimy-efiry-v-max-2026/)
+- [Комментарии в каналах MAX: как включить и зачем бизнесу](./kommentarii-v-kanalah-max-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kommentarii-v-kanalah-max-2026/)
+- [Опросы в MAX: как собирать мнение аудитории и лиды](./oprosy-v-max-dlya-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/oprosy-v-max-dlya-biznesa-2026/)
 - [Социальный контракт на своё дело: как получить и на что потратить](./socialnyy-kontrakt-svoe-delo-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/socialnyy-kontrakt-svoe-delo-2026/)
 - [Грант начинающему предпринимателю 2026: кому дают и как оформить](./grant-nachinayushchemu-predprinimatelyu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/grant-nachinayushchemu-predprinimatelyu-2026/)
 - [Субсидии фермерам 2026: агростартап и семейная ферма](./subsidii-fermeram-agrostartap-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/subsidii-fermeram-agrostartap-2026/)
@@ -1115,6 +1119,10 @@
 
 ## Разработка
 
+- [Что нового в MAX в 2026: истории, комментарии, стримы и другое](./chto-novogo-v-max-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chto-novogo-v-max-2026/)
+- [Бизнес-аккаунт в MAX: что даёт и как оформить](./biznes-akkaunt-v-max-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/biznes-akkaunt-v-max-2026/)
+- [Интеграция MAX с CRM: заявки из мессенджера сразу в систему](./integraciya-max-s-crm-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/integraciya-max-s-crm-2026/)
+- [Как установить MAX без Google Play: рабочие способы 2026](./kak-ustanovit-max-bez-google-play-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-ustanovit-max-bez-google-play-2026/)
 - [Сколько стоит разработка ПО на заказ и от чего зависит цена](./skolko-stoit-razrabotka-po-na-zakaz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-stoit-razrabotka-po-na-zakaz-2026/)
 - [Чем заменить Microsoft Office: российские и open-source офисы](./importozameshchenie-ofisnogo-paketa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/importozameshchenie-ofisnogo-paketa-2026/)
 - [Импортозамещение CRM: чем заменить зарубежную систему](./importozameshchenie-crm-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/importozameshchenie-crm-2026/)
