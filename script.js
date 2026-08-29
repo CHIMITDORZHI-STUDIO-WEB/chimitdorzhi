@@ -283,6 +283,7 @@ document.addEventListener('DOMContentLoaded', () => {
   var isBlog = s0==='blog' && !isArticle;
   var isServices = s0==='services';
   var isOffers = s0==='market' || s0==='predlozheniya';
+  if(isArticle){ document.body.classList.add('wx-read'); return; } /* статья: новый стиль без сайдбара */
   if(!(isBlog||isServices||isOffers)) return;
   function n(href,ic,label,on,ext){return '<a href="'+href+'"'+(ext?' target="_blank" rel="noopener"':'')+' class="wx-nav'+(on?' on':'')+'"><i class="ph-fill '+ic+'" aria-hidden="true"></i> '+label+'</a>';}
   var h='<a href="/" class="wx-logo"><img src="/logo-wordmark.png" alt="Chimitdorzhi Studio"></a>';
