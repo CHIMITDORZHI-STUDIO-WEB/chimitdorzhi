@@ -318,3 +318,24 @@ document.addEventListener('DOMContentLoaded', () => {
   document.body.insertBefore(aside, document.body.firstChild);
   document.body.classList.add('wx-shell');
 })();
+
+/* ===== Услуги: липкий фильтр по направлениям ===== */
+(function(){
+  var seg=location.pathname.replace(/^\/+|\/+$/g,'').split('/').filter(Boolean);
+  if(!(seg[0]==='services' && seg.length===1)) return;
+  var secs=[].slice.call(document.querySelectorAll('section.section-tight')).filter(function(s){return s.querySelector('.services-grid');});
+  if(secs.length<2) return;
+  var bar=document.createElement('div'); bar.className='svc-filter';
+  var html='<button class="svc-chip on" data-i="-1"><i class="ph ph-squares-four"></i> Все</button>';
+  secs.forEach(function(s,i){ var lab=s.querySelector('.section-label'); var t=lab?lab.textContent.trim():('Раздел '+(i+1));
+    var n=s.querySelectorAll('.svc-card').length;
+    html+='<button class="svc-chip" data-i="'+i+'">'+t+' <span class="svc-cnt">'+n+'</span></button>'; });
+  bar.innerHTML=html;
+  secs[0].parentNode.insertBefore(bar, secs[0]);
+  bar.addEventListener('click', function(e){ var b=e.target.closest('.svc-chip'); if(!b) return;
+    bar.querySelectorAll('.svc-chip').forEach(function(x){ x.classList.toggle('on', x===b); });
+    var idx=parseInt(b.dataset.i,10);
+    secs.forEach(function(s,i){ s.style.display=(idx<0||i===idx)?'':'none'; });
+    var y=bar.getBoundingClientRect().top+window.scrollY-90; window.scrollTo({top:y,behavior:'smooth'});
+  });
+})();
