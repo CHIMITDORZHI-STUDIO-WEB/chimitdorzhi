@@ -29,6 +29,7 @@ const staticPages = [
   `https://${HOST}/about/`,
   `https://${HOST}/services/`,
   `https://${HOST}/blog/`,
+  `https://${HOST}/cases/`,
   `https://${HOST}/slovar/`,
   `https://${HOST}/mwrlife/`,
   `https://${HOST}/accessibility/`,
