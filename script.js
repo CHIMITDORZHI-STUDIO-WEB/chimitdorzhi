@@ -283,14 +283,15 @@ document.addEventListener('DOMContentLoaded', () => {
   var isBlog = s0==='blog' && !isArticle;
   var isServices = s0==='services';
   var isOffers = s0==='market' || s0==='predlozheniya';
+  var isCases = s0==='cases';
   if(isArticle){ document.body.classList.add('wx-read'); return; } /* статья: новый стиль без сайдбара */
-  if(!(isBlog||isServices||isOffers)) return;
+  if(!(isBlog||isServices||isOffers||isCases)) return;
   function n(href,ic,label,on,ext){return '<a href="'+href+'"'+(ext?' target="_blank" rel="noopener"':'')+' class="wx-nav'+(on?' on':'')+'"><i class="ph-fill '+ic+'" aria-hidden="true"></i> '+label+'</a>';}
   var h='<a href="/" class="wx-logo"><img src="/logo-wordmark.png" alt="Chimitdorzhi Studio"></a>';
   h+='<button type="button" class="wx-search js-search-open" aria-label="Поиск"><i class="ph ph-magnifying-glass"></i> <span>Поиск…</span></button>';
   h+=n('/','ph-squares-four','Главная',false);
   h+=n('/services/','ph-stack','Услуги',isServices);
-  h+=n('/blog/category/cases/','ph-briefcase','Кейсы',false);
+  h+=n('/cases/','ph-briefcase','Кейсы',isCases);
   h+=n('/blog/','ph-newspaper','Блог',isBlog);
   h+=n('/market/','ph-gift','Предложения',isOffers);
   if(isBlog){
@@ -298,7 +299,7 @@ document.addEventListener('DOMContentLoaded', () => {
     h+=n('/blog/category/development/','ph-code','Разработка',false);
     h+=n('/blog/category/ai-dev/','ph-brain','Внедрение ИИ',false);
     h+=n('/blog/category/legal/','ph-shield-check','152-ФЗ',false);
-    h+=n('/blog/category/cases/','ph-briefcase','Кейсы',false);
+    h+=n('/cases/','ph-briefcase','Кейсы',false);
     h+=n('/blog/category/marketing/','ph-megaphone','Маркетинг',false);
   } else if(isServices){
     h+='<div class="wx-grp">Направления</div>';
@@ -310,6 +311,12 @@ document.addEventListener('DOMContentLoaded', () => {
     h+='<div class="wx-grp">Разделы</div>';
     h+=n('/services/','ph-stack','Все услуги',false);
     h+=n('/blog/','ph-newspaper','Блог',false);
+  } else if(isCases){
+    h+='<div class="wx-grp">Направления</div>';
+    h+=n('/services/web-development/','ph-browser','Сайты и боты',false);
+    h+=n('/services/ai-agents/','ph-brain','Внедрение ИИ',false);
+    h+=n('/services/business-automation/','ph-gear','Автоматизация',false);
+    h+=n('/services/','ph-stack','Все услуги',false);
   }
   h+='<div class="wx-cta"><div class="wx-cta-top"><span class="wx-cta-dot"></span> На связи · отвечаю за час</div><div class="wx-cta-title">Есть задача?</div><a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="wx-cta-btn"><i class="ph-fill ph-telegram-logo"></i> Обсудить</a></div>';
   h+='<div class="wx-sp"></div><div class="wx-social">'
@@ -342,6 +349,17 @@ document.addEventListener('DOMContentLoaded', () => {
     var idx=parseInt(b.dataset.i,10);
     secs.forEach(function(s,i){ s.style.display=(idx<0||i===idx)?'':'none'; });
     var y=bar.getBoundingClientRect().top+window.scrollY-90; window.scrollTo({top:y,behavior:'smooth'});
+  });
+})();
+
+/* ===== Кейсы: фильтр карточек по направлению ===== */
+(function(){
+  var bar=document.getElementById('pfFilter'); if(!bar) return;
+  var cards=[].slice.call(document.querySelectorAll('.pf-card'));
+  bar.addEventListener('click', function(e){ var b=e.target.closest('.svc-chip'); if(!b) return;
+    bar.querySelectorAll('.svc-chip').forEach(function(x){ x.classList.toggle('on', x===b); });
+    var k=b.dataset.pf;
+    cards.forEach(function(c){ c.hidden=(k!=='all' && c.dataset.type!==k); });
   });
 })();
 

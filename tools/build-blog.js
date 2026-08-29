@@ -664,6 +664,8 @@ function footer() {
             <div class="footer-links">
                 <a href="/about/" class="footer-policy-link">Об авторе</a>
                 <span class="footer-legal-sep"> · </span>
+                <a href="/cases/" class="footer-policy-link">Кейсы</a>
+                <span class="footer-legal-sep"> · </span>
                 <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
                 <span class="footer-legal-sep"> · </span>
                 <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
@@ -2070,6 +2072,113 @@ const CATEGORY_META = {
   },
 };
 
+// ---------- Портфолио /cases/ ----------
+function caseType(a) {
+  const s = `${a.title} ${(a.tags || []).join(' ')} ${a.slug}`.toLowerCase();
+  if (/маркетплейс|платформ|супер-?апп|экосистем|hub|портал/.test(s)) return { k: 'platform', l: 'Платформы' };
+  if (/\bai\b|\bии\b|нейросет|rag|ии-агент|gpt|распознав|ocr/.test(s)) return { k: 'ai', l: 'ИИ' };
+  if (/бот|мини-?апп|\bmax\b|макс|telegram|телеграм|вконтакте|\bvk\b/.test(s)) return { k: 'bot', l: 'Боты и мини-аппы' };
+  if (/сайт|лендинг|витрин|каталог|магазин|запис|карт/.test(s)) return { k: 'site', l: 'Сайты' };
+  return { k: 'other', l: 'Другое' };
+}
+function portfolioCard(a) {
+  const t = caseType(a);
+  const ex = (a.excerpt || '').replace(/\s+/g, ' ').trim();
+  return `<a href="/blog/${a.slug}/" class="pf-card" data-type="${t.k}">
+    <div class="pf-ic pf-${t.k}"><i class="${a.heroIcon || 'ph-fill ph-briefcase'}" aria-hidden="true"></i></div>
+    <span class="pf-type">${esc(t.l)}</span>
+    <h3>${esc(a.title)}</h3>
+    <p>${esc(ex.length > 130 ? ex.slice(0, 130) + '…' : ex)}</p>
+    <div class="pf-tags">${(a.tags || []).slice(0, 3).map(x => `<span>${esc(x)}</span>`).join('')}</div>
+    <span class="pf-link">Смотреть кейс <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+  </a>`;
+}
+function portfolioPage(published) {
+  const order = ['platform', 'site', 'bot', 'ai', 'other'];
+  const cases = published.filter(a => a.category === 'cases')
+    .sort((x, y) => {
+      const dx = order.indexOf(caseType(x).k), dy = order.indexOf(caseType(y).k);
+      if (dx !== dy) return dx - dy;
+      return (y.datePublished || '').localeCompare(x.datePublished || '');
+    });
+  const url = `${SITE}/cases/`;
+  const types = [];
+  const seen = new Set();
+  cases.forEach(a => { const t = caseType(a); if (!seen.has(t.k)) { seen.add(t.k); types.push(t); } });
+  types.sort((a, b) => order.indexOf(a.k) - order.indexOf(b.k));
+  const cnt = (k) => cases.filter(a => caseType(a).k === k).length;
+  const chips = `<button class="svc-chip on" data-pf="all"><i class="ph ph-squares-four" aria-hidden="true"></i> Все <span class="svc-cnt">${cases.length}</span></button>`
+    + types.map(t => `<button class="svc-chip" data-pf="${t.k}">${esc(t.l)} <span class="svc-cnt">${cnt(t.k)}</span></button>`).join('');
+  const ld = {
+    '@context': 'https://schema.org', '@type': 'CollectionPage',
+    name: 'Кейсы и проекты Чимитдоржи Дарижапова', url,
+    description: 'Портфолио реализованных IT-проектов: сайты, боты и мини-аппы, ИИ-решения и платформы под ключ.',
+    inLanguage: 'ru',
+    mainEntity: {
+      '@type': 'ItemList',
+      itemListElement: cases.map((a, i) => ({ '@type': 'ListItem', position: i + 1, url: `${SITE}/blog/${a.slug}/`, name: a.title })),
+    },
+  };
+  const breadcrumb = {
+    '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Главная', item: `${SITE}/` },
+      { '@type': 'ListItem', position: 2, name: 'Кейсы', item: url },
+    ],
+  };
+  return `${head({
+    title: 'Кейсы и проекты под ключ — портфолио | Чимитдоржи Дарижапов',
+    description: 'Портфолио: сайты, Telegram и MAX боты, мини-аппы, ИИ-решения и платформы под ключ. Реальные проекты с задачей, решением и результатом.',
+    keywords: 'кейсы, портфолио, проекты под ключ, разработка сайтов, боты MAX Telegram, внедрение ИИ, платформы',
+    canonical: url,
+  })}    <script type="application/ld+json">
+${JSON.stringify(ld, null, 2)}
+    </script>
+    <script type="application/ld+json">
+${JSON.stringify(breadcrumb, null, 2)}
+    </script>
+${METRIKA}</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    ${navbar()}
+
+    <main id="main">
+        <section class="section">
+            <div class="container">
+                <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                    <a href="/">Главная</a>
+                    <span class="breadcrumbs-sep">›</span>
+                    <span aria-current="page">Кейсы</span>
+                </nav>
+                <div class="section-header">
+                    <span class="section-label">ПОРТФОЛИО</span>
+                    <h1 class="section-heading">Кейсы под ключ</h1>
+                    <p class="section-sub">Реальные проекты: сайты, боты и мини-аппы, ИИ-решения и платформы. У каждого — задача, решение и результат. Выберите направление или смотрите все.</p>
+                </div>
+                <div class="svc-filter" id="pfFilter" role="group" aria-label="Фильтр кейсов">${chips}</div>
+                <div class="pf-grid">${cases.map(portfolioCard).join('\n')}</div>
+                <div class="pf-cta">
+                    <div>
+                        <h2>Нужен похожий проект?</h2>
+                        <p>Соберу сайт, бота, мини-апп, ИИ-решение или платформу под вашу задачу — под ключ, с прозрачной сметой.</p>
+                    </div>
+                    <div class="pf-cta-actions">
+                        <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Обсудить задачу</a>
+                        <a href="/services/" class="btn btn-ghost">Все услуги</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    ${footer()}
+</body>
+</html>`;
+}
+
 function categoryPage(key, catArticles) {
   const meta = CATEGORY_META[key];
   const label = CATEGORY_LABELS[key] || key;
@@ -2269,14 +2378,16 @@ function updateSitemap(published) {
   const today = new Date().toISOString().slice(0, 10);
   let xml = fs.readFileSync(OUT_SITEMAP, 'utf8');
 
-  // Strip any existing /blog/ entries (idempotent re-runs).
+  // Strip any existing /blog/ and /cases/ entries (idempotent re-runs).
   xml = xml.replace(/\s*<url>\s*<loc>https:\/\/chimitdorzhi\.tech\/blog[^<]*<\/loc>[\s\S]*?<\/url>/g, '');
+  xml = xml.replace(/\s*<url>\s*<loc>https:\/\/chimitdorzhi\.tech\/cases\/<\/loc>[\s\S]*?<\/url>/g, '');
 
   // Category pillar pages present
   const catKeys = Object.keys(CATEGORY_META).filter(k => published.some(p => p.category === k));
 
   // Build new entries
   const blogEntries = [
+    { loc: `${SITE}/cases/`, lastmod: today, freq: 'weekly', priority: '0.8' },
     { loc: `${SITE}/blog/`, lastmod: today, freq: 'weekly', priority: '0.8' },
     ...catKeys.map(k => ({
       loc: `${SITE}/blog/category/${k}/`,
@@ -2648,6 +2759,13 @@ async function main() {
   ensureDir(slovarDir);
   fs.writeFileSync(path.join(slovarDir, 'index.html'), glossaryPage(), 'utf8');
   console.log(`  Glossary: ${slovarDir}/index.html (${GLOSSARY.length} терминов)`);
+
+  // Портфолио /cases/
+  const casesDir = path.join(ROOT, 'cases');
+  ensureDir(casesDir);
+  fs.writeFileSync(path.join(casesDir, 'index.html'), subOffersCount(portfolioPage(published)), 'utf8');
+  const casesCount = published.filter(a => a.category === 'cases').length;
+  console.log(`  Portfolio: ${casesDir}/index.html (${casesCount} кейсов)`);
 
   // Category pillar pages
   let catPages = 0;
