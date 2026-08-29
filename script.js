@@ -272,3 +272,47 @@ document.addEventListener('DOMContentLoaded', () => {
         else if (/^tel:/i.test(h)) goal('lead_call');
     }, true);
 })();
+
+/* ===== WX shell: сайдбар на витринах (блог-список, рубрики, услуги, предложения). Статьи не трогаем. ===== */
+(function(){
+  if(document.querySelector('.wx-rail')) return; // главная уже с сайдбаром
+  var path=location.pathname.replace(/\/index\.html$/,'/');
+  var seg=path.replace(/^\/+|\/+$/g,'').split('/').filter(Boolean);
+  var s0=seg[0]||'';
+  var isArticle = s0==='blog' && seg.length===2 && ['category','page','tag'].indexOf(seg[1])<0;
+  var isBlog = s0==='blog' && !isArticle;
+  var isServices = s0==='services';
+  var isOffers = s0==='market' || s0==='predlozheniya';
+  if(!(isBlog||isServices||isOffers)) return;
+  function n(href,ic,label,on,ext){return '<a href="'+href+'"'+(ext?' target="_blank" rel="noopener"':'')+' class="wx-nav'+(on?' on':'')+'"><i class="ph-fill '+ic+'" aria-hidden="true"></i> '+label+'</a>';}
+  var h='<a href="/" class="wx-logo"><img src="/logo-wordmark.png" alt="Chimitdorzhi Studio"></a>';
+  h+=n('/','ph-squares-four','Главная',false);
+  h+=n('/services/','ph-stack','Услуги',isServices);
+  h+=n('/blog/','ph-newspaper','Блог',isBlog);
+  h+=n('/market/','ph-gift','Предложения',isOffers);
+  if(isBlog){
+    h+='<div class="wx-grp">Рубрики блога</div>';
+    h+=n('/blog/category/development/','ph-code','Разработка',false);
+    h+=n('/blog/category/ai-dev/','ph-brain','Внедрение ИИ',false);
+    h+=n('/blog/category/legal/','ph-shield-check','152-ФЗ',false);
+    h+=n('/blog/category/cases/','ph-briefcase','Кейсы',false);
+    h+=n('/blog/category/marketing/','ph-megaphone','Маркетинг',false);
+  } else if(isServices){
+    h+='<div class="wx-grp">Направления</div>';
+    h+=n('/services/web-development/','ph-browser','Сайты и боты',false);
+    h+=n('/services/ai-agents/','ph-brain','Внедрение ИИ',false);
+    h+=n('/services/business-automation/','ph-gear','Автоматизация',false);
+    h+=n('/services/cybersecurity/','ph-shield-check','152-ФЗ',false);
+  } else if(isOffers){
+    h+='<div class="wx-grp">Разделы</div>';
+    h+=n('/services/','ph-stack','Все услуги',false);
+    h+=n('/blog/','ph-newspaper','Блог',false);
+  }
+  h+='<div class="wx-grp">Связь</div>';
+  h+=n('https://t.me/chimitdorzhi','ph-telegram-logo','Telegram',false,true);
+  h+=n('https://vk.com/chimitdorzhi','ph-chat-circle-dots','ВКонтакте',false,true);
+  var aside=document.createElement('aside');
+  aside.className='wx-rail'; aside.setAttribute('aria-label','Разделы сайта'); aside.innerHTML=h;
+  document.body.insertBefore(aside, document.body.firstChild);
+  document.body.classList.add('wx-shell');
+})();
