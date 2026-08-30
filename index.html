@@ -1512,8 +1512,8 @@
   function size(){dpr=Math.min(window.devicePixelRatio||1,2);var r=cv.getBoundingClientRect();W=r.width||520;H=r.height||520;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);cx=W/2;cy=H/2;}
   size();window.addEventListener('resize',size);
   var TICKS=64;
-  var nodes=[{a:-0.5},{a:0.9},{a:2.1},{a:3.7}];
-  var NODE_LBL={ru:['Сайты','Боты','ИИ','152-ФЗ'],en:['Sites','Bots','AI','Privacy'],cn:['网站','机器人','AI','隐私'],mn:['Сайт','Бот','AI','Нууцлал']};
+  var nodes=[];for(var _i=0;_i<6;_i++)nodes.push({a:_i*(Math.PI*2/6)-Math.PI/2});
+  var NODE_LBL={ru:['Сайты','Боты','ИИ','CRM','Данные','152-ФЗ'],en:['Sites','Bots','AI','CRM','Data','Privacy'],cn:['网站','机器人','AI','CRM','数据','隐私'],mn:['Сайт','Бот','AI','CRM','Дата','Нууцлал']};
   function nodeLabels(){return NODE_LBL[localStorage.getItem('lang')||document.documentElement.getAttribute('data-lang')||'ru']||NODE_LBL.ru;}
   function frame(){
     var R=Math.min(W,H)*0.40, argb=A(), a2rgb=A2();
@@ -1531,12 +1531,18 @@
     var _nl=nodeLabels();
     for(var n=0;n<nodes.length;n++){
       var na=nodes[n].a+t*0.006, nr=R*0.66, nx=cx+Math.cos(na)*nr, ny=cy+Math.sin(na)*nr;
-      ctx.strokeStyle='rgba('+argb+',0.14)';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(nx,ny);ctx.stroke();
+      ctx.strokeStyle='rgba('+argb+',0.12)';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(nx,ny);ctx.stroke();
+      // частицы-данные, стекающиеся от узла к центру («идея → продукт»)
+      for(var k=0;k<2;k++){
+        var pf=((t*0.004)+n*0.17+k*0.5)%1, frac=1-pf;
+        var px=cx+(nx-cx)*frac, py=cy+(ny-cy)*frac, pa=Math.sin(frac*Math.PI)*0.85;
+        ctx.fillStyle='rgba('+a2rgb+','+pa.toFixed(2)+')';ctx.beginPath();ctx.arc(px,py,2,0,7);ctx.fill();
+      }
       var pulse=6+Math.sin(t*0.05+n)*1.5, ng=ctx.createRadialGradient(nx,ny,0,nx,ny,pulse*2);
       ng.addColorStop(0,'rgb('+a2rgb+')');ng.addColorStop(1,'rgba('+a2rgb+',0)');
       ctx.fillStyle=ng;ctx.beginPath();ctx.arc(nx,ny,pulse*2,0,7);ctx.fill();
       ctx.fillStyle='rgb('+argb+')';ctx.beginPath();ctx.arc(nx,ny,3.4,0,7);ctx.fill();
-      ctx.fillStyle='rgba('+argb+',0.9)';ctx.font='600 11px Manrope,sans-serif';ctx.textAlign='center';ctx.fillText(_nl[n],nx,ny-12);
+      ctx.fillStyle='rgba('+argb+',0.92)';ctx.font='700 11px Manrope,sans-serif';ctx.textAlign='center';ctx.fillText(_nl[n],nx,ny-12);
     }
     var cg=ctx.createRadialGradient(cx,cy,0,cx,cy,40);
     cg.addColorStop(0,'rgba('+argb+',0.30)');cg.addColorStop(1,'rgba('+argb+',0)');
