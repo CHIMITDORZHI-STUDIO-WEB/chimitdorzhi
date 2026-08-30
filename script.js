@@ -343,10 +343,13 @@ document.addEventListener('DOMContentLoaded', () => {
     var n=s.querySelectorAll('.svc-card').length;
     html+='<button class="svc-chip" data-i="'+i+'">'+t+' <span class="svc-cnt">'+n+'</span></button>'; });
   bar.innerHTML=html;
-  secs[0].parentNode.insertBefore(bar, secs[0]);
+  var featured=document.querySelector('section.section-featured');
+  var anchor=featured||secs[0];
+  anchor.parentNode.insertBefore(bar, anchor);
   bar.addEventListener('click', function(e){ var b=e.target.closest('.svc-chip'); if(!b) return;
     bar.querySelectorAll('.svc-chip').forEach(function(x){ x.classList.toggle('on', x===b); });
     var idx=parseInt(b.dataset.i,10);
+    if(featured) featured.style.display=(idx<0)?'':'none';
     secs.forEach(function(s,i){ s.style.display=(idx<0||i===idx)?'':'none'; });
     var y=bar.getBoundingClientRect().top+window.scrollY-90; window.scrollTo({top:y,behavior:'smooth'});
   });

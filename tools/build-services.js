@@ -373,6 +373,29 @@ ${faqJsonLd(svc)}
 
 // ---------- catalog page (services/index.html) ----------
 
+// Курированный шорт-лист «с чего начинают» — самые востребованные направления.
+const POPULAR = ['web-development', 'telegram-bots', 'ai-agents', 'business-automation', 'rkn-audit', 'digital-marketing'];
+
+function featuredBlock() {
+  const items = POPULAR.map(findBySlug).filter(Boolean);
+  if (!items.length) return '';
+  return `<section class="section section-featured">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-label" data-i18n="svc.popular.label">ПОПУЛЯРНОЕ</span>
+            <h2 class="section-heading" data-i18n="svc.popular.h2">С чего обычно начинают</h2>
+            <p class="section-sub" data-i18n="svc.popular.sub">Шесть самых частых задач. Не нашли своё — ниже полный каталог по направлениям.</p>
+        </div>
+        <div class="services-grid">${items.map(homeCard).join('\n')}</div>
+        <div class="svc-vs">
+            <i class="ph ph-info" aria-hidden="true"></i>
+            <span data-i18n="svc.vs">Нужен не отдельный навык, а готовый пакет под задачу — сайт + бот + реклама разом?</span>
+            <a href="/market/" class="svc-vs-link" data-i18n="svc.vs.link">Смотреть Предложения <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+        </div>
+    </div>
+</section>`;
+}
+
 function catalogPage() {
   const url = `${SITE}/services/`;
   const groups = Object.entries(categories)
@@ -428,6 +451,8 @@ ${JSON.stringify(ld, null, 2)}
                 </div>
             </div>
         </section>
+
+        ${featuredBlock()}
 
         ${groups}
 
