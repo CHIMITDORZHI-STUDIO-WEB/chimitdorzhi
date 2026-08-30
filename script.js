@@ -284,8 +284,9 @@ document.addEventListener('DOMContentLoaded', () => {
   var isServices = s0==='services';
   var isOffers = s0==='market' || s0==='predlozheniya';
   var isCases = s0==='cases';
+  var isAbout = s0==='about';
   if(isArticle){ document.body.classList.add('wx-read'); return; } /* статья: новый стиль без сайдбара */
-  if(!(isBlog||isServices||isOffers||isCases)) return;
+  if(!(isBlog||isServices||isOffers||isCases||isAbout)) return;
   function n(href,ic,label,on,ext){return '<a href="'+href+'"'+(ext?' target="_blank" rel="noopener"':'')+' class="wx-nav'+(on?' on':'')+'"><i class="ph-fill '+ic+'" aria-hidden="true"></i> '+label+'</a>';}
   var h='<a href="/" class="wx-logo"><img src="/logo-wordmark.png" alt="Chimitdorzhi Studio"></a>';
   h+='<button type="button" class="wx-search js-search-open" aria-label="Поиск"><i class="ph ph-magnifying-glass"></i> <span>Поиск…</span></button>';
@@ -294,6 +295,7 @@ document.addEventListener('DOMContentLoaded', () => {
   h+=n('/cases/','ph-briefcase','Кейсы',isCases);
   h+=n('/blog/','ph-newspaper','Блог',isBlog);
   h+=n('/market/','ph-gift','Предложения',isOffers);
+  h+=n('/about/','ph-user','Обо мне',isAbout);
   if(isBlog){
     h+='<div class="wx-grp">Рубрики блога</div>';
     h+=n('/blog/category/development/','ph-code','Разработка',false);
@@ -317,6 +319,11 @@ document.addEventListener('DOMContentLoaded', () => {
     h+=n('/services/ai-agents/','ph-brain','Внедрение ИИ',false);
     h+=n('/services/business-automation/','ph-gear','Автоматизация',false);
     h+=n('/services/','ph-stack','Все услуги',false);
+  } else if(isAbout){
+    h+='<div class="wx-grp">Смотрите также</div>';
+    h+=n('/cases/','ph-briefcase','Кейсы',false);
+    h+=n('/services/','ph-stack','Услуги',false);
+    h+=n('/blog/','ph-newspaper','Блог',false);
   }
   h+='<div class="wx-cta"><div class="wx-cta-top"><span class="wx-cta-dot"></span> На связи · отвечаю за час</div><div class="wx-cta-title">Есть задача?</div><a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="wx-cta-btn"><i class="ph-fill ph-telegram-logo"></i> Обсудить</a></div>';
   h+='<div class="wx-sp"></div><div class="wx-social">'
