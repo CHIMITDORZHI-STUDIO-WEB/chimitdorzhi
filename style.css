@@ -5546,8 +5546,12 @@ body.home .wx-hero{min-height:auto;padding:120px 0 40px}
   .wx-stage{grid-template-columns:1fr;text-align:center}
   .wx-text .hero-sub{margin-left:auto;margin-right:auto}
   .wx-text .hero-actions{justify-content:center}
-  .wx-side{flex-direction:column}
-  .wx-center{min-height:340px}.wx-center canvas{height:340px}
+  .wx-text .hero-trust{justify-content:center}
+  .wx-side{flex-direction:column;order:2}
+  /* сначала оффер и CTA, потом карточки направлений, декоративная анимация — последней и компактнее */
+  .wx-text{order:1}
+  .wx-center{order:3;grid-row:auto;grid-column:auto;min-height:280px}
+  .wx-center canvas{height:280px}
 }
 
 /* ================= УНИФИКАЦИЯ ГЛАВНОЙ (бренд-синий, дашборд) ================= */
@@ -5893,9 +5897,9 @@ body.home .wx-logo img, body.wx-shell .wx-logo img{ filter:brightness(0) saturat
 /* перебиваем глобальное [data-theme=light] body.home li (0,2,2) — цепляем .hero-trust выше по специфичности */
 body.home .hero-trust li, body.home .hero-trust li span, body.home .hero-trust li a,
 [data-theme="light"] body.home .hero-trust li, [data-theme="light"] body.home .hero-trust li span, [data-theme="light"] body.home .hero-trust li a{ color:#33415e !important; }
-[data-theme="dark"] body.home .hero-trust li, [data-theme="dark"] body.home .hero-trust li span, [data-theme="dark"] body.home .hero-trust li a{ color:rgba(255,255,255,.9) !important; }
-body.home .hero-trust li i{ color:#1e4fd6 !important; }
-[data-theme="dark"] body.home .hero-trust li i{ color:#7aa8ff !important; }
+/* body.home всегда на светлом лавандовом фоне (даже в dark-теме) → текст держим тёмным во всех темах */
+[data-theme="dark"] body.home .hero-trust li, [data-theme="dark"] body.home .hero-trust li span, [data-theme="dark"] body.home .hero-trust li a{ color:#33415e !important; }
+body.home .hero-trust li i, [data-theme="dark"] body.home .hero-trust li i{ color:#1e4fd6 !important; }
 
 .wx-rail .wx-logo{ padding:18px 12px 14px !important; text-align:center !important; }
 .wx-rail .wx-logo img{ display:block !important; margin:0 auto !important; width:auto !important; max-width:78% !important; max-height:118px !important; object-fit:contain !important; object-position:center !important; }
