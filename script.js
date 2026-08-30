@@ -346,10 +346,11 @@ document.addEventListener('DOMContentLoaded', () => {
   var secs=[].slice.call(document.querySelectorAll('section.section-tight')).filter(function(s){return s.querySelector('.services-grid');});
   if(secs.length<2) return;
   var bar=document.createElement('div'); bar.className='svc-filter';
-  var html='<button class="svc-chip on" data-i="-1"><i class="ph ph-squares-four"></i> Все</button>';
+  var html='<button class="svc-chip on" data-i="-1"><i class="ph ph-squares-four"></i> <span data-i18n="sb.all">Все</span></button>';
   secs.forEach(function(s,i){ var lab=s.querySelector('.section-label'); var t=lab?lab.textContent.trim():('Раздел '+(i+1));
+    var k=lab?lab.getAttribute('data-i18n'):null;
     var n=s.querySelectorAll('.svc-card').length;
-    html+='<button class="svc-chip" data-i="'+i+'">'+t+' <span class="svc-cnt">'+n+'</span></button>'; });
+    html+='<button class="svc-chip" data-i="'+i+'"><span'+(k?' data-i18n="'+k+'"':'')+'>'+t+'</span> <span class="svc-cnt">'+n+'</span></button>'; });
   bar.innerHTML=html;
   var featured=document.querySelector('section.section-featured');
   var anchor=featured||secs[0];
