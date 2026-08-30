@@ -1512,7 +1512,9 @@
   function size(){dpr=Math.min(window.devicePixelRatio||1,2);var r=cv.getBoundingClientRect();W=r.width||520;H=r.height||520;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);cx=W/2;cy=H/2;}
   size();window.addEventListener('resize',size);
   var TICKS=64;
-  var nodes=[{a:-0.5,l:'Сайты'},{a:0.9,l:'Боты'},{a:2.1,l:'ИИ'},{a:3.7,l:'152-ФЗ'}];
+  var nodes=[{a:-0.5},{a:0.9},{a:2.1},{a:3.7}];
+  var NODE_LBL={ru:['Сайты','Боты','ИИ','152-ФЗ'],en:['Sites','Bots','AI','Privacy'],cn:['网站','机器人','AI','隐私'],mn:['Сайт','Бот','AI','Нууцлал']};
+  function nodeLabels(){return NODE_LBL[localStorage.getItem('lang')||document.documentElement.getAttribute('data-lang')||'ru']||NODE_LBL.ru;}
   function frame(){
     var R=Math.min(W,H)*0.40, argb=A(), a2rgb=A2();
     ctx.clearRect(0,0,W,H);
@@ -1526,6 +1528,7 @@
       ctx.strokeStyle='rgba('+(mix<0.5?argb:a2rgb)+','+(0.35+(wave*0.5+0.5)*0.5)+')';
       ctx.lineWidth=2.4;ctx.lineCap='round';ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();
     }
+    var _nl=nodeLabels();
     for(var n=0;n<nodes.length;n++){
       var na=nodes[n].a+t*0.006, nr=R*0.66, nx=cx+Math.cos(na)*nr, ny=cy+Math.sin(na)*nr;
       ctx.strokeStyle='rgba('+argb+',0.14)';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(nx,ny);ctx.stroke();
@@ -1533,7 +1536,7 @@
       ng.addColorStop(0,'rgb('+a2rgb+')');ng.addColorStop(1,'rgba('+a2rgb+',0)');
       ctx.fillStyle=ng;ctx.beginPath();ctx.arc(nx,ny,pulse*2,0,7);ctx.fill();
       ctx.fillStyle='rgb('+argb+')';ctx.beginPath();ctx.arc(nx,ny,3.4,0,7);ctx.fill();
-      ctx.fillStyle='rgba('+argb+',0.9)';ctx.font='600 11px Manrope,sans-serif';ctx.textAlign='center';ctx.fillText(nodes[n].l,nx,ny-12);
+      ctx.fillStyle='rgba('+argb+',0.9)';ctx.font='600 11px Manrope,sans-serif';ctx.textAlign='center';ctx.fillText(_nl[n],nx,ny-12);
     }
     var cg=ctx.createRadialGradient(cx,cy,0,cx,cy,40);
     cg.addColorStop(0,'rgba('+argb+',0.30)');cg.addColorStop(1,'rgba('+argb+',0)');
