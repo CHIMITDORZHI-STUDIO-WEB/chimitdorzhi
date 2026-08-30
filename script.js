@@ -354,7 +354,10 @@ document.addEventListener('DOMContentLoaded', () => {
   bar.innerHTML=html;
   var featured=document.querySelector('section.section-featured');
   var anchor=featured||secs[0];
-  anchor.parentNode.insertBefore(bar, anchor);
+  /* оборачиваем в .container, чтобы фильтр совпадал по ширине с контентом (иначе тянется до края экрана справа) */
+  var wrap=document.createElement('div'); wrap.className='container wx-filter-wrap';
+  wrap.appendChild(bar);
+  anchor.parentNode.insertBefore(wrap, anchor);
   bar.addEventListener('click', function(e){ var b=e.target.closest('.svc-chip'); if(!b) return;
     bar.querySelectorAll('.svc-chip').forEach(function(x){ x.classList.toggle('on', x===b); });
     var idx=parseInt(b.dataset.i,10);
