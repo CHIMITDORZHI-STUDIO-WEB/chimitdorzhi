@@ -287,45 +287,46 @@ document.addEventListener('DOMContentLoaded', () => {
   var isAbout = s0==='about';
   if(isArticle){ document.body.classList.add('wx-read'); return; } /* статья: новый стиль без сайдбара */
   if(!(isBlog||isServices||isOffers||isCases||isAbout)) return;
-  function n(href,ic,label,on,ext){return '<a href="'+href+'"'+(ext?' target="_blank" rel="noopener"':'')+(on?' aria-current="page"':'')+' class="wx-nav'+(on?' on':'')+'"><i class="ph-fill '+ic+'" aria-hidden="true"></i> '+label+'</a>';}
+  function n(href,ic,label,on,ext,key){return '<a href="'+href+'"'+(ext?' target="_blank" rel="noopener"':'')+(on?' aria-current="page"':'')+' class="wx-nav'+(on?' on':'')+'"><i class="ph-fill '+ic+'" aria-hidden="true"></i> <span'+(key?' data-i18n="'+key+'"':'')+'>'+label+'</span></a>';}
+  function grp(label,key){return '<div class="wx-grp" data-i18n="'+key+'">'+label+'</div>';}
   var h='<a href="/" class="wx-logo"><img src="/logo-wordmark.png" alt="Chimitdorzhi Studio"></a>';
-  h+='<button type="button" class="wx-search js-search-open" aria-label="Поиск"><i class="ph ph-magnifying-glass"></i> <span>Поиск…</span></button>';
-  h+=n('/','ph-squares-four','Главная',false);
-  h+=n('/services/','ph-stack','Услуги',isServices);
-  h+=n('/cases/','ph-briefcase','Кейсы',isCases);
-  h+=n('/blog/','ph-newspaper','Блог',isBlog);
-  h+=n('/market/','ph-gift','Предложения',isOffers);
-  h+=n('/about/','ph-user','Обо мне',isAbout);
+  h+='<button type="button" class="wx-search js-search-open" aria-label="Поиск"><i class="ph ph-magnifying-glass"></i> <span data-i18n="sb.search">Поиск…</span></button>';
+  h+=n('/','ph-squares-four','Главная',false,false,'nav.home');
+  h+=n('/services/','ph-stack','Услуги',isServices,false,'nav.services');
+  h+=n('/cases/','ph-briefcase','Кейсы',isCases,false,'nav.cases');
+  h+=n('/blog/','ph-newspaper','Блог',isBlog,false,'nav.blog');
+  h+=n('/market/','ph-gift','Предложения',isOffers,false,'nav.offers');
+  h+=n('/about/','ph-user','Обо мне',isAbout,false,'nav.about');
   if(isBlog){
-    h+='<div class="wx-grp">Рубрики блога</div>';
-    h+=n('/blog/category/development/','ph-code','Разработка',false);
-    h+=n('/blog/category/ai-dev/','ph-brain','Внедрение ИИ',false);
-    h+=n('/blog/category/legal/','ph-shield-check','152-ФЗ',false);
-    h+=n('/cases/','ph-briefcase','Кейсы',false);
-    h+=n('/blog/category/marketing/','ph-megaphone','Маркетинг',false);
+    h+=grp('Рубрики блога','sb.grp.rubrics');
+    h+=n('/blog/category/development/','ph-code','Разработка',false,false,'rubric.development');
+    h+=n('/blog/category/ai-dev/','ph-brain','Внедрение ИИ',false,false,'rubric.ai');
+    h+=n('/blog/category/legal/','ph-shield-check','152-ФЗ',false,false,'rubric.legal');
+    h+=n('/cases/','ph-briefcase','Кейсы',false,false,'nav.cases');
+    h+=n('/blog/category/marketing/','ph-megaphone','Маркетинг',false,false,'rubric.marketing');
   } else if(isServices){
-    h+='<div class="wx-grp">Направления</div>';
-    h+=n('/services/web-development/','ph-browser','Сайты и боты',false);
-    h+=n('/services/ai-agents/','ph-brain','Внедрение ИИ',false);
-    h+=n('/services/business-automation/','ph-gear','Автоматизация',false);
-    h+=n('/services/cybersecurity/','ph-shield-check','152-ФЗ',false);
+    h+=grp('Направления','sb.grp.directions');
+    h+=n('/services/web-development/','ph-browser','Сайты и боты',false,false,'rubric.web_bots');
+    h+=n('/services/ai-agents/','ph-brain','Внедрение ИИ',false,false,'rubric.ai');
+    h+=n('/services/business-automation/','ph-gear','Автоматизация',false,false,'rubric.automation');
+    h+=n('/services/cybersecurity/','ph-shield-check','152-ФЗ',false,false,'rubric.legal');
   } else if(isOffers){
-    h+='<div class="wx-grp">Разделы</div>';
-    h+=n('/services/','ph-stack','Все услуги',false);
-    h+=n('/blog/','ph-newspaper','Блог',false);
+    h+=grp('Разделы','sb.grp.sections');
+    h+=n('/services/','ph-stack','Все услуги',false,false,'sb.all_services');
+    h+=n('/blog/','ph-newspaper','Блог',false,false,'nav.blog');
   } else if(isCases){
-    h+='<div class="wx-grp">Направления</div>';
-    h+=n('/services/web-development/','ph-browser','Сайты и боты',false);
-    h+=n('/services/ai-agents/','ph-brain','Внедрение ИИ',false);
-    h+=n('/services/business-automation/','ph-gear','Автоматизация',false);
-    h+=n('/services/','ph-stack','Все услуги',false);
+    h+=grp('Направления','sb.grp.directions');
+    h+=n('/services/web-development/','ph-browser','Сайты и боты',false,false,'rubric.web_bots');
+    h+=n('/services/ai-agents/','ph-brain','Внедрение ИИ',false,false,'rubric.ai');
+    h+=n('/services/business-automation/','ph-gear','Автоматизация',false,false,'rubric.automation');
+    h+=n('/services/','ph-stack','Все услуги',false,false,'sb.all_services');
   } else if(isAbout){
-    h+='<div class="wx-grp">Смотрите также</div>';
-    h+=n('/cases/','ph-briefcase','Кейсы',false);
-    h+=n('/services/','ph-stack','Услуги',false);
-    h+=n('/blog/','ph-newspaper','Блог',false);
+    h+=grp('Смотрите также','sb.grp.also');
+    h+=n('/cases/','ph-briefcase','Кейсы',false,false,'nav.cases');
+    h+=n('/services/','ph-stack','Услуги',false,false,'nav.services');
+    h+=n('/blog/','ph-newspaper','Блог',false,false,'nav.blog');
   }
-  h+='<div class="wx-cta"><div class="wx-cta-top"><span class="wx-cta-dot"></span> На связи · отвечаю за час</div><div class="wx-cta-title">Есть задача?</div><a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="wx-cta-btn"><i class="ph-fill ph-telegram-logo"></i> Обсудить</a></div>';
+  h+='<div class="wx-cta"><div class="wx-cta-top"><span class="wx-cta-dot"></span> <span data-i18n="sb.cta_status">На связи · отвечаю за час</span></div><div class="wx-cta-title" data-i18n="sb.cta_title">Есть задача?</div><a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="wx-cta-btn"><i class="ph-fill ph-telegram-logo"></i> <span data-i18n="sb.cta_btn">Обсудить</span></a></div>';
   h+='<div class="wx-sp"></div><div class="wx-social">'
     +'<a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" aria-label="Telegram"><i class="ph-fill ph-telegram-logo"></i></a>'
     +'<a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" aria-label="ВКонтакте"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M15.07 2H8.93C3.33 2 2 3.33 2 8.93v6.14C2 20.67 3.33 22 8.93 22h6.14c5.6 0 6.93-1.33 6.93-6.93V8.93C22 3.33 20.66 2 15.07 2Zm3.15 14.27h-1.53c-.58 0-.76-.47-1.8-1.5-.9-.87-1.3-.99-1.53-.99-.31 0-.4.09-.4.52v1.38c0 .37-.12.59-1.09.59-1.6 0-3.37-.97-4.62-2.78-1.88-2.65-2.39-4.64-2.39-5.05 0-.22.09-.43.52-.43h1.53c.39 0 .53.17.68.59.75 2.18 2.01 4.09 2.53 4.09.2 0 .29-.09.29-.58V9.7c-.06-1.06-.62-1.15-.62-1.53 0-.18.15-.36.39-.36h2.4c.32 0 .44.17.44.55v3.05c0 .32.14.44.24.44.2 0 .36-.12.72-.48 1.11-1.24 1.9-3.15 1.9-3.15.1-.22.28-.43.67-.43h1.53c.46 0 .56.24.46.55-.19.89-2.06 3.53-2.06 3.53-.16.26-.22.38 0 .67.16.22.68.66 1.03 1.06.64.72 1.13 1.33 1.26 1.75.14.42-.07.63-.5.63Z"/></svg></a>'
