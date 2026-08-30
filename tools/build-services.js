@@ -114,7 +114,7 @@ function head({ title, description, keywords, canonical, ogImage = `${SITE}/hero
         <link rel="stylesheet" href="/assets/phosphor/regular.css">
         <link rel="stylesheet" href="/assets/phosphor/fill.css">
     </noscript>
-    <link rel="stylesheet" href="/style.css?v=41">
+    <link rel="stylesheet" href="/style.css?v=66">
 `;
 }
 
@@ -156,8 +156,8 @@ function footer() {
         </div>
     </div>
 </footer>
-<script src="/i18n.js?v=37" defer></script>
-<script src="/services-i18n.js?v=37" defer></script>
+<script src="/i18n.js?v=38" defer></script>
+<script src="/services-i18n.js?v=38" defer></script>
 <script src="/script.js?v=31" defer></script>
 <script src="/search-widget.js?v=1" defer></script>`;
 }
@@ -403,6 +403,7 @@ function featuredBlock() {
 
 function catalogPage() {
   const url = `${SITE}/services/`;
+  const catCount = Object.keys(categories).filter(k => byCategory(k).length).length;
   const groups = Object.entries(categories)
     .sort((a, b) => a[1].order - b[1].order)
     .map(([key, meta]) => {
@@ -449,10 +450,24 @@ ${JSON.stringify(ld, null, 2)}
                     <span class="breadcrumbs-sep">›</span>
                     <span aria-current="page" data-i18n="svc.crumbs.services">Услуги</span>
                 </nav>
-                <div class="section-header">
-                    <span class="section-label" data-i18n="svc.catalog.label">КАТАЛОГ</span>
-                    <h1 class="section-heading" data-i18n="svc.catalog.h1">Услуги</h1>
-                    <p class="section-sub" data-i18n="svc.catalog.sub">${services.length} услуг по 8 направлениям: разработка, AI, безопасность, инфраструктура, отрасли, образование, медиа, инновации.</p>
+                <div class="svc-hero-grid">
+                    <div class="section-header">
+                        <span class="section-label" data-i18n="svc.catalog.label">КАТАЛОГ</span>
+                        <h1 class="section-heading" data-i18n="svc.catalog.h1">Услуги</h1>
+                        <p class="section-sub" data-i18n="svc.catalog.sub">${services.length} услуг по 8 направлениям: разработка, AI, безопасность, инфраструктура, отрасли, образование, медиа, инновации.</p>
+                    </div>
+                    <aside class="svc-hero-card">
+                        <div class="svc-hero-stats">
+                            <div><b>${services.length}</b><span data-i18n="svc.hero.l1">услуг</span></div>
+                            <div><b>${catCount}</b><span data-i18n="svc.hero.l2">направлений</span></div>
+                            <div><b>16+</b><span data-i18n="proof.years">лет в IT</span></div>
+                        </div>
+                        <p class="svc-hero-note" data-i18n="svc.hero.note">Не знаете, что выбрать? Опишите задачу — подберу решение и назову вилку по цене и срокам.</p>
+                        <div class="svc-hero-cta">
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> <span data-i18n="hero.cta1">Обсудить задачу</span></a>
+                            <a href="/cases/" class="btn btn-ghost"><i class="ph ph-briefcase" aria-hidden="true"></i> <span data-i18n="hero.cta2">Смотреть кейсы</span></a>
+                        </div>
+                    </aside>
                 </div>
             </div>
         </section>
