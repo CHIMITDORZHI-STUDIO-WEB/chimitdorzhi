@@ -101,10 +101,10 @@ function head({ title, description, keywords, canonical, ogImage = `${SITE}/hero
     <meta name="twitter:description" content="${esc(description)}">
     <meta name="twitter:image" content="${ogImage}">
 
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
-    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="icon" href="/favicon.svg?v=4" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=4">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png?v=4">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4">
     <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/assets/phosphor/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/assets/phosphor/Phosphor-Fill.woff2" as="font" type="font/woff2" crossorigin>
