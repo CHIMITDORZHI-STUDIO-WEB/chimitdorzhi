@@ -6,6 +6,13 @@ const ROOT = path.resolve(__dirname, '..');
 
 const articles = require('./blog-data.js');
 const offers = require('./offers-data.js');
+const servicesRaw = require('./services-data.js');
+const servicesArr = Array.isArray(servicesRaw) ? servicesRaw : (servicesRaw.services || Object.values(servicesRaw).find(Array.isArray) || []);
+const SVC_CAT = {
+  development: 'Разработка', ai: 'AI и автоматизация', security: 'Безопасность',
+  infrastructure: 'Инфраструктура', industry: 'Отрасли', education: 'Образование',
+  media: 'Медиа', innovation: 'Инновации', business: 'Бизнес',
+};
 
 const CAT = {
   legal: 'Право', 'ai-dev': 'AI/разработка', 'ai-life': 'AI/жизнь', marketing: 'Маркетинг',
@@ -36,6 +43,18 @@ for (const o of offers) {
     k: 'Предложение',
     c: o.segment || '',
     g: o.niche || '',
+  });
+}
+
+for (const s of servicesArr) {
+  if (!s || !s.s) continue;
+  index.push({
+    t: s.n,
+    d: s.d || s.md || '',
+    u: `/services/${s.s}/`,
+    k: 'Услуга',
+    c: SVC_CAT[s.c] || s.c || '',
+    g: (s.tg || []).join(' ') + ' ' + (s.mk || ''),
   });
 }
 

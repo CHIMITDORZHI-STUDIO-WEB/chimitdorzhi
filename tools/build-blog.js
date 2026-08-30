@@ -681,7 +681,8 @@ function footer() {
 </footer>
 <script src="/i18n.js?v=23" defer></script>
 <script src="/services-i18n.js?v=23" defer></script>
-<script src="/script.js?v=30" defer></script>`;
+<script src="/script.js?v=30" defer></script>
+<script src="/search-widget.js?v=1" defer></script>`;
 }
 
 // ---------- article page ----------

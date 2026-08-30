@@ -8,7 +8,7 @@
         ' class="wx-nav' + (on ? ' on' : '') + '"><i class="ph-fill ' + ic + '" aria-hidden="true"></i> ' + label + '</a>';
     }
     var h = '<a href="/" class="wx-logo"><img src="/logo-wordmark.png" alt="Chimitdorzhi Studio"></a>';
-    h += '<a href="/#search" class="wx-search"><i class="ph ph-magnifying-glass"></i> <span>Поиск…</span></a>';
+    h += '<button type="button" class="wx-search js-search-open" aria-label="Поиск"><i class="ph ph-magnifying-glass"></i> <span>Поиск…</span></button>';
     h += n('/', 'ph-squares-four', 'Главная', false);
     h += n('/services/', 'ph-stack', 'Услуги', false);
     h += n('/cases/', 'ph-briefcase', 'Кейсы', false);
