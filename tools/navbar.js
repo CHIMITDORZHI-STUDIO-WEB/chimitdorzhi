@@ -20,22 +20,16 @@ function navbar(/* opts игнорируются — меню единое */) {
     <div class="container nav-inner">
         <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
         <ul class="nav-links" id="navLinks">
-            <li><a href="/market/">Собрать проект</a></li>
-            <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
-            <li style="display:none"><a href="/services/" data-i18n="nav.services">Услуги</a></li>
-            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li><a href="/" data-i18n="nav.home">Главная</a></li>
+            <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/market/" data-i18n="nav.offers">Предложения</a></li>
+            <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
             <li class="nav-dropdown">
                 <a href="/#projects" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
                 <div class="nav-dropdown-menu">
                     <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
-                    <a href="/blog/category/cases/" class="nav-dropdown-item">
-                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-briefcase" aria-hidden="true"></i></span>
-                        <span class="nav-dropdown-text">
-                            <span class="nav-dropdown-title">Кейсы</span>
-                            <span class="nav-dropdown-desc">Реальные проекты под ключ</span>
-                        </span>
-                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
-                    </a>
                     <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
                         <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
                         <span class="nav-dropdown-text">
@@ -78,9 +72,6 @@ function navbar(/* opts игнорируются — меню единое */) {
                     </a>
                 </div>
             </li>
-            <li style="display:none"><a href="/#cases" data-i18n="nav.cases">Кейсы</a></li>
-            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
-            <li style="display:none"><a href="/infografika/">Инфографика</a></li>
             <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
         </ul>
         <div class="nav-controls">
@@ -101,22 +92,16 @@ function navbar(/* opts игнорируются — меню единое */) {
 </nav>
 <div class="mobile-menu" id="mobileMenu">
     <ul>
-        <li><a href="/market/">Собрать проект</a></li>
-        <li><a href="/#about" data-i18n="nav.about">Обо мне</a></li>
-        <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+        <li><a href="/" data-i18n="nav.home">Главная</a></li>
+        <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+        <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+        <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+        <li><a href="/market/" data-i18n="nav.offers">Предложения</a></li>
+        <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
         <li class="mobile-has-submenu">
             <details>
                 <summary aria-label="Проекты — развернуть"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down" aria-hidden="true"></i></summary>
                 <ul class="mobile-submenu">
-                    <li>
-                        <a href="/blog/category/cases/" class="mobile-sub-item">
-                            <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-briefcase" aria-hidden="true"></i></span>
-                            <span class="mobile-sub-text">
-                                <span class="mobile-sub-title">Кейсы</span>
-                                <span class="mobile-sub-desc">Реальные проекты под ключ</span>
-                            </span>
-                        </a>
-                    </li>
                     <li>
                         <a href="https://gerel.space" target="_blank" rel="noopener" class="mobile-sub-item">
                             <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
@@ -165,7 +150,6 @@ function navbar(/* opts игнорируются — меню единое */) {
                 </ul>
             </details>
         </li>
-        <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
         <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
     </ul>
     <div class="mobile-controls">
