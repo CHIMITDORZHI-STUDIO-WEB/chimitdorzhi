@@ -287,7 +287,7 @@ document.addEventListener('DOMContentLoaded', () => {
   var isAbout = s0==='about';
   if(isArticle){ document.body.classList.add('wx-read'); return; } /* статья: новый стиль без сайдбара */
   if(!(isBlog||isServices||isOffers||isCases||isAbout)) return;
-  function n(href,ic,label,on,ext){return '<a href="'+href+'"'+(ext?' target="_blank" rel="noopener"':'')+' class="wx-nav'+(on?' on':'')+'"><i class="ph-fill '+ic+'" aria-hidden="true"></i> '+label+'</a>';}
+  function n(href,ic,label,on,ext){return '<a href="'+href+'"'+(ext?' target="_blank" rel="noopener"':'')+(on?' aria-current="page"':'')+' class="wx-nav'+(on?' on':'')+'"><i class="ph-fill '+ic+'" aria-hidden="true"></i> '+label+'</a>';}
   var h='<a href="/" class="wx-logo"><img src="/logo-wordmark.png" alt="Chimitdorzhi Studio"></a>';
   h+='<button type="button" class="wx-search js-search-open" aria-label="Поиск"><i class="ph ph-magnifying-glass"></i> <span>Поиск…</span></button>';
   h+=n('/','ph-squares-four','Главная',false);

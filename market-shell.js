@@ -4,7 +4,7 @@
   function build() {
     if (document.querySelector('.wx-rail')) return;
     function n(href, ic, label, on, ext) {
-      return '<a href="' + href + '"' + (ext ? ' target="_blank" rel="noopener"' : '') +
+      return '<a href="' + href + '"' + (ext ? ' target="_blank" rel="noopener"' : '') + (on ? ' aria-current="page"' : '') +
         ' class="wx-nav' + (on ? ' on' : '') + '"><i class="ph-fill ' + ic + '" aria-hidden="true"></i> ' + label + '</a>';
     }
     var h = '<a href="/" class="wx-logo"><img src="/logo-wordmark.png" alt="Chimitdorzhi Studio"></a>';
