@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1429**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1430**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -1119,6 +1119,7 @@
 
 ## Разработка
 
+- [Тихие сбои: баг, который прошёл все тесты и убил все кнопки](./tihie-sboi-kod-kotoryy-proshel-testy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/tihie-sboi-kod-kotoryy-proshel-testy-2026/)
 - [Что нового в MAX в 2026: истории, комментарии, стримы и другое](./chto-novogo-v-max-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chto-novogo-v-max-2026/)
 - [Бизнес-аккаунт в MAX: что даёт и как оформить](./biznes-akkaunt-v-max-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/biznes-akkaunt-v-max-2026/)
 - [Интеграция MAX с CRM: заявки из мессенджера сразу в систему](./integraciya-max-s-crm-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/integraciya-max-s-crm-2026/)
