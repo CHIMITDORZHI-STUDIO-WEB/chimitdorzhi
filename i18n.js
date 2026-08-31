@@ -1804,6 +1804,10 @@ const translations = {
     }
 };
 
+// Испанский пока не отдельный язык сайта: интерфейс показываем на английском (универсально),
+// а реальный ES-контент живёт во флагманских кейсах (переключается CSS по html[data-lang="es"]).
+translations.es = translations.en;
+
 function applyLanguage(lang) {
     const dict = translations[lang];
     if (!dict) return;

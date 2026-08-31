@@ -632,7 +632,7 @@ function head({ title, description, keywords, canonical, ogImage = `${SITE}/hero
         <link rel="stylesheet" href="/assets/phosphor/regular.css">
         <link rel="stylesheet" href="/assets/phosphor/fill.css">
     </noscript>
-    <link rel="stylesheet" href="/style.css?v=66">
+    <link rel="stylesheet" href="/style.css?v=67">
 `;
 }
 
@@ -679,8 +679,8 @@ function footer() {
         </div>
     </div>
 </footer>
-<script src="/i18n.js?v=38" defer></script>
-<script src="/services-i18n.js?v=38" defer></script>
+<script src="/i18n.js?v=41" defer></script>
+<script src="/services-i18n.js?v=41" defer></script>
 <script src="/script.js?v=32" defer></script>
 <script src="/search-widget.js?v=1" defer></script>`;
 }
@@ -2095,23 +2095,35 @@ function portfolioCard(a) {
   </a>`;
 }
 const FLAGSHIP = (function () { try { return require('./cases-flagship.js'); } catch (e) { return []; } })();
-const CASE_TYPE_LABEL = { platform: 'Платформа', site: 'Сайт', bot: 'Бот', ai: 'ИИ-решение' };
+const CASE_TYPE_LABEL = {
+  platform: { ru: 'Платформа', en: 'Platform', es: 'Plataforma' },
+  site: { ru: 'Сайт', en: 'Website', es: 'Sitio web' },
+  bot: { ru: 'Бот', en: 'Bot', es: 'Bot' },
+  ai: { ru: 'ИИ-решение', en: 'AI solution', es: 'Solución IA' },
+};
+// Тройной перевод: RU видна по умолчанию, EN/ES переключаются CSS по html[data-lang].
+function L(ru, en, es) {
+  return `<span class="cs-l cs-l-ru">${esc(ru)}</span>` +
+    `<span class="cs-l cs-l-en">${esc(en || ru)}</span>` +
+    `<span class="cs-l cs-l-es">${esc(es || ru)}</span>`;
+}
 function flagshipCard(c) {
-  const tl = CASE_TYPE_LABEL[c.type] || 'Проект';
+  const en = c.en || {}, es = c.es || {};
+  const tl = CASE_TYPE_LABEL[c.type] || { ru: 'Проект', en: 'Project', es: 'Proyecto' };
   const doneBadge = c.done
-    ? '<span class="cs-badge cs-done"><i class="ph-fill ph-check-circle" aria-hidden="true"></i> в проде</span>'
-    : '<span class="cs-badge cs-wip"><i class="ph-fill ph-wrench" aria-hidden="true"></i> в разработке</span>';
+    ? `<span class="cs-badge cs-done"><i class="ph-fill ph-check-circle" aria-hidden="true"></i> ${L('в проде', 'live', 'en producción')}</span>`
+    : `<span class="cs-badge cs-wip"><i class="ph-fill ph-wrench" aria-hidden="true"></i> ${L('в разработке', 'in progress', 'en desarrollo')}</span>`;
   return `<article class="cs-card${c.metric ? ' cs-metric' : ''}">
         <div class="cs-top">
-          <span class="cs-type">${esc(tl)}</span>
-          ${c.intl ? '<span class="cs-badge cs-intl"><i class="ph-fill ph-globe-hemisphere-west" aria-hidden="true"></i> международный</span>' : ''}
+          <span class="cs-type">${L(tl.ru, tl.en, tl.es)}</span>
+          ${c.intl ? `<span class="cs-badge cs-intl"><i class="ph-fill ph-globe-hemisphere-west" aria-hidden="true"></i> ${L('международный', 'international', 'internacional')}</span>` : ''}
           ${doneBadge}
         </div>
         <h3 class="cs-name">${esc(c.name)}</h3>
         <div class="cs-rows">
-          <div class="cs-row"><span class="cs-lbl">Задача</span><p>${esc(c.task)}</p></div>
-          <div class="cs-row"><span class="cs-lbl">Решение</span><p>${esc(c.solution)}</p></div>
-          <div class="cs-row cs-result"><span class="cs-lbl">Результат</span><p>${esc(c.result)}</p></div>
+          <div class="cs-row"><span class="cs-lbl">${L('Задача', 'Task', 'Tarea')}</span><p>${L(c.task, en.task, es.task)}</p></div>
+          <div class="cs-row"><span class="cs-lbl">${L('Решение', 'Solution', 'Solución')}</span><p>${L(c.solution, en.solution, es.solution)}</p></div>
+          <div class="cs-row cs-result"><span class="cs-lbl">${L('Результат', 'Result', 'Resultado')}</span><p>${L(c.result, en.result, es.result)}</p></div>
         </div>
         <div class="cs-stack">${(c.stack || []).map(s => `<span>${esc(s)}</span>`).join('')}</div>
       </article>`;
@@ -2120,9 +2132,9 @@ function flagshipBlock() {
   if (!FLAGSHIP.length) return '';
   return `<div class="cs-flagship">
                 <div class="cs-flagship-head">
-                    <span class="section-label">ФЛАГМАНСКИЕ КЕЙСЫ</span>
-                    <h2 class="section-heading">Задача → решение → <span class="text-gradient">результат</span></h2>
-                    <p class="section-sub">Отобранные проекты с конкретикой — от идеи до боевого запуска. Данные клиентов обобщены.</p>
+                    <span class="section-label">${L('ФЛАГМАНСКИЕ КЕЙСЫ', 'FLAGSHIP CASES', 'CASOS DESTACADOS')}</span>
+                    <h2 class="section-heading">${L('Задача', 'Task', 'Tarea')} → ${L('решение', 'solution', 'solución')} → <span class="text-gradient">${L('результат', 'result', 'resultado')}</span></h2>
+                    <p class="section-sub">${L('Отобранные проекты с конкретикой — от идеи до боевого запуска. Данные клиентов обобщены.', 'Curated projects with specifics — from idea to production launch. Client data is generalized.', 'Proyectos seleccionados con concreción — de la idea al lanzamiento en producción. Los datos de clientes están generalizados.')}</p>
                 </div>
                 <div class="cs-grid">${FLAGSHIP.map(flagshipCard).join('\n')}</div>
             </div>`;
@@ -2197,7 +2209,7 @@ ${METRIKA}</head>
 
                 ${flagshipBlock()}
 
-                <div class="cs-all-head"><span class="section-label">ВСЕ ПРОЕКТЫ</span></div>
+                <div class="cs-all-head"><span class="section-label">${L('ВСЕ ПРОЕКТЫ', 'ALL PROJECTS', 'TODOS LOS PROYECTOS')}</span></div>
                 <div class="svc-filter" id="pfFilter" role="group" aria-label="Фильтр кейсов">${chips}</div>
                 <div class="pf-grid">${cases.map(portfolioCard).join('\n')}</div>
                 <div class="pf-cta">

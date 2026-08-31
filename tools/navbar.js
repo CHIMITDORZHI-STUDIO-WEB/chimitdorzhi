@@ -81,6 +81,7 @@ function navbar(/* opts игнорируются — меню единое */) {
                 <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
                 <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
                 <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
             </div>
             <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему" aria-pressed="false">
                 <i class="ph ph-moon" aria-hidden="true"></i>
@@ -158,6 +159,7 @@ function navbar(/* opts игнорируются — меню единое */) {
             <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
             <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
             <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
         </div>
         <button class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle" aria-label="Переключить тему" aria-pressed="false">
             <i class="ph ph-moon" aria-hidden="true"></i>
