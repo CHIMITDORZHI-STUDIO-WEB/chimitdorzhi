@@ -44,7 +44,7 @@ module.exports = [
   E({ slug: 'peertube-svoya-videoplatforma-2026', heroIcon: 'ph-fill ph-video',
     title: 'PeerTube: своя видеоплатформа (аналог YouTube) на своём сервере',
     metaTitle: 'PeerTube: своя видеоплатформа на сервере',
-    metaDescription: 'PeerTube — open-source видеоплатформа (аналог YouTube): загрузка и хостинг видео, каналы, подписки, плейлисты, встраивание плеера, трансляции.',
+    metaDescription: 'Своя видеоплатформа вместо YouTube на вашем сервере: PeerTube — загрузка видео, каналы, подписки и трансляции. Разбираю запуск под ключ.',
     excerpt: 'PeerTube — это свой видеохостинг на своём домене: каналы, подписки, встраивание плеера в сайт. Видео и аудитория остаются у вас, без риска блокировки и алгоритмов чужой платформы. Разбираю запуск.',
     tags: ['PeerTube', 'видео', 'видеохостинг', 'open-source'],
     relatedSlugs: ['owncast-svoya-strim-platforma-2026', 'remotion-video-iz-shablonov-2026', 'discourse-soobschestvo-forum-2026'] }),

@@ -224,4 +224,14 @@ module.exports = [
     tags: ['реф-бот', 'MLM', 'сетевой бизнес', 'антифрод'],
     toc: [{ id: 'chto-eto', text: 'Зачем реф-бот в сетевом' }, { id: 'chestnost', text: 'Как считать честно' }, { id: 'antifrod', text: 'Защита от накруток' }, { id: 'keys', text: 'Как это было в бою' }, ...FAQ_VYV],
     relatedSlugs: ['kak-seteviku-avtomatizirovat-strukturu-2026', 'svoy-lending-dlya-setevika-2026', 'referalnyy-bot-konkurs-priglasheniy-keys-2026', 'onboarding-bot-setevoy-biznes-max-2027'] }),
+
+  // ===== Новая: смета сайта/бота (денежный кластер) =====
+  E({ slug: 'skolko-stoit-sayt-bot-pod-klyuch-2026', category: 'expert', heroIcon: 'ph-fill ph-calculator', ctaInternal: WEB, servicesOffer: SVC_BIZ,
+    title: 'Сколько стоит сайт или бот под ключ в 2026: смета без сюрпризов',
+    metaTitle: 'Сколько стоит сайт или бот под ключ в 2026',
+    metaDescription: 'Из чего складывается цена сайта и бота под ключ в 2026: разработка, интеграции, хостинг, поддержка. Вилки по типам и как не переплатить.',
+    excerpt: 'Цена сайта или бота «под ключ» гуляет от нескольких тысяч до сотен — и часто в смете прячут недоделки. Разбираю честно, из чего складывается стоимость, вилки по типам и как не переплатить.',
+    tags: ['стоимость', 'сайт', 'бот', 'смета'],
+    toc: [{ id: 'chto-vhodit', text: 'Из чего складывается цена' }, { id: 'vilki', text: 'Вилки по типам' }, { id: 'ot-chego-zavisit', text: 'От чего зависит стоимость' }, { id: 'kak-ne-pereplatit', text: 'Как не переплатить' }, ...FAQ_VYV],
+    relatedSlugs: ['chto-znachit-pod-klyuch-2026', 'skolko-stoit-vnedrit-ii-2026', 'skolko-stoit-ai-agent-dlya-prodazh-2026', 'zarabotok-na-chat-botah-dlya-biznesa-2026'] }),
 ];

@@ -30,7 +30,7 @@ module.exports = [
   E({ slug: 'matrix-element-korporativnyy-messenger-2026', heroIcon: 'ph-fill ph-lock-key-open',
     title: 'Matrix и Element: защищённый корпоративный мессенджер на своём сервере',
     metaTitle: 'Matrix и Element: защищённый мессенджер на сервере',
-    metaDescription: 'Matrix (Synapse) и Element — open-source защищённый корпоративный мессенджер с end-to-end шифрованием и федерацией: каналы, чаты, звонки на своём сервере.',
+    metaDescription: 'Защищённый корпоративный мессенджер на своём сервере: Matrix и Element дают чаты, звонки и end-to-end шифрование. Разбираю внедрение.',
     excerpt: 'Matrix с клиентом Element — это корпоративный мессенджер с шифрованием на вашем сервере: общение команды без зависимости от чужих сервисов и с данными у себя. Разбираю, кому это нужно и что требуется для запуска.',
     tags: ['Matrix', 'Element', 'мессенджер', 'open-source'],
     relatedSlugs: ['mattermost-korporativnyy-messenger-2026', 'nextcloud-svoy-oblachnyy-disk-2026', 'jitsi-videokonferencii-bez-zoom-2026'] }),
