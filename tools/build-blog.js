@@ -631,7 +631,7 @@ function head({ title, description, keywords, canonical, ogImage = `${SITE}/hero
         <link rel="stylesheet" href="/assets/phosphor/regular.css">
         <link rel="stylesheet" href="/assets/phosphor/fill.css">
     </noscript>
-    <link rel="stylesheet" href="/style.css?v=70">
+    <link rel="stylesheet" href="/style.css?v=71">
 `;
 }
 
@@ -1762,7 +1762,7 @@ ${METRIKA}</head>
                 </div>` : ''}
 
                 <div class="blog-filter-chips" role="group" aria-label="Фильтр категорий">
-                    <button class="filter-btn active" data-blog-cat="all"><i class="ph ph-squares-four" aria-hidden="true"></i> Все <span class="filter-count">${published.length}</span></button>
+                    <button class="filter-btn active" data-blog-cat="all"><i class="ph ph-squares-four" aria-hidden="true"></i> ${TL('Все')} <span class="filter-count">${published.length}</span></button>
                     ${POPULAR_SLUGS.size ? '<button class="filter-btn" data-blog-cat="__popular"><i class="ph-fill ph-fire" aria-hidden="true"></i> Популярное</button>' : ''}
                     ${[
                       { key: 'cases',       label: 'Кейсы',          icon: 'ph-briefcase' },
@@ -1788,7 +1788,7 @@ ${METRIKA}</head>
                     ].map(c => ({ ...c, cnt: published.filter(p => p.category === c.key).length }))
                       .filter(c => c.cnt > 0)
                       .sort((a, b) => b.cnt - a.cnt)
-                      .map(c => `<button class="filter-btn" data-blog-cat="${c.key}"><i class="ph ${c.icon}" aria-hidden="true"></i> ${c.label} <span class="filter-count">${c.cnt}</span></button>`)
+                      .map(c => `<button class="filter-btn" data-blog-cat="${c.key}"><i class="ph ${c.icon}" aria-hidden="true"></i> ${TL(c.label)} <span class="filter-count">${c.cnt}</span></button>`)
                       .join('\n                    ')}
                 </div>
 
@@ -1867,6 +1867,82 @@ ${METRIKA}</head>
 }
 
 // ---------- Поиск по сайту (статьи + предложения), клиентский ----------
+// ---------- i18n UI блога: ниши, рубрики, заголовки (RU/EN/ES/CN/MN) ----------
+// Переключается CSS по html[data-lang] через спаны .b-l-*. Статьи НЕ переводятся.
+const BLOG_I18N = {
+  "Салон красоты": { en: "Beauty salon", es: "Salón de belleza", cn: "美容院", mn: "Гоо сайхны салон" },
+  "Барбершоп": { en: "Barbershop", es: "Barbería", cn: "理发店", mn: "Барбершоп" },
+  "Маникюр": { en: "Manicure", es: "Manicura", cn: "美甲", mn: "Маникюр" },
+  "Массаж / СПА": { en: "Massage / spa", es: "Masaje / spa", cn: "按摩 / SPA", mn: "Массаж / SPA" },
+  "Косметология": { en: "Cosmetology", es: "Cosmetología", cn: "美容护理", mn: "Косметологи" },
+  "Тату-салон": { en: "Tattoo studio", es: "Estudio de tatuajes", cn: "纹身店", mn: "Тату салон" },
+  "Фитнес-клуб": { en: "Fitness club", es: "Gimnasio", cn: "健身房", mn: "Фитнес клуб" },
+  "Сауна / баня": { en: "Sauna / bath", es: "Sauna", cn: "桑拿 / 浴场", mn: "Саун / халуун ус" },
+  "Кофейня / общепит": { en: "Coffee shop", es: "Cafetería", cn: "咖啡馆", mn: "Кофе шоп" },
+  "Ресторан / кафе": { en: "Restaurant / café", es: "Restaurante / café", cn: "餐厅 / 咖啡厅", mn: "Ресторан / кафе" },
+  "Пекарня": { en: "Bakery", es: "Panadería", cn: "面包店", mn: "Талх нарийн боов" },
+  "Автосервис": { en: "Auto repair", es: "Taller mecánico", cn: "汽车维修", mn: "Авто засвар" },
+  "Автомойка": { en: "Car wash", es: "Lavado de autos", cn: "洗车", mn: "Авто угаалга" },
+  "Шиномонтаж": { en: "Tire service", es: "Cambio de neumáticos", cn: "轮胎服务", mn: "Дугуй засвар" },
+  "Автосалон": { en: "Car dealership", es: "Concesionario", cn: "汽车销售", mn: "Авто худалдаа" },
+  "Таксопарк": { en: "Taxi fleet", es: "Flota de taxis", cn: "出租车公司", mn: "Такси парк" },
+  "Сервисный центр": { en: "Service center", es: "Centro de servicio", cn: "服务中心", mn: "Үйлчилгээний төв" },
+  "Ремонт телефонов": { en: "Phone repair", es: "Reparación de móviles", cn: "手机维修", mn: "Утас засвар" },
+  "Ателье / химчистка": { en: "Tailor / dry cleaning", es: "Sastrería / tintorería", cn: "裁缝 / 干洗", mn: "Оёдол / хими цэвэрлэгээ" },
+  "Прачечная": { en: "Laundry", es: "Lavandería", cn: "洗衣店", mn: "Угаалгын газар" },
+  "Детский центр": { en: "Kids center", es: "Centro infantil", cn: "儿童中心", mn: "Хүүхдийн төв" },
+  "Частная школа": { en: "Private school", es: "Escuela privada", cn: "私立学校", mn: "Хувийн сургууль" },
+  "Школа танцев": { en: "Dance school", es: "Escuela de baile", cn: "舞蹈学校", mn: "Бүжгийн сургууль" },
+  "Языковая школа": { en: "Language school", es: "Escuela de idiomas", cn: "语言学校", mn: "Хэлний сургууль" },
+  "Автошкола": { en: "Driving school", es: "Autoescuela", cn: "驾校", mn: "Жолооны сургууль" },
+  "Юрфирма": { en: "Law firm", es: "Bufete de abogados", cn: "律师事务所", mn: "Хуулийн фирм" },
+  "Турагентство": { en: "Travel agency", es: "Agencia de viajes", cn: "旅行社", mn: "Аялалын агентлаг" },
+  "Гостиница / хостел": { en: "Hotel / hostel", es: "Hotel / hostal", cn: "酒店 / 旅舍", mn: "Зочид буудал / хостел" },
+  "Коворкинг": { en: "Coworking", es: "Coworking", cn: "共享办公", mn: "Коворкинг" },
+  "Квест / антикафе": { en: "Escape room / anticafé", es: "Escape room / anticafé", cn: "密室逃脱 / 时间咖啡馆", mn: "Квест / антикафе" },
+  "Фотостудия": { en: "Photo studio", es: "Estudio fotográfico", cn: "摄影棚", mn: "Гэрэл зургийн студи" },
+  "Фотограф": { en: "Photographer", es: "Fotógrafo", cn: "摄影师", mn: "Гэрэл зурагчин" },
+  "Аптека": { en: "Pharmacy", es: "Farmacia", cn: "药店", mn: "Эмийн сан" },
+  "Оптика": { en: "Optics", es: "Óptica", cn: "眼镜店", mn: "Нүдний шил" },
+  "Стоматология": { en: "Dentistry", es: "Clínica dental", cn: "牙科", mn: "Шүдний эмнэлэг" },
+  "Лаборатория": { en: "Laboratory", es: "Laboratorio", cn: "化验室", mn: "Лаборатори" },
+  "Ювелирный": { en: "Jewelry", es: "Joyería", cn: "珠宝店", mn: "Үнэт эдлэл" },
+  "Цветы": { en: "Flowers", es: "Floristería", cn: "花店", mn: "Цэцэг" },
+  "Зоомагазин": { en: "Pet shop", es: "Tienda de mascotas", cn: "宠物店", mn: "Тэжээвэр амьтдын дэлгүүр" },
+  "Клининг": { en: "Cleaning", es: "Limpieza", cn: "保洁", mn: "Цэвэрлэгээ" },
+  "Стройка": { en: "Construction", es: "Construcción", cn: "建筑", mn: "Барилга" },
+  "Все": { en: "All", es: "Todos", cn: "全部", mn: "Бүгд" },
+  "AI для кода": { en: "AI for code", es: "IA para código", cn: "代码 AI", mn: "Кодын AI" },
+  "AI в работе": { en: "AI at work", es: "IA en el trabajo", cn: "工作中的 AI", mn: "Ажлын AI" },
+  "Маркетинг": { en: "Marketing", es: "Marketing", cn: "营销", mn: "Маркетинг" },
+  "GEO / AI-поиск": { en: "GEO / AI search", es: "GEO / búsqueda IA", cn: "GEO / AI 搜索", mn: "GEO / AI хайлт" },
+  "Продажи": { en: "Sales", es: "Ventas", cn: "销售", mn: "Борлуулалт" },
+  "Медиа": { en: "Media", es: "Medios", cn: "媒体", mn: "Медиа" },
+  "По отраслям": { en: "By industry", es: "Por sectores", cn: "按行业", mn: "Салбараар" },
+  "Киберспорт": { en: "Esports", es: "Esports", cn: "电子竞技", mn: "Киберспорт" },
+  "Разработка": { en: "Development", es: "Desarrollo", cn: "开发", mn: "Хөгжүүлэлт" },
+  "Безопасность": { en: "Security", es: "Seguridad", cn: "安全", mn: "Аюулгүй байдал" },
+  "Финансы": { en: "Finance", es: "Finanzas", cn: "金融", mn: "Санхүү" },
+  "Сетевой бизнес": { en: "Network marketing", es: "Marketing multinivel", cn: "网络营销", mn: "Сүлжээний бизнес" },
+  "MWR Life": { en: "MWR Life", es: "MWR Life", cn: "MWR Life", mn: "MWR Life" },
+  "Open-source": { en: "Open source", es: "Open source", cn: "开源", mn: "Нээлттэй эх" },
+  "Бизнес-кругозор": { en: "Business insights", es: "Visión de negocio", cn: "商业视野", mn: "Бизнесийн мэдлэг" },
+  "Экспертный блог": { en: "Expert blog", es: "Blog experto", cn: "专家博客", mn: "Мэргэжлийн блог" },
+  "AI (старое)": { en: "AI (legacy)", es: "IA (antiguo)", cn: "AI（旧）", mn: "AI (хуучин)" },
+  "Карьера": { en: "Career", es: "Carrera", cn: "职业", mn: "Карьер" },
+  "Выберите свою сферу": { en: "Choose your industry", es: "Elige tu sector", cn: "选择您的行业", mn: "Салбараа сонгоно уу" },
+  "IT-решения под вашу нишу — нажмите свою, чтобы перейти к разбору и предложению.": { en: "IT solutions for your niche — tap yours to see the breakdown and offer.", es: "Soluciones IT para tu nicho — toca el tuyo para ver el análisis y la oferta.", cn: "针对您所在行业的 IT 解决方案 — 点击即可查看分析与方案。", mn: "Таны салбарт зориулсан IT шийдэл — дэлгэрэнгүй болон саналыг үзэхийн тулд өөрийнхийг дарна уу." },
+  "Поиск по статьям и предложениям…": { en: "Search articles and offers…", es: "Buscar artículos y ofertas…", cn: "搜索文章和方案…", mn: "Нийтлэл болон саналаас хайх…" },
+};
+function TL(ru) {
+  const t = BLOG_I18N[ru] || {};
+  return `<span class="b-l b-l-ru">${esc(ru)}</span>` +
+    `<span class="b-l b-l-en" lang="en">${esc(t.en || ru)}</span>` +
+    `<span class="b-l b-l-es" lang="es">${esc(t.es || t.en || ru)}</span>` +
+    `<span class="b-l b-l-cn" lang="zh">${esc(t.cn || t.en || ru)}</span>` +
+    `<span class="b-l b-l-mn" lang="mn">${esc(t.mn || t.en || ru)}</span>`;
+}
+
 // ---------- Навигатор «Выберите свою сферу» (ниши → статья → оффер) ----------
 const NICHES = [
   { l: 'Салон красоты', i: 'ph-scissors', s: 'it-dlya-salona-krasoty-2026' },
@@ -1916,10 +1992,10 @@ function nicheNavHtml(published) {
   const items = NICHES.filter(n => pub.has(n.s));
   if (items.length < 6) return '';
   return `<section class="niche-nav" aria-label="Выберите свою сферу">
-                    <h2 class="niche-nav-title"><i class="ph-fill ph-target" aria-hidden="true"></i> Выберите свою сферу</h2>
-                    <p class="niche-nav-sub">IT-решения под вашу нишу — нажмите свою, чтобы перейти к разбору и предложению.</p>
+                    <h2 class="niche-nav-title"><i class="ph-fill ph-target" aria-hidden="true"></i> ${TL('Выберите свою сферу')}</h2>
+                    <p class="niche-nav-sub">${TL('IT-решения под вашу нишу — нажмите свою, чтобы перейти к разбору и предложению.')}</p>
                     <div class="niche-nav-grid">
-                    ${items.map(n => `<a class="niche-chip" href="/blog/${n.s}/"><i class="ph ${n.i}" aria-hidden="true"></i> ${esc(n.l)}</a>`).join('\n                    ')}
+                    ${items.map(n => `<a class="niche-chip" href="/blog/${n.s}/"><i class="ph ${n.i}" aria-hidden="true"></i> ${TL(n.l)}</a>`).join('\n                    ')}
                     </div>
                 </section>
                 <style>
@@ -1939,6 +2015,7 @@ function searchBox() {
                     <input id="siteSearch" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
                     <div id="searchResults" class="search-results" hidden></div>
                 </div>
+                <script>(function(){var i=document.getElementById('siteSearch');if(!i)return;var P={ru:'Поиск по статьям и предложениям…',en:'Search articles and offers…',es:'Buscar artículos y ofertas…',cn:'搜索文章和方案…',mn:'Нийтлэл болон саналаас хайх…'};function u(){var l=document.documentElement.getAttribute('data-lang')||'ru';i.placeholder=P[l]||P.ru;}u();new MutationObserver(u).observe(document.documentElement,{attributes:true,attributeFilter:['data-lang']});})();</script>
                 <style>
                 .site-search{position:relative;max-width:660px;margin:0 0 26px;}
                 .site-search input{width:100%;padding:14px 16px 14px 46px;border:1.5px solid var(--border);border-radius:12px;background:var(--bg-card);color:var(--text);font-family:inherit;font-size:1rem;}
