@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Локальный ИИ на слабом ноутбуке: 8 и 16 ГБ</title>
+    <meta name="description" content="Что реально работает из локальных нейросетей на ноутбуке с 8 и 16 ГБ памяти в 2026: модели, квантизация, скорость и подводные камни.">
+    <meta name="keywords" content="локальный ИИ, ноутбук, квантизация, нейросети">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/lokalnyy-ii-na-slabom-noutbuke-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/lokalnyy-ii-na-slabom-noutbuke-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/lokalnyy-ii-na-slabom-noutbuke-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/lokalnyy-ii-na-slabom-noutbuke-2026/">
+    <meta property="og:title" content="Локальный ИИ на слабом ноутбуке: 8 и 16 ГБ">
+    <meta property="og:description" content="Что реально работает из локальных нейросетей на ноутбуке с 8 и 16 ГБ памяти в 2026: модели, квантизация, скорость и подводные камни.">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/lokalnyy-ii-na-slabom-noutbuke-2026/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Локальный ИИ на слабом ноутбуке: 8 и 16 ГБ">
+    <meta name="twitter:description" content="Что реально работает из локальных нейросетей на ноутбуке с 8 и 16 ГБ памяти в 2026: модели, квантизация, скорость и подводные камни.">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/lokalnyy-ii-na-slabom-noutbuke-2026/cover.png">
+
+    <link rel="icon" href="/favicon.svg?v=5" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=5">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png?v=5">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=5">
+    <link rel="preload" href="/assets/fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=71">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Локальный ИИ на слабом ноутбуке: что реально работает на 8 и 16 ГБ",
+  "description": "Что реально работает из локальных нейросетей на ноутбуке с 8 и 16 ГБ памяти в 2026: модели, квантизация, скорость и подводные камни.",
+  "image": "https://chimitdorzhi.tech/blog/lokalnyy-ii-na-slabom-noutbuke-2026/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://t.me/chimitdorzhi_studio",
+      "https://max.ru/channel_chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio",
+      "https://github.com/chimitdorzhi",
+      "https://chimitdorzhi.tech/about/"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/lokalnyy-ii-na-slabom-noutbuke-2026/"
+  },
+  "datePublished": "2026-08-31",
+  "dateModified": "2026-08-31",
+  "keywords": "локальный ИИ, ноутбук, квантизация, нейросети",
+  "articleSection": "AI для разработчиков",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Локальный ИИ на слабом ноутбуке: что реально работает на 8 и 16 ГБ",
+      "item": "https://chimitdorzhi.tech/blog/lokalnyy-ii-na-slabom-noutbuke-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Нужна ли видеокарта?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Для запуска на 8–16 ГБ — не обязательно, небольшие модели считаются и на процессоре, просто медленнее. Видеокарта нужна, когда важна скорость или идёт поток запросов."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Насколько это медленно?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "На процессоре ответ печатается со скоростью порядка нескольких слов в секунду. Для чата и черновиков терпимо, для мгновенных ответов клиентам в потоке — уже нет."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Хватит ли этого для бизнеса?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Для персональных задач и небольших внутренних сценариев — да. Для нагрузки от клиентов лучше сервер с видеокартой. Ноутбук — отличная площадка, чтобы протестировать идею перед серьёзным внедрением."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Данные точно никуда не уходят?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "В этом и смысл локального запуска: модель работает на вашем устройстве, запросы не отправляются в чужое облако. Это ключевое преимущество для чувствительных данных и 152-ФЗ."
+      }
+    }
+  ]
+}
+    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+var inject=function(){for (var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)};
+var run=function(){('requestIdleCallback' in window)?requestIdleCallback(inject,{timeout:5000}):setTimeout(inject,3000)};
+(e.readyState==='complete')?run():m.addEventListener('load',run);})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109281884" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<!-- Цели Метрики: клики по контактам и услугам -->
+<script type="text/javascript">
+(function(){
+  var GOALS = [
+    { re: /t\.me\//i,                     goal: 'tg_click' },
+    { re: /max\.ru\//i,                    goal: 'max_click' },
+    { re: /audit\.chimitdorzhi\.tech/i,    goal: 'audit_click' },
+    { re: /chimitdorzhi\.tech\/services\//i, goal: 'service_click' },
+    { re: /chimitdorzhi\.tech\/predlozheniya\//i, goal: 'offer_click' }
+  ];
+  document.addEventListener('click', function(e){
+    var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    for (var i = 0; i < GOALS.length; i++) {
+      if (GOALS[i].re.test(href)) {
+        try { if (window.ym) ym(109281884, 'reachGoal', GOALS[i].goal); } catch (err) {}
+        break;
+      }
+    }
+  }, true);
+})();
+</script>
+</head>
+<body class="wx-read">
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/" data-i18n="nav.home">Главная</a></li>
+            <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/market/" data-i18n="nav.offers">Предложения</a></li>
+            <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+            <li class="nav-dropdown">
+                <a href="/cases/" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+                <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему" aria-pressed="false">
+                <i class="ph ph-moon" aria-hidden="true"></i>
+            </button>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/" data-i18n="nav.home">Главная</a></li>
+        <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+        <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+        <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+        <li><a href="/market/" data-i18n="nav.offers">Предложения</a></li>
+        <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+        <li class="mobile-has-submenu">
+            <details>
+                <summary aria-label="Проекты — развернуть"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down" aria-hidden="true"></i></summary>
+                <ul class="mobile-submenu">
+                    <li>
+                        <a href="https://gerel.space" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">Gerel.space</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/universe_buryat/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/arey/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.arey">AREY</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/mwrlife/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">MWR Life</span>
+                                <span class="mobile-sub-desc">Travel-клуб и партнёрка</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </details>
+        </li>
+        <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+    </ul>
+    <div class="mobile-controls">
+        <div class="mobile-lang-switcher" role="group" aria-label="Выбор языка">
+            <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+            <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+            <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+        </div>
+        <button class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle" aria-label="Переключить тему" aria-pressed="false">
+            <i class="ph ph-moon" aria-hidden="true"></i>
+        </button>
+    </div>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Локальный ИИ на слабом ноутбуке: что реально работает на 8 и 16 ГБ</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/ai-dev/"><i class="ph ph-bookmark" aria-hidden="true"></i> AI для разработчиков</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин чтения</span>
+                        <time datetime="2026-08-31"><i class="ph ph-calendar" aria-hidden="true"></i> 31 августа 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Локальный ИИ на слабом ноутбуке: что реально работает на 8 и 16 ГБ</h1>
+
+                    <p class="blog-lead">Не нужен сервер за миллион, чтобы запустить нейросеть локально. Разбираю, какие модели реально работают на 8 и 16 ГБ, что такое квантизация и где предел.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>локальный ИИ</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>ноутбук</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>квантизация</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>нейросети</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
+<li>Локальную нейросеть можно запустить на обычном ноутбуке — сервер за миллион не нужен. Вопрос не «можно ли», а «какую модель и с какими ограничениями».</li>
+<li>На 8 ГБ реально работают небольшие модели (порядка 3–8 миллиардов параметров) в сжатом виде: чат по инструкциям, суммаризация, черновики. Медленно, но работает.</li>
+<li>На 16 ГБ выбор шире и комфортнее: модели покрупнее, длиннее контекст, быстрее ответ. Это уже рабочий домашний уровень.</li>
+<li>Секрет — квантизация: сжатие модели, при котором она занимает в разы меньше памяти почти без потери качества на бытовых задачах.</li>
+<li>Я помогаю подобрать модель под ваше железо и внедрить локальный ИИ под ключ на российском стеке с учётом 152-ФЗ.</li>
+</ul></div>
+
+<p>Когда заходит речь про локальный ИИ, первое возражение почти всегда одно: «У меня же не суперкомпьютер». И это заблуждение. Да, топовые модели требуют серьёзного железа, но целый пласт полезных задач закрывается моделями, которые спокойно живут на обычном ноутбуке с 8 или 16 ГБ памяти. Ниже разберу, что реально работает на каждом объёме, что такое квантизация простыми словами и где проходит честный предел. Цифры даю как ориентиры — ваш конкретный результат зависит от модели, процессора и настроек.</p>
+
+<h2 id="chto-eto">Можно ли вообще на слабом железе</h2>
+<p>Короткий ответ — да, но с оговорками. Локальная модель упирается в первую очередь в память. Ей нужно куда-то поместиться, а её «вес» зависит от числа параметров и степени сжатия. Небольшие модели в сжатом виде занимают всего несколько гигабайт и помещаются в оперативную память обычного ноутбука. Работать они будут на процессоре — медленнее, чем на видеокарте, но для несрочных задач этого достаточно.</p>
+<p>Важно правильно настроить ожидания. Локальная модель на ноутбуке — это не замена топовому облачному сервису по качеству и скорости. Это рабочий инструмент для конкретных задач: ответы по инструкции, черновики текстов, суммаризация, классификация, разбор переписки. Там, где не нужен гений, а нужен надёжный помощник, который не отправляет ваши данные наружу, — этого хватает с головой. А выбор конкретной модели под русский язык я подробно разбираю в материале <a href="/blog/kakoy-lokalnyy-llm-vybrat-2026/">какой локальный LLM выбрать</a>.</p>
+
+<h2 id="8gb">Что работает на 8 ГБ</h2>
+<p>8 ГБ — это нижняя рабочая планка. Памяти немного, поэтому запас идёт на небольшие модели порядка 3–8 миллиардов параметров, обязательно в сжатом виде. Что на них реально делать:</p>
+<ul>
+<li><strong>Чат-помощник по инструкциям.</strong> Ответы на типовые вопросы, объяснения, помощь с формулировками — модель справляется.</li>
+<li><strong>Суммаризация и переписывание.</strong> Сжать текст, переформулировать, сделать черновик письма — обычная задача для такого размера.</li>
+<li><strong>Классификация и разбор.</strong> Отсортировать обращения по темам, вытащить суть из переписки — работает стабильно.</li>
+</ul>
+<p>Честные ограничения на 8 ГБ: ответ идёт медленнее (несколько слов в секунду на процессоре — нормально), длинные документы целиком модель не осилит, а сложные рассуждения даются хуже. Параллельно держать открытыми тяжёлые программы не выйдет — память в дефиците. Это уровень «пощупать и решить бытовую задачу», а не поток запросов от клиентов.</p>
+
+<h2 id="16gb">Что работает на 16 ГБ</h2>
+<p>16 ГБ — это уже комфортный домашний уровень, и разница ощутимая. Появляется запас, а с ним и возможности:</p>
+<ul>
+<li><strong>Модели покрупнее.</strong> Можно взять модель побольше или менее агрессивно сжатую — качество ответов заметно ровнее.</li>
+<li><strong>Длиннее контекст.</strong> Модель удерживает больше текста за раз, а значит осиливает документы подлиннее и более связный диалог.</li>
+<li><strong>Комфортнее в работе.</strong> Ответ приходит быстрее, и остаётся память под остальные задачи — ноутбук не превращается в одну сплошную нейросеть.</li>
+</ul>
+<p>На 16 ГБ уже можно строить небольшой рабочий сценарий: локальный ассистент по внутренним документам, помощник в переписке, черновики контента. Для полноценной нагрузки на поток запросов всё равно захочется видеокарта или сервер, но как персональный инструмент 16 ГБ закрывают почти всё. Сколько именно памяти нужно под конкретную модель, я разбираю отдельно в материале про <a href="/blog/skolko-ram-dlya-lokalnogo-ii-2026/">объём RAM для локального ИИ</a>.</p>
+
+<h2 id="kvantizaciya">Квантизация простыми словами</h2>
+<p>Квантизация — это то, благодаря чему всё вышеописанное вообще возможно. Объясню без математики. Модель хранит миллиарды чисел (параметров), и по умолчанию каждое число занимает довольно много места. Квантизация — это округление этих чисел до более грубых значений, чтобы каждое занимало меньше памяти. Модель как бы сжимается: весила условные 16 ГБ — стала весить 4–5.</p>
+<p>Логичный вопрос: а качество не падает? Падает, но на бытовых задачах почти незаметно. Разница между сжатой и полной моделью на суммаризации или чате обычно на уровне погрешности. Поэтому квантизованные версии — стандарт для локального запуска, а не компромисс от бедности. Есть разные степени сжатия: чем сильнее жмём, тем меньше памяти и тем заметнее просадка. Баланс подбирается под задачу — я обычно беру умеренное сжатие, при котором качество ещё держится, а модель уже влезает в доступную память. Если хочется не разбираться в этом самому, а получить готовое решение, я делаю <a href="/services/rag-systems/">внедрение локального ИИ под ключ</a> — с подобранной моделью и настройкой под ваше железо.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+<p><strong>Нужна ли видеокарта?</strong> Для запуска на 8–16 ГБ — не обязательно, небольшие модели считаются и на процессоре, просто медленнее. Видеокарта нужна, когда важна скорость или идёт поток запросов.</p>
+<p><strong>Насколько это медленно?</strong> На процессоре ответ печатается со скоростью порядка нескольких слов в секунду. Для чата и черновиков терпимо, для мгновенных ответов клиентам в потоке — уже нет.</p>
+<p><strong>Хватит ли этого для бизнеса?</strong> Для персональных задач и небольших внутренних сценариев — да. Для нагрузки от клиентов лучше сервер с видеокартой. Ноутбук — отличная площадка, чтобы протестировать идею перед серьёзным внедрением.</p>
+<p><strong>Данные точно никуда не уходят?</strong> В этом и смысл локального запуска: модель работает на вашем устройстве, запросы не отправляются в чужое облако. Это ключевое преимущество для чувствительных данных и 152-ФЗ.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+<p>Локальный ИИ на слабом ноутбуке — это не миф, а рабочий инструмент, если правильно выбрать масштаб задачи. На 8 ГБ живут небольшие сжатые модели для чата, суммаризации и разбора текста; 16 ГБ дают запас под модели покрупнее, длиннее контекст и комфортную скорость. Всё это возможно благодаря квантизации — сжатию, которое почти не бьёт по качеству на бытовых задачах. Главное — трезво ставить ожидания: это надёжный помощник для конкретных сценариев и приватных данных, а не замена топовому облаку. Если хотите подобрать модель именно под ваше железо и внедрить локальный ИИ под ключ с учётом 152-ФЗ — я помогу пройти путь от теста на ноутбуке до рабочего решения.</p>
+
+                    </div>
+                    
+
+                    
+                    
+                    
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Что я делаю с ИИ под ключ</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-robot"></i> <span>ИИ-агенты и чат-боты</span></li>
+    
+    <li><i class="ph-fill ph-brain"></i> <span>База знаний с ИИ-поиском (RAG)</span></li>
+    
+    <li><i class="ph-fill ph-hard-drives"></i> <span>Локальные модели на своём сервере</span></li>
+    
+    <li><i class="ph-fill ph-shield-check"></i> <span>Приватность и 152-ФЗ</span></li>
+    
+  </ul>
+  <div class="blog-services-offer-ctas">
+    <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+      <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
+    </a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="blog-services-offer-cta blog-services-offer-cta-max">
+      <i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> Написать в MAX
+    </a>
+  </div>
+</div>
+                    <div class="blog-cta-card">
+                        <div class="blog-cta-card-body">
+                            <h3>Бесплатно: чек-лист «Готов ли ваш бизнес к 152-ФЗ»</h3>
+                            <p>12 пунктов, которые проверяют готовность за час: данные, согласия, уведомление в РКН, локализация, защита. Отметьте, что уже сделано, и увидите дыры, за которые сейчас штрафуют.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="/checklist-152-fz/" class="btn btn-accent"><i class="ph-fill ph-clipboard-text" aria-hidden="true"></i> Открыть чек-лист</a>
+                        </div>
+                    </div>
+                    
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/services/rag-systems/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Внедрить базу знаний с ИИ (RAG)</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-subscribe">
+  <div class="blog-subscribe-body">
+    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
+    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
+  </div>
+  <div class="blog-subscribe-actions">
+    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
+  </div>
+</section>
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/skolko-ram-dlya-lokalnogo-ii-2026/" data-category="ai-dev" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-memory"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>AI для разработчиков</span>
+  <h3>Сколько нужно RAM и видеокарты для локального ИИ</h3>
+  <p>Разбираю на реальных цифрах, сколько оперативной памяти и какая видеокарта нужны для локального ИИ разного размера — от ноутбука с 16 ГБ до сервера с двумя GPU. Без маркетинга, только рабочие ориентиры.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 20 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 5 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/lokalnyy-llm-na-noutbuke-2026/" data-category="ai-dev" data-clicks="57">
+  <span class="blog-card-popular"><i class="ph-fill ph-fire" aria-hidden="true"></i> Популярное</span>
+  <div class="blog-card-icon"><i class="ph-fill ph-cpu"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>AI для разработчиков</span>
+  <h3>Локальный LLM на ноутбуке 2026: Ollama, LM Studio, vLLM — практическое руководство</h3>
+  <p>Как поднять локальный LLM за час: Ollama, LM Studio, vLLM. Какие модели выбрать в 2026, бенчмарки скорости на M3 Max / RTX 4090 / H100, локальный RAG за 40 строк, экономика владения.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 20 мая 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 22 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/kakoy-lokalnyy-llm-vybrat-2026/" data-category="ai-dev" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-brain"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>AI для разработчиков</span>
+  <h3>Какой локальный LLM выбрать в 2026: Llama, Qwen, GigaChat, Saiga под русский язык</h3>
+  <p>Llama, Qwen, Saiga, GigaChat — какую локальную модель выбрать под русский язык и свою задачу. Сравниваю по языку, размеру, лицензии и железу, без маркетинга.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 31 августа 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/gpu-dlya-lokalnogo-ii-2026/" data-category="ai-dev" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-graphics-card"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>AI для разработчиков</span>
+  <h3>GPU и видеокарта для локального ИИ: что купить в 2026</h3>
+  <p>Видеокарта решает, какую модель вы потянете локально. Разбираю, сколько VRAM нужно под разные размеры моделей и когда без GPU можно обойтись.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 31 августа 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/vnedrenie-ii-buryatiya-2026/" data-category="ai-dev" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-brain"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>AI для разработчиков</span>
+  <h3>Внедрение ИИ для бизнеса в Бурятии: с чего начать</h3>
+  <p>Разбираю, с чего реально начинать внедрение ИИ в бизнесе Бурятии: где ИИ окупается уже сейчас, как выбрать между GigaChat, YandexGPT и зарубежными моделями, и что нужно учесть по 152-ФЗ. Опыт удалённых проектов по всей России.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 20 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 5 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/vektornye-bazy-dlya-rag-2027/" data-category="ai-dev" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-vector-two"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>AI для разработчиков</span>
+  <h3>Векторные базы данных для RAG: что это и как выбрать в 2027</h3>
+  <p>Векторная база данных — это хранилище, которое ищет по смыслу, а не по точному совпадению слов. Разбираем, что такое эмбеддинги, зачем векторные базы нужны в RAG, и сравниваем Qdrant, Chroma, pgvector, Weaviate и Milvus, чтобы вы выбрали решение под свою задачу.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 7 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 6 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    
+                    
+                    
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow"><span class="b-l b-l-ru">Готовые решения под ключ</span><span class="b-l b-l-en" lang="en">Turnkey solutions</span><span class="b-l b-l-es" lang="es">Soluciones llave en mano</span><span class="b-l b-l-cn" lang="zh">交钥匙解决方案</span><span class="b-l b-l-mn" lang="mn">Түлхүүр гардуулах шийдэл</span></span>
+                            <span class="blog-offer-cta-title"><span class="b-l b-l-ru">449 готовых IT-решений для бизнеса</span><span class="b-l b-l-en" lang="en">449 ready-made IT solutions for business</span><span class="b-l b-l-es" lang="es">449 soluciones IT listas para empresas</span><span class="b-l b-l-cn" lang="zh">449 个面向企业的现成 IT 解决方案</span><span class="b-l b-l-mn" lang="mn">Бизнест зориулсан 449 бэлэн IT шийдэл</span></span>
+                            <span class="blog-offer-cta-price"><span class="b-l b-l-ru">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span><span class="b-l b-l-en" lang="en">Automation, bots, AI, data privacy and platforms · free consultation</span><span class="b-l b-l-es" lang="es">Automatización, bots, IA, privacidad de datos y plataformas · consulta gratis</span><span class="b-l b-l-cn" lang="zh">自动化、机器人、AI、数据合规与平台 · 免费咨询</span><span class="b-l b-l-mn" lang="mn">Автоматжуулалт, бот, AI, өгөгдлийн хамгаалалт ба платформ · үнэгүй зөвлөгөө</span></span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> <span class="b-l b-l-ru">Смотреть каталог</span><span class="b-l b-l-en" lang="en">View catalog</span><span class="b-l b-l-es" lang="es">Ver catálogo</span><span class="b-l b-l-cn" lang="zh">查看目录</span><span class="b-l b-l-mn" lang="mn">Каталог үзэх</span></span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#chto-eto"><span class="blog-toc-num">01</span> Можно ли вообще на слабом железе</a></li>
+<li><a href="#8gb"><span class="blog-toc-num">02</span> Что работает на 8 ГБ</a></li>
+<li><a href="#16gb"><span class="blog-toc-num">03</span> Что работает на 16 ГБ</a></li>
+<li><a href="#kvantizaciya"><span class="blog-toc-num">04</span> Квантизация простыми словами</a></li>
+<li><a href="#faq"><span class="blog-toc-num">05</span> Частые вопросы</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">06</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/cases/" class="footer-policy-link">Кейсы</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=41" defer></script>
+<script src="/services-i18n.js?v=41" defer></script>
+<script src="/script.js?v=32" defer></script>
+<script src="/search-widget.js?v=1" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>
