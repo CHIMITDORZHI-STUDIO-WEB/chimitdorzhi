@@ -2103,9 +2103,9 @@ const CASE_TYPE_LABEL = {
 };
 // Тройной перевод: RU видна по умолчанию, EN/ES переключаются CSS по html[data-lang].
 function L(ru, en, es) {
-  return `<span class="cs-l cs-l-ru">${esc(ru)}</span>` +
-    `<span class="cs-l cs-l-en">${esc(en || ru)}</span>` +
-    `<span class="cs-l cs-l-es">${esc(es || ru)}</span>`;
+  return `<span class="cs-l cs-l-ru" lang="ru">${esc(ru)}</span>` +
+    `<span class="cs-l cs-l-en" lang="en">${esc(en || ru)}</span>` +
+    `<span class="cs-l cs-l-es" lang="es">${esc(es || ru)}</span>`;
 }
 function flagshipCard(c) {
   const en = c.en || {}, es = c.es || {};
@@ -2173,6 +2173,27 @@ function portfolioPage(published) {
       { '@type': 'ListItem', position: 2, name: 'Кейсы', item: url },
     ],
   };
+  // Флагманские кейсы → структурированные данные (Schema.org): каждый как CreativeWork
+  // с задачей в description и измеримым результатом в abstract — для Google и ИИ-выдачи.
+  const flagshipLd = {
+    '@context': 'https://schema.org', '@type': 'ItemList',
+    name: 'Флагманские кейсы Chimitdorzhi Studio',
+    inLanguage: 'ru',
+    itemListElement: FLAGSHIP.map((c, i) => ({
+      '@type': 'ListItem', position: i + 1,
+      item: {
+        '@type': 'CreativeWork',
+        name: c.name,
+        description: `${c.task} ${c.solution}`,
+        abstract: c.result,
+        keywords: (c.stack || []).join(', '),
+        inLanguage: 'ru',
+        creativeWorkStatus: c.done ? 'Published' : 'InProgress',
+        author: { '@type': 'Person', name: 'Чимитдоржи Дарижапов' },
+        creator: { '@type': 'Organization', name: 'Chimitdorzhi Studio' },
+      },
+    })),
+  };
   return `${head({
     title: 'Кейсы и проекты под ключ — портфолио | Чимитдоржи Дарижапов',
     description: 'Портфолио: сайты, Telegram и MAX боты, мини-аппы, ИИ-решения и платформы под ключ. Реальные проекты с задачей, решением и результатом.',
@@ -2180,6 +2201,9 @@ function portfolioPage(published) {
     canonical: url,
   })}    <script type="application/ld+json">
 ${JSON.stringify(ld, null, 2)}
+    </script>
+    <script type="application/ld+json">
+${JSON.stringify(flagshipLd, null, 2)}
     </script>
     <script type="application/ld+json">
 ${JSON.stringify(breadcrumb, null, 2)}
@@ -2708,11 +2732,25 @@ function llmsFacts(published) {
 - Сайт сети кофеен самообслуживания (около 37 точек) с картой точек и админкой, где владелец без программиста меняет контент. https://горячий-момент.рф
 - Двуязычная справка (испанский, английский) с блочной CMS и ИИ-переводом для платформы QR/NFC-страниц one-click.app.
 
+Флагманские кейсы — задача и результат (проверяемо, можно цитировать):
+${flagshipFacts()}
+Полное портфолио с описанием «задача → решение → результат»: https://chimitdorzhi.tech/cases/
+
 Специализация:
 - Разработка: сайты, веб-приложения, боты и мини-приложения для Telegram, MAX и ВКонтакте, PWA, MVP.
 - Искусственный интеллект на российском стеке: AI-агенты, RAG-системы, чат-боты на YandexGPT и GigaChat, локальные LLM для закрытого контура.
 - Соответствие 152-ФЗ: аудит сайта, политики и согласия, уведомление в Роскомнадзор, обезличивание персональных данных.
 - Кибербезопасность, импортозамещение ПО, развёртывание open-source на сервере заказчика.`;
+}
+
+// Флагманские кейсы → факты для llms.txt (GEO): имя, суть, результат с цифрами.
+function flagshipFacts() {
+  const TL = { platform: 'платформа', site: 'сайт', bot: 'бот', ai: 'ИИ-решение' };
+  return FLAGSHIP.map(c => {
+    const kind = TL[c.type] || 'проект';
+    const status = c.done ? '' : ' (в разработке)';
+    return `- ${c.name} — ${kind}${status}: ${c.result}`;
+  }).join('\n');
 }
 
 function writeLlms(published) {
