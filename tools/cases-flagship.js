@@ -92,17 +92,17 @@ module.exports = [
     name: 'OneClick / Quipu', type: 'ai', intl: true, done: false,
     task: 'В регионе низкая цифровая грамотность, но все шлют голосовые в WhatsApp — нужен сервис расшифровки без установки приложения.',
     solution: 'Официальный WhatsApp-бот: принимает голосовое → отдаёт структурированное саммари (тезисы, решения, задачи) на испанском; фото документов и рукопись — следующими релизами. Один бэкенд, два интерфейса (бот + веб-кабинет).',
-    result: 'Пройдена бизнес-верификация Meta, поднят номер и вебхук — инфраструктура готова, бэкенд в разработке.',
+    result: 'Пройдена бизнес-верификация Meta, поднят номер и вебхук — инфраструктура готова, бэкенд на финальной сборке.',
     stack: ['WhatsApp Cloud API', 'ASR (транскрибация)', 'LLM-саммаризация'],
     en: {
       task: 'Low digital literacy in the region, but everyone sends voice notes on WhatsApp — a transcription service was needed with no app to install.',
       solution: 'An official WhatsApp bot: takes a voice note → returns a structured summary (points, decisions, tasks) in Spanish; document photos and handwriting in later releases. One backend, two interfaces (bot + web dashboard).',
-      result: 'Passed Meta business verification, number and webhook up — infrastructure ready, backend in progress.',
+      result: 'Passed Meta business verification, number and webhook up — infrastructure ready, backend in final assembly.',
     },
     es: {
       task: 'Baja alfabetización digital en la región, pero todos envían notas de voz por WhatsApp — hacía falta un servicio de transcripción sin instalar ninguna app.',
       solution: 'Un bot oficial de WhatsApp: recibe una nota de voz → devuelve un resumen estructurado (puntos, decisiones, tareas) en español; fotos de documentos y manuscritos en próximas versiones. Un backend, dos interfaces (bot + panel web).',
-      result: 'Superada la verificación de negocio de Meta, número y webhook activos — infraestructura lista, backend en desarrollo.',
+      result: 'Superada la verificación de negocio de Meta, número y webhook activos — infraestructura lista, backend en montaje final.',
     },
   },
   {
@@ -426,6 +426,57 @@ module.exports = [
       task: 'Publicación automática en una cuenta personal de Threads: posts, cadenas de respuestas y publicación diferida programada.',
       solution: 'Una herramienta en Node.js sobre la Threads Graph API oficial: autorización con token de larga duración y su renovación, publicación de posts y cadenas de respuestas, y una cola programada de publicaciones diferidas con control del límite diario de publicaciones.',
       result: 'El código está terminado y validado (comprobación de sintaxis + pruebas en dry-run). La publicación en vivo espera el token oficial de la API — la revisión de la app por la plataforma está pendiente.',
+    },
+  },
+  {
+    name: 'SPL Launch', type: 'platform', metric: true, done: false,
+    task: 'Собрать прозрачный тулкит запуска SPL-токена на Solana под собственный бренд: изолированные по ролям зашифрованные кейсторы, единый прогон от минта до листинга, отзыв полномочий и независимая проверка результата в сети — без клонирования чужих тикеров и без имитации активности.',
+    solution: 'TypeScript-конвейер (@solana/web3.js, Metaplex/Umi, SPL-Token, Raydium SDK v2, Streamflow) с пошаговым запуском, resume и веб-панелью на Express. Метаданные и арт публикуются на настоящий Arweave через Turbo, полномочия mint/freeze отзываются, mutable снимается, а отдельный модуль verify независимо перечитывает состояние минта из сети. Вестинг — реальными замками Streamflow вместо дробления supply по ярлыкам.',
+    result: 'На devnet прошёл первый живой end-to-end прогон: токен создан, шаги 1–5 отработали. Независимая проверка подтвердила mintAuthority=null, freezeAuthority=null, isMutable=false, supply 1e15, полная стоимость запуска 0.0207 SOL. Метаданные легли на рабочий Arweave-URI, пригодный и для mainnet. Вестинг, пул Raydium CPMM и сжигание LP — следующий этап.',
+    stack: ['TypeScript', 'Node.js', '@solana/web3.js', 'Metaplex / Umi', 'Raydium SDK v2', 'Streamflow', 'Arweave', 'Express'],
+    en: {
+      task: 'Build a transparent toolkit for launching an SPL token on Solana under your own brand: role-isolated encrypted keystores, a single run from mint to listing, authority revocation and independent on-chain verification — no cloning of other projects\' tickers and no faked activity.',
+      solution: 'A TypeScript pipeline (@solana/web3.js, Metaplex/Umi, SPL-Token, Raydium SDK v2, Streamflow) with stepwise execution, resume and an Express web panel. Metadata and art are published to real Arweave via Turbo, mint/freeze authorities are revoked, mutability is removed, and a separate verify module re-reads mint state directly from the chain. Vesting uses real Streamflow locks instead of splitting supply across labeled wallets.',
+      result: 'First live end-to-end run completed on devnet: token created, steps 1–5 executed. Independent checks confirmed mintAuthority=null, freezeAuthority=null, isMutable=false, supply 1e15, and a full launch cost of 0.0207 SOL. Metadata landed on a working Arweave URI usable for mainnet too. Vesting, the Raydium CPMM pool and LP burn are the next stage.',
+    },
+    es: {
+      task: 'Construir un kit transparente para lanzar un token SPL en Solana bajo marca propia: keystores cifrados aislados por rol, una ejecución única desde el minteo hasta el listado, revocación de autoridades y verificación independiente en la cadena, sin clonar tickers ajenos ni simular actividad.',
+      solution: 'Un pipeline en TypeScript (@solana/web3.js, Metaplex/Umi, SPL-Token, Raydium SDK v2, Streamflow) con ejecución por pasos, reanudación y un panel web en Express. Los metadatos y el arte se publican en Arweave real vía Turbo, se revocan las autoridades de mint/freeze, se elimina la mutabilidad y un módulo verify independiente vuelve a leer el estado del mint directamente de la red. El vesting usa bloqueos reales de Streamflow en vez de repartir el supply entre wallets etiquetadas.',
+      result: 'Primera ejecución integral en vivo completada en devnet: token creado, pasos 1–5 ejecutados. Verificaciones independientes confirmaron mintAuthority=null, freezeAuthority=null, isMutable=false, supply 1e15 y un costo total de lanzamiento de 0.0207 SOL. Los metadatos quedaron en un URI de Arweave funcional, apto también para mainnet. El vesting, el pool Raydium CPMM y el quemado de LP son la siguiente etapa.',
+    },
+  },
+  {
+    name: 'Личный сайт эксперта по недвижимости', type: 'site', done: true,
+    task: 'Эксперту по недвижимости из Иркутска нужен личный сайт вместо отсутствия онлайн-присутствия: услуги, приём заявок и видимость в поиске и ИИ-ассистентах.',
+    solution: 'Рукописный статический лендинг + блог, развёрнут на VPS под nginx с HTTPS; настроены SEO и GEO: структура заголовков, Schema.org JSON-LD (RealEstateAgent/Person/WebSite/FAQPage/BlogPosting), sitemap, robots; форма заявки на email; свой домен.',
+    result: 'Сайт в эфире на собственном домене с валидным HTTPS и авто-продлением сертификата: 6–7 страниц (главная, направления услуг, обо мне, цены, контакты), блог с SEO/GEO-статьями и микроразметкой, рабочая форма заявки.',
+    stack: ['HTML', 'CSS', 'JavaScript', 'nginx', 'Ubuntu VPS', "Let's Encrypt", 'Schema.org JSON-LD'],
+    en: {
+      task: 'A real-estate expert from Irkutsk needed a personal website instead of having no online presence: services, lead intake, and visibility in search and AI assistants.',
+      solution: 'A hand-coded static landing page plus a blog, deployed on a VPS under nginx with HTTPS; SEO and GEO set up: heading structure, Schema.org JSON-LD (RealEstateAgent/Person/WebSite/FAQPage/BlogPosting), sitemap, robots; a lead form to email; own domain.',
+      result: 'The site is live on its own domain with a valid auto-renewing HTTPS certificate: 6–7 pages (home, service areas, about, pricing, contacts), a blog with SEO/GEO articles and structured markup, and a working lead form.',
+    },
+    es: {
+      task: 'Una experta inmobiliaria de Irkutsk necesitaba un sitio web personal en lugar de no tener presencia en línea: servicios, captación de solicitudes y visibilidad en buscadores y asistentes de IA.',
+      solution: 'Una landing estática escrita a mano más un blog, desplegada en un VPS con nginx y HTTPS; SEO y GEO configurados: estructura de encabezados, Schema.org JSON-LD (RealEstateAgent/Person/WebSite/FAQPage/BlogPosting), sitemap, robots; un formulario de contacto al correo; dominio propio.',
+      result: 'El sitio está en línea con dominio propio y certificado HTTPS válido con renovación automática: 6–7 páginas (inicio, áreas de servicio, sobre mí, precios, contactos), un blog con artículos SEO/GEO y marcado estructurado, y un formulario de contacto funcional.',
+    },
+  },
+  {
+    name: 'ProSport.Photo', type: 'site', metric: true, done: false,
+    task: 'Спортивному фотожурналисту нужен сайт-витрина личного бренда с прицелом на поисковую выдачу по фото. Ограничение: владелец сам заливает по 300–500 фото за раз (до ~12 000 в год) с телефона на плохой связи и не хочет ни одного лишнего действия на кадр.',
+    solution: 'Next.js 15 (App Router, TS strict): доменный слой с тестами, резюмируемая загрузка по tus-протоколу (докачка с того же байта после обрыва), обработка в sharp через очередь BullMQ (очистка метаданных с сохранением IPTC, водяной знак, WebP, превью), публичная лента и страница репортажа с авто-«ритмом» галереи по пропорциям (без кадрирования) и лайтбоксом.',
+    result: 'Демо-стенд развёрнут (pm2 + nginx, отдельный порт): 326 тестов зелёные, покрытие 91.9%; загрузка 50 файлов с искусственным обрывом на 20-м кадре докачалась до конца (0 потерь), отдача media через nginx ~24 КБ/кадр в WebP; галерея проверена программно — ни один кадр не обрезан, 0 нарушений контраста. Админка, рубрики и Schema/sitemap — следующий этап.',
+    stack: ['Next.js 15', 'TypeScript', 'PostgreSQL 16', 'Drizzle ORM', 'tus', 'BullMQ + Redis', 'sharp', 'nginx + pm2'],
+    en: {
+      task: 'A sports photojournalist needed a personal-brand showcase site aimed at ranking in image search. The constraint: the owner uploads 300–500 photos at a time (up to ~12,000 a year) from a phone on poor connections and wants zero extra steps per shot.',
+      solution: 'Next.js 15 (App Router, TS strict): a tested domain layer, resumable tus-protocol uploads (resume from the same byte after a drop), sharp processing via a BullMQ queue (metadata scrub keeping IPTC, watermark, WebP, thumbnails), a public feed and a report page with an auto-"rhythm" gallery by aspect ratio (no cropping) and a lightbox.',
+      result: 'A demo stand deployed (pm2 + nginx, separate port): 326 tests green, 91.9% coverage; a 50-file upload with a forced drop on the 20th frame resumed to completion (0 losses), media served via nginx at ~24 KB/frame in WebP; the gallery verified programmatically — not a single frame cropped, 0 contrast violations. Admin, rubrics and Schema/sitemap are the next stage.',
+    },
+    es: {
+      task: 'Un fotoperiodista deportivo necesitaba un sitio-escaparate de marca personal orientado a posicionar en la búsqueda de imágenes. La restricción: el propietario sube 300–500 fotos a la vez (hasta ~12.000 al año) desde el móvil con mala conexión y no quiere ni un paso extra por foto.',
+      solution: 'Next.js 15 (App Router, TS strict): una capa de dominio con tests, subidas reanudables por protocolo tus (reanudar desde el mismo byte tras un corte), procesamiento en sharp mediante una cola BullMQ (limpieza de metadatos conservando IPTC, marca de agua, WebP, miniaturas), un feed público y una página de reportaje con una galería de "ritmo" automático por proporción (sin recortar) y un lightbox.',
+      result: 'Un stand demo desplegado (pm2 + nginx, puerto aparte): 326 tests en verde, 91,9% de cobertura; una subida de 50 archivos con un corte forzado en el fotograma 20 se reanudó hasta completarse (0 pérdidas), medios servidos por nginx a ~24 KB/fotograma en WebP; la galería verificada por programa — ni un solo fotograma recortado, 0 infracciones de contraste. El panel, las rúbricas y Schema/sitemap son la siguiente etapa.',
     },
   },
 ];

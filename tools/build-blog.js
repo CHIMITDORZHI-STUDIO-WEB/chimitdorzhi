@@ -631,7 +631,7 @@ function head({ title, description, keywords, canonical, ogImage = `${SITE}/hero
         <link rel="stylesheet" href="/assets/phosphor/regular.css">
         <link rel="stylesheet" href="/assets/phosphor/fill.css">
     </noscript>
-    <link rel="stylesheet" href="/style.css?v=68">
+    <link rel="stylesheet" href="/style.css?v=69">
 `;
 }
 
@@ -2111,7 +2111,7 @@ function flagshipCard(c) {
   const tl = CASE_TYPE_LABEL[c.type] || { ru: 'Проект', en: 'Project', es: 'Proyecto' };
   const doneBadge = c.done
     ? `<span class="cs-badge cs-done"><i class="ph-fill ph-check-circle" aria-hidden="true"></i> ${L('в проде', 'live', 'en producción')}</span>`
-    : `<span class="cs-badge cs-wip"><i class="ph-fill ph-wrench" aria-hidden="true"></i> ${L('в разработке', 'in progress', 'en desarrollo')}</span>`;
+    : `<span class="cs-badge cs-wip"><i class="ph-fill ph-check-circle" aria-hidden="true"></i> ${L('разработано', 'developed', 'desarrollado')}</span>`;
   return `<article class="cs-card${c.metric ? ' cs-metric' : ''}">
         <div class="cs-top">
           <span class="cs-type">${L(tl.ru, tl.en, tl.es)}</span>

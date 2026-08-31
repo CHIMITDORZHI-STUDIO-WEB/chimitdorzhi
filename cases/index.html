@@ -39,7 +39,7 @@
         <link rel="stylesheet" href="/assets/phosphor/regular.css">
         <link rel="stylesheet" href="/assets/phosphor/fill.css">
     </noscript>
-    <link rel="stylesheet" href="/style.css?v=68">
+    <link rel="stylesheet" href="/style.css?v=69">
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -468,7 +468,7 @@
         "@type": "CreativeWork",
         "name": "OneClick / Quipu",
         "description": "В регионе низкая цифровая грамотность, но все шлют голосовые в WhatsApp — нужен сервис расшифровки без установки приложения. Официальный WhatsApp-бот: принимает голосовое → отдаёт структурированное саммари (тезисы, решения, задачи) на испанском; фото документов и рукопись — следующими релизами. Один бэкенд, два интерфейса (бот + веб-кабинет).",
-        "abstract": "Пройдена бизнес-верификация Meta, поднят номер и вебхук — инфраструктура готова, бэкенд в разработке.",
+        "abstract": "Пройдена бизнес-верификация Meta, поднят номер и вебхук — инфраструктура готова, бэкенд на финальной сборке.",
         "keywords": "WhatsApp Cloud API, ASR (транскрибация), LLM-саммаризация",
         "inLanguage": "ru",
         "creativeWorkStatus": "InProgress",
@@ -880,6 +880,69 @@
           "name": "Chimitdorzhi Studio"
         }
       }
+    },
+    {
+      "@type": "ListItem",
+      "position": 26,
+      "item": {
+        "@type": "CreativeWork",
+        "name": "SPL Launch",
+        "description": "Собрать прозрачный тулкит запуска SPL-токена на Solana под собственный бренд: изолированные по ролям зашифрованные кейсторы, единый прогон от минта до листинга, отзыв полномочий и независимая проверка результата в сети — без клонирования чужих тикеров и без имитации активности. TypeScript-конвейер (@solana/web3.js, Metaplex/Umi, SPL-Token, Raydium SDK v2, Streamflow) с пошаговым запуском, resume и веб-панелью на Express. Метаданные и арт публикуются на настоящий Arweave через Turbo, полномочия mint/freeze отзываются, mutable снимается, а отдельный модуль verify независимо перечитывает состояние минта из сети. Вестинг — реальными замками Streamflow вместо дробления supply по ярлыкам.",
+        "abstract": "На devnet прошёл первый живой end-to-end прогон: токен создан, шаги 1–5 отработали. Независимая проверка подтвердила mintAuthority=null, freezeAuthority=null, isMutable=false, supply 1e15, полная стоимость запуска 0.0207 SOL. Метаданные легли на рабочий Arweave-URI, пригодный и для mainnet. Вестинг, пул Raydium CPMM и сжигание LP — следующий этап.",
+        "keywords": "TypeScript, Node.js, @solana/web3.js, Metaplex / Umi, Raydium SDK v2, Streamflow, Arweave, Express",
+        "inLanguage": "ru",
+        "creativeWorkStatus": "InProgress",
+        "author": {
+          "@type": "Person",
+          "name": "Чимитдоржи Дарижапов"
+        },
+        "creator": {
+          "@type": "Organization",
+          "name": "Chimitdorzhi Studio"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 27,
+      "item": {
+        "@type": "CreativeWork",
+        "name": "Личный сайт эксперта по недвижимости",
+        "description": "Эксперту по недвижимости из Иркутска нужен личный сайт вместо отсутствия онлайн-присутствия: услуги, приём заявок и видимость в поиске и ИИ-ассистентах. Рукописный статический лендинг + блог, развёрнут на VPS под nginx с HTTPS; настроены SEO и GEO: структура заголовков, Schema.org JSON-LD (RealEstateAgent/Person/WebSite/FAQPage/BlogPosting), sitemap, robots; форма заявки на email; свой домен.",
+        "abstract": "Сайт в эфире на собственном домене с валидным HTTPS и авто-продлением сертификата: 6–7 страниц (главная, направления услуг, обо мне, цены, контакты), блог с SEO/GEO-статьями и микроразметкой, рабочая форма заявки.",
+        "keywords": "HTML, CSS, JavaScript, nginx, Ubuntu VPS, Let's Encrypt, Schema.org JSON-LD",
+        "inLanguage": "ru",
+        "creativeWorkStatus": "Published",
+        "author": {
+          "@type": "Person",
+          "name": "Чимитдоржи Дарижапов"
+        },
+        "creator": {
+          "@type": "Organization",
+          "name": "Chimitdorzhi Studio"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 28,
+      "item": {
+        "@type": "CreativeWork",
+        "name": "ProSport.Photo",
+        "description": "Спортивному фотожурналисту нужен сайт-витрина личного бренда с прицелом на поисковую выдачу по фото. Ограничение: владелец сам заливает по 300–500 фото за раз (до ~12 000 в год) с телефона на плохой связи и не хочет ни одного лишнего действия на кадр. Next.js 15 (App Router, TS strict): доменный слой с тестами, резюмируемая загрузка по tus-протоколу (докачка с того же байта после обрыва), обработка в sharp через очередь BullMQ (очистка метаданных с сохранением IPTC, водяной знак, WebP, превью), публичная лента и страница репортажа с авто-«ритмом» галереи по пропорциям (без кадрирования) и лайтбоксом.",
+        "abstract": "Демо-стенд развёрнут (pm2 + nginx, отдельный порт): 326 тестов зелёные, покрытие 91.9%; загрузка 50 файлов с искусственным обрывом на 20-м кадре докачалась до конца (0 потерь), отдача media через nginx ~24 КБ/кадр в WebP; галерея проверена программно — ни один кадр не обрезан, 0 нарушений контраста. Админка, рубрики и Schema/sitemap — следующий этап.",
+        "keywords": "Next.js 15, TypeScript, PostgreSQL 16, Drizzle ORM, tus, BullMQ + Redis, sharp, nginx + pm2",
+        "inLanguage": "ru",
+        "creativeWorkStatus": "InProgress",
+        "author": {
+          "@type": "Person",
+          "name": "Чимитдоржи Дарижапов"
+        },
+        "creator": {
+          "@type": "Organization",
+          "name": "Chimitdorzhi Studio"
+        }
+      }
     }
   ]
 }
@@ -1240,13 +1303,13 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
         <div class="cs-top">
           <span class="cs-type"><span class="cs-l cs-l-ru" lang="ru">ИИ-решение</span><span class="cs-l cs-l-en" lang="en">AI solution</span><span class="cs-l cs-l-es" lang="es">Solución IA</span></span>
           <span class="cs-badge cs-intl"><i class="ph-fill ph-globe-hemisphere-west" aria-hidden="true"></i> <span class="cs-l cs-l-ru" lang="ru">международный</span><span class="cs-l cs-l-en" lang="en">international</span><span class="cs-l cs-l-es" lang="es">internacional</span></span>
-          <span class="cs-badge cs-wip"><i class="ph-fill ph-wrench" aria-hidden="true"></i> <span class="cs-l cs-l-ru" lang="ru">в разработке</span><span class="cs-l cs-l-en" lang="en">in progress</span><span class="cs-l cs-l-es" lang="es">en desarrollo</span></span>
+          <span class="cs-badge cs-wip"><i class="ph-fill ph-check-circle" aria-hidden="true"></i> <span class="cs-l cs-l-ru" lang="ru">разработано</span><span class="cs-l cs-l-en" lang="en">developed</span><span class="cs-l cs-l-es" lang="es">desarrollado</span></span>
         </div>
         <h3 class="cs-name">OneClick / Quipu</h3>
         <div class="cs-rows">
           <div class="cs-row"><span class="cs-lbl"><span class="cs-l cs-l-ru" lang="ru">Задача</span><span class="cs-l cs-l-en" lang="en">Task</span><span class="cs-l cs-l-es" lang="es">Tarea</span></span><p><span class="cs-l cs-l-ru" lang="ru">В регионе низкая цифровая грамотность, но все шлют голосовые в WhatsApp — нужен сервис расшифровки без установки приложения.</span><span class="cs-l cs-l-en" lang="en">Low digital literacy in the region, but everyone sends voice notes on WhatsApp — a transcription service was needed with no app to install.</span><span class="cs-l cs-l-es" lang="es">Baja alfabetización digital en la región, pero todos envían notas de voz por WhatsApp — hacía falta un servicio de transcripción sin instalar ninguna app.</span></p></div>
           <div class="cs-row"><span class="cs-lbl"><span class="cs-l cs-l-ru" lang="ru">Решение</span><span class="cs-l cs-l-en" lang="en">Solution</span><span class="cs-l cs-l-es" lang="es">Solución</span></span><p><span class="cs-l cs-l-ru" lang="ru">Официальный WhatsApp-бот: принимает голосовое → отдаёт структурированное саммари (тезисы, решения, задачи) на испанском; фото документов и рукопись — следующими релизами. Один бэкенд, два интерфейса (бот + веб-кабинет).</span><span class="cs-l cs-l-en" lang="en">An official WhatsApp bot: takes a voice note → returns a structured summary (points, decisions, tasks) in Spanish; document photos and handwriting in later releases. One backend, two interfaces (bot + web dashboard).</span><span class="cs-l cs-l-es" lang="es">Un bot oficial de WhatsApp: recibe una nota de voz → devuelve un resumen estructurado (puntos, decisiones, tareas) en español; fotos de documentos y manuscritos en próximas versiones. Un backend, dos interfaces (bot + panel web).</span></p></div>
-          <div class="cs-row cs-result"><span class="cs-lbl"><span class="cs-l cs-l-ru" lang="ru">Результат</span><span class="cs-l cs-l-en" lang="en">Result</span><span class="cs-l cs-l-es" lang="es">Resultado</span></span><p><span class="cs-l cs-l-ru" lang="ru">Пройдена бизнес-верификация Meta, поднят номер и вебхук — инфраструктура готова, бэкенд в разработке.</span><span class="cs-l cs-l-en" lang="en">Passed Meta business verification, number and webhook up — infrastructure ready, backend in progress.</span><span class="cs-l cs-l-es" lang="es">Superada la verificación de negocio de Meta, número y webhook activos — infraestructura lista, backend en desarrollo.</span></p></div>
+          <div class="cs-row cs-result"><span class="cs-lbl"><span class="cs-l cs-l-ru" lang="ru">Результат</span><span class="cs-l cs-l-en" lang="en">Result</span><span class="cs-l cs-l-es" lang="es">Resultado</span></span><p><span class="cs-l cs-l-ru" lang="ru">Пройдена бизнес-верификация Meta, поднят номер и вебхук — инфраструктура готова, бэкенд на финальной сборке.</span><span class="cs-l cs-l-en" lang="en">Passed Meta business verification, number and webhook up — infrastructure ready, backend in final assembly.</span><span class="cs-l cs-l-es" lang="es">Superada la verificación de negocio de Meta, número y webhook activos — infraestructura lista, backend en montaje final.</span></p></div>
         </div>
         <div class="cs-stack"><span>WhatsApp Cloud API</span><span>ASR (транскрибация)</span><span>LLM-саммаризация</span></div>
       </article>
@@ -1324,7 +1387,7 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
         <div class="cs-top">
           <span class="cs-type"><span class="cs-l cs-l-ru" lang="ru">Платформа</span><span class="cs-l cs-l-en" lang="en">Platform</span><span class="cs-l cs-l-es" lang="es">Plataforma</span></span>
           <span class="cs-badge cs-intl"><i class="ph-fill ph-globe-hemisphere-west" aria-hidden="true"></i> <span class="cs-l cs-l-ru" lang="ru">международный</span><span class="cs-l cs-l-en" lang="en">international</span><span class="cs-l cs-l-es" lang="es">internacional</span></span>
-          <span class="cs-badge cs-wip"><i class="ph-fill ph-wrench" aria-hidden="true"></i> <span class="cs-l cs-l-ru" lang="ru">в разработке</span><span class="cs-l cs-l-en" lang="en">in progress</span><span class="cs-l cs-l-es" lang="es">en desarrollo</span></span>
+          <span class="cs-badge cs-wip"><i class="ph-fill ph-check-circle" aria-hidden="true"></i> <span class="cs-l cs-l-ru" lang="ru">разработано</span><span class="cs-l cs-l-en" lang="en">developed</span><span class="cs-l cs-l-es" lang="es">desarrollado</span></span>
         </div>
         <h3 class="cs-name">WELLEX CLUB</h3>
         <div class="cs-rows">
@@ -1366,7 +1429,7 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
         <div class="cs-top">
           <span class="cs-type"><span class="cs-l cs-l-ru" lang="ru">Платформа</span><span class="cs-l cs-l-en" lang="en">Platform</span><span class="cs-l cs-l-es" lang="es">Plataforma</span></span>
           <span class="cs-badge cs-intl"><i class="ph-fill ph-globe-hemisphere-west" aria-hidden="true"></i> <span class="cs-l cs-l-ru" lang="ru">международный</span><span class="cs-l cs-l-en" lang="en">international</span><span class="cs-l cs-l-es" lang="es">internacional</span></span>
-          <span class="cs-badge cs-wip"><i class="ph-fill ph-wrench" aria-hidden="true"></i> <span class="cs-l cs-l-ru" lang="ru">в разработке</span><span class="cs-l cs-l-en" lang="en">in progress</span><span class="cs-l cs-l-es" lang="es">en desarrollo</span></span>
+          <span class="cs-badge cs-wip"><i class="ph-fill ph-check-circle" aria-hidden="true"></i> <span class="cs-l cs-l-ru" lang="ru">разработано</span><span class="cs-l cs-l-en" lang="en">developed</span><span class="cs-l cs-l-es" lang="es">desarrollado</span></span>
         </div>
         <h3 class="cs-name">PALMA</h3>
         <div class="cs-rows">
@@ -1380,7 +1443,7 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
         <div class="cs-top">
           <span class="cs-type"><span class="cs-l cs-l-ru" lang="ru">Платформа</span><span class="cs-l cs-l-en" lang="en">Platform</span><span class="cs-l cs-l-es" lang="es">Plataforma</span></span>
           
-          <span class="cs-badge cs-wip"><i class="ph-fill ph-wrench" aria-hidden="true"></i> <span class="cs-l cs-l-ru" lang="ru">в разработке</span><span class="cs-l cs-l-en" lang="en">in progress</span><span class="cs-l cs-l-es" lang="es">en desarrollo</span></span>
+          <span class="cs-badge cs-wip"><i class="ph-fill ph-check-circle" aria-hidden="true"></i> <span class="cs-l cs-l-ru" lang="ru">разработано</span><span class="cs-l cs-l-en" lang="en">developed</span><span class="cs-l cs-l-es" lang="es">desarrollado</span></span>
         </div>
         <h3 class="cs-name">SPACE</h3>
         <div class="cs-rows">
@@ -1450,7 +1513,7 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
         <div class="cs-top">
           <span class="cs-type"><span class="cs-l cs-l-ru" lang="ru">Сайт</span><span class="cs-l cs-l-en" lang="en">Website</span><span class="cs-l cs-l-es" lang="es">Sitio web</span></span>
           <span class="cs-badge cs-intl"><i class="ph-fill ph-globe-hemisphere-west" aria-hidden="true"></i> <span class="cs-l cs-l-ru" lang="ru">международный</span><span class="cs-l cs-l-en" lang="en">international</span><span class="cs-l cs-l-es" lang="es">internacional</span></span>
-          <span class="cs-badge cs-wip"><i class="ph-fill ph-wrench" aria-hidden="true"></i> <span class="cs-l cs-l-ru" lang="ru">в разработке</span><span class="cs-l cs-l-en" lang="en">in progress</span><span class="cs-l cs-l-es" lang="es">en desarrollo</span></span>
+          <span class="cs-badge cs-wip"><i class="ph-fill ph-check-circle" aria-hidden="true"></i> <span class="cs-l cs-l-ru" lang="ru">разработано</span><span class="cs-l cs-l-en" lang="en">developed</span><span class="cs-l cs-l-es" lang="es">desarrollado</span></span>
         </div>
         <h3 class="cs-name">welx.lol</h3>
         <div class="cs-rows">
@@ -1492,7 +1555,7 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
         <div class="cs-top">
           <span class="cs-type"><span class="cs-l cs-l-ru" lang="ru">Сайт</span><span class="cs-l cs-l-en" lang="en">Website</span><span class="cs-l cs-l-es" lang="es">Sitio web</span></span>
           
-          <span class="cs-badge cs-wip"><i class="ph-fill ph-wrench" aria-hidden="true"></i> <span class="cs-l cs-l-ru" lang="ru">в разработке</span><span class="cs-l cs-l-en" lang="en">in progress</span><span class="cs-l cs-l-es" lang="es">en desarrollo</span></span>
+          <span class="cs-badge cs-wip"><i class="ph-fill ph-check-circle" aria-hidden="true"></i> <span class="cs-l cs-l-ru" lang="ru">разработано</span><span class="cs-l cs-l-en" lang="en">developed</span><span class="cs-l cs-l-es" lang="es">desarrollado</span></span>
         </div>
         <h3 class="cs-name">ФудДвор — редизайн</h3>
         <div class="cs-rows">
@@ -1506,7 +1569,7 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
         <div class="cs-top">
           <span class="cs-type"><span class="cs-l cs-l-ru" lang="ru">Бот</span><span class="cs-l cs-l-en" lang="en">Bot</span><span class="cs-l cs-l-es" lang="es">Bot</span></span>
           
-          <span class="cs-badge cs-wip"><i class="ph-fill ph-wrench" aria-hidden="true"></i> <span class="cs-l cs-l-ru" lang="ru">в разработке</span><span class="cs-l cs-l-en" lang="en">in progress</span><span class="cs-l cs-l-es" lang="es">en desarrollo</span></span>
+          <span class="cs-badge cs-wip"><i class="ph-fill ph-check-circle" aria-hidden="true"></i> <span class="cs-l cs-l-ru" lang="ru">разработано</span><span class="cs-l cs-l-en" lang="en">developed</span><span class="cs-l cs-l-es" lang="es">desarrollado</span></span>
         </div>
         <h3 class="cs-name">threads-poster</h3>
         <div class="cs-rows">
@@ -1515,6 +1578,48 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
           <div class="cs-row cs-result"><span class="cs-lbl"><span class="cs-l cs-l-ru" lang="ru">Результат</span><span class="cs-l cs-l-en" lang="en">Result</span><span class="cs-l cs-l-es" lang="es">Resultado</span></span><p><span class="cs-l cs-l-ru" lang="ru">Код собран и проверен (проверка синтаксиса + dry-run прогоны). Живая публикация ждёт официальный API-токен — нужна модерация приложения на стороне платформы.</span><span class="cs-l cs-l-en" lang="en">Code is complete and validated (syntax check + dry-run passes). Live posting awaits the official API token — platform app review is pending.</span><span class="cs-l cs-l-es" lang="es">El código está terminado y validado (comprobación de sintaxis + pruebas en dry-run). La publicación en vivo espera el token oficial de la API — la revisión de la app por la plataforma está pendiente.</span></p></div>
         </div>
         <div class="cs-stack"><span>Node.js</span><span>Threads Graph API</span></div>
+      </article>
+<article class="cs-card cs-metric">
+        <div class="cs-top">
+          <span class="cs-type"><span class="cs-l cs-l-ru" lang="ru">Платформа</span><span class="cs-l cs-l-en" lang="en">Platform</span><span class="cs-l cs-l-es" lang="es">Plataforma</span></span>
+          
+          <span class="cs-badge cs-wip"><i class="ph-fill ph-check-circle" aria-hidden="true"></i> <span class="cs-l cs-l-ru" lang="ru">разработано</span><span class="cs-l cs-l-en" lang="en">developed</span><span class="cs-l cs-l-es" lang="es">desarrollado</span></span>
+        </div>
+        <h3 class="cs-name">SPL Launch</h3>
+        <div class="cs-rows">
+          <div class="cs-row"><span class="cs-lbl"><span class="cs-l cs-l-ru" lang="ru">Задача</span><span class="cs-l cs-l-en" lang="en">Task</span><span class="cs-l cs-l-es" lang="es">Tarea</span></span><p><span class="cs-l cs-l-ru" lang="ru">Собрать прозрачный тулкит запуска SPL-токена на Solana под собственный бренд: изолированные по ролям зашифрованные кейсторы, единый прогон от минта до листинга, отзыв полномочий и независимая проверка результата в сети — без клонирования чужих тикеров и без имитации активности.</span><span class="cs-l cs-l-en" lang="en">Build a transparent toolkit for launching an SPL token on Solana under your own brand: role-isolated encrypted keystores, a single run from mint to listing, authority revocation and independent on-chain verification — no cloning of other projects' tickers and no faked activity.</span><span class="cs-l cs-l-es" lang="es">Construir un kit transparente para lanzar un token SPL en Solana bajo marca propia: keystores cifrados aislados por rol, una ejecución única desde el minteo hasta el listado, revocación de autoridades y verificación independiente en la cadena, sin clonar tickers ajenos ni simular actividad.</span></p></div>
+          <div class="cs-row"><span class="cs-lbl"><span class="cs-l cs-l-ru" lang="ru">Решение</span><span class="cs-l cs-l-en" lang="en">Solution</span><span class="cs-l cs-l-es" lang="es">Solución</span></span><p><span class="cs-l cs-l-ru" lang="ru">TypeScript-конвейер (@solana/web3.js, Metaplex/Umi, SPL-Token, Raydium SDK v2, Streamflow) с пошаговым запуском, resume и веб-панелью на Express. Метаданные и арт публикуются на настоящий Arweave через Turbo, полномочия mint/freeze отзываются, mutable снимается, а отдельный модуль verify независимо перечитывает состояние минта из сети. Вестинг — реальными замками Streamflow вместо дробления supply по ярлыкам.</span><span class="cs-l cs-l-en" lang="en">A TypeScript pipeline (@solana/web3.js, Metaplex/Umi, SPL-Token, Raydium SDK v2, Streamflow) with stepwise execution, resume and an Express web panel. Metadata and art are published to real Arweave via Turbo, mint/freeze authorities are revoked, mutability is removed, and a separate verify module re-reads mint state directly from the chain. Vesting uses real Streamflow locks instead of splitting supply across labeled wallets.</span><span class="cs-l cs-l-es" lang="es">Un pipeline en TypeScript (@solana/web3.js, Metaplex/Umi, SPL-Token, Raydium SDK v2, Streamflow) con ejecución por pasos, reanudación y un panel web en Express. Los metadatos y el arte se publican en Arweave real vía Turbo, se revocan las autoridades de mint/freeze, se elimina la mutabilidad y un módulo verify independiente vuelve a leer el estado del mint directamente de la red. El vesting usa bloqueos reales de Streamflow en vez de repartir el supply entre wallets etiquetadas.</span></p></div>
+          <div class="cs-row cs-result"><span class="cs-lbl"><span class="cs-l cs-l-ru" lang="ru">Результат</span><span class="cs-l cs-l-en" lang="en">Result</span><span class="cs-l cs-l-es" lang="es">Resultado</span></span><p><span class="cs-l cs-l-ru" lang="ru">На devnet прошёл первый живой end-to-end прогон: токен создан, шаги 1–5 отработали. Независимая проверка подтвердила mintAuthority=null, freezeAuthority=null, isMutable=false, supply 1e15, полная стоимость запуска 0.0207 SOL. Метаданные легли на рабочий Arweave-URI, пригодный и для mainnet. Вестинг, пул Raydium CPMM и сжигание LP — следующий этап.</span><span class="cs-l cs-l-en" lang="en">First live end-to-end run completed on devnet: token created, steps 1–5 executed. Independent checks confirmed mintAuthority=null, freezeAuthority=null, isMutable=false, supply 1e15, and a full launch cost of 0.0207 SOL. Metadata landed on a working Arweave URI usable for mainnet too. Vesting, the Raydium CPMM pool and LP burn are the next stage.</span><span class="cs-l cs-l-es" lang="es">Primera ejecución integral en vivo completada en devnet: token creado, pasos 1–5 ejecutados. Verificaciones independientes confirmaron mintAuthority=null, freezeAuthority=null, isMutable=false, supply 1e15 y un costo total de lanzamiento de 0.0207 SOL. Los metadatos quedaron en un URI de Arweave funcional, apto también para mainnet. El vesting, el pool Raydium CPMM y el quemado de LP son la siguiente etapa.</span></p></div>
+        </div>
+        <div class="cs-stack"><span>TypeScript</span><span>Node.js</span><span>@solana/web3.js</span><span>Metaplex / Umi</span><span>Raydium SDK v2</span><span>Streamflow</span><span>Arweave</span><span>Express</span></div>
+      </article>
+<article class="cs-card">
+        <div class="cs-top">
+          <span class="cs-type"><span class="cs-l cs-l-ru" lang="ru">Сайт</span><span class="cs-l cs-l-en" lang="en">Website</span><span class="cs-l cs-l-es" lang="es">Sitio web</span></span>
+          
+          <span class="cs-badge cs-done"><i class="ph-fill ph-check-circle" aria-hidden="true"></i> <span class="cs-l cs-l-ru" lang="ru">в проде</span><span class="cs-l cs-l-en" lang="en">live</span><span class="cs-l cs-l-es" lang="es">en producción</span></span>
+        </div>
+        <h3 class="cs-name">Личный сайт эксперта по недвижимости</h3>
+        <div class="cs-rows">
+          <div class="cs-row"><span class="cs-lbl"><span class="cs-l cs-l-ru" lang="ru">Задача</span><span class="cs-l cs-l-en" lang="en">Task</span><span class="cs-l cs-l-es" lang="es">Tarea</span></span><p><span class="cs-l cs-l-ru" lang="ru">Эксперту по недвижимости из Иркутска нужен личный сайт вместо отсутствия онлайн-присутствия: услуги, приём заявок и видимость в поиске и ИИ-ассистентах.</span><span class="cs-l cs-l-en" lang="en">A real-estate expert from Irkutsk needed a personal website instead of having no online presence: services, lead intake, and visibility in search and AI assistants.</span><span class="cs-l cs-l-es" lang="es">Una experta inmobiliaria de Irkutsk necesitaba un sitio web personal en lugar de no tener presencia en línea: servicios, captación de solicitudes y visibilidad en buscadores y asistentes de IA.</span></p></div>
+          <div class="cs-row"><span class="cs-lbl"><span class="cs-l cs-l-ru" lang="ru">Решение</span><span class="cs-l cs-l-en" lang="en">Solution</span><span class="cs-l cs-l-es" lang="es">Solución</span></span><p><span class="cs-l cs-l-ru" lang="ru">Рукописный статический лендинг + блог, развёрнут на VPS под nginx с HTTPS; настроены SEO и GEO: структура заголовков, Schema.org JSON-LD (RealEstateAgent/Person/WebSite/FAQPage/BlogPosting), sitemap, robots; форма заявки на email; свой домен.</span><span class="cs-l cs-l-en" lang="en">A hand-coded static landing page plus a blog, deployed on a VPS under nginx with HTTPS; SEO and GEO set up: heading structure, Schema.org JSON-LD (RealEstateAgent/Person/WebSite/FAQPage/BlogPosting), sitemap, robots; a lead form to email; own domain.</span><span class="cs-l cs-l-es" lang="es">Una landing estática escrita a mano más un blog, desplegada en un VPS con nginx y HTTPS; SEO y GEO configurados: estructura de encabezados, Schema.org JSON-LD (RealEstateAgent/Person/WebSite/FAQPage/BlogPosting), sitemap, robots; un formulario de contacto al correo; dominio propio.</span></p></div>
+          <div class="cs-row cs-result"><span class="cs-lbl"><span class="cs-l cs-l-ru" lang="ru">Результат</span><span class="cs-l cs-l-en" lang="en">Result</span><span class="cs-l cs-l-es" lang="es">Resultado</span></span><p><span class="cs-l cs-l-ru" lang="ru">Сайт в эфире на собственном домене с валидным HTTPS и авто-продлением сертификата: 6–7 страниц (главная, направления услуг, обо мне, цены, контакты), блог с SEO/GEO-статьями и микроразметкой, рабочая форма заявки.</span><span class="cs-l cs-l-en" lang="en">The site is live on its own domain with a valid auto-renewing HTTPS certificate: 6–7 pages (home, service areas, about, pricing, contacts), a blog with SEO/GEO articles and structured markup, and a working lead form.</span><span class="cs-l cs-l-es" lang="es">El sitio está en línea con dominio propio y certificado HTTPS válido con renovación automática: 6–7 páginas (inicio, áreas de servicio, sobre mí, precios, contactos), un blog con artículos SEO/GEO y marcado estructurado, y un formulario de contacto funcional.</span></p></div>
+        </div>
+        <div class="cs-stack"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>nginx</span><span>Ubuntu VPS</span><span>Let's Encrypt</span><span>Schema.org JSON-LD</span></div>
+      </article>
+<article class="cs-card cs-metric">
+        <div class="cs-top">
+          <span class="cs-type"><span class="cs-l cs-l-ru" lang="ru">Сайт</span><span class="cs-l cs-l-en" lang="en">Website</span><span class="cs-l cs-l-es" lang="es">Sitio web</span></span>
+          
+          <span class="cs-badge cs-wip"><i class="ph-fill ph-check-circle" aria-hidden="true"></i> <span class="cs-l cs-l-ru" lang="ru">разработано</span><span class="cs-l cs-l-en" lang="en">developed</span><span class="cs-l cs-l-es" lang="es">desarrollado</span></span>
+        </div>
+        <h3 class="cs-name">ProSport.Photo</h3>
+        <div class="cs-rows">
+          <div class="cs-row"><span class="cs-lbl"><span class="cs-l cs-l-ru" lang="ru">Задача</span><span class="cs-l cs-l-en" lang="en">Task</span><span class="cs-l cs-l-es" lang="es">Tarea</span></span><p><span class="cs-l cs-l-ru" lang="ru">Спортивному фотожурналисту нужен сайт-витрина личного бренда с прицелом на поисковую выдачу по фото. Ограничение: владелец сам заливает по 300–500 фото за раз (до ~12 000 в год) с телефона на плохой связи и не хочет ни одного лишнего действия на кадр.</span><span class="cs-l cs-l-en" lang="en">A sports photojournalist needed a personal-brand showcase site aimed at ranking in image search. The constraint: the owner uploads 300–500 photos at a time (up to ~12,000 a year) from a phone on poor connections and wants zero extra steps per shot.</span><span class="cs-l cs-l-es" lang="es">Un fotoperiodista deportivo necesitaba un sitio-escaparate de marca personal orientado a posicionar en la búsqueda de imágenes. La restricción: el propietario sube 300–500 fotos a la vez (hasta ~12.000 al año) desde el móvil con mala conexión y no quiere ni un paso extra por foto.</span></p></div>
+          <div class="cs-row"><span class="cs-lbl"><span class="cs-l cs-l-ru" lang="ru">Решение</span><span class="cs-l cs-l-en" lang="en">Solution</span><span class="cs-l cs-l-es" lang="es">Solución</span></span><p><span class="cs-l cs-l-ru" lang="ru">Next.js 15 (App Router, TS strict): доменный слой с тестами, резюмируемая загрузка по tus-протоколу (докачка с того же байта после обрыва), обработка в sharp через очередь BullMQ (очистка метаданных с сохранением IPTC, водяной знак, WebP, превью), публичная лента и страница репортажа с авто-«ритмом» галереи по пропорциям (без кадрирования) и лайтбоксом.</span><span class="cs-l cs-l-en" lang="en">Next.js 15 (App Router, TS strict): a tested domain layer, resumable tus-protocol uploads (resume from the same byte after a drop), sharp processing via a BullMQ queue (metadata scrub keeping IPTC, watermark, WebP, thumbnails), a public feed and a report page with an auto-&quot;rhythm&quot; gallery by aspect ratio (no cropping) and a lightbox.</span><span class="cs-l cs-l-es" lang="es">Next.js 15 (App Router, TS strict): una capa de dominio con tests, subidas reanudables por protocolo tus (reanudar desde el mismo byte tras un corte), procesamiento en sharp mediante una cola BullMQ (limpieza de metadatos conservando IPTC, marca de agua, WebP, miniaturas), un feed público y una página de reportaje con una galería de &quot;ritmo&quot; automático por proporción (sin recortar) y un lightbox.</span></p></div>
+          <div class="cs-row cs-result"><span class="cs-lbl"><span class="cs-l cs-l-ru" lang="ru">Результат</span><span class="cs-l cs-l-en" lang="en">Result</span><span class="cs-l cs-l-es" lang="es">Resultado</span></span><p><span class="cs-l cs-l-ru" lang="ru">Демо-стенд развёрнут (pm2 + nginx, отдельный порт): 326 тестов зелёные, покрытие 91.9%; загрузка 50 файлов с искусственным обрывом на 20-м кадре докачалась до конца (0 потерь), отдача media через nginx ~24 КБ/кадр в WebP; галерея проверена программно — ни один кадр не обрезан, 0 нарушений контраста. Админка, рубрики и Schema/sitemap — следующий этап.</span><span class="cs-l cs-l-en" lang="en">A demo stand deployed (pm2 + nginx, separate port): 326 tests green, 91.9% coverage; a 50-file upload with a forced drop on the 20th frame resumed to completion (0 losses), media served via nginx at ~24 KB/frame in WebP; the gallery verified programmatically — not a single frame cropped, 0 contrast violations. Admin, rubrics and Schema/sitemap are the next stage.</span><span class="cs-l cs-l-es" lang="es">Un stand demo desplegado (pm2 + nginx, puerto aparte): 326 tests en verde, 91,9% de cobertura; una subida de 50 archivos con un corte forzado en el fotograma 20 se reanudó hasta completarse (0 pérdidas), medios servidos por nginx a ~24 KB/fotograma en WebP; la galería verificada por programa — ni un solo fotograma recortado, 0 infracciones de contraste. El panel, las rúbricas y Schema/sitemap son la siguiente etapa.</span></p></div>
+        </div>
+        <div class="cs-stack"><span>Next.js 15</span><span>TypeScript</span><span>PostgreSQL 16</span><span>Drizzle ORM</span><span>tus</span><span>BullMQ + Redis</span><span>sharp</span><span>nginx + pm2</span></div>
       </article></div>
             </div>
 
