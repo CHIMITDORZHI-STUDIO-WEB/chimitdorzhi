@@ -1,6 +1,6 @@
 ---
 title: "Matrix и Element: защищённый корпоративный мессенджер на своём сервере"
-description: "Matrix (Synapse) и Element — open-source защищённый корпоративный мессенджер с end-to-end шифрованием и федерацией: каналы, чаты, звонки на своём сервере."
+description: "Защищённый корпоративный мессенджер на своём сервере: Matrix и Element дают чаты, звонки и end-to-end шифрование. Разбираю внедрение."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/matrix-element-korporativnyy-messenger-2026/

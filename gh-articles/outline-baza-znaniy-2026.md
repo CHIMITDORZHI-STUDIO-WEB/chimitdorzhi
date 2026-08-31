@@ -1,6 +1,6 @@
 ---
 title: "Outline: база знаний команды вместо Notion"
-description: "Outline — open-source база знаний и вики для команды (аналог Notion/Confluence): документы, структура, поиск, совместное редактирование, на своём сервере."
+description: "База знаний команды на своём сервере: Outline заменяет Notion — документы, структура, поиск и совместное редактирование. Разбираю на практике."
 date: 2026-06-14
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/outline-baza-znaniy-2026/

@@ -1,6 +1,6 @@
 ---
 title: "Перевод аудитории из Telegram и ВКонтакте в MAX: пошагово"
-description: "Как перевести аудиторию из Telegram и ВКонтакте в MAX: зачем это делать, как подготовить канал, механика перехода через ссылки и анонсы."
+description: "Переведите аудиторию из Telegram и ВКонтакте в MAX: как подготовить канал и выстроить переход через ссылки и анонсы. Разбираю пошагово."
 date: 2026-06-12
 category: marketing
 canonical: https://chimitdorzhi.tech/blog/perevod-auditorii-v-max-2027/
