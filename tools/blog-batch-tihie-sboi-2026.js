@@ -1,0 +1,50 @@
+// Тихие сбои: баг, который прошёл все тесты и убил все кнопки
+const tihieSboiContent = require('./blog-content-tihie-sboi-2026.js');
+
+module.exports = [
+  {
+    slug: 'tihie-sboi-kod-kotoryy-proshel-testy-2026',
+    category: 'development',
+    published: true,
+    title: 'Тихие сбои: баг, который прошёл все тесты и убил все кнопки',
+    metaTitle: 'Тихие сбои в коде: почему тесты и ИИ-ревью их не ловят',
+    metaDescription: 'Код скомпилировался, отработал без ошибок и прошёл тесты — а все кнопки бота были мертвы. Почему такие баги не ловятся и что делать вместо тестов.',
+    metaKeywords: 'тихие сбои, silent failure, отладка ботов, юнит-тесты бесполезны, ИИ-генерация кода, MAX vs Telegram, разбор вебхуков, тестирование интеграций',
+    excerpt: 'Бот работал, сервис был зелёный, логи чистые — и ни одна кнопка не работала ни у кого. Разбираю на реальном коде, почему такие дефекты не ловит ни компилятор, ни тесты, ни ревью, и что делать вместо наращивания покрытия.',
+    datePublished: '2026-08-31',
+    dateModified: '2026-08-31',
+    readingMinutes: 13,
+    heroIcon: 'ph-fill ph-bug-beetle',
+    tags: ['разработка', 'тестирование', 'боты', 'ИИ', 'интеграции'],
+    toc: [
+      { id: 'scena', text: 'Сцена: всё работает, ничего не работает' },
+      { id: 'prichina', text: 'Причина: цепочка в неправильном порядке' },
+      { id: 'pochemu-ne-poymali', text: 'Почему не поймал ни один рубеж защиты' },
+      { id: 'eshche-dva', text: 'Ещё два таких же места' },
+      { id: 'vcard', text: 'Телефон в vCard' },
+      { id: 'klass-bagov', text: 'Класс дефектов' },
+      { id: 'ii-i-kod', text: 'Почему ИИ делает этот класс массовым' },
+      { id: 'chto-delat', text: 'Что делать вместо тестов' },
+      { id: 'dengi', text: 'Во что это обходится в деньгах' },
+      { id: 'cheklist', text: 'Чек-лист приёмки' },
+      { id: 'perenos', text: 'Перенос между платформами' },
+      { id: 'kak-iskat', text: 'Как искать такие места у себя' },
+      { id: 'faq', text: 'Частые вопросы' },
+      { id: 'vyvody', text: 'Что забрать с собой' },
+    ],
+    contentHtml: tihieSboiContent,
+    relatedSlugs: ['7-mifov-ob-ii-dlya-biznesa-2026', '10-oshibok-pri-zakaze-sayta-bota-2026', '152-fz-dlya-chat-botov-i-messendzherov-2026'],
+    ctaInternal: { url: '/services/', label: 'Обсудить бота или интеграцию' },
+    servicesOffer: {
+      eyebrow: 'Услуги по теме',
+      title: 'Чем могу помочь',
+      services: [
+        { icon: 'ph-fill ph-robot', label: 'Боты и ИИ-агенты в Telegram и MAX' },
+        { icon: 'ph-fill ph-plugs-connected', label: 'Интеграции с CRM, 1С и платёжными шлюзами' },
+        { icon: 'ph-fill ph-magnifying-glass', label: 'Аудит существующего бота: поиск тихих сбоев' },
+        { icon: 'ph-fill ph-arrows-left-right', label: 'Перенос продукта со второй платформы' },
+        { icon: 'ph-fill ph-shield-check', label: 'Приёмка работы подрядчика' },
+      ],
+    },
+  },
+];
