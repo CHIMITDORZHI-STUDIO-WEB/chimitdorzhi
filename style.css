@@ -4,14 +4,7 @@
 /* ========================================= */
 
 /* ---- LOCAL FONT (152-ФЗ: без передачи IP в Google) ---- */
-@font-face {
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 100 900;
-    font-display: swap;
-    src: url('/assets/fonts/InterVariable.woff2') format('woff2-variations'),
-         url('/assets/fonts/InterVariable.woff2') format('woff2');
-}
+/* Inter dropped — Manrope covers all text (saved ~352KB) */
 
 /* ---- LOCAL FONT: Manrope (заголовки/текст, редакционный стиль). Самохостинг — 152-ФЗ ---- */
 @font-face {
@@ -111,7 +104,7 @@ html {
 }
 
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Manrope', sans-serif;
     background: var(--bg);
     color: var(--text);
     line-height: 1.6;
@@ -613,7 +606,7 @@ h6 {
     font-weight: 700;
     cursor: pointer;
     transition: all 0.3s;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Manrope', sans-serif;
 }
 
 .lang-btn.active {
@@ -720,7 +713,7 @@ h6 {
     text-decoration: none;
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     cursor: pointer;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Manrope', sans-serif;
     border: none;
 }
 
@@ -1326,7 +1319,7 @@ a.case-link:hover {
     font-size: 0.78rem;
     font-weight: 600;
     color: var(--text-secondary);
-    font-family: 'Inter', monospace;
+    font-family: 'Manrope', ui-monospace, monospace;
     letter-spacing: 0.5px;
 }
 
@@ -4580,7 +4573,7 @@ a.blog-meta-cat:hover { color: var(--accent); }
     font-weight: 900;
     letter-spacing: 0.2em;
     color: var(--text);
-    font-family: 'Inter', serif;
+    font-family: 'Manrope', sans-serif;
 }
 .arey-tagline {
     font-size: clamp(1.4rem, 3vw, 2rem);
@@ -5136,8 +5129,8 @@ a.blog-meta-cat:hover { color: var(--accent); }
   --skill-track:rgba(20,16,12,.08);
 }
 html{background:#f4f1ea;}
-body{font-family:'Manrope','Inter',sans-serif;color:#16130f;}
-h1,h2,h3,h4,h5,h6,.hero-title,.section-heading,.logo,.btn,.nav-links a,.stat-number,.about-stat,.service-hero h1,.offer-hero h1,.blog-hero h1{font-family:'Manrope','Inter',sans-serif!important;}
+body{font-family:'Manrope',sans-serif;color:#16130f;}
+h1,h2,h3,h4,h5,h6,.hero-title,.section-heading,.logo,.btn,.nav-links a,.stat-number,.about-stat,.service-hero h1,.offer-hero h1,.blog-hero h1{font-family:'Manrope',sans-serif!important;}
 h1,h2,h3,.hero-title,.section-heading{font-weight:800!important;letter-spacing:-.035em!important;}
 .noise-overlay,.gradient-blob,#particles-bg{display:none!important;}
 .text-gradient{background:none!important;-webkit-text-fill-color:#1e4fd6!important;color:#1e4fd6!important;}
@@ -6092,3 +6085,13 @@ html[data-lang="en"] .cs-l-ru,
 html[data-lang="es"] .cs-l-ru{ display:none; }
 html[data-lang="en"] .cs-l-en{ display:inline; }
 html[data-lang="es"] .cs-l-es{ display:inline; }
+
+/* ============ Мобильная производительность ============ */
+/* feTurbulence-шум и blur(100px)-блобы — самый тяжёлый непрерывный paint.
+   На мобильных убираем: визуально почти незаметно, разгружает рендер. */
+@media (max-width: 768px) {
+  .noise-overlay { display: none !important; }
+  .gradient-blob { display: none !important; }
+  /* Смягчаем backdrop-filter на мобиле — стекло остаётся, paint дешевле */
+  .navbar { backdrop-filter: blur(10px) saturate(1.15) !important; -webkit-backdrop-filter: blur(10px) saturate(1.15) !important; }
+}
