@@ -206,6 +206,10 @@ const i18nServices = {
     en: { n: 'Speaker & expert sessions', d: 'Talks at conferences, corporate events, open sessions. Topics: AI/ML, digitalisation, blockchain, expert personal brand. 50+ events organised, 100+ public talks.', pt: 'from 50,000 ₽ per talk' },
     cn: { n: '演讲与专家分享', d: '会议、企业活动、公开课的演讲。主题：AI/ML、数字化、区块链、专家个人品牌。已组织 50+ 活动，100+ 公开演讲。', pt: '起 50,000 ₽/场' },
   },
+  'qr-tips': {
+    en: { n: 'QR tipping system, turnkey', d: 'A cashless QR tipping system for cafes, salons and hotels: a personal QR per staff member, splitting between shift and kitchen, no cash and no aggregator fees. Turnkey.', pt: 'from 15,000 ₽' },
+    cn: { n: '二维码小费系统（整体交付）', d: '为咖啡馆、沙龙和酒店打造的二维码无现金小费系统：每位员工专属二维码、班组与后厨分账、无需现金、无平台佣金。整体交付。', pt: '起 15,000 ₽' },
+  },
 };
 
 // Filter / catalog UI translations.

@@ -139,10 +139,10 @@ module.exports = [
     relatedSlugs: ['analitika-wildberries-servisy-2026', 'integraciya-wildberries-1c-2026', 'biznes-na-marketpleysah-2027'] }),
 
   E({ slug: 'chaevye-po-qr-kodu-2026', category: 'industries', heroIcon: 'ph-fill ph-qr-code',
-    servicesOffer: SVC_PAY, ctaInternal: CTA_PAY,
+    servicesOffer: SVC_PAY, ctaInternal: { url: 'https://chimitdorzhi.tech/services/qr-tips/', label: 'Заказать систему чаевых по QR' },
     dateModified: '2026-08-09', readingMinutes: 17, shortForm: false,
     title: 'Чаевые по QR-коду: как подключить в кафе и салоне',
-    metaTitle: 'Чаевые по QR-коду: как подключить в заведении',
+    metaTitle: 'Чаевые по QR-коду 2026: как подключить в заведении',
     metaDescription: 'Чаевые по QR-коду в кафе и салоне: как работают сервисы, сколько берут комиссии, как делить сумму между сотрудниками и когда выгоднее свой сервис.',
     metaKeywords: 'чаевые по qr, безналичные чаевые, qr код для чаевых, сервис чаевых, чаевые в кафе qr, чаевые для официантов, чаевые в салоне красоты, чаевые в барбершопе, комиссия за чаевые, налоги с чаевых',
     excerpt: 'Как работают безналичные чаевые по QR, какие сервисы есть и сколько берут, что с налогами и самозанятостью, как оформить табличку на стол, как распределять чаевые в смене и когда выгодно сделать свой сервис.',
@@ -160,5 +160,5 @@ module.exports = [
       { id: 'faq', text: 'Частые вопросы' },
       { id: 'vyvody', text: 'Коротко о главном' },
     ],
-    relatedSlugs: ['chaevye-po-qr-v-kafe-i-restorane-2026', 'chaevye-po-qr-v-salone-i-barbershope-2026', 'nalogi-s-chaevyh-samozanyatost-2026', 'qr-tablichka-dlya-chaevyh-2026', 'samozanyatyy-priem-oplaty-legalno-2026', 'elektronnoe-qr-menyu-dlya-kafe-2026'] }),
+    relatedSlugs: ['chaevye-po-qr-v-kafe-i-restorane-2026', 'chaevye-po-qr-v-salone-i-barbershope-2026', 'qr-tablichka-dlya-chaevyh-2026', 'raspredelenie-chaevyh-mezhdu-sotrudnikami-2026', 'nalogi-s-chaevyh-samozanyatost-2026', 'chaevye-po-qr-v-otele-gornichnym-2026'] }),
 ];

@@ -184,6 +184,7 @@ module.exports = [
   // === Кластер 4: чаевые ===
   mk({
     slug: 'chaevye-po-qr-v-otele-gornichnym-2026',
+    ctaInternal: { url: 'https://chimitdorzhi.tech/services/qr-tips/', label: 'Заказать систему чаевых по QR' },
     category: 'industries', heroIcon: 'ph-fill ph-bed',
     title: 'Чаевые по QR в отеле: горничным и персоналу без наличных',
     metaTitle: 'Чаевые по QR в отеле: горничным и персоналу',
@@ -196,6 +197,7 @@ module.exports = [
   }, SVC_TIPS, CTA_TG),
   mk({
     slug: 'raspredelenie-chaevyh-mezhdu-sotrudnikami-2026',
+    ctaInternal: { url: 'https://chimitdorzhi.tech/services/qr-tips/', label: 'Заказать систему чаевых по QR' },
     category: 'industries', heroIcon: 'ph-fill ph-users-three',
     title: 'Как справедливо распределять чаевые между сотрудниками',
     metaTitle: 'Как распределять чаевые между сотрудниками',

@@ -4587,7 +4587,7 @@ const ALL_ARTICLES = [
       { id: 'vyvody', text: 'Выводы: план на сегодня' },
     ],
     contentHtml: localLlmContent,
-    relatedSlugs: ['rossiyskiy-ai-stack-2026', 'ai-agenty-v-biznese-2026', 'rag-sistemy-dlya-biznesa-2026'],
+    relatedSlugs: ['skolko-stoit-vnedrit-ii-2026', 'rossiyskiy-ai-stack-2026', 'ai-agenty-v-biznese-2026', 'rag-sistemy-dlya-biznesa-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/services/ai-agents/', label: 'Заказать AI-решение под ключ' },
     servicesOffer: {
       title: "Что я делаю по AI для бизнеса",
@@ -8466,7 +8466,7 @@ const ALL_ARTICLES = [
       { id: 'vyvody', text: 'Выводы' },
     ],
     contentHtml: sozdatAiAgentaContent,
-    relatedSlugs: ['ai-agenty-v-biznese-2026', 'ai-agenty-avtonomnye-sotrudniki-2026', 'besplatnye-ai-agenty-2026'],
+    relatedSlugs: ['skolko-stoit-ai-agent-dlya-prodazh-2026', 'ai-agenty-v-biznese-2026', 'ai-agenty-avtonomnye-sotrudniki-2026', 'besplatnye-ai-agenty-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/services/ai-agents/', label: 'Заказать AI-агента' },
     servicesOffer: {
       title: 'Что я делаю по AI для бизнеса',
@@ -8504,7 +8504,7 @@ const ALL_ARTICLES = [
       { id: 'vyvody', text: 'Выводы' },
     ],
     contentHtml: besplatnyeAiContent,
-    relatedSlugs: ['kak-sozdat-ai-agenta-2026', 'ai-agenty-v-biznese-2026', 'rossiyskiy-ai-stack-2026'],
+    relatedSlugs: ['skolko-stoit-vnedrit-ii-2026', 'kak-sozdat-ai-agenta-2026', 'ai-agenty-v-biznese-2026', 'rossiyskiy-ai-stack-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/services/ai-agents/', label: 'Обсудить внедрение AI' },
     servicesOffer: {
       title: 'Что я делаю по AI для бизнеса',
@@ -10623,7 +10623,7 @@ const ALL_ARTICLES = [
       { id: 'oshibki-i-riski', text: 'Ошибки и риски' },
       { id: 'faq', text: 'Частые вопросы' },
     ],
-    relatedSlugs: ['chatbot-telegram-max-vk-2026', 'rossiyskiy-ai-stack-2026', 'rag-sistemy-dlya-biznesa-2026'],
+    relatedSlugs: ['skolko-stoit-ai-agent-dlya-prodazh-2026', 'chatbot-telegram-max-vk-2026', 'rossiyskiy-ai-stack-2026', 'rag-sistemy-dlya-biznesa-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/services/ai-agents/', label: 'Заказать AI-бота для МАКС' },
     servicesOffer: {
       title: 'AI-боты и нейросети для бизнеса',

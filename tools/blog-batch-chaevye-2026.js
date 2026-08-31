@@ -26,6 +26,7 @@ const mk = (o) => Object.assign({
 module.exports = [
   mk({
     slug: 'chaevye-po-qr-v-kafe-i-restorane-2026',
+    ctaInternal: { url: 'https://chimitdorzhi.tech/services/qr-tips/', label: 'Заказать систему чаевых по QR' },
     heroIcon: 'ph-fill ph-hand-coins',
     title: 'Чаевые по QR в кафе и ресторане: как внедрить, чтобы официанты реально получали',
     metaTitle: 'Чаевые по QR в кафе: внедрение без ошибок',
@@ -46,6 +47,7 @@ module.exports = [
   }),
   mk({
     slug: 'chaevye-po-qr-v-salone-i-barbershope-2026',
+    ctaInternal: { url: 'https://chimitdorzhi.tech/services/qr-tips/', label: 'Заказать систему чаевых по QR' },
     heroIcon: 'ph-fill ph-scissors',
     title: 'Чаевые по QR в салоне красоты и барбершопе: мастеру, а не в общую кассу',
     metaTitle: 'Чаевые по QR в салоне и барбершопе',
@@ -66,6 +68,7 @@ module.exports = [
   }),
   mk({
     slug: 'nalogi-s-chaevyh-samozanyatost-2026',
+    ctaInternal: { url: 'https://chimitdorzhi.tech/services/qr-tips/', label: 'Заказать систему чаевых по QR' },
     category: 'finance',
     heroIcon: 'ph-fill ph-scales',
     title: 'Налоги с чаевых: кто и когда платит, при чём тут самозанятость',
@@ -87,6 +90,7 @@ module.exports = [
   }),
   mk({
     slug: 'qr-tablichka-dlya-chaevyh-2026',
+    ctaInternal: { url: 'https://chimitdorzhi.tech/services/qr-tips/', label: 'Заказать систему чаевых по QR' },
     heroIcon: 'ph-fill ph-qr-code',
     title: 'QR-табличка для чаевых: что напечатать, где поставить и почему её не сканируют',
     metaTitle: 'QR-табличка для чаевых: размер, текст, место',
