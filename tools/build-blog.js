@@ -1545,7 +1545,7 @@ ${blogPostingLd(a, url)}
 ${breadcrumbLd(a, url)}
     </script>
 ${faqLd(a)}${howToLd(a)}${itemListLd(a)}${METRIKA}</head>
-<body>
+<body class="wx-read">
     <a href="#main" class="skip-link">Перейти к содержимому</a>
     <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
     <div class="noise-overlay"></div>
@@ -1729,7 +1729,7 @@ ${JSON.stringify(breadcrumb, null, 2)}
 ${organizationLd()}
     </script>
 ${METRIKA}</head>
-<body>
+<body class="wx-shell">
     <a href="#main" class="skip-link">Перейти к содержимому</a>
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
@@ -2208,7 +2208,7 @@ ${JSON.stringify(flagshipLd, null, 2)}
 ${JSON.stringify(breadcrumb, null, 2)}
     </script>
 ${METRIKA}</head>
-<body>
+<body class="wx-shell">
     <a href="#main" class="skip-link">Перейти к содержимому</a>
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
@@ -2294,7 +2294,7 @@ ${JSON.stringify(ld, null, 2)}
 ${JSON.stringify(breadcrumb, null, 2)}
     </script>
 ${METRIKA}</head>
-<body>
+<body class="wx-shell">
     <a href="#main" class="skip-link">Перейти к содержимому</a>
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>

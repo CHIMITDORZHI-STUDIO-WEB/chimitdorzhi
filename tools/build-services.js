@@ -318,7 +318,7 @@ ${breadcrumbJsonLd(svc, url)}
 ${faqJsonLd(svc)}
     </script>
 </head>
-<body>
+<body class="wx-shell">
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
     <div class="gradient-blob blob-2"></div>
@@ -434,7 +434,7 @@ function catalogPage() {
 ${JSON.stringify(ld, null, 2)}
     </script>
 </head>
-<body>
+<body class="wx-shell">
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
     <div class="gradient-blob blob-2"></div>
