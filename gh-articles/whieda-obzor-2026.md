@@ -1,6 +1,6 @@
 ---
 title: "WHIEDA: как устроен бизнес — честный обзор и как проверить компанию"
-description: "WHIEDA: компания прямых продаж (косметика и wellness) — публичных данных мало."
+description: "WHIEDA — что это за компания прямых продаж (косметика, wellness): продукт, как устроен доход, признаки надёжности и как проверить компанию перед стартом. Разбор без агитации."
 date: 2026-06-13
 category: marketing
 canonical: https://chimitdorzhi.tech/blog/whieda-obzor-2026/
