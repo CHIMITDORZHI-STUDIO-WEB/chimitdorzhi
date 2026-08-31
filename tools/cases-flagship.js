@@ -462,4 +462,21 @@ module.exports = [
       result: 'Un stand demo desplegado (pm2 + nginx, puerto aparte): 326 tests en verde, 91,9% de cobertura; una subida de 50 archivos con un corte forzado en el fotograma 20 se reanudó hasta completarse (0 pérdidas), medios servidos por nginx a ~24 KB/fotograma en WebP; la galería verificada por programa — ni un solo fotograma recortado, 0 infracciones de contraste. El panel, las rúbricas y Schema/sitemap son la siguiente etapa.',
     },
   },
+  {
+    name: 'Отказоустойчивая инфраструктура', type: 'platform', metric: true, done: true,
+    task: 'Держать распределённый парк серверов у нескольких провайдеров в разных странах так, чтобы отказ любого узла или провайдера не ронял сервис — с автоматическим контролем состояния, восстановлением и защитой от компрометации, без ручного дежурства.',
+    solution: 'Инженерная обвязка отказоустойчивости: health-мониторинг с проверкой доступности и минимального числа живых узлов, watchdog с авто-перезапуском зависших сервисов, ежечасные валидируемые бэкапы с ротацией, тёплый резерв (warm-standby) на втором провайдере с быстрым переключением, полный харденинг хостов — доступ только по ключам, защита от брутфорса, авто-обновления безопасности, детект руткитов и майнеров со своим вайтлистом.',
+    result: 'Инфраструктура в бою и стабильна: мониторинг раз в 5 мин, watchdog раз в 2 мин, ежечасные бэкапы с хранением 14 копий, ежедневное сканирование на руткиты; финальная проверка — все сервисы живы, 0 перезапусков, 0 находок майнеров на всех серверах, резерв доступен.',
+    stack: ['Linux', 'systemd + cron', 'Caddy / nginx', 'Bash-мониторинг', 'fail2ban', 'rkhunter', 'мульти-провайдер VPS'],
+    en: {
+      task: 'Run a distributed fleet of servers across several providers and countries so that the failure of any node or provider doesn\'t take the service down — with automatic health control, recovery and compromise protection, and no manual on-call.',
+      solution: 'A fault-tolerance engineering layer: health monitoring that checks reachability and a minimum count of live nodes, a watchdog that auto-restarts hung services, hourly validated backups with rotation, a warm standby on a second provider with fast switchover, and full host hardening — key-only access, brute-force protection, automatic security updates, rootkit and miner detection with a custom whitelist.',
+      result: 'The infrastructure is in production and stable: monitoring every 5 min, watchdog every 2 min, hourly backups keeping 14 copies, daily rootkit scans; the final check showed all services alive, 0 restarts, 0 miner findings across all servers, and the standby reachable.',
+    },
+    es: {
+      task: 'Mantener un parque distribuido de servidores en varios proveedores y países de modo que el fallo de cualquier nodo o proveedor no tumbe el servicio — con control de estado automático, recuperación y protección contra compromisos, sin guardias manuales.',
+      solution: 'Una capa de ingeniería de tolerancia a fallos: monitoreo de salud que comprueba la disponibilidad y un número mínimo de nodos vivos, un watchdog que reinicia automáticamente los servicios colgados, copias de seguridad validadas cada hora con rotación, un warm standby en un segundo proveedor con conmutación rápida, y hardening completo de los hosts — acceso solo por claves, protección contra fuerza bruta, actualizaciones de seguridad automáticas, detección de rootkits y mineros con lista blanca propia.',
+      result: 'La infraestructura está en producción y es estable: monitoreo cada 5 min, watchdog cada 2 min, copias cada hora conservando 14 versiones, escaneo diario de rootkits; la verificación final mostró todos los servicios activos, 0 reinicios, 0 hallazgos de mineros en todos los servidores, y el standby accesible.',
+    },
+  },
 ];
