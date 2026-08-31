@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1430**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1449**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -36,6 +36,12 @@
 
 ## AI для разработчиков
 
+- [Какой локальный LLM выбрать в 2026: Llama, Qwen, GigaChat, Saiga под русский язык](./kakoy-lokalnyy-llm-vybrat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kakoy-lokalnyy-llm-vybrat-2026/)
+- [Локальный ИИ на слабом ноутбуке: что реально работает на 8 и 16 ГБ](./lokalnyy-ii-na-slabom-noutbuke-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/lokalnyy-ii-na-slabom-noutbuke-2026/)
+- [Ollama vs LM Studio vs LocalAI — что выбрать бизнесу](./ollama-lmstudio-localai-sravnenie-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ollama-lmstudio-localai-sravnenie-2026/)
+- [RAG на своих документах локально: пошагово без облака](./rag-na-svoih-dokumentah-lokalno-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/rag-na-svoih-dokumentah-lokalno-2026/)
+- [GPU и видеокарта для локального ИИ: что купить в 2026](./gpu-dlya-lokalnogo-ii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gpu-dlya-lokalnogo-ii-2026/)
+- [AI-агент с вызовом инструментов на GigaChat и YandexGPT: практика](./ai-agent-vyzov-instrumentov-gigachat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ai-agent-vyzov-instrumentov-gigachat-2026/)
 - [Сколько стоит ИИ-агент для продаж: из чего складывается цена](./skolko-stoit-ai-agent-dlya-prodazh-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-stoit-ai-agent-dlya-prodazh-2026/)
 - [ИИ под ключ или по абонементу: какая модель оплаты выгоднее](./ii-pod-klyuch-ili-abonement-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-pod-klyuch-ili-abonement-2026/)
 - [ИИ-агент на n8n: связать нейросеть с мессенджерами и CRM без кода](./ai-agent-na-n8n-messendzhery-crm-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ai-agent-na-n8n-messendzhery-crm-2026/)
@@ -215,6 +221,11 @@
 
 ## Open-source и свой сервер
 
+- [Свой VPS с нуля: Docker, nginx и HTTPS за вечер](./svoy-vps-s-nulya-docker-nginx-https-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/svoy-vps-s-nulya-docker-nginx-https-2026/)
+- [15 open-source аналогов популярных SaaS на своём сервере](./open-source-analogi-saas-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/open-source-analogi-saas-2026/)
+- [Своё облако вместо Google Drive: Nextcloud под ключ](./svoyo-oblako-nextcloud-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/svoyo-oblako-nextcloud-2026/)
+- [BI-дашборды на Metabase: подключаем свою базу](./bi-dashbordy-metabase-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bi-dashbordy-metabase-2026/)
+- [Отказоустойчивость для малого бизнеса: мониторинг и бэкапы](./otkazoustoychivost-monitoring-bekapy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/otkazoustoychivost-monitoring-bekapy-2026/)
 - [Open-source для импортозамещения: чем заменить платный софт](./open-source-dlya-importozameshcheniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/open-source-dlya-importozameshcheniya-2026/)
 - [Учёт небольшого автопарка без дорогих систем мониторинга](./uchet-nebolshogo-avtoparka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uchet-nebolshogo-avtoparka-2026/)
 - [Свой сервер учёта авто против мобильных приложений](./svoy-server-ucheta-avto-vs-prilozheniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/svoy-server-ucheta-avto-vs-prilozheniya-2026/)
@@ -407,6 +418,7 @@
 
 ## Безопасность
 
+- [OSINT для бизнеса: как легально проверить контрагента и кандидата](./osint-dlya-biznesa-proverka-kontragenta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/osint-dlya-biznesa-proverka-kontragenta-2026/)
 - [Передача файлов в изолированный контур: без флешки, без сети](./peredacha-faylov-v-izolirovannyy-kontur-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/peredacha-faylov-v-izolirovannyy-kontur-2026/)
 - [Почему на предприятиях блокируют USB и чем заменить перенос](./zapret-usb-na-predpriyatii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zapret-usb-na-predpriyatii-2026/)
 - [Передача данных без связи: как работать в поле, где нет сети](./peredacha-dannyh-bez-svyazi-v-pole-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/peredacha-dannyh-bez-svyazi-v-pole-2026/)
@@ -659,6 +671,7 @@
 
 ## Киберспорт
 
+- [Спонсорство в киберспорте: как бренду зайти и не слить бюджет](./sponsorstvo-v-kibersporte-gayd-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sponsorstvo-v-kibersporte-gayd-2026/)
 - [Бизнес на приватном сервере GTA/CS/Minecraft: юнит-экономика, донат-система, риски с правообладателями](./biznes-privatnyy-server-gta-cs-minecraft-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/biznes-privatnyy-server-gta-cs-minecraft-2027/)
 - [Хостинг игровых серверов как SaaS-бизнес: аналог Pterodactyl-платформ «под ключ»](./hosting-igrovyh-serverov-saas-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/hosting-igrovyh-serverov-saas-2027/)
 - [Экономика мобильной F2P-игры: LTV, ARPU, ARPPU, когортный анализ на пальцах](./ekonomika-mobilnoy-f2p-igry-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ekonomika-mobilnoy-f2p-igry-2027/)
@@ -783,6 +796,9 @@
 
 ## Отрасли
 
+- [CRM для агробизнеса: поля, техника, урожай в одном месте](./crm-dlya-agrobiznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/crm-dlya-agrobiznesa-2026/)
+- [Бот-напоминалка клиентам: ОСАГО, ТО, техосмотр](./bot-napominalka-osago-to-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bot-napominalka-osago-to-2026/)
+- [Цифровизация СНТ и ТСЖ: взносы, собрания, оплата без бумаг](./cifrovizaciya-snt-tszh-vznosy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/cifrovizaciya-snt-tszh-vznosy-2026/)
 - [Чаевые по QR в отеле: горничным и персоналу без наличных](./chaevye-po-qr-v-otele-gornichnym-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chaevye-po-qr-v-otele-gornichnym-2026/)
 - [Как справедливо распределять чаевые между сотрудниками](./raspredelenie-chaevyh-mezhdu-sotrudnikami-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/raspredelenie-chaevyh-mezhdu-sotrudnikami-2026/)
 - [Аналитика офлайн-трафика: как считать посетителей и превращать в выручку](./analitika-oflayn-trafika-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/analitika-oflayn-trafika-2026/)
@@ -1328,6 +1344,9 @@
 
 ## Сетевой бизнес
 
+- [Как сетевику автоматизировать структуру: бот, CRM и аналитика](./kak-seteviku-avtomatizirovat-strukturu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-seteviku-avtomatizirovat-strukturu-2026/)
+- [Свой лендинг для сетевика: как выделиться и не нарушить правила компании](./svoy-lending-dlya-setevika-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/svoy-lending-dlya-setevika-2026/)
+- [Реф-бот для MLM: как считать структуру честно и без накруток](./ref-bot-dlya-mlm-chestno-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ref-bot-dlya-mlm-chestno-2026/)
 - [Учёт структуры в МЛМ: почему Excel тормозит рост и что ставить вместо него](./uchet-struktury-mlm-bez-excel-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uchet-struktury-mlm-bez-excel-2026/)
 - [Маркетинг-планы простыми словами: бинар, матрица, юнилевел — что выбрать](./marketing-plany-mlm-kak-vybrat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/marketing-plany-mlm-kak-vybrat-2026/)
 - [Личный кабинет дистрибьютора: что в нём должно быть, чтобы команда росла](./lichnyy-kabinet-distributora-mlm-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/lichnyy-kabinet-distributora-mlm-2026/)
