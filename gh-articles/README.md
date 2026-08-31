@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1450**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1463**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -36,6 +36,12 @@
 
 ## AI для разработчиков
 
+- [YandexGPT vs GigaChat: что выбрать бизнесу в 2026](./yandexgpt-vs-gigachat-dlya-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/yandexgpt-vs-gigachat-dlya-biznesa-2026/)
+- [RAG или дообучение модели: что выбрать под задачу](./rag-ili-doobuchenie-modeli-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/rag-ili-doobuchenie-modeli-2026/)
+- [ИИ для документооборота: извлечение данных из счетов, актов и договоров](./ii-analiz-dogovorov-schetov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-analiz-dogovorov-schetov-2026/)
+- [ИИ-протокол созвонов: расшифровка встреч, задачи и решения — локально](./ii-transkribaciya-sozvonov-lokalno-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-transkribaciya-sozvonov-lokalno-2026/)
+- [Голосовой ИИ-ассистент на российском стеке: как это работает](./golosovoy-ii-assistent-rossiyskiy-stek-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/golosovoy-ii-assistent-rossiyskiy-stek-2026/)
+- [ИИ-модерация контента: как фильтровать заявки, комментарии и отзывы](./ii-moderaciya-kontenta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-moderaciya-kontenta-2026/)
 - [Какой локальный LLM выбрать в 2026: Llama, Qwen, GigaChat, Saiga под русский язык](./kakoy-lokalnyy-llm-vybrat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kakoy-lokalnyy-llm-vybrat-2026/)
 - [Локальный ИИ на слабом ноутбуке: что реально работает на 8 и 16 ГБ](./lokalnyy-ii-na-slabom-noutbuke-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/lokalnyy-ii-na-slabom-noutbuke-2026/)
 - [Ollama vs LM Studio vs LocalAI — что выбрать бизнесу](./ollama-lmstudio-localai-sravnenie-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ollama-lmstudio-localai-sravnenie-2026/)
@@ -418,6 +424,8 @@
 
 ## Безопасность
 
+- [Защита бота от спама и атак: флуд, боты-накрутчики, брутфорс](./zaschita-bota-ot-spama-atak-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zaschita-bota-ot-spama-atak-2026/)
+- [Пентест сайта простыми словами: что это и когда он нужен](./pentest-sayta-prostymi-slovami-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pentest-sayta-prostymi-slovami-2026/)
 - [OSINT для бизнеса: как легально проверить контрагента и кандидата](./osint-dlya-biznesa-proverka-kontragenta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/osint-dlya-biznesa-proverka-kontragenta-2026/)
 - [Передача файлов в изолированный контур: без флешки, без сети](./peredacha-faylov-v-izolirovannyy-kontur-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/peredacha-faylov-v-izolirovannyy-kontur-2026/)
 - [Почему на предприятиях блокируют USB и чем заменить перенос](./zapret-usb-na-predpriyatii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zapret-usb-na-predpriyatii-2026/)
@@ -688,6 +696,8 @@
 
 ## Маркетинг
 
+- [ИИ-бот для отзывов и репутации: собирает, отвечает, предупреждает](./ii-bot-otzyvy-reputaciya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-bot-otzyvy-reputaciya-2026/)
+- [Сквозная аналитика для малого бизнеса: откуда клиент и что окупается](./skvoznaya-analitika-malyy-biznes-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skvoznaya-analitika-malyy-biznes-2026/)
 - [Истории (сторис) в MAX: как использовать для бизнеса](./istorii-storis-v-max-dlya-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/istorii-storis-v-max-dlya-biznesa-2026/)
 - [Прямые эфиры и стримы в MAX: как проводить и зачем бизнесу](./strimy-efiry-v-max-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/strimy-efiry-v-max-2026/)
 - [Комментарии в каналах MAX: как включить и зачем бизнесу](./kommentarii-v-kanalah-max-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kommentarii-v-kanalah-max-2026/)
@@ -796,6 +806,8 @@
 
 ## Отрасли
 
+- [Бот и CRM для автосервиса: напоминания о ТО и ОСАГО, история по VIN](./crm-bot-dlya-avtoservisa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/crm-bot-dlya-avtoservisa-2026/)
+- [Бот для доставки еды: меню, заказ и оплата прямо в мессенджере](./bot-dlya-dostavki-edy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bot-dlya-dostavki-edy-2026/)
 - [CRM для агробизнеса: поля, техника, урожай в одном месте](./crm-dlya-agrobiznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/crm-dlya-agrobiznesa-2026/)
 - [Бот-напоминалка клиентам: ОСАГО, ТО, техосмотр](./bot-napominalka-osago-to-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bot-napominalka-osago-to-2026/)
 - [Цифровизация СНТ и ТСЖ: взносы, собрания, оплата без бумаг](./cifrovizaciya-snt-tszh-vznosy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/cifrovizaciya-snt-tszh-vznosy-2026/)
@@ -1397,6 +1409,7 @@
 
 ## Экспертное
 
+- [Как составить ТЗ на сайт или бота: чтобы получить то, что нужно](./kak-sostavit-tz-na-sayt-bot-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-sostavit-tz-na-sayt-bot-2026/)
 - [Сколько стоит сайт или бот под ключ в 2026: смета без сюрпризов](./skolko-stoit-sayt-bot-pod-klyuch-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-stoit-sayt-bot-pod-klyuch-2026/)
 - [Анимированные QR и фонтанные коды: как файл летит через экран](./animirovannye-qr-fontannye-kody-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/animirovannye-qr-fontannye-kody-2026/)
 - [Почему я не берусь за некоторые проекты](./pochemu-ne-berus-za-proekty-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pochemu-ne-berus-za-proekty-2026/)
