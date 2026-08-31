@@ -2094,6 +2094,40 @@ function portfolioCard(a) {
     <span class="pf-link">Смотреть кейс <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
   </a>`;
 }
+const FLAGSHIP = (function () { try { return require('./cases-flagship.js'); } catch (e) { return []; } })();
+const CASE_TYPE_LABEL = { platform: 'Платформа', site: 'Сайт', bot: 'Бот', ai: 'ИИ-решение' };
+function flagshipCard(c) {
+  const tl = CASE_TYPE_LABEL[c.type] || 'Проект';
+  const doneBadge = c.done
+    ? '<span class="cs-badge cs-done"><i class="ph-fill ph-check-circle" aria-hidden="true"></i> в проде</span>'
+    : '<span class="cs-badge cs-wip"><i class="ph-fill ph-wrench" aria-hidden="true"></i> в разработке</span>';
+  return `<article class="cs-card${c.metric ? ' cs-metric' : ''}">
+        <div class="cs-top">
+          <span class="cs-type">${esc(tl)}</span>
+          ${c.intl ? '<span class="cs-badge cs-intl"><i class="ph-fill ph-globe-hemisphere-west" aria-hidden="true"></i> международный</span>' : ''}
+          ${doneBadge}
+        </div>
+        <h3 class="cs-name">${esc(c.name)}</h3>
+        <div class="cs-rows">
+          <div class="cs-row"><span class="cs-lbl">Задача</span><p>${esc(c.task)}</p></div>
+          <div class="cs-row"><span class="cs-lbl">Решение</span><p>${esc(c.solution)}</p></div>
+          <div class="cs-row cs-result"><span class="cs-lbl">Результат</span><p>${esc(c.result)}</p></div>
+        </div>
+        <div class="cs-stack">${(c.stack || []).map(s => `<span>${esc(s)}</span>`).join('')}</div>
+      </article>`;
+}
+function flagshipBlock() {
+  if (!FLAGSHIP.length) return '';
+  return `<div class="cs-flagship">
+                <div class="cs-flagship-head">
+                    <span class="section-label">ФЛАГМАНСКИЕ КЕЙСЫ</span>
+                    <h2 class="section-heading">Задача → решение → <span class="text-gradient">результат</span></h2>
+                    <p class="section-sub">Отобранные проекты с конкретикой — от идеи до боевого запуска. Данные клиентов обобщены.</p>
+                </div>
+                <div class="cs-grid">${FLAGSHIP.map(flagshipCard).join('\n')}</div>
+            </div>`;
+}
+
 function portfolioPage(published) {
   const order = ['platform', 'site', 'bot', 'ai', 'other'];
   const cases = published.filter(a => a.category === 'cases')
@@ -2160,6 +2194,10 @@ ${METRIKA}</head>
                     <h1 class="section-heading">Кейсы под ключ</h1>
                     <p class="section-sub">Реальные проекты: сайты, боты и мини-аппы, ИИ-решения и платформы. У каждого — задача, решение и результат. Выберите направление или смотрите все.</p>
                 </div>
+
+                ${flagshipBlock()}
+
+                <div class="cs-all-head"><span class="section-label">ВСЕ ПРОЕКТЫ</span></div>
                 <div class="svc-filter" id="pfFilter" role="group" aria-label="Фильтр кейсов">${chips}</div>
                 <div class="pf-grid">${cases.map(portfolioCard).join('\n')}</div>
                 <div class="pf-cta">
