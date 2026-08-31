@@ -519,11 +519,11 @@ function catalogBanner() {
   return `
                     <a class="blog-offer-cta" href="/predlozheniya/">
                         <span class="blog-offer-cta-body">
-                            <span class="blog-offer-cta-eyebrow">Готовые решения под ключ</span>
-                            <span class="blog-offer-cta-title">{{OFFERS_COUNT}} готовых IT-решений для бизнеса</span>
-                            <span class="blog-offer-cta-price">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span>
+                            <span class="blog-offer-cta-eyebrow">${TL('Готовые решения под ключ')}</span>
+                            <span class="blog-offer-cta-title"><span class="b-l b-l-ru">{{OFFERS_COUNT}} готовых IT-решений для бизнеса</span><span class="b-l b-l-en" lang="en">{{OFFERS_COUNT}} ready-made IT solutions for business</span><span class="b-l b-l-es" lang="es">{{OFFERS_COUNT}} soluciones IT listas para empresas</span><span class="b-l b-l-cn" lang="zh">{{OFFERS_COUNT}} 个面向企业的现成 IT 解决方案</span><span class="b-l b-l-mn" lang="mn">Бизнест зориулсан {{OFFERS_COUNT}} бэлэн IT шийдэл</span></span>
+                            <span class="blog-offer-cta-price">${TL('Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация')}</span>
                         </span>
-                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Смотреть каталог</span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> ${TL('Смотреть каталог')}</span>
                     </a>`;
 }
 
@@ -1747,8 +1747,8 @@ ${METRIKA}</head>
                 </nav>
                 <div class="section-header">
                     <span class="section-label">БЛОГ</span>
-                    <h1 class="section-heading">База знаний для <span class="text-gradient">бизнеса</span></h1>
-                    <p class="section-sub">Более ${Math.floor(published.length / 10) * 10} разборов без воды: 152-ФЗ и защита данных, AI и нейросети, разработка и боты, маркетинг, GEO и цифровизация бизнеса по отраслям. Пишу как практик — с цифрами, ценами и примерами.</p>
+                    <h1 class="section-heading"><span class="b-l b-l-ru">База знаний для <span class="text-gradient">бизнеса</span></span><span class="b-l b-l-en" lang="en">Knowledge base for <span class="text-gradient">business</span></span><span class="b-l b-l-es" lang="es">Base de conocimiento para <span class="text-gradient">negocios</span></span><span class="b-l b-l-cn" lang="zh"><span class="text-gradient">企业</span>知识库</span><span class="b-l b-l-mn" lang="mn">Бизнесийн <span class="text-gradient">мэдлэгийн сан</span></span></h1>
+                    <p class="section-sub">${(() => { const n = Math.floor(published.length / 10) * 10; return `<span class="b-l b-l-ru">Более ${n} разборов без воды: 152-ФЗ и защита данных, AI и нейросети, разработка и боты, маркетинг, GEO и цифровизация бизнеса по отраслям. Пишу как практик — с цифрами, ценами и примерами.</span><span class="b-l b-l-en" lang="en">Over ${n} no-fluff deep-dives: data privacy, AI and neural nets, development and bots, marketing, GEO and business digitalization by industry. Written by a practitioner — with numbers, prices and examples.</span><span class="b-l b-l-es" lang="es">Más de ${n} análisis sin relleno: privacidad de datos, IA y redes neuronales, desarrollo y bots, marketing, GEO y digitalización de negocios por sector. Escrito por un profesional — con cifras, precios y ejemplos.</span><span class="b-l b-l-cn" lang="zh">超过 ${n} 篇干货解析：数据合规、AI 与神经网络、开发与机器人、营销、GEO 以及各行业的业务数字化。以实践者视角撰写 — 附数字、价格和实例。</span><span class="b-l b-l-mn" lang="mn">${n} гаруй усгүй задаргаа: өгөгдлийн хамгаалалт, AI ба мэдрэлийн сүлжээ, хөгжүүлэлт ба бот, маркетинг, GEO болон салбар бүрийн бизнесийн тоон шилжилт. Практикчийн үүднээс — тоо, үнэ, жишээтэй.</span>`; })()}</p>
                 </div>
                 ${catalogBanner()}
 
@@ -1933,6 +1933,9 @@ const BLOG_I18N = {
   "Выберите свою сферу": { en: "Choose your industry", es: "Elige tu sector", cn: "选择您的行业", mn: "Салбараа сонгоно уу" },
   "IT-решения под вашу нишу — нажмите свою, чтобы перейти к разбору и предложению.": { en: "IT solutions for your niche — tap yours to see the breakdown and offer.", es: "Soluciones IT para tu nicho — toca el tuyo para ver el análisis y la oferta.", cn: "针对您所在行业的 IT 解决方案 — 点击即可查看分析与方案。", mn: "Таны салбарт зориулсан IT шийдэл — дэлгэрэнгүй болон саналыг үзэхийн тулд өөрийнхийг дарна уу." },
   "Поиск по статьям и предложениям…": { en: "Search articles and offers…", es: "Buscar artículos y ofertas…", cn: "搜索文章和方案…", mn: "Нийтлэл болон саналаас хайх…" },
+  "Готовые решения под ключ": { en: "Turnkey solutions", es: "Soluciones llave en mano", cn: "交钥匙解决方案", mn: "Түлхүүр гардуулах шийдэл" },
+  "Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация": { en: "Automation, bots, AI, data privacy and platforms · free consultation", es: "Automatización, bots, IA, privacidad de datos y plataformas · consulta gratis", cn: "自动化、机器人、AI、数据合规与平台 · 免费咨询", mn: "Автоматжуулалт, бот, AI, өгөгдлийн хамгаалалт ба платформ · үнэгүй зөвлөгөө" },
+  "Смотреть каталог": { en: "View catalog", es: "Ver catálogo", cn: "查看目录", mn: "Каталог үзэх" },
 };
 function TL(ru) {
   const t = BLOG_I18N[ru] || {};
