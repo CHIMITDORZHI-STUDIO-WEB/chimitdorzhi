@@ -1,6 +1,6 @@
 ---
 title: "Twenty: современная CRM с открытым кодом под ключ"
-description: "Twenty — современная open-source CRM с удобным интерфейсом для малого и среднего бизнеса: клиенты, сделки, кастомизация."
+description: "Современная CRM с открытым кодом и удобным интерфейсом: Twenty ведёт клиентов и сделки на своём сервере. Разбираю внедрение под ключ."
 date: 2026-06-14
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/twenty-crm-otkrytyy-kod-2026/

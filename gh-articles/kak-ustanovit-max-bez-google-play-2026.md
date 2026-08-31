@@ -1,6 +1,6 @@
 ---
 title: "Как установить MAX без Google Play: рабочие способы 2026"
-description: "MAX больше не скачать из Google Play. Рабочие способы установить MAX на Android и iPhone: RuStore, официальный сайт, APK — и как не поймать подделку."
+description: "MAX убрали из Google Play — вот рабочие способы установить его на Android и iPhone: RuStore, сайт, APK и как не поймать подделку. Разбираю на практике."
 date: 2026-08-26
 category: development
 canonical: https://chimitdorzhi.tech/blog/kak-ustanovit-max-bez-google-play-2026/

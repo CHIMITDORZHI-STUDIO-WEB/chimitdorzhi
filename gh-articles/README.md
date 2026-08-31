@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1449**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1450**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -1397,6 +1397,7 @@
 
 ## Экспертное
 
+- [Сколько стоит сайт или бот под ключ в 2026: смета без сюрпризов](./skolko-stoit-sayt-bot-pod-klyuch-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-stoit-sayt-bot-pod-klyuch-2026/)
 - [Анимированные QR и фонтанные коды: как файл летит через экран](./animirovannye-qr-fontannye-kody-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/animirovannye-qr-fontannye-kody-2026/)
 - [Почему я не берусь за некоторые проекты](./pochemu-ne-berus-za-proekty-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pochemu-ne-berus-za-proekty-2026/)
 - [Сайт за 3 дня и 10 тысяч — почему это ловушка](./sayt-za-3-dnya-lovushka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-za-3-dnya-lovushka-2026/)
