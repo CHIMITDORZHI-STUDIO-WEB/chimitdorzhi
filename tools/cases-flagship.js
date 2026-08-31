@@ -327,23 +327,6 @@ module.exports = [
     },
   },
   {
-    name: 'Growth Studio', type: 'site', metric: true, intl: true, done: true,
-    task: 'Собрать мультиязычный сайт growth-студии под выход на рынок ОАЭ по фризон-лицензии: три направления (Build / Promote / Gather), глобальное позиционирование.',
-    solution: 'Статический сайт на собственной Node-сборке без фреймворков, контент в JSON, пять языков из единого источника локалей (EN/RU/ES/PT/ZH) с авто-переключателем, hreflang и sitemap. Шрифты самохостятся и режутся в субсеты — страница не делает ни одного стороннего запроса. GEO/SEO-разметка (Article/FAQPage/BreadcrumbList JSON-LD, llms.txt), разделы блога, ИИ, геймификации и глоссария. Мягкий светлый дизайн с проверенным контрастом, деплой на VPS через Caddy.',
-    result: '33 страницы на 5 языках собраны и развёрнуты: по одному H1 на страницу, уникальные title/description, ноль сторонних запросов, 0 нарушений axe, читаемость Flesch 65.6 при средней длине предложения 14.7 слова.',
-    stack: ['Node.js', 'JavaScript', 'JSON-LD', 'Caddy', 'VPS'],
-    en: {
-      task: 'Build a multilingual site for a growth studio entering the UAE market under a free-zone license, with three service lines (Build / Promote / Gather) and global positioning.',
-      solution: 'Static site on a custom Node build with no frameworks, content in JSON, five languages from a single locale source (EN/RU/ES/PT/ZH) with an automatic switcher, hreflang and sitemap. Fonts are self-hosted and subsetted, so the page makes zero third-party requests. GEO/SEO markup (Article/FAQPage/BreadcrumbList JSON-LD, llms.txt), plus blog, AI, gamification and glossary sections. Soft light design with verified contrast, deployed to a VPS via Caddy.',
-      result: '33 pages across 5 languages built and deployed: one H1 per page, unique titles/descriptions, zero third-party requests, 0 axe violations, readability Flesch 65.6 at an average sentence length of 14.7 words.',
-    },
-    es: {
-      task: 'Construir un sitio multilingüe para un growth studio que entra al mercado de EAU con una licencia de zona franca, con tres líneas de servicio (Build / Promote / Gather) y posicionamiento global.',
-      solution: 'Sitio estático sobre un build propio en Node sin frameworks, contenido en JSON, cinco idiomas desde una única fuente de locales (EN/RU/ES/PT/ZH) con conmutador automático, hreflang y sitemap. Las fuentes se autoalojan y se recortan en subconjuntos, por lo que la página no hace ninguna petición a terceros. Marcado GEO/SEO (JSON-LD Article/FAQPage/BreadcrumbList, llms.txt), más secciones de blog, IA, gamificación y glosario. Diseño claro y suave con contraste verificado, desplegado en un VPS mediante Caddy.',
-      result: '33 páginas en 5 idiomas construidas y desplegadas: un solo H1 por página, títulos/descripciones únicos, cero peticiones a terceros, 0 infracciones de axe, legibilidad Flesch 65.6 con una longitud media de frase de 14.7 palabras.',
-    },
-  },
-  {
     name: 'welx.lol', type: 'site', metric: true, intl: true, done: false,
     task: 'Многостраничный сайт креативного агентства для рынка Дубая/ОАЭ: английский, тёмная тема как основная и полноценная светлая с переключателем, доступность по WCAG AA, PWA, блог.',
     solution: 'Статический сайт без зависимостей: контент в JSON, шаблон и сборка на Node. Тёмная тема + светлая с переключателем и prefers-color-scheme; для розового акцента выведен отдельный доступный токен под AA-контраст. Маскот и иконки вырезаны из макетов через альфа-канал, работают в обеих темах. PWA-прекэш, JSON-LD с юрреквизитами, блог из 18 статей под глобальный рынок.',
