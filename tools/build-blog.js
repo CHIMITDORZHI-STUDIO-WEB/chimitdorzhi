@@ -2202,9 +2202,9 @@ ${METRIKA}</head>
                     <span aria-current="page">Кейсы</span>
                 </nav>
                 <div class="section-header">
-                    <span class="section-label">ПОРТФОЛИО</span>
-                    <h1 class="section-heading">Кейсы под ключ</h1>
-                    <p class="section-sub">Реальные проекты: сайты, боты и мини-аппы, ИИ-решения и платформы. У каждого — задача, решение и результат. Выберите направление или смотрите все.</p>
+                    <span class="section-label">${L('ПОРТФОЛИО', 'PORTFOLIO', 'PORTAFOLIO')}</span>
+                    <h1 class="section-heading">${L('Кейсы под ключ', 'Turnkey cases', 'Casos llave en mano')}</h1>
+                    <p class="section-sub">${L('Реальные проекты: сайты, боты и мини-аппы, ИИ-решения и платформы. У каждого — задача, решение и результат. Выберите направление или смотрите все.', 'Real projects: websites, bots and mini-apps, AI solutions and platforms. Each with a task, a solution and a result. Pick a direction or browse all.', 'Proyectos reales: sitios web, bots y mini-apps, soluciones de IA y plataformas. Cada uno con una tarea, una solución y un resultado. Elige una dirección o míralos todos.')}</p>
                 </div>
 
                 ${flagshipBlock()}
