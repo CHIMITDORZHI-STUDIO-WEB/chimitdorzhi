@@ -65,7 +65,35 @@ async function refreshAuth() {
     jwt = (j && j.data && (j.data.accessToken || j.data.access_token) || '').replace(/^Bearer\s+/i, '').trim();
     newRefresh = (j && j.data && (j.data.refreshToken || j.data.refresh_token)) || null;
   } catch { /* not json */ }
-  return { status: res.status, jwt, newRefresh };
+  return { status: res.status, jwt, newRefresh, body: txt };
+}
+
+// Ответ VC на неудачное обновление токена ничего не говорит сам по себе:
+// и протухшая кука, и смена API, и блокировка по IP возвращают «нет jwt».
+// Поэтому разбираем причину явно — иначе прогон падает молча и каждый день
+// присылает одинаковое письмо, по которому нельзя понять, что чинить.
+function explainAuthFailure(rf) {
+  const snippet = String(rf.body || '').replace(/\s+/g, ' ').slice(0, 200);
+  if (rf.status === 401 || rf.status === 403) {
+    return `VC ответил ${rf.status}: refresh-кука протухла или отозвана. `
+      + 'Обнови секреты VC_AUTH_REFRESH и VC_OSNOVA_REMEMBER — их надо заново взять '
+      + 'из куков залогиненного vc.ru (DevTools → Application → Cookies): '
+      + 'auth-refresh-remember и osnova-remember.';
+  }
+  if (rf.status === 429) {
+    return 'VC ответил 429: слишком часто. Это временно, следующий прогон по расписанию должен пройти.';
+  }
+  if (rf.status === 404 || rf.status === 400) {
+    return `VC ответил ${rf.status} на /v3.4/auth/refresh: похоже, у площадки изменился эндпоинт авторизации. `
+      + `Секреты тут ни при чём, нужен разбор. Ответ: ${snippet}`;
+  }
+  if (rf.status >= 500) {
+    return `VC ответил ${rf.status} — авария на их стороне, секреты трогать не надо.`;
+  }
+  if (!rf.status) {
+    return 'До VC не удалось достучаться (сеть или блокировка раннера). Секреты трогать не надо.';
+  }
+  return `VC ответил ${rf.status}, но токена в ответе нет. Тело: ${snippet}`;
 }
 
 function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
@@ -105,11 +133,14 @@ async function createDraft(a) {
   return { status: res.status, body: await res.text(), withCover: !!image };
 }
 
+let lastAuthFailure = '';
+
 async function ensureAuth() {
   if (!REFRESH) return !!JWT;
   const rf = await refreshAuth();
   if (rf.jwt) JWT = rf.jwt;
   if (rf.newRefresh) REFRESH = rf.newRefresh;
+  if (!rf.jwt) lastAuthFailure = explainAuthFailure(rf);
   return !!rf.jwt;
 }
 
@@ -125,7 +156,7 @@ async function ensureAuth() {
   if (!queue.length) { log('Новых статей нет — все уже в черновиках VC.'); return; }
   log(`В очереди: ${queue.length}. Заливаю черновиками (пауза ${DELAY_MS}мс)...`);
 
-  if (!(await ensureAuth())) { log('Не удалось авторизоваться — обнови секреты VC_*.'); process.exit(1); }
+  if (!(await ensureAuth())) { log('Не удалось авторизоваться.', lastAuthFailure); process.exit(1); }
   const me = await fetch(`${API}/v2.1/subsite/me`, { headers: authHeaders() });
   if (me.status !== 200) { log('Авторизация не прошла:', (await me.text()).slice(0, 150)); process.exit(1); }
 
