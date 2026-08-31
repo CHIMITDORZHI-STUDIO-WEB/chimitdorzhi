@@ -31,9 +31,18 @@
     document.body.insertBefore(aside, document.body.firstChild);
     document.body.classList.add('wx-shell');
   }
+  function fab() {
+    if (document.querySelector('.contact-fab')) return;
+    var a = document.createElement('a');
+    a.className = 'contact-fab';
+    a.href = 'https://t.me/chimitdorzhi'; a.target = '_blank'; a.rel = 'noopener';
+    a.setAttribute('aria-label', 'Написать в Telegram');
+    a.innerHTML = '<span class="contact-fab-pulse" aria-hidden="true"></span><i class="ph-fill ph-telegram-logo" aria-hidden="true"></i>';
+    document.body.appendChild(a);
+  }
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', build);
+    document.addEventListener('DOMContentLoaded', function () { build(); fab(); });
   } else {
-    build();
+    build(); fab();
   }
 })();

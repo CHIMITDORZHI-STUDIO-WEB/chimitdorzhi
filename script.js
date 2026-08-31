@@ -104,10 +104,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
         gsap.registerPlugin(ScrollTrigger);
 
-        // Hero entrance
-        gsap.from('.hero-eyebrow', { opacity: 0, y: 30, duration: 0.8, delay: 0.2 });
-        gsap.from('.hero-title', { opacity: 0, y: 50, duration: 1, delay: 0.4, ease: 'power3.out' });
-        gsap.from('.hero-sub', { opacity: 0, y: 30, duration: 0.8, delay: 0.7 });
+        // Hero entrance — заголовок (LCP-элемент) НЕ прячем по opacity, чтобы красился сразу; только лёгкий сдвиг
+        gsap.from('.hero-eyebrow', { opacity: 0, y: 30, duration: 0.8, delay: 0.15 });
+        gsap.from('.hero-title', { y: 28, duration: 0.9, delay: 0.15, ease: 'power3.out' });
+        gsap.from('.hero-sub', { opacity: 0, y: 30, duration: 0.8, delay: 0.5 });
         gsap.from('.hero-actions', { opacity: 0, y: 20, duration: 0.6, delay: 0.9 });
         gsap.from('.hero-tags .htag', { opacity: 0, y: 15, duration: 0.5, stagger: 0.1, delay: 1.1 });
 
@@ -384,3 +384,14 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('click', function(e){
   if(e.target.closest('.wx-theme')){ var t=document.getElementById('themeToggle'); if(t) t.click(); }
 });
+
+/* Плавающая кнопка контакта — прямой путь в Telegram (видна на мобиле) */
+(function(){
+  if(document.querySelector('.contact-fab')) return;
+  var a=document.createElement('a');
+  a.className='contact-fab';
+  a.href='https://t.me/chimitdorzhi'; a.target='_blank'; a.rel='noopener';
+  a.setAttribute('aria-label','Написать в Telegram');
+  a.innerHTML='<span class="contact-fab-pulse" aria-hidden="true"></span><i class="ph-fill ph-telegram-logo" aria-hidden="true"></i>';
+  document.body.appendChild(a);
+})();
