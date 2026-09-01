@@ -9,6 +9,9 @@
     }
     var h = '<a href="/" class="wx-logo"><img src="/logo-wordmark.png" alt="Chimitdorzhi Studio"></a>';
     h += '<button type="button" class="wx-search js-search-open" aria-label="Поиск"><i class="ph ph-magnifying-glass"></i> <span>Поиск…</span></button>';
+    h += '<div class="lang-switcher" role="group" aria-label="Язык" style="margin:6px 12px 10px;">'
+      + ['ru:RU', 'en:EN', 'cn:CN', 'mn:MN', 'es:ES'].map(function (p) { var c = p.split(':'); return '<button type="button" class="lang-btn" data-l="' + c[0] + '">' + c[1] + '</button>'; }).join('')
+      + '</div>';
     h += n('/', 'ph-squares-four', 'Главная', false);
     h += n('/services/', 'ph-stack', 'Услуги', false);
     h += n('/cases/', 'ph-briefcase', 'Кейсы', false);
@@ -30,6 +33,17 @@
     aside.innerHTML = h;
     document.body.insertBefore(aside, document.body.firstChild);
     document.body.classList.add('wx-shell');
+    // Язык: ставим data-lang из сохранённого выбора и переключаем контент (.b-l-спаны)
+    function applyLang(l) {
+      document.documentElement.setAttribute('data-lang', l);
+      try { localStorage.setItem('lang', l); } catch (e) {}
+      aside.querySelectorAll('.lang-btn').forEach(function (b) { b.classList.toggle('active', b.getAttribute('data-l') === l); });
+    }
+    var saved; try { saved = localStorage.getItem('lang'); } catch (e) {}
+    applyLang(saved || 'ru');
+    aside.querySelectorAll('.lang-btn').forEach(function (b) {
+      b.addEventListener('click', function () { applyLang(b.getAttribute('data-l')); });
+    });
   }
   function fab() {
     if (document.querySelector('.contact-fab')) return;
