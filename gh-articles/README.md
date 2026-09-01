@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1463**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1472**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -123,6 +123,7 @@
 
 ## cases
 
+- [Кейсы цифровизации кофеен: что реально дало результат](./keysy-cifrovizacii-kofeen-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/keysy-cifrovizacii-kofeen-2026/)
 - [Онлайн-запись для салона красоты: кейс автоматизации записи](./onlayn-zapis-salon-krasoty-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/onlayn-zapis-salon-krasoty-keys-2026/)
 - [Ежедневник с голосовым вводом: кейс планировщика, который слушает](./golosovoy-ezhednevnik-planer-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/golosovoy-ezhednevnik-planer-keys-2026/)
 - [Софт для заполнения ВЭД-документов: кейс автозаполнения деклараций](./soft-zapolnenie-ved-deklaraciy-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/soft-zapolnenie-ved-deklaraciy-keys-2026/)
@@ -473,6 +474,8 @@
 
 ## Бизнес-кругозор
 
+- [CRM-таблица клиентов: как перейти от Excel к своей CRM](./crm-tablica-klientov-iz-excel-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/crm-tablica-klientov-iz-excel-2026/)
+- [Оплата поставщику в Китай: как проводят ВЭД-платежи в 2026](./oplata-postavshchiku-v-kitay-ved-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/oplata-postavshchiku-v-kitay-ved-2026/)
 - [Balanced Scorecard: сбалансированная система показателей простыми словами](./balanced-scorecard-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/balanced-scorecard-2027/)
 - [VRIO-анализ: даёт ли ваш ресурс реальное конкурентное преимущество](./vrio-analiz-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vrio-analiz-2027/)
 - [Value Proposition Canvas: карта ценностного предложения простыми словами](./value-proposition-canvas-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/value-proposition-canvas-2027/)
@@ -808,6 +811,11 @@
 
 - [Бот и CRM для автосервиса: напоминания о ТО и ОСАГО, история по VIN](./crm-bot-dlya-avtoservisa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/crm-bot-dlya-avtoservisa-2026/)
 - [Бот для доставки еды: меню, заказ и оплата прямо в мессенджере](./bot-dlya-dostavki-edy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bot-dlya-dostavki-edy-2026/)
+- [Автоматизация кальянной: запись, кальянная карта, учёт табака](./avtomatizaciya-kalyannoy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avtomatizaciya-kalyannoy-2026/)
+- [Автоматизация клиники и медцентра: запись, напоминания, карты пациентов](./avtomatizaciya-kliniki-medcentra-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avtomatizaciya-kliniki-medcentra-2026/)
+- [Онлайн-запись без сайта: приём клиентов прямо в мессенджере](./onlayn-zapis-bez-sayta-v-messendzhere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/onlayn-zapis-bez-sayta-v-messendzhere-2026/)
+- [Автоответчик на пропущенные звонки: как не терять клиентов](./avtootvetchik-na-propushchennye-zvonki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avtootvetchik-na-propushchennye-zvonki-2026/)
+- [Чат-бот записи в барбершоп: слоты мастеров, напоминания, возврат](./chat-bot-zapisi-v-barbershop-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chat-bot-zapisi-v-barbershop-2026/)
 - [CRM для агробизнеса: поля, техника, урожай в одном месте](./crm-dlya-agrobiznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/crm-dlya-agrobiznesa-2026/)
 - [Бот-напоминалка клиентам: ОСАГО, ТО, техосмотр](./bot-napominalka-osago-to-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bot-napominalka-osago-to-2026/)
 - [Цифровизация СНТ и ТСЖ: взносы, собрания, оплата без бумаг](./cifrovizaciya-snt-tszh-vznosy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/cifrovizaciya-snt-tszh-vznosy-2026/)
@@ -1147,6 +1155,7 @@
 
 ## Разработка
 
+- [Как принимать оплату на сайте: эквайринг простыми словами](./kak-prinimat-oplatu-na-sayte-ekvayring-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-prinimat-oplatu-na-sayte-ekvayring-2026/)
 - [Тихие сбои: баг, который прошёл все тесты и убил все кнопки](./tihie-sboi-kod-kotoryy-proshel-testy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/tihie-sboi-kod-kotoryy-proshel-testy-2026/)
 - [Что нового в MAX в 2026: истории, комментарии, стримы и другое](./chto-novogo-v-max-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chto-novogo-v-max-2026/)
 - [Бизнес-аккаунт в MAX: что даёт и как оформить](./biznes-akkaunt-v-max-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/biznes-akkaunt-v-max-2026/)
