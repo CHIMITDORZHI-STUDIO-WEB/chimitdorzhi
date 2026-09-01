@@ -6,6 +6,8 @@ const antigravityEntries = require('./blog-data-antigravity.js');
 const blogBatchSeoCluster = require('./blog-batch-seo-cluster-2026.js');
 const blogBatchSeoCluster2 = require('./blog-batch-seo-cluster2-2026.js');
 const blogBatchSeoCluster3 = require('./blog-batch-seo-cluster3-2026.js');
+const blogBatchSeoCluster4 = require('./blog-batch-seo-cluster4-2026.js');
+const blogBatchSeoCluster5 = require('./blog-batch-seo-cluster5-2026.js');
 const blogBatchAiTrends = require('./blog-batch-ai-trends-2026.js');
 const blogBatchCommercialJun = require('./blog-batch-commercial-jun2026.js');
 const blogBatchExpert = require('./blog-batch-expert-2026.js');
@@ -3548,7 +3550,7 @@ const ALL_ARTICLES = [
     published: true,
     title: 'Как защитить сайт от ботов, парсинга и накруток без вреда SEO',
     metaTitle: 'Как защитить сайт от накрутки посещаемости, ботов и парсинга',
-    metaDescription: 'Накрутка посещаемости, боты, парсинг цен и скликивание рекламы бьют по сайту и рекламному бюджету.',
+    metaDescription: 'Защита сайта от парсинга, ботов и накрутки без вреда SEO: как парсят цены и контент, что работает (WAF, rate limit, ловушки) и что вредит. Пошагово для владельца.',
     metaKeywords: 'защита от ботов, защита от парсинга, накрутка заявок, скликивание рекламы, WAF, капча, антибот без вреда SEO',
     excerpt: 'Парсинг цен, накрутка заявок и корзин, скликивание рекламы — боты воруют деньги и данные. Разбираю, как грамотно защититься и при этом не заблокировать поисковики Яндекса и Google и не уронить SEO.',
     datePublished: '2026-06-06',
@@ -3570,7 +3572,7 @@ const ALL_ARTICLES = [
       { id: 'vyvody', text: 'Чек-лист за 30 дней' },
     ],
     contentHtml: zashchitaOtBotovContent,
-    relatedSlugs: ['chek-list-bezopasnosti-sayta-47-punktov', 'zashchita-ot-shifrovalshchikov-2026', 'audit-152-fz-2026'],
+    relatedSlugs: ['zaschita-sayta-ot-parsinga', 'chek-list-bezopasnosti-sayta-47-punktov', 'zashchita-ot-shifrovalshchikov-2026', 'audit-152-fz-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/predlozheniya/audit-i-uskorenie-sayta/', label: 'Проверить и защитить сайт' },
     servicesOffer: {
       title: 'Что я делаю для защиты сайта',
@@ -3959,7 +3961,7 @@ const ALL_ARTICLES = [
     published: true,
     title: 'Внедрение AI в компанию: дорожная карта на 90 дней',
     metaTitle: 'Внедрение AI в компанию: дорожная карта на 90 дней',
-    metaDescription: 'Как внедрить AI в бизнес и не слить бюджет: дорожная карта на 90 дней.',
+    metaDescription: 'Внедрение AI в компанию за 90 дней: как выбрать первую задачу, посчитать ROI, запустить пилот на YandexGPT/GigaChat и не слить бюджет. Карта по неделям.',
     metaKeywords: 'внедрение AI, AI для бизнеса, дорожная карта AI, ROI внедрения AI, с чего начать AI, выбор задачи для AI, YandexGPT GigaChat бизнес, автоматизация vs AI, AI 152-ФЗ, пилот AI',
     excerpt: 'Большинство компаний сливают бюджет на AI, потому что начинают с технологии, а не с задачи. Даю дорожную карту на 90 дней: найти задачу, собрать пилот, измерить ROI и масштабировать. С матрицей выбора первой задачи и расчётом окупаемости.',
     datePublished: '2026-06-02',
@@ -4338,6 +4340,8 @@ const ALL_ARTICLES = [
   {
     slug: 'max-boty-2026', category: 'development', published: false,
     title: 'Боты в МАХ: как зайти на пустой российский рынок первым',
+    metaTitle: 'Боты в MAX (Макс): как сделать и зайти первым в 2026',
+    metaDescription: 'Боты в мессенджере MAX (Макс): что умеет Bot API, какие боты нужны бизнесу, сколько стоит разработка и как занять нишу, пока рынок пустой. Разбираю на практике.',
     excerpt: 'Российский мессенджер МАХ — новая площадка для ботов. Технические особенности, аудитория, окно возможностей.',
     datePublished: '2026-06-23', dateModified: '2026-06-23', readingMinutes: 7,
     heroIcon: 'ph-fill ph-chat-circle-dots', tags: ['МАХ', 'боты', 'российский стек'],
@@ -5665,7 +5669,7 @@ const ALL_ARTICLES = [
     published: true,
     title: 'Турниры по киберспорту в РФ 2026: организация под ключ — площадка, призовой фонд, спонсоры',
     metaTitle: 'Турниры по киберспорту в РФ 2026: организация под ключ',
-    metaDescription: 'Полный гайд по организации киберспортивного турнира 2026 в РФ: 4 типа турниров (локальный/городской/региональный/федеральный), выбор дисциплин (CS2.',
+    metaDescription: 'Как организовать киберспортивный турнир в РФ в 2026: 4 формата, выбор дисциплин, площадка и призовой фонд, где искать спонсоров и что им предлагать. Гайд со сметой.',
     metaKeywords: 'кибертурнир, организация турнира, киберспорт РФ, esports, CS2 турнир, призовой фонд, ивент-менеджмент',
     excerpt: 'Киберспорт в РФ 2026 — 10 млн аудитория, рынок 5–10 млрд ₽. Региональный турнир 32 команды: бюджет 800к–1,5М ₽, призовой 200–400к, 3 месяца на подготовку. Разбираю 4 типа турниров, выбор дисциплины, поэтапный таймлайн, площадку, стрим-инфраструктуру, юр-нюансы, маркетинг и реальные кейсы из Читы и Калининграда.',
     datePublished: '2026-05-25',
@@ -5690,7 +5694,7 @@ const ALL_ARTICLES = [
       { id: 'vyvody', text: 'Чек-лист «организую турнир за 3 месяца»' },
     ],
     contentHtml: kibertirniryContent,
-    relatedSlugs: ['svoya-strim-studiya-2026', 'svoy-sayt-vs-socseti-2026', 'podcast-s-gostyami-monetizaciya-2026'],
+    relatedSlugs: ['sponsorstvo-kibersport-streaming-2026', 'svoya-strim-studiya-2026', 'svoy-sayt-vs-socseti-2026', 'podcast-s-gostyami-monetizaciya-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/predlozheniya/brendirovannaya-liga-pod-klyuch/', label: 'Организовать киберспортивный турнир' },
     servicesOffer: {
       title: "Что я делаю по киберспорту и брендингу",
@@ -5708,8 +5712,8 @@ const ALL_ARTICLES = [
     category: 'esports',
     published: true,
     title: 'Спонсорство в киберспорте и стриминге 2026: как привлечь, сколько просить, что давать взамен',
-    metaTitle: 'Спонсорство в киберспорте и стриминге 2026: как привлечь',
-    metaDescription: 'Полный гайд по привлечению спонсоров в киберспорт и стриминг 2026: какие бренды платят (банки, операторы, периферия, FMCG), 7 типов спонсорских пакетов.',
+    metaTitle: 'Спонсорство в киберспорте 2026: как найти спонсора',
+    metaDescription: 'Спонсорство в киберспорте и стриминге 2026: какие бренды платят, 7 типов спонсорских пакетов, сколько просить и как оформить предложение спонсору.',
     metaKeywords: 'спонсорство киберспорт, спонсоры стрим, спонсорский пакет, proposal спонсору, sponsorship киберспорт РФ 2026',
     excerpt: 'Спонсорство в РФ 2026 — главный маркетинг-канал после блокировок. Разбираю на основе 50+ ивентов (Крипто Саммит, Blockchain Conference Baikal, кибертурниры в Чите и Калининграде) какие бренды платят, 7 типов пакетов, цены 2026, structured 10-slide proposal с расчётами CPM/ROI, 3-шаговые переговоры, юр-сторону, маркировку рекламы и удержание спонсоров на повторный сезон.',
     datePublished: '2026-05-25',
@@ -6253,10 +6257,10 @@ const ALL_ARTICLES = [
     slug: 'vk-mini-app-dlya-biznesa-2026',
     category: 'development',
     published: true,
-    title: 'Свой VK Mini App для бизнеса 2026: разработка и монетизация',
-    metaTitle: 'Свой VK Mini App для бизнеса 2026: разработка и монетизация',
-    metaDescription: 'VK Mini App для бизнеса: 70 млн аудитории ВКонтакте и встроенный VK Pay. Как собрать на VK Bridge и VKUI и на чём зарабатывать — разбираю на практике.',
-    metaKeywords: 'VK Mini Apps, VK мини приложения, разработка для ВКонтакте, VK Pay, VK Bridge SDK',
+    title: 'VK Mini Apps для бизнеса 2026: что это, сколько стоит разработка и как монетизировать',
+    metaTitle: 'VK Mini Apps: что это, разработка и цена для бизнеса 2026',
+    metaDescription: 'VK Mini App (вк мини апп) для бизнеса: что это, сколько стоит разработка, как собрать на VK Bridge и VKUI, VK Pay и способы монетизации. На практике.',
+    metaKeywords: 'vk mini app, vk mini apps, вк мини апп, вк мини приложения, VK мини приложения, разработка vk mini app цена, разработка для ВКонтакте, VK Pay, VK Bridge SDK',
     excerpt: 'VK Mini Apps в 2026 — это 70+ млн пользователей ВКонтакте, встроенный каталог приложений, моментальная авторизация и VK Pay с комиссией 2-3%. Разбираю весь цикл создания Mini App для бизнеса: технический стек, VK Bridge с реальным кодом, VKUI vs кастомный дизайн, регистрация, монетизация, продвижение в каталоге.',
     datePublished: '2026-05-26',
     dateModified: '2026-05-26',
@@ -6581,7 +6585,7 @@ const ALL_ARTICLES = [
     published: true,
     title: 'Цифровизация агросектора 2026: с чего начать фермеру и агрохолдингу',
     metaTitle: 'Цифровизация сельского хозяйства 2026: с чего начать фермеру',
-    metaDescription: 'Автоматизация сельского хозяйства: с чего начать — учёт полей, дроны и точное земледелие, «Меркурий», «Честный знак», субсидии — внедряю под ключ.',
+    metaDescription: 'Цифровизация сельского хозяйства 2026: с чего начать фермеру — учёт полей, АгроСигнал и ExactFarming, дроны, «Меркурий», «Честный знак», субсидии.',
     metaKeywords: 'цифровизация агросектора, ExactFarming, АгроСигнал, Меркурий, Честный знак, точное земледелие, IoT агро, дроны NDVI',
     excerpt: 'Агросектор РФ 2026 — это не «дед на тракторе», это IT-индустрия с регуляторикой жёстче банковской: ФГИС «Меркурий», «Честный знак», ФГИС «Зерно», «Сатурн». Полный стек: учёт полей (ExactFarming, АгроСигнал), IoT-метеостанции и телеметрия техники, дроны NDVI, точное земледелие, ERP 1С:Селхозпредприятие, прямые продажи D2C. С Python-кодом MQTT-приёмника телеметрии и SOAP-клиента Ветис.API.',
     datePublished: '2026-05-28',
@@ -8485,7 +8489,7 @@ const ALL_ARTICLES = [
     published: true,
     title: 'Бесплатные и локальные AI-агенты в 2026: что попробовать без бюджета',
     metaTitle: 'Бесплатные и локальные AI-агенты в 2026: что попробовать',
-    metaDescription: 'Как запустить AI-агента бесплатно: бесплатные онлайн-сервисы, локальные модели через Ollama, self-hosted n8n.',
+    metaDescription: 'Бесплатный ИИ-агент: какие сервисы дают бесплатный тариф, как запустить локального агента через Ollama и n8n и где бесплатное заканчивается. На практике.',
     metaKeywords: 'бесплатный ai агент, локальный ai агент, ollama, n8n self-hosted, ai агент без бюджета',
     excerpt: 'Как запустить AI-агента без бюджета: бесплатные сервисы и тарифы, локальные модели через Ollama, self-hosted n8n. Где предел бесплатного, безопасность данных и когда пора переходить на платное.',
     datePublished: '2026-06-13',
@@ -10605,9 +10609,9 @@ const ALL_ARTICLES = [
     slug: 'ai-bot-v-max-gigachat-yandexgpt-2026',
     category: 'ai-dev',
     published: true,
-    title: 'AI-бот в МАКС: подключаем GigaChat или YandexGPT',
-    metaTitle: 'AI-бот в MAX на GigaChat/YandexGPT: как сделать пошагово',
-    metaDescription: 'AI-бот в МАКС на нейросетях: как связать Bot API с GigaChat или YandexGPT, какую модель выбрать под бизнес и что учесть — разбираю на практике.',
+    title: 'AI-бот в MAX (Макс) через нейросети: подключаем GigaChat или YandexGPT',
+    metaTitle: 'ИИ-бот в MAX через нейросети: GigaChat или YandexGPT',
+    metaDescription: 'ИИ-боты в Макс через нейросети: как связать MAX Bot API с GigaChat или YandexGPT, какую модель выбрать под бизнес, что с 152-ФЗ и сколько это стоит. Пошагово.',
     metaKeywords: 'AI-бот МАКС, GigaChat бот, YandexGPT бот, нейросеть в МАКС, умный бот MAX, чат-бот на нейросети, MAX Bot API',
     excerpt: 'Обычный бот отвечает по сценарию, а AI-бот понимает живые вопросы и отвечает по вашей базе знаний. Разбираю, как подключить GigaChat или YandexGPT к боту в МАКС: архитектуру, выбор модели и подводные камни.',
     datePublished: '2026-06-03',
@@ -10790,7 +10794,7 @@ const ALL_ARTICLES = [
       ],
     },
   },
-].concat(antigravityEntries, blogBatchA, blogBatchB, blogBatchC, blogBatchPillars, blogBatchMaxMkt, blogBatchLocal, blogBatchChita, blogBatchShkola, blogBatchSetevik, blogBatchMlmBrands, blogBatchMlmBrands2, blogBatchMlmBrands3, blogBatchPraktiki, blogBatchEvents, blogBatchBiznesIdei, blogBatchOpenSource, blogBatchOpenSource2, blogBatchZarabotok, blogBatchOpenSource3, blogBatchOpenSource4, blogBatchOpenSource5, blogBatchOpenSource6, blogBatchOpenSource7, blogBatchOpenSource8, blogBatchOpenSource9, blogBatchOpenSource10, blogBatchOpenSource11, blogBatchOpenSource12, blogBatchOpenSource13, blogBatchOpenSource14, blogBatchOpenSource15, blogBatchOpenSource16, blogBatchOpenSource17, blogBatchOpenSource18, blogBatchOpenSource19, blogBatchOpenSource20, blogBatchOpenSource21, blogBatchOpenSource22, blogBatchOpenSource23, blogBatchOpenSource24, blogBatchOpenSource25, blogBatchNishiIt, blogBatchNishiIt2, blogBatchMwrTravel, blogBatchBiznesTechGaps, blogBatchBiznesKrugozor, blogBatchSkolkoStoit, blogBatchLocalDengi, blogBatchZaschitaOsint, blogBatchOpenSourceHub, blogBatchAiTrends, blogBatchCommercialJun, blogBatchExpert, blogBatchMisc2, blogBatchCfa, blogBatchGrants, blogBatchOpenHw, blogBatchLlmLocal, blogBatchPraktJun2, blogBatchYtJun, blogBatchExpertJun, blogBatchExpertJun2, blogBatchExpertJun3, blogBatchExpertJun4, blogBatchKnigi, blogBatchKnigi2, blogBatchKnigi3, blogBatchCommercialZakaz, blogBatchConvLeadgen, blogBatchCifrovyeAktivy, blogBatchCfaRynok, blogBatchLeantime, blogBatchNauchpop, blogBatchKakEtoUstroeno, blogBatchStartupIdei, blogBatchStartupIdei2, blogBatchStartupIdei3, blogBatchStartupIdei4, blogBatchStartupIdei5, blogBatchStartupIdei6, blogBatchStartupIdei7, blogBatchStartupIdei8, blogBatchKrugozor2, blogBatchGeymindustriya, blogBatchLeadgen2, blogBatchLeadgen3, blogBatchMaxAvtomatizaciya, blogBatchCases, blogBatchStudio, blogBatchSmartContracts, blogBatchSeoCommercial, blogBatchLlmCluster, blogBatchCasesExtra, blogBatchCasesPortfolio, blogBatchMasters, blogBatchNew, blogBatchPd, blogBatchDevSales, blogBatchDevHub, blogBatchTrafficMkt, blogBatchChinaUr, blogBatchPainSoft, blogBatchRabSites, blogBatchPromVed, blogBatchEdoLog, blogBatchProverkiNko, blogBatchSosAbon, blogBatchDlinnye, blogBatchNeyroseti, blogBatchOsBiznes, blogBatchIiRpaWifi, blogBatchVsSravneniya, blogBatchPartnerskie, blogBatchSdelkiLic, blogBatchIntegracii, blogBatchRadioBez, blogBatchTrekingBez, blogBatchGolosVvod, blogBatch3dInteryer, blogBatchRoliIi, blogBatchZashSvyazi, blogBatchLichBrend, blogBatchOs26, blogBatchMonChat, blogBatchOs27, blogBatchNfc, blogBatchAirgap, blogBatchAvtoUchet, blogBatchPresidioMoon, blogBatchKeysyAvg, blogBatchKeysyAvg2, blogBatchMaxHub, blogBatchPamyatLica, blogBatchChaevye, blogBatchOflaynAnalitika, blogBatchIiAgentPk, blogBatchMuseGlimmer, blogBatchNemotronRouting, blogBatchVisionEkran, blogBatchKeysyOct, blogBatchKlasterySeo, blogBatchIiAgentN8n, blogBatchMaxNovosti, blogBatchTihieSboi, blogBatchSeoCluster, blogBatchSeoCluster2, blogBatchSeoCluster3);
+].concat(antigravityEntries, blogBatchA, blogBatchB, blogBatchC, blogBatchPillars, blogBatchMaxMkt, blogBatchLocal, blogBatchChita, blogBatchShkola, blogBatchSetevik, blogBatchMlmBrands, blogBatchMlmBrands2, blogBatchMlmBrands3, blogBatchPraktiki, blogBatchEvents, blogBatchBiznesIdei, blogBatchOpenSource, blogBatchOpenSource2, blogBatchZarabotok, blogBatchOpenSource3, blogBatchOpenSource4, blogBatchOpenSource5, blogBatchOpenSource6, blogBatchOpenSource7, blogBatchOpenSource8, blogBatchOpenSource9, blogBatchOpenSource10, blogBatchOpenSource11, blogBatchOpenSource12, blogBatchOpenSource13, blogBatchOpenSource14, blogBatchOpenSource15, blogBatchOpenSource16, blogBatchOpenSource17, blogBatchOpenSource18, blogBatchOpenSource19, blogBatchOpenSource20, blogBatchOpenSource21, blogBatchOpenSource22, blogBatchOpenSource23, blogBatchOpenSource24, blogBatchOpenSource25, blogBatchNishiIt, blogBatchNishiIt2, blogBatchMwrTravel, blogBatchBiznesTechGaps, blogBatchBiznesKrugozor, blogBatchSkolkoStoit, blogBatchLocalDengi, blogBatchZaschitaOsint, blogBatchOpenSourceHub, blogBatchAiTrends, blogBatchCommercialJun, blogBatchExpert, blogBatchMisc2, blogBatchCfa, blogBatchGrants, blogBatchOpenHw, blogBatchLlmLocal, blogBatchPraktJun2, blogBatchYtJun, blogBatchExpertJun, blogBatchExpertJun2, blogBatchExpertJun3, blogBatchExpertJun4, blogBatchKnigi, blogBatchKnigi2, blogBatchKnigi3, blogBatchCommercialZakaz, blogBatchConvLeadgen, blogBatchCifrovyeAktivy, blogBatchCfaRynok, blogBatchLeantime, blogBatchNauchpop, blogBatchKakEtoUstroeno, blogBatchStartupIdei, blogBatchStartupIdei2, blogBatchStartupIdei3, blogBatchStartupIdei4, blogBatchStartupIdei5, blogBatchStartupIdei6, blogBatchStartupIdei7, blogBatchStartupIdei8, blogBatchKrugozor2, blogBatchGeymindustriya, blogBatchLeadgen2, blogBatchLeadgen3, blogBatchMaxAvtomatizaciya, blogBatchCases, blogBatchStudio, blogBatchSmartContracts, blogBatchSeoCommercial, blogBatchLlmCluster, blogBatchCasesExtra, blogBatchCasesPortfolio, blogBatchMasters, blogBatchNew, blogBatchPd, blogBatchDevSales, blogBatchDevHub, blogBatchTrafficMkt, blogBatchChinaUr, blogBatchPainSoft, blogBatchRabSites, blogBatchPromVed, blogBatchEdoLog, blogBatchProverkiNko, blogBatchSosAbon, blogBatchDlinnye, blogBatchNeyroseti, blogBatchOsBiznes, blogBatchIiRpaWifi, blogBatchVsSravneniya, blogBatchPartnerskie, blogBatchSdelkiLic, blogBatchIntegracii, blogBatchRadioBez, blogBatchTrekingBez, blogBatchGolosVvod, blogBatch3dInteryer, blogBatchRoliIi, blogBatchZashSvyazi, blogBatchLichBrend, blogBatchOs26, blogBatchMonChat, blogBatchOs27, blogBatchNfc, blogBatchAirgap, blogBatchAvtoUchet, blogBatchPresidioMoon, blogBatchKeysyAvg, blogBatchKeysyAvg2, blogBatchMaxHub, blogBatchPamyatLica, blogBatchChaevye, blogBatchOflaynAnalitika, blogBatchIiAgentPk, blogBatchMuseGlimmer, blogBatchNemotronRouting, blogBatchVisionEkran, blogBatchKeysyOct, blogBatchKlasterySeo, blogBatchIiAgentN8n, blogBatchMaxNovosti, blogBatchTihieSboi, blogBatchSeoCluster, blogBatchSeoCluster2, blogBatchSeoCluster3, blogBatchSeoCluster4, blogBatchSeoCluster5);
 
 // --- Проход взаимной перелинковки ---------------------------------------
 // Гарантирует, что у каждой опубликованной статьи есть хотя бы одна входящая

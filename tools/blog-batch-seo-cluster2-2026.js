@@ -48,13 +48,13 @@ module.exports = [
     relatedSlugs: ['chto-znachit-pod-klyuch-2026', 'skolko-stoit-sayt-bot-pod-klyuch-2026', '10-oshibok-pri-zakaze-sayta-bota-2026', 'skolko-stoit-vnedrit-ii-2026'] }),
 
   E({ slug: 'yandexgpt-vs-gigachat-dlya-biznesa-2026', category: 'ai-dev', heroIcon: 'ph-fill ph-scales', ctaInternal: MIGRATE, servicesOffer: SVC_AI,
-    title: 'YandexGPT vs GigaChat: что выбрать бизнесу в 2026',
-    metaTitle: 'YandexGPT vs GigaChat: что выбрать бизнесу',
-    metaDescription: 'YandexGPT или GigaChat: сравнение двух российских ИИ для бизнеса по возможностям, цене, приватности и 152-ФЗ — и как выбрать под свою задачу.',
+    title: 'YandexGPT vs GigaChat (ГигаЧат от Сбера): что выбрать бизнесу в 2026',
+    metaTitle: 'ГигаЧат или YandexGPT: что выбрать бизнесу в 2026',
+    metaDescription: 'ГигаЧат (GigaChat от Сбера) или YandexGPT: сравнение двух российских ИИ для бизнеса по возможностям, цене API, приватности и 152-ФЗ — как выбрать под задачу.',
     excerpt: 'Два главных российских ИИ — YandexGPT и GigaChat. Сравниваю их для бизнес-задач: что лучше в текстах, в вызове функций, по цене и приватности, и как выбрать под конкретную задачу.',
     tags: ['YandexGPT', 'GigaChat', 'российский ИИ', 'сравнение'],
     toc: [{ id: 'zachem-rossiyskiy', text: 'Почему российский стек' }, { id: 'sravnenie', text: 'Сравнение по задачам' }, { id: 'cena-privatnost', text: 'Цена и приватность' }, { id: 'chto-vybrat', text: 'Что выбрать под задачу' }, ...FAQ_VYV],
-    relatedSlugs: ['rossiyskiy-ai-stack-2026', 'ai-bot-v-max-gigachat-yandexgpt-2026', 'ai-agent-vyzov-instrumentov-gigachat-2026', 'kakoy-lokalnyy-llm-vybrat-2026'] }),
+    relatedSlugs: ['gigachat-vs-yandexgpt-vs-chatgpt-2026', 'rossiyskiy-ai-stack-2026', 'ai-bot-v-max-gigachat-yandexgpt-2026', 'ai-agent-vyzov-instrumentov-gigachat-2026'] }),
 
   E({ slug: 'rag-ili-doobuchenie-modeli-2026', category: 'ai-dev', heroIcon: 'ph-fill ph-git-branch', ctaInternal: RAG, servicesOffer: SVC_AI,
     title: 'RAG или дообучение модели: что выбрать под задачу',

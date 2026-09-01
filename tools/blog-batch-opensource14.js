@@ -43,7 +43,7 @@ module.exports = [
     relatedSlugs: ['mixpost-smm-tsentr-2026', 'peertube-svoya-videoplatforma-2026', 'ghost-blog-s-podpiskoy-2026'] }),
   E({ slug: 'peertube-svoya-videoplatforma-2026', heroIcon: 'ph-fill ph-video',
     title: 'PeerTube: своя видеоплатформа (аналог YouTube) на своём сервере',
-    metaTitle: 'PeerTube: своя видеоплатформа на сервере',
+    metaTitle: 'PeerTube: что это — своя видеоплатформа вместо YouTube',
     metaDescription: 'Своя видеоплатформа вместо YouTube на вашем сервере: PeerTube — загрузка видео, каналы, подписки и трансляции. Разбираю запуск под ключ.',
     excerpt: 'PeerTube — это свой видеохостинг на своём домене: каналы, подписки, встраивание плеера в сайт. Видео и аудитория остаются у вас, без риска блокировки и алгоритмов чужой платформы. Разбираю запуск.',
     tags: ['PeerTube', 'видео', 'видеохостинг', 'open-source'],

@@ -43,7 +43,7 @@ module.exports = [
     relatedSlugs: ['nextcloud-svoy-oblachnyy-disk-2026', 'immich-fotoarhiv-2026', 'jitsi-videokonferencii-bez-zoom-2026'] }),
   E({ slug: 'dify-ai-prilozheniya-2026', heroIcon: 'ph-fill ph-circuitry',
     title: 'Dify: платформа для AI-приложений и ассистентов на своём сервере',
-    metaTitle: 'Dify: платформа AI-приложений на сервере',
+    metaTitle: 'Dify: что это и как установить — AI-приложения на сервере',
     metaDescription: 'Соберите AI-приложения и чат-ботов с базой знаний (RAG) на своих моделях: Dify — визуальный конструктор LLMOps. Разбираю запуск под ключ.',
     excerpt: 'Dify — это конструктор AI-приложений и ассистентов с базой знаний (RAG) на вашем сервере и ваших моделях. Разбираю, что умеет, кому подходит и что нужно для запуска.',
     tags: ['Dify', 'AI-приложения', 'RAG', 'open-source'],

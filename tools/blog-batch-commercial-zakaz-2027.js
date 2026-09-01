@@ -54,7 +54,7 @@ module.exports = [
     metaDescription: 'Внедрить ИИ в бизнес под ключ: что входит (аудит, выбор задачи, ИИ-агент/бот на российском стеке, интеграции, обучение команды), от чего зависит цена.',
     excerpt: 'Хотите внедрить ИИ, но боитесь переплатить за «хайп»? Разбираю, что реально входит во внедрение под ключ, от чего зависит цена, сроки и как посчитать окупаемость.',
     tags: ['внедрить ИИ', 'под ключ', 'цена', 'ИИ-агент'],
-    relatedSlugs: ['vnedrenie-ai-dorozhnaya-karta-90-dney-2026', 'okupaemost-ii-agentov-biznes-keys-2026', 'zakazat-avtomatizaciyu-biznesa-2027'] }),
+    relatedSlugs: ['skolko-stoit-vnedrit-ii-2026', 'skolko-stoit-ai-agent-dlya-prodazh-2026', 'vnedrenie-ai-dorozhnaya-karta-90-dney-2026', 'okupaemost-ii-agentov-biznes-keys-2026'] }),
   E({ slug: 'nastroyka-152fz-pod-klyuch-2027', heroIcon: 'ph-fill ph-shield-check', ctaInternal: SEC,
     title: 'Настройка 152-ФЗ под ключ: что сделаю, чтобы не было штрафов',
     metaTitle: 'Настройка 152-ФЗ под ключ: что входит',
