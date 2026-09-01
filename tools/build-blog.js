@@ -946,6 +946,27 @@ function maxHubHtml(a) {
                     </div>`;
 }
 
+// Воронка МЛМ→IT-услуги: обзоры компаний ловят огромный трафик сетевиков — уводим их к моим решениям.
+function isMlmReview(a) {
+  if (/setevik|dlya-setevika|mlm-svoy|mlm-kontent|distributor|avtovoronka|kubok-distributora|lichnyy-brend-vs-kompaniya/.test(a.slug || '')) return false;
+  if (a.category === 'mwrlife') return true;
+  const t = `${a.title || ''} ${a.slug || ''} ${(a.tags || []).join(' ')}`.toLowerCase();
+  return /обзор|отзыв|что за компания|развод|пирамида|орифлейм|oriflame|greenway|гринвей|amway|эмвей|faberlic|фаберлик|сибирское здоровье|siberian|whieda|виеда|greenleaf|travel advantage|nl international|nl интернешнл|4life|pm international|m international|м интернешнл|тяньши|tiens|herbalife|гербалайф|avon|эйвон|coral club|коралловый|atomy|атоми|vision|визион|\bnsp\b|mwr/.test(t);
+}
+function mlmFunnelHtml(a) {
+  if (!isMlmReview(a)) return '';
+  return `<div class="blog-cta-card">
+                        <div class="blog-cta-card-body">
+                            <h3>Работаете в сетевом? Автоматизирую вашу структуру</h3>
+                            <p>Сайт дистрибьютора с личным брендом, бот-автоворонка для набора команды, CRM вместо блокнота и ИИ-контент — под ключ и без нарушения правил компании. Больше времени на людей, меньше рутины.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="/predlozheniya/crm-setevika/" class="btn btn-accent"><i class="ph ph-share-network" aria-hidden="true"></i> Решения для сетевика</a>
+                            <a href="/blog/kak-seteviku-avtomatizirovat-strukturu-2026/" class="btn btn-ghost">Как это работает</a>
+                        </div>
+                    </div>`;
+}
+
 function leadMagnetCard() {
   return `<div class="blog-cta-card">
                         <div class="blog-cta-card-body">
@@ -1587,8 +1608,9 @@ ${faqLd(a)}${howToLd(a)}${itemListLd(a)}${METRIKA}</head>
                     ${seriesHtml(a, published)}
                     ${catalogHtml(a)}
                     ${maxHubHtml(a)}
+                    ${mlmFunnelHtml(a)}
                     ${servicesOfferCard(a)}
-                    ${leadMagnetCard()}
+                    ${isMlmReview(a) ? '' : leadMagnetCard()}
                     ${blogOfferCta(a)}
 
                     <div class="blog-cta-card blog-cta-card-final">
