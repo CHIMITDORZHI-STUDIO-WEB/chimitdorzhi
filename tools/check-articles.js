@@ -18,7 +18,8 @@
 const path = require('path');
 
 // Требования (откалиброваны по текущим 123 статьям)
-const MIN_WORDS = 1300;
+// 02.09.2026: порог снижен 1300 → 1000 — короткие SEO-статьи «до 4 минут чтения» (1090-1300 слов) — штатный формат.
+const MIN_WORDS = 1000;
 const SHORT_MIN_WORDS = 700; // для статей с shortForm:true (справочные, ~4 мин чтения)
 const MIN_TAGS = 3;
 const MIN_TOC = 3;
