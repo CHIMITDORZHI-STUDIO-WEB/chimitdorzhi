@@ -1,6 +1,6 @@
 ---
 title: "Внедрение AI в компанию: дорожная карта на 90 дней"
-description: "Как внедрить AI в бизнес и не слить бюджет: дорожная карта на 90 дней."
+description: "Внедрение AI в компанию за 90 дней: как выбрать первую задачу, посчитать ROI, запустить пилот на YandexGPT/GigaChat и не слить бюджет. Карта по неделям."
 date: 2026-06-02
 category: ai-dev
 canonical: https://chimitdorzhi.tech/blog/vnedrenie-ai-dorozhnaya-karta-90-dney-2026/
