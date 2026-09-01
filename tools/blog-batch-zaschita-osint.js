@@ -183,7 +183,7 @@ module.exports = [
   O({ slug: 'osint-freymvork-2026', heroIcon: 'ph-fill ph-flow-arrow', ctaInternal: CTA_PROV,
     title: 'OSINT-фреймворк: как выстроить процесс проверки',
     metaTitle: 'OSINT Framework: бесплатные инструменты и этапы проверки',
-    metaDescription: 'Какие инструменты входят в OSINT Framework и зачем нужен каждый раздел: карта категорий, бесплатные сервисы по задачам и как искать законно, не нарушая 152-ФЗ.',
+    metaDescription: 'OSINT Framework: из каких разделов состоит карта инструментов, какие бесплатные сервисы брать под задачу и как искать законно — разбираю на практике.',
     excerpt: 'OSINT без процесса — это хаос и риск нарушить закон. Разбираю этапы проверки от постановки задачи до отчёта и удаления лишних данных — как выстроить дисциплину анализа легально.',
     tags: ['OSINT', 'процесс', 'методология', 'безопасность'],
     relatedSlugs: ['chto-takoe-osint-2026', 'instrumenty-osint-2026', 'besplatnye-servisy-proverki-kontragenta-2026'] }),

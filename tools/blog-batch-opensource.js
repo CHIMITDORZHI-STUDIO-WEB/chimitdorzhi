@@ -107,7 +107,7 @@ module.exports = [
   E({ slug: 'metabase-dashbordy-bi-2026', heroIcon: 'ph-fill ph-chart-bar',
     title: 'Metabase: дашборды и BI без дорогих лицензий',
     metaTitle: 'Metabase: бесплатные дашборды и BI — аналог Power BI',
-    metaDescription: 'Metabase — open-source BI и дашборды (аналог Tableau/Power BI): подключение к базам, наглядные отчёты, вопросы к данным без SQL.',
+    metaDescription: 'Metabase — open-source BI и дашборды вместо Tableau и Power BI: подключение к базам, наглядные отчёты и вопросы к данным без SQL — разбираю на практике.',
     excerpt: 'Metabase превращает ваши базы данных в наглядные дашборды и отчёты — без дорогих BI-лицензий. Разбираю возможности, сценарии и что нужно для запуска.',
     tags: ['Metabase', 'дашборды', 'BI', 'open-source'],
     relatedSlugs: ['nocodb-airtable-svoy-server-2026', 'umami-analitika-bez-google-2026', 'espocrm-besplatnaya-crm-2026'] }),
