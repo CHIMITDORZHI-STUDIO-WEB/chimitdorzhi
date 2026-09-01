@@ -60,7 +60,7 @@ module.exports = [
     toc: [{ id: 'chto-eto', text: 'Зачем локальная модель' }, { id: 'kandidaty', text: 'Кандидаты: Llama, Qwen, Saiga, GigaChat' }, { id: 'kak-vybrat', text: 'Как выбрать под свою задачу' }, { id: 'zhelezo', text: 'Что нужно по железу' }, ...FAQ_VYV],
     relatedSlugs: ['lokalnyy-llm-na-noutbuke-2026', 'skolko-ram-dlya-lokalnogo-ii-2026', 'rossiyskiy-ai-stack-2026', 'besplatnye-ai-agenty-2026'] }),
 
-  E({ slug: 'lokalnyy-ii-na-slabom-noutbuke-2026', category: 'ai-dev', heroIcon: 'ph-fill ph-laptop', ctaInternal: RAG, servicesOffer: SVC_AI,
+  E({ slug: 'lokalnyy-ii-na-slabom-noutbuke-2026', category: 'ai-dev', heroIcon: 'ph-fill ph-laptop', ctaInternal: RAG, servicesOffer: SVC_AI, shortForm: true,
     title: 'Локальный ИИ на слабом ноутбуке: что реально работает на 8 и 16 ГБ',
     metaTitle: 'Локальный ИИ на слабом ноутбуке: 8 и 16 ГБ',
     metaDescription: 'Что реально работает из локальных нейросетей на ноутбуке с 8 и 16 ГБ памяти в 2026: модели, квантизация, скорость и подводные камни.',
