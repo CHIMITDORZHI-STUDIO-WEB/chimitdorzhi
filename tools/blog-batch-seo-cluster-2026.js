@@ -214,7 +214,7 @@ module.exports = [
     excerpt: 'Одинаковая реф-ссылка теряется среди тысяч таких же. Свой лендинг выделяет вас — но есть правила компании, которые легко нарушить. Разбираю, как сделать грамотно.',
     tags: ['сетевой бизнес', 'лендинг', 'личный бренд', 'MLM'],
     toc: [{ id: 'chto-eto', text: 'Зачем сетевику свой лендинг' }, { id: 'pravila', text: 'Правила компании: где грань' }, { id: 'chto-dolzhno-byt', text: 'Что должно быть на лендинге' }, { id: 'kak-sdelat', text: 'Как сделать быстро' }, ...FAQ_VYV],
-    relatedSlugs: ['kak-seteviku-avtomatizirovat-strukturu-2026', 'ref-bot-dlya-mlm-chestno-2026', 'sayt-eksperta-nedvizhimosti-lending-keys-2026', 'personalnyy-brend-ekspert-2026'] }),
+    relatedSlugs: ['kak-seteviku-avtomatizirovat-strukturu-2026', 'ref-bot-dlya-mlm-chestno-2026', 'sayt-eksperta-nedvizhimosti-lending-keys-2026', 'lichnyy-brend-vs-kompaniya-setevik-2026'] }),
 
   E({ slug: 'ref-bot-dlya-mlm-chestno-2026', category: 'mlm', heroIcon: 'ph-fill ph-users-three', ctaInternal: BOTS, servicesOffer: SVC_BIZ,
     title: 'Реф-бот для MLM: как считать структуру честно и без накруток',

@@ -72,7 +72,7 @@ module.exports = [
     excerpt: 'Ручная разноска счетов и сверка договоров съедает часы. Разбираю, как ИИ извлекает данные из документов, сверяет реквизиты и подсвечивает риски — и где проходит граница доверия.',
     tags: ['ИИ', 'документооборот', 'счета', 'договоры'],
     toc: [{ id: 'problema', text: 'Ручная работа с документами' }, { id: 'chto-umeet', text: 'Что умеет ИИ' }, { id: 'kak-vnedrit', text: 'Как внедрить' }, { id: 'privatnost', text: 'Приватность и проверка' }, ...FAQ_VYV],
-    relatedSlugs: ['rag-na-svoih-dokumentah-lokalno-2026', 'ai-dlya-yurista-2026', 'ved-checker-proverka-tnved-keys-2026', 'ii-transkribaciya-sozvonov-lokalno-2026'] }),
+    relatedSlugs: ['rag-na-svoih-dokumentah-lokalno-2026', 'ai-dlya-yurista-dokumenty-2026', 'ved-checker-proverka-tnved-keys-2026', 'ii-transkribaciya-sozvonov-lokalno-2026'] }),
 
   E({ slug: 'ii-transkribaciya-sozvonov-lokalno-2026', category: 'ai-dev', heroIcon: 'ph-fill ph-microphone', ctaInternal: RAG, servicesOffer: SVC_AI,
     title: 'ИИ-протокол созвонов: расшифровка встреч, задачи и решения — локально',
@@ -126,7 +126,7 @@ module.exports = [
     excerpt: 'Пентест звучит дорого и страшно, а на деле это проверка «а можно ли вас взломать». Разбираю простыми словами, что проверяют, чем это отличается от аудита и когда нужно.',
     tags: ['пентест', 'безопасность', 'аудит', 'взлом'],
     toc: [{ id: 'chto-eto', text: 'Что такое пентест' }, { id: 'chto-proveryayut', text: 'Что проверяют' }, { id: 'vs-audit', text: 'Пентест или аудит' }, { id: 'komu-nuzhno', text: 'Кому и когда нужно' }, ...FAQ_VYV],
-    relatedSlugs: ['zaschita-sayta-ot-parsinga-2026', 'kak-obnaruzhit-fishing-2026', 'zaschita-bota-ot-spama-atak-2026', 'cookie-banner-zakon'] }),
+    relatedSlugs: ['zaschita-sayta-ot-parsinga', 'kak-obnaruzhit-fishing-2026', 'zaschita-bota-ot-spama-atak-2026', 'cookie-banner-zakon'] }),
 
   E({ slug: 'crm-bot-dlya-avtoservisa-2026', category: 'industries', heroIcon: 'ph-fill ph-wrench', ctaInternal: BOTS, servicesOffer: SVC_BIZ,
     title: 'Бот и CRM для автосервиса: напоминания о ТО и ОСАГО, история по VIN',

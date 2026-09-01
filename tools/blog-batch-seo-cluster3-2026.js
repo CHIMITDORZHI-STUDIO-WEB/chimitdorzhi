@@ -55,7 +55,7 @@ module.exports = [
     excerpt: 'Собрал реальные кейсы, как кофейни уходят от бумажных штампов и блокнотов: PWA-лояльность, бот заказа, QR-меню, аналитика по точкам — и что из этого реально сработало.',
     tags: ['кофейни', 'кейсы', 'цифровизация', 'лояльность'],
     toc: [{ id: 'zachem', text: 'Зачем кофейне цифра' }, { id: 'loyalnost', text: 'Лояльность вместо штампов' }, { id: 'zakaz-menyu', text: 'Заказ и QR-меню' }, { id: 'analitika', text: 'Аналитика по точкам' }, ...FAQ_VYV],
-    relatedSlugs: ['tsifrovaya-karta-loyalnosti-pwa-2026', 'it-dlya-kofeyni-obshchepita-2026', 'goryachiy-moment-sayt-kofeen-keys-2026', 'bot-dlya-dostavki-edy-2026'] }),
+    relatedSlugs: ['tsifrovaya-karta-loyalnosti-pwa-keys-2026', 'it-dlya-kofeyni-obshchepita-2026', 'goryachiy-moment-sayt-kofeen-keys-2026', 'bot-dlya-dostavki-edy-2026'] }),
 
   E({ slug: 'avtomatizaciya-kliniki-medcentra-2026', category: 'industries', heroIcon: 'ph-fill ph-first-aid-kit', ctaInternal: AUTO,
     title: 'Автоматизация клиники и медцентра: запись, напоминания, карты пациентов',
