@@ -1,6 +1,6 @@
 ---
 title: "Российский AI-стек 2026: чем заменить OpenAI, Claude и Gemini"
-description: "Обзор российских LLM 2026: YandexGPT 5, GigaChat 3, T-Pro, Cotype, Kandinsky 4, YandexART 2. Цены, API, код подключения, юридическая чистота."
+description: "Российский AI-стек: чем заменить OpenAI и Claude — YandexGPT, GigaChat, T-Pro, Cotype, Kandinsky. Цены, API, юридическая чистота — разбираю на практике."
 date: 2026-05-20
 category: ai-dev
 canonical: https://chimitdorzhi.tech/blog/rossiyskiy-ai-stack-2026/

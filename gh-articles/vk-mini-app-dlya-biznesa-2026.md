@@ -1,6 +1,6 @@
 ---
 title: "Свой VK Mini App для бизнеса 2026: разработка и монетизация"
-description: "VK Mini Apps: 70 млн аудитории и VK Pay с комиссией 2-3%. Как собрать приложение на VK Bridge и VKUI, во сколько обойдётся и на чём зарабатывать."
+description: "VK Mini App для бизнеса: 70 млн аудитории ВКонтакте и встроенный VK Pay. Как собрать на VK Bridge и VKUI и на чём зарабатывать — разбираю на практике."
 date: 2026-05-26
 category: development
 canonical: https://chimitdorzhi.tech/blog/vk-mini-app-dlya-biznesa-2026/
