@@ -1,12 +1,12 @@
 ---
-title: "AI-бот в МАКС: подключаем GigaChat или YandexGPT"
-description: "AI-бот в МАКС на нейросетях: как связать Bot API с GigaChat или YandexGPT, какую модель выбрать под бизнес и что учесть — разбираю на практике."
+title: "AI-бот в MAX (Макс) через нейросети: подключаем GigaChat или YandexGPT"
+description: "ИИ-боты в Макс через нейросети: как связать MAX Bot API с GigaChat или YandexGPT, какую модель выбрать под бизнес, что с 152-ФЗ и сколько это стоит. Пошагово."
 date: 2026-06-03
 category: ai-dev
 canonical: https://chimitdorzhi.tech/blog/ai-bot-v-max-gigachat-yandexgpt-2026/
 ---
 
-# AI-бот в МАКС: подключаем GigaChat или YandexGPT
+# AI-бот в MAX (Макс) через нейросети: подключаем GigaChat или YandexGPT
 
 >
 

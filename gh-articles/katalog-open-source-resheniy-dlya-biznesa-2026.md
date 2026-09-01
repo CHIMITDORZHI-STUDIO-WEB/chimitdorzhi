@@ -71,7 +71,7 @@ canonical: https://chimitdorzhi.tech/blog/katalog-open-source-resheniy-dlya-bizn
 
 - [**Umami: веб-аналитика сайта без Google и по 152-ФЗ**](/blog/umami-analitika-bez-google-2026/) — Umami — лёгкая приватная аналитика сайта на своём сервере, без передачи данных Google и без cookie-баннеров.
 
-- [**Metabase: дашборды и BI без дорогих лицензий**](/blog/metabase-dashbordy-bi-2026/) — Metabase превращает ваши базы данных в наглядные дашборды и отчёты — без дорогих BI-лицензий.
+- [**Metabase: что это и как сделать дашборды и BI без дорогих лицензий**](/blog/metabase-dashbordy-bi-2026/) — Metabase превращает ваши базы данных в наглядные дашборды и отчёты — без дорогих BI-лицензий.
 
 - [**NocoDB: Airtable на своём сервере под ключ**](/blog/nocodb-airtable-svoy-server-2026/) — NocoDB — это гибкие умные таблицы для учёта чего угодно, как Airtable, но на своём сервере.
 
@@ -121,7 +121,7 @@ canonical: https://chimitdorzhi.tech/blog/katalog-open-source-resheniy-dlya-bizn
 
 - [**Mattermost: корпоративный мессенджер на своём сервере вместо Slack**](/blog/mattermost-korporativnyy-messenger-2026/) — Mattermost — это корпоративный чат на своём сервере, как Slack, но с данными у себя.
 
-- [**Outline: база знаний команды вместо Notion**](/blog/outline-baza-znaniy-2026/) — Outline — корпоративная база знаний на своём сервере: документы, регламенты и инструкции в одном месте, как Notion, но с…
+- [**Outline (Оутлайн): что это — база знаний команды вместо Notion**](/blog/outline-baza-znaniy-2026/) — Outline — корпоративная база знаний на своём сервере: документы, регламенты и инструкции в одном месте, как Notion, но с…
 
 - [**Jitsi: видеоконференции без Zoom на своём домене**](/blog/jitsi-videokonferencii-bez-zoom-2026/) — Jitsi — это свои видеоконференции на своём домене, без подписки и лимитов Zoom.
 

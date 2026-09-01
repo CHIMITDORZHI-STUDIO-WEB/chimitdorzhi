@@ -1,6 +1,6 @@
 ---
 title: "Penpot: Figma на своём сервере под ключ"
-description: "Дизайн-команде инструмент уровня Figma на своём сервере: Penpot — макеты, прототипы и совместная работа без подписки. Разбираю запуск под ключ."
+description: "Penpot — что это и как установить: инструмент уровня Figma на своём сервере — макеты, прототипы и совместная работа без подписки. Разбираю запуск под ключ."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/penpot-figma-na-svoyom-servere-2026/

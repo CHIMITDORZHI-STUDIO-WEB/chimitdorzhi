@@ -1,6 +1,6 @@
 ---
 title: "Глубокая работа (Deep Work): фокус в мире уведомлений"
-description: "Глубокая работа (Deep Work) по Кэлу Ньюпорту: сфокусированная работа без отвлечений против «поверхностной»."
+description: "Глубокая работа (Deep Work) Кэла Ньюпорта кратко: 4 правила книги, цена переключения контекста и как встроить 2 часа фокуса в день руководителя."
 date: 2026-06-17
 category: biznes-krugozor
 canonical: https://chimitdorzhi.tech/blog/glubokaya-rabota-deep-work-2026/

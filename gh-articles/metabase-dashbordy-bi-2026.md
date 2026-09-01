@@ -1,12 +1,12 @@
 ---
-title: "Metabase: дашборды и BI без дорогих лицензий"
-description: "Metabase — open-source BI и дашборды вместо Tableau и Power BI: подключение к базам, наглядные отчёты и вопросы к данным без SQL — разбираю на практике."
+title: "Metabase: что это и как сделать дашборды и BI без дорогих лицензий"
+description: "Metabase — что это: open-source BI и дашборды вместо Tableau и Power BI — подключение к базам, наглядные отчёты и вопросы к данным без SQL. Разбираю запуск."
 date: 2026-06-14
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/metabase-dashbordy-bi-2026/
 ---
 
-# Metabase: дашборды и BI без дорогих лицензий
+# Metabase: что это и как сделать дашборды и BI без дорогих лицензий
 
 >
 ### Коротко (TL;DR)

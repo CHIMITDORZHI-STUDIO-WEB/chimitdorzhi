@@ -1,6 +1,6 @@
 ---
 title: "Botpress: платформа AI-чат-ботов на своём сервере под ключ"
-description: "Botpress — open-source платформа для создания AI-чат-ботов на LLM: сценарии, интеграции с каналами, база знаний."
+description: "Botpress — что это: open-source платформа AI-чат-ботов на LLM на своём сервере — сценарии, база знаний, интеграции с Telegram, MAX и сайтом. Разбираю запуск."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/botpress-ai-chat-boty-2026/

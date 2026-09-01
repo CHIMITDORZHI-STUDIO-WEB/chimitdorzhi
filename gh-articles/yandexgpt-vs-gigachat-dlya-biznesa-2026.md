@@ -1,12 +1,12 @@
 ---
-title: "YandexGPT vs GigaChat: что выбрать бизнесу в 2026"
-description: "YandexGPT или GigaChat: сравнение двух российских ИИ для бизнеса по возможностям, цене, приватности и 152-ФЗ — и как выбрать под свою задачу."
+title: "YandexGPT vs GigaChat (ГигаЧат от Сбера): что выбрать бизнесу в 2026"
+description: "ГигаЧат (GigaChat от Сбера) или YandexGPT: сравнение двух российских ИИ для бизнеса по возможностям, цене API, приватности и 152-ФЗ — как выбрать под задачу."
 date: 2026-09-01
 category: ai-dev
 canonical: https://chimitdorzhi.tech/blog/yandexgpt-vs-gigachat-dlya-biznesa-2026/
 ---
 
-# YandexGPT vs GigaChat: что выбрать бизнесу в 2026
+# YandexGPT vs GigaChat (ГигаЧат от Сбера): что выбрать бизнесу в 2026
 
 >
 ### Коротко (TL;DR)
