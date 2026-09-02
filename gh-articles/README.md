@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1476**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1479**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -229,6 +229,7 @@
 
 ## Open-source и свой сервер
 
+- [PriceGhost: мониторинг цен на своём сервере — уведомления в Telegram о скидках и ценах конкурентов](./priceghost-monitoring-cen-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/priceghost-monitoring-cen-2026/)
 - [Свой VPS с нуля: Docker, nginx и HTTPS за вечер](./svoy-vps-s-nulya-docker-nginx-https-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/svoy-vps-s-nulya-docker-nginx-https-2026/)
 - [15 open-source аналогов популярных SaaS на своём сервере](./open-source-analogi-saas-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/open-source-analogi-saas-2026/)
 - [Своё облако вместо Google Drive: Nextcloud под ключ](./svoyo-oblako-nextcloud-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/svoyo-oblako-nextcloud-2026/)
@@ -1422,6 +1423,8 @@
 
 ## Экспертное
 
+- [Spark-X2.5-4B: агентная модель на 4B с контекстом 1 млн токенов — что это меняет для бизнеса](./spark-x25-4b-agentnaya-model-lokalno-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/spark-x25-4b-agentnaya-model-lokalno-2026/)
+- [TimesFM 3 от Google: прогноз продаж и спроса без своей модели — как применить в бизнесе](./timesfm-3-prognoz-prodazh-i-sprosa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/timesfm-3-prognoz-prodazh-i-sprosa-2026/)
 - [Как составить ТЗ на сайт или бота: чтобы получить то, что нужно](./kak-sostavit-tz-na-sayt-bot-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-sostavit-tz-na-sayt-bot-2026/)
 - [Сколько стоит сайт или бот под ключ в 2026: смета без сюрпризов](./skolko-stoit-sayt-bot-pod-klyuch-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-stoit-sayt-bot-pod-klyuch-2026/)
 - [Анимированные QR и фонтанные коды: как файл летит через экран](./animirovannye-qr-fontannye-kody-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/animirovannye-qr-fontannye-kody-2026/)
