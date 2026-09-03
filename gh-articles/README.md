@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1483**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1486**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -40,6 +40,7 @@
 - [Сколько стоят токены ИИ-агента: как посчитать бюджет до внедрения](./skolko-stoyat-tokeny-ii-agenta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-stoyat-tokeny-ii-agenta-2026/)
 - [Торговые ИИ-агенты для интернет-магазина: Anthropic выложила эталонную архитектуру — что это даёт бизнесу](./torgovye-ii-agenty-dlya-magazina-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/torgovye-ii-agenty-dlya-magazina-2026/)
 - [3D-модели товаров из фотографии: что уже умеют нейросети и где это применимо в продажах](./3d-modeli-tovarov-iz-foto-neyroset-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/3d-modeli-tovarov-iz-foto-neyroset-2026/)
+- [Reasoning-модели: когда бизнесу нужна нейросеть, которая рассуждает](./reasoning-modeli-dlya-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/reasoning-modeli-dlya-biznesa-2026/)
 - [AI-консультант для бизнеса: что это, чем отличается от чат-бота и сколько стоит](./ai-konsultant-dlya-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ai-konsultant-dlya-biznesa-2026/)
 - [YandexGPT vs GigaChat (ГигаЧат от Сбера): что выбрать бизнесу в 2026](./yandexgpt-vs-gigachat-dlya-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/yandexgpt-vs-gigachat-dlya-biznesa-2026/)
 - [RAG или дообучение модели: что выбрать под задачу](./rag-ili-doobuchenie-modeli-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/rag-ili-doobuchenie-modeli-2026/)
@@ -233,6 +234,8 @@
 
 ## Open-source и свой сервер
 
+- [Manticore Search: полнотекстовый и векторный поиск в одном движке на своём сервере](./manticore-search-poisk-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/manticore-search-poisk-na-svoem-servere-2026/)
+- [HR-система на своём сервере: кадры, отпуска и зарплата без облачной подписки](./hr-sistema-na-svoem-servere-frappe-hrms-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/hr-sistema-na-svoem-servere-frappe-hrms-2026/)
 - [PriceGhost: мониторинг цен на своём сервере — уведомления в Telegram о скидках и ценах конкурентов](./priceghost-monitoring-cen-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/priceghost-monitoring-cen-2026/)
 - [Свой VPS с нуля: Docker, nginx и HTTPS за вечер](./svoy-vps-s-nulya-docker-nginx-https-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/svoy-vps-s-nulya-docker-nginx-https-2026/)
 - [15 open-source аналогов популярных SaaS на своём сервере](./open-source-analogi-saas-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/open-source-analogi-saas-2026/)
