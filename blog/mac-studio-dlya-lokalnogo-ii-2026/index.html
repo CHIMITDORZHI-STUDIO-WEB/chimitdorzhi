@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mac Studio для локального ИИ: единая память вместо GPU</title>
+    <meta name="description" content="Mac Studio с 512 ГБ единой памяти против стойки видеокарт и облака: где выгоднее крутить локальный ИИ, как посчитать память под модель и внедрить контур.">
+    <meta name="keywords" content="локальный ИИ, Mac Studio, железо для LLM, приватный контур, Apple Silicon">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/mac-studio-dlya-lokalnogo-ii-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/mac-studio-dlya-lokalnogo-ii-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/mac-studio-dlya-lokalnogo-ii-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/mac-studio-dlya-lokalnogo-ii-2026/">
+    <meta property="og:title" content="Mac Studio для локального ИИ: единая память вместо GPU">
+    <meta property="og:description" content="Mac Studio с 512 ГБ единой памяти против стойки видеокарт и облака: где выгоднее крутить локальный ИИ, как посчитать память под модель и внедрить контур.">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/mac-studio-dlya-lokalnogo-ii-2026/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Mac Studio для локального ИИ: единая память вместо GPU">
+    <meta name="twitter:description" content="Mac Studio с 512 ГБ единой памяти против стойки видеокарт и облака: где выгоднее крутить локальный ИИ, как посчитать память под модель и внедрить контур.">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/mac-studio-dlya-lokalnogo-ii-2026/cover.png">
+
+    <link rel="icon" href="/favicon.svg?v=5" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=5">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png?v=5">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=5">
+    <link rel="preload" href="/assets/fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=73">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Mac Studio для локального ИИ: почему Apple Silicon обходит стойку из видеокарт",
+  "description": "Mac Studio с 512 ГБ единой памяти против стойки видеокарт и облака: где выгоднее крутить локальный ИИ, как посчитать память под модель и внедрить контур.",
+  "image": "https://chimitdorzhi.tech/blog/mac-studio-dlya-lokalnogo-ii-2026/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://t.me/chimitdorzhi_studio",
+      "https://max.ru/channel_chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio",
+      "https://github.com/chimitdorzhi",
+      "https://chimitdorzhi.tech/about/"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/mac-studio-dlya-lokalnogo-ii-2026/"
+  },
+  "datePublished": "2026-09-03",
+  "dateModified": "2026-09-03",
+  "keywords": "локальный ИИ, Mac Studio, железо для LLM, приватный контур, Apple Silicon",
+  "articleSection": "AI для разработчиков",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  },
+  "about": [
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://chimitdorzhi.tech/slovar/#llm",
+      "name": "LLM (большая языковая модель)"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Mac Studio для локального ИИ: почему Apple Silicon обходит стойку из видеокарт",
+      "item": "https://chimitdorzhi.tech/blog/mac-studio-dlya-lokalnogo-ii-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Почему Mac Studio подходит для больших языковых моделей?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Из-за единой памяти: процессор и графика делят один пул до 512 ГБ. Модель на сотни гигабайт помещается целиком, её не нужно резать между картами и гонять данные по PCIe."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько видеокарт заменяет Mac Studio с 512 ГБ памяти?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "По опубликованным расчётам, для модели на 320 млрд параметров в FP8 (около 306 ГБ весов) на картах с 32 ГБ нужно минимум десять штук только под веса — более 20 000 долларов и порядка 5000 Вт."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько памяти нужно под конкретную модель?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Считайте число параметров, умноженное на байты на параметр: 1 байт в FP8, около 0,5 в 4 битах, 2 в FP16. Добавьте запас под контекст и KV-кэш, иначе длинные документы упрутся в память."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Хватит ли 60 токенов в секунду для работы?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Для чата и ассистента по базе знаний — да, текст идёт быстрее, чем читает человек. Для сотен одновременных пользователей или ночной обработки тысяч файлов нужен сервер с видеокартами."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что выгоднее: локальная машина или облачный API?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Если данные попадают под 152-ФЗ или NDA, вопрос решается в пользу локального контура; если нет, а объём непредсказуем, разумнее начать с облака. Сравнение — в статье локальный LLM против облака."
+      }
+    }
+  ]
+}
+    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+var inject=function(){for (var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)};
+var run=function(){('requestIdleCallback' in window)?requestIdleCallback(inject,{timeout:5000}):setTimeout(inject,3000)};
+(e.readyState==='complete')?run():m.addEventListener('load',run);})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109281884" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<!-- Цели Метрики: клики по контактам и услугам -->
+<script type="text/javascript">
+(function(){
+  var GOALS = [
+    { re: /t\.me\//i,                     goal: 'tg_click' },
+    { re: /max\.ru\//i,                    goal: 'max_click' },
+    { re: /audit\.chimitdorzhi\.tech/i,    goal: 'audit_click' },
+    { re: /chimitdorzhi\.tech\/services\//i, goal: 'service_click' },
+    { re: /chimitdorzhi\.tech\/predlozheniya\//i, goal: 'offer_click' }
+  ];
+  document.addEventListener('click', function(e){
+    var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    for (var i = 0; i < GOALS.length; i++) {
+      if (GOALS[i].re.test(href)) {
+        try { if (window.ym) ym(109281884, 'reachGoal', GOALS[i].goal); } catch (err) {}
+        break;
+      }
+    }
+  }, true);
+})();
+</script>
+</head>
+<body class="wx-read">
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/" data-i18n="nav.home">Главная</a></li>
+            <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/market/" data-i18n="nav.offers">Предложения</a></li>
+            <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+            <li class="nav-dropdown">
+                <a href="/cases/" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+                <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему" aria-pressed="false">
+                <i class="ph ph-moon" aria-hidden="true"></i>
+            </button>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/" data-i18n="nav.home">Главная</a></li>
+        <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+        <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+        <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+        <li><a href="/market/" data-i18n="nav.offers">Предложения</a></li>
+        <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+        <li class="mobile-has-submenu">
+            <details>
+                <summary aria-label="Проекты — развернуть"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down" aria-hidden="true"></i></summary>
+                <ul class="mobile-submenu">
+                    <li>
+                        <a href="https://gerel.space" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">Gerel.space</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/universe_buryat/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/arey/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.arey">AREY</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/mwrlife/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">MWR Life</span>
+                                <span class="mobile-sub-desc">Travel-клуб и партнёрка</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </details>
+        </li>
+        <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+    </ul>
+    <div class="mobile-controls">
+        <div class="mobile-lang-switcher" role="group" aria-label="Выбор языка">
+            <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+            <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+            <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+        </div>
+        <button class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle" aria-label="Переключить тему" aria-pressed="false">
+            <i class="ph ph-moon" aria-hidden="true"></i>
+        </button>
+    </div>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Mac Studio для локального ИИ: почему Apple Silicon обходит стойку из видеокарт</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/ai-dev/"><i class="ph ph-bookmark" aria-hidden="true"></i> AI для разработчиков</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 5 мин чтения</span>
+                        <time datetime="2026-09-03"><i class="ph ph-calendar" aria-hidden="true"></i> 3 сентября 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Mac Studio для локального ИИ: почему Apple Silicon обходит стойку из видеокарт</h1>
+
+                    <p class="blog-lead">Единая память Apple Silicon позволяет держать модель на сотни гигабайт в одной тихой коробке вместо стойки видеокарт. Разбираю, как это устроено, кому подходит и как я подбираю конфигурацию под задачу.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>локальный ИИ</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>Mac Studio</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>железо для LLM</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>приватный контур</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>Apple Silicon</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
+<li>Преимущество Apple Silicon для ИИ — единая память: процессор и графика делят один пул, модель не режут между видеокартами.</li>
+<li>По опубликованным данным, Mac Studio M5 Ultra с 512 ГБ памяти и полосой 1,2 ТБ/с держит модель на 320 млрд параметров в FP8 (около 306 ГБ весов) и выдаёт порядка 60 токенов в секунду.</li>
+<li>Тот же объём на картах с 32 ГБ — минимум десять штук только под веса: свыше 20 000 долларов и порядка 5000 Вт.</li>
+<li>Решение для приватных документов и небольшой команды. Для сотен одновременных пользователей и для обучения моделей нужен сервер с видеокартами.</li>
+</ul></div>
+
+<p>Mac Studio для локального ИИ — это компьютер с единой архитектурой памяти, где процессор и графическое ядро делят один пул объёмом до 512 ГБ, поэтому большая языковая модель помещается целиком, без разделения между видеокартами. Фокус не в частотах, а в том, что модель на сотни гигабайт перестаёт быть проблемой сборки. Разбираю, чем это отличается от стойки видеокарт и облака и по какой методике я подбираю конфигурацию.</p>
+
+<h2 id="edinaya-pamyat">В чём фокус единой памяти</h2>
+<p>В обычном ПК память разделена: у процессора своя оперативная, у видеокарты своя видеопамять, между ними шина PCIe. Модель должна лежать в видеопамяти, и как только она туда не влезает, начинается либо выгрузка слоёв в оперативную память с падением скорости в разы, либо разделение модели между несколькими картами.</p>
+<p>Разделение работает, но платит задержками: на каждом шаге генерации промежуточные состояния переезжают между картами. И чем больше карт, тем сложнее сборка — плата, корпус, питание, охлаждение.</p>
+<p>Единая память убирает этот слой проблем целиком: один пул, одна адресация, никаких копирований между устройствами. По опубликованным данным, Mac Studio M5 Ultra на 512 ГБ с пропускной способностью 1,2 ТБ/с вмещает модель GLM-5.3-Flash на 320 млрд параметров в FP8 — около 306 ГБ весов — и выдаёт примерно 60 токенов в секунду. У RTX 5090 видеопамяти 32 ГБ, поэтому под те же веса нужно минимум десять карт: 10 x 32 = 320 ГБ, более 20 000 долларов и порядка 5000 Вт.</p>
+<p>Оговорюсь честно: это цифры из публикации от 31 августа 2026 года, а не мои замеры — сам подход я считаю архитектурно верным, но результаты на конкретной задаче проверяю отдельно.</p>
+
+<h2 id="sravnenie">Три подхода: Mac, стойка видеокарт, облако</h2>
+<div class="blog-table"><table>
+<thead><tr><th>Параметр</th><th>Единая память</th><th>Сборка на видеокартах</th><th>Облачный API</th></tr></thead>
+<tbody>
+<tr><td>Цена входа</td><td>Одна покупка</td><td>Карты, платформа, питание</td><td>Оплата по факту</td></tr>
+<tr><td>Потолок модели</td><td>До 512 ГБ пула</td><td>Сумма памяти карт</td><td>Не ограничен</td></tr>
+<tr><td>Скорость</td><td>Комфортна для чата</td><td>Выше на пакетах</td><td>Зависит от лимитов</td></tr>
+<tr><td>Энергия</td><td>Сотни ватт</td><td>Киловатты, отдельная линия</td><td>Не ваша забота</td></tr>
+<tr><td>Шум и место</td><td>Тихо, на столе</td><td>Шумно, нужна серверная</td><td>Отсутствует</td></tr>
+<tr><td>Обслуживание</td><td>Минимальное</td><td>Драйверы, охлаждение</td><td>Только интеграция</td></tr>
+<tr><td>Данные</td><td>Не покидают устройство</td><td>Не покидают контур</td><td>Уходят провайдеру</td></tr>
+</tbody>
+</table></div>
+<p>Вывод, к которому я прихожу на разборах: Mac выигрывает там, где нужен большой объём памяти при скромном бюджете на инфраструктуру и отсутствии серверной. Стойка — там, где нужна пропускная способность на много запросов. Облако — на старте и там, где данные не чувствительны. Про выбор конкретной карты я писал в материале <a href="/blog/gpu-dlya-lokalnyh-llm-2027/">какую видеокарту брать под локальные LLM</a>, требования к железу — в статье <a href="/blog/skolko-zheleza-nuzhno-lokalnomu-ii-2026/">сколько железа нужно локальному ИИ</a>. Эта статья — про выбор между тремя подходами.</p>
+
+<h2 id="komu-podhodit">Кому это подходит, а кому нет</h2>
+<p>Подходит, если данные чувствительные, а нагрузка умеренная:</p>
+<ul>
+<li><strong>Юристы, медицина, бухгалтерия.</strong> Договоры, карты пациентов, первичка — материал, который в чужое облако не отправляют.</li>
+<li><strong>Студии и подрядчики под NDA.</strong> Материалы заказчика не выходят за пределы офиса, и это фиксируется в договоре.</li>
+<li><strong>Компании под 152-ФЗ.</strong> Персональные данные обрабатываются внутри периметра; аргументы разбирал в статье <a href="/blog/lokalnyy-ii-ne-paranoyya-a-raschet-2026/">локальный ИИ — не паранойя, а расчёт</a>.</li>
+<li><strong>Разработка на своём коде.</strong> Репозиторий не уезжает наружу, а модель на сотни гигабайт даёт качество, недостижимое для лёгких моделей.</li>
+</ul>
+<p>Не подходит в двух случаях. Первый — высокая нагрузка: сотни одновременных пользователей, тысячи документов за ночь; здесь нужен сервер с видеокартами. Второй — обучение моделей, а не инференс.</p>
+
+<h2 id="kak-vybrat-konfiguraciyu">Методика: как я подбираю конфигурацию</h2>
+<p>Первым делом я считаю память, а не смотрю на цену. Правило: размер модели в гигабайтах примерно равен числу параметров, умноженному на байты на параметр — 2 байта в FP16, 1 байт в FP8, около 0,5 байта в 4-битном квантовании. Модель на 70 млрд параметров займёт порядка 140, 70 и 35 ГБ соответственно. Квантование — огрубление весов ради экономии памяти: до 8 бит потери обычно незаметны, ниже 4 бит качество на русском заметно проседает.</p>
+<p>Дальше — запас. К весам добавляются контекст и KV-кэш: чем длиннее диалог и чем больше документов в запросе, тем больше памяти уходит сверх модели. Без запаса всё упрётся в память ровно тогда, когда система понадобится.</p>
+<p>Потом четыре проверки на арендованном или демонстрационном железе, до покупки:</p>
+<ol>
+<li><strong>Скорость на своих текстах</strong> — на реальных договорах и письмах компании, а не на синтетическом тесте.</li>
+<li><strong>Русский язык</strong> — падежи, числительные, названия организаций, документы с опечатками.</li>
+<li><strong>Вызов инструментов</strong> — если агент должен ходить в CRM и базу, это проверяется заранее.</li>
+<li><strong>Поведение при нехватке данных</strong> — модель должна говорить «в документах этого нет», а не выдумывать.</li>
+</ol>
+<p>Честная оговорка про скорость: около 60 токенов в секунду комфортны для чата и документов — текст идёт быстрее, чем человек читает. Для потоковой обработки тысяч запросов этого мало, и единая память тут не спасёт. Если не хотите проверять это на своих деньгах, я подбираю конфигурацию под сценарий: считаю память под модель, замеряю скорость на ваших документах и честно говорю, если нужен другой класс железа.</p>
+
+<h2 id="kak-vstroit">Как встроить это в работу компании</h2>
+<p>Купить коробку — самая простая часть. Дальше начинается то, на чём чаще всего спотыкаются.</p>
+<ul>
+<li><strong>Кто администрирует.</strong> У машины должен быть владелец: обновления моделей, мониторинг, реакция на сбой.</li>
+<li><strong>Доступ для команды.</strong> Одна машина обслуживает отдел по сети: интерфейс в локальной сети, учётные записи, разграничение прав.</li>
+<li><strong>Бэкапы.</strong> Резервируются не веса, а нажитое: база знаний, история, настройки, промпты.</li>
+<li><strong>Непрерывность.</strong> Если единственный знающий человек уходит в отпуск, система не должна вставать: инструкция, доступы у двоих, порядок восстановления.</li>
+</ul>
+<p>Поэтому локальный ИИ — не «поставил и забыл», а маленькая, но настоящая ИТ-система. Развернуть её под ключ — моя работа: собираю контур, настраиваю доступы, подключаю базу знаний и мессенджеры, оставляю инструкцию и сопровождение. Формат — на странице <a href="/predlozheniya/privatnoe-ai-oblako/">приватного ИИ-облака</a>, сеть и резервное копирование — в разделе <a href="/services/it-infrastructure/">ИТ-инфраструктура</a>.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+<h3>Почему Mac Studio подходит для больших языковых моделей?</h3>
+<p>Из-за единой памяти: процессор и графика делят один пул до 512 ГБ. Модель на сотни гигабайт помещается целиком, её не нужно резать между картами и гонять данные по PCIe.</p>
+<h3>Сколько видеокарт заменяет Mac Studio с 512 ГБ памяти?</h3>
+<p>По опубликованным расчётам, для модели на 320 млрд параметров в FP8 (около 306 ГБ весов) на картах с 32 ГБ нужно минимум десять штук только под веса — более 20 000 долларов и порядка 5000 Вт.</p>
+<h3>Сколько памяти нужно под конкретную модель?</h3>
+<p>Считайте число параметров, умноженное на байты на параметр: 1 байт в FP8, около 0,5 в 4 битах, 2 в FP16. Добавьте запас под контекст и KV-кэш, иначе длинные документы упрутся в память.</p>
+<h3>Хватит ли 60 токенов в секунду для работы?</h3>
+<p>Для чата и ассистента по базе знаний — да, текст идёт быстрее, чем читает человек. Для сотен одновременных пользователей или ночной обработки тысяч файлов нужен сервер с видеокартами.</p>
+<h3>Что выгоднее: локальная машина или облачный API?</h3>
+<p>Если данные попадают под 152-ФЗ или NDA, вопрос решается в пользу локального контура; если нет, а объём непредсказуем, разумнее начать с облака. Сравнение — в статье <a href="/blog/lokalnyy-llm-vs-oblako-biznes-2027/">локальный LLM против облака</a>.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+<p>Единая память меняет правила: модель на сотни гигабайт помещается в тихую коробку на столе, а не в шумную стойку на киловатты. Mac не отменяет серверы с видеокартами — он закрывает другую нишу: приватные документы, небольшая команда, отсутствие серверной. Решение принимается счётом памяти и проверкой скорости на ваших текстах, а не по обзорам.</p>
+<p>С чего начнём: вы описываете задачу и тип документов, я считаю нужный объём памяти, подбираю модель и конфигурацию, проверяю скорость и русский язык на ваших материалах. Дальше разворачиваю контур под ключ — доступ для команды, база знаний, бэкапы, инструкция. Начать можно со страницы <a href="/predlozheniya/privatnoe-ai-oblako/">приватного ИИ-облака</a>.</p>
+
+                    </div>
+                    
+
+                    
+                    
+                    
+                    
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Что я делаю для бизнеса</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-robot"></i> <span>Боты в Telegram, MAX, VK</span></li>
+    
+    <li><i class="ph-fill ph-gear"></i> <span>Автоматизация процессов и CRM</span></li>
+    
+    <li><i class="ph-fill ph-chart-bar"></i> <span>Аналитика и дашборды</span></li>
+    
+    <li><i class="ph-fill ph-globe"></i> <span>Сайты и лендинги под ключ</span></li>
+    
+  </ul>
+  <div class="blog-services-offer-ctas">
+    <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+      <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
+    </a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="blog-services-offer-cta blog-services-offer-cta-max">
+      <i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> Написать в MAX
+    </a>
+  </div>
+</div>
+                    <div class="blog-cta-card">
+                        <div class="blog-cta-card-body">
+                            <h3>Бесплатно: чек-лист «Готов ли ваш бизнес к 152-ФЗ»</h3>
+                            <p>12 пунктов, которые проверяют готовность за час: данные, согласия, уведомление в РКН, локализация, защита. Отметьте, что уже сделано, и увидите дыры, за которые сейчас штрафуют.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="/checklist-152-fz/" class="btn btn-accent"><i class="ph-fill ph-clipboard-text" aria-hidden="true"></i> Открыть чек-лист</a>
+                        </div>
+                    </div>
+                    
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/predlozheniya/privatnoe-ai-oblako/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Развернуть приватный ИИ-контур</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-subscribe">
+  <div class="blog-subscribe-body">
+    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
+    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
+  </div>
+  <div class="blog-subscribe-actions">
+    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
+  </div>
+</section>
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/skolko-zheleza-nuzhno-lokalnomu-ii-2026/" data-category="ai-dev" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-graphics-card"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>AI для разработчиков</span>
+  <h3>Сколько железа нужно локальному ИИ: GPU, RAM, VRAM по моделям</h3>
+  <p>Главный ограничитель локального ИИ — не скорость, а память: оперативная и видеопамять. Разбираю, сколько нужно под модели 7B/13B/70B, что важнее — GPU или RAM, и как выбрать железо под задачу без переплаты.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 25 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 10 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/gpu-dlya-lokalnyh-llm-2027/" data-category="ai-dev" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-graphics-card"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>AI для разработчиков</span>
+  <h3>Какая видеокарта нужна для локальных LLM: гид по GPU и VRAM</h3>
+  <p>Главный параметр видеокарты для локальных нейросетей — не скорость, а объём видеопамяти. Разбираем, сколько VRAM нужно под модели разного размера, стоит ли брать серверную GPU или обойтись потребительской, и когда дешевле арендовать GPU в облаке, чем покупать.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 7 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 6 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/lokalnyy-llm-vs-oblako-biznes-2027/" data-category="ai-dev" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-scales"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>AI для разработчиков</span>
+  <h3>Локальный LLM против облака: что выбрать бизнесу в 2027</h3>
+  <p>Облако или свой сервер — вопрос не идеологии, а расчёта. Сравниваем локальные LLM и облачные нейросети по приватности, стоимости, качеству и независимости, разбираем, кому что подходит, и почему для многих компаний оптимален гибрид.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 7 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 6 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/svoy-ai-server-dlya-biznesa-2027/" data-category="ai-dev" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-hard-drives"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>AI для разработчиков</span>
+  <h3>Свой AI-сервер для бизнеса: зачем нужен и как его собрать</h3>
+  <p>Локальный AI-сервер даёт компании контроль над данными и предсказуемую стоимость при больших объёмах. Разбираем, какие задачи он закрывает, из чего собирается и когда он реально окупается, а когда дешевле остаться в облаке.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 7 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 6 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    
+                    
+                    
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow"><span class="b-l b-l-ru">Готовые решения под ключ</span><span class="b-l b-l-en" lang="en">Turnkey solutions</span><span class="b-l b-l-es" lang="es">Soluciones llave en mano</span><span class="b-l b-l-cn" lang="zh">交钥匙解决方案</span><span class="b-l b-l-mn" lang="mn">Түлхүүр гардуулах шийдэл</span></span>
+                            <span class="blog-offer-cta-title"><span class="b-l b-l-ru">449 готовых IT-решений для бизнеса</span><span class="b-l b-l-en" lang="en">449 ready-made IT solutions for business</span><span class="b-l b-l-es" lang="es">449 soluciones IT listas para empresas</span><span class="b-l b-l-cn" lang="zh">449 个面向企业的现成 IT 解决方案</span><span class="b-l b-l-mn" lang="mn">Бизнест зориулсан 449 бэлэн IT шийдэл</span></span>
+                            <span class="blog-offer-cta-price"><span class="b-l b-l-ru">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span><span class="b-l b-l-en" lang="en">Automation, bots, AI, data privacy and platforms · free consultation</span><span class="b-l b-l-es" lang="es">Automatización, bots, IA, privacidad de datos y plataformas · consulta gratis</span><span class="b-l b-l-cn" lang="zh">自动化、机器人、AI、数据合规与平台 · 免费咨询</span><span class="b-l b-l-mn" lang="mn">Автоматжуулалт, бот, AI, өгөгдлийн хамгаалалт ба платформ · үнэгүй зөвлөгөө</span></span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> <span class="b-l b-l-ru">Смотреть каталог</span><span class="b-l b-l-en" lang="en">View catalog</span><span class="b-l b-l-es" lang="es">Ver catálogo</span><span class="b-l b-l-cn" lang="zh">查看目录</span><span class="b-l b-l-mn" lang="mn">Каталог үзэх</span></span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#edinaya-pamyat"><span class="blog-toc-num">01</span> В чём фокус единой памяти</a></li>
+<li><a href="#sravnenie"><span class="blog-toc-num">02</span> Три подхода: Mac, стойка видеокарт, облако</a></li>
+<li><a href="#komu-podhodit"><span class="blog-toc-num">03</span> Кому это подходит, а кому нет</a></li>
+<li><a href="#kak-vybrat-konfiguraciyu"><span class="blog-toc-num">04</span> Методика: как я подбираю конфигурацию</a></li>
+<li><a href="#kak-vstroit"><span class="blog-toc-num">05</span> Как встроить это в работу компании</a></li>
+<li><a href="#faq"><span class="blog-toc-num">06</span> Частые вопросы</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">07</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/cases/" class="footer-policy-link">Кейсы</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=41" defer></script>
+<script src="/services-i18n.js?v=41" defer></script>
+<script src="/script.js?v=32" defer></script>
+<script src="/search-widget.js?v=1" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>
