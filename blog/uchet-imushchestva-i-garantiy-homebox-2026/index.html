@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homebox: учёт имущества и гарантий на своём сервере</title>
+    <meta name="description" content="Homebox — open-source учёт имущества на своём сервере: категории, локации, фото, гарантийные талоны, даты покупки и обслуживание. Методика внедрения.">
+    <meta name="keywords" content="Homebox, open-source, учёт имущества, гарантии, self-hosted">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/uchet-imushchestva-i-garantiy-homebox-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/uchet-imushchestva-i-garantiy-homebox-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/uchet-imushchestva-i-garantiy-homebox-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/uchet-imushchestva-i-garantiy-homebox-2026/">
+    <meta property="og:title" content="Homebox: учёт имущества и гарантий на своём сервере">
+    <meta property="og:description" content="Homebox — open-source учёт имущества на своём сервере: категории, локации, фото, гарантийные талоны, даты покупки и обслуживание. Методика внедрения.">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/uchet-imushchestva-i-garantiy-homebox-2026/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Homebox: учёт имущества и гарантий на своём сервере">
+    <meta name="twitter:description" content="Homebox — open-source учёт имущества на своём сервере: категории, локации, фото, гарантийные талоны, даты покупки и обслуживание. Методика внедрения.">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/uchet-imushchestva-i-garantiy-homebox-2026/cover.png">
+
+    <link rel="icon" href="/favicon.svg?v=5" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=5">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png?v=5">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=5">
+    <link rel="preload" href="/assets/fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=73">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Учёт имущества и гарантий на своём сервере: Homebox для дома и небольшой компании",
+  "description": "Homebox — open-source учёт имущества на своём сервере: категории, локации, фото, гарантийные талоны, даты покупки и обслуживание. Методика внедрения.",
+  "image": "https://chimitdorzhi.tech/blog/uchet-imushchestva-i-garantiy-homebox-2026/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://t.me/chimitdorzhi_studio",
+      "https://max.ru/channel_chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio",
+      "https://github.com/chimitdorzhi",
+      "https://chimitdorzhi.tech/about/"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/uchet-imushchestva-i-garantiy-homebox-2026/"
+  },
+  "datePublished": "2026-09-04",
+  "dateModified": "2026-09-04",
+  "keywords": "Homebox, open-source, учёт имущества, гарантии, self-hosted",
+  "articleSection": "Open-source и свой сервер",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  },
+  "about": [
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://chimitdorzhi.tech/slovar/#self-hosted",
+      "name": "Self-hosted"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Учёт имущества и гарантий на своём сервере: Homebox для дома и небольшой компании",
+      "item": "https://chimitdorzhi.tech/blog/uchet-imushchestva-i-garantiy-homebox-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Что такое Homebox и для чего он нужен?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Self-hosted система учёта имущества с открытым кодом: карточки вещей с категориями, локациями и тегами, фотографии, документы с гарантийными талонами, даты покупки, цены и расписание обслуживания."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Homebox подходит только для дома или для бизнеса тоже?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Проект позиционируется как домашний, но задачи кофейни, салона или небольшого офиса те же: своё оборудование, гарантии, обслуживание. Для товаров на продажу и ИТ-заявок нужны другие системы."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Чем Homebox отличается от GLPI и InvenTree?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Homebox — про своё имущество и гарантии, InvenTree — про товары и запасы, GLPI — про ИТ-активы и заявки. Homebox самый лёгкий и не претендует на функции двух других."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Какой сервер нужен для Homebox?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Система написана на Go и в режиме ожидания потребляет менее 50 МБ оперативной памяти, так что подойдёт недорогой VPS. Точную конфигурацию под ваш объём данных уточню по документации при внедрении."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Заменяет ли Homebox бухгалтерский учёт основных средств?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет. Это справочник для эксплуатации: где что стоит, когда кончается гарантия и обслуживание. Амортизацию и первичку ведёт бухгалтерская система, подменять её нельзя."
+      }
+    }
+  ]
+}
+    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+var inject=function(){for (var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)};
+var run=function(){('requestIdleCallback' in window)?requestIdleCallback(inject,{timeout:5000}):setTimeout(inject,3000)};
+(e.readyState==='complete')?run():m.addEventListener('load',run);})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109281884" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<!-- Цели Метрики: клики по контактам и услугам -->
+<script type="text/javascript">
+(function(){
+  var GOALS = [
+    { re: /t\.me\//i,                     goal: 'tg_click' },
+    { re: /max\.ru\//i,                    goal: 'max_click' },
+    { re: /audit\.chimitdorzhi\.tech/i,    goal: 'audit_click' },
+    { re: /chimitdorzhi\.tech\/services\//i, goal: 'service_click' },
+    { re: /chimitdorzhi\.tech\/predlozheniya\//i, goal: 'offer_click' }
+  ];
+  document.addEventListener('click', function(e){
+    var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    for (var i = 0; i < GOALS.length; i++) {
+      if (GOALS[i].re.test(href)) {
+        try { if (window.ym) ym(109281884, 'reachGoal', GOALS[i].goal); } catch (err) {}
+        break;
+      }
+    }
+  }, true);
+})();
+</script>
+</head>
+<body class="wx-read">
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/" data-i18n="nav.home">Главная</a></li>
+            <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/market/" data-i18n="nav.offers">Предложения</a></li>
+            <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+            <li class="nav-dropdown">
+                <a href="/cases/" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+                <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему" aria-pressed="false">
+                <i class="ph ph-moon" aria-hidden="true"></i>
+            </button>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/" data-i18n="nav.home">Главная</a></li>
+        <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+        <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+        <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+        <li><a href="/market/" data-i18n="nav.offers">Предложения</a></li>
+        <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+        <li class="mobile-has-submenu">
+            <details>
+                <summary aria-label="Проекты — развернуть"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down" aria-hidden="true"></i></summary>
+                <ul class="mobile-submenu">
+                    <li>
+                        <a href="https://gerel.space" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">Gerel.space</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/universe_buryat/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/arey/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.arey">AREY</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/mwrlife/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">MWR Life</span>
+                                <span class="mobile-sub-desc">Travel-клуб и партнёрка</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </details>
+        </li>
+        <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+    </ul>
+    <div class="mobile-controls">
+        <div class="mobile-lang-switcher" role="group" aria-label="Выбор языка">
+            <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+            <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+            <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+        </div>
+        <button class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle" aria-label="Переключить тему" aria-pressed="false">
+            <i class="ph ph-moon" aria-hidden="true"></i>
+        </button>
+    </div>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Учёт имущества и гарантий на своём сервере: Homebox для дома и небольшой компании</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/opensource/"><i class="ph ph-bookmark" aria-hidden="true"></i> Open-source и свой сервер</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 5 мин чтения</span>
+                        <time datetime="2026-09-04"><i class="ph ph-calendar" aria-hidden="true"></i> 4 сентября 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Учёт имущества и гарантий на своём сервере: Homebox для дома и небольшой компании</h1>
+
+                    <p class="blog-lead">Homebox ведёт учёт вещей, гарантий и обслуживания на вашем сервере и весит меньше 50 МБ памяти в простое. Разбираю, кому он подходит вместо тяжёлых систем и как я такое внедряю.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>Homebox</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>open-source</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>учёт имущества</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>гарантии</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>self-hosted</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
+<li>Homebox — open-source учёт имущества для своего сервера: вещи по категориям, локациям и тегам, произвольные поля, фото предметов.</li>
+<li>Хранит документы с гарантийными талонами, ведёт даты покупки, цены и расписание обслуживания.</li>
+<li>Написан на Go, в простое потребляет меньше 50 МБ памяти — помещается на самый дешёвый сервер.</li>
+<li>Позиционируется как домашний, но тот же список задач стоит перед кофейней, салоном, студией и небольшим офисом.</li>
+</ul></div>
+
+<p>Homebox — это <a href="https://chimitdorzhi.tech/services/devops/" class="blog-inline-link">self-hosted</a> система для учёта домашнего имущества: вы заводите карточки вещей, раскладываете их по категориям, локациям и тегам, добавляете произвольные поля и фотографии, а система хранит документы с гарантийными талонами, даты покупки, цены и расписание обслуживания. Написана на Go, в простое потребляет менее 50 МБ оперативной памяти, код открыт и лежит на <a href="https://github.com/sysadminsmedia/homebox" target="_blank" rel="noopener nofollow">GitHub</a>. В блоге я уже разбирал два соседних инструмента — <a href="/blog/glpi-itsm-uchet-aktivov-2026/">GLPI для ИТ-службы</a> и <a href="/blog/inventree-skladskoy-uchet-2026/">InvenTree для складского учёта</a>. Homebox закрывает третий сценарий, обычно не закрытый ничем: своё имущество маленькой компании.</p>
+
+<h2 id="chto-eto">Что это и что умеет</h2>
+<p>Набор возможностей по описанию проекта короткий и понятный:</p>
+<ul>
+<li><strong>Каталог вещей.</strong> Категории, локации и теги — «что это», «где лежит» и произвольная метка вроде «арендованное».</li>
+<li><strong>Произвольные поля.</strong> Карточка дополняется своими атрибутами, а не подгоняется под чужую форму.</li>
+<li><strong>Фотографии предметов.</strong> Загружаются прямо в карточку.</li>
+<li><strong>Документы и гарантийные талоны.</strong> Файлы хранятся вместе с вещью, а не в общей папке «сканы».</li>
+<li><strong>Даты покупки, цены, обслуживание.</strong> Когда куплено, за сколько и по какому расписанию обслуживается.</li>
+</ul>
+<p>Отдельно про вес. Go и менее 50 МБ памяти в простое означают, что систему можно держать на самом дешёвом VPS или на домашней машине, не выделяя под учёт отдельное железо. Первым делом я смотрю именно на аппетит инструмента: у малого бизнеса внедрение чаще срывается не из-за плохого софта, а из-за сервера дороже пользы.</p>
+<p>Всё, что выходит за перечисленное, заранее не обещаю. Нужны отчёты, разграничение доступа или выгрузка — уточню по документации при внедрении.</p>
+
+<h2 id="kakuyu-bol">Какую боль это закрывает</h2>
+<p>Ситуации, знакомые каждому, кто владеет хотя бы одним помещением с оборудованием:</p>
+<ul>
+<li>Никто не помнит, где лежит запасной роутер. Он точно есть, его точно покупали, и его ищут втроём.</li>
+<li>Кофемашина сломалась, а гарантийный талон найти невозможно. Формально гарантия идёт, фактически ремонт оплачен из своего кармана.</li>
+<li>Технику купили «три года назад», а когда именно — спорят. От этого зависит, гарантийный это случай или уже нет.</li>
+<li>Обслуживание делают, когда вспомнили: чистка, замена фильтров, поверка — по памяти владельца, а не по расписанию.</li>
+</ul>
+<p>И отдельно про деньги. Даты покупки и цены нужны не для красоты: по ним видно, какому оборудованию пошёл пятый год и что пора закладывать в бюджет, а не узнавать о замене в день поломки. На проектах я вижу одну картину: компания знает выручку до рубля, а возраст своего оборудования — приблизительно.</p>
+<p>Если важнее не читать про инструмент, а получить работающий учёт с заведёнными карточками и напоминаниями, это моя обычная работа: <a href="/predlozheniya/open-source-pod-klyuch/">разворачиваю open-source под ключ</a> на вашем сервере, с бэкапами и передачей ответственному.</p>
+
+<h2 id="dom-i-biznes">Дом, а что с бизнесом</h2>
+<p>Скажу прямо: проект позиционируется как система учёта домашнего имущества, и корпоративным продуктом я его называть не буду. Но список задач у кофейни, салона красоты, фотостудии и небольшого офиса ровно тот же, что у квартиры, только предметов больше и цена ошибки выше.</p>
+<p><strong>Что ложится хорошо:</strong> своё оборудование и мебель, гарантии и сроки их окончания, расписание обслуживания, фотографии для страховых и споров с арендодателем, понимание, что где стоит и кто чем пользуется.</p>
+<p><strong>Где нужен другой инструмент:</strong></p>
+<ul>
+<li><strong>Товары на продажу и остатки.</strong> Это склад с приходами и партиями — про него статья про <a href="/blog/inventree-skladskoy-uchet-2026/">складской учёт на InvenTree</a>. Homebox не про товародвижение.</li>
+<li><strong>ИТ-парк с заявками и лицензиями.</strong> Когда нужны тикеты, договоры на софт и служба поддержки, берут <a href="/blog/glpi-itsm-uchet-aktivov-2026/">GLPI</a>.</li>
+<li><strong>Бухгалтерский учёт основных средств.</strong> Homebox — не бухгалтерия. Амортизацию и первичку он не ведёт, подменять им учётную систему нельзя. Это справочник для эксплуатации, а не для отчётности.</li>
+</ul>
+<p>Карточку удобно связать с физической меткой на предмете: сотрудник навёл телефон — попал в нужную запись. Как это устроено, я разбирал в материалах про <a href="/blog/nfc-pasport-oborudovaniya-2026/">NFC-паспорт оборудования</a> и <a href="/blog/uchet-oborudovaniya-ble-metki-2026/">BLE-метки</a>. Поддерживает ли Homebox такую связку из коробки — если проекту это нужно, проверяю отдельно.</p>
+
+<h2 id="sravnenie">Три инструмента под три задачи</h2>
+<div class="blog-table"><table>
+<thead><tr><th>Критерий</th><th>Homebox</th><th>InvenTree</th><th>GLPI</th></tr></thead>
+<tbody>
+<tr><td>Что учитываем</td><td>Своё имущество, гарантии, обслуживание</td><td>Товары, запасы, остатки</td><td>ИТ-активы, лицензии, заявки</td></tr>
+<tr><td>Сложность запуска и поддержки</td><td>Низкая, менее 50 МБ памяти в простое</td><td>Средняя</td><td>Высокая, нужна ИТ-служба</td></tr>
+<tr><td>Кому подходит</td><td>Дом, кофейня, салон, студия, малый офис</td><td>Магазин, производство, склад</td><td>Компания с парком техники и поддержкой</td></tr>
+<tr><td>Чего точно не умеет</td><td>Товародвижение, тикеты, бухгалтерию</td><td>Гарантии на своё оборудование</td><td>Быть лёгким и запуститься за вечер</td></tr>
+</tbody>
+</table></div>
+<p>Вывод, который я повторяю на каждой встрече: брать надо самый лёгкий инструмент, закрывающий задачу, а не самый функциональный. Система, которую бросили вести через два месяца, хуже простой таблицы. Где обычно всё рассыпается — как раз на этом выборе, а не на технике.</p>
+
+<h2 id="metodika">Как я это внедряю</h2>
+<p>Начинаю не с установки. Установка — полчаса, живая база — месяцы. Мой порядок такой:</p>
+<ul>
+<li><strong>Сначала структура.</strong> Список локаций и категорий под конкретный бизнес: залы, подсобка, бариста-стейшн, кабинет. Без этого через месяц получится свалка, в которой искать дольше, чем в шкафу.</li>
+<li><strong>Порог занесения.</strong> Заносим не всё подряд, а то, что дороже условного порога или имеет гарантию и обслуживание. Стулья — да, канцелярия — нет.</li>
+<li><strong>Фотографируем сразу.</strong> При заведении карточки, а не «потом сделаем обход». Потом не бывает.</li>
+<li><strong>Чеки и талоны — сразу в карточку.</strong> Искать их через год бесполезно, а понадобятся они именно через год.</li>
+<li><strong>Один ответственный.</strong> Если вести могут все, не ведёт никто. Назначаем человека и роль в регламенте.</li>
+<li><strong>Бэкапы и HTTPS.</strong> База с фото резервируется, доступ закрывается, наружу без необходимости не выставляется.</li>
+<li><strong>Преемственность.</strong> Заранее решаем, кто продолжит вести учёт, когда сотрудник уволится. Это вопрос к владельцу, а не к серверу.</li>
+</ul>
+<p>Оговорка про закон. Как только в карточках появляются данные сотрудников — кому выдан ноутбук, кто ответственный за оборудование, — это уже персональные данные со всеми обязанностями оператора по 152-ФЗ. Обычно достаточно свести всё к должностям, но решать это надо осознанно.</p>
+<p>Дальше учёт связывается с процессами: напоминания об обслуживании уходят в рабочий чат, заявка на ремонт создаётся по регламенту, а не в переписке. Это уже <a href="/services/business-automation/">автоматизация процессов</a>, и проектировать её лучше сразу.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+<h3>Что такое Homebox и для чего он нужен?</h3>
+<p>Self-hosted система учёта имущества с открытым кодом: карточки вещей с категориями, локациями и тегами, фотографии, документы с гарантийными талонами, даты покупки, цены и расписание обслуживания.</p>
+<h3>Homebox подходит только для дома или для бизнеса тоже?</h3>
+<p>Проект позиционируется как домашний, но задачи кофейни, салона или небольшого офиса те же: своё оборудование, гарантии, обслуживание. Для товаров на продажу и ИТ-заявок нужны другие системы.</p>
+<h3>Чем Homebox отличается от GLPI и InvenTree?</h3>
+<p>Homebox — про своё имущество и гарантии, InvenTree — про товары и запасы, GLPI — про ИТ-активы и заявки. Homebox самый лёгкий и не претендует на функции двух других.</p>
+<h3>Какой сервер нужен для Homebox?</h3>
+<p>Система написана на Go и в режиме ожидания потребляет менее 50 МБ оперативной памяти, так что подойдёт недорогой VPS. Точную конфигурацию под ваш объём данных уточню по документации при внедрении.</p>
+<h3>Заменяет ли Homebox бухгалтерский учёт основных средств?</h3>
+<p>Нет. Это справочник для эксплуатации: где что стоит, когда кончается гарантия и обслуживание. Амортизацию и первичку ведёт бухгалтерская система, подменять её нельзя.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+<p>Homebox закрывает простую и повсеместную задачу: знать, что у вас есть, где оно стоит, когда куплено, до какого числа действует гарантия и когда следующее обслуживание. Он лёгкий, живёт на вашем сервере и не требует ИТ-службы. Парк техники с заявками — GLPI, товары на продажу — InvenTree, бухгалтерия — учётная система. А если задача именно «своё имущество и гарантии небольшой компании», перегружать её тяжёлым софтом не нужно.</p>
+<p>Что делаю я: подбираю сервер, разворачиваю систему, проектирую структуру локаций и категорий под ваш бизнес, задаю порог занесения, настраиваю HTTPS и бэкапы, провожу первую инвентаризацию с фотографиями и передаю базу ответственному сотруднику с регламентом — <a href="/predlozheniya/open-source-pod-klyuch/">развернуть учёт под ключ</a>. Напишите напрямую в Telegram, MAX или VK, назовите тип бизнеса и число единиц оборудования — отвечу, стоит ли брать Homebox или честнее другой инструмент.</p>
+
+                    </div>
+                    
+
+                    
+                    
+                    <div class="blog-cta-card">
+                        <div class="blog-cta-card-body">
+                            <h3>Ещё open-source для бизнеса</h3>
+                            <p>Эта статья — часть каталога бесплатных решений, которые я разворачиваю на вашем сервере под ключ: CRM, аналитика, документы, почта, безопасность, магазины, AI.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="/blog/katalog-open-source-resheniy-dlya-biznesa-2026/" class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Каталог open-source решений</a>
+                        </div>
+                    </div>
+                    
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Что я делаю для бизнеса</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-robot"></i> <span>Боты в Telegram, MAX, VK</span></li>
+    
+    <li><i class="ph-fill ph-gear"></i> <span>Автоматизация процессов и CRM</span></li>
+    
+    <li><i class="ph-fill ph-chart-bar"></i> <span>Аналитика и дашборды</span></li>
+    
+    <li><i class="ph-fill ph-globe"></i> <span>Сайты и лендинги под ключ</span></li>
+    
+  </ul>
+  <div class="blog-services-offer-ctas">
+    <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+      <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
+    </a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="blog-services-offer-cta blog-services-offer-cta-max">
+      <i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> Написать в MAX
+    </a>
+  </div>
+</div>
+                    <div class="blog-cta-card">
+                        <div class="blog-cta-card-body">
+                            <h3>Бесплатно: чек-лист «Готов ли ваш бизнес к 152-ФЗ»</h3>
+                            <p>12 пунктов, которые проверяют готовность за час: данные, согласия, уведомление в РКН, локализация, защита. Отметьте, что уже сделано, и увидите дыры, за которые сейчас штрафуют.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="/checklist-152-fz/" class="btn btn-accent"><i class="ph-fill ph-clipboard-text" aria-hidden="true"></i> Открыть чек-лист</a>
+                        </div>
+                    </div>
+                    
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/predlozheniya/open-source-pod-klyuch/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Развернуть учёт под ключ</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-subscribe">
+  <div class="blog-subscribe-body">
+    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
+    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
+  </div>
+  <div class="blog-subscribe-actions">
+    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
+  </div>
+</section>
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/glpi-itsm-uchet-aktivov-2026/" data-category="opensource" data-clicks="1">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-headset"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>GLPI: ITSM и учёт ИТ-активов на своём сервере</h3>
+  <p>GLPI объединяет ИТ-поддержку (заявки, SLA) и учёт техники и ПО в одной системе на своём сервере. Популярна в РФ. Разбираю, кому подходит и что нужно для запуска.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 15 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/inventree-skladskoy-uchet-2026/" data-category="opensource" data-clicks="2">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-package"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>InvenTree: складской учёт и управление запасами на своём сервере</h3>
+  <p>InvenTree наводит порядок на складе: остатки, поставщики, штрихкоды и закупки в одной системе на вашем сервере. Разбираю, кому подходит и что нужно для запуска.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 15 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/nfc-pasport-oborudovaniya-2026/" data-category="industries" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-device-mobile"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Отрасли</span>
+  <h3>NFC-метки на оборудовании: паспорт техники по одному касанию</h3>
+  <p>Приложил телефон к станку — и вот вся история: когда обслуживали, что меняли, инструкция, кнопка «оставить заявку». Разбираю, как NFC-метки убирают бумажные журналы и потерянные паспорта техники.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 30 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 8 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/uchet-oborudovaniya-ble-metki-2026/" data-category="industries" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-tag"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Отрасли</span>
+  <h3>BLE-метки для учёта оборудования: где что лежит и куда уехало</h3>
+  <p>Дорогой инструмент кочует между объектами, а перед инвентаризацией начинается квест «где перфоратор». Разбираю, как BLE-метки решают это и во сколько обходятся.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 30 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    
+                    
+                    
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow"><span class="b-l b-l-ru">Готовые решения под ключ</span><span class="b-l b-l-en" lang="en">Turnkey solutions</span><span class="b-l b-l-es" lang="es">Soluciones llave en mano</span><span class="b-l b-l-cn" lang="zh">交钥匙解决方案</span><span class="b-l b-l-mn" lang="mn">Түлхүүр гардуулах шийдэл</span></span>
+                            <span class="blog-offer-cta-title"><span class="b-l b-l-ru">449 готовых IT-решений для бизнеса</span><span class="b-l b-l-en" lang="en">449 ready-made IT solutions for business</span><span class="b-l b-l-es" lang="es">449 soluciones IT listas para empresas</span><span class="b-l b-l-cn" lang="zh">449 个面向企业的现成 IT 解决方案</span><span class="b-l b-l-mn" lang="mn">Бизнест зориулсан 449 бэлэн IT шийдэл</span></span>
+                            <span class="blog-offer-cta-price"><span class="b-l b-l-ru">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span><span class="b-l b-l-en" lang="en">Automation, bots, AI, data privacy and platforms · free consultation</span><span class="b-l b-l-es" lang="es">Automatización, bots, IA, privacidad de datos y plataformas · consulta gratis</span><span class="b-l b-l-cn" lang="zh">自动化、机器人、AI、数据合规与平台 · 免费咨询</span><span class="b-l b-l-mn" lang="mn">Автоматжуулалт, бот, AI, өгөгдлийн хамгаалалт ба платформ · үнэгүй зөвлөгөө</span></span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> <span class="b-l b-l-ru">Смотреть каталог</span><span class="b-l b-l-en" lang="en">View catalog</span><span class="b-l b-l-es" lang="es">Ver catálogo</span><span class="b-l b-l-cn" lang="zh">查看目录</span><span class="b-l b-l-mn" lang="mn">Каталог үзэх</span></span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#chto-eto"><span class="blog-toc-num">01</span> Что это и что умеет</a></li>
+<li><a href="#kakuyu-bol"><span class="blog-toc-num">02</span> Какую боль это закрывает</a></li>
+<li><a href="#dom-i-biznes"><span class="blog-toc-num">03</span> Дом, а что с бизнесом</a></li>
+<li><a href="#sravnenie"><span class="blog-toc-num">04</span> Три инструмента под три задачи</a></li>
+<li><a href="#metodika"><span class="blog-toc-num">05</span> Как я это внедряю</a></li>
+<li><a href="#faq"><span class="blog-toc-num">06</span> Частые вопросы</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">07</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/cases/" class="footer-policy-link">Кейсы</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=41" defer></script>
+<script src="/services-i18n.js?v=41" defer></script>
+<script src="/script.js?v=32" defer></script>
+<script src="/search-widget.js?v=1" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>
