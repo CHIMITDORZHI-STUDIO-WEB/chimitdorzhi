@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1489**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1490**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -236,6 +236,7 @@
 
 ## Open-source и свой сервер
 
+- [Учёт имущества и гарантий на своём сервере: Homebox для дома и небольшой компании](./uchet-imushchestva-i-garantiy-homebox-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uchet-imushchestva-i-garantiy-homebox-2026/)
 - [Manticore Search: полнотекстовый и векторный поиск в одном движке на своём сервере](./manticore-search-poisk-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/manticore-search-poisk-na-svoem-servere-2026/)
 - [HR-система на своём сервере: кадры, отпуска и зарплата без облачной подписки](./hr-sistema-na-svoem-servere-frappe-hrms-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/hr-sistema-na-svoem-servere-frappe-hrms-2026/)
 - [PriceGhost: мониторинг цен на своём сервере — уведомления в Telegram о скидках и ценах конкурентов](./priceghost-monitoring-cen-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/priceghost-monitoring-cen-2026/)
