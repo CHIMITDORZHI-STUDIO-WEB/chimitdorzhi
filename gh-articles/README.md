@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1488**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1489**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -37,6 +37,7 @@
 ## AI для разработчиков
 
 - [ИИ-кластер из офисных компьютеров: NVIDIA PAIR объединяет то, что у вас уже есть](./ii-klaster-iz-ofisnyh-kompyuterov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-klaster-iz-ofisnyh-kompyuterov-2026/)
+- [Безопасный доступ ИИ-агента к базе данных: почему только чтение и как это настроить](./bezopasnyy-dostup-ii-agenta-k-baze-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bezopasnyy-dostup-ii-agenta-k-baze-2026/)
 - [Mac Studio для локального ИИ: почему Apple Silicon обходит стойку из видеокарт](./mac-studio-dlya-lokalnogo-ii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/mac-studio-dlya-lokalnogo-ii-2026/)
 - [Сколько стоят токены ИИ-агента: как посчитать бюджет до внедрения](./skolko-stoyat-tokeny-ii-agenta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-stoyat-tokeny-ii-agenta-2026/)
 - [Торговые ИИ-агенты для интернет-магазина: Anthropic выложила эталонную архитектуру — что это даёт бизнесу](./torgovye-ii-agenty-dlya-magazina-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/torgovye-ii-agenty-dlya-magazina-2026/)
