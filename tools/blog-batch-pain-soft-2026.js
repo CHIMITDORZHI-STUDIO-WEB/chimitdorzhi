@@ -117,7 +117,7 @@ module.exports = [
   E({ slug: 'integraciya-wildberries-1c-2026', category: 'development', heroIcon: 'ph-fill ph-plugs-connected',
     servicesOffer: SVC_AI, ctaInternal: CTA_DEV,
     title: 'Интеграция Wildberries с 1С: как связать и что даёт',
-    metaTitle: 'Интеграция Wildberries с 1С: как связать',
+    metaTitle: 'Интеграция Wildberries с 1С: обмен заказами',
     metaDescription: 'Интеграция Wildberries с 1С: как синхронизировать заказы, остатки, цены и продажи автоматически, какие есть способы и когда нужна разработка.',
     metaKeywords: 'интеграция wildberries 1с, wb и 1с, синхронизация wildberries 1с, выгрузка заказов wb в 1с, автоматизация маркетплейса 1с',
     excerpt: 'Как связать Wildberries и 1С: синхронизация заказов, остатков, цен и продаж, какие есть способы и когда нужна интеграция под ключ.',

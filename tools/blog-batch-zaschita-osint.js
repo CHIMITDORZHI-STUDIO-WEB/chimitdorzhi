@@ -182,7 +182,7 @@ module.exports = [
     relatedSlugs: ['raspoznat-feyk-obratnyy-poisk-2026', 'osint-freymvork-2026', 'instrumenty-osint-2026'] }),
   O({ slug: 'osint-freymvork-2026', heroIcon: 'ph-fill ph-flow-arrow', ctaInternal: CTA_PROV,
     title: 'OSINT Framework (ОСИНТ-фреймворк): что это и как выстроить процесс проверки',
-    metaTitle: 'OSINT Framework (осинт фреймворк): что это и как пользоваться',
+    metaTitle: 'OSINT Framework (осинт фреймворк): что это такое',
     metaDescription: 'OSINT Framework (осинт фреймворк) — что это: из каких разделов состоит карта инструментов, какие бесплатные сервисы брать под задачу и как искать законно.',
     excerpt: 'OSINT без процесса — это хаос и риск нарушить закон. Разбираю этапы проверки от постановки задачи до отчёта и удаления лишних данных — как выстроить дисциплину анализа легально.',
     tags: ['OSINT', 'осинт фреймворк', 'процесс', 'методология', 'безопасность'],

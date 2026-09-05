@@ -146,7 +146,7 @@ module.exports = [
   E({ slug: 'skolko-stoit-podderzhka-dorabotka-po-2026', category: 'development', heroIcon: 'ph-fill ph-wrench', toc: tocPrice(),
     ctaInternal: { url: 'https://chimitdorzhi.tech/predlozheniya/', label: 'Взять на поддержку' },
     title: 'Сколько стоит поддержка и доработка ПО в 2026',
-    metaTitle: 'Сколько стоит поддержка и доработка ПО',
+    metaTitle: 'Сколько стоит поддержка и доработка ПО в 2026',
     metaDescription: 'Сколько стоит поддержка и доработка ПО в 2026: сайт, приложение, бот, CRM после запуска.',
     excerpt: 'После запуска продукт нужно поддерживать, иначе он деградирует. Разбираю модели оплаты (абонентка, почасовка, SLA), что входит в поддержку и на чём нельзя экономить, с вилками цен.',
     tags: ['поддержка', 'доработка', 'ПО', 'стоимость'],
