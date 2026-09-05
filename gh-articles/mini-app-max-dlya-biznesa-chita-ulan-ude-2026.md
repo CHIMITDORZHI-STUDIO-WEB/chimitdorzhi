@@ -1,6 +1,6 @@
 ---
 title: "Mini App и бот в MAX для бизнеса в Чите и Улан-Удэ: занять нишу первым"
-description: "Mini App и бот в MAX (МАКС) для бизнеса в Чите и Улан-Удэ: витрина, запись, заявки и оплата прямо в мессенджере."
+description: "Mini App и бот в MAX (МАКС) для бизнеса в Чите и Улан-Удэ: витрина товаров, запись на услуги, приём заявок и оплата прямо в мессенджере, без сайта."
 date: 2026-06-23
 category: development
 canonical: https://chimitdorzhi.tech/blog/mini-app-max-dlya-biznesa-chita-ulan-ude-2026/
