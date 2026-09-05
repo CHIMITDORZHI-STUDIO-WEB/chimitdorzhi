@@ -1,6 +1,6 @@
 ---
 title: "AI-агенты как автономные сотрудники 2026: multi-agent системы и оркестрация"
-description: "Следующий уровень AI-агентов: multi-agent системы, где агенты работают как команда."
+description: "AI-агенты как автономные сотрудники: multi-agent системы, где агенты работают командой — как это устроено, где применимо и чем отличается от обычного бота."
 date: 2026-05-28
 category: ai-dev
 canonical: https://chimitdorzhi.tech/blog/ai-agenty-avtonomnye-sotrudniki-2026/

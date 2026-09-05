@@ -42,6 +42,8 @@ canonical: https://chimitdorzhi.tech/blog/cifrovizaciya-agrosektora-2026/
 
 Подробнее об этом я писал здесь: [АгроСигнал или ExactFarming](/blog/agrosignal-ili-exactfarming-chto-vybrat-2026/).
 
+Подробнее об этом я писал здесь: [Цифровизация автошкол 2026](/blog/cifrovizaciya-avtoshkol-2026/).
+
 ## Учёт полей и севооборота
 
 Учёт полей — это база цифрового агро. Без точных контуров и истории по каждому полю никакая дальнейшая автоматизация не работает.
