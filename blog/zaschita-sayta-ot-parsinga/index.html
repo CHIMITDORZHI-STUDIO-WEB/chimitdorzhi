@@ -475,6 +475,7 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 <ul><li>Сервисы (2Captcha, RuCaptcha, Anti-Captcha) используют комбинированный подход: простые капчи распознаются нейросетями, а сложные (например, выбор картинок с автобусами или светофорами) передаются клик-фермам — реальным людям в развивающихся странах, которые решают задачу за доли цента.</li><li>Современные безкликовые капчи (Cloudflare Turnstile, Google reCAPTCHA v3) оценивают поведение пользователя на сайте и выдают оценку вероятности того, что перед ними бот. Но и здесь парсеры используют имитацию движения мыши, задержки ввода и прокрутку экрана, чтобы обмануть алгоритмы оценки.</li></ul>
 <h3>Подделка HTTP-заголовков и сетевых отпечатков</h3>
 <p>Боты маскируют свои HTTP-запросы под запросы популярных браузеров. Они настраивают заголовки <code>User-Agent</code>, <code>Accept</code>, <code>Accept-Language</code>, <code>Sec-Ch-Ua</code> и имитируют поведение заголовков <code>Referer</code>. Более того, продвинутые парсеры учитывают сигнатуры протокола транспортного уровня (например, отпечатки JA3/JA4 для TLS-соединений) и особенности реализации протокола HTTP/2. Если заголовки утверждают, что запрос отправлен из Chrome на Windows, а сетевой отпечаток TLS соответствует библиотеке Python <code>urllib</code> или Node.js <code>axios</code>, система безопасности мгновенно заблокирует такой запрос.</p>
+<p>Если этот вопрос для вас актуален, посмотрите отдельный разбор: <a href="/blog/optimizaciya-skorosti-sayta/">Оптимизация скорости сайта</a>.</p>
 <h2 id="basic-filtering">Базовые рубежи защиты: Настройка Rate Limiting и фильтрация трафика</h2>
 <p>Первым эшелоном защиты выступает ограничение частоты запросов (Rate Limiting) на уровне веб-сервера и использование облачных брандмауэров веб-приложений (WAF).</p>
 <h3>Настройка Rate Limiting в Nginx</h3>
@@ -508,6 +509,7 @@ server {
 <ol><li><strong>Поведенческий анализ:</strong> Выявление аномалий в поведении пользователя (слишком быстрые переходы по страницам, отсутствие загрузки статических ассетов вроде картинок, стилей и шрифтов).</li><li><strong>Машинное обучение:</strong> Модели Cloudflare обучаются на триллионах запросов к миллионам сайтов и присваивают каждому посетителю оценку надежности (Bot Score) от 1 (гарантированный бот) до 99 (легитимный пользователь).</li><li><strong>Анализ отпечатков TLS:</strong> Проверка соответствия сетевого рукопожатия заявленному браузеру (например, выявление несоответствий JA3/JA4).</li></ol>
 <p>Пример настройки кастомного правила в Cloudflare WAF:</p>
 <ul><li><strong>Критерий (Expression):</strong> <code>(cf.bot_management.score lt 30 and not http.request.uri.path contains "static")</code></li><li><strong>Действие (Action):</strong> <code>Managed Challenge</code> (показ интерактивной проверки Cloudflare Turnstile, не требующей от человека ввода текста, но непреодолимой для простых парсеров).</li></ul>
+<p>Отдельно на эту тему: <a href="/blog/sayt-spec-tehnika-kitay-2027/">Сайт для продажи спецтехники и запчастей из Китая</a>.</p>
 <h2 id="fingerprinting-methods">Продвинутые методы идентификации: Анализ клиентского окружения</h2>
 <p>Когда базовые сетевые фильтры пройдены, наступает очередь глубокого анализа окружения пользователя с помощью JavaScript на стороне клиента.</p>
 <h3>Canvas Fingerprinting</h3>
@@ -792,39 +794,39 @@ async function fetchSecureData(apiEndpoint, requestParams) {
   </div>
   <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
 </a>
-<a class="blog-card" href="/blog/etapy-razrabotki-posle-predoplaty-2026/" data-category="development" data-clicks="0">
+<a class="blog-card" href="/blog/besplatnyy-vps-2026/" data-category="development" data-clicks="0">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-steps"></i></div>
+  <div class="blog-card-icon"><i class="ph-fill ph-cloud"></i></div>
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
-  <h3>Этапы разработки: что происходит после предоплаты</h3>
-  <p>Пошагово, что происходит после предоплаты: ТЗ, прототип, разработка, демо, тесты, запуск, поддержка — и что заказчик контролирует на каждом шаге.</p>
+  <h3>Бесплатный VPS: миф или реальность в 2026 году</h3>
+  <p>Каждую неделю кто-то из заказчиков присылает ссылку на «бесплатный VPS навсегда». Разбираю, что скрывается за такими предложениями, где бесплатное действительно работает, а где начинаются проблемы — честно, без розовых очков.</p>
   <div class="blog-card-meta">
-    <span><i class="ph ph-calendar" aria-hidden="true"></i> 22 июля 2026</span>
-    <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 20 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 5 мин</span>
   </div>
   <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
 </a>
-<a class="blog-card" href="/blog/saas-ili-korobka-chto-vybrat-2026/" data-category="development" data-clicks="0">
+<a class="blog-card" href="/blog/chto-takoe-vps-kak-vybrat-2027/" data-category="development" data-clicks="0">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-scales"></i></div>
+  <div class="blog-card-icon"><i class="ph-fill ph-hard-drives"></i></div>
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
-  <h3>SaaS или коробка: что выбрать для бизнеса</h3>
-  <p>Облачная подписка (SaaS) или коробка на своём сервере: где данные, что дешевле в старте и в долгую и что выбрать под конкретную задачу.</p>
+  <h3>Что такое VPS простыми словами и как выбрать виртуальный сервер под задачу</h3>
+  <p>VPS — это ваш собственный виртуальный сервер в аренду, где вы полный хозяин. Разбираем простыми словами, чем он отличается от обычного хостинга и выделенного сервера, для чего нужен и как выбрать VPS под конкретную задачу.</p>
   <div class="blog-card-meta">
-    <span><i class="ph ph-calendar" aria-hidden="true"></i> 22 июля 2026</span>
-    <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 7 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 6 мин</span>
   </div>
   <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
 </a>
-<a class="blog-card" href="/blog/lichnyy-kabinet-dlya-klientov-2026/" data-category="development" data-clicks="0">
+<a class="blog-card" href="/blog/llms-txt-dlya-sayta-2027/" data-category="development" data-clicks="0">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-user-circle"></i></div>
+  <div class="blog-card-icon"><i class="ph-fill ph-robot"></i></div>
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
-  <h3>Личный кабинет для клиентов: зачем он нужен и что внутри</h3>
-  <p>Зачем бизнесу личный кабинет клиента, что в нём обычно есть, как связать с CRM и оплатой и во сколько обходится разработка.</p>
+  <h3>Файл llms.txt: что это и зачем он нужен сайту в эпоху ИИ-поиска</h3>
+  <p>llms.txt — это простой markdown-файл в корне сайта, который помогает ИИ-ассистентам понимать структуру и главный контент. Объясняем, зачем он бизнесу, как устроен формат и чем отличается от robots.txt.</p>
   <div class="blog-card-meta">
-    <span><i class="ph ph-calendar" aria-hidden="true"></i> 22 июля 2026</span>
-    <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 7 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 7 мин</span>
   </div>
   <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
 </a></div>
