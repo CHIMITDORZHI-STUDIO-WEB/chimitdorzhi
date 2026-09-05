@@ -172,7 +172,7 @@ module.exports = [
     ctaInternal: { url: 'https://chimitdorzhi.tech/predlozheniya/', label: 'Выбрать и внедрить CRM' },
     title: 'Битрикс24 vs amoCRM: какую CRM выбрать в 2026',
     metaTitle: 'Битрикс24 vs amoCRM: что выбрать 2026',
-    metaDescription: 'Битрикс24 vs amoCRM в 2026: объективное сравнение по функциям, цене, интеграциям и порогу входа.',
+    metaDescription: 'Битрикс24 или amoCRM в 2026: сравнение по функциям, цене, интеграциям и порогу входа — кому какая система подходит и на чём чаще всего ошибаются.',
     excerpt: 'Битрикс24 — комбайн для всего, amoCRM — про продажи и воронки. Честно сравниваю по функциям, цене и сложности и подсказываю, какая CRM подойдёт именно вашим процессам.',
     tags: ['CRM', 'Битрикс24', 'amoCRM', 'сравнение'],
     relatedSlugs: ['skolko-stoit-crm-vnedrenie-2026', 'crm-dlya-malogo-biznesa-2026', 'gotovoe-vs-svoya-razrabotka-2026'] }),
