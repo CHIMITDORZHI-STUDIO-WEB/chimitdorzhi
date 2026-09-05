@@ -311,7 +311,7 @@ module.exports = [
   E({ slug: 'mini-app-max-dlya-biznesa-chita-ulan-ude-2026', heroIcon: 'ph-fill ph-device-mobile', ctaInternal: AUTO, servicesOffer: SVC_AUTO,
     title: 'Mini App и бот в MAX для бизнеса в Чите и Улан-Удэ: занять нишу первым',
     metaTitle: 'Mini App и бот в MAX: Чита и Улан-Удэ',
-    metaDescription: 'Mini App и бот в MAX (МАКС) для бизнеса в Чите и Улан-Удэ: витрина, запись, заявки и оплата прямо в мессенджере.',
+    metaDescription: 'Mini App и бот в MAX (МАКС) для бизнеса в Чите и Улан-Удэ: витрина товаров, запись на услуги, приём заявок и оплата прямо в мессенджере, без сайта.',
     excerpt: 'MAX — растущий российский мессенджер, и местный бизнес в Чите и Улан-Удэ туда ещё не зашёл. Mini App и бот в MAX (плюс Telegram) дают витрину, запись и оплату. Разбираю и как заказать локально.',
     tags: ['MAX', 'Mini App', 'Чита', 'Улан-Удэ'],
     toc: [

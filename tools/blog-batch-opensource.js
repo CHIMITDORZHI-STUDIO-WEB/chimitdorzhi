@@ -44,7 +44,7 @@ module.exports = [
   E({ slug: 'flowise-konstruktor-ai-botov-2026', heroIcon: 'ph-fill ph-robot',
     title: 'Flowise: конструктор AI-ассистентов без кода под ключ',
     metaTitle: 'Flowise: конструктор AI-ассистентов без кода',
-    metaDescription: 'Flowise — визуальный open-source конструктор AI-ассистентов и чат-ботов на LLM с базой знаний (RAG).',
+    metaDescription: 'Flowise — визуальный open-source конструктор AI-ассистентов и чат-ботов на LLM с базой знаний (RAG): что умеет, кому подходит и как развернуть у себя.',
     excerpt: 'Flowise собирает AI-ассистента из блоков: подключаешь модель, базу знаний и логику — без программирования. Разбираю возможности, сценарии и что нужно для запуска.',
     tags: ['Flowise', 'AI-бот', 'no-code', 'open-source'],
     relatedSlugs: ['typebot-chat-boty-kvizy-2026', 'ollama-svoy-chatgpt-na-servere-2026', 'n8n-avtomatizaciya-bez-zapier-2026'] }),
