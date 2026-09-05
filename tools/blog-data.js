@@ -8877,7 +8877,7 @@ const ALL_ARTICLES = [
     category: 'development',
     published: true,
     title: 'Свой облачный диск вместо Google Drive 2026: Nextcloud и аналоги на своём сервере',
-    metaTitle: 'Свой облачный диск: Nextcloud вместо Google Drive',
+    metaTitle: 'Свой облачный диск вместо Google Drive: чем заменить',
     metaDescription: 'Облачный диск на своём сервере вместо Google Drive: как поднять Nextcloud или Seafile, настроить синхронизацию, SSL и бэкапы — внедряю под ключ.',
     metaKeywords: 'свой облачный диск, Nextcloud, замена Google Drive, Seafile, self-hosted облако, OnlyOffice, restic бэкап',
     excerpt: 'Google Drive дорожает и ненадёжен, данные не у вас. Разбираю, как поднять свой облачный диск: Nextcloud и альтернативы, где разместить (VPS, российские облака, домашний NAS), Docker, SSL, синхронизация всех устройств, онлайн-редактирование (OnlyOffice), бэкапы restic, безопасность. Данные в РФ (152-ФЗ). С docker-compose, nginx и restic.',
