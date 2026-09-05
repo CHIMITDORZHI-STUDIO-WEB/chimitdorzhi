@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1492**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1491**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -1171,7 +1171,6 @@
 ## Разработка
 
 - [Конструкторы ботов для MAX: как сравнивать и что выбрать под задачу](./konstruktory-botov-max-sravnenie-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/konstruktory-botov-max-sravnenie-2026/)
-- [Что значит «под ключ»: как это выглядит в договоре и где обычно спорят](./chto-znachit-pod-klyuch-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chto-znachit-pod-klyuch-2026/)
 - [Услуги DevOps: сколько стоят и что входит в 2026](./uslugi-devops-stoimost-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uslugi-devops-stoimost-2026/)
 - [Как принимать оплату на сайте: эквайринг простыми словами](./kak-prinimat-oplatu-na-sayte-ekvayring-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-prinimat-oplatu-na-sayte-ekvayring-2026/)
 - [Тихие сбои: баг, который прошёл все тесты и убил все кнопки](./tihie-sboi-kod-kotoryy-proshel-testy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/tihie-sboi-kod-kotoryy-proshel-testy-2026/)
