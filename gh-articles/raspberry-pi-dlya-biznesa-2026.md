@@ -1,6 +1,6 @@
 ---
 title: "Raspberry Pi для бизнеса: мини-сервер, киоск, табло и автоматизация"
-description: "Raspberry Pi для бизнеса: недорогой одноплатный компьютер под информационное табло, инфо-киоск, мини-сервер."
+description: "Raspberry Pi для бизнеса: недорогой одноплатный компьютер под информационное табло, инфо-киоск, мини-сервер и видеонаблюдение — что он реально потянет."
 date: 2026-06-23
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/raspberry-pi-dlya-biznesa-2026/
