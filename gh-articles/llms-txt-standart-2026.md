@@ -102,7 +102,7 @@ GEO-оптимизацию, разработку и цифровизацию д�
 - [Что такое GEO-оптимизация](https://chimitdorzhi.tech/blog/geo-optimizaciya-chto-eto-2026/) — как попасть в ответы нейросетей
 - [Чек-лист GEO из 30 пунктов](https://chimitdorzhi.tech/blog/geo-chek-list-30-punktov-2026/) — пошаговая оптимизация под ИИ
 - [RAG-системы для бизнеса](https://chimitdorzhi.tech/blog/rag-sistemy-dlya-biznesa-2026/) — как сделать ИИ, отвечающий по вашей базе знаний
-- [Сколько стоит сайт](https://chimitdorzhi.tech/blog/skolko-stoit-sayt/) — разбор цен на разработку в РФ
+- [Сколько стоит сайт](https://chimitdorzhi.tech/blog/skolko-stoit-sayt-2026/) — разбор цен на разработку в РФ
 
 ## О проекте
 
