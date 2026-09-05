@@ -1,6 +1,6 @@
 ---
 title: "Flowise: конструктор AI-ассистентов без кода под ключ"
-description: "Flowise — визуальный open-source конструктор AI-ассистентов и чат-ботов на LLM с базой знаний (RAG)."
+description: "Flowise — визуальный open-source конструктор AI-ассистентов и чат-ботов на LLM с базой знаний (RAG): что умеет, кому подходит и как развернуть у себя."
 date: 2026-06-14
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/flowise-konstruktor-ai-botov-2026/
