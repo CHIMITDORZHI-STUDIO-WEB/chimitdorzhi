@@ -64,17 +64,25 @@ const pages = pagesFor();
 if (!pages.length) { console.log('нечего проверять'); process.exit(0); }
 console.log(`проверяю страниц: ${pages.length}\n`);
 
-let schemaErrors = 0, flagged = [], scores = [];
+let schemaErrors = 0, knownHowTo = 0, flagged = [], scores = [];
 
 for (const p of pages) {
   const slug = path.basename(path.dirname(p));
 
   const s = runPy('validate-schema.py', [p]);
   if (!s.ok) {
-    schemaErrors++;
-    console.log(`  СХЕМА: ${slug}`);
-    const msg = s.out.trim().split('\n').slice(0, 3).map(l => '        ' + l).join('\n');
-    if (msg) console.log(msg);
+    // HowTo помечен в валидаторе как deprecated (Google убрал rich-результаты в 2023),
+    // но мы ставим его намеренно ради ИИ-поиска — см. howToLd() в build-blog.js.
+    // Это не ошибка разметки, поэтому не блокируем, а только считаем отдельно.
+    const lines = s.out.trim().split('\n').filter(l => l.trim().startsWith('-'));
+    const real = lines.filter(l => !/HowTo.*deprecat/i.test(l));
+    if (real.length === 0) {
+      knownHowTo++;
+    } else {
+      schemaErrors++;
+      console.log(`  СХЕМА: ${slug}`);
+      console.log(real.slice(0, 3).map(l => '        ' + l.trim()).join('\n'));
+    }
   }
 
   const q = runPy('content-quality.py', [p, '--json']);
@@ -92,7 +100,8 @@ for (const p of pages) {
 }
 
 const avg = scores.length ? (scores.reduce((a, b) => a + b, 0) / scores.length).toFixed(1) : '—';
-console.log(`\nмикроразметка: ${schemaErrors ? schemaErrors + ' с ошибками' : 'без ошибок'}`);
+console.log(`\nмикроразметка: ${schemaErrors ? schemaErrors + ' с ошибками' : 'без ошибок'}`
+  + (knownHowTo ? ` (+${knownHowTo} с HowTo — так задумано, см. howToLd в build-blog.js)` : ''));
 console.log(`качество текста: средний балл ${avg}/100`);
 
 if (flagged.length) {
