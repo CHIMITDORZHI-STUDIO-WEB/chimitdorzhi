@@ -498,7 +498,7 @@ body.ds-has-sticky{padding-bottom:78px;}
 
 /* 4. Таблица площадок: на узком экране — карточки вместо горизонтальной прокрутки */
 @media(max-width:700px){
-  .ds-table thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}
+  .ds-table thead{display:none;}
   .ds-table,.ds-table tbody,.ds-table tr,.ds-table td{display:block;width:100%;}
   .ds-table{border:0;background:transparent;}
   .ds-table tr{background:var(--bg-card);border:1px solid var(--ds-line);border-radius:16px;margin-bottom:10px;padding:14px 16px;}
@@ -531,6 +531,18 @@ body.ds-has-sticky{padding-bottom:78px;}
 }
 /* 6. Длинные слова в карточках не должны рвать вёрстку */
 .ds-role h3,.ds-card h3,.ds-offer-card h3,.ds-limit h3,.ds-q summary{overflow-wrap:break-word;}
+
+/* 7. Защита от переполнения на очень узких экранах (от 280px) */
+@media(max-width:400px){
+  .ds-sticky-in{max-width:100%;}
+  .ds-sticky-price{flex:1 1 auto;min-width:0;}
+  .ds-sticky-btns{flex:0 1 auto;min-width:0;}
+  .ds-sticky .ds-btn{white-space:nowrap;}
+  .ds-check{flex-wrap:wrap;}
+  .ds-check .t{min-width:0;flex:1 1 120px;}
+  .ds-vs-row,.ds-metric,.ds-role,.ds-card,.ds-offer-card{min-width:0;}
+  .ds-page,.ds-wrap{max-width:100%;overflow-x:clip;}
+}
 </style>
 <script>
 (function(){
