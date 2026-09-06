@@ -346,111 +346,457 @@
 })();
 </script>
 
-    <main>
-        <section class="section service-hero">
-            <div class="container">
-                <nav class="breadcrumbs" aria-label="Хлебные крошки">
-                    <a href="/" data-i18n="svc.crumbs.home">Главная</a>
-                    <span class="breadcrumbs-sep">›</span>
-                    <a href="/services/" data-i18n="svc.crumbs.services">Услуги</a>
-                    <span class="breadcrumbs-sep">›</span>
-                    <span aria-current="page" data-i18n="svc.cifrovoy-sotrudnik.n">Цифровой сотрудник</span>
-                </nav>
-                <div class="service-hero-inner">
-                    <span class="section-label" data-i18n="svc.filter.ai">AI и автоматизация</span>
-                    <h1 class="service-h1" data-i18n="svc.cifrovoy-sotrudnik.n">Цифровой сотрудник</h1>
-                    <p class="service-lead" data-i18n="svc.cifrovoy-sotrudnik.d">Один ассистент вместо ролей, которые в малом бизнесе обычно некому занять: первая линия ответов, ведение соцсетей, разбор документов, отбор кандидатов и отчётность. Живёт на вашем сервере, работает круглосуточно и понимает обычный чат — текстом, голосом или фотографией. Знает российскую специфику: маркировка рекламы, проверка контрагентов по ИНН, тендеры, маркетплейсы, отзывы на картах.</p>
-                    <div class="service-price-tag" data-i18n="svc.cifrovoy-sotrudnik.pt">от 8 000 ₽/мес</div>
-                    
-                    <div class="service-actions">
-                        <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent"><i class="ph ph-telegram-logo"></i> <span data-i18n="svc.cta.tg">Обсудить в Telegram</span></a>
-                        <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone"></i> <span data-i18n="svc.cta.call">Позвонить</span></a>
-                    </div>
-                    <div class="svc-tags"><span>ИИ-ассистент</span><span>MAX</span><span>Авито</span><span>Свой сервер</span></div>
-                </div>
-            </div>
-        </section>
+    <main class="ds-page">
 
-        <section class="section section-tight">
-    <div class="container">
-        <h2 class="service-h2" data-i18n="svc.factors.h2">От чего зависит стоимость</h2>
-        <ul class="service-factors">
-            <li>число обращений</li>
-            <li>площадки и каналы</li>
-            <li>объём контента</li>
-            <li>интеграции с CRM и учётом</li>
-        </ul>
-    </div>
-</section>
+<style>
+/* ===== Лендинг «Цифровой сотрудник». Токены берём из общей темы сайта. ===== */
+.ds-page{--ds-gap:clamp(56px,7vw,104px);--ds-r:20px;--ds-line:var(--border);}
+.ds-wrap{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,32px);}
+.ds-sec{padding:var(--ds-gap) 0;}
+.ds-kicker{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:800;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--accent);background:var(--wx-soft);border-radius:999px;padding:7px 14px;margin-bottom:18px;}
+.ds-h2{font-size:clamp(28px,4vw,44px);line-height:1.1;margin:0 0 14px;}
+.ds-lead{font-size:clamp(16px,1.6vw,19px);line-height:1.6;color:var(--text-secondary);max-width:70ch;margin:0 0 8px;}
 
-        <section class="section section-tight">
-    <div class="container">
-        <h2 class="service-h2">Частые вопросы</h2>
-        <div class="service-faq">
-            <details class="service-faq-item">
-                <summary>Сколько стоит цифровой сотрудник?</summary>
-                <p>Стоимость — от 8 000 ₽/мес. Финальная цена зависит от: число обращений, площадки и каналы, объём контента, интеграции с CRM и учётом. Точную смету дам после короткого разговора о задаче.</p>
-            </details>
-            <details class="service-faq-item">
-                <summary>Сколько времени занимает работа?</summary>
-                <p>Сроки — обычно 2–6 недель в зависимости от сложности. После обсуждения задачи я называю конкретные сроки и фиксирую их в договоре.</p>
-            </details>
-            <details class="service-faq-item">
-                <summary>Вы работаете удалённо? В каком городе?</summary>
-                <p>Да, работаю удалённо по всей России. Базируюсь в Чите, личные встречи — по договорённости. Москва и регионы — онлайн.</p>
-            </details>
-            <details class="service-faq-item">
-                <summary>Как заказать и с чего начать?</summary>
-                <p>Напишите в Telegram или позвоните. Обсудим задачу, я задам уточняющие вопросы и пришлю смету и сроки. Работаю по договору.</p>
-            </details>
-            <details class="service-faq-item">
-                <summary>Всё ли будет по закону (152-ФЗ)?</summary>
-                <p>Да. Решения проектирую с учётом 152-ФЗ: данные хранятся в РФ, есть согласия и политика обработки. При необходимости проведу отдельный аудит.</p>
-            </details>
+/* --- появление при прокрутке --- */
+.ds-rise{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1);}
+.ds-rise.is-in{opacity:1;transform:none;}
+@media (prefers-reduced-motion:reduce){.ds-rise{opacity:1;transform:none;transition:none;}}
+
+/* --- ГЕРОЙ --- */
+.ds-hero{position:relative;padding:clamp(40px,6vw,84px) 0 var(--ds-gap);overflow:hidden;}
+.ds-hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(28px,4vw,56px);align-items:center;}
+@media(max-width:960px){.ds-hero-grid{grid-template-columns:1fr;}}
+.ds-h1{font-size:clamp(38px,6.4vw,72px);line-height:1.02;margin:0 0 20px;}
+.ds-h1 em{font-style:normal;color:var(--accent);}
+.ds-hero p{font-size:clamp(17px,1.8vw,21px);line-height:1.55;color:var(--text-secondary);max-width:58ch;margin:0 0 28px;}
+.ds-cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:26px;}
+.ds-btn{display:inline-flex;align-items:center;gap:10px;padding:15px 26px;border-radius:14px;font-weight:700;font-size:15.5px;
+  text-decoration:none;border:1.5px solid transparent;cursor:pointer;transition:background .2s,color .2s,border-color .2s,transform .12s,box-shadow .2s;}
+.ds-btn i{font-size:19px;}
+.ds-btn--main{background:var(--accent);color:#fff;box-shadow:0 10px 26px var(--accent-glow);}
+.ds-btn--main:hover{background:var(--accent-hover);transform:translateY(-2px);box-shadow:0 16px 34px var(--accent-glow);}
+.ds-btn--main:active{transform:translateY(0);}
+.ds-btn--ghost{background:transparent;color:var(--text);border-color:var(--text);}
+.ds-btn--ghost:hover{background:var(--text);color:var(--bg);}
+.ds-btn:focus-visible{outline:3px solid var(--accent);outline-offset:3px;}
+.ds-pills{display:flex;flex-wrap:wrap;gap:8px;}
+.ds-pill{font-size:13px;font-weight:600;color:var(--text-secondary);background:var(--bg-alt);
+  border:1px solid var(--ds-line);border-radius:999px;padding:7px 14px;}
+
+/* --- ночная лента в герое --- */
+.ds-night{background:var(--bg-card);border:1px solid var(--ds-line);border-radius:24px;padding:22px;box-shadow:var(--shadow);}
+.ds-night-h{display:flex;align-items:center;gap:9px;font-size:13px;font-weight:700;color:var(--text-secondary);margin-bottom:16px;}
+.ds-dot{width:9px;height:9px;border-radius:50%;background:#e0483d;position:relative;flex:none;}
+.ds-dot::after{content:'';position:absolute;inset:-5px;border-radius:50%;border:2px solid #e0483d;opacity:.5;animation:dsPulse 2.4s ease-out infinite;}
+@keyframes dsPulse{0%{transform:scale(.7);opacity:.6}100%{transform:scale(1.5);opacity:0}}
+@media (prefers-reduced-motion:reduce){.ds-dot::after{animation:none;}}
+.ds-night-row{display:grid;grid-template-columns:62px 1fr;gap:14px;padding:12px 0;border-top:1px dashed var(--ds-line);}
+.ds-night-row:first-of-type{border-top:0;}
+.ds-time{font-weight:800;font-size:15px;color:var(--text);font-variant-numeric:tabular-nums;}
+.ds-night-row span{font-size:14.5px;line-height:1.45;color:var(--text-secondary);}
+.ds-night-foot{margin-top:14px;padding-top:14px;border-top:1px solid var(--ds-line);font-size:14px;font-weight:700;color:var(--accent);}
+
+/* --- полоса метрик --- */
+.ds-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+@media(max-width:880px){.ds-metrics{grid-template-columns:repeat(2,1fr);}}
+.ds-metric{background:var(--bg-card);border:1px solid var(--ds-line);border-radius:var(--ds-r);padding:22px;}
+.ds-metric b{display:block;font-size:clamp(26px,3.4vw,38px);font-weight:800;letter-spacing:-.03em;line-height:1;color:var(--text);font-variant-numeric:tabular-nums;}
+.ds-metric span{display:block;margin-top:8px;font-size:13.5px;line-height:1.4;color:var(--text-secondary);}
+
+/* --- роли --- */
+.ds-roles{display:grid;grid-template-columns:repeat(auto-fit,minmax(268px,1fr));gap:16px;}
+.ds-role{background:var(--bg-card);border:1px solid var(--ds-line);border-radius:var(--ds-r);padding:22px;
+  display:flex;flex-direction:column;gap:12px;transition:transform .22s,box-shadow .22s,border-color .22s;}
+.ds-role:hover{transform:translateY(-4px);box-shadow:0 16px 38px rgba(20,30,60,.10);border-color:var(--border-hover);}
+.ds-role-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;}
+.ds-ico{width:44px;height:44px;flex:none;border-radius:13px;display:grid;place-items:center;
+  background:var(--wx-soft);color:var(--accent);font-size:22px;}
+.ds-sal{font-size:13px;font-weight:800;color:var(--text);background:var(--bg-alt);border-radius:9px;padding:6px 10px;white-space:nowrap;}
+.ds-role h3{font-size:17px;margin:0;line-height:1.25;}
+.ds-role p{font-size:14.5px;line-height:1.55;color:var(--text-secondary);margin:0;}
+
+/* --- калькулятор --- */
+.ds-calc{background:var(--bg-card);border:1px solid var(--ds-line);border-radius:26px;padding:clamp(22px,3vw,34px);box-shadow:var(--shadow);}
+.ds-calc-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(22px,3vw,40px);}
+@media(max-width:900px){.ds-calc-grid{grid-template-columns:1fr;}}
+.ds-check{display:flex;align-items:center;gap:12px;padding:13px 14px;border:1.5px solid var(--ds-line);border-radius:13px;
+  cursor:pointer;margin-bottom:9px;transition:border-color .18s,background .18s;user-select:none;}
+.ds-check:hover{border-color:var(--accent);background:var(--wx-soft);}
+.ds-check:has(input:checked){border-color:var(--accent);background:var(--wx-soft);}
+.ds-check:has(input:focus-visible){outline:3px solid var(--accent);outline-offset:2px;}
+.ds-check input{width:19px;height:19px;accent-color:var(--accent);cursor:pointer;flex:none;}
+.ds-check .t{flex:1;font-size:14.5px;font-weight:600;color:var(--text);}
+.ds-check .v{font-size:13.5px;font-weight:700;color:var(--text-secondary);font-variant-numeric:tabular-nums;}
+.ds-out{background:var(--bg-alt);border-radius:18px;padding:24px;display:flex;flex-direction:column;gap:18px;height:100%;}
+.ds-out-row{display:flex;align-items:baseline;justify-content:space-between;gap:12px;}
+.ds-out-row .l{font-size:14px;color:var(--text-secondary);}
+.ds-out-row .n{font-size:19px;font-weight:800;color:var(--text);font-variant-numeric:tabular-nums;white-space:nowrap;}
+.ds-out-total{border-top:1.5px solid var(--ds-line);padding-top:16px;}
+.ds-out-total .n{font-size:clamp(30px,4vw,42px);line-height:1;color:var(--accent);}
+.ds-bar{height:10px;border-radius:999px;background:var(--skill-track);overflow:hidden;}
+.ds-bar i{display:block;height:100%;border-radius:999px;background:var(--accent);width:0;transition:width .6s cubic-bezier(.2,.7,.3,1);}
+.ds-note{font-size:12.5px;line-height:1.5;color:var(--text-secondary);margin:14px 0 0;}
+
+/* --- специфика / таймлайн / таблица --- */
+.ds-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(258px,1fr));gap:14px;}
+.ds-card{background:var(--bg-card);border:1px solid var(--ds-line);border-radius:var(--ds-r);padding:20px;
+  transition:transform .22s,box-shadow .22s;}
+.ds-card:hover{transform:translateY(-3px);box-shadow:0 14px 32px rgba(20,30,60,.09);}
+.ds-card h3{font-size:16px;margin:12px 0 7px;}
+.ds-card p{font-size:14px;line-height:1.55;color:var(--text-secondary);margin:0;}
+.ds-day{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+@media(max-width:900px){.ds-day{grid-template-columns:1fr 1fr;}}
+@media(max-width:560px){.ds-day{grid-template-columns:1fr;}}
+.ds-slot{background:var(--bg-card);border:1px solid var(--ds-line);border-radius:var(--ds-r);padding:20px;}
+.ds-slot h3{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 14px;}
+.ds-slot li{list-style:none;font-size:14px;line-height:1.5;color:var(--text-secondary);padding:9px 0 9px 22px;position:relative;border-top:1px dashed var(--ds-line);}
+.ds-slot li:first-child{border-top:0;}
+.ds-slot li::before{content:'';position:absolute;left:4px;top:16px;width:7px;height:7px;border-radius:50%;background:var(--accent);opacity:.55;}
+.ds-slot ul{margin:0;padding:0;}
+.ds-table{width:100%;border-collapse:collapse;font-size:14.5px;background:var(--bg-card);border-radius:var(--ds-r);overflow:hidden;border:1px solid var(--ds-line);}
+.ds-table th,.ds-table td{padding:14px 16px;text-align:left;border-bottom:1px solid var(--ds-line);vertical-align:top;}
+.ds-table th{font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-secondary);background:var(--bg-alt);font-weight:700;}
+.ds-table tr:last-child td{border-bottom:0;}
+.ds-table td:first-child{font-weight:700;color:var(--text);white-space:nowrap;}
+.ds-table td:last-child{color:var(--text-secondary);white-space:nowrap;font-size:13.5px;}
+.ds-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+
+/* --- честный блок --- */
+.ds-limits{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;}
+.ds-limit{background:var(--bg-alt);border:1px solid var(--ds-line);border-left:3px solid var(--text-secondary);
+  border-radius:14px;padding:18px 20px;}
+.ds-limit h3{font-size:15.5px;margin:0 0 7px;}
+.ds-limit p{font-size:14px;line-height:1.55;color:var(--text-secondary);margin:0;}
+
+/* --- шаги --- */
+.ds-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;counter-reset:st;}
+@media(max-width:820px){.ds-steps{grid-template-columns:1fr;}}
+.ds-step{background:var(--bg-card);border:1px solid var(--ds-line);border-radius:var(--ds-r);padding:24px;counter-increment:st;position:relative;}
+.ds-step::before{content:counter(st);position:absolute;top:18px;right:20px;font-size:44px;font-weight:800;line-height:1;color:var(--accent);opacity:.14;}
+.ds-step h3{font-size:17px;margin:0 0 9px;}
+.ds-step p{font-size:14.5px;line-height:1.55;color:var(--text-secondary);margin:0;}
+
+/* --- финальный призыв --- */
+.ds-final{background:var(--accent);border-radius:28px;padding:clamp(32px,5vw,60px);text-align:center;color:#fff;}
+.ds-final h2{font-size:clamp(26px,3.8vw,40px);line-height:1.12;margin:0 0 14px;color:#fff;}
+.ds-final p{font-size:clamp(15.5px,1.7vw,18px);line-height:1.55;margin:0 auto 26px;max-width:60ch;color:rgba(255,255,255,.92);}
+.ds-final .ds-btn--main{background:#fff;color:var(--accent);box-shadow:0 10px 26px rgba(0,0,0,.18);}
+.ds-final .ds-btn--main:hover{background:#f0f3ff;}
+.ds-final .ds-btn--ghost{border-color:rgba(255,255,255,.75);color:#fff;}
+.ds-final .ds-btn--ghost:hover{background:#fff;color:var(--accent);}
+.ds-final .ds-cta-row{justify-content:center;margin-bottom:0;}
+</style>
+
+<!-- ГЕРОЙ -->
+<section class="ds-hero">
+  <div class="ds-wrap">
+    <div class="ds-hero-grid">
+      <div class="ds-rise">
+        <span class="ds-kicker"><i class="ph-fill ph-user-focus" aria-hidden="true"></i> ИИ-ассистент для бизнеса</span>
+        <h1 class="ds-h1">Пятерых специалистов вы не наняли.<br><em>Их работу всё равно делаете вы.</em></h1>
+        <p>Один цифровой сотрудник закрывает первую линию ответов, соцсети, документы, найм и аналитику. Живёт на вашем сервере, работает круглосуточно и слушается через обычный чат — текстом, голосом или фотографией.</p>
+        <div class="ds-cta-row">
+          <a class="ds-btn ds-btn--main" href="https://t.me/chimitdorzhi" target="_blank" rel="noopener">
+            <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Обсудить задачу</a>
+          <a class="ds-btn ds-btn--ghost" href="#calc">
+            <i class="ph-fill ph-calculator" aria-hidden="true"></i> Посчитать экономию</a>
         </div>
+        <div class="ds-pills">
+          <span class="ds-pill">MAX и Авито</span><span class="ds-pill">ВКонтакте</span>
+          <span class="ds-pill">Wildberries и Ozon</span><span class="ds-pill">Свой сервер</span>
+        </div>
+      </div>
+      <div class="ds-night ds-rise">
+        <div class="ds-night-h"><span class="ds-dot" aria-hidden="true"></span> Обычный вечер собственника</div>
+        <div class="ds-night-row"><span class="ds-time">22:40</span><span>Заявка на Авито. Ответите — завтра</span></div>
+        <div class="ds-night-row"><span class="ds-time">23:30</span><span>Сами пишете пост в соцсети — больше некому</span></div>
+        <div class="ds-night-row"><span class="ds-time">00:15</span><span>Читаете договор от нового поставщика</span></div>
+        <div class="ds-night-row"><span class="ds-time">07:00</span><span>А рабочий день только начинается</span></div>
+        <div class="ds-night-foot">Всё это ассистент делает без вас</div>
+      </div>
     </div>
+  </div>
 </section>
 
-        
-
-        <section class="section">
-    <div class="container">
-        <div class="section-header"><span class="section-label" data-i18n="svc.related.label">СВЯЗАННЫЕ УСЛУГИ</span></div>
-        <div class="services-grid"><a href="/services/ai-agents/" class="svc-card svc-card-link" data-category="ai">
-    <div class="svc-icon svc-icon-purple"><i class="ph ph-magic-wand"></i></div>
-    <h3 data-i18n="svc.ai-agents.n">AI-агенты и LLM-решения</h3>
-    <p data-i18n="svc.ai-agents.d">Автономные AI-агенты, RAG-системы, интеграция GPT, Claude, Gemini, DeepSeek. Автоматизация бизнес-процессов на базе нейросетей. Сертификаты Vanderbilt University и MongoDB Inc. (2026).</p>
-    <div class="svc-price" data-i18n="svc.ai-agents.pt">от 60 000 ₽</div>
-    <div class="svc-tags"><span>LangChain</span><span>OpenAI</span><span>Anthropic</span><span>Agents</span></div>
-    <span class="svc-link"><span data-i18n="svc.link">Подробнее</span> <i class="ph ph-arrow-right"></i></span>
-</a>
-<a href="/services/business-automation/" class="svc-card svc-card-link" data-category="ai">
-    <div class="svc-icon svc-icon-orange"><i class="ph ph-gear"></i></div>
-    <h3 data-i18n="svc.business-automation.n">Автоматизация бизнес-процессов</h3>
-    <p data-i18n="svc.business-automation.d">Воронки продаж, автоматические рассылки, генерация документов, интеграции между сервисами, синхронизация данных. Сокращение ручной работы до 80%.</p>
-    <div class="svc-price" data-i18n="svc.business-automation.pt">от 40 000 ₽</div>
-    <div class="svc-tags"><span>API</span><span>n8n</span><span>1C</span><span>CRM</span></div>
-    <span class="svc-link"><span data-i18n="svc.link">Подробнее</span> <i class="ph ph-arrow-right"></i></span>
-</a>
-<a href="/services/telegram-bots/" class="svc-card svc-card-link" data-category="development">
-    <div class="svc-icon svc-icon-green"><i class="ph ph-robot"></i></div>
-    <h3 data-i18n="svc.telegram-bots.n">Telegram-боты и чат-боты</h3>
-    <p data-i18n="svc.telegram-bots.d">Боты для Telegram, WhatsApp, ВКонтакте. Воронки продаж, приём заявок, интеграция с CRM, AI-ответы на базе GPT/Claude. Автоматизация работы 24/7.</p>
-    <div class="svc-price" data-i18n="svc.telegram-bots.pt">от 15 000 ₽</div>
-    <div class="svc-tags"><span>Telegram</span><span>Python</span><span>CRM</span><span>AI</span></div>
-    <span class="svc-link"><span data-i18n="svc.link">Подробнее</span> <i class="ph ph-arrow-right"></i></span>
-</a></div>
+<!-- МЕТРИКИ -->
+<section class="ds-sec" style="padding-top:0">
+  <div class="ds-wrap">
+    <div class="ds-metrics">
+      <div class="ds-metric ds-rise"><b data-count="7">0</b><span>ролей закрывает один ассистент</span></div>
+      <div class="ds-metric ds-rise"><b data-count="550" data-suffix=" 000 ₽">0</b><span>стоил бы полный штат в месяц</span></div>
+      <div class="ds-metric ds-rise"><b data-count="8" data-suffix=" 000 ₽">0</b><span>от этой суммы — ассистент в месяц</span></div>
+      <div class="ds-metric ds-rise"><b data-count="24" data-suffix="/7">0</b><span>отвечает клиентам без выходных</span></div>
     </div>
+  </div>
 </section>
 
-        <section class="section section-tight">
-            <div class="container">
-                <p class="legal-disclaimer">
-                    <small data-i18n="svc.disclaimerLong">Информация на странице носит справочный характер и не является публичной офертой. Финальная стоимость определяется индивидуально после согласования технического задания.</small>
-                </p>
-            </div>
-        </section>
-    </main>
+<!-- РОЛИ -->
+<section class="ds-sec">
+  <div class="ds-wrap">
+    <div class="ds-rise">
+      <span class="ds-kicker">Вместо кого он работает</span>
+      <h2 class="ds-h2">Роли, которые никто не занимает</h2>
+      <p class="ds-lead">Это не про увольнения. Это про работу, которая в малом бизнесе есть всегда, а специалиста под неё нет — потому что дорого. В итоге она ложится на собственника.</p>
+    </div>
+    <div class="ds-roles" style="margin-top:28px">
+      <article class="ds-role ds-rise"><div class="ds-role-top"><span class="ds-ico"><i class="ph-fill ph-megaphone" aria-hidden="true"></i></span><span class="ds-sal">50–80 тыс ₽</span></div>
+        <h3>СММ-специалист</h3><p>Предлагает по три варианта поста с текстом и картинкой. Вы отвечаете «первый, только цену поправь» — и он публикует. Ведёт график, отвечает на комментарии.</p></article>
+      <article class="ds-role ds-rise"><div class="ds-role-top"><span class="ds-ico"><i class="ph-fill ph-scales" aria-hidden="true"></i></span><span class="ds-sal">25–40 тыс ₽</span></div>
+        <h3>Юрист</h3><p>Читает договор за минуту и показывает, где перекошены штрафы, чего не хватает и что подписывать нельзя. Готовит документы по вашим шаблонам, следит за сроками.</p></article>
+      <article class="ds-role ds-rise"><div class="ds-role-top"><span class="ds-ico"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span><span class="ds-sal">60–80 тыс ₽</span></div>
+        <h3>Кадровик</h3><p>Пишет вакансию, разбирает отклики и отсеивает нерелевантные, задаёт кандидату первые вопросы, готовит короткий список. Ведёт кадровые бумаги.</p></article>
+      <article class="ds-role ds-rise"><div class="ds-role-top"><span class="ds-ico"><i class="ph-fill ph-headset" aria-hidden="true"></i></span><span class="ds-sal">45–60 тыс ₽</span></div>
+        <h3>Оператор первой линии</h3><p>Отвечает на однотипные вопросы за минуту в любое время суток, по вашему прайсу и вашим правилам. Всё нестандартное передаёт вам с готовой выжимкой.</p></article>
+      <article class="ds-role ds-rise"><div class="ds-role-top"><span class="ds-ico"><i class="ph-fill ph-chart-line-up" aria-hidden="true"></i></span><span class="ds-sal">70–100 тыс ₽</span></div>
+        <h3>Аналитик</h3><p>Считает, сколько обращений и откуда, о чём спрашивают чаще всего, на каком вопросе люди уходят. Присылает сводку за день и отчёт за месяц.</p></article>
+      <article class="ds-role ds-rise"><div class="ds-role-top"><span class="ds-ico"><i class="ph-fill ph-calculator" aria-hidden="true"></i></span><span class="ds-sal">50–90 тыс ₽</span></div>
+        <h3>Финансовый помощник</h3><p>По вашей выгрузке считает налоговую нагрузку и сравнивает режимы, разбирает кредитный договор и претензию, готовит пакеты на гранты и субсидии.</p></article>
+      <article class="ds-role ds-rise"><div class="ds-role-top"><span class="ds-ico"><i class="ph-fill ph-plugs-connected" aria-hidden="true"></i></span><span class="ds-sal">от 100 тыс ₽</span></div>
+        <h3>Технический помощник</h3><p>Переносит данные между площадками, собирает выгрузки, заполняет таблицы, готовит документы по шаблону. Всё, ради чего сейчас ищут кого-то на разовую задачу.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- КАЛЬКУЛЯТОР -->
+<section class="ds-sec" id="calc">
+  <div class="ds-wrap">
+    <div class="ds-rise">
+      <span class="ds-kicker">Считаем на ваших цифрах</span>
+      <h2 class="ds-h2">Сколько вы платите за то, что делаете сами</h2>
+      <p class="ds-lead">Отметьте роли, которые сейчас лежат на вас или на подрядчиках. Справа — во что это обходится в год и что останется после ассистента.</p>
+    </div>
+    <div class="ds-calc ds-rise" style="margin-top:28px">
+      <div class="ds-calc-grid">
+        <div>
+          <label class="ds-check"><input type="checkbox" data-cost="65000" checked><span class="t">Ведение соцсетей</span><span class="v">65 000 ₽</span></label>
+          <label class="ds-check"><input type="checkbox" data-cost="52000" checked><span class="t">Первая линия ответов</span><span class="v">52 000 ₽</span></label>
+          <label class="ds-check"><input type="checkbox" data-cost="32000"><span class="t">Юридическое сопровождение</span><span class="v">32 000 ₽</span></label>
+          <label class="ds-check"><input type="checkbox" data-cost="70000"><span class="t">Найм и кадровые документы</span><span class="v">70 000 ₽</span></label>
+          <label class="ds-check"><input type="checkbox" data-cost="85000"><span class="t">Аналитика и отчётность</span><span class="v">85 000 ₽</span></label>
+          <label class="ds-check"><input type="checkbox" data-cost="70000"><span class="t">Расчёты и документы по финансам</span><span class="v">70 000 ₽</span></label>
+          <p class="ds-note">Суммы — усреднённые рыночные вилки по КП: штатный сотрудник с налогами или подрядчик на абонплате. Ваши цифры подставим на созвоне.</p>
+        </div>
+        <div class="ds-out">
+          <div class="ds-out-row"><span class="l">Сейчас в месяц</span><span class="n" id="calcNow">117 000 ₽</span></div>
+          <div class="ds-bar"><i id="calcBarNow" style="width:100%"></i></div>
+          <div class="ds-out-row"><span class="l">Ассистент в месяц</span><span class="n" id="calcAss">14 000 ₽</span></div>
+          <div class="ds-bar"><i id="calcBarAss" style="width:12%"></i></div>
+          <div class="ds-out-row ds-out-total"><span class="l">Освобождается за год</span><span class="n" id="calcYear">1 236 000 ₽</span></div>
+          <a class="ds-btn ds-btn--main" href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" style="justify-content:center">
+            <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Проверить на моих задачах</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- РОССИЙСКАЯ СПЕЦИФИКА -->
+<section class="ds-sec">
+  <div class="ds-wrap">
+    <div class="ds-rise">
+      <span class="ds-kicker">Российская специфика</span>
+      <h2 class="ds-h2">То, чего нет в зарубежных решениях</h2>
+      <p class="ds-lead">Готовые ассистенты сделаны под другой рынок. Половина работы российского предпринимателя им просто не видна.</p>
+    </div>
+    <div class="ds-cards" style="margin-top:28px">
+      <div class="ds-card ds-rise"><span class="ds-ico"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+        <h3>Маркировка рекламы</h3><p>Следит, какие публикации подпадают под требования, готовит данные для передачи и напоминает о сроках отчётности.</p></div>
+      <div class="ds-card ds-rise"><span class="ds-ico"><i class="ph-fill ph-identification-card" aria-hidden="true"></i></span>
+        <h3>Проверка контрагента</h3><p>По одному ИНН поднимает реквизиты, статус, возраст компании и признаки проблем — до того, как вы подписали и перевели предоплату.</p></div>
+      <div class="ds-card ds-rise"><span class="ds-ico"><i class="ph-fill ph-gavel" aria-hidden="true"></i></span>
+        <h3>Тендеры и госзакупки</h3><p>Мониторит площадки по вашим кодам и региону, отсеивает нерелевантное и приносит только то, куда есть смысл заходить.</p></div>
+      <div class="ds-card ds-rise"><span class="ds-ico"><i class="ph-fill ph-translate" aria-hidden="true"></i></span>
+        <h3>Переписка с Китаем</h3><p>Ведёт диалог с поставщиком на английском или китайском, переводит спецификации и сводит предложения фабрик в одну таблицу.</p></div>
+      <div class="ds-card ds-rise"><span class="ds-ico"><i class="ph-fill ph-shopping-bag-open" aria-hidden="true"></i></span>
+        <h3>Wildberries и Ozon</h3><p>Отвечает на вопросы и отзывы, следит за остатками и заказами, готовит и обновляет описания карточек.</p></div>
+      <div class="ds-card ds-rise"><span class="ds-ico"><i class="ph-fill ph-star" aria-hidden="true"></i></span>
+        <h3>Отзывы на картах</h3><p>Замечает новый отзыв на Яндекс Картах и 2ГИС в день публикации и приносит вам готовый вариант ответа.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ДЕНЬ -->
+<section class="ds-sec">
+  <div class="ds-wrap">
+    <div class="ds-rise">
+      <span class="ds-kicker">Как это работает</span>
+      <h2 class="ds-h2">День с ассистентом</h2>
+      <p class="ds-lead">Никаких команд заучивать не нужно. Пишете или наговариваете так же, как написали бы живому помощнику.</p>
+    </div>
+    <div class="ds-day" style="margin-top:28px">
+      <div class="ds-slot ds-rise"><h3>Утром</h3><ul>
+        <li>«Что было ночью?» — сводка обращений по всем площадкам</li>
+        <li>Голосовое от поставщика на три минуты — расшифровано в две строки</li>
+        <li>Три ответа ждут подтверждения, остальные ушли сами</li></ul></div>
+      <div class="ds-slot ds-rise"><h3>Днём</h3><ul>
+        <li>«Проверь этот договор» — фото страниц прямо в чат</li>
+        <li>«Кто такие ООО „Ромашка“, ИНН такой-то»</li>
+        <li>«Запиши встречу на четверг после обеда»</li></ul></div>
+      <div class="ds-slot ds-rise"><h3>Вечером</h3><ul>
+        <li>«Пост про новую поставку» — приходят три варианта с картинками</li>
+        <li>«Второй, но цену убери» — публикуется по графику</li>
+        <li>«Сколько заявок за неделю и откуда»</li></ul></div>
+      <div class="ds-slot ds-rise"><h3>Без вас</h3><ul>
+        <li>Отвечает клиентам круглосуточно</li>
+        <li>Публикует запланированное</li>
+        <li>Следит за отзывами и сроками</li>
+        <li>Готовит отчёт к концу месяца</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- ПЛОЩАДКИ -->
+<section class="ds-sec">
+  <div class="ds-wrap">
+    <div class="ds-rise">
+      <span class="ds-kicker">Каналы и системы</span>
+      <h2 class="ds-h2">Где он работает</h2>
+      <p class="ds-lead">Только площадки, доступные в России без ограничений и без обходных путей. Ассистент работает в тех системах, которые у вас уже есть — переезжать никуда не нужно.</p>
+    </div>
+    <div class="ds-scroll ds-rise" style="margin-top:28px">
+      <table class="ds-table">
+        <thead><tr><th>Площадка</th><th>Что делает ассистент</th><th>Что нужно</th></tr></thead>
+        <tbody>
+          <tr><td>MAX</td><td>Основной канал: ваш пульт управления и общение с клиентами</td><td>статус MAX Business</td></tr>
+          <tr><td>Авито</td><td>Мессенджер, объявления, заказы, статистика</td><td>платный кабинет</td></tr>
+          <tr><td>ВКонтакте</td><td>Личные сообщения, стена, комментарии, сообщества</td><td>ваши доступы</td></tr>
+          <tr><td>Telegram</td><td>Запасной пульт управления, каналы и чаты</td><td>из коробки</td></tr>
+          <tr><td>Почта</td><td>Разбор входящих, ответы, вложения</td><td>ваши доступы</td></tr>
+          <tr><td>Bitrix24, amoCRM</td><td>Заводит сделки и лиды, обновляет статусы, поднимает историю клиента</td><td>ваши доступы</td></tr>
+          <tr><td>Wildberries, Ozon</td><td>Заказы, остатки, вопросы, отзывы, карточки товаров</td><td>ваши доступы</td></tr>
+          <tr><td>Яндекс Карты, 2ГИС</td><td>Следит за отзывами и готовит ответы</td><td>ваши доступы</td></tr>
+          <tr><td>1С</td><td>Обмен данными через веб-сервисы</td><td>ваши доступы</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ЧЕГО НЕ ДЕЛАЕТ -->
+<section class="ds-sec">
+  <div class="ds-wrap">
+    <div class="ds-rise">
+      <span class="ds-kicker">Честно на берегу</span>
+      <h2 class="ds-h2">Чего он не делает</h2>
+      <p class="ds-lead">Об этом лучше договориться сразу — тогда не будет разочарования на третьей неделе.</p>
+    </div>
+    <div class="ds-limits" style="margin-top:28px">
+      <div class="ds-limit ds-rise"><h3>Не заменяет юриста в серьёзных сделках</h3>
+        <p>Договор читает быстро и находит явные перекосы. Но на существенных суммах это подготовка к разговору с юристом, а не замена ему. Так же и с наймом: он готовит короткий список, решение принимаете вы.</p></div>
+      <div class="ds-limit ds-rise"><h3>Не заходит туда, где нет официального доступа</h3>
+        <p>Работает только через официальные интерфейсы площадок. Мы не логинимся под вашим паролем в обход правил сервиса: это ставит под удар ваш аккаунт.</p></div>
+      <div class="ds-limit ds-rise"><h3>Не тратит ваши деньги без спроса</h3>
+        <p>Сообщения от посторонних — ненадёжный источник. Всё, что касается цены, скидки, брони и адреса, уходит вам на подтверждение.</p></div>
+      <div class="ds-limit ds-rise"><h3>Не решает за вас вопрос с персональными данными</h3>
+        <p>Переписка с вашими клиентами — это их персональные данные. Где стоит сервер и как оформлены обязанности оператора — отдельный разговор до запуска, а не после.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ЗАПУСК -->
+<section class="ds-sec">
+  <div class="ds-wrap">
+    <div class="ds-rise">
+      <span class="ds-kicker">Условия запуска</span>
+      <h2 class="ds-h2">Что нужно от вас</h2>
+      <p class="ds-lead">Три вещи, и все — один раз на старте.</p>
+    </div>
+    <div class="ds-steps" style="margin-top:28px">
+      <div class="ds-step ds-rise"><h3>Доступы к площадкам</h3><p>Ключи из вашего кабинета Авито, токен ВКонтакте, пароль приложения для почты. Мы показываем, где их взять; выдаёте их вы сами.</p></div>
+      <div class="ds-step ds-rise"><h3>Правила и прайс</h3><p>Как отвечать, что можно обещать, какие цены и скидки, что переадресовывать вам. Час разговора — и ассистент говорит вашим голосом.</p></div>
+      <div class="ds-step ds-rise"><h3>Неделя на притирку</h3><p>Первые дни всё уходит вам на подтверждение. Смотрите, правите формулировки, потом отпускаете то, что он делает уверенно.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ФИНАЛ -->
+<section class="ds-sec">
+  <div class="ds-wrap">
+    <div class="ds-final ds-rise">
+      <h2>Данные остаются у вас</h2>
+      <p>Ассистент разворачивается на вашем сервере: переписка, история и ключи доступа никуда не уходят. Площадки подключаются по отдельности и отключаются в один клик — ни одна из них не получает доступ к остальным.</p>
+      <div class="ds-cta-row">
+        <a class="ds-btn ds-btn--main" href="https://t.me/chimitdorzhi" target="_blank" rel="noopener">
+          <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Обсудить в Telegram</a>
+        <a class="ds-btn ds-btn--ghost" href="tel:+79144701411">
+          <i class="ph-fill ph-phone" aria-hidden="true"></i> Позвонить</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* появление секций */
+  var rise = document.querySelectorAll('.ds-rise');
+  if (!('IntersectionObserver' in window) || reduce) {
+    rise.forEach(function(el){ el.classList.add('is-in'); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) {
+          var i = [].indexOf.call(e.target.parentNode.children, e.target);
+          e.target.style.transitionDelay = Math.min(i * 60, 240) + 'ms';
+          e.target.classList.add('is-in'); io.unobserve(e.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -12% 0px', threshold: .12 });
+    rise.forEach(function(el){ io.observe(el); });
+  }
+
+  /* счётчики в метриках */
+  var nums = document.querySelectorAll('[data-count]');
+  function runCount(el){
+    var end = parseFloat(el.getAttribute('data-count')) || 0;
+    var suffix = el.getAttribute('data-suffix') || '';
+    if (reduce) { el.textContent = end + suffix; return; }
+    var t0 = null, dur = 1100;
+    function step(ts){
+      if (!t0) t0 = ts;
+      var p = Math.min((ts - t0) / dur, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(end * eased) + suffix;
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  if (!('IntersectionObserver' in window)) { nums.forEach(runCount); }
+  else {
+    var io2 = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if (e.isIntersecting) { runCount(e.target); io2.unobserve(e.target); } });
+    }, { threshold: .5 });
+    nums.forEach(function(el){ io2.observe(el); });
+  }
+
+  /* калькулятор */
+  var ASSIST_MIN = 8000, ASSIST_MAX = 20000;
+  var boxes = document.querySelectorAll('.ds-calc input[type=checkbox]');
+  var elNow = document.getElementById('calcNow'), elAss = document.getElementById('calcAss'),
+      elYear = document.getElementById('calcYear'),
+      barNow = document.getElementById('calcBarNow'), barAss = document.getElementById('calcBarAss');
+  function money(n){ return n.toLocaleString('ru-RU') + ' ₽'; }
+  function recalc(){
+    var now = 0, checked = 0;
+    boxes.forEach(function(b){ if (b.checked) { now += parseInt(b.getAttribute('data-cost'), 10) || 0; checked++; } });
+    /* чем больше ролей отдано ассистенту, тем ближе к верхней границе тарифа */
+    var assist = checked ? Math.round(ASSIST_MIN + (ASSIST_MAX - ASSIST_MIN) * Math.min(checked / boxes.length, 1)) : 0;
+    var year = Math.max(now - assist, 0) * 12;
+    elNow.textContent = money(now);
+    elAss.textContent = money(assist);
+    elYear.textContent = money(year);
+    var max = Math.max(now, 1);
+    barNow.style.width = '100%';
+    barAss.style.width = Math.max((assist / max) * 100, 3) + '%';
+  }
+  boxes.forEach(function(b){ b.addEventListener('change', recalc); });
+  recalc();
+})();
+</script>
+</main>
+
 
     <footer id="contact" class="footer">
     <div class="container footer-inner">

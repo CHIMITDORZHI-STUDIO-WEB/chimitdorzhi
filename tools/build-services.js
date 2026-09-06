@@ -618,13 +618,17 @@ function ensureDir(p) {
 function main() {
   ensureDir(OUT_SERVICES);
 
-  let pageCount = 0;
+  let pageCount = 0, customCount = 0;
   for (const svc of services) {
     const dir = path.join(OUT_SERVICES, svc.s);
     ensureDir(dir);
+    // Услуга с custom:true имеет собственный лендинг, свёрстанный вручную.
+    // Генератор её карточку в каталоге и в sitemap оставляет, но страницу не трогает.
+    if (svc.custom) { customCount++; continue; }
     fs.writeFileSync(path.join(dir, 'index.html'), servicePage(svc), 'utf8');
     pageCount++;
   }
+  if (customCount) console.log('  пропущено кастомных страниц: ' + customCount);
 
   fs.writeFileSync(path.join(OUT_SERVICES, 'index.html'), catalogPage(), 'utf8');
   fs.writeFileSync(OUT_SITEMAP, sitemap(), 'utf8');
