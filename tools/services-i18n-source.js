@@ -210,6 +210,10 @@ const i18nServices = {
     en: { n: 'QR tipping system, turnkey', d: 'A cashless QR tipping system for cafes, salons and hotels: a personal QR per staff member, splitting between shift and kitchen, no cash and no aggregator fees. Turnkey.', pt: 'from 15,000 ₽' },
     cn: { n: '二维码小费系统（整体交付）', d: '为咖啡馆、沙龙和酒店打造的二维码无现金小费系统：每位员工专属二维码、班组与后厨分账、无需现金、无平台佣金。整体交付。', pt: '起 15,000 ₽' },
   },
+  'cifrovoy-sotrudnik': {
+    en: { n: 'Digital employee', d: 'One assistant covering the roles a small business rarely staffs: first-line replies, social media, document review, candidate screening and reporting. Runs on your own server, works around the clock and takes plain chat — text, voice or a photo. Built for the Russian market: ad labelling, counterparty checks by tax ID, tenders, marketplaces and map reviews.', pt: 'from 8,000 ₽/mo' },
+    cn: { n: '数字员工', d: '一个助手覆盖小企业通常无人负责的岗位：第一线回复、社交媒体、文件审阅、简历筛选与报表。部署在您自己的服务器上，全天候工作，通过普通聊天即可指挥——文字、语音或照片。针对俄罗斯市场：广告标注、按税号核查交易对手、招投标、电商平台与地图评价。', pt: '每月 8,000 卢布起' },
+  },
 };
 
 // Filter / catalog UI translations.

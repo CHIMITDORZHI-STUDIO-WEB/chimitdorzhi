@@ -6,6 +6,7 @@ const translations = {
     ru: {
         "nav.about": "Обо мне",
         "nav.home": "Главная",
+        "nav.employee": "Цифровой сотрудник",
         "sb.search": "Поиск…",
         "sb.cta_status": "На связи · отвечаю за час",
         "sb.cta_title": "Есть задача?",
@@ -455,6 +456,7 @@ const translations = {
     en: {
         "nav.about": "About",
         "nav.home": "Home",
+        "nav.employee": "Digital employee",
         "sb.search": "Search…",
         "sb.cta_status": "Online · reply within an hour",
         "sb.cta_title": "Got a task?",
@@ -906,6 +908,7 @@ const translations = {
     cn: {
         "nav.about": "关于我",
         "nav.home": "首页",
+        "nav.employee": "数字员工",
         "sb.search": "搜索…",
         "sb.cta_status": "在线 · 一小时内回复",
         "sb.cta_title": "有需求吗？",
@@ -1357,6 +1360,7 @@ const translations = {
     mn: {
         "nav.about": "Миний тухай",
         "nav.home": "Нүүр",
+        "nav.employee": "Дижитал ажилтан",
         "sb.search": "Хайх…",
         "sb.cta_status": "Холбоо барих · нэг цагт хариулна",
         "sb.cta_title": "Даалгавартай юу?",

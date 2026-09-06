@@ -107,7 +107,7 @@ function footer() {
         </div>
     </div>
 </footer>
-<script src="/script.js?v=33" defer></script>`;
+<script src="/script.js?v=34" defer></script>`;
 }
 
 // ---------------- helpers ----------------

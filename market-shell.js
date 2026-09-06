@@ -3,9 +3,9 @@
 (function () {
   function build() {
     if (document.querySelector('.wx-rail')) return;
-    function n(href, ic, label, on, ext) {
+    function n(href, ic, label, on, ext, key) {
       return '<a href="' + href + '"' + (ext ? ' target="_blank" rel="noopener"' : '') + (on ? ' aria-current="page"' : '') +
-        ' class="wx-nav' + (on ? ' on' : '') + '"><i class="ph-fill ' + ic + '" aria-hidden="true"></i> ' + label + '</a>';
+        ' class="wx-nav' + (on ? ' on' : '') + '"><i class="ph-fill ' + ic + '" aria-hidden="true"></i> ' + (key ? '<span data-i18n="' + key + '">' + label + '</span>' : label) + '</a>';
     }
     var h = '<div class="wx-rail-top"><a href="/" class="wx-logo"><img src="/logo-wordmark.png" alt="Chimitdorzhi Studio"></a>';
     h += '<button type="button" class="wx-search js-search-open" aria-label="Поиск"><i class="ph ph-magnifying-glass"></i> <span>Поиск…</span></button>';
@@ -14,6 +14,7 @@
       + '</div>';
     h += n('/', 'ph-squares-four', 'Главная', false);
     h += n('/services/', 'ph-stack', 'Услуги', false);
+h += n('/services/cifrovoy-sotrudnik/', 'ph-user-focus', 'Цифровой сотрудник', false, false, 'nav.employee');
     h += n('/cases/', 'ph-briefcase', 'Кейсы', false);
     h += n('/blog/', 'ph-newspaper', 'Блог', false);
     h += n('/market/', 'ph-gift', 'Предложения', true);

@@ -298,6 +298,7 @@ document.addEventListener('DOMContentLoaded', () => {
   h+='<button type="button" class="wx-search js-search-open" aria-label="Поиск"><i class="ph ph-magnifying-glass"></i> <span data-i18n="sb.search">Поиск…</span></button>';
   h+=n('/','ph-squares-four','Главная',false,false,'nav.home');
   h+=n('/services/','ph-stack','Услуги',isServices,false,'nav.services');
+  h+=n('/services/cifrovoy-sotrudnik/','ph-user-focus','Цифровой сотрудник',location.pathname.indexOf('cifrovoy-sotrudnik')>-1,false,'nav.employee');
   h+=n('/cases/','ph-briefcase','Кейсы',isCases,false,'nav.cases');
   h+=n('/blog/','ph-newspaper','Блог',isBlog,false,'nav.blog');
   h+=n('/market/','ph-gift','Предложения',isOffers,false,'nav.offers');
