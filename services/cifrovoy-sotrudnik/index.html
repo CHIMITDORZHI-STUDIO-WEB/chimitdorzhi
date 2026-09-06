@@ -463,6 +463,74 @@
 }
 @media (prefers-reduced-motion:reduce){.ds-sticky{transition:none;}}
 body.ds-has-sticky{padding-bottom:78px;}
+
+/* ================= МОБИЛЬНАЯ ПОЛИРОВКА ================= */
+/* 1. Отступ под фиксированную шапку: у героя свой класс, общее правило сайта его не ловило */
+.ds-hero{padding-top:clamp(76px,10vw,96px);}
+@media(max-width:600px){.ds-hero{padding-top:84px;}}
+
+/* 2. Суммы не должны разрываться между числом и знаком рубля */
+.ds-metric b,.ds-out-row .n,.ds-sticky-price b,.ds-sal,.ds-check .v,.ds-slots-n{white-space:nowrap;}
+.ds-metric b{font-size:clamp(22px,6vw,38px);letter-spacing:-.035em;}
+@media(max-width:420px){
+  .ds-metrics{gap:10px;}
+  .ds-metric{padding:16px 14px;}
+  .ds-metric b{font-size:20px;}
+  .ds-metric span{font-size:12.5px;line-height:1.35;}
+}
+
+/* 3. Липкая панель: запас по краям, чтобы кнопка не упиралась в границу экрана */
+@media(max-width:720px){
+  .ds-sticky{padding-left:10px;padding-right:10px;}
+  .ds-sticky-in{gap:8px;}
+  .ds-sticky-price b{font-size:15px;}
+  .ds-sticky-btns{gap:7px;}
+  .ds-sticky .ds-btn{padding:11px 13px;font-size:13px;gap:7px;}
+  .ds-sticky .ds-btn i{font-size:17px;}
+  /* «Посчитать» — только иконка, но с внятной областью нажатия */
+  .ds-sticky .ds-sticky-calc{padding:11px 14px;}
+}
+@media(max-width:380px){
+  .ds-sticky-price{min-width:0;}
+  .ds-sticky-price b{font-size:14px;}
+  .ds-sticky .ds-btn{padding:10px 11px;font-size:12.5px;}
+}
+
+/* 4. Таблица площадок: на узком экране — карточки вместо горизонтальной прокрутки */
+@media(max-width:700px){
+  .ds-table thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}
+  .ds-table,.ds-table tbody,.ds-table tr,.ds-table td{display:block;width:100%;}
+  .ds-table{border:0;background:transparent;}
+  .ds-table tr{background:var(--bg-card);border:1px solid var(--ds-line);border-radius:16px;margin-bottom:10px;padding:14px 16px;}
+  .ds-table td{border:0;padding:0;white-space:normal;}
+  .ds-table td:first-child{font-size:16px;font-weight:800;margin-bottom:6px;}
+  .ds-table td:nth-child(2){font-size:14.5px;line-height:1.5;color:var(--text-secondary);margin-bottom:8px;}
+  .ds-table td:last-child{font-size:12.5px;font-weight:700;color:var(--accent);background:var(--wx-soft);
+    display:inline-block;width:auto;border-radius:999px;padding:5px 11px;}
+  .ds-scroll{overflow:visible;}
+}
+
+/* 5. Мелкая типографика на телефоне: переносы по слогам и чуть плотнее заголовки */
+@media(max-width:600px){
+  .ds-h1{font-size:clamp(30px,8.6vw,40px);line-height:1.06;hyphens:none;}
+  .ds-h2{font-size:clamp(24px,6.6vw,32px);line-height:1.14;}
+  .ds-hero p{font-size:16px;}
+  .ds-lead{font-size:15.5px;}
+  .ds-sec{padding:44px 0;}
+  .ds-calc{padding:18px;}
+  .ds-out{padding:18px;}
+  .ds-out-row .n{font-size:17px;}
+  .ds-out-total .n{font-size:27px;}
+  .ds-check{padding:12px;gap:10px;}
+  .ds-check .t{font-size:14px;}
+  .ds-check .v{font-size:13px;}
+  .ds-role,.ds-card,.ds-offer-card,.ds-step,.ds-slot{padding:18px;}
+  .ds-btn{padding:14px 20px;font-size:15px;}
+  .ds-cta-row{gap:10px;}
+  .ds-cta-row .ds-btn{flex:1 1 auto;justify-content:center;}
+}
+/* 6. Длинные слова в карточках не должны рвать вёрстку */
+.ds-role h3,.ds-card h3,.ds-offer-card h3,.ds-limit h3,.ds-q summary{overflow-wrap:break-word;}
 </style>
 <script>
 (function(){
