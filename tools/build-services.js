@@ -371,6 +371,18 @@ ${faqJsonLd(svc)}
     </main>
 
     ${footer()}
+<script type="text/javascript">
+        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        var inject=function(){for (var j = 0; j < e.scripts.length; j++) {if (e.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)};
+        var run=function(){('requestIdleCallback' in window)?requestIdleCallback(inject,{timeout:5000}):setTimeout(inject,3000)};
+        (e.readyState==='complete')?run():m.addEventListener('load',run);})
+        (window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884', 'ym');
+
+        ym(109281884, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/109281884" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 </body>
 </html>`;
 }
