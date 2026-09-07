@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1491**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1494**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -36,6 +36,8 @@
 
 ## AI для разработчиков
 
+- [Переносной ИИ-агент: работа на чужом компьютере без установки](./perenosnoy-ii-agent-fleshka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/perenosnoy-ii-agent-fleshka-2026/)
+- [Когда ИИ-агенту нужно работать сутками: длинные задачи без присмотра](./agent-dlya-dlinnyh-zadach-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/agent-dlya-dlinnyh-zadach-2026/)
 - [ИИ-кластер из офисных компьютеров: NVIDIA PAIR объединяет то, что у вас уже есть](./ii-klaster-iz-ofisnyh-kompyuterov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-klaster-iz-ofisnyh-kompyuterov-2026/)
 - [Безопасный доступ ИИ-агента к базе данных: почему только чтение и как это настроить](./bezopasnyy-dostup-ii-agenta-k-baze-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bezopasnyy-dostup-ii-agenta-k-baze-2026/)
 - [Mac Studio для локального ИИ: почему Apple Silicon обходит стойку из видеокарт](./mac-studio-dlya-lokalnogo-ii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/mac-studio-dlya-lokalnogo-ii-2026/)
@@ -236,6 +238,7 @@
 
 ## Open-source и свой сервер
 
+- [ИИ на флешке: локальные модели без установки на чужом компьютере](./portativnyy-ii-na-fleshke-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/portativnyy-ii-na-fleshke-2026/)
 - [Учёт имущества и гарантий на своём сервере: Homebox для дома и небольшой компании](./uchet-imushchestva-i-garantiy-homebox-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uchet-imushchestva-i-garantiy-homebox-2026/)
 - [Manticore Search: полнотекстовый и векторный поиск в одном движке на своём сервере](./manticore-search-poisk-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/manticore-search-poisk-na-svoem-servere-2026/)
 - [HR-система на своём сервере: кадры, отпуска и зарплата без облачной подписки](./hr-sistema-na-svoem-servere-frappe-hrms-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/hr-sistema-na-svoem-servere-frappe-hrms-2026/)
