@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1494**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1495**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -238,6 +238,7 @@
 
 ## Open-source и свой сервер
 
+- [Распознавание лиц на своём сервере: что умеет открытый SDK и где он вас подведёт](./raspoznavanie-lic-otkrytyy-sdk-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/raspoznavanie-lic-otkrytyy-sdk-2026/)
 - [ИИ на флешке: локальные модели без установки на чужом компьютере](./portativnyy-ii-na-fleshke-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/portativnyy-ii-na-fleshke-2026/)
 - [Учёт имущества и гарантий на своём сервере: Homebox для дома и небольшой компании](./uchet-imushchestva-i-garantiy-homebox-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uchet-imushchestva-i-garantiy-homebox-2026/)
 - [Manticore Search: полнотекстовый и векторный поиск в одном движке на своём сервере](./manticore-search-poisk-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/manticore-search-poisk-na-svoem-servere-2026/)
