@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1499**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1513**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -136,6 +136,20 @@
 
 ## cases
 
+- [Бот и мини-приложение для риелторов: объекты, показы и заявки в одном окне](./bot-mini-app-rieltoram-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bot-mini-app-rieltoram-keys-2026/)
+- [Аренда авто с выкупом: бот и наклейки с партнёрским QR вместо рекламы](./arenda-avto-vykup-bot-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/arenda-avto-vykup-bot-keys-2026/)
+- [Биржа подработки в небольшом городе: от смены к постоянной работе](./birzha-truda-monogoroda-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/birzha-truda-monogoroda-keys-2026/)
+- [Витрина зарубежной недвижимости: три уровня доступа и своя CRM](./vitrina-nedvizhimosti-crm-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vitrina-nedvizhimosti-crm-keys-2026/)
+- [PWA для кофейни: две двери входа и геймификация вместо бумажных штампов](./pwa-kofeyni-geymifikaciya-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pwa-kofeyni-geymifikaciya-keys-2026/)
+- [Партнёрская система в мессенджере: QR вместо промокода-слова](./partnyorskaya-sistema-qr-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/partnyorskaya-sistema-qr-keys-2026/)
+- [Лендинг мастера телесных практик: один сайт на два города](./lending-mastera-praktik-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/lending-mastera-praktik-keys-2026/)
+- [Сайт digital-агентства: как показать работу, которую не видно](./sayt-digital-agentstva-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-digital-agentstva-keys-2026/)
+- [Перевод legacy-системы на low-code: конвертер, линтер и эталон](./konverter-legacy-low-code-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/konverter-legacy-low-code-keys-2026/)
+- [Анализатор рынка на публичных данных: как отделить сигнал от шума](./analizator-memkoinov-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/analizator-memkoinov-keys-2026/)
+- [SEO-аудит блога на 1500 статей: 762 страницы, на которые никто не ссылался](./seo-audit-bloga-1500-statey-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/seo-audit-bloga-1500-statey-keys-2026/)
+- [Лендинг под Яндекс.Директ: калькулятор, цели и мобильные дефекты](./lending-pod-direkt-kalkulyator-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/lending-pod-direkt-kalkulyator-keys-2026/)
+- [Обвязка для ИИ: цена ответа в рублях и потолок на сутки](./obvyazka-ii-cena-v-rublyah-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/obvyazka-ii-cena-v-rublyah-keys-2026/)
+- [Проверка ИИ-новостей перед публикацией: три разбора за неделю](./proverka-ii-novostey-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/proverka-ii-novostey-keys-2026/)
 - [Кейсы цифровизации кофеен: что реально дало результат](./keysy-cifrovizacii-kofeen-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/keysy-cifrovizacii-kofeen-2026/)
 - [Онлайн-запись для салона красоты: кейс автоматизации записи](./onlayn-zapis-salon-krasoty-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/onlayn-zapis-salon-krasoty-keys-2026/)
 - [Ежедневник с голосовым вводом: кейс планировщика, который слушает](./golosovoy-ezhednevnik-planer-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/golosovoy-ezhednevnik-planer-keys-2026/)
