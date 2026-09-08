@@ -631,7 +631,7 @@ function head({ title, description, keywords, canonical, ogImage = `${SITE}/hero
         <link rel="stylesheet" href="/assets/phosphor/regular.css">
         <link rel="stylesheet" href="/assets/phosphor/fill.css">
     </noscript>
-    <link rel="stylesheet" href="/style.css?v=75">
+    <link rel="stylesheet" href="/style.css?v=76">
 `;
 }
 
@@ -2227,6 +2227,7 @@ function flagshipCard(c) {
           <div class="cs-row cs-result"><span class="cs-lbl">${L('Результат', 'Result', 'Resultado')}</span><p>${L(c.result, en.result, es.result)}</p></div>
         </div>
         <div class="cs-stack">${(c.stack || []).map(s => `<span>${esc(s)}</span>`).join('')}</div>
+        ${c.slug ? `<a class="cs-more" href="/blog/${c.slug}/">${L('Читать разбор', 'Read the case', 'Leer el caso')} <i class="ph ph-arrow-right" aria-hidden="true"></i></a>` : ''}
       </article>`;
 }
 function flagshipBlock() {
