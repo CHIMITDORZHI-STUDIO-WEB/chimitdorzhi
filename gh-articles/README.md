@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1498**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1499**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -38,6 +38,7 @@
 
 - [База знаний, которую собрали агенты: что это и когда ей можно верить](./agenty-kompiliruyut-bazu-znaniy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/agenty-kompiliruyut-bazu-znaniy-2026/)
 - [9 миллиардов параметров в кармане: что реально помещается в телефон](./llm-9b-na-telefone-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/llm-9b-na-telefone-2026/)
+- [Медицинская ИИ-модель вышла, а поставить её у себя нельзя](./medicinskaya-ii-model-bez-vesov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/medicinskaya-ii-model-bez-vesov-2026/)
 - [Переносной ИИ-агент: работа на чужом компьютере без установки](./perenosnoy-ii-agent-fleshka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/perenosnoy-ii-agent-fleshka-2026/)
 - [Когда ИИ-агенту нужно работать сутками: длинные задачи без присмотра](./agent-dlya-dlinnyh-zadach-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/agent-dlya-dlinnyh-zadach-2026/)
 - [ИИ-кластер из офисных компьютеров: NVIDIA PAIR объединяет то, что у вас уже есть](./ii-klaster-iz-ofisnyh-kompyuterov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-klaster-iz-ofisnyh-kompyuterov-2026/)
