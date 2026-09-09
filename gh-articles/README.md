@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1515**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1516**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -257,6 +257,7 @@
 
 - [Клонирование голоса на своём сервере: где проходит граница](./klonirovanie-golosa-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/klonirovanie-golosa-na-svoem-servere-2026/)
 - [GraphHopper: движок маршрутов, который можно встроить в свой продукт](./graphhopper-marshruty-v-svoem-produkte-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/graphhopper-marshruty-v-svoem-produkte-2026/)
+- [Ситуационный дашборд из открытых источников: чем это полезно бизнесу](./situacionnyy-dashbord-iz-otkrytyh-istochnikov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/situacionnyy-dashbord-iz-otkrytyh-istochnikov-2026/)
 - [Распознавание лиц на своём сервере: что умеет открытый SDK и где он вас подведёт](./raspoznavanie-lic-otkrytyy-sdk-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/raspoznavanie-lic-otkrytyy-sdk-2026/)
 - [Что именно сделал ваш ИИ-агент: журнал, который нельзя переписать](./zhurnal-raboty-ii-agenta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zhurnal-raboty-ii-agenta-2026/)
 - [ИИ на флешке: локальные модели без установки на чужом компьютере](./portativnyy-ii-na-fleshke-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/portativnyy-ii-na-fleshke-2026/)
