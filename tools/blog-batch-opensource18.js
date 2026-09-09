@@ -61,6 +61,18 @@ module.exports = [
     metaDescription: 'OpenRouteService и Nominatim на своём сервере: маршруты, расстояния, геокодинг адресов и зоны доставки на OpenStreetMap без лимитов и оплаты API.',
     excerpt: 'OpenRouteService и Nominatim дают свою картографию: расчёт маршрутов, геокодирование адресов и зоны доставки на своём сервере — без лимитов и счетов за API Яндекс.Карт и Google. Разбираю применение и как на этом зарабатывать.',
     tags: ['OpenRouteService', 'карты', 'геокодинг', 'open-source'],
+    // Свой toc: в этой статье есть дополнительный раздел про GraphHopper,
+    // которого нет у остальных обзоров батча.
+    toc: [
+      { id: 'chto-eto', text: 'Что это и что заменяет' },
+      { id: 'vozmozhnosti', text: 'Что умеет' },
+      { id: 'komu-podhodit', text: 'Кому подходит' },
+      { id: 'alternativa', text: 'Альтернатива: GraphHopper и лицензия' },
+      { id: 'chto-nuzhno', text: 'Что нужно для запуска' },
+      { id: 'kak-vnedrit', text: 'Как внедрить под ключ' },
+      { id: 'faq', text: 'FAQ' },
+      { id: 'vyvody', text: 'Коротко о главном' },
+    ],
     relatedSlugs: ['vroom-optimizaciya-marshrutov-2026', 'traccar-gps-monitoring-transporta-2026', 'ai-dlya-logistiki-2026'] }),
   E({ slug: 'thingsboard-iot-platforma-2026', heroIcon: 'ph-fill ph-cpu',
     title: 'ThingsBoard: IoT-платформа для датчиков и телеметрии на своём сервере',
