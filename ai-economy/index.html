@@ -717,6 +717,36 @@ body.ds-has-sticky{padding-bottom:78px;}
 
 .ec-mocount{font-size:12px;color:var(--text-secondary);margin:0 0 8px;}
 
+/* --- сто клеток работы --- */
+.ec-gridcard{overflow:hidden;}
+.ec-squares{max-width:340px;margin:0 auto 16px;}
+.ec-squares svg{display:block;width:100%;height:auto;}
+.ec-sq{fill:var(--border);transition:fill .5s cubic-bezier(.22,.61,.36,1);}
+.ec-sq.is-auto{fill:var(--ec-cap);}
+.ec-sq.is-help{fill:var(--ec-lab);}
+.ec-sq{cursor:pointer;}
+.ec-sq:hover,.ec-sq:focus-visible{stroke:var(--text);stroke-width:1.5;outline:none;}
+.ec-legend--sq{justify-content:center;gap:14px 18px;margin-bottom:12px;}
+.ec-legend--sq i.is-off{background:var(--border);}
+.ec-sqstat{font-size:13.5px;line-height:1.6;color:var(--text-secondary);margin:0;
+  max-width:64ch;margin-left:auto;margin-right:auto;text-align:center;}
+.ec-sqstat b{color:var(--text);font-weight:800;font-variant-numeric:tabular-nums;}
+@media(prefers-reduced-motion:reduce){.ec-sq{transition:none;}}
+
+/* --- куда идут технологии --- */
+.ec-two{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:8px;}
+.ec-two>*{min-width:0;}
+@media(max-width:760px){.ec-two{grid-template-columns:1fr;}}
+.ec-two .ec-chart svg{min-width:0;}
+.ec-two .ec-goal-grp{margin-top:0;padding-top:0;border-top:none;}
+.ec-rank--topics .ec-row,.ec-rank--ctry .ec-row{grid-template-columns:30px minmax(0,1fr) 28% 62px;}
+.ec-rank--topics .ec-rn,.ec-rank--ctry .ec-rn{white-space:normal;}
+.ec-row.is-none{opacity:.7;}
+.ec-row.is-none .ec-rv{color:var(--ec-cap);font-weight:800;}
+@media(max-width:560px){
+  .ec-rank--topics .ec-row,.ec-rank--ctry .ec-row{grid-template-columns:26px minmax(0,1fr) 56px;}
+}
+
 /* --- профессии и страны --- */
 .ec-metrics--sm{margin-bottom:0;flex:0 0 auto;}
 .ec-rank--occ .ec-row{grid-template-columns:30px minmax(0,1fr) 26% 58px;}
@@ -891,6 +921,18 @@ body.ds-has-sticky{padding-bottom:78px;}
             </div>
           </div>
 
+          <section class="ec-card ec-gridcard">
+            <div class="ec-card-h"><h3>Вся работа — сто клеток</h3></div>
+            <p class="ec-sub">Каждая клетка — один процент занятых, разложенный по сорока группам занятий с измеренными баллами уязвимости. Клетки отсортированы: сверху та работа, до которой ИИ дотягивается легче всего. Двигайте допущения слева — и смотрите, докуда доходит волна. Наведите на клетку, чтобы увидеть, чья это работа.</p>
+            <div class="ec-squares" id="ec-squares"></div>
+            <div class="ec-legend ec-legend--sq">
+              <span><i style="background:var(--ec-cap)"></i>ИИ делает сам</span>
+              <span><i style="background:var(--ec-lab)"></i>ИИ помогает человеку</span>
+              <span><i class="is-off"></i>Не затронуто при этих допущениях</span>
+            </div>
+            <p class="ec-sqstat" id="ec-sqstat">—</p>
+          </section>
+
           <section class="ec-card">
             <div class="ec-card-h">
               <h3>Кому достаётся созданное: труду или капиталу</h3>
@@ -1039,6 +1081,58 @@ body.ds-has-sticky{padding-bottom:78px;}
       </section>
 
       <section class="ec-card">
+        <div class="ec-card-h"><h3>Куда движутся технологии</h3></div>
+        <p class="ec-sub">Разговоры про ИИ обычно упираются в то, что мерить нечем. Мерить есть чем: METR берёт задачи, у которых известно, сколько на них уходит у живого специалиста, и смотрит, какой длины задачу модель доводит до конца хотя бы в половине случаев. Получается шкала в минутах человеческой работы — понятная без единого технического слова.</p>
+
+        <div class="ec-tiles">
+          <div class="ec-tile ec-tile--lead">
+            <div class="k">Самая длинная задача, которую ИИ доводит до конца</div>
+            <div class="v" id="ec-h-now">—</div>
+            <div class="d" id="ec-h-now-d">—</div>
+          </div>
+          <div class="ec-tile">
+            <div class="k">Удвоение этой длины</div>
+            <div class="v" id="ec-h-dbl">—</div>
+            <div class="d" id="ec-h-dbl-d">—</div>
+          </div>
+          <div class="ec-tile">
+            <div class="k">Если темп сохранится, к 2030 году</div>
+            <div class="v" id="ec-h-2030">—</div>
+            <div class="d" id="ec-h-2030-d">—</div>
+          </div>
+        </div>
+
+        <div class="ec-chart" id="ec-hchart"></div>
+        <p class="ec-fine">Шкала слева логарифмическая: каждое деление — вдесятеро больше предыдущего. Иначе первые годы слиплись бы в ноль. Пунктир — продолжение сегодняшнего темпа, и относиться к нему стоит с осторожностью: ровно так и ошибаются в прогнозах, продолжая экспоненту линейкой. Но и обратное неверно — темп держится уже седьмой год.</p>
+      </section>
+
+      <section class="ec-card">
+        <div class="ec-card-h"><h3>С чем к ИИ приходят на самом деле</h3></div>
+        <p class="ec-sub">Двадцать тем, на которые распадаются все разговоры с моделью, из отчёта Anthropic Economic Index. Слева — какая доля обращений приходится на тему, справа — какая часть работы внутри неё делается без участия человека. Тем, кто ищет, что автоматизировать первым, эта таблица отвечает прямо: там, где доля обращений большая, а автономность уже высокая, рынок сложился.</p>
+        <div class="ec-rank ec-rank--topics" id="ec-topics"></div>
+        <p class="ec-fine">Данные всемирные: Россия в этот набор не входит, Claude там недоступен. Но темы обращений мало зависят от страны — тексты, учёба и код везде наверху.</p>
+      </section>
+
+      <section class="ec-card">
+        <div class="ec-card-h"><h3>Сколько стоит сделать модель и кто их делает</h3></div>
+        <p class="ec-sub">База Epoch AI: 1064 заметные модели с датой выхода, стоимостью обучения и страной. Для предпринимателя тут два вывода, и они противоположны по знаку.</p>
+        <div class="ec-two">
+          <div>
+            <h4 class="ec-goal-grp">Медианная стоимость обучения</h4>
+            <div class="ec-chart" id="ec-costchart"></div>
+            <p class="ec-fine" id="ec-costnote">—</p>
+          </div>
+          <div>
+            <h4 class="ec-goal-grp">Можно ли поставить модель себе</h4>
+            <div class="ec-chart" id="ec-openchart"></div>
+            <p class="ec-fine" id="ec-opennote">—</p>
+          </div>
+        </div>
+        <h4 class="ec-goal-grp">Кто выпускает заметные модели, с 2023 года</h4>
+        <div class="ec-rank ec-rank--ctry" id="ec-ctry"></div>
+      </section>
+
+      <section class="ec-card">
         <div class="ec-card-h"><h3>Найдите свою профессию</h3></div>
         <p class="ec-sub">Сорок групп занятий по международному классификатору ISCO-08, на котором построен и российский ОКЗ. Балл уязвимости — измеренный, из глобального индекса Международной организации труда: эксперты и работники разбирали почти три тысячи конкретных рабочих задач. Доля занятых — фактическая по России из базы МОТ. Это не мои коэффициенты по отраслям, а замер по занятиям.</p>
 
@@ -1131,7 +1225,7 @@ body.ds-has-sticky{padding-bottom:78px;}
             <li><b>Разрыв в ряду.</b> Росстат предупреждает: показатели за 2023–2024 годы включают деятельность кредитных организаций и негосударственных пенсионных фондов, а пересчёт 2016–2022 годов выйдет только к апрелю 2027-го. Поэтому падение доли труда между 2022 и 2023 годом частично методическое, а не только реальное. Это относится ко всем регионам сразу, так что сравнение между ними корректно.</li>
             <li><b>Допущения.</b> Коэффициенты экспозиции отраслей, связь автономности с долей труда и базовый темп роста заданы мной, а не измерены.</li>
             <li><b>Чего в модели нет.</b> Государственной политики, кризисов, миграции, отдельных людей, роботов — тех же дыр, которые авторы исходной модели признают у себя.</li>
-            <li><b>Поправка к прежней версии страницы.</b> Здесь раньше стояло, что российского аналога O*NET не существует и потому считать можно только по отраслям. Это было неверно. Путь есть, только идёт он не через O*NET, а через ISCO-08 — международный классификатор занятий, на котором построен и российский ОКЗ. Раздел «Найдите свою профессию» посчитан именно так, на измеренных баллах, а не на моих коэффициентах.</li><li><b>Уязвимость занятий</b> — Gmyrek P. и др. «Generative AI and jobs: a refined global index of occupational exposure», <a href="https://www.ilo.org/sites/default/files/2025-05/WP140_web.pdf" target="_blank" rel="noopener nofollow">рабочий документ Международной организации труда № 140</a>, май 2025 года. Баллы получены разбором почти трёх тысяч рабочих задач: опрос 1640 работников, экспертные обсуждения, перенос на все занятия ISCO-08.</li><li><b>Занятость по занятиям и место стран</b> — «The Jagged Global Economy: Frontier AI Unevenly Exposes National Economies», 2026, <a href="https://arxiv.org/abs/2607.05404" target="_blank" rel="noopener nofollow">препринт</a> и <a href="https://github.com/jagged-global-economy/jagged-global-economy.github.io" target="_blank" rel="noopener nofollow">открытые данные</a>. Занятость по ISCO-08 взята из базы Международной организации труда, надёжность данных по России помечена как высокая. Оттуда же независимая оценка доли труда по России — 0,48 за 2025 год, рядом с 44,8% по краю из Росстата.</li><li><b>Реальное внедрение</b> — Microsoft AI Diffusion: доля работающего населения, пользующегося генеративным ИИ. По России 7,6% в первом полугодии 2025 года и 9,5% в первом квартале 2026-го при медиане мира 14,8% по 147 странам.</li><li><b>Чего в мировых данных нет.</b> В наборе Anthropic Economic Index о том, что люди делают с ИИ, 121 страна, и России среди них нет: Claude там недоступен. Поэтому место страны здесь посчитано по структуре занятости, а не по реальному использованию.</li><li><b>Занятия — по России целиком, не по краю.</b> Занятость по занятиям в разрезе региона в открытых источниках найти не удалось. Взвешивать на отраслевую структуру края я не стал: это была бы уже оценка, а не замер.</li>
+            <li><b>Поправка к прежней версии страницы.</b> Здесь раньше стояло, что российского аналога O*NET не существует и потому считать можно только по отраслям. Это было неверно. Путь есть, только идёт он не через O*NET, а через ISCO-08 — международный классификатор занятий, на котором построен и российский ОКЗ. Раздел «Найдите свою профессию» посчитан именно так, на измеренных баллах, а не на моих коэффициентах.</li><li><b>Уязвимость занятий</b> — Gmyrek P. и др. «Generative AI and jobs: a refined global index of occupational exposure», <a href="https://www.ilo.org/sites/default/files/2025-05/WP140_web.pdf" target="_blank" rel="noopener nofollow">рабочий документ Международной организации труда № 140</a>, май 2025 года. Баллы получены разбором почти трёх тысяч рабочих задач: опрос 1640 работников, экспертные обсуждения, перенос на все занятия ISCO-08.</li><li><b>Занятость по занятиям и место стран</b> — «The Jagged Global Economy: Frontier AI Unevenly Exposes National Economies», 2026, <a href="https://arxiv.org/abs/2607.05404" target="_blank" rel="noopener nofollow">препринт</a> и <a href="https://github.com/jagged-global-economy/jagged-global-economy.github.io" target="_blank" rel="noopener nofollow">открытые данные</a>. Занятость по ISCO-08 взята из базы Международной организации труда, надёжность данных по России помечена как высокая. Оттуда же независимая оценка доли труда по России — 0,48 за 2025 год, рядом с 44,8% по краю из Росстата.</li><li><b>Длина задачи</b> — <a href="https://metr.org/time-horizons/" target="_blank" rel="noopener nofollow">METR, Task-Completion Time Horizons v1.1</a>. Замеряют так: берут задачи, у которых известно время живого специалиста, и смотрят, какую длины задачу модель доводит до конца хотя бы в половине случаев. Двадцать шесть моделей с 2019 года, удвоение с 2023-го — раз в 128,7 дня.</li><li><b>Модели, их стоимость и страны</b> — <a href="https://epoch.ai/data/ai-models" target="_blank" rel="noopener nofollow">база Epoch AI</a>, 1064 заметные модели, обновлена 7 сентября 2026 года, лицензия CC-BY. Стоимость обучения приведена к долларам 2023 года, взята медиана по году: среднее тут задирают три-четыре самые дорогие модели.</li><li><b>С чем приходят к ИИ</b> — <a href="https://huggingface.co/datasets/Anthropic/EconomicIndex" target="_blank" rel="noopener nofollow">Anthropic Economic Index</a>, релиз от 26 июня 2026 года. Двадцать тем верхнего уровня, доли в сумме дают сто. Данные всемирные.</li><li><b>Реальное внедрение</b> — Microsoft AI Diffusion: доля работающего населения, пользующегося генеративным ИИ. По России 7,6% в первом полугодии 2025 года и 9,5% в первом квартале 2026-го при медиане мира 14,8% по 147 странам.</li><li><b>Чего в мировых данных нет.</b> В наборе Anthropic Economic Index о том, что люди делают с ИИ, 121 страна, и России среди них нет: Claude там недоступен. Поэтому место страны здесь посчитано по структуре занятости, а не по реальному использованию.</li><li><b>Занятия — по России целиком, не по краю.</b> Занятость по занятиям в разрезе региона в открытых источниках найти не удалось. Взвешивать на отраслевую структуру края я не стал: это была бы уже оценка, а не замер.</li>
             <li><b>Задержка данных.</b> ВРП выходит примерно через два года: следующий полный год опубликуют в марте 2027-го.</li>
             <li><b>Мировой ориентир.</b> Доля трудового дохода в мировом ВВП — 52,3% в 2024 году, показатель 10.4.1 Целей устойчивого развития ООН, считает <a href="https://ilostat.ilo.org/topics/labour-income/" target="_blank" rel="noopener nofollow">Международная организация труда</a>. Это тот же показатель, что и по регионам, поэтому сравнение прямое.</li>
             <li><b>Автономные округа.</b> Ненецкий, Ямало-Ненецкий и Ханты-Мансийский показаны отдельными строками, а Архангельская и Тюменская области — без них, чтобы один и тот же ВРП не попал в рейтинг дважды.</li>
@@ -1159,6 +1253,7 @@ var EC_VPM={"2021":13613,"2022":14805,"2023":16819,"2024":18080,"2025":20748,"20
 var EC_OCC=[[24,"Специалисты по бизнесу и администрированию",0.494,6.78,11.22,"Специалисты высшей квалификации",true],[52,"Продавцы",0.362,6.88,8.36,"Услуги и торговля",false],[23,"Преподаватели",0.333,6.7,7.48,"Специалисты высшей квалификации",true],[33,"Средний персонал по бизнесу и администрированию",0.465,4.33,6.75,"Средний персонал",true],[21,"Специалисты в области науки и техники",0.385,5.15,6.66,"Специалисты высшей квалификации",true],[26,"Юристы, специалисты по общественным наукам и культуре",0.383,4.97,6.38,"Специалисты высшей квалификации",true],[83,"Водители и операторы подвижного оборудования",0.19,8.99,5.73,"Производство и простой труд",false],[31,"Техники и средний персонал в науке и технике",0.292,4.85,4.76,"Средний персонал",true],[25,"Специалисты по информационным технологиям и связи",0.543,1.86,3.39,"Специалисты высшей квалификации",true],[32,"Средний медицинский персонал",0.246,4.09,3.37,"Средний персонал",true],[51,"Работники сферы бытовых услуг",0.223,4.51,3.37,"Услуги и торговля",false],[72,"Рабочие по металлу, машинам и смежным профессиям",0.162,5.21,2.82,"Производство и простой труд",false],[43,"Служащие по учёту, расчётам и складу",0.533,1.46,2.6,"Офисные служащие",true],[22,"Врачи и другие специалисты здравоохранения",0.262,2.77,2.43,"Специалисты высшей квалификации",true],[96,"Работники по вывозу мусора и прочие неквалифицированные",0.2,3.29,2.2,"Производство и простой труд",false],[13,"Управляющие производством и специализированными услугами",0.354,1.51,1.79,"Руководители",true],[54,"Работники служб безопасности и охраны",0.172,2.94,1.69,"Услуги и торговля",false],[81,"Операторы стационарных установок и машин",0.19,2.53,1.62,"Производство и простой труд",false],[41,"Служащие общего профиля и операторы по вводу данных",0.632,0.71,1.51,"Офисные служащие",true],[14,"Управляющие в гостиничном деле, торговле и услугах",0.372,1.17,1.46,"Руководители",true],[42,"Служащие по работе с клиентами",0.52,0.79,1.38,"Офисные служащие",true],[71,"Строители и рабочие смежных профессий",0.125,3.2,1.34,"Производство и простой труд",false],[75,"Рабочие пищевой, деревообрабатывающей и швейной промышленности",0.174,2.22,1.29,"Производство и простой труд",false],[34,"Средний персонал в праве, культуре и социальной сфере",0.307,1.24,1.28,"Средний персонал",true],[11,"Руководители высшего звена и законодатели",0.334,1.14,1.28,"Руководители",true],[12,"Управляющие административной и коммерческой деятельностью",0.387,0.91,1.18,"Руководители",true],[44,"Прочий вспомогательный офисный персонал",0.509,0.66,1.12,"Офисные служащие",true],[74,"Рабочие в электротехнике и электронике",0.2,1.49,1.0,"Производство и простой труд",false],[61,"Квалифицированные работники сельского хозяйства",0.186,1.15,0.72,"Сельское хозяйство",false],[93,"Разнорабочие в добыче, строительстве и на транспорте",0.143,1.37,0.66,"Производство и простой труд",false],[53,"Работники по уходу",0.194,0.95,0.62,"Услуги и торговля",false],[82,"Сборщики",0.29,0.58,0.56,"Производство и простой труд",false],[91,"Уборщики и помощники",0.117,1.37,0.53,"Производство и простой труд",false],[35,"Техники по информационным технологиям и связи",0.443,0.35,0.52,"Средний персонал",true],[63,"Работники натурального хозяйства",0.125,0.78,0.33,"Сельское хозяйство",false],[73,"Рабочие художественных промыслов и полиграфии",0.2,0.42,0.28,"Производство и простой труд",false],[92,"Разнорабочие в сельском и лесном хозяйстве",0.107,0.33,0.12,"Производство и простой труд",false],[94,"Помощники по приготовлению пищи",0.155,0.21,0.11,"Производство и простой труд",false],[62,"Квалифицированные работники лесного хозяйства и рыболовства",0.156,0.15,0.08,"Сельское хозяйство",false],[95,"Уличные торговцы и работники услуг",0.19,0.01,0.01,"Производство и простой труд",false]];
 var EC_COUNTRY=[["LUX","Luxembourg",0.3715,1,0.3,0.7434,0.4351,0.1871,110650.0,null,"High income","Europe & Central Asia","high"],["SGP","Singapore",0.3676,2,2.3,0.7376,0.424,0.209,126190.0,63.4,"High income","East Asia & Pacific","high"],["NLD","Netherlands",0.3391,3,9.7,0.6355,0.4139,0.2085,84970.0,42.1,"High income","Europe & Central Asia","high"],["CHE","Switzerland",0.3349,4,4.8,0.6537,0.4085,0.1958,91110.0,37.8,"High income","Europe & Central Asia","high"],["SWE","Sweden",0.334,5,5.3,0.6415,0.409,0.1999,75000.0,36.1,"High income","Europe & Central Asia","high"],["ISR","Israel",0.3333,6,4.0,0.6192,0.4111,0.2068,56790.0,38.1,"High income","Middle East, North Africa, Afghanistan & Pakistan","high"],["DEU","Germany",0.333,7,42.3,0.6094,0.4154,0.2045,76180.0,31.1,"High income","Europe & Central Asia","high"],["IRL","Ireland",0.3307,8,2.7,0.5966,0.4155,0.2054,101180.0,48.4,"High income","Europe & Central Asia","high"],["GBR","United Kingdom of Great Britain and Northern Ireland",0.3294,9,34.1,0.6445,0.4033,0.1956,61460.0,42.2,"High income","Europe & Central Asia","high"],["DNK","Denmark",0.3239,10,3.0,0.5725,0.4134,0.2041,84680.0,31.2,"High income","Europe & Central Asia","high"],["BEL","Belgium",0.3231,11,5.0,0.5977,0.4094,0.1948,74770.0,39.0,"High income","Europe & Central Asia","high"],["USA","United States of America",0.3225,12,163.5,0.6074,0.3999,0.2026,85980.0,31.3,"High income","North America","high"],["CYP","Cyprus",0.3219,13,0.5,0.5302,0.4338,0.1957,56200.0,null,"High income","Europe & Central Asia","high"],["AUS","Australia",0.3217,14,14.4,0.583,0.4071,0.2023,69600.0,39.5,"High income","East Asia & Pacific","high"],["AUT","Austria",0.3211,15,4.5,0.5609,0.4134,0.2032,74160.0,34.1,"High income","Europe & Central Asia","high"],["NOR","Norway",0.3196,16,2.8,0.5886,0.3958,0.2105,106830.0,48.6,"High income","Europe & Central Asia","high"],["FRA","France",0.3193,17,28.5,0.586,0.4089,0.1925,63880.0,47.8,"High income","Europe & Central Asia","high"],["MNE","Montenegro",0.3181,18,0.3,0.4826,0.4189,0.224,33970.0,null,"Upper middle income","Europe & Central Asia","high"],["POL","Poland",0.3165,19,17.0,0.5316,0.4172,0.2022,49540.0,31.0,"High income","Europe & Central Asia","high"],["JPN","Japan",0.3161,20,66.1,0.4246,0.4733,0.2001,55490.0,22.5,"High income","East Asia & Pacific","high"],["GRC","Greece",0.3154,21,17.1,0.445,0.4318,0.222,43340.0,20.8,"High income","Europe & Central Asia","high"],["PRT","Portugal",0.3139,22,5.2,0.508,0.4224,0.202,50730.0,26.4,"High income","Europe & Central Asia","high"],["NIU","Niue",0.3137,23,0.0,0.6091,0.3892,0.1961,null,null,"","","medium"],["ITA","Italy",0.313,24,23.7,0.5005,0.4243,0.2015,61620.0,30.2,"High income","Europe & Central Asia","high"],["EST","Estonia",0.3115,25,0.7,0.5344,0.413,0.195,48880.0,null,"High income","Europe & Central Asia","high"],["HRV","Croatia",0.3107,26,1.7,0.5173,0.4074,0.207,49740.0,26.1,"High income","Europe & Central Asia","high"],["FIN","Finland",0.3089,27,2.6,0.5353,0.4013,0.2026,65640.0,29.5,"High income","Europe & Central Asia","high"],["LTU","Lithuania",0.3088,28,1.5,0.5251,0.4123,0.1944,53920.0,24.3,"High income","Europe & Central Asia","high"],["HUN","Hungary",0.3086,29,4.7,0.4925,0.4196,0.2008,47290.0,32.2,"High income","Europe & Central Asia","high"],["BRN","Brunei Darussalam",0.3071,30,0.2,0.5106,0.4098,0.1999,92750.0,null,"High income","East Asia & Pacific","high"],["TUV","Tuvalu",0.3055,31,0.0,0.5635,0.4027,0.18,8320.0,null,"Upper middle income","East Asia & Pacific","high"],["LVA","Latvia",0.3042,32,0.9,0.5153,0.4081,0.1938,42660.0,null,"High income","Europe & Central Asia","high"],["SVN","Slovenia",0.3041,33,1.0,0.4994,0.4117,0.1967,56520.0,29.0,"High income","Europe & Central Asia","high"],["CZE","Czechia",0.3016,34,5.2,0.4895,0.4088,0.1989,54800.0,30.1,"High income","Europe & Central Asia","high"],["ESP","Spain",0.3011,35,21.6,0.4623,0.4132,0.2047,57670.0,44.2,"High income","Europe & Central Asia","high"],["RUS","Russian Federation",0.2982,36,73.5,0.5143,0.386,0.2053,46780.0,9.5,"High income","Europe & Central Asia","high"],["PLW","Palau",0.2949,37,0.0,0.4408,0.4235,0.1935,18320.0,null,"High income","East Asia & Pacific","high"],["ARG","Argentina",0.2937,38,12.2,0.3802,0.4304,0.2098,29800.0,21.9,"Upper middle income","Latin America & Caribbean","high"],["BGR","Bulgaria",0.2924,39,2.9,0.4099,0.4146,0.2076,39850.0,29.7,"High income","Europe & Central Asia","high"],["WLF","Wallis and Futuna",0.2907,40,0.0,0.4407,0.4198,0.189,null,null,"","","medium"],["MSR","Montserrat",0.2904,41,0.0,0.4751,0.4104,0.1817,null,null,"","","medium"],["COK","Cook Islands",0.29,42,0.0,0.4423,0.3924,0.2089,null,null,"","","high"],["MUS","Mauritius",0.2894,43,0.5,0.3958,0.4335,0.1951,35100.0,null,"Upper middle income","Sub-Saharan Africa","high"],["KOS","Kosovo",0.2879,44,0.4,0.4002,0.4013,0.2122,18290.0,null,"Upper middle income","Europe & Central Asia","high"],["BRB","Barbados",0.2864,45,0.1,0.418,0.3973,0.2066,23850.0,null,"High income","Latin America & Caribbean","high"],["MKD","North Macedonia",0.2862,46,0.7,0.4049,0.4062,0.2046,25610.0,null,"Upper middle income","Europe & Central Asia","high"],["SRB","Serbia",0.2847,47,12.2,0.4048,0.4118,0.1982,30770.0,24.1,"Upper middle income","Europe & Central Asia","high"],["BHS","Bahamas",0.2824,48,0.2,0.3713,0.4198,0.2013,39550.0,null,"High income","Latin America & Caribbean","high"],["BLR","Belarus",0.2821,49,4.8,0.4592,0.382,0.1973,32300.0,9.6,"Upper middle income","Europe & Central Asia","high"],["URY","Uruguay",0.2807,50,1.7,0.3578,0.4309,0.197,34170.0,24.6,"High income","Latin America & Caribbean","high"],["ARE","United Arab Emirates",0.2806,51,7.2,0.4381,0.4135,0.177,81530.0,70.1,"High income","Middle East, North Africa, Afghanistan & Pakistan","high"],["MDV","Maldives",0.2797,52,0.2,0.4541,0.4043,0.1761,23400.0,null,"Upper middle income","South Asia","high"],["CHL","Chile",0.2786,53,9.1,0.3866,0.4006,0.2017,34320.0,22.7,"High income","Latin America & Caribbean","high"],["BRA","Brazil",0.2783,54,101.3,0.347,0.4177,0.2041,21590.0,19.1,"Upper middle income","Latin America & Caribbean","high"],["CRI","Costa Rica",0.274,55,2.2,0.344,0.4265,0.1941,28840.0,28.5,"High income","Latin America & Caribbean","high"],["TKL","Tokelau",0.2727,56,0.0,0.5651,0.3537,0.1676,null,null,"","","medium"],["ROU","Romania",0.2717,57,7.8,0.3272,0.4137,0.2027,47920.0,17.5,"High income","Europe & Central Asia","high"],["SUR","Suriname",0.2703,58,0.2,0.3793,0.3975,0.1925,20000.0,10.3,"Upper middle income","Latin America & Caribbean","high"],["MHL","Marshall Islands",0.2682,59,0.0,0.3902,0.3926,0.1886,9680.0,null,"Upper middle income","East Asia & Pacific","high"],["JAM","Jamaica",0.2662,60,1.1,0.3131,0.4222,0.1951,12690.0,24.0,"Upper middle income","Latin America & Caribbean","high"],["TUR","Türkiye",0.2652,61,32.6,0.3212,0.4087,0.1973,44600.0,17.4,"Upper middle income","Europe & Central Asia","high"],["CUB","Cuba",0.2645,62,4.6,0.3801,0.3963,0.1838,null,6.7,"Upper middle income","Latin America & Caribbean","high"],["DOM","Dominican Republic",0.264,63,5.1,0.2734,0.4241,0.2037,26050.0,24.8,"Upper middle income","Latin America & Caribbean","high"],["LBN","Lebanon",0.2639,64,1.5,0.335,0.3978,0.1964,12420.0,27.3,"Lower middle income","Middle East, North Africa, Afghanistan & Pakistan","high"],["MEX","Mexico",0.2638,65,59.0,0.28,0.4129,0.2058,25460.0,20.1,"Upper middle income","Latin America & Caribbean","high"],["MNG","Mongolia",0.263,66,1.4,0.3322,0.3825,0.2035,17000.0,16.7,"Upper middle income","East Asia & Pacific","high"],["BIH","Bosnia and Herzegovina",0.2628,67,1.3,0.3265,0.4041,0.1943,24990.0,22.1,"Upper middle income","Europe & Central Asia","high"],["COL","Colombia",0.2628,68,23.8,0.298,0.4203,0.1959,21890.0,24.5,"Upper middle income","Latin America & Caribbean","high"],["TON","Tonga",0.259,69,0.0,0.3558,0.3976,0.1825,8400.0,null,"Upper middle income","East Asia & Pacific","high"],["SOM","Somalia",0.2586,70,1.0,0.3674,0.379,0.1886,1630.0,7.6,"Low income","Sub-Saharan Africa","high"],["FJI","Fiji",0.2585,71,0.3,0.2934,0.4238,0.1899,14490.0,null,"Upper middle income","East Asia & Pacific","high"],["JOR","Jordan",0.2547,72,2.8,0.2486,0.4256,0.1982,10570.0,29.7,"Lower middle income","Middle East, North Africa, Afghanistan & Pakistan","high"],["EGY","Egypt",0.2543,73,29.9,0.2702,0.3894,0.2042,18230.0,14.8,"Lower middle income","Middle East, North Africa, Afghanistan & Pakistan","high"],["IRN","Iran (Islamic Republic of)",0.2538,74,24.1,0.2515,0.409,0.2017,19820.0,12.6,"Upper middle income","Middle East, North Africa, Afghanistan & Pakistan","high"],["PSE","Palestine (State of)",0.2534,75,0.7,0.2852,0.3782,0.2035,4660.0,null,"Lower middle income","Middle East, North Africa, Afghanistan & Pakistan","high"],["PHL","Philippines",0.2523,76,46.8,0.2151,0.432,0.2031,13330.0,20.1,"Lower middle income","East Asia & Pacific","high"],["SLV","El Salvador",0.2511,77,2.9,0.2007,0.4152,0.2099,12420.0,18.3,"Upper middle income","Latin America & Caribbean","high"],["THA","Thailand",0.25,78,39.7,0.1813,0.4256,0.2111,23960.0,12.4,"Upper middle income","East Asia & Pacific","high"],["GUY","Guyana",0.247,79,0.2,0.2463,0.3964,0.1982,52290.0,10.3,"High income","Latin America & Caribbean","high"],["SWZ","Eswatini",0.2438,80,0.2,0.2357,0.3799,0.2018,10760.0,null,"Lower middle income","Sub-Saharan Africa","high"],["PER","Peru",0.2432,81,17.7,0.2247,0.4088,0.1951,16780.0,16.4,"Upper middle income","Latin America & Caribbean","high"],["IRQ","Iraq",0.2428,82,8.0,0.2623,0.3758,0.1955,14530.0,12.5,"Upper middle income","Middle East, North Africa, Afghanistan & Pakistan","high"],["BLZ","Belize",0.2425,83,0.1,0.2016,0.4256,0.1963,13760.0,null,"Upper middle income","Latin America & Caribbean","high"],["BTN","Bhutan",0.2422,84,0.4,0.2857,0.3813,0.1866,15320.0,null,"Lower middle income","South Asia","high"],["IDN","Indonesia",0.2419,85,138.7,0.1535,0.4102,0.2114,16010.0,14.1,"Upper middle income","East Asia & Pacific","high"],["BOL","Bolivia (Plurinational State of)",0.2413,86,6.8,0.1816,0.3815,0.2102,12620.0,12.7,"Lower middle income","Latin America & Caribbean","high"],["NER","Niger",0.2412,87,2.1,0.1672,0.3636,0.2167,2030.0,10.1,"Low income","Sub-Saharan Africa","high"],["KGZ","Kyrgyzstan",0.2401,88,2.6,0.234,0.3767,0.1983,7900.0,9.5,"Lower middle income","Europe & Central Asia","high"],["CIV","Côte d'Ivoire",0.2397,89,8.6,0.0812,0.3691,0.2283,7360.0,13.1,"Lower middle income","Sub-Saharan Africa","high"],["WSM","Samoa",0.2394,90,0.1,0.2664,0.3955,0.1827,8620.0,null,"Upper middle income","East Asia & Pacific","high"],["LKA","Sri Lanka",0.2373,91,7.8,0.2439,0.4034,0.1838,15240.0,7.3,"Lower middle income","South Asia","high"],["GEO","Georgia",0.237,92,1.8,0.291,0.3859,0.1759,26200.0,20.5,"Upper middle income","Europe & Central Asia","high"],["PNG","Papua New Guinea",0.2364,93,4.0,0.1649,0.3792,0.2082,4580.0,7.7,"Lower middle income","East Asia & Pacific","high"],["TUN","Tunisia",0.2364,94,5.4,0.2384,0.3962,0.1864,14230.0,13.5,"Lower middle income","Middle East, North Africa, Afghanistan & Pakistan","high"],["TGO","Togo",0.2353,95,3.3,0.0804,0.3923,0.2216,3380.0,10.1,"Low income","Sub-Saharan Africa","high"],["GTM","Guatemala",0.2337,96,7.6,0.1527,0.4173,0.2007,14170.0,16.4,"Upper middle income","Latin America & Caribbean","high"],["GMB","Gambia",0.2337,97,0.6,0.1173,0.3741,0.2151,3430.0,11.4,"Low income","Sub-Saharan Africa","high"],["NPL","Nepal",0.2326,98,7.4,0.1624,0.3827,0.2035,5830.0,14.2,"Lower middle income","South Asia","high"],["PAN","Panama",0.2318,99,1.9,0.2755,0.4086,0.1646,39260.0,23.3,"High income","Latin America & Caribbean","high"],["HND","Honduras",0.2314,100,4.0,0.1668,0.3978,0.1981,6900.0,14.0,"Lower middle income","Latin America & Caribbean","high"],["ALB","Albania",0.2302,101,1.2,0.223,0.3765,0.1882,26500.0,18.5,"Upper middle income","Europe & Central Asia","high"],["STP","Sao Tome and Principe",0.23,102,0.0,0.1463,0.4028,0.2003,6240.0,null,"Lower middle income","Sub-Saharan Africa","medium"],["MMR","Myanmar",0.2293,103,22.3,0.0818,0.4527,0.2094,5890.0,10.0,"Lower middle income","East Asia & Pacific","high"],["BWA","Botswana",0.2282,104,0.9,0.2457,0.396,0.1735,20570.0,14.8,"Upper middle income","Sub-Saharan Africa","high"],["KIR","Kiribati",0.2273,105,0.0,0.2246,0.3902,0.1801,6060.0,null,"Lower middle income","East Asia & Pacific","high"],["BEN","Benin",0.2272,106,5.4,0.0564,0.3868,0.2177,4390.0,10.1,"Lower middle income","Sub-Saharan Africa","high"],["GIN","Guinea",0.2271,107,3.2,0.0866,0.3763,0.2129,4130.0,10.1,"Lower middle income","Sub-Saharan Africa","high"],["VNM","Viet Nam",0.2253,108,53.4,0.1348,0.4227,0.1945,15850.0,26.5,"Lower middle income","East Asia & Pacific","high"],["PAK","Pakistan",0.225,109,77.6,0.1447,0.3876,0.1975,6100.0,11.4,"Lower middle income","Middle East, North Africa, Afghanistan & Pakistan","high"],["MWI","Malawi",0.2225,110,5.0,0.2065,0.3735,0.1833,1830.0,10.9,"Low income","Sub-Saharan Africa","high"],["ECU","Ecuador",0.2222,111,8.3,0.1596,0.4011,0.1882,15410.0,19.5,"Upper middle income","Latin America & Caribbean","high"],["TJK","Tajikistan",0.2216,112,2.3,0.2462,0.3554,0.1779,7100.0,6.1,"Lower middle income","Europe & Central Asia","high"],["KHM","Cambodia",0.2208,113,9.7,0.1022,0.4211,0.198,7910.0,5.7,"Lower middle income","East Asia & Pacific","high"],["CPV","Cabo Verde",0.2201,114,0.1,0.1638,0.4009,0.1847,11000.0,null,"Upper middle income","Sub-Saharan Africa","high"],["GHA","Ghana",0.22,115,12.0,0.1115,0.3782,0.2002,7720.0,10.1,"Lower middle income","Sub-Saharan Africa","high"],["FSM","Micronesia (Federated States of)",0.2188,116,0.0,0.2603,0.3921,0.1578,4690.0,null,"Lower middle income","East Asia & Pacific","medium"],["VUT","Vanuatu",0.2182,117,0.1,0.1814,0.3936,0.1794,4140.0,null,"Lower middle income","East Asia & Pacific","high"],["BGD","Bangladesh",0.218,118,67.8,0.0956,0.3927,0.1996,10060.0,7.8,"Lower middle income","South Asia","high"],["IND","India",0.2166,119,482.8,0.1389,0.4026,0.1866,11000.0,17.6,"Lower middle income","South Asia","high"],["SDN","Sudan",0.2128,120,8.0,0.1037,0.3687,0.1948,2050.0,7.6,"Low income","Sub-Saharan Africa","high"],["TLS","Timor-Leste",0.2076,121,0.4,0.0954,0.3934,0.188,5040.0,null,"Lower middle income","East Asia & Pacific","medium"],["AGO","Angola",0.2062,122,13.1,0.0897,0.3747,0.1896,9460.0,10.9,"Lower middle income","Sub-Saharan Africa","high"],["LAO","Lao People's Democratic Republic",0.2054,123,3.4,0.0929,0.4299,0.1825,9160.0,7.8,"Lower middle income","East Asia & Pacific","high"],["SLE","Sierra Leone",0.2047,124,3.2,0.063,0.3663,0.1938,3490.0,10.1,"Low income","Sub-Saharan Africa","high"],["MLI","Mali",0.2001,125,6.7,0.0461,0.3812,0.1914,3230.0,10.1,"Low income","Sub-Saharan Africa","high"],["SLB","Solomon Islands",0.1992,126,0.4,0.1675,0.3715,0.1646,2680.0,null,"Lower middle income","East Asia & Pacific","medium"],["KEN","Kenya",0.1988,127,14.5,0.1345,0.4028,0.1671,6540.0,8.7,"Lower middle income","Sub-Saharan Africa","medium"],["BFA","Burkina Faso",0.1977,128,7.9,0.1279,0.3587,0.174,2720.0,10.1,"Low income","Sub-Saharan Africa","high"],["COD","Congo, Democratic Republic of the",0.1969,129,30.6,0.1077,0.3602,0.1772,1760.0,8.7,"Low income","Sub-Saharan Africa","high"],["ZWE","Zimbabwe",0.1918,130,4.9,0.1149,0.3724,0.1683,5870.0,8.5,"Lower middle income","Sub-Saharan Africa","high"],["AFG","Afghanistan",0.1893,131,7.2,0.087,0.3621,0.1728,2210.0,6.1,"Low income","Middle East, North Africa, Afghanistan & Pakistan","medium"],["ZMB","Zambia",0.1872,132,7.1,0.0821,0.3795,0.17,3850.0,13.1,"Lower middle income","Sub-Saharan Africa","high"],["RWA","Rwanda",0.1862,133,4.9,0.092,0.3848,0.1661,3620.0,7.2,"Low income","Sub-Saharan Africa","high"],["UGA","Uganda",0.182,134,17.9,0.0556,0.3558,0.1718,3190.0,7.6,"Low income","Sub-Saharan Africa","high"],["GNB","Guinea-Bissau",0.1788,135,0.7,0.0674,0.3829,0.164,3140.0,10.1,"Low income","Sub-Saharan Africa","high"],["ETH","Ethiopia",0.1767,136,36.5,0.0501,0.3941,0.1653,3280.0,7.6,"","Sub-Saharan Africa","high"],["LSO","Lesotho",0.1748,137,0.8,0.0961,0.3735,0.1537,3580.0,9.8,"Lower middle income","Sub-Saharan Africa","high"],["TZA","Tanzania, United Republic of",0.1733,138,31.0,0.0434,0.3854,0.1637,4130.0,7.6,"Lower middle income","Sub-Saharan Africa","high"],["MDG","Madagascar",0.1662,139,11.8,0.0508,0.3895,0.1543,1830.0,10.9,"Low income","Sub-Saharan Africa","high"],["MOZ","Mozambique",0.1618,140,12.2,0.0492,0.3695,0.1511,1520.0,10.9,"Low income","Sub-Saharan Africa","high"],["BDI","Burundi",0.144,141,5.0,0.0309,0.3673,0.1369,1200.0,7.6,"Low income","Sub-Saharan Africa","high"]];
 var EC_WORLD={"ru":["RUS","Russian Federation",0.2982,36,73.5,0.5143,0.386,0.2053,46780.0,9.5,"High income","Europe & Central Asia","high"],"ms":{"h1_2025":7.6,"h2_2025":8.0,"q1_2026":9.5},"msMedian":14.8,"msCount":147,"lab":{"labsh":0.4797,"year":2025},"sexF":0.3343,"sexM":0.2636};
+var EC_TECH={"doubling":128.7,"doublingAll":187.8,"hz":[["GPT-2","2019-02-14",0.05,true],["davinci-002","2020-05-28",0.14,true],["GPT-3.5 Turbo","2022-03-15",0.6,true],["GPT-4","2023-03-14",3.99,true],["GPT-4 Turbo","2023-11-06",4.04,true],["Claude 3 Opus","2024-03-04",3.95,false],["GPT-4 Turbo","2024-04-09",3.73,false],["GPT-4o","2024-05-13",6.99,true],["Claude 3.5 Sonnet","2024-06-20",11.4,true],["o1 (предварительная)","2024-09-12",20.33,true],["Claude 3.5 Sonnet","2024-10-22",20.52,true],["o1","2024-12-05",38.83,true],["Claude 3.7 Sonnet","2025-02-24",60.39,true],["o3","2025-04-16",119.73,true],["Claude 4 Opus","2025-05-22",100.37,false],["Claude 4.1 Opus","2025-08-05",100.47,false],["GPT-5","2025-08-07",203.01,true],["Gemini 3 Pro","2025-11-18",224.33,true],["GPT-5.1 codex max","2025-11-19",223.71,false],["Claude Opus 4.5","2025-11-24",292.99,true],["GPT-5.2","2025-12-11",352.25,true],["Claude Opus 4.6","2026-02-05",718.81,true],["GPT-5.3 codex","2026-02-05",349.53,false],["Gemini 3.1 Pro","2026-02-19",384.15,false],["GPT-5.4","2026-03-05",341.74,false],["Claude Mythos (предварительная)","2026-04-07",1044.78,true]],"cost":[[2017,17911],[2018,1751],[2019,77861],[2020,5021],[2021,39104],[2022,111248],[2023,212218],[2024,21271018],[2025,44588964]],"open":[[2019,31,37],[2020,28,22],[2021,41,38],[2022,41,49],[2023,59,60],[2024,39,59],[2025,45,62],[2026,26,44]],"ctry":[["United States of America",236],["China",113],["South Korea",15],["France",6],["United Kingdom",4],["Singapore",3],["Saudi Arabia",3],["Germany",2]],"topics":[["Тексты и реклама",22.72,37.4],["Учёба и объяснения",13.23,34.4],["Разработка программ",11.51,64.5],["Поиск и разбор информации",10.94,43.1],["Быт и увлечения",9.49,50.5],["Бизнес-процессы и операции",4.7,74.3],["Разбор документов",4.32,59.2],["Анализ данных и отчётность",3.83,54.5],["Поиск по своим базам знаний",3.61,43.9],["Личные и жизненные вопросы",3.44,38.4],["Личный помощник",2.86,68.9],["Эксплуатация ИТ-инфраструктуры",2.82,80.3],["Companionship & General Conversation",1.37,34.8],["Sales & Revenue Operations",1.1,61.0],["Compliance & Regulatory",1.06,37.0],["Customer Support & Service Operations",0.6,79.6],["Cybersecurity & Threat Detection",0.38,63.9],["Other / Unclear",0.36,77.0],["Conversation & Meeting Intelligence",0.26,73.5],["Trust & Safety / Platform Integrity",0.07,55.5]]};
 
 /* Модель «ИИ и экономика Забайкальского края» и рейтинг регионов.
    Ряды — Росстат и Забайкалкрайстат (см. EC_REG / EC_SECT в aiecon-data.js).
@@ -1235,6 +1330,87 @@ var EC_WORLD={"ru":["RUS","Russian Federation",0.2982,36,73.5,0.5143,0.386,0.205
     $('t-exp-d').textContent = 'из ' + nf(r.pot * 100) + '% пригодных в принципе. '
       + 'В деньгах это около ' + nf(wage * r.eff, 0) + ' млрд ₽ зарплат в год '
       + 'из ' + nf(wage, 0) + ' млрд';
+  }
+
+  /* ------------------------------------------------- сто клеток работы
+     Вся работа как сетка: одна клетка — один процент занятых. Приём взят
+     у Anthropic, но клетки набиты не коэффициентами из головы, а реальными
+     занятиями: сорок групп ISCO-08 с измеренной уязвимостью и фактической
+     долей занятых. Клетки отсортированы по уязвимости, поэтому загораются
+     в том порядке, в каком работа и будет уходить: сверху вниз.
+     Это самостоятельный слой, он не зависит от отраслевых коэффициентов
+     в модели выше и намеренно считается по стране, а не по краю: занятости
+     по занятиям в разрезе региона в открытых источниках нет. */
+  var SQ = 100;
+  var SQ_CELLS = (function () {
+    // Раскладываем сто клеток по занятиям пропорционально числу занятых
+    var byExpo = EC_OCC.slice().sort(function (a, b) { return b[2] - a[2]; });
+    var cells = [], acc = 0;
+    byExpo.forEach(function (o) {
+      acc += o[3];
+      var need = Math.round(acc) - cells.length;
+      for (var i = 0; i < need; i++) cells.push(o);
+    });
+    while (cells.length < SQ) cells.push(byExpo[byExpo.length - 1]);
+    return cells.slice(0, SQ);
+  })();
+
+  function squaresInit() {
+    var h = '<svg viewBox="0 0 268 268" role="img" aria-label="Сто клеток: вся работа в России по занятиям, раскрашенная по тому, что с ней сделает искусственный интеллект">';
+    // Фильтр даёт клеткам неровный край: идеальные квадраты читаются как
+    // технический график, а не как «вот столько всего есть».
+    h += '<defs><filter id="ec-mk" x="-14%" y="-14%" width="128%" height="128%">' +
+      '<feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="7" result="n"/>' +
+      '<feDisplacementMap in="SourceGraphic" in2="n" scale="1.8" ' +
+      'xChannelSelector="R" yChannelSelector="G"/></filter></defs>' +
+      '<g filter="url(#ec-mk)">';
+    for (var i = 0; i < SQ; i++) {
+      var o = SQ_CELLS[i];
+      h += '<rect class="ec-sq" id="ec-sq' + i + '" x="' + ((i % 10) * 26 + 4) +
+        '" y="' + (Math.floor(i / 10) * 26 + 4) + '" width="19" height="19" rx="2.5" ' +
+        'tabindex="0" data-i="' + i + '"><title>' + esc(o[1]) + ' — балл ' +
+        nf(o[2], 2) + ', ' + nf(o[3], 1) + '% занятых</title></rect>';
+    }
+    $('squares').innerHTML = h + '</g></svg>';
+    $('squares').addEventListener('mouseover', sqHover);
+    $('squares').addEventListener('focusin', sqHover);
+    $('squares').addEventListener('mouseleave', function () { sqShow(null); });
+  }
+  function sqHover(e) {
+    var i = e.target && e.target.getAttribute ? e.target.getAttribute('data-i') : null;
+    if (i !== null) sqShow(SQ_CELLS[+i]);
+  }
+  var sqLast = null;
+  function sqShow(o) {
+    if (o === sqLast) return;
+    sqLast = o;
+    if (!o) { squares(compute(state()), state()); return; }
+    $('sqstat').innerHTML = '<b>' + esc(o[1]) + '</b> — балл уязвимости ' +
+      nf(o[2], 2) + ', это ' + nf(o[3], 1) + '% всех занятых в стране. ' + esc(o[5]) + '.';
+  }
+
+  function squares(r, s) {
+    // Сколько работы затронуто: средний балл по стране, урезанный тем,
+    // что ИИ реально умеет и насколько он внедрён
+    var reach = (s.cap / 100) * (s.ado / 100);
+    var touched = 0;
+    SQ_CELLS.forEach(function (o) { touched += o[2] * reach; });
+    var n = Math.round(touched);
+    var nAuto = Math.round(n * s.aut / 100);
+    for (var k = 0; k < SQ; k++) {
+      var el = $('sq' + k);
+      if (!el) continue;
+      var want = k < nAuto ? ' is-auto' : (k < n ? ' is-help' : '');
+      el.style.transitionDelay = (k * 6) + 'ms';
+      el.setAttribute('class', 'ec-sq' + want);
+    }
+    sqLast = undefined;
+    $('sqstat').innerHTML =
+      '<b>' + nAuto + '</b> из ста ИИ делает сам, <b>' + (n - nAuto) +
+      '</b> помогает человеку, остальных <b>' + (SQ - n) + '</b> при таких допущениях ' +
+      'не касается. Клетки идут по убыванию уязвимости: первыми загораются ' +
+      'офисные служащие и специалисты по данным, последними — те, чья работа ' +
+      'руками. Наведите на клетку, чтобы увидеть занятие.';
   }
 
   // ------------------------------------------------------------------ график
@@ -1585,6 +1761,150 @@ var EC_WORLD={"ru":["RUS","Russian Federation",0.2982,36,73.5,0.5143,0.386,0.205
       (rows.length < EC_MO.length
         ? '. По закрытым и вновь образованным Росстат публикует не каждый год.' : '.') +
       esc(extra);
+  }
+
+  // -------------------------------------------------- куда идут технологии
+  /* Длину задачи показываем в человеческих единицах: «17 часов» понятно,
+     «1044 минуты» — нет. */
+  function dur(min) {
+    if (min < 1) return nf(min * 60, 0) + ' сек.';
+    if (min < 90) return nf(min, min < 10 ? 1 : 0) + ' мин.';
+    if (min < 60 * 40) return nf(min / 60, 1) + ' ч.';
+    if (min < 60 * 8 * 250) return nf(min / 60 / 8, 0) + ' рабочих дней';
+    return nf(min / 60 / 8 / 250, 1) + ' рабочих лет';
+  }
+  function daysBetween(a, b) { return (new Date(b) - new Date(a)) / 864e5; }
+
+  function techTiles() {
+    var hz = EC_TECH.hz, last = hz[hz.length - 1];
+    $('h-now').textContent = dur(last[2]);
+    $('h-now-d').textContent = last[0] + ', ' + last[1].slice(0, 4) + ' год. В 2019-м лучшая ' +
+      'модель справлялась с задачей на ' + dur(hz[0][2]);
+    $('h-dbl').textContent = nf(EC_TECH.doubling / 30.4, 1) + ' мес.';
+    $('h-dbl-d').textContent = 'с 2023 года. За всё время наблюдений — ' +
+      nf(EC_TECH.doublingAll / 30.4, 1) + ' мес.';
+    var v2030 = last[2] * Math.pow(2, daysBetween(last[1], '2030-01-01') / EC_TECH.doubling);
+    $('h-2030').textContent = dur(v2030);
+    $('h-2030-d').textContent = 'это продолжение темпа, а не прогноз: столько удвоений ' +
+      'подряд не выдерживала ни одна технология';
+  }
+
+  function hchart() {
+    var cs = palette(), hz = EC_TECH.hz;
+    var W = 820, H = 340, mL = 96, mR = 112, mT = 18, mB = 34;
+    var t0 = new Date('2019-01-01'), t1 = new Date('2030-06-01');
+    var lo = Math.log10(0.03), hi = Math.log10(3e6);
+    function px(d) { return mL + (new Date(d) - t0) / (t1 - t0) * (W - mL - mR); }
+    function py(v) { return mT + (hi - Math.log10(v)) / (hi - lo) * (H - mT - mB); }
+    var s = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Длина задачи, которую искусственный интеллект доводит до конца, с 2019 по 2030 год">';
+    [[0.05, '3 секунды'], [1, 'минута'], [60, 'час'], [480, 'рабочий день'],
+     [2400, 'рабочая неделя'], [120000, 'рабочий год']].forEach(function (g) {
+      s += '<line x1="' + mL + '" y1="' + py(g[0]) + '" x2="' + (W - mR) + '" y2="' + py(g[0]) +
+        '" stroke="' + cs.line + '" opacity=".6"/>' +
+        '<text x="' + (mL - 8) + '" y="' + (py(g[0]) + 3.5) + '" text-anchor="end" font-size="10.5" fill="' +
+        cs.dim + '">' + g[1] + '</text>';
+    });
+    [2019, 2022, 2026, 2030].forEach(function (y) {
+      s += '<text x="' + px(y + '-01-01') + '" y="' + (H - 10) + '" text-anchor="middle" font-size="10.5" fill="' +
+        cs.dim + '">' + y + '</text>';
+    });
+    var last = hz[hz.length - 1];
+    // Продолжение темпа рисуем отдельным цветом и пунктиром: это не измерение
+    var proj = [], m;
+    for (m = 0; m <= 48; m += 3) {
+      var dd = m * 30.4;
+      proj.push(px(new Date(new Date(last[1]).getTime() + dd * 864e5)) + ',' +
+        py(last[2] * Math.pow(2, dd / EC_TECH.doubling)));
+    }
+    s += '<polyline points="' + proj.join(' ') + '" fill="none" stroke="' + cs.sel +
+      '" stroke-width="2" stroke-dasharray="5 5"/>';
+    var best = hz.filter(function (x) { return x[3]; });
+    s += '<polyline points="' + best.map(function (x) { return px(x[1]) + ',' + py(x[2]); }).join(' ') +
+      '" fill="none" stroke="' + cs.lab + '" stroke-width="2" stroke-linejoin="round"/>';
+    hz.forEach(function (x) {
+      s += '<circle cx="' + px(x[1]) + '" cy="' + py(x[2]) + '" r="' + (x[3] ? 4 : 2.6) +
+        '" fill="' + (x[3] ? cs.lab : cs.dim) + '" opacity="' + (x[3] ? 1 : .5) + '">' +
+        '<title>' + esc(x[0]) + ', ' + x[1] + ' — ' + dur(x[2]) + '</title></circle>';
+    });
+    // Подписываем только те, что не налезут друг на друга
+    var used = [];
+    best.slice().reverse().forEach(function (x) {
+      var y = py(x[2]);
+      if (used.some(function (u) { return Math.abs(u - y) < 15; })) return;
+      used.push(y);
+      s += '<text x="' + (px(x[1]) + 7) + '" y="' + (y + 3.5) + '" font-size="10.5" fill="' +
+        cs.ink + '">' + esc(x[0]) + '</text>';
+    });
+    $('hchart').innerHTML = s + '</svg>';
+  }
+
+  function topics() {
+    var rows = EC_TECH.topics.filter(function (t) { return t[1] > 0; });
+    var hi = rows[0][1];
+    $('topics').innerHTML = rows.map(function (t, i) {
+      return '<div class="ec-row ec-row--static">' +
+        '<span class="ec-rk">' + (i + 1) + '</span>' +
+        '<span class="ec-rn">' + esc(t[0]) +
+        (t[2] ? '<small>без участия человека — ' + nf(t[2], 0) + '%</small>' : '') + '</span>' +
+        '<span class="ec-rb"><i style="width:' + Math.max(1.5, t[1] / hi * 100) + '%"></i></span>' +
+        '<span class="ec-rv">' + nf(t[1]) + '%</span></div>';
+    }).join('');
+  }
+
+  /* Столбики по годам: один вызов на оба маленьких графика. Значения
+     подписаны у первого и последнего — отдельная шкала тут мешала бы. */
+  function bars(id, data, fmt, color) {
+    var cs = palette(), W = 360, H = 150, mB = 26, mT = 18;
+    var hi = Math.max.apply(null, data.map(function (d) { return d[1]; }));
+    var bw = W / data.length;
+    var s = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Столбчатая диаграмма по годам">';
+    data.forEach(function (d, i) {
+      var h = Math.max(2, (d[1] / hi) * (H - mB - mT));
+      var x = i * bw + bw * 0.15, w = bw * 0.7;
+      s += '<rect x="' + x.toFixed(1) + '" y="' + (H - mB - h).toFixed(1) + '" width="' + w.toFixed(1) +
+        '" height="' + h.toFixed(1) + '" rx="2" fill="' + color + '"><title>' + d[0] + ': ' +
+        fmt(d[1]) + '</title></rect>';
+      s += '<text x="' + (x + w / 2).toFixed(1) + '" y="' + (H - mB + 12) +
+        '" text-anchor="middle" font-size="9.5" fill="' + cs.dim + '">' + d[0] + '</text>';
+      if (i === data.length - 1 || i === 0) {
+        s += '<text x="' + (x + w / 2).toFixed(1) + '" y="' + (H - mB - h - 5).toFixed(1) +
+          '" text-anchor="middle" font-size="10" font-weight="700" fill="' + cs.ink + '">' +
+          fmt(d[1]) + '</text>';
+      }
+    });
+    $(id).innerHTML = s + '</svg>';
+  }
+
+  function techCharts() {
+    var cs = palette(), cost = EC_TECH.cost;
+    bars('costchart', cost, function (v) {
+      return v >= 1e6 ? nf(v / 1e6, 0) + ' млн $' : nf(v / 1e3, 0) + ' тыс. $';
+    }, cs.cap);
+    var a = cost[0], b = cost[cost.length - 1];
+    $('costnote').innerHTML = 'В ' + a[0] + ' году обучение заметной модели стоило по медиане <b>' +
+      nf(a[1] / 1e3, 0) + ' тыс. долларов</b>, в ' + b[0] + '-м — <b>' + nf(b[1] / 1e6, 1) +
+      ' млн</b>. Делать свою модель с нуля уходит из зоны досягаемости почти для всех. ' +
+      'Зато чужая работа дешевеет: пользоваться готовым стало на порядки доступнее.';
+
+    var op = EC_TECH.open.map(function (o) { return [o[0], o[1] / (o[1] + o[2]) * 100]; });
+    bars('openchart', op, function (v) { return nf(v, 0) + '%'; }, cs.lab);
+    var lastOp = op[op.length - 1];
+    $('opennote').innerHTML = 'Доля моделей с открытыми весами — тех, что можно поставить ' +
+      'на свой сервер и не отдавать данные наружу. В ' + lastOp[0] + ' году это <b>' +
+      nf(lastOp[1], 0) + '%</b> заметных моделей. Для бизнеса с чувствительными данными ' +
+      'это и есть ответ на вопрос, обязательно ли идти в чужое облако.';
+
+    var hi = EC_TECH.ctry[0][1];
+    $('ctry').innerHTML = EC_TECH.ctry.map(function (c, i) {
+      return '<div class="ec-row ec-row--static">' +
+        '<span class="ec-rk">' + (i + 1) + '</span>' +
+        '<span class="ec-rn">' + esc(c[0]) + '</span>' +
+        '<span class="ec-rb"><i style="width:' + Math.max(1.5, c[1] / hi * 100) + '%"></i></span>' +
+        '<span class="ec-rv">' + c[1] + '</span></div>';
+    }).join('') +
+      '<div class="ec-row ec-row--static is-none"><span class="ec-rk">—</span>' +
+      '<span class="ec-rn">Россия<small>в базе Epoch AI с 2023 года заметных моделей нет</small></span>' +
+      '<span class="ec-rb"></span><span class="ec-rv">0</span></div>';
   }
 
   // ------------------------------------------------------------ профессии
@@ -1990,7 +2310,7 @@ var EC_WORLD={"ru":["RUS","Russian Federation",0.2982,36,73.5,0.5143,0.386,0.205
     $('aut-v').textContent = s.aut + '%';
     $('mul-v').textContent = nf(s.mulR) + '×';
     $('base-v').textContent = nf(s.baseR) + '%';
-    var r = compute(s); tiles(r); chart(r);
+    var r = compute(s); tiles(r); chart(r); squares(r, s);
     writeHash();
   }
 
@@ -2050,7 +2370,7 @@ var EC_WORLD={"ru":["RUS","Russian Federation",0.2982,36,73.5,0.5143,0.386,0.205
   });
   // Тема переключается на всей странице — перерисовываем графики в её цветах.
   if (window.MutationObserver) {
-    new MutationObserver(function () { chart(compute(state())); spark(); demo(); goals(); })
+    new MutationObserver(function () { chart(compute(state())); spark(); demo(); goals(); hchart(); techCharts(); })
       .observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
   }
 
@@ -2059,11 +2379,16 @@ var EC_WORLD={"ru":["RUS","Russian Federation",0.2982,36,73.5,0.5143,0.386,0.205
     x.setAttribute('aria-pressed', x.getAttribute('data-m') === metric ? 'true' : 'false');
   });
   aiReady();
+  squaresInit();
   basefacts();
   spark();
   demofacts();
   demo();
   districts();
+  techTiles();
+  hchart();
+  topics();
+  techCharts();
   occupations();
   countries();
   goals();
