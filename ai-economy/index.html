@@ -517,12 +517,16 @@ body.ds-has-sticky{padding-bottom:78px;}
 .ec-grid>*{min-width:0;}
 @media(max-width:900px){.ec-grid{grid-template-columns:1fr;}}
 
-.ec-panel{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--ds-r);padding:20px;}
+/* Панель раскладывается флексом с gap: отступы между блоками задаёт колонка,
+   а не поля отдельных элементов — иначе заголовок «Допущения» прилипал
+   к карточкам сценариев (правило h2+h2 не срабатывало, между ними див). */
+.ec-panel{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--ds-r);
+  padding:20px;display:flex;flex-direction:column;gap:14px;}
 .ec-panel h2{font-size:12.5px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;
-  color:var(--text-secondary);margin:0 0 14px;}
-.ec-panel h2+h2{margin-top:24px;}
+  color:var(--text-secondary);margin:0;}
+.ec-panel>h2:not(:first-child){margin-top:14px;padding-top:18px;border-top:1px solid var(--border);}
 
-.ec-presets{display:flex;flex-direction:column;gap:8px;}
+.ec-presets{display:flex;flex-direction:column;gap:8px;margin:0;}
 .ec-preset{display:flex;flex-direction:column;gap:3px;text-align:left;cursor:pointer;width:100%;
   background:var(--bg);border:1.5px solid var(--border);border-radius:10px;padding:11px 13px;
   color:var(--text);font:inherit;transition:border-color .16s,background .16s;}
@@ -532,7 +536,7 @@ body.ds-has-sticky{padding-bottom:78px;}
 .ec-preset b{font-size:14.5px;font-weight:700;}
 .ec-preset span{font-size:12.5px;color:var(--text-secondary);line-height:1.4;}
 
-.ec-ctrl{margin-top:18px;}
+.ec-ctrl{margin:0;}
 .ec-ctrl-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:6px;}
 .ec-ctrl-top label{font-size:13.5px;font-weight:600;}
 .ec-val{font-size:13px;font-weight:800;color:var(--accent);font-variant-numeric:tabular-nums;}
