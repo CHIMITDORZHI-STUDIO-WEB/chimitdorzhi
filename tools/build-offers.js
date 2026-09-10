@@ -151,8 +151,8 @@ function footer() {
         </div>
     </div>
 </footer>
-<script src="/i18n.js?v=42" defer></script>
-<script src="/script.js?v=34" defer></script>`;
+<script src="/i18n.js?v=43" defer></script>
+<script src="/script.js?v=36" defer></script>`;
 }
 
 function ctaBlock(o) {

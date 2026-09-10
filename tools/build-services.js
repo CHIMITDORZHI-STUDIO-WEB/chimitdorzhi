@@ -155,9 +155,9 @@ function footer() {
         </div>
     </div>
 </footer>
-<script src="/i18n.js?v=42" defer></script>
-<script src="/services-i18n.js?v=42" defer></script>
-<script src="/script.js?v=34" defer></script>
+<script src="/i18n.js?v=43" defer></script>
+<script src="/services-i18n.js?v=43" defer></script>
+<script src="/script.js?v=36" defer></script>
 <script src="/search-widget.js?v=1" defer></script>`;
 }
 
@@ -557,6 +557,7 @@ function sitemap() {
     });
   }
   entries.push(
+    { loc: `${SITE}/ai-economy/`,         priority: '0.8', freq: 'monthly' },
     { loc: `${SITE}/about/`,              priority: '0.8', freq: 'monthly' },
     { loc: `${SITE}/slovar/`,             priority: '0.6', freq: 'monthly' },
     { loc: `${SITE}/mwrlife/`,            priority: '0.7', freq: 'monthly' },

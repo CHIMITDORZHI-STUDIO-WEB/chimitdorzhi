@@ -287,8 +287,9 @@ document.addEventListener('DOMContentLoaded', () => {
   var isOffers = s0==='market' || s0==='predlozheniya';
   var isCases = s0==='cases';
   var isAbout = s0==='about';
+  var isAiEcon = s0==='ai-economy';
   if(isArticle){ document.body.classList.add('wx-read'); return; } /* статья: новый стиль без сайдбара */
-  if(!(isBlog||isServices||isOffers||isCases||isAbout)) return;
+  if(!(isBlog||isServices||isOffers||isCases||isAbout||isAiEcon)) return;
   function n(href,ic,label,on,ext,key){return '<a href="'+href+'"'+(ext?' target="_blank" rel="noopener"':'')+(on?' aria-current="page"':'')+' class="wx-nav'+(on?' on':'')+'"><i class="ph-fill '+ic+'" aria-hidden="true"></i> <span'+(key?' data-i18n="'+key+'"':'')+'>'+label+'</span></a>';}
   function grp(label,key){return '<div class="wx-grp" data-i18n="'+key+'">'+label+'</div>';}
   /* .wx-rail-top — прокручиваемая часть: логотип, поиск, навигация.
@@ -299,6 +300,7 @@ document.addEventListener('DOMContentLoaded', () => {
   h+=n('/','ph-squares-four','Главная',false,false,'nav.home');
   h+=n('/services/','ph-stack','Услуги',isServices,false,'nav.services');
   h+=n('/services/cifrovoy-sotrudnik/','ph-user-focus','Цифровой сотрудник',location.pathname.indexOf('cifrovoy-sotrudnik')>-1,false,'nav.employee');
+  h+=n('/ai-economy/','ph-chart-line-up','ИИ и экономика',isAiEcon,false,'nav.aiecon');
   h+=n('/cases/','ph-briefcase','Кейсы',isCases,false,'nav.cases');
   h+=n('/blog/','ph-newspaper','Блог',isBlog,false,'nav.blog');
   h+=n('/market/','ph-gift','Предложения',isOffers,false,'nav.offers');
@@ -326,6 +328,11 @@ document.addEventListener('DOMContentLoaded', () => {
     h+=n('/services/ai-agents/','ph-brain','Внедрение ИИ',false,false,'rubric.ai');
     h+=n('/services/business-automation/','ph-gear','Автоматизация',false,false,'rubric.automation');
     h+=n('/services/','ph-stack','Все услуги',false,false,'sb.all_services');
+  } else if(isAiEcon){
+    h+=grp('Смотрите также','sb.grp.also');
+    h+=n('/blog/category/ai-dev/','ph-brain','Внедрение ИИ',false,false,'rubric.ai');
+    h+=n('/cases/','ph-briefcase','Кейсы',false,false,'nav.cases');
+    h+=n('/services/','ph-stack','Услуги',false,false,'nav.services');
   } else if(isAbout){
     h+=grp('Смотрите также','sb.grp.also');
     h+=n('/cases/','ph-briefcase','Кейсы',false,false,'nav.cases');
