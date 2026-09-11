@@ -648,17 +648,17 @@ function footer() {
                 <a href="${TG_URL}" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
                 <a href="${MAX_URL}" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
                 <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
-                <a href="tel:+79316053007" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +7 (931) 605-30-07</a>
+                <a href="tel:+971563369591" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +971 56 336 9591</a>
             </div>
         </div>
         <div class="footer-bottom">
             <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
             <div class="footer-legal">
-                <p class="footer-legal-name" data-i18n="footer.legal_name">ИП Дарижапова Рыгзема Баировна</p>
+                <p class="footer-legal-name" data-i18n="footer.legal_name">RA Standard - F.Z.E</p>
                 <p class="footer-legal-details">
-                    <span data-i18n="footer.legal_inn">ИНН: 031101842043</span><span> · </span><span data-i18n="footer.legal_ogrnip">ОГРНИП: 326750000005553</span>
+                    <span data-i18n="footer.legal_licence">Лицензия 57033</span><span> · </span><span data-i18n="footer.legal_authority">Free Zones Authority of Ajman</span>
                 </p>
-                <p class="footer-legal-details" data-i18n="footer.legal_address">пер. Каштакский, д. 1а, г. Чита, Забайкальский край</p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">Эмират Аджман, ОАЭ</p>
             </div>
             <div class="footer-links">
                 <a href="/about/" class="footer-policy-link">Об авторе</a>
@@ -786,7 +786,7 @@ function organizationLd() {
     ],
     contactPoint: {
       '@type': 'ContactPoint',
-      telephone: '+7-931-605-30-07',
+      telephone: '+971 56 336 9591',
       contactType: 'customer service',
       email: 'chimitdorzhi26@gmail.com',
       availableLanguage: ['Russian', 'English'],
@@ -2201,6 +2201,9 @@ const CASE_TYPE_LABEL = {
   site: { ru: 'Сайт', en: 'Website', es: 'Sitio web' },
   bot: { ru: 'Бот', en: 'Bot', es: 'Bot' },
   ai: { ru: 'ИИ-решение', en: 'AI solution', es: 'Solución IA' },
+  audit: { ru: 'Аудит', en: 'Audit', es: 'Auditoría' },
+  doc: { ru: 'Документ', en: 'Document', es: 'Documento' },
+  analysis: { ru: 'Разбор', en: 'Analysis', es: 'Análisis' },
 };
 // Тройной перевод: RU видна по умолчанию, EN/ES переключаются CSS по html[data-lang].
 function L(ru, en, es) {
@@ -2211,9 +2214,13 @@ function L(ru, en, es) {
 function flagshipCard(c) {
   const en = c.en || {}, es = c.es || {};
   const tl = CASE_TYPE_LABEL[c.type] || { ru: 'Проект', en: 'Project', es: 'Proyecto' };
-  const doneBadge = c.done
-    ? `<span class="cs-badge cs-done"><i class="ph-fill ph-check-circle" aria-hidden="true"></i> ${L('в проде', 'live', 'en producción')}</span>`
-    : `<span class="cs-badge cs-wip"><i class="ph-fill ph-check-circle" aria-hidden="true"></i> ${L('разработано', 'developed', 'desarrollado')}</span>`;
+  // delivered — отданный заказчику документ (аудит, предложение, разбор,
+  // презентация), а не запущенная система: «в проде» тут было бы неправдой.
+  const doneBadge = c.delivered
+    ? `<span class="cs-badge cs-done"><i class="ph-fill ph-check-circle" aria-hidden="true"></i> ${L('сдано', 'delivered', 'entregado')}</span>`
+    : c.done
+      ? `<span class="cs-badge cs-done"><i class="ph-fill ph-check-circle" aria-hidden="true"></i> ${L('в проде', 'live', 'en producción')}</span>`
+      : `<span class="cs-badge cs-wip"><i class="ph-fill ph-check-circle" aria-hidden="true"></i> ${L('разработано', 'developed', 'desarrollado')}</span>`;
   return `<article class="cs-card${c.metric ? ' cs-metric' : ''}">
         <div class="cs-top">
           <span class="cs-type">${L(tl.ru, tl.en, tl.es)}</span>
@@ -2236,7 +2243,7 @@ function flagshipBlock() {
                 <div class="cs-flagship-head">
                     <span class="section-label">${L('ФЛАГМАНСКИЕ КЕЙСЫ', 'FLAGSHIP CASES', 'CASOS DESTACADOS')}</span>
                     <h2 class="section-heading">${L('Задача', 'Task', 'Tarea')} → ${L('решение', 'solution', 'solución')} → <span class="text-gradient">${L('результат', 'result', 'resultado')}</span></h2>
-                    <p class="section-sub">${L('Отобранные проекты с конкретикой — от идеи до боевого запуска. Данные клиентов обобщены.', 'Curated projects with specifics — from idea to production launch. Client data is generalized.', 'Proyectos seleccionados con concreción — de la idea al lanzamiento en producción. Los datos de clientes están generalizados.')}</p>
+                    <p class="section-sub">${L('Отобранные работы с конкретикой — от идеи до боевого запуска и от аудита до сданного документа. Данные клиентов обобщены.', 'Curated work with specifics — from idea to production launch and from audit to delivered document. Client data is generalized.', 'Trabajos seleccionados con concreción — de la idea al lanzamiento y de la auditoría al documento entregado. Los datos de clientes están generalizados.')}</p>
                 </div>
                 <div class="cs-grid">${FLAGSHIP.map(flagshipCard).join('\n')}</div>
             </div>`;
@@ -2800,7 +2807,7 @@ const LLMS_TAIL = `## Услуги
 - ВКонтакте: https://vk.com/chimitdorzhi
 - GitHub: https://github.com/chimitdorzhi
 - YouTube: https://www.youtube.com/@chimitdorzhi_studio
-- Телефон: +7 (931) 605-30-07
+- Телефон: +971 56 336 9591
 - Сайт: https://chimitdorzhi.tech`;
 // Порядок и подписи разделов навигатора
 const LLMS_ORDER = ['expert','legal','ai-dev','ai-life','ai','development','security','geo','marketing','sales','finance','industries','biznes-krugozor','opensource','media','esports','mlm','mwrlife','career'];

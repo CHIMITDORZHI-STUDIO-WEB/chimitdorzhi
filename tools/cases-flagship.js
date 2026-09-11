@@ -4,6 +4,104 @@
 // en / es — переводы полей task/solution/result (RU — база/фолбэк).
 module.exports = [
   {
+    name: 'Сайт логистической компании с калькулятором растаможки',
+    slug: 'sayt-logistiki-kalkulyator-rastamozhki-keys-2026',
+    type: 'site', done: true,
+    task: 'Компания возит грузы и автомобили из Китая и Японии. Первый вопрос каждого обращения — сколько выйдет растаможка, и менеджер считал его вручную по каждому клиенту.',
+    solution: 'Одностраничный сайт без сборки, бэкенда и внешних CDN, с калькулятором таможенных платежей: пошлина, акциз, НДС, утилизационный сбор и сбор за операции — отдельно для физлиц и для юрлиц, с подстановкой курса ЦБ. Все ставки вынесены в один файл, к каждой подписан нормативный акт-источник.',
+    result: 'В проде. Движок расчёта покрыт тестами — 10 из 10. Две позиции, которые в открытых источниках не раскрыты, помечены предупреждением прямо в результате расчёта: лучше честная оговорка, чем красивое непроверенное число. Обновление ставок не требует трогать логику.',
+    stack: ['статика без сборки', 'калькулятор на чистом JS', 'тесты расчёта', 'nginx'],
+    en: {
+      task: 'The company ships cargo and cars from China and Japan. Every enquiry starts with the same question — what will customs cost — and a manager was working it out by hand for each client.',
+      solution: 'A single-page site with no build step, no backend and no external CDNs, carrying a customs calculator: duty, excise, VAT, recycling levy and processing fee — separately for individuals and companies, with the central bank rate pulled in. Every rate sits in one file with the regulation it came from written next to it.',
+      result: 'Live. The calculation engine is covered by tests — 10 of 10. Two figures that open sources do not disclose are flagged with a warning inside the result itself: an honest caveat beats a plausible unverified number. Updating rates never touches the logic.'
+    },
+  },
+  {
+    name: 'Сайт мастера традиционных обрядов',
+    slug: 'sayt-bez-formy-zayavki-keys-2026',
+    type: 'site', done: true,
+    task: 'Сайт стоял на конструкторе, а форма заявки собирала имя и телефон и уводила их на сторонний сервис. В этой нише человек не «оставляет заявку» — он звонит.',
+    solution: 'Переписали на статику без конструктора. Форму убрали целиком — вместе с сервисом приёма заявок на сервере и его маршрутом. Телефон стал главным действием страницы: кликабельный в шапке, на первом экране и отдельным крупным блоком в контактах.',
+    result: 'В проде. Форм и полей ввода — ноль, внешних скриптов — ноль, счётчиков и cookie нет. Правовые страницы переписали под реальность: вместо политики обработки данных из формы — честная страница о том, что собирается только технический журнал веб-сервера. Контраст проверен на 140 элементах, провалов нет.',
+    stack: ['статика', 'nginx', 'без внешних скриптов'],
+    en: {
+      task: 'The site ran on a website builder, and its enquiry form collected a name and phone number and sent them off to a third-party service. In this niche people do not submit forms — they call.',
+      solution: 'Rebuilt as static pages with no builder. The form was removed entirely — along with the server-side enquiry service and its route. The phone number became the page primary action: tappable in the header, in the first screen and as a large block of its own in contacts.',
+      result: 'Live. Zero forms and input fields, zero external scripts, no analytics and no cookies. The legal pages were rewritten to match reality: instead of a privacy policy describing form data, an honest page stating that only the web server access log is kept. Contrast checked across 140 elements with no failures.'
+    },
+  },
+  {
+    name: 'Аудит сайта автосервиса в Дубае',
+    slug: 'audit-sayta-avtoservisa-dubai-keys-2026',
+    type: 'audit', delivered: true, intl: true,
+    task: 'Владелец был уверен, что сайт мёртв и всё решают соцсети, и собирался вкладываться в рекламу. Спорить с этим бесполезно — нужно было проверить.',
+    solution: 'Прошёл сайт целиком и замерил вместо того, чтобы оценить на глаз: живые и мёртвые ссылки, контраст кнопок, кликабельность телефона, мета-описания, вес и время загрузки, установленная аналитика. Собрал в отчёт на двенадцати страницах со скриншотами и разметкой каждой находки, с планом из четырёх фаз — без ценника и без прямой продажи.',
+    result: 'Сдан. Половина ссылок на главной вела в никуда, обе главные кнопки не были привязаны ни к чему, а их текст шёл тёмно-синим по такому же синему — контраст 1,02:1 при норме 4,5:1. Кликабельного телефона не нашлось ни одного на весь сайт, мета-описаний не было ни на одной странице, аналитика не стояла вообще. Вывод простой: реклама до починки сайта — деньги на ветер, её всё равно нечем считать.',
+    stack: ['ручной проход с замерами', 'скриншоты находок', 'отчёт PDF'],
+    en: {
+      task: 'The owner was convinced the site was dead and that social media decides everything, and was about to put money into ads. Arguing is pointless — it needed checking.',
+      solution: 'Went through the whole site and measured rather than eyeballed: live and dead links, button contrast, whether the phone number is tappable, meta descriptions, page weight and load time, installed analytics. Delivered as a twelve-page report with screenshots marking every finding and a four-phase plan — no price tag, no pitch.',
+      result: 'Delivered. Half the homepage links led nowhere, both primary buttons were wired to nothing, and their text was dark blue on the same blue — a contrast of 1.02:1 against a 4.5:1 requirement. Not one tappable phone link on the entire site, no meta descriptions on any page, and no analytics installed at all. Ads before fixing the site are money in the bin, because there is nothing to measure them with.'
+    },
+  },
+  {
+    name: 'Аудит бренда одежды и модель партнёрской сети',
+    slug: 'audit-brenda-partnerskaya-set-keys-2026',
+    type: 'audit', delivered: true,
+    task: 'Бренд продаёт в своём городе и почти не виден в федеральном поиске. Оптовое направление при этом закрыто высоким минимальным заказом с полной предоплатой — люди с аудиторией, но без капитала до него просто не доходят.',
+    solution: 'Аудит сайта и каналов, а вторым документом — партнёрская витрина в мессенджерах как недостающая ступень между розницей и оптом: партнёр входит без вложений, продаёт своим людям, а через сезон сам приходит за оптом, уже зная свой спрос и ходовые позиции.',
+    result: 'Сдано два документа. Отдельная страница — риски, а не только выгоды: платить за покупателя, который пришёл бы и так, возвраты, съедающие вознаграждение, сходство с сетевым маркетингом и главное — сеть усиливает то, что работает, и не чинит то, что не работает. Поэтому в документе витрина стоит после первых пунктов аудита, а не вместо них.',
+    stack: ['аудит сайта и каналов', 'экономическая модель', 'два PDF'],
+    en: {
+      task: 'The brand sells in its own city and is barely visible in nationwide search. Meanwhile wholesale is gated behind a high minimum order paid upfront, so people with an audience but no capital never get there.',
+      solution: 'An audit of the site and channels, plus a second document: a partner storefront inside messengers as the missing step between retail and wholesale. A partner joins with nothing invested, sells to their own circle, and after a season comes to wholesale on their own.',
+      result: 'Two documents delivered. A page of its own covers the risks, not just the upside: paying for a customer who would have come anyway, returns eating the commission, the resemblance to multi-level marketing, and above all — a network amplifies what works and does not fix what does not.'
+    },
+  },
+  {
+    name: 'Предложение по учётной системе для кафе',
+    slug: 'uchetnaya-sistema-dlya-kafe-predlozhenie-2026',
+    type: 'doc', delivered: true,
+    task: 'Учёт вёлся в тетради: переводы на карту не видно, сырьё не считается, себестоимости нет, курьера не с чем сверить. Владелец при этом считал, что достаточно поставить эквайринг — и учёт появится сам.',
+    solution: 'Предложение на семь страниц: что именно сломано сейчас, три опоры учёта, разбор заблуждения про эквайринг прямым текстом, витрина в Telegram, MAX и на сайте на единой базе, этапы работ и десять готовых аналитических срезов. Сроки убраны по просьбе заказчика, оплата по этапам.',
+    result: 'Сдано. Документ проверен, а не заявлен: переполнений нет ни на одной из семи страниц, контраст всего текста проходит AA. Служебный серый в колонтитулах сначала дал 3,56:1 и провалил проверку — заменил токен и получил 4,88:1.',
+    stack: ['вёрстка PDF', 'гейт контраста', 'гейт переполнения'],
+    en: {
+      task: 'Bookkeeping lived in a paper notebook: card transfers invisible, ingredients uncounted, no cost price, nothing to reconcile the courier against. The owner believed that installing card payments would make accounting appear by itself.',
+      solution: 'A seven-page proposal: what exactly is broken today, the three pillars of bookkeeping, the card-payments misconception addressed head-on, a storefront across Telegram, MAX and the web on one shared database, the stages of work and ten ready-made analytics views.',
+      result: 'Delivered. The document was verified rather than asserted: no overflow on any of the seven pages and every text style passing AA contrast. The utility grey in the running heads first came out at 3.56:1 and failed — swapping the token brought it to 4.88:1.'
+    },
+  },
+  {
+    name: 'Предпроектный разбор сервиса расчёта смет',
+    slug: 'servis-rascheta-smet-razbor-2026',
+    type: 'analysis', delivered: true,
+    task: 'Предприниматель хотел сервис, где мелкий подрядчик загружает техзадание и через пару часов получает готовую смету на почту. Нужно было понять, где здесь продукт, а где грабли, до того как написана первая строка кода.',
+    solution: 'Разложил идею на конвейер от разбора документа до выгрузки в Excel и зафиксировал главное правило: цифры не приходят от нейросети. Модель только вытаскивает позиции из текста и подбирает к ним расценку, а умножает, накидывает накладные и считает итоги обычный код по справочнику.',
+    result: 'Сдан разбор с тремя вещами, которые убили бы проект: откуда берутся объёмы, откуда берётся база расценок и есть ли вообще спрос. Плюс развилка «коммерческая смета или нормативная» — это два разных продукта, и первая версия должна быть только одним из них. И двадцать один вопрос заказчику, начиная с проверки гипотезы на пяти его собственных парах «задание — готовая смета».',
+    stack: ['архитектура конвейера', 'оценка рисков', 'вопросы к заказчику'],
+    en: {
+      task: 'An entrepreneur wanted a service where a small contractor uploads a brief and gets a finished cost estimate by email a couple of hours later. The job was to work out what here is a product and what is a trap — before the first line of code.',
+      solution: 'Broke the idea down into a pipeline from document parsing to the Excel export, and fixed the central rule: numbers never come from the neural network. The model only extracts line items and matches them to a rate; the arithmetic is done by ordinary code against a price book.',
+      result: 'Delivered as an analysis naming the three things that would have killed the project: where the quantities come from, where the price book comes from, and whether there is demand at all. Plus twenty-one questions for the client, starting with testing the premise against five of their own brief-to-estimate pairs.'
+    },
+  },
+  {
+    name: 'Презентация-каталог услуг для партнёрского агентства',
+    slug: 'prezentaciya-katalog-uslug-keys-2026',
+    type: 'doc', delivered: true,
+    task: 'Партнёру нужно было выступать перед предпринимателями и не выглядеть продавцом, а после выступления иметь под рукой весь каталог направлений.',
+    solution: 'Тридцать один слайд, где польза идёт впереди продажи: первые шесть — где бизнес теряет деньги, три вопроса для самодиагностики и правильный порядок внедрения. Дальше каталог из двенадцати направлений, каждое на своём слайде. В конце — как строится работа и шесть частых возражений с готовыми ответами, чтобы закрывать их прямо в зале. К каждому слайду заметка докладчику.',
+    result: 'Сдано. Геометрия слайдов проверена программно: восемь замечаний в первом прогоне, ноль после правок. Заказчик выступает от своего имени — меня в презентации нет нигде, это было условием.',
+    stack: ['PPTX', 'проверка геометрии слайдов', 'заметки докладчику'],
+    en: {
+      task: 'A partner needed to speak in front of business owners without coming across as a salesman — and to have the full catalogue of services at hand afterwards.',
+      solution: 'Thirty-one slides that put usefulness before selling: the first six cover where a business loses money, three self-diagnosis questions and the right order of adoption. Then a catalogue of twelve directions, each on its own slide. At the end, how the work is structured and six common objections with ready answers.',
+      result: 'Delivered. Slide geometry was checked programmatically: eight issues on the first pass, zero after the fixes. The client presents under their own name — I appear nowhere in the deck, which was the condition.'
+    },
+  },
+  {
     name: 'Бот и мини-приложение для риелтора', slug: 'bot-mini-app-rieltoram-keys-2026',
     type: 'bot', done: true,
     task: 'Частный агент по недвижимости вёл объекты в заметках телефона, клиентов — в переписке, а показы держал в голове. Полноценная CRM для агентства ему избыточна.',
@@ -99,7 +197,7 @@ module.exports = [
     },
   },
   {
-    name: 'SpyGambl', slug: 'analizator-memkoinov-keys-2026', type: 'platform', metric: true, done: true,
+    name: 'SpyGambl', type: 'platform', metric: true, done: true,
     task: 'Бесплатная библиотека рекламных креативов с фильтрами по гео и формату — узкая вертикаль, ручное пополнение.',
     solution: 'Каталог креативов + браузерное расширение для импорта объявления «в один клик» с нужным гео; медиа через CDN, тяжёлые гифки автоматически в видео.',
     result: 'В проде: 140+ гео, вес страницы с баннерами снижен в 8 раз (6,3 → 0,8 МБ), отклик ~60 мс. Седьмой этап (сентябрь 2026) — автопостинг свежих креативов в Telegram-сообщество на ~4 200 участников с темами по странам и планировщиком «день/ночь» — выкачен в бой.',
@@ -167,7 +265,7 @@ module.exports = [
     },
   },
   {
-    name: 'OneClick / Quipu', type: 'ai', intl: true, done: false,
+    name: 'OneClick / Quipu', slug: 'whatsapp-bot-rasshifrovka-golosovyh-keys-2026', type: 'ai', intl: true, done: false,
     task: 'В регионе низкая цифровая грамотность, но все шлют голосовые в WhatsApp — нужен сервис расшифровки без установки приложения.',
     solution: 'Официальный WhatsApp-бот: принимает голосовое → отдаёт структурированное саммари (тезисы, решения, задачи) на испанском; фото документов и рукопись — следующими релизами. Один бэкенд, два интерфейса (бот + веб-кабинет).',
     result: 'Пройдена бизнес-верификация Meta, поднят номер и вебхук — инфраструктура готова, бэкенд на финальной сборке.',
@@ -218,7 +316,7 @@ module.exports = [
     },
   },
   {
-    name: 'РЭНТЭБАС', type: 'platform', done: true,
+    name: 'РЭНТЭБАС', slug: 'sistema-upravleniya-obshchezhitiem-keys-2026', type: 'platform', done: true,
     task: 'Автоматизировать управление общежитием на ~200 мест: места, проживающие, договоры, деньги, аналитика, личный кабинет жильца.',
     solution: 'Веб-приложение: реестр мест со статусами и историей, карточки и договоры с файлами, финучёт (начисления/оплаты/долг, выгрузка), дашборды, ЛК жильца, ролевая модель, аудит действий.',
     result: 'Развёрнут на сервере под HTTPS, прошёл ревизию кода двумя независимыми аудиторами, пакет готов к подписанию акта приёмки. Работа по договору с ТЗ.',
@@ -269,7 +367,7 @@ module.exports = [
     },
   },
   {
-    name: 'WELLEX CLUB', type: 'platform', intl: true, done: false,
+    name: 'WELLEX CLUB', slug: 'ekosistema-velnes-kluba-keys-2026', type: 'platform', intl: true, done: false,
     task: 'Построить с нуля цифровую экосистему велнес-клуба: витрина, вход через бота, личный кабинет-приложение и CRM.',
     solution: 'По трём ТЗ собрана единая система: тёмный лендинг с UTM-атрибуцией, Telegram-бот как источник лидов, Mini App с хабом Score и клубной картой QR, CRM со скорингом лидов, рейтингом партнёров и рассылками.',
     result: 'В проде: сайт, приложение, CRM, бот, PWA с установкой и подписанный Android-APK; 5 языков; контраст проверен автозамером 645 надписей на 12 экранах в 5 схемах (WCAG в норме везде).',
@@ -354,7 +452,7 @@ module.exports = [
     },
   },
   {
-    name: 'ВИТРИНА', type: 'platform', done: true,
+    name: 'ВИТРИНА', slug: 'partnerskie-vitriny-multitenant-keys-2026', type: 'platform', done: true,
     task: 'Локальному офлайн-магазину нужна возможность раздавать «партнёрские витрины»: любой человек за полминуты получает магазин-бота под своим именем с теми же товарами, а продажи проходят через магазин-принципал.',
     solution: 'Мультиарендная (multi-tenant) платформа, всё привязано к магазину: витрина-мини-апп в формате вертикальной ленты 9:16, единый каталог с транзакционным остатком, партнёрские ключи и сквозная атрибуция заказа, маршрутизация всех ботов через один вебхук, админка с воронкой и выплатами.',
     result: 'Демо-стенд развёрнут по HTTPS, бот и вебхук живые, витрина рендерит каталог; подключение партнёра — задача около 30 секунд. Эквайринг и выплаты — второй этап.',
@@ -422,7 +520,7 @@ module.exports = [
     },
   },
   {
-    name: 'Умный Бизнес', type: 'site', done: true,
+    name: 'Умный Бизнес', slug: 'lending-digital-agentstva-geo-keys-2026', type: 'site', done: true,
     task: 'Собрать лендинг для digital-агентства из Читы под услуги автоматизации на нейросетях, чат-боты для мессенджеров, разработку сайтов, маркетинг и дизайн — с продвижением по своему региону.',
     solution: 'Статический лендинг (HTML/CSS/JS) в тёмной теме со стеклянными карточками и бэкендом приёма заявок на Python; настроены SEO и локальное GEO под Забайкальский край (Schema.org ProfessionalService/FAQPage с areaServed по городам, гео-мета, llms.txt и robots.txt с разрешением ИИ-краулерам); развёрнут на nginx как systemd-сервис.',
     result: 'Сайт развёрнут и работает на HTTPS (umniybusiness.ru); форма заявок принимает и сохраняет обращения на сервере, SEO-файлы (robots.txt, sitemap.xml, llms.txt, OG-картинка) отдаются корректно.',
@@ -456,7 +554,7 @@ module.exports = [
     },
   },
   {
-    name: 'ФудДвор — редизайн', type: 'site', done: false,
+    name: 'ФудДвор — редизайн', slug: 'redizayn-frontenda-cherez-tokeny-keys-2026', type: 'site', done: false,
     task: 'Фронтенд бренда на общей кодовой базе маркетплейса выглядел сломанным: токенами покрыто ~4% стилей, ~280 цветов прибиты хардкодом и не меняются при смене бренда, модалки вне бренд-скоупа, 100+ эмодзи вместо иконок.',
     solution: 'Собран отдельный тематический слой через Python-генератор, скоупнутый на бренд: новая палитра и шрифт с проверенным WCAG-контрастом, замена 100+ эмодзи на inline-SVG-иконки, перекраска модалок, мобильная оптимизация; отдельно составлен список правок, требующих пересборки фронта разработчиком.',
     result: 'Тема (~54 КБ, ~148 правил) собрана по бренд-буку заказчика (фирменный шрифт, красно-жёлтая палитра, референс из его ниши) и залита в живой preview-стенд через SFTP; проверена вживую замерами: шрифт и бренд-цвета применились, контраст-пары проходят WCAG; добавлена каплевидная метка с логотипом, эмодзи заменены иконками. Команда заказчика проверяет превью перед переносом в бой.',
@@ -473,7 +571,7 @@ module.exports = [
     },
   },
   {
-    name: 'threads-poster', type: 'bot', done: false,
+    name: 'threads-poster', slug: 'avtoposting-v-threads-keys-2026', type: 'bot', done: false,
     task: 'Автопостинг в личный аккаунт Threads: посты, ветки-цепочки и отложенная публикация по расписанию.',
     solution: 'Node.js-инструмент на официальном Threads Graph API: авторизация с долгоживущим токеном и его продлением, публикация постов и цепочек (веток), очередь отложенных постов с планировщиком по времени и контролем суточных лимитов публикаций.',
     result: 'Код собран и проверен (проверка синтаксиса + dry-run прогоны). Живая публикация ждёт официальный API-токен — нужна модерация приложения на стороне платформы.',
@@ -490,7 +588,7 @@ module.exports = [
     },
   },
   {
-    name: 'SPL Launch', type: 'platform', metric: true, done: false,
+    name: 'SPL Launch', slug: 'tulkit-zapuska-spl-tokena-keys-2026', type: 'platform', metric: true, done: false,
     task: 'Собрать прозрачный тулкит запуска SPL-токена на Solana под собственный бренд: изолированные по ролям зашифрованные кейсторы, единый прогон от минта до листинга, отзыв полномочий и независимая проверка результата в сети — без клонирования чужих тикеров и без имитации активности.',
     solution: 'TypeScript-конвейер (@solana/web3.js, Metaplex/Umi, SPL-Token, Raydium SDK v2, Streamflow) с пошаговым запуском, resume и веб-панелью на Express. Метаданные и арт публикуются на настоящий Arweave через Turbo, полномочия mint/freeze отзываются, mutable снимается, а отдельный модуль verify независимо перечитывает состояние минта из сети. Вестинг — реальными замками Streamflow вместо дробления supply по ярлыкам.',
     result: 'На devnet прошёл первый живой end-to-end прогон: токен создан, шаги 1–5 отработали. Независимая проверка подтвердила mintAuthority=null, freezeAuthority=null, isMutable=false, supply 1e15, полная стоимость запуска 0.0207 SOL. Метаданные легли на рабочий Arweave-URI, пригодный и для mainnet. Вестинг, пул Raydium CPMM и сжигание LP — следующий этап.',
@@ -524,7 +622,7 @@ module.exports = [
     },
   },
   {
-    name: 'ProSport.Photo', type: 'site', metric: true, done: false,
+    name: 'ProSport.Photo', slug: 'sayt-sportivnogo-fotografa-keys-2026', type: 'site', metric: true, done: false,
     task: 'Спортивному фотожурналисту нужен сайт-витрина личного бренда с прицелом на поисковую выдачу по фото. Ограничение: владелец сам заливает по 300–500 фото за раз (до ~12 000 в год) с телефона на плохой связи и не хочет ни одного лишнего действия на кадр.',
     solution: 'Next.js 15 (App Router, TS strict): доменный слой с тестами, резюмируемая загрузка по tus-протоколу (докачка с того же байта после обрыва), обработка в sharp через очередь BullMQ (очистка метаданных с сохранением IPTC, водяной знак, WebP, превью), публичная лента и страница репортажа с авто-«ритмом» галереи по пропорциям (без кадрирования) и лайтбоксом.',
     result: 'Демо-стенд развёрнут (pm2 + nginx, отдельный порт): 326 тестов зелёные, покрытие 91.9%; загрузка 50 файлов с искусственным обрывом на 20-м кадре докачалась до конца (0 потерь), отдача media через nginx ~24 КБ/кадр в WebP; галерея проверена программно — ни один кадр не обрезан, 0 нарушений контраста. Админка, рубрики и Schema/sitemap — следующий этап.',
@@ -541,7 +639,7 @@ module.exports = [
     },
   },
   {
-    name: 'Отказоустойчивая инфраструктура', type: 'platform', metric: true, done: true,
+    name: 'Отказоустойчивая инфраструктура', slug: 'otkazoustoychivaya-infrastruktura-keys-2026', type: 'platform', metric: true, done: true,
     task: 'Держать распределённый парк серверов у нескольких провайдеров в разных странах так, чтобы отказ любого узла или провайдера не ронял сервис — с автоматическим контролем состояния, восстановлением и защитой от компрометации, без ручного дежурства.',
     solution: 'Инженерная обвязка отказоустойчивости: health-мониторинг с проверкой доступности и минимального числа живых узлов, watchdog с авто-перезапуском зависших сервисов, ежечасные валидируемые бэкапы с ротацией, тёплый резерв (warm-standby) на втором провайдере с быстрым переключением, полный харденинг хостов — доступ только по ключам, защита от брутфорса, авто-обновления безопасности, детект руткитов и майнеров со своим вайтлистом.',
     result: 'Инфраструктура в бою и стабильна: мониторинг раз в 5 мин, watchdog раз в 2 мин, ежечасные бэкапы с хранением 14 копий, ежедневное сканирование на руткиты; финальная проверка — все сервисы живы, 0 перезапусков, 0 находок майнеров на всех серверах, резерв доступен.',
@@ -575,7 +673,7 @@ module.exports = [
     },
   },
   {
-    name: 'Сайт автора методики саморегуляции', type: 'site', done: true,
+    name: 'Сайт автора методики саморегуляции', slug: 'sayt-avtora-metodiki-keys-2026', type: 'site', done: true,
     task: 'Практику оздоровительной методики с онлайн-академией (8 ступеней × 12 уроков = 96 уроков), семинарами и консультациями нужен сайт-витрина с продажей курсов через Telegram и MAX — и переработка формулировок так, чтобы прошли модерацию рекламы и эквайринга.',
     solution: 'Разобран Telegram-экспорт материалов заказчика (тексты, медиа, отзывы — с вырезанием медицинских и эзотерических обещаний); подготовлены два макета на выбор — светлый шестистраничный по стратегии клиента и тёмно-синий с золотом одностраничник с диагональными плитами и буквами-водяными знаками. Статика без сборки, адаптивные изображения (srcset), герой с вырезанным портретом, формы открывают Telegram с готовым текстом.',
     result: 'Заказчик выбрал тёмный вариант; сайт залит на его хостинг, домен направлен, SSL выпущен — запущен 2 сентября 2026. Далее по договорённости — админка на WordPress и английская версия.',
