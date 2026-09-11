@@ -519,24 +519,56 @@ body.ds-has-sticky{padding-bottom:78px;}
   body .contact-fab{display:none!important;}
 }
 
+/* --- шрифт для читаемого текста --- */
+@font-face {
+  font-family: 'EcSerif';
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url('/assets/fonts/sourceserif4-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
 /* --- ИИ и экономика: модель по региону --- */
 /* Цвета рядов проверены валидатором на разделение при дальтонизме.
+   Взяты приглушённые, ближе к редакционным: точные цвета Anthropic
+   валидатор отверг на кремовой подложке (оранжевый светлее допустимого,
+   синий уходит в серый, контраст ниже 3:1).
    Тёмного варианта нет намеренно: после редизайна кнопка темы меняет
-   data-theme, но палитра сайта в обоих состояниях одна и та же кремовая
-   (--bg #f4f1ea, --bg-card #ffffff). Отдельный блок под [data-theme="dark"]
-   выдавал бы на белой карточке цвета, подобранные под чёрный фон. */
-.ec-page{--ec-lab:#1668C4; --ec-cap:#CC5A0C; --ec-sel:#7A3FB8;}
+   data-theme, но палитра сайта в обоих состояниях одна и та же кремовая. */
+.ec-page{--ec-lab:#2F6EA8; --ec-cap:#BE7020; --ec-sel:#7558AE;
+  --ec-serif:'EcSerif', Georgia, 'Times New Roman', serif;}
+
+/* Текст, который читают, — антиквой. Числа, подписи и кнопки остаются
+   гротеском: контраст двух шрифтов и есть половина этого вида. */
+.ec-page .ec-lead,
+.ec-page .ec-sub,
+.ec-page .ec-fine,
+.ec-page .ec-mdesc,
+.ec-page .ec-goal-t,
+.ec-page .ec-goal-n,
+.ec-page .ec-sqstat,
+.ec-page .ec-yearstat,
+.ec-page .ec-note,
+.ec-page .ec-src,
+.ec-page .ec-ai-out,
+.ec-page .ec-mocount,
+.ec-page .ec-empty,
+.ec-page .ec-h1,
+.ec-page .ec-card h3{font-family:var(--ec-serif);}
 
 .ec-hero{padding-top:clamp(70px,9vw,92px);}
 .ec-kicker{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:800;
   letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;}
 .ec-kicker::before{content:'';width:24px;height:3px;border-radius:2px;background:var(--accent);}
-.ec-h1{font-size:clamp(29px,4.6vw,48px);line-height:1.08;letter-spacing:-.025em;margin:0 0 16px;}
-.ec-lead{font-size:clamp(15.5px,1.9vw,18px);line-height:1.6;color:var(--text-secondary);max-width:62ch;margin:0;}
+.ec-h1{font-size:clamp(31px,4.8vw,52px);line-height:1.12;letter-spacing:-.012em;
+  font-weight:400;margin:0 0 18px;max-width:20ch;}
+.ec-lead{font-size:clamp(16.5px,2vw,19px);line-height:1.65;color:var(--text-secondary);
+  max-width:58ch;margin:0;}
 /* Плашка живёт на токенах самого сайта: свои цвета расходились с темой страницы. */
-.ec-note{display:flex;align-items:flex-start;gap:9px;margin:20px 0 0;background:var(--bg-card);
+.ec-note{display:flex;align-items:flex-start;gap:9px;margin:24px 0 0;background:var(--bg-card);
   color:var(--text-secondary);border:1px solid var(--border);border-left:3px solid var(--accent);
-  border-radius:12px;padding:11px 16px;font-size:13.5px;line-height:1.5;max-width:62ch;}
+  border-radius:12px;padding:14px 18px;font-size:14.5px;line-height:1.65;max-width:62ch;}
 .ec-note b{font-weight:800;color:var(--text);}
 
 .ec-grid{display:grid;grid-template-columns:296px 1fr;gap:20px;align-items:start;}
@@ -592,10 +624,10 @@ body.ds-has-sticky{padding-bottom:78px;}
 .ec-tile--lead .v{color:var(--accent);}
 
 .ec-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--ds-r);
-  padding:20px;margin-bottom:20px;}
-.ec-card h3{font-size:17.5px;font-weight:800;margin:0;letter-spacing:-.01em;}
+  padding:26px 28px;margin-bottom:28px;}
+.ec-card h3{font-size:21px;font-weight:600;margin:0;letter-spacing:-.008em;line-height:1.25;}
 .ec-card-h{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;}
-.ec-sub{font-size:13.5px;color:var(--text-secondary);margin:6px 0 16px;max-width:74ch;line-height:1.55;}
+.ec-sub{font-size:15px;color:var(--text-secondary);margin:10px 0 20px;max-width:66ch;line-height:1.7;}
 .ec-legend{display:flex;gap:16px;flex-wrap:wrap;font-size:12.5px;color:var(--text-secondary);}
 .ec-legend i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:6px;vertical-align:-1px;}
 
@@ -605,7 +637,7 @@ body.ds-has-sticky{padding-bottom:78px;}
 /* Год над отраслевой таблицей: ползунок и одна живая строка вывода. */
 .ec-yearbar{background:var(--bg);border:1px solid var(--border);border-radius:12px;
   padding:12px 14px;margin-bottom:16px;}
-.ec-yearstat{font-size:13px;color:var(--text-secondary);line-height:1.5;margin-top:8px;}
+.ec-yearstat{font-size:14.5px;color:var(--text-secondary);line-height:1.7;margin-top:10px;}
 .ec-yearstat b{color:var(--text);font-weight:700;font-variant-numeric:tabular-nums;}
 
 .ec-tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
@@ -630,7 +662,7 @@ body.ds-has-sticky{padding-bottom:78px;}
 .ec-mbtn:hover{border-color:var(--text-secondary);color:var(--text);}
 .ec-mbtn:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
 .ec-mbtn[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-glow);color:var(--text);}
-.ec-mdesc{font-size:13.5px;line-height:1.6;color:var(--text-secondary);margin:0 0 16px;max-width:74ch;}
+.ec-mdesc{font-size:15px;line-height:1.7;color:var(--text-secondary);margin:0 0 18px;max-width:66ch;}
 
 .ec-rowtools{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-bottom:14px;}
 .ec-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}
@@ -704,7 +736,7 @@ body.ds-has-sticky{padding-bottom:78px;}
 .ec-demo-ctrl{display:flex;flex-direction:column;gap:16px;}
 .ec-tiles--2{grid-template-columns:repeat(2,1fr);margin-bottom:16px;}
 @media(max-width:560px){.ec-tiles--2{grid-template-columns:1fr;}}
-.ec-fine{font-size:12px;color:var(--text-secondary);line-height:1.55;margin:14px 0 0;max-width:80ch;}
+.ec-fine{font-size:13.5px;color:var(--text-secondary);line-height:1.7;margin:18px 0 0;max-width:70ch;}
 
 /* --- районы --- */
 .ec-rank--mo .ec-row{grid-template-columns:34px minmax(0,1fr) 30% 104px;}
@@ -728,7 +760,7 @@ body.ds-has-sticky{padding-bottom:78px;}
 .ec-sq:hover,.ec-sq:focus-visible{stroke:var(--text);stroke-width:1.5;outline:none;}
 .ec-legend--sq{justify-content:center;gap:14px 18px;margin-bottom:12px;}
 .ec-legend--sq i.is-off{background:var(--border);}
-.ec-sqstat{font-size:13.5px;line-height:1.6;color:var(--text-secondary);margin:0;
+.ec-sqstat{font-size:15px;line-height:1.75;color:var(--text-secondary);margin:0;
   max-width:64ch;margin-left:auto;margin-right:auto;text-align:center;}
 .ec-sqstat b{color:var(--text);font-weight:800;font-variant-numeric:tabular-nums;}
 @media(prefers-reduced-motion:reduce){.ec-sq{transition:none;}}
@@ -767,7 +799,7 @@ body.ds-has-sticky{padding-bottom:78px;}
 .ec-goals{display:block;}
 .ec-goal{border:1px solid var(--border);border-radius:12px;padding:15px 17px;margin-bottom:10px;
   background:var(--bg);}
-.ec-goal-t{font-size:14.5px;line-height:1.5;margin:0 0 12px;font-weight:600;max-width:80ch;}
+.ec-goal-t{font-size:16px;line-height:1.6;margin:0 0 14px;font-weight:600;max-width:70ch;}
 .ec-goal-nums{display:flex;flex-wrap:wrap;gap:26px;align-items:baseline;margin-bottom:10px;}
 .ec-goal-f b,.ec-goal-a b{font-size:24px;font-weight:800;font-variant-numeric:tabular-nums;
   letter-spacing:-.02em;margin-right:7px;}
@@ -782,7 +814,7 @@ body.ds-has-sticky{padding-bottom:78px;}
 .ec-goal-sp{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
 .ec-goal-sp svg{width:190px;height:34px;flex:0 0 auto;}
 .ec-goal-sp span{font-size:11.5px;color:var(--text-secondary);}
-.ec-goal-n{font-size:13px;line-height:1.55;color:var(--text-secondary);margin:0;max-width:80ch;}
+.ec-goal-n{font-size:14px;line-height:1.7;color:var(--text-secondary);margin:0;max-width:70ch;}
 @media(max-width:560px){
   .ec-goal-nums{gap:16px;}
   .ec-goal-f b,.ec-goal-a b{font-size:20px;}
@@ -804,7 +836,7 @@ body.ds-has-sticky{padding-bottom:78px;}
 .ec-ai-wait{color:var(--text-secondary);}
 .ec-ai-out .ec-fine{margin-top:12px;padding-top:10px;border-top:1px solid var(--border);}
 
-.ec-src{font-size:13px;color:var(--text-secondary);line-height:1.65;}
+.ec-src{font-size:14px;color:var(--text-secondary);line-height:1.75;max-width:76ch;}
 .ec-src b{color:var(--text);}
 .ec-src ul{margin:10px 0 0;padding-left:19px;}
 .ec-src li{margin-bottom:6px;}
@@ -813,6 +845,59 @@ body.ds-has-sticky{padding-bottom:78px;}
   .ec-preset,.ec-btn,.ec-mbtn{transition:none;}
   .ec-bf,.ec-rb i{transition:none;}
 }
+
+/* --- блоки из исследовательской программы --- */
+/* Клетки красим по градиентам экспозиции: G4 самый сильный, G1 слабый.
+   Оттенки одного ряда, а не четыре разных цвета — это одна шкала. */
+.ec-sq{fill:var(--border);}
+.ec-sq.is-g4{fill:var(--ec-cap);}
+.ec-sq.is-g3{fill:var(--ec-sel);opacity:.85;}
+.ec-sq.is-g2{fill:var(--ec-lab);opacity:.8;}
+.ec-sq.is-g1{fill:var(--ec-lab);opacity:.42;}
+.ec-legend--sq i.is-g1i{background:var(--ec-lab);opacity:.42;}
+
+.ec-rank--wide{max-height:none;}
+.ec-rank--wide .ec-row{grid-template-columns:26px minmax(0,1fr) 22% 96px;}
+.ec-rank--wide .ec-rn{white-space:normal;}
+.ec-rv--wide{white-space:normal;text-align:right;font-weight:600;font-size:12px;line-height:1.35;}
+@media(max-width:560px){.ec-rank--wide .ec-row{grid-template-columns:22px minmax(0,1fr) 88px;}}
+
+/* Три сценария ИИ-тьютора рядом: знак эффекта важнее самого числа */
+.ec-tutors{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:8px;}
+.ec-tutors>*{min-width:0;}
+@media(max-width:760px){.ec-tutors{grid-template-columns:1fr;}}
+.ec-tutor{border:1.5px solid var(--border);border-radius:12px;padding:15px 17px;background:var(--bg);}
+.ec-tutor.is-good{border-color:var(--ec-lab);}
+.ec-tutor.is-bad{border-color:var(--ec-cap);}
+.ec-tutor-h{font-size:12.5px;color:var(--text-secondary);margin-bottom:6px;}
+.ec-tutor-v{font-size:30px;font-weight:800;letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1;}
+.ec-tutor.is-good .ec-tutor-v{color:var(--ec-lab);}
+.ec-tutor.is-bad .ec-tutor-v{color:var(--ec-cap);}
+.ec-tutor-d{font-size:11.5px;color:var(--text-secondary);margin-top:6px;line-height:1.4;}
+.ec-tutor-r{font-size:13px;margin-top:10px;}
+.ec-tutor-p{font-size:11.5px;color:var(--text-secondary);margin-top:8px;line-height:1.45;
+  padding-top:8px;border-top:1px solid var(--border);}
+
+/* Слухи: две цифры рядом, вся мысль в их разнице */
+.ec-rumors{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;}
+.ec-rumor{border:1px solid var(--border);border-radius:12px;padding:15px 17px;background:var(--bg);}
+.ec-rumor-h{font-size:13px;color:var(--text-secondary);margin-bottom:10px;}
+.ec-rumor-pair{display:flex;gap:20px;}
+.ec-rumor-pair>div{flex:1 1 0;min-width:0;}
+.ec-rumor-v{display:block;font-size:26px;font-weight:800;letter-spacing:-.02em;
+  font-variant-numeric:tabular-nums;line-height:1;}
+.ec-rumor-v.is-bad{color:var(--ec-cap);}
+.ec-rumor-v.is-good{color:var(--ec-lab);}
+.ec-rumor-pair small{display:block;font-size:11.5px;color:var(--text-secondary);
+  margin-top:5px;line-height:1.4;}
+
+/* Таблица языков: да и нет читаются знаком, а не чтением строки */
+.ec-tbl--lang{min-width:640px;}
+.ec-tbl--lang tr.is-me td{background:var(--accent-glow);font-weight:700;}
+.ec-mark{font-size:11.5px;display:inline-block;padding:2px 8px;border-radius:6px;
+  border:1px solid var(--border);color:var(--text-secondary);white-space:nowrap;}
+.ec-mark.is-yes{border-color:var(--ec-lab);color:var(--ec-lab);}
+.ec-mark.is-no{border-color:var(--ec-cap);color:var(--ec-cap);}
 
 </style>
 <script>
@@ -837,8 +922,8 @@ body.ds-has-sticky{padding-bottom:78px;}
     <div class="container">
       <span class="ec-kicker">ИИ и экономика · Забайкальский край</span>
       <h1 class="ec-h1">Что искусственный интеллект сделает с экономикой края</h1>
-      <p class="ec-lead">Модель по мотивам сценариев Anthropic, пересобранная под регион. Двигайте допущения — цифры пересчитываются. Прошлое здесь настоящее, из публикаций Росстата и Забайкалкрайстата. Будущее считается из ваших предположений.</p>
-      <p class="ec-note"><span><b>Черновик.</b> Коэффициенты экспозиции отраслей — экспертная оценка, а не измерение. Именно их и стоит оспаривать.</span></p>
+      <p class="ec-lead">Шесть исследований о том, что искусственный интеллект сделает с экономикой, людьми, школой, властью, языком и доверием в Забайкальском крае. Прошлое здесь — официальная статистика. Будущее — сценарии на явных допущениях, с честным разбросом.</p>
+      <p class="ec-note"><span><b>Это сценарии, а не предсказания.</b> Все прогнозы построены на явных допущениях, которые можно посмотреть и оспорить. Где источники расходятся — показан диапазон. Где данных нет — так и написано.</span></p>
     </div>
   </section>
 
@@ -849,86 +934,59 @@ body.ds-has-sticky{padding-bottom:78px;}
         <aside class="ec-panel">
           <h2>Сценарий</h2>
           <div class="ec-presets" id="ec-presets">
-            <button type="button" class="ec-preset" data-p="mod" aria-pressed="false">
-              <b>Скромный</b><span>Эффект примерно как от интернета</span>
+            <button type="button" class="ec-preset" data-s="Инерционный" aria-pressed="false">
+              <b>Инерционный</b><span>Внедрение почти не идёт: ИИ остаётся у отдельных энтузиастов</span>
             </button>
-            <button type="button" class="ec-preset" data-p="sub" aria-pressed="true">
-              <b>Существенный</b><span>ИИ закрывает половину умственной работы</span>
+            <button type="button" class="ec-preset" data-s="Базовый" aria-pressed="true">
+              <b>Базовый</b><span>Внедрение идёт как у сопоставимых технологий прошлого</span>
             </button>
-            <button type="button" class="ec-preset" data-p="ext" aria-pressed="false">
-              <b>Экстремальный</b><span>ИИ сильнее человека почти во всём</span>
+            <button type="button" class="ec-preset" data-s="Ускоренный" aria-pressed="false">
+              <b>Ускоренный</b><span>Край догоняет лидеров: консультации, типовые решения, кадры</span>
             </button>
           </div>
 
-          <h2>Допущения</h2>
+          <h2>Откуда эти числа</h2>
+          <p class="ec-hint">Диффузия Басса с калибровкой по источникам, Монте-Карло на 3000 прогонов
+            и анализ чувствительности. Параметры сценариев — из работы № 1 исследовательской
+            программы, а не подобраны на глаз.</p>
 
-          <div class="ec-ctrl">
-            <div class="ec-ctrl-top"><label for="ec-cap">Что ИИ умеет</label><span class="ec-val" id="ec-cap-v">50%</span></div>
-            <input type="range" id="ec-cap" min="5" max="95" step="5" value="50">
-            <div class="ec-hint">Доля пригодных работ, которые ИИ реально выполняет</div>
-          </div>
-
-          <div class="ec-ctrl">
-            <div class="ec-ctrl-top"><label for="ec-ado">Охват внедрения</label><span class="ec-val" id="ec-ado-v">45%</span></div>
-            <input type="range" id="ec-ado" min="5" max="95" step="5" value="45">
-            <div class="ec-hint">Сколько организаций края довели ИИ до рабочего процесса</div>
-          </div>
-
-          <div class="ec-ctrl">
-            <div class="ec-ctrl-top"><label for="ec-aut">Автономность</label><span class="ec-val" id="ec-aut-v">40%</span></div>
-            <input type="range" id="ec-aut" min="0" max="95" step="5" value="40">
-            <div class="ec-hint">Работает сам или готовит черновик человеку</div>
-          </div>
-
-          <div class="ec-ctrl">
-            <div class="ec-ctrl-top"><label for="ec-mul">Множитель производительности</label><span class="ec-val" id="ec-mul-v">2,0×</span></div>
-            <input type="range" id="ec-mul" min="11" max="60" step="1" value="20">
-            <div class="ec-hint">Во сколько раз быстрее закрывается затронутая работа</div>
-          </div>
-
-          <div class="ec-ctrl">
-            <div class="ec-ctrl-top"><label for="ec-base">Базовый рост ВРП</label><span class="ec-val" id="ec-base-v">2,0%</span></div>
-            <input type="range" id="ec-base" min="0" max="60" step="1" value="20">
-            <div class="ec-hint">В год, без ИИ. Не угадывайте — возьмите из истории края:</div>
-            <div class="ec-chips" id="ec-basefacts"></div>
-            <div class="ec-spark" id="ec-spark"></div>
-          </div>
-
-          <h2>Поделиться сценарием</h2>
+          <h2>Поделиться</h2>
           <div class="ec-share">
             <button type="button" class="ec-btn" id="ec-copy">Скопировать ссылку</button>
             <button type="button" class="ec-btn" id="ec-png">Сохранить картинку</button>
-            <p class="ec-hint" id="ec-share-msg" role="status">В ссылке сохраняются все ваши допущения — коллега откроет ровно вашу картину.</p>
+            <p class="ec-hint" id="ec-share-msg" role="status">В ссылке сохраняется выбранный сценарий — коллега откроет ровно вашу картину.</p>
           </div>
         </aside>
 
         <div>
           <div class="ec-tiles">
             <div class="ec-tile ec-tile--lead">
-              <div class="k">ВРП края в 2030 году</div>
+              <div class="k">Что ИИ добавит экономике края</div>
               <div class="v" id="ec-t-vrp">—</div>
               <div class="d" id="ec-t-vrp-d">—</div>
             </div>
             <div class="ec-tile">
-              <div class="k">Доля труда в добавленной стоимости</div>
+              <div class="k">Доля труда в 2030 году</div>
               <div class="v" id="ec-t-lab">—</div>
               <div class="d" id="ec-t-lab-d">—</div>
             </div>
             <div class="ec-tile">
-              <div class="k">Работ в зоне влияния ИИ</div>
+              <div class="k">Вклад ИИ в рост экономики</div>
               <div class="v" id="ec-t-exp">—</div>
               <div class="d" id="ec-t-exp-d">—</div>
             </div>
           </div>
 
           <section class="ec-card ec-gridcard">
-            <div class="ec-card-h"><h3>Вся работа — сто клеток</h3></div>
-            <p class="ec-sub">Каждая клетка — один процент занятых, разложенный по сорока группам занятий с измеренными баллами уязвимости. Клетки отсортированы: сверху та работа, до которой ИИ дотягивается легче всего. Двигайте допущения слева — и смотрите, докуда доходит волна. Наведите на клетку, чтобы увидеть, чья это работа.</p>
+            <div class="ec-card-h"><h3>Сто клеток: рабочие места края</h3></div>
+            <p class="ec-sub">Каждая клетка — один процент рабочих мест Забайкальского края, раскрашенный по градиенту экспозиции из глобального индекса Международной организации труда, применённого к занятости края. Это замер, а не сценарий: он не меняется от того, как быстро пойдёт внедрение.</p>
             <div class="ec-squares" id="ec-squares"></div>
             <div class="ec-legend ec-legend--sq">
-              <span><i style="background:var(--ec-cap)"></i>ИИ делает сам</span>
-              <span><i style="background:var(--ec-lab)"></i>ИИ помогает человеку</span>
-              <span><i class="is-off"></i>Не затронуто при этих допущениях</span>
+              <span><i style="background:var(--ec-cap)"></i>G4 — высокая и устойчивая</span>
+              <span><i style="background:var(--ec-sel)"></i>G3 — выше умеренной</span>
+              <span><i style="background:var(--ec-lab)"></i>G2 — умеренная</span>
+              <span><i class="is-g1i"></i>G1 — низкая</span>
+              <span><i class="is-off"></i>Без экспозиции</span>
             </div>
             <p class="ec-sqstat" id="ec-sqstat">—</p>
           </section>
@@ -937,39 +995,34 @@ body.ds-has-sticky{padding-bottom:78px;}
             <div class="ec-card-h">
               <h3>Кому достаётся созданное: труду или капиталу</h3>
               <div class="ec-legend">
-                <span><i style="background:var(--ec-lab)"></i>Оплата труда</span>
-                <span><i style="background:var(--ec-cap)"></i>Прибыль и смешанные доходы</span>
+                <span><i style="background:var(--ec-lab)"></i>Факт до 2024 года</span>
+                <span><i style="background:var(--ec-cap)"></i>Проекция до 2035-го</span>
               </div>
             </div>
-            <p class="ec-sub">Сплошные линии до 2024 года — факт из счёта образования доходов Забайкальского края. Пунктир до 2030 года считается по вашим допущениям. Точечная линия — доля трудового дохода в мировом ВВП: 52,3% в 2024 году по данным Международной организации труда. Край уже сейчас на 7,5 пункта ниже мира — и пришёл к этому без всякого ИИ.</p>
-            <div class="ec-chart" id="ec-chart"></div>
+            <p class="ec-sub">Доля оплаты труда в валовой добавленной стоимости края. Сплошная линия — факт из счёта образования доходов. Пунктир — проекция исследования при выбранном сценарии. Точечная линия — доля трудового дохода в мировом ВВП по данным Международной организации труда.</p>
+            <div class="ec-chart" id="ec-labchart"></div>
+            <p class="ec-fine" id="ec-labnote">—</p>
           </section>
 
           <section class="ec-card">
-            <div class="ec-card-h"><h3>Структура экономики края и её уязвимость</h3></div>
-            <p class="ec-sub">Доли в валовой добавленной стоимости — факт из публикаций Забайкалкрайстата. Экспозиция — оценка того, какую часть работ в отрасли ИИ способен закрыть. Это единственный экспертный слой в модели, и он вынесен отдельной колонкой намеренно. Двигайте год и смотрите, как менялась экономика края.</p>
-
-            <div class="ec-yearbar">
-              <div class="ec-ctrl-top">
-                <label for="ec-year">Год</label>
-                <span class="ec-val" id="ec-year-v">2024</span>
-              </div>
-              <input type="range" id="ec-year" min="0" max="8" step="1" value="8">
-              <div class="ec-yearstat" id="ec-yearstat">—</div>
-            </div>
-
+            <div class="ec-card-h"><h3>Какие отрасли дают эффект</h3></div>
+            <p class="ec-sub">Вклад отраслей в эффект 2030 года при выбранном сценарии. Около двух пятых даёт добыча — и почти весь её вклад идёт не через людей, а через оптимизацию процессов. Это и есть главный перекос: ИИ приходит туда, где занято 5,9% работников.</p>
             <div class="ec-tbl-wrap">
               <table class="ec-tbl">
                 <thead><tr>
                   <th>Отрасль</th>
-                  <th style="width:30%">Доля в ВДС</th>
+                  <th style="width:26%">Доля в эффекте</th>
                   <th class="n">Доля</th>
-                  <th class="n">С 2016</th>
-                  <th class="n">Экспозиция</th>
+                  <th class="n">Вклад, п.п.</th>
+                  <th class="n">Внедрение</th>
                 </tr></thead>
-                <tbody id="ec-sectors"></tbody>
+                <tbody id="ec-ressectors"></tbody>
               </table>
             </div>
+
+            <h4 class="ec-goal-grp">Что на самом деле двигает результат</h4>
+            <p class="ec-sub">Анализ чувствительности: каждый параметр по очереди сдвигается к краям правдоподобного диапазона. Размах показывает, насколько от него зависит итог. Вывод исследования: управлять надо скоростью внедрения, а не ждать, пока модели поумнеют.</p>
+            <div class="ec-rank ec-rank--wide" id="ec-restornado"></div>
           </section>
 
         </div>
@@ -1016,48 +1069,7 @@ body.ds-has-sticky{padding-bottom:78px;}
         <p class="ec-empty" id="ec-empty" hidden>Такого региона в публикации Росстата нет. Попробуйте часть названия — например, «бурят».</p>
       </section>
 
-      <section class="ec-card">
-        <div class="ec-card-h">
-          <h3>Сколько нас будет в 2030 году</h3>
-          <div class="ec-legend">
-            <span><i style="background:var(--ec-lab)"></i>Ваш сценарий</span>
-            <span><i style="background:var(--ec-cap)"></i>Если миграция обнулится</span>
-          </div>
-        </div>
-        <p class="ec-sub">Здесь нет экспертных коэффициентов: это компонентный метод, которым демографы считают уже сто лет. Берём численность на 1 января 2025 года и каждый год прибавляем естественный прирост и миграционный. Оба за 2024 год — факт из оценки Росстата.</p>
-
-        <div class="ec-demo">
-          <div class="ec-demo-ctrl">
-            <div class="ec-ctrl">
-              <div class="ec-ctrl-top"><label for="ec-nat">Естественный прирост в год</label><span class="ec-val" id="ec-nat-v">—</span></div>
-              <input type="range" id="ec-nat" min="-9000" max="3000" step="1" value="-4170">
-              <div class="ec-hint">Родившиеся минус умершие. В 2024 году: −4170</div>
-            </div>
-            <div class="ec-ctrl">
-              <div class="ec-ctrl-top"><label for="ec-mig">Миграционный прирост в год</label><span class="ec-val" id="ec-mig-v">—</span></div>
-              <input type="range" id="ec-mig" min="-9000" max="9000" step="1" value="3613">
-              <div class="ec-hint">Приехавшие минус уехавшие. В 2024 году: +3613</div>
-            </div>
-            <div class="ec-chips" id="ec-demofacts"></div>
-          </div>
-          <div class="ec-demo-out">
-            <div class="ec-tiles ec-tiles--2">
-              <div class="ec-tile ec-tile--lead">
-                <div class="k">Население края в 2030 году</div>
-                <div class="v" id="ec-d-pop">—</div>
-                <div class="d" id="ec-d-pop-d">—</div>
-              </div>
-              <div class="ec-tile">
-                <div class="k">Если миграционный приток исчезнет</div>
-                <div class="v" id="ec-d-nomig">—</div>
-                <div class="d" id="ec-d-nomig-d">—</div>
-              </div>
-            </div>
-            <div class="ec-chart" id="ec-dchart"></div>
-          </div>
-        </div>
-        <p class="ec-fine" id="ec-demonote">—</p>
-      </section>
+      
 
       <section class="ec-card">
         <div class="ec-card-h"><h3>Районы края: где сколько денег на человека</h3></div>
@@ -1078,6 +1090,128 @@ body.ds-has-sticky{padding-bottom:78px;}
         <p class="ec-mocount" id="ec-mocount">—</p>
         <div class="ec-rank ec-rank--mo" id="ec-morank"></div>
         <p class="ec-fine">Каларский, Газимуро-Заводский и Тунгиро-Олёкминский стоят наверху не потому, что там живут богато. Это районы крупных горных проектов: налог на доходы вахтовиков платится по месту работы, а в численность населения района эти люди не входят. Делите с осторожностью — знаменатель здесь меньше, чем на самом деле зарабатывающих.</p>
+      </section>
+
+      <section class="ec-card" id="s-people">
+        <div class="ec-card-h"><h3>Кого заменит, кого усилит</h3></div>
+        <p class="ec-sub">Работа № 2 исследования. ИИ высвобождает не те руки, которых не хватает. Семьдесят шесть процентов экспонированного рабочего времени приходится на офисные и интеллектуальные профессии, где занято меньше половины работников. Дефицит же — в рабочих профессиях, куда языковые модели почти не дотягиваются.</p>
+        <h4 class="ec-goal-grp">Где сосредоточено экспонированное рабочее время</h4>
+        <div class="ec-rank ec-rank--wide" id="ec-clusters"></div>
+
+        <h4 class="ec-goal-grp">Сколько нас будет: три сценария до 2045 года</h4>
+        <div class="ec-metrics ec-metrics--sm" id="ec-popscen">
+          <button type="button" class="ec-mbtn" data-p="D1_отток" aria-pressed="false">Отток продолжится</button>
+          <button type="button" class="ec-mbtn" data-p="D2_база" aria-pressed="true">Как сейчас</button>
+          <button type="button" class="ec-mbtn" data-p="D3_приток" aria-pressed="false">Приток вырастет</button>
+        </div>
+        <div class="ec-chart" id="ec-popchart"></div>
+        <p class="ec-fine" id="ec-popnote">—</p>
+
+        <h4 class="ec-goal-grp">Что реально добавит рабочих рук к 2035 году</h4>
+        <div class="ec-rank ec-rank--wide" id="ec-levers"></div>
+        <p class="ec-fine">Демографический «обрыв» — не сейчас. В 2025–2035 годах в рабочий возраст войдут 140,9 тысячи человек, выйдут 99,5 тысячи. Настоящее сокращение рабочей силы начнётся после 2035 года. Популярный тезис «входят 126 тысяч, уходят 157» сравнивает группу шириной десять лет возраста с группой шириной пятнадцать.</p>
+      </section>
+
+      <section class="ec-card" id="s-school">
+        <div class="ec-card-h"><h3>Школа 2035 года уже родилась</h3></div>
+        <p class="ec-sub">Работа № 3. Число школьников в крае сократится почти вдвое, и это уже предопределено: дети, которые пойдут в школу в 2035 году, либо родились, либо нет. Влиять можно на то, чему и как их будут учить, — но не на то, сколько их будет.</p>
+        <div class="ec-metrics ec-metrics--sm" id="ec-pupvar">
+          <button type="button" class="ec-mbtn" data-v="низкий" aria-pressed="false">Низкий вариант</button>
+          <button type="button" class="ec-mbtn" data-v="средний" aria-pressed="true">Средний</button>
+          <button type="button" class="ec-mbtn" data-v="высокий" aria-pressed="false">Высокий</button>
+        </div>
+        <div class="ec-chart" id="ec-schoolchart"></div>
+        <p class="ec-fine" id="ec-schoolnote">—</p>
+
+        <h4 class="ec-goal-grp">ИИ-тьютор: три сценария и вероятность навредить</h4>
+        <p class="ec-sub">В рандомизированном эксперименте на тысяче школьников свободный доступ к модели дал плюс сорок восемь процентов на тренировке и минус семнадцать на экзамене без ИИ. Версия с ограничениями, которая даёт подсказки вместо ответов, сняла большую часть вреда. Поэтому здесь считается не «внедрить или нет», а качество внедрения.</p>
+        <div class="ec-tutors" id="ec-tutor"></div>
+
+        <h4 class="ec-goal-grp">Цифровой парадокс края</h4>
+        <div class="ec-rank ec-rank--wide" id="ec-paradox"></div>
+      </section>
+
+      <section class="ec-card" id="s-fires">
+        <div class="ec-card-h"><h3>Минуты стоят гектаров</h3></div>
+        <p class="ec-sub">Работа № 4. Самый весомый случай применения ИИ во власти края — не документооборот, а обнаружение пожаров. На этапе свободного распространения площадь растёт примерно как квадрат времени, поэтому каждая сэкономленная минута стоит гектаров. В 2025 году в крае сгорело 2,7 млн гектаров, ущерб — 8 млрд рублей. Забайкалье и Бурятия дали 86% площади лесных пожаров России.</p>
+        <div class="ec-chart" id="ec-firechart"></div>
+
+        <div class="ec-two">
+          <div>
+            <h4 class="ec-goal-grp">Как растёт площадь от времени</h4>
+            <div class="ec-metrics ec-metrics--sm" id="ec-fuel"></div>
+            <div class="ec-chart" id="ec-firegrowth"></div>
+            <p class="ec-fine" id="ec-firegrowthnote">—</p>
+          </div>
+          <div>
+            <h4 class="ec-goal-grp">Что дают ИИ-камеры</h4>
+            <div class="ec-rank ec-rank--wide" id="ec-firemc"></div>
+            <p class="ec-fine">Двадцать тысяч прогонов Монте-Карло. Камеры сокращают ожидаемую площадь на 16–34%, но сила первоначальной атаки влияет сильнее самой камеры: если расчёт едет два с половиной часа, раннее обнаружение спасает меньше, чем кажется.</p>
+          </div>
+        </div>
+
+        <h4 class="ec-goal-grp">Стратегия — это не исполнение</h4>
+        <div class="ec-rank ec-rank--wide" id="ec-digitalgap"></div>
+        <p class="ec-fine">В 2021 году стратегия цифровой трансформации края охватила 16 отраслей — третье место в России. В 2026-м региональный портал госуслуг на 80-м месте из 85. Главный дефицит власти в эпоху ИИ — данные и управленческий контур, а не стратегии.</p>
+      </section>
+
+      <section class="ec-card" id="s-lang">
+        <div class="ec-card-h"><h3>У бурятского есть перевод, но нет голоса</h3></div>
+        <p class="ec-sub">Работа № 5. В речевые модели попадают языки, у которых есть записи, а не те, на которых больше говорят. Бурятский есть в переводчиках Google и Яндекса, но его нет в открытых речевых моделях — при том что эвенкийский, калмыцкий и якутский там есть.</p>
+        <div class="ec-tbl-wrap">
+          <table class="ec-tbl ec-tbl--lang">
+            <thead><tr>
+              <th>Язык</th><th class="n">Google</th><th class="n">Яндекс</th>
+              <th class="n">MMS распознавание</th><th class="n">MMS синтез</th><th class="n">Whisper</th>
+            </tr></thead>
+            <tbody id="ec-langtable"></tbody>
+          </table>
+        </div>
+
+        <h4 class="ec-goal-grp">Сколько стоит дать языку голос</h4>
+        <div class="ec-rank ec-rank--wide" id="ec-asr"></div>
+        <p class="ec-fine">Рабочее распознавание и синтез бурятской речи стоят около 18,5 млн рублей — это задача организации, а не науки. Для сравнения: годовой мониторинг пожаров в крае стоит на порядки больше.</p>
+
+        <h4 class="ec-goal-grp">Что будет с языком без вмешательства</h4>
+        <div class="ec-metrics ec-metrics--sm" id="ec-langscen"></div>
+        <div class="ec-chart" id="ec-langchart"></div>
+        <p class="ec-fine" id="ec-langnote">—</p>
+
+        <h4 class="ec-goal-grp">Почему холод не делает край дата-центром</h4>
+        <div class="ec-rank ec-rank--wide" id="ec-dc"></div>
+        <p class="ec-fine">Резерв энергосистемы края — около 160 МВт. Один ИИ-кампус масштаба Colossus 2 потреблял бы 62% исторического пика потребления всего края. Холодный климат экономит лишь 0,5–1,6% стоимости разработки модели. Ниша края — прикладной ИИ в добыче, логистике, услугах, языке и природопользовании, а не вычисления.</p>
+      </section>
+
+      <section class="ec-card" id="s-society">
+        <div class="ec-card-h"><h3>Архитектура внимания: доверие и обман</h3></div>
+        <p class="ec-sub">Работа № 6. Люди отличают клонированный голос от настоящего примерно в шести случаях из десяти — то есть почти наугад. Поэтому защищают не бдительность, а процедуры и трение. Мошенничество при этом становится мелким и частым: по оценке для края — около 29 успешных хищений в день.</p>
+
+        <h4 class="ec-goal-grp">Сколько край теряет: три способа посчитать</h4>
+        <div class="ec-rank ec-rank--wide" id="ec-fraudest"></div>
+
+        <h4 class="ec-goal-grp">Куда это идёт</h4>
+        <div class="ec-metrics ec-metrics--sm" id="ec-fraudscen">
+          <button type="button" class="ec-mbtn" data-f="Инерционный" aria-pressed="false">Инерционный</button>
+          <button type="button" class="ec-mbtn" data-f="Базовый" aria-pressed="true">Базовый</button>
+          <button type="button" class="ec-mbtn" data-f="Ускоренный" aria-pressed="false">Ускоренный</button>
+        </div>
+        <div class="ec-chart" id="ec-fraudchart"></div>
+        <p class="ec-fine" id="ec-fraudnote">—</p>
+
+        <h4 class="ec-goal-grp">Кого прививать от слухов</h4>
+        <p class="ec-sub">Сетевая модель распространения ложного сообщения. Разница между «привить десять процентов случайных» и «привить те же десять процентов среди самых связанных» — это разница между провалом и победой. Практически самые связанные — это администраторы районных и школьных чатов.</p>
+        <div class="ec-rumors" id="ec-rumor"></div>
+
+        <div class="ec-two">
+          <div>
+            <h4 class="ec-goal-grp">Почему край уязвимее среднего</h4>
+            <div class="ec-rank ec-rank--wide" id="ec-vuln"></div>
+          </div>
+          <div>
+            <h4 class="ec-goal-grp">Что известно из экспериментов</h4>
+            <div class="ec-rank ec-rank--wide" id="ec-evidence"></div>
+          </div>
+        </div>
       </section>
 
       <section class="ec-card">
@@ -1254,6 +1388,7 @@ var EC_OCC=[[24,"Специалисты по бизнесу и админист�
 var EC_COUNTRY=[["LUX","Luxembourg",0.3715,1,0.3,0.7434,0.4351,0.1871,110650.0,null,"High income","Europe & Central Asia","high"],["SGP","Singapore",0.3676,2,2.3,0.7376,0.424,0.209,126190.0,63.4,"High income","East Asia & Pacific","high"],["NLD","Netherlands",0.3391,3,9.7,0.6355,0.4139,0.2085,84970.0,42.1,"High income","Europe & Central Asia","high"],["CHE","Switzerland",0.3349,4,4.8,0.6537,0.4085,0.1958,91110.0,37.8,"High income","Europe & Central Asia","high"],["SWE","Sweden",0.334,5,5.3,0.6415,0.409,0.1999,75000.0,36.1,"High income","Europe & Central Asia","high"],["ISR","Israel",0.3333,6,4.0,0.6192,0.4111,0.2068,56790.0,38.1,"High income","Middle East, North Africa, Afghanistan & Pakistan","high"],["DEU","Germany",0.333,7,42.3,0.6094,0.4154,0.2045,76180.0,31.1,"High income","Europe & Central Asia","high"],["IRL","Ireland",0.3307,8,2.7,0.5966,0.4155,0.2054,101180.0,48.4,"High income","Europe & Central Asia","high"],["GBR","United Kingdom of Great Britain and Northern Ireland",0.3294,9,34.1,0.6445,0.4033,0.1956,61460.0,42.2,"High income","Europe & Central Asia","high"],["DNK","Denmark",0.3239,10,3.0,0.5725,0.4134,0.2041,84680.0,31.2,"High income","Europe & Central Asia","high"],["BEL","Belgium",0.3231,11,5.0,0.5977,0.4094,0.1948,74770.0,39.0,"High income","Europe & Central Asia","high"],["USA","United States of America",0.3225,12,163.5,0.6074,0.3999,0.2026,85980.0,31.3,"High income","North America","high"],["CYP","Cyprus",0.3219,13,0.5,0.5302,0.4338,0.1957,56200.0,null,"High income","Europe & Central Asia","high"],["AUS","Australia",0.3217,14,14.4,0.583,0.4071,0.2023,69600.0,39.5,"High income","East Asia & Pacific","high"],["AUT","Austria",0.3211,15,4.5,0.5609,0.4134,0.2032,74160.0,34.1,"High income","Europe & Central Asia","high"],["NOR","Norway",0.3196,16,2.8,0.5886,0.3958,0.2105,106830.0,48.6,"High income","Europe & Central Asia","high"],["FRA","France",0.3193,17,28.5,0.586,0.4089,0.1925,63880.0,47.8,"High income","Europe & Central Asia","high"],["MNE","Montenegro",0.3181,18,0.3,0.4826,0.4189,0.224,33970.0,null,"Upper middle income","Europe & Central Asia","high"],["POL","Poland",0.3165,19,17.0,0.5316,0.4172,0.2022,49540.0,31.0,"High income","Europe & Central Asia","high"],["JPN","Japan",0.3161,20,66.1,0.4246,0.4733,0.2001,55490.0,22.5,"High income","East Asia & Pacific","high"],["GRC","Greece",0.3154,21,17.1,0.445,0.4318,0.222,43340.0,20.8,"High income","Europe & Central Asia","high"],["PRT","Portugal",0.3139,22,5.2,0.508,0.4224,0.202,50730.0,26.4,"High income","Europe & Central Asia","high"],["NIU","Niue",0.3137,23,0.0,0.6091,0.3892,0.1961,null,null,"","","medium"],["ITA","Italy",0.313,24,23.7,0.5005,0.4243,0.2015,61620.0,30.2,"High income","Europe & Central Asia","high"],["EST","Estonia",0.3115,25,0.7,0.5344,0.413,0.195,48880.0,null,"High income","Europe & Central Asia","high"],["HRV","Croatia",0.3107,26,1.7,0.5173,0.4074,0.207,49740.0,26.1,"High income","Europe & Central Asia","high"],["FIN","Finland",0.3089,27,2.6,0.5353,0.4013,0.2026,65640.0,29.5,"High income","Europe & Central Asia","high"],["LTU","Lithuania",0.3088,28,1.5,0.5251,0.4123,0.1944,53920.0,24.3,"High income","Europe & Central Asia","high"],["HUN","Hungary",0.3086,29,4.7,0.4925,0.4196,0.2008,47290.0,32.2,"High income","Europe & Central Asia","high"],["BRN","Brunei Darussalam",0.3071,30,0.2,0.5106,0.4098,0.1999,92750.0,null,"High income","East Asia & Pacific","high"],["TUV","Tuvalu",0.3055,31,0.0,0.5635,0.4027,0.18,8320.0,null,"Upper middle income","East Asia & Pacific","high"],["LVA","Latvia",0.3042,32,0.9,0.5153,0.4081,0.1938,42660.0,null,"High income","Europe & Central Asia","high"],["SVN","Slovenia",0.3041,33,1.0,0.4994,0.4117,0.1967,56520.0,29.0,"High income","Europe & Central Asia","high"],["CZE","Czechia",0.3016,34,5.2,0.4895,0.4088,0.1989,54800.0,30.1,"High income","Europe & Central Asia","high"],["ESP","Spain",0.3011,35,21.6,0.4623,0.4132,0.2047,57670.0,44.2,"High income","Europe & Central Asia","high"],["RUS","Russian Federation",0.2982,36,73.5,0.5143,0.386,0.2053,46780.0,9.5,"High income","Europe & Central Asia","high"],["PLW","Palau",0.2949,37,0.0,0.4408,0.4235,0.1935,18320.0,null,"High income","East Asia & Pacific","high"],["ARG","Argentina",0.2937,38,12.2,0.3802,0.4304,0.2098,29800.0,21.9,"Upper middle income","Latin America & Caribbean","high"],["BGR","Bulgaria",0.2924,39,2.9,0.4099,0.4146,0.2076,39850.0,29.7,"High income","Europe & Central Asia","high"],["WLF","Wallis and Futuna",0.2907,40,0.0,0.4407,0.4198,0.189,null,null,"","","medium"],["MSR","Montserrat",0.2904,41,0.0,0.4751,0.4104,0.1817,null,null,"","","medium"],["COK","Cook Islands",0.29,42,0.0,0.4423,0.3924,0.2089,null,null,"","","high"],["MUS","Mauritius",0.2894,43,0.5,0.3958,0.4335,0.1951,35100.0,null,"Upper middle income","Sub-Saharan Africa","high"],["KOS","Kosovo",0.2879,44,0.4,0.4002,0.4013,0.2122,18290.0,null,"Upper middle income","Europe & Central Asia","high"],["BRB","Barbados",0.2864,45,0.1,0.418,0.3973,0.2066,23850.0,null,"High income","Latin America & Caribbean","high"],["MKD","North Macedonia",0.2862,46,0.7,0.4049,0.4062,0.2046,25610.0,null,"Upper middle income","Europe & Central Asia","high"],["SRB","Serbia",0.2847,47,12.2,0.4048,0.4118,0.1982,30770.0,24.1,"Upper middle income","Europe & Central Asia","high"],["BHS","Bahamas",0.2824,48,0.2,0.3713,0.4198,0.2013,39550.0,null,"High income","Latin America & Caribbean","high"],["BLR","Belarus",0.2821,49,4.8,0.4592,0.382,0.1973,32300.0,9.6,"Upper middle income","Europe & Central Asia","high"],["URY","Uruguay",0.2807,50,1.7,0.3578,0.4309,0.197,34170.0,24.6,"High income","Latin America & Caribbean","high"],["ARE","United Arab Emirates",0.2806,51,7.2,0.4381,0.4135,0.177,81530.0,70.1,"High income","Middle East, North Africa, Afghanistan & Pakistan","high"],["MDV","Maldives",0.2797,52,0.2,0.4541,0.4043,0.1761,23400.0,null,"Upper middle income","South Asia","high"],["CHL","Chile",0.2786,53,9.1,0.3866,0.4006,0.2017,34320.0,22.7,"High income","Latin America & Caribbean","high"],["BRA","Brazil",0.2783,54,101.3,0.347,0.4177,0.2041,21590.0,19.1,"Upper middle income","Latin America & Caribbean","high"],["CRI","Costa Rica",0.274,55,2.2,0.344,0.4265,0.1941,28840.0,28.5,"High income","Latin America & Caribbean","high"],["TKL","Tokelau",0.2727,56,0.0,0.5651,0.3537,0.1676,null,null,"","","medium"],["ROU","Romania",0.2717,57,7.8,0.3272,0.4137,0.2027,47920.0,17.5,"High income","Europe & Central Asia","high"],["SUR","Suriname",0.2703,58,0.2,0.3793,0.3975,0.1925,20000.0,10.3,"Upper middle income","Latin America & Caribbean","high"],["MHL","Marshall Islands",0.2682,59,0.0,0.3902,0.3926,0.1886,9680.0,null,"Upper middle income","East Asia & Pacific","high"],["JAM","Jamaica",0.2662,60,1.1,0.3131,0.4222,0.1951,12690.0,24.0,"Upper middle income","Latin America & Caribbean","high"],["TUR","Türkiye",0.2652,61,32.6,0.3212,0.4087,0.1973,44600.0,17.4,"Upper middle income","Europe & Central Asia","high"],["CUB","Cuba",0.2645,62,4.6,0.3801,0.3963,0.1838,null,6.7,"Upper middle income","Latin America & Caribbean","high"],["DOM","Dominican Republic",0.264,63,5.1,0.2734,0.4241,0.2037,26050.0,24.8,"Upper middle income","Latin America & Caribbean","high"],["LBN","Lebanon",0.2639,64,1.5,0.335,0.3978,0.1964,12420.0,27.3,"Lower middle income","Middle East, North Africa, Afghanistan & Pakistan","high"],["MEX","Mexico",0.2638,65,59.0,0.28,0.4129,0.2058,25460.0,20.1,"Upper middle income","Latin America & Caribbean","high"],["MNG","Mongolia",0.263,66,1.4,0.3322,0.3825,0.2035,17000.0,16.7,"Upper middle income","East Asia & Pacific","high"],["BIH","Bosnia and Herzegovina",0.2628,67,1.3,0.3265,0.4041,0.1943,24990.0,22.1,"Upper middle income","Europe & Central Asia","high"],["COL","Colombia",0.2628,68,23.8,0.298,0.4203,0.1959,21890.0,24.5,"Upper middle income","Latin America & Caribbean","high"],["TON","Tonga",0.259,69,0.0,0.3558,0.3976,0.1825,8400.0,null,"Upper middle income","East Asia & Pacific","high"],["SOM","Somalia",0.2586,70,1.0,0.3674,0.379,0.1886,1630.0,7.6,"Low income","Sub-Saharan Africa","high"],["FJI","Fiji",0.2585,71,0.3,0.2934,0.4238,0.1899,14490.0,null,"Upper middle income","East Asia & Pacific","high"],["JOR","Jordan",0.2547,72,2.8,0.2486,0.4256,0.1982,10570.0,29.7,"Lower middle income","Middle East, North Africa, Afghanistan & Pakistan","high"],["EGY","Egypt",0.2543,73,29.9,0.2702,0.3894,0.2042,18230.0,14.8,"Lower middle income","Middle East, North Africa, Afghanistan & Pakistan","high"],["IRN","Iran (Islamic Republic of)",0.2538,74,24.1,0.2515,0.409,0.2017,19820.0,12.6,"Upper middle income","Middle East, North Africa, Afghanistan & Pakistan","high"],["PSE","Palestine (State of)",0.2534,75,0.7,0.2852,0.3782,0.2035,4660.0,null,"Lower middle income","Middle East, North Africa, Afghanistan & Pakistan","high"],["PHL","Philippines",0.2523,76,46.8,0.2151,0.432,0.2031,13330.0,20.1,"Lower middle income","East Asia & Pacific","high"],["SLV","El Salvador",0.2511,77,2.9,0.2007,0.4152,0.2099,12420.0,18.3,"Upper middle income","Latin America & Caribbean","high"],["THA","Thailand",0.25,78,39.7,0.1813,0.4256,0.2111,23960.0,12.4,"Upper middle income","East Asia & Pacific","high"],["GUY","Guyana",0.247,79,0.2,0.2463,0.3964,0.1982,52290.0,10.3,"High income","Latin America & Caribbean","high"],["SWZ","Eswatini",0.2438,80,0.2,0.2357,0.3799,0.2018,10760.0,null,"Lower middle income","Sub-Saharan Africa","high"],["PER","Peru",0.2432,81,17.7,0.2247,0.4088,0.1951,16780.0,16.4,"Upper middle income","Latin America & Caribbean","high"],["IRQ","Iraq",0.2428,82,8.0,0.2623,0.3758,0.1955,14530.0,12.5,"Upper middle income","Middle East, North Africa, Afghanistan & Pakistan","high"],["BLZ","Belize",0.2425,83,0.1,0.2016,0.4256,0.1963,13760.0,null,"Upper middle income","Latin America & Caribbean","high"],["BTN","Bhutan",0.2422,84,0.4,0.2857,0.3813,0.1866,15320.0,null,"Lower middle income","South Asia","high"],["IDN","Indonesia",0.2419,85,138.7,0.1535,0.4102,0.2114,16010.0,14.1,"Upper middle income","East Asia & Pacific","high"],["BOL","Bolivia (Plurinational State of)",0.2413,86,6.8,0.1816,0.3815,0.2102,12620.0,12.7,"Lower middle income","Latin America & Caribbean","high"],["NER","Niger",0.2412,87,2.1,0.1672,0.3636,0.2167,2030.0,10.1,"Low income","Sub-Saharan Africa","high"],["KGZ","Kyrgyzstan",0.2401,88,2.6,0.234,0.3767,0.1983,7900.0,9.5,"Lower middle income","Europe & Central Asia","high"],["CIV","Côte d'Ivoire",0.2397,89,8.6,0.0812,0.3691,0.2283,7360.0,13.1,"Lower middle income","Sub-Saharan Africa","high"],["WSM","Samoa",0.2394,90,0.1,0.2664,0.3955,0.1827,8620.0,null,"Upper middle income","East Asia & Pacific","high"],["LKA","Sri Lanka",0.2373,91,7.8,0.2439,0.4034,0.1838,15240.0,7.3,"Lower middle income","South Asia","high"],["GEO","Georgia",0.237,92,1.8,0.291,0.3859,0.1759,26200.0,20.5,"Upper middle income","Europe & Central Asia","high"],["PNG","Papua New Guinea",0.2364,93,4.0,0.1649,0.3792,0.2082,4580.0,7.7,"Lower middle income","East Asia & Pacific","high"],["TUN","Tunisia",0.2364,94,5.4,0.2384,0.3962,0.1864,14230.0,13.5,"Lower middle income","Middle East, North Africa, Afghanistan & Pakistan","high"],["TGO","Togo",0.2353,95,3.3,0.0804,0.3923,0.2216,3380.0,10.1,"Low income","Sub-Saharan Africa","high"],["GTM","Guatemala",0.2337,96,7.6,0.1527,0.4173,0.2007,14170.0,16.4,"Upper middle income","Latin America & Caribbean","high"],["GMB","Gambia",0.2337,97,0.6,0.1173,0.3741,0.2151,3430.0,11.4,"Low income","Sub-Saharan Africa","high"],["NPL","Nepal",0.2326,98,7.4,0.1624,0.3827,0.2035,5830.0,14.2,"Lower middle income","South Asia","high"],["PAN","Panama",0.2318,99,1.9,0.2755,0.4086,0.1646,39260.0,23.3,"High income","Latin America & Caribbean","high"],["HND","Honduras",0.2314,100,4.0,0.1668,0.3978,0.1981,6900.0,14.0,"Lower middle income","Latin America & Caribbean","high"],["ALB","Albania",0.2302,101,1.2,0.223,0.3765,0.1882,26500.0,18.5,"Upper middle income","Europe & Central Asia","high"],["STP","Sao Tome and Principe",0.23,102,0.0,0.1463,0.4028,0.2003,6240.0,null,"Lower middle income","Sub-Saharan Africa","medium"],["MMR","Myanmar",0.2293,103,22.3,0.0818,0.4527,0.2094,5890.0,10.0,"Lower middle income","East Asia & Pacific","high"],["BWA","Botswana",0.2282,104,0.9,0.2457,0.396,0.1735,20570.0,14.8,"Upper middle income","Sub-Saharan Africa","high"],["KIR","Kiribati",0.2273,105,0.0,0.2246,0.3902,0.1801,6060.0,null,"Lower middle income","East Asia & Pacific","high"],["BEN","Benin",0.2272,106,5.4,0.0564,0.3868,0.2177,4390.0,10.1,"Lower middle income","Sub-Saharan Africa","high"],["GIN","Guinea",0.2271,107,3.2,0.0866,0.3763,0.2129,4130.0,10.1,"Lower middle income","Sub-Saharan Africa","high"],["VNM","Viet Nam",0.2253,108,53.4,0.1348,0.4227,0.1945,15850.0,26.5,"Lower middle income","East Asia & Pacific","high"],["PAK","Pakistan",0.225,109,77.6,0.1447,0.3876,0.1975,6100.0,11.4,"Lower middle income","Middle East, North Africa, Afghanistan & Pakistan","high"],["MWI","Malawi",0.2225,110,5.0,0.2065,0.3735,0.1833,1830.0,10.9,"Low income","Sub-Saharan Africa","high"],["ECU","Ecuador",0.2222,111,8.3,0.1596,0.4011,0.1882,15410.0,19.5,"Upper middle income","Latin America & Caribbean","high"],["TJK","Tajikistan",0.2216,112,2.3,0.2462,0.3554,0.1779,7100.0,6.1,"Lower middle income","Europe & Central Asia","high"],["KHM","Cambodia",0.2208,113,9.7,0.1022,0.4211,0.198,7910.0,5.7,"Lower middle income","East Asia & Pacific","high"],["CPV","Cabo Verde",0.2201,114,0.1,0.1638,0.4009,0.1847,11000.0,null,"Upper middle income","Sub-Saharan Africa","high"],["GHA","Ghana",0.22,115,12.0,0.1115,0.3782,0.2002,7720.0,10.1,"Lower middle income","Sub-Saharan Africa","high"],["FSM","Micronesia (Federated States of)",0.2188,116,0.0,0.2603,0.3921,0.1578,4690.0,null,"Lower middle income","East Asia & Pacific","medium"],["VUT","Vanuatu",0.2182,117,0.1,0.1814,0.3936,0.1794,4140.0,null,"Lower middle income","East Asia & Pacific","high"],["BGD","Bangladesh",0.218,118,67.8,0.0956,0.3927,0.1996,10060.0,7.8,"Lower middle income","South Asia","high"],["IND","India",0.2166,119,482.8,0.1389,0.4026,0.1866,11000.0,17.6,"Lower middle income","South Asia","high"],["SDN","Sudan",0.2128,120,8.0,0.1037,0.3687,0.1948,2050.0,7.6,"Low income","Sub-Saharan Africa","high"],["TLS","Timor-Leste",0.2076,121,0.4,0.0954,0.3934,0.188,5040.0,null,"Lower middle income","East Asia & Pacific","medium"],["AGO","Angola",0.2062,122,13.1,0.0897,0.3747,0.1896,9460.0,10.9,"Lower middle income","Sub-Saharan Africa","high"],["LAO","Lao People's Democratic Republic",0.2054,123,3.4,0.0929,0.4299,0.1825,9160.0,7.8,"Lower middle income","East Asia & Pacific","high"],["SLE","Sierra Leone",0.2047,124,3.2,0.063,0.3663,0.1938,3490.0,10.1,"Low income","Sub-Saharan Africa","high"],["MLI","Mali",0.2001,125,6.7,0.0461,0.3812,0.1914,3230.0,10.1,"Low income","Sub-Saharan Africa","high"],["SLB","Solomon Islands",0.1992,126,0.4,0.1675,0.3715,0.1646,2680.0,null,"Lower middle income","East Asia & Pacific","medium"],["KEN","Kenya",0.1988,127,14.5,0.1345,0.4028,0.1671,6540.0,8.7,"Lower middle income","Sub-Saharan Africa","medium"],["BFA","Burkina Faso",0.1977,128,7.9,0.1279,0.3587,0.174,2720.0,10.1,"Low income","Sub-Saharan Africa","high"],["COD","Congo, Democratic Republic of the",0.1969,129,30.6,0.1077,0.3602,0.1772,1760.0,8.7,"Low income","Sub-Saharan Africa","high"],["ZWE","Zimbabwe",0.1918,130,4.9,0.1149,0.3724,0.1683,5870.0,8.5,"Lower middle income","Sub-Saharan Africa","high"],["AFG","Afghanistan",0.1893,131,7.2,0.087,0.3621,0.1728,2210.0,6.1,"Low income","Middle East, North Africa, Afghanistan & Pakistan","medium"],["ZMB","Zambia",0.1872,132,7.1,0.0821,0.3795,0.17,3850.0,13.1,"Lower middle income","Sub-Saharan Africa","high"],["RWA","Rwanda",0.1862,133,4.9,0.092,0.3848,0.1661,3620.0,7.2,"Low income","Sub-Saharan Africa","high"],["UGA","Uganda",0.182,134,17.9,0.0556,0.3558,0.1718,3190.0,7.6,"Low income","Sub-Saharan Africa","high"],["GNB","Guinea-Bissau",0.1788,135,0.7,0.0674,0.3829,0.164,3140.0,10.1,"Low income","Sub-Saharan Africa","high"],["ETH","Ethiopia",0.1767,136,36.5,0.0501,0.3941,0.1653,3280.0,7.6,"","Sub-Saharan Africa","high"],["LSO","Lesotho",0.1748,137,0.8,0.0961,0.3735,0.1537,3580.0,9.8,"Lower middle income","Sub-Saharan Africa","high"],["TZA","Tanzania, United Republic of",0.1733,138,31.0,0.0434,0.3854,0.1637,4130.0,7.6,"Lower middle income","Sub-Saharan Africa","high"],["MDG","Madagascar",0.1662,139,11.8,0.0508,0.3895,0.1543,1830.0,10.9,"Low income","Sub-Saharan Africa","high"],["MOZ","Mozambique",0.1618,140,12.2,0.0492,0.3695,0.1511,1520.0,10.9,"Low income","Sub-Saharan Africa","high"],["BDI","Burundi",0.144,141,5.0,0.0309,0.3673,0.1369,1200.0,7.6,"Low income","Sub-Saharan Africa","high"]];
 var EC_WORLD={"ru":["RUS","Russian Federation",0.2982,36,73.5,0.5143,0.386,0.2053,46780.0,9.5,"High income","Europe & Central Asia","high"],"ms":{"h1_2025":7.6,"h2_2025":8.0,"q1_2026":9.5},"msMedian":14.8,"msCount":147,"lab":{"labsh":0.4797,"year":2025},"sexF":0.3343,"sexM":0.2636};
 var EC_TECH={"doubling":128.7,"doublingAll":187.8,"hz":[["GPT-2","2019-02-14",0.05,true],["davinci-002","2020-05-28",0.14,true],["GPT-3.5 Turbo","2022-03-15",0.6,true],["GPT-4","2023-03-14",3.99,true],["GPT-4 Turbo","2023-11-06",4.04,true],["Claude 3 Opus","2024-03-04",3.95,false],["GPT-4 Turbo","2024-04-09",3.73,false],["GPT-4o","2024-05-13",6.99,true],["Claude 3.5 Sonnet","2024-06-20",11.4,true],["o1 (предварительная)","2024-09-12",20.33,true],["Claude 3.5 Sonnet","2024-10-22",20.52,true],["o1","2024-12-05",38.83,true],["Claude 3.7 Sonnet","2025-02-24",60.39,true],["o3","2025-04-16",119.73,true],["Claude 4 Opus","2025-05-22",100.37,false],["Claude 4.1 Opus","2025-08-05",100.47,false],["GPT-5","2025-08-07",203.01,true],["Gemini 3 Pro","2025-11-18",224.33,true],["GPT-5.1 codex max","2025-11-19",223.71,false],["Claude Opus 4.5","2025-11-24",292.99,true],["GPT-5.2","2025-12-11",352.25,true],["Claude Opus 4.6","2026-02-05",718.81,true],["GPT-5.3 codex","2026-02-05",349.53,false],["Gemini 3.1 Pro","2026-02-19",384.15,false],["GPT-5.4","2026-03-05",341.74,false],["Claude Mythos (предварительная)","2026-04-07",1044.78,true]],"cost":[[2017,17911],[2018,1751],[2019,77861],[2020,5021],[2021,39104],[2022,111248],[2023,212218],[2024,21271018],[2025,44588964]],"open":[[2019,31,37],[2020,28,22],[2021,41,38],[2022,41,49],[2023,59,60],[2024,39,59],[2025,45,62],[2026,26,44]],"ctry":[["United States of America",236],["China",113],["South Korea",15],["France",6],["United Kingdom",4],["Singapore",3],["Saudi Arabia",3],["Germany",2]],"topics":[["Тексты и реклама",22.72,37.4],["Учёба и объяснения",13.23,34.4],["Разработка программ",11.51,64.5],["Поиск и разбор информации",10.94,43.1],["Быт и увлечения",9.49,50.5],["Бизнес-процессы и операции",4.7,74.3],["Разбор документов",4.32,59.2],["Анализ данных и отчётность",3.83,54.5],["Поиск по своим базам знаний",3.61,43.9],["Личные и жизненные вопросы",3.44,38.4],["Личный помощник",2.86,68.9],["Эксплуатация ИТ-инфраструктуры",2.82,80.3],["Companionship & General Conversation",1.37,34.8],["Sales & Revenue Operations",1.1,61.0],["Compliance & Regulatory",1.06,37.0],["Customer Support & Service Operations",0.6,79.6],["Cybersecurity & Threat Detection",0.38,63.9],["Other / Unclear",0.36,77.0],["Conversation & Meeting Intelligence",0.26,73.5],["Trust & Safety / Platform Integrity",0.07,55.5]]};
+var EC_RES={"years":[2025,2026,2027,2028,2029,2030,2031,2032,2033,2034,2035],"forecast":{"Инерционный":{"noAI":[927.4,945.9,964.9,984.1,1003.8,1023.9,1044.4,1065.3,1086.6,1108.3,1130.5],"withAI":[927.8,946.3,965.3,984.7,1004.4,1024.6,1045.3,1066.5,1088.2,1110.5,1133.2],"effectPct":[0.044,0.047,0.051,0.056,0.062,0.073,0.094,0.127,0.174,0.229,0.282],"effectBn":[0.4,0.4,0.5,0.5,0.6,0.7,0.9,1.2,1.6,2.2,2.7],"growthPP":[null,0.003,0.004,0.004,0.006,0.009,0.017,0.028,0.039,0.045,0.043],"fte":[0.2,0.2,0.2,0.2,0.3,0.4,0.6,0.9,1.3,1.9,2.4]},"Базовый":{"noAI":[927.4,945.9,964.9,984.1,1003.8,1023.9,1044.4,1065.3,1086.6,1108.3,1130.5],"withAI":[928.5,947.5,967.1,987.4,1009.3,1033.0,1057.7,1082.3,1107.0,1132.2,1157.7],"effectPct":[0.134,0.184,0.251,0.37,0.623,1.042,1.502,1.898,2.249,2.583,2.9],"effectBn":[1.1,1.6,2.2,3.3,5.5,9.1,13.3,17.0,20.5,23.9,27.2],"growthPP":[null,0.045,0.06,0.103,0.213,0.347,0.379,0.325,0.287,0.272,0.255],"fte":[0.6,0.9,1.3,2.2,4.5,8.6,13.1,17.0,20.4,23.6,26.8]},"Ускоренный":{"noAI":[927.4,945.9,964.9,984.1,1003.8,1023.9,1044.4,1065.3,1086.6,1108.3,1130.5],"withAI":[929.7,950.4,974.4,1005.5,1038.3,1070.8,1102.5,1132.6,1160.7,1187.4,1213.2],"effectPct":[0.27,0.521,1.119,2.529,4.064,5.456,6.686,7.629,8.268,8.664,8.897],"effectBn":[2.3,4.5,9.6,21.3,34.5,46.9,58.2,67.3,74.2,79.1,82.7],"growthPP":[null,0.226,0.517,1.177,1.268,1.139,0.993,0.752,0.505,0.312,0.182],"fte":[1.4,3.0,8.3,23.1,39.4,54.4,68.2,79.0,86.5,91.2,94.0]}},"mc":{"2030":{"p10_pct":0.49,"p50_pct":1.06,"p90_pct":2.09,"p10_bn_rub":5.1,"p50_bn_rub":10.9,"p90_bn_rub":21.4},"2035":{"p10_pct":1.16,"p50_pct":2.49,"p90_pct":4.19,"p10_bn_rub":13.1,"p50_bn_rub":28.1,"p90_bn_rub":47.3}},"mcDraws":3000,"laborShare":{"Инерционный":[44.79,44.79,44.79,44.79,44.79,44.79,44.79,44.78,44.78,44.77,44.76],"Базовый":[44.77,44.76,44.74,44.72,44.67,44.58,44.49,44.41,44.34,44.28,44.22],"Ускоренный":[44.71,44.64,44.46,44.06,43.64,43.28,42.96,42.73,42.58,42.48,42.43]},"sectors":{"Инерционный":[["Добыча полезных ископаемых",0.0393,59.0,12.8],["Прочие: госуправление, финансы, ИКТ, энергетика, недвижимость, проф. услуги и др.",0.0106,15.9,6.6],["Транспортировка и хранение",0.0048,7.2,6.5],["Торговля, ремонт автотранспорта",0.0043,6.5,5.4],["Обрабатывающие производства",0.0042,6.3,8.5],["Строительство",0.0014,2.0,3.6],["Здравоохранение и соцуслуги",0.0009,1.3,4.6],["Образование",0.0006,0.9,3.8],["Сельское, лесное хозяйство",0.0004,0.6,1.9],["Гостиницы и общепит",0.0002,0.3,3.3]],"Базовый":[["Добыча полезных ископаемых",0.3469,38.9,30.9],["Прочие: госуправление, финансы, ИКТ, энергетика, недвижимость, проф. услуги и др.",0.2121,23.8,18.2],["Транспортировка и хранение",0.0977,11.0,17.6],["Торговля, ремонт автотранспорта",0.0951,10.7,15.7],["Обрабатывающие производства",0.0648,7.3,22.0],["Строительство",0.0297,3.3,10.3],["Здравоохранение и соцуслуги",0.0193,2.2,13.5],["Образование",0.014,1.6,11.7],["Сельское, лесное хозяйство",0.0075,0.8,5.9],["Гостиницы и общепит",0.0051,0.6,10.4]],"Ускоренный":[["Добыча полезных ископаемых",1.5034,32.9,68.0],["Прочие: госуправление, финансы, ИКТ, энергетика, недвижимость, проф. услуги и др.",1.1806,25.8,53.7],["Торговля, ремонт автотранспорта",0.5666,12.4,49.8],["Транспортировка и хранение",0.5268,11.5,50.4],["Обрабатывающие производства",0.3318,7.3,59.1],["Строительство",0.1741,3.8,32.2],["Здравоохранение и соцуслуги",0.1181,2.6,43.9],["Образование",0.0914,2.0,40.6],["Сельское, лесное хозяйство",0.0496,1.1,20.3],["Гостиницы и общепит",0.0334,0.7,36.2]]},"tornado":[["Скорость имитации q (0,08 / 0,60)",0.89,0.4,1.87,1.47],["Старт F0 2025 (2% / 5%)",0.89,0.7,1.25,0.55],["Удвоение горизонта METR, мес. (12 / 4)",0.89,0.55,1.09,0.54],["Процессная экономия в добыче ρ (0,5% / 3%)",0.89,0.72,1.15,0.44],["Расширение экспозиции надстройками (×1,125 / ×1,875)",0.89,0.73,1.05,0.31],["Перераспределение времени r (0,6 / 1,0)",0.89,0.71,1.0,0.3],["Экономия при автономии s_auto (0,50 / 0,85)",0.89,0.73,1.01,0.28],["Учёт эффекта нерыночных услуг в ВРП μ (0 / 1; прочие 0,4 / 1)",0.89,0.77,1.04,0.27],["Поправка на реальные задачи δ (200 / 40)",0.89,0.77,1.01,0.24],["Потолок внедрения m (0,40 / 0,85)",0.89,0.77,0.99,0.22],["Ускорение в режиме помощника M (1,08 / 1,40)",0.89,0.86,0.94,0.08],["Доля добычи в ВДС (33% / 47%)",0.89,0.89,0.89,0.0]],"params":[["p","0.002","0.005","0.01","калибровка по темпам [13],[15],[4],[60]; модель Басса [26]"],["q","0.08","0.3","0.6","то же"],["m","0.4","0.6","0.85","потолок: РФ 5% (2025) [13]; McKinsey ~90% крупных компаний [52]; Китай >90% к 2030 [21]"],["doubling_m","12.0","7.0","4.0","удвоение горизонта METR 3–7 мес. (2024–2026), 7 мес. (2019–2025) [43],[53]"],["messy","200.0","100.0","40.0","визуальные задачи в 40–100 раз короче горизонта; для внедрения нужно 98%+ [54]"],["s_auto","0.5","0.7","0.85","допущение: остаток на контроль человеком"],["M","1.08","1.2","1.4","RCT: +14% колл-центр [31]; +25% консалтинг [35]; −19% опытные разработчики [27]"],["r","0.9","0.85","0.75","дефицит кадров по профессиям [75]; снижение найма молодых [30],[47]"],["theta","0.3","0.2","0.1","нулевой эффект на зарплаты [38]; рост разрыва капитал–труд [25],[42]"],["rho","0.005","0.015","0.03","допущение авторов (процессная оптимизация в добыче); проверено в торнадо"],["exp_scale","1.0","1.5","2.0","база — средняя экспозиция задач по МОТ WP140 [37] (как в Работе № 2); рост доли ускоряемых задач с ПО-надстройками: 15% → 47–56% [36]; 36% → 49% профессий за 9 мес. [45],[46]"]],"struct":[["Доля в занятых, добыча, %","5.9",""],["Доля в кредитах организаций, добыча, % (01.11.2025)","68.8",""],["Доля в ВДС, добыча, % (прокси 2024)","39.8",""],["Отгрузка добычи / ВРП, % (2024)","52.7",""],["Доля оплаты труда в ВРП края, %","44.8","52.3"],["Средняя зарплата, место в РФ (2025)","15",""],["Среднедушевой доход, место в РФ (III кв. 2025)","57",""],["Бедность, % (2025): край / РФ","11.0","6.7"],["Потребрасходы на душу, тыс. руб./мес (I пол. 2026): край / РФ","37.3","52.6"],["Доля вахтовых вакансий, % (I кв. 2025): край / РФ","33","6"],["Безработица МОТ, % (2025): край / РФ","4.6","2.2"],["Сальдированный финрезультат / ВРП, % (2024)","25.5",""],["Доля убыточных организаций, % (2024)","40.0",""],["Организации, использующие ИИ (крупные и средние, 2024)","<100",""],["Рейтинг инновационного развития, место","76",""]],"neighbors":[["ВРП на душу 2024, тыс. руб.","923.9","595.0","1284.4","1365.7","1276.5"],["Средняя начисленная зарплата 2025, руб.","99768","83574","95318","99073","100360"],["Место по средней зарплате 2025","15","32","20","16",""],["Безработица МОТ 2025, %","4.6","3.7","3.0","н/д","2.2"],["Организации, использующие ИИ (крупные и средние, 2024)","<100","100–150","100–150","<100",""],["Технологии ИИ с интенсивностью >50% (из 4)","2","0","1","0",""]],"gradients":[["G4","Высокая и устойчивая экспозиция: риск автоматизации задач",23.8,5.6],["G3","Выше умеренной: глубокая трансформация",27.9,6.5],["G2","Умеренная, неоднородная: усиление",24.0,5.6],["G1","Низкая, неоднородная: частичное усиление",26.4,6.2],["не_экспонир","Нет экспозиции к генИИ",326.1,76.2]],"clusters":[["A_рук_и_спец_высш",90.2,29.0],["B_спец_средн",62.9,19.0],["C_служащие_офис",32.2,27.7],["D_услуги_торговля",72.9,9.9],["E_рабочие_операторы_с/х",170.0,14.4]],"popScen":["D1_отток","D2_база","D3_приток"],"pop":{"D1_отток":{"years":[2025,2026,2027,2028,2029,2030,2031,2032,2033,2034,2035,2036,2037,2038,2039,2040,2041,2042,2043,2044,2045],"total":[983.8,972.5,960.8,948.9,936.6,924.2,911.5,898.7,885.6,872.5,859.1,845.7,832.3,819.0,805.6,792.2,778.9,765.5,752.1,738.7,725.2],"work":[648.1,646.4,644.3,642.0,639.3,636.3,633.0,629.4,624.5,618.9,612.2,605.4,597.9,589.6,580.5,570.9,561.3,551.3,540.9,530.1,519.0],"young":[212.0,203.3,195.6,189.0,183.6,179.5,177.6,176.3,175.5,175.3,175.7,176.8,177.5,177.0,175.6,173.3,170.6,167.2,162.9,157.4,151.1],"old":[144.3,142.8,141.4,140.1,138.8,137.5,136.3,135.1,134.0,132.9,131.8,130.8,129.9,129.2,128.5,128.0,127.2,126.5,125.9,125.4,125.1],"force":[490.3,489.1,487.9,486.7,483.2,479.9,477.3,474.5,471.5,468.4,465.2,462.0,458.4,454.1,449.2,443.6,437.1,430.3,422.8,414.8,406.3]},"D2_база":{"years":[2025,2026,2027,2028,2029,2030,2031,2032,2033,2034,2035,2036,2037,2038,2039,2040,2041,2042,2043,2044,2045],"total":[983.8,976.5,969.0,961.4,953.8,946.2,938.6,930.9,923.3,915.6,908.0,900.5,893.0,885.6,878.3,871.0,863.8,856.5,849.3,842.0,834.7],"work":[648.1,649.2,649.9,650.4,650.7,650.7,650.4,649.8,648.0,645.4,642.0,638.4,634.1,629.2,623.5,617.3,611.3,604.9,598.3,591.4,584.3],"young":[212.0,205.0,198.9,194.0,190.3,187.7,187.3,187.4,188.0,189.0,190.6,192.8,194.5,194.8,194.3,192.6,190.7,187.9,184.2,179.5,173.9],"old":[144.3,143.2,142.3,141.4,140.7,140.0,139.4,138.9,138.5,138.2,138.0,137.8,137.7,137.9,138.1,138.5,138.7,139.0,139.4,140.0,140.7],"force":[490.3,491.2,492.2,493.4,492.2,491.3,491.2,491.0,490.6,490.1,489.5,488.9,488.1,486.5,484.3,481.5,477.8,473.7,469.1,463.9,458.4]},"D3_приток":{"years":[2025,2026,2027,2028,2029,2030,2031,2032,2033,2034,2035,2036,2037,2038,2039,2040,2041,2042,2043,2044,2045],"total":[983.8,981.5,979.2,977.0,975.1,973.3,971.7,970.3,969.0,968.0,967.3,966.7,966.3,966.1,966.0,965.9,966.0,966.2,966.3,966.5,966.7],"work":[648.1,652.6,656.9,661.0,664.8,668.5,671.9,675.0,677.0,678.3,678.8,679.1,678.9,678.0,676.5,674.5,672.7,670.8,668.8,666.6,664.3],"young":[212.0,207.1,203.2,200.3,198.6,198.0,199.4,201.3,203.6,206.2,209.2,212.7,215.6,217.0,217.5,216.7,215.6,213.7,210.8,206.9,202.3],"old":[144.3,143.7,143.4,143.1,143.0,143.0,143.2,143.4,143.8,144.3,144.9,145.7,146.6,147.7,149.0,150.5,151.7,153.1,154.7,156.5,158.4],"force":[490.3,493.8,497.6,501.6,503.5,505.6,508.6,511.5,514.2,516.9,519.6,522.3,524.7,526.4,527.6,528.1,527.8,527.2,526.0,524.4,522.3]}},"levers":[["Удержание молодёжи: миграционное сальдо −2 → 0 тыс./год",11.5],["Снижение мужской смертности до уровня РФ (ОПЖ мужчин ≈61,5 → 68,0 к 2035)",3.7],["Снижение безработицы 4,6% → 3,0%",7.8],["Пенсионная реформа (рост участия 55–64)",7.6],["ИИ, базовый сценарий (реализованное высвобождение)",6.3],["ИИ, ускоренный сценарий (реализованное высвобождение)",18.8],["Справочно: дефицит рабочей силы 2035 (D2×S2)",-7.4]],"industryExp":[["Торговля, ремонт автотранспорта",15.7,67.2,0.129],["Транспортировка и хранение",11.7,50.1,0.123],["Образование",10.0,42.8,0.195],["Здравоохранение и соцуслуги",8.0,34.3,0.191],["Сельское, лесное хозяйство",7.1,30.4,0.08],["Обрабатывающие производства",7.1,30.4,0.115],["Строительство",6.8,29.1,0.106],["Добыча полезных ископаемых",5.9,25.3,0.114],["Гостиницы и общепит",2.2,9.4,0.115],["Прочие (госуправление, энергетика, финансы, ИКТ и др.)",25.5,109.2,0.212]],"pupilVariants":["высокий","низкий","средний"],"pupils":{"высокий":{"years":[2025,2026,2027,2028,2029,2030,2031,2032,2033,2034,2035],"all":[137472.0,132980.0,128290.0,122967.0,117423.0,111628.0,105766.0,99440.0,93748.0,88506.0,84302.0],"g1":[11281.0,10351.0,10195.0,9603.0,9017.0,8403.0,7976.0,7155.0,7111.0,7067.0,7023.0]},"низкий":{"years":[2025,2026,2027,2028,2029,2030,2031,2032,2033,2034,2035],"all":[137472.0,131797.0,126017.0,119713.0,113299.0,106748.0,100242.0,93408.0,86921.0,80629.0,75090.0],"g1":[11281.0,10259.0,10014.0,9349.0,8701.0,8036.0,7560.0,6721.0,6263.0,5837.0,5440.0]},"средний":{"years":[2025,2026,2027,2028,2029,2030,2031,2032,2033,2034,2035],"all":[137472.0,132157.0,126706.0,120697.0,114541.0,108214.0,101896.0,95208.0,89000.0,83097.0,78060.0],"g1":[11281.0,10287.0,10069.0,9425.0,8796.0,8146.0,7685.0,6850.0,6563.0,6288.0,6024.0]}},"tutor":[["инерционный","0.03–0.07","0.2–0.4","0.5–0.8",-0.055,-0.028,-0.011,100.0],["базовый","0.25–0.35","0.4–0.6","0.4–0.7",-0.023,-0.005,0.009,68.0],["ускоренный","0.6–0.8","0.5–0.7","0.3–0.6",0.002,0.022,0.052,8.0]],"paradox":[["Педагоги — пользователи мессенджера MAX","100.0","% педагогов общего и дошкольного образования (18 617)","2025–2026"],["Обучающиеся 5–11 кл. — пользователи MAX","100.0","% (87 834)","2025–2026"],["Родители — пользователи MAX","45.0","% (36 876)","2025–2026"],["Родители и обучающиеся в «Моей школе» (факт 2025)","12.63","%","2025"],["То же, показатель на I кв. 2026","16.65","% (плановый)","2026"],["Учителя, использующие ЦОК (факт 2025)","2.05","%","2025"],["То же, показатель на I кв. 2026","2.86","% (плановый)","2026"],["Пользователи ИИ «Ассистент преподавателя» (Сбер)","7.1","% от 11 637 педагогов школ (829 чел.)","на 01.03.2026"]],"fireSeries":[[2009,170691.0,""],[2010,62226.0,""],[2011,208033.0,""],[2012,440853.0,""],[2013,45062.0,""],[2014,522776.0,""],[2015,905766.0,""],[2016,266489.0,""],[2017,304151.0,""],[2018,358126.0,""],[2019,561086.0,""],[2020,347658.0,""],[2021,null,"нет годового итога"],[2022,37300.0,""],[2023,65166.0,""],[2024,2000000.0,""],[2025,2700000.0,""]],"fireFuels":["лес_подстилка","лес_с_травой","сухая_трава_степь"],"fireGrowth":{"лес_подстилка":{"min":[15,30,60,120,180,240,360,480],"ha":[0.001,0.004,0.022,0.103,0.243,0.443,1.021,1.839],"ros":0.5,"wind":20.0},"лес_с_травой":{"min":[15,30,60,120,180,240,360,480],"ha":[0.051,0.385,2.179,10.254,24.289,44.283,102.149,183.853],"ros":5.0,"wind":20.0},"сухая_трава_степь":{"min":[15,30,60,120,180,240,360,480],"ha":[1.38,10.423,58.929,277.267,656.766,1197.406,2762.109,4971.377],"ros":26.0,"wind":20.0}},"fireMC":[["инерционный",20000,80.7,20.3,1635.0,1376.0,0.158,0.152,0.165],["базовый",20000,66.2,13.5,1294.0,987.0,0.237,0.229,0.246],["ускоренный",20000,54.6,8.6,1100.0,726.0,0.34,0.326,0.354]],"digitalGap":[["Отраслей в стратегии цифровой трансформации","16","3-е место в РФ (среднее ≈10)","2021"],["Качество регионального портала госуслуг, балл","36.94","80 из 85 (среднее РФ 53,73; Москва 94,05)","2026"],["Рейтинг цифровизации и внедрения ИИ, итоговый балл","52","53 из 85","2025"],["Балл «Проекты ИИ»","1.9","в том же рейтинге","2025"],["Балл «Открытые данные»","0.7","в том же рейтинге","2025"],["Организаций, использующих ИИ","<100","Бурятия 100–150; Иркутская 100–150; Амурская <100","2025"],["Рейтинг инновационного развития (РРИИ)","76","из 85 (было 80)","2026"],["Министров блока цифровизации за 2024–2026","3","Синкевич, Юсупов, Чибисов","2026"],["Показателей в каталоге БД ПМО Росстата по краю без загруженных данных","678","каталог есть, данных нет","2026"],["Сообщений в ПОС/«Голос забайкальца» за месяц","1436","решено >1 190","2026"]],"langStatus":[["Бурятский","да (2024)","да, текст (2025)","нет","нет","нет"],["Монгольский (халха)","н. д.","да","да (mon)","да (mon)","да (mn)"],["Эвенкийский","нет в пакете 2024","нет в списке 15 языков РФ","да","да","нет"],["Калмыцкий","нет в пакете 2024","нет в списке 15 языков РФ","да","да","нет"],["Якутский","да (2024)","да","да","да","нет"],["Тувинский","да (2024)","да","нет","нет","нет"],["Башкирский","да (2024)","да, с голосом","да","да","да (ba)"],["Татарский","н. д.","да, с голосом","да","да","да (tt)"]],"langScen":["Инерция","Цель 65% к 2035 (детсад и школа)","Цифровое возрождение"],"lang":{"Инерция":{"years":[2026,2027,2028,2029,2030,2031,2032,2033,2034,2035,2036,2037,2038,2039,2040,2041,2042,2043,2044,2045,2046,2047,2048,2049,2050],"school":[59.1,57.5,56.0,54.6,53.2,51.8,50.5,49.2,47.9,46.7,45.5,44.3,43.2,42.1,41.0,40.0,39.0,38.0,37.1,36.2,35.3,34.4,33.5,32.7,31.9],"pop":[54.5,54.2,53.8,53.5,53.1,52.8,52.4,52.0,51.6,51.2,50.8,50.4,50.0,49.6,49.2,48.7,48.3,47.8,47.4,46.9,46.5,46.0,45.5,45.1,44.6]},"Цель 65% к 2035 (детсад и школа)":{"years":[2026,2027,2028,2029,2030,2031,2032,2033,2034,2035,2036,2037,2038,2039,2040,2041,2042,2043,2044,2045,2046,2047,2048,2049,2050],"school":[59.1,58.0,57.5,57.4,57.5,57.6,57.6,57.5,57.5,57.4,57.3,57.2,57.0,56.6,56.0,55.5,55.2,54.9,54.8,54.7,54.7,54.7,54.7,54.7,54.7],"pop":[54.5,54.2,54.0,53.9,53.8,53.8,53.7,53.6,53.5,53.4,53.4,53.3,53.2,53.1,53.0,52.9,52.9,52.8,52.7,52.6,52.5,52.5,52.4,52.3,52.2]},"Цифровое возрождение":{"years":[2026,2027,2028,2029,2030,2031,2032,2033,2034,2035,2036,2037,2038,2039,2040,2041,2042,2043,2044,2045,2046,2047,2048,2049,2050],"school":[59.1,58.2,58.2,58.8,59.7,60.5,61.1,61.7,62.2,62.7,63.2,63.7,63.9,63.9,63.6,63.5,63.5,63.8,64.1,64.6,65.2,65.8,66.5,67.1,67.8],"pop":[54.5,54.3,54.2,54.2,54.2,54.3,54.3,54.4,54.5,54.6,54.7,54.8,54.9,55.0,55.1,55.2,55.4,55.5,55.6,55.8,56.0,56.2,56.4,56.6,56.8]}},"asr":[["L1 Пилот",50,5.9,31.3,12],["L2 Рабочий сервис",300,18.5,20.0,18],["L3 Высокое качество",1000,52.3,14.8,36]],"dc":[[0.25,1.1,0.28,0.2,2.4],[0.25,1.5,0.38,0.2,3.3],[1.0,1.1,1.1,0.7,9.6],[1.0,1.5,1.5,0.9,13.1],[5.0,1.1,5.5,3.4,48.2],[5.0,1.5,7.5,4.6,65.7],[20.0,1.1,22.0,13.6,192.7],[20.0,1.5,30.0,18.5,262.8],[100.0,1.1,110.0,67.9,963.6],[100.0,1.5,150.0,92.6,1314.0]],"fraudScen":["Базовый","Инерционный","Ускоренный"],"fraud":{"Базовый":{"years":[2025,2026,2027,2028,2029,2030,2031,2032,2033,2034,2035],"damage":[168.7,176.2,184.3,193.2,203.2,214.1,236.8,262.8,291.7,314.5,337.3],"aiShare":[0.044,0.07,0.107,0.162,0.237,0.333,0.446,0.564,0.675,0.692,0.692]},"Инерционный":{"years":[2025,2026,2027,2028,2029,2030,2031,2032,2033,2034,2035],"damage":[168.7,180.5,193.8,209.3,227.6,249.4,278.5,312.4,350.3,378.3,405.7],"aiShare":[0.044,0.07,0.107,0.162,0.237,0.333,0.446,0.564,0.675,0.692,0.692]},"Ускоренный":{"years":[2025,2026,2027,2028,2029,2030,2031,2032,2033,2034,2035],"damage":[168.7,171.9,174.9,177.7,179.9,181.1,198.2,217.4,238.6,256.8,275.4],"aiShare":[0.044,0.07,0.107,0.162,0.237,0.333,0.446,0.564,0.675,0.692,0.692]}},"fraudEst":[["Пропорционально населению",197.4,"ЦБ 2025 × доля края в населении РФ"],["С поправкой на потребительские расходы",140.0,"× 37,3/52,6 (потребрасходы на душу, I пол. 2026)"],["С надбавкой за уязвимость (верхняя граница)",227.1,"× 1,15 — допущение авторов (вахта, низкая цифровая зрелость)"],["Центральная оценка",168.7,"среднее первых двух; операции — по населению"]],"rumor":[["Безмасштабная (BA, m=3)",0.0,0.853,0.853],["Безмасштабная (BA, m=3)",0.05,0.787,0.469],["Безмасштабная (BA, m=3)",0.1,0.72,0.05],["Безмасштабная (BA, m=3)",0.2,0.578,0.001],["Кластеризованная (WS, k=6, p=0,05)",0.0,0.701,0.706],["Кластеризованная (WS, k=6, p=0,05)",0.05,0.48,0.227],["Кластеризованная (WS, k=6, p=0,05)",0.1,0.273,0.021],["Кластеризованная (WS, k=6, p=0,05)",0.2,0.023,0.009]],"vuln":[["Уровень бедности, % (2025)",11.0,6.7],["Потребительские расходы на душу, тыс. руб./мес. (I пол. 2026)",37.3,52.6],["Доля вахтовых вакансий, % (I кв. 2025)",33.0,6.0],["Балл качества цифровых госуслуг (2026), из 100",36.94,53.73],["Сельское население, % (01.01.2025)",30.0,null],["Население старше трудоспособного, % (2025, оценка)",19.97,null]],"evidence":[["Диалог с GPT-4 о конспирологии","RCT","вера в теорию −20% (≈21,4% vs 1,0% в контроле), держится 2 мес."],["GPT-4 с 6 соцдем-признаками в дебатах","RCT","убедительнее человека в 64,4% пар; шансы сдвига +81%"],["Дообучение модели на убеждение","RCT","убедительность до +51% (промптинг до +27%), точность фактов снижается"],["Морально-эмоциональное слово в посте","репликация + мета-анализ","репосты +13% (мета-анализ) … +17% (репликация) … +20% (оригинал)"],["Ложная новость vs правда в Twitter","наблюдение","на 70% чаще ретвит; до 1500 чел. ~в 6 раз быстрее"],["Хронологическая лента 3 мес.","RCT","время на платформе резко ↓, поляризация без значимых изменений"],["Нуджи: госпрограммы vs журналы","126 RCT","1,4 п.п. vs 8,7 п.п. (≈6 раз меньше)"],["Неверная подсказка ИИ рентгенологам","эксперимент","точность неопытных ~80% → <20%; опытных 82% → 45,5%"],["Врачи + GPT-4 vs GPT-4","RCT","76% vs 74% (без ИИ) vs 92% (ИИ один)"],["Клон голоса","эксперимент","принят за того же человека ~80%; отличают клон ~60%"],["Пребанкинг-ролики на YouTube","RCT (лаб.+поле)","распознавание манипулятивной техники ~+5% в поле"],["Интенсивное общение с чат-ботом","RCT, 4 нед.","больше минут/день → выше одиночество и зависимость"],["Аффективные разговоры с универсальным ИИ-ассистентом (Anthropic)","анализ 4,5 млн диалогов","2,9% всех разговоров; компаньонство <0,5%"]]};
 
 /* Модель «ИИ и экономика Забайкальского края» и рейтинг регионов.
    Ряды — Росстат и Забайкалкрайстат (см. EC_REG / EC_SECT в aiecon-data.js).
@@ -1295,198 +1430,599 @@ var EC_TECH={"doubling":128.7,"doublingAll":187.8,"hz":[["GPT-2","2019-02-14",0.
       .getPropertyValue('--' + name).trim() || '#888';
   }
 
-  // ------------------------------------------------------------------ модель
-  function state() {
-    var s = {};
-    IDS.forEach(function (k) { s[k] = +$(k).value; });
-    s.mulR = s.mul / 10; s.baseR = s.base / 10;
-    return s;
-  }
-  function potential(yi) {
-    var pot = 0;
-    EC_SECT.forEach(function (r) { pot += (r[2][yi] || 0) * r[4]; });
-    return pot / 100;
-  }
-  function compute(s) {
-    var pot = potential(LAST);
-    var eff = pot * (s.cap / 100) * (s.ado / 100);     // фактически затронуто
-    var gain = eff * (s.mulR - 1) / s.mulR;            // прирост выпуска
-    var noAI = VRP24 * Math.pow(1 + s.baseR / 100, 6);
-    var drop = eff * (s.aut / 100) * 38;               // сдвиг доли труда, п.п.
-    return { pot: pot, eff: eff, gain: gain, noAI: noAI, withAI: noAI * (1 + gain),
-             lab30: Math.max(20, LAB24 - drop), drop: drop };
-  }
-  function tiles(r) {
-    $('t-vrp').textContent = nf(r.withAI, 0) + ' млрд ₽';
-    $('t-vrp-d').textContent = '+' + nf(r.gain * 100) + '% к экономике без ИИ (' + nf(r.noAI, 0) + ' млрд)';
-    $('t-lab').textContent = nf(r.lab30) + '%';
-    $('t-lab-d').textContent = r.drop < 0.05
-      ? 'без изменений от 44,8% в 2024'
-      : '−' + nf(r.drop) + ' п.п. от 44,8% в 2024';
-    $('t-exp').textContent = nf(r.eff * 100) + '%';
-    // Проценты работ ни о чём не говорят, пока их не перевести в деньги:
-    // оплата труда в крае за 2024 год — это 44,8% от 909,2 млрд рублей.
-    var wage = VRP24 * LAB24 / 100;
-    $('t-exp-d').textContent = 'из ' + nf(r.pot * 100) + '% пригодных в принципе. '
-      + 'В деньгах это около ' + nf(wage * r.eff, 0) + ' млрд ₽ зарплат в год '
-      + 'из ' + nf(wage, 0) + ' млрд';
+  function palette() {
+    return { lab: col('ec-lab'), cap: col('ec-cap'), sel: col('ec-sel'),
+             line: col('border'), dim: col('text-secondary'), ink: col('text'), bg: col('bg-card') };
   }
 
-  /* ------------------------------------------------- сто клеток работы
-     Вся работа как сетка: одна клетка — один процент занятых. Приём взят
-     у Anthropic, но клетки набиты не коэффициентами из головы, а реальными
-     занятиями: сорок групп ISCO-08 с измеренной уязвимостью и фактической
-     долей занятых. Клетки отсортированы по уязвимости, поэтому загораются
-     в том порядке, в каком работа и будет уходить: сверху вниз.
-     Это самостоятельный слой, он не зависит от отраслевых коэффициентов
-     в модели выше и намеренно считается по стране, а не по краю: занятости
-     по занятиям в разрезе региона в открытых источниках нет. */
+  /* ------------------------------------------------- модель исследования
+     Прежняя модель считалась по коэффициентам, которые я задал сам.
+     Теперь числа берутся из исследовательской программы «ИИ и Забайкальский
+     край — 2026»: диффузия Басса с калибровкой по источникам, Монте-Карло
+     на 3000 прогонов, анализ чувствительности. Ползунков больше нет —
+     между сценариями нельзя интерполировать, не выдумывая чисел. */
+  var SCEN = ['Инерционный', 'Базовый', 'Ускоренный'];
+  var scen = 'Базовый';
+  var RY = EC_RES.years;
+  var I30 = RY.indexOf(2030), I35 = RY.indexOf(2035);
+
+  function resTiles() {
+    var f = EC_RES.forecast[scen], mc = EC_RES.mc['2030'];
+    $('t-vrp').textContent = '+' + nf(f.effectPct[I30], 2) + '%';
+    $('t-vrp-d').textContent = 'к 2030 году: ' + nf(f.effectBn[I30], 1) + ' млрд ₽ в ценах 2024-го. ' +
+      'К 2035-му — ' + nf(f.effectPct[I35], 2) + '%';
+    $('t-lab').textContent = nf(EC_RES.laborShare[scen][I30], 2) + '%';
+    $('t-lab-d').textContent = 'доля труда в 2030 году против 44,8% в 2024-м. ' +
+      'ИИ сдвигает её на ' + nf(EC_RES.laborShare[scen][I30] - 44.8, 2) + ' п.п.';
+    $('t-exp').textContent = '+' + nf(f.growthPP[I30], 2) + ' п.п.';
+    $('t-exp-d').textContent = 'вклад ИИ в годовой рост экономики края. ' +
+      'Высвобождается ' + nf(f.fte[I30], 1) + ' тыс. человеко-лет рабочего времени';
+  }
+
+  /* Главный график: две линии ВРП и веер неопределённости из Монте-Карло.
+     Веер важнее самих линий: он показывает, что 1% — это середина
+     разброса от 0,5% до 2,1%, а не точное число. */
+  function resChart() {
+    var cs = palette(), f = EC_RES.forecast[scen];
+    var W = 820, H = 330, mL = 62, mR = 92, mT = 20, mB = 34;
+    var all = f.noAI.concat(f.withAI);
+    var lo = Math.min.apply(null, all) * 0.97, hi = Math.max.apply(null, all) * 1.03;
+    function px(i) { return mL + i / (RY.length - 1) * (W - mL - mR); }
+    function py(v) { return mT + (hi - v) / (hi - lo) * (H - mT - mB); }
+    var s = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Валовой региональный продукт Забайкальского края без искусственного интеллекта и с ним, с 2025 по 2035 год">';
+    for (var k = 0; k <= 4; k++) {
+      var v = lo + (hi - lo) * k / 4;
+      s += '<line x1="' + mL + '" y1="' + py(v) + '" x2="' + (W - mR) + '" y2="' + py(v) +
+        '" stroke="' + cs.line + '" opacity=".5"/>' +
+        '<text x="' + (mL - 8) + '" y="' + (py(v) + 3.5) + '" text-anchor="end" font-size="10.5" fill="' +
+        cs.dim + '">' + nf(v, 0) + '</text>';
+    }
+    [0, 5, 10].forEach(function (i) {
+      s += '<text x="' + px(i) + '" y="' + (H - 10) + '" text-anchor="middle" font-size="10.5" fill="' +
+        cs.dim + '">' + RY[i] + '</text>';
+    });
+    // Веер Монте-Карло вокруг линии «с ИИ» в опорных годах
+    [['2030', I30], ['2035', I35]].forEach(function (g) {
+      var m = EC_RES.mc[g[0]], i = g[1];
+      if (!m) return;
+      var base = f.noAI[i];
+      var y10 = py(base * (1 + m.p10_pct / 100)), y90 = py(base * (1 + m.p90_pct / 100));
+      s += '<rect x="' + (px(i) - 5) + '" y="' + y90 + '" width="10" height="' +
+        Math.max(1, y10 - y90) + '" rx="3" fill="' + cs.sel + '" opacity=".28"/>';
+    });
+    function line(arr, c, dash) {
+      return '<polyline points="' + arr.map(function (v, i) { return px(i) + ',' + py(v); }).join(' ') +
+        '" fill="none" stroke="' + c + '" stroke-width="2.2" stroke-linejoin="round"' +
+        (dash ? ' stroke-dasharray="5 4"' : '') + '/>';
+    }
+    s += line(f.noAI, cs.dim, 1) + line(f.withAI, cs.lab);
+    s += '<text x="' + (px(10) + 8) + '" y="' + (py(f.withAI[10]) + 4) + '" font-size="11.5" font-weight="700" fill="' +
+      cs.lab + '">с ИИ</text>';
+    s += '<text x="' + (px(10) + 8) + '" y="' + (py(f.noAI[10]) + 16) + '" font-size="11.5" fill="' +
+      cs.dim + '">без ИИ</text>';
+    $('chart').innerHTML = s + '</svg>';
+
+    var mc = EC_RES.mc['2030'];
+    $('reschartnote').innerHTML = 'Столбик на 2030 годе — разброс из ' +
+      nf(EC_RES.mcDraws, 0) + ' прогонов Монте-Карло: в десяти процентах случаев эффект ' +
+      'не превышает <b>' + nf(mc.p10_pct, 2) + '%</b>, в половине — около <b>' + nf(mc.p50_pct, 2) +
+      '%</b>, в одном случае из десяти доходит до <b>' + nf(mc.p90_pct, 2) + '%</b>. ' +
+      'Это и есть честная точность такого прогноза.';
+  }
+
+  function resSectors() {
+    var rows = EC_RES.sectors[scen] || [];
+    var hi = rows.length ? Math.max.apply(null, rows.map(function (r) { return r[2]; })) : 1;
+    $('ressectors').innerHTML = rows.map(function (r) {
+      return '<tr><td>' + esc(r[0]) + '</td>' +
+        '<td><div class="ec-bt"><div class="ec-bf" style="width:' + (r[2] / hi * 100) + '%"></div></div></td>' +
+        '<td class="n">' + nf(r[2], 1) + '%</td>' +
+        '<td class="n">' + nf(r[1], 3) + '</td>' +
+        '<td class="n">' + (r[3] === null ? '—' : nf(r[3], 1) + '%') + '</td></tr>';
+    }).join('');
+  }
+
+  function resTornado() {
+    var t = EC_RES.tornado.filter(function (r) { return r[4] > 0; });
+    var hi = Math.max.apply(null, t.map(function (r) { return r[4]; }));
+    $('restornado').innerHTML = t.map(function (r, i) {
+      return '<div class="ec-row ec-row--static">' +
+        '<span class="ec-rk">' + (i + 1) + '</span>' +
+        '<span class="ec-rn">' + esc(r[0]) +
+        '<small>от ' + nf(r[2], 2) + '% до ' + nf(r[3], 2) + '% при базовых ' + nf(r[1], 2) + '%</small></span>' +
+        '<span class="ec-rb"><i style="width:' + Math.max(2, r[4] / hi * 100) + '%"></i></span>' +
+        '<span class="ec-rv">' + nf(r[4], 2) + '</span></div>';
+    }).join('');
+  }
+
+  function resApply() {
+    resTiles();
+    resChart();
+    resSectors();
+    labChart();
+    writeHash();
+  }
+
+  /* Доля труда: факт до 2024 года и проекция исследования до 2035-го.
+     Прежде эта линия считалась моей формулой «автономность × 38». */
+  function labChart() {
+    var cs = palette(), proj = EC_RES.laborShare[scen];
+    var W = 820, H = 300, mL = 46, mR = 74, mT = 20, mB = 32;
+    var y0 = 2004, y1 = 2035, vmin = 30, vmax = 70;
+    function px(y) { return mL + (y - y0) / (y1 - y0) * (W - mL - mR); }
+    function py(v) { return mT + (vmax - v) / (vmax - vmin) * (H - mT - mB); }
+    var s = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Доля оплаты труда в валовой добавленной стоимости Забайкальского края с 2004 по 2035 год">';
+    for (var v = 35; v <= 65; v += 10) {
+      s += '<line x1="' + mL + '" y1="' + py(v) + '" x2="' + (W - mR) + '" y2="' + py(v) +
+        '" stroke="' + cs.line + '" opacity=".5"/>' +
+        '<text x="' + (mL - 8) + '" y="' + (py(v) + 3.5) + '" text-anchor="end" font-size="10.5" fill="' +
+        cs.dim + '">' + v + '%</text>';
+    }
+    [2004, 2014, 2024, 2035].forEach(function (y) {
+      s += '<text x="' + px(y) + '" y="' + (H - 10) + '" text-anchor="middle" font-size="10.5" fill="' +
+        cs.dim + '">' + y + '</text>';
+    });
+    s += '<line x1="' + mL + '" y1="' + py(WORLD) + '" x2="' + (W - mR) + '" y2="' + py(WORLD) +
+      '" stroke="' + cs.dim + '" stroke-width="1.5" stroke-dasharray="2 4" opacity=".55"/>' +
+      '<text x="' + (mL + 6) + '" y="' + (py(WORLD) - 6) + '" font-size="10.5" fill="' + cs.dim +
+      '">мир — ' + nf(WORLD) + '%</text>';
+    s += '<polyline points="' + HIST.map(function (d) { return px(d[0]) + ',' + py(d[1]); }).join(' ') +
+      '" fill="none" stroke="' + cs.lab + '" stroke-width="2.2" stroke-linejoin="round"/>';
+    s += '<polyline points="' + proj.map(function (v, i) { return px(RY[i]) + ',' + py(v); }).join(' ') +
+      '" fill="none" stroke="' + cs.cap + '" stroke-width="2.2" stroke-dasharray="5 4"/>';
+    var last = proj[proj.length - 1];
+    s += '<circle cx="' + px(2035) + '" cy="' + py(last) + '" r="4" fill="' + cs.cap +
+      '" stroke="' + cs.bg + '" stroke-width="2"/>' +
+      '<text x="' + (px(2035) + 8) + '" y="' + (py(last) + 4) + '" font-size="12" font-weight="700" fill="' +
+      cs.cap + '">' + nf(last, 1) + '%</text>';
+    $('labchart').innerHTML = s + '</svg>';
+    $('labnote').innerHTML = 'Синяя линия — факт из счёта образования доходов края. ' +
+      'Оранжевый пунктир — проекция исследования при выбранном сценарии: к 2035 году ' +
+      '<b>' + nf(last, 2) + '%</b>. Сдвиг от ИИ здесь невелик — ' +
+      'долю труда в крае двигает не он, а структура экономики.';
+  }
+
+  /* Сто клеток: теперь это измеренные градиенты экспозиции по краю
+     из работы № 2, а не мой пересчёт. G4 — устойчиво высокая экспозиция,
+     G1 — низкая и неоднородная. */
   var SQ = 100;
   var SQ_CELLS = (function () {
-    // Раскладываем сто клеток по занятиям пропорционально числу занятых
-    var byExpo = EC_OCC.slice().sort(function (a, b) { return b[2] - a[2]; });
     var cells = [], acc = 0;
-    byExpo.forEach(function (o) {
-      acc += o[3];
+    EC_RES.gradients.forEach(function (g) {
+      acc += g[3];
       var need = Math.round(acc) - cells.length;
-      for (var i = 0; i < need; i++) cells.push(o);
+      for (var i = 0; i < need; i++) cells.push(g);
     });
-    while (cells.length < SQ) cells.push(byExpo[byExpo.length - 1]);
+    while (cells.length < SQ) cells.push(EC_RES.gradients[EC_RES.gradients.length - 1]);
     return cells.slice(0, SQ);
   })();
 
   function squaresInit() {
-    var h = '<svg viewBox="0 0 268 268" role="img" aria-label="Сто клеток: вся работа в России по занятиям, раскрашенная по тому, что с ней сделает искусственный интеллект">';
-    // Фильтр даёт клеткам неровный край: идеальные квадраты читаются как
-    // технический график, а не как «вот столько всего есть».
+    var h = '<svg viewBox="0 0 268 268" role="img" aria-label="Сто клеток: рабочие места Забайкальского края по степени экспозиции к генеративному ИИ">';
     h += '<defs><filter id="ec-mk" x="-14%" y="-14%" width="128%" height="128%">' +
       '<feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="7" result="n"/>' +
       '<feDisplacementMap in="SourceGraphic" in2="n" scale="1.8" ' +
       'xChannelSelector="R" yChannelSelector="G"/></filter></defs>' +
       '<g filter="url(#ec-mk)">';
+    var CLS = { 'G4': 'is-g4', 'G3': 'is-g3', 'G2': 'is-g2', 'G1': 'is-g1' };
     for (var i = 0; i < SQ; i++) {
-      var o = SQ_CELLS[i];
-      h += '<rect class="ec-sq" id="ec-sq' + i + '" x="' + ((i % 10) * 26 + 4) +
-        '" y="' + (Math.floor(i / 10) * 26 + 4) + '" width="19" height="19" rx="2.5" ' +
-        'tabindex="0" data-i="' + i + '"><title>' + esc(o[1]) + ' — балл ' +
-        nf(o[2], 2) + ', ' + nf(o[3], 1) + '% занятых</title></rect>';
+      var g = SQ_CELLS[i];
+      h += '<rect class="ec-sq ' + (CLS[g[0]] || '') + '" x="' + ((i % 10) * 26 + 4) +
+        '" y="' + (Math.floor(i / 10) * 26 + 4) + '" width="19" height="19" rx="2.5">' +
+        '<title>' + esc(g[0] === 'не_экспонир' ? 'Без экспозиции' : g[0] + ' — ' + g[1]) +
+        ': ' + nf(g[2], 1) + ' тыс. рабочих мест</title></rect>';
     }
     $('squares').innerHTML = h + '</g></svg>';
-    $('squares').addEventListener('mouseover', sqHover);
-    $('squares').addEventListener('focusin', sqHover);
-    $('squares').addEventListener('mouseleave', function () { sqShow(null); });
-  }
-  function sqHover(e) {
-    var i = e.target && e.target.getAttribute ? e.target.getAttribute('data-i') : null;
-    if (i !== null) sqShow(SQ_CELLS[+i]);
-  }
-  var sqLast = null;
-  function sqShow(o) {
-    if (o === sqLast) return;
-    sqLast = o;
-    if (!o) { squares(compute(state()), state()); return; }
-    $('sqstat').innerHTML = '<b>' + esc(o[1]) + '</b> — балл уязвимости ' +
-      nf(o[2], 2) + ', это ' + nf(o[3], 1) + '% всех занятых в стране. ' + esc(o[5]) + '.';
+    var g = EC_RES.gradients;
+    var exposed = g.filter(function (x) { return x[0] !== 'не_экспонир'; });
+    var jobs = exposed.reduce(function (a, x) { return a + x[2]; }, 0);
+    var share = exposed.reduce(function (a, x) { return a + x[3]; }, 0);
+    $('sqstat').innerHTML = 'Экспонированы <b>' + nf(share, 1) + '%</b> рабочих мест края — это ' +
+      '<b>' + nf(jobs, 1) + ' тыс. человек</b>. Устойчиво высокая экспозиция только у ' +
+      '<b>' + nf(g[0][3], 1) + '%</b>: это <b>' + nf(g[0][2], 1) + ' тыс.</b> мест, где ИИ ' +
+      'способен взять задачи на себя. Остальные <b>' + nf(g[4][3], 1) + '%</b> он не трогает ' +
+      'ни в одном сценарии — там работа руками, на ногах и с людьми.';
   }
 
-  function squares(r, s) {
-    // Сколько работы затронуто: средний балл по стране, урезанный тем,
-    // что ИИ реально умеет и насколько он внедрён
-    var reach = (s.cap / 100) * (s.ado / 100);
-    var touched = 0;
-    SQ_CELLS.forEach(function (o) { touched += o[2] * reach; });
-    var n = Math.round(touched);
-    var nAuto = Math.round(n * s.aut / 100);
-    for (var k = 0; k < SQ; k++) {
-      var el = $('sq' + k);
-      if (!el) continue;
-      var want = k < nAuto ? ' is-auto' : (k < n ? ' is-help' : '');
-      el.style.transitionDelay = (k * 6) + 'ms';
-      el.setAttribute('class', 'ec-sq' + want);
-    }
-    sqLast = undefined;
-    $('sqstat').innerHTML =
-      '<b>' + nAuto + '</b> из ста ИИ делает сам, <b>' + (n - nAuto) +
-      '</b> помогает человеку, остальных <b>' + (SQ - n) + '</b> при таких допущениях ' +
-      'не касается. Клетки идут по убыванию уязвимости: первыми загораются ' +
-      'офисные служащие и специалисты по данным, последними — те, чья работа ' +
-      'руками. Наведите на клетку, чтобы увидеть занятие.';
+  /* ---------------------------------------- пять работ исследования
+     Работы № 2–6: люди, школа, пожары, язык, доверие. Все числа — из
+     папки data/ исследовательской программы, ничего не пересчитано. */
+
+  // ------------------------------------------------------ № 2. Люди
+  function people() {
+    var cl = EC_RES.clusters.slice().sort(function (a, b) { return b[2] - a[2]; });
+    var hi = cl[0][2];
+    var NAMES = {
+      'A_рук_и_спец_высш': 'Руководители и специалисты высшей квалификации',
+      'B_спец_средн': 'Специалисты среднего звена',
+      'C_служащие_офис': 'Офисные служащие',
+      'D_услуги_торговля': 'Услуги и торговля',
+      'E_рабочие_и_простые': 'Рабочие и простой труд'
+    };
+    $('clusters').innerHTML = cl.map(function (c, i) {
+      return '<div class="ec-row ec-row--static">' +
+        '<span class="ec-rk">' + (i + 1) + '</span>' +
+        '<span class="ec-rn">' + esc(NAMES[c[0]] || c[0]) +
+        '<small>' + nf(c[1], 1) + ' тыс. занятых</small></span>' +
+        '<span class="ec-rb"><i style="width:' + Math.max(2, c[2] / hi * 100) + '%"></i></span>' +
+        '<span class="ec-rv">' + nf(c[2], 1) + '%</span></div>';
+    }).join('');
+
+    popChart();
+    var lev = EC_RES.levers.slice().sort(function (a, b) { return b[1] - a[1]; });
+    var lhi = lev[0][1];
+    $('levers').innerHTML = lev.map(function (l) {
+      return '<div class="ec-row ec-row--static">' +
+        '<span class="ec-rk"></span>' +
+        '<span class="ec-rn">' + esc(l[0]) + '</span>' +
+        '<span class="ec-rb"><i style="width:' + Math.max(2, l[1] / lhi * 100) + '%"></i></span>' +
+        '<span class="ec-rv">' + nf(l[1], 1) + ' тыс.</span></div>';
+    }).join('');
   }
 
-  // ------------------------------------------------------------------ график
-  function chartSvg(r, cs) {
-    var W = 820, H = 320, mL = 46, mR = 62, mT = 22, mB = 32;
-    var y0 = 2004, y1 = 2030, vmin = 20, vmax = 75;
-    function px(y) { return mL + (y - y0) / (y1 - y0) * (W - mL - mR); }
-    function py(v) { return mT + (vmax - v) / (vmax - vmin) * (H - mT - mB); }
-    var s = '';
-    for (var v = 25; v <= 75; v += 10) {
+  var popScen = 'D2_база';
+  var POP_NAMES = { 'D1_отток': 'Отток продолжится', 'D2_база': 'Как сейчас', 'D3_приток': 'Приток вырастет' };
+  function popChart() {
+    var cs = palette(), p = EC_RES.pop[popScen];
+    if (!p) return;
+    var W = 820, H = 300, mL = 56, mR = 92, mT = 20, mB = 32;
+    var series = [
+      ['Всего населения', p.total, cs.lab],
+      ['В рабочем возрасте', p.work, cs.cap],
+      ['Молодёжь 20–34', p.young, cs.sel]
+    ];
+    var all = [].concat(p.total, p.work, p.young);
+    var lo = 0, hi = Math.max.apply(null, all) * 1.06;
+    function px(i) { return mL + i / (p.years.length - 1) * (W - mL - mR); }
+    function py(v) { return mT + (hi - v) / (hi - lo) * (H - mT - mB); }
+    var s = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Прогноз численности населения Забайкальского края до 2045 года">';
+    for (var k = 0; k <= 4; k++) {
+      var v = hi * k / 4;
       s += '<line x1="' + mL + '" y1="' + py(v) + '" x2="' + (W - mR) + '" y2="' + py(v) +
-           '" stroke="' + cs.line + '" stroke-width="1" opacity=".55"/>';
-      s += '<text x="' + (mL - 8) + '" y="' + (py(v) + 3.5) + '" text-anchor="end" font-size="10.5" fill="' + cs.dim + '">' + v + '%</text>';
+        '" stroke="' + cs.line + '" opacity=".5"/>' +
+        '<text x="' + (mL - 8) + '" y="' + (py(v) + 3.5) + '" text-anchor="end" font-size="10.5" fill="' +
+        cs.dim + '">' + nf(v, 0) + '</text>';
     }
-    [2004, 2010, 2016, 2024, 2030].forEach(function (y) {
-      s += '<text x="' + px(y) + '" y="' + (H - 10) + '" text-anchor="middle" font-size="10.5" fill="' + cs.dim + '">' + y + '</text>';
+    p.years.forEach(function (y, i) {
+      if (y % 5 === 0) {
+        s += '<text x="' + px(i) + '" y="' + (H - 10) + '" text-anchor="middle" font-size="10.5" fill="' +
+          cs.dim + '">' + y + '</text>';
+      }
     });
-    s += '<line x1="' + mL + '" y1="' + py(vmin) + '" x2="' + (W - mR) + '" y2="' + py(vmin) + '" stroke="' + cs.line + '"/>';
-    s += '<line x1="' + px(2024) + '" y1="' + mT + '" x2="' + px(2024) + '" y2="' + py(vmin) + '" stroke="' + cs.line + '" stroke-dasharray="3 3"/>';
-    s += '<line x1="' + mL + '" y1="' + py(WORLD) + '" x2="' + (W - mR) + '" y2="' + py(WORLD) +
-         '" stroke="' + cs.dim + '" stroke-width="1.5" stroke-dasharray="2 4" opacity=".55"/>';
-    s += '<text x="' + (mL + 6) + '" y="' + (py(WORLD) - 6) + '" font-size="10.5" fill="' + cs.dim + '">мир — ' + nf(WORLD) + '%</text>';
-    function line(pts, c, dash) {
-      return '<polyline points="' + pts + '" fill="none" stroke="' + c + '" stroke-width="2" ' +
-        'stroke-linejoin="round" stroke-linecap="round"' + (dash ? ' stroke-dasharray="5 4"' : '') + '/>';
-    }
-    var labPts = [], capPts = [];
-    HIST.forEach(function (d) {
-      labPts.push(px(d[0]) + ',' + py(d[1]));
-      capPts.push(px(d[0]) + ',' + py(100 - TAX - d[1]));
+    series.forEach(function (ser) {
+      s += '<polyline points="' + ser[1].map(function (v, i) { return px(i) + ',' + py(v); }).join(' ') +
+        '" fill="none" stroke="' + ser[2] + '" stroke-width="2.2" stroke-linejoin="round"/>';
+      var last = ser[1][ser[1].length - 1];
+      s += '<text x="' + (px(p.years.length - 1) + 7) + '" y="' + (py(last) + 4) +
+        '" font-size="11" font-weight="700" fill="' + ser[2] + '">' + nf(last, 0) + '</text>';
     });
-    s += line(labPts.join(' '), cs.lab);
-    s += line(capPts.join(' '), cs.cap);
-    var cap30 = 100 - TAX - r.lab30;
-    s += line(px(2024) + ',' + py(LAB24) + ' ' + px(2030) + ',' + py(r.lab30), cs.lab, 1);
-    s += line(px(2024) + ',' + py(100 - TAX - LAB24) + ' ' + px(2030) + ',' + py(cap30), cs.cap, 1);
-    s += '<circle cx="' + px(2030) + '" cy="' + py(r.lab30) + '" r="4.5" fill="' + cs.lab + '" stroke="' + cs.bg + '" stroke-width="2"/>';
-    s += '<circle cx="' + px(2030) + '" cy="' + py(cap30) + '" r="4.5" fill="' + cs.cap + '" stroke="' + cs.bg + '" stroke-width="2"/>';
-    s += '<text font-size="12.5" font-weight="800" fill="' + cs.lab + '" x="' + (px(2030) + 9) + '" y="' + (py(r.lab30) + 4) + '">' + nf(r.lab30) + '%</text>';
-    s += '<text font-size="12.5" font-weight="800" fill="' + cs.cap + '" x="' + (px(2030) + 9) + '" y="' + (py(cap30) + 4) + '">' + nf(cap30) + '%</text>';
-    return { body: s, W: W, H: H };
-  }
-  function palette() {
-    return { lab: col('ec-lab'), cap: col('ec-cap'), sel: col('ec-sel'),
-             line: col('border'), dim: col('text-secondary'), ink: col('text'), bg: col('bg-card') };
-  }
-  function chart(r) {
-    var c = chartSvg(r, palette());
-    $('chart').innerHTML = '<svg viewBox="0 0 ' + c.W + ' ' + c.H + '" role="img" ' +
-      'aria-label="Доля труда и капитала в валовой добавленной стоимости Забайкальского края с 2004 по 2030 год">' +
-      c.body + '</svg>';
+    $('popchart').innerHTML = s + '</svg>';
+    var i25 = p.years.indexOf(2025), i45 = p.years.length - 1;
+    $('popnote').innerHTML = 'Сценарий «' + esc(POP_NAMES[popScen]) + '»: население края с <b>' +
+      nf(p.total[i25], 1) + '</b> тыс. в 2025 году до <b>' + nf(p.total[i45], 1) + '</b> тыс. в ' +
+      p.years[i45] + '-м. В рабочем возрасте — с ' + nf(p.work[i25], 1) + ' до ' +
+      nf(p.work[i45], 1) + ' тыс. Молодёжь 20–34 сокращается быстрее всех: с ' +
+      nf(p.young[i25], 1) + ' до ' + nf(p.young[i45], 1) + ' тыс.';
   }
 
-  // ------------------------------------------- отраслевая таблица с годом
-  function sectors() {
-    var yi = +$('year').value, year = EC_YEARS[yi];
-    $('year-v').textContent = year;
-    var rows = EC_SECT.slice().sort(function (a, b) { return (b[2][yi] || 0) - (a[2][yi] || 0); });
-    var max = rows[0][2][yi] || 1, h = '';
-    rows.forEach(function (r) {
-      var v = r[2][yi] || 0, d = v - (r[2][0] || 0);
-      var sign = d > 0.05 ? '+' : (d < -0.05 ? '−' : '');
-      var cls = d > 0.05 ? ' ec-up' : (d < -0.05 ? ' ec-dn' : '');
-      h += '<tr><td>' + esc(r[1]) + '</td>' +
-        '<td><div class="ec-bt"><div class="ec-bf" style="width:' + (v / max * 100) + '%"></div></div></td>' +
-        '<td class="n">' + nf(v) + '%</td>' +
-        '<td class="n' + cls + '">' + (sign ? sign + nf(Math.abs(d)) : '—') + '</td>' +
-        '<td class="n"><span class="ec-chip">' + Math.round(r[4] * 100) + '%</span></td></tr>';
+  // --------------------------------------------------- № 3. Школа
+  var pupVar = 'средний';
+  function school() {
+    var cs = palette(), p = EC_RES.pupils[pupVar];
+    if (!p) return;
+    var W = 820, H = 280, mL = 62, mR = 82, mT = 20, mB = 32;
+    var hi = Math.max.apply(null, EC_RES.pupils['высокий'].all) * 1.05;
+    function px(i) { return mL + i / (p.years.length - 1) * (W - mL - mR); }
+    function py(v) { return mT + (hi - v) / hi * (H - mT - mB); }
+    var s = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Прогноз числа школьников Забайкальского края до 2035 года">';
+    for (var k = 0; k <= 4; k++) {
+      var v = hi * k / 4;
+      s += '<line x1="' + mL + '" y1="' + py(v) + '" x2="' + (W - mR) + '" y2="' + py(v) +
+        '" stroke="' + cs.line + '" opacity=".5"/>' +
+        '<text x="' + (mL - 8) + '" y="' + (py(v) + 3.5) + '" text-anchor="end" font-size="10.5" fill="' +
+        cs.dim + '">' + nf(v / 1000, 0) + ' тыс.</text>';
+    }
+    p.years.forEach(function (y, i) {
+      if (i % 3 === 0) {
+        s += '<text x="' + px(i) + '" y="' + (H - 10) + '" text-anchor="middle" font-size="10.5" fill="' +
+          cs.dim + '">' + y + '</text>';
+      }
     });
-    $('sectors').innerHTML = h;
+    ['низкий', 'высокий'].forEach(function (v) {
+      var q = EC_RES.pupils[v];
+      if (!q) return;
+      s += '<polyline points="' + q.all.map(function (x, i) { return px(i) + ',' + py(x); }).join(' ') +
+        '" fill="none" stroke="' + cs.dim + '" stroke-width="1.5" opacity=".45" stroke-dasharray="4 4"/>';
+    });
+    s += '<polyline points="' + p.all.map(function (v, i) { return px(i) + ',' + py(v); }).join(' ') +
+      '" fill="none" stroke="' + cs.lab + '" stroke-width="2.4" stroke-linejoin="round"/>';
+    var last = p.all[p.all.length - 1];
+    s += '<circle cx="' + px(p.years.length - 1) + '" cy="' + py(last) + '" r="4" fill="' + cs.lab +
+      '" stroke="' + cs.bg + '" stroke-width="2"/>' +
+      '<text x="' + (px(p.years.length - 1) + 8) + '" y="' + (py(last) + 4) +
+      '" font-size="12" font-weight="700" fill="' + cs.lab + '">' + nf(last / 1000, 1) + ' тыс.</text>';
+    $('schoolchart').innerHTML = s + '</svg>';
+    var a = p.all[0], b = last;
+    $('schoolnote').innerHTML = 'Вариант «' + esc(pupVar) + '»: школьников с <b>' + nf(a, 0) +
+      '</b> в 2025 году до <b>' + nf(b, 0) + '</b> в ' + p.years[p.years.length - 1] + '-м, ' +
+      'это <b>' + nf((b / a - 1) * 100, 0) + '%</b>. Пунктиром — низкий и высокий варианты. ' +
+      'Больше восьмидесяти процентов этого сокращения — следствие уже случившегося падения ' +
+      'рождаемости: эти дети либо родились, либо нет.';
 
-    var pot = potential(yi), top = rows[0];
-    $('yearstat').innerHTML = 'В ' + year + ' году крупнейшая отрасль края — <b>' + esc(top[1]).toLowerCase() +
-      '</b> (' + nf(top[2][yi]) + '% добавленной стоимости), вся ВДС — <b>' + nf(EC_TOT[yi]) + ' млрд ₽</b>. ' +
-      'При такой структуре в зоне влияния ИИ было бы <b>' + nf(pot * 100) + '%</b> работ.' +
-      (yi === LAST ? '' : ' Модель выше считается по структуре 2024 года.');
+    var t = EC_RES.tutor;
+    $('tutor').innerHTML = t.map(function (r) {
+      var mid = r[5], harm = r[7];
+      var cls = mid > 0.005 ? 'is-good' : (mid < -0.01 ? 'is-bad' : '');
+      return '<div class="ec-tutor ' + cls + '">' +
+        '<div class="ec-tutor-h">' + esc(r[0]) + '</div>' +
+        '<div class="ec-tutor-v">' + (mid > 0 ? '+' : '') + nf(mid, 3) + '</div>' +
+        '<div class="ec-tutor-d">эффект в стандартных отклонениях, от ' + nf(r[4], 3) +
+        ' до ' + nf(r[6], 3) + '</div>' +
+        '<div class="ec-tutor-r">Вероятность чистого вреда — <b>' + nf(harm, 0) + '%</b></div>' +
+        '<div class="ec-tutor-p">Охват ' + esc(r[1]) + ' · качество внедрения ' + esc(r[2]) +
+        ' · использование без ограничений ' + esc(r[3]) + '</div></div>';
+    }).join('');
+
+    var par = EC_RES.paradox;
+    $('paradox').innerHTML = par.map(function (r) {
+      return '<div class="ec-row ec-row--static">' +
+        '<span class="ec-rk"></span>' +
+        '<span class="ec-rn">' + esc(r[0]) + '<small>' + esc(r[3]) + '</small></span>' +
+        '<span class="ec-rb"></span>' +
+        '<span class="ec-rv">' + esc(String(r[1])) + '</span></div>';
+    }).join('');
+  }
+
+  // ------------------------------------------------- № 4. Пожары
+  function fires() {
+    var cs = palette(), ser = EC_RES.fireSeries;
+    var W = 820, H = 250, mL = 66, mR = 24, mT = 20, mB = 34;
+    var hi = Math.max.apply(null, ser.map(function (r) { return r[1]; })) * 1.05;
+    var bw = (W - mL - mR) / ser.length;
+    var s = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Площадь лесных пожаров в Забайкальском крае по годам">';
+    for (var k = 0; k <= 3; k++) {
+      var v = hi * k / 3;
+      s += '<line x1="' + mL + '" y1="' + (mT + (hi - v) / hi * (H - mT - mB)) + '" x2="' + (W - mR) +
+        '" y2="' + (mT + (hi - v) / hi * (H - mT - mB)) + '" stroke="' + cs.line + '" opacity=".5"/>' +
+        '<text x="' + (mL - 8) + '" y="' + (mT + (hi - v) / hi * (H - mT - mB) + 3.5) +
+        '" text-anchor="end" font-size="10.5" fill="' + cs.dim + '">' + nf(v / 1e6, 1) + ' млн га</text>';
+    }
+    ser.forEach(function (r, i) {
+      var h = (r[1] / hi) * (H - mT - mB);
+      var x = mL + i * bw + bw * 0.15;
+      var big = r[1] > 1e6;
+      s += '<rect x="' + x.toFixed(1) + '" y="' + (H - mB - h).toFixed(1) + '" width="' +
+        (bw * 0.7).toFixed(1) + '" height="' + Math.max(1, h).toFixed(1) + '" rx="2" fill="' +
+        (big ? cs.cap : cs.dim) + '" opacity="' + (big ? 1 : .55) + '"><title>' + r[0] + ': ' +
+        nf(r[1], 0) + ' га</title></rect>';
+      if (i % 2 === 0) {
+        s += '<text x="' + (x + bw * 0.35).toFixed(1) + '" y="' + (H - mB + 13) +
+          '" text-anchor="middle" font-size="9.5" fill="' + cs.dim + '">' + String(r[0]).slice(2) + '</text>';
+      }
+    });
+    $('firechart').innerHTML = s + '</svg>';
+
+    fireGrowthChart();
+
+    var mc = EC_RES.fireMC;
+    $('firemc').innerHTML = mc.map(function (r) {
+      return '<div class="ec-row ec-row--static">' +
+        '<span class="ec-rk"></span>' +
+        '<span class="ec-rn">' + esc(r[0]) +
+        '<small>к приезду расчёта: без ИИ ' + nf(r[2], 1) + ' га, с камерами ' + nf(r[3], 1) + ' га</small></span>' +
+        '<span class="ec-rb"><i style="width:' + Math.max(2, r[6] * 300) + '%"></i></span>' +
+        '<span class="ec-rv">−' + nf(r[6] * 100, 0) + '%</span></div>';
+    }).join('');
+
+    var gap = EC_RES.digitalGap;
+    $('digitalgap').innerHTML = gap.map(function (r) {
+      return '<div class="ec-row ec-row--static">' +
+        '<span class="ec-rk"></span>' +
+        '<span class="ec-rn">' + esc(r[0]) + '<small>' + esc(r[2]) + ' · ' + esc(r[3]) + '</small></span>' +
+        '<span class="ec-rb"></span>' +
+        '<span class="ec-rv">' + esc(String(r[1])) + '</span></div>';
+    }).join('');
+  }
+
+  var fuel = null;
+  function fireGrowthChart() {
+    var cs = palette();
+    fuel = fuel || EC_RES.fireFuels[0];
+    var g = EC_RES.fireGrowth[fuel];
+    if (!g) return;
+    var W = 560, H = 250, mL = 64, mR = 60, mT = 20, mB = 34;
+    var lo = Math.log10(Math.max(0.0005, Math.min.apply(null, g.ha)));
+    var hi = Math.log10(Math.max.apply(null, g.ha) * 1.6);
+    var tmax = g.min[g.min.length - 1];
+    function px(m) { return mL + m / tmax * (W - mL - mR); }
+    function py(v) { return mT + (hi - Math.log10(Math.max(0.0005, v))) / (hi - lo) * (H - mT - mB); }
+    var s = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Рост площади пожара со временем">';
+    [0.01, 0.1, 1, 10, 100].forEach(function (v) {
+      if (Math.log10(v) < lo || Math.log10(v) > hi) return;
+      s += '<line x1="' + mL + '" y1="' + py(v) + '" x2="' + (W - mR) + '" y2="' + py(v) +
+        '" stroke="' + cs.line + '" opacity=".5"/>' +
+        '<text x="' + (mL - 8) + '" y="' + (py(v) + 3.5) + '" text-anchor="end" font-size="10.5" fill="' +
+        cs.dim + '">' + (v < 1 ? nf(v, 2) : nf(v, 0)) + ' га</text>';
+    });
+    g.min.forEach(function (m, i) {
+      if (i % 2 === 0) {
+        s += '<text x="' + px(m) + '" y="' + (H - 10) + '" text-anchor="middle" font-size="10.5" fill="' +
+          cs.dim + '">' + (m < 60 ? m + ' мин' : nf(m / 60, 0) + ' ч') + '</text>';
+      }
+    });
+    s += '<polyline points="' + g.min.map(function (m, i) { return px(m) + ',' + py(g.ha[i]); }).join(' ') +
+      '" fill="none" stroke="' + cs.cap + '" stroke-width="2.4" stroke-linejoin="round"/>';
+    g.min.forEach(function (m, i) {
+      s += '<circle cx="' + px(m) + '" cy="' + py(g.ha[i]) + '" r="3" fill="' + cs.cap + '">' +
+        '<title>' + m + ' мин — ' + nf(g.ha[i], 3) + ' га</title></circle>';
+    });
+    var last = g.ha[g.ha.length - 1];
+    s += '<text x="' + (px(tmax) + 6) + '" y="' + (py(last) + 4) + '" font-size="11.5" font-weight="700" fill="' +
+      cs.cap + '">' + nf(last, 1) + ' га</text>';
+    $('firegrowth').innerHTML = s + '</svg>';
+    var i30 = g.min.indexOf(30), i180 = g.min.indexOf(180);
+    var ratio = (i30 >= 0 && i180 >= 0) ? g.ha[i180] / g.ha[i30] : null;
+    $('firegrowthnote').innerHTML = 'Топливо: <b>' + esc(fuel.replace(/_/g, ' ')) +
+      '</b>, скорость фронта ' + nf(g.ros, 2) + ' м/мин при ветре ' + nf(g.wind, 0) + ' км/ч. ' +
+      (ratio ? 'Через три часа пожар в <b>' + nf(ratio, 0) + ' раз</b> больше, чем через полчаса. ' : '') +
+      'Шкала слева логарифмическая — иначе первые полчаса слиплись бы в ноль.';
+  }
+
+  // --------------------------------------------------- № 5. Язык
+  function language() {
+    var L = EC_RES.langStatus;
+    $('langtable').innerHTML = L.map(function (r) {
+      function mark(v) {
+        var yes = /^да/i.test(v);
+        var no = /^нет/i.test(v);
+        return '<td class="n"><span class="ec-mark ' + (yes ? 'is-yes' : (no ? 'is-no' : '')) + '">' +
+          esc(v) + '</span></td>';
+      }
+      return '<tr' + (r[0] === 'Бурятский' ? ' class="is-me"' : '') + '><td>' + esc(r[0]) + '</td>' +
+        mark(r[1]) + mark(r[2]) + mark(r[3]) + mark(r[4]) + mark(r[5]) + '</tr>';
+    }).join('');
+
+    langChart();
+
+    var a = EC_RES.asr;
+    var hi = Math.max.apply(null, a.map(function (r) { return r[2]; }));
+    $('asr').innerHTML = a.map(function (r) {
+      return '<div class="ec-row ec-row--static">' +
+        '<span class="ec-rk"></span>' +
+        '<span class="ec-rn">' + esc(r[0]) +
+        '<small>' + nf(r[1], 0) + ' ч. записей · ' + nf(r[4], 0) + ' мес. · ошибка распознавания ' +
+        nf(r[3], 1) + '%</small></span>' +
+        '<span class="ec-rb"><i style="width:' + Math.max(2, r[2] / hi * 100) + '%"></i></span>' +
+        '<span class="ec-rv">' + nf(r[2], 1) + ' млн ₽</span></div>';
+    }).join('');
+
+    var dc = EC_RES.dc;
+    $('dc').innerHTML = dc.filter(function (r) { return r[1] === 1.5; }).map(function (r) {
+      return '<div class="ec-row ec-row--static">' +
+        '<span class="ec-rk"></span>' +
+        '<span class="ec-rn">Дата-центр на ' + nf(r[0], 2) + ' МВт<small>из сети ' + nf(r[2], 2) +
+        ' МВт · ' + nf(r[4], 1) + ' ГВт·ч в год</small></span>' +
+        '<span class="ec-rb"><i style="width:' + Math.min(100, Math.max(2, r[3])) + '%"></i></span>' +
+        '<span class="ec-rv">' + nf(r[3], 1) + '%</span></div>';
+    }).join('');
+  }
+
+  var langScen = null;
+  function langChart() {
+    var cs = palette();
+    langScen = langScen || EC_RES.langScen[0];
+    var p = EC_RES.lang[langScen];
+    if (!p) return;
+    var W = 700, H = 280, mL = 46, mR = 86, mT = 20, mB = 32;
+    function px(i) { return mL + i / (p.years.length - 1) * (W - mL - mR); }
+    function py(v) { return mT + (80 - v) / 80 * (H - mT - mB); }
+    var s = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Доля говорящих на бурятском языке по сценариям до 2050 года">';
+    for (var v = 0; v <= 80; v += 20) {
+      s += '<line x1="' + mL + '" y1="' + py(v) + '" x2="' + (W - mR) + '" y2="' + py(v) +
+        '" stroke="' + cs.line + '" opacity=".5"/>' +
+        '<text x="' + (mL - 8) + '" y="' + (py(v) + 3.5) + '" text-anchor="end" font-size="10.5" fill="' +
+        cs.dim + '">' + v + '%</text>';
+    }
+    p.years.forEach(function (y, i) {
+      if (y % 10 === 0 || i === 0) {
+        s += '<text x="' + px(i) + '" y="' + (H - 10) + '" text-anchor="middle" font-size="10.5" fill="' +
+          cs.dim + '">' + y + '</text>';
+      }
+    });
+    [['В школе', p.school, cs.lab], ['Среди населения', p.pop, cs.cap]].forEach(function (ser) {
+      s += '<polyline points="' + ser[1].map(function (v, i) { return px(i) + ',' + py(v); }).join(' ') +
+        '" fill="none" stroke="' + ser[2] + '" stroke-width="2.2" stroke-linejoin="round"/>';
+      var last = ser[1][ser[1].length - 1];
+      s += '<text x="' + (px(p.years.length - 1) + 7) + '" y="' + (py(last) + 4) +
+        '" font-size="11" font-weight="700" fill="' + ser[2] + '">' + nf(last, 1) + '%</text>';
+    });
+    $('langchart').innerHTML = s + '</svg>';
+    $('langnote').innerHTML = 'Сценарий «' + esc(langScen) + '»: доля говорящих среди школьников с <b>' +
+      nf(p.school[0], 1) + '%</b> в ' + p.years[0] + ' году до <b>' +
+      nf(p.school[p.school.length - 1], 1) + '%</b> в ' + p.years[p.years.length - 1] + '-м.';
+  }
+
+  // ------------------------------------------- № 6. Доверие
+  var fraudScen = 'Базовый';
+  function society() {
+    fraudChart();
+    var est = EC_RES.fraudEst;
+    var hi = Math.max.apply(null, est.map(function (r) { return r[1] || 0; }));
+    $('fraudest').innerHTML = est.map(function (r) {
+      return '<div class="ec-row ec-row--static">' +
+        '<span class="ec-rk"></span>' +
+        '<span class="ec-rn">' + esc(r[0]) + '<small>' + esc(String(r[2]).slice(0, 90)) + '</small></span>' +
+        '<span class="ec-rb"><i style="width:' + Math.max(2, (r[1] || 0) / hi * 100) + '%"></i></span>' +
+        '<span class="ec-rv">' + (r[1] ? nf(r[1], 0) + ' млн ₽' : '—') + '</span></div>';
+    }).join('');
+
+    var nets = [...new Set(EC_RES.rumor.map(function (r) { return r[0]; }))];
+    var rows = EC_RES.rumor.filter(function (r) { return Math.abs(r[1] - 0.1) < 0.001; });
+    $('rumor').innerHTML = rows.map(function (r) {
+      return '<div class="ec-rumor">' +
+        '<div class="ec-rumor-h">' + esc(r[0]) + '</div>' +
+        '<div class="ec-rumor-pair">' +
+        '<div><span class="ec-rumor-v is-bad">' + nf(r[2] * 100, 0) + '%</span>' +
+        '<small>если привить 10% случайных</small></div>' +
+        '<div><span class="ec-rumor-v is-good">' + nf(r[3] * 100, 0) + '%</span>' +
+        '<small>если привить 10% самых связанных</small></div></div></div>';
+    }).join('');
+
+    var v = EC_RES.vuln;
+    $('vuln').innerHTML = v.map(function (r) {
+      var has = r[2] !== null && r[2] !== undefined;
+      return '<div class="ec-row ec-row--static">' +
+        '<span class="ec-rk"></span>' +
+        '<span class="ec-rn">' + esc(r[0]) +
+        (has ? '<small>по России — ' + nf(r[2], 1) + '</small>' : '') + '</span>' +
+        '<span class="ec-rb"></span>' +
+        '<span class="ec-rv">' + nf(r[1], 1) + '</span></div>';
+    }).join('');
+
+    $('evidence').innerHTML = EC_RES.evidence.map(function (r) {
+      return '<div class="ec-row ec-row--static">' +
+        '<span class="ec-rk"></span>' +
+        '<span class="ec-rn">' + esc(r[0]) + '<small>' + esc(r[1]) + '</small></span>' +
+        '<span class="ec-rb"></span>' +
+        '<span class="ec-rv ec-rv--wide">' + esc(String(r[2]).slice(0, 60)) + '</span></div>';
+    }).join('');
+  }
+
+  function fraudChart() {
+    var cs = palette(), p = EC_RES.fraud[fraudScen];
+    if (!p) return;
+    var W = 700, H = 260, mL = 62, mR = 74, mT = 20, mB = 32;
+    var hi = Math.max.apply(null, [].concat.apply([], EC_RES.fraudScen.map(function (s) {
+      return EC_RES.fraud[s].damage;
+    }))) * 1.06;
+    function px(i) { return mL + i / (p.years.length - 1) * (W - mL - mR); }
+    function py(v) { return mT + (hi - v) / hi * (H - mT - mB); }
+    var s = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Прогноз ущерба от дистанционного мошенничества в Забайкальском крае">';
+    for (var k = 0; k <= 4; k++) {
+      var v = hi * k / 4;
+      s += '<line x1="' + mL + '" y1="' + py(v) + '" x2="' + (W - mR) + '" y2="' + py(v) +
+        '" stroke="' + cs.line + '" opacity=".5"/>' +
+        '<text x="' + (mL - 8) + '" y="' + (py(v) + 3.5) + '" text-anchor="end" font-size="10.5" fill="' +
+        cs.dim + '">' + nf(v, 0) + '</text>';
+    }
+    p.years.forEach(function (y, i) {
+      if (y % 2 === 0) {
+        s += '<text x="' + px(i) + '" y="' + (H - 10) + '" text-anchor="middle" font-size="10.5" fill="' +
+          cs.dim + '">' + y + '</text>';
+      }
+    });
+    s += '<polyline points="' + p.damage.map(function (v, i) { return px(i) + ',' + py(v); }).join(' ') +
+      '" fill="none" stroke="' + cs.cap + '" stroke-width="2.4" stroke-linejoin="round"/>';
+    var last = p.damage[p.damage.length - 1];
+    s += '<circle cx="' + px(p.years.length - 1) + '" cy="' + py(last) + '" r="4" fill="' + cs.cap +
+      '" stroke="' + cs.bg + '" stroke-width="2"/>' +
+      '<text x="' + (px(p.years.length - 1) + 8) + '" y="' + (py(last) + 4) +
+      '" font-size="12" font-weight="700" fill="' + cs.cap + '">' + nf(last, 0) + '</text>';
+    $('fraudchart').innerHTML = s + '</svg>';
+    $('fraudnote').innerHTML = 'Сценарий «' + esc(fraudScen) + '»: ущерб по краю с <b>' +
+      nf(p.damage[0], 0) + ' млн ₽</b> в ' + p.years[0] + ' году до <b>' + nf(last, 0) +
+      ' млн ₽</b> в ' + p.years[p.years.length - 1] + '-м. Доля атак с участием ИИ растёт с ' +
+      nf(p.aiShare[0] * 100, 0) + '% до ' + nf(p.aiShare[p.aiShare.length - 1] * 100, 0) + '%.';
   }
 
   // ------------------------------------------------------------- рейтинг
@@ -1613,116 +2149,13 @@ var EC_TECH={"doubling":128.7,"doublingAll":187.8,"hz":[["GPT-2","2019-02-14",0.
     return null;
   })();
 
-  function basefacts() {
-    var opts = [[27, 'за 27 лет'], [10, 'за 10 лет'], [5, 'за 5 лет']];
-    var h = '';
-    opts.forEach(function (o) {
-      var v = cagr(ZAB[6], o[0]);
-      if (v === null) return;
-      h += '<button type="button" class="ec-chipb" data-base="' + Math.round(v * 10) + '">' +
-        o[1] + ' — ' + nf(v) + '%</button>';
-    });
-    $('basefacts').innerHTML = h;
-    all('#ec-basefacts .ec-chipb').forEach(function (b) {
-      b.addEventListener('click', function () {
-        $('base').value = Math.max(0, Math.min(60, +b.getAttribute('data-base')));
-        all('.ec-preset').forEach(function (x) { x.setAttribute('aria-pressed', 'false'); });
-        sync();
-      });
-    });
-  }
 
   /* Спарклайн реального роста: двадцать семь столбиков вокруг нуля.
      Он тут не для красоты — показывает, что «средние 3,4%» собраны
      из провала 1998-го и всплеска 2023-го, а не из ровного роста. */
-  function spark() {
-    var ser = ZAB[6], cs = palette();
-    var W = 250, H = 42, n = ser.length, bw = W / n - 1.2, mid = H / 2;
-    var s = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Реальный рост экономики Забайкальского края по годам с 1998 по 2024">';
-    s += '<line x1="0" y1="' + mid + '" x2="' + W + '" y2="' + mid + '" stroke="' + cs.line + '"/>';
-    ser.forEach(function (v, i) {
-      if (!v) return;
-      var d = Math.max(-14, Math.min(14, (v - 100) * 0.9));
-      var x = i * (W / n), y = d >= 0 ? mid - d : mid, hh = Math.max(1.5, Math.abs(d));
-      s += '<rect x="' + x.toFixed(1) + '" y="' + y.toFixed(1) + '" width="' + bw.toFixed(1) +
-        '" height="' + hh.toFixed(1) + '" fill="' + (d >= 0 ? cs.lab : cs.cap) + '" rx="1"/>';
-    });
-    s += '</svg>';
-    $('spark').innerHTML = s +
-      '<span class="ec-sparkl">' + EC_GYEARS[0] + '<b>реальный рост ВРП по годам</b>' +
-      EC_GYEARS[EC_GYEARS.length - 1] + '</span>';
-  }
 
   // ---------------------------------------------------------- население
-  var POP25 = ZAB[10], NAT24 = ZAB[8], MIG24 = ZAB[9], DYEARS = 6;   // 2025 -> 2030
 
-  function project(nat, mig) {
-    var out = [POP25];
-    for (var i = 0; i < DYEARS; i++) out.push(out[i] + nat + mig);
-    return out;
-  }
-  function demo() {
-    var nat = +$('nat').value, mig = +$('mig').value;
-    $('nat-v').textContent = (nat > 0 ? '+' : '−') + nf(Math.abs(nat), 0);
-    $('mig-v').textContent = (mig > 0 ? '+' : '−') + nf(Math.abs(mig), 0);
-    var mine = project(nat, mig), nomig = project(nat, 0);
-    var p30 = mine[DYEARS], n30 = nomig[DYEARS];
-    $('d-pop').textContent = nf(p30, 0) + ' чел.';
-    $('d-pop-d').textContent = (p30 - POP25 >= 0 ? '+' : '−') + nf(Math.abs(p30 - POP25), 0) +
-      ' к 2025 году (' + nf(POP25, 0) + ')';
-    $('d-nomig').textContent = nf(n30, 0) + ' чел.';
-    $('d-nomig-d').textContent = 'на ' + nf(p30 - n30, 0) + ' человек меньше вашего сценария';
-    $('demonote').textContent = 'Метод не знает про войны, программы переселения и закрытие ' +
-      'предприятий: он просто продолжает сегодняшние темпы. Чем дальше от 2025 года, ' +
-      'тем это условнее. Зато он честно показывает цену одного решения — ' +
-      'удержать миграционный приток или нет.';
-    dchart(mine, nomig);
-  }
-  function dchart(a, b) {
-    var cs = palette(), W = 560, H = 210, mL = 58, mR = 46, mT = 16, mB = 28;
-    var lo = Math.min.apply(null, a.concat(b)), hi = Math.max.apply(null, a.concat(b));
-    var pad = Math.max(4000, (hi - lo) * 0.25);
-    lo -= pad; hi += pad;
-    function px(i) { return mL + i / DYEARS * (W - mL - mR); }
-    function py(v) { return mT + (hi - v) / (hi - lo) * (H - mT - mB); }
-    var s = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Прогноз численности населения Забайкальского края до 2030 года">';
-    for (var k = 0; k <= 3; k++) {
-      var v = lo + (hi - lo) * k / 3;
-      s += '<line x1="' + mL + '" y1="' + py(v) + '" x2="' + (W - mR) + '" y2="' + py(v) +
-        '" stroke="' + cs.line + '" opacity=".55"/>';
-      s += '<text x="' + (mL - 8) + '" y="' + (py(v) + 3.5) + '" text-anchor="end" font-size="10" fill="' +
-        cs.dim + '">' + nf(Math.round(v / 1000), 0) + ' тыс.</text>';
-    }
-    [0, 3, 6].forEach(function (i) {
-      s += '<text x="' + px(i) + '" y="' + (H - 8) + '" text-anchor="middle" font-size="10" fill="' +
-        cs.dim + '">' + (2025 + i) + '</text>';
-    });
-    function line(arr, c, dash) {
-      var p = arr.map(function (v, i) { return px(i) + ',' + py(v); }).join(' ');
-      return '<polyline points="' + p + '" fill="none" stroke="' + c + '" stroke-width="2.2" ' +
-        'stroke-linejoin="round"' + (dash ? ' stroke-dasharray="5 4"' : '') + '/>';
-    }
-    s += line(b, cs.cap, 1) + line(a, cs.lab);
-    [[a, cs.lab], [b, cs.cap]].forEach(function (q) {
-      s += '<circle cx="' + px(DYEARS) + '" cy="' + py(q[0][DYEARS]) + '" r="4" fill="' + q[1] +
-        '" stroke="' + cs.bg + '" stroke-width="2"/>';
-    });
-    $('dchart').innerHTML = s + '</svg>';
-  }
-  function demofacts() {
-    var opts = [['Как в 2024 году', NAT24, MIG24],
-                ['Миграция обнулится', NAT24, 0],
-                ['Приток удвоится', NAT24, MIG24 * 2]];
-    $('demofacts').innerHTML = opts.map(function (o, i) {
-      return '<button type="button" class="ec-chipb" data-d="' + i + '">' + o[0] + '</button>';
-    }).join('');
-    all('#ec-demofacts .ec-chipb').forEach(function (b) {
-      b.addEventListener('click', function () {
-        var o = opts[+b.getAttribute('data-d')];
-        $('nat').value = o[1]; $('mig').value = o[2]; demo();
-      });
-    });
-  }
 
   // ------------------------------------------------------------ районы
   var moQuery = '';
@@ -2114,53 +2547,33 @@ var EC_TECH={"doubling":128.7,"doublingAll":187.8,"hz":[["GPT-2","2019-02-14",0.
   /* Каждое число уходит с единицей измерения прямо в имени поля.
      Без этого модель уже принимала разовый прирост уровня 2030 года
      за годовой темп и делала из этого неверный вывод. */
+  /* Модели уходят числа исследования с единицами прямо в именах полей:
+     без единиц она однажды приняла разовую прибавку за годовой темп. */
   function aiPayload() {
-    var s = state(), r = compute(s);
-    var nat = +$('nat').value, mig = +$('mig').value, mine = project(nat, mig);
+    var f = EC_RES.forecast[scen], mc = EC_RES.mc['2030'], g = EC_RES.gradients;
     return {
       question: ($('aiq').value || '').slice(0, 300),
-      scenario: {
-        'что ИИ умеет, % пригодных работ': s.cap,
-        'охват внедрения, % организаций': s.ado,
-        'автономность, %': s.aut,
-        'множитель производительности, раз': +nf(s.mulR),
-        'базовый рост ВРП, % в год': +nf(s.baseR)
+      scenario: { 'выбранный сценарий': scen },
+      'результат': {
+        'эффект ИИ на ВРП к 2030, %': f.effectPct[I30],
+        'то же в млрд руб. цен 2024': f.effectBn[I30],
+        'эффект к 2035, %': f.effectPct[I35],
+        'вклад в годовой рост, п.п.': f.growthPP[I30],
+        'доля труда 2030, % ВДС': EC_RES.laborShare[scen][I30],
+        'доля труда 2024, % ВДС': 44.8,
+        'разброс Монте-Карло 2030, % (p10/p50/p90)': [mc.p10_pct, mc.p50_pct, mc.p90_pct],
+        'высвобождено времени, тыс. человеко-лет': f.fte[I30]
       },
-      результат: {
-        'ВРП 2030 с ИИ, млрд руб': Math.round(r.withAI),
-        'ВРП 2030 без ИИ, млрд руб': Math.round(r.noAI),
-        'разовая прибавка к уровню 2030, % (это НЕ годовой темп)': +nf(r.gain * 100),
-        'доля труда 2030, % ВДС': +nf(r.lab30),
-        'доля труда 2024, % ВДС': LAB24,
-        'работ в зоне влияния, % всей работы': +nf(r.eff * 100),
-        'пригодно для ИИ в принципе, % всей работы': +nf(r.pot * 100)
-      },
-      факты: {
-        'ВРП 2024, млрд руб': VRP24,
+      'факты': {
+        'ВРП 2024, млрд руб': 909.2,
         'доля труда в мировом ВВП 2024, %': WORLD,
-        'место края по доле труда среди 85 регионов': null,
-        'реальный рост края 1998-2024, % в год': +cagr(ZAB[6]).toFixed(2),
-        'реальный рост края 2020-2024, % в год': +cagr(ZAB[6], 5).toFixed(2),
-        'население на 01.01.2025, чел': POP25,
-        'естественный прирост 2024, чел за год': NAT24,
-        'миграционный прирост 2024, чел за год': MIG24,
-        'население 2030 по сценарию посетителя, чел': mine[DYEARS],
-        'крупнейшие отрасли, % ВДС 2024': EC_SECT.slice(0, 5).map(function (x) {
-          return x[1] + ' ' + nf(x[2][LAST]) + '%';
-        })
-      },
-      мир: {
-        'место России по уязвимости к ИИ': EC_WORLD.ru[3] + ' из ' + EC_COUNTRY.length,
-        'балл уязвимости России (0-1)': EC_WORLD.ru[2],
-        'уже пользуются ИИ на работе, % работающих в России': EC_WORLD.ms.q1_2026,
-        'то же по миру, медиана, %': EC_WORLD.msMedian,
-        'доля труда по России, независимая оценка': EC_WORLD.lab.labsh,
-        'самые уязвимые занятия России': EC_OCC.slice()
-          .sort(function (a, b) { return b[2] - a[2]; }).slice(0, 5)
-          .map(function (o) { return o[1] + ' балл ' + nf(o[2], 2) + ', ' + nf(o[3], 1) + '% занятых'; }),
-        'самые массовые занятия России': EC_OCC.slice()
-          .sort(function (a, b) { return b[3] - a[3]; }).slice(0, 5)
-          .map(function (o) { return o[1] + ' ' + nf(o[3], 1) + '% занятых, балл ' + nf(o[2], 2); })
+        'экспонировано рабочих мест, %': +(g[0][3] + g[1][3] + g[2][3] + g[3][3]).toFixed(1),
+        'из них с высокой устойчивой экспозицией, %': g[0][3],
+        'занято в добыче, % работников': 5.9,
+        'население на 01.01.2025, тыс': 983.8,
+        'школьников 2025': EC_RES.pupils['средний'].all[0],
+        'школьников 2035': EC_RES.pupils['средний'].all[10],
+        'площадь пожаров 2025, га': (EC_RES.fireSeries[EC_RES.fireSeries.length - 1] || [])[1]
       }
     };
   }
@@ -2223,18 +2636,15 @@ var EC_TECH={"doubling":128.7,"doublingAll":187.8,"hz":[["GPT-2","2019-02-14",0.
   function readHash() {
     var h = location.hash.replace(/^#/, '');
     if (!h) return;
-    var got = false;
     h.split('&').forEach(function (kv) {
-      var p = kv.split('='), k = p[0], v = +p[1];
-      if (IDS.indexOf(k) >= 0 && isFinite(v)) { $(k).value = v; got = true; }
-      if (k === 'm' && METRICS[p[1]]) metric = p[1];
-      if (k === 'r') selected = decodeURIComponent(p[1]);
+      var p = kv.split('='), k = p[0], v = decodeURIComponent(p[1] || '');
+      if (k === 's' && SCEN.indexOf(v) >= 0) scen = v;
+      if (k === 'm' && METRICS[v]) metric = v;
+      if (k === 'r') selected = v;
     });
-    if (got) all('.ec-preset').forEach(function (b) { b.setAttribute('aria-pressed', 'false'); });
   }
   function writeHash() {
-    var parts = IDS.map(function (k) { return k + '=' + $(k).value; });
-    parts.push('m=' + metric);
+    var parts = ['s=' + encodeURIComponent(scen), 'm=' + metric];
     if (selected) parts.push('r=' + encodeURIComponent(selected));
     history.replaceState(null, '', '#' + parts.join('&'));
   }
@@ -2265,24 +2675,31 @@ var EC_TECH={"doubling":128.7,"doublingAll":187.8,"hz":[["GPT-2","2019-02-14",0.
 
   /* Выгрузка слайда: строим отдельный SVG с заголовком и подписью источника —
      тот, что на странице, без контекста в презентации ничего не объясняет. */
+  /* Выгрузка слайда: берём главный график прямо со страницы и подписываем —
+     без заголовка и источника он в презентации ничего не объясняет. */
   function savePng() {
-    var cs = palette(), s = state(), r = compute(s);
-    var c = chartSvg(r, cs), W = 900, H = 480, x = (W - c.W) / 2;
-    var head = 'Забайкальский край: кому достаётся созданное';
-    var sub = 'Оплата труда в валовой добавленной стоимости, факт 2004–2024 и сценарий до 2030';
-    var line = 'Сценарий: ИИ умеет ' + s.cap + '%, охват ' + s.ado + '%, автономность ' + s.aut +
-      '%, множитель ' + nf(s.mulR) + '×, базовый рост ' + nf(s.baseR) + '% в год';
+    var cs = palette();
+    var svg = document.querySelector('#ec-chart svg');
+    if (!svg) { say('График ещё не готов.'); return; }
+    var W = 900, H = 470, x = (W - 820) / 2;
+    var f = EC_RES.forecast[scen], mc = EC_RES.mc['2030'];
+    var line = 'Сценарий «' + scen + '»: +' + nf(f.effectPct[I30], 2) + '% к 2030 году (' +
+      nf(f.effectBn[I30], 1) + ' млрд руб.), разброс Монте-Карло ' + nf(mc.p10_pct, 2) +
+      '–' + nf(mc.p90_pct, 2) + '%';
     var out = '<svg xmlns="http://www.w3.org/2000/svg" width="' + W * 2 + '" height="' + H * 2 +
       '" viewBox="0 0 ' + W + ' ' + H + '">' +
       '<rect width="' + W + '" height="' + H + '" fill="' + cs.bg + '"/>' +
-      '<text x="40" y="52" font-family="Arial,Helvetica,sans-serif" font-size="24" font-weight="700" fill="' + cs.ink + '">' + esc(head) + '</text>' +
-      '<text x="40" y="76" font-family="Arial,Helvetica,sans-serif" font-size="13" fill="' + cs.dim + '">' + esc(sub) + '</text>' +
-      '<g transform="translate(' + x + ',96)" font-family="Arial,Helvetica,sans-serif">' + c.body + '</g>' +
-      '<text x="40" y="' + (H - 46) + '" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="' + cs.ink + '">' + esc(line) + '</text>' +
-      '<text x="40" y="' + (H - 24) + '" font-family="Arial,Helvetica,sans-serif" font-size="11" fill="' + cs.dim + '">' +
-      'Источник: Росстат, Забайкалкрайстат, счёт образования доходов · МОТ · chimitdorzhi.tech/ai-economy/</text>' +
+      '<text x="40" y="50" font-family="Georgia,serif" font-size="24" fill="' + cs.ink +
+      '">Забайкальский край: что ИИ добавит экономике</text>' +
+      '<text x="40" y="74" font-family="Arial,Helvetica,sans-serif" font-size="12.5" fill="' +
+      cs.dim + '">Валовой региональный продукт, млрд руб. в ценах 2024 года</text>' +
+      '<g transform="translate(' + x + ',92)" font-family="Arial,Helvetica,sans-serif">' +
+      svg.innerHTML + '</g>' +
+      '<text x="40" y="' + (H - 44) + '" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="' +
+      cs.ink + '">' + esc(line) + '</text>' +
+      '<text x="40" y="' + (H - 22) + '" font-family="Arial,Helvetica,sans-serif" font-size="11" fill="' +
+      cs.dim + '">Источник: «ИИ и Забайкальский край — 2026» · chimitdorzhi.tech/ai-economy/</text>' +
       '</svg>';
-
     var img = new Image();
     var url = URL.createObjectURL(new Blob([out], { type: 'image/svg+xml;charset=utf-8' }));
     img.onload = function () {
@@ -2303,33 +2720,72 @@ var EC_TECH={"doubling":128.7,"doublingAll":187.8,"hz":[["GPT-2","2019-02-14",0.
   }
 
   // ------------------------------------------------------------------ связь
-  function sync() {
-    var s = state();
-    $('cap-v').textContent = s.cap + '%';
-    $('ado-v').textContent = s.ado + '%';
-    $('aut-v').textContent = s.aut + '%';
-    $('mul-v').textContent = nf(s.mulR) + '×';
-    $('base-v').textContent = nf(s.baseR) + '%';
-    var r = compute(s); tiles(r); chart(r); squares(r, s);
-    writeHash();
-  }
+  function sync() { resApply(); }
 
-  IDS.forEach(function (k) {
-    $(k).addEventListener('input', function () {
-      all('.ec-preset').forEach(function (b) { b.setAttribute('aria-pressed', 'false'); });
-      sync();
-    });
-  });
   all('.ec-preset').forEach(function (b) {
     b.addEventListener('click', function () {
-      all('.ec-preset').forEach(function (x) { x.setAttribute('aria-pressed', 'false'); });
-      b.setAttribute('aria-pressed', 'true');
-      var p = P[b.getAttribute('data-p')];
-      IDS.forEach(function (k) { $(k).value = p[k]; });
-      sync();
+      scen = b.getAttribute('data-s');
+      all('.ec-preset').forEach(function (x) {
+        x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
+      });
+      resApply();
     });
   });
-  $('year').addEventListener('input', sectors);
+  all('#ec-popscen .ec-mbtn').forEach(function (b) {
+    b.addEventListener('click', function () {
+      popScen = b.getAttribute('data-p');
+      all('#ec-popscen .ec-mbtn').forEach(function (x) {
+        x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
+      });
+      popChart();
+    });
+  });
+  all('#ec-pupvar .ec-mbtn').forEach(function (b) {
+    b.addEventListener('click', function () {
+      pupVar = b.getAttribute('data-v');
+      all('#ec-pupvar .ec-mbtn').forEach(function (x) {
+        x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
+      });
+      school();
+    });
+  });
+  all('#ec-fraudscen .ec-mbtn').forEach(function (b) {
+    b.addEventListener('click', function () {
+      fraudScen = b.getAttribute('data-f');
+      all('#ec-fraudscen .ec-mbtn').forEach(function (x) {
+        x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
+      });
+      fraudChart();
+    });
+  });
+  // Кнопки топлива и языковых сценариев рисуем из данных: их состав
+  // задаёт исследование, а не разметка
+  $('fuel').innerHTML = EC_RES.fireFuels.map(function (f, i) {
+    return '<button type="button" class="ec-mbtn" data-fuel="' + esc(f) + '" aria-pressed="' +
+      (i === 0 ? 'true' : 'false') + '">' + esc(f.replace(/_/g, ' ')) + '</button>';
+  }).join('');
+  all('#ec-fuel .ec-mbtn').forEach(function (b) {
+    b.addEventListener('click', function () {
+      fuel = b.getAttribute('data-fuel');
+      all('#ec-fuel .ec-mbtn').forEach(function (x) {
+        x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
+      });
+      fireGrowthChart();
+    });
+  });
+  $('langscen').innerHTML = EC_RES.langScen.map(function (f, i) {
+    return '<button type="button" class="ec-mbtn" data-lang="' + esc(f) + '" aria-pressed="' +
+      (i === 0 ? 'true' : 'false') + '">' + esc(f) + '</button>';
+  }).join('');
+  all('#ec-langscen .ec-mbtn').forEach(function (b) {
+    b.addEventListener('click', function () {
+      langScen = b.getAttribute('data-lang');
+      all('#ec-langscen .ec-mbtn').forEach(function (x) {
+        x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
+      });
+      langChart();
+    });
+  });
   $('ryear').addEventListener('input', ranking);
   $('find').addEventListener('input', function () { query = this.value; ranking(); });
   $('nat').addEventListener('input', demo);
@@ -2370,20 +2826,27 @@ var EC_TECH={"doubling":128.7,"doublingAll":187.8,"hz":[["GPT-2","2019-02-14",0.
   });
   // Тема переключается на всей странице — перерисовываем графики в её цветах.
   if (window.MutationObserver) {
-    new MutationObserver(function () { chart(compute(state())); spark(); demo(); goals(); hchart(); techCharts(); })
+    new MutationObserver(function () { resApply(); popChart(); school(); fires(); language(); fraudChart(); hchart(); techCharts(); goals(); })
       .observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
   }
 
   readHash();
+  all('.ec-preset').forEach(function (x) {
+    x.setAttribute('aria-pressed', x.getAttribute('data-s') === scen ? 'true' : 'false');
+  });
   all('.ec-mbtn').forEach(function (x) {
-    x.setAttribute('aria-pressed', x.getAttribute('data-m') === metric ? 'true' : 'false');
+    if (x.getAttribute('data-m')) {
+      x.setAttribute('aria-pressed', x.getAttribute('data-m') === metric ? 'true' : 'false');
+    }
   });
   aiReady();
   squaresInit();
-  basefacts();
-  spark();
-  demofacts();
-  demo();
+  resTornado();
+  people();
+  school();
+  fires();
+  language();
+  society();
   districts();
   techTiles();
   hchart();
@@ -2392,9 +2855,8 @@ var EC_TECH={"doubling":128.7,"doublingAll":187.8,"hz":[["GPT-2","2019-02-14",0.
   occupations();
   countries();
   goals();
-  sectors();
   ranking();
-  sync();
+  resApply();
 })();
 
 </script>
