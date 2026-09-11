@@ -1433,6 +1433,14 @@ var EC_RES={"years":[2025,2026,2027,2028,2029,2030,2031,2032,2033,2034,2035],"fo
   var IDS = ['cap', 'ado', 'aut', 'mul', 'base'];
 
   function $(x) { return document.getElementById('ec-' + x); }
+  /* Один отсутствующий узел не должен гасить всю страницу: раньше
+     слушатель на удалённом элементе ронял скрипт целиком, и не рисовалось
+     вообще ничего — при том что разметка и данные были на месте. */
+  function on(id, ev, fn) {
+    var e = $(id);
+    if (e) e.addEventListener(ev, fn);
+    return !!e;
+  }
   function all(sel) { return Array.prototype.slice.call(document.querySelectorAll(sel)); }
   function nf(v, d) {
     if (d === undefined) d = 1;
@@ -2806,14 +2814,12 @@ var EC_RES={"years":[2025,2026,2027,2028,2029,2030,2031,2032,2033,2034,2035],"fo
       langChart();
     });
   });
-  $('ryear').addEventListener('input', ranking);
-  $('find').addEventListener('input', function () { query = this.value; ranking(); });
-  $('nat').addEventListener('input', demo);
-  $('mig').addEventListener('input', demo);
-  $('moyear').addEventListener('input', districts);
-  $('mofind').addEventListener('input', function () { moQuery = this.value; districts(); });
-  $('occfind').addEventListener('input', function () { occQuery = this.value; occupations(); });
-  $('cofind').addEventListener('input', function () { coQuery = this.value; countries(); });
+  on('ryear', 'input', ranking);
+  on('find', 'input', function () { query = this.value; ranking(); });
+  on('moyear', 'input', districts);
+  on('mofind', 'input', function () { moQuery = this.value; districts(); });
+  on('occfind', 'input', function () { occQuery = this.value; occupations(); });
+  on('cofind', 'input', function () { coQuery = this.value; countries(); });
   all('#ec-occsort .ec-mbtn').forEach(function (b) {
     b.addEventListener('click', function () {
       occSort = b.getAttribute('data-s');
@@ -2823,11 +2829,11 @@ var EC_RES={"years":[2025,2026,2027,2028,2029,2030,2031,2032,2033,2034,2035],"fo
       occupations();
     });
   });
-  $('aigo').addEventListener('click', aiAsk);
+  on('aigo', 'click', aiAsk);
   $('goals');
-  $('aiq').addEventListener('keydown', function (e) { if (e.key === 'Enter') aiAsk(); });
-  $('copy').addEventListener('click', copyLink);
-  $('png').addEventListener('click', savePng);
+  on('aiq', 'keydown', function (e) { if (e.key === 'Enter') aiAsk(); });
+  on('copy', 'click', copyLink);
+  on('png', 'click', savePng);
   all('.ec-mbtn').forEach(function (b) {
     b.addEventListener('click', function () {
       metric = b.getAttribute('data-m');
@@ -2837,7 +2843,7 @@ var EC_RES={"years":[2025,2026,2027,2028,2029,2030,2031,2032,2033,2034,2035],"fo
       ranking(); writeHash();
     });
   });
-  $('rank').addEventListener('click', function (e) {
+  on('rank', 'click', function (e) {
     var row = e.target.closest ? e.target.closest('.ec-row') : null;
     if (!row) return;
     var n = row.getAttribute('data-n');
