@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1522**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1539**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -140,6 +140,23 @@
 
 ## cases
 
+- [Калькулятор растаможки на сайте: как считать чужие деньги и не соврать](./sayt-logistiki-kalkulyator-rastamozhki-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-logistiki-kalkulyator-rastamozhki-keys-2026/)
+- [Сайт без формы заявки: когда убрать её — правильное решение](./sayt-bez-formy-zayavki-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-bez-formy-zayavki-keys-2026/)
+- [«Сайт мёртв, все в соцсетях»: что показал замер вместо спора](./audit-sayta-avtoservisa-dubai-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/audit-sayta-avtoservisa-dubai-keys-2026/)
+- [Партнёрская сеть как недостающая ступень между розницей и оптом](./audit-brenda-partnerskaya-set-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/audit-brenda-partnerskaya-set-keys-2026/)
+- [«Поставим эквайринг — и учёт появится сам»: разбор частого заблуждения](./uchetnaya-sistema-dlya-kafe-predlozhenie-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uchetnaya-sistema-dlya-kafe-predlozhenie-2026/)
+- [ИИ считает смету: где здесь продукт, а где грабли](./servis-rascheta-smet-razbor-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/servis-rascheta-smet-razbor-2026/)
+- [Презентация, после которой не выглядишь продавцом](./prezentaciya-katalog-uslug-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/prezentaciya-katalog-uslug-keys-2026/)
+- [Расшифровка голосовых в мессенджере: сервис без установки приложения](./whatsapp-bot-rasshifrovka-golosovyh-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/whatsapp-bot-rasshifrovka-golosovyh-keys-2026/)
+- [Клуб, а не гаджет: сайт, бот, мини-приложение и CRM как одна система](./ekosistema-velnes-kluba-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ekosistema-velnes-kluba-keys-2026/)
+- [Партнёрская витрина за полминуты: как устроена мультиарендная платформа](./partnerskie-vitriny-multitenant-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/partnerskie-vitriny-multitenant-keys-2026/)
+- [Лендинг под свой регион: разметка, гео и разрешение для ИИ-краулеров](./lending-digital-agentstva-geo-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/lending-digital-agentstva-geo-keys-2026/)
+- [Редизайн чужого фронтенда: когда токенами покрыто 4% стилей](./redizayn-frontenda-cherez-tokeny-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/redizayn-frontenda-cherez-tokeny-keys-2026/)
+- [Автопостинг через официальный API: почему это дольше и почему всё равно так](./avtoposting-v-threads-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avtoposting-v-threads-keys-2026/)
+- [Прозрачный запуск токена: что проверяется в сети, а не на слово](./tulkit-zapuska-spl-tokena-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/tulkit-zapuska-spl-tokena-keys-2026/)
+- [500 фото за раз на плохой связи: сайт, спроектированный под загрузку](./sayt-sportivnogo-fotografa-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-sportivnogo-fotografa-keys-2026/)
+- [Парк серверов у разных провайдеров: как держать его без дежурства](./otkazoustoychivaya-infrastruktura-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/otkazoustoychivaya-infrastruktura-keys-2026/)
+- [Сайт автора методики: как переписать формулировки, чтобы прошли модерацию](./sayt-avtora-metodiki-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-avtora-metodiki-keys-2026/)
 - [Бот и мини-приложение для риелторов: объекты, показы и заявки в одном окне](./bot-mini-app-rieltoram-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bot-mini-app-rieltoram-keys-2026/)
 - [Аренда авто с выкупом: бот и наклейки с партнёрским QR вместо рекламы](./arenda-avto-vykup-bot-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/arenda-avto-vykup-bot-keys-2026/)
 - [Биржа подработки в небольшом городе: от смены к постоянной работе](./birzha-truda-monogoroda-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/birzha-truda-monogoroda-keys-2026/)
