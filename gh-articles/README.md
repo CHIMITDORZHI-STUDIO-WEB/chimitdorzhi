@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1521**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1522**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -36,6 +36,7 @@
 
 ## AI для разработчиков
 
+- [GigaChat 3.5 Reasoning: три цифры из пресс-релиза и столбец, которого в нём нет](./gigachat-3-5-reasoning-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gigachat-3-5-reasoning-2026/)
 - [Открытая модель под MIT — а использовать нельзя: как читать лицензии по слоям](./licenzii-otkrytyh-modeley-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/licenzii-otkrytyh-modeley-2026/)
 - [Агент, который тратит ваши деньги: как его пускать в рекламный кабинет](./agent-kotoryy-tratit-dengi-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/agent-kotoryy-tratit-dengi-2026/)
 - [Модель на 7 млрд обходит девятимиллиардные: почему это не значит «дешевле»](./otkrytaya-model-cena-rassuzhdeniy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/otkrytaya-model-cena-rassuzhdeniy-2026/)
