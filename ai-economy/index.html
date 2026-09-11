@@ -910,6 +910,33 @@ body.ds-has-sticky{padding-bottom:78px;}
 .ec-mark.is-yes{border-color:var(--ec-lab);color:var(--ec-lab);}
 .ec-mark.is-no{border-color:var(--ec-cap);color:var(--ec-cap);}
 
+/* --- оглавление --- */
+.ec-toc{margin:28px 0 0;padding:20px 22px;background:var(--bg-card);border:1px solid var(--border);
+  border-radius:var(--ds-r);}
+.ec-toc>b{display:block;font-size:12px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--text-secondary);margin-bottom:12px;}
+.ec-toc-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2px 24px;}
+.ec-toc a{display:block;padding:7px 0;font-size:14.5px;line-height:1.4;color:var(--text);
+  text-decoration:none;border-bottom:1px solid var(--border);font-family:var(--ec-serif);}
+.ec-toc-list a:hover{color:var(--accent);}
+.ec-toc a:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px;}
+/* Заголовок раздела не должен прятаться под шапкой сайта при переходе */
+.ec-page .ec-card{scroll-margin-top:84px;}
+
+/* Длинный текст в правой колонке списков переносится, а не обрезается */
+.ec-rv--wide{white-space:normal;overflow-wrap:anywhere;}
+
+@media(max-width:640px){
+  .ec-toc{padding:16px 18px;}
+  .ec-toc-list{grid-template-columns:1fr;}
+  .ec-toc a{font-size:15px;padding:9px 0;}
+  /* Самые длинные перечни на телефоне прокручиваются внутри себя:
+     иначе один такой список занимает два экрана подряд. */
+  #ec-restornado,#ec-digitalgap,#ec-evidence,#ec-clusters,#ec-levers,
+  #ec-firemc,#ec-asr,#ec-dc,#ec-fraudest,#ec-vuln,#ec-paradox{
+    max-height:420px;overflow-y:auto;overscroll-behavior:contain;}
+}
+
 </style>
 <script>
 (function(){
@@ -935,6 +962,7 @@ body.ds-has-sticky{padding-bottom:78px;}
       <h1 class="ec-h1">Что искусственный интеллект сделает с экономикой края</h1>
       <p class="ec-lead">Шесть исследований о том, что искусственный интеллект сделает с экономикой, людьми, школой, властью, языком и доверием в Забайкальском крае. Прошлое здесь — официальная статистика. Будущее — сценарии на явных допущениях, с честным разбросом.</p>
       <p class="ec-note"><span><b>Это сценарии, а не предсказания.</b> Все прогнозы построены на явных допущениях, которые можно посмотреть и оспорить. Где источники расходятся — показан диапазон. Где данных нет — так и написано.</span></p>
+      <nav class="ec-toc" id="ec-toc" aria-label="Содержание страницы"></nav>
     </div>
   </section>
 
@@ -2248,6 +2276,24 @@ var EC_RES={"years":[2025,2026,2027,2028,2029,2030,2031,2032,2033,2034,2035],"fo
       esc(extra);
   }
 
+  /* ------------------------------------------------------- оглавление
+     На телефоне страница разворачивается на полсотни экранов. Читать её
+     подряд никто не станет, поэтому сверху список разделов. Собирается
+     из самих заголовков: добавится раздел — появится и строка, вручную
+     синхронизировать нечего. */
+  function toc() {
+    var nav = $('toc');
+    if (!nav) return;
+    var h = '';
+    all('.ec-page .ec-card > .ec-card-h > h3').forEach(function (el, i) {
+      var card = el.closest && el.closest('.ec-card');
+      if (!card) return;                       // заголовок не в карточке — пропускаем
+      if (!card.id) card.id = 'sec-' + (i + 1);
+      h += '<a href="#' + card.id + '">' + esc(el.textContent.trim()) + '</a>';
+    });
+    nav.innerHTML = '<b>Что внутри</b><div class="ec-toc-list">' + h + '</div>';
+  }
+
   // -------------------------------------------------- куда идут технологии
   /* Длину задачи показываем в человеческих единицах: «17 часов» понятно,
      «1044 минуты» — нет. */
@@ -2907,6 +2953,7 @@ var EC_RES={"years":[2025,2026,2027,2028,2029,2030,2031,2032,2033,2034,2035],"fo
   goals();
   ranking();
   resApply();
+  toc();
 })();
 
 </script>
