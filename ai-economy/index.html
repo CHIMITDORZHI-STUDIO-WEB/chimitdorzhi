@@ -765,10 +765,14 @@ body.ds-has-sticky{padding-bottom:78px;}
 .ec-sq.is-help{fill:var(--ec-lab);}
 .ec-sq{cursor:pointer;}
 .ec-sq:hover,.ec-sq:focus-visible{stroke:var(--text);stroke-width:1.5;outline:none;}
-.ec-legend--sq{justify-content:center;gap:14px 18px;margin-bottom:12px;}
+/* Легенда в два ряда: подпись человеческим языком, код градиента мелким
+   под ней — он нужен только тем, кто пойдёт сверяться с источником. */
+.ec-legend--sq{justify-content:center;gap:10px 22px;margin:0 0 18px;}
+.ec-legend--sq span{display:flex;align-items:baseline;gap:6px;font-size:13px;}
+.ec-legend--sq b{font-size:10.5px;font-weight:700;opacity:.5;letter-spacing:.04em;}
 .ec-legend--sq i.is-off{background:var(--border);}
-.ec-sqstat{font-size:15px;line-height:1.75;color:var(--text-secondary);margin:0;
-  max-width:64ch;margin-left:auto;margin-right:auto;text-align:center;}
+.ec-sqstat{font-size:15px;line-height:1.75;color:var(--text-secondary);margin:0 auto;
+  max-width:62ch;text-align:left;}
 .ec-sqstat b{color:var(--text);font-weight:800;font-variant-numeric:tabular-nums;}
 @media(prefers-reduced-motion:reduce){.ec-sq{transition:none;}}
 
@@ -999,14 +1003,14 @@ body.ds-has-sticky{padding-bottom:78px;}
 
           <section class="ec-card ec-gridcard">
             <div class="ec-card-h"><h3>Сто клеток: рабочие места края</h3></div>
-            <p class="ec-sub">Каждая клетка — один процент рабочих мест Забайкальского края, раскрашенный по градиенту экспозиции из глобального индекса Международной организации труда, применённого к занятости края. Это замер, а не сценарий: он не меняется от того, как быстро пойдёт внедрение.</p>
+            <p class="ec-sub">Каждая клетка — один процент рабочих мест Забайкальского края, раскрашенный по градиенту экспозиции из глобального индекса Международной организации труда, применённого к занятости края. Это замер, а не сценарий: он не меняется от того, как быстро пойдёт внедрение. Наведите на клетку — покажет, что стоит за цветом.</p>
             <div class="ec-squares" id="ec-squares"></div>
             <div class="ec-legend ec-legend--sq">
-              <span><i style="background:var(--ec-cap)"></i>G4 — высокая и устойчивая</span>
-              <span><i style="background:var(--ec-sel)"></i>G3 — выше умеренной</span>
-              <span><i style="background:var(--ec-lab)"></i>G2 — умеренная</span>
-              <span><i class="is-g1i"></i>G1 — низкая</span>
-              <span><i class="is-off"></i>Без экспозиции</span>
+              <span><i style="background:var(--ec-cap)"></i>ИИ может взять задачи на себя<b>G4</b></span>
+              <span><i style="background:var(--ec-sel)"></i>Работа изменится сильно<b>G3</b></span>
+              <span><i style="background:var(--ec-lab)"></i>ИИ будет помогать<b>G2</b></span>
+              <span><i class="is-g1i"></i>Заденет частично<b>G1</b></span>
+              <span><i class="is-off"></i>ИИ не подступается<b>—</b></span>
             </div>
             <p class="ec-sqstat" id="ec-sqstat">—</p>
           </section>
@@ -1642,12 +1646,21 @@ var EC_RES={"years":[2025,2026,2027,2028,2029,2030,2031,2032,2033,2034,2035],"fo
       'xChannelSelector="R" yChannelSelector="G"/></filter></defs>' +
       '<g filter="url(#ec-mk)">';
     var CLS = { 'G4': 'is-g4', 'G3': 'is-g3', 'G2': 'is-g2', 'G1': 'is-g1' };
+    // В подсказке говорим по-человечески: код градиента нужен только тем,
+    // кто пойдёт сверяться с индексом МОТ, и он стоит в конце.
+    var SAY = {
+      'G4': 'ИИ может взять задачи на себя',
+      'G3': 'Работа изменится сильно',
+      'G2': 'ИИ будет помогать человеку',
+      'G1': 'Заденет частично',
+      'не_экспонир': 'ИИ сюда не подступается'
+    };
     for (var i = 0; i < SQ; i++) {
       var g = SQ_CELLS[i];
       h += '<rect class="ec-sq ' + (CLS[g[0]] || '') + '" x="' + ((i % 10) * 26 + 4) +
         '" y="' + (Math.floor(i / 10) * 26 + 4) + '" width="19" height="19" rx="2.5">' +
-        '<title>' + esc(g[0] === 'не_экспонир' ? 'Без экспозиции' : g[0] + ' — ' + g[1]) +
-        ': ' + nf(g[2], 1) + ' тыс. рабочих мест</title></rect>';
+        '<title>' + esc(SAY[g[0]] || g[1]) + ' — ' + nf(g[2], 1) + ' тыс. рабочих мест' +
+        (g[0] === 'не_экспонир' ? '' : ' (градиент ' + g[0] + ')') + '</title></rect>';
     }
     $('squares').innerHTML = h + '</g></svg>';
     var g = EC_RES.gradients;
