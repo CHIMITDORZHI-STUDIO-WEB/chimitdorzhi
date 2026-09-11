@@ -913,8 +913,17 @@ body.ds-has-sticky{padding-bottom:78px;}
 /* --- оглавление --- */
 .ec-toc{margin:28px 0 0;padding:20px 22px;background:var(--bg-card);border:1px solid var(--border);
   border-radius:var(--ds-r);}
-.ec-toc>b{display:block;font-size:12px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;
-  color:var(--text-secondary);margin-bottom:12px;}
+.ec-toc summary{display:flex;align-items:center;gap:8px;cursor:pointer;list-style:none;
+  font-size:12px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--text-secondary);}
+.ec-toc summary::-webkit-details-marker{display:none;}
+/* Стрелка сама показывает, свёрнут список или раскрыт */
+.ec-toc summary::after{content:'';width:7px;height:7px;margin-left:auto;
+  border-right:2px solid currentColor;border-bottom:2px solid currentColor;
+  transform:rotate(45deg) translate(-2px,-2px);transition:transform .16s ease;}
+.ec-toc details[open]>summary::after{transform:rotate(-135deg) translate(-1px,-1px);}
+.ec-toc summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px;}
+.ec-toc details[open]>summary{margin-bottom:12px;}
 .ec-toc-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2px 24px;}
 .ec-toc a{display:block;padding:7px 0;font-size:14.5px;line-height:1.4;color:var(--text);
   text-decoration:none;border-bottom:1px solid var(--border);font-family:var(--ec-serif);}
@@ -1491,6 +1500,15 @@ var EC_RES={"years":[2025,2026,2027,2028,2029,2030,2031,2032,2033,2034,2035],"fo
     return String(s).replace(/[&<>"]/g, function (c) {
       return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
     });
+  }
+  /* Русское склонение после числа: 1 раздел, 2 раздела, 5 разделов. */
+  function word(n, one, few, many) {
+    n = Math.abs(n) % 100;
+    if (n >= 11 && n <= 14) return many;
+    n %= 10;
+    if (n === 1) return one;
+    if (n >= 2 && n <= 4) return few;
+    return many;
   }
   /* Цвета читаем из CSS, а не хардкодим: у страницы две темы, и та же самая
      палитра нужна при выгрузке в картинку, где var(--…) уже не разрешится. */
@@ -2284,14 +2302,22 @@ var EC_RES={"years":[2025,2026,2027,2028,2029,2030,2031,2032,2033,2034,2035],"fo
   function toc() {
     var nav = $('toc');
     if (!nav) return;
-    var h = '';
-    all('.ec-page .ec-card > .ec-card-h > h3').forEach(function (el, i) {
-      var card = el.closest && el.closest('.ec-card');
-      if (!card) return;                       // заголовок не в карточке — пропускаем
+    var h = '', n = 0;
+    // Берём первый заголовок каждой карточки: обёртка .ec-card-h есть
+    // не у всех, и раздел про допущения из-за этого выпадал из списка.
+    all('.ec-page .ec-card').forEach(function (card, i) {
+      var el = card.querySelector && card.querySelector('h3');
+      if (!el) return;
       if (!card.id) card.id = 'sec-' + (i + 1);
+      n++;
       h += '<a href="#' + card.id + '">' + esc(el.textContent.trim()) + '</a>';
     });
-    nav.innerHTML = '<b>Что внутри</b><div class="ec-toc-list">' + h + '</div>';
+    // Девятнадцать ссылок на телефоне — это целый экран перед текстом,
+    // поэтому там список свёрнут, а на широком экране сразу раскрыт.
+    var wide = !window.matchMedia || window.matchMedia('(min-width:641px)').matches;
+    nav.innerHTML = '<details class="ec-toc-d"' + (wide ? ' open' : '') +
+      '><summary>Что внутри · ' + n + ' ' + word(n, 'раздел', 'раздела', 'разделов') +
+      '</summary><div class="ec-toc-list">' + h + '</div></details>';
   }
 
   // -------------------------------------------------- куда идут технологии
