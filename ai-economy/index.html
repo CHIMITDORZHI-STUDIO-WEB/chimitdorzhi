@@ -1442,7 +1442,16 @@ var EC_RES={"years":[2025,2026,2027,2028,2029,2030,2031,2032,2033,2034,2035],"fo
     return !!e;
   }
   function all(sel) { return Array.prototype.slice.call(document.querySelectorAll(sel)); }
+  /* Пустое значение — это тоже значение: в рядах попадаются годы без данных.
+     Раньше одна такая дырка роняла скрипт целиком и страница оставалась пустой. */
   function nf(v, d) {
+    if (v === null || v === undefined || v === '' || (typeof v === 'number' && !isFinite(v))) {
+      return '—';
+    }
+    if (typeof v !== 'number') {
+      v = Number(v);
+      if (!isFinite(v)) return '—';
+    }
     if (d === undefined) d = 1;
     return v.toLocaleString('ru-RU', { minimumFractionDigits: d, maximumFractionDigits: d });
   }
@@ -1803,7 +1812,9 @@ var EC_RES={"years":[2025,2026,2027,2028,2029,2030,2031,2032,2033,2034,2035],"fo
 
   // ------------------------------------------------- № 4. Пожары
   function fires() {
-    var cs = palette(), ser = EC_RES.fireSeries;
+    var cs = palette();
+    // Год без наблюдения пропускаем: нулевой столбик соврал бы
+    var ser = EC_RES.fireSeries.filter(function (r) { return r[1]; });
     var W = 820, H = 250, mL = 66, mR = 24, mT = 20, mB = 34;
     var hi = Math.max.apply(null, ser.map(function (r) { return r[1]; })) * 1.05;
     var bw = (W - mL - mR) / ser.length;
@@ -2834,10 +2845,10 @@ var EC_RES={"years":[2025,2026,2027,2028,2029,2030,2031,2032,2033,2034,2035],"fo
   on('aiq', 'keydown', function (e) { if (e.key === 'Enter') aiAsk(); });
   on('copy', 'click', copyLink);
   on('png', 'click', savePng);
-  all('.ec-mbtn').forEach(function (b) {
+  all('#ec-metrics .ec-mbtn').forEach(function (b) {
     b.addEventListener('click', function () {
       metric = b.getAttribute('data-m');
-      all('.ec-mbtn').forEach(function (x) {
+      all('#ec-metrics .ec-mbtn').forEach(function (x) {
         x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
       });
       ranking(); writeHash();
