@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1549**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1559**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -770,6 +770,16 @@
 - [Квест по городу или торговому центру: игра, которая водит людей к партнёрам](./kvest-po-gorodu-s-partnerami-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kvest-po-gorodu-s-partnerami-2026/)
 - [Викторина, которая объясняет сложный продукт лучше инструкции](./viktorina-obyasnyaet-slozhnyy-produkt-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/viktorina-obyasnyaet-slozhnyy-produkt-2026/)
 - [Брендированный мир в Roblox: где подростки и что разрешает платформа](./brendirovannyy-mir-v-roblox-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/brendirovannyy-mir-v-roblox-2026/)
+- [Сервер или карта в Minecraft для бренда, школы или лагеря: что можно и чего нельзя](./server-minecraft-dlya-brenda-shkoly-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/server-minecraft-dlya-brenda-shkoly-2026/)
+- [Скины и моды для популярных игр под бренд: где законно, а где нет](./skiny-i-mody-dlya-brenda-zakonnost-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skiny-i-mody-dlya-brenda-zakonnost-2026/)
+- [Реклама внутри мобильных игр или своя игра: когда что дешевле](./reklama-v-mobilnyh-igrah-ili-svoya-igra-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/reklama-v-mobilnyh-igrah-ili-svoya-igra-2026/)
+- [AR-игра через камеру телефона: поиск предметов в магазине или на мероприятии](./ar-igra-cherez-kameru-dlya-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ar-igra-cherez-kameru-dlya-biznesa-2026/)
+- [Онбординг через игру: как быстрее обучить кассира или официанта](./onbording-sotrudnikov-cherez-igru-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/onbording-sotrudnikov-cherez-igru-2026/)
+- [Пасхалки и секретные промокоды на сайте: мини-игра, которую находят сами](./pashalki-i-sekretnye-promokody-na-sayte-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pashalki-i-sekretnye-promokody-na-sayte-2026/)
+- [Игровой тренажёр по стандартам сервиса и технике безопасности](./igrovoy-trenazher-standartov-servisa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/igrovoy-trenazher-standartov-servisa-2026/)
+- [Сколько стоит игра для бизнеса: от шаблона до разработки с нуля](./skolko-stoit-igra-dlya-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-stoit-igra-dlya-biznesa-2026/)
+- [Как понять, окупилась ли игра для бизнеса: считать покупки, а не партии](./okupaemost-igry-dlya-biznesa-metriki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/okupaemost-igry-dlya-biznesa-metriki-2026/)
+- [Пять причин, почему бренд-игры проваливаются](./pochemu-brend-igry-provalivayutsya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pochemu-brend-igry-provalivayutsya-2026/)
 - [ИИ-бот для отзывов и репутации: собирает, отвечает, предупреждает](./ii-bot-otzyvy-reputaciya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-bot-otzyvy-reputaciya-2026/)
 - [Сквозная аналитика для малого бизнеса: откуда клиент и что окупается](./skvoznaya-analitika-malyy-biznes-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skvoznaya-analitika-malyy-biznes-2026/)
 - [Истории (сторис) в MAX: как использовать для бизнеса](./istorii-storis-v-max-dlya-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/istorii-storis-v-max-dlya-biznesa-2026/)
