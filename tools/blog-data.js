@@ -10872,4 +10872,13 @@ const ALL_ARTICLES = [
   }
 })();
 
+// --- Сниппеты под реальные запросы из Вебмастера -------------------------
+(function applySnippetOverrides() {
+  const overrides = require('./snippet-overrides-2026-09.js');
+  for (const a of ALL_ARTICLES) {
+    const o = a && overrides[a.slug];
+    if (o) Object.assign(a, o);
+  }
+})();
+
 module.exports = ALL_ARTICLES;

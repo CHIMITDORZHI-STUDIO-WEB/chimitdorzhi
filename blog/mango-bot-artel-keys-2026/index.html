@@ -39,7 +39,7 @@
         <link rel="stylesheet" href="/assets/phosphor/regular.css">
         <link rel="stylesheet" href="/assets/phosphor/fill.css">
     </noscript>
-    <link rel="stylesheet" href="/style.css?v=76">
+    <link rel="stylesheet" href="/style.css?v=77">
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -441,6 +441,16 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 <p>Я спроектировал Манго-бот как единую систему для мессенджера MAX, работающую поверх общей базы данных вне зависимости от города участника. Каждый участник кооператива получает персональную реферальную ссылку сразу при первом обращении к боту. Ссылка привязана к его идентификатору, а не к городу, поэтому вся система работает как единое целое, а не как семь независимых локальных реестров.</p>
 <p>Когда новый человек переходит по ссылке и регистрируется в боте, система сразу фиксирует, из какого города пришёл приглашённый и кто именно его пригласил. Эта запись попадает в общую базу мгновенно, что исключает саму возможность рассинхронизации между городами — больше не нужно сверять таблицы вручную, потому что таблицы просто не существует, есть одна база с реальными данными.</p>
 <p>Админ-панель даёт организаторам конкурса полную картину: список участников по каждому городу, число приглашённых у каждого, статус проверки на признаки накрутки, история начисленных призов. Администратор может в любой момент посмотреть свежий рейтинг участников по количеству реальных, а не формальных приглашений, без сбора данных вручную из семи источников.</p>
+<aside class="blog-inline-tg" aria-label="Обсудить задачу">
+  <div class="blog-inline-tg-body">
+    <p class="blog-inline-tg-title">Хотите внедрить это у себя?</p>
+    <p>Опишите задачу в двух словах — отвечу в Telegram, что подойдёт, сколько займёт и сколько стоит. Сообщение уже подготовлено.</p>
+  </div>
+  <div class="blog-inline-tg-actions">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%9A%D0%B0%D0%BA%20%D1%8F%20%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D0%B7%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BB%20%D1%80%D0%B0%D0%B7%D0%B4%D0%B0%D1%87%D1%83%20%D0%BF%D1%80%D0%B8%D0%B7%D0%BE%D0%B2%20%D0%B7%D0%B0%20%D0%BF%D1%80%D0%B8%D0%B3%D0%BB%D0%B0%D1%88%D0%B5%D0%BD%D0%B8%D1%8F%20%D0%B2%20%D1%80%D0%B0%D0%B7%D0%BD%D1%8B%D1%85%20%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%B0%D1%85%20%D0%B1%D0%B5%D0%B7%20%D1%80%D1%83%D1%87%D0%BD%D0%BE%D0%B3%D0%BE%20%D1%83%D1%87%D1%91%D1%82%D0%B0%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8E%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B3%D0%BE%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0." target="_blank" rel="noopener" class="btn btn-accent"><i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram</a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+  </div>
+</aside>
 <h2 id="antifrod">Антифрод-защита от накруток</h2>
 <p>Ключевое требование клиента было защитить конкурс от накруток, потому что первая же неудачная попытка ручного запуска показала — как только на кону реальные призы, часть аудитории начинает искать обходные пути. Я заложил в систему несколько уровней проверки, которые работают вместе, а не полагаются на один признак.</p>
 <p>Во-первых, система засчитывает приглашённого как полноценного участника не в момент простой регистрации, а после того, как он выполнит определённые действия внутри бота, подтверждающие реальное участие, а не формальный переход по ссылке. Это отсекает ситуацию, когда человек регистрируется по просьбе знакомого, ничего больше не делает, и на этом фиктивное приглашение засчитывается.</p>
@@ -526,7 +536,7 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
                         </div>
                         <div class="blog-cta-card-actions">
                             <a href="https://chimitdorzhi.tech/market/#checklist" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Собрать похожий проект</a>
-                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%9A%D0%B0%D0%BA%20%D1%8F%20%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D0%B7%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BB%20%D1%80%D0%B0%D0%B7%D0%B4%D0%B0%D1%87%D1%83%20%D0%BF%D1%80%D0%B8%D0%B7%D0%BE%D0%B2%20%D0%B7%D0%B0%20%D0%BF%D1%80%D0%B8%D0%B3%D0%BB%D0%B0%D1%88%D0%B5%D0%BD%D0%B8%D1%8F%20%D0%B2%20%D1%80%D0%B0%D0%B7%D0%BD%D1%8B%D1%85%20%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%B0%D1%85%20%D0%B1%D0%B5%D0%B7%20%D1%80%D1%83%D1%87%D0%BD%D0%BE%D0%B3%D0%BE%20%D1%83%D1%87%D1%91%D1%82%D0%B0%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8E%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B3%D0%BE%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0." target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
                             <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
                         </div>
                     </div>

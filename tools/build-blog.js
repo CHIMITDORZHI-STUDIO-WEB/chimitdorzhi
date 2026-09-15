@@ -632,7 +632,7 @@ function head({ title, description, keywords, canonical, ogImage = `${SITE}/hero
         <link rel="stylesheet" href="/assets/phosphor/regular.css">
         <link rel="stylesheet" href="/assets/phosphor/fill.css">
     </noscript>
-    <link rel="stylesheet" href="/style.css?v=76">
+    <link rel="stylesheet" href="/style.css?v=77">
 `;
 }
 
@@ -978,6 +978,53 @@ function leadMagnetCard() {
                             <a href="/checklist-152-fz/" class="btn btn-accent"><i class="ph-fill ph-clipboard-text" aria-hidden="true"></i> Открыть чек-лист</a>
                         </div>
                     </div>`;
+}
+
+// Блок «Написать в Telegram» в середине статьи для тех, кто может стать заказчиком:
+// ИИ-агенты, боты, внедрение, CRM, мини-приложения. Текст сообщения уже заполнен.
+const CLIENT_SKIP_CATS = new Set(['biznes-krugozor', 'mwrlife', 'mlm', 'esports', 'media', 'ai-life', 'finance']);
+const CLIENT_TOPIC_RE = /(ии|ai)[- ]?агент|агент(а|ов|ы)?\b|чат-?бот|\bбот(а|ов|ы)?\b|внедрен|автоматизац|\bcrm\b|мини-?апп|mini[- ]?app|мини-приложен|\brag\b|под ключ|сколько стоит|цифровой сотрудник|ии для бизнеса|нейросет[а-я]* для бизнеса/i;
+function clientTopicText(a) {
+  const t = [a.title, a.metaTitle, (a.slug || '').replace(/-/g, ' '), (a.tags || []).join(' ')].join(' ');
+  if (CLIENT_SKIP_CATS.has(a.category) || isMlmReview(a) || !CLIENT_TOPIC_RE.test(t)) return null;
+  if (/(ии|ai)[- ]?агент|агент(а|ов|ы)?\b|цифровой сотрудник|\brag\b/i.test(t)) return 'ИИ-агента';
+  if (/мини-?апп|mini[- ]?app|мини-приложен/i.test(t)) return 'мини-приложение';
+  if (/чат-?бот|\bбот(а|ов|ы)?\b/i.test(t)) return 'чат-бота';
+  if (/\bcrm\b/i.test(t)) return 'CRM';
+  return 'автоматизацию';
+}
+const CLIENT_HEADLINES = {
+  'ИИ-агента': 'Нужен ИИ-агент для вашего бизнеса?',
+  'мини-приложение': 'Нужно мини-приложение для вашего бизнеса?',
+  'чат-бота': 'Нужен чат-бот для вашего бизнеса?',
+  'CRM': 'Нужна CRM под ваш бизнес?',
+  'автоматизацию': 'Хотите внедрить это у себя?',
+};
+function clientTgUrl(a, topic) {
+  const title = a.title.length > 90 ? a.title.slice(0, 87).replace(/\s+\S*$/, '') + '…' : a.title;
+  return `${TG_URL}?text=${encodeURIComponent(`Здравствуйте! Пишу после статьи «${title}». Хочу обсудить ${topic} для своего бизнеса.`)}`;
+}
+function inlineTgBlock(a, topic) {
+  return `<aside class="blog-inline-tg" aria-label="Обсудить задачу">
+  <div class="blog-inline-tg-body">
+    <p class="blog-inline-tg-title">${esc(CLIENT_HEADLINES[topic])}</p>
+    <p>Опишите задачу в двух словах — отвечу в Telegram, что подойдёт, сколько займёт и сколько стоит. Сообщение уже подготовлено.</p>
+  </div>
+  <div class="blog-inline-tg-actions">
+    <a href="${esc(clientTgUrl(a, topic))}" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram</a>
+    <a href="${MAX_URL}" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+  </div>
+</aside>`;
+}
+// Ставим перед третьим h2 (после вводной части), в короткой статье — перед FAQ.
+function injectInlineTg(html, a) {
+  const topic = clientTopicText(a);
+  if (!topic) return html;
+  const h2s = [...html.matchAll(/<h2[\s>]/g)];
+  let at = h2s.length >= 4 ? h2s[2].index : -1;
+  if (at < 0) { const faq = html.search(/<h2 id="faq"/); at = faq > 0 ? faq : -1; }
+  if (at < 0) return html;
+  return html.slice(0, at) + inlineTgBlock(a, topic) + '\n' + html.slice(at);
 }
 
 function servicesOfferCard(article) {
@@ -1559,7 +1606,8 @@ function metaDisclaimer(html) {
 function articlePage(a, published) {
   const url = `${SITE}/blog/${a.slug}/`;
   const cat = CATEGORY_LABELS[a.category] || 'Блог';
-  const bodyHtml = autolinkServices(a.contentHtml, a.ctaInternal && a.ctaInternal.url);
+  const bodyHtml = injectInlineTg(autolinkServices(a.contentHtml, a.ctaInternal && a.ctaInternal.url), a);
+  const clientTopic = clientTopicText(a);
   return `${head({ title: a.metaTitle || a.title, description: a.metaDescription, keywords: a.metaKeywords || a.tags.join(', '), canonical: url, ogImage: coverUrl(a) })}    <script type="application/ld+json">
 ${blogPostingLd(a, url)}
     </script>
@@ -1621,7 +1669,7 @@ ${faqLd(a)}${howToLd(a)}${itemListLd(a)}${METRIKA}</head>
                         </div>
                         <div class="blog-cta-card-actions">
                             <a href="${esc(a.ctaInternal ? a.ctaInternal.url : 'https://chimitdorzhi.tech/predlozheniya/')}" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> ${esc(a.ctaInternal ? a.ctaInternal.label : 'Подобрать решение')}</a>
-                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="${esc(clientTopic ? clientTgUrl(a, clientTopic) : 'https://t.me/chimitdorzhi')}" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
                             <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
                         </div>
                     </div>

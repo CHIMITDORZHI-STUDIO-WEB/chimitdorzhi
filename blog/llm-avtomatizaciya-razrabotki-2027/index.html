@@ -39,7 +39,7 @@
         <link rel="stylesheet" href="/assets/phosphor/regular.css">
         <link rel="stylesheet" href="/assets/phosphor/fill.css">
     </noscript>
-    <link rel="stylesheet" href="/style.css?v=76">
+    <link rel="stylesheet" href="/style.css?v=77">
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -469,6 +469,16 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 <p>Немного контекста для тех, кто не в теме. Юнит-тесты — это маленькие проверочные программы, которые автоматически убеждаются, что каждый кусочек кода работает правильно: при таких-то входных данных функция обязана вернуть такой-то результат, а на некорректный ввод — корректно ошибиться. Тесты критически важны: они ловят ошибки до того, как их увидит пользователь, и позволяют безбоязненно менять код, зная, что если что-то сломается, тест сразу это покажет. Проблема в том, что писать тесты долго и монотонно. Исторически разработчик мог тратить до трети рабочего времени именно на покрытие кода тестами — особенно для API, где нужно перебрать множество вариантов входных данных.</p>
 <p>Здесь LLM даёт огромный выигрыш. У нас есть схема базы данных — точное описание того, какие сущности хранятся, какие у них поля, типы и ограничения. Мы отдаём эту схему и код проверяемой функции модели, и она генерирует набор тестов: проверку корректных сценариев, граничных случаев, некорректных вводов, пропущенных полей. То, что инженер писал бы полдня вручную, появляется за минуты. Но — и это принципиально — сгенерированные тесты не идут в проект автоматически. Инженер читает каждый, проверяет, что тест проверяет действительно важную логику, а не «отписку», убирает лишнее, дописывает специфичные для бизнеса случаи, которые модель знать не могла. В результате скорость релиза заметно выросла: рутинная часть, отнимавшая существенную долю времени, ужалась в разы, а высвободившиеся часы инженер тратит на архитектуру и сложную логику — на то, что машине пока не под силу.</p>
 
+<aside class="blog-inline-tg" aria-label="Обсудить задачу">
+  <div class="blog-inline-tg-body">
+    <p class="blog-inline-tg-title">Хотите внедрить это у себя?</p>
+    <p>Опишите задачу в двух словах — отвечу в Telegram, что подойдёт, сколько займёт и сколько стоит. Сообщение уже подготовлено.</p>
+  </div>
+  <div class="blog-inline-tg-actions">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%9A%D0%B0%D0%BA%20%D0%BC%D1%8B%20%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D0%B7%D0%B8%D1%80%D1%83%D0%B5%D0%BC%20%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D1%83%20%D0%B8%20%D0%BA%D0%BE%D0%BD%D1%82%D0%B5%D0%BD%D1%82%20%D1%81%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E%20LLM%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8E%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B3%D0%BE%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0." target="_blank" rel="noopener" class="btn btn-accent"><i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram</a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+  </div>
+</aside>
 <h2 id="kontent">Автоматизация контента: от скана к JSON</h2>
 <p>Второй пайплайн — из мира данных и контента, и он показывает, как LLM решает задачу, которая раньше была почти неподъёмной по трудозатратам. Представьте, что нужно оцифровать большой массив информации из бумажного источника — например, старой книги: извлечь оттуда все имена, названия, даты, географические привязки и сложить это в аккуратную базу данных, по которой потом можно искать и строить связи.</p>
 <p>Классический путь — посадить человека, который вручную вычитывает страницу за страницей и вбивает данные в таблицу. Это сотни часов монотонного труда с неизбежными опечатками и пропусками. Наш конвейер устроен иначе и состоит из нескольких автоматических звеньев. Сначала бумажный источник сканируется, и скан прогоняется через OCR — технологию оптического распознавания символов, которая превращает изображение страницы в текст. Текст на этом этапе ещё сырой: с ошибками распознавания, без структуры, сплошным потоком.</p>
@@ -546,7 +556,7 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
                         </div>
                         <div class="blog-cta-card-actions">
                             <a href="https://chimitdorzhi.tech/market/#checklist" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Обсудить проект</a>
-                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%9A%D0%B0%D0%BA%20%D0%BC%D1%8B%20%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D0%B7%D0%B8%D1%80%D1%83%D0%B5%D0%BC%20%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D1%83%20%D0%B8%20%D0%BA%D0%BE%D0%BD%D1%82%D0%B5%D0%BD%D1%82%20%D1%81%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E%20LLM%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8E%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B3%D0%BE%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0." target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
                             <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
                         </div>
                     </div>
