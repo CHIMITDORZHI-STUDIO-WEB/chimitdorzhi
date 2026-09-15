@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1560**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1580**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -781,6 +781,26 @@
 - [Сколько стоит игра для бизнеса: от шаблона до разработки с нуля](./skolko-stoit-igra-dlya-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-stoit-igra-dlya-biznesa-2026/)
 - [Как понять, окупилась ли игра для бизнеса: считать покупки, а не партии](./okupaemost-igry-dlya-biznesa-metriki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/okupaemost-igry-dlya-biznesa-metriki-2026/)
 - [Пять причин, почему бренд-игры проваливаются](./pochemu-brend-igry-provalivayutsya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pochemu-brend-igry-provalivayutsya-2026/)
+- [Игры для стоматологии и детской клиники: как успокоить ребёнка до приёма](./igry-dlya-stomatologii-i-detskoy-kliniki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/igry-dlya-stomatologii-i-detskoy-kliniki-2026/)
+- [Игры для фитнес-клуба: челленджи, серии тренировок и соревнования](./igry-dlya-fitnes-kluba-chellendzhi-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/igry-dlya-fitnes-kluba-chellendzhi-2026/)
+- [Игра для автосервиса и автосалона: пока клиент ждёт машину](./igra-dlya-avtoservisa-poka-klient-zhdet-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/igra-dlya-avtoservisa-poka-klient-zhdet-2026/)
+- [Игра у стола в ресторане: цифровая детская зона и занятие для взрослых](./igra-na-planshete-u-stola-v-restorane-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/igra-na-planshete-u-stola-v-restorane-2026/)
+- [Игра-маршрут для гостей отеля и туристов: город как квест](./igra-marshrut-dlya-gostey-otelya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/igra-marshrut-dlya-gostey-otelya-2026/)
+- [Игровые механики в онлайн-курсе: как довести ученика до конца программы](./igry-chtoby-uchenik-doshel-do-konca-kursa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/igry-chtoby-uchenik-doshel-do-konca-kursa-2026/)
+- [Сезонные игры для бизнеса: адвент-календарь, новогодняя игра и праздничные акции](./sezonnye-igry-advent-kalendar-dlya-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sezonnye-igry-advent-kalendar-dlya-biznesa-2026/)
+- [Реферальная игра «приведи друга»: чем она отличается от обычной реферальной программы](./referalnaya-igra-privedi-druga-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/referalnaya-igra-privedi-druga-2026/)
+- [Игра на выставке: как собрать контакты у стенда, а не пачку визиток](./igra-na-vystavke-sbor-lidov-u-stenda-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/igra-na-vystavke-sbor-lidov-u-stenda-2026/)
+- [Командная игра между филиалами сети: соревнование без выгорания](./komandnaya-igra-mezhdu-filialami-seti-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/komandnaya-igra-mezhdu-filialami-seti-2026/)
+- [Коллекционирование за покупки: виртуальные наклейки и карточки для бизнеса](./kollekcionirovanie-nakleek-za-pokupki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kollekcionirovanie-nakleek-za-pokupki-2026/)
+- [Игра-опрос: как собрать мнение клиентов, чтобы им было интересно отвечать](./igra-opros-mnenie-klientov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/igra-opros-mnenie-klientov-2026/)
+- [Игра на экране в зале, в которую играют с телефона: формат для баров, кафе и мероприятий](./igra-na-ekrane-v-zale-s-telefona-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/igra-na-ekrane-v-zale-s-telefona-2026/)
+- [Голосовая игра в умной колонке для бренда: где это вообще работает](./golosovaya-igra-v-umnoy-kolonke-dlya-brenda-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/golosovaya-igra-v-umnoy-kolonke-dlya-brenda-2026/)
+- [ИИ-персонаж в игре для бренда: живой собеседник и реальные риски](./ii-personazh-v-igre-dlya-brenda-riski-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-personazh-v-igre-dlya-brenda-riski-2026/)
+- [Мультиплеер в браузере для бизнеса: когда нужен, а когда нет](./multipleer-v-brauzere-dlya-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/multipleer-v-brauzere-dlya-biznesa-2026/)
+- [Игры для детской аудитории: что учесть бренду, если игрокам меньше 18](./igry-dlya-detskoy-auditorii-chto-uchest-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/igry-dlya-detskoy-auditorii-chto-uchest-2026/)
+- [Кто владеет игрой после разработки: код, данные игроков и аккаунты](./kto-vladeet-igroy-posle-razrabotki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kto-vladeet-igroy-posle-razrabotki-2026/)
+- [Как продвигать бренд-игру после запуска, чтобы в неё начали играть](./kak-prodvigat-brend-igru-posle-zapuska-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-prodvigat-brend-igru-posle-zapuska-2026/)
+- [Игра для B2B: можно ли так продавать сложные услуги компаниям](./igra-dlya-b2b-prodazh-slozhnyh-uslug-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/igra-dlya-b2b-prodazh-slozhnyh-uslug-2026/)
 - [ИИ-бот для отзывов и репутации: собирает, отвечает, предупреждает](./ii-bot-otzyvy-reputaciya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-bot-otzyvy-reputaciya-2026/)
 - [Сквозная аналитика для малого бизнеса: откуда клиент и что окупается](./skvoznaya-analitika-malyy-biznes-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skvoznaya-analitika-malyy-biznes-2026/)
 - [Истории (сторис) в MAX: как использовать для бизнеса](./istorii-storis-v-max-dlya-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/istorii-storis-v-max-dlya-biznesa-2026/)
