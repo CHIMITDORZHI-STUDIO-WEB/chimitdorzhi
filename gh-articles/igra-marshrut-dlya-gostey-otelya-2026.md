@@ -2,7 +2,7 @@
 title: "Игра-маршрут для гостей отеля и туристов: город как квест"
 description: "Маршрут с заданиями отвечает на вопрос туриста «что посмотреть» и выделяет отель. Разбираю форматы, безопасность маршрута и работу с партнёрами."
 date: 2026-09-15
-category: marketing
+category: igry-dlya-biznesa
 canonical: https://chimitdorzhi.tech/blog/igra-marshrut-dlya-gostey-otelya-2026/
 ---
 

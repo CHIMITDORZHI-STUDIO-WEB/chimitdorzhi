@@ -2,7 +2,7 @@
 title: "Онлайн-настолка про ваш город вместо «Монополии»: игра, за клетки которой платят партнёры"
 description: "Игра в духе «Монополии», где клетки — реальные заведения города, а партнёры платят за место. Почему название использовать нельзя и как связать игру с офлайном."
 date: 2026-09-15
-category: marketing
+category: igry-dlya-biznesa
 canonical: https://chimitdorzhi.tech/blog/nastolka-pro-gorod-vmesto-monopolii-2026/
 ---
 

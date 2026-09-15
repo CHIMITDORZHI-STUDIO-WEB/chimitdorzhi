@@ -2,7 +2,7 @@
 title: "Игры для детской аудитории: что учесть бренду, если игрокам меньше 18"
 description: "Игры для детей требуют особой ответственности: ограничения рекламы, возрастная маркировка и данные несовершеннолетних. Разбираю, что учесть до разработки."
 date: 2026-09-15
-category: marketing
+category: igry-dlya-biznesa
 canonical: https://chimitdorzhi.tech/blog/igry-dlya-detskoy-auditorii-chto-uchest-2026/
 ---
 

@@ -2,7 +2,7 @@
 title: "Викторина, которая объясняет сложный продукт лучше инструкции"
 description: "Клиент уходит не потому, что продукт не нужен, а потому что не понял его. Разбираю, как викторина объясняет лучше описания и честно подбирает вариант."
 date: 2026-09-15
-category: marketing
+category: igry-dlya-biznesa
 canonical: https://chimitdorzhi.tech/blog/viktorina-obyasnyaet-slozhnyy-produkt-2026/
 ---
 

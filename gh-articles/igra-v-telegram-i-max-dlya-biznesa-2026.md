@@ -2,7 +2,7 @@
 title: "Игра для бизнеса в Telegram и MAX: без установки и с каналом связи в придачу"
 description: "Мини-игра в мессенджере открывается одной кнопкой и оставляет вам канал связи с игроком. Разбираю разницу между Telegram и MAX и как запускать."
 date: 2026-09-15
-category: marketing
+category: igry-dlya-biznesa
 canonical: https://chimitdorzhi.tech/blog/igra-v-telegram-i-max-dlya-biznesa-2026/
 ---
 

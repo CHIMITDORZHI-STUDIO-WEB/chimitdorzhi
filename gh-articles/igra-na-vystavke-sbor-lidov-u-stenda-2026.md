@@ -2,7 +2,7 @@
 title: "Игра на выставке: как собрать контакты у стенда, а не пачку визиток"
 description: "Игра у стенда останавливает посетителей и превращает остановку в разговор. Разбираю, как отсеять зевак, собрать контакты и не потерять их после выставки."
 date: 2026-09-15
-category: marketing
+category: igry-dlya-biznesa
 canonical: https://chimitdorzhi.tech/blog/igra-na-vystavke-sbor-lidov-u-stenda-2026/
 ---
 

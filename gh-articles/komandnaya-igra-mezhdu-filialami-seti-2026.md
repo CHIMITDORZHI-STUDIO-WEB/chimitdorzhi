@@ -2,7 +2,7 @@
 title: "Командная игра между филиалами сети: соревнование без выгорания"
 description: "Командная игра создаёт в сети общее дело и обмен опытом. Разбираю, какими показателями честно соревноваться и как не разрушить команды."
 date: 2026-09-15
-category: marketing
+category: igry-dlya-biznesa
 canonical: https://chimitdorzhi.tech/blog/komandnaya-igra-mezhdu-filialami-seti-2026/
 ---
 

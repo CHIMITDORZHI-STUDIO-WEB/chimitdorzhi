@@ -2,7 +2,7 @@
 title: "Коллекционирование за покупки: виртуальные наклейки и карточки для бизнеса"
 description: "Сбор коллекции — сильная механика возвращения. Разбираю цифровой формат, ловушку редких элементов, обмен дубликатами и защиту от мошенничества."
 date: 2026-09-15
-category: marketing
+category: igry-dlya-biznesa
 canonical: https://chimitdorzhi.tech/blog/kollekcionirovanie-nakleek-za-pokupki-2026/
 ---
 

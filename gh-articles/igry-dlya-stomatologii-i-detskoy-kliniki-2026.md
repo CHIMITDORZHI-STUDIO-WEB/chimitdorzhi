@@ -2,7 +2,7 @@
 title: "Игры для стоматологии и детской клиники: как успокоить ребёнка до приёма"
 description: "Короткая игра в зоне ожидания отвлекает ребёнка и готовит к приёму. Разбираю форматы, где запускать и ограничения для медицины."
 date: 2026-09-15
-category: marketing
+category: igry-dlya-biznesa
 canonical: https://chimitdorzhi.tech/blog/igry-dlya-stomatologii-i-detskoy-kliniki-2026/
 ---
 

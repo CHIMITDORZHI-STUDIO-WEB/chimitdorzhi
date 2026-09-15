@@ -2,7 +2,7 @@
 title: "Брендированный мир в Roblox: где подростки и что разрешает платформа"
 description: "Как бренды создают свои миры в Roblox, какие ограничения действуют для рекламы детям и почему история блокировки в России требует осторожности."
 date: 2026-09-15
-category: marketing
+category: igry-dlya-biznesa
 canonical: https://chimitdorzhi.tech/blog/brendirovannyy-mir-v-roblox-2026/
 ---
 

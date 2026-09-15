@@ -2,7 +2,7 @@
 title: "QR на упаковке ведёт в игру: как связать офлайн-точку с цифровым клиентом"
 description: "QR на упаковке или чеке превращает анонимного покупателя в цифровой контакт. Где ставить код, почему его игнорируют и как защитить приз от злоупотреблений."
 date: 2026-09-15
-category: marketing
+category: igry-dlya-biznesa
 canonical: https://chimitdorzhi.tech/blog/qr-igra-na-upakovke-2026/
 ---
 

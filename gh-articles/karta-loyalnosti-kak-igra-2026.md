@@ -2,7 +2,7 @@
 title: "Карта лояльности как игра: геймификация без отдельной игры"
 description: "Обычная карта с баллами скучная. Разбираю игровые механики лояльности — шкалу прогресса, мягкие серии, уровни — и почему они часто лучше отдельной игры."
 date: 2026-09-15
-category: marketing
+category: igry-dlya-biznesa
 canonical: https://chimitdorzhi.tech/blog/karta-loyalnosti-kak-igra-2026/
 ---
 

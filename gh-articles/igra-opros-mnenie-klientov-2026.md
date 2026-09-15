@@ -2,7 +2,7 @@
 title: "Игра-опрос: как собрать мнение клиентов, чтобы им было интересно отвечать"
 description: "Выбор из двух, сортировка карточек и показ ответов других делают опрос интереснее анкеты. Разбираю форматы и как не исказить результат."
 date: 2026-09-15
-category: marketing
+category: igry-dlya-biznesa
 canonical: https://chimitdorzhi.tech/blog/igra-opros-mnenie-klientov-2026/
 ---
 

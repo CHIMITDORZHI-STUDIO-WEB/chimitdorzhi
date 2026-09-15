@@ -2,7 +2,7 @@
 title: "Пасхалки и секретные промокоды на сайте: мини-игра, которую находят сами"
 description: "Спрятанная мини-игра или секретный промокод работают через ощущение открытия. Разбираю, где прятать, какие границы соблюдать и как ограничить код."
 date: 2026-09-15
-category: marketing
+category: igry-dlya-biznesa
 canonical: https://chimitdorzhi.tech/blog/pashalki-i-sekretnye-promokody-na-sayte-2026/
 ---
 

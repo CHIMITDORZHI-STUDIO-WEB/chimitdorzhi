@@ -2,7 +2,7 @@
 title: "Как понять, окупилась ли игра для бизнеса: считать покупки, а не партии"
 description: "Количество партий ничего не говорит о деньгах. Разбираю воронку от игры до покупки, метки, которые нужно заложить до запуска, и честный расчёт окупаемости."
 date: 2026-09-15
-category: marketing
+category: igry-dlya-biznesa
 canonical: https://chimitdorzhi.tech/blog/okupaemost-igry-dlya-biznesa-metriki-2026/
 ---
 

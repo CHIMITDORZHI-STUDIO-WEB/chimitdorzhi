@@ -2,7 +2,7 @@
 title: "AR-игра через камеру телефона: поиск предметов в магазине или на мероприятии"
 description: "AR-игра накладывает виртуальные объекты на камеру телефона. Разбираю форматы для магазина и выставки, работу без приложения и реальные ограничения."
 date: 2026-09-15
-category: marketing
+category: igry-dlya-biznesa
 canonical: https://chimitdorzhi.tech/blog/ar-igra-cherez-kameru-dlya-biznesa-2026/
 ---
 

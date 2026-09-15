@@ -2,7 +2,7 @@
 title: "Кто владеет игрой после разработки: код, данные игроков и аккаунты"
 description: "Бизнес часто платит за игру, но не владеет ею. Разбираю четыре вещи, которыми нужно владеть, и как закрепить это в договоре до начала работ."
 date: 2026-09-15
-category: marketing
+category: igry-dlya-biznesa
 canonical: https://chimitdorzhi.tech/blog/kto-vladeet-igroy-posle-razrabotki-2026/
 ---
 

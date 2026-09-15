@@ -2,7 +2,7 @@
 title: "Колесо фортуны и скретч-карты: популярная игра для бизнеса и её юридическая сторона"
 description: "Колесо фортуны — стимулирующее мероприятие с обязательными условиями. Разбираю правила, налог на призы от 4000 рублей и почему подкручивать шансы нельзя."
 date: 2026-09-15
-category: marketing
+category: igry-dlya-biznesa
 canonical: https://chimitdorzhi.tech/blog/koleso-fortuny-i-skretch-karty-zakon-2026/
 ---
 

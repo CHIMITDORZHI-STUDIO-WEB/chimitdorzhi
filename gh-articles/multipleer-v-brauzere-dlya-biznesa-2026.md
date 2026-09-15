@@ -2,7 +2,7 @@
 title: "Мультиплеер в браузере для бизнеса: когда нужен, а когда нет"
 description: "Синхронный мультиплеер дорог и страдает от пустых комнат. Разбираю, когда он оправдан и почему асинхронное соревнование решает задачу дешевле."
 date: 2026-09-15
-category: marketing
+category: igry-dlya-biznesa
 canonical: https://chimitdorzhi.tech/blog/multipleer-v-brauzere-dlya-biznesa-2026/
 ---
 

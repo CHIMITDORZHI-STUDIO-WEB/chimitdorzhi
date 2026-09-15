@@ -2,7 +2,7 @@
 title: "ИИ-персонаж в игре для бренда: живой собеседник и реальные риски"
 description: "Персонаж на языковой модели делает игру живой, но может выдумать факты и пообещать лишнее от имени бренда. Разбираю риски и способы защиты."
 date: 2026-09-15
-category: marketing
+category: igry-dlya-biznesa
 canonical: https://chimitdorzhi.tech/blog/ii-personazh-v-igre-dlya-brenda-riski-2026/
 ---
 

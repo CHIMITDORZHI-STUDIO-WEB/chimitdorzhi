@@ -2,7 +2,7 @@
 title: "Тапалка для местного бизнеса: что взять из хайпа Hamster Kombat, а что оставить"
 description: "Тапалки собрали огромную аудиторию, но держались на обещании токена и сдулись после раздачи. Разбираю, какие механики забрать местному бизнесу."
 date: 2026-09-15
-category: marketing
+category: igry-dlya-biznesa
 canonical: https://chimitdorzhi.tech/blog/tapalka-dlya-mestnogo-biznesa-2026/
 ---
 

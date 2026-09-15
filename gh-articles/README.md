@@ -743,24 +743,7 @@
 - [Психология цены и выбора: 6 эффектов, которые двигают решения покупателя](./psihologiya-ceny-i-vybora-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/psihologiya-ceny-i-vybora-2026/)
 - [Выживет ли бизнес: метрики устойчивости (default alive, Rule of 40, burn multiple)](./vyzhivet-li-biznes-metriki-ustoychivosti-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vyzhivet-li-biznes-metriki-ustoychivosti-2026/)
 
-## Киберспорт
-
-- [Спонсорство в киберспорте: как бренду зайти и не слить бюджет](./sponsorstvo-v-kibersporte-gayd-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sponsorstvo-v-kibersporte-gayd-2026/)
-- [Бизнес на приватном сервере GTA/CS/Minecraft: юнит-экономика, донат-система, риски с правообладателями](./biznes-privatnyy-server-gta-cs-minecraft-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/biznes-privatnyy-server-gta-cs-minecraft-2027/)
-- [Хостинг игровых серверов как SaaS-бизнес: аналог Pterodactyl-платформ «под ключ»](./hosting-igrovyh-serverov-saas-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/hosting-igrovyh-serverov-saas-2027/)
-- [Экономика мобильной F2P-игры: LTV, ARPU, ARPPU, когортный анализ на пальцах](./ekonomika-mobilnoy-f2p-igry-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ekonomika-mobilnoy-f2p-igry-2027/)
-- [UA (User Acquisition) для мобильных игр: во сколько обходится один игрок и как считать окупаемость](./user-acquisition-mobilnyh-igr-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/user-acquisition-mobilnyh-igr-2027/)
-- [Как устроен маркетплейс скинов (Steam Community Market/CS2): комиссия площадки, эскроу, антифрод](./marketplace-skinov-steam-cs2-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/marketplace-skinov-steam-cs2-2027/)
-- [Буст аккаунтов и рейтинга: юридическая серая зона, спрос и почему платформы банят](./bust-akkauntov-reytinga-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bust-akkauntov-reytinga-2027/)
-- [Продажа и передача игровых аккаунтов: риски для покупателя и продавца, эскроу-сервисы](./prodazha-peredacha-igrovyh-akkauntov-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/prodazha-peredacha-igrovyh-akkauntov-2027/)
-- [Турниры по киберспорту в РФ 2026: организация под ключ — площадка, призовой фонд, спонсоры](./kibertirniry-organizaciya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kibertirniry-organizaciya-2026/)
-- [Спонсорство в киберспорте и стриминге 2026: как привлечь, сколько просить, что давать взамен](./sponsorstvo-kibersport-streaming-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sponsorstvo-kibersport-streaming-2026/)
-- [Брендированная киберспорт-лига 2026: годовая активация вместо разового турнира](./brendirovannaya-kibersport-liga-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/brendirovannaya-kibersport-liga-2026/)
-- [Кубок дистрибьютора 2026: турнир как инструмент работы с дилерами B2B](./kubok-distributora-b2b-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kubok-distributora-b2b-2026/)
-- [Турнир под product launch 2026: киберспорт как канал запуска нового продукта](./turnir-pod-product-launch-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/turnir-pod-product-launch-2026/)
-- [Pop-up турнир в магазине / ТЦ 2026: киберспорт как retail-активация](./pop-up-kibersport-magazin-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pop-up-kibersport-magazin-2026/)
-
-## Маркетинг
+## Игры для бизнеса
 
 - [Аркада с падающими блоками под брендом: зачем бизнесу и почему не «Тетрис»](./brendirovannaya-arkada-padayushchie-bloki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/brendirovannaya-arkada-padayushchie-bloki-2026/)
 - [Игра для бизнеса в Telegram и MAX: без установки и с каналом связи в придачу](./igra-v-telegram-i-max-dlya-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/igra-v-telegram-i-max-dlya-biznesa-2026/)
@@ -802,6 +785,26 @@
 - [Кто владеет игрой после разработки: код, данные игроков и аккаунты](./kto-vladeet-igroy-posle-razrabotki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kto-vladeet-igroy-posle-razrabotki-2026/)
 - [Как продвигать бренд-игру после запуска, чтобы в неё начали играть](./kak-prodvigat-brend-igru-posle-zapuska-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-prodvigat-brend-igru-posle-zapuska-2026/)
 - [Игра для B2B: можно ли так продавать сложные услуги компаниям](./igra-dlya-b2b-prodazh-slozhnyh-uslug-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/igra-dlya-b2b-prodazh-slozhnyh-uslug-2026/)
+
+## Киберспорт
+
+- [Спонсорство в киберспорте: как бренду зайти и не слить бюджет](./sponsorstvo-v-kibersporte-gayd-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sponsorstvo-v-kibersporte-gayd-2026/)
+- [Бизнес на приватном сервере GTA/CS/Minecraft: юнит-экономика, донат-система, риски с правообладателями](./biznes-privatnyy-server-gta-cs-minecraft-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/biznes-privatnyy-server-gta-cs-minecraft-2027/)
+- [Хостинг игровых серверов как SaaS-бизнес: аналог Pterodactyl-платформ «под ключ»](./hosting-igrovyh-serverov-saas-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/hosting-igrovyh-serverov-saas-2027/)
+- [Экономика мобильной F2P-игры: LTV, ARPU, ARPPU, когортный анализ на пальцах](./ekonomika-mobilnoy-f2p-igry-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ekonomika-mobilnoy-f2p-igry-2027/)
+- [UA (User Acquisition) для мобильных игр: во сколько обходится один игрок и как считать окупаемость](./user-acquisition-mobilnyh-igr-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/user-acquisition-mobilnyh-igr-2027/)
+- [Как устроен маркетплейс скинов (Steam Community Market/CS2): комиссия площадки, эскроу, антифрод](./marketplace-skinov-steam-cs2-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/marketplace-skinov-steam-cs2-2027/)
+- [Буст аккаунтов и рейтинга: юридическая серая зона, спрос и почему платформы банят](./bust-akkauntov-reytinga-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bust-akkauntov-reytinga-2027/)
+- [Продажа и передача игровых аккаунтов: риски для покупателя и продавца, эскроу-сервисы](./prodazha-peredacha-igrovyh-akkauntov-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/prodazha-peredacha-igrovyh-akkauntov-2027/)
+- [Турниры по киберспорту в РФ 2026: организация под ключ — площадка, призовой фонд, спонсоры](./kibertirniry-organizaciya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kibertirniry-organizaciya-2026/)
+- [Спонсорство в киберспорте и стриминге 2026: как привлечь, сколько просить, что давать взамен](./sponsorstvo-kibersport-streaming-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sponsorstvo-kibersport-streaming-2026/)
+- [Брендированная киберспорт-лига 2026: годовая активация вместо разового турнира](./brendirovannaya-kibersport-liga-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/brendirovannaya-kibersport-liga-2026/)
+- [Кубок дистрибьютора 2026: турнир как инструмент работы с дилерами B2B](./kubok-distributora-b2b-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kubok-distributora-b2b-2026/)
+- [Турнир под product launch 2026: киберспорт как канал запуска нового продукта](./turnir-pod-product-launch-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/turnir-pod-product-launch-2026/)
+- [Pop-up турнир в магазине / ТЦ 2026: киберспорт как retail-активация](./pop-up-kibersport-magazin-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pop-up-kibersport-magazin-2026/)
+
+## Маркетинг
+
 - [ИИ-бот для отзывов и репутации: собирает, отвечает, предупреждает](./ii-bot-otzyvy-reputaciya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-bot-otzyvy-reputaciya-2026/)
 - [Сквозная аналитика для малого бизнеса: откуда клиент и что окупается](./skvoznaya-analitika-malyy-biznes-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skvoznaya-analitika-malyy-biznes-2026/)
 - [Истории (сторис) в MAX: как использовать для бизнеса](./istorii-storis-v-max-dlya-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/istorii-storis-v-max-dlya-biznesa-2026/)

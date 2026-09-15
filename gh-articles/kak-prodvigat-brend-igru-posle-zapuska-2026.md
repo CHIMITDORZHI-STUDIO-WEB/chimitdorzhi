@@ -2,7 +2,7 @@
 title: "Как продвигать бренд-игру после запуска, чтобы в неё начали играть"
 description: "Бренд-игра не находит игроков сама. Разбираю собственные каналы, понятное обещание награды, механики самопродвижения и когда подключать рекламу."
 date: 2026-09-15
-category: marketing
+category: igry-dlya-biznesa
 canonical: https://chimitdorzhi.tech/blog/kak-prodvigat-brend-igru-posle-zapuska-2026/
 ---
 

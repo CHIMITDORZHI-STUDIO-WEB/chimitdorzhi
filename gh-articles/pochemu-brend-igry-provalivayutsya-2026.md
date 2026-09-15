@@ -2,7 +2,7 @@
 title: "Пять причин, почему бренд-игры проваливаются"
 description: "Скучно, сложно, нет награды, нет повода вернуться, нарушены правила. Разбираю пять причин провала бренд-игр и как проверить идею до разработки."
 date: 2026-09-15
-category: marketing
+category: igry-dlya-biznesa
 canonical: https://chimitdorzhi.tech/blog/pochemu-brend-igry-provalivayutsya-2026/
 ---
 

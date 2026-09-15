@@ -2,7 +2,7 @@
 title: "Игра для автосервиса и автосалона: пока клиент ждёт машину"
 description: "Викторина об уходе за машиной, поиск неисправности и прогресс ремонта превращают ожидание в полезное время. Разбираю форматы и как не давить продажей."
 date: 2026-09-15
-category: marketing
+category: igry-dlya-biznesa
 canonical: https://chimitdorzhi.tech/blog/igra-dlya-avtoservisa-poka-klient-zhdet-2026/
 ---
 

@@ -2,7 +2,7 @@
 title: "Игра на экране в зале, в которую играют с телефона: формат для баров, кафе и мероприятий"
 description: "Игра на общем экране с управлением с телефонов гостей объединяет зал без специального оборудования. Разбираю, где работает и что нужно технически."
 date: 2026-09-15
-category: marketing
+category: igry-dlya-biznesa
 canonical: https://chimitdorzhi.tech/blog/igra-na-ekrane-v-zale-s-telefona-2026/
 ---
 

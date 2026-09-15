@@ -2,7 +2,7 @@
 title: "Игра у стола в ресторане: цифровая детская зона и занятие для взрослых"
 description: "Игра на планшете или телефоне занимает ребёнка, пока родители ужинают, а взрослым даёт занятие в ожидании заказа. Разбираю форматы и как не испортить атмосферу."
 date: 2026-09-15
-category: marketing
+category: igry-dlya-biznesa
 canonical: https://chimitdorzhi.tech/blog/igra-na-planshete-u-stola-v-restorane-2026/
 ---
 

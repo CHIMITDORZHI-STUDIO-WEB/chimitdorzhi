@@ -2,7 +2,7 @@
 title: "Игровые механики в онлайн-курсе: как довести ученика до конца программы"
 description: "Видимый прогресс, короткие этапы, учебные группы и награды за практику помогают дойти до конца курса. Разбираю, почему нельзя награждать за просмотры."
 date: 2026-09-15
-category: marketing
+category: igry-dlya-biznesa
 canonical: https://chimitdorzhi.tech/blog/igry-chtoby-uchenik-doshel-do-konca-kursa-2026/
 ---
 

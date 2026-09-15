@@ -2,7 +2,7 @@
 title: "Онбординг через игру: как быстрее обучить кассира или официанта"
 description: "Короткие задания на телефоне дают новичку базу до первой смены, а руководителю — видимость того, что усвоено. Разбираю, как устроить игровой онбординг."
 date: 2026-09-15
-category: marketing
+category: igry-dlya-biznesa
 canonical: https://chimitdorzhi.tech/blog/onbording-sotrudnikov-cherez-igru-2026/
 ---
 

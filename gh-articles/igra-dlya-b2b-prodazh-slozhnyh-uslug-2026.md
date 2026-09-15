@@ -2,7 +2,7 @@
 title: "Игра для B2B: можно ли так продавать сложные услуги компаниям"
 description: "В B2B работают не развлечения, а бизнес-симуляции, калькуляторы и диагностика. Разбираю, как они помогают продавать сложные услуги компаниям."
 date: 2026-09-15
-category: marketing
+category: igry-dlya-biznesa
 canonical: https://chimitdorzhi.tech/blog/igra-dlya-b2b-prodazh-slozhnyh-uslug-2026/
 ---
 

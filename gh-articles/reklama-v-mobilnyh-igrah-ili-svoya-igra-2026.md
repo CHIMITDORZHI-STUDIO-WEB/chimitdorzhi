@@ -2,7 +2,7 @@
 title: "Реклама внутри мобильных игр или своя игра: когда что дешевле"
 description: "Реклама в чужих играх даёт быстрый охват, своя игра — вовлечение и повторные контакты. Разбираю форматы, сравнение и когда их стоит совместить."
 date: 2026-09-15
-category: marketing
+category: igry-dlya-biznesa
 canonical: https://chimitdorzhi.tech/blog/reklama-v-mobilnyh-igrah-ili-svoya-igra-2026/
 ---
 

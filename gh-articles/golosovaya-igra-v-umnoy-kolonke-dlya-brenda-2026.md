@@ -2,7 +2,7 @@
 title: "Голосовая игра в умной колонке для бренда: где это вообще работает"
 description: "Навык голосового помощника позволяет бренду оказаться у человека дома без экрана. Разбираю форматы голосовых игр, ограничения и кому это подходит."
 date: 2026-09-15
-category: marketing
+category: igry-dlya-biznesa
 canonical: https://chimitdorzhi.tech/blog/golosovaya-igra-v-umnoy-kolonke-dlya-brenda-2026/
 ---
 

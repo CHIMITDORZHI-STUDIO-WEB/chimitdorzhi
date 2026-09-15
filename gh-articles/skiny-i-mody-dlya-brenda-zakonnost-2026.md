@@ -2,7 +2,7 @@
 title: "Скины и моды для популярных игр под бренд: где законно, а где нет"
 description: "Мод с логотипом для чужой игры — это коммерческое использование, которому нужно разрешение. Разбираю риски и законные пути попасть в игру."
 date: 2026-09-15
-category: marketing
+category: igry-dlya-biznesa
 canonical: https://chimitdorzhi.tech/blog/skiny-i-mody-dlya-brenda-zakonnost-2026/
 ---
 

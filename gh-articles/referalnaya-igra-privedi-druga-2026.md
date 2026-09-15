@@ -2,7 +2,7 @@
 title: "Реферальная игра «приведи друга»: чем она отличается от обычной реферальной программы"
 description: "Обычная программа «приведи друга» работает слабо: человек не хочет быть продавцом. Разбираю, как игровая механика превращает приглашение в совместную игру."
 date: 2026-09-15
-category: marketing
+category: igry-dlya-biznesa
 canonical: https://chimitdorzhi.tech/blog/referalnaya-igra-privedi-druga-2026/
 ---
 

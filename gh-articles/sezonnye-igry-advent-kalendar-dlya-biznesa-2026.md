@@ -2,7 +2,7 @@
 title: "Сезонные игры для бизнеса: адвент-календарь, новогодняя игра и праздничные акции"
 description: "Адвент-календарь даёт ежедневный повод вернуться к бренду весь праздничный период. Разбираю сезонные форматы, сроки подготовки и правила призов."
 date: 2026-09-15
-category: marketing
+category: igry-dlya-biznesa
 canonical: https://chimitdorzhi.tech/blog/sezonnye-igry-advent-kalendar-dlya-biznesa-2026/
 ---
 

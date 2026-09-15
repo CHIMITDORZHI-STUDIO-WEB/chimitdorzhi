@@ -2,7 +2,7 @@
 title: "Игровой тренажёр по стандартам сервиса и технике безопасности"
 description: "Тренажёр учит действовать правильно в стрессовой ситуации, а не просто знать правила. Разбираю, как он устроен и почему не заменяет инструктаж по охране труда."
 date: 2026-09-15
-category: marketing
+category: igry-dlya-biznesa
 canonical: https://chimitdorzhi.tech/blog/igrovoy-trenazher-standartov-servisa-2026/
 ---
 

@@ -2,7 +2,7 @@
 title: "Квест по городу или торговому центру: игра, которая водит людей к партнёрам"
 description: "Квест с точками в реальных местах физически приводит людей в заведения. Разбираю, кому подходит, как честно подтверждать этапы и продумать маршрут."
 date: 2026-09-15
-category: marketing
+category: igry-dlya-biznesa
 canonical: https://chimitdorzhi.tech/blog/kvest-po-gorodu-s-partnerami-2026/
 ---
 

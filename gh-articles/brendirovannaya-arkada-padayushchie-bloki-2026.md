@@ -2,7 +2,7 @@
 title: "Аркада с падающими блоками под брендом: зачем бизнесу и почему не «Тетрис»"
 description: "Игра с падающими блоками в цветах бренда: где она работает, как вписать продукт в механику и почему название и оформление «Тетриса» использовать нельзя."
 date: 2026-09-15
-category: marketing
+category: igry-dlya-biznesa
 canonical: https://chimitdorzhi.tech/blog/brendirovannaya-arkada-padayushchie-bloki-2026/
 ---
 

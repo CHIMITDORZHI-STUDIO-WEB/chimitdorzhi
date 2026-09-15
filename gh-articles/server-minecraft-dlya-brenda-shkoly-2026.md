@@ -2,7 +2,7 @@
 title: "Сервер или карта в Minecraft для бренда, школы или лагеря: что можно и чего нельзя"
 description: "Как бренду, школе или лагерю построить свой мир в Minecraft: форматы, правила коммерческого использования игры и почему сервер нужно поддерживать."
 date: 2026-09-15
-category: marketing
+category: igry-dlya-biznesa
 canonical: https://chimitdorzhi.tech/blog/server-minecraft-dlya-brenda-shkoly-2026/
 ---
 

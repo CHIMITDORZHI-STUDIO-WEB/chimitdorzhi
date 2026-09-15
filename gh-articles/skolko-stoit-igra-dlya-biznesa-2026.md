@@ -2,7 +2,7 @@
 title: "Сколько стоит игра для бизнеса: от шаблона до разработки с нуля"
 description: "Разница между шаблонной игрой и собственной разработкой бывает в разы. Разбираю, что определяет цену, какие расходы забывают и как сравнивать предложения."
 date: 2026-09-15
-category: marketing
+category: igry-dlya-biznesa
 canonical: https://chimitdorzhi.tech/blog/skolko-stoit-igra-dlya-biznesa-2026/
 ---
 

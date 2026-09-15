@@ -2,7 +2,7 @@
 title: "Игры для фитнес-клуба: челленджи, серии тренировок и соревнования"
 description: "Мягкие серии посещений, челленджи и командные соревнования помогают клиенту дожить до привычки. Разбираю механики и ограничения по здоровью."
 date: 2026-09-15
-category: marketing
+category: igry-dlya-biznesa
 canonical: https://chimitdorzhi.tech/blog/igry-dlya-fitnes-kluba-chellendzhi-2026/
 ---
 
