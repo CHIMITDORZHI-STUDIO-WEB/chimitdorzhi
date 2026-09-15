@@ -1,6 +1,6 @@
 ---
 title: "Российский AI-стек 2026: чем заменить OpenAI, Claude и Gemini"
-description: "Российский AI-стек: чем заменить OpenAI и Claude — YandexGPT, GigaChat, T-Pro, Cotype, Kandinsky. Цены, API, юридическая чистота — разбираю на практике."
+description: "Сбер GigaChat, YandexGPT 5, T-Pro и Cotype: какая российская нейросеть заменит ChatGPT и Claude, где они слабее и что выбрать для данных клиентов."
 date: 2026-05-20
 category: ai-dev
 canonical: https://chimitdorzhi.tech/blog/rossiyskiy-ai-stack-2026/

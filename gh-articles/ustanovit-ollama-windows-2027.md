@@ -1,6 +1,6 @@
 ---
 title: "Как установить Ollama для Windows: запуск локальных нейросетей за 10 минут"
-description: "Как установить Ollama на Windows и запустить локальную нейросеть одной командой: системные требования, установка, первая модель, выбор под ваше железо."
+description: "Где скачать Ollama для Windows, как установить OllamaSetup.exe и запустить первую нейросеть одной командой. Нужно от 8 ГБ памяти, видеокарта NVIDIA ускоряет."
 date: 2026-07-07
 category: ai-dev
 canonical: https://chimitdorzhi.tech/blog/ustanovit-ollama-windows-2027/

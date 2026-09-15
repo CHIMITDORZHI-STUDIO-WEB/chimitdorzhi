@@ -1,6 +1,6 @@
 ---
 title: "Outline (Оутлайн): что это — база знаний команды вместо Notion"
-description: "Outline (оутлайн) — что это: база знаний команды на своём сервере вместо Notion — документы, структура, поиск и совместное редактирование. Разбираю на практике."
+description: "Outline — open-source база знаний для команды: документы, структура, поиск и совместное редактирование на вашем сервере. Чем заменяет Notion и Confluence."
 date: 2026-06-14
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/outline-baza-znaniy-2026/

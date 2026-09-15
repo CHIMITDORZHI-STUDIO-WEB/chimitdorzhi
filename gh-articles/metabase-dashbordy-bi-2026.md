@@ -1,6 +1,6 @@
 ---
 title: "Metabase: что это и как сделать дашборды и BI без дорогих лицензий"
-description: "Metabase — что это: open-source BI и дашборды вместо Tableau и Power BI — подключение к базам, наглядные отчёты и вопросы к данным без SQL. Разбираю запуск."
+description: "Metabase — бесплатная open-source BI-система: подключается к базе данных, строит дашборды и отчёты без SQL и ставится на ваш сервер. Что умеет и как запустить."
 date: 2026-06-14
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/metabase-dashbordy-bi-2026/

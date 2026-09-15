@@ -1,6 +1,6 @@
 ---
 title: "VK Mini Apps для бизнеса 2026: что это, сколько стоит разработка и как монетизировать"
-description: "VK Mini App (вк мини апп) для бизнеса: что это, сколько стоит разработка, как собрать на VK Bridge и VKUI, VK Pay и способы монетизации. На практике."
+description: "Что такое VK Mini Apps: что можно сделать для бизнеса, сколько стоит разработка, как принимать оплату через VK Pay и зарабатывать на мини-приложении ВКонтакте."
 date: 2026-05-26
 category: development
 canonical: https://chimitdorzhi.tech/blog/vk-mini-app-dlya-biznesa-2026/

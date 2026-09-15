@@ -1,6 +1,6 @@
 ---
 title: "Поисковые операторы (Google-дорки): легальный поиск информации"
-description: "Поисковые операторы (Google-дорки) простыми словами: site, filetype, intitle, inurl, кавычки, минус, OR — как точно находить нужное в Яндексе и Google."
+description: "Что такое дорки и как искать точно: оператор site: ищет только на одном сайте, filetype: — документы, кавычки — точную фразу. Работает в Google и Яндексе."
 date: 2026-06-19
 category: security
 canonical: https://chimitdorzhi.tech/blog/google-dorki-poiskovye-operatory-2026/
