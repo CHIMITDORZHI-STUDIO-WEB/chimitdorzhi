@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1539**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1549**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -760,6 +760,16 @@
 
 ## Маркетинг
 
+- [Аркада с падающими блоками под брендом: зачем бизнесу и почему не «Тетрис»](./brendirovannaya-arkada-padayushchie-bloki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/brendirovannaya-arkada-padayushchie-bloki-2026/)
+- [Игра для бизнеса в Telegram и MAX: без установки и с каналом связи в придачу](./igra-v-telegram-i-max-dlya-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/igra-v-telegram-i-max-dlya-biznesa-2026/)
+- [Колесо фортуны и скретч-карты: популярная игра для бизнеса и её юридическая сторона](./koleso-fortuny-i-skretch-karty-zakon-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/koleso-fortuny-i-skretch-karty-zakon-2026/)
+- [QR на упаковке ведёт в игру: как связать офлайн-точку с цифровым клиентом](./qr-igra-na-upakovke-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/qr-igra-na-upakovke-2026/)
+- [Тапалка для местного бизнеса: что взять из хайпа Hamster Kombat, а что оставить](./tapalka-dlya-mestnogo-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/tapalka-dlya-mestnogo-biznesa-2026/)
+- [Онлайн-настолка про ваш город вместо «Монополии»: игра, за клетки которой платят партнёры](./nastolka-pro-gorod-vmesto-monopolii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nastolka-pro-gorod-vmesto-monopolii-2026/)
+- [Карта лояльности как игра: геймификация без отдельной игры](./karta-loyalnosti-kak-igra-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/karta-loyalnosti-kak-igra-2026/)
+- [Квест по городу или торговому центру: игра, которая водит людей к партнёрам](./kvest-po-gorodu-s-partnerami-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kvest-po-gorodu-s-partnerami-2026/)
+- [Викторина, которая объясняет сложный продукт лучше инструкции](./viktorina-obyasnyaet-slozhnyy-produkt-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/viktorina-obyasnyaet-slozhnyy-produkt-2026/)
+- [Брендированный мир в Roblox: где подростки и что разрешает платформа](./brendirovannyy-mir-v-roblox-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/brendirovannyy-mir-v-roblox-2026/)
 - [ИИ-бот для отзывов и репутации: собирает, отвечает, предупреждает](./ii-bot-otzyvy-reputaciya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-bot-otzyvy-reputaciya-2026/)
 - [Сквозная аналитика для малого бизнеса: откуда клиент и что окупается](./skvoznaya-analitika-malyy-biznes-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skvoznaya-analitika-malyy-biznes-2026/)
 - [Истории (сторис) в MAX: как использовать для бизнеса](./istorii-storis-v-max-dlya-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/istorii-storis-v-max-dlya-biznesa-2026/)
