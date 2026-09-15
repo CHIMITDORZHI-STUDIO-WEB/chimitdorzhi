@@ -35,7 +35,7 @@ const VALID_CATEGORIES = new Set([
   'cases',
   'legal', 'ai-dev', 'ai-life', 'marketing', 'geo', 'sales', 'media', 'industries',
   'esports', 'development', 'security', 'finance', 'mlm', 'mwrlife', 'opensource',
-  'biznes-krugozor', 'expert',
+  'biznes-krugozor', 'igry-dlya-biznesa', 'expert',
 ]);
 
 // Пиктографические эмодзи (НЕ трогаем типографские стрелки → и тире —)

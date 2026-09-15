@@ -569,6 +569,7 @@ const CATEGORY_LABELS = {
   mwrlife:     'MWR Life',
   opensource:  'Open-source и свой сервер',
   'biznes-krugozor': 'Бизнес-кругозор',
+  'igry-dlya-biznesa': 'Игры для бизнеса',
   expert:      'Экспертный блог',
   // legacy/fallback
   ai:          'AI и автоматизация',
@@ -1804,6 +1805,7 @@ ${METRIKA}</head>
                       { key: 'mwrlife',     label: 'MWR Life',       icon: 'ph-airplane-tilt' },
                       { key: 'opensource',  label: 'Open-source',    icon: 'ph-hard-drives' },
                       { key: 'biznes-krugozor', label: 'Бизнес-кругозор', icon: 'ph-compass' },
+                      { key: 'igry-dlya-biznesa', label: 'Игры для бизнеса', icon: 'ph-game-controller' },
                       { key: 'expert',      label: 'Экспертный блог', icon: 'ph-user-focus' },
                       { key: 'ai',          label: 'AI (старое)',    icon: 'ph-brain' },
                       { key: 'career',      label: 'Карьера',        icon: 'ph-graduation-cap' },
@@ -1949,6 +1951,7 @@ const BLOG_I18N = {
   "MWR Life": { en: "MWR Life", es: "MWR Life", cn: "MWR Life", mn: "MWR Life" },
   "Open-source": { en: "Open source", es: "Open source", cn: "开源", mn: "Нээлттэй эх" },
   "Бизнес-кругозор": { en: "Business insights", es: "Visión de negocio", cn: "商业视野", mn: "Бизнесийн мэдлэг" },
+  "Игры для бизнеса": { en: "Games for business", es: "Juegos para empresas", cn: "商业游戏", mn: "Бизнесийн тоглоом" },
   "Экспертный блог": { en: "Expert blog", es: "Blog experto", cn: "专家博客", mn: "Мэргэжлийн блог" },
   "AI (старое)": { en: "AI (legacy)", es: "IA (antiguo)", cn: "AI（旧）", mn: "AI (хуучин)" },
   "Карьера": { en: "Career", es: "Carrera", cn: "职业", mn: "Карьер" },
@@ -2166,6 +2169,11 @@ const CATEGORY_META = {
     h1: 'Бизнес-кругозор',
     intro: 'Методологии, личная эффективность, разборы книг и трендов — простыми словами и с практикой. Agile и Scrum, OKR, тайм-менеджмент, выгорание, «второй мозг» и навыки 2026. Не теория ради теории, а как применить у себя и автоматизировать рутину.',
     service: { url: 'https://chimitdorzhi.tech/services/business-automation/', label: 'Навести порядок в процессах' },
+  },
+  'igry-dlya-biznesa': {
+    h1: 'Игры для бизнеса',
+    intro: 'Как бизнесу использовать игры: брендированные мини-игры, игры в Telegram и MAX, QR-игры на упаковке, адвент-календари, реферальные и обучающие игры. Что работает, сколько стоит, какие законы учесть и как не потратить бюджет на игру, в которую никто не играет.',
+    service: { url: 'https://chimitdorzhi.tech/development/games/', label: 'Обсудить игру для бизнеса' },
   },
   expert: {
     h1: 'Экспертный блог',
@@ -2810,7 +2818,7 @@ const LLMS_TAIL = `## Услуги
 - Телефон: +971 56 336 9591
 - Сайт: https://chimitdorzhi.tech`;
 // Порядок и подписи разделов навигатора
-const LLMS_ORDER = ['expert','legal','ai-dev','ai-life','ai','development','security','geo','marketing','sales','finance','industries','biznes-krugozor','opensource','media','esports','mlm','mwrlife','career'];
+const LLMS_ORDER = ['expert','legal','ai-dev','ai-life','ai','development','security','geo','marketing','sales','finance','industries','biznes-krugozor','igry-dlya-biznesa','opensource','media','esports','mlm','mwrlife','career'];
 // Блок проверяемых фактов и цифр — то, что модели могут процитировать напрямую.
 // Цифры считаются при сборке, поэтому не устаревают.
 function llmsFacts(published) {

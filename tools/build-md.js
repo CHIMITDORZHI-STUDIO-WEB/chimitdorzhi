@@ -14,7 +14,7 @@ const CATEGORY_LABELS = {
   expert: 'Экспертное', legal: 'Право и 152-ФЗ', 'ai-dev': 'AI для разработчиков',
   'ai-life': 'AI для жизни и работы', ai: 'Искусственный интеллект', development: 'Разработка',
   security: 'Безопасность', geo: 'GEO и AI-поиск', marketing: 'Маркетинг', sales: 'Продажи',
-  finance: 'Финансы', industries: 'Отрасли', 'biznes-krugozor': 'Бизнес-кругозор',
+  finance: 'Финансы', industries: 'Отрасли', 'biznes-krugozor': 'Бизнес-кругозор', 'igry-dlya-biznesa': 'Игры для бизнеса',
   opensource: 'Open-source и свой сервер', media: 'Медиа', esports: 'Киберспорт',
   mlm: 'Сетевой бизнес', mwrlife: 'MWR Life', career: 'Карьера',
 };

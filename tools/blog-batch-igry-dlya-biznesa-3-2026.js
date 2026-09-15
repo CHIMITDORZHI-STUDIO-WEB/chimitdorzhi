@@ -18,7 +18,7 @@ const tocFrom = (html) => [...html.matchAll(/<h2 id="([^"]+)">([^<]+)<\/h2>/g)].
 const E = (o) => {
   const html = C(o.slug);
   return Object.assign(
-    { published: true, shortForm: true, datePublished: D, dateModified: D, readingMinutes: 5, category: 'marketing',
+    { published: true, shortForm: true, datePublished: D, dateModified: D, readingMinutes: 5, category: 'igry-dlya-biznesa',
       servicesOffer: SVC_BIZ, ctaInternal: CTA_GAMES, toc: tocFrom(html) },
     o, { contentHtml: html });
 };

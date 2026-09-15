@@ -14,7 +14,7 @@ const CTA_GAMES = { url: `${S}/development/games/`, label: 'Обсудить и�
 
 const FAQ_VYV = [{ id: 'faq', text: 'Частые вопросы' }, { id: 'vyvody', text: 'Коротко о главном' }];
 const E = (o) => Object.assign(
-  { published: true, shortForm: true, datePublished: D, dateModified: D, readingMinutes: 4, category: 'marketing',
+  { published: true, shortForm: true, datePublished: D, dateModified: D, readingMinutes: 4, category: 'igry-dlya-biznesa',
     servicesOffer: SVC_BIZ, ctaInternal: CTA_GAMES },
   o, { contentHtml: C(o.slug) });
 
