@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1580**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1581**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -486,6 +486,7 @@
 
 ## Безопасность
 
+- [Удалить себя из интернета через ChatGPT: что правда в популярном совете](./udalit-cifrovoy-sled-cherez-chatgpt-agent-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/udalit-cifrovoy-sled-cherez-chatgpt-agent-2026/)
 - [Passkeys и WebAuthn: вход на сайт без пароля — как работает и стоит ли внедрять](./passkeys-vhod-bez-parolya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/passkeys-vhod-bez-parolya-2026/)
 - [Защита бота от спама и атак: флуд, боты-накрутчики, брутфорс](./zaschita-bota-ot-spama-atak-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zaschita-bota-ot-spama-atak-2026/)
 - [Пентест сайта простыми словами: что это и когда он нужен](./pentest-sayta-prostymi-slovami-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pentest-sayta-prostymi-slovami-2026/)
