@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1581**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1589**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -141,6 +141,14 @@
 
 ## cases
 
+- [Кафе, сайт и розыгрыши в мессенджере: как это работает вместе](./kafe-nacionalnoy-kuhni-bot-max-rozygryshi-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kafe-nacionalnoy-kuhni-bot-max-rozygryshi-keys-2026/)
+- [Переезд с конструктора на свой сервер: что получает бизнес взамен](./pereezd-s-konstruktora-na-svoy-server-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pereezd-s-konstruktora-na-svoy-server-keys-2026/)
+- [Разбор компании по официальной отчётности: что видно в цифрах](./finansovyy-razbor-kompanii-po-otchetnosti-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/finansovyy-razbor-kompanii-po-otchetnosti-keys-2026/)
+- [Витрина из пересланных постов: объявление собирается само](./vitrina-avto-iz-pereslannyh-postov-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vitrina-avto-iz-pereslannyh-postov-keys-2026/)
+- [Общий кошелёк баллов для города: как устроить, чтобы это работало](./gorodskaya-programma-loyalnosti-model-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gorodskaya-programma-loyalnosti-model-keys-2026/)
+- [Токен с выплатами держателям: что я предложил изменить в чужой архитектуре](./kp-token-s-vyplatami-derzhatelyam-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kp-token-s-vyplatami-derzhatelyam-keys-2026/)
+- [Сколько стоит свой каталог данных: разведка до начала работ](./razvedka-dannyh-avtoploshchadok-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/razvedka-dannyh-avtoploshchadok-keys-2026/)
+- [Интерфейс прямо в чате: когда мини-приложение больше не нужно](./interfeys-v-chate-vmesto-mini-app-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/interfeys-v-chate-vmesto-mini-app-keys-2026/)
 - [Калькулятор растаможки на сайте: как считать чужие деньги и не соврать](./sayt-logistiki-kalkulyator-rastamozhki-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-logistiki-kalkulyator-rastamozhki-keys-2026/)
 - [Сайт без формы заявки: когда убрать её — правильное решение](./sayt-bez-formy-zayavki-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-bez-formy-zayavki-keys-2026/)
 - [«Сайт мёртв, все в соцсетях»: что показал замер вместо спора](./audit-sayta-avtoservisa-dubai-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/audit-sayta-avtoservisa-dubai-keys-2026/)
