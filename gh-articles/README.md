@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1609**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1614**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -773,6 +773,11 @@
 - [Игра для дилеров и оптовых партнёров: мотивация тех, кто продаёт ваш товар](./igra-dlya-dilerov-i-optovyh-partnerov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/igra-dlya-dilerov-i-optovyh-partnerov-2026/)
 - [Реклама ведёт в игру, а не на сайт: когда это работает](./reklama-vedet-v-igru-a-ne-na-sayt-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/reklama-vedet-v-igru-a-ne-na-sayt-2026/)
 - [Какие события отправлять из игры, чтобы потом было что считать](./kakie-sobytiya-otpravlyat-iz-igry-v-analitiku-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kakie-sobytiya-otpravlyat-iz-igry-v-analitiku-2026/)
+- [Плейтест: как проверить игру на десяти людях до запуска](./pleytest-igry-do-zapuska-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pleytest-igry-do-zapuska-2026/)
+- [Призы и налоги: что оформить, чтобы приз не стал проблемой](./prizy-i-nalogi-v-igre-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/prizy-i-nalogi-v-igre-2026/)
+- [Игра не взлетела: перезапускать или закрывать](./igra-ne-vzletela-perezapusk-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/igra-ne-vzletela-perezapusk-2026/)
+- [Чужие персонажи, музыка и шрифты: где заканчивается «вдохновились»](./chuzhie-personazhi-muzyka-shrifty-v-igre-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chuzhie-personazhi-muzyka-shrifty-v-igre-2026/)
+- [Геймификация в личном кабинете сервиса: как удержать подписчика](./geymifikaciya-v-lichnom-kabinete-servisa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/geymifikaciya-v-lichnom-kabinete-servisa-2026/)
 - [Аркада с падающими блоками под брендом: зачем бизнесу и почему не «Тетрис»](./brendirovannaya-arkada-padayushchie-bloki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/brendirovannaya-arkada-padayushchie-bloki-2026/)
 - [Игра для бизнеса в Telegram и MAX: без установки и с каналом связи в придачу](./igra-v-telegram-i-max-dlya-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/igra-v-telegram-i-max-dlya-biznesa-2026/)
 - [Колесо фортуны и скретч-карты: популярная игра для бизнеса и её юридическая сторона](./koleso-fortuny-i-skretch-karty-zakon-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/koleso-fortuny-i-skretch-karty-zakon-2026/)
