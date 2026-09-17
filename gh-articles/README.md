@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1589**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1599**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -753,6 +753,16 @@
 
 ## Игры для бизнеса
 
+- [Античит в бренд-игре: как защитить призы от накрутки](./antichit-v-brend-igre-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/antichit-v-brend-igre-2026/)
+- [Игра вместо анкеты: отбор кандидатов через короткое задание](./igra-vmesto-ankety-podbor-personala-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/igra-vmesto-ankety-podbor-personala-2026/)
+- [Конфигуратор как игра: «соберите свой» вместо длинного каталога](./konfigurator-kak-igra-soberi-svoy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/konfigurator-kak-igra-soberi-svoy-2026/)
+- [Настольная игра бренда: печатный тираж как подарок и как реклама](./nastolnaya-igra-brenda-v-oflayne-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nastolnaya-igra-brenda-v-oflayne-2026/)
+- [Игра в рассылке: механика прямо в письме и в сообщении](./igra-v-rassylke-pismo-i-messendzher-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/igra-v-rassylke-pismo-i-messendzher-2026/)
+- [Геймификация для продавца на маркетплейсе: что можно, когда площадка чужая](./geymifikaciya-dlya-prodavca-na-marketpleyse-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/geymifikaciya-dlya-prodavca-na-marketpleyse-2026/)
+- [Какие данные собирать в игре и как правильно спросить согласие](./kakie-dannye-sobirat-v-igre-soglasie-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kakie-dannye-sobirat-v-igre-soglasie-2026/)
+- [Доступная игра: чтобы в неё смогли поиграть все](./dostupnaya-igra-dlya-vseh-igrokov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/dostupnaya-igra-dlya-vseh-igrokov-2026/)
+- [Конкурс фото и видео с игровым подсчётом: как получить контент от клиентов](./konkurs-kontenta-s-igrovym-podschetom-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/konkurs-kontenta-s-igrovym-podschetom-2026/)
+- [Нейросети в производстве игры: что ускоряют, а что ломают](./neyroseti-v-proizvodstve-igry-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/neyroseti-v-proizvodstve-igry-2026/)
 - [Аркада с падающими блоками под брендом: зачем бизнесу и почему не «Тетрис»](./brendirovannaya-arkada-padayushchie-bloki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/brendirovannaya-arkada-padayushchie-bloki-2026/)
 - [Игра для бизнеса в Telegram и MAX: без установки и с каналом связи в придачу](./igra-v-telegram-i-max-dlya-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/igra-v-telegram-i-max-dlya-biznesa-2026/)
 - [Колесо фортуны и скретч-карты: популярная игра для бизнеса и её юридическая сторона](./koleso-fortuny-i-skretch-karty-zakon-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/koleso-fortuny-i-skretch-karty-zakon-2026/)
