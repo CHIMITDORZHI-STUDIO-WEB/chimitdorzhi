@@ -1,48 +1,70 @@
-// OG cover generator. Generates 1200x630 PNG per article using SVG + sharp.
-// Output: blog/<slug>/cover.png
-// Стиль: «Светлый редакционный» — кремовый фон, кобальтовый акцент,
-// тёмный жирный заголовок, тонкая категорийная подсветка для узнаваемости.
+// Обложки статей блога. Единые правила оформления (действуют с 17.09.2026):
+//
+// 1. Стиль один для всех: тёмная основа #0b1020, шрифт Manrope, заголовок
+//    заглавными; вторая половина строк заголовка — жёлтым #f5b642. Сверху жёлтая
+//    плашка с названием рубрики, снизу имя автора, адрес сайта и время чтения.
+// 2. Фотография автора ставится только там, где она уместна: рубрики из
+//    PHOTO_CATEGORIES (кейсы, экспертный блог, продажи). Фото берётся из
+//    assets/cover-photos и закрепляется за статьёй по её slug — у одной статьи
+//    обложка всегда одна и та же. В обзорах чужих компаний и технических
+//    разборах фото не ставим.
+// 3. Остальным статьям — графика «диагональная плашка»: цветной блок справа
+//    цветом рубрики (CATEGORY_ACCENT) поверх тёмного фона.
+// 4. Размеры: cover (1200x630) — сайт, Telegram, VK, Дзен, поиск; pin (1000x1500)
+//    — Pinterest; square (1080x1080) и story (1080x1920) — соцсети, делаются по
+//    запросу через tools/social-covers.js и в репозитории не хранятся.
+// 5. Фото-обложки сохраняются в JPEG (cover.jpg), графические — в PNG (cover.png).
+//    Ссылку на нужный файл отдаёт coverFile(article).
 const fs = require('fs');
 const path = require('path');
 const sharp = require('sharp');
 
 const ROOT = path.resolve(__dirname, '..');
 const OUT_BLOG = path.join(ROOT, 'blog');
+const PHOTO_DIR = path.join(ROOT, 'assets', 'cover-photos');
 
 // Бренд
-const CREAM = '#f4f1ea';
-const INK = '#16130f';
-const COBALT = '#1e4fd6';
+const INK = '#0b1020';       // основа
+const INK_DEEP = '#070a14';  // фон графики
+const AMBER = '#f5b642';     // общий акцент, по нему обложки узнаются
+const FONT = "'Manrope', 'Inter', 'DejaVu Sans', 'Liberation Sans', Arial, sans-serif";
 
-// Категория → один насыщённый акцентный цвет (читается на кремовом)
+// Рубрики, где уместна фотография автора.
+const PHOTO_CATEGORIES = new Set(['cases', 'expert', 'sales']);
+
+// Категория → цвет диагональной плашки (на тёмном фоне)
 const CATEGORY_ACCENT = {
-  legal:       '#1e4fd6', // кобальт
-  'ai-dev':    '#6d28d9', // фиолет
-  'ai-life':   '#7c3aed',
-  marketing:   '#c2410c', // жжёный оранжевый
-  geo:         '#0e7490', // петроль
-  sales:       '#047857', // изумруд
-  media:       '#b45309', // амбра
-  industries:  '#be123c', // роза-красный
-  esports:     '#0f766e', // глубокий тил
-  development: '#334155', // сланец
-  security:    '#b91c1c', // красный
-  finance:     '#047857',
-  mlm:         '#9d174d', // роза
-  mwrlife:     '#b8862b', // золото
-  ai:          '#6d28d9',
-  career:      '#1e4fd6',
-  expert:      '#b8862b', // золото (авторская колонка)
+  legal:       '#2563eb',
+  'ai-dev':    '#7c3aed',
+  'ai-life':   '#8b5cf6',
+  marketing:   '#ea580c',
+  geo:         '#0891b2',
+  sales:       '#059669',
+  media:       '#d97706',
+  industries:  '#e11d48',
+  esports:     '#14b8a6',
+  development: '#3b82f6',
+  security:    '#dc2626',
+  finance:     '#10b981',
+  mlm:         '#db2777',
+  mwrlife:     '#d4a03c',
+  opensource:  '#22c55e',
+  'biznes-krugozor': '#6366f1',
+  'igry-dlya-biznesa': '#f97316',
+  cases:       '#0ea5e9',
+  expert:      '#eab308',
+  ai:          '#7c3aed',
+  career:      '#2563eb',
 };
 
 const CATEGORY_LABELS = {
-  legal:       'Право и compliance',
+  legal:       'Право и 152-ФЗ',
   'ai-dev':    'AI для разработчиков',
   'ai-life':   'AI для жизни и работы',
-  marketing:   'Маркетинг и контент',
+  marketing:   'Маркетинг',
   geo:         'GEO и AI-поиск',
-  sales:       'Продажи и стартап',
-  media:       'Медиа и подкасты',
+  sales:       'Продажи',
+  media:       'Медиа',
   industries:  'Отрасли',
   esports:     'Киберспорт',
   development: 'Разработка',
@@ -50,384 +72,236 @@ const CATEGORY_LABELS = {
   finance:     'Финансы',
   mlm:         'Сетевой бизнес',
   mwrlife:     'MWR Life',
+  opensource:  'Open-source',
+  'biznes-krugozor': 'Бизнес-кругозор',
+  'igry-dlya-biznesa': 'Игры для бизнеса',
+  cases:       'Кейсы',
   expert:      'Экспертный блог',
+};
+
+// Форматы обложек
+const SIZES = {
+  cover:  { w: 1200, h: 630,  orient: 'land' },
+  pin:    { w: 1000, h: 1500, orient: 'tall' },
+  square: { w: 1080, h: 1080, orient: 'tall' },
+  story:  { w: 1080, h: 1920, orient: 'tall' },
 };
 
 function escapeXml(str) {
   return String(str || '')
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&apos;');
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;').replace(/'/g, '&apos;');
 }
 
-// Разбить заголовок на строки, ~maxChars символов в строке
-function wrapTitle(title, maxChars = 26) {
-  const words = String(title || '').split(/\s+/);
-  const lines = [];
-  let cur = '';
+function hashNum(s) { let h = 0; for (let i = 0; i < String(s).length; i++) h = (h * 31 + String(s).charCodeAt(i)) >>> 0; return h; }
+
+// Заголовок заглавными, разбитый на строки
+function wrapTitle(title, maxChars, maxLines) {
+  const words = String(title || '').toUpperCase().split(/\s+/);
+  const lines = []; let cur = '';
   for (const w of words) {
-    if ((cur + ' ' + w).trim().length > maxChars && cur) {
-      lines.push(cur.trim());
-      cur = w;
+    if ((cur + ' ' + w).trim().length > maxChars && cur) { lines.push(cur.trim()); cur = w; }
+    else cur = (cur + ' ' + w).trim();
+    if (lines.length >= maxLines) break;
+  }
+  if (cur && lines.length < maxLines) lines.push(cur.trim());
+  return lines.slice(0, maxLines);
+}
+
+// Подбор размера заголовка: берём первый вариант, куда текст влезает целиком.
+// Так длинные заголовки не обрезаются на полуслове, а короткие остаются крупными.
+function fitTitle(title, variants) {
+  const total = String(title || '').trim().length;
+  for (const v of variants) {
+    const lines = wrapTitle(title, v.chars, v.maxLines);
+    if (lines.join(' ').length >= total - 2) return { lines, fs: v.fs, lh: Math.round(v.fs * v.lhK) };
+  }
+  const last = variants[variants.length - 1];
+  const lines = wrapTitle(title, last.chars, last.maxLines);
+  // не влезло даже в самый мелкий вариант — честное многоточие вместо обрыва
+  if (lines.length) lines[lines.length - 1] = lines[lines.length - 1].replace(/[\s,:;—-]*$/, '') + '…';
+  return { lines, fs: last.fs, lh: Math.round(last.fs * last.lhK) };
+}
+
+// Список фотографий (кешируется на процесс)
+let PHOTOS = null;
+function photoList() {
+  if (PHOTOS) return PHOTOS;
+  try {
+    PHOTOS = fs.readdirSync(PHOTO_DIR).filter(f => /\.(jpe?g|png)$/i.test(f)).sort();
+  } catch (e) { PHOTOS = []; }
+  return PHOTOS;
+}
+// Фото закреплено за статьёй: один и тот же slug всегда даёт один и тот же кадр.
+function photoFor(article) {
+  const list = photoList();
+  if (!list.length) return null;
+  return path.join(PHOTO_DIR, list[hashNum(article.slug) % list.length]);
+}
+function usesPhoto(article) {
+  return PHOTO_CATEGORIES.has(article.category) && !!photoFor(article);
+}
+// Какой файл обложки у статьи: фото — jpg, графика — png
+function coverFile(article) { return usesPhoto(article) ? 'cover.jpg' : 'cover.png'; }
+
+// ---------- Общие элементы ----------
+function catPill(label, x, y, fs, pad) {
+  const w = Math.round(label.length * fs * 0.62 + pad * 2);
+  return `<rect x="${x}" y="${y}" rx="${Math.round(fs * 0.9)}" width="${w}" height="${Math.round(fs * 2.1)}" fill="${AMBER}"/>
+  <text x="${x + w / 2}" y="${y + Math.round(fs * 1.42)}" text-anchor="middle" font-family="${FONT}" font-weight="800" font-size="${fs}" letter-spacing="1.5" fill="${INK}">${escapeXml(label.toUpperCase())}</text>`;
+}
+function titleLines(lines, x, y, fs, lh) {
+  const accentFrom = Math.ceil(lines.length / 2);
+  return lines.map((l, i) =>
+    `<text x="${x}" y="${y + i * lh}" font-family="${FONT}" font-weight="800" font-size="${fs}" letter-spacing="-1" fill="${i >= accentFrom ? AMBER : '#ffffff'}">${escapeXml(l)}</text>`
+  ).join('\n  ');
+}
+function verifiedHandle(x, y, r, fs) {
+  return `<circle cx="${x + r}" cy="${y}" r="${r}" fill="${AMBER}"/>
+  <path d="M${x + r - r * 0.45} ${y} l${(r * 0.32).toFixed(1)} ${(r * 0.34).toFixed(1)} l${(r * 0.62).toFixed(1)} -${(r * 0.62).toFixed(1)}" stroke="${INK}" stroke-width="${(r * 0.24).toFixed(1)}" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="${x + r * 2 + Math.round(r * 0.8)}" y="${y + fs * 0.36}" font-family="${FONT}" font-weight="600" font-size="${fs}" fill="#ffffff">chimitdorzhi.tech</text>`;
+}
+
+// ---------- Горизонталь 1200x630 ----------
+function landscapeOverlay(article, withPhoto) {
+  const cat = CATEGORY_LABELS[article.category] || 'Блог';
+  const min = article.readingMinutes || 5;
+  const fit = fitTitle(article.title, withPhoto
+    ? [{ chars: 14, maxLines: 3, fs: 54, lhK: 1.18 }, { chars: 16, maxLines: 4, fs: 46, lhK: 1.2 }, { chars: 19, maxLines: 5, fs: 39, lhK: 1.22 }]
+    : [{ chars: 17, maxLines: 3, fs: 56, lhK: 1.18 }, { chars: 20, maxLines: 4, fs: 48, lhK: 1.2 }, { chars: 24, maxLines: 5, fs: 40, lhK: 1.22 }]);
+  const lines = fit.lines, lh = fit.lh;
+  // держим заголовок ниже плашки рубрики и выше подписи
+  const top = Math.max(212, 290 - (lines.length - 1) * lh / 2);
+  const panel = withPhoto
+    ? `<defs><linearGradient id="p" x1="0" x2="1" y1="0" y2="0"><stop offset="0%" stop-color="${INK}"/><stop offset="80%" stop-color="${INK}"/><stop offset="100%" stop-color="${INK}" stop-opacity="0"/></linearGradient></defs>
+  <rect width="660" height="630" fill="url(#p)"/>`
+    : `<rect width="1200" height="630" fill="${INK_DEEP}"/>
+  <path d="M820 0 L1200 0 L1200 630 L620 630 Z" fill="${CATEGORY_ACCENT[article.category] || '#3b82f6'}" fill-opacity="0.92"/>
+  <path d="M980 0 L1200 0 L1200 630 L780 630 Z" fill="${AMBER}" fill-opacity="0.22"/>
+  <circle cx="1088" cy="472" r="88" fill="none" stroke="#ffffff" stroke-opacity="0.28" stroke-width="3"/>`;
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  ${panel}
+  ${catPill(cat, 72, 78, 18, 22)}
+  ${titleLines(lines, 72, top, fit.fs, lh)}
+  <line x1="72" y1="528" x2="${withPhoto ? 560 : 700}" y2="528" stroke="#ffffff" stroke-opacity="0.2" stroke-width="2"/>
+  <text x="72" y="570" font-family="${FONT}" font-weight="800" font-size="24" fill="#ffffff">Чимитдоржи Дарижапов</text>
+  <text x="72" y="600" font-family="${FONT}" font-weight="500" font-size="19" fill="#ffffff" fill-opacity="0.6">chimitdorzhi.tech · ${min} мин чтения</text>
+</svg>`;
+}
+
+// ---------- Вертикали: pin / square / story ----------
+function tallOverlay(article, size, withPhoto) {
+  const { w, h } = size;
+  const k = w / 1080;                       // масштаб от базовой ширины
+  const cat = CATEGORY_LABELS[article.category] || 'Блог';
+  const min = article.readingMinutes || 5;
+  const base = Math.round((h >= 1700 ? 92 : h >= 1400 ? 84 : 74) * k);
+  const chars = h >= 1700 ? 13 : 15;
+  const tfit = fitTitle(article.title, [
+    { chars, maxLines: 4, fs: base, lhK: 1.12 },
+    { chars: chars + 3, maxLines: 5, fs: Math.round(base * 0.84), lhK: 1.14 },
+    { chars: chars + 7, maxLines: 6, fs: Math.round(base * 0.7), lhK: 1.16 },
+  ]);
+  const fs = tfit.fs, lines = tfit.lines, lh = tfit.lh;
+  const pad = Math.round(72 * k);
+  const top = Math.round(h * (h >= 1700 ? 0.2 : 0.21)) + fs;
+  const fade = h >= 1700 ? 30 : 34;
+  const scrim = withPhoto
+    ? `<defs><linearGradient id="s" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#05070d" stop-opacity="0.96"/>
+      <stop offset="${fade}%" stop-color="#05070d" stop-opacity="0.82"/>
+      <stop offset="${fade + 22}%" stop-color="#05070d" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#05070d" stop-opacity="0.45"/></linearGradient></defs>
+  <rect width="${w}" height="${h}" fill="url(#s)"/>`
+    : `<rect width="${w}" height="${h}" fill="${INK_DEEP}"/>
+  <path d="M0 ${Math.round(h * 0.62)} L${w} ${Math.round(h * 0.5)} L${w} ${h} L0 ${h} Z" fill="${CATEGORY_ACCENT[article.category] || '#3b82f6'}" fill-opacity="0.92"/>
+  <path d="M0 ${Math.round(h * 0.78)} L${w} ${Math.round(h * 0.68)} L${w} ${h} L0 ${h} Z" fill="${AMBER}" fill-opacity="0.22"/>
+  <circle cx="${Math.round(w * 0.78)}" cy="${Math.round(h * 0.86)}" r="${Math.round(90 * k)}" fill="none" stroke="#ffffff" stroke-opacity="0.28" stroke-width="3"/>`;
+  const pillFs = Math.round(fs * 0.34);
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}">
+  ${scrim}
+  ${catPill(cat, pad, top - Math.round(fs * 2.4), pillFs, Math.round(20 * k))}
+  ${titleLines(lines, pad, top, fs, lh)}
+  ${verifiedHandle(pad, top + (lines.length - 1) * lh + Math.round(fs * 0.95), Math.round(fs * 0.28), Math.round(fs * 0.42))}
+  <rect x="${pad}" y="${top + (lines.length - 1) * lh + Math.round(fs * 1.45)}" width="${Math.round(fs * 1.9)}" height="${Math.round(fs * 0.62)}" rx="${Math.round(fs * 0.31)}" fill="${AMBER}"/>
+  <text x="${pad + Math.round(fs * 0.95)}" y="${top + (lines.length - 1) * lh + Math.round(fs * 1.9)}" text-anchor="middle" font-family="${FONT}" font-weight="800" font-size="${Math.round(fs * 0.3)}" fill="${INK}">${min} мин</text>
+</svg>`;
+}
+
+// ---------- Рендер ----------
+async function renderSize(article, kind) {
+  const size = SIZES[kind];
+  if (!size) throw new Error('Неизвестный формат обложки: ' + kind);
+  const withPhoto = usesPhoto(article);
+  const overlay = size.orient === 'land'
+    ? landscapeOverlay(article, withPhoto)
+    : tallOverlay(article, size, withPhoto);
+
+  let base;
+  if (withPhoto) {
+    const photo = photoFor(article);
+    if (size.orient === 'land') {
+      // фото справа, слева тёмная панель под текст
+      const half = await sharp(photo).resize(620, 630, { fit: 'cover', position: sharp.strategy.attention }).toBuffer();
+      base = await sharp({ create: { width: size.w, height: size.h, channels: 3, background: INK } })
+        .composite([{ input: half, left: size.w - 620, top: 0 }]).png().toBuffer();
     } else {
-      cur = (cur + ' ' + w).trim();
+      base = await sharp(photo).resize(size.w, size.h, { fit: 'cover', position: sharp.strategy.attention }).png().toBuffer();
     }
-    if (lines.length >= 4) break;
+  } else {
+    base = await sharp({ create: { width: size.w, height: size.h, channels: 3, background: INK_DEEP } }).png().toBuffer();
   }
-  if (cur && lines.length < 4) lines.push(cur.trim());
-  return lines.slice(0, 4);
+  return sharp(base).composite([{ input: Buffer.from(overlay) }]);
 }
 
-const FONT = "'Manrope', 'Inter', 'DejaVu Sans', 'Liberation Sans', Arial, sans-serif";
-
-function buildSvg(article) {
-  const accent = CATEGORY_ACCENT[article.category] || COBALT;
-  const cat = CATEGORY_LABELS[article.category] || article.category || '';
-  const lines = wrapTitle(article.title, 26);
-  const lineHeight = 76;
-  // вертикальное центрирование блока заголовка вокруг y≈300
-  const startY = 300 - (lines.length - 1) * (lineHeight / 2);
-
-  const titleSvg = lines.map((line, i) =>
-    `<text x="92" y="${startY + i * lineHeight}" font-family="${FONT}" font-weight="800" font-size="64" letter-spacing="-1.5" fill="${INK}">${escapeXml(line)}</text>`
-  ).join('\n  ');
-
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <defs>
-    <radialGradient id="tint" cx="100%" cy="0%" r="70%">
-      <stop offset="0%" stop-color="${accent}" stop-opacity="0.10"/>
-      <stop offset="100%" stop-color="${accent}" stop-opacity="0"/>
-    </radialGradient>
-  </defs>
-  <!-- кремовый фон -->
-  <rect width="1200" height="630" fill="${CREAM}"/>
-  <rect width="1200" height="630" fill="url(#tint)"/>
-  <!-- крупный декоративный полупрозрачный круг в углу -->
-  <circle cx="1120" cy="120" r="220" fill="${accent}" fill-opacity="0.06"/>
-  <!-- левая акцентная полоса -->
-  <rect x="0" y="0" width="14" height="630" fill="${accent}"/>
-
-  <!-- категория -->
-  <text x="92" y="120" font-family="${FONT}" font-weight="800" font-size="26" fill="${accent}" letter-spacing="3">${escapeXml(cat.toUpperCase())}</text>
-  <rect x="92" y="138" width="64" height="4" rx="2" fill="${accent}"/>
-
-  <!-- заголовок -->
-  ${titleSvg}
-
-  <!-- низ: автор + домен -->
-  <line x1="92" y1="520" x2="1108" y2="520" stroke="${INK}" stroke-width="2" stroke-opacity="0.14"/>
-  <text x="92" y="572" font-family="${FONT}" font-weight="800" font-size="30" fill="${INK}">Чимитдоржи Дарижапов</text>
-  <text x="92" y="606" font-family="${FONT}" font-weight="500" font-size="22" fill="${INK}" opacity="0.55">chimitdorzhi.tech · блог</text>
-
-  <!-- бейдж минут чтения -->
-  <rect x="968" y="546" width="140" height="58" rx="12" fill="${accent}"/>
-  <text x="1038" y="584" text-anchor="middle" font-family="${FONT}" font-weight="800" font-size="22" fill="#ffffff">${article.readingMinutes || 10} мин</text>
-</svg>`;
-}
-
-// ---------- Стиль «Аврора» для рубрики Open-source ----------
-function hashNum(s) { let h = 0; for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) >>> 0; return h; }
-// HSL→HEX
-function hslToHex(h, s, l) {
-  h = ((h % 360) + 360) % 360; s /= 100; l /= 100;
-  const a = s * Math.min(l, 1 - l);
-  const f = (n) => { const k = (n + h / 30) % 12; return l - a * Math.max(-1, Math.min(k - 3, 9 - k, 1)); };
-  const to = (x) => Math.round(255 * x).toString(16).padStart(2, '0');
-  return '#' + to(f(0)) + to(f(8)) + to(f(4));
-}
-// Уникальный «шёлковый» градиент для каждой статьи: базовый оттенок и разброс выводятся из хеша слага.
-function osPalette(slug) {
-  const hh = hashNum(slug);
-  const h2 = hashNum(slug + '~salt');
-  const h0 = (hh % 360) + (h2 % 7) - 3;          // тонкий сдвиг оттенка вторым хешем
-  const dir = ((hh >> 3) % 2) ? 1 : -1;
-  const span = 65 + (hh % 55);
-  const dl = ((h2 >> 5) % 9) - 4;                 // разброс светлоты ±4: разводит совпадающие оттенки
-  const ds = ((h2 >> 9) % 7) - 3;                 // разброс насыщенности ±3
-  const H = (d) => h0 + dir * d;
-  const L = (l) => Math.max(40, Math.min(94, l + dl));
-  const S = (s) => Math.max(55, Math.min(90, s + ds));
-  return {
-    base: [hslToHex(H(0), S(74), L(64)), hslToHex(H(span * 0.5), S(64), L(52)), hslToHex(H(span), S(72), L(58))],
-    blue: [hslToHex(H(span * 0.15), S(68), L(58)), hslToHex(H(span * 0.4), S(62), L(50)), hslToHex(H(-span * 0.1), S(70), L(60)), hslToHex(H(span * 0.6), S(60), L(52))],
-    light: [hslToHex(H(span * 0.2), 85, 90), hslToHex(H(-span * 0.1), 80, 92), '#ffffff'],
-    mag: [hslToHex(H(span * 1.1), S(72), L(62)), hslToHex(H(span * 1.25), S(70), L(66)), hslToHex(H(span * 0.95), S(68), L(58))],
-  };
-}
-function silkStreaks(p, seed) {
-  const N = 70, out = [];
-  for (let i = 0; i < N; i++) {
-    const r = hashNum(seed + '_' + i);
-    const y = -180 + i * 15 + ((r % 9) - 4);
-    const h = 8 + (r % 16);
-    const t = i / N;
-    let color;
-    if (t > 0.6) color = (r % 5 < 3) ? p.mag[r % p.mag.length] : p.blue[r % p.blue.length];
-    else if (r % 8 === 0) color = p.light[r % p.light.length];
-    else color = p.blue[r % p.blue.length];
-    const op = (0.20 + (r % 32) / 100).toFixed(2);
-    out.push(`<rect x="-360" y="${y}" width="1920" height="${h}" rx="${(h / 2).toFixed(0)}" fill="${color}" fill-opacity="${op}"/>`);
-  }
-  return out.join('\n    ');
-}
-function clipText(s, n) { s = String(s || '').trim(); return s.length <= n ? s : s.slice(0, n - 1).replace(/\s+\S*$/, '') + '…'; }
-
-function buildOpenSourceSvg(article, label) {
-  label = label || 'OPEN-SOURCE';
-  const p = osPalette(article.slug);
-  const lines = wrapTitle(article.title, 24).slice(0, 3);
-  const sub = clipText(article.excerpt || article.metaDescription, 64);
-  const CX = 600, lh = 66, tFs = 56;
-  // центрируем блок (плашка + заголовок + подзаголовок) вокруг y≈300
-  const blockH = 48 + 24 + lines.length * lh + 14 + 30;
-  const top = Math.round(300 - blockH / 2);
-  const pillY = top;
-  const firstTitleY = top + 48 + 24 + 44;
-  const titleSvg = lines.map((l, i) =>
-    `<text x="${CX}" y="${firstTitleY + i * lh}" text-anchor="middle" font-family="${FONT}" font-weight="800" font-size="${tFs}" letter-spacing="-1.5" fill="#ffffff">${escapeXml(l)}</text>`
-  ).join('\n  ');
-  const subY = firstTitleY + (lines.length - 1) * lh + 50;
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <defs>
-    <linearGradient id="bg" x1="1" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="${p.base[0]}"/>
-      <stop offset="50%" stop-color="${p.base[1]}"/>
-      <stop offset="100%" stop-color="${p.base[2]}"/>
-    </linearGradient>
-    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="9"/></filter>
-    <radialGradient id="scrim" cx="50%" cy="46%" r="75%">
-      <stop offset="0%" stop-color="#0b1030" stop-opacity="0.34"/>
-      <stop offset="62%" stop-color="#0b1030" stop-opacity="0.16"/>
-      <stop offset="100%" stop-color="#0b1030" stop-opacity="0"/>
-    </radialGradient>
-  </defs>
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <g filter="url(#soft)" transform="rotate(-21 600 315)">
-    ${silkStreaks(p, article.slug)}
-  </g>
-  <rect width="1200" height="630" fill="url(#scrim)"/>
-  ${(() => {
-    const pillFs = label.length > 11 ? 17 : 20;
-    const pillLs = label.length > 11 ? 1 : 2;
-    const pillW = Math.max(206, Math.round(label.length * (pillFs * 0.62 + pillLs) + 56));
-    return `<rect x="${CX - pillW / 2}" y="${pillY}" rx="24" ry="24" width="${pillW}" height="48" fill="#ffffff" fill-opacity="0.12" stroke="#ffffff" stroke-opacity="0.9" stroke-width="2"/>
-  <text x="${CX}" y="${pillY + 31}" text-anchor="middle" font-family="${FONT}" font-weight="700" font-size="${pillFs}" letter-spacing="${pillLs}" fill="#ffffff">${escapeXml(label)}</text>`;
-  })()}
-  ${titleSvg}
-  <text x="${CX}" y="${subY}" text-anchor="middle" font-family="${FONT}" font-weight="500" font-size="25" fill="#ffffff" fill-opacity="0.92">${escapeXml(sub)}</text>
-  <text x="${CX}" y="600" text-anchor="middle" font-family="${FONT}" font-weight="700" font-size="21" fill="#ffffff" fill-opacity="0.8">chimitdorzhi.tech · блог</text>
-</svg>`;
-}
-
-// ---------- Стиль «Компас стратегии» для кластера «Бизнес в цифровую эпоху» (Пристли) ----------
-// Единый узнаваемый облик серии: тёмный навигационный фон, золотой акцент,
-// чертёжная сетка и концентрические кольца-компас (перекличка с иконкой ph-compass).
-const PRIESTLEY_SET = new Set([
-  'biznes-v-cifrovuyu-epohu-pristli-2026', 'pravilo-7-11-4-zapominaemost-brenda-2026',
-  '5-veshchey-kotorye-mozg-ne-udalyaet-2026', 'kak-predstavit-sebya-name-same-fame-2026',
-  'klyuchevoy-chelovek-vliyaniya-kpi-2026', 'test-sprosa-do-zapuska-produkta-2026',
-  'situacionnaya-model-klienta-2026', 'sayd-hasl-pravilo-90-dney-2026',
-  'krivaya-normy-vs-stepennoy-zakon-2026', 'sladkaya-tochka-predprinimatelya-2026',
-  'top-10-procentov-byudzheta-monetizaciya-2026', 'vozmozhnost-bebi-bumerov-2026',
-  'ii-kak-elektrichestvo-rannyaya-stadiya-2026',
-]);
-const NAVY_A = '#0a1130';
-const NAVY_B = '#172150';
-const GOLD = '#e3b261';
-const GOLD_HI = '#f3d49a';
-
-function buildPriestleySvg(article) {
-  const lines = wrapTitle(article.title, 22).slice(0, 4);
-  const lh = 70, fs = 56;
-  const startY = 312 - (lines.length - 1) * (lh / 2);
-  const titleSvg = lines.map((l, i) =>
-    `<text x="96" y="${startY + i * lh}" font-family="${FONT}" font-weight="800" font-size="${fs}" letter-spacing="-1.5" fill="#ffffff">${escapeXml(l)}</text>`
-  ).join('\n  ');
-
-  // чертёжная сетка
-  const grid = [];
-  for (let x = 60; x < 1200; x += 60) grid.push(`<line x1="${x}" y1="0" x2="${x}" y2="630" stroke="#ffffff" stroke-opacity="0.035" stroke-width="1"/>`);
-  for (let y = 60; y < 630; y += 60) grid.push(`<line x1="0" y1="${y}" x2="1200" y2="${y}" stroke="#ffffff" stroke-opacity="0.035" stroke-width="1"/>`);
-
-  // кольца-компас справа
-  const cx = 1070, cy = 300;
-  const rings = [110, 175, 240, 305, 370]
-    .map((r, i) => `<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${GOLD}" stroke-opacity="${(0.20 - i * 0.03).toFixed(2)}" stroke-width="1.5"/>`)
-    .join('\n  ');
-  const ticks = `<g stroke="${GOLD}" stroke-opacity="0.18" stroke-width="2">
-    <line x1="${cx}" y1="${cy - 372}" x2="${cx}" y2="${cy + 372}"/>
-    <line x1="${cx - 372}" y1="${cy}" x2="${cx + 372}" y2="${cy}"/>
-  </g>`;
-  // стрелка компаса
-  const needle = `<g transform="rotate(34 ${cx} ${cy})">
-    <polygon points="${cx},${cy - 150} ${cx - 22},${cy} ${cx},${cy + 12} ${cx + 22},${cy}" fill="${GOLD}" fill-opacity="0.55"/>
-    <polygon points="${cx},${cy + 150} ${cx - 22},${cy} ${cx},${cy - 12} ${cx + 22},${cy}" fill="${GOLD_HI}" fill-opacity="0.16"/>
-    <circle cx="${cx}" cy="${cy}" r="10" fill="${GOLD}"/>
-  </g>`;
-
-  const label = 'БИЗНЕС В ЦИФРОВУЮ ЭПОХУ';
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <defs>
-    <linearGradient id="bgp" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="${NAVY_A}"/>
-      <stop offset="100%" stop-color="${NAVY_B}"/>
-    </linearGradient>
-    <linearGradient id="scrimp" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="${NAVY_A}" stop-opacity="0.95"/>
-      <stop offset="55%" stop-color="${NAVY_A}" stop-opacity="0.55"/>
-      <stop offset="100%" stop-color="${NAVY_A}" stop-opacity="0"/>
-    </linearGradient>
-  </defs>
-  <rect width="1200" height="630" fill="url(#bgp)"/>
-  ${grid.join('\n  ')}
-  ${ticks}
-  ${rings}
-  ${needle}
-  <rect width="1200" height="630" fill="url(#scrimp)"/>
-  <!-- левая золотая полоса -->
-  <rect x="0" y="0" width="10" height="630" fill="${GOLD}"/>
-
-  <!-- плашка кластера -->
-  <text x="96" y="118" font-family="${FONT}" font-weight="800" font-size="24" fill="${GOLD}" letter-spacing="3">${escapeXml(label)}</text>
-  <rect x="96" y="134" width="72" height="4" rx="2" fill="${GOLD}"/>
-  <text x="96" y="166" font-family="${FONT}" font-weight="600" font-size="19" fill="#ffffff" fill-opacity="0.5" letter-spacing="2">ПО ДЭНИЕЛУ ПРИСТЛИ</text>
-
-  <!-- заголовок -->
-  ${titleSvg}
-
-  <!-- низ: автор + домен + бейдж -->
-  <line x1="96" y1="520" x2="1104" y2="520" stroke="${GOLD}" stroke-width="2" stroke-opacity="0.22"/>
-  <text x="96" y="572" font-family="${FONT}" font-weight="800" font-size="29" fill="#ffffff">Чимитдоржи Дарижапов</text>
-  <text x="96" y="606" font-family="${FONT}" font-weight="500" font-size="21" fill="#ffffff" opacity="0.55">chimitdorzhi.tech · блог</text>
-  <rect x="964" y="546" width="140" height="58" rx="12" fill="${GOLD}"/>
-  <text x="1034" y="584" text-anchor="middle" font-family="${FONT}" font-weight="800" font-size="22" fill="${NAVY_A}">${article.readingMinutes || 8} мин</text>
-</svg>`;
-}
-
-// ---------- Стиль «Матрица знаний» для рубрики «Бизнес-кругозор» ----------
-// Единый облик: светлый «бумажный» фон, один акцент из выверенной палитры,
-// мотив матрицы 2x2 (квадранты) справа — перекличка с моделями рубрики
-// (BCG, Эйзенхауэр, Ансофф). Акцент выбирается по хешу слага: единый стиль,
-// но не одинаковые обложки на 100+ статей.
-const KRUGOZOR_PAPER = '#f5f2ea';
-const KRUGOZOR_INK = '#16130f';
-const KRUGOZOR_ACCENTS = ['#1e4fd6', '#0f766e', '#6d28d9', '#9f1239', '#15803d', '#b45309', '#0e7490', '#7c2d92'];
-
-function buildKrugozorSvg(article) {
-  const accent = KRUGOZOR_ACCENTS[hashNum(article.slug) % KRUGOZOR_ACCENTS.length];
-  const lines = wrapTitle(article.title, 20).slice(0, 4);
-  const lh = 70, fs = 56;
-  const startY = 300 - (lines.length - 1) * (lh / 2);
-  const titleSvg = lines.map((l, i) =>
-    `<text x="92" y="${startY + i * lh}" font-family="${FONT}" font-weight="800" font-size="${fs}" letter-spacing="-1.5" fill="${KRUGOZOR_INK}">${escapeXml(l)}</text>`
-  ).join('\n  ');
-
-  // мотив матрицы 2x2 справа; одна ячейка-«цель» закрашена акцентом
-  const gx = 812, gy = 150, cell = 150, gap = 12;
-  const fillIdx = hashNum(article.slug + '~q') % 4;
-  const cells = [];
-  for (let i = 0; i < 4; i++) {
-    const cxq = gx + (i % 2) * (cell + gap);
-    const cyq = gy + Math.floor(i / 2) * (cell + gap);
-    const filled = i === fillIdx;
-    cells.push(`<rect x="${cxq}" y="${cyq}" width="${cell}" height="${cell}" rx="14" fill="${filled ? accent : 'none'}" fill-opacity="${filled ? 0.12 : 0}" stroke="${accent}" stroke-opacity="${filled ? 0.55 : 0.28}" stroke-width="2.5"/>`);
-    if (filled) cells.push(`<circle cx="${cxq + cell / 2}" cy="${cyq + cell / 2}" r="20" fill="${accent}" fill-opacity="0.85"/>`);
-  }
-
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <defs>
-    <radialGradient id="ktint" cx="92%" cy="20%" r="60%">
-      <stop offset="0%" stop-color="${accent}" stop-opacity="0.08"/>
-      <stop offset="100%" stop-color="${accent}" stop-opacity="0"/>
-    </radialGradient>
-  </defs>
-  <rect width="1200" height="630" fill="${KRUGOZOR_PAPER}"/>
-  <rect width="1200" height="630" fill="url(#ktint)"/>
-  ${cells.join('\n  ')}
-  <rect x="0" y="0" width="12" height="630" fill="${accent}"/>
-
-  <text x="92" y="118" font-family="${FONT}" font-weight="800" font-size="25" fill="${accent}" letter-spacing="3">БИЗНЕС-КРУГОЗОР</text>
-  <rect x="92" y="135" width="66" height="4" rx="2" fill="${accent}"/>
-
-  ${titleSvg}
-
-  <line x1="92" y1="520" x2="1108" y2="520" stroke="${KRUGOZOR_INK}" stroke-width="2" stroke-opacity="0.12"/>
-  <text x="92" y="572" font-family="${FONT}" font-weight="800" font-size="29" fill="${KRUGOZOR_INK}">Чимитдоржи Дарижапов</text>
-  <text x="92" y="606" font-family="${FONT}" font-weight="500" font-size="21" fill="${KRUGOZOR_INK}" opacity="0.55">chimitdorzhi.tech · блог</text>
-  <rect x="966" y="546" width="142" height="58" rx="12" fill="${accent}"/>
-  <text x="1037" y="584" text-anchor="middle" font-family="${FONT}" font-weight="800" font-size="22" fill="#ffffff">${article.readingMinutes || 8} мин</text>
-</svg>`;
-}
-
-// ---------- Стиль «Авторская колонка» для рубрики «Экспертный блог» ----------
-// Тёмный графитовый фон, золотой акцент, крупно имя автора — серия читается
-// как личная колонка эксперта.
-const EXPERT_BG1 = '#171513';
-const EXPERT_BG2 = '#262019';
-const EXPERT_GOLD = '#cda349';
-const EXPERT_GOLD_HI = '#e7c87e';
-
-function buildExpertSvg(article) {
-  const lines = wrapTitle(article.title, 21).slice(0, 4);
-  const lh = 70, fs = 56;
-  const startY = 300 - (lines.length - 1) * (lh / 2);
-  const titleSvg = lines.map((l, i) =>
-    `<text x="92" y="${startY + i * lh}" font-family="${FONT}" font-weight="800" font-size="${fs}" letter-spacing="-1.5" fill="#ffffff">${escapeXml(l)}</text>`
-  ).join('\n  ');
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <defs>
-    <linearGradient id="ebg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="${EXPERT_BG1}"/>
-      <stop offset="100%" stop-color="${EXPERT_BG2}"/>
-    </linearGradient>
-    <radialGradient id="eglow" cx="88%" cy="18%" r="55%">
-      <stop offset="0%" stop-color="${EXPERT_GOLD}" stop-opacity="0.16"/>
-      <stop offset="100%" stop-color="${EXPERT_GOLD}" stop-opacity="0"/>
-    </radialGradient>
-  </defs>
-  <rect width="1200" height="630" fill="url(#ebg)"/>
-  <rect width="1200" height="630" fill="url(#eglow)"/>
-  <!-- крупные кавычки как знак авторской колонки -->
-  <text x="980" y="320" font-family="${FONT}" font-weight="800" font-size="420" fill="${EXPERT_GOLD}" fill-opacity="0.08">”</text>
-  <rect x="0" y="0" width="12" height="630" fill="${EXPERT_GOLD}"/>
-
-  <text x="92" y="118" font-family="${FONT}" font-weight="800" font-size="24" fill="${EXPERT_GOLD}" letter-spacing="3">ЭКСПЕРТНЫЙ БЛОГ</text>
-  <rect x="92" y="135" width="66" height="4" rx="2" fill="${EXPERT_GOLD}"/>
-
-  ${titleSvg}
-
-  <line x1="92" y1="520" x2="1108" y2="520" stroke="${EXPERT_GOLD}" stroke-width="2" stroke-opacity="0.25"/>
-  <text x="92" y="572" font-family="${FONT}" font-weight="800" font-size="30" fill="#ffffff">Чимитдоржи Дарижапов</text>
-  <text x="92" y="606" font-family="${FONT}" font-weight="500" font-size="21" fill="${EXPERT_GOLD_HI}" opacity="0.85">IT и AI для бизнеса · 16+ лет в IT</text>
-  <rect x="966" y="546" width="142" height="58" rx="12" fill="${EXPERT_GOLD}"/>
-  <text x="1037" y="584" text-anchor="middle" font-family="${FONT}" font-weight="800" font-size="22" fill="${EXPERT_BG1}">${article.readingMinutes || 8} мин</text>
-</svg>`;
-}
-
+// Основная обложка статьи: blog/<slug>/cover.png или cover.jpg
 async function generateCover(article) {
   if (!article.published) return null;
-  const svg = PRIESTLEY_SET.has(article.slug) ? buildPriestleySvg(article)
-    : article.category === 'expert' ? buildExpertSvg(article)
-    : article.category === 'opensource' ? buildOpenSourceSvg(article)
-    : article.category === 'biznes-krugozor' ? buildKrugozorSvg(article)
-    : buildSvg(article);
   const outDir = path.join(OUT_BLOG, article.slug);
   fs.mkdirSync(outDir, { recursive: true });
-  const outFile = path.join(outDir, 'cover.png');
-  await sharp(Buffer.from(svg)).png({ quality: 90, compressionLevel: 9 }).toFile(outFile);
-  return `/blog/${article.slug}/cover.png`;
+  const img = await renderSize(article, 'cover');
+  const file = coverFile(article);
+  const outFile = path.join(outDir, file);
+  if (file === 'cover.jpg') {
+    await img.jpeg({ quality: 82, mozjpeg: true }).toFile(outFile);
+    // убираем устаревшую png-версию, чтобы не было двух обложек
+    try { fs.unlinkSync(path.join(outDir, 'cover.png')); } catch (e) { /* её могло не быть */ }
+  } else {
+    await img.png({ compressionLevel: 9 }).toFile(outFile);
+    try { fs.unlinkSync(path.join(outDir, 'cover.jpg')); } catch (e) { /* ок */ }
+  }
+  return `/blog/${article.slug}/${file}`;
 }
+
+// Вертикальная обложка под Pinterest: blog/<slug>/pin.png (или pin.jpg для фото)
+async function generatePin(article) {
+  if (!article.published) return null;
+  const outDir = path.join(OUT_BLOG, article.slug);
+  fs.mkdirSync(outDir, { recursive: true });
+  const img = await renderSize(article, 'pin');
+  const withPhoto = usesPhoto(article);
+  const file = withPhoto ? 'pin.jpg' : 'pin.png';
+  const outFile = path.join(outDir, file);
+  if (withPhoto) {
+    await img.jpeg({ quality: 82, mozjpeg: true }).toFile(outFile);
+    try { fs.unlinkSync(path.join(outDir, 'pin.png')); } catch (e) { /* ок */ }
+  } else {
+    await img.png({ compressionLevel: 9 }).toFile(outFile);
+    try { fs.unlinkSync(path.join(outDir, 'pin.jpg')); } catch (e) { /* ок */ }
+  }
+  return `/blog/${article.slug}/${file}`;
+}
+function pinFile(article) { return usesPhoto(article) ? 'pin.jpg' : 'pin.png'; }
 
 async function generateAll(articles) {
   const published = articles.filter(a => a.published && a.contentHtml);
   let count = 0;
-  for (const a of published) {
-    await generateCover(a);
-    count++;
-  }
+  for (const a of published) { await generateCover(a); count++; }
   return count;
 }
 
-module.exports = { generateCover, generateAll, buildSvg, buildOpenSourceSvg, CATEGORY_ACCENT, CATEGORY_LABELS };
+module.exports = {
+  generateCover, generatePin, generateAll, renderSize,
+  coverFile, pinFile, usesPhoto, photoFor,
+  SIZES, PHOTO_CATEGORIES, CATEGORY_ACCENT, CATEGORY_LABELS, AMBER, INK,
+};

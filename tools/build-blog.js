@@ -687,8 +687,12 @@ function footer() {
 
 // ---------- article page ----------
 
+// Имя файла обложки зависит от стиля: фото-обложки — jpg, графические — png.
+const OG = (() => { try { return require('./og-generator.js'); } catch (e) { return null; } })();
+function coverFileName(a) { return OG ? OG.coverFile(a) : 'cover.png'; }
+function pinFileName(a) { return OG ? OG.pinFile(a) : 'pin.png'; }
 function coverUrl(a) {
-  return `${SITE}/blog/${a.slug}/cover.png`;
+  return `${SITE}/blog/${a.slug}/${coverFileName(a)}`;
 }
 
 // Связывание статьи с терминами глоссария (about) по совпадению с заголовком/тегами.
@@ -2640,7 +2644,7 @@ function updateSitemap(published) {
       lastmod: a.dateModified || a.datePublished,
       freq: 'monthly',
       priority: '0.7',
-      cover: `${SITE}/blog/${a.slug}/cover.png`,
+      cover: `${SITE}/blog/${a.slug}/${coverFileName(a)}`,
     })),
   ];
   const block = blogEntries.map(e =>
@@ -2704,7 +2708,7 @@ function buildRss(published) {
     const slot = daySlot[fd]++;
     const url = `${SITE}/blog/${a.slug}/`;
     const cat = CATEGORY_LABELS[a.category] || a.category || '';
-    const cover = `${SITE}/blog/${a.slug}/cover.png`;
+    const cover = `${SITE}/blog/${a.slug}/${coverFileName(a)}`;
     // Полный HTML статьи + картинка-обложка в начале — требование Дзена
     const fullHtml = `<p><img src="${cover}" alt="${esc(a.title)}"/></p>\n${(a.contentHtml || '').replace(/]]>/g, ']]&gt;')}`;
     return `    <item>
@@ -2758,7 +2762,7 @@ function buildPinterestRss(published) {
   const items = itemsArr.map(a => {
     const url = `${SITE}/blog/${a.slug}/`;
     const cat = CATEGORY_LABELS[a.category] || a.category || '';
-    const pin = `${SITE}/blog/${a.slug}/pin.png`;
+    const pin = `${SITE}/blog/${a.slug}/${pinFileName(a)}`;
     const html = `<p><img src="${pin}" alt="${esc(a.title)}"/></p>\n<p>${esc(a.excerpt || '')}</p>`;
     return `    <item>
       <title>${esc(a.title)}</title>

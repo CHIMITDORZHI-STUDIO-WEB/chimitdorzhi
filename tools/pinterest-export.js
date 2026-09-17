@@ -79,11 +79,13 @@ function buildPinSvg(a) {
 </svg>`;
 }
 
-// Отрендерить вертикальную обложку pin.png для одной статьи (для встраивания в сборку).
+// Отрендерить вертикальную обложку для одной статьи (для встраивания в сборку).
+// Оформление — общее для всех обложек, из og-generator: фото или графика по рубрике.
 async function renderPin(a) {
   const dir = path.join(ROOT, 'blog', a.slug);
   if (!fs.existsSync(dir)) return false;
-  await sharp(Buffer.from(buildPinSvg(a))).png({ quality: 90, compressionLevel: 9 }).toFile(path.join(dir, 'pin.png'));
+  const og = require('./og-generator.js');
+  await og.generatePin(a);
   return true;
 }
 
