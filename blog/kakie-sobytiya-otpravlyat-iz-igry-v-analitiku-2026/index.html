@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Аналитика бренд-игры: какие события заложить до запуска</title>
+    <meta name="description" content="Игра запущена, а данных нет. Базовый набор событий: открыл, начал, дошёл до конца, получил приз, оставил контакт, вернулся — и связь игрока с заявкой.">
+    <meta name="keywords" content="игры для бизнеса, аналитика, метрики, воронка">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/kakie-sobytiya-otpravlyat-iz-igry-v-analitiku-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/kakie-sobytiya-otpravlyat-iz-igry-v-analitiku-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/kakie-sobytiya-otpravlyat-iz-igry-v-analitiku-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/kakie-sobytiya-otpravlyat-iz-igry-v-analitiku-2026/">
+    <meta property="og:title" content="Аналитика бренд-игры: какие события заложить до запуска">
+    <meta property="og:description" content="Игра запущена, а данных нет. Базовый набор событий: открыл, начал, дошёл до конца, получил приз, оставил контакт, вернулся — и связь игрока с заявкой.">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/kakie-sobytiya-otpravlyat-iz-igry-v-analitiku-2026/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Аналитика бренд-игры: какие события заложить до запуска">
+    <meta name="twitter:description" content="Игра запущена, а данных нет. Базовый набор событий: открыл, начал, дошёл до конца, получил приз, оставил контакт, вернулся — и связь игрока с заявкой.">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/kakie-sobytiya-otpravlyat-iz-igry-v-analitiku-2026/cover.png">
+
+    <link rel="icon" href="/favicon.svg?v=5" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=5">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png?v=5">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=5">
+    <link rel="preload" href="/assets/fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=77">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Какие события отправлять из игры, чтобы потом было что считать",
+  "description": "Игра запущена, а данных нет. Базовый набор событий: открыл, начал, дошёл до конца, получил приз, оставил контакт, вернулся — и связь игрока с заявкой.",
+  "image": "https://chimitdorzhi.tech/blog/kakie-sobytiya-otpravlyat-iz-igry-v-analitiku-2026/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://t.me/chimitdorzhi_studio",
+      "https://max.ru/channel_chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio",
+      "https://github.com/chimitdorzhi",
+      "https://chimitdorzhi.tech/about/"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/kakie-sobytiya-otpravlyat-iz-igry-v-analitiku-2026/"
+  },
+  "datePublished": "2026-09-17",
+  "dateModified": "2026-09-17",
+  "keywords": "игры для бизнеса, аналитика, метрики, воронка",
+  "articleSection": "Игры для бизнеса",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Какие события отправлять из игры, чтобы потом было что считать",
+      "item": "https://chimitdorzhi.tech/blog/kakie-sobytiya-otpravlyat-iz-igry-v-analitiku-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Сколько событий достаточно для начала?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Семи базовых плюс пошаговые отметки обычно хватает. Расширять набор лучше потом, когда появится конкретный вопрос, на который нечем ответить."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что делать, если игра уже работает без событий?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Завести их сейчас и зафиксировать дату. Прошлый период честно посчитать не выйдет, но дальше данные будут, и через пару недель появится база для сравнения."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли обойтись одной внешней аналитикой?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Для быстрой картины — да. Но связать игрока с заявкой и покупкой в ней обычно неудобно, а именно эта связь отвечает на вопрос про деньги."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как отличить живого игрока от повторных заходов одного человека?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Считать уникальных игроков по идентификатору, а не события. Партии и люди — разные цифры."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужно ли хранить события вечно?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет. Достаточно срока, который покрывает сезонность и позволяет сравнивать периоды. Обезличенные события при этом хранить проще, чем персональные данные."
+      }
+    }
+  ]
+}
+    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+var inject=function(){for (var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)};
+var run=function(){('requestIdleCallback' in window)?requestIdleCallback(inject,{timeout:5000}):setTimeout(inject,3000)};
+(e.readyState==='complete')?run():m.addEventListener('load',run);})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109281884" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<!-- Цели Метрики: клики по контактам и услугам -->
+<script type="text/javascript">
+(function(){
+  var GOALS = [
+    { re: /t\.me\//i,                     goal: 'tg_click' },
+    { re: /max\.ru\//i,                    goal: 'max_click' },
+    { re: /audit\.chimitdorzhi\.tech/i,    goal: 'audit_click' },
+    { re: /chimitdorzhi\.tech\/services\//i, goal: 'service_click' },
+    { re: /chimitdorzhi\.tech\/predlozheniya\//i, goal: 'offer_click' }
+  ];
+  document.addEventListener('click', function(e){
+    var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    for (var i = 0; i < GOALS.length; i++) {
+      if (GOALS[i].re.test(href)) {
+        try { if (window.ym) ym(109281884, 'reachGoal', GOALS[i].goal); } catch (err) {}
+        break;
+      }
+    }
+  }, true);
+})();
+</script>
+</head>
+<body class="wx-read">
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/" data-i18n="nav.home">Главная</a></li>
+            <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/market/" data-i18n="nav.offers">Предложения</a></li>
+            <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+            <li class="nav-dropdown">
+                <a href="/cases/" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+                <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему" aria-pressed="false">
+                <i class="ph ph-moon" aria-hidden="true"></i>
+            </button>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/" data-i18n="nav.home">Главная</a></li>
+        <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+        <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+        <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+        <li><a href="/market/" data-i18n="nav.offers">Предложения</a></li>
+        <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+        <li class="mobile-has-submenu">
+            <details>
+                <summary aria-label="Проекты — развернуть"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down" aria-hidden="true"></i></summary>
+                <ul class="mobile-submenu">
+                    <li>
+                        <a href="https://gerel.space" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">Gerel.space</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/universe_buryat/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/arey/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.arey">AREY</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/mwrlife/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">MWR Life</span>
+                                <span class="mobile-sub-desc">Travel-клуб и партнёрка</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </details>
+        </li>
+        <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+    </ul>
+    <div class="mobile-controls">
+        <div class="mobile-lang-switcher" role="group" aria-label="Выбор языка">
+            <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+            <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+            <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+        </div>
+        <button class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle" aria-label="Переключить тему" aria-pressed="false">
+            <i class="ph ph-moon" aria-hidden="true"></i>
+        </button>
+    </div>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Какие события отправлять из игры, чтобы потом было что считать</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/igry-dlya-biznesa/"><i class="ph ph-bookmark" aria-hidden="true"></i> Игры для бизнеса</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 5 мин чтения</span>
+                        <time datetime="2026-09-17"><i class="ph ph-calendar" aria-hidden="true"></i> 17 сентября 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Какие события отправлять из игры, чтобы потом было что считать</h1>
+
+                    <p class="blog-lead">Число партий не говорит ничего о деньгах. Показываю набор событий, который надо заложить до запуска, и как по нему видно, какой экран лишний и что приносит заявки.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>игры для бизнеса</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>аналитика</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>метрики</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>воронка</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
+<li>Частая беда: игра запущена, люди в неё играют, а данных нет. Сработала она или нет — сказать невозможно, и решение принимают на ощущениях.</li>
+<li>Базовый набор событий закладывается до запуска: открыл игру, начал, дошёл до конца, получил приз, нажал оффер, оставил контакт, вернулся на следующий день. Отдельно — «бросил на шаге N», именно эти события показывают лишний экран.</li>
+<li>Самое важное и чаще всего пропущенное — связь игрока с заявкой и покупкой. Без неё есть красивая воронка, но нет денег в ней.</li>
+</ul></div>
+
+<p>Через месяц после запуска приходит вопрос: игра работает? В ответ показывают число партий. Это не ответ. Разберу, какие события нужно отправлять из игры, чтобы потом было что считать, и как их читать.</p>
+
+<h2 id="partii">Почему считать партии бесполезно</h2>
+<p>Число партий — самая доступная и самая бесполезная цифра. Она растёт сама: один увлечённый человек даёт двадцать партий, тест разработчика даёт ещё десять, случайные заходы дают остальное.</p>
+<p>Партии не отвечают ни на один рабочий вопрос. Сколько живых людей пришло? На каком экране они отваливаются? Кто из них купил? Какое объявление привело тех, кто купил? Ни один ответ из числа партий не достаётся.</p>
+<p>Считать нужно не действия игры, а путь человека. А путь складывается из событий, и завести их надо заранее.</p>
+
+<h2 id="bazovyy-nabor">Базовый набор событий</h2>
+<p>Этот набор нужно заложить до запуска, а не после. Он небольшой, и его хватает почти любой игре.</p>
+<div class="blog-table"><table>
+<tr><th>Событие</th><th>Что показывает</th><th>Решение, которое принимают</th></tr>
+<tr><td>Открыл игру</td><td>Сколько людей реально дошло до экрана</td><td>Чинить скорость загрузки и точку входа</td></tr>
+<tr><td>Начал игру</td><td>Понятен ли первый шаг</td><td>Упростить первый экран, убрать длинное вступление</td></tr>
+<tr><td>Дошёл до конца</td><td>Не слишком ли длинная игра</td><td>Сократить шаги или упростить правила</td></tr>
+<tr><td>Получил приз</td><td>Понятна ли награда и видно ли её</td><td>Переписать экран награды, сделать её заметнее</td></tr>
+<tr><td>Нажал оффер</td><td>Связана ли игра с товаром</td><td>Поменять предложение или момент его показа</td></tr>
+<tr><td>Оставил контакт</td><td>Готов ли человек к разговору</td><td>Сократить форму, объяснить, зачем контакт</td></tr>
+<tr><td>Вернулся на следующий день</td><td>Есть ли повод возвращаться</td><td>Добавить события, серии, напоминания</td></tr>
+</table></div>
+<p>Каждая строка здесь — не отчётность ради отчётности. У каждого события есть решение, которое по нему принимают. Если событие ни на что не влияет, оно лишнее.</p>
+
+<h2 id="broshennye">События «бросил на шаге N»</h2>
+<p>Событий завершения мало. Они показывают, сколько людей дошло, но не показывают, где потерялись остальные.</p>
+<p>Поэтому каждый экран игры должен отмечать, что человек до него добрался и ушёл с него дальше. Тогда становится видно место обрыва: на третьем экране остаётся заметно меньше людей, чем на втором. Это и есть лишний или непонятный экран.</p>
+<p>Обычно виноваты одни и те же вещи: длинное правило, которое надо читать; шаг, где непонятно, куда нажимать; лишний вопрос перед наградой. Без пошаговых событий это ищут наугад и спорят о вкусах.</p>
+<p>Отдельно стоит отмечать повторные попытки на одном шаге: это признак непонятного экрана.</p>
+
+<h2 id="metka-i-svyaz">Метка источника и связь с продажей</h2>
+<p><strong>Метка источника — на каждом событии.</strong> Не только на первом. Иначе видно, что люди пришли и дошли до конца, но неизвестно, какой канал привёл тех, кто дошёл. Метка должна ехать вместе с игроком через всю сессию: с первого открытия до оставленного контакта.</p>
+<p>Практический смысл простой. Один канал даёт много игроков и ноль контактов, другой даёт мало игроков и половину из них в заявках. Без метки на всех событиях эти два канала выглядят одинаково, и деньги уходят не туда.</p>
+<p><strong>Связь игрока с заявкой и покупкой.</strong> Это самый важный кусок и самый часто пропущенный. У игрока есть идентификатор внутри игры. Когда он оставляет контакт, этот идентификатор должен уехать вместе с заявкой в CRM и остаться там.</p>
+<p>Тогда в любой момент можно пройти путь в обе стороны: от покупки назад к игре и каналу, от канала вперёд к сумме сделок. Без этого получается красивая воронка до контакта, за которой пустота — а деньги живут именно там.</p>
+<p>Как считать по этим данным окупаемость — в статье об <a href="/blog/okupaemost-igry-dlya-biznesa-metriki-2026/">окупаемости игры</a>.</p>
+
+<h2 id="hranenie">Где хранить события и что в них не класть</h2>
+<p><strong>Правило минимума.</strong> События должны быть обезличенными. В аналитику отправляем факт действия и технический идентификатор игрока, а не имя, телефон и почту. Персональные данные живут в CRM, где для них есть основание и защита.</p>
+<p>Это не только про закон: чем меньше чувствительных данных в аналитике, тем меньше поводов для утечки.</p>
+<p><strong>Своя база или внешняя аналитика.</strong> Внешние счётчики ставятся быстро и дают готовые отчёты, но у них свои ограничения: часть событий теряется из-за блокировщиков, данные обрезаются по срокам, а связать их с CRM бывает неудобно.</p>
+<p>Собственная таблица событий в базе игры пишется один раз и даёт три вещи: ничего не теряется, данные лежат сколько нужно, и их можно соединить с заявками обычным запросом. Разумный вариант — вести своё и параллельно отправлять часть событий во внешнюю систему для быстрых отчётов.</p>
+
+<h2 id="kak-chitat">Как читать результат</h2>
+<p><strong>Воронка по шагам.</strong> Сколько открыли, начали, дошли, получили приз, нажали оффер, оставили контакт. Смотреть надо на переходы между шагами, а не на итог: самый большой обрыв и есть место, которое чинят первым.</p>
+<p><strong>Доля дошедших до конца.</strong> Универсальной нормы нет. Важна динамика: изменили экран — доля выросла или упала.</p>
+<p><strong>Доля оставивших контакт.</strong> Считается от дошедших, а не от всех открывших. Иначе цифра размазывается случайными заходами.</p>
+<p><strong>Повторные заходы.</strong> Показывают, есть ли у игры жизнь после первого дня. Если возвратов почти нет, игра разовая, и продвигать её придётся постоянно заново.</p>
+<p><strong>Деньги.</strong> Считаются по заявкам и покупкам из игры, а не по активности. Активность объясняет, почему денег много или мало, но сама деньгами не является.</p>
+
+<h2 id="oshibki">Типичные ошибки</h2>
+<p><strong>События добавили после запуска.</strong> Первая волна игроков прошла без данных, и сравнивать новые цифры не с чем. Это самая обидная ошибка, потому что она необратима.</p>
+<p><strong>Одинаковые названия у разных действий.</strong> Две кнопки шлют событие с одним именем, и в отчёте они склеиваются. Название должно однозначно читаться через полгода без пояснений автора.</p>
+<p><strong>Слишком много событий.</strong> Сорок названий, в которых никто не разбирается, хуже семи понятных. Если по событию не принимается решение, его не нужно заводить.</p>
+<p><strong>События есть, а смотреть их некому.</strong> Данные пишутся в базу, отчёта нет, никто не открывает. Простая таблица с воронкой раз в неделю полезнее самой подробной схемы событий.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+<h3>Сколько событий достаточно для начала?</h3>
+<p>Семи базовых плюс пошаговые отметки обычно хватает. Расширять набор лучше потом, когда появится конкретный вопрос, на который нечем ответить.</p>
+<h3>Что делать, если игра уже работает без событий?</h3>
+<p>Завести их сейчас и зафиксировать дату. Прошлый период честно посчитать не выйдет, но дальше данные будут, и через пару недель появится база для сравнения.</p>
+<h3>Можно ли обойтись одной внешней аналитикой?</h3>
+<p>Для быстрой картины — да. Но связать игрока с заявкой и покупкой в ней обычно неудобно, а именно эта связь отвечает на вопрос про деньги.</p>
+<h3>Как отличить живого игрока от повторных заходов одного человека?</h3>
+<p>Считать уникальных игроков по идентификатору, а не события. Партии и люди — разные цифры.</p>
+<h3>Нужно ли хранить события вечно?</h3>
+<p>Нет. Достаточно срока, который покрывает сезонность и позволяет сравнивать периоды. Обезличенные события при этом хранить проще, чем персональные данные.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+<p>Число партий не отвечает ни на один рабочий вопрос. Отвечают события: открыл, начал, дошёл, получил приз, нажал оффер, оставил контакт, вернулся. Плюс пошаговые отметки, которые показывают лишний экран.</p>
+<p>Метку источника надо тащить через все события, а идентификатор игрока — передавать вместе с заявкой в CRM. События при этом держать обезличенными, а персональные данные оставлять там, где им место. Читать результат по воронке и по долям, а деньги считать по заявкам из игры.</p>
+<p>Если игра уже запущена, а понятных данных по ней нет — расскажите, что и куда она сейчас пишет. Помогу собрать минимальный набор событий и отчёт, по которому видно результат. Напишите в Telegram, MAX или VK.</p>
+
+                    </div>
+                    
+
+                    
+                    
+                    
+                    
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Что я делаю для бизнеса</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-game-controller"></i> <span>Игры и геймификация под бренд</span></li>
+    
+    <li><i class="ph-fill ph-robot"></i> <span>Боты и мини-приложения в Telegram, MAX</span></li>
+    
+    <li><i class="ph-fill ph-gear"></i> <span>Программы лояльности и CRM</span></li>
+    
+    <li><i class="ph-fill ph-globe"></i> <span>Сайты и лендинги под ключ</span></li>
+    
+  </ul>
+  <div class="blog-services-offer-ctas">
+    <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+      <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
+    </a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="blog-services-offer-cta blog-services-offer-cta-max">
+      <i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> Написать в MAX
+    </a>
+  </div>
+</div>
+                    <div class="blog-cta-card">
+                        <div class="blog-cta-card-body">
+                            <h3>Бесплатно: чек-лист «Готов ли ваш бизнес к 152-ФЗ»</h3>
+                            <p>12 пунктов, которые проверяют готовность за час: данные, согласия, уведомление в РКН, локализация, защита. Отметьте, что уже сделано, и увидите дыры, за которые сейчас штрафуют.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="/checklist-152-fz/" class="btn btn-accent"><i class="ph-fill ph-clipboard-text" aria-hidden="true"></i> Открыть чек-лист</a>
+                        </div>
+                    </div>
+                    
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/development/games/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Обсудить игру для бизнеса</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-subscribe">
+  <div class="blog-subscribe-body">
+    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
+    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
+  </div>
+  <div class="blog-subscribe-actions">
+    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
+  </div>
+</section>
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/okupaemost-igry-dlya-biznesa-metriki-2026/" data-category="igry-dlya-biznesa" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-chart-line-up"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Игры для бизнеса</span>
+  <h3>Как понять, окупилась ли игра для бизнеса: считать покупки, а не партии</h3>
+  <p>Игру запустили, отчёт пестрит большими числами. Показываю, какие цифры имеют значение, а какие только создают ощущение успеха.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 15 сентября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/reklama-vedet-v-igru-a-ne-na-sayt-2026/" data-category="igry-dlya-biznesa" data-clicks="0">
+  <span class="blog-card-fresh">Свежее</span>
+  <div class="blog-card-icon"><i class="ph-fill ph-megaphone"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Игры для бизнеса</span>
+  <h3>Реклама ведёт в игру, а не на сайт: когда это работает</h3>
+  <p>Человек заходит на страницу товара, смотрит и уходит. Разбираю связку «объявление — игра — заявка»: где она даёт дешёвый контакт, а где только сжигает бюджет.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 17 сентября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 5 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/pochemu-brend-igry-provalivayutsya-2026/" data-category="igry-dlya-biznesa" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-warning"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Игры для бизнеса</span>
+  <h3>Пять причин, почему бренд-игры проваливаются</h3>
+  <p>Бренд вложился в игру, а через неделю в неё никто не играет. Причины удивительно однообразны — показываю пять главных, чтобы проверить их до разработки.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 15 сентября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/igra-na-planshete-u-stola-v-restorane-2026/" data-category="igry-dlya-biznesa" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-fork-knife"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Игры для бизнеса</span>
+  <h3>Игра у стола в ресторане: цифровая детская зона и занятие для взрослых</h3>
+  <p>Семьи с детьми выбирают ресторан по тому, можно ли спокойно поесть. Показываю, как игра у стола решает эту задачу и не превращает ужин в сидение в экранах.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 15 сентября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 5 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/skiny-i-mody-dlya-brenda-zakonnost-2026/" data-category="igry-dlya-biznesa" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-paint-brush"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Игры для бизнеса</span>
+  <h3>Скины и моды для популярных игр под бренд: где законно, а где нет</h3>
+  <p>Идея сделать мод с логотипом для популярной игры кажется простой, а юридически это одна из самых запутанных механик. Показываю, где проходят границы.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 15 сентября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/tapalka-dlya-mestnogo-biznesa-2026/" data-category="igry-dlya-biznesa" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-hand-tap"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Игры для бизнеса</span>
+  <h3>Тапалка для местного бизнеса: что взять из хайпа Hamster Kombat, а что оставить</h3>
+  <p>Простая игра с нажатиями на экран собрала миллионы игроков. Показываю, что их на самом деле держало и какие механики работают без криптовалютных обещаний.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 15 сентября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    
+                    
+                    
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow"><span class="b-l b-l-ru">Готовые решения под ключ</span><span class="b-l b-l-en" lang="en">Turnkey solutions</span><span class="b-l b-l-es" lang="es">Soluciones llave en mano</span><span class="b-l b-l-cn" lang="zh">交钥匙解决方案</span><span class="b-l b-l-mn" lang="mn">Түлхүүр гардуулах шийдэл</span></span>
+                            <span class="blog-offer-cta-title"><span class="b-l b-l-ru">449 готовых IT-решений для бизнеса</span><span class="b-l b-l-en" lang="en">449 ready-made IT solutions for business</span><span class="b-l b-l-es" lang="es">449 soluciones IT listas para empresas</span><span class="b-l b-l-cn" lang="zh">449 个面向企业的现成 IT 解决方案</span><span class="b-l b-l-mn" lang="mn">Бизнест зориулсан 449 бэлэн IT шийдэл</span></span>
+                            <span class="blog-offer-cta-price"><span class="b-l b-l-ru">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span><span class="b-l b-l-en" lang="en">Automation, bots, AI, data privacy and platforms · free consultation</span><span class="b-l b-l-es" lang="es">Automatización, bots, IA, privacidad de datos y plataformas · consulta gratis</span><span class="b-l b-l-cn" lang="zh">自动化、机器人、AI、数据合规与平台 · 免费咨询</span><span class="b-l b-l-mn" lang="mn">Автоматжуулалт, бот, AI, өгөгдлийн хамгаалалт ба платформ · үнэгүй зөвлөгөө</span></span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> <span class="b-l b-l-ru">Смотреть каталог</span><span class="b-l b-l-en" lang="en">View catalog</span><span class="b-l b-l-es" lang="es">Ver catálogo</span><span class="b-l b-l-cn" lang="zh">查看目录</span><span class="b-l b-l-mn" lang="mn">Каталог үзэх</span></span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#partii"><span class="blog-toc-num">01</span> Почему считать партии бесполезно</a></li>
+<li><a href="#bazovyy-nabor"><span class="blog-toc-num">02</span> Базовый набор событий</a></li>
+<li><a href="#broshennye"><span class="blog-toc-num">03</span> События «бросил на шаге N»</a></li>
+<li><a href="#metka-i-svyaz"><span class="blog-toc-num">04</span> Метка источника и связь с продажей</a></li>
+<li><a href="#hranenie"><span class="blog-toc-num">05</span> Где хранить события и что в них не класть</a></li>
+<li><a href="#kak-chitat"><span class="blog-toc-num">06</span> Как читать результат</a></li>
+<li><a href="#oshibki"><span class="blog-toc-num">07</span> Типичные ошибки</a></li>
+<li><a href="#faq"><span class="blog-toc-num">08</span> Частые вопросы</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">09</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+971563369591" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +971 56 336 9591</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">RA Standard - F.Z.E</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_licence">Лицензия 57033</span><span> · </span><span data-i18n="footer.legal_authority">Free Zones Authority of Ajman</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">Эмират Аджман, ОАЭ</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/cases/" class="footer-policy-link">Кейсы</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=43" defer></script>
+<script src="/services-i18n.js?v=43" defer></script>
+<script src="/script.js?v=36" defer></script>
+<script src="/search-widget.js?v=1" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>
