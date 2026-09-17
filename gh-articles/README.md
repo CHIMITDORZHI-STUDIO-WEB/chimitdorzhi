@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1599**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1609**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -763,6 +763,16 @@
 - [Доступная игра: чтобы в неё смогли поиграть все](./dostupnaya-igra-dlya-vseh-igrokov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/dostupnaya-igra-dlya-vseh-igrokov-2026/)
 - [Конкурс фото и видео с игровым подсчётом: как получить контент от клиентов](./konkurs-kontenta-s-igrovym-podschetom-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/konkurs-kontenta-s-igrovym-podschetom-2026/)
 - [Нейросети в производстве игры: что ускоряют, а что ломают](./neyroseti-v-proizvodstve-igry-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/neyroseti-v-proizvodstve-igry-2026/)
+- [Техзадание на игру для бизнеса: что написать, чтобы не переделывать](./tehzadanie-na-igru-dlya-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/tehzadanie-na-igru-dlya-biznesa-2026/)
+- [Конструктор промо-игр или своя разработка: что выбрать бизнесу](./konstruktor-promo-igr-ili-svoya-razrabotka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/konstruktor-promo-igr-ili-svoya-razrabotka-2026/)
+- [Сколько стоит содержать игру после запуска](./skolko-stoit-soderzhat-igru-posle-zapuska-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-stoit-soderzhat-igru-posle-zapuska-2026/)
+- [Игра за две недели: что реально успеть к акции](./igra-za-dve-nedeli-do-akcii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/igra-za-dve-nedeli-do-akcii-2026/)
+- [Скидка или игра с призами: что дешевле для бизнеса](./skidka-ili-igra-s-prizami-chto-deshevle-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skidka-ili-igra-s-prizami-chto-deshevle-2026/)
+- [Одна игра на сеть точек или франшизу: кто платит и как считать](./odna-igra-na-set-tochek-i-franshizu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/odna-igra-na-set-tochek-i-franshizu-2026/)
+- [Игра под запуск нового товара: как собрать интерес до старта продаж](./igra-pod-zapusk-novogo-tovara-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/igra-pod-zapusk-novogo-tovara-2026/)
+- [Игра для дилеров и оптовых партнёров: мотивация тех, кто продаёт ваш товар](./igra-dlya-dilerov-i-optovyh-partnerov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/igra-dlya-dilerov-i-optovyh-partnerov-2026/)
+- [Реклама ведёт в игру, а не на сайт: когда это работает](./reklama-vedet-v-igru-a-ne-na-sayt-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/reklama-vedet-v-igru-a-ne-na-sayt-2026/)
+- [Какие события отправлять из игры, чтобы потом было что считать](./kakie-sobytiya-otpravlyat-iz-igry-v-analitiku-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kakie-sobytiya-otpravlyat-iz-igry-v-analitiku-2026/)
 - [Аркада с падающими блоками под брендом: зачем бизнесу и почему не «Тетрис»](./brendirovannaya-arkada-padayushchie-bloki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/brendirovannaya-arkada-padayushchie-bloki-2026/)
 - [Игра для бизнеса в Telegram и MAX: без установки и с каналом связи в придачу](./igra-v-telegram-i-max-dlya-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/igra-v-telegram-i-max-dlya-biznesa-2026/)
 - [Колесо фортуны и скретч-карты: популярная игра для бизнеса и её юридическая сторона](./koleso-fortuny-i-skretch-karty-zakon-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/koleso-fortuny-i-skretch-karty-zakon-2026/)
