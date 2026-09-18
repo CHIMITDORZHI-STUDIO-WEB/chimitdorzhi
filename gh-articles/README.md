@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1614**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1624**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -141,6 +141,8 @@
 
 ## cases
 
+- [Как игры для бизнеса стали отдельным направлением](./kak-igry-stali-napravleniem-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-igry-stali-napravleniem-keys-2026/)
+- [Переезд с конструктора за один день: как это было по часам](./pereezd-s-konstruktora-za-den-po-chasam-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pereezd-s-konstruktora-za-den-po-chasam-keys-2026/)
 - [Кафе, сайт и розыгрыши в мессенджере: как это работает вместе](./kafe-nacionalnoy-kuhni-bot-max-rozygryshi-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kafe-nacionalnoy-kuhni-bot-max-rozygryshi-keys-2026/)
 - [Переезд с конструктора на свой сервер: что получает бизнес взамен](./pereezd-s-konstruktora-na-svoy-server-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pereezd-s-konstruktora-na-svoy-server-keys-2026/)
 - [Разбор компании по официальной отчётности: что видно в цифрах](./finansovyy-razbor-kompanii-po-otchetnosti-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/finansovyy-razbor-kompanii-po-otchetnosti-keys-2026/)
@@ -1235,6 +1237,9 @@
 
 ## Продажи
 
+- [Почему я продаю без созвонов: вся работа в переписке](./prodayu-bez-sozvonov-v-perepiske-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/prodayu-bez-sozvonov-v-perepiske-2026/)
+- [Как я в первой переписке понимаю, что проект не сложится](./signaly-chto-proekt-ne-slozhitsya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/signaly-chto-proekt-ne-slozhitsya-2026/)
+- [Три вопроса, которые я задаю до того, как назвать цену](./tri-voprosa-do-ceny-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/tri-voprosa-do-ceny-2026/)
 - [Скрипты продаж и их внедрение в CRM](./skripty-prodazh-v-crm-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skripty-prodazh-v-crm-2026/)
 - [Как найти дилеров и построить дилерскую сеть](./kak-nayti-dilerov-i-postroit-set-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-nayti-dilerov-i-postroit-set-2026/)
 - [Как открыть свою франшизу: упаковка и запуск](./kak-otkryt-svoyu-franshizu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-otkryt-svoyu-franshizu-2026/)
@@ -1561,6 +1566,11 @@
 
 ## Экспертное
 
+- [Мне написал не тот клиент: почему сайт притягивает физлиц вместо компаний](./mne-napisal-fizlico-vmesto-kompanii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/mne-napisal-fizlico-vmesto-kompanii-2026/)
+- [Мои ошибки в продвижении собственного сайта](./oshibki-v-prodvizhenii-svoego-sayta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/oshibki-v-prodvizhenii-svoego-sayta-2026/)
+- [Почему я публикую кейсы с цифрами, но без имён клиентов](./keysy-bez-imen-klientov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/keysy-bez-imen-klientov-2026/)
+- [Мой рабочий день с ИИ-агентами: что отдаю машине, а что только сам](./rabochiy-den-s-ii-agentami-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/rabochiy-den-s-ii-agentami-2026/)
+- [Сдал восемь работ за неделю: что общего у проектов, которые доходят до конца](./vosem-proektov-za-nedelyu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vosem-proektov-za-nedelyu-2026/)
 - [Spark-X2.5-4B: агентная модель на 4B с контекстом 1 млн токенов — что это меняет для бизнеса](./spark-x25-4b-agentnaya-model-lokalno-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/spark-x25-4b-agentnaya-model-lokalno-2026/)
 - [TimesFM 3 от Google: прогноз продаж и спроса без своей модели — как применить в бизнесе](./timesfm-3-prognoz-prodazh-i-sprosa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/timesfm-3-prognoz-prodazh-i-sprosa-2026/)
 - [Как составить ТЗ на сайт или бота: чтобы получить то, что нужно](./kak-sostavit-tz-na-sayt-bot-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-sostavit-tz-na-sayt-bot-2026/)
