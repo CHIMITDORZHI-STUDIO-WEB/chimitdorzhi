@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1679**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1703**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -37,6 +37,7 @@
 
 ## AI для разработчиков
 
+- [ИИ-помощник запущен: кто следит за ответами и обновляет базу знаний](./soprovozhdenie-ii-pomoshchnika-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/soprovozhdenie-ii-pomoshchnika-2026/)
 - [Накладные поставщиков сами попадают в 1С: распознавание документов нейросетью](./nakladnye-postavshchikov-v-1c-raspoznavanie-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nakladnye-postavshchikov-v-1c-raspoznavanie-2026/)
 - [Спросить у 1С в чате: ИИ-ассистент по продажам, остаткам и долгам](./ii-assistent-po-dannym-1c-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-assistent-po-dannym-1c-2026/)
 - [vLLM или Ollama: когда бизнесу нужен сервер под нагрузку](./vllm-ili-ollama-server-pod-nagruzku-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vllm-ili-ollama-server-pod-nagruzku-2026/)
@@ -500,6 +501,8 @@
 ## Безопасность
 
 - [Корпоративная почта и общий диск: как навести порядок с доступами, чтобы файлы не жили в личных аккаунтах](./korporativnaya-pochta-i-obshchiy-disk-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/korporativnaya-pochta-i-obshchiy-disk-2026/)
+- [IT-порядок в маленьком офисе за одну задачу: почта, копии, доступы, пароли](./it-nastroyka-malenkogo-ofisa-razovo-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/it-nastroyka-malenkogo-ofisa-razovo-2026/)
+- [Копия есть, а восстановиться нельзя: зачем раз в месяц проверять резервные копии](./proverka-vosstanovleniya-iz-kopii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/proverka-vosstanovleniya-iz-kopii-2026/)
 - [Права доступа в 1С: кто что видит и как не слить базу клиентов изнутри](./prava-dostupa-v-1c-utechka-bazy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/prava-dostupa-v-1c-utechka-bazy-2026/)
 - [Сотрудник унёс базу клиентов: что делать и как не допустить](./sotrudnik-unes-bazu-klientov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sotrudnik-unes-bazu-klientov-2026/)
 - [Удалить себя из интернета через ChatGPT: что правда в популярном совете](./udalit-cifrovoy-sled-cherez-chatgpt-agent-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/udalit-cifrovoy-sled-cherez-chatgpt-agent-2026/)
@@ -846,6 +849,12 @@
 
 ## Маркетинг
 
+- [Парсер цен и остатков с Wildberries и Ozon в таблицу: разово или каждый день](./parser-cen-wb-ozon-v-tablicu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/parser-cen-wb-ozon-v-tablicu-2026/)
+- [Заявки с сайта в Telegram или MAX и цели в Метрике: чтобы ни одна не потерялась](./zayavki-s-sayta-v-telegram-i-celi-metriki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zayavki-s-sayta-v-telegram-i-celi-metriki-2026/)
+- [Мониторинг ассортимента конкурентов: новинки, пропавшие позиции и акции каждую неделю](./monitoring-assortimenta-konkurentov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/monitoring-assortimenta-konkurentov-2026/)
+- [Отчёт по рекламе и заявкам каждое утро: сколько стоила заявка вчера](./otchet-po-reklame-i-zayavkam-kazhdoe-utro-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/otchet-po-reklame-i-zayavkam-kazhdoe-utro-2026/)
+- [Автопостинг в Telegram, MAX и VK по контент-плану](./avtoposting-v-telegram-max-vk-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avtoposting-v-telegram-max-vk-2026/)
+- [Мониторинг упоминаний компании: что о вас пишут в чатах, пабликах и на форумах](./monitoring-upominaniy-kompanii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/monitoring-upominaniy-kompanii-2026/)
 - [ИИ-бот для отзывов и репутации: собирает, отвечает, предупреждает](./ii-bot-otzyvy-reputaciya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-bot-otzyvy-reputaciya-2026/)
 - [Сквозная аналитика для малого бизнеса: откуда клиент и что окупается](./skvoznaya-analitika-malyy-biznes-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skvoznaya-analitika-malyy-biznes-2026/)
 - [Истории (сторис) в MAX: как использовать для бизнеса](./istorii-storis-v-max-dlya-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/istorii-storis-v-max-dlya-biznesa-2026/)
@@ -1255,6 +1264,8 @@
 
 ## Продажи
 
+- [Сбор базы компаний из открытых справочников и карт для отдела продаж](./sbor-bazy-kompaniy-iz-otkrytyh-istochnikov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sbor-bazy-kompaniy-iz-otkrytyh-istochnikov-2026/)
+- [Уведомления о новых тендерах и объявлениях по ключевым словам](./uvedomleniya-o-tenderah-i-obyavleniyah-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uvedomleniya-o-tenderah-i-obyavleniyah-2026/)
 - [Почему я продаю без созвонов: вся работа в переписке](./prodayu-bez-sozvonov-v-perepiske-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/prodayu-bez-sozvonov-v-perepiske-2026/)
 - [Как я в первой переписке понимаю, что проект не сложится](./signaly-chto-proekt-ne-slozhitsya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/signaly-chto-proekt-ne-slozhitsya-2026/)
 - [Три вопроса, которые я задаю до того, как назвать цену](./tri-voprosa-do-ceny-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/tri-voprosa-do-ceny-2026/)
@@ -1321,6 +1332,19 @@
 ## Разработка
 
 - [МойСклад: когда его хватает вместо 1С и как связать его с сайтом, ботом и маркетплейсами](./moysklad-vmesto-1c-integraciya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/moysklad-vmesto-1c-integraciya-2026/)
+- [Выгрузка из CRM в таблицу: отчёт, который обновляется сам](./vygruzka-iz-crm-v-tablicu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vygruzka-iz-crm-v-tablicu-2026/)
+- [Переезд с одной CRM на другую: как перенести клиентов, сделки и историю](./perehod-s-crm-na-crm-perenos-dannyh-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/perehod-s-crm-na-crm-perenos-dannyh-2026/)
+- [Скрипт для Google- и Яндекс-таблиц: когда таблица начинает работать сама](./skript-dlya-google-tablic-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skript-dlya-google-tablic-2026/)
+- [Договоры, счета и КП из шаблона за минуту: генератор документов под ваш бизнес](./generaciya-dogovorov-i-schetov-iz-shablona-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/generaciya-dogovorov-i-schetov-iz-shablona-2026/)
+- [Массовая обработка фото товаров: переименовать, сжать, убрать фон, собрать карточки](./massovaya-obrabotka-foto-tovarov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/massovaya-obrabotka-foto-tovarov-2026/)
+- [Бумажные анкеты и бланки в таблицу: распознавание вместо ручного набора](./ocifrovka-bumazhnyh-anket-i-blankov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ocifrovka-bumazhnyh-anket-i-blankov-2026/)
+- [Импорт каталога из прайса поставщика на сайт или маркетплейс](./import-kataloga-iz-prajsa-postavshchika-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/import-kataloga-iz-prajsa-postavshchika-2026/)
+- [Расширение для браузера под рутину сотрудника: когда оно дешевле новой программы](./rasshirenie-brauzera-dlya-rutiny-sotrudnika-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/rasshirenie-brauzera-dlya-rutiny-sotrudnika-2026/)
+- [Калькулятор стоимости на сайт: клиент считает сам и оставляет заявку](./kalkulyator-stoimosti-na-sayt-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kalkulyator-stoimosti-na-sayt-2026/)
+- [Простой бот на одну задачу: заявка, запись, опрос или выдача файла](./prostoy-bot-na-odnu-zadachu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/prostoy-bot-na-odnu-zadachu-2026/)
+- [Сайт упал, а вы узнали от клиента: мониторинг сайта, домена и формы заявок](./sayt-upal-monitoring-sayta-i-domena-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-upal-monitoring-sayta-i-domena-2026/)
+- [Бот работал и перестал: зачем нужна поддержка ботов и интеграций](./podderzhka-botov-i-integraciy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/podderzhka-botov-i-integraciy-2026/)
+- [Заказы сами уходят на сборку и в доставку: без переписывания из одной системы в другую](./avtomaticheskaya-peredacha-zakazov-v-dostavku-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avtomaticheskaya-peredacha-zakazov-v-dostavku-2026/)
 - [Паллетный учёт в 1С УТ 11.5: что есть из коробки, а что придётся дописать](./palletnyy-uchet-1c-ut-11-5-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/palletnyy-uchet-1c-ut-11-5-2026/)
 - [Своё приложение на ТСД или готовое решение: что выбрать складу](./svoe-prilozhenie-tsd-ili-gotovoe-reshenie-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/svoe-prilozhenie-tsd-ili-gotovoe-reshenie-2026/)
 - [Весовой товар и сроки годности в 1С: как учитывать коробки с разным весом](./vesovoy-tovar-i-sroki-godnosti-v-1c-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vesovoy-tovar-i-sroki-godnosti-v-1c-2026/)
