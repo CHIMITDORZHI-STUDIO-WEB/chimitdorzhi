@@ -2,10 +2,11 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1664**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1674**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
+- [Обучить сотрудников работать с ИИ: с чего начать руководителю](./obuchit-sotrudnikov-rabotat-s-ii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/obuchit-sotrudnikov-rabotat-s-ii-2026/)
 - [Голосовой ввод без утечки данных: диктовка для врача, юриста, психолога](./golosovoy-vvod-bez-utechki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/golosovoy-vvod-bez-utechki-2026/)
 - [ИИ-планировщик интерьера: показать клиенту комнату до заказа](./ii-planirovshchik-interyera-prodazhi-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-planirovshchik-interyera-prodazhi-2026/)
 - [ИИ размывает роли: когда один человек делает работу трёх](./ii-razmyvaet-roli-v-komande-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-razmyvaet-roli-v-komande-2026/)
@@ -499,6 +500,7 @@
 ## Безопасность
 
 - [Права доступа в 1С: кто что видит и как не слить базу клиентов изнутри](./prava-dostupa-v-1c-utechka-bazy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/prava-dostupa-v-1c-utechka-bazy-2026/)
+- [Сотрудник унёс базу клиентов: что делать и как не допустить](./sotrudnik-unes-bazu-klientov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sotrudnik-unes-bazu-klientov-2026/)
 - [Удалить себя из интернета через ChatGPT: что правда в популярном совете](./udalit-cifrovoy-sled-cherez-chatgpt-agent-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/udalit-cifrovoy-sled-cherez-chatgpt-agent-2026/)
 - [Passkeys и WebAuthn: вход на сайт без пароля — как работает и стоит ли внедрять](./passkeys-vhod-bez-parolya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/passkeys-vhod-bez-parolya-2026/)
 - [Защита бота от спама и атак: флуд, боты-накрутчики, брутфорс](./zaschita-bota-ot-spama-atak-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zaschita-bota-ot-spama-atak-2026/)
@@ -957,6 +959,9 @@
 - [Ревизия в магазине: как пересчитать товар, не закрывая точку](./reviziya-v-magazine-bez-zakrytiya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/reviziya-v-magazine-bez-zakrytiya-2026/)
 - [Приёмка товара от поставщика в магазине: как не платить за то, чего не привезли](./priemka-tovara-ot-postavshchika-v-magazine-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/priemka-tovara-ot-postavshchika-v-magazine-2026/)
 - [Выручка каждой точки каждое утро: как контролировать сеть кафе или франшизу](./vyruchka-kazhdoy-tochki-kontrol-seti-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vyruchka-kazhdoy-tochki-kontrol-seti-2026/)
+- [Остатки между магазинами сети: как за минуту увидеть, что нужный размер есть в другой точке](./ostatki-mezhdu-magazinami-seti-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ostatki-mezhdu-magazinami-seti-2026/)
+- [Магазин одежды и белья: размеры, примерка, возвраты и остатки по точкам](./magazin-odezhdy-i-belya-razmery-vozvraty-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/magazin-odezhdy-i-belya-razmery-vozvraty-2026/)
+- [Неявки на запись: предоплата, напоминания и лист ожидания](./neyavki-na-zapis-predoplata-napominaniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/neyavki-na-zapis-predoplata-napominaniya-2026/)
 - [Подбор запчастей по VIN в CRM автосервиса: как автоматизировать](./podbor-zapchastey-po-vin-v-crm-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/podbor-zapchastey-po-vin-v-crm-2026/)
 - [АгроСигнал или ExactFarming: что выбрать фермеру и агрохолдингу](./agrosignal-ili-exactfarming-chto-vybrat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/agrosignal-ili-exactfarming-chto-vybrat-2026/)
 - [Бот и CRM для автосервиса: напоминания о ТО и ОСАГО, история по VIN](./crm-bot-dlya-avtoservisa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/crm-bot-dlya-avtoservisa-2026/)
@@ -1337,6 +1342,11 @@
 - [Должники получают напоминание сами: дебиторская задолженность из 1С в мессенджер](./debitorka-iz-1c-napominaniya-dolzhnikam-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/debitorka-iz-1c-napominaniya-dolzhnikam-2026/)
 - [Возвраты от клиентов в 1С: как принять, проверить и не потерять товар](./vozvraty-ot-klientov-v-1c-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vozvraty-ot-klientov-v-1c-2026/)
 - [Производство на малом предприятии в 1С: сырьё, выпуск и себестоимость](./proizvodstvo-na-malom-predpriyatii-v-1c-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/proizvodstvo-na-malom-predpriyatii-v-1c-2026/)
+- [Заявки из WhatsApp и личных сообщений — в одну систему](./zayavki-iz-whatsapp-i-lichnyh-soobshcheniy-v-sistemu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zayavki-iz-whatsapp-i-lichnyh-soobshcheniy-v-sistemu-2026/)
+- [Договор на разработку: что прописать, чтобы не спорить потом](./dogovor-na-razrabotku-chto-propisat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/dogovor-na-razrabotku-chto-propisat-2026/)
+- [Подрядчик сорвал срок: что делать по шагам](./podryadchik-sorval-srok-chto-delat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/podryadchik-sorval-srok-chto-delat-2026/)
+- [Переезд сайта без потери позиций в поиске: что сохранить и как проверить](./pereezd-sayta-bez-poteri-poziciy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pereezd-sayta-bez-poteri-poziciy-2026/)
+- [Сколько стоит содержать сайт и бота каждый месяц](./skolko-stoit-soderzhat-sayt-i-bota-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-stoit-soderzhat-sayt-i-bota-2026/)
 - [Конструкторы ботов для MAX: как сравнивать и что выбрать под задачу](./konstruktory-botov-max-sravnenie-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/konstruktory-botov-max-sravnenie-2026/)
 - [Услуги DevOps: сколько стоят и что входит в 2026](./uslugi-devops-stoimost-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uslugi-devops-stoimost-2026/)
 - [Как принимать оплату на сайте: эквайринг простыми словами](./kak-prinimat-oplatu-na-sayte-ekvayring-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-prinimat-oplatu-na-sayte-ekvayring-2026/)
