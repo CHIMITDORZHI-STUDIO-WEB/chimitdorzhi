@@ -187,6 +187,8 @@ module.exports = [
     metaDescription: 'OSINT Framework (осинт фреймворк) — что это: из каких разделов состоит карта инструментов, какие бесплатные сервисы брать под задачу и как искать законно.',
     excerpt: 'OSINT без процесса — это хаос и риск нарушить закон. Разбираю этапы проверки от постановки задачи до отчёта и удаления лишних данных — как выстроить дисциплину анализа легально.',
     tags: ['OSINT', 'осинт фреймворк', 'процесс', 'методология', 'безопасность'],
+    toc: toc(['chto-eto', 'Что это'], ['zachem', 'Зачем'], ['kak-primenit', 'Как применить'], ['oshibki', 'Ошибки'], ['katalog-instrumentov', 'Какие инструменты внутри каталога и для чего они'], ['faq', 'FAQ'], ['vyvody', 'Коротко о главном']),
+    dateModified: '2026-09-19',
     relatedSlugs: ['chto-takoe-osint-2026', 'instrumenty-osint-2026', 'besplatnye-servisy-proverki-kontragenta-2026'] }),
   O({ slug: 'osint-arsenal-instrumenty-2026', heroIcon: 'ph-fill ph-toolbox', ctaInternal: CTA_PROV,
     title: 'Арсенал OSINT: обзор 100+ инструментов по направлениям (легально)',

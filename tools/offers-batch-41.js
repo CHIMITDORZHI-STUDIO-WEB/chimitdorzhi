@@ -1,6 +1,19 @@
 // 41-я партия — оффер «Разовые задачи и абонентка: скрипты, парсеры, выгрузки».
 // Для тех, кому не нужен большой проект: одна задача — сделал, передал, закрыли,
 // или небольшая регулярная работа по абонентке.
+// Каталог статей на странице собирается сам из батчей рубрики по тегам
+// «разовые задачи» / «абонентка», поэтому новые статьи попадают туда без правок.
+const BATCHES = [
+  './blog-batch-razovye-zadachi-2026-09.js',
+  './blog-batch-razovye-zadachi-2-2026-09.js',
+  './blog-batch-razovye-zadachi-3-2026-09.js',
+  './blog-batch-razovye-zadachi-4-2026-09.js',
+];
+const arts = BATCHES.flatMap((p) => { try { return require(p); } catch (e) { return []; } })
+  .filter((a) => a.published !== false);
+const pick = (tag) => arts.filter((a) => (a.tags || []).includes(tag))
+  .map((a) => ({ url: `/blog/${a.slug}/`, label: a.title.split(':')[0] }));
+
 module.exports = [
   {
     slug: 'razovye-zadachi-skripty-parsery', published: true,
@@ -9,6 +22,13 @@ module.exports = [
     title: 'Разовые задачи: скрипты, парсеры, выгрузки и небольшая автоматизация',
     tagline: 'Одна конкретная задача без большого проекта: парсер, выгрузка из одной программы в другую, скрипт для таблиц, генератор документов, простой бот. Сделал, передал с инструкцией, закрыли. Если задача регулярная — веду по абонентке.',
     priceFrom: 'Оценка после описания задачи', timeline: 'чаще всего от пары дней до двух недель',
+    tgButton: 'Описать задачу',
+    tgText: 'Здравствуйте! Есть задача.\nЧто сейчас делается руками: \nЧто нужно на выходе: \nКак часто: разово / регулярно\nПример файла или скриншот пришлю.',
+    articleGroupsTitle: 'Какие задачи я разобрал подробно',
+    articleGroups: [
+      { title: 'Разово: сделал и передал', items: pick('разовые задачи') },
+      { title: 'По абонентке: регулярная работа и присмотр', items: pick('абонентка') },
+    ],
     relatedServices: [{ url: '/services/business-automation/', label: 'Автоматизация бизнеса' }, { url: '/predlozheniya/integraciya-sistem/', label: 'Связка систем' }],
     relatedBlog: [{ url: '/blog/parser-dannyh-na-zakaz-2026/', label: 'Парсер данных на заказ' }, { url: '/blog/napisat-skript-na-zakaz-2026/', label: 'Скрипт на заказ' }, { url: '/blog/formaty-sotrudnichestva-2026/', label: 'Форматы сотрудничества' }],
     faq: [

@@ -60,7 +60,7 @@ module.exports = [
     metaDescription: 'Менеджер уволился, а клиенты уходят к нему. Как обычно уносят базу, что зафиксировать, если это уже случилось, и какие доступы закрыть заранее.',
     excerpt: 'Базу клиентов чаще уносят свои, чем взламывают чужие. Разбираю, как это происходит, что делать в первые дни и как устроить работу, чтобы клиенты оставались у компании.',
     tags: ['безопасность', 'утечки', 'база клиентов', 'сотрудники'],
-    relatedSlugs: ['sotrudniki-glavnaya-dyra-v-bezopasnosti-2026', 'prava-dostupa-v-1c-utechka-bazy-2026', 'chto-grozit-kompanii-za-utechku-bazy-2026'] }),
+    relatedSlugs: ['utechka-bazy-klientov-sotrudnik-2026', 'prava-dostupa-v-1c-utechka-bazy-2026', 'chto-grozit-kompanii-za-utechku-bazy-2026'] }),
 
   E({ slug: 'obuchit-sotrudnikov-rabotat-s-ii-2026', category: 'ai-life', heroIcon: 'ph-fill ph-chalkboard-teacher',
     ctaInternal: SV('corporate-ai-training', 'Обучить команду работе с ИИ'),

@@ -256,6 +256,13 @@ function offerPage(o) {
   const objections = (o.objections || []).map((p) => `<div class="offer-faq-item"><p class="offer-faq-q">${esc(p.q)}</p><p class="offer-faq-a">${esc(p.a)}</p></div>`).join('\n');
   const objectionsBlock = objections ? `<div class="offer-block"><h2>А если…</h2>${objections}</div>` : '';
 
+  // Каталог разобранных задач: группы ссылок на статьи блога (если заданы).
+  const articleGroupsBlock = (o.articleGroups || []).length
+    ? `<div class="offer-block" id="zadachi"><h2>${esc(o.articleGroupsTitle || 'Разобранные задачи')}</h2>${o.articleGroups.map((g) =>
+        `<h3>${esc(g.title)}</h3><div class="offer-related">${g.items.map((r) =>
+          `<a href="${r.url}" class="offer-related-link">${esc(r.label)} <i class="ph ph-arrow-right" aria-hidden="true"></i></a>`).join('')}</div>`).join('')}</div>`
+    : '';
+
   const whyMeBlock = o.whyMe ? `<div class="offer-block"><h2>Почему со мной</h2><div class="blog-body offer-body"><p>${esc(o.whyMe)}</p></div></div>` : '';
 
   return `${head({ title: o.metaTitle, description: o.metaDescription, canonical: url, ogImage: `${SITE}/predlozheniya/${o.slug}/cover.png` })}    <script type="application/ld+json">
@@ -288,7 +295,7 @@ ${faqLd(o)}</head>
                         <span class="offer-timeline"><i class="ph ph-clock" aria-hidden="true"></i> Срок: ${esc(o.timeline)}</span>
                     </div>
                     <div class="offer-hero-actions">
-                        <a href="${tg(`Здравствуйте! Интересует «${o.title}» (${o.priceFrom}).`)}" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Обсудить задачу</a>
+                        <a href="${tg(o.tgText || `Здравствуйте! Интересует «${o.title}» (${o.priceFrom}).`)}" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> ${esc(o.tgButton || 'Обсудить задачу')}</a>
                         ${(o.packages || []).length ? '<a href="#packages" class="btn btn-ghost">Смотреть пакеты</a>' : '<a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>'}
                     </div>
                 </div>
@@ -315,6 +322,8 @@ ${faqLd(o)}</head>
                 ${packages ? `<div class="offer-block" id="packages"><h2>Пакеты</h2><div class="offer-pkgs">${packages}</div><p class="offer-note">Итоговая цена зависит от ваших процессов и интеграций. Точную смету назову после короткого разговора.</p></div>` : ''}`}
 
                 ${o.process ? customProcessBlock : processBlock()}
+
+                ${articleGroupsBlock}
 
                 ${faq ? `<div class="offer-block"><h2>Частые вопросы</h2>${faq}</div>` : ''}
 
