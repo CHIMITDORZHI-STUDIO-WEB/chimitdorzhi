@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1654**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1664**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -953,6 +953,10 @@
 
 ## Отрасли
 
+- [Кражи и недостачи на кассе: как контролировать кассиров без слежки](./krazhi-i-nedostachi-na-kasse-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/krazhi-i-nedostachi-na-kasse-2026/)
+- [Ревизия в магазине: как пересчитать товар, не закрывая точку](./reviziya-v-magazine-bez-zakrytiya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/reviziya-v-magazine-bez-zakrytiya-2026/)
+- [Приёмка товара от поставщика в магазине: как не платить за то, чего не привезли](./priemka-tovara-ot-postavshchika-v-magazine-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/priemka-tovara-ot-postavshchika-v-magazine-2026/)
+- [Выручка каждой точки каждое утро: как контролировать сеть кафе или франшизу](./vyruchka-kazhdoy-tochki-kontrol-seti-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vyruchka-kazhdoy-tochki-kontrol-seti-2026/)
 - [Подбор запчастей по VIN в CRM автосервиса: как автоматизировать](./podbor-zapchastey-po-vin-v-crm-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/podbor-zapchastey-po-vin-v-crm-2026/)
 - [АгроСигнал или ExactFarming: что выбрать фермеру и агрохолдингу](./agrosignal-ili-exactfarming-chto-vybrat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/agrosignal-ili-exactfarming-chto-vybrat-2026/)
 - [Бот и CRM для автосервиса: напоминания о ТО и ОСАГО, история по VIN](./crm-bot-dlya-avtoservisa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/crm-bot-dlya-avtoservisa-2026/)
@@ -1186,6 +1190,8 @@
 
 ## Право и 152-ФЗ
 
+- [Что грозит компании, если утекла база клиентов](./chto-grozit-kompanii-za-utechku-bazy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chto-grozit-kompanii-za-utechku-bazy-2026/)
+- [Учёт договоров: как не пропустить продление, оплату и штраф](./uchet-dogovorov-sroki-prodleniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uchet-dogovorov-sroki-prodleniya-2026/)
 - [Как автоматически замазывать лица на фото: обезличивание по 152-ФЗ](./razmytie-lic-na-foto-152-fz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/razmytie-lic-na-foto-152-fz-2026/)
 - [Presidio: как автоматически найти и обезличить персональные данные](./presidio-obezlichivanie-personalnyh-dannyh-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/presidio-obezlichivanie-personalnyh-dannyh-2026/)
 - [Политика обработки персональных данных: образец 2026 и что в ней должно быть](./politika-obrabotki-pd-obrazec-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/politika-obrabotki-pd-obrazec-2026/)
@@ -1560,6 +1566,10 @@
 
 ## Финансы
 
+- [Облачная касса: что это и кому она выгоднее своей](./oblachnaya-kassa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/oblachnaya-kassa-2026/)
+- [Платёжный календарь: как не остаться без денег на зарплату и налоги](./platezhnyy-kalendar-malyy-biznes-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/platezhnyy-kalendar-malyy-biznes-2026/)
+- [Управленческий учёт для малого бизнеса: прибыль, а не остаток на счёте](./upravlencheskiy-uchet-malyy-biznes-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/upravlencheskiy-uchet-malyy-biznes-2026/)
+- [Подотчётные деньги и чеки сотрудников: без бумажной волокиты](./podotchet-i-cheki-sotrudnikov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/podotchet-i-cheki-sotrudnikov-2026/)
 - [Налоги с чаевых: кто и когда платит, при чём тут самозанятость](./nalogi-s-chaevyh-samozanyatost-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nalogi-s-chaevyh-samozanyatost-2026/)
 - [Онлайн-бухгалтерия для ИП: Эльба, Моё дело и Т-Банк](./onlayn-buhgalteriya-sravnenie-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/onlayn-buhgalteriya-sravnenie-2026/)
 - [Патент или УСН для ИП в 2026: что выбрать](./patent-ili-usn-dlya-ip-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/patent-ili-usn-dlya-ip-2026/)
