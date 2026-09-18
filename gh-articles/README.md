@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1674**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1679**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -499,6 +499,7 @@
 
 ## Безопасность
 
+- [Корпоративная почта и общий диск: как навести порядок с доступами, чтобы файлы не жили в личных аккаунтах](./korporativnaya-pochta-i-obshchiy-disk-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/korporativnaya-pochta-i-obshchiy-disk-2026/)
 - [Права доступа в 1С: кто что видит и как не слить базу клиентов изнутри](./prava-dostupa-v-1c-utechka-bazy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/prava-dostupa-v-1c-utechka-bazy-2026/)
 - [Сотрудник унёс базу клиентов: что делать и как не допустить](./sotrudnik-unes-bazu-klientov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sotrudnik-unes-bazu-klientov-2026/)
 - [Удалить себя из интернета через ChatGPT: что правда в популярном совете](./udalit-cifrovoy-sled-cherez-chatgpt-agent-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/udalit-cifrovoy-sled-cherez-chatgpt-agent-2026/)
@@ -955,6 +956,9 @@
 
 ## Отрасли
 
+- [YCLIENTS и бот в MAX: запись, напоминания и возврат клиентов в одной связке](./yclients-bot-max-napominaniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/yclients-bot-max-napominaniya-2026/)
+- [iiko и r_keeper: как владельцу видеть выручку, себестоимость и списания без выгрузок руками](./iiko-r-keeper-otchety-vladelcu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/iiko-r-keeper-otchety-vladelcu-2026/)
+- [Смарт-терминал вроде Эвотора: что можно выжать из кассы, кроме чеков](./smart-terminal-evotor-chto-umeet-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/smart-terminal-evotor-chto-umeet-2026/)
 - [Кражи и недостачи на кассе: как контролировать кассиров без слежки](./krazhi-i-nedostachi-na-kasse-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/krazhi-i-nedostachi-na-kasse-2026/)
 - [Ревизия в магазине: как пересчитать товар, не закрывая точку](./reviziya-v-magazine-bez-zakrytiya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/reviziya-v-magazine-bez-zakrytiya-2026/)
 - [Приёмка товара от поставщика в магазине: как не платить за то, чего не привезли](./priemka-tovara-ot-postavshchika-v-magazine-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/priemka-tovara-ot-postavshchika-v-magazine-2026/)
@@ -1316,6 +1320,7 @@
 
 ## Разработка
 
+- [МойСклад: когда его хватает вместо 1С и как связать его с сайтом, ботом и маркетплейсами](./moysklad-vmesto-1c-integraciya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/moysklad-vmesto-1c-integraciya-2026/)
 - [Паллетный учёт в 1С УТ 11.5: что есть из коробки, а что придётся дописать](./palletnyy-uchet-1c-ut-11-5-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/palletnyy-uchet-1c-ut-11-5-2026/)
 - [Своё приложение на ТСД или готовое решение: что выбрать складу](./svoe-prilozhenie-tsd-ili-gotovoe-reshenie-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/svoe-prilozhenie-tsd-ili-gotovoe-reshenie-2026/)
 - [Весовой товар и сроки годности в 1С: как учитывать коробки с разным весом](./vesovoy-tovar-i-sroki-godnosti-v-1c-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vesovoy-tovar-i-sroki-godnosti-v-1c-2026/)
