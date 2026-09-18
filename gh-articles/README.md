@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1644**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1654**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -36,6 +36,8 @@
 
 ## AI для разработчиков
 
+- [Накладные поставщиков сами попадают в 1С: распознавание документов нейросетью](./nakladnye-postavshchikov-v-1c-raspoznavanie-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nakladnye-postavshchikov-v-1c-raspoznavanie-2026/)
+- [Спросить у 1С в чате: ИИ-ассистент по продажам, остаткам и долгам](./ii-assistent-po-dannym-1c-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-assistent-po-dannym-1c-2026/)
 - [vLLM или Ollama: когда бизнесу нужен сервер под нагрузку](./vllm-ili-ollama-server-pod-nagruzku-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vllm-ili-ollama-server-pod-nagruzku-2026/)
 - [GigaChat 3.5 Reasoning: три цифры из пресс-релиза и столбец, которого в нём нет](./gigachat-3-5-reasoning-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gigachat-3-5-reasoning-2026/)
 - [Открытая модель под MIT — а использовать нельзя: как читать лицензии по слоям](./licenzii-otkrytyh-modeley-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/licenzii-otkrytyh-modeley-2026/)
@@ -1321,6 +1323,14 @@
 - [Переход со старой УТ 10.3 на УТ 11: что перенесётся, а что придётся делать заново](./perehod-s-ut-10-3-na-ut-11-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/perehod-s-ut-10-3-na-ut-11-2026/)
 - [Доработки через расширения: почему после них 1С обновляется без боли](./dorabotki-1c-cherez-rasshireniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/dorabotki-1c-cherez-rasshireniya-2026/)
 - [1С в облаке или на своём сервере: что выбрать бизнесу](./1c-v-oblake-ili-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/1c-v-oblake-ili-na-svoem-servere-2026/)
+- [Интеграция Ozon с 1С: товары, остатки, заказы и финансовые отчёты](./integraciya-ozon-s-1c-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/integraciya-ozon-s-1c-2026/)
+- [amoCRM и 1С: как не вести клиентов в двух местах](./amocrm-i-1c-integraciya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/amocrm-i-1c-integraciya-2026/)
+- [Авито и 1С: объявления из остатков и заявки без ручного переноса](./avito-i-1c-obyavleniya-iz-ostatkov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avito-i-1c-obyavleniya-iz-ostatkov-2026/)
+- [Звонок клиента открывает его карточку: телефония и 1С](./telefoniya-i-1c-kartochka-klienta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/telefoniya-i-1c-kartochka-klienta-2026/)
+- [Оплаты сами разносятся в 1С: выписка из банка, СБП и счёт со ссылкой на оплату](./oplaty-sami-raznosyatsya-v-1c-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/oplaty-sami-raznosyatsya-v-1c-2026/)
+- [Должники получают напоминание сами: дебиторская задолженность из 1С в мессенджер](./debitorka-iz-1c-napominaniya-dolzhnikam-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/debitorka-iz-1c-napominaniya-dolzhnikam-2026/)
+- [Возвраты от клиентов в 1С: как принять, проверить и не потерять товар](./vozvraty-ot-klientov-v-1c-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vozvraty-ot-klientov-v-1c-2026/)
+- [Производство на малом предприятии в 1С: сырьё, выпуск и себестоимость](./proizvodstvo-na-malom-predpriyatii-v-1c-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/proizvodstvo-na-malom-predpriyatii-v-1c-2026/)
 - [Конструкторы ботов для MAX: как сравнивать и что выбрать под задачу](./konstruktory-botov-max-sravnenie-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/konstruktory-botov-max-sravnenie-2026/)
 - [Услуги DevOps: сколько стоят и что входит в 2026](./uslugi-devops-stoimost-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uslugi-devops-stoimost-2026/)
 - [Как принимать оплату на сайте: эквайринг простыми словами](./kak-prinimat-oplatu-na-sayte-ekvayring-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-prinimat-oplatu-na-sayte-ekvayring-2026/)
