@@ -258,7 +258,7 @@ document.addEventListener('DOMContentLoaded', () => {
 /* Лид-цели в Яндекс.Метрике (счётчик 109281884).
    Один делегированный слушатель ловит клики по всем CTA на любой странице
    и шлёт цель. В интерфейсе Метрики создайте цели типа «JavaScript-событие»
-   с идентификаторами: lead_telegram, lead_market, lead_email, lead_call. */
+   с идентификаторами: lead_telegram, lead_max, lead_vk, lead_market, lead_email, lead_call. */
 (function () {
     var YM_ID = 109281884;
     function goal(name) {
@@ -269,6 +269,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!a) return;
         var h = a.getAttribute('href') || '';
         if (/t\.me\/chimitdorzhi/i.test(h)) goal('lead_telegram');
+        else if (/max\.ru\//i.test(h)) goal('lead_max');
+        else if (/vk\.com\/chimitdorzhi/i.test(h)) goal('lead_vk');
         else if (/(^https?:\/\/[^/]*chimitdorzhi\.tech)?\/market\//i.test(h) || /#checklist/i.test(h)) goal('lead_market');
         else if (/^mailto:/i.test(h)) goal('lead_email');
         else if (/^tel:/i.test(h)) goal('lead_call');
