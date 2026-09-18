@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Авито и 1С: объявления из остатков автоматически</title>
+    <meta name="description" content="Товар закончился, а объявление висит; цена поменялась в 1С, а на Авито старая. Как формировать объявления из остатков и не терять заявки в чатах.">
+    <meta name="keywords" content="1С, Авито, объявления, интеграция">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/avito-i-1c-obyavleniya-iz-ostatkov-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/avito-i-1c-obyavleniya-iz-ostatkov-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/avito-i-1c-obyavleniya-iz-ostatkov-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/avito-i-1c-obyavleniya-iz-ostatkov-2026/">
+    <meta property="og:title" content="Авито и 1С: объявления из остатков автоматически">
+    <meta property="og:description" content="Товар закончился, а объявление висит; цена поменялась в 1С, а на Авито старая. Как формировать объявления из остатков и не терять заявки в чатах.">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/avito-i-1c-obyavleniya-iz-ostatkov-2026/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Авито и 1С: объявления из остатков автоматически">
+    <meta name="twitter:description" content="Товар закончился, а объявление висит; цена поменялась в 1С, а на Авито старая. Как формировать объявления из остатков и не терять заявки в чатах.">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/avito-i-1c-obyavleniya-iz-ostatkov-2026/cover.png">
+
+    <link rel="icon" href="/favicon.svg?v=5" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=5">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png?v=5">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=5">
+    <link rel="preload" href="/assets/fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=77">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Авито и 1С: объявления из остатков и заявки без ручного переноса",
+  "description": "Товар закончился, а объявление висит; цена поменялась в 1С, а на Авито старая. Как формировать объявления из остатков и не терять заявки в чатах.",
+  "image": "https://chimitdorzhi.tech/blog/avito-i-1c-obyavleniya-iz-ostatkov-2026/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://t.me/chimitdorzhi_studio",
+      "https://max.ru/channel_chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio",
+      "https://github.com/chimitdorzhi",
+      "https://chimitdorzhi.tech/about/"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/avito-i-1c-obyavleniya-iz-ostatkov-2026/"
+  },
+  "datePublished": "2026-09-18",
+  "dateModified": "2026-09-18",
+  "keywords": "1С, Авито, объявления, интеграция",
+  "articleSection": "Разработка",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Авито и 1С: объявления из остатков и заявки без ручного переноса",
+      "item": "https://chimitdorzhi.tech/blog/avito-i-1c-obyavleniya-iz-ostatkov-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Нужно ли дорабатывать 1С?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Обычно да, но немного. Нужно отдавать товары, цены и остатки для файла и принимать обращения. Я делаю это отдельными объектами, чтобы типовые обновления ставились спокойно."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как быстро объявление снимется, если товар закончился?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "При автозагрузке — после следующей обработки файла площадкой. Если нужно быстрее, часть изменений можно отправлять через API."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли выставлять не весь каталог?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да. Выбор делается по группе, складу или отметке в карточке товара. Обычно начинают с одной группы."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что делать, если фото в 1С нет?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Завести папку с файлами по артикулу. Связка найдёт фото сама. Без фото объявления работают заметно хуже, так что на это стоит потратить время."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Бот ответит вместо менеджера на всё?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет. Бот берёт наличие, цену, адрес и доставку. Торг, подбор и претензии остаются за человеком."
+      }
+    }
+  ]
+}
+    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+var inject=function(){for (var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)};
+var run=function(){('requestIdleCallback' in window)?requestIdleCallback(inject,{timeout:5000}):setTimeout(inject,3000)};
+(e.readyState==='complete')?run():m.addEventListener('load',run);})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109281884" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<!-- Цели Метрики: клики по контактам и услугам -->
+<script type="text/javascript">
+(function(){
+  var GOALS = [
+    { re: /t\.me\//i,                     goal: 'tg_click' },
+    { re: /max\.ru\//i,                    goal: 'max_click' },
+    { re: /audit\.chimitdorzhi\.tech/i,    goal: 'audit_click' },
+    { re: /chimitdorzhi\.tech\/services\//i, goal: 'service_click' },
+    { re: /chimitdorzhi\.tech\/predlozheniya\//i, goal: 'offer_click' }
+  ];
+  document.addEventListener('click', function(e){
+    var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    for (var i = 0; i < GOALS.length; i++) {
+      if (GOALS[i].re.test(href)) {
+        try { if (window.ym) ym(109281884, 'reachGoal', GOALS[i].goal); } catch (err) {}
+        break;
+      }
+    }
+  }, true);
+})();
+</script>
+</head>
+<body class="wx-read">
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/" data-i18n="nav.home">Главная</a></li>
+            <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/market/" data-i18n="nav.offers">Предложения</a></li>
+            <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+            <li class="nav-dropdown">
+                <a href="/cases/" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+                <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему" aria-pressed="false">
+                <i class="ph ph-moon" aria-hidden="true"></i>
+            </button>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/" data-i18n="nav.home">Главная</a></li>
+        <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+        <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+        <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+        <li><a href="/market/" data-i18n="nav.offers">Предложения</a></li>
+        <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+        <li class="mobile-has-submenu">
+            <details>
+                <summary aria-label="Проекты — развернуть"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down" aria-hidden="true"></i></summary>
+                <ul class="mobile-submenu">
+                    <li>
+                        <a href="https://gerel.space" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">Gerel.space</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/universe_buryat/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/arey/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.arey">AREY</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/mwrlife/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">MWR Life</span>
+                                <span class="mobile-sub-desc">Travel-клуб и партнёрка</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </details>
+        </li>
+        <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+    </ul>
+    <div class="mobile-controls">
+        <div class="mobile-lang-switcher" role="group" aria-label="Выбор языка">
+            <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+            <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+            <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+        </div>
+        <button class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle" aria-label="Переключить тему" aria-pressed="false">
+            <i class="ph ph-moon" aria-hidden="true"></i>
+        </button>
+    </div>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Авито и 1С: объявления из остатков и заявки без ручного переноса</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/development/"><i class="ph ph-bookmark" aria-hidden="true"></i> Разработка</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 5 мин чтения</span>
+                        <time datetime="2026-09-18"><i class="ph ph-calendar" aria-hidden="true"></i> 18 сентября 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Авито и 1С: объявления из остатков и заявки без ручного переноса</h1>
+
+                    <p class="blog-lead">Магазины и оптовики торгуют на Авито, но объявления ведут руками. Показываю, как связать их с 1С, кому это подходит и какие ошибки приводят к дублям и старым ценам.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>1С</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>Авито</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>объявления</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>интеграция</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
+<li>Объявления на Авито можно собирать из товаров и остатков 1С автоматически. Товар закончился — объявление снимается. Цена поменялась в 1С — на Авито она тоже меняется.</li>
+<li>Массовое размещение идёт через файл с объявлениями, который площадка сама забирает по расписанию. Сообщения покупателей через API попадают в CRM или в 1С, а не теряются в чатах.</li>
+<li>Связка окупается там, где много однотипного товара: запчасти, стройматериалы, мелкий опт. Правила площадки и лимиты размещения нужно проверять для своей категории заранее.</li>
+</ul></div>
+
+<p>Многие магазины и оптовики продают на Авито, но ведут объявления руками. Менеджер выложил сотню позиций, а через неделю половина из них уже неправда. Товар закончился, а объявление висит. Покупатель пишет, менеджер извиняется. Цену подняли в 1С, а на Авито осталась старая, и покупатель приходит с обидой. Чем больше товаров, тем больше таких расхождений. Я делаю связку, в которой объявления живут по данным 1С, а заявки из чатов попадают в учёт. Расскажу, как она устроена и где у неё границы.</p>
+
+<h2 id="kak-ustroeno">Как устроена связка</h2>
+<p>Источник правды один — 1С. Там уже есть номенклатура, цены и остатки. Связка регулярно берёт из базы нужные товары и собирает по ним объявления. Какие товары выставлять, решаете вы: по группе, по складу, по отметке в карточке.</p>
+<p>Дальше всё идёт само. Остаток дошёл до нуля — объявление снимается с публикации. Товар пришёл снова — объявление возвращается. Цена в 1С поменялась — при следующем обновлении она меняется и на Авито. Менеджеру не нужно помнить, что где висит.</p>
+<p>Важно, чтобы у каждого объявления был постоянный идентификатор, связанный с товаром в 1С. Тогда площадка понимает, что это то же самое объявление, а не новое. Без этого начинаются дубли, о них ниже.</p>
+
+<h2 id="fid">Массовое размещение через файл</h2>
+<p>У Авито есть автозагрузка. Вы готовите файл-фид со списком объявлений: название, описание, цена, фото, категория и её параметры. Площадка забирает этот файл по ссылке по расписанию и приводит объявления в соответствие с ним. Нет позиции в файле — объявление снимается. Изменилась цена — обновляется.</p>
+<p>Я делаю так, что файл формируется из 1С автоматически и лежит по постоянному адресу. Никто его не выгружает руками. Для задач, где нужна реакция быстрее расписания автозагрузки, у площадки есть API для бизнеса. Через него же удобно получать статистику и сообщения.</p>
+<p>Формат файла и обязательные поля зависят от категории. У запчастей одни параметры, у стройматериалов другие. Это нужно сверить с документацией Авито для вашей категории до начала работ.</p>
+
+<h2 id="foto-i-opisaniya">Фото и описания</h2>
+<p>Цены и остатки в 1С есть почти всегда. А вот хороших фото и описаний там часто нет. Это обычно самая долгая часть подготовки.</p>
+<p>Фото я беру из карточек товаров в 1С, если они там есть. Если нет, заводим отдельную папку, где файл называется по артикулу, и связка подтягивает его сама. Описание собирается из шаблона и характеристик товара: размер, материал, совместимость, фасовка. Плюс общий блок про доставку, самовывоз и оплату.</p>
+<p>Главное — не делать одинаковые объявления. Если сто позиций отличаются только артикулом в заголовке, площадка может посчитать их дублями. Поэтому в шаблон я закладываю разные характеристики, разные первые строки, реальные фото конкретного товара. Каждое объявление должно быть про свой товар.</p>
+
+<h2 id="zayavki">Заявки и сообщения покупателей</h2>
+<p>Сообщения от покупателей приходят в чаты Авито. Когда объявлений много, чаты превращаются в поток. Менеджер отвечает на телефоне в перерыве, что-то пропускает, контакт покупателя нигде не остаётся.</p>
+<p>Через API сообщения можно забирать и складывать в CRM или прямо в 1С как обращение. К обращению сразу привязан товар, по которому пишет человек. Менеджер видит очередь, отвечает из своей системы, а история остаётся. Если покупатель потом звонит или приходит на склад, по нему уже есть запись.</p>
+<p>Типовые вопросы можно отдать боту. Есть ли в наличии, сколько стоит, где забрать, есть ли доставка. На это бот отвечает по данным 1С, честно и сразу. Всё сложное — подбор, торг, опт, претензия — уходит менеджеру с пометкой. Бот не должен делать вид, что он человек, и не должен обещать того, чего нет в базе.</p>
+
+<h2 id="sravnenie">Вручную и через связку с 1С</h2>
+<div class="blog-table"><table>
+<thead><tr><th>Задача</th><th>Вручную</th><th>Через связку с 1С</th></tr></thead>
+<tbody>
+<tr><td>Выложить сотни позиций</td><td>Дни работы менеджера</td><td>Файл собирается из 1С, площадка забирает его сама</td></tr>
+<tr><td>Снять закончившийся товар</td><td>Если вспомнят</td><td>Снимается при нулевом остатке</td></tr>
+<tr><td>Обновить цену</td><td>Правка каждого объявления</td><td>Цена берётся из 1С при каждом обновлении</td></tr>
+<tr><td>Ответить на «есть в наличии?»</td><td>Менеджер проверяет базу и пишет</td><td>Бот отвечает по остатку сразу</td></tr>
+<tr><td>Сохранить заявку</td><td>Остаётся в чате на телефоне</td><td>Попадает в CRM или 1С с привязкой к товару</td></tr>
+</tbody>
+</table></div>
+
+<h2 id="komu-podhodit">Кому это подходит</h2>
+<p>Связка окупается, когда товара много и он однотипный. Автозапчасти, где тысячи артикулов и остатки постоянно меняются. Стройматериалы и крепёж. Опт для мелких покупателей, которые ищут товар на Авито, а не на сайте поставщика. Магазины, у которых склад уже ведётся в 1С и остатки там правдивые.</p>
+<p>Если у вас двадцать объявлений и они меняются раз в месяц, автоматизация не нужна. Проще вести руками.</p>
+<p>И одно условие без исключений: остатки в 1С должны быть живыми. Если склад учитывают раз в неделю, связка просто будет быстро размножать неправду.</p>
+
+<h2 id="ogranicheniya">Ограничения и частые ошибки</h2>
+<p>У площадки свои правила к объявлениям: что можно писать в названии, какие фото допустимы, какие товары требуют особых условий. Есть лимиты размещения и платные тарифы, и они зависят от категории и региона. Всё это нужно проверить для своей категории до запуска. Связка не отменяет правила, она только выполняет их быстрее.</p>
+<p>Первая частая ошибка — дубли. Идентификатор объявления поменялся, и площадка видит новое объявление вместо старого. Или один товар выставлен дважды из разных групп. Решается постоянным идентификатором и проверкой перед выгрузкой.</p>
+<p>Вторая — товар в резерве продолжает висеть. Остаток формально есть, но весь он уже обещан другому клиенту. Я считаю для Авито свободный остаток, а не общий. Как именно резервы устроены в вашей конфигурации, надо проверить на своей версии.</p>
+<p>Третья — цены с округлением и наценкой. Для Авито часто ставят отдельную цену, и формула округления даёт странные цифры или расходится с ценой в магазине. Правило лучше зафиксировать заранее и проверить на десятке товаров.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+<h3>Нужно ли дорабатывать 1С?</h3>
+<p>Обычно да, но немного. Нужно отдавать товары, цены и остатки для файла и принимать обращения. Я делаю это отдельными объектами, чтобы типовые обновления ставились спокойно.</p>
+<h3>Как быстро объявление снимется, если товар закончился?</h3>
+<p>При автозагрузке — после следующей обработки файла площадкой. Если нужно быстрее, часть изменений можно отправлять через API.</p>
+<h3>Можно ли выставлять не весь каталог?</h3>
+<p>Да. Выбор делается по группе, складу или отметке в карточке товара. Обычно начинают с одной группы.</p>
+<h3>Что делать, если фото в 1С нет?</h3>
+<p>Завести папку с файлами по артикулу. Связка найдёт фото сама. Без фото объявления работают заметно хуже, так что на это стоит потратить время.</p>
+<h3>Бот ответит вместо менеджера на всё?</h3>
+<p>Нет. Бот берёт наличие, цену, адрес и доставку. Торг, подбор и претензии остаются за человеком.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+<p>Если объявления на Авито ведутся руками, они быстро расходятся с реальностью. Связка с 1С делает объявления отражением склада: нет товара — нет объявления, новая цена — новая цена на площадке.</p>
+<p>Работает это на файле автозагрузки, API площадки и живых остатках в 1С. Сообщения покупателей попадают в CRM или в 1С, типовые вопросы закрывает бот, сложные уходят менеджеру. Правила и лимиты Авито для своей категории нужно проверить заранее.</p>
+<p>Если вы торгуете на Авито и остатки ведёте в 1С, расскажите, какая у вас конфигурация и сколько позиций хотите выставлять. Предложу, с какой группы начать. Напишите в Telegram, MAX или VK.</p>
+
+                    </div>
+                    
+
+                    
+                    
+                    
+                    
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Что я делаю для бизнеса</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-plugs-connected"></i> <span>Интеграция 1С с CRM, сайтом и маркетплейсами</span></li>
+    
+    <li><i class="ph-fill ph-robot"></i> <span>ИИ-агенты и боты поверх 1С</span></li>
+    
+    <li><i class="ph-fill ph-barcode"></i> <span>Складской учёт и приложения для ТСД</span></li>
+    
+    <li><i class="ph-fill ph-gear"></i> <span>Автоматизация процессов</span></li>
+    
+  </ul>
+  <div class="blog-services-offer-ctas">
+    <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+      <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
+    </a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="blog-services-offer-cta blog-services-offer-cta-max">
+      <i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> Написать в MAX
+    </a>
+  </div>
+</div>
+                    <div class="blog-cta-card">
+                        <div class="blog-cta-card-body">
+                            <h3>Бесплатно: чек-лист «Готов ли ваш бизнес к 152-ФЗ»</h3>
+                            <p>12 пунктов, которые проверяют готовность за час: данные, согласия, уведомление в РКН, локализация, защита. Отметьте, что уже сделано, и увидите дыры, за которые сейчас штрафуют.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="/checklist-152-fz/" class="btn btn-accent"><i class="ph-fill ph-clipboard-text" aria-hidden="true"></i> Открыть чек-лист</a>
+                        </div>
+                    </div>
+                    
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/predlozheniya/integraciya-sistem/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Обсудить интеграцию с 1С</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-subscribe">
+  <div class="blog-subscribe-body">
+    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
+    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
+  </div>
+  <div class="blog-subscribe-actions">
+    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
+  </div>
+</section>
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/priem-zayavok-s-avito-v-crm-2027/" data-category="development" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-arrows-merge"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
+  <h3>Приём заявок с Авито прямо в CRM без ручного копирования</h3>
+  <p>Заявки с Авито теряются в переписке, а менеджер вручную переносит контакты в таблицу. Интеграция сразу заносит каждый лид в CRM с источником. Разбираю, как это настроить.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 4 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 6 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/ostatki-na-wb-ozon-ym-iz-odnoy-1c-2026/" data-category="development" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-arrows-split"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
+  <h3>Остатки на WB, Ozon и Яндекс Маркете из одной 1С: как не продать то, чего нет</h3>
+  <p>Главная боль продавца на нескольких площадках — перепродажа товара, которого уже нет. Показываю, откуда она берётся и как настроить 1С источником правды для всех площадок.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 18 сентября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 5 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/amocrm-i-1c-integraciya-2026/" data-category="development" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-arrows-left-right"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
+  <h3>amoCRM и 1С: как не вести клиентов в двух местах</h3>
+  <p>Менеджер не знает, оплатил ли клиент, бухгалтер не знает о сделке. Разбираю, как связать amoCRM с 1С так, чтобы статус денег и отгрузки был виден прямо в сделке.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 18 сентября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 5 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    
+                    
+                    
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow"><span class="b-l b-l-ru">Готовые решения под ключ</span><span class="b-l b-l-en" lang="en">Turnkey solutions</span><span class="b-l b-l-es" lang="es">Soluciones llave en mano</span><span class="b-l b-l-cn" lang="zh">交钥匙解决方案</span><span class="b-l b-l-mn" lang="mn">Түлхүүр гардуулах шийдэл</span></span>
+                            <span class="blog-offer-cta-title"><span class="b-l b-l-ru">449 готовых IT-решений для бизнеса</span><span class="b-l b-l-en" lang="en">449 ready-made IT solutions for business</span><span class="b-l b-l-es" lang="es">449 soluciones IT listas para empresas</span><span class="b-l b-l-cn" lang="zh">449 个面向企业的现成 IT 解决方案</span><span class="b-l b-l-mn" lang="mn">Бизнест зориулсан 449 бэлэн IT шийдэл</span></span>
+                            <span class="blog-offer-cta-price"><span class="b-l b-l-ru">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span><span class="b-l b-l-en" lang="en">Automation, bots, AI, data privacy and platforms · free consultation</span><span class="b-l b-l-es" lang="es">Automatización, bots, IA, privacidad de datos y plataformas · consulta gratis</span><span class="b-l b-l-cn" lang="zh">自动化、机器人、AI、数据合规与平台 · 免费咨询</span><span class="b-l b-l-mn" lang="mn">Автоматжуулалт, бот, AI, өгөгдлийн хамгаалалт ба платформ · үнэгүй зөвлөгөө</span></span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> <span class="b-l b-l-ru">Смотреть каталог</span><span class="b-l b-l-en" lang="en">View catalog</span><span class="b-l b-l-es" lang="es">Ver catálogo</span><span class="b-l b-l-cn" lang="zh">查看目录</span><span class="b-l b-l-mn" lang="mn">Каталог үзэх</span></span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#kak-ustroeno"><span class="blog-toc-num">01</span> Как устроена связка</a></li>
+<li><a href="#fid"><span class="blog-toc-num">02</span> Массовое размещение через файл</a></li>
+<li><a href="#foto-i-opisaniya"><span class="blog-toc-num">03</span> Фото и описания</a></li>
+<li><a href="#zayavki"><span class="blog-toc-num">04</span> Заявки и сообщения покупателей</a></li>
+<li><a href="#sravnenie"><span class="blog-toc-num">05</span> Вручную и через связку с 1С</a></li>
+<li><a href="#komu-podhodit"><span class="blog-toc-num">06</span> Кому это подходит</a></li>
+<li><a href="#ogranicheniya"><span class="blog-toc-num">07</span> Ограничения и частые ошибки</a></li>
+<li><a href="#faq"><span class="blog-toc-num">08</span> Частые вопросы</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">09</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+971563369591" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +971 56 336 9591</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">RA Standard - F.Z.E</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_licence">Лицензия 57033</span><span> · </span><span data-i18n="footer.legal_authority">Free Zones Authority of Ajman</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">Эмират Аджман, ОАЭ</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/cases/" class="footer-policy-link">Кейсы</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=43" defer></script>
+<script src="/services-i18n.js?v=43" defer></script>
+<script src="/script.js?v=36" defer></script>
+<script src="/search-widget.js?v=1" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Возвраты от клиентов в 1С: приёмка, проверка и деньги</title>
+    <meta name="description" content="Брак, пересорт, отказ, истёкший срок: куда идёт возвращённый товар, почему его нельзя сразу ставить на остаток и что делать с деньгами клиенту.">
+    <meta name="keywords" content="1С, возвраты, склад, опт">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/vozvraty-ot-klientov-v-1c-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/vozvraty-ot-klientov-v-1c-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/vozvraty-ot-klientov-v-1c-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/vozvraty-ot-klientov-v-1c-2026/">
+    <meta property="og:title" content="Возвраты от клиентов в 1С: приёмка, проверка и деньги">
+    <meta property="og:description" content="Брак, пересорт, отказ, истёкший срок: куда идёт возвращённый товар, почему его нельзя сразу ставить на остаток и что делать с деньгами клиенту.">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/vozvraty-ot-klientov-v-1c-2026/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Возвраты от клиентов в 1С: приёмка, проверка и деньги">
+    <meta name="twitter:description" content="Брак, пересорт, отказ, истёкший срок: куда идёт возвращённый товар, почему его нельзя сразу ставить на остаток и что делать с деньгами клиенту.">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/vozvraty-ot-klientov-v-1c-2026/cover.png">
+
+    <link rel="icon" href="/favicon.svg?v=5" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=5">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png?v=5">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=5">
+    <link rel="preload" href="/assets/fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=77">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Возвраты от клиентов в 1С: как принять, проверить и не потерять товар",
+  "description": "Брак, пересорт, отказ, истёкший срок: куда идёт возвращённый товар, почему его нельзя сразу ставить на остаток и что делать с деньгами клиенту.",
+  "image": "https://chimitdorzhi.tech/blog/vozvraty-ot-klientov-v-1c-2026/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://t.me/chimitdorzhi_studio",
+      "https://max.ru/channel_chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio",
+      "https://github.com/chimitdorzhi",
+      "https://chimitdorzhi.tech/about/"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/vozvraty-ot-klientov-v-1c-2026/"
+  },
+  "datePublished": "2026-09-18",
+  "dateModified": "2026-09-18",
+  "keywords": "1С, возвраты, склад, опт",
+  "articleSection": "Разработка",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Возвраты от клиентов в 1С: как принять, проверить и не потерять товар",
+      "item": "https://chimitdorzhi.tech/blog/vozvraty-ot-klientov-v-1c-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Кто должен принимать решение по возврату?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Не кладовщик. Кладовщик принимает и фиксирует. Решает менеджер клиента или руководитель склада."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько товар может лежать в зоне возвратов?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Я ставлю короткий срок, несколько дней. Всё, что лежит дольше, попадает в отчёт руководителю."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужно ли принимать возврат без документов?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Лучше не принимать, пока не понятно, из какой отгрузки товар. Хотя бы номер заказа клиент должен назвать."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли вернуть на полку товар со вскрытой упаковкой?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Зависит от товара. Для продуктов обычно нет. Правило стоит записать заранее, чтобы не решать каждый раз заново."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как оформить возврат в бухгалтерии?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Это зависит от договора, конфигурации 1С и того, в каком периоде была продажа. Этот вопрос лучше решать с бухгалтером."
+      }
+    }
+  ]
+}
+    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+var inject=function(){for (var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)};
+var run=function(){('requestIdleCallback' in window)?requestIdleCallback(inject,{timeout:5000}):setTimeout(inject,3000)};
+(e.readyState==='complete')?run():m.addEventListener('load',run);})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109281884" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<!-- Цели Метрики: клики по контактам и услугам -->
+<script type="text/javascript">
+(function(){
+  var GOALS = [
+    { re: /t\.me\//i,                     goal: 'tg_click' },
+    { re: /max\.ru\//i,                    goal: 'max_click' },
+    { re: /audit\.chimitdorzhi\.tech/i,    goal: 'audit_click' },
+    { re: /chimitdorzhi\.tech\/services\//i, goal: 'service_click' },
+    { re: /chimitdorzhi\.tech\/predlozheniya\//i, goal: 'offer_click' }
+  ];
+  document.addEventListener('click', function(e){
+    var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    for (var i = 0; i < GOALS.length; i++) {
+      if (GOALS[i].re.test(href)) {
+        try { if (window.ym) ym(109281884, 'reachGoal', GOALS[i].goal); } catch (err) {}
+        break;
+      }
+    }
+  }, true);
+})();
+</script>
+</head>
+<body class="wx-read">
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/" data-i18n="nav.home">Главная</a></li>
+            <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/market/" data-i18n="nav.offers">Предложения</a></li>
+            <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+            <li class="nav-dropdown">
+                <a href="/cases/" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+                <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему" aria-pressed="false">
+                <i class="ph ph-moon" aria-hidden="true"></i>
+            </button>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/" data-i18n="nav.home">Главная</a></li>
+        <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+        <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+        <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+        <li><a href="/market/" data-i18n="nav.offers">Предложения</a></li>
+        <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+        <li class="mobile-has-submenu">
+            <details>
+                <summary aria-label="Проекты — развернуть"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down" aria-hidden="true"></i></summary>
+                <ul class="mobile-submenu">
+                    <li>
+                        <a href="https://gerel.space" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">Gerel.space</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/universe_buryat/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/arey/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.arey">AREY</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/mwrlife/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">MWR Life</span>
+                                <span class="mobile-sub-desc">Travel-клуб и партнёрка</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </details>
+        </li>
+        <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+    </ul>
+    <div class="mobile-controls">
+        <div class="mobile-lang-switcher" role="group" aria-label="Выбор языка">
+            <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+            <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+            <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+        </div>
+        <button class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle" aria-label="Переключить тему" aria-pressed="false">
+            <i class="ph ph-moon" aria-hidden="true"></i>
+        </button>
+    </div>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Возвраты от клиентов в 1С: как принять, проверить и не потерять товар</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/development/"><i class="ph ph-bookmark" aria-hidden="true"></i> Разработка</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 5 мин чтения</span>
+                        <time datetime="2026-09-18"><i class="ph ph-calendar" aria-hidden="true"></i> 18 сентября 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Возвраты от клиентов в 1С: как принять, проверить и не потерять товар</h1>
+
+                    <p class="blog-lead">Возвраты — источник пересорта: товар вернули, а в 1С он всё ещё у клиента. Показываю порядок приёмки возвратов и где их чаще всего теряют.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>1С</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>возвраты</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>склад</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>опт</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
+<li>Возврат без проверки — главный источник пересорта у оптовика. Товар физически на складе, а в 1С висит у клиента, или наоборот.</li>
+<li>Возвращённый товар сначала сверяют с документом отгрузки и кладут в отдельную зону. На общий остаток он попадает только после решения, куда его девать.</li>
+<li>Каждый возврат должен закрываться решением: полка, брак, списание или поставщик. И отдельно решают, что с деньгами: вернуть или зачесть в следующий заказ.</li>
+</ul></div>
+
+<p>У оптовика возвраты случаются каждую неделю. Клиент нашёл брак, получил не тот товар, отказался от части заказа. Водитель привозит коробки обратно, их ставят куда-нибудь у ворот. Через месяц на складе лишний товар, которого нет в учёте, а в 1С числится то, чего на полке нет. Расскажу, как я выстраиваю приёмку возвратов, чтобы товар не терялся, а остатки сходились.</p>
+
+<h2 id="vidy-vozvratov">Какие бывают возвраты</h2>
+<p>Возвраты у оптовика не одинаковые. От типа зависит, куда пойдёт товар и что будет с деньгами. Поэтому первое, что я делаю, — разделяю их по причинам.</p>
+<p>Брак: товар повреждён, испорчен или не работает. Пересорт при отгрузке: клиенту положили не тот вкус, не ту фасовку, не тот артикул. Недовложение: товара приехало меньше, чем в документе, и клиент возвращает не товар, а претензию. Отказ от товара: клиент передумал или заказал лишнее. Истёкший или короткий срок: товар привезли с остатком срока, который клиента не устраивает.</p>
+<p>Причину возврата стоит фиксировать в 1С. Это не формальность. Через пару месяцев по причинам видно, где у вас проблема: на складе, у поставщика или у менеджеров.</p>
+
+<h2 id="poryadok-priemki">Порядок приёмки возврата</h2>
+<p>Первый шаг — сверка с документом отгрузки. Какой товар вернули, из какой отгрузки, из какой поставки. Если клиент возвращает то, что вы ему не продавали, это видно сразу. Такое бывает чаще, чем кажется: у клиента несколько поставщиков, и коробки путаются уже у него.</p>
+<p>Второй шаг — осмотр. Целая ли упаковка, какой срок годности, совпадает ли партия. Кладовщик смотрит на каждую коробку, а не на паллету целиком.</p>
+<p>Третий шаг — решение. Товар может вернуться на полку, уйти в брак, на списание или обратно поставщику. Решение принимает не кладовщик, а ответственный человек: менеджер или руководитель склада. Кладовщик фиксирует, что пришло. Решает другой человек.</p>
+<p>Если брак заводской, его стоит вернуть поставщику. Для этого нужно знать, из какой поставки товар, и иметь подтверждение: фото, акт, описание дефекта. Если собирать это задним числом, половина претензий теряется. Я советую оформлять претензию сразу, пока товар лежит в зоне брака.</p>
+
+<h2 id="otdelnaya-zona">Почему нельзя сразу ставить на общий остаток</h2>
+<p>Самая частая ошибка — принять возврат и сразу вернуть товар в продажу. Кажется, что так быстрее. На деле возвращённая коробка может быть помята, подмочена или вскрыта. У неё может быть другой срок, чем у партии на полке. Её снова продадут, и она вернётся уже с претензией.</p>
+<p>Поэтому я завожу отдельную зону или отдельную ячейку для возвратов. В учёте это тоже отдельное место хранения. Товар лежит там до решения. Продать его оттуда нельзя, он не попадает в свободный остаток. Когда решение принято, товар перемещают: на полку, в зону брака или на отгрузку поставщику.</p>
+<p>Отдельная зона решает ещё одну проблему. Руководитель в любой момент видит, сколько товара ждёт решения и как давно.</p>
+
+<h2 id="tablitsa">Тип возврата, товар и деньги</h2>
+<div class="blog-table"><table>
+<thead><tr><th>Тип возврата</th><th>Куда товар</th><th>Что с деньгами</th></tr></thead>
+<tbody>
+<tr><td>Брак по вине поставщика</td><td>Зона брака, затем претензия и отгрузка поставщику</td><td>Клиенту возврат или зачёт, с поставщика требуем компенсацию</td></tr>
+<tr><td>Брак по вине склада или перевозки</td><td>Зона брака, затем списание</td><td>Клиенту возврат или зачёт, потеря остаётся на вас</td></tr>
+<tr><td>Пересорт при отгрузке</td><td>После проверки обратно на полку</td><td>Обычно зачёт и довоз нужного товара</td></tr>
+<tr><td>Недовложение</td><td>Товара нет, возвращать нечего</td><td>Корректировка суммы отгрузки или довоз</td></tr>
+<tr><td>Отказ от товара</td><td>После осмотра на полку, если упаковка целая</td><td>Возврат денег или зачёт по договорённости</td></tr>
+<tr><td>Истёкший или короткий срок</td><td>Зона возвратов, затем уценка, списание или поставщику</td><td>Возврат или зачёт, дальше зависит от условий с поставщиком</td></tr>
+</tbody>
+</table></div>
+
+<h2 id="dengi">Деньги: возврат или зачёт</h2>
+<p>Товар вернулся, но деньги тоже надо закрыть. Здесь два пути. Вернуть клиенту деньги или зачесть сумму в следующий заказ. Оптовые клиенты чаще выбирают зачёт, потому что работают с вами постоянно.</p>
+<p>Проблема в том, что зачёт часто держат в голове. Менеджер обещал клиенту скидку на следующую поставку и забыл. Или помнит, но в 1С долг клиента всё ещё висит на полную сумму. Сверка взаиморасчётов потом превращается в спор. Возврат в учёте должен сразу уменьшать долг клиента или создавать сумму к возврату. Какими документами это оформлять и как это отражается в бухучёте, зависит от конфигурации и договора. Это стоит согласовать с бухгалтером.</p>
+
+<h2 id="ves-i-partii">Весовой товар, партии и ТСД</h2>
+<p>С весовым товаром возвращается не «коробка мяса», а конкретная коробка с конкретным весом. Если принять её по условному весу, остаток в килограммах разойдётся. Мелкие расхождения накапливаются, и на инвентаризации их уже не объяснить.</p>
+<p>То же с партиями. Клиент возвращает товар из конкретной поставки, с конкретным сроком. Если принять его в другую партию, сроки в учёте перестают соответствовать полке. Поэтому при приёмке возврата партию берут из документа отгрузки, а вес — с этикетки или с весов.</p>
+<p>Терминал сбора данных здесь сильно помогает. Кладовщик сканирует каждую возвращённую коробку. По штрихкоду или этикетке видно, что это за товар и из какой отгрузки он ушёл. Если коробки не было в отгрузке этому клиенту, терминал это покажет. Спорить с клиентом проще, когда есть факт, а не память кладовщика.</p>
+
+<h2 id="oshibki">Частые ошибки</h2>
+<p>Возврат оформили задним числом. Товар пришёл неделю назад, в 1С его провели сегодня прошлой датой. Отчёты за закрытый период меняются, остатки за прошлые дни уже не совпадают с тем, что видели люди.</p>
+<p>Приняли без проверки. Посчитали коробки и поставили на полку. Через месяц покупатель находит внутри брак или чужой товар.</p>
+<p>Возврат висит неделями без решения. Товар лежит в углу, деньги клиенту не вернули и не зачли. Со временем уже никто не помнит, что это за коробки и чьи они.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+<h3>Кто должен принимать решение по возврату?</h3>
+<p>Не кладовщик. Кладовщик принимает и фиксирует. Решает менеджер клиента или руководитель склада.</p>
+<h3>Сколько товар может лежать в зоне возвратов?</h3>
+<p>Я ставлю короткий срок, несколько дней. Всё, что лежит дольше, попадает в отчёт руководителю.</p>
+<h3>Нужно ли принимать возврат без документов?</h3>
+<p>Лучше не принимать, пока не понятно, из какой отгрузки товар. Хотя бы номер заказа клиент должен назвать.</p>
+<h3>Можно ли вернуть на полку товар со вскрытой упаковкой?</h3>
+<p>Зависит от товара. Для продуктов обычно нет. Правило стоит записать заранее, чтобы не решать каждый раз заново.</p>
+<h3>Как оформить возврат в бухгалтерии?</h3>
+<p>Это зависит от договора, конфигурации 1С и того, в каком периоде была продажа. Этот вопрос лучше решать с бухгалтером.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+<p>Возвраты ломают остатки, когда их принимают на глаз и сразу ставят на полку. Товар нужно сверить с документом отгрузки, проверить и положить в отдельную зону до решения.</p>
+<p>У каждого возврата должна быть причина, решение по товару и решение по деньгам. Весовой товар возвращается с фактическим весом, партия — из документа отгрузки. Заводской брак сразу превращается в претензию поставщику.</p>
+<p>Если возвраты у вас лежат в углу склада и никто не знает, чьи они, начать можно с отдельной зоны и простого правила приёмки. Могу посмотреть, как у вас устроен учёт, и предложить порядок. Напишите в Telegram, MAX или VK.</p>
+
+                    </div>
+                    
+
+                    
+                    
+                    
+                    
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Что я делаю для бизнеса</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-plugs-connected"></i> <span>Интеграция 1С с CRM, сайтом и маркетплейсами</span></li>
+    
+    <li><i class="ph-fill ph-robot"></i> <span>ИИ-агенты и боты поверх 1С</span></li>
+    
+    <li><i class="ph-fill ph-barcode"></i> <span>Складской учёт и приложения для ТСД</span></li>
+    
+    <li><i class="ph-fill ph-gear"></i> <span>Автоматизация процессов</span></li>
+    
+  </ul>
+  <div class="blog-services-offer-ctas">
+    <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+      <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
+    </a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="blog-services-offer-cta blog-services-offer-cta-max">
+      <i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> Написать в MAX
+    </a>
+  </div>
+</div>
+                    <div class="blog-cta-card">
+                        <div class="blog-cta-card-body">
+                            <h3>Бесплатно: чек-лист «Готов ли ваш бизнес к 152-ФЗ»</h3>
+                            <p>12 пунктов, которые проверяют готовность за час: данные, согласия, уведомление в РКН, локализация, защита. Отметьте, что уже сделано, и увидите дыры, за которые сейчас штрафуют.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="/checklist-152-fz/" class="btn btn-accent"><i class="ph-fill ph-clipboard-text" aria-hidden="true"></i> Открыть чек-лист</a>
+                        </div>
+                    </div>
+                    
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/services/logistics-automation/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Обсудить автоматизацию склада</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-subscribe">
+  <div class="blog-subscribe-body">
+    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
+    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
+  </div>
+  <div class="blog-subscribe-actions">
+    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
+  </div>
+</section>
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/sborka-zakazov-s-tsd-bez-peresorta-2026/" data-category="development" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-check-square"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
+  <h3>Сборка заказов с ТСД: как перестать путать товар при отгрузке</h3>
+  <p>Ошибка сборки обнаруживается у клиента, когда уже поздно. Разбираю, как сборка с терминалом ловит пересорт на складе и с чего начать, чтобы было что сканировать.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 18 сентября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 5 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/partii-i-gtd-v-1c-importer-2026/" data-category="development" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-boat"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
+  <h3>Партии и ГТД в 1С у импортёра: как не потерять номер декларации при отгрузке</h3>
+  <p>Импортёр получает товар по разным декларациям, а на складе всё перемешивается. Разбираю, где номер ГТД теряется по цепочке и как держать его от приёмки до отгрузки.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 18 сентября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 5 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/vesovoy-tovar-i-sroki-godnosti-v-1c-2026/" data-category="development" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-scales"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
+  <h3>Весовой товар и сроки годности в 1С: как учитывать коробки с разным весом</h3>
+  <p>Мясо, рыба, сыры — в каждой коробке свой вес. Разбираю, почему средний вес ломает остатки, как фиксировать фактический и как отгружать по сроку годности.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 18 сентября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 5 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    
+                    
+                    
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow"><span class="b-l b-l-ru">Готовые решения под ключ</span><span class="b-l b-l-en" lang="en">Turnkey solutions</span><span class="b-l b-l-es" lang="es">Soluciones llave en mano</span><span class="b-l b-l-cn" lang="zh">交钥匙解决方案</span><span class="b-l b-l-mn" lang="mn">Түлхүүр гардуулах шийдэл</span></span>
+                            <span class="blog-offer-cta-title"><span class="b-l b-l-ru">449 готовых IT-решений для бизнеса</span><span class="b-l b-l-en" lang="en">449 ready-made IT solutions for business</span><span class="b-l b-l-es" lang="es">449 soluciones IT listas para empresas</span><span class="b-l b-l-cn" lang="zh">449 个面向企业的现成 IT 解决方案</span><span class="b-l b-l-mn" lang="mn">Бизнест зориулсан 449 бэлэн IT шийдэл</span></span>
+                            <span class="blog-offer-cta-price"><span class="b-l b-l-ru">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span><span class="b-l b-l-en" lang="en">Automation, bots, AI, data privacy and platforms · free consultation</span><span class="b-l b-l-es" lang="es">Automatización, bots, IA, privacidad de datos y plataformas · consulta gratis</span><span class="b-l b-l-cn" lang="zh">自动化、机器人、AI、数据合规与平台 · 免费咨询</span><span class="b-l b-l-mn" lang="mn">Автоматжуулалт, бот, AI, өгөгдлийн хамгаалалт ба платформ · үнэгүй зөвлөгөө</span></span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> <span class="b-l b-l-ru">Смотреть каталог</span><span class="b-l b-l-en" lang="en">View catalog</span><span class="b-l b-l-es" lang="es">Ver catálogo</span><span class="b-l b-l-cn" lang="zh">查看目录</span><span class="b-l b-l-mn" lang="mn">Каталог үзэх</span></span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#vidy-vozvratov"><span class="blog-toc-num">01</span> Какие бывают возвраты</a></li>
+<li><a href="#poryadok-priemki"><span class="blog-toc-num">02</span> Порядок приёмки возврата</a></li>
+<li><a href="#otdelnaya-zona"><span class="blog-toc-num">03</span> Почему нельзя сразу ставить на общий остаток</a></li>
+<li><a href="#tablitsa"><span class="blog-toc-num">04</span> Тип возврата, товар и деньги</a></li>
+<li><a href="#dengi"><span class="blog-toc-num">05</span> Деньги: возврат или зачёт</a></li>
+<li><a href="#ves-i-partii"><span class="blog-toc-num">06</span> Весовой товар, партии и ТСД</a></li>
+<li><a href="#oshibki"><span class="blog-toc-num">07</span> Частые ошибки</a></li>
+<li><a href="#faq"><span class="blog-toc-num">08</span> Частые вопросы</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">09</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+971563369591" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +971 56 336 9591</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">RA Standard - F.Z.E</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_licence">Лицензия 57033</span><span> · </span><span data-i18n="footer.legal_authority">Free Zones Authority of Ajman</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">Эмират Аджман, ОАЭ</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/cases/" class="footer-policy-link">Кейсы</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=43" defer></script>
+<script src="/services-i18n.js?v=43" defer></script>
+<script src="/script.js?v=36" defer></script>
+<script src="/search-widget.js?v=1" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>
