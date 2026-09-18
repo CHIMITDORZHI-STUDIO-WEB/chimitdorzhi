@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1634**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1644**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -496,6 +496,7 @@
 
 ## Безопасность
 
+- [Права доступа в 1С: кто что видит и как не слить базу клиентов изнутри](./prava-dostupa-v-1c-utechka-bazy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/prava-dostupa-v-1c-utechka-bazy-2026/)
 - [Удалить себя из интернета через ChatGPT: что правда в популярном совете](./udalit-cifrovoy-sled-cherez-chatgpt-agent-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/udalit-cifrovoy-sled-cherez-chatgpt-agent-2026/)
 - [Passkeys и WebAuthn: вход на сайт без пароля — как работает и стоит ли внедрять](./passkeys-vhod-bez-parolya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/passkeys-vhod-bez-parolya-2026/)
 - [Защита бота от спама и атак: флуд, боты-накрутчики, брутфорс](./zaschita-bota-ot-spama-atak-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zaschita-bota-ot-spama-atak-2026/)
@@ -1311,6 +1312,15 @@
 - [HTTP-сервис в 1С: как подключить мобильное приложение или сайт без обмена файлами](./http-servis-1c-dlya-prilozheniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/http-servis-1c-dlya-prilozheniya-2026/)
 - [Готовый модуль 1С для маркетплейсов или своя интеграция: что выбрать](./gotovyy-modul-1c-dlya-marketpleysov-ili-svoya-integraciya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gotovyy-modul-1c-dlya-marketpleysov-ili-svoya-integraciya-2026/)
 - [Остатки на WB, Ozon и Яндекс Маркете из одной 1С: как не продать то, чего нет](./ostatki-na-wb-ozon-ym-iz-odnoy-1c-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ostatki-na-wb-ozon-ym-iz-odnoy-1c-2026/)
+- [Бот для заказов оптовых клиентов прямо из 1С](./bot-dlya-optovyh-zakazov-iz-1c-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bot-dlya-optovyh-zakazov-iz-1c-2026/)
+- [Торговый представитель с телефоном: заказы в 1С прямо с точки клиента](./torgovyy-predstavitel-zakazy-v-1c-s-telefona-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/torgovyy-predstavitel-zakazy-v-1c-s-telefona-2026/)
+- [Сборка заказов с ТСД: как перестать путать товар при отгрузке](./sborka-zakazov-s-tsd-bez-peresorta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sborka-zakazov-s-tsd-bez-peresorta-2026/)
+- [Печать этикеток из 1С и с ТСД: принтер, шаблон и штрихкод на паллету](./pechat-etiketok-iz-1c-i-s-tsd-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pechat-etiketok-iz-1c-i-s-tsd-2026/)
+- [Честный знак у оптовика: приёмка и отгрузка маркированного товара с терминала](./chestnyy-znak-u-optovika-s-tsd-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chestnyy-znak-u-optovika-s-tsd-2026/)
+- [Себестоимость импортного товара в 1С: как разнести доставку, пошлины и курс](./sebestoimost-importa-v-1c-dostavka-poshliny-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sebestoimost-importa-v-1c-dostavka-poshliny-2026/)
+- [Переход со старой УТ 10.3 на УТ 11: что перенесётся, а что придётся делать заново](./perehod-s-ut-10-3-na-ut-11-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/perehod-s-ut-10-3-na-ut-11-2026/)
+- [Доработки через расширения: почему после них 1С обновляется без боли](./dorabotki-1c-cherez-rasshireniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/dorabotki-1c-cherez-rasshireniya-2026/)
+- [1С в облаке или на своём сервере: что выбрать бизнесу](./1c-v-oblake-ili-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/1c-v-oblake-ili-na-svoem-servere-2026/)
 - [Конструкторы ботов для MAX: как сравнивать и что выбрать под задачу](./konstruktory-botov-max-sravnenie-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/konstruktory-botov-max-sravnenie-2026/)
 - [Услуги DevOps: сколько стоят и что входит в 2026](./uslugi-devops-stoimost-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uslugi-devops-stoimost-2026/)
 - [Как принимать оплату на сайте: эквайринг простыми словами](./kak-prinimat-oplatu-na-sayte-ekvayring-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-prinimat-oplatu-na-sayte-ekvayring-2026/)
