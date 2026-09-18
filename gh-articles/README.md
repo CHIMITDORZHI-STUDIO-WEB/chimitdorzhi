@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1624**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1634**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -1240,6 +1240,7 @@
 - [Почему я продаю без созвонов: вся работа в переписке](./prodayu-bez-sozvonov-v-perepiske-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/prodayu-bez-sozvonov-v-perepiske-2026/)
 - [Как я в первой переписке понимаю, что проект не сложится](./signaly-chto-proekt-ne-slozhitsya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/signaly-chto-proekt-ne-slozhitsya-2026/)
 - [Три вопроса, которые я задаю до того, как назвать цену](./tri-voprosa-do-ceny-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/tri-voprosa-do-ceny-2026/)
+- [Франчайзи 1С и внешний разработчик: как поделить работу, чтобы не мешать друг другу](./franchayzi-1c-i-vneshniy-razrabotchik-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/franchayzi-1c-i-vneshniy-razrabotchik-2026/)
 - [Скрипты продаж и их внедрение в CRM](./skripty-prodazh-v-crm-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skripty-prodazh-v-crm-2026/)
 - [Как найти дилеров и построить дилерскую сеть](./kak-nayti-dilerov-i-postroit-set-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-nayti-dilerov-i-postroit-set-2026/)
 - [Как открыть свою франшизу: упаковка и запуск](./kak-otkryt-svoyu-franshizu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-otkryt-svoyu-franshizu-2026/)
@@ -1301,6 +1302,15 @@
 
 ## Разработка
 
+- [Паллетный учёт в 1С УТ 11.5: что есть из коробки, а что придётся дописать](./palletnyy-uchet-1c-ut-11-5-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/palletnyy-uchet-1c-ut-11-5-2026/)
+- [Своё приложение на ТСД или готовое решение: что выбрать складу](./svoe-prilozhenie-tsd-ili-gotovoe-reshenie-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/svoe-prilozhenie-tsd-ili-gotovoe-reshenie-2026/)
+- [Весовой товар и сроки годности в 1С: как учитывать коробки с разным весом](./vesovoy-tovar-i-sroki-godnosti-v-1c-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vesovoy-tovar-i-sroki-godnosti-v-1c-2026/)
+- [Штрихкод GS1-128 на коробке: что в нём зашито и как читать его на складе](./shtrihkod-gs1-128-na-korobke-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/shtrihkod-gs1-128-na-korobke-2026/)
+- [Партии и ГТД в 1С у импортёра: как не потерять номер декларации при отгрузке](./partii-i-gtd-v-1c-importer-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/partii-i-gtd-v-1c-importer-2026/)
+- [Инвентаризация по паллетам с ТСД: пересчитать склад за день вместо недели](./inventarizaciya-po-palletam-s-tsd-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/inventarizaciya-po-palletam-s-tsd-2026/)
+- [HTTP-сервис в 1С: как подключить мобильное приложение или сайт без обмена файлами](./http-servis-1c-dlya-prilozheniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/http-servis-1c-dlya-prilozheniya-2026/)
+- [Готовый модуль 1С для маркетплейсов или своя интеграция: что выбрать](./gotovyy-modul-1c-dlya-marketpleysov-ili-svoya-integraciya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gotovyy-modul-1c-dlya-marketpleysov-ili-svoya-integraciya-2026/)
+- [Остатки на WB, Ozon и Яндекс Маркете из одной 1С: как не продать то, чего нет](./ostatki-na-wb-ozon-ym-iz-odnoy-1c-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ostatki-na-wb-ozon-ym-iz-odnoy-1c-2026/)
 - [Конструкторы ботов для MAX: как сравнивать и что выбрать под задачу](./konstruktory-botov-max-sravnenie-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/konstruktory-botov-max-sravnenie-2026/)
 - [Услуги DevOps: сколько стоят и что входит в 2026](./uslugi-devops-stoimost-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uslugi-devops-stoimost-2026/)
 - [Как принимать оплату на сайте: эквайринг простыми словами](./kak-prinimat-oplatu-na-sayte-ekvayring-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-prinimat-oplatu-na-sayte-ekvayring-2026/)
