@@ -90,7 +90,7 @@ module.exports = [
     tags: ['OCR', 'распознавание', 'документы', 'разовые задачи'],
     relatedSlugs: ['ocifrovka-bumazhnyh-form-2026', 'ocr-raspoznat-tekst-s-foto-2026', 'nakladnye-postavshchikov-v-1c-raspoznavanie-2026'] }),
 
-  E({ slug: 'import-kataloga-iz-prajsa-postavshchika-2026', heroIcon: 'ph-fill ph-upload-simple',
+  E({ slug: 'import-kataloga-iz-prajsa-postavshchika-2026', heroIcon: 'ph-fill ph-download-simple',
     title: 'Импорт каталога из прайса поставщика на сайт или маркетплейс',
     metaTitle: 'Импорт каталога из прайса поставщика на сайт',
     metaDescription: 'Прайс поставщика на тысячи позиций со своими названиями и артикулами. Как сопоставить поля и категории, подтянуть фото, посчитать наценку и не наплодить дублей.',
@@ -130,7 +130,7 @@ module.exports = [
     tags: ['заявки', 'Яндекс Метрика', 'Telegram', 'разовые задачи'],
     relatedSlugs: ['okupaemost-reklamy-metrika-celi-2026', 'zayavki-iz-whatsapp-i-lichnyh-soobshcheniy-v-sistemu-2026', 'sayt-upal-monitoring-sayta-i-domena-2026'] }),
 
-  E({ slug: 'it-nastroyka-malenkogo-ofisa-razovo-2026', category: 'security', heroIcon: 'ph-fill ph-desktop-tower',
+  E({ slug: 'it-nastroyka-malenkogo-ofisa-razovo-2026', category: 'security', heroIcon: 'ph-fill ph-hard-drives',
     title: 'IT-порядок в маленьком офисе за одну задачу: почта, копии, доступы, пароли',
     metaTitle: 'IT-порядок в маленьком офисе: почта, копии, доступы',
     metaDescription: 'В компании на 3–15 человек нет айтишника. Разово навести порядок: почта на домене, общий диск, копии, пароли, список сервисов и владельцев.',

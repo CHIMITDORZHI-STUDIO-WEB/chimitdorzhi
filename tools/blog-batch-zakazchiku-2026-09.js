@@ -44,7 +44,7 @@ module.exports = [
     tags: ['магазин одежды', 'бельё', 'ритейл', 'остатки'],
     relatedSlugs: ['ostatki-mezhdu-magazinami-seti-2026', 'chestnyy-znak-podklyuchenie-poshagovo-2026', 'priemka-tovara-ot-postavshchika-v-magazine-2026'] }),
 
-  E({ slug: 'neyavki-na-zapis-predoplata-napominaniya-2026', category: 'industries', heroIcon: 'ph-fill ph-calendar-x',
+  E({ slug: 'neyavki-na-zapis-predoplata-napominaniya-2026', category: 'industries', heroIcon: 'ph-fill ph-clock-countdown',
     ctaInternal: P('max-bot-zapis-uslugi', 'Настроить запись без неявок'),
     title: 'Неявки на запись: предоплата, напоминания и лист ожидания',
     metaTitle: 'Неявки клиентов на запись: напоминания, предоплата, лист ожидания',
