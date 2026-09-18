@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Парсер цен с Wildberries и Ozon в таблицу на заказ</title>
+    <meta name="description" content="Цены, скидки, наличие и рейтинг конкурентов по вашим позициям — в одной таблице. Что собирать, как часто и почему парсер маркетплейса нужно поддерживать.">
+    <meta name="keywords" content="парсер, маркетплейсы, цены конкурентов, разовые задачи">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/parser-cen-wb-ozon-v-tablicu-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/parser-cen-wb-ozon-v-tablicu-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/parser-cen-wb-ozon-v-tablicu-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/parser-cen-wb-ozon-v-tablicu-2026/">
+    <meta property="og:title" content="Парсер цен с Wildberries и Ozon в таблицу на заказ">
+    <meta property="og:description" content="Цены, скидки, наличие и рейтинг конкурентов по вашим позициям — в одной таблице. Что собирать, как часто и почему парсер маркетплейса нужно поддерживать.">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/parser-cen-wb-ozon-v-tablicu-2026/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Парсер цен с Wildberries и Ozon в таблицу на заказ">
+    <meta name="twitter:description" content="Цены, скидки, наличие и рейтинг конкурентов по вашим позициям — в одной таблице. Что собирать, как часто и почему парсер маркетплейса нужно поддерживать.">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/parser-cen-wb-ozon-v-tablicu-2026/cover.png">
+
+    <link rel="icon" href="/favicon.svg?v=5" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=5">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png?v=5">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=5">
+    <link rel="preload" href="/assets/fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=77">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Парсер цен и остатков с Wildberries и Ozon в таблицу: разово или каждый день",
+  "description": "Цены, скидки, наличие и рейтинг конкурентов по вашим позициям — в одной таблице. Что собирать, как часто и почему парсер маркетплейса нужно поддерживать.",
+  "image": "https://chimitdorzhi.tech/blog/parser-cen-wb-ozon-v-tablicu-2026/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://t.me/chimitdorzhi_studio",
+      "https://max.ru/channel_chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio",
+      "https://github.com/chimitdorzhi",
+      "https://chimitdorzhi.tech/about/"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/parser-cen-wb-ozon-v-tablicu-2026/"
+  },
+  "datePublished": "2026-09-19",
+  "dateModified": "2026-09-19",
+  "keywords": "парсер, маркетплейсы, цены конкурентов, разовые задачи",
+  "articleSection": "Маркетинг и контент",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Парсер цен и остатков с Wildberries и Ozon в таблицу: разово или каждый день",
+      "item": "https://chimitdorzhi.tech/blog/parser-cen-wb-ozon-v-tablicu-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Можно ли собирать данные сразу с Wildberries и Ozon в одну таблицу?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да. У каждой площадки свой сборщик, но результат складывается в общую таблицу с пометкой площадки."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько позиций можно отслеживать?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Зависит от частоты сбора. Чем больше позиций и чаще сбор, тем аккуратнее надо распределять запросы по времени."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Будет ли видна моя собственная цена?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, если добавить ваши карточки в список. Тогда сравнение идёт с тем, что видит покупатель, а не с ценой в кабинете."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что будет, если площадка поменяет сайт?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Парсер заметит ошибку и не затрёт старые данные. По абонентке я исправляю его без отдельного заказа."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли получать уведомление, когда конкурент снизил цену?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да. К таблице можно добавить сообщение в мессенджер по заданному условию."
+      }
+    }
+  ]
+}
+    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+var inject=function(){for (var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)};
+var run=function(){('requestIdleCallback' in window)?requestIdleCallback(inject,{timeout:5000}):setTimeout(inject,3000)};
+(e.readyState==='complete')?run():m.addEventListener('load',run);})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109281884" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<!-- Цели Метрики: клики по контактам и услугам -->
+<script type="text/javascript">
+(function(){
+  var GOALS = [
+    { re: /t\.me\//i,                     goal: 'tg_click' },
+    { re: /max\.ru\//i,                    goal: 'max_click' },
+    { re: /audit\.chimitdorzhi\.tech/i,    goal: 'audit_click' },
+    { re: /chimitdorzhi\.tech\/services\//i, goal: 'service_click' },
+    { re: /chimitdorzhi\.tech\/predlozheniya\//i, goal: 'offer_click' }
+  ];
+  document.addEventListener('click', function(e){
+    var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    for (var i = 0; i < GOALS.length; i++) {
+      if (GOALS[i].re.test(href)) {
+        try { if (window.ym) ym(109281884, 'reachGoal', GOALS[i].goal); } catch (err) {}
+        break;
+      }
+    }
+  }, true);
+})();
+</script>
+</head>
+<body class="wx-read">
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/" data-i18n="nav.home">Главная</a></li>
+            <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/market/" data-i18n="nav.offers">Предложения</a></li>
+            <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+            <li class="nav-dropdown">
+                <a href="/cases/" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+                <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему" aria-pressed="false">
+                <i class="ph ph-moon" aria-hidden="true"></i>
+            </button>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/" data-i18n="nav.home">Главная</a></li>
+        <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+        <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+        <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+        <li><a href="/market/" data-i18n="nav.offers">Предложения</a></li>
+        <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+        <li class="mobile-has-submenu">
+            <details>
+                <summary aria-label="Проекты — развернуть"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down" aria-hidden="true"></i></summary>
+                <ul class="mobile-submenu">
+                    <li>
+                        <a href="https://gerel.space" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">Gerel.space</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/universe_buryat/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/arey/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.arey">AREY</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/mwrlife/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">MWR Life</span>
+                                <span class="mobile-sub-desc">Travel-клуб и партнёрка</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </details>
+        </li>
+        <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+    </ul>
+    <div class="mobile-controls">
+        <div class="mobile-lang-switcher" role="group" aria-label="Выбор языка">
+            <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+            <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+            <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+        </div>
+        <button class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle" aria-label="Переключить тему" aria-pressed="false">
+            <i class="ph ph-moon" aria-hidden="true"></i>
+        </button>
+    </div>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Парсер цен и остатков с Wildberries и Ozon в таблицу: разово или каждый день</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/marketing/"><i class="ph ph-bookmark" aria-hidden="true"></i> Маркетинг и контент</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин чтения</span>
+                        <time datetime="2026-09-19"><i class="ph ph-calendar" aria-hidden="true"></i> 19 сентября 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Парсер цен и остатков с Wildberries и Ozon в таблицу: разово или каждый день</h1>
+
+                    <p class="blog-lead">Селлеру нужно видеть цены и наличие конкурентов, а не копировать их руками. Разбираю, как устроен парсер маркетплейсов, что в нём собирать и когда хватит разового снимка.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>парсер</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>маркетплейсы</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>цены конкурентов</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>разовые задачи</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
+<li><a href="https://chimitdorzhi.tech/services/business-automation/" class="blog-inline-link">Парсер</a> собирает по вашему списку товаров цены, скидки, наличие и рейтинг конкурентов с Wildberries и Ozon и складывает всё в одну таблицу.</li>
+<li>Разового снимка хватает, чтобы понять рынок перед запуском товара. Ежедневное обновление нужно, когда вы регулярно двигаете цену вслед за конкурентами.</li>
+<li>Площадки меняют вёрстку, поэтому регулярный парсер надо поддерживать. Собирать стоит аккуратно, без лишней нагрузки на сайт.</li>
+</ul></div>
+
+<p>Селлер открывает карточки конкурентов по одной и переписывает цены в таблицу. На десяти позициях это терпимо. На сотне это полдня работы, и к вечеру данные уже устарели. Я делаю парсеры цен и остатков с маркетплейсов на заказ. Расскажу, как подготовить задачу, что собирать и чем разовая выгрузка отличается от ежедневной.</p>
+
+<h2 id="spisok">С чего начать: список ссылок или запросов</h2>
+<p>Парсер не угадывает, кто ваши конкуренты. Ему нужен список. Есть два способа его составить.</p>
+<p>Список ссылок. Вы берёте свои позиции и к каждой находите несколько карточек конкурентов. Получается таблица: ваш товар, ссылки на похожие. Это самый точный вариант. Вы сравниваете именно то, что считаете аналогом.</p>
+<p>Список поисковых запросов. Вы задаёте запросы, по которым покупатель ищет товар. Парсер берёт первые позиции выдачи и собирает по ним данные. Так видно, кто стоит рядом с вами в поиске. Но в выдачу попадают и случайные товары, их приходится отсеивать.</p>
+<h2 id="chto-sobirat">Что собирать и зачем</h2>
+<p>Собирать всё подряд не нужно. Каждое поле должно отвечать на вопрос, который вы задаёте себе при решении о цене или закупке.</p>
+<div class="blog-table"><table>
+<thead><tr><th>Что собираем</th><th>Зачем</th><th>Как часто</th></tr></thead>
+<tbody>
+<tr><td>Цена до скидки и цена со скидкой</td><td>Понять реальную цену, которую видит покупатель</td><td>Каждый день или чаще, если рынок подвижный</td></tr>
+<tr><td>Размер скидки</td><td>Заметить, кто зашёл в акцию</td><td>Каждый день</td></tr>
+<tr><td>Наличие</td><td>Увидеть, у кого закончился товар, и не снижать цену зря</td><td>Каждый день</td></tr>
+<tr><td>Рейтинг и число отзывов</td><td>Оценить силу конкурента и динамику продаж по косвенным признакам</td><td>Раз в неделю</td></tr>
+<tr><td>Название и продавец</td><td>Проверить, что карточка всё ещё тот же товар</td><td>Раз в неделю</td></tr>
+<tr><td>Позиция в выдаче по запросу</td><td>Понять, кто рядом с вами в поиске</td><td>Раз в неделю</td></tr>
+</tbody>
+</table></div>
+<p>Цена, которую видит покупатель, может зависеть от региона доставки и от условий площадки. Поэтому сразу договариваемся, для какого региона собираем данные. Иначе цифры в таблице будут расходиться с тем, что вы видите у себя в браузере.</p>
+
+<h2 id="format">Формат таблицы</h2>
+<p>Удобнее всего одна строка на одну пару: ваш товар и конкретный конкурент. Столбцы: ваш артикул, ссылка конкурента, цена, скидка, наличие, рейтинг, дата сбора. Такую таблицу легко фильтровать и сортировать.</p>
+<p>При ежедневном сборе появляется вторая вкладка с историей. Каждый день туда дописываются новые строки, а первая вкладка показывает только свежий срез. По истории видно, когда конкурент начал акцию и сколько она длилась.</p>
+<p>Полезно добавить вычисляемые столбцы. Разница между вашей ценой и ценой конкурента. Отметка, если конкурент стал дешевле вас. Тогда таблица не просто хранит цифры, а сразу показывает, куда смотреть. Шире про то, как выстроить мониторинг и принимать по нему решения, я писал в статье <a href="/blog/monitoring-cen-konkurentov-2026/">мониторинг цен конкурентов</a>.</p>
+
+<h2 id="razovo-ili-regulyarno">Разовый снимок или ежедневное обновление</h2>
+<p>Разовый снимок нужен, когда вы выбираете, какой товар завозить. Или выходите в новую категорию и хотите понять диапазон цен. Или готовите презентацию для партнёра. Парсер отрабатывает один раз, вы получаете таблицу, и задача закрыта.</p>
+<p>Ежедневное обновление нужно, когда вы сами двигаете цену. Конкурент снизил цену, вы узнали об этом утром, а не через неделю. Конкурент распродал остаток, вы можете не снижать цену, пока он пуст. Здесь парсер работает по расписанию на сервере, а таблица обновляется без вашего участия.</p>
+<p>Если сомневаетесь, начните с разового снимка. Понадобится второй — пора на регулярный сбор.</p>
+
+<h2 id="podderzhka">Почему парсер надо поддерживать</h2>
+<p>Маркетплейсы постоянно обновляют сайт. Меняется вёрстка карточки, способ загрузки данных, защита от автоматических запросов. Парсер, который вчера работал, сегодня может вернуть пустые ячейки.</p>
+<p>Поэтому в регулярный парсер я закладываю проверки. Если по большинству ссылок пришли пустые цены, это не рынок обвалился, а парсер сломался. Такой сбор помечается как ошибочный, и приходит уведомление. Старые данные при этом не затираются пустыми.</p>
+<p>Нагрузка тоже важна. Запросы идут с паузами, как у обычного посетителя. Собираем только открытые данные, которые площадка показывает любому покупателю. Правила площадки стоит прочитать до начала работ. Если есть сомнения в допустимости сбора, лучше уточнить у юриста.</p>
+
+<h2 id="kak-vyglyadit">Как это выглядит, когда настроено</h2>
+<p>Утром вы открываете таблицу. В первой вкладке свежие данные по всем позициям. Строки, где конкурент стал дешевле вас, подсвечены. Вы видите три таких строки и одну, где у конкурента пропало наличие.</p>
+<p>По двум позициям вы решаете снизить цену. По третьей смотрите историю и видите, что конкурент уже неделю держит акцию. Значит это не разовая распродажа, и надо думать о закупочной цене. По позиции, где конкурент пуст, цену не трогаете.</p>
+<p>Раз в неделю вы смотрите вкладку с выдачей по запросам. Там появился новый продавец. Вы добавляете его карточку в список, и с завтрашнего дня он тоже в мониторинге. Всё это занимает минут десять вместо полдня ручного сбора.</p>
+
+<h2 id="kak-zakazat">Как заказать такую задачу</h2>
+<p>Пришлите список ваших позиций и ссылки на конкурентов, хотя бы на несколько товаров для начала. Если ссылок нет, пришлите поисковые запросы. Напишите, какие поля нужны и как вы сейчас собираете данные руками. Скриншот вашей текущей таблицы очень помогает.</p>
+<p>Я смотрю задачу и называю срок и формат работы. Делаю парсер, запускаю пробный сбор на небольшом списке, вы проверяете цифры. Потом запускаю на полном списке. Передаю таблицу, инструкцию, как добавлять новые ссылки, и доступы. После сдачи есть гарантийный срок, в который я бесплатно исправляю ошибки в моей работе.</p>
+<p>Разовый снимок заказывается как отдельная задача. Ежедневный сбор лучше вести по абонентке: площадки меняются, и кто-то должен чинить парсер быстро. Подробнее о формате разовых работ на странице <a href="/predlozheniya/razovye-zadachi-skripty-parsery/">разовые задачи: скрипты, парсеры, выгрузки</a>.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+<h3>Можно ли собирать данные сразу с Wildberries и Ozon в одну таблицу?</h3>
+<p>Да. У каждой площадки свой сборщик, но результат складывается в общую таблицу с пометкой площадки.</p>
+<h3>Сколько позиций можно отслеживать?</h3>
+<p>Зависит от частоты сбора. Чем больше позиций и чаще сбор, тем аккуратнее надо распределять запросы по времени.</p>
+<h3>Будет ли видна моя собственная цена?</h3>
+<p>Да, если добавить ваши карточки в список. Тогда сравнение идёт с тем, что видит покупатель, а не с ценой в кабинете.</p>
+<h3>Что будет, если площадка поменяет сайт?</h3>
+<p>Парсер заметит ошибку и не затрёт старые данные. По абонентке я исправляю его без отдельного заказа.</p>
+<h3>Можно ли получать уведомление, когда конкурент снизил цену?</h3>
+<p>Да. К таблице можно добавить сообщение в мессенджер по заданному условию.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+<p>Парсер цен и остатков заменяет ручной обход карточек. Начинается всё со списка ссылок или запросов и с понятного набора полей: цена, скидка, наличие, рейтинг.</p>
+<p>Разовый снимок подходит для решения о закупке или выходе в категорию. Ежедневный сбор нужен, когда вы управляете ценой. Регулярному парсеру нужна поддержка, потому что площадки меняют сайт.</p>
+<p>Если вы тратите часы на сбор цен конкурентов, пришлите список товаров и пару ссылок. Скажу, как лучше собрать данные и в каком виде их удобно получать. Напишите в Telegram, MAX или VK.</p>
+
+                    </div>
+                    
+
+                    
+                    
+                    
+                    
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Небольшие задачи без большого проекта</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-download-simple"></i> <span>Парсеры и выгрузки в таблицы</span></li>
+    
+    <li><i class="ph-fill ph-code"></i> <span>Скрипты, генераторы документов, обработка файлов</span></li>
+    
+    <li><i class="ph-fill ph-robot"></i> <span>Простые боты и заявки в мессенджер</span></li>
+    
+    <li><i class="ph-fill ph-lifebuoy"></i> <span>Абонентка: мониторинг, поддержка, отчёты</span></li>
+    
+  </ul>
+  <div class="blog-services-offer-ctas">
+    <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+      <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
+    </a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="blog-services-offer-cta blog-services-offer-cta-max">
+      <i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> Написать в MAX
+    </a>
+  </div>
+</div>
+                    <div class="blog-cta-card">
+                        <div class="blog-cta-card-body">
+                            <h3>Бесплатно: чек-лист «Готов ли ваш бизнес к 152-ФЗ»</h3>
+                            <p>12 пунктов, которые проверяют готовность за час: данные, согласия, уведомление в РКН, локализация, защита. Отметьте, что уже сделано, и увидите дыры, за которые сейчас штрафуют.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="/checklist-152-fz/" class="btn btn-accent"><i class="ph-fill ph-clipboard-text" aria-hidden="true"></i> Открыть чек-лист</a>
+                        </div>
+                    </div>
+                    
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/predlozheniya/razovye-zadachi-skripty-parsery/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Описать задачу и получить оценку</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-subscribe">
+  <div class="blog-subscribe-body">
+    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
+    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
+  </div>
+  <div class="blog-subscribe-actions">
+    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
+  </div>
+</section>
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/monitoring-cen-konkurentov-2026/" data-category="marketing" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-download-simple"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Маркетинг и контент</span>
+  <h3>Мониторинг цен конкурентов: сервисы и свой парсер</h3>
+  <p>Зачем следить за ценами конкурентов, какие сервисы есть, что можно парсить легально и когда выгоднее свой парсер с выгрузкой в таблицу или CRM.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 22 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/parser-dannyh-na-zakaz-2026/" data-category="development" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-download-simple"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
+  <h3>Парсер данных на заказ: сбор информации легально</h3>
+  <p>Как парсер собирает цены, товары и контакты в таблицу или базу, что можно парсить легально и сколько стоит разработка под задачу.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 22 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/monitoring-assortimenta-konkurentov-2026/" data-category="marketing" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-binoculars"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Маркетинг и контент</span>
+  <h3>Мониторинг ассортимента конкурентов: новинки, пропавшие позиции и акции каждую неделю</h3>
+  <p>Цены — лишь часть картины. Разбираю, как следить за ассортиментом и акциями конкурентов и получать короткий отчёт «что изменилось» каждую неделю.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 19 сентября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    
+                    
+                    
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow"><span class="b-l b-l-ru">Готовые решения под ключ</span><span class="b-l b-l-en" lang="en">Turnkey solutions</span><span class="b-l b-l-es" lang="es">Soluciones llave en mano</span><span class="b-l b-l-cn" lang="zh">交钥匙解决方案</span><span class="b-l b-l-mn" lang="mn">Түлхүүр гардуулах шийдэл</span></span>
+                            <span class="blog-offer-cta-title"><span class="b-l b-l-ru">450 готовых IT-решений для бизнеса</span><span class="b-l b-l-en" lang="en">450 ready-made IT solutions for business</span><span class="b-l b-l-es" lang="es">450 soluciones IT listas para empresas</span><span class="b-l b-l-cn" lang="zh">450 个面向企业的现成 IT 解决方案</span><span class="b-l b-l-mn" lang="mn">Бизнест зориулсан 450 бэлэн IT шийдэл</span></span>
+                            <span class="blog-offer-cta-price"><span class="b-l b-l-ru">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span><span class="b-l b-l-en" lang="en">Automation, bots, AI, data privacy and platforms · free consultation</span><span class="b-l b-l-es" lang="es">Automatización, bots, IA, privacidad de datos y plataformas · consulta gratis</span><span class="b-l b-l-cn" lang="zh">自动化、机器人、AI、数据合规与平台 · 免费咨询</span><span class="b-l b-l-mn" lang="mn">Автоматжуулалт, бот, AI, өгөгдлийн хамгаалалт ба платформ · үнэгүй зөвлөгөө</span></span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> <span class="b-l b-l-ru">Смотреть каталог</span><span class="b-l b-l-en" lang="en">View catalog</span><span class="b-l b-l-es" lang="es">Ver catálogo</span><span class="b-l b-l-cn" lang="zh">查看目录</span><span class="b-l b-l-mn" lang="mn">Каталог үзэх</span></span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#spisok"><span class="blog-toc-num">01</span> С чего начать: список ссылок или запросов</a></li>
+<li><a href="#chto-sobirat"><span class="blog-toc-num">02</span> Что собирать и зачем</a></li>
+<li><a href="#format"><span class="blog-toc-num">03</span> Формат таблицы</a></li>
+<li><a href="#razovo-ili-regulyarno"><span class="blog-toc-num">04</span> Разовый снимок или ежедневное обновление</a></li>
+<li><a href="#podderzhka"><span class="blog-toc-num">05</span> Почему парсер надо поддерживать</a></li>
+<li><a href="#kak-vyglyadit"><span class="blog-toc-num">06</span> Как это выглядит, когда настроено</a></li>
+<li><a href="#kak-zakazat"><span class="blog-toc-num">07</span> Как заказать такую задачу</a></li>
+<li><a href="#faq"><span class="blog-toc-num">08</span> Частые вопросы</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">09</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+971563369591" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +971 56 336 9591</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">RA Standard - F.Z.E</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_licence">Лицензия 57033</span><span> · </span><span data-i18n="footer.legal_authority">Free Zones Authority of Ajman</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">Эмират Аджман, ОАЭ</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/cases/" class="footer-policy-link">Кейсы</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=43" defer></script>
+<script src="/services-i18n.js?v=43" defer></script>
+<script src="/script.js?v=36" defer></script>
+<script src="/search-widget.js?v=1" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>
