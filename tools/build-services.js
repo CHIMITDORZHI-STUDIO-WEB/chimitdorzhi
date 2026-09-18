@@ -157,7 +157,7 @@ function footer() {
 </footer>
 <script src="/i18n.js?v=43" defer></script>
 <script src="/services-i18n.js?v=43" defer></script>
-<script src="/script.js?v=36" defer></script>
+<script src="/script.js?v=37" defer></script>
 <script src="/search-widget.js?v=1" defer></script>`;
 }
 
@@ -406,7 +406,7 @@ function featuredBlock() {
         <div class="svc-vs">
             <i class="ph ph-info" aria-hidden="true"></i>
             <span data-i18n="svc.vs">Нужен не отдельный навык, а готовый пакет под задачу — сайт + бот + реклама разом?</span>
-            <a href="/market/" class="svc-vs-link" data-i18n="svc.vs.link">Смотреть Предложения <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+            <a href="/predlozheniya/" class="svc-vs-link" data-i18n="svc.vs.link">Смотреть Предложения <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
         </div>
     </div>
 </section>`;

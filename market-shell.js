@@ -17,7 +17,7 @@
 h += n('/services/cifrovoy-sotrudnik/', 'ph-user-focus', 'Цифровой сотрудник', false, false, 'nav.employee');
     h += n('/cases/', 'ph-briefcase', 'Кейсы', false);
     h += n('/blog/', 'ph-newspaper', 'Блог', false);
-    h += n('/market/', 'ph-gift', 'Предложения', true);
+    h += n('/predlozheniya/', 'ph-gift', 'Предложения', false);
     h += n('/about/', 'ph-user', 'Обо мне', false);
     h += '<div class="wx-grp">Разделы</div>';
     h += n('/services/', 'ph-stack', 'Все услуги', false);

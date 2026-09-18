@@ -303,7 +303,7 @@ document.addEventListener('DOMContentLoaded', () => {
   h+=n('/ai-economy/','ph-chart-line-up','ИИ и экономика',isAiEcon,false,'nav.aiecon');
   h+=n('/cases/','ph-briefcase','Кейсы',isCases,false,'nav.cases');
   h+=n('/blog/','ph-newspaper','Блог',isBlog,false,'nav.blog');
-  h+=n('/market/','ph-gift','Предложения',isOffers,false,'nav.offers');
+  h+=n('/predlozheniya/','ph-gift','Предложения',isOffers,false,'nav.offers');
   h+=n('/about/','ph-user','Обо мне',isAbout,false,'nav.about');
   if(isBlog){
     h+=grp('Рубрики блога','sb.grp.rubrics');

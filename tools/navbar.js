@@ -24,7 +24,7 @@ function navbar(/* opts игнорируются — меню единое */) {
             <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
             <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
             <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
-            <li><a href="/market/" data-i18n="nav.offers">Предложения</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
             <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
             <li class="nav-dropdown">
                 <a href="/cases/" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
@@ -97,7 +97,7 @@ function navbar(/* opts игнорируются — меню единое */) {
         <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
         <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
         <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
-        <li><a href="/market/" data-i18n="nav.offers">Предложения</a></li>
+        <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
         <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
         <li class="mobile-has-submenu">
             <details>
