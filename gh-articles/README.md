@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1764**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1782**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -1294,6 +1294,24 @@
 - [Сколько стоит запустить интернет-магазин в 2026: минимальный и нормальный бюджет](./skolko-stoit-zapustit-internet-magazin-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-stoit-zapustit-internet-magazin-2026/)
 - [Магазин в Telegram или MAX без сайта: как начать продавать за неделю](./magazin-v-telegram-ili-max-bez-sayta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/magazin-v-telegram-ili-max-bez-sayta-2026/)
 - [Первые продажи интернет-магазина: откуда брать покупателей в первый месяц](./pervye-prodazhi-internet-magazina-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pervye-prodazhi-internet-magazina-2026/)
+- [Сколько зарабатывает кофейня: доход, расходы и окупаемость с калькулятором](./skolko-zarabatyvaet-kofeynya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-zarabatyvaet-kofeynya-2026/)
+- [Сколько зарабатывает салон красоты: доход с кресла, мастера и окупаемость](./skolko-zarabatyvaet-salon-krasoty-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-zarabatyvaet-salon-krasoty-2026/)
+- [Сколько зарабатывает барбершоп: кресла, барберы и окупаемость](./skolko-zarabatyvaet-barbershop-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-zarabatyvaet-barbershop-2026/)
+- [Сколько зарабатывает автомойка и детейлинг: посты, загрузка и окупаемость](./skolko-zarabatyvaet-avtomoyka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-zarabatyvaet-avtomoyka-2026/)
+- [Сколько зарабатывает пекарня и кондитерская: себестоимость, списания и окупаемость](./skolko-zarabatyvaet-pekarnya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-zarabatyvaet-pekarnya-2026/)
+- [Сколько зарабатывает цветочный магазин: сезонность, списания и доставка](./skolko-zarabatyvaet-cvetochnyy-magazin-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-zarabatyvaet-cvetochnyy-magazin-2026/)
+- [Сколько зарабатывает шиномонтаж и хранение шин: сезон, межсезонье и окупаемость](./skolko-zarabatyvaet-shinomontazh-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-zarabatyvaet-shinomontazh-2026/)
+- [Сколько зарабатывает квест-комната: загрузка слотов, чек и окупаемость сценария](./skolko-zarabatyvaet-kvest-komnata-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-zarabatyvaet-kvest-komnata-2026/)
+- [Сколько зарабатывает посуточная квартира или апарт-отель: загрузка, комиссии и уборка](./skolko-zarabatyvaet-posutochnaya-kvartira-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-zarabatyvaet-posutochnaya-kvartira-2026/)
+- [Сколько зарабатывает фотостудия в аренду: залы, часы загрузки и окупаемость](./skolko-zarabatyvaet-fotostudiya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-zarabatyvaet-fotostudiya-2026/)
+- [Сколько зарабатывает массажный или СПА-салон: кабинеты, мастера и абонементы](./skolko-zarabatyvaet-massazhnyy-salon-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-zarabatyvaet-massazhnyy-salon-2026/)
+- [Сколько зарабатывает фитнес-студия: абонементы, отток и групповые занятия](./skolko-zarabatyvaet-fitnes-studiya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-zarabatyvaet-fitnes-studiya-2026/)
+- [Сколько зарабатывает детский центр: кружки, абонементы и заполняемость групп](./skolko-zarabatyvaet-detskiy-centr-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-zarabatyvaet-detskiy-centr-2026/)
+- [Сколько зарабатывает доставка еды: своя доставка или агрегаторы](./skolko-zarabatyvaet-dostavka-edy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-zarabatyvaet-dostavka-edy-2026/)
+- [Сколько зарабатывает автосервис: нормочас, посты и запчасти](./skolko-zarabatyvaet-avtoservis-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-zarabatyvaet-avtoservis-2026/)
+- [С чего начать свой бизнес, если денег мало: 10 вариантов с минимальным стартом](./s-chego-nachat-biznes-esli-deneg-malo-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/s-chego-nachat-biznes-esli-deneg-malo-2026/)
+- [Бизнес-план за вечер: какие цифры посчитать до вложений (с калькулятором)](./biznes-plan-za-vecher-kalkulyator-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/biznes-plan-za-vecher-kalkulyator-2026/)
+- [Почему новый бизнес закрывается в первый год: 7 причин на примерах расчётов](./pochemu-novyy-biznes-zakryvaetsya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pochemu-novyy-biznes-zakryvaetsya-2026/)
 - [Почему я продаю без созвонов: вся работа в переписке](./prodayu-bez-sozvonov-v-perepiske-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/prodayu-bez-sozvonov-v-perepiske-2026/)
 - [Как я в первой переписке понимаю, что проект не сложится](./signaly-chto-proekt-ne-slozhitsya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/signaly-chto-proekt-ne-slozhitsya-2026/)
 - [Три вопроса, которые я задаю до того, как назвать цену](./tri-voprosa-do-ceny-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/tri-voprosa-do-ceny-2026/)
