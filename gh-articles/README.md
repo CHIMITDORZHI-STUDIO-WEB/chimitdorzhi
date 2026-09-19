@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1740**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1760**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -983,6 +983,10 @@
 - [Контроль сроков годности: уведомление заранее и список на уценку или списание](./kontrol-srokov-godnosti-tovarov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kontrol-srokov-godnosti-tovarov-2026/)
 - [Сводка из отчётов филиалов: каждая точка присылает свою таблицу, скрипт собирает общую](./svodka-otchetov-filialov-v-odnu-tablicu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/svodka-otchetov-filialov-v-odnu-tablicu-2026/)
 - [Чек-листы для сотрудников в боте: открытие, закрытие, уборка, приёмка — с фото и отметкой времени](./chek-listy-dlya-sotrudnikov-v-bote-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chek-listy-dlya-sotrudnikov-v-bote-2026/)
+- [Программа для цеха: заказы, наряды, этапы производства и сдельная зарплата](./programma-dlya-ceha-naryady-sdelnaya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/programma-dlya-ceha-naryady-sdelnaya-2026/)
+- [Учёт брака и рекламаций на производстве: кто, что, почему и что сделали](./uchet-braka-i-reklamaciy-na-proizvodstve-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uchet-braka-i-reklamaciy-na-proizvodstve-2026/)
+- [График ТО и ремонтов оборудования: плановые работы, простои и запчасти](./grafik-to-i-remontov-oborudovaniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/grafik-to-i-remontov-oborudovaniya-2026/)
+- [Заявки жильцов для управляющей компании: приём, мастер, статус жильцу и отчёт](./zayavki-zhiltsov-dlya-upravlyayushchey-kompanii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zayavki-zhiltsov-dlya-upravlyayushchey-kompanii-2026/)
 - [Кражи и недостачи на кассе: как контролировать кассиров без слежки](./krazhi-i-nedostachi-na-kasse-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/krazhi-i-nedostachi-na-kasse-2026/)
 - [Ревизия в магазине: как пересчитать товар, не закрывая точку](./reviziya-v-magazine-bez-zakrytiya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/reviziya-v-magazine-bez-zakrytiya-2026/)
 - [Приёмка товара от поставщика в магазине: как не платить за то, чего не привезли](./priemka-tovara-ot-postavshchika-v-magazine-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/priemka-tovara-ot-postavshchika-v-magazine-2026/)
@@ -1376,6 +1380,21 @@
 - [Заказы, возвраты и выплаты с маркетплейсов в учёт: без ручного переноса](./zakazy-s-marketpleysov-v-uchet-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zakazy-s-marketpleysov-v-uchet-2026/)
 - [Экспорт сайта с конструктора: резервная копия страниц, форм и заявок](./eksport-sayta-s-konstruktora-rezervnaya-kopiya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/eksport-sayta-s-konstruktora-rezervnaya-kopiya-2026/)
 - [Архив чата или канала Telegram с поиском: когда переписка — это рабочие документы](./arhiv-chata-ili-kanala-telegram-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/arhiv-chata-ili-kanala-telegram-2026/)
+- [Обмен между УТ и Бухгалтерией сломался: дубли, расхождения и документы, которые не доходят](./obmen-ut-i-buhgalterii-slomalsya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/obmen-ut-i-buhgalterii-slomalsya-2026/)
+- [Связать 1С и Битрикс24: сделки, счета, остатки и оплаты в обе стороны](./svyazat-1c-i-bitrix24-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/svyazat-1c-i-bitrix24-2026/)
+- [Отчёт из 1С каждое утро на почту или в мессенджер: без ручного формирования](./otchet-iz-1c-na-pochtu-i-v-messendzher-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/otchet-iz-1c-na-pochtu-i-v-messendzher-2026/)
+- [Обмен 1С с сайтом перестал работать: дубли товаров, пропавшие остатки и заказы, которые не доходят](./obmen-1c-s-saytom-perestal-rabotat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/obmen-1c-s-saytom-perestal-rabotat-2026/)
+- [Программа учёта на заказ: когда Excel уже мало, а 1С слишком тяжело](./programma-ucheta-na-zakaz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/programma-ucheta-na-zakaz-2026/)
+- [Склад без 1С: учёт на телефоне со сканером для маленького склада, магазина или мастерской](./sklad-bez-1c-uchet-na-telefone-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sklad-bez-1c-uchet-na-telefone-2026/)
+- [Программа расчёта заказа и КП для менеджера: размеры на входе, цена и КП на выходе](./programma-rascheta-zakaza-i-kp-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/programma-rascheta-zakaza-i-kp-2026/)
+- [Учёт выдачи инструмента и оборудования сотрудникам: кто взял, когда вернёт, что потеряно](./uchet-vydachi-instrumenta-sotrudnikam-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uchet-vydachi-instrumenta-sotrudnikam-2026/)
+- [Учёт спецодежды и СИЗ по сотрудникам: выдача, сроки носки и замена](./uchet-specodezhdy-i-siz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uchet-specodezhdy-i-siz-2026/)
+- [Учёт возвратной тары: кеги, баллоны, паллеты и ящики у клиентов](./uchet-vozvratnoy-tary-kegi-ballony-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uchet-vozvratnoy-tary-kegi-ballony-2026/)
+- [Учёт серийных номеров и гарантии: кому продали, когда кончается гарантия, что уже ремонтировали](./uchet-seriynyh-nomerov-i-garantii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uchet-seriynyh-nomerov-i-garantii-2026/)
+- [Учёт топлива и ГСМ по машинам: заправки, пробег, нормы и отклонения](./uchet-topliva-i-gsm-po-mashinam-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uchet-topliva-i-gsm-po-mashinam-2026/)
+- [Заявки на закупку с согласованием: от сотрудника до оплаты поставщику](./zayavki-na-zakupku-s-soglasovaniem-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zayavki-na-zakupku-s-soglasovaniem-2026/)
+- [Пропуска и гости в офисе или бизнес-центре: заявка, список на охрану и журнал](./propuska-i-gosti-v-ofise-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/propuska-i-gosti-v-ofise-2026/)
+- [Приложение для замерщика и выездного мастера: акт, фото и подпись клиента на телефоне](./prilozhenie-dlya-zamershchika-i-vyezdnogo-mastera-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/prilozhenie-dlya-zamershchika-i-vyezdnogo-mastera-2026/)
 - [Паллетный учёт в 1С УТ 11.5: что есть из коробки, а что придётся дописать](./palletnyy-uchet-1c-ut-11-5-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/palletnyy-uchet-1c-ut-11-5-2026/)
 - [Своё приложение на ТСД или готовое решение: что выбрать складу](./svoe-prilozhenie-tsd-ili-gotovoe-reshenie-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/svoe-prilozhenie-tsd-ili-gotovoe-reshenie-2026/)
 - [Весовой товар и сроки годности в 1С: как учитывать коробки с разным весом](./vesovoy-tovar-i-sroki-godnosti-v-1c-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vesovoy-tovar-i-sroki-godnosti-v-1c-2026/)
@@ -1642,6 +1661,7 @@
 - [Напоминания клиентам об оплате по графику: вежливо, вовремя и с отметкой, кто оплатил](./napominaniya-klientam-ob-oplate-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/napominaniya-klientam-ob-oplate-2026/)
 - [Мониторинг цен на сырьё и материалы: еженедельный отчёт для производства, стройки и общепита](./monitoring-cen-na-syre-i-materialy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/monitoring-cen-na-syre-i-materialy-2026/)
 - [Чек коррекции: когда его пробивают и как не доводить до него](./chek-korrekcii-kogda-i-kak-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chek-korrekcii-kogda-i-kak-2026/)
+- [Согласование счетов на оплату у руководителя: загрузили, согласовали в телефоне, оплатили](./soglasovanie-schetov-na-oplatu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/soglasovanie-schetov-na-oplatu-2026/)
 - [Облачная касса: что это и кому она выгоднее своей](./oblachnaya-kassa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/oblachnaya-kassa-2026/)
 - [Платёжный календарь: как не остаться без денег на зарплату и налоги](./platezhnyy-kalendar-malyy-biznes-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/platezhnyy-kalendar-malyy-biznes-2026/)
 - [Управленческий учёт для малого бизнеса: прибыль, а не остаток на счёте](./upravlencheskiy-uchet-malyy-biznes-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/upravlencheskiy-uchet-malyy-biznes-2026/)
