@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1760**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1761**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -1702,6 +1702,7 @@
 
 ## Экспертное
 
+- [Нейросеть без цензуры локально: что такое Qwen3.8-27B Uncensored и стоит ли её ставить бизнесу](./qwen-uncensored-lokalno-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/qwen-uncensored-lokalno-2026/)
 - [Мне написал не тот клиент: почему сайт притягивает физлиц вместо компаний](./mne-napisal-fizlico-vmesto-kompanii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/mne-napisal-fizlico-vmesto-kompanii-2026/)
 - [Мои ошибки в продвижении собственного сайта](./oshibki-v-prodvizhenii-svoego-sayta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/oshibki-v-prodvizhenii-svoego-sayta-2026/)
 - [Почему я публикую кейсы с цифрами, но без имён клиентов](./keysy-bez-imen-klientov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/keysy-bez-imen-klientov-2026/)
