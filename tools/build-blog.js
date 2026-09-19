@@ -1021,14 +1021,31 @@ function inlineTgBlock(a, topic) {
 </aside>`;
 }
 // Ставим перед третьим h2 (после вводной части), в короткой статье — перед FAQ.
+// Свой текст блока под аудиторию статьи: a.inlineTg = { title, text, message, before }.
+// before — id раздела, перед которым встаёт блок (по умолчанию как у общего блока).
+function customInlineTgBlock(a) {
+  const c = a.inlineTg;
+  const url = `${TG_URL}?text=${encodeURIComponent(c.message)}`;
+  return `<aside class="blog-inline-tg" aria-label="Обсудить задачу">
+  <div class="blog-inline-tg-body">
+    <p class="blog-inline-tg-title">${esc(c.title)}</p>
+    <p>${esc(c.text)}</p>
+  </div>
+  <div class="blog-inline-tg-actions">
+    <a href="${esc(url)}" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram</a>
+    <a href="${MAX_URL}" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+  </div>
+</aside>`;
+}
 function injectInlineTg(html, a) {
-  const topic = clientTopicText(a);
-  if (!topic) return html;
+  const topic = a.inlineTg ? null : clientTopicText(a);
+  if (!a.inlineTg && !topic) return html;
   const h2s = [...html.matchAll(/<h2[\s>]/g)];
   let at = h2s.length >= 4 ? h2s[2].index : -1;
+  if (a.inlineTg && a.inlineTg.before) { const b = html.indexOf(`<h2 id="${a.inlineTg.before}"`); if (b > 0) at = b; }
   if (at < 0) { const faq = html.search(/<h2 id="faq"/); at = faq > 0 ? faq : -1; }
   if (at < 0) return html;
-  return html.slice(0, at) + inlineTgBlock(a, topic) + '\n' + html.slice(at);
+  return html.slice(0, at) + (a.inlineTg ? customInlineTgBlock(a) : inlineTgBlock(a, topic)) + '\n' + html.slice(at);
 }
 
 function servicesOfferCard(article) {
