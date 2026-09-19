@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1761**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1764**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -1291,6 +1291,9 @@
 - [Карта клиентов и точек из таблицы: адреса на карте для логистики и продаж](./karta-klientov-i-tochek-iz-tablicy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/karta-klientov-i-tochek-iz-tablicy-2026/)
 - [Сбор вакансий и резюме по фильтрам: новые позиции в мессенджер каждый день](./sbor-vakansiy-i-rezyume-po-filtram-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sbor-vakansiy-i-rezyume-po-filtram-2026/)
 - [Парсинг объявлений недвижимости и авто по фильтрам: новые варианты в мессенджер сразу](./parsing-obyavleniy-nedvizhimosti-i-avto-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/parsing-obyavleniy-nedvizhimosti-i-avto-2026/)
+- [Сколько стоит запустить интернет-магазин в 2026: минимальный и нормальный бюджет](./skolko-stoit-zapustit-internet-magazin-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-stoit-zapustit-internet-magazin-2026/)
+- [Магазин в Telegram или MAX без сайта: как начать продавать за неделю](./magazin-v-telegram-ili-max-bez-sayta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/magazin-v-telegram-ili-max-bez-sayta-2026/)
+- [Первые продажи интернет-магазина: откуда брать покупателей в первый месяц](./pervye-prodazhi-internet-magazina-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pervye-prodazhi-internet-magazina-2026/)
 - [Почему я продаю без созвонов: вся работа в переписке](./prodayu-bez-sozvonov-v-perepiske-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/prodayu-bez-sozvonov-v-perepiske-2026/)
 - [Как я в первой переписке понимаю, что проект не сложится](./signaly-chto-proekt-ne-slozhitsya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/signaly-chto-proekt-ne-slozhitsya-2026/)
 - [Три вопроса, которые я задаю до того, как назвать цену](./tri-voprosa-do-ceny-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/tri-voprosa-do-ceny-2026/)
