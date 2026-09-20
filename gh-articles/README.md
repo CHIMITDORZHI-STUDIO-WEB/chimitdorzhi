@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1829**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1832**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -852,6 +852,7 @@
 ## Маркетинг
 
 - [Сделайте как у конкурента: почему копия чужого решения обычно не работает](./sdelayte-kak-u-konkurenta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sdelayte-kak-u-konkurenta-2026/)
+- [Qwen-Image-2.1: генерация картинок в 2K с прозрачным фоном — что это даёт магазину](./qwen-image-2-1-kartochki-tovarov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/qwen-image-2-1-kartochki-tovarov-2026/)
 - [Где взять первых 100 клиентов салону, кафе или студии без большого бюджета](./pervye-100-klientov-dlya-tochki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pervye-100-klientov-dlya-tochki-2026/)
 - [Как заполнить пустые часы: утро, будни и межсезонье](./zapolnit-pustye-chasy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zapolnit-pustye-chasy-2026/)
 - [Парсер цен и остатков с Wildberries и Ozon в таблицу: разово или каждый день](./parser-cen-wb-ozon-v-tablicu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/parser-cen-wb-ozon-v-tablicu-2026/)
@@ -1770,6 +1771,8 @@
 ## Экспертное
 
 - [Что я не делаю и почему: честные границы работы](./chto-ya-ne-delayu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chto-ya-ne-delayu-2026/)
+- [Bonsai 2 27B: модель на 27 млрд параметров в 5,9 ГБ — что это значит для бизнеса](./bonsai-2-27b-szhataya-model-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bonsai-2-27b-szhataya-model-2026/)
+- [Синхронный перевод в реальном времени: Qwen3.8-LiveTranslate и где это нужно бизнесу](./qwen-livetranslate-sinhronnyy-perevod-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/qwen-livetranslate-sinhronnyy-perevod-2026/)
 - [Нейросеть без цензуры локально: что такое Qwen3.8-27B Uncensored и стоит ли её ставить бизнесу](./qwen-uncensored-lokalno-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/qwen-uncensored-lokalno-2026/)
 - [Мне написал не тот клиент: почему сайт притягивает физлиц вместо компаний](./mne-napisal-fizlico-vmesto-kompanii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/mne-napisal-fizlico-vmesto-kompanii-2026/)
 - [Мои ошибки в продвижении собственного сайта](./oshibki-v-prodvizhenii-svoego-sayta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/oshibki-v-prodvizhenii-svoego-sayta-2026/)
