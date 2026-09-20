@@ -169,7 +169,7 @@ module.exports = [
     relatedSlugs: ['it-dlya-avtoservisa-2026', 'programma-dlya-avtoservisa-2026', 'skolko-zarabatyvaet-shinomontazh-2026'] }),
 
   // ---------- Хаб и общие ----------
-  E({ slug: 's-chego-nachat-biznes-esli-deneg-malo-2026', heroIcon: 'ph-fill ph-signpost',
+  E({ slug: 's-chego-nachat-biznes-esli-deneg-malo-2026', heroIcon: 'ph-fill ph-signpost', dateModified: '2026-09-21',
     ctaInternal: P('zapusk-onlayn-biznesa-pod-klyuch', 'Обсудить старт своего дела'),
     inlineTg: { title: 'Выбираете, с чего начать?', text: 'Пришлите идею и бюджет — бесплатно скажу, что посчитать и с чего начать. Сообщение уже подготовлено.', message: 'Здравствуйте! Хочу открыть своё дело, денег немного. Идея и бюджет: ' },
     title: 'С чего начать свой бизнес, если денег мало: 10 вариантов с минимальным стартом',
