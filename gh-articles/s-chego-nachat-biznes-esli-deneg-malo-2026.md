@@ -78,6 +78,28 @@ canonical: https://chimitdorzhi.tech/blog/s-chego-nachat-biznes-esli-deneg-malo-
 
 Например: если калькулятор говорит, что для нуля нужно 40 продаж в месяц, а вы честно ждёте 15, нужен формат дешевле, чек выше или другое место. Лучше узнать это до ремонта.
 
+## Все ниши с калькулятором: посчитайте свою
+
+Ниже — полный список разборов. В каждом свой калькулятор под эту нишу: подставляете свои цифры и видите прибыль, окупаемость и точку выхода в ноль.
+
+**Еда и напитки.** [Кофейня](/blog/skolko-zarabatyvaet-kofeynya-2026/), [кофейня с собой без зала](/blog/skolko-zarabatyvaet-kofeynya-s-soboy-2026/), [точка шаурмы и фастфуда](/blog/skolko-zarabatyvaet-shaurma-2026/), [пекарня и кондитерская](/blog/skolko-zarabatyvaet-pekarnya-2026/), [бар и разливное](/blog/skolko-zarabatyvaet-bar-2026/), [кальянная](/blog/skolko-zarabatyvaet-kalyannaya-2026/), [доставка еды](/blog/skolko-zarabatyvaet-dostavka-edy-2026/).
+
+**Торговля.** [Интернет-магазин](/blog/zarabotok-na-internet-magazine-2026/), [продуктовый магазин у дома](/blog/skolko-zarabatyvaet-produktovyy-magazin-2026/), [цветочный магазин](/blog/skolko-zarabatyvaet-cvetochnyy-magazin-2026/), [островок в торговом центре](/blog/skolko-zarabatyvaet-ostrovok-v-tc-2026/), [вендинговые автоматы](/blog/skolko-zarabatyvaet-vending-2026/), [пункт выдачи заказов](/blog/skolko-zarabatyvaet-pvz-2026/).
+
+**Красота и здоровье.** [Салон красоты](/blog/skolko-zarabatyvaet-salon-krasoty-2026/), [барбершоп](/blog/skolko-zarabatyvaet-barbershop-2026/), [маникюрная студия](/blog/skolko-zarabatyvaet-manikyurnaya-studiya-2026/), [массажный и СПА-салон](/blog/skolko-zarabatyvaet-massazhnyy-salon-2026/), [косметология](/blog/skolko-zarabatyvaet-kosmetologiya-2026/), [лазерная эпиляция](/blog/skolko-zarabatyvaet-lazernaya-epilyaciya-2026/), [стоматология](/blog/skolko-zarabatyvaet-stomatologiya-2026/), [фитнес-студия](/blog/skolko-zarabatyvaet-fitnes-studiya-2026/).
+
+**Авто и техника.** [Автомойка и детейлинг](/blog/skolko-zarabatyvaet-avtomoyka-2026/), [автосервис](/blog/skolko-zarabatyvaet-avtoservis-2026/), [шиномонтаж и хранение шин](/blog/skolko-zarabatyvaet-shinomontazh-2026/), [пункт техосмотра](/blog/skolko-zarabatyvaet-punkt-tehosmotra-2026/), [автопрокат](/blog/skolko-zarabatyvaet-avtoprokat-2026/), [грузоперевозки на своей машине](/blog/skolko-zarabatyvaet-gruzoperevozki-2026/), [ремонт телефонов и техники](/blog/skolko-zarabatyvaet-remont-telefonov-2026/).
+
+**Помещения, отдых и дети.** [Посуточная квартира и апарт-отель](/blog/skolko-zarabatyvaet-posutochnaya-kvartira-2026/), [хостел и капсульный отель](/blog/skolko-zarabatyvaet-hostel-2026/), [баня и сауна](/blog/skolko-zarabatyvaet-banya-sauna-2026/), [коворкинг](/blog/skolko-zarabatyvaet-kovorking-2026/), [фотостудия в аренду](/blog/skolko-zarabatyvaet-fotostudiya-2026/), [квест-комната](/blog/skolko-zarabatyvaet-kvest-komnata-2026/), [батутный центр и детская игровая](/blog/skolko-zarabatyvaet-batutnyy-centr-2026/), [детский центр](/blog/skolko-zarabatyvaet-detskiy-centr-2026/).
+
+**Услуги и обучение.** [Клининговая компания](/blog/skolko-zarabatyvaet-klining-2026/), [ателье и ремонт одежды](/blog/skolko-zarabatyvaet-atelye-2026/), [прачечная самообслуживания](/blog/skolko-zarabatyvaet-prachechnaya-2026/), [типография и печать](/blog/skolko-zarabatyvaet-tipografiya-2026/), [груминг и зоомагазин](/blog/skolko-zarabatyvaet-gruming-2026/), [ветклиника](/blog/skolko-zarabatyvaet-vetklinika-2026/), [школа танцев и вокала](/blog/skolko-zarabatyvaet-shkola-tancev-2026/), [языковая школа и репетиторский центр](/blog/skolko-zarabatyvaet-yazykovaya-shkola-2026/), [автошкола](/blog/skolko-zarabatyvaet-avtoshkola-2026/), [свадебное и ивент-агентство](/blog/skolko-zarabatyvaet-svadebnoe-agentstvo-2026/).
+
+## Если вы уже открылись
+
+Когда точка работает, вопрос меняется: не «сколько заработаю», а «как выжать больше из того, что есть». На эти темы у меня отдельные разборы: [где взять первых клиентов](/blog/pervye-100-klientov-dlya-tochki-2026/), [как поднять средний чек без роста цен](/blog/kak-podnyat-sredniy-chek-2026/), [чем заполнить пустые часы](/blog/zapolnit-pustye-chasy-2026/) и [почему клиенты не возвращаются](/blog/pochemu-klienty-ne-vozvrashchayutsya-2026/).
+
+Дальше идут вопросы управления: [пять цифр, которые владелец смотрит каждую неделю](/blog/pyat-cifr-vladeltsu-kazhduyu-nedelyu-2026/), [администратор или бот](/blog/administrator-ili-bot-2026/), [почему уходят сотрудники](/blog/pochemu-uhodyat-sotrudniki-v-uslugah-2026/), [как пережить межсезонье](/blog/sezonnyy-biznes-mezhsezone-2026/) и [как открыть вторую точку, не потеряв первую](/blog/vtoraya-tochka-bez-poteri-pervoy-2026/). Если выбираете между своим делом и покупкой готового бренда — есть разбор [франшиза или своё дело](/blog/franshiza-ili-svoe-delo-2026/).
+
 ## Чем я могу помочь на старте
 
 Необязательно сразу заказывать сайт и систему. Я работаю в три ступени, и начать можно с любой.
