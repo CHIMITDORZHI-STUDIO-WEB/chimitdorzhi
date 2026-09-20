@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1782**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1802**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -1285,6 +1285,26 @@
 
 ## Продажи
 
+- [Сколько зарабатывает пункт выдачи заказов: комиссия, поток и окупаемость](./skolko-zarabatyvaet-pvz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-zarabatyvaet-pvz-2026/)
+- [Сколько зарабатывает бар или магазин разливного пива: наценка, списания и вечерний поток](./skolko-zarabatyvaet-bar-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-zarabatyvaet-bar-2026/)
+- [Сколько зарабатывает кальянная и лаунж: столы, оборот и персонал](./skolko-zarabatyvaet-kalyannaya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-zarabatyvaet-kalyannaya-2026/)
+- [Сколько зарабатывает продуктовый магазин у дома: оборот, списания и наценка](./skolko-zarabatyvaet-produktovyy-magazin-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-zarabatyvaet-produktovyy-magazin-2026/)
+- [Сколько зарабатывает маникюрная студия: мастера, загрузка и материалы](./skolko-zarabatyvaet-manikyurnaya-studiya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-zarabatyvaet-manikyurnaya-studiya-2026/)
+- [Сколько зарабатывает стоматология: кресла, загрузка и доля врача](./skolko-zarabatyvaet-stomatologiya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-zarabatyvaet-stomatologiya-2026/)
+- [Сколько зарабатывает косметология: аппараты, повторные визиты и окупаемость оборудования](./skolko-zarabatyvaet-kosmetologiya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-zarabatyvaet-kosmetologiya-2026/)
+- [Сколько зарабатывает студия лазерной эпиляции: курс процедур и загрузка аппарата](./skolko-zarabatyvaet-lazernaya-epilyaciya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-zarabatyvaet-lazernaya-epilyaciya-2026/)
+- [Сколько зарабатывает ветклиника: приёмы, аптека и дежурства](./skolko-zarabatyvaet-vetklinika-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-zarabatyvaet-vetklinika-2026/)
+- [Сколько зарабатывает груминг-салон и зоомагазин: столы, время стрижки и корма](./skolko-zarabatyvaet-gruming-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-zarabatyvaet-gruming-2026/)
+- [Сколько зарабатывает автопрокат: загрузка машин, простои и ущерб](./skolko-zarabatyvaet-avtoprokat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-zarabatyvaet-avtoprokat-2026/)
+- [Сколько зарабатывает грузоперевозки на своей машине: рейсы, топливо и простои](./skolko-zarabatyvaet-gruzoperevozki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-zarabatyvaet-gruzoperevozki-2026/)
+- [Сколько зарабатывает мастерская по ремонту телефонов и техники: запчасти, поток и гарантия](./skolko-zarabatyvaet-remont-telefonov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-zarabatyvaet-remont-telefonov-2026/)
+- [Сколько зарабатывает пункт техосмотра: поток, оборудование и сезонность](./skolko-zarabatyvaet-punkt-tehosmotra-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-zarabatyvaet-punkt-tehosmotra-2026/)
+- [Сколько зарабатывает коворкинг: места, абонементы и переговорки](./skolko-zarabatyvaet-kovorking-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-zarabatyvaet-kovorking-2026/)
+- [Сколько зарабатывает баня или сауна: часы, парные и выходные](./skolko-zarabatyvaet-banya-sauna-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-zarabatyvaet-banya-sauna-2026/)
+- [Сколько зарабатывает хостел или капсульный отель: койко-места, загрузка и уборка](./skolko-zarabatyvaet-hostel-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-zarabatyvaet-hostel-2026/)
+- [Сколько зарабатывает батутный центр или детская игровая: часы, будни и праздники](./skolko-zarabatyvaet-batutnyy-centr-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-zarabatyvaet-batutnyy-centr-2026/)
+- [Сколько зарабатывает школа танцев или вокала: группы, залы и абонементы](./skolko-zarabatyvaet-shkola-tancev-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-zarabatyvaet-shkola-tancev-2026/)
+- [Сколько зарабатывает клининговая компания: бригады, выезды и повторные клиенты](./skolko-zarabatyvaet-klining-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-zarabatyvaet-klining-2026/)
 - [Сбор базы компаний из открытых справочников и карт для отдела продаж](./sbor-bazy-kompaniy-iz-otkrytyh-istochnikov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sbor-bazy-kompaniy-iz-otkrytyh-istochnikov-2026/)
 - [Уведомления о новых тендерах и объявлениях по ключевым словам](./uvedomleniya-o-tenderah-i-obyavleniyah-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uvedomleniya-o-tenderah-i-obyavleniyah-2026/)
 - [Чистка базы клиентов: дубли, телефоны в разном формате и мёртвые контакты](./chistka-bazy-klientov-dubli-telefony-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chistka-bazy-klientov-dubli-telefony-2026/)
