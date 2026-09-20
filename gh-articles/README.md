@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1821**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1829**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -851,6 +851,7 @@
 
 ## Маркетинг
 
+- [Сделайте как у конкурента: почему копия чужого решения обычно не работает](./sdelayte-kak-u-konkurenta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sdelayte-kak-u-konkurenta-2026/)
 - [Где взять первых 100 клиентов салону, кафе или студии без большого бюджета](./pervye-100-klientov-dlya-tochki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pervye-100-klientov-dlya-tochki-2026/)
 - [Как заполнить пустые часы: утро, будни и межсезонье](./zapolnit-pustye-chasy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zapolnit-pustye-chasy-2026/)
 - [Парсер цен и остатков с Wildberries и Ozon в таблицу: разово или каждый день](./parser-cen-wb-ozon-v-tablicu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/parser-cen-wb-ozon-v-tablicu-2026/)
@@ -1414,6 +1415,11 @@
 
 ## Разработка
 
+- [Сделать самому на конструкторе или заказать: честное сравнение для сайта и бота](./konstruktor-ili-zakazat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/konstruktor-ili-zakazat-2026/)
+- [Кому не нужна автоматизация: признаки, что рано](./komu-ne-nuzhna-avtomatizaciya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/komu-ne-nuzhna-avtomatizaciya-2026/)
+- [Как принять работу у подрядчика: чек-лист приёмки сайта, бота и интеграции](./priemka-raboty-podryadchika-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/priemka-raboty-podryadchika-2026/)
+- [Что реально можно сделать за неделю: список задач с результатом](./chto-mozhno-sdelat-za-nedelyu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chto-mozhno-sdelat-za-nedelyu-2026/)
+- [Мы уже пробовали, не сработало: бот без заявок, CRM без записей, сайт без клиентов](./uzhe-probovali-ne-srabotalo-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uzhe-probovali-ne-srabotalo-2026/)
 - [МойСклад: когда его хватает вместо 1С и как связать его с сайтом, ботом и маркетплейсами](./moysklad-vmesto-1c-integraciya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/moysklad-vmesto-1c-integraciya-2026/)
 - [Выгрузка из CRM в таблицу: отчёт, который обновляется сам](./vygruzka-iz-crm-v-tablicu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vygruzka-iz-crm-v-tablicu-2026/)
 - [Переезд с одной CRM на другую: как перенести клиентов, сделки и историю](./perehod-s-crm-na-crm-perenos-dannyh-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/perehod-s-crm-na-crm-perenos-dannyh-2026/)
@@ -1713,6 +1719,7 @@
 
 ## Финансы
 
+- [Сколько стоит делать это руками: калькулятор потерь на рутине](./cena-ruchnoy-raboty-kalkulyator-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/cena-ruchnoy-raboty-kalkulyator-2026/)
 - [Пять цифр, которые владелец должен видеть каждую неделю](./pyat-cifr-vladeltsu-kazhduyu-nedelyu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pyat-cifr-vladeltsu-kazhduyu-nedelyu-2026/)
 - [Сезонный бизнес: как пережить межсезонье и не проесть сезон](./sezonnyy-biznes-mezhsezone-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sezonnyy-biznes-mezhsezone-2026/)
 - [Сверка двух таблиц или выписки с учётом: скрипт находит расхождения за минуты](./sverka-dvuh-tablic-skriptom-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sverka-dvuh-tablic-skriptom-2026/)
@@ -1762,6 +1769,7 @@
 
 ## Экспертное
 
+- [Что я не делаю и почему: честные границы работы](./chto-ya-ne-delayu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chto-ya-ne-delayu-2026/)
 - [Нейросеть без цензуры локально: что такое Qwen3.8-27B Uncensored и стоит ли её ставить бизнесу](./qwen-uncensored-lokalno-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/qwen-uncensored-lokalno-2026/)
 - [Мне написал не тот клиент: почему сайт притягивает физлиц вместо компаний](./mne-napisal-fizlico-vmesto-kompanii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/mne-napisal-fizlico-vmesto-kompanii-2026/)
 - [Мои ошибки в продвижении собственного сайта](./oshibki-v-prodvizhenii-svoego-sayta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/oshibki-v-prodvizhenii-svoego-sayta-2026/)
