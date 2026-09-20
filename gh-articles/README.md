@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1802**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1821**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -851,6 +851,8 @@
 
 ## Маркетинг
 
+- [Где взять первых 100 клиентов салону, кафе или студии без большого бюджета](./pervye-100-klientov-dlya-tochki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pervye-100-klientov-dlya-tochki-2026/)
+- [Как заполнить пустые часы: утро, будни и межсезонье](./zapolnit-pustye-chasy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zapolnit-pustye-chasy-2026/)
 - [Парсер цен и остатков с Wildberries и Ozon в таблицу: разово или каждый день](./parser-cen-wb-ozon-v-tablicu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/parser-cen-wb-ozon-v-tablicu-2026/)
 - [Заявки с сайта в Telegram или MAX и цели в Метрике: чтобы ни одна не потерялась](./zayavki-s-sayta-v-telegram-i-celi-metriki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zayavki-s-sayta-v-telegram-i-celi-metriki-2026/)
 - [Мониторинг ассортимента конкурентов: новинки, пропавшие позиции и акции каждую неделю](./monitoring-assortimenta-konkurentov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/monitoring-assortimenta-konkurentov-2026/)
@@ -975,6 +977,8 @@
 
 ## Отрасли
 
+- [Как открыть вторую точку и не потерять первую](./vtoraya-tochka-bez-poteri-pervoy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vtoraya-tochka-bez-poteri-pervoy-2026/)
+- [Почему уходят сотрудники в сфере услуг и чем это лечится](./pochemu-uhodyat-sotrudniki-v-uslugah-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pochemu-uhodyat-sotrudniki-v-uslugah-2026/)
 - [YCLIENTS и бот в MAX: запись, напоминания и возврат клиентов в одной связке](./yclients-bot-max-napominaniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/yclients-bot-max-napominaniya-2026/)
 - [iiko и r_keeper: как владельцу видеть выручку, себестоимость и списания без выгрузок руками](./iiko-r-keeper-otchety-vladelcu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/iiko-r-keeper-otchety-vladelcu-2026/)
 - [Смарт-терминал вроде Эвотора: что можно выжать из кассы, кроме чеков](./smart-terminal-evotor-chto-umeet-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/smart-terminal-evotor-chto-umeet-2026/)
@@ -1305,6 +1309,19 @@
 - [Сколько зарабатывает батутный центр или детская игровая: часы, будни и праздники](./skolko-zarabatyvaet-batutnyy-centr-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-zarabatyvaet-batutnyy-centr-2026/)
 - [Сколько зарабатывает школа танцев или вокала: группы, залы и абонементы](./skolko-zarabatyvaet-shkola-tancev-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-zarabatyvaet-shkola-tancev-2026/)
 - [Сколько зарабатывает клининговая компания: бригады, выезды и повторные клиенты](./skolko-zarabatyvaet-klining-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-zarabatyvaet-klining-2026/)
+- [Сколько зарабатывает точка шаурмы или фастфуда: поток, себестоимость и окупаемость](./skolko-zarabatyvaet-shaurma-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-zarabatyvaet-shaurma-2026/)
+- [Сколько зарабатывает кофейня с собой без зала: стаканы в день, аренда и окупаемость](./skolko-zarabatyvaet-kofeynya-s-soboy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-zarabatyvaet-kofeynya-s-soboy-2026/)
+- [Сколько зарабатывает островок в торговом центре: аренда за место, поток и сезонность](./skolko-zarabatyvaet-ostrovok-v-tc-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-zarabatyvaet-ostrovok-v-tc-2026/)
+- [Сколько зарабатывают вендинговые автоматы: точки, инкассация и окупаемость аппарата](./skolko-zarabatyvaet-vending-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-zarabatyvaet-vending-2026/)
+- [Сколько зарабатывает прачечная самообслуживания: машины, загрузка и коммуналка](./skolko-zarabatyvaet-prachechnaya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-zarabatyvaet-prachechnaya-2026/)
+- [Сколько зарабатывает автошкола: группы, инструкторы и сезонность](./skolko-zarabatyvaet-avtoshkola-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-zarabatyvaet-avtoshkola-2026/)
+- [Сколько зарабатывает типография и печать: тираж, срочные заказы и окупаемость оборудования](./skolko-zarabatyvaet-tipografiya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-zarabatyvaet-tipografiya-2026/)
+- [Сколько зарабатывает ателье и ремонт одежды: мастера, поток и сезон](./skolko-zarabatyvaet-atelye-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-zarabatyvaet-atelye-2026/)
+- [Сколько зарабатывает свадебное или ивент-агентство: мероприятия, подрядчики и сезон](./skolko-zarabatyvaet-svadebnoe-agentstvo-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-zarabatyvaet-svadebnoe-agentstvo-2026/)
+- [Сколько зарабатывает языковая школа или репетиторский центр: группы, онлайн и абонементы](./skolko-zarabatyvaet-yazykovaya-shkola-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-zarabatyvaet-yazykovaya-shkola-2026/)
+- [Как поднять средний чек, не поднимая цены](./kak-podnyat-sredniy-chek-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-podnyat-sredniy-chek-2026/)
+- [Администратор или бот: что дешевле и что во что упирается](./administrator-ili-bot-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/administrator-ili-bot-2026/)
+- [Франшиза или своё дело: что выгоднее и что вы покупаете](./franshiza-ili-svoe-delo-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/franshiza-ili-svoe-delo-2026/)
 - [Сбор базы компаний из открытых справочников и карт для отдела продаж](./sbor-bazy-kompaniy-iz-otkrytyh-istochnikov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sbor-bazy-kompaniy-iz-otkrytyh-istochnikov-2026/)
 - [Уведомления о новых тендерах и объявлениях по ключевым словам](./uvedomleniya-o-tenderah-i-obyavleniyah-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uvedomleniya-o-tenderah-i-obyavleniyah-2026/)
 - [Чистка базы клиентов: дубли, телефоны в разном формате и мёртвые контакты](./chistka-bazy-klientov-dubli-telefony-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chistka-bazy-klientov-dubli-telefony-2026/)
@@ -1696,6 +1713,8 @@
 
 ## Финансы
 
+- [Пять цифр, которые владелец должен видеть каждую неделю](./pyat-cifr-vladeltsu-kazhduyu-nedelyu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pyat-cifr-vladeltsu-kazhduyu-nedelyu-2026/)
+- [Сезонный бизнес: как пережить межсезонье и не проесть сезон](./sezonnyy-biznes-mezhsezone-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sezonnyy-biznes-mezhsezone-2026/)
 - [Сверка двух таблиц или выписки с учётом: скрипт находит расхождения за минуты](./sverka-dvuh-tablic-skriptom-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sverka-dvuh-tablic-skriptom-2026/)
 - [Банковская выписка в таблицу по статьям расходов: без ручной разметки](./bankovskaya-vypiska-v-tablicu-po-statyam-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bankovskaya-vypiska-v-tablicu-po-statyam-2026/)
 - [Разбор финансового отчёта маркетплейса: сколько реально заработано на каждом товаре](./razbor-finansovogo-otcheta-marketpleysa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/razbor-finansovogo-otcheta-marketpleysa-2026/)
