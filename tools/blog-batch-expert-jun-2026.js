@@ -40,7 +40,7 @@ module.exports = [
     excerpt: 'Я регулярно говорю клиентам «нет» — и считаю это частью честной работы. Разбираю, от каких проектов отказываюсь, почему это в плюс самому клиенту и как решаю, браться или нет.',
     tags: ['экспертное', 'подход к работе', 'честность', 'выбор подрядчика'],
     toc: T(['pochemu-otkazyvayus','Почему я говорю «нет» части проектов'],['kakie-proekty','От каких проектов отказываюсь'],['pochemu-eto-v-plyus','Почему отказ — в плюс клиенту'],['kak-ya-otbirayu','Как я решаю, браться или нет'],['faq','FAQ'],['vyvody','Коротко о главном']),
-    relatedSlugs: ['skrytaya-cena-deshevogo-sayta-bota-2026', 'it-podryadchik-kak-vrach-diagnostika-2026', 'pochemu-ne-obeshchayu-rost-prodazh-2026'] }),
+    relatedSlugs: ['chto-ya-ne-delayu-2026', 'skrytaya-cena-deshevogo-sayta-bota-2026', 'pochemu-ne-obeshchayu-rost-prodazh-2026'] }),
   E({ slug: 'pochemu-ne-obeshchayu-rost-prodazh-2026', heroIcon: 'ph-fill ph-scales', ctaInternal: AUTO,
     title: 'Почему я не обещаю «+X% к продажам» — и что обещаю вместо этого',
     metaTitle: 'Почему я не обещаю рост продаж',

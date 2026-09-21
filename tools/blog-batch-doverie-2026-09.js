@@ -38,7 +38,7 @@ module.exports = [
     metaDescription: 'За какие задачи я не берусь и почему это в интересах заказчика: обещания позиций и выручки, серые схемы, проекты без понятной задачи и без ответственного.',
     excerpt: 'Отказ экономит деньги обеим сторонам. Рассказываю, за что не берусь, почему и что предлагаю вместо этого.',
     tags: ['работа с заказчиком', 'принципы', 'разработка', 'доверие'],
-    relatedSlugs: ['tri-voprosa-do-ceny-2026', 'signaly-chto-proekt-ne-slozhitsya-2026', 'kak-ya-rabotayu-process-2026'] }),
+    relatedSlugs: ['pochemu-ya-otkazyvayus-ot-proektov-2026', 'pochemu-ne-obeshchayu-rost-prodazh-2026', 'tri-voprosa-do-ceny-2026'] }),
 
   E({ slug: 'konstruktor-ili-zakazat-2026', heroIcon: 'ph-fill ph-stack',
     ctaInternal: { url: `${S}/services/web-development/`, label: 'Обсудить сайт или бота' },
