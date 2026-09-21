@@ -70,7 +70,7 @@ function head({ title, description, url, ld }) {
     .replace(/(<meta property="og:url" content=")[^"]*/, `$1${url}`)
     .replace(/(<meta property="og:title" content=")[^"]*/, `$1${esc(title)}`)
     .replace(/(<meta property="og:description" content=")[^"]*/, `$1${esc(description)}`);
-  h += '<link rel="stylesheet" href="/assets/models.css?v=2">\n';
+  h += '<link rel="stylesheet" href="/assets/models.css?v=3">\n';
   for (const obj of ld) h += `<script type="application/ld+json">${JSON.stringify(obj)}</script>\n`;
   return h;
 }
@@ -228,7 +228,7 @@ function detail(m) {
         <li><b>Дообучение</b><span>Дообучаю на ваших данных (LoRA) или подключаю базу знаний — что дешевле для задачи.</span></li>
         <li><b>Встраивание</b><span>Подключаю к CRM, 1С, боту, сайту или рабочему чату, настраиваю мониторинг.</span></li>
       </ol></section>
-      ${alts.length ? `<section><h2>Похожие модели</h2><div class="md-alts">${alts.map((a) => `<a href="/ii-modeli/${a.id}/">${modChip(a.modality[0])}<b>${esc(a.name)}</b><span class="md-alt-dev">${esc(a.developer)} · ${esc(a.country)}</span><p>${esc(a.summary)}</p><span class="md-alt-foot">${lic(a.commercial)}<span class="md-more">Подробнее<i class="ph ph-arrow-right" aria-hidden="true"></i></span></span></a>`).join('')}</div></section>` : ''}
+      ${alts.length ? `<section><h2>Похожие модели</h2><div class="md-alts">${alts.map((a) => `<a href="/ii-modeli/${a.id}/">${modChip(a.modality[0])}<b>${esc(a.name)}</b><span class="md-alt-dev">${esc(a.developer)} · ${esc(a.country)}</span>${lic(a.commercial)}<p>${esc(a.summary)}</p><span class="md-alt-foot"><span class="md-more">Подробнее<i class="ph ph-arrow-right" aria-hidden="true"></i></span></span></a>`).join('')}</div></section>` : ''}
     </div>
     <aside class="md-d-side">
       <div class="md-side-card">
