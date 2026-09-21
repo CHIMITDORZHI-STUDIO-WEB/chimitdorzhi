@@ -113,7 +113,7 @@ function head({ title, description, keywords, canonical, ogImage = `${SITE}/hero
         <link rel="stylesheet" href="/assets/phosphor/regular.css">
         <link rel="stylesheet" href="/assets/phosphor/fill.css">
     </noscript>
-    <link rel="stylesheet" href="/style.css?v=76">
+    <link rel="stylesheet" href="/style.css?v=78">
 `;
 }
 
@@ -155,9 +155,9 @@ function footer() {
         </div>
     </div>
 </footer>
-<script src="/i18n.js?v=43" defer></script>
-<script src="/services-i18n.js?v=43" defer></script>
-<script src="/script.js?v=38" defer></script>
+<script src="/i18n.js?v=44" defer></script>
+<script src="/services-i18n.js?v=44" defer></script>
+<script src="/script.js?v=39" defer></script>
 <script src="/search-widget.js?v=1" defer></script>`;
 }
 

@@ -358,7 +358,7 @@ function head({ title, description, canonical, ogImage }) {
     <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="/assets/phosphor/regular.css"><link rel="stylesheet" href="/assets/phosphor/fill.css"></noscript>
-    <link rel="stylesheet" href="/style.css?v=76">
+    <link rel="stylesheet" href="/style.css?v=78">
 `;
 }
 const navbar = require('./navbar.js');
@@ -389,8 +389,8 @@ function footer() {
         </div>
     </div>
 </footer>
-<script src="/i18n.js?v=43" defer></script>
-<script src="/script.js?v=38" defer></script>`;
+<script src="/i18n.js?v=44" defer></script>
+<script src="/script.js?v=39" defer></script>`;
 }
 
 // ---------- хаб ----------
