@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1832**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1844**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -501,6 +501,8 @@
 
 ## Безопасность
 
+- [Взломали Telegram или MAX компании: что делать в первый час](./vzlomali-telegram-ili-max-kompanii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vzlomali-telegram-ili-max-kompanii-2026/)
+- [Сайт, домен или бот записаны на бывшего сотрудника или подрядчика: как вернуть и не допустить](./dostupy-zapisany-na-byvshego-sotrudnika-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/dostupy-zapisany-na-byvshego-sotrudnika-2026/)
 - [Корпоративная почта и общий диск: как навести порядок с доступами, чтобы файлы не жили в личных аккаунтах](./korporativnaya-pochta-i-obshchiy-disk-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/korporativnaya-pochta-i-obshchiy-disk-2026/)
 - [IT-порядок в маленьком офисе за одну задачу: почта, копии, доступы, пароли](./it-nastroyka-malenkogo-ofisa-razovo-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/it-nastroyka-malenkogo-ofisa-razovo-2026/)
 - [Копия есть, а восстановиться нельзя: зачем раз в месяц проверять резервные копии](./proverka-vosstanovleniya-iz-kopii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/proverka-vosstanovleniya-iz-kopii-2026/)
@@ -853,6 +855,8 @@
 
 - [Сделайте как у конкурента: почему копия чужого решения обычно не работает](./sdelayte-kak-u-konkurenta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sdelayte-kak-u-konkurenta-2026/)
 - [Qwen-Image-2.1: генерация картинок в 2K с прозрачным фоном — что это даёт магазину](./qwen-image-2-1-kartochki-tovarov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/qwen-image-2-1-kartochki-tovarov-2026/)
+- [Подарочные сертификаты: как продавать онлайн и не запутаться в погашениях](./podarochnye-sertifikaty-onlayn-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/podarochnye-sertifikaty-onlayn-2026/)
+- [Карта лояльности в телефоне без приложения: бот, кошелёк телефона и QR](./karta-loyalnosti-v-telefone-bez-prilozheniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/karta-loyalnosti-v-telefone-bez-prilozheniya-2026/)
 - [Где взять первых 100 клиентов салону, кафе или студии без большого бюджета](./pervye-100-klientov-dlya-tochki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pervye-100-klientov-dlya-tochki-2026/)
 - [Как заполнить пустые часы: утро, будни и межсезонье](./zapolnit-pustye-chasy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zapolnit-pustye-chasy-2026/)
 - [Парсер цен и остатков с Wildberries и Ozon в таблицу: разово или каждый день](./parser-cen-wb-ozon-v-tablicu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/parser-cen-wb-ozon-v-tablicu-2026/)
@@ -979,6 +983,11 @@
 
 ## Отрасли
 
+- [Как нанимать продавцов, официантов и курьеров через бота](./nayom-cherez-bota-prodavcy-oficianty-kurery-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nayom-cherez-bota-prodavcy-oficianty-kurery-2026/)
+- [Почему кандидаты не приходят на собеседование и что с этим делать](./kandidaty-ne-prihodyat-na-sobesedovanie-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kandidaty-ne-prihodyat-na-sobesedovanie-2026/)
+- [YCLIENTS, Dikidi или свой бот для записи: что выбрать салону](./yclients-dikidi-ili-svoy-bot-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/yclients-dikidi-ili-svoy-bot-2026/)
+- [iiko или r_keeper: что выбрать кафе и ресторану](./iiko-ili-r-keeper-chto-vybrat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/iiko-ili-r-keeper-chto-vybrat-2026/)
+- [Мастер на дому или частный специалист: запись, оплата и напоминания без администратора](./master-na-domu-zapis-bez-administratora-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/master-na-domu-zapis-bez-administratora-2026/)
 - [Как открыть вторую точку и не потерять первую](./vtoraya-tochka-bez-poteri-pervoy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vtoraya-tochka-bez-poteri-pervoy-2026/)
 - [Почему уходят сотрудники в сфере услуг и чем это лечится](./pochemu-uhodyat-sotrudniki-v-uslugah-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pochemu-uhodyat-sotrudniki-v-uslugah-2026/)
 - [YCLIENTS и бот в MAX: запись, напоминания и возврат клиентов в одной связке](./yclients-bot-max-napominaniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/yclients-bot-max-napominaniya-2026/)
@@ -1291,6 +1300,8 @@
 
 ## Продажи
 
+- [Абонементы и пакеты услуг: как продавать и не запутаться в остатках визитов](./abonementy-i-pakety-uslug-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/abonementy-i-pakety-uslug-2026/)
+- [Автоматизация для ИП без сотрудников: что имеет смысл, а что нет](./avtomatizaciya-dlya-ip-bez-sotrudnikov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avtomatizaciya-dlya-ip-bez-sotrudnikov-2026/)
 - [Сколько зарабатывает пункт выдачи заказов: комиссия, поток и окупаемость](./skolko-zarabatyvaet-pvz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-zarabatyvaet-pvz-2026/)
 - [Сколько зарабатывает бар или магазин разливного пива: наценка, списания и вечерний поток](./skolko-zarabatyvaet-bar-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-zarabatyvaet-bar-2026/)
 - [Сколько зарабатывает кальянная и лаунж: столы, оборот и персонал](./skolko-zarabatyvaet-kalyannaya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-zarabatyvaet-kalyannaya-2026/)
@@ -1721,6 +1732,7 @@
 ## Финансы
 
 - [Сколько стоит делать это руками: калькулятор потерь на рутине](./cena-ruchnoy-raboty-kalkulyator-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/cena-ruchnoy-raboty-kalkulyator-2026/)
+- [Эвотор, АТОЛ или облачная касса: какую кассу брать малому бизнесу](./evotor-atol-ili-oblachnaya-kassa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/evotor-atol-ili-oblachnaya-kassa-2026/)
 - [Пять цифр, которые владелец должен видеть каждую неделю](./pyat-cifr-vladeltsu-kazhduyu-nedelyu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pyat-cifr-vladeltsu-kazhduyu-nedelyu-2026/)
 - [Сезонный бизнес: как пережить межсезонье и не проесть сезон](./sezonnyy-biznes-mezhsezone-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sezonnyy-biznes-mezhsezone-2026/)
 - [Сверка двух таблиц или выписки с учётом: скрипт находит расхождения за минуты](./sverka-dvuh-tablic-skriptom-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sverka-dvuh-tablic-skriptom-2026/)
