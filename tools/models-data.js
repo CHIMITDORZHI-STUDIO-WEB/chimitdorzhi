@@ -3,7 +3,7 @@
 // на Hugging Face / GitHub; непроверенное не публикуем.
 // hardware: min — ноутбук или до 8 ГБ видеопамяти; gpu — одна видеокарта 16–80 ГБ;
 // multi — несколько видеокарт. commercial: yes / conditional / no.
-module.exports = [
+const BASE = [
   {
     id: 'qwen', name: 'Qwen', developer: 'Alibaba', country: 'Китай',
     modality: ['text', 'vlm'], first: '2023-08', latest: '2026-08', sizes: '0,6B – 2,4T',
@@ -137,3 +137,17 @@ module.exports = [
     alternatives: [],
   },
 ];
+
+// Остальные семейства лежат по направлениям в tools/models/*.js (каждый файл — массив).
+// При совпадении id запись из файла направления заменяет базовую.
+const fs = require('fs');
+const path = require('path');
+const byId = new Map(BASE.map((m) => [m.id, m]));
+const dir = path.join(__dirname, 'models');
+for (const f of fs.existsSync(dir) ? fs.readdirSync(dir).filter((x) => x.endsWith('.js')).sort() : []) {
+  for (const m of require(path.join(dir, f))) {
+    if (m.verified === false) continue; // непроверенное не публикуем
+    byId.set(m.id, m);
+  }
+}
+module.exports = [...byId.values()];

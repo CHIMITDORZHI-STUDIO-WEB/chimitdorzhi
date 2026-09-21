@@ -8,7 +8,19 @@ const ROOT = path.resolve(__dirname, '..');
 const OUT = path.join(ROOT, 'ii-modeli');
 const SITE = 'https://chimitdorzhi.tech';
 const UPDATED = '22.09.2026';
-const MODELS = require('./models-data.js');
+const MODELS = require('./models-data.js').filter((m) => {
+  const bad = [];
+  for (const k of ['id', 'name', 'developer', 'country', 'first', 'latest', 'sizes', 'license', 'summary']) if (!m[k]) bad.push(k);
+  if (!/^[a-z0-9-]+$/.test(m.id || '')) bad.push('id-format');
+  if (!/^\d{4}-\d{2}$/.test(m.first || '') || !/^\d{4}-\d{2}$/.test(m.latest || '')) bad.push('dates');
+  if (!Array.isArray(m.modality) || !m.modality.length || m.modality.some((x) => !['text','code','vlm','ocr','image','video','avatar','asr','tts','omni','audio','3d','vision','embed','timeseries','robotics'].includes(x))) bad.push('modality');
+  if (!Array.isArray(m.hardware) || !m.hardware.length || m.hardware.some((x) => !['min', 'gpu', 'multi'].includes(x))) bad.push('hardware');
+  if (!['yes', 'conditional', 'no'].includes(m.commercial)) bad.push('commercial');
+  if (!Array.isArray(m.tasks) || m.tasks.length < 2 || !Array.isArray(m.where) || !m.where.length) bad.push('tasks/where');
+  if (!Array.isArray(m.versions) || !m.versions.length || m.versions.some((v) => !/^\d{4}-\d{2}$/.test(v[1]))) bad.push('versions');
+  if (bad.length) console.log(`  ⚠ ${m.id || m.name}: пропущено (${bad.join(', ')})`);
+  return !bad.length;
+});
 
 const MOD = {
   text:       { label: 'Текст',            icon: 'chat-text' },
