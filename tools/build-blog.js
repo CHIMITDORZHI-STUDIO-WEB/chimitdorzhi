@@ -1622,7 +1622,7 @@ const MODEL_LINK_RULES = (() => {
     ['gpt-oss', 'gpt-oss'], ['gemma', 'Gemma(?: \\d\\w?)?'], ['codestral', 'Codestral'], ['devstral', 'Devstral'], ['mistral', 'Mistral(?! OCR)|Mixtral'],
     ['whisper', 'Whisper'], ['flux', 'FLUX(?:\\.\\d)?'], ['bge-m3', 'BGE-M3'], ['sam', 'Segment Anything'],
     // Pro/Max/Lite/Plus у GigaChat и YandexGPT Pro — закрытые облачные версии, их не линкуем (YandexGPT-5-Lite открыт).
-    ['gigachat', 'GigaChat(?!\\s*(?:\\d[\\d.]*\\s*)?(?:Pro|Max|Lite|Plus))'], ['yandexgpt', 'YandexGPT(?![ -]?\\d*\\s*Pro)'], ['t-pro', 'T-Pro|T-Lite'], ['kimi', 'Kimi(?: K\\d(?:\\.\\d)?)?'],
+    ['gigachat', 'GigaChat(?!\\s*(?:\\d[\\d.]*\\s*)?(?:Pro|PRO|Max|MAX|Lite|Plus))'], ['yandexgpt', 'YandexGPT(?![ -]?\\d*\\s*Pro)'], ['t-pro', 'T-Pro|T-Lite'], ['kimi', 'Kimi(?: K\\d(?:\\.\\d)?)?'],
     ['glm', 'ChatGLM|GLM-\\d(?:\\.\\d)?'], ['phi', 'Phi-\\d'], ['nemotron', 'Nemotron'], ['olmo', 'OLMo'],
     ['kandinsky', 'Kandinsky'], ['stable-diffusion', 'Stable Diffusion|SDXL'], ['ltx-video', 'LTX-Video|LTX-2'],
     ['hunyuan-video', 'HunyuanVideo'], ['cogvideox', 'CogVideoX'], ['gigaam', 'GigaAM'], ['silero', 'Silero'], ['xtts', 'XTTS'],
