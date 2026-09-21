@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1844**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1856**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -37,6 +37,7 @@
 
 ## AI для разработчиков
 
+- [Клиенты пишут ночью и в выходные: ИИ-консультант, который отвечает и записывает](./klienty-pishut-nochyu-ii-konsultant-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/klienty-pishut-nochyu-ii-konsultant-2026/)
 - [ИИ-помощник запущен: кто следит за ответами и обновляет базу знаний](./soprovozhdenie-ii-pomoshchnika-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/soprovozhdenie-ii-pomoshchnika-2026/)
 - [Расшифровка звонков и совещаний пачкой: аудио в текст и краткое резюме в таблицу](./rasshifrovka-zvonkov-i-soveshchaniy-pachkoy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/rasshifrovka-zvonkov-i-soveshchaniy-pachkoy-2026/)
 - [Накладные поставщиков сами попадают в 1С: распознавание документов нейросетью](./nakladnye-postavshchikov-v-1c-raspoznavanie-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nakladnye-postavshchikov-v-1c-raspoznavanie-2026/)
@@ -988,6 +989,11 @@
 - [YCLIENTS, Dikidi или свой бот для записи: что выбрать салону](./yclients-dikidi-ili-svoy-bot-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/yclients-dikidi-ili-svoy-bot-2026/)
 - [iiko или r_keeper: что выбрать кафе и ресторану](./iiko-ili-r-keeper-chto-vybrat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/iiko-ili-r-keeper-chto-vybrat-2026/)
 - [Мастер на дому или частный специалист: запись, оплата и напоминания без администратора](./master-na-domu-zapis-bez-administratora-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/master-na-domu-zapis-bez-administratora-2026/)
+- [Ремонт квартир: заявки, сметы и фотоотчёты клиенту в одном месте](./remont-kvartir-zayavki-smety-fotootchety-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/remont-kvartir-zayavki-smety-fotootchety-2026/)
+- [Окна и натяжные потолки: как не терять заявки между звонком и замером](./okna-i-natyazhnye-potolki-ot-zvonka-do-zamera-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/okna-i-natyazhnye-potolki-ot-zvonka-do-zamera-2026/)
+- [Бухгалтерская компания: как собирать документы от клиентов без хаоса в мессенджерах](./buhgalterskaya-kompaniya-sbor-dokumentov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/buhgalterskaya-kompaniya-sbor-dokumentov-2026/)
+- [Агентство недвижимости: объекты, клиенты и показы в одной системе](./agentstvo-nedvizhimosti-obekty-klienty-pokazy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/agentstvo-nedvizhimosti-obekty-klienty-pokazy-2026/)
+- [Транспортная компания: заявки на перевозку и статус груза клиенту без звонков](./transportnaya-kompaniya-status-gruza-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/transportnaya-kompaniya-status-gruza-2026/)
 - [Как открыть вторую точку и не потерять первую](./vtoraya-tochka-bez-poteri-pervoy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vtoraya-tochka-bez-poteri-pervoy-2026/)
 - [Почему уходят сотрудники в сфере услуг и чем это лечится](./pochemu-uhodyat-sotrudniki-v-uslugah-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pochemu-uhodyat-sotrudniki-v-uslugah-2026/)
 - [YCLIENTS и бот в MAX: запись, напоминания и возврат клиентов в одной связке](./yclients-bot-max-napominaniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/yclients-bot-max-napominaniya-2026/)
@@ -1302,6 +1308,12 @@
 
 - [Абонементы и пакеты услуг: как продавать и не запутаться в остатках визитов](./abonementy-i-pakety-uslug-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/abonementy-i-pakety-uslug-2026/)
 - [Автоматизация для ИП без сотрудников: что имеет смысл, а что нет](./avtomatizaciya-dlya-ip-bez-sotrudnikov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avtomatizaciya-dlya-ip-bez-sotrudnikov-2026/)
+- [Заявки есть, продаж нет: где теряются клиенты между заявкой и оплатой](./zayavki-est-prodazh-net-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zayavki-est-prodazh-net-2026/)
+- [Менеджеры не перезванивают: как контролировать скорость ответа на заявку](./menedzhery-ne-perezvanivayut-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/menedzhery-ne-perezvanivayut-2026/)
+- [Как проверять работу менеджеров по продажам без слежки](./kak-proveryat-menedzherov-bez-slezhki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-proveryat-menedzherov-bez-slezhki-2026/)
+- [Какой заявке звонить первой: как отделить горячих клиентов от любопытных](./kakoy-zayavke-zvonit-pervoy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kakoy-zayavke-zvonit-pervoy-2026/)
+- [Отправили КП, а клиент пропал: как возвращаться к нему без навязчивости](./otpravili-kp-klient-propal-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/otpravili-kp-klient-propal-2026/)
+- [Дозаказ в опте: как напоминать постоянным клиентам, пока они не ушли к конкуренту](./dozakaz-v-opte-napominaniya-klientam-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/dozakaz-v-opte-napominaniya-klientam-2026/)
 - [Сколько зарабатывает пункт выдачи заказов: комиссия, поток и окупаемость](./skolko-zarabatyvaet-pvz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-zarabatyvaet-pvz-2026/)
 - [Сколько зарабатывает бар или магазин разливного пива: наценка, списания и вечерний поток](./skolko-zarabatyvaet-bar-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-zarabatyvaet-bar-2026/)
 - [Сколько зарабатывает кальянная и лаунж: столы, оборот и персонал](./skolko-zarabatyvaet-kalyannaya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-zarabatyvaet-kalyannaya-2026/)
