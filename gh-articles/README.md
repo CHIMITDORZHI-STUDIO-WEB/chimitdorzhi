@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1885**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1886**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -302,6 +302,7 @@
 
 ## Open-source и свой сервер
 
+- [Открытые ИИ-модели 2022–2026: полный путеводитель для бизнеса](./otkrytye-ii-modeli-2022-2026-putevoditel.md) · [читать на сайте](https://chimitdorzhi.tech/blog/otkrytye-ii-modeli-2022-2026-putevoditel/)
 - [ИИ разбирает чеки в таблицу: что это заменяет, а что нет](./ii-razbiraet-cheki-v-tablicu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-razbiraet-cheki-v-tablicu-2026/)
 - [Клонирование голоса на своём сервере: где проходит граница](./klonirovanie-golosa-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/klonirovanie-golosa-na-svoem-servere-2026/)
 - [GraphHopper: движок маршрутов, который можно встроить в свой продукт](./graphhopper-marshruty-v-svoem-produkte-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/graphhopper-marshruty-v-svoem-produkte-2026/)
