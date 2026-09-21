@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1876**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1885**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -147,6 +147,15 @@
 
 ## cases
 
+- [Каталог косметики: пустая витрина, 591 товар и связь с кассой](./katalog-kosmetiki-sinhronizaciya-kassy-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/katalog-kosmetiki-sinhronizaciya-kassy-keys-2026/)
+- [Паллетный учёт на ТСД для оптовика: приложение под 1С](./palletnyy-uchet-tsd-1c-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/palletnyy-uchet-tsd-1c-keys-2026/)
+- [Корпоративный сайт компании из ОАЭ: два языка и анимация без шаблонности](./korporativnyy-sayt-kompanii-oae-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/korporativnyy-sayt-kompanii-oae-keys-2026/)
+- [Бот спортивной аналитики: как я проверил модель и признал, что рынок точнее](./bot-sportivnoy-analitiki-backtest-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bot-sportivnoy-analitiki-backtest-keys-2026/)
+- [Инструменты для партнёров турклуба: повод заговорить вместо голой ссылки](./instrumenty-dlya-partnerov-turkluba-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/instrumenty-dlya-partnerov-turkluba-keys-2026/)
+- [Конвейер роликов «фото + инфографика» с автоответами по кодовому слову](./konveyer-rolikov-foto-infografika-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/konveyer-rolikov-foto-infografika-keys-2026/)
+- [Мультсериал по либретто спектакля, собранный ИИ](./multserial-po-libretto-ii-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/multserial-po-libretto-ii-keys-2026/)
+- [Распознавание и перевод старомонгольского текста по фото](./raspoznavanie-staromongolskogo-teksta-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/raspoznavanie-staromongolskogo-teksta-keys-2026/)
+- [Аудит сайта по закону о персональных данных: с доказательствами](./audit-sayta-po-152-fz-dokazatelstva-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/audit-sayta-po-152-fz-dokazatelstva-keys-2026/)
 - [Как игры для бизнеса стали отдельным направлением](./kak-igry-stali-napravleniem-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-igry-stali-napravleniem-keys-2026/)
 - [Переезд с конструктора за один день: как это было по часам](./pereezd-s-konstruktora-za-den-po-chasam-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pereezd-s-konstruktora-za-den-po-chasam-keys-2026/)
 - [Кафе, сайт и розыгрыши в мессенджере: как это работает вместе](./kafe-nacionalnoy-kuhni-bot-max-rozygryshi-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kafe-nacionalnoy-kuhni-bot-max-rozygryshi-keys-2026/)
@@ -207,7 +216,7 @@
 - [Лендинг для Яндекс.Директа: заявки на аудит 152-ФЗ с аналитикой](./audit-landing-152fz-direkt-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/audit-landing-152fz-direkt-keys-2026/)
 - [Как я собрал каталог на 2000 авто из Китая в одиночку](./wetocar-katalog-avto-kitay-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/wetocar-katalog-avto-kitay-keys-2026/)
 - [Медиа-журнал с нуля: стек, сроки и решения (кейс Сансара)](./sansara-media-zhurnal-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sansara-media-zhurnal-keys-2026/)
-- [Сайт национального театра с админкой: что было под капотом](./amarsain-sayt-teatra-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/amarsain-sayt-teatra-keys-2026/)
+- [Сайт, боты и админка для национального театра: как это устроено](./amarsain-sayt-teatra-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/amarsain-sayt-teatra-keys-2026/)
 - [Кейс: что изменилось у клиента за 6 месяцев сопровождения](./keys-6-mesyacev-cifry-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/keys-6-mesyacev-cifry-2026/)
 - [Суперапп для сообщества автовладельцев внутри мессенджера](./superapp-avtovladeltsev-messendzher-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/superapp-avtovladeltsev-messendzher-keys-2026/)
 - [Реферальный бот-конкурс приглашений: кейс разработки](./referalnyy-bot-konkurs-priglasheniy-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/referalnyy-bot-konkurs-priglasheniy-keys-2026/)
