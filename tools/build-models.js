@@ -13,7 +13,7 @@ const MODELS = require('./models-data.js').filter((m) => {
   for (const k of ['id', 'name', 'developer', 'country', 'first', 'latest', 'sizes', 'license', 'summary']) if (!m[k]) bad.push(k);
   if (!/^[a-z0-9-]+$/.test(m.id || '')) bad.push('id-format');
   if (!/^\d{4}-\d{2}$/.test(m.first || '') || !/^\d{4}-\d{2}$/.test(m.latest || '')) bad.push('dates');
-  if (!Array.isArray(m.modality) || !m.modality.length || m.modality.some((x) => !['text','code','vlm','ocr','image','video','avatar','asr','tts','omni','audio','3d','vision','embed','timeseries','robotics'].includes(x))) bad.push('modality');
+  if (!Array.isArray(m.modality) || !m.modality.length || m.modality.some((x) => !['text','code','vlm','ocr','image','video','avatar','asr','tts','omni','audio','3d','vision','embed','timeseries','robotics','tryon','photo','translate','safety','voice','agent','tabular','nlp','medical','reasoning'].includes(x))) bad.push('modality');
   if (!Array.isArray(m.hardware) || !m.hardware.length || m.hardware.some((x) => !['min', 'gpu', 'multi'].includes(x))) bad.push('hardware');
   if (!['yes', 'conditional', 'no'].includes(m.commercial)) bad.push('commercial');
   if (!Array.isArray(m.tasks) || m.tasks.length < 2 || !Array.isArray(m.where) || !m.where.length) bad.push('tasks/where');
@@ -39,6 +39,16 @@ const MOD = {
   embed:      { label: 'Поиск и RAG',      icon: 'magnifying-glass' },
   timeseries: { label: 'Прогнозы',         icon: 'chart-line-up' },
   robotics:   { label: 'Роботы',           icon: 'robot' },
+  tryon:      { label: 'Примерка одежды',  icon: 't-shirt' },
+  photo:      { label: 'Обработка фото',   icon: 'magic-wand' },
+  translate:  { label: 'Перевод',          icon: 'translate' },
+  safety:     { label: 'Модерация и безопасность', icon: 'shield-check' },
+  voice:      { label: 'Голос: спикеры и звук', icon: 'waveform' },
+  agent:      { label: 'Агенты для компьютера', icon: 'cursor-click' },
+  tabular:    { label: 'Табличные данные', icon: 'table' },
+  nlp:        { label: 'Разбор текста',    icon: 'text-aa' },
+  medical:    { label: 'Медицина',         icon: 'first-aid' },
+  reasoning:  { label: 'Математика и рассуждения', icon: 'brain' },
 };
 const HW = {
   min:   { short: 'Ноутбук',        long: 'Ноутбук или обычный ПК, до 8 ГБ видеопамяти — младшие версии', icon: 'laptop' },
