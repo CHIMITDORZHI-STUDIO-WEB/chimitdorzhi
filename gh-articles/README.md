@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1856**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1876**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -994,6 +994,23 @@
 - [Бухгалтерская компания: как собирать документы от клиентов без хаоса в мессенджерах](./buhgalterskaya-kompaniya-sbor-dokumentov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/buhgalterskaya-kompaniya-sbor-dokumentov-2026/)
 - [Агентство недвижимости: объекты, клиенты и показы в одной системе](./agentstvo-nedvizhimosti-obekty-klienty-pokazy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/agentstvo-nedvizhimosti-obekty-klienty-pokazy-2026/)
 - [Транспортная компания: заявки на перевозку и статус груза клиенту без звонков](./transportnaya-kompaniya-status-gruza-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/transportnaya-kompaniya-status-gruza-2026/)
+- [Бурение скважин: как не терять заявки в сезон и считать смету на месте](./burenie-skvazhin-zayavki-i-smeta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/burenie-skvazhin-zayavki-i-smeta-2026/)
+- [Колодцы и септики: заявка, выезд, расчёт и напоминание о повторном обслуживании](./kolodcy-i-septiki-zayavki-i-obsluzhivanie-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kolodcy-i-septiki-zayavki-i-obsluzhivanie-2026/)
+- [Заборы и ворота: от заявки до замера и расчёта за один день](./zabory-i-vorota-ot-zayavki-do-rascheta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zabory-i-vorota-ot-zayavki-do-rascheta-2026/)
+- [Электромонтаж и слаботочные системы: заявки, сметы и акты с объекта](./elektromontazh-zayavki-smety-akty-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/elektromontazh-zayavki-smety-akty-2026/)
+- [Ландшафтный дизайн: проект, согласование с клиентом и сезонный уход по абонементу](./landshaftnyy-dizayn-proekt-i-uhod-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/landshaftnyy-dizayn-proekt-i-uhod-2026/)
+- [Теплицы и гидропоника: продажи в сезон, монтаж и допродажи](./teplicy-prodazhi-montazh-dopprodazhi-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/teplicy-prodazhi-montazh-dopprodazhi-2026/)
+- [Питомник и садовый центр: каталог растений, остатки и весенний пик](./pitomnik-sadovyy-centr-katalog-i-sezon-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pitomnik-sadovyy-centr-katalog-i-sezon-2026/)
+- [Эвакуатор и помощь на дороге: приём вызова за минуту, расчёт и отслеживание машины](./evakuator-priem-vyzova-za-minutu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/evakuator-priem-vyzova-za-minutu-2026/)
+- [Автостекло и тонировка: запись, подбор стекла по машине и гарантия](./avtosteklo-i-tonirovka-zapis-i-podbor-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avtosteklo-i-tonirovka-zapis-i-podbor-2026/)
+- [Авторазбор: каталог запчастей с фото и продажи через площадки](./avtorazbor-katalog-zapchastey-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avtorazbor-katalog-zapchastey-2026/)
+- [Автозапчасти по VIN: подбор без ошибок и заказ через бота](./avtozapchasti-po-vin-podbor-i-zakaz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avtozapchasti-po-vin-podbor-i-zakaz-2026/)
+- [Металлоизделия и сварка: расчёт заказа по размерам и КП за минуту](./metalloizdeliya-svarka-raschet-zakaza-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/metalloizdeliya-svarka-raschet-zakaza-2026/)
+- [Реставрация мебели: оценка по фото, запись и статус заказа](./restavraciya-mebeli-ocenka-po-foto-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/restavraciya-mebeli-ocenka-po-foto-2026/)
+- [Дезинсекция и санобработка: срочные заявки, выезды, акты и повторные обработки](./dezinsekciya-zayavki-vyezdy-akty-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/dezinsekciya-zayavki-vyezdy-akty-2026/)
+- [Праздники и аниматоры: бронирование дат, предоплата и напоминания](./prazdniki-animatory-bronirovanie-dat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/prazdniki-animatory-bronirovanie-dat-2026/)
+- [Склад временного хранения: бронь бокса, оплата по подписке и доступ без администратора](./self-storage-bron-boksa-i-oplata-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/self-storage-bron-boksa-i-oplata-2026/)
+- [Гаражный кооператив: взносы, должники и объявления для членов без бумажек](./garazhnyy-kooperativ-vznosy-i-dolzhniki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/garazhnyy-kooperativ-vznosy-i-dolzhniki-2026/)
 - [Как открыть вторую точку и не потерять первую](./vtoraya-tochka-bez-poteri-pervoy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vtoraya-tochka-bez-poteri-pervoy-2026/)
 - [Почему уходят сотрудники в сфере услуг и чем это лечится](./pochemu-uhodyat-sotrudniki-v-uslugah-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pochemu-uhodyat-sotrudniki-v-uslugah-2026/)
 - [YCLIENTS и бот в MAX: запись, напоминания и возврат клиентов в одной связке](./yclients-bot-max-napominaniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/yclients-bot-max-napominaniya-2026/)
@@ -1745,6 +1762,9 @@
 
 - [Сколько стоит делать это руками: калькулятор потерь на рутине](./cena-ruchnoy-raboty-kalkulyator-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/cena-ruchnoy-raboty-kalkulyator-2026/)
 - [Эвотор, АТОЛ или облачная касса: какую кассу брать малому бизнесу](./evotor-atol-ili-oblachnaya-kassa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/evotor-atol-ili-oblachnaya-kassa-2026/)
+- [Сколько зарабатывает эвакуатор: вызовы, пробег и простои](./skolko-zarabatyvaet-evakuator-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-zarabatyvaet-evakuator-2026/)
+- [Сколько зарабатывает бурение скважин: сезон, метры и окупаемость установки](./skolko-zarabatyvaet-burenie-skvazhin-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-zarabatyvaet-burenie-skvazhin-2026/)
+- [Сколько зарабатывает склад временного хранения: боксы, заполняемость и окупаемость](./skolko-zarabatyvaet-self-storage-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-zarabatyvaet-self-storage-2026/)
 - [Пять цифр, которые владелец должен видеть каждую неделю](./pyat-cifr-vladeltsu-kazhduyu-nedelyu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pyat-cifr-vladeltsu-kazhduyu-nedelyu-2026/)
 - [Сезонный бизнес: как пережить межсезонье и не проесть сезон](./sezonnyy-biznes-mezhsezone-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sezonnyy-biznes-mezhsezone-2026/)
 - [Сверка двух таблиц или выписки с учётом: скрипт находит расхождения за минуты](./sverka-dvuh-tablic-skriptom-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sverka-dvuh-tablic-skriptom-2026/)
