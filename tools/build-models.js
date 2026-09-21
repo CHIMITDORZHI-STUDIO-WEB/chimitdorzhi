@@ -70,7 +70,7 @@ function head({ title, description, url, ld }) {
     .replace(/(<meta property="og:url" content=")[^"]*/, `$1${url}`)
     .replace(/(<meta property="og:title" content=")[^"]*/, `$1${esc(title)}`)
     .replace(/(<meta property="og:description" content=")[^"]*/, `$1${esc(description)}`);
-  h += '<link rel="stylesheet" href="/assets/models.css?v=3">\n';
+  h += '<link rel="stylesheet" href="/assets/models.css?v=4">\n';
   for (const obj of ld) h += `<script type="application/ld+json">${JSON.stringify(obj)}</script>\n`;
   return h;
 }
