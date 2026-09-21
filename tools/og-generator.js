@@ -138,6 +138,29 @@ function photoFor(article) {
   if (!list.length) return null;
   return path.join(PHOTO_DIR, list[hashNum(article.slug) % list.length]);
 }
+// Где на фото лицо: доля высоты кадра (центр лица), по номеру файла. Размечено
+// вручную по листу миниатюр 22.09.2026. Автообрезка sharp (attention) уводила кадр
+// на одежду или фон и резала лицо, поэтому окно обрезки ставим по лицу.
+const FACE_Y = {
+  '01': .45, '02': .47, '03': .43, '04': .50, '05': .35, '06': .47, '07': .50, '08': .50, '09': .37,
+  '10': .25, '11': .42, '12': .45, '13': .42, '14': .43, '15': .43, '16': .42, '17': .40, '18': .55,
+  '19': .47, '20': .52, '21': .47, '22': .52, '23': .42, '24': .42, '25': .42, '26': .42, '27': .42,
+  '28': .48, '29': .48, '30': .43, '31': .45, '32': .47, '33': .43, '34': .55, '35': .43, '36': .47,
+  '37': .47, '38': .50, '39': .50, '40': .52, '41': .50, '42': .50, '43': .53, '44': .50, '45': .53,
+  '46': .40, '47': .40, '48': .50, '49': .50, '50': .42, '51': .43, '52': .45, '53': .45, '54': .40,
+  '55': .32, '56': .40, '57': .40, '58': .40, '59': .45, '60': .36, '61': .36, '62': .47, '63': .50,
+  '64': .53, '65': .40, '66': .42, '67': .42, '68': .55,
+};
+// Обрезать фото до w×h так, чтобы лицо оказалось по центру окна (насколько позволяет кадр).
+async function cropToFace(photo, w, h) {
+  const meta = await sharp(photo).metadata();
+  const faceY = FACE_Y[path.basename(photo).slice(0, 2)] ?? 0.42;
+  const scale = Math.max(w / meta.width, h / meta.height);
+  const rw = Math.round(meta.width * scale), rh = Math.round(meta.height * scale);
+  const left = Math.round((rw - w) / 2);
+  const top = Math.min(Math.max(Math.round(faceY * rh - h / 2), 0), rh - h);
+  return sharp(photo).resize(rw, rh).extract({ left, top, width: w, height: h });
+}
 function usesPhoto(article) {
   return PHOTO_CATEGORIES.has(article.category) && !!photoFor(article);
 }
@@ -242,11 +265,11 @@ async function renderSize(article, kind) {
     const photo = photoFor(article);
     if (size.orient === 'land') {
       // фото справа, слева тёмная панель под текст
-      const half = await sharp(photo).resize(620, 630, { fit: 'cover', position: sharp.strategy.attention }).toBuffer();
+      const half = await (await cropToFace(photo, 620, 630)).toBuffer();
       base = await sharp({ create: { width: size.w, height: size.h, channels: 3, background: INK } })
         .composite([{ input: half, left: size.w - 620, top: 0 }]).png().toBuffer();
     } else {
-      base = await sharp(photo).resize(size.w, size.h, { fit: 'cover', position: sharp.strategy.attention }).png().toBuffer();
+      base = await (await cropToFace(photo, size.w, size.h)).png().toBuffer();
     }
   } else {
     base = await sharp({ create: { width: size.w, height: size.h, channels: 3, background: INK_DEEP } }).png().toBuffer();
