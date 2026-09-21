@@ -3,18 +3,29 @@
 // intl: международный проект. metric: есть твёрдые цифры.
 // en / es — переводы полей task/solution/result (RU — база/фолбэк).
 module.exports = [
+  // Третья неделя сентября 2026 — карточки лежат в _case-<slug>.js рядом со статьями.
+  require('./_case-katalog-kosmetiki-sinhronizaciya-kassy-keys-2026.js').flagship,
+  require('./_case-amarsain-sayt-teatra-keys-2026.js').flagship,
+  require('./_case-bot-sportivnoy-analitiki-backtest-keys-2026.js').flagship,
+  require('./_case-korporativnyy-sayt-kompanii-oae-keys-2026.js').flagship,
+  require('./_case-instrumenty-dlya-partnerov-turkluba-keys-2026.js').flagship,
+  require('./_case-palletnyy-uchet-tsd-1c-keys-2026.js').flagship,
+  require('./_case-audit-sayta-po-152-fz-dokazatelstva-keys-2026.js').flagship,
+  require('./_case-raspoznavanie-staromongolskogo-teksta-keys-2026.js').flagship,
+  require('./_case-konveyer-rolikov-foto-infografika-keys-2026.js').flagship,
+  require('./_case-multserial-po-libretto-ii-keys-2026.js').flagship,
   {
     name: 'Сайт логистической компании с калькулятором растаможки',
     slug: 'sayt-logistiki-kalkulyator-rastamozhki-keys-2026',
     type: 'site', done: true,
     task: 'Компания возит грузы и автомобили из Китая и Японии. Первый вопрос каждого обращения — сколько выйдет растаможка, и менеджер считал его вручную по каждому клиенту.',
     solution: 'Одностраничный сайт без сборки, бэкенда и внешних CDN, с калькулятором таможенных платежей: пошлина, акциз, НДС, утилизационный сбор и сбор за операции — отдельно для физлиц и для юрлиц, с подстановкой курса ЦБ. Все ставки вынесены в один файл, к каждой подписан нормативный акт-источник.',
-    result: 'В проде. Движок расчёта покрыт тестами — 10 из 10. Две позиции, которые в открытых источниках не раскрыты, помечены предупреждением прямо в результате расчёта: лучше честная оговорка, чем красивое непроверенное число. Обновление ставок не требует трогать логику.',
+    result: 'В проде. Движок расчёта покрыт тестами — 10 из 10. Две позиции, которые в открытых источниках не раскрыты, помечены предупреждением прямо в результате расчёта: лучше честная оговорка, чем красивое непроверенное число. Обновление ставок не требует трогать логику. С сентября работает CRM с источником заявки и правами менеджера (автопроверка 68 из 68), посадочные под рекламу для двух городов, личные ссылки партнёров и 8 видеоотзывов на сайте.',
     stack: ['статика без сборки', 'калькулятор на чистом JS', 'тесты расчёта', 'nginx'],
     en: {
       task: 'The company ships cargo and cars from China and Japan. Every enquiry starts with the same question — what will customs cost — and a manager was working it out by hand for each client.',
       solution: 'A single-page site with no build step, no backend and no external CDNs, carrying a customs calculator: duty, excise, VAT, recycling levy and processing fee — separately for individuals and companies, with the central bank rate pulled in. Every rate sits in one file with the regulation it came from written next to it.',
-      result: 'Live. The calculation engine is covered by tests — 10 of 10. Two figures that open sources do not disclose are flagged with a warning inside the result itself: an honest caveat beats a plausible unverified number. Updating rates never touches the logic.'
+      result: 'Live. The calculation engine is covered by tests — 10 of 10. Two figures that open sources do not disclose are flagged with a warning inside the result itself: an honest caveat beats a plausible unverified number. Updating rates never touches the logic. Since September a CRM tracks where each lead came from, with manager permissions (68 of 68 automated checks), plus ad landing pages for two cities, personal partner links and 8 video reviews on the site.'
     },
   },
   {
@@ -234,17 +245,17 @@ module.exports = [
     name: 'WeToCar', slug: 'wetocar-katalog-avto-kitay-keys-2026', type: 'platform', done: true,
     task: 'Витрина под подбор и доставку б/у авто из Китая под заказ — с честным расчётом стоимости «под ключ».',
     solution: 'Каталог на тысячи авто, который фоном синхронизируется с китайскими источниками в свою базу; калькулятор растаможки; заявки с антиспамом; админка; боты уведомлений в Telegram и MAX.',
-    result: 'В проде: каталог реально наполнен (тысячи авто), автосинхронизация каждые 3 часа, ежедневная докачка фото, все ключевые страницы отвечают.',
+    result: 'В проде: каталог реально наполнен (тысячи авто), автосинхронизация каждые 3 часа, ежедневная докачка фото, все ключевые страницы отвечают. Добавлены 4 городские посадочные под рекламу; на телефоне страница стала 8,7 экрана вместо 10,7, путь до формы — 5,6 экрана вместо 7,9.',
     stack: ['Next.js 15', 'PostgreSQL', 'Prisma', 'Telegram + MAX Bot API'],
     en: {
       task: 'A storefront for sourcing and delivering used cars from China to order — with an honest turnkey price estimate.',
       solution: 'A catalog of thousands of cars that syncs in the background from Chinese sources into our own database; a customs calculator; leads with anti-spam; an admin panel; notification bots in Telegram and MAX.',
-      result: 'Live: the catalog is genuinely populated (thousands of cars), auto-sync every 3 hours, daily photo top-up, all key pages responding.',
+      result: 'Live: the catalog is genuinely populated (thousands of cars), auto-sync every 3 hours, daily photo top-up, all key pages responding. Four city landing pages for ads were added; on a phone the page shrank from 10.7 to 8.7 screens, and the scroll to the form from 7.9 to 5.6 screens.',
     },
     es: {
       task: 'Un escaparate para seleccionar y entregar coches usados desde China por encargo — con un cálculo honesto del precio llave en mano.',
       solution: 'Un catálogo de miles de coches que se sincroniza en segundo plano desde fuentes chinas a nuestra propia base de datos; una calculadora de aduanas; solicitudes con antispam; un panel de administración; bots de notificaciones en Telegram y MAX.',
-      result: 'En producción: el catálogo está realmente poblado (miles de coches), autosincronización cada 3 horas, recarga diaria de fotos, todas las páginas clave respondiendo.',
+      result: 'En producción: el catálogo está realmente poblado (miles de coches), autosincronización cada 3 horas, recarga diaria de fotos, todas las páginas clave respondiendo. Se añadieron 4 páginas de aterrizaje por ciudad para publicidad; en el móvil la página pasó de 10,7 a 8,7 pantallas y el recorrido hasta el formulario, de 7,9 a 5,6.',
     },
   },
   {
@@ -729,12 +740,12 @@ module.exports = [
     type: 'site', delivered: true, metric: true,
     task: 'У кафе национальной кухни был сайт-визитка, а розыгрыши среди гостей вели вручную: номерки записывали, оплату сверяли по переписке, победителя тянули как придётся.',
     solution: 'Сайт на статике со своим сервером и сертификатом: меню наборами, реальные условия доставки и часы работы, политика данных, оферта, разметка заведения и гео-теги. Поверх — бот в MAX, где номерок покупают прямо в переписке, админка владельца с сеткой номерков, бронью на 15 минут, отметкой оплат и рассылкой подписчикам, и мини-приложение с той же сеткой внутри мессенджера. Выбор победителя — с контрольной строкой, по которой результат можно перепроверить.',
-    result: 'В проде. Страница похудела с 1603 до 303 КБ (−81%), первый экран с 700 до 230 КБ, открытие с 3,2 до 1,8 секунды; при повторном заходе картинки берутся из кэша. Цикл розыгрыша прогнан вручную на 35 номерках, владельцу отдана памятка.',
+    result: 'В проде. Страница похудела с 1603 до 303 КБ (−81%), первый экран с 700 до 230 КБ, открытие с 3,2 до 1,8 секунды; при повторном заходе картинки берутся из кэша. Цикл розыгрыша прогнан вручную на 35 номерках, владельцу отдана памятка. Автопроверки — 73 из 73, по ходу найдены и исправлены 3 ошибки; первый живой покупатель споткнулся о ввод телефона — это место исправлено.',
     stack: ['статика + nginx', 'FastAPI', 'SQLite', 'MAX Bot API', 'WebP с фолбэком', 'systemd'],
     en: {
       task: 'A national-cuisine cafe had a brochure site, while prize draws among guests were run by hand: tickets written down, payments checked in chat, the winner picked however it happened.',
       solution: 'A static site on its own server with a certificate: a set-based menu, real delivery terms and opening hours, a privacy policy, a public offer, restaurant markup and geo tags. On top — a bot in MAX where a draw ticket is bought inside the chat, an owner admin panel with the ticket grid, a 15-minute hold, payment marking and broadcasts to bot subscribers, plus a mini app with the same grid inside the messenger. The winner is drawn with a verification string anyone can re-check.',
-      result: 'Live. The page dropped from 1603 to 303 KB (−81%), the first screen from 700 to 230 KB, load time from 3.2 to 1.8 seconds; on a repeat visit images come from cache. The full draw cycle was run by hand across 35 tickets, and the owner got a written how-to.',
+      result: 'Live. The page dropped from 1603 to 303 KB (−81%), the first screen from 700 to 230 KB, load time from 3.2 to 1.8 seconds; on a repeat visit images come from cache. The full draw cycle was run by hand across 35 tickets, and the owner got a written how-to. Automated checks pass 73 of 73, with 3 bugs found and fixed along the way; the first real buyer stumbled on the phone field, and that step was fixed.',
     },
   },
   {
@@ -743,12 +754,12 @@ module.exports = [
     type: 'site', delivered: true, metric: true,
     task: 'Компания по подбору автомобилей из Китая сидела на конструкторе: чужая плашка на страницах, никакого приёма заявок кроме мессенджера и невозможность достроить что-либо своё.',
     solution: 'Снял сайт с конструктора и поставил на свой сервер с доменом и автопродлением сертификата. Сверху достроил то, чего в конструкторе не бывает: мини-приложение в мессенджере с кнопкой «оставить номер» без ручного ввода, админку со входом по одноразовому коду, заявки со статусами и заметками, базу подписчиков и рассылки, а также редактор сайта прямо в админке — тексты правятся на месте, меняются картинки, цвета и порядок блоков.',
-    result: 'Работа сдана с честным списком хвостов: каталог по API и настоящий телефон вместо заглушки. Картинки ужаты с 8,00 до 3,95 МБ (−50%), один фон — в 9,6 раза; все 52 ресурса страницы отдаются без ошибок, консоль чистая. Админка отвечает отказом и без входа, и с чужого номера. Ночные бэкапы хранятся 14 дней, соседний проект на сервере не тронут.',
+    result: 'Работа сдана с честным списком хвостов: каталог по API и настоящий телефон вместо заглушки. Картинки ужаты с 8,00 до 3,95 МБ (−50%), один фон — в 9,6 раза; все 52 ресурса страницы отдаются без ошибок, консоль чистая. Админка отвечает отказом и без входа, и с чужого номера. Ночные бэкапы хранятся 14 дней, соседний проект на сервере не тронут. В сентябре калькулятор растаможки переехал на свой домен: исходный скрипт падал на каждом расчёте, после исправления прежние итоги сошлись до рубля; в админке появилась вкладка тарифов, каталог переведён на свою базу.',
     stack: ['nginx', 'FastAPI', 'SQLite', 'MAX Bot API', 'systemd', 'Let\'s Encrypt'],
     en: {
       task: 'A company sourcing cars from China sat on a website builder: someone else branding on the pages, no way to take enquiries beyond a messenger, and nothing of their own could be added.',
       solution: 'Moved the site off the builder onto its own server with a domain and auto-renewing certificate. Then added what a builder never has: a messenger mini app with a "leave your number" button that needs no typing, an admin panel with one-time-code login, enquiries with statuses and notes, a subscriber base with broadcasts, and a site editor inside the admin panel — text edited in place, images, colours and block order changed by the owner.',
-      result: 'Handed over with an honest list of loose ends: the car catalogue via API and a real phone number instead of a placeholder. Images shrank from 8.00 to 3.95 MB (−50%), one background by 9.6×; all 52 page resources return cleanly and the console is clear. The admin panel refuses access both without login and from a foreign number. Nightly backups are kept 14 days, and a neighbouring project on the server was left untouched.',
+      result: 'Handed over with an honest list of loose ends: the car catalogue via API and a real phone number instead of a placeholder. Images shrank from 8.00 to 3.95 MB (−50%), one background by 9.6×; all 52 page resources return cleanly and the console is clear. The admin panel refuses access both without login and from a foreign number. Nightly backups are kept 14 days, and a neighbouring project on the server was left untouched. In September the customs calculator moved to its own domain: the original script crashed on every calculation, and after the fix the old totals match to the rouble; the admin panel gained a rates tab and the catalogue moved to our own database.',
     },
   },
   {
@@ -771,12 +782,12 @@ module.exports = [
     type: 'site', delivered: true,
     task: 'Владелец пригоняет автомобили и публикует их постами в мессенджере. Нужна витрина, которую он наполняет сам — без разработчика, без компьютера и без заполнения длинных форм.',
     solution: 'Одна страница работает и как сайт, и как мини-приложение в боте: поиск, фильтр по марке, карточка с галереей, ценой «под ключ» с разбивкой и сроком доставки, кнопка связи только по заполненным каналам. Наполнение — через пересылку: владелец кидает боту свой пост с фото, и объявление собирается само, альбом склеивается в одно. Админка открывается с телефона, вход с компьютера — по коду от бота. Разборщик сверяет курс с итоговой суммой и чинит опечатки в исходном посте.',
-    result: 'Сдан и работает по защищённому адресу без покупки домена. Фото готовятся под телефон, страница автомобиля стала короче на треть, проверено в светлой и тёмной теме на узком экране. Запуск теперь за владельцем: нужен токен бота и контакты для кнопки связи.',
+    result: 'Сдан и работает по защищённому адресу без покупки домена. Фото готовятся под телефон, страница автомобиля стала короче на треть, проверено в светлой и тёмной теме на узком экране. Запуск теперь за владельцем: нужен токен бота и контакты для кнопки связи. После переделки под телефон фото отдаются в трёх размерах, админка сжимает снимки до 2000 px, а первая машина видна без прокрутки.',
     stack: ['FastAPI', 'SQLite', 'Caddy', 'Telegram Bot API', 'systemd'],
     en: {
       task: 'The owner imports cars and posts them in a messenger. He needed a storefront he fills himself — no developer, no computer, no long forms.',
       solution: 'One page works both as a site and as a mini app inside the bot: search, brand filter, a card with a gallery, an all-in price broken down by component and a delivery time, and a contact button showing only the channels actually filled in. Listings arrive by forwarding: the owner sends the bot his own post with photos and the listing assembles itself, an album merging into a single entry. The admin panel opens on a phone; desktop login is a code from the bot. The parser checks the exchange rate against the final price and fixes typos in the source post.',
-      result: 'Delivered and served over a secure address without buying a domain. Photos are prepared for phones, the car page is a third shorter, and it was checked in light and dark themes on a narrow screen. Launch is now on the owner side: the bot token and contact details.',
+      result: 'Delivered and served over a secure address without buying a domain. Photos are prepared for phones, the car page is a third shorter, and it was checked in light and dark themes on a narrow screen. Launch is now on the owner side: the bot token and contact details. After a mobile rework photos come in three sizes, the admin panel scales uploads down to 2000 px, and the first car is visible without scrolling.',
     },
   },
   {

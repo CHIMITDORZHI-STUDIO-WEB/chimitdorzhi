@@ -35,6 +35,7 @@ module.exports = [
       { id: 'chestnost', text: 'Две ставки, которые я отказался угадывать' },
       { id: 'testy', text: 'Почему расчёт покрыт тестами' },
       { id: 'chto-vazhno', text: 'Что стоит забрать себе' },
+      { id: 'chto-dobavilos', text: 'Что добавилось в сентябре' },
       ...FAQ_VYV,
     ],
     relatedSlugs: ['avtomost-vitrina-avto-kitay-keys-2026', 'sayt-bez-formy-zayavki-keys-2026', 'lending-digital-agentstva-geo-keys-2026'] }),
