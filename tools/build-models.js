@@ -70,11 +70,23 @@ function head({ title, description, url, ld }) {
     .replace(/(<meta property="og:url" content=")[^"]*/, `$1${url}`)
     .replace(/(<meta property="og:title" content=")[^"]*/, `$1${esc(title)}`)
     .replace(/(<meta property="og:description" content=")[^"]*/, `$1${esc(description)}`);
-  h += '<link rel="stylesheet" href="/assets/models.css?v=4">\n';
+  h += '<link rel="stylesheet" href="/assets/models.css?v=6">\n';
   for (const obj of ld) h += `<script type="application/ld+json">${JSON.stringify(obj)}</script>\n`;
   return h;
 }
+// Пометка про Meta, как в блоге: Llama, SAM, DINO и др. — модели Meta, а упоминание без
+// пометки грозит штрафом по ст. 13.15 КоАП. Ищем только в тексте, не в адресах ссылок.
+function metaNote(html) {
+  const text = html.replace(/href="[^"]*"/g, '');
+  const meta = /(^|[^0-9A-Za-zА-Яа-я])Meta([^0-9A-Za-zА-Яа-я]|$)/.test(text);
+  const net = /instagram|инстаграм|facebook|фейсбук/i.test(text);
+  if (!meta && !net) return '';
+  const what = net ? 'Instagram и Facebook принадлежат компании Meta, которая' : 'Meta —';
+  return '<aside class="blog-legal-note md-legal" role="note"><p><strong>Важно.</strong> ' + what + ' признана в России экстремистской организацией, её деятельность на территории Российской Федерации запрещена.</p></aside>';
+}
 function page({ title, description, url, ld, main, extraJs = '' }) {
+  const note = metaNote(main);
+  if (note) main = main.replace(/<\/div><\/section>\s*$/, note + '</div></section>');
   return head({ title, description, url, ld }) + bodyStart + `<main id="main">\n${main}\n</main>\n` + footer + '\n' + scripts + extraJs + '\n</body>\n</html>\n';
 }
 
@@ -114,7 +126,7 @@ function catalog() {
     <span class="section-label">ЭНЦИКЛОПЕДИЯ</span>
     <h1 class="section-heading">Открытые <span class="text-gradient">ИИ-модели</span></h1>
     <p class="section-sub">Модели с открытыми весами с 2022 года: текст, код, картинки, видео, речь, 3D. По каждой коротко: какие задачи решает, где применяется, какое нужно железо и можно ли в коммерцию. Любую из них поставлю на ваш сервер и дообучу под вашу задачу.</p>
-    <div class="md-stats"><span><b>${MODELS.length}</b> семейств</span><span><b>${Object.keys(counts).length}</b> направлений</span><span>Обновлено ${UPDATED}</span></div>
+    <div class="md-stats"><span><b>${MODELS.length}</b> семейств</span><span><b>${Object.keys(counts).length}</b> направлений</span><span>Обновлено ${UPDATED}</span><a class="md-guide" href="/blog/otkrytye-ii-modeli-2022-2026-putevoditel/"><i class="ph ph-book-open" aria-hidden="true"></i>Путеводитель: как выбрать модель</a></div>
   </header>
   <div class="md-fresh" aria-label="Последние релизы">
     <div class="md-fresh-title"><i class="ph ph-sparkle" aria-hidden="true"></i>Свежие релизы</div>

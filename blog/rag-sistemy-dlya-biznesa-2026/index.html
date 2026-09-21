@@ -484,7 +484,7 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
   <ul>
     <li>RAG (Retrieval-Augmented Generation) — это связка «векторный поиск + LLM», которая позволяет AI отвечать строго по вашей базе знаний, а не выдумывать факты из общих знаний интернета.</li>
     <li>Главные части пайплайна: загрузка документов, chunking, embeddings, vector DB, retrieval с reranking, формирование промпта, генерация ответа. Качество ответа на 70% зависит от chunking и retrieval, а не от выбора LLM.</li>
-    <li>В РФ 2026 реально доступны: MongoDB Atlas Vector Search, pgvector, Qdrant, Weaviate, Chroma. Embeddings — e5-mistral, bge-large, YandexGPT Embeddings, GigaChat Embeddings. ColBERT и Cohere Rerank — для серьёзных пайплайнов.</li>
+    <li>В РФ 2026 реально доступны: MongoDB Atlas Vector Search, pgvector, Qdrant, Weaviate, Chroma. Embeddings — e5-mistral, bge-large, YandexGPT Embeddings, <a href="/ii-modeli/gigachat/" class="blog-inline-link">GigaChat</a> Embeddings. ColBERT и Cohere Rerank — для серьёзных пайплайнов.</li>
     <li>Цены: прототип RAG — 60-150 тыс ₽, продакшен — 250-500 тыс ₽, enterprise — от 1 млн ₽. Ежемесячные расходы на инфраструктуру и токены — 10-100 тыс ₽ в зависимости от нагрузки.</li>
     <li>Юр-нюанс: корпоративные документы нельзя отправлять в OpenAI/Claude через VPN без согласования — это нарушает 152-ФЗ при наличии ПД. <a href="https://chimitdorzhi.tech/services/rag-systems/">Закажу RAG-систему под ключ</a>.</li>
   </ul>
@@ -541,7 +541,7 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
   <li><strong>Retrieval (поиск).</strong> Достаём top-k (обычно 5-20) ближайших по косинусной близости chunks.</li>
   <li><strong>Reranking.</strong> Если k большой — прогоняем кандидатов через более точную модель (cross-encoder), которая выбирает реально лучшие 3-5.</li>
   <li><strong>Prompt assembly.</strong> Собираем итоговый промпт: системная инструкция + выбранные chunks + вопрос пользователя.</li>
-  <li><strong>LLM generation.</strong> Отправляем в YandexGPT/GigaChat/Claude/локальную модель, получаем ответ.</li>
+  <li><strong>LLM generation.</strong> Отправляем в <a href="/ii-modeli/yandexgpt/" class="blog-inline-link">YandexGPT</a>/GigaChat/Claude/локальную модель, получаем ответ.</li>
   <li><strong>Post-processing.</strong> Проверяем ответ на наличие ссылок, валидируем по схеме, логируем.</li>
 </ol>
 <p>Это базовый пайплайн. В продакшене сверху накручиваются: кеширование embeddings, инкрементальное обновление базы при изменении документов, A/B-тестирование разных конфигураций, мониторинг качества ответов через LLM-judge, обратная связь от пользователей. Объём кода production-RAG — обычно 2-5 тысяч строк плюс инфраструктура.</p>
@@ -726,7 +726,7 @@ def recursive_split(
   <li><strong>Chunking:</strong> recursive splitter с размером 700 токенов и overlap 150. Для договоров — отдельная стратегия с резкой по пунктам.</li>
   <li><strong>Retrieval:</strong> гибридный (vector + BM25 через MongoDB Atlas Search), top-25.</li>
   <li><strong>Rerank:</strong> bge-reranker-large на том же GPU.</li>
-  <li><strong>LLM:</strong> для конфиденциальных дел — Llama 3.3 70B локально, для общих запросов — YandexGPT 5 Pro через корпоративный аккаунт Yandex Cloud.</li>
+  <li><strong>LLM:</strong> для конфиденциальных дел — <a href="/ii-modeli/llama/" class="blog-inline-link">Llama 3.3</a> 70B локально, для общих запросов — YandexGPT 5 Pro через корпоративный аккаунт Yandex Cloud.</li>
   <li><strong>UI:</strong> веб-приложение на React, интегрировано с их системой авторизации (Active Directory).</li>
 </ul>
 <p><strong>Результаты после 6 месяцев в продакшене:</strong></p>

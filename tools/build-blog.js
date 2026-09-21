@@ -1606,6 +1606,65 @@ function autolinkServices(html, selfUrl) {
   return parts.join('');
 }
 
+// Автоссылки на карточки энциклопедии /ii-modeli/: первое упоминание модели в тексте
+// ведёт на её карточку. Список ручной — только однозначные названия; ссылка ставится,
+// только если такая карточка есть в каталоге. Конкретные шаблоны идут раньше общих
+// (Qwen-Image раньше Qwen, Code Llama раньше Llama).
+const MODEL_LINK_RULES = (() => {
+  let ids;
+  try { ids = new Set(require('./models-data.js').map((m) => m.id)); } catch (e) { return []; }
+  const R = [
+    ['qwen-image', 'Qwen-Image(?:-[\\w.]+)?'], ['qwen-coder', 'Qwen[\\d.]*-Coder'], ['qwen-vl', 'Qwen[\\d.]*-VL'],
+    ['qwen-embedding', 'Qwen3-Embedding'], ['qwen-asr', 'Qwen3-ASR'], ['qwen-tts', 'Qwen3-TTS'], ['qwen-omni', 'Qwen[\\d.]*-Omni'],
+    ['qwen', 'Qwen(?:\\d(?:\\.\\d)?)?'],
+    ['code-llama', 'Code Llama'], ['llama', 'Llama(?: \\d(?:\\.\\d)?)?|LLaMA'],
+    ['deepseek-r1', 'DeepSeek-R1'], ['deepseek-ocr', 'DeepSeek-OCR'], ['deepseek-coder', 'DeepSeek-Coder'], ['deepseek', 'DeepSeek(?:-V\\d(?:\\.\\d)?)?'],
+    ['gpt-oss', 'gpt-oss'], ['gemma', 'Gemma(?: \\d\\w?)?'], ['codestral', 'Codestral'], ['devstral', 'Devstral'], ['mistral', 'Mistral(?! OCR)|Mixtral'],
+    ['whisper', 'Whisper'], ['flux', 'FLUX(?:\\.\\d)?'], ['bge-m3', 'BGE-M3'], ['sam', 'Segment Anything'],
+    // Pro/Max/Lite/Plus у GigaChat и YandexGPT Pro — закрытые облачные версии, их не линкуем (YandexGPT-5-Lite открыт).
+    ['gigachat', 'GigaChat(?!\\s*(?:\\d[\\d.]*\\s*)?(?:Pro|Max|Lite|Plus))'], ['yandexgpt', 'YandexGPT(?![ -]?\\d*\\s*Pro)'], ['t-pro', 'T-Pro|T-Lite'], ['kimi', 'Kimi(?: K\\d(?:\\.\\d)?)?'],
+    ['glm', 'ChatGLM|GLM-\\d(?:\\.\\d)?'], ['phi', 'Phi-\\d'], ['nemotron', 'Nemotron'], ['olmo', 'OLMo'],
+    ['kandinsky', 'Kandinsky'], ['stable-diffusion', 'Stable Diffusion|SDXL'], ['ltx-video', 'LTX-Video|LTX-2'],
+    ['hunyuan-video', 'HunyuanVideo'], ['cogvideox', 'CogVideoX'], ['gigaam', 'GigaAM'], ['silero', 'Silero'], ['xtts', 'XTTS'],
+    ['kokoro', 'Kokoro'], ['cosyvoice', 'CosyVoice'], ['f5-tts', 'F5-TTS'], ['fish-speech', 'Fish Speech'], ['moondream', 'Moondream'],
+    ['paddleocr-vl', 'PaddleOCR(?:-VL)?'], ['olmocr', 'olmOCR'], ['mineru', 'MinerU'], ['got-ocr', 'GOT-OCR'], ['llava', 'LLaVA'],
+    ['internvl', 'InternVL'], ['minicpm-v', 'MiniCPM-V'], ['florence-2', 'Florence-2'], ['yolo', 'YOLO(?:v\\d+|\\d+)?'],
+    ['depth-anything', 'Depth Anything'], ['timesfm', 'TimesFM'], ['starcoder', 'StarCoder\\d?'], ['hunyuan3d', 'Hunyuan3D'],
+    ['trellis', 'TRELLIS'], ['triposr', 'TripoSR'], ['musicgen', 'MusicGen'], ['ace-step', 'ACE-Step'], ['voxtral', 'Voxtral'],
+    ['parakeet', 'Parakeet'], ['liveportrait', 'LivePortrait'], ['musetalk', 'MuseTalk'], ['sadtalker', 'SadTalker'],
+    ['openvla', 'OpenVLA'], ['gr00t', 'GR00T'], ['nomic-embed', 'Nomic Embed|nomic-embed'], ['granite', 'IBM Granite'],
+  ];
+  return R.filter(([id]) => ids.has(id)).map(([id, src]) => ({
+    url: `/ii-modeli/${id}/`,
+    re: new RegExp(`(?<![\\w/.-])(?:${src})(?![\\w-])`),
+  }));
+})();
+function autolinkModels(html, selfSlug) {
+  if (!html || !MODEL_LINK_RULES.length) return html;
+  const used = new Set();
+  let count = 0;
+  const MAX = 3;
+  // Не трогаем код, заголовки, таблицы, готовые ссылки и скрипты/стили калькуляторов.
+  const parts = html.split(/(<pre[\s\S]*?<\/pre>|<h[1-6][\s\S]*?<\/h[1-6]>|<table[\s\S]*?<\/table>|<a [\s\S]*?<\/a>|<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>|<[^>]+>)/i);
+  for (let i = 0; i < parts.length && count < MAX; i++) {
+    const seg = parts[i];
+    if (!seg || seg.startsWith('<')) continue;
+    let s = seg;
+    for (const rule of MODEL_LINK_RULES) {
+      if (count >= MAX) break;
+      if (used.has(rule.url)) continue;
+      const m = s.match(rule.re);
+      if (!m) continue;
+      s = s.slice(0, m.index) + `<a href="${rule.url}" class="blog-inline-link">${m[0]}</a>` + s.slice(m.index + m[0].length);
+      used.add(rule.url);
+      count++;
+      break; // одна ссылка на текстовый кусок — не лепим ссылки подряд
+    }
+    parts[i] = s;
+  }
+  return parts.join('');
+}
+
 // Юридическая пометка: Meta признана экстремистской и запрещена в РФ.
 // Штрафы по ст. 13.15 КоАП за упоминание без пометки. Добавляется
 // автоматически в конце статьи, если упомянута компания Meta или её
@@ -1627,7 +1686,7 @@ function metaDisclaimer(html) {
 function articlePage(a, published) {
   const url = `${SITE}/blog/${a.slug}/`;
   const cat = CATEGORY_LABELS[a.category] || 'Блог';
-  const bodyHtml = injectInlineTg(autolinkServices(a.contentHtml, a.ctaInternal && a.ctaInternal.url), a);
+  const bodyHtml = injectInlineTg(autolinkModels(autolinkServices(a.contentHtml, a.ctaInternal && a.ctaInternal.url), a.slug), a);
   const clientTopic = clientTopicText(a);
   return `${head({ title: a.metaTitle || a.title, description: a.metaDescription, keywords: a.metaKeywords || a.tags.join(', '), canonical: url, ogImage: coverUrl(a) })}    <script type="application/ld+json">
 ${blogPostingLd(a, url)}
