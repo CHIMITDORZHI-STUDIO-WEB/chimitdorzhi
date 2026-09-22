@@ -13,7 +13,7 @@ const MODELS = require('./models-data.js').filter((m) => {
   for (const k of ['id', 'name', 'developer', 'country', 'first', 'latest', 'sizes', 'license', 'summary']) if (!m[k]) bad.push(k);
   if (!/^[a-z0-9-]+$/.test(m.id || '')) bad.push('id-format');
   if (!/^\d{4}-\d{2}$/.test(m.first || '') || !/^\d{4}-\d{2}$/.test(m.latest || '')) bad.push('dates');
-  if (!Array.isArray(m.modality) || !m.modality.length || m.modality.some((x) => !['text','code','vlm','ocr','image','video','avatar','asr','tts','omni','audio','3d','vision','embed','timeseries','robotics','tryon','photo','translate','safety','voice','agent','tabular','nlp','medical','reasoning'].includes(x))) bad.push('modality');
+  if (!Array.isArray(m.modality) || !m.modality.length || m.modality.some((x) => !['text','code','vlm','ocr','image','video','avatar','asr','tts','omni','audio','3d','vision','embed','timeseries','robotics','tryon','photo','translate','safety','voice','agent','tabular','nlp','medical','reasoning','rerank','docsearch','sql','judge','face','finance','cyber','weather','geo','bio','driving'].includes(x))) bad.push('modality');
   if (!Array.isArray(m.hardware) || !m.hardware.length || m.hardware.some((x) => !['min', 'gpu', 'multi'].includes(x))) bad.push('hardware');
   if (!['yes', 'conditional', 'no'].includes(m.commercial)) bad.push('commercial');
   if (!Array.isArray(m.tasks) || m.tasks.length < 2 || !Array.isArray(m.where) || !m.where.length) bad.push('tasks/where');
@@ -49,6 +49,17 @@ const MOD = {
   nlp:        { label: 'Разбор текста',    icon: 'text-aa' },
   medical:    { label: 'Медицина',         icon: 'first-aid' },
   reasoning:  { label: 'Математика и рассуждения', icon: 'brain' },
+  rerank:     { label: 'Реранкеры', icon: 'funnel' },
+  docsearch:  { label: 'Поиск по сканам документов', icon: 'files' },
+  sql:        { label: 'Текст в SQL', icon: 'database' },
+  judge:      { label: 'Проверка фактов и оценка ответов', icon: 'gavel' },
+  face:       { label: 'Лица', icon: 'scan-smiley' },
+  finance:    { label: 'Финансы', icon: 'currency-circle-dollar' },
+  cyber:      { label: 'Кибербезопасность', icon: 'bug' },
+  weather:    { label: 'Погода и климат', icon: 'cloud-sun' },
+  geo:        { label: 'Спутниковые снимки и гео', icon: 'globe-hemisphere-east' },
+  bio:        { label: 'Биология и химия', icon: 'flask' },
+  driving:    { label: 'Автономное вождение', icon: 'car' },
 };
 const HW = {
   min:   { short: 'Ноутбук',        long: 'Ноутбук или обычный ПК, до 8 ГБ видеопамяти — младшие версии', icon: 'laptop' },
@@ -80,7 +91,7 @@ function head({ title, description, url, ld }) {
     .replace(/(<meta property="og:url" content=")[^"]*/, `$1${url}`)
     .replace(/(<meta property="og:title" content=")[^"]*/, `$1${esc(title)}`)
     .replace(/(<meta property="og:description" content=")[^"]*/, `$1${esc(description)}`);
-  h += '<link rel="stylesheet" href="/assets/models.css?v=9">\n';
+  h += '<link rel="stylesheet" href="/assets/models.css?v=11">\n';
   for (const obj of ld) h += `<script type="application/ld+json">${JSON.stringify(obj)}</script>\n`;
   return h;
 }
@@ -159,8 +170,22 @@ function card(m) {
 function catalog() {
   const counts = {};
   for (const m of MODELS) for (const x of m.modality) counts[x] = (counts[x] || 0) + 1;
-  const chips = Object.keys(MOD).filter((k) => counts[k]).map((k) =>
-    `<button type="button" class="md-chip" data-mod="${k}" aria-pressed="false"><i class="ph ph-${MOD[k].icon}" aria-hidden="true"></i>${MOD[k].label}<span>${counts[k]}</span></button>`).join('');
+  // Направлений много, поэтому кнопки разложены по группам. Ключ без группы попадает в «Прочее».
+  const GROUPS = [
+    ['Текст и код', ['text', 'code', 'reasoning', 'nlp', 'translate', 'sql', 'agent', 'judge', 'safety']],
+    ['Документы и поиск', ['ocr', 'docsearch', 'embed', 'rerank', 'tabular']],
+    ['Картинки и видео', ['image', 'video', 'vlm', 'photo', 'tryon', 'avatar', 'face', '3d', 'vision']],
+    ['Речь и звук', ['asr', 'tts', 'voice', 'omni', 'audio']],
+    ['Отрасли и наука', ['medical', 'finance', 'cyber', 'timeseries', 'weather', 'geo', 'bio', 'driving', 'robotics']],
+  ];
+  const grouped = new Set(GROUPS.flatMap(([, ks]) => ks));
+  const rest = Object.keys(MOD).filter((k) => !grouped.has(k));
+  if (rest.length) GROUPS.push(['Прочее', rest]);
+  const chip = (k) => `<button type="button" class="md-chip" data-mod="${k}" aria-pressed="false"><i class="ph ph-${MOD[k].icon}" aria-hidden="true"></i>${MOD[k].label}<span>${counts[k]}</span></button>`;
+  const chips = GROUPS.map(([label, ks]) => {
+    const inner = ks.filter((k) => counts[k]).map(chip).join('');
+    return inner ? `<div class="md-chip-group"><span class="md-chip-label">${label}</span><div class="md-chip-row">${inner}</div></div>` : '';
+  }).join('');
   const sorted = [...MODELS].sort((a, b) => b.latest.localeCompare(a.latest));
   const fresh = sorted.slice(0, 5);
   const main = `<section class="section md-page"><div class="container">
@@ -193,7 +218,7 @@ function catalog() {
       <button type="button" class="md-reset" id="mdReset" hidden><i class="ph ph-x" aria-hidden="true"></i>Сбросить фильтры</button>
     </div>
   </div>
-  <div class="md-chips" role="group" aria-label="Направление"><button type="button" class="md-chip is-on" data-mod="" aria-pressed="true"><i class="ph ph-squares-four" aria-hidden="true"></i>Все<span>${MODELS.length}</span></button>${chips}</div>
+  <div class="md-chips" role="group" aria-label="Направление"><div class="md-chip-all"><button type="button" class="md-chip is-on" data-mod="" aria-pressed="true"><i class="ph ph-squares-four" aria-hidden="true"></i>Все направления<span>${MODELS.length}</span></button></div>${chips}</div>
   <p class="md-count" id="mdCount" aria-live="polite">Показано ${MODELS.length} из ${MODELS.length}</p>
   <div class="md-grid" id="mdGrid">${sorted.map(card).join('\n')}</div>
   <p class="md-empty" id="mdEmpty" hidden>Под эти условия моделей нет. Сбросьте фильтр или <a href="${tg('Здравствуйте! Ищу открытую модель под задачу: ')}" target="_blank" rel="noopener">опишите задачу</a> — подберу сам.</p>
