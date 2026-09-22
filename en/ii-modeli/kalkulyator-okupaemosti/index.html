@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud AI or your own server: payback calculator</title>
+    <meta name="description" content="Work out how many months your own server with an open model needs to beat paying for a cloud API. All figures are yours; nothing is assumed.">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/en/ii-modeli/kalkulyator-okupaemosti/">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://chimitdorzhi.tech/en/ii-modeli/kalkulyator-okupaemosti/">
+    <meta property="og:title" content="Cloud AI or your own server: payback calculator">
+    <meta property="og:description" content="Work out how many months your own server with an open model needs to beat paying for a cloud API. All figures are yours; nothing is assumed.">
+    <meta property="og:image" content="https://chimitdorzhi.tech/en/ii-modeli/cover.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/en/ii-modeli/cover.png">
+    <meta property="og:locale" content="en_US">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="preload" href="/assets/fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="/assets/phosphor/regular.css"><link rel="stylesheet" href="/assets/phosphor/fill.css"></noscript>
+    <link rel="stylesheet" href="/style.css?v=78">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/ii-modeli/kalkulyator-okupaemosti/">
+<link rel="alternate" hreflang="en" href="https://chimitdorzhi.tech/en/ii-modeli/kalkulyator-okupaemosti/">
+<link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/ii-modeli/kalkulyator-okupaemosti/">
+<link rel="stylesheet" href="/assets/models.css?v=16">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://chimitdorzhi.tech/en/"},{"@type":"ListItem","position":2,"name":"AI models","item":"https://chimitdorzhi.tech/en/ii-modeli/"},{"@type":"ListItem","position":3,"name":"Payback calculator: cloud AI or your own server","item":"https://chimitdorzhi.tech/en/ii-modeli/kalkulyator-okupaemosti/"}]}</script>
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/" data-i18n="nav.home">Главная</a></li>
+            <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+            <li class="nav-dropdown">
+                <a href="/cases/" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+                <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему" aria-pressed="false">
+                <i class="ph ph-moon" aria-hidden="true"></i>
+            </button>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/" data-i18n="nav.home">Главная</a></li>
+        <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+        <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+        <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+        <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+        <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+        <li class="mobile-has-submenu">
+            <details>
+                <summary aria-label="Проекты — развернуть"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down" aria-hidden="true"></i></summary>
+                <ul class="mobile-submenu">
+                    <li>
+                        <a href="https://gerel.space" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">Gerel.space</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/universe_buryat/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/arey/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.arey">AREY</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/mwrlife/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">MWR Life</span>
+                                <span class="mobile-sub-desc">Travel-клуб и партнёрка</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </details>
+        </li>
+        <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+    </ul>
+    <div class="mobile-controls">
+        <div class="mobile-lang-switcher" role="group" aria-label="Выбор языка">
+            <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+            <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+            <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+        </div>
+        <button class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle" aria-label="Переключить тему" aria-pressed="false">
+            <i class="ph ph-moon" aria-hidden="true"></i>
+        </button>
+    </div>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+    <main id="main">
+<section class="section md-page"><div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumbs"><a href="/en/">Home</a><span class="breadcrumbs-sep">›</span><a href="/en/ii-modeli/">AI models</a><span class="breadcrumbs-sep">›</span><span aria-current="page">Payback calculator: cloud AI or your own server</span></nav>
+  <header class="md-hero">
+    <span class="section-label">CALCULATOR</span>
+    <h1 class="section-heading">Payback calculator: cloud AI or your own server</h1>
+    <p class="section-sub">A simple comparison: what you pay the cloud today versus what the same load costs on your own hardware. No market averages, just your numbers from your invoices and rental quotes.</p>
+    <div class="md-stats"><span>Updated 22 Sep 2026</span><a class="md-guide" href="/en/ii-modeli/kalkulyator-zheleza/"><i class="ph ph-cpu" aria-hidden="true"></i>Calculate video memory for your model size</a></div>
+  </header>
+  <div class="md-calc">
+    <div class="md-calc-form">
+      <label class="md-calc-row"><span>Requests per month</span><input type="number" id="pReq" value="100000" min="0" step="any" inputmode="decimal"><small>Calls to the model per month: chat messages, documents, emails.</small></label>
+      <label class="md-calc-row"><span>Tokens per request</span><input type="number" id="pTok" value="2000" min="0" step="any" inputmode="decimal"><small>Question plus answer. Roughly: a short reply is 300, an email 1500, a document review 6000.</small></label>
+      <label class="md-calc-row"><span>Cloud price per 1M tokens</span><input type="number" id="pPrice" value="500" min="0" step="any" inputmode="decimal"><small>Take it from your invoice or provider price list. If input and output differ, use an average.</small></label>
+      <label class="md-calc-row"><span>Your server, per month</span><input type="number" id="pServer" value="45000" min="0" step="any" inputmode="decimal"><small>Rental with a GPU, or depreciation of bought hardware plus power and hosting.</small></label>
+      <label class="md-calc-row"><span>One-off setup</span><input type="number" id="pSetup" value="200000" min="0" step="any" inputmode="decimal"><small>Installation, fine-tuning, integration, handover. Paid once.</small></label>
+      <label class="md-calc-row"><span>Maintenance, per month</span><input type="number" id="pKeep" value="25000" min="0" step="any" inputmode="decimal"><small>Updates, monitoring, changes. Put zero if you run it yourself.</small></label>
+    </div>
+    <div class="md-calc-out" id="pOut" aria-live="polite"></div>
+  </div>
+  <p class="md-run-note">This is a rough estimate, not a quote. It ignores downtime, headroom for peak load, the cost of your own time, and the fact that a cloud model and an open model answer differently. Compare them on your own tasks before deciding.</p>
+  <section class="md-offer" aria-labelledby="mdOfferT">
+    <div class="md-offer-text"><h2 id="mdOfferT">Need a model for your task?</h2><p>An open model can run on your own server: data stays in-house, there is no per-request fee, and the model can be fine-tuned on your documents.</p></div>
+    <ol class="md-steps"><li><b>Select</b><span>The model and size for your task and hardware budget</span></li><li><b>Deploy</b><span>On your server or in a closed network, with an API</span></li><li><b>Fine-tune</b><span>On your data, or connect a knowledge base</span></li><li><b>Integrate</b><span>Into your CRM, ERP, bot, website or team chat</span></li></ol>
+    <a class="btn btn-accent md-offer-btn" href="https://t.me/chimitdorzhi?text=Hello!%20I%20want%20to%20deploy%20an%20open%20AI%20model%20on%20my%20server.%20Task%3A%20" target="_blank" rel="noopener"><i class="ph ph-telegram-logo" aria-hidden="true"></i>Discuss deployment</a>
+  </section>
+</div></section>
+</main>
+<footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label">КОНТАКТ</span>
+            <h2>ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                <a href="tel:+971563369591" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +971 56 336 9591</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 Дарижапов Чимитдоржи. Все права защищены.</p>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/predlozheniya/" class="footer-policy-link">Предложения</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/blog/" class="footer-policy-link">Блог</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link">Политика конфиденциальности</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=44" defer></script>
+<script src="/script.js?v=40" defer></script><script>
+(function(){
+  var L={"result":"The result","cloud":"Cloud, per month","own":"Own, per month","save":"Monthly difference","months":"Payback","never":"With these numbers your own hardware never pays back: the cloud is cheaper","tokens":"Tokens per month","btn":"Discuss the numbers","locale":"en"};
+  var ids=['pReq','pTok','pPrice','pServer','pSetup','pKeep'], out=document.getElementById('pOut');
+  if(!out) return;
+  function v(id){ var x=parseFloat(document.getElementById(id).value); return isFinite(x)&&x>0?x:0; }
+  function fmt(x){ return Math.round(x).toLocaleString(L.locale==='ru'?'ru-RU':'en-US'); }
+  function monthsWord(m){ return m+(m===1?' month':' months'); }
+  function calc(){
+    var tokens=v('pReq')*v('pTok');
+    var cloud=tokens/1000000*v('pPrice');
+    var own=v('pServer')+v('pKeep');
+    var diff=cloud-own;
+    var rows=''
+      +'<div class="md-calc-line"><span>'+L.tokens+'</span><b>'+fmt(tokens)+'</b></div>'
+      +'<div class="md-calc-line"><span>'+L.cloud+'</span><b>'+fmt(cloud)+'</b></div>'
+      +'<div class="md-calc-line"><span>'+L.own+'</span><b>'+fmt(own)+'</b></div>'
+      +'<div class="md-calc-line md-calc-accent"><span>'+L.save+'</span><b>'+(diff>0?'+':'')+fmt(diff)+'</b></div>';
+    if(diff>0&&v('pSetup')>0) rows+='<div class="md-calc-line md-calc-big"><span>'+L.months+'</span><b>'+monthsWord(Math.ceil(v('pSetup')/diff))+'</b></div>';
+    else if(diff>0) rows+='<div class="md-calc-line md-calc-big"><span>'+L.months+'</span><b>'+monthsWord(0)+'</b></div>';
+    else rows+='<div class="md-calc-note">'+L.never+'</div>';
+    out.innerHTML=rows+'<a class="btn btn-accent md-calc-btn" href="https://t.me/chimitdorzhi" target="_blank" rel="noopener"><i class="ph ph-telegram-logo" aria-hidden="true"></i>'+L.btn+'</a>';
+  }
+  ids.forEach(function(id){ document.getElementById(id).addEventListener('input',calc); });
+  calc();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Which AI models need several GPUs</title>
+    <meta name="description" content="Open AI models that require a cluster: flagship language models, large MoE models, long video generation. When it is worth it and when it is not.">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/en/ii-modeli/zhelezo/klaster/">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://chimitdorzhi.tech/en/ii-modeli/zhelezo/klaster/">
+    <meta property="og:title" content="Which AI models need several GPUs">
+    <meta property="og:description" content="Open AI models that require a cluster: flagship language models, large MoE models, long video generation. When it is worth it and when it is not.">
+    <meta property="og:image" content="https://chimitdorzhi.tech/en/ii-modeli/cover.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/en/ii-modeli/cover.png">
+    <meta property="og:locale" content="en_US">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="preload" href="/assets/fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="/assets/phosphor/regular.css"><link rel="stylesheet" href="/assets/phosphor/fill.css"></noscript>
+    <link rel="stylesheet" href="/style.css?v=78">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/ii-modeli/zhelezo/klaster/">
+<link rel="alternate" hreflang="en" href="https://chimitdorzhi.tech/en/ii-modeli/zhelezo/klaster/">
+<link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/ii-modeli/zhelezo/klaster/">
+<link rel="stylesheet" href="/assets/models.css?v=16">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"What needs several GPUs","url":"https://chimitdorzhi.tech/en/ii-modeli/zhelezo/klaster/","inLanguage":"en","dateModified":"2026-09-22","mainEntity":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"url":"https://chimitdorzhi.tech/en/ii-modeli/step-video/","name":"Step-Video"},{"@type":"ListItem","position":2,"url":"https://chimitdorzhi.tech/en/ii-modeli/minimax-h3/","name":"MiniMax H3 (Hailuo)"},{"@type":"ListItem","position":3,"url":"https://chimitdorzhi.tech/en/ii-modeli/minimax/","name":"MiniMax"},{"@type":"ListItem","position":4,"url":"https://chimitdorzhi.tech/en/ii-modeli/grok/","name":"Grok (открытые веса)"},{"@type":"ListItem","position":5,"url":"https://chimitdorzhi.tech/en/ii-modeli/inkling/","name":"Inkling"},{"@type":"ListItem","position":6,"url":"https://chimitdorzhi.tech/en/ii-modeli/palmyra-fin/","name":"Palmyra-Fin"},{"@type":"ListItem","position":7,"url":"https://chimitdorzhi.tech/en/ii-modeli/nemotron-reward/","name":"Nemotron Reward / GenRM"}]}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://chimitdorzhi.tech/en/"},{"@type":"ListItem","position":2,"name":"AI models","item":"https://chimitdorzhi.tech/en/ii-modeli/"},{"@type":"ListItem","position":3,"name":"What needs several GPUs","item":"https://chimitdorzhi.tech/en/ii-modeli/zhelezo/klaster/"}]}</script>
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/" data-i18n="nav.home">Главная</a></li>
+            <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+            <li class="nav-dropdown">
+                <a href="/cases/" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+                <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему" aria-pressed="false">
+                <i class="ph ph-moon" aria-hidden="true"></i>
+            </button>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/" data-i18n="nav.home">Главная</a></li>
+        <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+        <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+        <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+        <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+        <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+        <li class="mobile-has-submenu">
+            <details>
+                <summary aria-label="Проекты — развернуть"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down" aria-hidden="true"></i></summary>
+                <ul class="mobile-submenu">
+                    <li>
+                        <a href="https://gerel.space" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">Gerel.space</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/universe_buryat/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/arey/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.arey">AREY</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/mwrlife/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">MWR Life</span>
+                                <span class="mobile-sub-desc">Travel-клуб и партнёрка</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </details>
+        </li>
+        <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+    </ul>
+    <div class="mobile-controls">
+        <div class="mobile-lang-switcher" role="group" aria-label="Выбор языка">
+            <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+            <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+            <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+        </div>
+        <button class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle" aria-label="Переключить тему" aria-pressed="false">
+            <i class="ph ph-moon" aria-hidden="true"></i>
+        </button>
+    </div>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+    <main id="main">
+<section class="section md-page"><div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumbs"><a href="/en/">Home</a><span class="breadcrumbs-sep">›</span><a href="/en/ii-modeli/">AI models</a><span class="breadcrumbs-sep">›</span><span aria-current="page">What needs several GPUs</span></nav>
+  <header class="md-hero">
+    <span class="section-label">HARDWARE</span>
+    <h1 class="section-heading">What needs several GPUs</h1>
+    <p class="section-sub">Several GPUs are needed by flagship models, the ones comparable to the best cloud services. It is an expensive setup, and it makes sense only after a smaller model has been tested on your tasks and fell short.</p>
+    <div class="md-stats"><span><b>7</b> families</span><span>Updated 22 Sep 2026</span><a class="md-guide" href="/en/ii-modeli/kalkulyator-zheleza/"><i class="ph ph-cpu" aria-hidden="true"></i>Calculate video memory for your model size</a></div>
+  </header>
+  <section class="md-colls"><h2>What this means in practice</h2><div class="md-hw"><div class="md-hw-row is-on"><i class="ph ph-hard-drives" aria-hidden="true"></i><div><b>A 2-4 GPU server</b><span>Large language models and sparse architectures. Usually rented rather than bought.</span></div></div><div class="md-hw-row is-on"><i class="ph ph-hard-drives" aria-hidden="true"></i><div><b>An 8 GPU server</b><span>The largest open models and long video generation. Data-centre territory.</span></div></div><div class="md-hw-row is-on"><i class="ph ph-hard-drives" aria-hidden="true"></i><div><b>Hourly rental</b><span>The sensible first step: rent a cluster while you test the idea instead of buying hardware for an unproven task.</span></div></div></div></section>
+  <h2 class="md-colls-h2">What runs on it</h2>
+  <section class="md-hw-mod"><h3>Text <small>3</small></h3><div class="md-grid"><article class="md-card" data-id="inkling" data-mod="text vlm" data-hw="multi" data-com="yes" data-latest="2026-07" data-first="2026-07" data-name="inkling" data-country="us" data-dev="" data-ru="unknown" data-ind="dev finance docs" data-ollama="0" data-cpu="0" data-stale="0" data-gguf="1" data-q="inkling thinking machines lab usa text image + text flagship-level corporate assistant analysis of documents, images and audio programming help agents for complex multi-step tasks large companies it and development analytics software development finance documents and accounting">
+  <div class="md-card-top"><span class="md-mod"><i class="ph ph-chat-text" aria-hidden="true"></i>Text</span><span class="md-card-meta"><span class="md-badge" title="Ready-made GGUF build — runs in llama.cpp and compatible tools">GGUF</span><span class="md-year">2026</span></span></div>
+  <h2 class="md-name"><a href="/en/ii-modeli/inkling/">Inkling</a></h2>
+  <div class="md-dev">Thinking Machines Lab · USA</div>
+  <p class="md-sum">Flagship open models from Mira Murati's lab: they take text, images and audio. Large MoE models that need several GPUs.</p>
+  <ul class="md-tasks"><li>Flagship-level corporate assistant</li><li>Analysis of documents, images and audio</li><li>Programming help</li></ul>
+  <dl class="md-specs">
+    <div><dt>Sizes</dt><dd>276B-A12B, 975B-A41B</dd></div>
+    <div><dt>Hardware</dt><dd>from: Cluster</dd></div>
+  </dl>
+  <div class="md-card-foot"><span class="md-lic md-lic-ok">Commercial use allowed</span><span class="md-more">Details<i class="ph ph-arrow-right" aria-hidden="true"></i></span></div>
+  
+</article><article class="md-card" data-id="minimax" data-mod="text vlm" data-hw="multi" data-com="conditional" data-latest="2026-06" data-first="2025-01" data-name="minimax" data-country="cn" data-dev="minimax" data-ru="yes" data-ind="legal dev finance media" data-ollama="0" data-cpu="0" data-stale="0" data-gguf="1" data-q="minimax minimax china text image + text analysis of large document archives in a single request agents with tools help for developers conversational characters and scenarios lawyers analytics software development content and entertainment legal software development finance media and production">
+  <div class="md-card-top"><span class="md-mod"><i class="ph ph-chat-text" aria-hidden="true"></i>Text</span><span class="md-card-meta"><span class="md-badge md-badge-ru" title="Russian supported">RU</span><span class="md-badge" title="Ready-made GGUF build — runs in llama.cpp and compatible tools">GGUF</span><span class="md-year">2025–2026</span></span></div>
+  <h2 class="md-name"><a href="/en/ii-modeli/minimax/">MiniMax</a></h2>
+  <div class="md-dev">MiniMax · China</div>
+  <p class="md-sum">Large MoE models with very long context (up to 1M tokens for Text-01 and M3). M3 is multimodal and understands images. Licenses differ greatly from version to version.</p>
+  <ul class="md-tasks"><li>Analysis of large document archives in a single request</li><li>Agents with tools</li><li>Help for developers</li></ul>
+  <dl class="md-specs">
+    <div><dt>Sizes</dt><dd>230B-A10B – 456B-A46B</dd></div>
+    <div><dt>Hardware</dt><dd>from: Cluster</dd></div>
+  </dl>
+  <div class="md-card-foot"><span class="md-lic md-lic-warn">Commercial use with conditions</span><span class="md-more">Details<i class="ph ph-arrow-right" aria-hidden="true"></i></span></div>
+  
+</article><article class="md-card" data-id="grok" data-mod="text" data-hw="multi" data-com="conditional" data-latest="2025-08" data-first="2024-03" data-name="grok (открытые веса)" data-country="us" data-dev="" data-ru="unknown" data-ind="science dev" data-ollama="0" data-cpu="0" data-stale="0" data-gguf="0" data-q="grok (открытые веса) xai usa text research on large models assistant on your own infrastructure text generation and analysis large it companies research groups science and research software development">
+  <div class="md-card-top"><span class="md-mod"><i class="ph ph-chat-text" aria-hidden="true"></i>Text</span><span class="md-card-meta"><span class="md-year">2024–2025</span></span></div>
+  <h2 class="md-name"><a href="/en/ii-modeli/grok/">Grok (открытые веса)</a></h2>
+  <div class="md-dev">xAI · USA</div>
+  <p class="md-sum">xAI publishes the weights of previous Grok generations. The models are very large and need a GPU cluster, so in practice they are rarely run.</p>
+  <ul class="md-tasks"><li>Research on large models</li><li>Assistant on your own infrastructure</li><li>Text generation and analysis</li></ul>
+  <dl class="md-specs">
+    <div><dt>Sizes</dt><dd>314B (Grok-1), Grok-2 is larger</dd></div>
+    <div><dt>Hardware</dt><dd>from: Cluster</dd></div>
+  </dl>
+  <div class="md-card-foot"><span class="md-lic md-lic-warn">Commercial use with conditions</span><span class="md-more">Details<i class="ph ph-arrow-right" aria-hidden="true"></i></span></div>
+  
+</article></div></section><section class="md-hw-mod"><h3>Video <small>2</small></h3><div class="md-grid"><article class="md-card" data-id="minimax-h3" data-mod="video" data-hw="multi" data-com="conditional" data-latest="2026-07" data-first="2026-07" data-name="minimax h3 (hailuo)" data-country="cn" data-dev="minimax" data-ru="na" data-ind="media marketing" data-ollama="0" data-cpu="0" data-stale="0" data-gguf="0" data-q="minimax h3 (hailuo) minimax china video cinematic ad videos video from text and images complex scenes with motion production studios advertising media media and production marketing and content">
+  <div class="md-card-top"><span class="md-mod"><i class="ph ph-film-strip" aria-hidden="true"></i>Video</span><span class="md-card-meta"><span class="md-year">2026</span></span></div>
+  <h2 class="md-name"><a href="/en/ii-modeli/minimax-h3/">MiniMax H3 (Hailuo)</a></h2>
+  <div class="md-dev">MiniMax · China</div>
+  <p class="md-sum">Open weights of MiniMax's Hailuo video model. A large 33B model that makes video from text and images, but needs several server GPUs.</p>
+  <ul class="md-tasks"><li>Cinematic ad videos</li><li>Video from text and images</li><li>Complex scenes with motion</li></ul>
+  <dl class="md-specs">
+    <div><dt>Sizes</dt><dd>33B + 32B encoder</dd></div>
+    <div><dt>Hardware</dt><dd>from: Cluster</dd></div>
+  </dl>
+  <div class="md-card-foot"><span class="md-lic md-lic-warn">Commercial use with conditions</span><span class="md-more">Details<i class="ph ph-arrow-right" aria-hidden="true"></i></span></div>
+  
+</article><article class="md-card" data-id="step-video" data-mod="video" data-hw="multi" data-com="yes" data-latest="2025-03" data-first="2025-02" data-name="step-video" data-country="cn" data-dev="" data-ru="na" data-ind="media science" data-ollama="0" data-cpu="0" data-stale="0" data-gguf="0" data-q="step-video stepfun china video video from a description animating images media r&amp;d production media and production science and research">
+  <div class="md-card-top"><span class="md-mod"><i class="ph ph-film-strip" aria-hidden="true"></i>Video</span><span class="md-card-meta"><span class="md-year">2025</span></span></div>
+  <h2 class="md-name"><a href="/en/ii-modeli/step-video/">Step-Video</a></h2>
+  <div class="md-dev">StepFun · China</div>
+  <p class="md-sum">A large 30B video model producing clips of up to 204 frames. Needs server hardware, but is open under MIT.</p>
+  <ul class="md-tasks"><li>Video from a description</li><li>Animating images</li></ul>
+  <dl class="md-specs">
+    <div><dt>Sizes</dt><dd>30B</dd></div>
+    <div><dt>Hardware</dt><dd>from: Cluster</dd></div>
+  </dl>
+  <div class="md-card-foot"><span class="md-lic md-lic-ok">Commercial use allowed</span><span class="md-more">Details<i class="ph ph-arrow-right" aria-hidden="true"></i></span></div>
+  
+</article></div></section><section class="md-hw-mod"><h3>Finance <small>1</small></h3><div class="md-grid"><article class="md-card" data-id="palmyra-fin" data-mod="finance text" data-hw="multi" data-com="conditional" data-latest="2024-07" data-first="2024-07" data-name="palmyra-fin" data-country="us" data-dev="" data-ru="no" data-ind="finance docs legal" data-ollama="0" data-cpu="0" data-stale="1" data-gguf="0" data-q="palmyra-fin writer usa finance text working with long annual reports and prospectuses summaries and digests of financial documents finding answers inside a large document pack financial institutions audit and consulting investment analytics finance documents and accounting legal">
+  <div class="md-card-top"><span class="md-mod"><i class="ph ph-currency-circle-dollar" aria-hidden="true"></i>Finance</span><span class="md-card-meta"><span class="md-badge md-badge-old" title="Last open release: Jul 2024. The family is no longer updated.">Not maintained</span><span class="md-year">2024</span></span></div>
+  <h2 class="md-name"><a href="/en/ii-modeli/palmyra-fin/">Palmyra-Fin</a></h2>
+  <div class="md-dev">Writer · USA</div>
+  <p class="md-sum">A large model for financial documents with a context window of about 131k tokens: it holds long reports whole. Not investment advice: decisions are made by a specialist.</p>
+  <ul class="md-tasks"><li>Working with long annual reports and prospectuses</li><li>Summaries and digests of financial documents</li><li>Finding answers inside a large document pack</li></ul>
+  <dl class="md-specs">
+    <div><dt>Sizes</dt><dd>70B (the model card states 72 billion parameters)</dd></div>
+    <div><dt>Hardware</dt><dd>from: Cluster</dd></div>
+  </dl>
+  <div class="md-card-foot"><span class="md-lic md-lic-warn">Commercial use with conditions</span><span class="md-more">Details<i class="ph ph-arrow-right" aria-hidden="true"></i></span></div>
+  
+</article></div></section><section class="md-hw-mod"><h3>Fact-checking and judges <small>1</small></h3><div class="md-grid"><article class="md-card" data-id="nemotron-reward" data-mod="judge" data-hw="multi" data-com="conditional" data-latest="2025-05" data-first="2024-06" data-name="nemotron reward / genrm" data-country="us" data-dev="nvidia" data-ru="yes" data-ind="dev science support education" data-ollama="0" data-cpu="0" data-stale="0" data-gguf="0" data-q="nemotron reward / genrm nvidia usa fact-checking and judges choosing the best of several candidate answers preparing data to fine-tune your own model scoring assistant answers in russian and other languages it and software development research and science customer support software development science and research customer support education">
+  <div class="md-card-top"><span class="md-mod"><i class="ph ph-gavel" aria-hidden="true"></i>Fact-checking and judges</span><span class="md-card-meta"><span class="md-badge md-badge-ru" title="Russian supported">RU</span><span class="md-year">2024–2025</span></span></div>
+  <h2 class="md-name"><a href="/en/ii-modeli/nemotron-reward/">Nemotron Reward / GenRM</a></h2>
+  <div class="md-dev">NVIDIA · USA</div>
+  <p class="md-sum">Large NVIDIA scorers for selecting and fine-tuning answers. The multilingual GenRM version lists Russian among its languages. The scorer itself makes mistakes and does not replace manual review on important tasks.</p>
+  <ul class="md-tasks"><li>Choosing the best of several candidate answers</li><li>Preparing data to fine-tune your own model</li><li>Scoring assistant answers in Russian and other languages</li></ul>
+  <dl class="md-specs">
+    <div><dt>Sizes</dt><dd>49B, 70B and 340B</dd></div>
+    <div><dt>Hardware</dt><dd>from: Cluster</dd></div>
+  </dl>
+  <div class="md-card-foot"><span class="md-lic md-lic-warn">Commercial use with conditions</span><span class="md-more">Details<i class="ph ph-arrow-right" aria-hidden="true"></i></span></div>
+  
+</article></div></section>
+  <section class="md-colls"><h2>Where people usually hit the wall</h2><p class="md-stack-note">The usual mistake is to start with the flagship. In practice it goes the other way: a small model on one GPU, quality measured on your own examples, and only then a move up. A cluster adds more than hardware cost: networking, cooling, updates and someone on call.</p></section>
+  <section class="md-colls"><h2>By hardware</h2><ul class="md-links md-links-cols"><li><a href="/en/ii-modeli/zhelezo/bez-videokarty/">What runs on a regular computer without a GPU</a></li><li><a href="/en/ii-modeli/zhelezo/odna-videokarta/">What runs on a single GPU</a></li></ul></section>
+  <section class="md-offer" aria-labelledby="mdOfferT">
+    <div class="md-offer-text"><h2 id="mdOfferT">Need a model for your task?</h2><p>An open model can run on your own server: data stays in-house, there is no per-request fee, and the model can be fine-tuned on your documents.</p></div>
+    <ol class="md-steps"><li><b>Select</b><span>The model and size for your task and hardware budget</span></li><li><b>Deploy</b><span>On your server or in a closed network, with an API</span></li><li><b>Fine-tune</b><span>On your data, or connect a knowledge base</span></li><li><b>Integrate</b><span>Into your CRM, ERP, bot, website or team chat</span></li></ol>
+    <a class="btn btn-accent md-offer-btn" href="https://t.me/chimitdorzhi?text=Hello!%20I%20want%20to%20deploy%20an%20open%20AI%20model%20on%20my%20server.%20Task%3A%20" target="_blank" rel="noopener"><i class="ph ph-telegram-logo" aria-hidden="true"></i>Discuss deployment</a>
+  </section>
+</div></section>
+</main>
+<footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label">КОНТАКТ</span>
+            <h2>ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                <a href="tel:+971563369591" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +971 56 336 9591</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 Дарижапов Чимитдоржи. Все права защищены.</p>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/predlozheniya/" class="footer-policy-link">Предложения</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/blog/" class="footer-policy-link">Блог</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link">Политика конфиденциальности</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=44" defer></script>
+<script src="/script.js?v=40" defer></script><script>(function(){[].forEach.call(document.querySelectorAll('.md-card'),function(c){c.addEventListener('click',function(e){if(e.target.closest('a,label,input'))return;location.href=c.querySelector('.md-name a').getAttribute('href');});});})();</script>
+</body>
+</html>

@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поддержка клиентов: стек из открытых моделей</title>
+    <meta name="description" content="Поиск по своей базе знаний, уточнение выдачи, ответ языковой модели и фильтр, который не пускает наружу лишнее.">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/ii-modeli/stek/podderzhka-klientov/">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://chimitdorzhi.tech/ii-modeli/stek/podderzhka-klientov/">
+    <meta property="og:title" content="Поддержка клиентов: стек из открытых моделей">
+    <meta property="og:description" content="Поиск по своей базе знаний, уточнение выдачи, ответ языковой модели и фильтр, который не пускает наружу лишнее.">
+    <meta property="og:image" content="https://chimitdorzhi.tech/ii-modeli/cover.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/ii-modeli/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="preload" href="/assets/fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="/assets/phosphor/regular.css"><link rel="stylesheet" href="/assets/phosphor/fill.css"></noscript>
+    <link rel="stylesheet" href="/style.css?v=78">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/ii-modeli/stek/podderzhka-klientov/">
+<link rel="alternate" hreflang="en" href="https://chimitdorzhi.tech/en/ii-modeli/stek/podderzhka-klientov/">
+<link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/ii-modeli/stek/podderzhka-klientov/">
+<link rel="stylesheet" href="/assets/models.css?v=16">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"Стек под поддержку: ответ из вашей базы, а не из головы модели","description":"Поиск по своей базе знаний, уточнение выдачи, ответ языковой модели и фильтр, который не пускает наружу лишнее.","url":"https://chimitdorzhi.tech/ii-modeli/stek/podderzhka-klientov/","inLanguage":"ru","step":[{"@type":"HowToStep","position":1,"name":"Шаг 1. Найти подходящие куски базы знаний","text":"Модель эмбеддингов переводит вопрос клиента и все ваши инструкции в числовые отпечатки смысла, и система достаёт те фрагменты, которые ближе всего по сути. Клиент пишет своими словами, а в регламенте написано канцелярским, и поиск по ключевым словам тут промахивается. Без этого звена модель отвечает по памяти, то есть по интернету годичной давности, а не по вашему прайсу."},{"@type":"HowToStep","position":2,"name":"Шаг 2. Отсортировать найденное по пользе","text":"Реранкер берёт десяток найденных фрагментов и пересортировывает их, уже вчитываясь в вопрос целиком. Это дешёвая страховка: поиск по смыслу быстрый, но грубоватый, и нужный абзац часто оказывается не первым. Если звена нет, в ответ уходит первый попавшийся похожий текст, и клиент получает правило из соседнего тарифа, которое к нему не относится."},{"@type":"HowToStep","position":3,"name":"Шаг 3. Сформулировать ответ","text":"Языковая модель получает вопрос вместе с найденными фрагментами и пишет ответ человеческим языком, ссылаясь на источник. Ей же поручают распознать, что вопрос выходит за рамки базы, и честно передать диалог оператору. Чем лучше подобраны фрагменты на предыдущих шагах, тем проще модели и тем меньше нужна самая дорогая из доступных. Без этого звена клиент читает выдержку из регламента."},{"@type":"HowToStep","position":4,"name":"Шаг 4. Проверить ответ перед отправкой","text":"Отдельная модель-фильтр смотрит и на входящее сообщение, и на готовый ответ: нет ли попытки вытянуть лишнее, не утекают ли данные другого клиента, не обещает ли бот того, чего компания не делает. Такой фильтр специально маленький и быстрый, он не пишет тексты, а ставит отметку. Без него один неудачный ответ в публичном канале обходится дороже всей экономии на поддержке."}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"https://chimitdorzhi.tech/"},{"@type":"ListItem","position":2,"name":"ИИ-модели","item":"https://chimitdorzhi.tech/ii-modeli/"},{"@type":"ListItem","position":3,"name":"Стек под поддержку: ответ из вашей базы, а не из головы модели","item":"https://chimitdorzhi.tech/ii-modeli/stek/podderzhka-klientov/"}]}</script>
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/" data-i18n="nav.home">Главная</a></li>
+            <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+            <li class="nav-dropdown">
+                <a href="/cases/" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+                <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему" aria-pressed="false">
+                <i class="ph ph-moon" aria-hidden="true"></i>
+            </button>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/" data-i18n="nav.home">Главная</a></li>
+        <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+        <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+        <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+        <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+        <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+        <li class="mobile-has-submenu">
+            <details>
+                <summary aria-label="Проекты — развернуть"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down" aria-hidden="true"></i></summary>
+                <ul class="mobile-submenu">
+                    <li>
+                        <a href="https://gerel.space" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">Gerel.space</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/universe_buryat/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/arey/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.arey">AREY</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/mwrlife/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">MWR Life</span>
+                                <span class="mobile-sub-desc">Travel-клуб и партнёрка</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </details>
+        </li>
+        <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+    </ul>
+    <div class="mobile-controls">
+        <div class="mobile-lang-switcher" role="group" aria-label="Выбор языка">
+            <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+            <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+            <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+        </div>
+        <button class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle" aria-label="Переключить тему" aria-pressed="false">
+            <i class="ph ph-moon" aria-hidden="true"></i>
+        </button>
+    </div>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+    <main id="main">
+<section class="section md-page"><div class="container">
+  <nav class="breadcrumbs" aria-label="Хлебные крошки"><a href="/">Главная</a><span class="breadcrumbs-sep">›</span><a href="/ii-modeli/">ИИ-модели</a><span class="breadcrumbs-sep">›</span><span aria-current="page">Стек под поддержку: ответ из вашей базы, а не из головы модели</span></nav>
+  <header class="md-hero">
+    <span class="section-label">СТЕК</span>
+    <h1 class="section-heading">Стек под поддержку: ответ из вашей базы, а не из головы модели</h1>
+    <p class="section-sub">Поддержка ломается на одном и том же: языковая модель отвечает уверенно, но не вашими правилами. Она не знает ваших тарифов, сроков и исключений, а придумывать умеет отлично. Лечится это не выбором модели побольше, а связкой, где сначала находят нужный кусок вашей базы знаний, потом отдают его модели как источник, и только потом ответ проходит проверку. Каждое звено закрывает свой риск, и заменить их друг другом нельзя.</p>
+    <div class="md-stats"><span>Обновлено 22.09.2026</span><a class="md-guide" href="/ii-modeli/podbor/"><i class="ph ph-sparkle" aria-hidden="true"></i>Подобрать модель за 4 вопроса</a></div>
+  </header>
+  <section class="md-stack-step">
+    <h2>Шаг 1. Найти подходящие куски базы знаний</h2>
+    <p class="md-stack-text">Модель эмбеддингов переводит вопрос клиента и все ваши инструкции в числовые отпечатки смысла, и система достаёт те фрагменты, которые ближе всего по сути. Клиент пишет своими словами, а в регламенте написано канцелярским, и поиск по ключевым словам тут промахивается. Без этого звена модель отвечает по памяти, то есть по интернету годичной давности, а не по вашему прайсу.</p>
+    <h3 class="md-stack-h3">Чем это делается</h3>
+    <div class="md-grid"><article class="md-card" data-id="bge-m3" data-mod="embed" data-hw="min" data-com="yes" data-latest="2024-01" data-first="2024-01" data-name="bge-m3" data-country="cn" data-dev="" data-ru="yes" data-ind="support docs legal" data-ollama="1" data-cpu="1" data-stale="1" data-gguf="1" data-q="bge-m3 baai китай поиск и rag поиск по базе документов rag для чат-бота поиск похожих обращений и дублей базы знаний юридические архивы поддержка клиентов поддержка клиентов документы и бухгалтерия юристы">
+  <div class="md-card-top"><span class="md-mod"><i class="ph ph-magnifying-glass" aria-hidden="true"></i>Поиск и RAG</span><span class="md-card-meta"><span class="md-badge md-badge-ru" title="Русский язык заявлен">RU</span><span class="md-badge" title="Есть в библиотеке Ollama">Ollama</span><span class="md-badge md-badge-old" title="Последний открытый выпуск — янв 2024. Семейство больше не обновляется.">Не развивается</span><span class="md-year">2024</span></span></div>
+  <h2 class="md-name"><a href="/ii-modeli/bge-m3/">BGE-M3</a></h2>
+  <div class="md-dev">BAAI · Китай</div>
+  <p class="md-sum">Модель для поиска по смыслу на сотне языков. Основа RAG: бот находит нужный кусок документа перед ответом.</p>
+  <ul class="md-tasks"><li>Поиск по базе документов</li><li>RAG для чат-бота</li><li>Поиск похожих обращений и дублей</li></ul>
+  <dl class="md-specs">
+    <div><dt>Размеры</dt><dd>568M</dd></div>
+    <div><dt>Железо</dt><dd>от: Ноутбук</dd></div>
+  </dl>
+  <div class="md-card-foot"><span class="md-lic md-lic-ok">Можно в коммерцию</span><span class="md-more">Подробнее<i class="ph ph-arrow-right" aria-hidden="true"></i></span></div>
+  
+</article><article class="md-card" data-id="qwen-embedding" data-mod="embed" data-hw="min gpu" data-com="yes" data-latest="2026-01" data-first="2025-06" data-name="qwen3 embedding / reranker" data-country="cn" data-dev="alibaba" data-ru="yes" data-ind="dev support docs" data-ollama="1" data-cpu="1" data-stale="0" data-gguf="1" data-q="qwen3 embedding / reranker alibaba (qwen) китай поиск и rag поиск по базе знаний для rag переранжирование найденного перед ответом поиск по сканам, слайдам и скриншотам поддержка клиентов юристы и документооборот онлайн-торговля разработка по поддержка клиентов документы и бухгалтерия">
+  <div class="md-card-top"><span class="md-mod"><i class="ph ph-magnifying-glass" aria-hidden="true"></i>Поиск и RAG</span><span class="md-card-meta"><span class="md-badge md-badge-ru" title="Русский язык заявлен">RU</span><span class="md-badge" title="Есть в библиотеке Ollama">Ollama</span><span class="md-year">2025–2026</span></span></div>
+  <h2 class="md-name"><a href="/ii-modeli/qwen-embedding/">Qwen3 Embedding / Reranker</a></h2>
+  <div class="md-dev">Alibaba (Qwen) · Китай</div>
+  <p class="md-sum">Эмбеддинги и реранкеры на базе Qwen3, в числе лучших открытых для многоязычного поиска, включая русский. VL-версии ищут по картинкам, скриншотам и видео.</p>
+  <ul class="md-tasks"><li>Поиск по базе знаний для RAG</li><li>Переранжирование найденного перед ответом</li><li>Поиск по сканам, слайдам и скриншотам</li></ul>
+  <dl class="md-specs">
+    <div><dt>Размеры</dt><dd>0.6B – 8B</dd></div>
+    <div><dt>Железо</dt><dd>от: Ноутбук</dd></div>
+  </dl>
+  <div class="md-card-foot"><span class="md-lic md-lic-ok">Можно в коммерцию</span><span class="md-more">Подробнее<i class="ph ph-arrow-right" aria-hidden="true"></i></span></div>
+  
+</article><article class="md-card" data-id="e5" data-mod="embed" data-hw="min gpu" data-com="yes" data-latest="2024-02" data-first="2022-12" data-name="e5 / multilingual-e5" data-country="us" data-dev="microsoft" data-ru="yes" data-ind="dev support docs retail" data-ollama="0" data-cpu="1" data-stale="1" data-gguf="0" data-q="e5 / multilingual-e5 microsoft сша поиск и rag поиск по базе знаний и документам подбор ответов для чат-бота (rag) поиск похожих обращений и дублей поддержка клиентов юристы и документооборот внутренние базы знаний разработка по поддержка клиентов документы и бухгалтерия торговля и маркетплейсы">
+  <div class="md-card-top"><span class="md-mod"><i class="ph ph-magnifying-glass" aria-hidden="true"></i>Поиск и RAG</span><span class="md-card-meta"><span class="md-badge md-badge-ru" title="Русский язык заявлен">RU</span><span class="md-badge md-badge-old" title="Последний открытый выпуск — фев 2024. Семейство больше не обновляется.">Не развивается</span><span class="md-year">2022–2024</span></span></div>
+  <h2 class="md-name"><a href="/ii-modeli/e5/">E5 / multilingual-e5</a></h2>
+  <div class="md-dev">Microsoft · США</div>
+  <p class="md-sum">Проверенные модели для смыслового поиска. Многоязычные версии хорошо работают с русским и до сих пор служат надёжной основой для RAG.</p>
+  <ul class="md-tasks"><li>Поиск по базе знаний и документам</li><li>Подбор ответов для чат-бота (RAG)</li><li>Поиск похожих обращений и дублей</li></ul>
+  <dl class="md-specs">
+    <div><dt>Размеры</dt><dd>33M – 7B</dd></div>
+    <div><dt>Железо</dt><dd>от: Ноутбук</dd></div>
+  </dl>
+  <div class="md-card-foot"><span class="md-lic md-lic-ok">Можно в коммерцию</span><span class="md-more">Подробнее<i class="ph ph-arrow-right" aria-hidden="true"></i></span></div>
+  
+</article></div>
+  </section><section class="md-stack-step">
+    <h2>Шаг 2. Отсортировать найденное по пользе</h2>
+    <p class="md-stack-text">Реранкер берёт десяток найденных фрагментов и пересортировывает их, уже вчитываясь в вопрос целиком. Это дешёвая страховка: поиск по смыслу быстрый, но грубоватый, и нужный абзац часто оказывается не первым. Если звена нет, в ответ уходит первый попавшийся похожий текст, и клиент получает правило из соседнего тарифа, которое к нему не относится.</p>
+    <h3 class="md-stack-h3">Чем это делается</h3>
+    <div class="md-grid"><article class="md-card" data-id="bge-reranker" data-mod="rerank" data-hw="min gpu" data-com="yes" data-latest="2024-07" data-first="2023-09" data-name="bge reranker" data-country="cn" data-dev="" data-ru="unknown" data-ind="dev support docs legal" data-ollama="0" data-cpu="1" data-stale="1" data-gguf="1" data-q="bge reranker baai (пекинская академия ии) китай реранкеры уточнение выдачи перед ответом чат-бота сортировка результатов поиска по базе знаний отбор самых подходящих пунктов договоров и регламентов поддержка клиентов юристы и документооборот внутренние базы знаний разработка по поддержка клиентов документы и бухгалтерия юристы">
+  <div class="md-card-top"><span class="md-mod"><i class="ph ph-funnel" aria-hidden="true"></i>Реранкеры</span><span class="md-card-meta"><span class="md-badge" title="Готовая сборка GGUF — запускается в llama.cpp и совместимых программах">GGUF</span><span class="md-badge md-badge-old" title="Последний открытый выпуск — июл 2024. Семейство больше не обновляется.">Не развивается</span><span class="md-year">2023–2024</span></span></div>
+  <h2 class="md-name"><a href="/ii-modeli/bge-reranker/">BGE Reranker</a></h2>
+  <div class="md-dev">BAAI (Пекинская академия ИИ) · Китай</div>
+  <p class="md-sum">Реранкеры: берут найденные поиском фрагменты и переставляют их по реальной близости к вопросу. Версия v2-m3 многоязычная и лёгкая, её часто ставят в пару к bge-m3.</p>
+  <ul class="md-tasks"><li>Уточнение выдачи перед ответом чат-бота</li><li>Сортировка результатов поиска по базе знаний</li><li>Отбор самых подходящих пунктов договоров и регламентов</li></ul>
+  <dl class="md-specs">
+    <div><dt>Размеры</dt><dd>278M – 9B</dd></div>
+    <div><dt>Железо</dt><dd>от: Ноутбук</dd></div>
+  </dl>
+  <div class="md-card-foot"><span class="md-lic md-lic-ok">Можно в коммерцию</span><span class="md-more">Подробнее<i class="ph ph-arrow-right" aria-hidden="true"></i></span></div>
+  
+</article><article class="md-card" data-id="jina-reranker" data-mod="rerank docsearch" data-hw="min" data-com="conditional" data-latest="2026-07" data-first="2024-04" data-name="jina reranker" data-country="eu" data-dev="" data-ru="unknown" data-ind="dev support docs retail" data-ollama="0" data-cpu="1" data-stale="0" data-gguf="1" data-q="jina reranker jina ai германия реранкеры поиск по сканам документов уточнение выдачи перед ответом чат-бота сортировка найденных страниц pdf и слайдов поиск по каталогу и базе знаний поддержка клиентов документооборот онлайн-торговля разработка по поддержка клиентов документы и бухгалтерия торговля и маркетплейсы">
+  <div class="md-card-top"><span class="md-mod"><i class="ph ph-funnel" aria-hidden="true"></i>Реранкеры</span><span class="md-card-meta"><span class="md-badge" title="Готовая сборка GGUF — запускается в llama.cpp и совместимых программах">GGUF</span><span class="md-year">2024–2026</span></span></div>
+  <h2 class="md-name"><a href="/ii-modeli/jina-reranker/">Jina Reranker</a></h2>
+  <div class="md-dev">Jina AI · Германия</div>
+  <p class="md-sum">Сильные многоязычные реранкеры; m0 сортирует и страницы-картинки (сканы, слайды). Свежие версии открыты только для некоммерческого использования.</p>
+  <ul class="md-tasks"><li>Уточнение выдачи перед ответом чат-бота</li><li>Сортировка найденных страниц PDF и слайдов</li><li>Поиск по каталогу и базе знаний</li></ul>
+  <dl class="md-specs">
+    <div><dt>Размеры</dt><dd>33M – 2.4B</dd></div>
+    <div><dt>Железо</dt><dd>от: Ноутбук</dd></div>
+  </dl>
+  <div class="md-card-foot"><span class="md-lic md-lic-warn">Коммерция с условиями</span><span class="md-more">Подробнее<i class="ph ph-arrow-right" aria-hidden="true"></i></span></div>
+  
+</article></div>
+  </section><section class="md-stack-step">
+    <h2>Шаг 3. Сформулировать ответ</h2>
+    <p class="md-stack-text">Языковая модель получает вопрос вместе с найденными фрагментами и пишет ответ человеческим языком, ссылаясь на источник. Ей же поручают распознать, что вопрос выходит за рамки базы, и честно передать диалог оператору. Чем лучше подобраны фрагменты на предыдущих шагах, тем проще модели и тем меньше нужна самая дорогая из доступных. Без этого звена клиент читает выдержку из регламента.</p>
+    <h3 class="md-stack-h3">Чем это делается</h3>
+    <div class="md-grid"><article class="md-card" data-id="llama" data-mod="text vlm" data-hw="min gpu multi" data-com="conditional" data-latest="2025-04" data-first="2023-02" data-name="llama" data-country="us" data-dev="meta" data-ru="no" data-ind="support education dev" data-ollama="1" data-cpu="1" data-stale="0" data-gguf="1" data-q="llama meta сша текст картинка + текст ассистент для сотрудников суммаризация встреч и документов основа для дообучения под отрасль распознавание картинок (версии vision) корпоративные ассистенты образование разработка продуктов на ии поддержка клиентов образование разработка по">
+  <div class="md-card-top"><span class="md-mod"><i class="ph ph-chat-text" aria-hidden="true"></i>Текст</span><span class="md-card-meta"><span class="md-badge" title="Есть в библиотеке Ollama">Ollama</span><span class="md-year">2023–2025</span></span></div>
+  <h2 class="md-name"><a href="/ii-modeli/llama/">Llama</a></h2>
+  <div class="md-dev">Meta · США</div>
+  <p class="md-sum">Модели, с которых начался массовый open source в ИИ. Огромная экосистема дообученных версий и инструментов.</p>
+  <ul class="md-tasks"><li>Ассистент для сотрудников</li><li>Суммаризация встреч и документов</li><li>Основа для дообучения под отрасль</li></ul>
+  <dl class="md-specs">
+    <div><dt>Размеры</dt><dd>1B – 405B</dd></div>
+    <div><dt>Железо</dt><dd>от: Ноутбук</dd></div>
+  </dl>
+  <div class="md-card-foot"><span class="md-lic md-lic-warn">Коммерция с условиями</span><span class="md-more">Подробнее<i class="ph ph-arrow-right" aria-hidden="true"></i></span></div>
+  
+</article><article class="md-card" data-id="gpt-oss" data-mod="text" data-hw="gpu" data-com="yes" data-latest="2025-08" data-first="2025-08" data-name="gpt-oss" data-country="us" data-dev="openai" data-ru="unknown" data-ind="dev support docs" data-ollama="1" data-cpu="0" data-stale="0" data-gguf="1" data-q="gpt-oss openai сша текст ии-агент с вызовом внутренних систем ответы по регламентам черновики писем и отчетов корпоративные агенты закрытый контур без облака разработка по поддержка клиентов документы и бухгалтерия">
+  <div class="md-card-top"><span class="md-mod"><i class="ph ph-chat-text" aria-hidden="true"></i>Текст</span><span class="md-card-meta"><span class="md-badge" title="Есть в библиотеке Ollama">Ollama</span><span class="md-year">2025</span></span></div>
+  <h2 class="md-name"><a href="/ii-modeli/gpt-oss/">gpt-oss</a></h2>
+  <div class="md-dev">OpenAI · США</div>
+  <p class="md-sum">Первые открытые модели OpenAI со времён GPT-2. Рассуждения, вызов инструментов, младшая версия помещается на одну видеокарту.</p>
+  <ul class="md-tasks"><li>ИИ-агент с вызовом внутренних систем</li><li>Ответы по регламентам</li><li>Черновики писем и отчётов</li></ul>
+  <dl class="md-specs">
+    <div><dt>Размеры</dt><dd>20B, 120B</dd></div>
+    <div><dt>Железо</dt><dd>от: 1 видеокарта</dd></div>
+  </dl>
+  <div class="md-card-foot"><span class="md-lic md-lic-ok">Можно в коммерцию</span><span class="md-more">Подробнее<i class="ph ph-arrow-right" aria-hidden="true"></i></span></div>
+  
+</article><article class="md-card" data-id="glm" data-mod="text vlm" data-hw="min gpu multi" data-com="conditional" data-latest="2026-08" data-first="2023-03" data-name="glm (chatglm)" data-country="cn" data-dev="zhipu" data-ru="no" data-ind="dev support docs education" data-ollama="1" data-cpu="1" data-stale="0" data-gguf="1" data-q="glm (chatglm) zhipu ai (z.ai) китай текст картинка + текст корпоративный чат-ассистент агенты для рутинных офисных задач помощь программистам работа с длинными документами ит-отдел поддержка клиентов документооборот образование разработка по поддержка клиентов документы и бухгалтерия образование">
+  <div class="md-card-top"><span class="md-mod"><i class="ph ph-chat-text" aria-hidden="true"></i>Текст</span><span class="md-card-meta"><span class="md-badge" title="Есть в библиотеке Ollama">Ollama</span><span class="md-year">2023–2026</span></span></div>
+  <h2 class="md-name"><a href="/ii-modeli/glm/">GLM (ChatGLM)</a></h2>
+  <div class="md-dev">Zhipu AI (Z.ai) · Китай</div>
+  <p class="md-sum">Одна из старейших китайских открытых линий: от ChatGLM-6B до GLM-5.3. Сильна в агентных задачах и программировании; GLM-5.3-Flash понимает картинки и выходит под MIT.</p>
+  <ul class="md-tasks"><li>Корпоративный чат-ассистент</li><li>Агенты для рутинных офисных задач</li><li>Помощь программистам</li></ul>
+  <dl class="md-specs">
+    <div><dt>Размеры</dt><dd>1.5B – 744B-A40B</dd></div>
+    <div><dt>Железо</dt><dd>от: Ноутбук</dd></div>
+  </dl>
+  <div class="md-card-foot"><span class="md-lic md-lic-warn">Коммерция с условиями</span><span class="md-more">Подробнее<i class="ph ph-arrow-right" aria-hidden="true"></i></span></div>
+  
+</article></div>
+  </section><section class="md-stack-step">
+    <h2>Шаг 4. Проверить ответ перед отправкой</h2>
+    <p class="md-stack-text">Отдельная модель-фильтр смотрит и на входящее сообщение, и на готовый ответ: нет ли попытки вытянуть лишнее, не утекают ли данные другого клиента, не обещает ли бот того, чего компания не делает. Такой фильтр специально маленький и быстрый, он не пишет тексты, а ставит отметку. Без него один неудачный ответ в публичном канале обходится дороже всей экономии на поддержке.</p>
+    <h3 class="md-stack-h3">Чем это делается</h3>
+    <div class="md-grid"><article class="md-card" data-id="llama-guard" data-mod="safety" data-hw="min gpu" data-com="conditional" data-latest="2025-04" data-first="2023-12" data-name="llama guard" data-country="us" data-dev="meta" data-ru="no" data-ind="security support" data-ollama="1" data-cpu="1" data-stale="0" data-gguf="1" data-q="llama guard meta сша модерация и безопасность проверка вопросов пользователей к боту проверка ответов бота перед отправкой отчет, какая категория правил нарушена чат-боты и ии-ассистенты службы поддержки модерация контента безопасность поддержка клиентов">
+  <div class="md-card-top"><span class="md-mod"><i class="ph ph-shield-check" aria-hidden="true"></i>Модерация и безопасность</span><span class="md-card-meta"><span class="md-badge" title="Есть в библиотеке Ollama">Ollama</span><span class="md-year">2023–2025</span></span></div>
+  <h2 class="md-name"><a href="/ii-modeli/llama-guard/">Llama Guard</a></h2>
+  <div class="md-dev">Meta · США</div>
+  <p class="md-sum">Модели-фильтры, которые проверяют запросы к чат-боту и его ответы на опасные темы по списку категорий. Версия 4 проверяет и картинки. Русский официально не заявлен.</p>
+  <ul class="md-tasks"><li>Проверка вопросов пользователей к боту</li><li>Проверка ответов бота перед отправкой</li><li>Отчёт, какая категория правил нарушена</li></ul>
+  <dl class="md-specs">
+    <div><dt>Размеры</dt><dd>1B – 12B</dd></div>
+    <div><dt>Железо</dt><dd>от: Ноутбук</dd></div>
+  </dl>
+  <div class="md-card-foot"><span class="md-lic md-lic-warn">Коммерция с условиями</span><span class="md-more">Подробнее<i class="ph ph-arrow-right" aria-hidden="true"></i></span></div>
+  
+</article><article class="md-card" data-id="shieldgemma" data-mod="safety" data-hw="min gpu" data-com="conditional" data-latest="2025-03" data-first="2024-07" data-name="shieldgemma" data-country="us" data-dev="google" data-ru="no" data-ind="security support" data-ollama="1" data-cpu="1" data-stale="0" data-gguf="1" data-q="shieldgemma google сша модерация и безопасность модерация сообщений пользователей проверка ответов бота проверка сгенерированных картинок перед публикацией модерация контента чат-боты сервисы генерации картинок безопасность поддержка клиентов">
+  <div class="md-card-top"><span class="md-mod"><i class="ph ph-shield-check" aria-hidden="true"></i>Модерация и безопасность</span><span class="md-card-meta"><span class="md-badge" title="Есть в библиотеке Ollama">Ollama</span><span class="md-year">2024–2025</span></span></div>
+  <h2 class="md-name"><a href="/ii-modeli/shieldgemma/">ShieldGemma</a></h2>
+  <div class="md-dev">Google · США</div>
+  <p class="md-sum">Фильтры на базе Gemma: проверяют текст на опасный и оскорбительный контент, а ShieldGemma 2 проверяет картинки. Ориентированы на английский.</p>
+  <ul class="md-tasks"><li>Модерация сообщений пользователей</li><li>Проверка ответов бота</li><li>Проверка сгенерированных картинок перед публикацией</li></ul>
+  <dl class="md-specs">
+    <div><dt>Размеры</dt><dd>2B – 27B</dd></div>
+    <div><dt>Железо</dt><dd>от: Ноутбук</dd></div>
+  </dl>
+  <div class="md-card-foot"><span class="md-lic md-lic-warn">Коммерция с условиями</span><span class="md-more">Подробнее<i class="ph ph-arrow-right" aria-hidden="true"></i></span></div>
+  
+</article><article class="md-card" data-id="qwen3guard" data-mod="safety" data-hw="min gpu" data-com="yes" data-latest="2025-09" data-first="2025-09" data-name="qwen3guard" data-country="cn" data-dev="alibaba" data-ru="yes" data-ind="security support" data-ollama="0" data-cpu="1" data-stale="0" data-gguf="1" data-q="qwen3guard alibaba (qwen) китай модерация и безопасность фильтр запросов к боту на русском остановка опасного ответа во время генерации разметка сообщений по категориям риска чат-боты и ии-ассистенты модерация сообществ службы поддержки безопасность поддержка клиентов">
+  <div class="md-card-top"><span class="md-mod"><i class="ph ph-shield-check" aria-hidden="true"></i>Модерация и безопасность</span><span class="md-card-meta"><span class="md-badge md-badge-ru" title="Русский язык заявлен">RU</span><span class="md-badge" title="Готовая сборка GGUF — запускается в llama.cpp и совместимых программах">GGUF</span><span class="md-year">2025</span></span></div>
+  <h2 class="md-name"><a href="/ii-modeli/qwen3guard/">Qwen3Guard</a></h2>
+  <div class="md-dev">Alibaba (Qwen) · Китай</div>
+  <p class="md-sum">Фильтры безопасности на 119 языков, русский в их числе. Версия Stream проверяет ответ бота прямо во время его генерации и может оборвать его на лету.</p>
+  <ul class="md-tasks"><li>Фильтр запросов к боту на русском</li><li>Остановка опасного ответа во время генерации</li><li>Разметка сообщений по категориям риска</li></ul>
+  <dl class="md-specs">
+    <div><dt>Размеры</dt><dd>0.6B – 8B</dd></div>
+    <div><dt>Железо</dt><dd>от: Ноутбук</dd></div>
+  </dl>
+  <div class="md-card-foot"><span class="md-lic md-lic-ok">Можно в коммерцию</span><span class="md-more">Подробнее<i class="ph ph-arrow-right" aria-hidden="true"></i></span></div>
+  
+</article></div>
+  </section>
+  <section class="md-colls"><h2>На что смотреть до внедрения</h2><p class="md-stack-note">Узкое место почти всегда база знаний, а не модель. Если инструкции противоречат друг другу и последний раз обновлялись давно, связка честно воспроизведёт этот бардак, только быстрее. До запуска соберите полсотни реальных вопросов из переписки, прогоните их и прочитайте ответы глазами. И заранее решите, на каких темах бот обязан молча передавать диалог человеку: деньги, возвраты, претензии, всё, что касается персональных данных, здесь в общих чертах, конкретный случай смотрит юрист.</p></section>
+  <section class="md-colls"><h2>Другие стеки</h2><ul class="md-links md-links-cols"><li><a href="/ii-modeli/stek/dokumentooborot/">Стек под документооборот: от скана до строки в базе</a></li><li><a href="/ii-modeli/stek/koll-centr/">Стек под колл-центр: слышать, понимать, отвечать</a></li><li><a href="/ii-modeli/stek/internet-magazin/">Стек под интернет-магазин: карточка из одной фотографии</a></li><li><a href="/ii-modeli/stek/videoproizvodstvo/">Стек под видео: ролик, голос, субтитры, перевод</a></li><li><a href="/ii-modeli/stek/analitika-po-bazam/">Стек под аналитику: спросить у базы словами</a></li><li><a href="/ii-modeli/stek/kontrol-kachestva/">Стек под производство: камера, которая замечает и объясняет</a></li><li><a href="/ii-modeli/stek/yuridicheskiy-otdel/">Стек под юридический отдел: договор, свод, обезличивание</a></li></ul></section>
+  <section class="md-offer" aria-labelledby="mdOfferT">
+    <div class="md-offer-text"><h2 id="mdOfferT">Нужна модель под вашу задачу?</h2><p>Открытую модель можно поставить на свой сервер: данные не уходят в чужое облако, нет оплаты за каждый запрос, модель можно дообучить на ваших документах.</p></div>
+    <ol class="md-steps"><li><b>Подберу</b><span>Модель и размер под задачу и бюджет на железо</span></li><li><b>Поставлю</b><span>На ваш сервер или в закрытый контур, с API</span></li><li><b>Дообучу</b><span>На ваших данных или подключу базу знаний</span></li><li><b>Встрою</b><span>В CRM, 1С, бота, сайт или рабочий чат</span></li></ol>
+    <a class="btn btn-accent md-offer-btn" href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BF%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%B8%D1%82%D1%8C%20%D0%BE%D1%82%D0%BA%D1%80%D1%8B%D1%82%D1%83%D1%8E%20%D0%98%D0%98-%D0%BC%D0%BE%D0%B4%D0%B5%D0%BB%D1%8C%20%D0%BD%D0%B0%20%D1%81%D0%B2%D0%BE%D0%B9%20%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80.%20%D0%97%D0%B0%D0%B4%D0%B0%D1%87%D0%B0%3A%20" target="_blank" rel="noopener"><i class="ph ph-telegram-logo" aria-hidden="true"></i>Обсудить внедрение</a>
+  </section>
+<aside class="blog-legal-note md-legal" role="note"><p><strong>Важно.</strong> Meta — признана в России экстремистской организацией, её деятельность на территории Российской Федерации запрещена.</p></aside></div></section>
+</main>
+<footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label">КОНТАКТ</span>
+            <h2>ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                <a href="tel:+971563369591" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +971 56 336 9591</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 Дарижапов Чимитдоржи. Все права защищены.</p>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/predlozheniya/" class="footer-policy-link">Предложения</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/blog/" class="footer-policy-link">Блог</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link">Политика конфиденциальности</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=44" defer></script>
+<script src="/script.js?v=40" defer></script><script>(function(){[].forEach.call(document.querySelectorAll('.md-card'),function(c){c.addEventListener('click',function(e){if(e.target.closest('a,label,input'))return;location.href=c.querySelector('.md-name a').getAttribute('href');});});})();</script>
+</body>
+</html>

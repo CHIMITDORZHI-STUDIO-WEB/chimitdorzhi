@@ -1331,7 +1331,7 @@ module.exports = [
     ],
     hf: 'https://huggingface.co/m-a-p/YuE2-3B',
     github: 'https://github.com/multimodal-art-projection/YuE',
-    alternatives: ['ace-step', 'diffrhythm', 'songgeneration'],
+    alternatives: ['ace-step', 'diffrhythm', 'musicgen'],
     source: 'https://huggingface.co/m-a-p/YuE2-3B',
     verified: true,
     en: {

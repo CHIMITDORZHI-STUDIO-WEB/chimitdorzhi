@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fine-tuning an open model for your business</title>
+    <meta name="description" content="Prompting, search over your own documents and real fine-tuning compared: what LoRA is, how much data you need and how to check the model actually improved.">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/en/ii-modeli/doobuchenie/">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://chimitdorzhi.tech/en/ii-modeli/doobuchenie/">
+    <meta property="og:title" content="Fine-tuning an open model for your business">
+    <meta property="og:description" content="Prompting, search over your own documents and real fine-tuning compared: what LoRA is, how much data you need and how to check the model actually improved.">
+    <meta property="og:image" content="https://chimitdorzhi.tech/en/ii-modeli/cover.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/en/ii-modeli/cover.png">
+    <meta property="og:locale" content="en_US">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="preload" href="/assets/fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="/assets/phosphor/regular.css"><link rel="stylesheet" href="/assets/phosphor/fill.css"></noscript>
+    <link rel="stylesheet" href="/style.css?v=78">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/ii-modeli/doobuchenie/">
+<link rel="alternate" hreflang="en" href="https://chimitdorzhi.tech/en/ii-modeli/doobuchenie/">
+<link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/ii-modeli/doobuchenie/">
+<link rel="stylesheet" href="/assets/models.css?v=16">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"How to fine-tune an open model for your business","description":"Prompting, search over your own documents and real fine-tuning compared: what LoRA is, how much data you need and how to check the model actually improved.","url":"https://chimitdorzhi.tech/en/ii-modeli/doobuchenie/","inLanguage":"en","dateModified":"2026-09-22","author":{"@type":"Person","name":"Chimitdorzhi Darizhapov"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://chimitdorzhi.tech/en/"},{"@type":"ListItem","position":2,"name":"AI models","item":"https://chimitdorzhi.tech/en/ii-modeli/"},{"@type":"ListItem","position":3,"name":"How to fine-tune an open model for your business","item":"https://chimitdorzhi.tech/en/ii-modeli/doobuchenie/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","inLanguage":"en","mainEntity":[{"@type":"Question","name":"How is fine-tuning different from a knowledge base?","acceptedAnswer":{"@type":"Answer","text":"A knowledge base feeds the model the right documents at the moment of answering, and it is updated by replacing a file. Fine-tuning changes the model itself on examples and governs tone, format and behavioral rules. Changing facts belong in the base; a consistent way of answering is what fine-tuning locks in."}},{"@type":"Question","name":"How many examples are needed to start?","acceptedAnswer":{"@type":"Answer","text":"For tone and format tasks a few hundred carefully selected question-answer pairs are often enough. Volume matters less than quality here: a thousand random samples pulled from correspondence usually perform worse than a hundred vetted ones. Selection belongs to someone who knows the domain."}},{"@type":"Question","name":"Can a model be fine-tuned on a single GPU?","acceptedAnswer":{"@type":"Answer","text":"For models of roughly up to eight billion parameters, a lightweight LoRA or QLoRA fine-tune is genuinely feasible on one card with enough memory. Larger models need a cluster or rented capacity. Running a finished model takes noticeably less than training one."}},{"@type":"Question","name":"How do we verify the model really got better?","acceptedAnswer":{"@type":"Answer","text":"You need examples the model never saw during training, a blind comparison of old and new answers without labels, and review by the person accountable for content. Separately, run a fixed set of ordinary questions to confirm that previous abilities did not break."}},{"@type":"Question","name":"What about personal data in the examples?","acceptedAnswer":{"@type":"Answer","text":"Strip it before training rather than after: removing information from a trained model is far harder. A short description of where the data comes from and what is removed from it is worth agreeing with a lawyer and with whoever owns company policy before collection begins."}},{"@type":"Question","name":"Will the model need retraining every time something changes?","acceptedAnswer":{"@type":"Answer","text":"Not if the system is built properly. Changing details such as prices, terms and policies live in the knowledge base and are updated by replacing a document. Fine-tuning is revisited rarely, when the way of communicating itself changes or a new type of task appears."}}]}</script>
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/" data-i18n="nav.home">Главная</a></li>
+            <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+            <li class="nav-dropdown">
+                <a href="/cases/" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+                <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему" aria-pressed="false">
+                <i class="ph ph-moon" aria-hidden="true"></i>
+            </button>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/" data-i18n="nav.home">Главная</a></li>
+        <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+        <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+        <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+        <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+        <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+        <li class="mobile-has-submenu">
+            <details>
+                <summary aria-label="Проекты — развернуть"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down" aria-hidden="true"></i></summary>
+                <ul class="mobile-submenu">
+                    <li>
+                        <a href="https://gerel.space" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">Gerel.space</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/universe_buryat/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/arey/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.arey">AREY</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/mwrlife/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">MWR Life</span>
+                                <span class="mobile-sub-desc">Travel-клуб и партнёрка</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </details>
+        </li>
+        <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+    </ul>
+    <div class="mobile-controls">
+        <div class="mobile-lang-switcher" role="group" aria-label="Выбор языка">
+            <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+            <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+            <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+        </div>
+        <button class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle" aria-label="Переключить тему" aria-pressed="false">
+            <i class="ph ph-moon" aria-hidden="true"></i>
+        </button>
+    </div>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+    <main id="main">
+<section class="section md-page md-guide-page"><div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumbs"><a href="/en/">Home</a><span class="breadcrumbs-sep">›</span><a href="/en/ii-modeli/">AI models</a><span class="breadcrumbs-sep">›</span><span aria-current="page">How to fine-tune an open model for your business</span></nav>
+  <header class="md-hero">
+    <span class="section-label">GUIDE</span>
+    <h1 class="section-heading">How to fine-tune an open model for your business</h1>
+    <p class="section-sub">Fine-tuning means changing the model itself on your own examples so that it answers the way your company does: in your tone, by your rules, in your format. It is neither the only nor usually the first way to get the result you want. Far more often the job is solved by a precise instruction or by search over your own documents, and fine-tuning enters once those two hit a ceiling. What follows covers all three approaches, the data and hardware they need, and how to check honestly whether anything improved.</p>
+    <div class="md-stats"><span>Updated 22 Sep 2026</span><a class="md-guide" href="/en/ii-modeli/"><i class="ph ph-funnel" aria-hidden="true"></i>Open the full catalog with filters</a></div>
+  </header>
+  <nav class="md-toc" aria-label="How to fine-tune an open model for your business"><ol><li><a href="#g1">Three different things people keep confusing</a></li><li><a href="#g2">Why a knowledge base usually comes first</a></li><li><a href="#g3">LoRA and QLoRA in plain language</a></li><li><a href="#g4">Full fine-tuning: when it is justified</a></li><li><a href="#g5">How much data you actually need</a></li><li><a href="#g6">What the data looks like in practice</a></li><li><a href="#g7">Hardware and time</a></li><li><a href="#g8">How to tell whether it actually improved</a></li><li><a href="#g9">Common mistakes</a></li><li><a href="#g10">The legal side in general terms</a></li><li><a href="#g11">What this ends up looking like</a></li></ol></nav>
+  <div class="md-prose"><h2 id="g1">Three different things people keep confusing</h2><p>When someone says train the model for us, they usually mean one of three quite different jobs. The cost and timeline differ by multiples, so it is worth settling which one before the project starts.</p><p>The first is the prompt, the system instruction. You tell the model who it is, how to answer, what to avoid and what format to produce. It changes instantly, costs little, and a surprisingly large share of tasks is solved right here.</p><p>The second is search over your own documents, commonly called RAG. The model does not memorize your materials; it receives the relevant fragments from your knowledge base at the moment of answering: policies, price lists, instructions, customer history. The model stays ordinary, only what is handed to it changes.</p><p>The third is fine-tuning proper, where you take examples of correct answers and change the model itself. It starts answering in the required tone and format without lengthy instructions, at the price of a training cycle, a separate model version and the duty to maintain all of it.</p><h2 id="g2">Why a knowledge base usually comes first</h2><p>The main reason is simple: fine-tuning is a poor fit for knowledge that changes. If prices, delivery terms or internal policies are updated monthly, baking them into the weights means retraining every time. Document search is updated by replacing a file.</p><p>The second reason is verifiability. When answers come from a knowledge base, you can see which document they came from. You can show the source to the user, investigate an error and find exactly which passage misled the model. A fine-tuned model answers from the inside, and tracing an error is considerably harder.</p><p>The third reason is the cost of entry. Setting up document search is usually faster than assembling a good training set. It also reveals which materials the company does not have and which are written so badly that even a human cannot follow them.</p><p>A sensible order looks like this: instruction first, knowledge base second, fine-tuning only for whatever the first two did not cover. What remains is usually tone, format, narrow terminology and specific behavioral rules.</p><h2 id="g3">LoRA and QLoRA in plain language</h2><p>Full fine-tuning means changing every number inside the model, and there are billions of them. That is slow and expensive. LoRA solves the problem differently: the model itself stays untouched while a small add-on is trained alongside it, a thin layer of corrections attached to the model at run time.</p><p>That add-on takes vastly less space than the model and trains many times faster. It can be stored separately, switched on and off, kept in several variants for different tasks and swapped without replacing the base model. For a business the appeal is that rolling back to the previous behavior takes nothing complicated.</p><p>QLoRA is the same idea plus compression of the base model during training, so it fits into less GPU memory. Quality drops slightly compared with uncompressed training, but training becomes feasible on a single card instead of a cluster.</p><p>The overwhelming majority of business projects take this route. It is cheaper, more reversible and easier to maintain, and on typical tasks such as tone and format the quality gap is rarely decisive.</p><h2 id="g4">Full fine-tuning: when it is justified</h2><p>Full fine-tuning makes sense when the task is not about tone and format but effectively requires a different model. For instance, a narrow domain with its own language where a general model struggles even to parse the question. Or a rare language or dialect barely represented in the base model. Or a shift in modality, where the model is taught to work with a data type it was not built for.</p><p>The second case is a very large volume of proprietary data. Once you are dealing with millions of quality examples, a lightweight add-on stops holding everything you want to convey.</p><p>The price tag is different: a GPU cluster or rented capacity, people who have run such training before, and budget for several failed attempts, because it almost never works on the first pass.</p><p>For most companies the honest answer is that full fine-tuning is not needed. If it feels necessary, first confirm that the instruction, the knowledge base and the lightweight add-on are genuinely exhausted.</p><h2 id="g5">How much data you actually need</h2><p>The usual expectation is that fine-tuning requires tens of thousands of examples. In practice, for typical tasks such as answer style, format and rule compliance, several hundred well-chosen examples are often enough.</p><p>The reason is that the model already knows how to speak, reason and understand questions. You are not teaching it language; you are showing how answers should look in your specific situation. That calls for precision rather than volume.</p><p>Hence the main rule: a thousand bad examples are worse than a hundred good ones. A bad example is an answer that is substantively wrong, an answer in the wrong format, an answer your company considers incorrect, or simply an awkward phrasing that slipped in from real correspondence. The model cannot tell good from bad; it reproduces what it sees and repeats your mistakes with confidence.</p><p>Data collection is therefore editorial work, not technical work. Examples should be selected by someone who knows which answer is right and can explain why. Usually that is a department head or your strongest specialist, not a contractor.</p><h2 id="g6">What the data looks like in practice</h2><p>The format of a training set is simpler than people expect. At its core are pairs: an input and the correct answer. The input is a customer question, a task, a document or some combination. The answer is what you consider exemplary.</p><p>The usual sources for such pairs:</p><ul><li>Real customer correspondence, with the good answers selected and the poor ones removed.</li><li>An existing library of standard questions and approved answers, if the team already kept one.</li><li>Annotated documents, when the task is field extraction: a contract plus a table of what must be pulled out of it.</li><li>Examples written specifically for rare but important situations that barely appear in correspondence.</li><li>Examples of how not to answer, if the model is being taught to decline and hand the conversation to a human.</li></ul><p>Spend separate effort on variety. If nine examples out of ten cover the same topic, the model will conclude that this is the job and start steering every conversation in that direction.</p><p>One more thing: personal information should be stripped from the data before training, not afterwards.</p><h2 id="g7">Hardware and time</h2><p>As a rough guide, a lightweight LoRA fine-tune for a model of roughly up to eight billion parameters is genuinely doable on a single GPU with enough memory. That fits a short rental or a machine you already own.</p><p>Mid-sized models require a stronger card or QLoRA-style compression. Large models, heavy even to run, require several cards or a rented cluster, and that is a different budget conversation.</p><p>Training time on a small set is usually measured in hours, not weeks. Most of the project goes into preparing data and evaluating results, not into training. Plan accordingly, because the idea of training over a weekend breaks precisely on example collection.</p><p>Running a finished model has its own, generally lighter requirements. A compressed model of the right size runs comfortably on a single card, and that is what makes on-premise deployment realistic for an ordinary company.</p><h2 id="g8">How to tell whether it actually improved</h2><p>The most common project mistake sounds like this: we looked at a dozen answers, liked them, and called it a success. The person who built the model sees in the answers what they hoped to see, and that applies to everyone without exception.</p><p>An honest minimum check has three parts. The first is a held-out set: examples the model never saw during training, set aside in advance and used only for evaluation. If the evaluation data took part in training, the result means nothing.</p><p>The second is blind comparison. Answers from the old and new versions are shown to an expert shuffled together, with no labels. The person picks the better answer, and only then is the source revealed. This removes the expectation effect and often produces unpleasant but useful results.</p><p>The third is review by the person responsible for substance rather than for the technology. A metric can rise while the answers become formally correct and useless to the customer.</p><p>Separately, check that nothing that used to work is now broken. Keep a small fixed set of ordinary questions and run it on every update.</p><h2 id="g9">Common mistakes</h2><p>What shows up most often in projects, regardless of industry.</p><ul><li>Fine-tuning instead of instructing. A task solvable with one paragraph in the system prompt is attacked with a training cycle. Test the prompt before collecting data.</li><li>Knowledge baked into the weights. Prices and policies change while the model keeps confidently quoting last year's terms. Changing facts belong in the knowledge base, not in the model.</li><li>Personal data in the training set. Phone numbers, addresses and amounts travel from correspondence into training. Removing them from a trained model is far harder than cleaning them beforehand.</li><li>Forgetting general skills. A model trained only on short templated replies often stops handling ordinary questions. The cure is a varied data set and careful training settings.</li><li>No versioning. Nobody remembers which version is live, what data it was trained on or how to roll back. Every version needs a number, a description of its data and a way back.</li><li>Training without a goal. If nobody stated in advance what should change, the result cannot be assessed and the project ends in an argument about taste.</li></ul><h2 id="g10">The legal side in general terms</h2><p>A training set is company data, and the same rules apply to it as to any other data. If the examples include customer correspondence, they almost certainly contain personal data, and whether it may be used for training is not a decision for the technical team.</p><p>Broadly, the picture is this: anonymization removes part of the problem but not all of it, and each company has its own wording on processing purposes and consent. Regulation in Russia and in the UAE differs, and a project operating in both usually needs two separate answers.</p><p>A practical approach that saves time: before collecting data, write down where the examples come from, what fields they contain and what exactly gets stripped out, then show that description to a lawyer and to whoever owns company policy. It is a short document, but it is the one that answers the awkward questions later.</p><p>The rights to the base model belong here too: a fine-tuned version generally stays bound by the original license, including distribution limits. That is covered in the separate guide on licenses.</p><h2 id="g11">What this ends up looking like</h2><p>The working setup most projects arrive at is not a single fine-tuned model but a small system of several parts.</p><p>The model runs on your own server or on a server rented by the company, so data never leaves for external services. Next to it sits a knowledge base updated without retraining: drop in a new policy document and the answers change. Above that lies the system instruction that defines behavior and boundaries. And, if it turned out to be necessary, a lightweight fine-tuned add-on handles tone, format and narrow terminology.</p><p>All of it comes with a written routine: who owns the content of the knowledge base, how often answers are reviewed, what happens when an error is found, who approves a model update and how to roll back. Without that part the system degrades invisibly: materials go stale, answers drift, and one day a customer notices first.</p><p>This arrangement is duller than the idea of training a neural network just for us, but the company can maintain it in house and it survives a change of contractor, which is usually the real goal of the project.</p></div>
+  <section class="md-guide-faq"><h2>Frequently asked questions</h2><div class="md-faq"><details><summary>How is fine-tuning different from a knowledge base?</summary><p>A knowledge base feeds the model the right documents at the moment of answering, and it is updated by replacing a file. Fine-tuning changes the model itself on examples and governs tone, format and behavioral rules. Changing facts belong in the base; a consistent way of answering is what fine-tuning locks in.</p></details><details><summary>How many examples are needed to start?</summary><p>For tone and format tasks a few hundred carefully selected question-answer pairs are often enough. Volume matters less than quality here: a thousand random samples pulled from correspondence usually perform worse than a hundred vetted ones. Selection belongs to someone who knows the domain.</p></details><details><summary>Can a model be fine-tuned on a single GPU?</summary><p>For models of roughly up to eight billion parameters, a lightweight LoRA or QLoRA fine-tune is genuinely feasible on one card with enough memory. Larger models need a cluster or rented capacity. Running a finished model takes noticeably less than training one.</p></details><details><summary>How do we verify the model really got better?</summary><p>You need examples the model never saw during training, a blind comparison of old and new answers without labels, and review by the person accountable for content. Separately, run a fixed set of ordinary questions to confirm that previous abilities did not break.</p></details><details><summary>What about personal data in the examples?</summary><p>Strip it before training rather than after: removing information from a trained model is far harder. A short description of where the data comes from and what is removed from it is worth agreeing with a lawyer and with whoever owns company policy before collection begins.</p></details><details><summary>Will the model need retraining every time something changes?</summary><p>Not if the system is built properly. Changing details such as prices, terms and policies live in the knowledge base and are updated by replacing a document. Fine-tuning is revisited rarely, when the way of communicating itself changes or a new type of task appears.</p></details></div></section>
+  <section class="md-offer" aria-labelledby="mdOfferT">
+    <div class="md-offer-text"><h2 id="mdOfferT">Need a model for your task?</h2><p>An open model can run on your own server: data stays in-house, there is no per-request fee, and the model can be fine-tuned on your documents.</p></div>
+    <ol class="md-steps"><li><b>Select</b><span>The model and size for your task and hardware budget</span></li><li><b>Deploy</b><span>On your server or in a closed network, with an API</span></li><li><b>Fine-tune</b><span>On your data, or connect a knowledge base</span></li><li><b>Integrate</b><span>Into your CRM, ERP, bot, website or team chat</span></li></ol>
+    <a class="btn btn-accent md-offer-btn" href="https://t.me/chimitdorzhi?text=Hello!%20I%20want%20to%20deploy%20an%20open%20AI%20model%20on%20my%20server.%20Task%3A%20" target="_blank" rel="noopener"><i class="ph ph-telegram-logo" aria-hidden="true"></i>Discuss deployment</a>
+  </section>
+</div></section>
+</main>
+<footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label">КОНТАКТ</span>
+            <h2>ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                <a href="tel:+971563369591" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +971 56 336 9591</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 Дарижапов Чимитдоржи. Все права защищены.</p>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/predlozheniya/" class="footer-policy-link">Предложения</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/blog/" class="footer-policy-link">Блог</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link">Политика конфиденциальности</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=44" defer></script>
+<script src="/script.js?v=40" defer></script>
+</body>
+</html>

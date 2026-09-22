@@ -84,6 +84,27 @@ try {
       index.push({ t: c.h1, d: (c.description || c.intro || '').slice(0, 180), u: `/ii-modeli/${dir}/${c.slug}/`, k: 'Подборка моделей', c: 'ИИ-модели', g: '' });
     }
   }
+  const guides = require('./models/_guides.js');
+  for (const g of Object.values(guides)) {
+    if (!g || !g.slug) continue;
+    index.push({ t: g.h1, d: (g.description || '').slice(0, 180), u: `/ii-modeli/${g.slug}/`, k: 'Справка', c: 'ИИ-модели', g: (g.sections || []).map((s) => s.h2).join(' ') });
+  }
+  const stacks = require('./models/_stacks.js');
+  for (const s of stacks) {
+    if (!s || !s.slug) continue;
+    index.push({ t: s.h1, d: (s.description || '').slice(0, 180), u: `/ii-modeli/stek/${s.slug}/`, k: 'Стек под задачу', c: 'ИИ-модели', g: (s.steps || []).flatMap((x) => x.picks || []).join(' ') });
+  }
+  const hw = require('./models/_hardware.js');
+  for (const h of hw) {
+    if (!h || !h.slug) continue;
+    index.push({ t: h.h1, d: (h.description || '').slice(0, 180), u: `/ii-modeli/zhelezo/${h.slug}/`, k: 'Подборка по железу', c: 'ИИ-модели', g: '' });
+  }
+  const gloss = require('./models/_glossary.js');
+  for (const g of gloss) {
+    if (!g || !g.term) continue;
+    index.push({ t: g.term, d: (g.def || '').slice(0, 180), u: `/ii-modeli/slovar/#${g.slug}`, k: 'Термин', c: 'ИИ-модели', g: '' });
+  }
+  index.push({ t: 'Калькулятор окупаемости: облачный ИИ или свой сервер', d: 'Посчитайте, за сколько месяцев свой сервер с открытой моделью окупится против оплаты облачного API.', u: '/ii-modeli/kalkulyator-okupaemosti/', k: 'Калькулятор', c: 'ИИ-модели', g: 'облако API окупаемость стоимость сервер' });
   const alts = require('./models/_alternatives.js');
   for (const a of alts) {
     if (!a || !a.slug) continue;

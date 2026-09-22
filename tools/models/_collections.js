@@ -355,6 +355,17 @@ module.exports = {
       description_en: "Open models for financial tasks: parsing reports and news, transaction analysis, analyst support. Compare licenses, languages and hardware needs.",
       intro_en: "Finance models parse reports, news and documents and help analysts find and explain key figures. On-premises deployment matters when client and transaction data must stay in-house. Check what data the model was trained on, how it handles financial terminology in your languages, and what the license allows."
     },
+    forensics: {
+      slug: "detekciya-poddelok",
+      h1: "Открытые ИИ-модели для детекции подделок",
+      title: "Детекция дипфейков и ИИ-контента: открытые модели",
+      description: "Открытые модели для проверки подлинности: дипфейки на видео и фото, синтезированный голос, ИИ-картинки и тексты, водяные знаки.",
+      intro: "Эти модели отвечают на вопрос, настоящая ли запись: не подменено ли лицо на видео, живой ли человек перед камерой, не синтезирован ли голос, не сгенерирована ли картинка или текст. Важно понимать границы: любой такой детектор ошибается в обе стороны, поэтому его вывод — повод для проверки человеком, а не доказательство. Ставятся такие модели на своём сервере, чтобы спорные материалы не уходили наружу.",
+      h1_en: "Open-source models for detecting fakes",
+      title_en: "Deepfake and AI content detection: open models",
+      description_en: "Open models for authenticity checks: video and photo deepfakes, synthetic speech, AI-generated images and text, watermarking.",
+      intro_en: "These models answer one question: is the material genuine? Was a face swapped in a video, is a live person in front of the camera, is the voice synthetic, was the image or text generated? Know the limits: any such detector errs in both directions, so its output is a reason to look closer, not proof. They run on your own server so disputed material never leaves it."
+    },
     cyber: {
       slug: "kiberbezopasnost",
       h1: "Открытые ИИ-модели для кибербезопасности",

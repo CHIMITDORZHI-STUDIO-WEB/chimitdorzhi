@@ -234,4 +234,21 @@ for (const f of fs.existsSync(dir) ? fs.readdirSync(dir).filter((x) => x.endsWit
     byId.set(m.id, m);
   }
 }
-module.exports = [...byId.values()];
+// Два патча поверх данных, оба лежат отдельными файлами, чтобы их можно было пересобрать:
+//   _quant.json — готовые квантованные сборки, сверено поиском по Hugging Face;
+//   _ru.json    — уточнение поля ru там, где оно стояло в 'unknown'.
+const readJson = (f) => { try { return require(path.join(dir, f)); } catch (e) { return {}; } };
+const QUANT = readJson('_quant.json');
+// _ru2.json — второй проход по официальным отчётам, он уточняет первый.
+const RU = { ...readJson('_ru.json'), ...readJson('_ru2.json') };
+const RU_OK = ['yes', 'no', 'na', 'unknown'];
+
+module.exports = [...byId.values()].map((m) => {
+  const out = { ...m };
+  if (out.quant === undefined) out.quant = QUANT[m.id] || [];
+  // Модель из библиотеки Ollama по определению раздаётся в формате GGUF.
+  if (out.ollama && !out.quant.includes('gguf')) out.quant = ['gguf', ...out.quant];
+  const r = RU[m.id];
+  if (out.ru === 'unknown' && r && RU_OK.includes(r.ru)) out.ru = r.ru;
+  return out;
+});

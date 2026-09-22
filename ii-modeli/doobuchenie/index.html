@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Как дообучить открытую модель под свой бизнес</title>
+    <meta name="description" content="Чем отличаются промпт, поиск по своим документам и настоящее дообучение, что такое LoRA, сколько нужно данных и как проверить, что модель стала отвечать лучше.">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/ii-modeli/doobuchenie/">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://chimitdorzhi.tech/ii-modeli/doobuchenie/">
+    <meta property="og:title" content="Как дообучить открытую модель под свой бизнес">
+    <meta property="og:description" content="Чем отличаются промпт, поиск по своим документам и настоящее дообучение, что такое LoRA, сколько нужно данных и как проверить, что модель стала отвечать лучше.">
+    <meta property="og:image" content="https://chimitdorzhi.tech/ii-modeli/cover.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/ii-modeli/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="preload" href="/assets/fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="/assets/phosphor/regular.css"><link rel="stylesheet" href="/assets/phosphor/fill.css"></noscript>
+    <link rel="stylesheet" href="/style.css?v=78">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/ii-modeli/doobuchenie/">
+<link rel="alternate" hreflang="en" href="https://chimitdorzhi.tech/en/ii-modeli/doobuchenie/">
+<link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/ii-modeli/doobuchenie/">
+<link rel="stylesheet" href="/assets/models.css?v=16">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Как дообучить открытую модель под свой бизнес","description":"Чем отличаются промпт, поиск по своим документам и настоящее дообучение, что такое LoRA, сколько нужно данных и как проверить, что модель стала отвечать лучше.","url":"https://chimitdorzhi.tech/ii-modeli/doobuchenie/","inLanguage":"ru","dateModified":"2026-09-22","author":{"@type":"Person","name":"Чимитдоржи Дарижапов"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"https://chimitdorzhi.tech/"},{"@type":"ListItem","position":2,"name":"ИИ-модели","item":"https://chimitdorzhi.tech/ii-modeli/"},{"@type":"ListItem","position":3,"name":"Как дообучить открытую модель под свой бизнес","item":"https://chimitdorzhi.tech/ii-modeli/doobuchenie/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","inLanguage":"ru","mainEntity":[{"@type":"Question","name":"Чем дообучение отличается от базы знаний?","acceptedAnswer":{"@type":"Answer","text":"База знаний подставляет модели нужные документы в момент ответа, и её можно обновить заменой файла. Дообучение меняет саму модель на примерах и отвечает за стиль, формат и правила поведения. Меняющиеся факты держат в базе, устойчивую манеру отвечать закрепляют дообучением."}},{"@type":"Question","name":"Сколько примеров нужно, чтобы начать?","acceptedAnswer":{"@type":"Answer","text":"Для задач стиля и формата часто хватает нескольких сотен тщательно отобранных пар вопрос-ответ. Объём здесь менее важен, чем качество: тысяча случайных примеров из переписки обычно даёт худший результат, чем сотня выверенных. Отбирать их должен человек, понимающий предметную область."}},{"@type":"Question","name":"Можно ли дообучить модель на одной видеокарте?","acceptedAnswer":{"@type":"Answer","text":"Для моделей размером примерно до восьми миллиардов параметров лёгкое дообучение методом LoRA или QLoRA реально выполняется на одной карте с достаточной памятью. Для более крупных моделей нужен кластер или аренда мощностей. Запуск уже готовой модели требует заметно меньше, чем обучение."}},{"@type":"Question","name":"Как проверить, что модель действительно стала лучше?","acceptedAnswer":{"@type":"Answer","text":"Нужны примеры, которые модель не видела при обучении, слепое сравнение ответов старой и новой версии без пометок и оценка человеком, отвечающим за содержание. Отдельно прогоняют постоянный набор обычных вопросов, чтобы убедиться, что прежние умения не сломались."}},{"@type":"Question","name":"Что делать с персональными данными в примерах?","acceptedAnswer":{"@type":"Answer","text":"Вычищать их до обучения, а не после: из готовой модели убрать попавшую туда информацию гораздо сложнее. Описание того, откуда берутся данные и что именно из них удаляется, стоит согласовать с юристом и с ответственным за политику компании до начала сбора."}},{"@type":"Question","name":"Придётся ли переобучать модель при каждом изменении в компании?","acceptedAnswer":{"@type":"Answer","text":"Нет, если система построена правильно. Меняющиеся сведения вроде прайса, условий и регламентов живут в базе знаний и обновляются заменой документа. К дообучению возвращаются редко, когда меняется сама манера общения или появляется новый тип задач."}}]}</script>
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/" data-i18n="nav.home">Главная</a></li>
+            <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+            <li class="nav-dropdown">
+                <a href="/cases/" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+                <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему" aria-pressed="false">
+                <i class="ph ph-moon" aria-hidden="true"></i>
+            </button>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/" data-i18n="nav.home">Главная</a></li>
+        <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+        <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+        <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+        <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+        <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+        <li class="mobile-has-submenu">
+            <details>
+                <summary aria-label="Проекты — развернуть"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down" aria-hidden="true"></i></summary>
+                <ul class="mobile-submenu">
+                    <li>
+                        <a href="https://gerel.space" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">Gerel.space</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/universe_buryat/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/arey/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.arey">AREY</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/mwrlife/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">MWR Life</span>
+                                <span class="mobile-sub-desc">Travel-клуб и партнёрка</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </details>
+        </li>
+        <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+    </ul>
+    <div class="mobile-controls">
+        <div class="mobile-lang-switcher" role="group" aria-label="Выбор языка">
+            <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+            <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+            <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+        </div>
+        <button class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle" aria-label="Переключить тему" aria-pressed="false">
+            <i class="ph ph-moon" aria-hidden="true"></i>
+        </button>
+    </div>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+    <main id="main">
+<section class="section md-page md-guide-page"><div class="container">
+  <nav class="breadcrumbs" aria-label="Хлебные крошки"><a href="/">Главная</a><span class="breadcrumbs-sep">›</span><a href="/ii-modeli/">ИИ-модели</a><span class="breadcrumbs-sep">›</span><span aria-current="page">Как дообучить открытую модель под свой бизнес</span></nav>
+  <header class="md-hero">
+    <span class="section-label">СПРАВКА</span>
+    <h1 class="section-heading">Как дообучить открытую модель под свой бизнес</h1>
+    <p class="section-sub">Дообучение это изменение самой модели на ваших примерах, чтобы она отвечала так, как принято у вас: в вашем стиле, по вашим правилам, в вашем формате. Это не единственный и часто не первый способ получить нужный результат. Гораздо чаще задача решается точной инструкцией или поиском по своим документам, а дообучение подключают тогда, когда первые два способа упёрлись в потолок. Ниже разбор всех трёх подходов, требований к данным и железу и способов честно проверить, что стало лучше.</p>
+    <div class="md-stats"><span>Обновлено 22.09.2026</span><a class="md-guide" href="/ii-modeli/"><i class="ph ph-funnel" aria-hidden="true"></i>Открыть весь каталог с фильтрами</a></div>
+  </header>
+  <nav class="md-toc" aria-label="Как дообучить открытую модель под свой бизнес"><ol><li><a href="#g1">Три разные вещи, которые постоянно путают</a></li><li><a href="#g2">Почему в большинстве случаев сначала RAG</a></li><li><a href="#g3">LoRA и QLoRA простыми словами</a></li><li><a href="#g4">Полное дообучение: когда оно оправдано</a></li><li><a href="#g5">Сколько нужно данных</a></li><li><a href="#g6">Как выглядят данные на практике</a></li><li><a href="#g7">Железо и время</a></li><li><a href="#g8">Как понять, что стало лучше</a></li><li><a href="#g9">Частые ошибки</a></li><li><a href="#g10">Юридическая сторона в общих словах</a></li><li><a href="#g11">Чем это заканчивается на практике</a></li></ol></nav>
+  <div class="md-prose"><h2 id="g1">Три разные вещи, которые постоянно путают</h2><p>Когда говорят «обучите модель под нас», обычно имеют в виду одну из трёх совершенно разных работ. Разница в цене и сроках между ними кратная, поэтому её стоит проговорить до начала проекта.</p><p>Первое это промпт, системная инструкция. Вы объясняете модели, кто она, как отвечать, чего не делать и в каком формате выдавать результат. Меняется мгновенно, стоит дёшево, и удивительно большая часть задач закрывается именно здесь.</p><p>Второе это поиск по своим документам, его обычно называют RAG. Модель не запоминает ваши материалы, а получает нужные куски из вашей базы прямо в момент ответа: регламенты, прайс, инструкции, историю клиента. Модель при этом остаётся обычной, меняется только то, что ей подсовывают под руку.</p><p>Третье это собственно дообучение, когда вы берёте примеры правильных ответов и меняете саму модель. Она начинает отвечать в нужном стиле и формате без длинных инструкций, но ценой обучающего цикла, отдельной версии модели и обязанности всё это поддерживать.</p><h2 id="g2">Почему в большинстве случаев сначала RAG</h2><p>Главная причина простая: дообучение плохо подходит для знаний, которые меняются. Если прайс, условия доставки или регламент обновляются раз в месяц, вшивать их в веса модели означает переобучать её каждый раз. Поиск по документам обновляется заменой файла в базе.</p><p>Вторая причина это проверяемость. При работе через базу знаний видно, из какого документа взят ответ. Можно показать источник пользователю, можно разобрать ошибку и найти, какой именно кусок текста ввёл модель в заблуждение. Дообученная модель отвечает изнутри, и понять происхождение ошибки заметно сложнее.</p><p>Третья причина это цена входа. Настроить поиск по документам обычно быстрее, чем собрать качественную обучающую выборку. А заодно этот этап показывает, каких материалов у компании нет и какие написаны так, что их не понимает даже человек.</p><p>Разумный порядок выглядит так: сначала инструкция, потом база знаний, и только потом дообучение, если осталось то, что первые два способа не закрыли. Обычно остаётся стиль, формат, узкая терминология и специфические правила поведения.</p><h2 id="g3">LoRA и QLoRA простыми словами</h2><p>Полное дообучение означает изменение всех чисел внутри модели, а их миллиарды. Это долго и дорого. LoRA решает задачу иначе: сама модель остаётся нетронутой, а рядом обучается небольшая добавка, тонкий слой поправок, который подключается к модели при запуске.</p><p>Такая добавка занимает несравнимо меньше места, чем сама модель, и обучается кратно быстрее. Её можно хранить отдельно, подключать и отключать, держать несколько штук под разные задачи и подменять без замены основной модели. Для бизнеса это удобно тем, что откат к прежнему поведению не требует ничего сложного.</p><p>QLoRA это та же идея плюс сжатие основной модели на время обучения, чтобы она помещалась в меньший объём видеопамяти. Качество при этом немного просаживается по сравнению с обучением без сжатия, но зато обучение становится доступным на одной видеокарте вместо кластера.</p><p>В подавляющем большинстве бизнес-проектов используется именно этот путь. Он дешевле, обратимее и проще в поддержке, а разница в качестве на типичных задачах вроде стиля ответов и формата обычно не решающая.</p><h2 id="g4">Полное дообучение: когда оно оправдано</h2><p>Полное дообучение имеет смысл, когда задача не сводится к стилю и формату, а требует по сути другой модели. Например, узкая предметная область с собственным языком, где обычная модель плохо понимает даже постановку вопроса. Или редкий язык и диалект, представленный в исходной модели слабо. Или переход в другую модальность, когда модель учат работать с непривычным для неё типом данных.</p><p>Второй случай это очень большой объём собственных данных. Когда речь идёт о миллионах качественных примеров, лёгкая добавка перестаёт вмещать в себя всё, что вы хотите передать модели.</p><p>Цена вопроса другая: нужен кластер видеокарт или аренда мощностей, нужны люди, которые умеют вести такие обучения, и нужен бюджет на несколько неудачных подходов, потому что с первого раза не получается почти никогда.</p><p>Для большинства компаний честный ответ звучит так: полное дообучение не нужно. Если кажется, что нужно, сначала стоит проверить, действительно ли исчерпаны инструкция, база знаний и лёгкая добавка.</p><h2 id="g5">Сколько нужно данных</h2><p>Ожидание обычно такое: чтобы дообучить модель, нужны десятки тысяч примеров. На практике для типичных задач вроде стиля ответов, формата и соблюдения правил бывает достаточно нескольких сотен хорошо подобранных примеров.</p><p>Работает это так: модель уже умеет говорить, рассуждать и понимать вопросы. Вы не учите её языку, вы показываете, как именно надо отвечать в вашей ситуации. Для этого нужны не объёмы, а точность.</p><p>Отсюда главное правило: тысяча плохих примеров хуже, чем сто хороших. Плохой пример это ответ с ошибкой по сути, ответ не в том формате, ответ, который в вашей компании считается неправильным, или просто неудачная формулировка, попавшая в выборку из реальной переписки. Модель не отличает хорошее от плохого, она воспроизводит то, что видит, и уверенно повторяет ваши ошибки.</p><p>Поэтому сбор данных это работа не техническая, а содержательная. Примеры должен отбирать человек, который понимает, какой ответ правильный, и умеет объяснить почему. Обычно это руководитель отдела или самый сильный сотрудник, а не подрядчик.</p><h2 id="g6">Как выглядят данные на практике</h2><p>Формат обучающей выборки проще, чем кажется. В основе лежат пары: вход и правильный ответ. Вход это вопрос клиента, задача, документ или их сочетание. Ответ это то, что вы считаете образцовым.</p><p>Источники, откуда такие пары обычно берут:</p><ul><li>Реальная переписка с клиентами, из которой отобраны удачные ответы, а неудачные вычищены.</li><li>База типовых вопросов и утверждённых ответов, если она уже велась в отделе.</li><li>Размеченные документы, когда задача состоит в извлечении полей: договор и таблица с тем, что из него надо вытащить.</li><li>Примеры, написанные специально под редкие, но важные ситуации, которых в переписке почти не встречается.</li><li>Примеры того, как отвечать не надо, если модель учат отказываться и переводить разговор на человека.</li></ul><p>Отдельно стоит потратить время на разнообразие. Если девять примеров из десяти про одну и ту же тему, модель решит, что это и есть её работа, и начнёт тянуть все разговоры в эту сторону.</p><p>И ещё одно: данные надо чистить от персональной информации до того, как они попадут в обучение, а не после.</p><h2 id="g7">Железо и время</h2><p>Для ориентира: лёгкое дообучение методом LoRA для модели размером примерно до восьми миллиардов параметров реально выполняется на одной видеокарте с достаточным объёмом памяти. Это укладывается в аренду на короткий срок или в собственную машину, если она уже есть.</p><p>Модели среднего размера требуют более серьёзной карты или сжатия в духе QLoRA. Крупные модели, которые считаются тяжёлыми даже для запуска, требуют нескольких карт или арендованного кластера, и там разговор идёт уже о другом бюджете.</p><p>Время самого обучения на небольшой выборке обычно измеряется часами, а не неделями. Основное время проекта уходит не на обучение, а на подготовку данных и на проверку результата. Это стоит закладывать в план, потому что ожидание «обучим за выходные» разбивается именно о сбор примеров.</p><p>Для запуска готовой модели требования отдельные и обычно скромнее, чем для обучения. Сжатая модель нужного размера спокойно работает на одной карте, и именно это делает установку на свой сервер реалистичной для обычной компании.</p><h2 id="g8">Как понять, что стало лучше</h2><p>Самая частая ошибка проекта звучит так: посмотрели десяток ответов, они понравились, признали успех. Человек, который делал модель, видит в ответах то, что хотел увидеть, и это относится ко всем без исключения.</p><p>Минимальная честная проверка состоит из трёх вещей. Первая это отложенная выборка: примеры, которые модель не видела при обучении, отложены заранее и используются только для проверки. Если данные для проверки участвовали в обучении, результат ничего не значит.</p><p>Вторая это слепое сравнение. Ответы старой и новой версии показывают эксперту вперемешку, без пометок, какая версия где. Человек выбирает лучший ответ, и только потом раскрывается, какой модели он принадлежал. Этот приём убирает эффект ожидания и часто даёт неприятные, но полезные результаты.</p><p>Третья это проверка человеком, который отвечает за содержание, а не за технику. Метрика может расти, а ответы при этом станут формально правильными и бесполезными для клиента.</p><p>Отдельно проверяют, не сломалось ли то, что раньше работало. Для этого держат небольшой постоянный набор обычных вопросов и прогоняют его при каждом обновлении.</p><h2 id="g9">Частые ошибки</h2><p>Список того, что встречается в проектах чаще всего, независимо от отрасли.</p><ul><li>Дообучение вместо инструкции. Задачу, которая решается одним абзацем в системном промпте, пытаются решить обучающим циклом. Проверьте промпт до того, как собирать данные.</li><li>Знания, вшитые в модель. Прайс и регламенты меняются, а модель продолжает уверенно называть прошлогодние условия. Меняющиеся факты место в базе знаний, а не в весах.</li><li>Персональные данные в обучающей выборке. Из переписки в обучение уезжают телефоны, адреса и суммы. Убрать их потом из модели гораздо сложнее, чем вычистить заранее.</li><li>Забывание общих навыков. Модель, обученную только на коротких шаблонных ответах, часто перестаёт справляться с обычными вопросами. Лечится разнообразием выборки и аккуратными настройками обучения.</li><li>Отсутствие версионирования. Никто не помнит, какая версия сейчас работает, на каких данных обучалась и как откатиться. Каждая версия должна иметь номер, описание данных и возможность вернуться к предыдущей.</li><li>Обучение без цели. Если заранее не сформулировано, что именно должно измениться, оценить результат невозможно, и проект заканчивается спором о вкусах.</li></ul><h2 id="g10">Юридическая сторона в общих словах</h2><p>Обучающая выборка это данные компании, и к ним применимы те же правила, что и к любым другим данным. Если в примерах есть переписка с клиентами, там почти наверняка есть персональные данные, и вопрос о допустимости их использования для обучения решается не технической командой.</p><p>В общих чертах ситуация выглядит так: обезличивание снимает часть вопросов, но не все, а формулировки о целях обработки и согласиях у каждой компании свои. В России и в ОАЭ регулирование разное, и проект, работающий в обоих контурах, обычно требует двух отдельных решений.</p><p>Практический подход, который экономит время: до сбора данных описать, откуда берутся примеры, какие поля в них есть и что именно из них вычищается, и показать это описание юристу и ответственному за политику компании. Это короткий документ, но именно он потом отвечает на неудобные вопросы.</p><p>Сюда же относится вопрос прав на исходную модель: дообученная версия обычно остаётся связанной условиями исходной лицензии, включая ограничения на распространение. Это разбирается в отдельном материале про лицензии.</p><h2 id="g11">Чем это заканчивается на практике</h2><p>Рабочая конфигурация, к которой приходит большинство проектов, выглядит не как одна дообученная модель, а как небольшая система из нескольких частей.</p><p>Модель стоит на своём сервере или на арендованном сервере компании, и данные не уходят во внешние сервисы. Рядом находится база знаний, которую обновляют без переобучения: положили новый регламент, и ответы изменились. Поверх лежит системная инструкция, которая задаёт правила поведения и границы. И, если это понадобилось, подключена лёгкая добавка после дообучения, отвечающая за стиль, формат и узкую терминологию.</p><p>К этому прилагается регламент: кто отвечает за содержание базы знаний, как часто проверяются ответы, что делать с ошибкой, кто утверждает обновление модели и как откатиться назад. Без этой части система деградирует незаметно: материалы устаревают, ответы съезжают, и однажды это замечает клиент.</p><p>Такой набор скучнее, чем идея «обучим нейросеть под нас», но он обновляется силами самой компании и переживает смену подрядчика, а это обычно и есть настоящая цель проекта.</p></div>
+  <section class="md-guide-faq"><h2>Частые вопросы</h2><div class="md-faq"><details><summary>Чем дообучение отличается от базы знаний?</summary><p>База знаний подставляет модели нужные документы в момент ответа, и её можно обновить заменой файла. Дообучение меняет саму модель на примерах и отвечает за стиль, формат и правила поведения. Меняющиеся факты держат в базе, устойчивую манеру отвечать закрепляют дообучением.</p></details><details><summary>Сколько примеров нужно, чтобы начать?</summary><p>Для задач стиля и формата часто хватает нескольких сотен тщательно отобранных пар вопрос-ответ. Объём здесь менее важен, чем качество: тысяча случайных примеров из переписки обычно даёт худший результат, чем сотня выверенных. Отбирать их должен человек, понимающий предметную область.</p></details><details><summary>Можно ли дообучить модель на одной видеокарте?</summary><p>Для моделей размером примерно до восьми миллиардов параметров лёгкое дообучение методом LoRA или QLoRA реально выполняется на одной карте с достаточной памятью. Для более крупных моделей нужен кластер или аренда мощностей. Запуск уже готовой модели требует заметно меньше, чем обучение.</p></details><details><summary>Как проверить, что модель действительно стала лучше?</summary><p>Нужны примеры, которые модель не видела при обучении, слепое сравнение ответов старой и новой версии без пометок и оценка человеком, отвечающим за содержание. Отдельно прогоняют постоянный набор обычных вопросов, чтобы убедиться, что прежние умения не сломались.</p></details><details><summary>Что делать с персональными данными в примерах?</summary><p>Вычищать их до обучения, а не после: из готовой модели убрать попавшую туда информацию гораздо сложнее. Описание того, откуда берутся данные и что именно из них удаляется, стоит согласовать с юристом и с ответственным за политику компании до начала сбора.</p></details><details><summary>Придётся ли переобучать модель при каждом изменении в компании?</summary><p>Нет, если система построена правильно. Меняющиеся сведения вроде прайса, условий и регламентов живут в базе знаний и обновляются заменой документа. К дообучению возвращаются редко, когда меняется сама манера общения или появляется новый тип задач.</p></details></div></section>
+  <section class="md-offer" aria-labelledby="mdOfferT">
+    <div class="md-offer-text"><h2 id="mdOfferT">Нужна модель под вашу задачу?</h2><p>Открытую модель можно поставить на свой сервер: данные не уходят в чужое облако, нет оплаты за каждый запрос, модель можно дообучить на ваших документах.</p></div>
+    <ol class="md-steps"><li><b>Подберу</b><span>Модель и размер под задачу и бюджет на железо</span></li><li><b>Поставлю</b><span>На ваш сервер или в закрытый контур, с API</span></li><li><b>Дообучу</b><span>На ваших данных или подключу базу знаний</span></li><li><b>Встрою</b><span>В CRM, 1С, бота, сайт или рабочий чат</span></li></ol>
+    <a class="btn btn-accent md-offer-btn" href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BF%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%B8%D1%82%D1%8C%20%D0%BE%D1%82%D0%BA%D1%80%D1%8B%D1%82%D1%83%D1%8E%20%D0%98%D0%98-%D0%BC%D0%BE%D0%B4%D0%B5%D0%BB%D1%8C%20%D0%BD%D0%B0%20%D1%81%D0%B2%D0%BE%D0%B9%20%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80.%20%D0%97%D0%B0%D0%B4%D0%B0%D1%87%D0%B0%3A%20" target="_blank" rel="noopener"><i class="ph ph-telegram-logo" aria-hidden="true"></i>Обсудить внедрение</a>
+  </section>
+</div></section>
+</main>
+<footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label">КОНТАКТ</span>
+            <h2>ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                <a href="tel:+971563369591" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +971 56 336 9591</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 Дарижапов Чимитдоржи. Все права защищены.</p>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/predlozheniya/" class="footer-policy-link">Предложения</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/blog/" class="footer-policy-link">Блог</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link">Политика конфиденциальности</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=44" defer></script>
+<script src="/script.js?v=40" defer></script>
+</body>
+</html>

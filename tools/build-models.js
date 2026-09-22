@@ -11,12 +11,17 @@ const ROOT = path.resolve(__dirname, '..');
 const SITE = 'https://chimitdorzhi.tech';
 const UPDATED = { ru: '22.09.2026', en: '22 Sep 2026' };
 const LASTMOD = '2026-09-22';
-const CSS_V = 14;
+const CSS_V = 16;
 const LANGS = ['ru', 'en'];
 const BASE = { ru: '/ii-modeli/', en: '/en/ii-modeli/' };
 const OUT = { ru: path.join(ROOT, 'ii-modeli'), en: path.join(ROOT, 'en', 'ii-modeli') };
 const MOD_KEYS = Object.keys(MOD);
 const FIRST = 60; // сколько карточек в разметке каталога; остальные страница строит из JSON
+// Семейство, у которого последний открытый выпуск раньше этой даты, считаем замершим.
+const STALE_FROM = '2024-09';
+const isStale = (m) => m.latest < STALE_FROM;
+const quantOf = (m) => (Array.isArray(m.quant) ? m.quant : []);
+const hasGguf = (m) => quantOf(m).includes('gguf');
 
 // --- Данные и проверка записей ---
 const ALL = require('./models-data.js').filter((m) => {
@@ -47,6 +52,10 @@ function loc(m, lang) {
 const readOpt = (f) => { try { return require(f); } catch (e) { return null; } };
 const COLL = readOpt('./models/_collections.js');
 const ALTS = (readOpt('./models/_alternatives.js') || []).filter((a) => a && a.slug && Array.isArray(a.picks));
+const GUIDES = readOpt('./models/_guides.js') || {};
+const STACKS = (readOpt('./models/_stacks.js') || []).filter((x) => x && x.slug && Array.isArray(x.steps));
+const GLOSS = (readOpt('./models/_glossary.js') || []).filter((x) => x && x.term && x.def);
+const HWPAGES = (readOpt('./models/_hardware.js') || []).filter((x) => x && x.slug && x.key);
 const CMP = (readOpt('./models/_compare.js') || []).filter((c) => ALL.some((m) => m.id === c.a) && ALL.some((m) => m.id === c.b));
 
 // --- Утилиты ---
@@ -149,8 +158,11 @@ const ARTICLES = {};
 function card(m0, lang, { compare = true } = {}) {
   const t = T[lang], m = loc(m0, lang);
   const q = [m.name, m.developer, m.country, ...m.modality.map((x) => modLabel(x, lang)), ...m.tasks, ...m.where, ...(m.industries || []).map((k) => (INDUSTRY[k] || {})[lang] || '')].join(' ').toLowerCase().replace(/ё/g, 'е');
-  const badges = (m.ru === 'yes' ? `<span class="md-badge md-badge-ru" title="${t.ruBadge}">RU</span>` : '') + (m.ollama ? `<span class="md-badge" title="${t.ollamaBadge}">Ollama</span>` : '');
-  return `<article class="md-card" data-id="${m.id}" data-mod="${m.modality.join(' ')}" data-hw="${m.hardware.join(' ')}" data-com="${m.commercial}" data-latest="${m.latest}" data-first="${m.first}" data-name="${esc(m.name.toLowerCase())}" data-country="${countryKeys(m0).join(' ')}" data-dev="${brandKeys(m0).join(' ')}" data-ru="${m.ru || ''}" data-ind="${(m.industries || []).join(' ')}" data-ollama="${m.ollama ? 1 : 0}" data-cpu="${m.cpu ? 1 : 0}" data-q="${esc(q)}">
+  const badges = (m.ru === 'yes' ? `<span class="md-badge md-badge-ru" title="${t.ruBadge}">RU</span>` : '')
+    + (m.ollama ? `<span class="md-badge" title="${t.ollamaBadge}">Ollama</span>` : '')
+    + (!m.ollama && hasGguf(m) ? `<span class="md-badge" title="${t.ggufBadge}">GGUF</span>` : '')
+    + (isStale(m) ? `<span class="md-badge md-badge-old" title="${esc(t.staleTitle(fmtMonth(m.latest, lang)))}">${t.staleBadge}</span>` : '');
+  return `<article class="md-card" data-id="${m.id}" data-mod="${m.modality.join(' ')}" data-hw="${m.hardware.join(' ')}" data-com="${m.commercial}" data-latest="${m.latest}" data-first="${m.first}" data-name="${esc(m.name.toLowerCase())}" data-country="${countryKeys(m0).join(' ')}" data-dev="${brandKeys(m0).join(' ')}" data-ru="${m.ru || ''}" data-ind="${(m.industries || []).join(' ')}" data-ollama="${m.ollama ? 1 : 0}" data-cpu="${m.cpu ? 1 : 0}" data-stale="${isStale(m) ? 1 : 0}" data-gguf="${hasGguf(m) ? 1 : 0}" data-q="${esc(q)}">
   <div class="md-card-top">${modChip(m.modality[0], lang)}<span class="md-card-meta">${badges}<span class="md-year">${years(m)}</span></span></div>
   <h2 class="md-name"><a href="${BASE[lang]}${m.id}/">${esc(m.name)}</a></h2>
   <div class="md-dev">${esc(m.developer)} · ${esc(m.country)}</div>
@@ -198,10 +210,19 @@ function collectionLinks(lang, colls, currentRel) {
     if (!items.length) return '';
     return `<div class="md-links-group"><h3>${label}</h3><ul class="md-links">${items.map((x) => `<li>${x.rel === currentRel ? `<span aria-current="page">${esc(ctext(x.c, 'h1', lang))}</span>` : `<a href="${BASE[lang]}${x.rel}">${esc(ctext(x.c, 'h1', lang))}</a>`} <small>${x.items.length}</small></li>`).join('')}</ul></div>`;
   };
+  const links = (h3, items) => (items.length ? `<div class="md-links-group"><h3>${h3}</h3><ul class="md-links">${items.map(([href, label]) => `<li><a href="${BASE[lang]}${href}">${esc(label)}</a></li>`).join('')}</ul></div>` : '');
+  const gtext = (g, k) => (lang === 'en' ? (g._en || {})[k] : g[k]) || g[k];
+  const guideLinks = links(t.guidesGroupH, [
+    ...Object.values(GUIDES).map((g) => [`${g.slug}/`, gtext(g, 'h1')]),
+    ...(GLOSS.length ? [['slovar/', t.glossH1]] : []),
+    ['kalkulyator-okupaemosti/', t.payH1],
+  ]);
+  const stackLinks = links(t.stacksGroupH, STACKS.map((x) => [`stek/${x.slug}/`, lang === 'en' ? (x._en || {}).h1 || x.h1 : x.h1]));
+  const hwLinks = links(t.hwGroupH, HWPAGES.map((x) => [`zhelezo/${x.slug}/`, lang === 'en' ? (x.h1_en || x.h1) : x.h1]));
   const alt = ALTS.length ? `<div class="md-links-group"><h3>${t.altGroupH}</h3><ul class="md-links">${ALTS.map((x) => `<li><a href="${BASE[lang]}alternativa/${x.slug}/">${esc(lang === 'en' ? (x.h1_en || x.h1) : x.h1)}</a></li>`).join('')}</ul></div>` : '';
   const cmp = CMP.filter((p) => lang === 'ru' || (EN_IDS.has(p.a) && EN_IDS.has(p.b)));
   const cmpBlock = cmp.length ? `<div class="md-links-group"><h3>${t.comparisons}</h3><ul class="md-links">${cmp.map((p) => `<li><a href="${BASE[lang]}sravnenie/${p.slug}/">${esc(lang === 'en' ? (p.h1_en || p.h1) : p.h1)}</a></li>`).join('')}</ul></div>` : '';
-  return `<section class="md-colls" aria-labelledby="mdCollsT"><h2 id="mdCollsT">${t.collectionsH}</h2><div class="md-colls-grid">${block(t.special, 'special')}${alt}${block(t.byDirection, 'modality')}${block(t.byIndustry, 'industry')}${cmpBlock}</div></section>`;
+  return `<section class="md-colls" aria-labelledby="mdCollsT"><h2 id="mdCollsT">${t.collectionsH}</h2><div class="md-colls-grid">${block(t.special, 'special')}${stackLinks}${alt}${hwLinks}${guideLinks}${block(t.byDirection, 'modality')}${block(t.byIndustry, 'industry')}${cmpBlock}</div></section>`;
 }
 
 // --- Каталог ---
@@ -252,6 +273,8 @@ function catalog(lang, colls) {
     <div class="md-toggles">
       ${hasField(models, 'ollama') ? `<label class="md-toggle"><input type="checkbox" id="mdOllama"><span>${t.tOllama}</span></label>` : ''}
       ${hasField(models, 'cpu') ? `<label class="md-toggle"><input type="checkbox" id="mdCpu"><span>${t.tCpu}</span></label>` : ''}
+      <label class="md-toggle"><input type="checkbox" id="mdGguf"><span>${t.tGguf}</span></label>
+      <label class="md-toggle"><input type="checkbox" id="mdLive"><span>${t.tLive}</span></label>
       <button type="button" class="md-reset" id="mdReset" hidden><i class="ph ph-x" aria-hidden="true"></i>${t.reset}</button>
     </div>
   </div>
@@ -276,7 +299,9 @@ function catalog(lang, colls) {
     mk: m.modality[0], hk: m.hardware[0], co: m.commercial, yr: years(m),
     dm: m.modality.join(' '), dh: m.hardware.join(' '), dl: m.latest, df: m.first, dn: m.name.toLowerCase(),
     dc: countryKeys(m0).join(' '), dd: brandKeys(m0).join(' '), dr: m.ru || '', di: (m.industries || []).join(' '),
-    do: m.ollama ? 1 : 0, dp: m.cpu ? 1 : 0,
+    do: m.ollama ? 1 : 0, dp: m.cpu ? 1 : 0, ds: isStale(m) ? 1 : 0, dg: hasGguf(m) ? 1 : 0,
+    st: isStale(m) ? t.staleTitle(fmtMonth(m.latest, lang)) : '',
+    qt: quantOf(m).map((k) => t.quantLbl[k] || k).join(', '),
     // поля только для таблицы сравнения
     mo: m.modality.map((x) => modLabel(x, lang)).join(', '), h: m.hardware.map((x) => HW[x][lang][0]).join(', '), lt: m.license,
     rl: m.ru ? RU_LANG[lang][m.ru] : '', ol: m.ollama === undefined ? '' : (m.ollama ? t.has : t.no), cl: m.cpu === undefined ? '' : (m.cpu ? t.yes : t.no),
@@ -287,7 +312,7 @@ function catalog(lang, colls) {
     mod: Object.fromEntries(MOD_KEYS.map((k) => [k, { l: modLabel(k, lang), i: MOD[k].icon }])),
     hw: Object.fromEntries(Object.keys(HW).map((k) => [k, HW[k][lang][0]])),
     com: Object.fromEntries(Object.keys(COM).map((k) => [k, { l: COM[k][lang], c: COM[k].cls }])),
-    sizes: t.sizes, hwLabel: t.fHw, from: t.hwFrom, more: t.more, compare: t.compare, ruBadge: t.ruBadge, ollamaBadge: t.ollamaBadge, base: BASE[lang],
+    sizes: t.sizes, hwLabel: t.fHw, from: t.hwFrom, more: t.more, compare: t.compare, ruBadge: t.ruBadge, ollamaBadge: t.ollamaBadge, ggufBadge: t.ggufBadge, staleBadge: t.staleBadge, base: BASE[lang],
   }).replace(/</g, '\\u003c')}</script>
 
   <script type="application/json" id="mdUi">${JSON.stringify({ shown: t.shown, of: t.of, compareOf: t.compareOf, removeX: t.removeX, pickTwo: t.pickTwo, param: t.param, rows: t.rows, tgCompare: t.tgCompare, tgTask: t.tgTask, base: BASE[lang], locale: lang }).replace(/</g, '\\u003c')}</script>
@@ -304,9 +329,10 @@ function catalog(lang, colls) {
   function e_(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
   function cardHtml(m){
     var mo=LB.mod[m.mk], co=LB.com[m.co];
-    return '<article class="md-card" data-id="'+m.i+'" data-mod="'+m.dm+'" data-hw="'+m.dh+'" data-com="'+m.co+'" data-latest="'+m.dl+'" data-first="'+m.df+'" data-name="'+e_(m.dn)+'" data-country="'+m.dc+'" data-dev="'+m.dd+'" data-ru="'+m.dr+'" data-ind="'+m.di+'" data-ollama="'+m.do+'" data-cpu="'+m.dp+'" data-q="'+e_(m.dq)+'">'
+    return '<article class="md-card" data-id="'+m.i+'" data-mod="'+m.dm+'" data-hw="'+m.dh+'" data-com="'+m.co+'" data-latest="'+m.dl+'" data-first="'+m.df+'" data-name="'+e_(m.dn)+'" data-country="'+m.dc+'" data-dev="'+m.dd+'" data-ru="'+m.dr+'" data-ind="'+m.di+'" data-ollama="'+m.do+'" data-cpu="'+m.dp+'" data-stale="'+m.ds+'" data-gguf="'+m.dg+'" data-q="'+e_(m.dq)+'">'
       +'<div class="md-card-top"><span class="md-mod"><i class="ph ph-'+mo.i+'" aria-hidden="true"></i>'+mo.l+'</span><span class="md-card-meta">'
       +(m.dr==='yes'?'<span class="md-badge md-badge-ru" title="'+LB.ruBadge+'">RU</span>':'')+(m.do?'<span class="md-badge" title="'+LB.ollamaBadge+'">Ollama</span>':'')
+      +(!m.do&&m.dg?'<span class="md-badge" title="'+LB.ggufBadge+'">GGUF</span>':'')+(m.ds?'<span class="md-badge md-badge-old" title="'+e_(m.st)+'">'+LB.staleBadge+'</span>':'')
       +'<span class="md-year">'+m.yr+'</span></span></div>'
       +'<h2 class="md-name"><a href="'+LB.base+m.i+'/">'+e_(m.n)+'</a></h2>'
       +'<div class="md-dev">'+e_(m.de)+'</div><p class="md-sum">'+e_(m.su)+'</p>'
@@ -318,7 +344,7 @@ function catalog(lang, colls) {
   if(REST.length) grid.insertAdjacentHTML('beforeend', REST.map(cardHtml).join(''));
   var cards=[].slice.call(grid.querySelectorAll('.md-card'));
   var UI=JSON.parse($('mdUi').textContent);
-  var q=$('mdQ'), sort=$('md-sort'), ollama=$('mdOllama'), cpu=$('mdCpu'), reset=$('mdReset');
+  var q=$('mdQ'), sort=$('md-sort'), ollama=$('mdOllama'), cpu=$('mdCpu'), gguf=$('mdGguf'), live=$('mdLive'), reset=$('mdReset');
   var sels=[].slice.call(document.querySelectorAll('.md-selects select[data-f]')).filter(function(s){return s.dataset.f!=='sort';});
   var chips=[].slice.call(document.querySelectorAll('.md-chip')), mod='';
   var count=$('mdCount'), empty=$('mdEmpty');
@@ -328,11 +354,12 @@ function catalog(lang, colls) {
   function apply(){
     // Грубый стемминг: «карточки» и «карточек» совпадают по основе «карточ».
     var t=q.value.trim().toLowerCase().replace(/ё/g,'е').split(/\\s+/).filter(Boolean)
-      .map(function(w){ return w.length>5 ? w.slice(0,w.length-2) : w; }), n=0, active=!!(mod||t.length||(ollama&&ollama.checked)||(cpu&&cpu.checked));
+      .map(function(w){ return w.length>5 ? w.slice(0,w.length-2) : w; }), n=0, active=!!(mod||t.length||(ollama&&ollama.checked)||(cpu&&cpu.checked)||(gguf&&gguf.checked)||(live&&live.checked));
     sels.forEach(function(s){ if(s.value) active=true; });
     cards.forEach(function(c){
       var ok=(!mod||has(c.dataset.mod,mod))&&t.every(function(w){return c.dataset.q.indexOf(w)>-1;})
-        &&(!ollama||!ollama.checked||c.dataset.ollama==='1')&&(!cpu||!cpu.checked||c.dataset.cpu==='1');
+        &&(!ollama||!ollama.checked||c.dataset.ollama==='1')&&(!cpu||!cpu.checked||c.dataset.cpu==='1')
+        &&(!gguf||!gguf.checked||c.dataset.gguf==='1')&&(!live||!live.checked||c.dataset.stale==='0');
       for(var i=0;ok&&i<sels.length;i++){
         var s=sels[i], v=s.value; if(!v) continue;
         if(s.dataset.f==='fresh'){ var y=c.dataset.latest.slice(0,4); ok=v==='old'?y<'2025':y===v; continue; }
@@ -354,14 +381,16 @@ function catalog(lang, colls) {
   chips.forEach(function(ch){ ch.addEventListener('click',function(){ setChip(ch); apply(); }); });
   q.addEventListener('input',apply); sels.forEach(function(s){ s.addEventListener('change',apply); });
   if(ollama) ollama.addEventListener('change',apply); if(cpu) cpu.addEventListener('change',apply);
+  if(gguf) gguf.addEventListener('change',apply); if(live) live.addEventListener('change',apply);
   sort.addEventListener('change',order);
   reset.addEventListener('click',function(){
     q.value=''; sels.forEach(function(s){ s.value=''; }); if(ollama) ollama.checked=false; if(cpu) cpu.checked=false;
+    if(gguf) gguf.checked=false; if(live) live.checked=false;
     setChip(chips[0]); apply(); q.focus();
   });
 
   // --- Сравнение: до трёх моделей ---
-  var DATA={}; ALL.forEach(function(m){ DATA[m.i]={n:m.n,d:m.de.replace(' · ',', '),mo:m.mo,s:m.si,l:LB.com[m.co].l,lc:LB.com[m.co].c,lt:m.lt,h:m.h,r:m.rl,o:m.ol,c:m.cl,y:m.yl,t:m.ta}; });
+  var DATA={}; ALL.forEach(function(m){ DATA[m.i]={n:m.n,d:m.de.replace(' · ',', '),mo:m.mo,s:m.si,l:LB.com[m.co].l,lc:LB.com[m.co].c,lt:m.lt,h:m.h,r:m.rl,o:m.ol,c:m.cl,q:m.qt,y:m.yl,t:m.ta}; });
   var picked=[], MAX=3;
   var tray=$('mdTray'), list=$('mdTrayList'), dlg=$('mdDialog');
   var boxes=[].slice.call(grid.querySelectorAll('.md-cmp-box'));
@@ -380,7 +409,7 @@ function catalog(lang, colls) {
   }); });
   list.addEventListener('click',function(e){ var r=e.target.closest('[data-rm]'); if(!r) return; picked.splice(picked.indexOf(r.dataset.rm),1); syncCmp(); });
   $('mdCmpClear').addEventListener('click',function(){ picked=[]; syncCmp(); });
-  var ROWS=['mo','d','y','s','h','l','lt','r','o','c','t'];
+  var ROWS=['mo','d','y','s','h','l','lt','r','o','c','q','t'];
   $('mdCmpOpen').addEventListener('click',function(){
     var m=picked.map(function(id){return DATA[id];});
     var h='<div class="md-cmp-scroll"><table class="md-cmp-table"><thead><tr><th scope="col"><span class="md-sr">'+UI.param+'</span></th>'+picked.map(function(id){return '<th scope="col"><a href="'+UI.base+id+'/">'+esc(DATA[id].n)+'</a></th>';}).join('')+'</tr></thead><tbody>';
@@ -432,6 +461,7 @@ function detail(m0, lang) {
     <div class="md-d-mods">${m.modality.map((k) => modChip(k, lang)).join('')}</div>
     <h1 class="md-d-title">${esc(m.name)}</h1>
     <p class="md-d-lead">${esc(m.summary)}</p>
+    ${isStale(m) ? `<p class="md-stale"><i class="ph ph-clock-counter-clockwise" aria-hidden="true"></i>${esc(t.staleNote(fmtMonth(m.latest, lang)))}</p>` : ''}
     <dl class="md-d-facts">
       <div><dt>${t.dev}</dt><dd>${esc(m.developer)}, ${esc(m.country)}</dd></div>
       <div><dt>${t.first}</dt><dd>${fmtMonth(m.first, lang)}</dd></div>
@@ -439,6 +469,7 @@ function detail(m0, lang) {
       <div><dt>${t.sizes}</dt><dd>${esc(m.sizes)}</dd></div>
       <div><dt>${t.license}</dt><dd>${lic(m.commercial, lang)}<small>${esc(m.license)}</small></dd></div>
       ${m.ru && m.ru !== 'na' ? `<div><dt>${t.ruLang}</dt><dd>${RU_LANG[lang][m.ru]}</dd></div>` : ''}
+      ${quantOf(m).length ? `<div><dt>${t.quantH}</dt><dd><small>${quantOf(m).map((k) => t.quantLbl[k] || k).join(', ')}</small></dd></div>` : ''}
       ${m.ollama !== undefined || m.cpu !== undefined ? `<div><dt>${t.run}</dt><dd>${m.ollama ? t.runOllama : t.runServer}<small>${m.cpu ? t.runCpu : t.runGpu}</small></dd></div>` : ''}
       ${(m.industries || []).length ? `<div><dt>${t.spheres}</dt><dd><small>${m.industries.map((k) => (INDUSTRY[k] || {})[lang]).filter(Boolean).join(', ')}</small></dd></div>` : ''}
     </dl>
@@ -458,7 +489,7 @@ function detail(m0, lang) {
         ${m.ollama ? `<div class="md-run-row"><i class="ph ph-lightning" aria-hidden="true"></i><div><b>${t.runOllamaT}</b><span>${t.runOllamaD}</span><a class="md-more" href="https://ollama.com/search?q=${encodeURIComponent(m.name)}" target="_blank" rel="noopener nofollow">${t.runOllamaBtn}<i class="ph ph-arrow-up-right" aria-hidden="true"></i></a></div></div>` : ''}
         <div class="md-run-row"><i class="ph ph-hard-drives" aria-hidden="true"></i><div><b>${t.runServerT}</b><span>${t.runServerD}</span>${m.hf ? `<a class="md-more" href="${m.hf}" target="_blank" rel="noopener nofollow">Hugging Face<i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>` : ''}</div></div>
         <div class="md-run-row"><i class="ph ph-cpu" aria-hidden="true"></i><div><b>${t.runHwT}</b><span>${t.runHwD}</span><a class="md-more" href="${BASE[lang]}kalkulyator-zheleza/">${t.runHwBtn}<i class="ph ph-arrow-right" aria-hidden="true"></i></a></div></div>
-      </div><p class="md-run-note">${t.runNote}</p></section>
+      </div><p class="md-run-note">${t.runNote}${quantOf(m).length ? ' ' + t.quantNote : ''}</p></section>
       <section><h2>${t.faqH}</h2><div class="md-faq">${faq.map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('')}</div></section>
       <section><h2>${t.howH}</h2><ol class="md-steps md-steps-v">${t.how.map(([b, s]) => `<li><b>${b}</b><span>${s}</span></li>`).join('')}</ol></section>
       ${cmps.length ? `<section><h2>${t.comparesH}</h2><ul class="md-links">${cmps.map((p) => `<li><a href="${BASE[lang]}sravnenie/${p.slug}/">${esc(lang === 'en' ? (p.h1_en || p.h1) : p.h1)}</a></li>`).join('')}</ul></section>` : ''}
@@ -775,6 +806,203 @@ function quizPage(lang) {
   writePage(lang, 'podbor/', { title: t.quizTitle, description: t.quizDesc, ld: [ldCrumbs(lang, [[`${SITE}${BASE[lang]}`, t.section], [`${SITE}${BASE[lang]}podbor/`, t.quizH]])], main, extraJs: js, altRel: 'podbor/' });
 }
 
+// --- Справочные страницы: лицензии, дообучение ---
+function guidePage(g, lang) {
+  const t = T[lang];
+  const src = lang === 'en' ? (g._en || g) : g;
+  const sections = src.sections || [];
+  const faq = src.faq || [];
+  const main = `<section class="section md-page md-guide-page"><div class="container">
+  ${crumbs(lang, [[BASE[lang], t.section], [null, src.h1]])}
+  <header class="md-hero">
+    <span class="section-label">${t.guideLabel}</span>
+    <h1 class="section-heading">${esc(src.h1)}</h1>
+    <p class="section-sub">${esc(src.intro)}</p>
+    <div class="md-stats"><span>${t.updated} ${UPDATED[lang]}</span><a class="md-guide" href="${BASE[lang]}"><i class="ph ph-funnel" aria-hidden="true"></i>${t.openCatalog}</a></div>
+  </header>
+  <nav class="md-toc" aria-label="${esc(src.h1)}"><ol>${sections.map((x, i) => `<li><a href="#g${i + 1}">${esc(x.h2)}</a></li>`).join('')}</ol></nav>
+  <div class="md-prose">${sections.map((x, i) => `<h2 id="g${i + 1}">${esc(x.h2)}</h2>${x.html}`).join('')}</div>
+  ${faq.length ? `<section class="md-guide-faq"><h2>${t.faqH}</h2><div class="md-faq">${faq.map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('')}</div></section>` : ''}
+  ${offer(lang)}
+</div></section>`;
+  const url = `${SITE}${BASE[lang]}${g.slug}/`;
+  const ld = [
+    { '@context': 'https://schema.org', '@type': 'Article', headline: src.h1, description: src.description, url, inLanguage: lang, dateModified: LASTMOD,
+      author: { '@type': 'Person', name: lang === 'en' ? 'Chimitdorzhi Darizhapov' : 'Чимитдоржи Дарижапов' } },
+    ldCrumbs(lang, [[`${SITE}${BASE[lang]}`, t.section], [url, src.h1]]),
+    ...(faq.length ? [{ '@context': 'https://schema.org', '@type': 'FAQPage', inLanguage: lang, mainEntity: faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) }] : []),
+  ];
+  writePage(lang, `${g.slug}/`, { title: src.title, description: src.description, ld, main, extraJs: '', altRel: `${g.slug}/` });
+}
+
+// --- Стек под задачу: связка из нескольких моделей ---
+function stackPage(x, lang) {
+  const t = T[lang];
+  const src = lang === 'en' ? (x._en || x) : x;
+  const byId = Object.fromEntries(MODELS[lang].map((m) => [m.id, m]));
+  const steps = (src.steps || []).map((st, i) => ({ ...st, picks: ((x.steps[i] || {}).picks || []).map((id) => byId[id]).filter(Boolean) }));
+  if (!steps.length || steps.some((st) => !st.picks.length)) return false;
+  const others = STACKS.filter((o) => o.slug !== x.slug);
+  const main = `<section class="section md-page"><div class="container">
+  ${crumbs(lang, [[BASE[lang], t.section], [null, src.h1]])}
+  <header class="md-hero">
+    <span class="section-label">${t.stackLabel}</span>
+    <h1 class="section-heading">${esc(src.h1)}</h1>
+    <p class="section-sub">${esc(src.intro)}</p>
+    <div class="md-stats"><span>${t.updated} ${UPDATED[lang]}</span><a class="md-guide" href="${BASE[lang]}podbor/"><i class="ph ph-sparkle" aria-hidden="true"></i>${t.tools[0][2]}</a></div>
+  </header>
+  ${steps.map((st) => `<section class="md-stack-step">
+    <h2>${esc(st.h3)}</h2>
+    <p class="md-stack-text">${esc(st.text)}</p>
+    <h3 class="md-stack-h3">${t.stackModelsH}</h3>
+    <div class="md-grid">${st.picks.map((m) => card(m, lang, { compare: false })).join('')}</div>
+  </section>`).join('')}
+  ${src.note ? `<section class="md-colls"><h2>${t.stackNoteH}</h2><p class="md-stack-note">${esc(src.note)}</p></section>` : ''}
+  ${others.length ? `<section class="md-colls"><h2>${t.otherStacks}</h2><ul class="md-links md-links-cols">${others.map((o) => `<li><a href="${BASE[lang]}stek/${o.slug}/">${esc(lang === 'en' ? (o._en || {}).h1 || o.h1 : o.h1)}</a></li>`).join('')}</ul></section>` : ''}
+  ${offer(lang)}
+</div></section>`;
+  const url = `${SITE}${BASE[lang]}stek/${x.slug}/`;
+  const ld = [
+    { '@context': 'https://schema.org', '@type': 'HowTo', name: src.h1, description: src.description, url, inLanguage: lang,
+      step: steps.map((st, i) => ({ '@type': 'HowToStep', position: i + 1, name: st.h3, text: st.text })) },
+    ldCrumbs(lang, [[`${SITE}${BASE[lang]}`, t.section], [url, src.h1]]),
+  ];
+  writePage(lang, `stek/${x.slug}/`, { title: src.title, description: src.description, ld, main, extraJs: cardClickJs, altRel: `stek/${x.slug}/` });
+  return true;
+}
+
+// --- Словарь терминов ---
+function glossaryPage(lang) {
+  const t = T[lang];
+  const items = GLOSS.map((g) => ({ slug: g.slug, term: lang === 'en' ? (g._en || {}).term || g.term : g.term, def: lang === 'en' ? (g._en || {}).def || g.def : g.def }))
+    .sort((a, b) => a.term.localeCompare(b.term, lang));
+  const main = `<section class="section md-page"><div class="container">
+  ${crumbs(lang, [[BASE[lang], t.section], [null, t.glossH1]])}
+  <header class="md-hero">
+    <span class="section-label">${t.glossLabel}</span>
+    <h1 class="section-heading">${t.glossH1}</h1>
+    <p class="section-sub">${t.glossIntro}</p>
+    <div class="md-stats"><span><b>${items.length}</b> ${lang === 'en' ? 'terms' : 'терминов'}</span><span>${t.updated} ${UPDATED[lang]}</span><a class="md-guide" href="${BASE[lang]}"><i class="ph ph-funnel" aria-hidden="true"></i>${t.openCatalog}</a></div>
+  </header>
+  <div class="md-tools"><label class="md-search"><i class="ph ph-magnifying-glass" aria-hidden="true"></i><input id="glQ" type="search" placeholder="${esc(t.glossSearch)}" autocomplete="off" aria-label="${esc(t.glossSearch)}"></label></div>
+  <dl class="md-gloss" id="glList">${items.map((g) => `<div class="md-gloss-item" id="${esc(g.slug)}" data-q="${esc((g.term + ' ' + g.def).toLowerCase())}"><dt>${esc(g.term)}</dt><dd>${esc(g.def)}</dd></div>`).join('')}</dl>
+  <p class="md-empty" id="glEmpty" hidden>${t.empty} <a href="${tg(t.tgFind)}" target="_blank" rel="noopener">${t.emptyLink}</a> ${t.emptyTail}</p>
+  ${offer(lang)}
+</div></section>`;
+  const js = `<script>
+(function(){
+  var q=document.getElementById('glQ'); if(!q) return;
+  var items=[].slice.call(document.querySelectorAll('.md-gloss-item')), empty=document.getElementById('glEmpty');
+  q.addEventListener('input',function(){
+    var v=q.value.trim().toLowerCase(), n=0;
+    items.forEach(function(it){ var ok=!v||it.dataset.q.indexOf(v)>-1; it.hidden=!ok; if(ok) n++; });
+    empty.hidden=n>0;
+  });
+})();
+</script>`;
+  const url = `${SITE}${BASE[lang]}slovar/`;
+  const ld = [
+    { '@context': 'https://schema.org', '@type': 'DefinedTermSet', name: t.glossH1, url, inLanguage: lang,
+      hasDefinedTerm: items.map((g) => ({ '@type': 'DefinedTerm', name: g.term, description: g.def })) },
+    ldCrumbs(lang, [[`${SITE}${BASE[lang]}`, t.section], [url, t.glossH1]]),
+  ];
+  writePage(lang, 'slovar/', { title: t.glossTitle, description: t.glossDesc, ld, main, extraJs: js, altRel: 'slovar/' });
+}
+
+// --- Страницы по классу железа ---
+function hardwarePage(x, lang) {
+  const t = T[lang];
+  const f2 = (k) => (lang === 'en' ? x[k + '_en'] : x[k]) || x[k];
+  const items = MODELS[lang].filter((m) => m.hardware[0] === x.key);
+  if (!items.length) return false;
+  // Группируем по направлению: так видно, что именно на этом железе делается.
+  const byMod = {};
+  for (const m of items) (byMod[m.modality[0]] = byMod[m.modality[0]] || []).push(m);
+  const order = Object.keys(byMod).sort((a, b) => byMod[b].length - byMod[a].length);
+  const main = `<section class="section md-page"><div class="container">
+  ${crumbs(lang, [[BASE[lang], t.section], [null, f2('h1')]])}
+  <header class="md-hero">
+    <span class="section-label">${t.hwLabelPage}</span>
+    <h1 class="section-heading">${esc(f2('h1'))}</h1>
+    <p class="section-sub">${esc(f2('intro'))}</p>
+    <div class="md-stats"><span><b>${items.length}</b> ${t.families}</span><span>${t.updated} ${UPDATED[lang]}</span><a class="md-guide" href="${BASE[lang]}kalkulyator-zheleza/"><i class="ph ph-cpu" aria-hidden="true"></i>${t.hwCalcLink}</a></div>
+  </header>
+  <section class="md-colls"><h2>${t.hwExamplesH}</h2><div class="md-hw">${f2('examples').map(([h, d]) => `<div class="md-hw-row is-on"><i class="ph ph-${HW[x.key].icon}" aria-hidden="true"></i><div><b>${esc(h)}</b><span>${esc(d)}</span></div></div>`).join('')}</div></section>
+  <h2 class="md-colls-h2">${t.hwWhatFits}</h2>
+  ${order.map((k) => `<section class="md-hw-mod"><h3>${modLabel(k, lang)} <small>${byMod[k].length}</small></h3><div class="md-grid">${byMod[k].sort((a, b) => b.latest.localeCompare(a.latest)).slice(0, 12).map((m) => card(m, lang, { compare: false })).join('')}</div></section>`).join('')}
+  <section class="md-colls"><h2>${t.hwNoteH}</h2><p class="md-stack-note">${esc(f2('note'))}</p></section>
+  ${HWPAGES.filter((o) => o.slug !== x.slug).length ? `<section class="md-colls"><h2>${t.hwGroupH}</h2><ul class="md-links md-links-cols">${HWPAGES.filter((o) => o.slug !== x.slug).map((o) => `<li><a href="${BASE[lang]}zhelezo/${o.slug}/">${esc(lang === 'en' ? (o.h1_en || o.h1) : o.h1)}</a></li>`).join('')}</ul></section>` : ''}
+  ${offer(lang)}
+</div></section>`;
+  const url = `${SITE}${BASE[lang]}zhelezo/${x.slug}/`;
+  const ld = [
+    { '@context': 'https://schema.org', '@type': 'CollectionPage', name: f2('h1'), url, inLanguage: lang, dateModified: LASTMOD,
+      mainEntity: { '@type': 'ItemList', itemListElement: items.slice(0, 50).map((m, i) => ({ '@type': 'ListItem', position: i + 1, url: `${SITE}${BASE[lang]}${m.id}/`, name: m.name })) } },
+    ldCrumbs(lang, [[`${SITE}${BASE[lang]}`, t.section], [url, f2('h1')]]),
+  ];
+  writePage(lang, `zhelezo/${x.slug}/`, { title: f2('title'), description: f2('description'), ld, main, extraJs: cardClickJs, altRel: `zhelezo/${x.slug}/` });
+  return true;
+}
+
+// --- Калькулятор окупаемости: облако против своего сервера ---
+function paybackPage(lang) {
+  const t = T[lang], p = t.payFields;
+  const num = (id, label, hint, val) => `<label class="md-calc-row"><span>${label}</span><input type="number" id="${id}" value="${val}" min="0" step="any" inputmode="decimal"><small>${hint}</small></label>`;
+  const main = `<section class="section md-page"><div class="container">
+  ${crumbs(lang, [[BASE[lang], t.section], [null, t.payH1]])}
+  <header class="md-hero">
+    <span class="section-label">${t.payLabel}</span>
+    <h1 class="section-heading">${t.payH1}</h1>
+    <p class="section-sub">${t.payIntro}</p>
+    <div class="md-stats"><span>${t.updated} ${UPDATED[lang]}</span><a class="md-guide" href="${BASE[lang]}kalkulyator-zheleza/"><i class="ph ph-cpu" aria-hidden="true"></i>${t.hwCalcLink}</a></div>
+  </header>
+  <div class="md-calc">
+    <div class="md-calc-form">
+      ${num('pReq', p.req, p.reqH, 100000)}
+      ${num('pTok', p.tok, p.tokH, 2000)}
+      ${num('pPrice', p.price, p.priceH, 500)}
+      ${num('pServer', p.server, p.serverH, 45000)}
+      ${num('pSetup', p.setup, p.setupH, 200000)}
+      ${num('pKeep', p.keep, p.keepH, 25000)}
+    </div>
+    <div class="md-calc-out" id="pOut" aria-live="polite"></div>
+  </div>
+  <p class="md-run-note">${t.payNote}</p>
+  ${offer(lang)}
+</div></section>`;
+  const js = `<script>
+(function(){
+  var L=${JSON.stringify({ result: t.payResult, cloud: t.payCloud, own: t.payOwn, save: t.paySave, months: t.payMonths, never: t.payNever, tokens: t.payTokens, btn: t.payBtn, locale: lang })};
+  var ids=['pReq','pTok','pPrice','pServer','pSetup','pKeep'], out=document.getElementById('pOut');
+  if(!out) return;
+  function v(id){ var x=parseFloat(document.getElementById(id).value); return isFinite(x)&&x>0?x:0; }
+  function fmt(x){ return Math.round(x).toLocaleString(L.locale==='ru'?'ru-RU':'en-US'); }
+  function monthsWord(m){ ${lang === 'ru'
+    ? "var a=m%10,b=m%100; return m+' '+(a===1&&b!==11?'месяц':(a>=2&&a<=4&&(b<10||b>=20)?'месяца':'месяцев'));"
+    : "return m+(m===1?' month':' months');"} }
+  function calc(){
+    var tokens=v('pReq')*v('pTok');
+    var cloud=tokens/1000000*v('pPrice');
+    var own=v('pServer')+v('pKeep');
+    var diff=cloud-own;
+    var rows=''
+      +'<div class="md-calc-line"><span>'+L.tokens+'</span><b>'+fmt(tokens)+'</b></div>'
+      +'<div class="md-calc-line"><span>'+L.cloud+'</span><b>'+fmt(cloud)+'</b></div>'
+      +'<div class="md-calc-line"><span>'+L.own+'</span><b>'+fmt(own)+'</b></div>'
+      +'<div class="md-calc-line md-calc-accent"><span>'+L.save+'</span><b>'+(diff>0?'+':'')+fmt(diff)+'</b></div>';
+    if(diff>0&&v('pSetup')>0) rows+='<div class="md-calc-line md-calc-big"><span>'+L.months+'</span><b>'+monthsWord(Math.ceil(v('pSetup')/diff))+'</b></div>';
+    else if(diff>0) rows+='<div class="md-calc-line md-calc-big"><span>'+L.months+'</span><b>'+monthsWord(0)+'</b></div>';
+    else rows+='<div class="md-calc-note">'+L.never+'</div>';
+    out.innerHTML=rows+'<a class="btn btn-accent md-calc-btn" href="https://t.me/chimitdorzhi" target="_blank" rel="noopener"><i class="ph ph-telegram-logo" aria-hidden="true"></i>'+L.btn+'</a>';
+  }
+  ids.forEach(function(id){ document.getElementById(id).addEventListener('input',calc); });
+  calc();
+})();
+</script>`;
+  const url = `${SITE}${BASE[lang]}kalkulyator-okupaemosti/`;
+  writePage(lang, 'kalkulyator-okupaemosti/', { title: t.payTitle, description: t.payDesc, ld: [ldCrumbs(lang, [[`${SITE}${BASE[lang]}`, t.section], [url, t.payH1]])], main, extraJs: js, altRel: 'kalkulyator-okupaemosti/' });
+}
+
 // --- Сборка всех страниц ---
 const COLLS = { ru: collectionList('ru'), en: collectionList('en') };
 COLLS.ru.alt = new Set(COLLS.en.map((x) => x.rel));
@@ -787,6 +1015,11 @@ for (const lang of LANGS) {
   for (const x of COLLS[lang]) collectionPage(x, lang, COLLS[lang]);
   for (const a of ALTS) altPage(a, lang);
   for (const p of CMP) comparePage(p, lang);
+  for (const g of Object.values(GUIDES)) guidePage(g, lang);
+  for (const x of STACKS) stackPage(x, lang);
+  for (const x of HWPAGES) hardwarePage(x, lang);
+  if (GLOSS.length) glossaryPage(lang);
+  paybackPage(lang);
   newPage(lang);
   calcPage(lang);
   quizPage(lang);
@@ -801,7 +1034,7 @@ if (fs.existsSync(SM)) {
   sm = sm.replace('</urlset>', block + '\n</urlset>');
   fs.writeFileSync(SM, sm);
 }
-console.log(`  /ii-modeli/: ${MODELS.ru.length} моделей RU, ${MODELS.en.length} EN; подборок ${COLLS.ru.length}/${COLLS.en.length}; альтернатив ${ALTS.length}; сравнений ${CMP.length}; всего страниц ${PAGES.length}`);
+console.log(`  /ii-modeli/: ${MODELS.ru.length} моделей RU, ${MODELS.en.length} EN; подборок ${COLLS.ru.length}/${COLLS.en.length}; альтернатив ${ALTS.length}; сравнений ${CMP.length}; стеков ${STACKS.length}; терминов ${GLOSS.length}; всего страниц ${PAGES.length}`);
 
 // --- Обложки 1200×630 для превью в мессенджерах и соцсетях ---
 // Стиль как у обложек блога (tools/og-generator.js): тёмная основа, жёлтая плашка, диагональ справа.
