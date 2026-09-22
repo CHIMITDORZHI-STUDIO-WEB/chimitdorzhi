@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acoustic machine monitoring: open models</title>
+    <meta name="description" content="Open models for acoustic inspection: hearing anomalies in a machine or pump, classifying sound events, monitoring noise levels.">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/en/ii-modeli/napravlenie/diagnostika-po-zvuku/">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://chimitdorzhi.tech/en/ii-modeli/napravlenie/diagnostika-po-zvuku/">
+    <meta property="og:title" content="Acoustic machine monitoring: open models">
+    <meta property="og:description" content="Open models for acoustic inspection: hearing anomalies in a machine or pump, classifying sound events, monitoring noise levels.">
+    <meta property="og:image" content="https://chimitdorzhi.tech/en/ii-modeli/cover.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/en/ii-modeli/cover.png">
+    <meta property="og:locale" content="en_US">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="preload" href="/assets/fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="/assets/phosphor/regular.css"><link rel="stylesheet" href="/assets/phosphor/fill.css"></noscript>
+    <link rel="stylesheet" href="/style.css?v=78">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/ii-modeli/napravlenie/diagnostika-po-zvuku/">
+<link rel="alternate" hreflang="en" href="https://chimitdorzhi.tech/en/ii-modeli/napravlenie/diagnostika-po-zvuku/">
+<link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/ii-modeli/napravlenie/diagnostika-po-zvuku/">
+<link rel="stylesheet" href="/assets/models.css?v=17">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Open models for acoustic monitoring","url":"https://chimitdorzhi.tech/en/ii-modeli/napravlenie/diagnostika-po-zvuku/","inLanguage":"en","dateModified":"2026-09-22","mainEntity":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"url":"https://chimitdorzhi.tech/en/ii-modeli/yamnet/","name":"YAMNet"},{"@type":"ListItem","position":2,"url":"https://chimitdorzhi.tech/en/ii-modeli/mlperf-tiny-asd/","name":"MLPerf Tiny Anomaly Detection"},{"@type":"ListItem","position":3,"url":"https://chimitdorzhi.tech/en/ii-modeli/birdnet/","name":"BirdNET"},{"@type":"ListItem","position":4,"url":"https://chimitdorzhi.tech/en/ii-modeli/panns/","name":"PANNs"},{"@type":"ListItem","position":5,"url":"https://chimitdorzhi.tech/en/ii-modeli/ced/","name":"CED"},{"@type":"ListItem","position":6,"url":"https://chimitdorzhi.tech/en/ii-modeli/dasheng/","name":"Dasheng"},{"@type":"ListItem","position":7,"url":"https://chimitdorzhi.tech/en/ii-modeli/openbeats/","name":"OpenBEATs"},{"@type":"ListItem","position":8,"url":"https://chimitdorzhi.tech/en/ii-modeli/perch/","name":"Perch"},{"@type":"ListItem","position":9,"url":"https://chimitdorzhi.tech/en/ii-modeli/eat/","name":"EAT"},{"@type":"ListItem","position":10,"url":"https://chimitdorzhi.tech/en/ii-modeli/dass/","name":"DASS"},{"@type":"ListItem","position":11,"url":"https://chimitdorzhi.tech/en/ii-modeli/hear/","name":"HeAR"},{"@type":"ListItem","position":12,"url":"https://chimitdorzhi.tech/en/ii-modeli/beats/","name":"BEATs"}]}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://chimitdorzhi.tech/en/"},{"@type":"ListItem","position":2,"name":"AI models","item":"https://chimitdorzhi.tech/en/ii-modeli/"},{"@type":"ListItem","position":3,"name":"Open models for acoustic monitoring","item":"https://chimitdorzhi.tech/en/ii-modeli/napravlenie/diagnostika-po-zvuku/"}]}</script>
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/" data-i18n="nav.home">Главная</a></li>
+            <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+            <li class="nav-dropdown">
+                <a href="/cases/" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+                <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему" aria-pressed="false">
+                <i class="ph ph-moon" aria-hidden="true"></i>
+            </button>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/" data-i18n="nav.home">Главная</a></li>
+        <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+        <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+        <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+        <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+        <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+        <li class="mobile-has-submenu">
+            <details>
+                <summary aria-label="Проекты — развернуть"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down" aria-hidden="true"></i></summary>
+                <ul class="mobile-submenu">
+                    <li>
+                        <a href="https://gerel.space" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">Gerel.space</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/universe_buryat/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/arey/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.arey">AREY</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/mwrlife/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">MWR Life</span>
+                                <span class="mobile-sub-desc">Travel-клуб и партнёрка</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </details>
+        </li>
+        <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+    </ul>
+    <div class="mobile-controls">
+        <div class="mobile-lang-switcher" role="group" aria-label="Выбор языка">
+            <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+            <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+            <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+        </div>
+        <button class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle" aria-label="Переключить тему" aria-pressed="false">
+            <i class="ph ph-moon" aria-hidden="true"></i>
+        </button>
+    </div>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+    <main id="main">
+<section class="section md-page"><div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumbs"><a href="/en/">Home</a><span class="breadcrumbs-sep">›</span><a href="/en/ii-modeli/">AI models</a><span class="breadcrumbs-sep">›</span><span aria-current="page">Open models for acoustic monitoring</span></nav>
+  <header class="md-hero">
+    <span class="section-label">COLLECTION</span>
+    <h1 class="section-heading">Open models for acoustic monitoring</h1>
+    <p class="section-sub">The model listens to equipment through an ordinary microphone and notices when the sound changes: a bearing hums differently, a pump runs rough, an unfamiliar knock appears on the shop floor. Such a system does not diagnose anything; it gives you a reason to inspect a unit before it fails. It runs locally on modest hardware and never sends recordings to a cloud.</p>
+    <div class="md-stats"><span>12 open model families in this collection.</span><span>Updated 22 Sep 2026</span><a class="md-guide" href="/en/ii-modeli/"><i class="ph ph-funnel" aria-hidden="true"></i>Open the full catalog with filters</a></div>
+  </header>
+  <div class="md-grid"><article class="md-card" data-id="yamnet" data-mod="acoustic audio" data-hw="min" data-com="yes" data-latest="2026-09" data-first="2019-11" data-name="yamnet" data-country="us" data-dev="google" data-ru="na" data-ind="security manufacturing dev media" data-ollama="0" data-cpu="1" data-stale="0" data-gguf="0" data-q="yamnet google usa acoustic monitoring music and sound fast sound labelling right on the device detecting alarm sounds on a site picking interesting fragments out of a continuous recording a base for your own classifier over a few classes site security and area monitoring manufacturing and engineering services embedded devices and iot media security manufacturing and logistics software development media and production">
+  <div class="md-card-top"><span class="md-mod"><i class="ph ph-ear" aria-hidden="true"></i>Acoustic monitoring</span><span class="md-card-meta"><span class="md-year">2019–2026</span></span></div>
+  <h2 class="md-name"><a href="/en/ii-modeli/yamnet/">YAMNet</a></h2>
+  <div class="md-dev">Google · USA</div>
+  <p class="md-sum">A tiny model covering 521 sound events, including alarms, breaking glass and screams: it fits on a microcontroller and runs without a GPU. A microphone can capture people voices, which is personal data, so check the procedure with a lawyer.</p>
+  <ul class="md-tasks"><li>Fast sound labelling right on the device</li><li>Detecting alarm sounds on a site</li><li>Picking interesting fragments out of a continuous recording</li></ul>
+  <dl class="md-specs">
+    <div><dt>Sizes</dt><dd>3.7M</dd></div>
+    <div><dt>Hardware</dt><dd>from: Laptop</dd></div>
+  </dl>
+  <div class="md-card-foot"><span class="md-lic md-lic-ok">Commercial use allowed</span><span class="md-more">Details<i class="ph ph-arrow-right" aria-hidden="true"></i></span></div>
+  
+</article>
+<article class="md-card" data-id="mlperf-tiny-asd" data-mod="acoustic" data-hw="min" data-com="yes" data-latest="2026-08" data-first="2021-06" data-name="mlperf tiny anomaly detection" data-country="us" data-dev="" data-ru="na" data-ind="manufacturing dev science security" data-ollama="0" data-cpu="1" data-stale="0" data-gguf="0" data-q="mlperf tiny anomaly detection mlcommons usa acoustic monitoring listening to a machine tool, pump or conveyor flagging deviations from a unit usual noise training on your own recordings of healthy equipment running right on a board next to the equipment manufacturing and equipment maintenance warehouse and logistics building engineering services research and pilots manufacturing and logistics software development science and research security">
+  <div class="md-card-top"><span class="md-mod"><i class="ph ph-ear" aria-hidden="true"></i>Acoustic monitoring</span><span class="md-card-meta"><span class="md-year">2021–2026</span></span></div>
+  <h2 class="md-name"><a href="/en/ii-modeli/mlperf-tiny-asd/">MLPerf Tiny Anomaly Detection</a></h2>
+  <div class="md-dev">MLCommons · USA</div>
+  <p class="md-sum">A reference autoencoder for finding anomalies in machine sound: it learns only from recordings of a healthy unit and flags deviations. The system does not make a diagnosis, it gives you a reason to check the unit before it fails.</p>
+  <ul class="md-tasks"><li>Listening to a machine tool, pump or conveyor</li><li>Flagging deviations from a unit usual noise</li><li>Training on your own recordings of healthy equipment</li></ul>
+  <dl class="md-specs">
+    <div><dt>Sizes</dt><dd>a tiny fully connected autoencoder sized for microcontrollers</dd></div>
+    <div><dt>Hardware</dt><dd>from: Laptop</dd></div>
+  </dl>
+  <div class="md-card-foot"><span class="md-lic md-lic-ok">Commercial use allowed</span><span class="md-more">Details<i class="ph ph-arrow-right" aria-hidden="true"></i></span></div>
+  
+</article>
+<article class="md-card" data-id="birdnet" data-mod="acoustic" data-hw="min" data-com="no" data-latest="2026-07" data-first="2023-06" data-name="birdnet" data-country="us eu" data-dev="" data-ru="na" data-ind="science gov education manufacturing" data-ollama="0" data-cpu="1" data-stale="0" data-gguf="0" data-q="birdnet cornell lab of ornithology and chemnitz university of technology usa and germany acoustic monitoring long-term monitoring of the sound background of a site assessing biodiversity for an environmental review selecting events from round-the-clock recordings a base for your own classifier of environmental sounds ecology and conservation projects public sector and municipal services education and science support for industrial sites science and research public sector education manufacturing and logistics">
+  <div class="md-card-top"><span class="md-mod"><i class="ph ph-ear" aria-hidden="true"></i>Acoustic monitoring</span><span class="md-card-meta"><span class="md-year">2023–2026</span></span></div>
+  <h2 class="md-name"><a href="/en/ii-modeli/birdnet/">BirdNET</a></h2>
+  <div class="md-dev">Cornell Lab of Ornithology and Chemnitz University of Technology · USA and Germany</div>
+  <p class="md-sum">Recognition of more than 6000 bird species by voice, the baseline tool for acoustic monitoring of an area. A microphone on site also records people voices, which is personal data, so check the procedure with a lawyer.</p>
+  <ul class="md-tasks"><li>Long-term monitoring of the sound background of a site</li><li>Assessing biodiversity for an environmental review</li><li>Selecting events from round-the-clock recordings</li></ul>
+  <dl class="md-specs">
+    <div><dt>Sizes</dt><dd>a compact EfficientNet-B0 based model</dd></div>
+    <div><dt>Hardware</dt><dd>from: Laptop</dd></div>
+  </dl>
+  <div class="md-card-foot"><span class="md-lic md-lic-no">Non-commercial only</span><span class="md-more">Details<i class="ph ph-arrow-right" aria-hidden="true"></i></span></div>
+  
+</article>
+<article class="md-card" data-id="panns" data-mod="acoustic audio" data-hw="min" data-com="yes" data-latest="2026-06" data-first="2019-12" data-name="panns" data-country="eu" data-dev="" data-ru="na" data-ind="manufacturing security media science" data-ollama="0" data-cpu="1" data-stale="0" data-gguf="0" data-q="panns university of surrey uk acoustic monitoring music and sound labelling what is happening in a microphone recording detecting alarms, breaking glass, screams a base for your own model tuned to one shop floor going through an archive of recordings manufacturing and equipment maintenance site security and area monitoring media and audio archive analysis research manufacturing and logistics security media and production science and research">
+  <div class="md-card-top"><span class="md-mod"><i class="ph ph-ear" aria-hidden="true"></i>Acoustic monitoring</span><span class="md-card-meta"><span class="md-year">2019–2026</span></span></div>
+  <h2 class="md-name"><a href="/en/ii-modeli/panns/">PANNs</a></h2>
+  <div class="md-dev">University of Surrey · UK</div>
+  <p class="md-sum">The classic set of convolutional networks that label sound across the 527 AudioSet categories, from machinery noise and alarms to breaking glass and screams. The system does not make a diagnosis, it gives you a reason to check the unit before it fails. A microphone can also capture people voices, which is personal data, so check the procedure with a lawyer.</p>
+  <ul class="md-tasks"><li>Labelling what is happening in a microphone recording</li><li>Detecting alarms, breaking glass, screams</li><li>A base for your own model tuned to one shop floor</li></ul>
+  <dl class="md-specs">
+    <div><dt>Sizes</dt><dd>from 5.9M (CNN6) to 81.9M (CNN14)</dd></div>
+    <div><dt>Hardware</dt><dd>from: Laptop</dd></div>
+  </dl>
+  <div class="md-card-foot"><span class="md-lic md-lic-ok">Commercial use allowed</span><span class="md-more">Details<i class="ph ph-arrow-right" aria-hidden="true"></i></span></div>
+  
+</article>
+<article class="md-card" data-id="ced" data-mod="acoustic audio" data-hw="min" data-com="yes" data-latest="2026-03" data-first="2023-11" data-name="ced" data-country="cn" data-dev="xiaomi" data-ru="na" data-ind="manufacturing security dev media" data-ollama="0" data-cpu="1" data-stale="0" data-gguf="0" data-q="ced xiaomi china acoustic monitoring music and sound labelling sound on modest hardware and on site detecting alarm sounds and abnormal noise fine-tuning for your own set of equipment sounds picking fragments out of a continuous recording manufacturing and equipment maintenance site security embedded devices and iot media manufacturing and logistics security software development media and production">
+  <div class="md-card-top"><span class="md-mod"><i class="ph ph-ear" aria-hidden="true"></i>Acoustic monitoring</span><span class="md-card-meta"><span class="md-year">2023–2026</span></span></div>
+  <h2 class="md-name"><a href="/en/ii-modeli/ced/">CED</a></h2>
+  <div class="md-dev">Xiaomi · China</div>
+  <p class="md-sum">Compact sound-labelling models from 5.5M to 86M, with ONNX and INT8 builds that run on an ordinary CPU and on a board next to the equipment. The system does not make a diagnosis, it gives you a reason to check the unit before it fails.</p>
+  <ul class="md-tasks"><li>Labelling sound on modest hardware and on site</li><li>Detecting alarm sounds and abnormal noise</li><li>Fine-tuning for your own set of equipment sounds</li></ul>
+  <dl class="md-specs">
+    <div><dt>Sizes</dt><dd>5.5M - 86M</dd></div>
+    <div><dt>Hardware</dt><dd>from: Laptop</dd></div>
+  </dl>
+  <div class="md-card-foot"><span class="md-lic md-lic-ok">Commercial use allowed</span><span class="md-more">Details<i class="ph ph-arrow-right" aria-hidden="true"></i></span></div>
+  
+</article>
+<article class="md-card" data-id="dasheng" data-mod="acoustic audio" data-hw="min gpu" data-com="yes" data-latest="2026-03" data-first="2024-06" data-name="dasheng" data-country="cn" data-dev="xiaomi" data-ru="na" data-ind="manufacturing security media science" data-ollama="0" data-cpu="1" data-stale="0" data-gguf="0" data-q="dasheng xiaomi china acoustic monitoring music and sound audio features for your own anomaly model finding similar fragments in a recording archive fine-tuning for the sounds of one production line labelling sound events on a site manufacturing and equipment maintenance site security media and audio archives research manufacturing and logistics security media and production science and research">
+  <div class="md-card-top"><span class="md-mod"><i class="ph ph-ear" aria-hidden="true"></i>Acoustic monitoring</span><span class="md-card-meta"><span class="md-year">2024–2026</span></span></div>
+  <h2 class="md-name"><a href="/en/ii-modeli/dasheng/">Dasheng</a></h2>
+  <div class="md-dev">Xiaomi · China</div>
+  <p class="md-sum">A general-purpose audio encoder trained on 272 thousand hours of speech, music and noise: it gives features on top of which you train your own classifier of abnormal sounds. The system does not make a diagnosis, it gives you a reason to check the unit before it fails.</p>
+  <ul class="md-tasks"><li>Audio features for your own anomaly model</li><li>Finding similar fragments in a recording archive</li><li>Fine-tuning for the sounds of one production line</li></ul>
+  <dl class="md-specs">
+    <div><dt>Sizes</dt><dd>86M - 1.2B</dd></div>
+    <div><dt>Hardware</dt><dd>from: Laptop</dd></div>
+  </dl>
+  <div class="md-card-foot"><span class="md-lic md-lic-ok">Commercial use allowed</span><span class="md-more">Details<i class="ph ph-arrow-right" aria-hidden="true"></i></span></div>
+  
+</article>
+<article class="md-card" data-id="openbeats" data-mod="acoustic audio" data-hw="min gpu" data-com="yes" data-latest="2025-11" data-first="2025-07" data-name="openbeats" data-country="us" data-dev="" data-ru="na" data-ind="manufacturing science media dev" data-ollama="0" data-cpu="1" data-stale="0" data-gguf="0" data-q="openbeats carnegie mellon university and co-authors (the espnet project) usa acoustic monitoring music and sound a transparent base for your own audio model fine-tuning on your own equipment recordings labelling sound events comparing approaches on your own data manufacturing and equipment maintenance research and development media and audio archives educational projects manufacturing and logistics science and research media and production software development">
+  <div class="md-card-top"><span class="md-mod"><i class="ph ph-ear" aria-hidden="true"></i>Acoustic monitoring</span><span class="md-card-meta"><span class="md-year">2025</span></span></div>
+  <h2 class="md-name"><a href="/en/ii-modeli/openbeats/">OpenBEATs</a></h2>
+  <div class="md-dev">Carnegie Mellon University and co-authors (the ESPnet project) · USA</div>
+  <p class="md-sum">A fully open reproduction of BEATs: code, training recipes and weights are all published. Teams pick it when they need a transparent base for their own sound model. The system does not make a diagnosis, it gives you a reason to check the unit before it fails.</p>
+  <ul class="md-tasks"><li>A transparent base for your own audio model</li><li>Fine-tuning on your own equipment recordings</li><li>Labelling sound events</li></ul>
+  <dl class="md-specs">
+    <div><dt>Sizes</dt><dd>base and large versions, exact sizes are listed on the model cards</dd></div>
+    <div><dt>Hardware</dt><dd>from: Laptop</dd></div>
+  </dl>
+  <div class="md-card-foot"><span class="md-lic md-lic-ok">Commercial use allowed</span><span class="md-more">Details<i class="ph ph-arrow-right" aria-hidden="true"></i></span></div>
+  
+</article>
+<article class="md-card" data-id="perch" data-mod="acoustic" data-hw="min" data-com="yes" data-latest="2025-08" data-first="2025-08" data-name="perch" data-country="us" data-dev="google" data-ru="na" data-ind="science gov education manufacturing" data-ollama="0" data-cpu="1" data-stale="0" data-gguf="0" data-q="perch google deepmind usa acoustic monitoring monitoring the sound background of a site or water area environmental audio features for your own model selecting events from round-the-clock recordings environmental review and reporting ecology and conservation projects public sector and municipal services education and science support for industrial sites science and research public sector education manufacturing and logistics">
+  <div class="md-card-top"><span class="md-mod"><i class="ph ph-ear" aria-hidden="true"></i>Acoustic monitoring</span><span class="md-card-meta"><span class="md-year">2025</span></span></div>
+  <h2 class="md-name"><a href="/en/ii-modeli/perch/">Perch</a></h2>
+  <div class="md-dev">Google DeepMind · USA</div>
+  <p class="md-sum">A model for acoustic monitoring of nature: it recognises about 15,000 species and provides features for your own tasks, and the license allows commercial use. A microphone on site also records people voices, which is personal data, so check the procedure with a lawyer.</p>
+  <ul class="md-tasks"><li>Monitoring the sound background of a site or water area</li><li>Environmental audio features for your own model</li><li>Selecting events from round-the-clock recordings</li></ul>
+  <dl class="md-specs">
+    <div><dt>Sizes</dt><dd>size not stated on the model card</dd></div>
+    <div><dt>Hardware</dt><dd>from: Laptop</dd></div>
+  </dl>
+  <div class="md-card-foot"><span class="md-lic md-lic-ok">Commercial use allowed</span><span class="md-more">Details<i class="ph ph-arrow-right" aria-hidden="true"></i></span></div>
+  
+</article>
+<article class="md-card" data-id="eat" data-mod="acoustic audio" data-hw="min gpu" data-com="yes" data-latest="2025-05" data-first="2024-01" data-name="eat" data-country="cn" data-dev="" data-ru="na" data-ind="manufacturing security science dev" data-ollama="0" data-cpu="1" data-stale="0" data-gguf="0" data-q="eat shanghai jiao tong university and peng cheng laboratory china acoustic monitoring music and sound training your own audio model on modest hardware audio features for spotting abnormal operating modes labelling sound events on a site fine-tuning for the sounds of one production line manufacturing and equipment maintenance site security research and development audio archives manufacturing and logistics security science and research software development">
+  <div class="md-card-top"><span class="md-mod"><i class="ph ph-ear" aria-hidden="true"></i>Acoustic monitoring</span><span class="md-card-meta"><span class="md-year">2024–2025</span></span></div>
+  <h2 class="md-name"><a href="/en/ii-modeli/eat/">EAT</a></h2>
+  <div class="md-dev">Shanghai Jiao Tong University and Peng Cheng Laboratory · China</div>
+  <p class="md-sum">A self-supervised sound understanding model that is markedly cheaper to train on your own data than its predecessors. The system does not make a diagnosis, it gives you a reason to check the unit before it fails.</p>
+  <ul class="md-tasks"><li>Training your own audio model on modest hardware</li><li>Audio features for spotting abnormal operating modes</li><li>Labelling sound events on a site</li></ul>
+  <dl class="md-specs">
+    <div><dt>Sizes</dt><dd>90M (base) and 309M (large)</dd></div>
+    <div><dt>Hardware</dt><dd>from: Laptop</dd></div>
+  </dl>
+  <div class="md-card-foot"><span class="md-lic md-lic-ok">Commercial use allowed</span><span class="md-more">Details<i class="ph ph-arrow-right" aria-hidden="true"></i></span></div>
+  
+</article>
+<article class="md-card" data-id="dass" data-mod="acoustic audio" data-hw="min gpu" data-com="yes" data-latest="2025-04" data-first="2024-07" data-name="dass" data-country="us" data-dev="ibm" data-ru="na" data-ind="manufacturing security media science" data-ollama="0" data-cpu="1" data-stale="0" data-gguf="0" data-q="dass mit csail and mit-ibm watson ai lab usa acoustic monitoring music and sound processing long continuous recordings finding a rare event across a multi-hour shift labelling sound events on a site fine-tuning on your own equipment sounds manufacturing and equipment maintenance site security media and audio archives research manufacturing and logistics security media and production science and research">
+  <div class="md-card-top"><span class="md-mod"><i class="ph ph-ear" aria-hidden="true"></i>Acoustic monitoring</span><span class="md-card-meta"><span class="md-year">2024–2025</span></span></div>
+  <h2 class="md-name"><a href="/en/ii-modeli/dass/">DASS</a></h2>
+  <div class="md-dev">MIT CSAIL and MIT-IBM Watson AI Lab · USA</div>
+  <p class="md-sum">A sound understanding model built on state spaces instead of a transformer: it handles recordings hours long, which suits continuous listening to a production line. The system does not make a diagnosis, it gives you a reason to check the unit before it fails.</p>
+  <ul class="md-tasks"><li>Processing long continuous recordings</li><li>Finding a rare event across a multi-hour shift</li><li>Labelling sound events on a site</li></ul>
+  <dl class="md-specs">
+    <div><dt>Sizes</dt><dd>30M (small) and 49M (medium)</dd></div>
+    <div><dt>Hardware</dt><dd>from: Laptop</dd></div>
+  </dl>
+  <div class="md-card-foot"><span class="md-lic md-lic-ok">Commercial use allowed</span><span class="md-more">Details<i class="ph ph-arrow-right" aria-hidden="true"></i></span></div>
+  
+</article>
+<article class="md-card" data-id="hear" data-mod="acoustic medical" data-hw="min gpu" data-com="conditional" data-latest="2025-04" data-first="2024-12" data-name="hear" data-country="us" data-dev="google" data-ru="na" data-ind="medical science" data-ollama="0" data-cpu="1" data-stale="0" data-gguf="0" data-q="hear google usa acoustic monitoring medicine features of cough and breathing sounds for your own model research projects in health acoustics selecting cough and breathing fragments from a recording pilots with a small amount of labelled data medical research clinics and telemedicine in research mode science and universities pharma healthcare science and research">
+  <div class="md-card-top"><span class="md-mod"><i class="ph ph-ear" aria-hidden="true"></i>Acoustic monitoring</span><span class="md-card-meta"><span class="md-year">2024–2025</span></span></div>
+  <h2 class="md-name"><a href="/en/ii-modeli/hear/">HeAR</a></h2>
+  <div class="md-dev">Google · USA</div>
+  <p class="md-sum">A model for health sounds: coughing, breathing, throat clearing. It provides features on top of which a researcher builds their own model and draws no conclusions about illness itself. It does not replace a doctor; decisions are made by a specialist. Voice recordings are personal data, so check the procedure with a lawyer.</p>
+  <ul class="md-tasks"><li>Features of cough and breathing sounds for your own model</li><li>Research projects in health acoustics</li><li>Selecting cough and breathing fragments from a recording</li></ul>
+  <dl class="md-specs">
+    <div><dt>Sizes</dt><dd>a ViT-Large class model, trained on more than 300 million two-second clips</dd></div>
+    <div><dt>Hardware</dt><dd>from: Laptop</dd></div>
+  </dl>
+  <div class="md-card-foot"><span class="md-lic md-lic-warn">Commercial use with conditions</span><span class="md-more">Details<i class="ph ph-arrow-right" aria-hidden="true"></i></span></div>
+  
+</article>
+<article class="md-card" data-id="beats" data-mod="acoustic audio" data-hw="min gpu" data-com="yes" data-latest="2022-12" data-first="2022-12" data-name="beats" data-country="us" data-dev="microsoft" data-ru="na" data-ind="manufacturing security media science" data-ollama="0" data-cpu="1" data-stale="1" data-gguf="0" data-q="beats microsoft usa acoustic monitoring music and sound a base for your own sound understanding model audio features for spotting abnormal operating modes labelling sound events on a site fine-tuning on a small set of your own recordings manufacturing and equipment maintenance site security media and audio archives research manufacturing and logistics security media and production science and research">
+  <div class="md-card-top"><span class="md-mod"><i class="ph ph-ear" aria-hidden="true"></i>Acoustic monitoring</span><span class="md-card-meta"><span class="md-badge md-badge-old" title="Last open release: Dec 2022. The family is no longer updated.">Not maintained</span><span class="md-year">2022</span></span></div>
+  <h2 class="md-name"><a href="/en/ii-modeli/beats/">BEATs</a></h2>
+  <div class="md-dev">Microsoft · USA</div>
+  <p class="md-sum">A self-supervised sound understanding model that became the base for many current systems: teams take it as a starting point and fine-tune it on their own equipment sounds. The system does not make a diagnosis, it gives you a reason to check the unit before it fails.</p>
+  <ul class="md-tasks"><li>A base for your own sound understanding model</li><li>Audio features for spotting abnormal operating modes</li><li>Labelling sound events on a site</li></ul>
+  <dl class="md-specs">
+    <div><dt>Sizes</dt><dd>a ViT-base class model, around 90M parameters</dd></div>
+    <div><dt>Hardware</dt><dd>from: Laptop</dd></div>
+  </dl>
+  <div class="md-card-foot"><span class="md-lic md-lic-ok">Commercial use allowed</span><span class="md-more">Details<i class="ph ph-arrow-right" aria-hidden="true"></i></span></div>
+  
+</article></div>
+  <section class="md-colls" aria-labelledby="mdCollsT"><h2 id="mdCollsT">Collections</h2><div class="md-colls-grid"><div class="md-links-group"><h3>Quick collections</h3><ul class="md-links"><li><a href="/en/ii-modeli/podborki/yazyki-narodov-rossii/">Open AI models for the languages of Russia</a> <small>15</small></li><li><a href="/en/ii-modeli/podborki/russkie/">Open-source AI models with Russian language support</a> <small>125</small></li><li><a href="/en/ii-modeli/podborki/dlya-kommercii/">Open-source AI models for commercial use</a> <small>372</small></li><li><a href="/en/ii-modeli/podborki/dlya-noutbuka/">AI models that run on a laptop</a> <small>481</small></li><li><a href="/en/ii-modeli/podborki/ollama/">Models available in Ollama</a> <small>78</small></li><li><a href="/en/ii-modeli/podborki/bez-videokarty/">AI models that run without a GPU</a> <small>344</small></li></ul></div><div class="md-links-group"><h3>Stacks by task</h3><ul class="md-links"><li><a href="/en/ii-modeli/stek/dokumentooborot/">Document processing stack: from scan to database row</a></li><li><a href="/en/ii-modeli/stek/koll-centr/">Call centre stack: hear, understand, answer</a></li><li><a href="/en/ii-modeli/stek/podderzhka-klientov/">Support stack: answers from your knowledge base, not from the model</a></li><li><a href="/en/ii-modeli/stek/internet-magazin/">E-commerce stack: a product card from a single photo</a></li><li><a href="/en/ii-modeli/stek/videoproizvodstvo/">Video stack: footage, voice, subtitles, translation</a></li><li><a href="/en/ii-modeli/stek/analitika-po-bazam/">Analytics stack: asking your database in plain words</a></li><li><a href="/en/ii-modeli/stek/kontrol-kachestva/">Manufacturing stack: a camera that notices and explains</a></li><li><a href="/en/ii-modeli/stek/yuridicheskiy-otdel/">Legal stack: contracts, precedent, redaction</a></li></ul></div><div class="md-links-group"><h3>Open alternatives to popular services</h3><ul class="md-links"><li><a href="/en/ii-modeli/alternativa/chatgpt/">Open-source alternative to ChatGPT: what to run on your own server</a></li><li><a href="/en/ii-modeli/alternativa/claude/">Open-source alternative to Claude: what to run on your own server</a></li><li><a href="/en/ii-modeli/alternativa/midjourney/">Open-source alternative to Midjourney: image generation on your own hardware</a></li><li><a href="/en/ii-modeli/alternativa/dalle/">Open-source alternative to DALL-E and Adobe Firefly: images from a description</a></li><li><a href="/en/ii-modeli/alternativa/runway/">Open-source alternative to Sora and Runway: video on your own server</a></li><li><a href="/en/ii-modeli/alternativa/elevenlabs/">Open-source alternative to ElevenLabs: run text-to-speech yourself</a></li><li><a href="/en/ii-modeli/alternativa/otter/">Open-source alternative to cloud transcription: Whisper on your own server</a></li><li><a href="/en/ii-modeli/alternativa/deepl/">Open-source alternative to Google Translate and DeepL: translation on your own server</a></li><li><a href="/en/ii-modeli/alternativa/abbyy-finereader/">Open-source alternative to ABBYY FineReader: document recognition</a></li><li><a href="/en/ii-modeli/alternativa/github-copilot/">Open-source alternative to GitHub Copilot: a coding assistant inside your perimeter</a></li><li><a href="/en/ii-modeli/alternativa/perplexity/">Open-source alternative to Perplexity: search over your own documents and RAG</a></li><li><a href="/en/ii-modeli/alternativa/notion-ai/">Open-source alternative to Notion AI: document work inside your company</a></li><li><a href="/en/ii-modeli/alternativa/photoshop/">Open-source alternative to Photoshop and Canva AI: photo editing and backgrounds</a></li><li><a href="/en/ii-modeli/alternativa/synthesia/">Open-source alternative to Synthesia and HeyGen: video avatars on your own server</a></li><li><a href="/en/ii-modeli/alternativa/jasper/">Open-source alternative to Jasper: marketing copy trained on your own data</a></li></ul></div><div class="md-links-group"><h3>By hardware</h3><ul class="md-links"><li><a href="/en/ii-modeli/zhelezo/bez-videokarty/">What runs on a regular computer without a GPU</a></li><li><a href="/en/ii-modeli/zhelezo/odna-videokarta/">What runs on a single GPU</a></li><li><a href="/en/ii-modeli/zhelezo/klaster/">What needs several GPUs</a></li></ul></div><div class="md-links-group"><h3>Reference</h3><ul class="md-links"><li><a href="/en/ii-modeli/licenzii/">Open-model licenses in plain language</a></li><li><a href="/en/ii-modeli/doobuchenie/">How to fine-tune an open model for your business</a></li><li><a href="/en/ii-modeli/slovar/">AI model glossary</a></li><li><a href="/en/ii-modeli/kalkulyator-okupaemosti/">Payback calculator: cloud AI or your own server</a></li></ul></div><div class="md-links-group"><h3>By category</h3><ul class="md-links"><li><a href="/en/ii-modeli/napravlenie/yazykovye-modeli/">Open-source language models for business</a> <small>132</small></li><li><a href="/en/ii-modeli/napravlenie/dlya-koda/">Open-source AI models for coding</a> <small>44</small></li><li><a href="/en/ii-modeli/napravlenie/kartinka-i-tekst/">Vision-language models: image and text</a> <small>81</small></li><li><a href="/en/ii-modeli/napravlenie/raspoznavanie-dokumentov/">Open-source models for document recognition</a> <small>46</small></li><li><a href="/en/ii-modeli/napravlenie/generatsiya-izobrazheniy/">Open-source AI models for image generation</a> <small>28</small></li><li><a href="/en/ii-modeli/napravlenie/generatsiya-video/">Open-source AI models for video generation</a> <small>37</small></li><li><a href="/en/ii-modeli/napravlenie/avatary/">Open-source AI models for talking avatars</a> <small>14</small></li><li><a href="/en/ii-modeli/napravlenie/raspoznavanie-rechi/">Open-source speech recognition models</a> <small>23</small></li><li><a href="/en/ii-modeli/napravlenie/sintez-rechi/">Open-source text-to-speech models</a> <small>33</small></li><li><a href="/en/ii-modeli/napravlenie/golosovye-assistenty/">Open-source models for voice assistants</a> <small>15</small></li><li><a href="/en/ii-modeli/napravlenie/muzyka-i-zvuk/">Open-source AI models for music and sound</a> <small>30</small></li><li><a href="/en/ii-modeli/napravlenie/3d-modeli/">Open-source AI models for 3D generation</a> <small>20</small></li><li><a href="/en/ii-modeli/napravlenie/kompyuternoe-zrenie/">Open-source computer vision models</a> <small>58</small></li><li><a href="/en/ii-modeli/napravlenie/poisk-i-rag/">Open-source embedding models for search and RAG</a> <small>54</small></li><li><a href="/en/ii-modeli/napravlenie/prognozirovanie/">Open-source time series forecasting models</a> <small>12</small></li><li><a href="/en/ii-modeli/napravlenie/robototekhnika/">Open-source models for robotics</a> <small>10</small></li><li><a href="/en/ii-modeli/napravlenie/primerka-odezhdy/">Open-source AI models for virtual try-on</a> <small>10</small></li><li><a href="/en/ii-modeli/napravlenie/obrabotka-foto/">Open-source AI models for photo editing</a> <small>19</small></li><li><a href="/en/ii-modeli/napravlenie/perevod/">Open-source machine translation models</a> <small>16</small></li><li><a href="/en/ii-modeli/napravlenie/moderatsiya/">Open-source content moderation models</a> <small>16</small></li><li><a href="/en/ii-modeli/napravlenie/golos-i-spikery/">Open-source models for voice and audio analysis</a> <small>23</small></li><li><a href="/en/ii-modeli/napravlenie/agenty-dlya-kompyutera/">Open-source AI agents for computer use</a> <small>17</small></li><li><a href="/en/ii-modeli/napravlenie/tablichnye-dannye/">Open-source models for tabular data</a> <small>15</small></li><li><a href="/en/ii-modeli/napravlenie/razbor-teksta/">Open-source models for text analysis</a> <small>42</small></li><li><a href="/en/ii-modeli/napravlenie/meditsina/">Open-source medical AI models</a> <small>19</small></li><li><a href="/en/ii-modeli/napravlenie/matematika-i-rassuzhdeniya/">Open-source models for math and reasoning</a> <small>27</small></li><li><a href="/en/ii-modeli/napravlenie/rerankery/">Open-source rerankers for search and RAG</a> <small>11</small></li><li><a href="/en/ii-modeli/napravlenie/poisk-po-skanam/">Open-source models for searching scanned documents</a> <small>11</small></li><li><a href="/en/ii-modeli/napravlenie/tekst-v-sql/">Open-source text-to-SQL models</a> <small>11</small></li><li><a href="/en/ii-modeli/napravlenie/proverka-otvetov/">Open-source models for fact-checking and evaluating AI answers</a> <small>12</small></li><li><a href="/en/ii-modeli/napravlenie/raspoznavanie-lits/">Open-source face recognition models</a> <small>7</small></li><li><a href="/en/ii-modeli/napravlenie/finansy/">Open-source AI models for finance</a> <small>15</small></li><li><a href="/en/ii-modeli/napravlenie/rekomendatelnye-sistemy/">Open models for recommender systems</a> <small>12</small></li><li><a href="/en/ii-modeli/napravlenie/nomera-i-transport/">Open models for license plates and vehicles</a> <small>13</small></li><li><a href="/en/ii-modeli/napravlenie/chertezhi-i-cad/">Open AI models for drawings and CAD</a> <small>12</small></li><li><span aria-current="page">Open models for acoustic monitoring</span> <small>12</small></li><li><a href="/en/ii-modeli/napravlenie/detekciya-poddelok/">Open-source models for detecting fakes</a> <small>18</small></li><li><a href="/en/ii-modeli/napravlenie/kiberbezopasnost/">Open-source AI models for cybersecurity</a> <small>13</small></li><li><a href="/en/ii-modeli/napravlenie/pogoda-i-klimat/">Open-source weather and climate models</a> <small>7</small></li><li><a href="/en/ii-modeli/napravlenie/sputnikovye-snimki/">Open-source models for satellite imagery and geodata</a> <small>5</small></li><li><a href="/en/ii-modeli/napravlenie/biologiya-i-khimiya/">Open-source models for biology and chemistry</a> <small>5</small></li><li><a href="/en/ii-modeli/napravlenie/avtonomnoe-vozhdenie/">Open-source models for autonomous driving</a> <small>3</small></li></ul></div><div class="md-links-group"><h3>By industry</h3><ul class="md-links"><li><a href="/en/ii-modeli/sfera/torgovlya-i-marketpleysy/">AI models for retail and marketplaces</a> <small>143</small></li><li><a href="/en/ii-modeli/sfera/podderzhka-klientov/">AI models for customer support</a> <small>158</small></li><li><a href="/en/ii-modeli/sfera/dokumenty-i-bukhgalteriya/">AI models for documents and accounting</a> <small>165</small></li><li><a href="/en/ii-modeli/sfera/dlya-yuristov/">AI models for legal professionals</a> <small>50</small></li><li><a href="/en/ii-modeli/sfera/meditsina/">AI models for healthcare and clinics</a> <small>30</small></li><li><a href="/en/ii-modeli/sfera/obrazovanie/">AI models for education</a> <small>116</small></li><li><a href="/en/ii-modeli/sfera/marketing-i-kontent/">AI models for marketing and content</a> <small>104</small></li><li><a href="/en/ii-modeli/sfera/media-i-prodakshn/">AI models for media and production</a> <small>215</small></li><li><a href="/en/ii-modeli/sfera/hr/">AI models for HR and recruiting</a> <small>17</small></li><li><a href="/en/ii-modeli/sfera/proizvodstvo-i-sklad/">AI models for manufacturing and warehousing</a> <small>103</small></li><li><a href="/en/ii-modeli/sfera/finansy/">AI models for finance and banking</a> <small>127</small></li><li><a href="/en/ii-modeli/sfera/razrabotka-po/">AI models for software development</a> <small>183</small></li><li><a href="/en/ii-modeli/sfera/bezopasnost/">AI models for security</a> <small>84</small></li><li><a href="/en/ii-modeli/sfera/nauka/">AI models for science and research</a> <small>192</small></li><li><a href="/en/ii-modeli/sfera/gossektor/">AI models for the public sector</a> <small>56</small></li></ul></div><div class="md-links-group"><h3>Model comparisons</h3><ul class="md-links"><li><a href="/en/ii-modeli/sravnenie/qwen-vs-gigachat/">Qwen or GigaChat: which to choose for business</a></li><li><a href="/en/ii-modeli/sravnenie/qwen-vs-llama/">Qwen or Llama: which to choose for business</a></li><li><a href="/en/ii-modeli/sravnenie/gigachat-vs-yandexgpt/">GigaChat or YandexGPT: which to choose for business</a></li><li><a href="/en/ii-modeli/sravnenie/deepseek-vs-qwen/">DeepSeek or Qwen: which to choose for business</a></li><li><a href="/en/ii-modeli/sravnenie/gemma-vs-llama/">Gemma or Llama: which to choose for business</a></li><li><a href="/en/ii-modeli/sravnenie/mistral-vs-llama/">Mistral or Llama: which to choose for business</a></li><li><a href="/en/ii-modeli/sravnenie/whisper-vs-gigaam/">Whisper or GigaAM: which to choose for business</a></li><li><a href="/en/ii-modeli/sravnenie/whisper-vs-parakeet/">Whisper or Parakeet: which to choose for business</a></li><li><a href="/en/ii-modeli/sravnenie/silero-vs-piper/">Silero or Piper: which to choose for business</a></li><li><a href="/en/ii-modeli/sravnenie/flux-vs-stable-diffusion/">FLUX or Stable Diffusion: which to choose for business</a></li><li><a href="/en/ii-modeli/sravnenie/flux-vs-qwen-image/">FLUX or Qwen-Image: which to choose for business</a></li><li><a href="/en/ii-modeli/sravnenie/paddleocr-vl-vs-deepseek-ocr/">PaddleOCR-VL or DeepSeek-OCR: which to choose for business</a></li><li><a href="/en/ii-modeli/sravnenie/bge-m3-vs-e5/">BGE-M3 or E5: which to choose for business</a></li><li><a href="/en/ii-modeli/sravnenie/wan-vs-ltx-video/">Wan or LTX-Video: which to choose for business</a></li><li><a href="/en/ii-modeli/sravnenie/yolo-vs-rf-detr/">YOLO or RF-DETR: which to choose for business</a></li><li><a href="/en/ii-modeli/sravnenie/gpt-oss-vs-qwen/">gpt-oss or Qwen: which one to run on your own server</a></li><li><a href="/en/ii-modeli/sravnenie/llama-vs-deepseek/">Llama or DeepSeek: which to run inside your own perimeter</a></li><li><a href="/en/ii-modeli/sravnenie/mistral-vs-qwen/">Mistral or Qwen: which to choose for business</a></li><li><a href="/en/ii-modeli/sravnenie/gemma-vs-phi/">Gemma or Phi: small models for modest hardware</a></li><li><a href="/en/ii-modeli/sravnenie/yandexgpt-vs-qwen/">YandexGPT or Qwen: which to choose for Russian</a></li><li><a href="/en/ii-modeli/sravnenie/t-pro-vs-gigachat/">T-Pro or GigaChat: which one for a Russian company</a></li><li><a href="/en/ii-modeli/sravnenie/deepseek-r1-vs-qwq/">DeepSeek-R1 or QwQ: which reasoning model to pick</a></li><li><a href="/en/ii-modeli/sravnenie/glm-vs-qwen/">GLM or Qwen: which to choose for agents and documents</a></li><li><a href="/en/ii-modeli/sravnenie/kimi-vs-deepseek/">Kimi or DeepSeek: large open models for agentic work</a></li><li><a href="/en/ii-modeli/sravnenie/saiga-vs-vikhr/">Saiga or Vikhr: which Russian fine-tune to choose</a></li><li><a href="/en/ii-modeli/sravnenie/smollm-vs-tinyllama/">SmolLM or TinyLlama: which tiny model to choose</a></li><li><a href="/en/ii-modeli/sravnenie/command-vs-llama/">Cohere Command or Llama: which to choose for a knowledge base</a></li><li><a href="/en/ii-modeli/sravnenie/nemotron-vs-llama/">Nemotron or Llama: which to choose for agents</a></li><li><a href="/en/ii-modeli/sravnenie/qwen-coder-vs-deepseek-coder/">Qwen Coder or DeepSeek-Coder: which coding model to pick</a></li><li><a href="/en/ii-modeli/sravnenie/codestral-vs-qwen-coder/">Codestral or Qwen Coder: which coding model you may ship</a></li><li><a href="/en/ii-modeli/sravnenie/devstral-vs-codestral/">Devstral or Codestral: which Mistral coding model to take</a></li><li><a href="/en/ii-modeli/sravnenie/starcoder-vs-code-llama/">StarCoder or Code Llama: which base to fine-tune on</a></li><li><a href="/en/ii-modeli/sravnenie/minicpm-vs-gemma/">MiniCPM or Gemma: which model to put on the device</a></li><li><a href="/en/ii-modeli/sravnenie/qwen-vl-vs-internvl/">Qwen-VL or InternVL: which vision model to choose</a></li><li><a href="/en/ii-modeli/sravnenie/minicpm-v-vs-qwen-vl/">MiniCPM-V or Qwen-VL: which to choose for image recognition</a></li><li><a href="/en/ii-modeli/sravnenie/got-ocr-vs-paddleocr-vl/">GOT-OCR 2.0 or PaddleOCR-VL: choosing an OCR model</a></li><li><a href="/en/ii-modeli/sravnenie/dots-ocr-vs-deepseek-ocr/">dots.ocr or DeepSeek-OCR: which parses documents better for you</a></li><li><a href="/en/ii-modeli/sravnenie/florence-2-vs-grounding-dino/">Florence-2 or Grounding DINO: which to choose for object detection</a></li><li><a href="/en/ii-modeli/sravnenie/yolo-vs-grounding-dino/">YOLO or Grounding DINO: which detector for video analytics</a></li><li><a href="/en/ii-modeli/sravnenie/rmbg-vs-birefnet/">BRIA RMBG or BiRefNet: which to use for background removal</a></li><li><a href="/en/ii-modeli/sravnenie/real-esrgan-vs-supir/">Real-ESRGAN or SUPIR: which to use for upscaling photos</a></li><li><a href="/en/ii-modeli/sravnenie/stable-diffusion-vs-kandinsky/">Stable Diffusion or Kandinsky: which image model to choose</a></li><li><a href="/en/ii-modeli/sravnenie/flux-vs-hidream/">FLUX or HiDream: which to choose for images and editing</a></li><li><a href="/en/ii-modeli/sravnenie/hunyuan-video-vs-wan/">HunyuanVideo or Wan: which open video model to choose</a></li><li><a href="/en/ii-modeli/sravnenie/xtts-vs-f5-tts/">XTTS or F5-TTS: which voice cloning model to pick</a></li><li><a href="/en/ii-modeli/sravnenie/piper-vs-kokoro/">Piper or Kokoro: which text-to-speech model to pick</a></li><li><a href="/en/ii-modeli/sravnenie/f5-tts-vs-fish-speech/">F5-TTS or Fish Speech: which voiceover model to pick</a></li><li><a href="/en/ii-modeli/sravnenie/gigaam-vs-vosk/">GigaAM or Vosk: which speech recognition to pick</a></li><li><a href="/en/ii-modeli/sravnenie/parakeet-vs-qwen-asr/">Parakeet or Qwen3-ASR: which transcription model to pick</a></li><li><a href="/en/ii-modeli/sravnenie/demucs-vs-uvr-mdx/">Demucs or UVR: which tool splits vocals from music</a></li><li><a href="/en/ii-modeli/sravnenie/pyannote-vs-wespeaker/">pyannote or WeSpeaker: which speaker tool to pick</a></li><li><a href="/en/ii-modeli/sravnenie/bge-m3-vs-jina-embeddings/">BGE-M3 or Jina Embeddings: which embedding model to pick</a></li><li><a href="/en/ii-modeli/sravnenie/qwen-embedding-vs-e5/">Qwen3 Embedding or E5: which embedding model to pick</a></li><li><a href="/en/ii-modeli/sravnenie/timesfm-vs-chronos/">TimesFM or Chronos: which forecasting model to pick</a></li><li><a href="/en/ii-modeli/sravnenie/llama-guard-vs-shieldgemma/">Llama Guard or ShieldGemma: which safety filter to pick</a></li></ul></div></div></section>
+  <section class="md-offer" aria-labelledby="mdOfferT">
+    <div class="md-offer-text"><h2 id="mdOfferT">Need a model for your task?</h2><p>An open model can run on your own server: data stays in-house, there is no per-request fee, and the model can be fine-tuned on your documents.</p></div>
+    <ol class="md-steps"><li><b>Select</b><span>The model and size for your task and hardware budget</span></li><li><b>Deploy</b><span>On your server or in a closed network, with an API</span></li><li><b>Fine-tune</b><span>On your data, or connect a knowledge base</span></li><li><b>Integrate</b><span>Into your CRM, ERP, bot, website or team chat</span></li></ol>
+    <a class="btn btn-accent md-offer-btn" href="https://t.me/chimitdorzhi?text=Hello!%20I%20want%20to%20deploy%20an%20open%20AI%20model%20on%20my%20server.%20Task%3A%20" target="_blank" rel="noopener"><i class="ph ph-telegram-logo" aria-hidden="true"></i>Discuss deployment</a>
+  </section>
+</div></section>
+</main>
+<footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label">КОНТАКТ</span>
+            <h2>ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                <a href="tel:+971563369591" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +971 56 336 9591</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 Дарижапов Чимитдоржи. Все права защищены.</p>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/predlozheniya/" class="footer-policy-link">Предложения</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/blog/" class="footer-policy-link">Блог</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link">Политика конфиденциальности</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=44" defer></script>
+<script src="/script.js?v=40" defer></script><script>(function(){[].forEach.call(document.querySelectorAll('.md-card'),function(c){c.addEventListener('click',function(e){if(e.target.closest('a,label,input'))return;location.href=c.querySelector('.md-name a').getAttribute('href');});});})();</script>
+</body>
+</html>

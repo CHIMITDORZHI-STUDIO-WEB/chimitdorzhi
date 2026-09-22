@@ -78,7 +78,7 @@ module.exports = [
     industries: ['retail', 'support', 'marketing'],
     ollama: false,
     cpu: false,
-    summary: 'Модель Авито на базе Qwen3-8B, переученная под русский язык: свой токенизатор, русские тексты быстрее на 15–25%. Умеет вызывать функции.',
+    summary: 'Модель Авито на базе Qwen3-8B, переученная под русский язык: свой токенизатор, который экономнее кодирует русский текст. Умеет вызывать функции.',
     tasks: ['Описания товаров и объявлений на русском', 'Чат-бот с вызовом внутренних сервисов', 'Разбор и классификация обращений'],
     where: ['Маркетплейсы и интернет-магазины', 'Службы поддержки', 'Маркетинг'],
     versions: [['A-Vibe', '2025-10'], ['A-Vibe Eagle (ускоритель генерации)', '2025-10']],
@@ -88,7 +88,7 @@ module.exports = [
     source: 'https://huggingface.co/AvitoTech/avibe',
     verified: true,
     en: {
-      summary: 'Avito\'s model based on Qwen3-8B, retrained for Russian: its own tokenizer makes Russian text 15–25% faster. Supports function calling.',
+      summary: 'Avito\'s model based on Qwen3-8B, retrained for Russian: its own tokenizer encodes Russian text more efficiently. Supports function calling.',
       tasks: ['Product and listing descriptions in Russian', 'Chatbot that calls internal services', 'Request analysis and classification'],
       where: ['Marketplaces and online stores', 'Support teams', 'Marketing'],
       license: 'Apache 2.0',

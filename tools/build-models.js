@@ -11,7 +11,7 @@ const ROOT = path.resolve(__dirname, '..');
 const SITE = 'https://chimitdorzhi.tech';
 const UPDATED = { ru: '22.09.2026', en: '22 Sep 2026' };
 const LASTMOD = '2026-09-22';
-const CSS_V = 16;
+const CSS_V = 17;
 const LANGS = ['ru', 'en'];
 const BASE = { ru: '/ii-modeli/', en: '/en/ii-modeli/' };
 const OUT = { ru: path.join(ROOT, 'ii-modeli'), en: path.join(ROOT, 'en', 'ii-modeli') };
@@ -22,6 +22,9 @@ const STALE_FROM = '2024-09';
 const isStale = (m) => m.latest < STALE_FROM;
 const quantOf = (m) => (Array.isArray(m.quant) ? m.quant : []);
 const hasGguf = (m) => quantOf(m).includes('gguf');
+// Клонирование голоса: предупреждение обязательно, независимо от того, что написал автор записи.
+const clonesVoice = (m) => /клонир/i.test([m.summary, ...(m.tasks || []), ...(m.where || [])].join(' '));
+// Клонирование голоса: предупреждение обязательно, независимо от того, что написал автор записи.
 
 // --- Данные и проверка записей ---
 const ALL = require('./models-data.js').filter((m) => {
@@ -194,7 +197,7 @@ function collectionList(lang) {
     const items = models.filter((m) => (m.industries || []).includes(k));
     if (items.length) list.push({ kind: 'industry', key: k, rel: `sfera/${c.slug}/`, c, items });
   }
-  const SPECIAL = { russian: (m) => m.ru === 'yes', commercial: (m) => m.commercial === 'yes', laptop: (m) => m.hardware.includes('min'), ollama: (m) => m.ollama === true, cpu: (m) => m.cpu === true };
+  const SPECIAL = { russian: (m) => m.ru === 'yes', commercial: (m) => m.commercial === 'yes', laptop: (m) => m.hardware.includes('min'), ollama: (m) => m.ollama === true, cpu: (m) => m.cpu === true, langsru: (m) => m.langsru === true };
   for (const [k, c] of Object.entries(COLL.special || {})) {
     if (!SPECIAL[k] || !c.slug) continue;
     const items = models.filter(SPECIAL[k]);
@@ -462,6 +465,7 @@ function detail(m0, lang) {
     <h1 class="md-d-title">${esc(m.name)}</h1>
     <p class="md-d-lead">${esc(m.summary)}</p>
     ${isStale(m) ? `<p class="md-stale"><i class="ph ph-clock-counter-clockwise" aria-hidden="true"></i>${esc(t.staleNote(fmtMonth(m.latest, lang)))}</p>` : ''}
+    ${clonesVoice(m0) ? `<p class="md-stale md-warn"><i class="ph ph-warning" aria-hidden="true"></i>${esc(t.voiceNote)}</p>` : ''}
     <dl class="md-d-facts">
       <div><dt>${t.dev}</dt><dd>${esc(m.developer)}, ${esc(m.country)}</dd></div>
       <div><dt>${t.first}</dt><dd>${fmtMonth(m.first, lang)}</dd></div>

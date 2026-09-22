@@ -35,6 +35,10 @@ const MOD = {
   finance:    { icon: 'currency-circle-dollar', ru: 'Финансы',              en: 'Finance' },
   cyber:      { icon: 'bug',              ru: 'Кибербезопасность',          en: 'Cybersecurity' },
   forensics:  { icon: 'detective',        ru: 'Детекция подделок',          en: 'Deepfake detection' },
+  recsys:     { icon: 'thumbs-up',        ru: 'Рекомендации',               en: 'Recommenders' },
+  anpr:       { icon: 'car-profile',      ru: 'Номера и транспорт',         en: 'Plates and vehicles' },
+  cad:        { icon: 'blueprint',        ru: 'Чертежи и CAD',              en: 'Drawings and CAD' },
+  acoustic:   { icon: 'ear',              ru: 'Диагностика по звуку',       en: 'Acoustic monitoring' },
   weather:    { icon: 'cloud-sun',        ru: 'Погода и климат',            en: 'Weather and climate' },
   geo:        { icon: 'globe-hemisphere-east', ru: 'Спутниковые снимки и гео', en: 'Satellite and geo' },
   bio:        { icon: 'flask',            ru: 'Биология и химия',           en: 'Biology and chemistry' },
@@ -44,9 +48,9 @@ const MOD = {
 const GROUPS = [
   { ru: 'Текст и код', en: 'Text and code', keys: ['text', 'code', 'reasoning', 'nlp', 'translate', 'sql', 'agent', 'judge', 'safety'] },
   { ru: 'Документы и поиск', en: 'Documents and search', keys: ['ocr', 'docsearch', 'embed', 'rerank', 'tabular'] },
-  { ru: 'Картинки и видео', en: 'Images and video', keys: ['image', 'video', 'vlm', 'photo', 'tryon', 'avatar', 'face', '3d', 'vision'] },
-  { ru: 'Речь и звук', en: 'Speech and audio', keys: ['asr', 'tts', 'voice', 'omni', 'audio'] },
-  { ru: 'Отрасли и наука', en: 'Industries and science', keys: ['medical', 'finance', 'cyber', 'forensics', 'timeseries', 'weather', 'geo', 'bio', 'driving', 'robotics'] },
+  { ru: 'Картинки и видео', en: 'Images and video', keys: ['image', 'video', 'vlm', 'photo', 'tryon', 'avatar', 'face', '3d', 'vision', 'anpr', 'cad'] },
+  { ru: 'Речь и звук', en: 'Speech and audio', keys: ['asr', 'tts', 'voice', 'omni', 'audio', 'acoustic'] },
+  { ru: 'Отрасли и наука', en: 'Industries and science', keys: ['medical', 'finance', 'cyber', 'forensics', 'recsys', 'timeseries', 'weather', 'geo', 'bio', 'driving', 'robotics'] },
 ];
 
 const HW = {
@@ -120,6 +124,8 @@ const T = {
     fSort: 'Порядок', sortOpts: ['Сначала новые', 'Сначала старые', 'По алфавиту'],
     tOllama: 'Есть в Ollama — запуск в один клик', tCpu: 'Работает без видеокарты', reset: 'Сбросить фильтры',
     tLive: 'Только живые — есть версии за два года', tGguf: 'Есть готовая сборка GGUF',
+    tLangsRu: 'Языки народов России',
+    voiceNote: 'Клонировать голос можно только с согласия владельца голоса. Запись чужого голоса без разрешения и выдача её за подлинную — это отдельный риск, юридический и репутационный; порядок согласования лучше обсудить с юристом.',
     staleBadge: 'Не развивается', staleTitle: (d) => 'Последний открытый выпуск — ' + d + '. Семейство больше не обновляется.',
     staleNote: (d) => 'Последняя открытая версия вышла в ' + d + '. Семейство давно не обновлялось: это не значит, что модель не работает, но свежих исправлений и новых размеров ждать не стоит.',
     ggufBadge: 'Готовая сборка GGUF — запускается в llama.cpp и совместимых программах',
@@ -232,6 +238,8 @@ const T = {
     fSort: 'Sort', sortOpts: ['Newest first', 'Oldest first', 'A to Z'],
     tOllama: 'Available in Ollama — one-click run', tCpu: 'Runs without a GPU', reset: 'Reset filters',
     tLive: 'Active only — a release within two years', tGguf: 'Ready-made GGUF build',
+    tLangsRu: 'Languages of Russia',
+    voiceNote: 'A voice may only be cloned with the consent of its owner. Recording someone else\'s voice without permission and passing it off as genuine is a separate legal and reputational risk; agree the process with a lawyer.',
     staleBadge: 'Not maintained', staleTitle: (d) => 'Last open release: ' + d + '. The family is no longer updated.',
     staleNote: (d) => 'The last open version came out in ' + d + '. The family has not been updated for a long time: the model still works, but do not expect fixes or new sizes.',
     ggufBadge: 'Ready-made GGUF build — runs in llama.cpp and compatible tools',

@@ -78,7 +78,7 @@ module.exports = [
     industries: ['docs', 'finance', 'legal'],
     ollama: false,
     cpu: true,
-    summary: 'Компактный набор OCR от авторов Marker и Chandra: распознавание текста, макет страницы, порядок чтения и таблицы. Surya OCR 2 (650M) работает и на процессоре, русский в замерах 88,8%.',
+    summary: 'Компактный набор OCR от авторов Marker и Chandra: распознавание текста, макет страницы, порядок чтения и таблицы. Surya OCR 2 (650M) работает и на процессоре, русский заявлен в поддерживаемых языках.',
     tasks: ['Распознавание сканов и PDF, в том числе на русском', 'Разметка страницы: заголовки, таблицы, картинки, порядок чтения', 'Распознавание таблиц по строкам и столбцам', 'Потоковая обработка больших архивов на своём сервере'],
     where: ['Документооборот', 'Бухгалтерия', 'Архивы и библиотеки', 'Юридические отделы'],
     versions: [['Surya (детекция и распознавание)', '2024-02'], ['Макет и порядок чтения', '2024-04'], ['Распознавание v2 и таблицы', '2024-08'], ['Surya OCR 2 (650M, одна модель на всё)', '2026-05'], ['Surya Layout 2', '2026-07']],
@@ -88,7 +88,7 @@ module.exports = [
     source: 'https://huggingface.co/datalab-to/surya-ocr-2',
     verified: true,
     en: {
-      summary: 'A compact OCR toolkit from the makers of Marker and Chandra: text recognition, page layout, reading order and tables. Surya OCR 2 (650M) also runs on a CPU; Russian scored 88.8% in benchmarks.',
+      summary: 'A compact OCR toolkit from the makers of Marker and Chandra: text recognition, page layout, reading order and tables. Surya OCR 2 (650M) also runs on a CPU, and Russian is among the supported languages.',
       tasks: ['Recognizing scans and PDFs, including in Russian', 'Page layout: headings, tables, images, reading order', 'Recognizing tables by rows and columns', 'Batch processing of large archives on your own server'],
       where: ['Document management', 'Accounting', 'Archives and libraries', 'Legal departments'],
       license: 'Code Apache 2.0; weights under a modified AI Pubs OpenRAIL-M: free for research, personal use and companies with revenue and funding up to $5 million, a paid license for everyone else. Early 2024 weights are CC BY-NC-SA',

@@ -355,6 +355,50 @@ module.exports = {
       description_en: "Open models for financial tasks: parsing reports and news, transaction analysis, analyst support. Compare licenses, languages and hardware needs.",
       intro_en: "Finance models parse reports, news and documents and help analysts find and explain key figures. On-premises deployment matters when client and transaction data must stay in-house. Check what data the model was trained on, how it handles financial terminology in your languages, and what the license allows."
     },
+    recsys: {
+      slug: "rekomendatelnye-sistemy",
+      h1: "Открытые модели для рекомендательных систем",
+      title: "Рекомендательные системы 2026: открытые модели",
+      description: "Открытые модели рекомендаций: похожие товары, «с этим покупают», персональная лента. Работают на своих данных о заказах и просмотрах.",
+      intro: "Рекомендательная модель смотрит, что люди уже покупали и смотрели, и предлагает следующее. В отличие от облачных сервисов открытая модель учится на вашей истории заказов и остаётся внутри вашего контура. Качество тут зависит не столько от модели, сколько от того, насколько чистые у вас данные о покупках и просмотрах.",
+      h1_en: "Open models for recommender systems",
+      title_en: "Recommender systems 2026: open models",
+      description_en: "Open recommendation models: similar items, frequently bought together, personalized feeds. Trained on your own order and view history.",
+      intro_en: "A recommender model looks at what people already bought and viewed and suggests what comes next. Unlike a cloud service, an open model learns from your own order history and stays inside your perimeter. Quality here depends less on the model than on how clean your purchase and view data is."
+    },
+    anpr: {
+      slug: "nomera-i-transport",
+      h1: "Открытые модели для распознавания номеров и транспорта",
+      title: "Распознавание автономеров: открытые модели 2026",
+      description: "Открытые модели для номеров и транспорта: чтение госномера с камеры, определение типа машины, подсчёт потока. Локальный запуск.",
+      intro: "Эти модели читают государственный номер с камеры, различают тип транспорта и считают поток. Ставятся на шлагбаумы и въезды, на склад, парковку, мойку и в логистику. Важная оговорка: съёмка людей и машин и хранение таких записей — это работа с персональными данными, порядок и сроки хранения нужно обсудить с юристом.",
+      h1_en: "Open models for license plates and vehicles",
+      title_en: "License plate recognition: open models 2026",
+      description_en: "Open models for plates and vehicles: reading plates from a camera, vehicle type detection, traffic counting. Runs locally.",
+      intro_en: "These models read a license plate from a camera, tell vehicle types apart and count traffic. They go on barriers and entrances, in warehouses, car parks, car washes and logistics. One caveat: filming people and vehicles and storing such footage is personal data handling; the rules and retention periods are a question for a lawyer."
+    },
+    cad: {
+      slug: "chertezhi-i-cad",
+      h1: "Открытые ИИ-модели для чертежей и CAD",
+      title: "ИИ для чертежей и CAD: открытые модели 2026",
+      description: "Открытые модели для проектной документации: разбор чертежей и схем, извлечение размеров и спецификаций, построение CAD-моделей по описанию.",
+      intro: "Модели этой группы работают с чертежами и схемами: находят на листе размеры, обозначения и штамп, вытаскивают спецификацию в таблицу, а некоторые строят трёхмерную модель по описанию или по эскизу. Применяются в проектировании, на производстве и в стройке, где архив документации большой, а искать в нём приходится руками.",
+      h1_en: "Open AI models for drawings and CAD",
+      title_en: "AI for drawings and CAD: open models 2026",
+      description_en: "Open models for engineering documents: parsing drawings and schematics, extracting dimensions and bills of materials, building CAD models from a description.",
+      intro_en: "This group works with drawings and schematics: finding dimensions, symbols and title blocks on a sheet, pulling a bill of materials into a table, and in some cases building a 3D model from a description or a sketch. Used in design offices, manufacturing and construction, where the document archive is large and searching it is still manual work."
+    },
+    acoustic: {
+      slug: "diagnostika-po-zvuku",
+      h1: "Открытые модели для диагностики по звуку",
+      title: "Диагностика оборудования по звуку: открытые модели",
+      description: "Открытые модели акустического контроля: услышать аномалию в работе станка или насоса, классифицировать звуковые события, следить за шумом.",
+      intro: "Модель слушает оборудование через обычный микрофон и замечает, что звук изменился: подшипник загудел иначе, насос пошёл вразнос, в цеху появился посторонний стук. Такая система не ставит диагноз, а даёт повод посмотреть на узел раньше, чем он встанет. Работает локально, на слабом железе, и не требует отправлять записи в облако.",
+      h1_en: "Open models for acoustic monitoring",
+      title_en: "Acoustic machine monitoring: open models",
+      description_en: "Open models for acoustic inspection: hearing anomalies in a machine or pump, classifying sound events, monitoring noise levels.",
+      intro_en: "The model listens to equipment through an ordinary microphone and notices when the sound changes: a bearing hums differently, a pump runs rough, an unfamiliar knock appears on the shop floor. Such a system does not diagnose anything; it gives you a reason to inspect a unit before it fails. It runs locally on modest hardware and never sends recordings to a cloud."
+    },
     forensics: {
       slug: "detekciya-poddelok",
       h1: "Открытые ИИ-модели для детекции подделок",
@@ -592,6 +636,17 @@ module.exports = {
   },
 
   special: {
+    langsru: {
+      slug: "yazyki-narodov-rossii",
+      h1: "Открытые ИИ-модели для языков народов России",
+      title: "ИИ для языков народов России: открытые модели",
+      description: "Открытые модели для татарского, башкирского, якутского, бурятского и других языков России: распознавание речи, синтез, перевод.",
+      intro: "Большие модели знают русский и английский, а дальше начинается пустота: для языков народов России готовых решений почти нет, и то, что есть, собрано небольшими командами и энтузиастами. Здесь собраны такие модели: распознавание речи, синтез, перевод, разбор текста. Качество у них разное, проверять надо на своих записях, но это единственный способ сделать сервис на родном языке, не дожидаясь, пока до него дойдут большие разработчики.",
+      h1_en: "Open AI models for the languages of Russia",
+      title_en: "AI for the languages of Russia: open models",
+      description_en: "Open models for Tatar, Bashkir, Yakut, Buryat and other languages of Russia: speech recognition, synthesis and translation.",
+      intro_en: "Large models know English and Russian, and past that the map is mostly blank: for the languages of Russia there is very little ready to use, and what exists was built by small teams and enthusiasts. This collection gathers those models: speech recognition, synthesis, translation, text analysis. Quality varies, so test on your own recordings, but this is the only way to build a service in a native language without waiting for the big labs to get there."
+    },
     russian: {
       slug: "russkie",
       h1: "Открытые ИИ-модели с русским языком",
