@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GLM или Qwen: агенты, код и длинные документы</title>
+    <meta name="description" content="GLM и Qwen: 1.5B – 744B-A40B против 0,6B – 2,4T, MIT у GLM-4.5 – 5.2 против Apache 2.0 у Qwen, обе в Ollama и идут на процессоре.">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/ii-modeli/sravnenie/glm-vs-qwen/">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://chimitdorzhi.tech/ii-modeli/sravnenie/glm-vs-qwen/">
+    <meta property="og:title" content="GLM или Qwen: агенты, код и длинные документы">
+    <meta property="og:description" content="GLM и Qwen: 1.5B – 744B-A40B против 0,6B – 2,4T, MIT у GLM-4.5 – 5.2 против Apache 2.0 у Qwen, обе в Ollama и идут на процессоре.">
+    <meta property="og:image" content="https://chimitdorzhi.tech/ii-modeli/cover.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/ii-modeli/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="preload" href="/assets/fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="/assets/phosphor/regular.css"><link rel="stylesheet" href="/assets/phosphor/fill.css"></noscript>
+    <link rel="stylesheet" href="/style.css?v=78">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/ii-modeli/sravnenie/glm-vs-qwen/">
+<link rel="alternate" hreflang="en" href="https://chimitdorzhi.tech/en/ii-modeli/sravnenie/glm-vs-qwen/">
+<link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/ii-modeli/sravnenie/glm-vs-qwen/">
+<link rel="stylesheet" href="/assets/models.css?v=14">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"https://chimitdorzhi.tech/"},{"@type":"ListItem","position":2,"name":"ИИ-модели","item":"https://chimitdorzhi.tech/ii-modeli/"},{"@type":"ListItem","position":3,"name":"GLM или Qwen: что выбрать под агентов и документы","item":"https://chimitdorzhi.tech/ii-modeli/sravnenie/glm-vs-qwen/"}]}</script>
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/" data-i18n="nav.home">Главная</a></li>
+            <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+            <li class="nav-dropdown">
+                <a href="/cases/" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+                <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему" aria-pressed="false">
+                <i class="ph ph-moon" aria-hidden="true"></i>
+            </button>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/" data-i18n="nav.home">Главная</a></li>
+        <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+        <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+        <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+        <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+        <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+        <li class="mobile-has-submenu">
+            <details>
+                <summary aria-label="Проекты — развернуть"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down" aria-hidden="true"></i></summary>
+                <ul class="mobile-submenu">
+                    <li>
+                        <a href="https://gerel.space" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">Gerel.space</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/universe_buryat/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/arey/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.arey">AREY</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/mwrlife/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">MWR Life</span>
+                                <span class="mobile-sub-desc">Travel-клуб и партнёрка</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </details>
+        </li>
+        <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+    </ul>
+    <div class="mobile-controls">
+        <div class="mobile-lang-switcher" role="group" aria-label="Выбор языка">
+            <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+            <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+            <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+        </div>
+        <button class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle" aria-label="Переключить тему" aria-pressed="false">
+            <i class="ph ph-moon" aria-hidden="true"></i>
+        </button>
+    </div>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+    <main id="main">
+<section class="section md-page"><div class="container">
+  <nav class="breadcrumbs" aria-label="Хлебные крошки"><a href="/">Главная</a><span class="breadcrumbs-sep">›</span><a href="/ii-modeli/">ИИ-модели</a><span class="breadcrumbs-sep">›</span><span aria-current="page">GLM или Qwen: что выбрать под агентов и документы</span></nav>
+  <header class="md-hero">
+    <span class="section-label">СРАВНЕНИЕ</span>
+    <h1 class="section-heading">GLM или Qwen: что выбрать под агентов и документы</h1>
+    <p class="section-sub">Обе китайские, обе есть в Ollama, обе запускаются на процессоре в младших размерах и поднимаются до кластера. Qwen в каталоге отмечен с русским языком, у GLM он отмечен как отсутствующий, и для русскоязычного продукта это главный водораздел. У GLM лицензия зависит от версии: GLM-4.5 – GLM-5.2 и GLM-5.3-Flash под MIT, у GLM-5.3 своя лицензия с проверкой Z.ai для крупных API-провайдеров, ранние ChatGLM и GLM-4-9B требуют регистрации. Qwen большей частью под Apache 2.0, но у старших Qwen3.8 тоже своя лицензия; обе линейки обновлялись в августе 2026.</p>
+  </header>
+  <section class="md-cmp-page"><h2>Сравнение по данным каталога</h2>
+    <div class="md-cmp-scroll"><table class="md-cmp-table"><thead><tr><th scope="col"><span class="md-sr">Параметр</span></th><th scope="col"><a href="/ii-modeli/glm/">GLM (ChatGLM)</a></th><th scope="col"><a href="/ii-modeli/qwen/">Qwen</a></th></tr></thead>
+    <tbody><tr><th scope="row">Направление</th><td>Текст, Картинка + текст</td><td>Текст, Картинка + текст</td></tr><tr><th scope="row">Разработчик</th><td>Zhipu AI (Z.ai), Китай</td><td>Alibaba, Китай</td></tr><tr><th scope="row">Выпуски</th><td>мар 2023 – авг 2026</td><td>авг 2023 – авг 2026</td></tr><tr><th scope="row">Размеры</th><td>1.5B – 744B-A40B</td><td>0,6B – 2,4T-A95B</td></tr><tr><th scope="row">Железо</th><td>Ноутбук, 1 видеокарта, Кластер</td><td>Ноутбук, 1 видеокарта, Кластер</td></tr><tr><th scope="row">Коммерция</th><td>Коммерция с условиями</td><td>Коммерция с условиями</td></tr><tr><th scope="row">Лицензия</th><td>GLM-4.5 – GLM-5.2 и GLM-5.3-Flash — MIT; GLM-5.3 — собственная лицензия (API-провайдерам с выручкой от 10 млрд $ нужна проверка Z.ai); ранние ChatGLM и GLM-4-9B — своя лицензия с регистрацией</td><td>Apache 2.0 (большинство версий); у старших Qwen3.8 — своя лицензия</td></tr><tr><th scope="row">Русский язык</th><td>Нет</td><td>Есть</td></tr><tr><th scope="row">Ollama</th><td>Есть</td><td>Есть</td></tr><tr><th scope="row">Без видеокарты</th><td>Да</td><td>Да</td></tr>
+    <tr><th scope="row">Задачи</th><td><ul><li>Корпоративный чат-ассистент</li><li>Агенты для рутинных офисных задач</li><li>Помощь программистам</li><li>Работа с длинными документами</li></ul></td><td><ul><li>Чат-бот и ассистент по базе знаний</li><li>Ответы на письма и обращения</li><li>Разбор и классификация документов</li><li>Генерация описаний товаров</li></ul></td></tr></tbody></table></div>
+  </section>
+  <div class="md-choose-grid"><div class="md-choose"><h3>Выбирайте GLM (ChatGLM), если</h3><ul class="md-check"><li><i class="ph ph-check-circle" aria-hidden="true"></i>Нужна MIT: её дают GLM-4.5 – GLM-5.2 и GLM-5.3-Flash</li><li><i class="ph ph-check-circle" aria-hidden="true"></i>Агентные задачи, помощь программистам и работа с длинными документами</li><li><i class="ph ph-check-circle" aria-hidden="true"></i>Нужно понимание картинок: это умеет GLM-5.3-Flash</li></ul><a class="md-more" href="/ii-modeli/glm/">GLM (ChatGLM)<i class="ph ph-arrow-right" aria-hidden="true"></i></a></div><div class="md-choose"><h3>Выбирайте Qwen, если</h3><ul class="md-check"><li><i class="ph ph-check-circle" aria-hidden="true"></i>Продукт русскоязычный: у Qwen русский отмечен, у GLM нет</li><li><i class="ph ph-check-circle" aria-hidden="true"></i>Нужен размер меньше 1.5B: Qwen начинается с 0,6B</li><li><i class="ph ph-check-circle" aria-hidden="true"></i>Задачи поддержки и e-commerce: обращения, описания товаров, база знаний</li></ul><a class="md-more" href="/ii-modeli/qwen/">Qwen<i class="ph ph-arrow-right" aria-hidden="true"></i></a></div></div>
+  <div class="md-d-actions md-cmp-cta"><a class="btn btn-accent" href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%92%D1%8B%D0%B1%D0%B8%D1%80%D0%B0%D1%8E%20%D0%BC%D0%B5%D0%B6%D0%B4%D1%83%20%D0%BC%D0%BE%D0%B4%D0%B5%D0%BB%D1%8F%D0%BC%D0%B8%3A%20GLM%20(ChatGLM)%2C%20Qwen.%20%D0%97%D0%B0%D0%B4%D0%B0%D1%87%D0%B0%3A%20" target="_blank" rel="noopener"><i class="ph ph-telegram-logo" aria-hidden="true"></i>Обсудить выбор</a></div>
+  <section class="md-colls"><h2>Другие сравнения</h2><ul class="md-links md-links-cols"><li><a href="/ii-modeli/sravnenie/qwen-vs-gigachat/">Qwen или GigaChat: что выбрать для бизнеса</a></li><li><a href="/ii-modeli/sravnenie/qwen-vs-llama/">Qwen или Llama: что выбрать для бизнеса</a></li><li><a href="/ii-modeli/sravnenie/deepseek-vs-qwen/">DeepSeek или Qwen: что выбрать для бизнеса</a></li><li><a href="/ii-modeli/sravnenie/gpt-oss-vs-qwen/">gpt-oss или Qwen: что выбрать для своего сервера</a></li><li><a href="/ii-modeli/sravnenie/mistral-vs-qwen/">Mistral или Qwen: что выбрать для бизнеса</a></li><li><a href="/ii-modeli/sravnenie/yandexgpt-vs-qwen/">YandexGPT или Qwen: что выбрать под русский язык</a></li><li><a href="/ii-modeli/sravnenie/gigachat-vs-yandexgpt/">GigaChat или YandexGPT: что выбрать для бизнеса</a></li><li><a href="/ii-modeli/sravnenie/gemma-vs-llama/">Gemma или Llama: что выбрать для бизнеса</a></li><li><a href="/ii-modeli/sravnenie/mistral-vs-llama/">Mistral или Llama: что выбрать для бизнеса</a></li><li><a href="/ii-modeli/sravnenie/llama-vs-deepseek/">Llama или DeepSeek: что выбрать для своего контура</a></li><li><a href="/ii-modeli/sravnenie/gemma-vs-phi/">Gemma или Phi: малые модели для слабого железа</a></li><li><a href="/ii-modeli/sravnenie/t-pro-vs-gigachat/">T-Pro или GigaChat: что выбрать российской компании</a></li></ul></section>
+  <section class="md-offer" aria-labelledby="mdOfferT">
+    <div class="md-offer-text"><h2 id="mdOfferT">Нужна модель под вашу задачу?</h2><p>Открытую модель можно поставить на свой сервер: данные не уходят в чужое облако, нет оплаты за каждый запрос, модель можно дообучить на ваших документах.</p></div>
+    <ol class="md-steps"><li><b>Подберу</b><span>Модель и размер под задачу и бюджет на железо</span></li><li><b>Поставлю</b><span>На ваш сервер или в закрытый контур, с API</span></li><li><b>Дообучу</b><span>На ваших данных или подключу базу знаний</span></li><li><b>Встрою</b><span>В CRM, 1С, бота, сайт или рабочий чат</span></li></ol>
+    <a class="btn btn-accent md-offer-btn" href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BF%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%B8%D1%82%D1%8C%20%D0%BE%D1%82%D0%BA%D1%80%D1%8B%D1%82%D1%83%D1%8E%20%D0%98%D0%98-%D0%BC%D0%BE%D0%B4%D0%B5%D0%BB%D1%8C%20%D0%BD%D0%B0%20%D1%81%D0%B2%D0%BE%D0%B9%20%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80.%20%D0%97%D0%B0%D0%B4%D0%B0%D1%87%D0%B0%3A%20" target="_blank" rel="noopener"><i class="ph ph-telegram-logo" aria-hidden="true"></i>Обсудить внедрение</a>
+  </section>
+</div></section>
+</main>
+<footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label">КОНТАКТ</span>
+            <h2>ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                <a href="tel:+971563369591" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +971 56 336 9591</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 Дарижапов Чимитдоржи. Все права защищены.</p>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/predlozheniya/" class="footer-policy-link">Предложения</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/blog/" class="footer-policy-link">Блог</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link">Политика конфиденциальности</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=44" defer></script>
+<script src="/script.js?v=40" defer></script>
+</body>
+</html>

@@ -565,7 +565,16 @@ function comparePage(p, lang) {
     [t.rows.o, (m) => (m.ollama ? t.has : t.no)],
     [t.rows.c, (m) => (m.cpu ? t.yes : t.no)],
   ];
-  const others = CMP.filter((x) => x.slug !== p.slug && (lang === 'ru' || (EN_IDS.has(x.a) && EN_IDS.has(x.b))));
+  // Сначала пары с теми же моделями, потом по тому же направлению, всего не больше 12 ссылок.
+  const pool = CMP.filter((x) => x.slug !== p.slug && (lang === 'ru' || (EN_IDS.has(x.a) && EN_IDS.has(x.b))));
+  const mods = new Set([...(A.modality || []), ...(B.modality || [])]);
+  const rank = (x) => {
+    if (x.a === p.a || x.b === p.a || x.a === p.b || x.b === p.b) return 0;
+    const xa = byId[x.a]; const xb = byId[x.b];
+    const xm = [...((xa && xa.modality) || []), ...((xb && xb.modality) || [])];
+    return xm.some((k) => mods.has(k)) ? 1 : 2;
+  };
+  const others = pool.map((x) => [rank(x), x]).sort((u, v) => u[0] - v[0]).slice(0, 12).map((u) => u[1]);
   const chooseList = (m, items) => (items && items.length ? `<div class="md-choose"><h3>${t.chooseIf(m.name)}</h3><ul class="md-check">${items.map((x) => `<li><i class="ph ph-check-circle" aria-hidden="true"></i>${esc(x)}</li>`).join('')}</ul><a class="md-more" href="${BASE[lang]}${m.id}/">${m.name}<i class="ph ph-arrow-right" aria-hidden="true"></i></a></div>` : '');
   const main = `<section class="section md-page"><div class="container">
   ${crumbs(lang, [[BASE[lang], t.section], [null, f('h1')]])}
