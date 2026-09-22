@@ -83,8 +83,10 @@ const bodyStart = shellSrc.slice(shellSrc.indexOf('</head>'), shellSrc.indexOf('
 const footer = shellSrc.slice(shellSrc.indexOf('<footer'), shellSrc.indexOf('</footer>') + 9);
 const scripts = (shellSrc.match(/<script src="\/i18n\.js[^"]*" defer><\/script>\s*<script src="\/script\.js[^"]*" defer><\/script>/) || [''])[0];
 
-function head({ title, description, url, ld }) {
+function head({ title, description, url, ld, image }) {
   let h = headTpl
+    .replace(/(<meta property="og:image" content=")[^"]*/, `$1${image || `${SITE}/ii-modeli/cover.png`}`)
+    .replace(/(<meta property="og:image" content="[^"]*">)/, '$1\n    <meta property="og:image:width" content="1200">\n    <meta property="og:image:height" content="630">\n    <meta name="twitter:image" content="' + (image || `${SITE}/ii-modeli/cover.png`) + '">')
     .replace(/<title>[^<]*<\/title>/, `<title>${esc(title)}</title>`)
     .replace(/(<meta name="description" content=")[^"]*/, `$1${esc(description)}`)
     .replace(/(<link rel="canonical" href=")[^"]*/, `$1${url}`)
@@ -105,10 +107,10 @@ function metaNote(html) {
   const what = net ? 'Instagram и Facebook принадлежат компании Meta, которая' : 'Meta —';
   return '<aside class="blog-legal-note md-legal" role="note"><p><strong>Важно.</strong> ' + what + ' признана в России экстремистской организацией, её деятельность на территории Российской Федерации запрещена.</p></aside>';
 }
-function page({ title, description, url, ld, main, extraJs = '' }) {
+function page({ title, description, url, ld, main, extraJs = '', image }) {
   const note = metaNote(main);
   if (note) main = main.replace(/<\/div><\/section>\s*$/, note + '</div></section>');
-  return head({ title, description, url, ld }) + bodyStart + `<main id="main">\n${main}\n</main>\n` + footer + '\n' + scripts + extraJs + '\n</body>\n</html>\n';
+  return head({ title, description, url, ld, image }) + bodyStart + `<main id="main">\n${main}\n</main>\n` + footer + '\n' + scripts + extraJs + '\n</body>\n</html>\n';
 }
 
 const modChip = (m) => `<span class="md-mod"><i class="ph ph-${MOD[m].icon}" aria-hidden="true"></i>${MOD[m].label}</span>`;
@@ -419,7 +421,7 @@ function detail(m) {
   return page({
     title: `${m.name}: задачи, требования к железу и лицензия — открытая ИИ-модель`,
     description: `${m.name} от ${m.developer}: ${m.summary}`.slice(0, 158),
-    url, ld, main,
+    url, ld, main, image: `${url}cover.png`,
   });
 }
 
@@ -440,3 +442,76 @@ if (fs.existsSync(SM)) {
   fs.writeFileSync(SM, sm);
 }
 console.log(`  /ii-modeli/: каталог + ${MODELS.length} страниц моделей`);
+
+// --- Обложки 1200×630 для превью в мессенджерах и соцсетях ---
+// Стиль как у обложек блога (tools/og-generator.js): тёмная основа, жёлтая плашка,
+// диагональ справа. Одна обложка на каталог и по одной на модель.
+const INK_DEEP = '#070a14';
+const AMBER = '#f5b642';
+const BLUE = '#2f5fe0';
+const FONT = "'Manrope', 'Inter', 'DejaVu Sans', 'Liberation Sans', Arial, sans-serif";
+const LIC_DOT = { yes: '#34d399', conditional: '#fbbf24', no: '#f87171' };
+const xml = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&apos;' }[c]));
+// Перенос по словам; слишком длинное обрезаем многоточием, чтобы не вылезать за край.
+function wrap(text, maxChars, maxLines) {
+  const words = String(text).split(/\s+/); const lines = []; let cur = '';
+  for (const w of words) {
+    if ((cur + ' ' + w).trim().length <= maxChars) cur = (cur + ' ' + w).trim();
+    else { if (cur) lines.push(cur); cur = w; }
+  }
+  if (cur) lines.push(cur);
+  if (lines.length > maxLines) { const cut = lines.slice(0, maxLines); cut[maxLines - 1] = cut[maxLines - 1].replace(/.{0,2}$/, '') + '…'; return cut; }
+  return lines.map((l) => (l.length > maxChars + 4 ? l.slice(0, maxChars + 2) + '…' : l));
+}
+function frame(inner) {
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="${INK_DEEP}"/>
+  <path d="M860 0 L1200 0 L1200 630 L660 630 Z" fill="${BLUE}" fill-opacity="0.92"/>
+  <path d="M1010 0 L1200 0 L1200 630 L820 630 Z" fill="${AMBER}" fill-opacity="0.2"/>
+  <circle cx="1090" cy="470" r="86" fill="none" stroke="#ffffff" stroke-opacity="0.28" stroke-width="3"/>
+  <rect x="72" y="66" width="190" height="40" rx="20" fill="${AMBER}"/>
+  <text x="167" y="93" text-anchor="middle" font-family="${FONT}" font-weight="800" font-size="18" letter-spacing="2" fill="${INK_DEEP}">ИИ-МОДЕЛИ</text>
+  ${inner}
+  <line x1="72" y1="528" x2="700" y2="528" stroke="#ffffff" stroke-opacity="0.2" stroke-width="2"/>
+  <text x="72" y="570" font-family="${FONT}" font-weight="800" font-size="24" fill="#ffffff">Чимитдоржи Дарижапов</text>
+  <text x="72" y="600" font-family="${FONT}" font-weight="500" font-size="19" fill="#ffffff" fill-opacity="0.6">chimitdorzhi.tech · энциклопедия открытых ИИ-моделей</text>
+</svg>`;
+}
+function modelCoverSvg(m) {
+  // На обложке без пояснений в скобках: «Sentence Transformers (SBERT)» → «Sentence Transformers».
+  const clean = m.name.replace(/\s*\([^)]*\)/g, '').trim();
+  let name = wrap(clean, 16, 2), fs1 = name.length > 1 ? 60 : (clean.length > 12 ? 66 : 80);
+  if (name.some((l) => l.endsWith('…'))) { name = wrap(clean, 22, 3); fs1 = 46; }
+  const nameY = name.length > 2 ? 176 : name.length > 1 ? 196 : 222;
+  const titles = name.map((l, i) => `<text x="72" y="${nameY + i * (fs1 * 1.12)}" font-family="${FONT}" font-weight="800" font-size="${fs1}" fill="#ffffff">${xml(l)}</text>`).join('');
+  const devY = nameY + (name.length - 1) * fs1 * 1.12 + 52;
+  const dev = wrap(`${m.developer} · ${m.country}`, 44, 1)[0];
+  const facts = [
+    [null, MOD[m.modality[0]].label],
+    [LIC_DOT[m.commercial], COM[m.commercial].label],
+    [null, `Железо: от ${({ min: 'ноутбука', gpu: 'одной видеокарты', multi: 'кластера' })[m.hardware[0]]}`],
+  ];
+  const factRows = facts.map(([dot, t], i) => {
+    const y = devY + 58 + i * 40;
+    return (dot ? `<circle cx="80" cy="${y - 7}" r="7" fill="${dot}"/>` : `<rect x="74" y="${y - 13}" width="12" height="12" rx="3" fill="${AMBER}"/>`)
+      + `<text x="100" y="${y}" font-family="${FONT}" font-weight="600" font-size="24" fill="#ffffff" fill-opacity="0.9">${xml(t)}</text>`;
+  }).join('');
+  return frame(`${titles}
+  <text x="72" y="${devY}" font-family="${FONT}" font-weight="500" font-size="26" fill="#ffffff" fill-opacity="0.65">${xml(dev)}</text>
+  ${factRows}`);
+}
+function catalogCoverSvg(nFamilies, nDirections) {
+  return frame(`<text x="72" y="210" font-family="${FONT}" font-weight="800" font-size="70" fill="#ffffff">Открытые ИИ-модели</text>
+  <text x="72" y="292" font-family="${FONT}" font-weight="800" font-size="70" fill="${AMBER}">2022–2026</text>
+  <text x="72" y="372" font-family="${FONT}" font-weight="600" font-size="28" fill="#ffffff" fill-opacity="0.9">${nFamilies} семейств · ${nDirections} направлений</text>
+  <text x="72" y="418" font-family="${FONT}" font-weight="500" font-size="24" fill="#ffffff" fill-opacity="0.65">Задачи, железо, лицензии, русский язык</text>`);
+}
+(async () => {
+  let sharp;
+  try { sharp = require('sharp'); } catch (e) { console.log('  ⚠ sharp недоступен — обложки /ii-modeli/ не пересобраны'); return; }
+  const render = (svg, file) => sharp(Buffer.from(svg)).png({ compressionLevel: 9, palette: true }).toFile(file);
+  const dirs = new Set(MODELS.flatMap((m) => m.modality)).size;
+  await render(catalogCoverSvg(MODELS.length, dirs), path.join(OUT, 'cover.png'));
+  for (const m of MODELS) await render(modelCoverSvg(m), path.join(OUT, m.id, 'cover.png'));
+  console.log(`  /ii-modeli/: обложки 1200×630 — ${MODELS.length + 1}`);
+})();
