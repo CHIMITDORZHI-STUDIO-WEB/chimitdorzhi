@@ -84,6 +84,11 @@ try {
       index.push({ t: c.h1, d: (c.description || c.intro || '').slice(0, 180), u: `/ii-modeli/${dir}/${c.slug}/`, k: 'Подборка моделей', c: 'ИИ-модели', g: '' });
     }
   }
+  const alts = require('./models/_alternatives.js');
+  for (const a of alts) {
+    if (!a || !a.slug) continue;
+    index.push({ t: a.h1, d: (a.description || a.intro || '').slice(0, 180), u: `/ii-modeli/alternativa/${a.slug}/`, k: 'Альтернатива сервису', c: 'ИИ-модели', g: (a.picks || []).join(' ') });
+  }
   const cmp = require('./models/_compare.js');
   for (const p of cmp) {
     if (!p || !p.slug) continue;

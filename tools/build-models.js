@@ -11,7 +11,7 @@ const ROOT = path.resolve(__dirname, '..');
 const SITE = 'https://chimitdorzhi.tech';
 const UPDATED = { ru: '22.09.2026', en: '22 Sep 2026' };
 const LASTMOD = '2026-09-22';
-const CSS_V = 13;
+const CSS_V = 14;
 const LANGS = ['ru', 'en'];
 const BASE = { ru: '/ii-modeli/', en: '/en/ii-modeli/' };
 const OUT = { ru: path.join(ROOT, 'ii-modeli'), en: path.join(ROOT, 'en', 'ii-modeli') };
@@ -46,6 +46,7 @@ function loc(m, lang) {
 
 const readOpt = (f) => { try { return require(f); } catch (e) { return null; } };
 const COLL = readOpt('./models/_collections.js');
+const ALTS = (readOpt('./models/_alternatives.js') || []).filter((a) => a && a.slug && Array.isArray(a.picks));
 const CMP = (readOpt('./models/_compare.js') || []).filter((c) => ALL.some((m) => m.id === c.a) && ALL.some((m) => m.id === c.b));
 
 // --- Утилиты ---
@@ -197,9 +198,10 @@ function collectionLinks(lang, colls, currentRel) {
     if (!items.length) return '';
     return `<div class="md-links-group"><h3>${label}</h3><ul class="md-links">${items.map((x) => `<li>${x.rel === currentRel ? `<span aria-current="page">${esc(ctext(x.c, 'h1', lang))}</span>` : `<a href="${BASE[lang]}${x.rel}">${esc(ctext(x.c, 'h1', lang))}</a>`} <small>${x.items.length}</small></li>`).join('')}</ul></div>`;
   };
+  const alt = ALTS.length ? `<div class="md-links-group"><h3>${t.altGroupH}</h3><ul class="md-links">${ALTS.map((x) => `<li><a href="${BASE[lang]}alternativa/${x.slug}/">${esc(lang === 'en' ? (x.h1_en || x.h1) : x.h1)}</a></li>`).join('')}</ul></div>` : '';
   const cmp = CMP.filter((p) => lang === 'ru' || (EN_IDS.has(p.a) && EN_IDS.has(p.b)));
   const cmpBlock = cmp.length ? `<div class="md-links-group"><h3>${t.comparisons}</h3><ul class="md-links">${cmp.map((p) => `<li><a href="${BASE[lang]}sravnenie/${p.slug}/">${esc(lang === 'en' ? (p.h1_en || p.h1) : p.h1)}</a></li>`).join('')}</ul></div>` : '';
-  return `<section class="md-colls" aria-labelledby="mdCollsT"><h2 id="mdCollsT">${t.collectionsH}</h2><div class="md-colls-grid">${block(t.special, 'special')}${block(t.byDirection, 'modality')}${block(t.byIndustry, 'industry')}${cmpBlock}</div></section>`;
+  return `<section class="md-colls" aria-labelledby="mdCollsT"><h2 id="mdCollsT">${t.collectionsH}</h2><div class="md-colls-grid">${block(t.special, 'special')}${alt}${block(t.byDirection, 'modality')}${block(t.byIndustry, 'industry')}${cmpBlock}</div></section>`;
 }
 
 // --- Каталог ---
@@ -511,6 +513,38 @@ function collectionPage(x, lang, colls) {
   writePage(lang, x.rel, { title: ctext(x.c, 'title', lang) || h1, description: ctext(x.c, 'description', lang) || intro || h1, ld, main, extraJs: cardClickJs, altRel: altExists ? x.rel : undefined });
 }
 
+// --- Страница «открытая альтернатива X» ---
+function altPage(a, lang) {
+  const t = T[lang];
+  const byId = Object.fromEntries(MODELS[lang].map((x) => [x.id, x]));
+  const picks = (a.picks || []).map((id) => byId[id]).filter(Boolean);
+  if (picks.length < 2) return false;
+  const f = (k) => (lang === 'en' ? a[k + '_en'] : a[k]) || a[k];
+  const others = ALTS.filter((x) => x.slug !== a.slug);
+  const main = `<section class="section md-page"><div class="container">
+  ${crumbs(lang, [[BASE[lang], t.section], [null, f('h1')]])}
+  <header class="md-hero">
+    <span class="section-label">${t.altLabel}</span>
+    <h1 class="section-heading">${esc(f('h1'))}</h1>
+    <p class="section-sub">${esc(f('intro'))}</p>
+    <div class="md-stats"><span>${t.updated} ${UPDATED[lang]}</span><a class="md-guide" href="${BASE[lang]}podbor/"><i class="ph ph-sparkle" aria-hidden="true"></i>${t.tools[0][2]}</a></div>
+  </header>
+  <h2 class="md-colls-h2">${t.altPicksH}</h2>
+  <div class="md-grid">${picks.map((m) => card(m, lang, { compare: false })).join('\n')}</div>
+  <p class="md-source">${esc(f('note'))}</p>
+  ${others.length ? `<section class="md-colls"><h2>${t.otherAlt}</h2><ul class="md-links md-links-cols">${others.map((x) => `<li><a href="${BASE[lang]}alternativa/${x.slug}/">${esc(lang === 'en' ? (x.h1_en || x.h1) : x.h1)}</a></li>`).join('')}</ul></section>` : ''}
+  ${offer(lang)}
+</div></section>`;
+  const url = `${SITE}${BASE[lang]}alternativa/${a.slug}/`;
+  const ld = [
+    { '@context': 'https://schema.org', '@type': 'CollectionPage', name: f('h1'), url, inLanguage: lang, dateModified: LASTMOD,
+      mainEntity: { '@type': 'ItemList', itemListElement: picks.map((m, i) => ({ '@type': 'ListItem', position: i + 1, url: `${SITE}${BASE[lang]}${m.id}/`, name: m.name })) } },
+    ldCrumbs(lang, [[`${SITE}${BASE[lang]}`, t.section], [url, f('h1')]]),
+  ];
+  writePage(lang, `alternativa/${a.slug}/`, { title: f('title'), description: f('description'), ld, main, extraJs: cardClickJs, altRel: `alternativa/${a.slug}/` });
+  return true;
+}
+
 // --- Страница сравнения «A или B» ---
 function comparePage(p, lang) {
   const t = T[lang];
@@ -742,6 +776,7 @@ for (const lang of LANGS) {
   catalog(lang, COLLS[lang]);
   for (const m of MODELS[lang]) detail(m, lang);
   for (const x of COLLS[lang]) collectionPage(x, lang, COLLS[lang]);
+  for (const a of ALTS) altPage(a, lang);
   for (const p of CMP) comparePage(p, lang);
   newPage(lang);
   calcPage(lang);
@@ -757,7 +792,7 @@ if (fs.existsSync(SM)) {
   sm = sm.replace('</urlset>', block + '\n</urlset>');
   fs.writeFileSync(SM, sm);
 }
-console.log(`  /ii-modeli/: ${MODELS.ru.length} моделей RU, ${MODELS.en.length} EN; подборок ${COLLS.ru.length}/${COLLS.en.length}; сравнений ${CMP.length}; всего страниц ${PAGES.length}`);
+console.log(`  /ii-modeli/: ${MODELS.ru.length} моделей RU, ${MODELS.en.length} EN; подборок ${COLLS.ru.length}/${COLLS.en.length}; альтернатив ${ALTS.length}; сравнений ${CMP.length}; всего страниц ${PAGES.length}`);
 
 // --- Обложки 1200×630 для превью в мессенджерах и соцсетях ---
 // Стиль как у обложек блога (tools/og-generator.js): тёмная основа, жёлтая плашка, диагональ справа.
