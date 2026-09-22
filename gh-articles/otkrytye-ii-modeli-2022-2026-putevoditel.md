@@ -1,6 +1,6 @@
 ---
 title: "Открытые ИИ-модели 2022–2026: полный путеводитель для бизнеса"
-description: "346 семейств открытых ИИ-моделей 2022–2026: выпуски по годам, 26 направлений, русский язык, лицензии для коммерции и железо."
+description: "484 семейства открытых ИИ-моделей 2022–2026: выпуски по годам, 37 направлений, RAG, русский язык, лицензии для коммерции и железо."
 date: 2026-09-22
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/otkrytye-ii-modeli-2022-2026-putevoditel/
@@ -13,146 +13,197 @@ canonical: https://chimitdorzhi.tech/blog/otkrytye-ii-modeli-2022-2026-putevodit
 
 - Открытая модель — это нейросеть, веса которой можно скачать и запустить у себя. Это не то же самое, что открытый код: код может быть открыт, а веса закрыты, и наоборот.
 
-- За 2022–2026 годы рынок прошёл путь от единичных выпусков (Whisper, Stable Diffusion, BLOOM) до сотен версий в год: в каталоге 418 выпусков за 2025 год и 245 за январь–сентябрь 2026-го.
+- За 2022–2026 годы рынок вырос от единичных выпусков (Whisper, Stable Diffusion, BLOOM) до сотен версий в год: в каталоге 562 выпуска за 2025 год и 339 за январь–сентябрь 2026-го.
 
-- Открытые модели закрывают 26 направлений: к тексту, коду, документам, речи, картинкам, видео и поиску добавились примерка одежды, обработка фото, перевод, модерация, агенты для компьютера, табличные данные, медицина и другие.
+- В каталоге 484 семейства в 37 направлениях, разложенных на пять групп: текст и код, документы и поиск, картинки и видео, речь и звук, отрасли и наука. Среди новых — реранкеры, поиск по сканам, текст в SQL, модели-судьи, лица, финансы, кибербезопасность, погода, спутниковые снимки, биология и автономное вождение.
 
-- Из 346 семейств в каталоге 207 можно использовать в коммерции без оговорок, у 111 есть условия, 28 — только некоммерческие. Лицензию проверяют до внедрения, а не после: в примерке одежды, например, почти все модели некоммерческие.
+- 288 семейств можно использовать в коммерции без оговорок, у 145 есть условия, 51 — только некоммерческие. Лицензию проверяют до внедрения: почти все модели для лиц и примерки одежды некоммерческие.
 
-- У 249 семейств есть версии, которые работают на ноутбуке, 19 семейств сделаны в России. Выбор идёт по связке: задача, язык, лицензия, железо и проверка на своих примерах.
+- У 356 семейств есть версии для ноутбука, у 100 русский язык заявлен явно, 32 семейства сделаны в России. Выбор идёт по связке: задача, язык, лицензия, железо и проверка на своих примерах.
 
-**Открытая модель** (open-weights) — это нейросеть, чьи обученные веса разработчик выложил в открытый доступ: их можно скачать, запустить на своём сервере и дообучить под свою задачу по условиям лицензии. От открытого кода это отличается принципиально: открытый код — это программа, которая запускает или обучает модель, а веса — результат обучения, сама «память» нейросети. Бывает, что код открыт под MIT, а веса закрыты или выложены только для исследований. Для бизнеса важно именно второе: без весов ничего не запустить у себя. Все семейства, о которых я пишу ниже, собраны в [каталоге открытых ИИ-моделей](/ii-modeli/) — в каталоге 346 семейств с датами выпусков, размерами, лицензиями и требованиями к железу.
+**Открытая модель** (open-weights) — это нейросеть, чьи обученные веса разработчик выложил в открытый доступ: их можно скачать, запустить на своём сервере и дообучить под свою задачу по условиям лицензии. От открытого кода это отличается принципиально: открытый код — это программа, которая запускает или обучает модель, а веса — результат обучения, сама «память» нейросети. Бывает, что код открыт под MIT, а веса выложены только для исследований. Для бизнеса важно именно второе: без весов ничего не запустить у себя. Все семейства, о которых я пишу ниже, собраны в [каталоге открытых ИИ-моделей](/ii-modeli/): там 484 семейства с датами выпусков, размерами, лицензиями и требованиями к железу.
 
 ## Как менялся рынок: 2022 → 2026
 
-Удобнее всего смотреть на рынок через выпуски версий. В каталоге за 2022 год отмечено 35 выпусков, за 2023-й — 144, за 2024-й — 259, за 2025-й — 418, а за девять месяцев 2026-го уже 245. Ещё 16 выпусков приходятся на 2019–2021 годы: это ранние, но до сих пор рабочие модели вроде русских энкодеров [ruBERT](/ii-modeli/rubert/) и [rubert-tiny](/ii-modeli/rubert-tiny/) или [LaMa](/ii-modeli/lama/) для удаления лишних объектов с фото. Разберу, что было главным в каждом году.
+Удобнее всего смотреть на рынок через выпуски версий. В каталоге за 2022 год отмечено 55 выпусков, за 2023-й — 186, за 2024-й — 366, за 2025-й — 562, а за девять месяцев 2026-го уже 339. Ещё 35 выпусков приходятся на 2019–2021 годы: это ранние, но до сих пор рабочие модели вроде [Sentence Transformers](/ii-modeli/sentence-transformers/) для смыслового поиска, русских энкодеров [ruBERT](/ii-modeli/rubert/) и [rubert-tiny](/ii-modeli/rubert-tiny/) или [LaMa](/ii-modeli/lama/) для удаления лишних объектов с фото. Разберу, что было главным в каждом году.
 
 ### 2022: первые модели, которые можно взять себе
 
-Год, когда открытые модели вышли за пределы лабораторий. В августе вышла [Stable Diffusion](/ii-modeli/stable-diffusion/) 1.4, в октябре — 1.5: генерация картинок впервые стала доступна на обычной видеокарте. В сентябре OpenAI выложила [Whisper](/ii-modeli/whisper/) — распознавание речи, которое до сих пор остаётся стандартом для расшифровки звонков. Среди языковых моделей — [OPT](/ii-modeli/opt/) от Meta в мае и [BLOOM](/ii-modeli/bloom/) в июле. Россия тоже отметилась: Яндекс выложил YaLM-100B (семейство [YandexGPT](/ii-modeli/yandexgpt/)), Сбер — [Kandinsky](/ii-modeli/kandinsky/) 2.0, а [Silero](/ii-modeli/silero/) выпустил синтез речи v3 в pip-пакете. Весной Сбер открыл многоязычную [mGPT](/ii-modeli/mgpt/) 1.3B на 61 язык.
+Год, когда открытые модели вышли за пределы лабораторий. В августе вышла [Stable Diffusion](/ii-modeli/stable-diffusion/) 1.4, в октябре — 1.5: генерация картинок впервые стала доступна на обычной видеокарте. В сентябре OpenAI выложила [Whisper](/ii-modeli/whisper/) — распознавание речи, которое до сих пор остаётся стандартом для расшифровки звонков. Среди языковых моделей — [OPT](/ii-modeli/opt/) от Meta в мае и [BLOOM](/ii-modeli/bloom/) в июле. Россия тоже отметилась: в январе Сбер выложил [ruCLIP](/ii-modeli/ruclip/) для поиска картинок по русским подписям, весной — многоязычную [mGPT](/ii-modeli/mgpt/) на 61 язык, позже — [Kandinsky](/ii-modeli/kandinsky/) 2.0. Яндекс открыл YaLM-100B (семейство [YandexGPT](/ii-modeli/yandexgpt/)), а [Silero](/ii-modeli/silero/) выпустил синтез речи v3 в pip-пакете.
 
 ### 2023: год LLaMA и открытых чат-моделей
 
-В феврале вышла LLaMA, в июле — Llama 2 (семейство [Llama](/ii-modeli/llama/)), и вокруг неё выросла огромная экосистема дообучений. В сентябре появилась Mistral 7B, в декабре — Mixtral 8x7B ([Mistral](/ii-modeli/mistral/)). В августе стартовал [Qwen](/ii-modeli/qwen/) от Alibaba, в ноябре — первая DeepSeek LLM 7B / 67B ([DeepSeek](/ii-modeli/deepseek/)). Рядом с текстом росли и другие направления: SDXL 1.0 для картинок, [SAM](/ii-modeli/sam/) для выделения объектов на фото, [LLaVA](/ii-modeli/llava/) — модель, которая понимает картинку и текст, [MusicGen](/ii-modeli/musicgen/) для музыки и XTTS v2 для клонирования голоса. Для русского языка 2023-й дал первую волну: Сбер выложил [ruGPT-3.5](/ii-modeli/rugpt/) 13B и [FRED-T5](/ii-modeli/fred-t5/), Илья Гусев начал выпускать [Saiga](/ii-modeli/saiga/), а Alpha Cephei обновила офлайн-распознавание [Vosk](/ii-modeli/vosk/).
+В феврале вышла LLaMA, в июле — Llama 2 (семейство [Llama](/ii-modeli/llama/)), и вокруг неё выросла огромная экосистема дообучений. В сентябре появилась Mistral 7B, в декабре — Mixtral 8x7B ([Mistral](/ii-modeli/mistral/)). В августе стартовал [Qwen](/ii-modeli/qwen/) от Alibaba, в ноябре — первая DeepSeek LLM ([DeepSeek](/ii-modeli/deepseek/)). Рядом с текстом росли и другие направления: SDXL 1.0 для картинок, [SAM](/ii-modeli/sam/) для выделения объектов, [LLaVA](/ii-modeli/llava/) — модель, которая понимает картинку и текст, [MusicGen](/ii-modeli/musicgen/) для музыки, XTTS v2 для клонирования голоса и погодная [Pangu-Weather](/ii-modeli/pangu-weather/). Для русского языка 2023-й дал первую волну: Сбер выложил [ruGPT-3.5](/ii-modeli/rugpt/) 13B и [FRED-T5](/ii-modeli/fred-t5/), Илья Гусев начал выпускать [Saiga](/ii-modeli/saiga/), а Alpha Cephei обновила офлайн-распознавание [Vosk](/ii-modeli/vosk/).
 
 ### 2024: открытые модели догоняют коммерческие
 
-Llama выпустила сразу четыре поколения: Llama 3, 3.1, 3.2 и 3.3. Qwen прошёл путь от Qwen1.5 до Qwen2.5, Google открыл [Gemma](/ii-modeli/gemma/) и Gemma 2, Microsoft — Phi-3 и Phi-4 ([Phi](/ii-modeli/phi/)). В августе вышел [FLUX](/ii-modeli/flux/).1, в декабре — DeepSeek-V3 и [HunyuanVideo](/ii-modeli/hunyuan-video/). Для русского языка год оказался поворотным: Сбер выложил [GigaAM](/ii-modeli/gigaam/) для распознавания речи, в декабре — GigaChat 20B-A3B ([GigaChat](/ii-modeli/gigachat/)) и эмбеддинги FRIDA и Giga-Embeddings-instruct ([Giga-Embeddings](/ii-modeli/giga-embeddings/)), Т-Банк — T-Lite / T-Pro 1.0 ([T-Pro](/ii-modeli/t-pro/)), а команда [Vikhr](/ii-modeli/vikhr/) начала выпускать русскоязычные дообучения.
+Llama выпустила сразу четыре поколения, Qwen прошёл путь от Qwen1.5 до Qwen2.5, Google открыл [Gemma](/ii-modeli/gemma/), Microsoft — Phi-3 и Phi-4 ([Phi](/ii-modeli/phi/)). В августе вышел [FLUX](/ii-modeli/flux/).1, в декабре — DeepSeek-V3 и [HunyuanVideo](/ii-modeli/hunyuan-video/). Для поиска по документам вышла многоязычная [BGE-M3](/ii-modeli/bge-m3/), для биологии — [AlphaFold 3](/ii-modeli/alphafold3/) с некоммерческими весами. Для русского год оказался поворотным: Сбер выложил [GigaAM](/ii-modeli/gigaam/), GigaChat 20B-A3B ([GigaChat](/ii-modeli/gigachat/)) и эмбеддинги FRIDA и Giga-Embeddings ([Giga-Embeddings](/ii-modeli/giga-embeddings/)), Т-Банк — T-Lite / T-Pro 1.0 ([T-Pro](/ii-modeli/t-pro/)), МТС AI — [Cotype Nano](/ii-modeli/cotype/), VK — переводчики [kazRush](/ii-modeli/kazrush/), а команда [Vikhr](/ii-modeli/vikhr/) начала выпускать русскоязычные дообучения.
 
 ### 2025: рассуждающие модели и взрыв направлений
 
-Год открыл [DeepSeek-R1](/ii-modeli/deepseek-r1/) в январе — рассуждающая модель в открытом доступе. Дальше вышли Gemma 3, Qwen3 и Llama 4, летом — [Kimi](/ii-modeli/kimi/) K2 и GLM-4.5 ([GLM](/ii-modeli/glm/)), в августе OpenAI выложила [gpt-oss](/ii-modeli/gpt-oss/) 20b и 120b. Видео стало реальностью благодаря [Wan](/ii-modeli/wan/) 2.1 и 2.2, документы — благодаря DeepSeek-OCR и [PaddleOCR-VL](/ii-modeli/paddleocr-vl/). Российские разработчики выпустили YandexGPT-5-Lite-8B, T-Pro 2.0, потоковую модель [T-one](/ii-modeli/t-one/) для телефонии, GigaAM-v3, GigaChat3 10B-A1.8B, Silero TTS v5 и Kandinsky 5.0.
+Год открыл [DeepSeek-R1](/ii-modeli/deepseek-r1/) в январе — рассуждающая модель в открытом доступе. Дальше вышли Gemma 3, Qwen3 и Llama 4, летом — [Kimi](/ii-modeli/kimi/) K2 и GLM-4.5 ([GLM](/ii-modeli/glm/)), в августе OpenAI выложила [gpt-oss](/ii-modeli/gpt-oss/). Видео стало реальностью благодаря [Wan](/ii-modeli/wan/) 2.1 и 2.2, документы — благодаря DeepSeek-OCR и [PaddleOCR-VL](/ii-modeli/paddleocr-vl/), поиск — благодаря [Qwen3 Embedding и Reranker](/ii-modeli/qwen-embedding/). Российские разработчики выпустили YandexGPT-5-Lite-8B, T-Pro 2.0, потоковую [T-one](/ii-modeli/t-one/) для телефонии, GigaAM-v3, Silero TTS v5, Kandinsky 5.0, модели-судьи [POLLUX](/ii-modeli/pollux/), речевую Borealis от Vikhr, а Авито вышел на рынок с [A-Vibe](/ii-modeli/a-vibe/) и [A-Vision](/ii-modeli/a-vision/).
 
 ### 2026: январь–сентябрь
 
-Темп не снижается: 245 выпусков за девять месяцев, больше всего в январе — 44. В январе вышли Kimi K2.5, FLUX.2 [klein], LTX-2 ([LTX-Video](/ii-modeli/ltx-video/)), речевые [Qwen3-ASR](/ii-modeli/qwen-asr/) и [Qwen3-TTS](/ii-modeli/qwen-tts/), DeepSeek-OCR 2 и [GLM-OCR](/ii-modeli/glm-ocr/). В феврале — Qwen3.5, GLM-5 и MiniMax-M2.5 ([MiniMax](/ii-modeli/minimax/)). В марте Сбер выпустил GigaChat3.1 в двух размерах — 10B и 702B, вышли Mistral Small 4 и Nemotron 3 Super 120B-A12B ([Nemotron](/ii-modeli/nemotron/)).
+Темп не снижается: 339 выпусков за девять месяцев, больше всего в январе — 59. В январе вышли Kimi K2.5, FLUX.2 [klein], LTX-2 ([LTX-Video](/ii-modeli/ltx-video/)), речевые [Qwen3-ASR](/ii-modeli/qwen-asr/) и [Qwen3-TTS](/ii-modeli/qwen-tts/), [GLM-OCR](/ii-modeli/glm-ocr/) и погодная [AIFS](/ii-modeli/aifs/) 2.0 от ECMWF. В феврале — Qwen3.5, GLM-5, MiniMax-M2.5 ([MiniMax](/ii-modeli/minimax/)) и модель ДНК Evo 2 20B ([Evo](/ii-modeli/evo/)). В марте Сбер выпустил GigaChat3.1 в размерах 10B и 702B, вышли Mistral Small 4 и Nemotron 3 Super ([Nemotron](/ii-modeli/nemotron/)).
 
-Апрель стал самым плотным месяцем для языковых моделей: DeepSeek-V4-Pro / V4-Flash, Gemma 4, Qwen3.6, Kimi K2.6 и Granite 4.1 ([Granite](/ii-modeli/granite/)). Летом вышли Nemotron 3 Ultra 550B-A55B, Cosmos 3 ([Cosmos](/ii-modeli/cosmos/)), GigaChat3.5 432B-A28B, Kimi K3, [Inkling](/ii-modeli/inkling/), GigaAM Multilingual, Qwen3.8 и [Muse Glimmer](/ii-modeli/muse-glimmer/) 30B. В сентябре Яндекс выложил базовую AliceAI-Foundation-80B-A3B-Base, Сбер — GigaChat3.5 Reasoning, вышли DeepSeek-V4.1-Flash и Qwen-Image-2.1.
+Апрель стал самым плотным месяцем для языковых моделей: DeepSeek-V4, Gemma 4, Qwen3.6, Kimi K2.6 и Granite 4.1 ([Granite](/ii-modeli/granite/)). Летом вышли Nemotron 3 Ultra, Cosmos 3 ([Cosmos](/ii-modeli/cosmos/)), GigaChat3.5 432B-A28B, GigaChat3.1-Audio, T-Search 36B-A3B, GigaAM Multilingual, Kimi K3, [Inkling](/ii-modeli/inkling/), Qwen3.8, [Muse Glimmer](/ii-modeli/muse-glimmer/) 30B и [Qwen-Drive](/ii-modeli/qwen-drive/) для беспилотников. В августе Google DeepMind перевела веса [GraphCast и WeatherNext](/ii-modeli/graphcast/) на лицензию, разрешающую коммерцию. В сентябре Яндекс выложил AliceAI-Foundation-80B-A3B-Base и AliceAI-T5, Сбер — GigaChat3.5 Reasoning и диффузионный прототип [Zarya](/ii-modeli/zarya/), вышли DeepSeek-V4.1-Flash, Qwen-Image-2.1 и [EVIE](/ii-modeli/evie/) для поиска по сканам.
 
-## 26 направлений: что умеют открытые модели
+## 37 направлений: что умеют открытые модели
 
-Одно семейство может попадать в несколько направлений, поэтому сумма в последнем столбце (462) больше числа семейств в каталоге (346). Строки отсортированы по числу семейств.
+Направления разложены по тем же пяти группам, что и фильтр в каталоге. Одно семейство может попадать в несколько направлений, поэтому сумма в последних столбцах (703) больше числа семейств (484). Внутри группы строки отсортированы по числу семейств.
+
+### Текст и код — 182 семейства
 
 НаправлениеЧто делает для бизнесаПримеры семействВ каталоге
 
-ТекстЧат-боты, ответы клиентам, работа с базой знаний[Qwen](/ii-modeli/qwen/), [GigaChat](/ii-modeli/gigachat/), [Llama](/ii-modeli/llama/)83
-Картинка + текстПонимание фото, скриншотов, схем[Qwen-VL](/ii-modeli/qwen-vl/), [InternVL](/ii-modeli/internvl/), [MiniCPM-V](/ii-modeli/minicpm-v/)55
-Синтез речиОзвучка, голосовые ответы, клонирование голоса[Silero](/ii-modeli/silero/), [CosyVoice](/ii-modeli/cosyvoice/), [Qwen3-TTS](/ii-modeli/qwen-tts/)25
-КартинкиГенерация изображений для карточек и рекламы[FLUX](/ii-modeli/flux/), [Kandinsky](/ii-modeli/kandinsky/), [Qwen-Image](/ii-modeli/qwen-image/)22
-ВидеоРолики из текста и картинки[Wan](/ii-modeli/wan/), [LTX-Video](/ii-modeli/ltx-video/), [HunyuanVideo](/ii-modeli/hunyuan-video/)22
-Документы и OCRРаспознавание сканов, счетов, таблиц[PaddleOCR-VL](/ii-modeli/paddleocr-vl/), [DeepSeek-OCR](/ii-modeli/deepseek-ocr/), [MinerU](/ii-modeli/mineru/)19
-Математика и рассужденияПошаговые решения, расчёты, проверка логики и доказательств[QwQ](/ii-modeli/qwq/), [OpenThinker](/ii-modeli/openthinker/), [Qwen2.5-Math](/ii-modeli/qwen-math/), [DeepSeek-Math](/ii-modeli/deepseek-math/)18
-КодПомощь разработчикам, автоматизация[Qwen-Coder](/ii-modeli/qwen-coder/), [Devstral](/ii-modeli/devstral/)17
-Обработка фотоУдаление фона, увеличение, реставрация, чистка кадра для каталога[BiRefNet](/ii-modeli/birefnet/), [Real-ESRGAN](/ii-modeli/real-esrgan/), [LaMa](/ii-modeli/lama/), [GFPGAN](/ii-modeli/gfpgan/)17
-Речь в текстРасшифровка звонков и встреч[Whisper](/ii-modeli/whisper/), [GigaAM](/ii-modeli/gigaam/), [T-one](/ii-modeli/t-one/), [Vosk](/ii-modeli/vosk/)16
-Поиск и RAGСмысловой поиск по документам компании[Giga-Embeddings](/ii-modeli/giga-embeddings/), [BGE-M3](/ii-modeli/bge-m3/), [Qwen3 Embedding](/ii-modeli/qwen-embedding/)16
-МедицинаПомощь врачу и разработчику медицинских сервисов: тексты, снимки, черновики заключений[MedGemma](/ii-modeli/medgemma/), [Lingshu](/ii-modeli/lingshu/), [BioMistral](/ii-modeli/biomistral/), [HuatuoGPT](/ii-modeli/huatuogpt/)14
-Компьютерное зрениеПодсчёт, поиск и выделение объектов на камерах[YOLO](/ii-modeli/yolo/), [SAM](/ii-modeli/sam/), [RF-DETR](/ii-modeli/rf-detr/)13
-Голос: спикеры и звукКто говорит в записи, шумоподавление, отделение голоса от музыки, конверсия голоса[pyannote](/ii-modeli/pyannote/), [DeepFilterNet](/ii-modeli/deepfilternet/), [Demucs](/ii-modeli/demucs/), [RVC](/ii-modeli/rvc/)13
-Агенты для компьютераМодель смотрит на экран и сама кликает: заполнение форм, работа в браузере и старых программах[UI-TARS](/ii-modeli/ui-tars/), [OpenCUA](/ii-modeli/opencua/), [Fara](/ii-modeli/fara/), [OmniParser](/ii-modeli/omniparser/)12
-АватарыГоворящие головы, оживление фото[LivePortrait](/ii-modeli/liveportrait/), [MuseTalk](/ii-modeli/musetalk/), [InfiniteTalk](/ii-modeli/infinitetalk/)11
-Музыка и звукФоновая музыка, джинглы, звуки[ACE-Step](/ii-modeli/ace-step/), [Stable Audio](/ii-modeli/stable-audio/)11
-Разбор текстаКлассификация обращений, тональность отзывов, извлечение имён, сумм и дат[GLiNER](/ii-modeli/gliner/), [XLM-RoBERTa](/ii-modeli/xlm-roberta/), [rubert-tiny](/ii-modeli/rubert-tiny/), [FRED-T5](/ii-modeli/fred-t5/)11
-Модерация и безопасностьФильтр опасных запросов к боту, защита от взлома через промпт, скрытие персональных данных[Qwen3Guard](/ii-modeli/qwen3guard/), [Llama Guard](/ii-modeli/llama-guard/), [Granite Guardian](/ii-modeli/granite-guardian/), [OpenAI Privacy Filter](/ii-modeli/privacy-filter/)11
+ТекстЧат-боты, ответы клиентам, работа с базой знаний[Qwen](/ii-modeli/qwen/), [GigaChat](/ii-modeli/gigachat/), [Llama](/ii-modeli/llama/)106
+КодПомощь разработчикам, автоматизация[Qwen-Coder](/ii-modeli/qwen-coder/), [Devstral](/ii-modeli/devstral/), [Kodify-Nano](/ii-modeli/kodify/)34
+Математика и рассужденияПошаговые решения, расчёты, проверка логики[QwQ](/ii-modeli/qwq/), [OpenThinker](/ii-modeli/openthinker/), [DeepSeek-Math](/ii-modeli/deepseek-math/)25
+Разбор текстаКлассификация обращений, тональность отзывов, извлечение имён, сумм и дат[GLiNER](/ii-modeli/gliner/), [rubert-tiny](/ii-modeli/rubert-tiny/), [Meno](/ii-modeli/meno/)19
+Агенты для компьютераМодель смотрит на экран и кликает: формы, браузер, старые программы[UI-TARS](/ii-modeli/ui-tars/), [OpenCUA](/ii-modeli/opencua/), [Fara](/ii-modeli/fara/)17
+Модерация и безопасностьФильтр опасных запросов к боту, защита от взлома через промпт, скрытие персональных данных[Qwen3Guard](/ii-modeli/qwen3guard/), [Llama Guard](/ii-modeli/llama-guard/), [OpenAI Privacy Filter](/ii-modeli/privacy-filter/)15
+ПереводПеревод каталогов, сайтов, переписки с поставщиками[MADLAD-400](/ii-modeli/madlad/), [Hunyuan-MT](/ii-modeli/hy-mt/), [kazRush](/ii-modeli/kazrush/)12
+Текст в SQLВопрос обычными словами превращается в запрос к базе: отчёты без аналитика[Arctic-Text2SQL](/ii-modeli/arctic-text2sql/), [XiYanSQL](/ii-modeli/xiyan-sql/), [OmniSQL](/ii-modeli/omnisql/)5
+Проверка фактов и оценка ответовЛовят выдуманные ответы бота и ставят балл качеству перед запуском[HHEM](/ii-modeli/hhem/), [Prometheus 2](/ii-modeli/prometheus/), [POLLUX](/ii-modeli/pollux/)5
+
+### Документы и поиск — 70 семейств
+
+НаправлениеЧто делает для бизнесаПримеры семействВ каталоге
+
+Поиск и RAGСмысловой поиск по документам компании[Giga-Embeddings](/ii-modeli/giga-embeddings/), [BGE-M3](/ii-modeli/bge-m3/), [Qwen3 Embedding](/ii-modeli/qwen-embedding/)33
+Документы и OCRРаспознавание сканов, счетов, таблиц[PaddleOCR-VL](/ii-modeli/paddleocr-vl/), [DeepSeek-OCR](/ii-modeli/deepseek-ocr/), [MinerU](/ii-modeli/mineru/)27
+Табличные данныеПрогноз оттока, скоринг заявок, заполнение пропусков без долгого обучения[TabPFN](/ii-modeli/tabpfn/), [TabICL](/ii-modeli/tabicl/), [Mitra](/ii-modeli/mitra/)7
+РеранкерыПереставляют найденные фрагменты по реальной близости к вопросу, чтобы бот отвечал точнее[BGE Reranker](/ii-modeli/bge-reranker/), [mxbai](/ii-modeli/mxbai/), [Jina Reranker](/ii-modeli/jina-reranker/)4
+Поиск по сканам документовНаходят нужную страницу PDF или скана как картинку, без распознавания текста[ColPali](/ii-modeli/colpali/), [ModernVBERT](/ii-modeli/modernvbert/), [EVIE](/ii-modeli/evie/)4
+
+### Картинки и видео — 189 семейств
+
+НаправлениеЧто делает для бизнесаПримеры семействВ каталоге
+
+Картинка + текстПонимание фото, скриншотов, схем[Qwen-VL](/ii-modeli/qwen-vl/), [InternVL](/ii-modeli/internvl/), [A-Vision](/ii-modeli/a-vision/)66
+ВидеоРолики из текста и картинки[Wan](/ii-modeli/wan/), [LTX-Video](/ii-modeli/ltx-video/), [HunyuanVideo](/ii-modeli/hunyuan-video/)35
+Компьютерное зрениеПодсчёт, поиск и выделение объектов на камерах[YOLO](/ii-modeli/yolo/), [SAM](/ii-modeli/sam/), [RF-DETR](/ii-modeli/rf-detr/)33
+КартинкиГенерация изображений для карточек и рекламы[FLUX](/ii-modeli/flux/), [Kandinsky](/ii-modeli/kandinsky/), [Qwen-Image](/ii-modeli/qwen-image/)27
+Обработка фотоУдаление фона, увеличение, реставрация, чистка кадра для каталога[BiRefNet](/ii-modeli/birefnet/), [Real-ESRGAN](/ii-modeli/real-esrgan/), [LaMa](/ii-modeli/lama/)19
+АватарыГоворящие головы, оживление фото[LivePortrait](/ii-modeli/liveportrait/), [MuseTalk](/ii-modeli/musetalk/), [InfiniteTalk](/ii-modeli/infinitetalk/)14
+3D3D-модели товаров по фото[TRELLIS](/ii-modeli/trellis/), [Hunyuan3D](/ii-modeli/hunyuan3d/)14
+Примерка одеждыВещь с фото товара переносится на фото человека[FASHN VTON](/ii-modeli/fashn-vton/), [CatVTON](/ii-modeli/catvton/), [OmniTry](/ii-modeli/omnitry/)10
+ЛицаРаспознавание лиц на входе, генерация картинок с лицом конкретного человека[InsightFace](/ii-modeli/insightface/), [PuLID](/ii-modeli/pulid/), [InstantID](/ii-modeli/instantid/)6
+
+### Речь и звук — 89 семейств
+
+НаправлениеЧто делает для бизнесаПримеры семействВ каталоге
+
+Синтез речиОзвучка, голосовые ответы, клонирование голоса[Silero](/ii-modeli/silero/), [CosyVoice](/ii-modeli/cosyvoice/), [Qwen3-TTS](/ii-modeli/qwen-tts/)31
+Музыка и звукФоновая музыка, джинглы, звуки[ACE-Step](/ii-modeli/ace-step/), [Stable Audio](/ii-modeli/stable-audio/)22
+Речь в текстРасшифровка звонков и встреч[Whisper](/ii-modeli/whisper/), [GigaAM](/ii-modeli/gigaam/), [T-one](/ii-modeli/t-one/)20
+Голос: спикеры и звукКто говорит в записи, шумоподавление, эмоции по голосу[pyannote](/ii-modeli/pyannote/), [Silero VAD](/ii-modeli/silero-vad/), [модели на Dusha](/ii-modeli/dusha-emotion/)18
+Голосовые ассистентыЖивой голосовой диалог в реальном времени[Qwen Omni](/ii-modeli/qwen-omni/), [MiniCPM-o](/ii-modeli/minicpm-o/), [Moshi](/ii-modeli/moshi/)14
+
+### Отрасли и наука — 59 семейств
+
+НаправлениеЧто делает для бизнесаПримеры семействВ каталоге
+
+МедицинаПомощь врачу: тексты, снимки, черновики заключений[MedGemma](/ii-modeli/medgemma/), [Lingshu](/ii-modeli/lingshu/), [HuatuoGPT](/ii-modeli/huatuogpt/)18
 РоботыУправление манипуляторами и роботами[GR00T](/ii-modeli/gr00t/), [openpi](/ii-modeli/openpi/), [SmolVLA](/ii-modeli/smolvla/)10
-ПереводПеревод каталогов, сайтов, переписки с зарубежными поставщиками[MADLAD-400](/ii-modeli/madlad/), [Hunyuan-MT](/ii-modeli/hy-mt/), [TranslateGemma](/ii-modeli/translategemma/), [NLLB-200](/ii-modeli/nllb/)10
-Примерка одеждыВещь с фото товара переносится на фото человека: карточки маркетплейса, примерочная на сайте[FASHN VTON](/ii-modeli/fashn-vton/), [IDM-VTON](/ii-modeli/idm-vton/), [CatVTON](/ii-modeli/catvton/), [OmniTry](/ii-modeli/omnitry/)10
-3D3D-модели товаров по фото[TRELLIS](/ii-modeli/trellis/), [Hunyuan3D](/ii-modeli/hunyuan3d/)9
-Табличные данныеПрогноз оттока, скоринг заявок, заполнение пропусков в таблицах без долгого обучения[TabPFN](/ii-modeli/tabpfn/), [TabICL](/ii-modeli/tabicl/), [Mitra](/ii-modeli/mitra/)7
-ПрогнозыСпрос, продажи, нагрузка по временным рядам[Chronos](/ii-modeli/chronos/), [TimesFM](/ii-modeli/timesfm/), [Toto](/ii-modeli/toto/)6
-Голосовые ассистентыЖивой голосовой диалог в реальном времени[Qwen Omni](/ii-modeli/qwen-omni/), [MiniCPM-o](/ii-modeli/minicpm-o/), [Moshi](/ii-modeli/moshi/)4
+ПрогнозыСпрос, продажи, нагрузка по временным рядам[Chronos](/ii-modeli/chronos/), [TimesFM](/ii-modeli/timesfm/), [Toto](/ii-modeli/toto/)7
+Погода и климатСвой прогноз для логистики, энергетики, агро и стройки за секунды[Aurora](/ii-modeli/aurora/), [AIFS](/ii-modeli/aifs/), [GraphCast](/ii-modeli/graphcast/)7
+Спутниковые снимки и геоКонтроль полей, вырубок, паводков и гарей по снимкам Sentinel и Landsat[Prithvi](/ii-modeli/prithvi/), [TerraMind](/ii-modeli/terramind/), [OlmoEarth](/ii-modeli/olmoearth/)5
+Биология и химияСтруктура белков и молекул для фармы и биотеха[Boltz](/ii-modeli/boltz/), [ESM](/ii-modeli/esm/), [OpenFold](/ii-modeli/openfold/)5
+ФинансыТон финансовых новостей, разбор отчётов, прогноз биржевых свечей[FinBERT](/ii-modeli/finbert/), [Fin-R1](/ii-modeli/fin-r1/), [Kronos](/ii-modeli/kronos/)3
+КибербезопасностьРазбор уязвимостей и инцидентов внутри периметра, защита ИИ-агентов от атак[Foundation-Sec](/ii-modeli/foundation-sec/), [Llama-Primus](/ii-modeli/llama-primus/), [AprielGuard](/ii-modeli/aprielguard/)3
+Автономное вождениеРазработка и проверка систем помощи водителю[openpilot](/ii-modeli/openpilot/), [Qwen-Drive](/ii-modeli/qwen-drive/), [Alpamayo](/ii-modeli/alpamayo/)3
 
 ### Что появилось в каталоге нового
 
-Десять направлений из таблицы раньше в каталоге не выделялись. Для бизнеса практичнее всего четыре. **Обработка фото** — рутина интернет-магазина: убрать фон, увеличить снимок поставщика, стереть ценник. [BiRefNet](/ii-modeli/birefnet/) и [BEN2](/ii-modeli/ben2/) под MIT, а популярная [BRIA RMBG](/ii-modeli/rmbg/) некоммерческая (подробнее — в статье про [удаление фона](/blog/rembg-udalenie-fona-foto-2026/)). **Голос: спикеры и звук** дополняет расшифровку звонков: [pyannote](/ii-modeli/pyannote/) размечает, где говорит менеджер, а где клиент (см. [локальную расшифровку созвонов](/blog/ii-transkribaciya-sozvonov-lokalno-2026/)). **Модерация и безопасность** нужна каждому клиентскому боту: [Qwen3Guard](/ii-modeli/qwen3guard/) проверяет вопрос и ответ на 119 языках, включая русский, а [GLiNER-PII](/ii-modeli/gliner-pii/) находит телефоны и номера счетов до того, как текст уйдёт в модель (см. [ИИ-модерацию контента](/blog/ii-moderaciya-kontenta-2026/)). **Агенты для компьютера** вроде [UI-TARS](/ii-modeli/ui-tars/) сами кликают по экрану там, где у старой программы нет API; направление молодое, поэтому я ставлю их только с проверкой человеком на необратимых шагах.
+Одиннадцать направлений добавились с прошлой версии путеводителя. Для обычного бизнеса практичнее всего три. **Текст в SQL** — руководитель спрашивает «сколько заказов было в августе по филиалам», а модель пишет запрос к базе. [XiYanSQL](/ii-modeli/xiyan-sql/) и [OmniSQL](/ii-modeli/omnisql/) под Apache 2.0, у XiYanSQL есть малая версия 3B, а [SQLCoder](/ii-modeli/sqlcoder/) под CC-BY-SA требует открывать свои дообученные веса. **Проверка фактов** закрывает главный страх перед ботом: [HHEM](/ii-modeli/hhem/) на 110M работает на процессоре и отмечает ответы, которые не опираются на исходный текст. **Реранкеры и поиск по сканам** делают базу знаний точнее — о них отдельный раздел ниже.
+
+Отраслевые направления нужнее узким командам. Погодные модели вроде [Microsoft Aurora](/ii-modeli/aurora/) под MIT считают прогноз за секунды вместо часов на суперкомпьютере, а [AIFS](/ii-modeli/aifs/) работает у ECMWF в оперативном режиме. Спутниковые [Prithvi](/ii-modeli/prithvi/) и [TerraMind](/ii-modeli/terramind/) под свободными лицензиями подходят для агромониторинга (см. [спутниковый мониторинг сельского хозяйства](/blog/sputnikovyy-monitoring-selskogo-hozyaystva-2027/)). В кибербезопасности модели Cisco и Trend Micro построены на Llama 3.1, поэтому на них действует и её лицензия. А модели для вождения — инструмент разработчиков: [Alpamayo](/ii-modeli/alpamayo/) строит траекторию и объясняет решение, но это не готовый автопилот.
+
+### Лица: почти всё некоммерческое
+
+Из 6 семейств направления «Лица» пять только некоммерческие, у шестого условия. [InsightFace](/ii-modeli/insightface/) — самый распространённый открытый набор для распознавания лиц: код под MIT, но все готовые веса только для некоммерческих исследований, коммерческая лицензия по запросу. На нём стоят и генераторы с сохранением лица: [InstantID](/ii-modeli/instantid/), [IP-Adapter-FaceID](/ii-modeli/ip-adapter-faceid/) и [InfiniteYou](/ii-modeli/infiniteyou/) некоммерческие, [LVFace](/ii-modeli/lvface/) тоже. У [PuLID](/ii-modeli/pulid/) сами веса под Apache 2.0, но версия для FLUX подчиняется некоммерческой FLUX.1 [dev], а распознаватель InsightFace — исследовательский. Даже в аватарах это всплывает: у [LatentSync](/ii-modeli/latentsync/) встроенный детектор лиц InsightFace для бизнеса нужно заменить. К тому же лицо — это биометрия, и для неё в России свои требования (подробнее — в статье про [распознавание лиц на открытом SDK](/blog/raspoznavanie-lic-otkrytyy-sdk-2026/)).
 
 ### Примерка одежды: смотрите на лицензию до пилота
 
-Для магазинов одежды это самое заметное из новых направлений и самое коварное по лицензиям. Из 10 семейств примерки в каталоге 7 только некоммерческие: [IDM-VTON](/ii-modeli/idm-vton/), [CatVTON](/ii-modeli/catvton/), [OOTDiffusion](/ii-modeli/ootdiffusion/), [FitDiT](/ii-modeli/fitdit/), [StableVITON](/ii-modeli/stableviton/), [FastFit](/ii-modeli/fastfit/) и [Any2AnyTryon](/ii-modeli/any2anytryon/). Ещё у двух условия: [Leffa](/ii-modeli/leffa/) выложена под MIT, но обучена на наборах данных с некоммерческими условиями, а [OmniTry](/ii-modeli/omnitry/) под Apache 2.0 требует базовую FLUX.1 Fill [dev] с некоммерческой лицензией. Без оговорок в коммерцию можно только [FASHN VTON](/ii-modeli/fashn-vton/) под Apache 2.0: примеряет без маски, веса около 2 ГБ. Поэтому демо на CatVTON можно показать за вечер, а вот ставить его в карточки маркетплейса нельзя. Как устроена сама примерка, я разбирал в статье про [виртуальную примерку на CatVTON](/blog/catvton-virtualnaya-primerka-2026/).
+Из 10 семейств примерки в каталоге 7 только некоммерческие: [IDM-VTON](/ii-modeli/idm-vton/), [CatVTON](/ii-modeli/catvton/), [OOTDiffusion](/ii-modeli/ootdiffusion/), [FitDiT](/ii-modeli/fitdit/), [StableVITON](/ii-modeli/stableviton/), [FastFit](/ii-modeli/fastfit/) и [Any2AnyTryon](/ii-modeli/any2anytryon/). У двух условия: [Leffa](/ii-modeli/leffa/) под MIT, но обучена на наборах с некоммерческими условиями, а [OmniTry](/ii-modeli/omnitry/) требует базовую FLUX.1 Fill [dev] с некоммерческой лицензией. Без оговорок в коммерцию можно только [FASHN VTON](/ii-modeli/fashn-vton/) под Apache 2.0. Демо на CatVTON можно показать за вечер, а ставить его в карточки маркетплейса нельзя. Как устроена сама примерка — в статье про [виртуальную примерку на CatVTON](/blog/catvton-virtualnaya-primerka-2026/).
 
 ### Медицина: инструмент для врача, а не вместо него
 
-Медицинских семейств в каталоге 14: [MedGemma](/ii-modeli/medgemma/) читает тексты и снимки, [CheXagent](/ii-modeli/chexagent/) готовит черновик заключения по рентгену, [Hulu-Med](/ii-modeli/hulu-med/) работает и с 3D-исследованиями. Они разгружают рутину, но ни одна из них не заменяет врача: решения по диагнозу и лечению принимает специалист. Лицензии здесь тоже пёстрые: у MedGemma собственные условия Google, у [Clinical Camel](/ii-modeli/clinical-camel/) — только некоммерческое использование.
+Медицинских семейств в каталоге 18: [MedGemma](/ii-modeli/medgemma/) читает тексты и снимки, [CheXagent](/ii-modeli/chexagent/) готовит черновик заключения по рентгену, [Hulu-Med](/ii-modeli/hulu-med/) работает и с 3D-исследованиями. Они разгружают рутину, но решения по диагнозу и лечению принимает специалист. Лицензии пёстрые: 6 семейств свободные, у 9 условия (у MedGemma — собственные условия Google), 3 только некоммерческие, среди них [Clinical Camel](/ii-modeli/clinical-camel/).
+
+## Поиск по документам и RAG: из чего собирается
+
+Бот, который отвечает по регламентам, прайсам и договорам, — это не одна модель, а цепочка из трёх-четырёх. Все звенья есть в каталоге в открытом виде.
+
+**1. Эмбеддинги.** Модель превращает каждый фрагмент документа в вектор, и поиск идёт по смыслу, а не по словам. Для русского хорошо работают [FRIDA и Giga-Embeddings](/ii-modeli/giga-embeddings/) от Сбера (летом вышли версии 0826 от 480M до 10B-A1.8B), [USER](/ii-modeli/deepvk-encoders/) от VK, многоязычные [BGE-M3](/ii-modeli/bge-m3/), [multilingual-e5](/ii-modeli/e5/) и [Qwen3 Embedding](/ii-modeli/qwen-embedding/). Для слабого сервера без видеокарты — [Sentence Transformers](/ii-modeli/sentence-transformers/). Основные версии [BGE](/ii-modeli/bge/) рассчитаны на английский и китайский, для русского берут BGE-M3.
+
+**2. Реранкер.** Поиск по векторам быстро находит 20–50 кандидатов, но порядок у них грубый. Реранкер перечитывает каждую пару «вопрос — фрагмент» и оставляет лучшие. [BGE Reranker](/ii-modeli/bge-reranker/) v2-m3 лёгкий и многоязычный, его ставят в пару к BGE-M3; реранкеры [mxbai](/ii-modeli/mxbai/) v2 работают на 100+ языках, включая русский; реранкер есть и в семействе [Qwen3](/ii-modeli/qwen-embedding/). У [Jina Reranker](/ii-modeli/jina-reranker/) свежие версии только некоммерческие.
+
+**3. Поиск по сканам — если документы в картинках.** Вместо распознавания каждой страницы [ColPali / ColQwen](/ii-modeli/colpali/), [ModernVBERT](/ii-modeli/modernvbert/) и [EVIE](/ii-modeli/evie/) ищут страницу как изображение, вместе с таблицами и схемами. Оговорка: ColPali и ModernVBERT обучены на английском, у EVIE русский не заявлен, так что на русских сканах их нужно проверять, а надёжнее пока связка OCR плюс эмбеддинги.
+
+**4. Модель ответа и проверка.** Найденные фрагменты читает языковая модель: [Qwen](/ii-modeli/qwen/), [GigaChat](/ii-modeli/gigachat/), [T-Pro](/ii-modeli/t-pro/) или компактная [Meno](/ii-modeli/meno/), сделанная именно для ответов по базе знаний на русском. На выходе можно поставить [HHEM](/ii-modeli/hhem/) или малые версии [MiniCheck](/ii-modeli/minicheck/), чтобы отсеять ответы, не подтверждённые документами. Как собрать всё это у себя, я разбирал в статьях про [RAG на своих документах локально](/blog/rag-na-svoih-dokumentah-lokalno-2026/) и [векторные базы для RAG](/blog/vektornye-bazy-dlya-rag-2027/).
 
 ## Модели с сильным русским языком
 
-В каталоге 19 семейств из России, и почти все сделаны с прицелом на русский язык. Для текста это [GigaChat](/ii-modeli/gigachat/) от Сбера — от лёгкой 10B-A1.8B до флагманов до 702B, всё под MIT. [YandexGPT / AliceAI](/ii-modeli/yandexgpt/) — модели Яндекса, обученные с нуля с упором на русский и российские реалии; новая AliceAI-Foundation 80B-A3B выложена под Apache 2.0 как база для дообучения. [T-Pro / T-Lite](/ii-modeli/t-pro/) от Т-Банка — дообучения Qwen под русский язык, T-Pro на 32B помещается на одну видеокарту. [Vikhr](/ii-modeli/vikhr/) — независимая команда, которая дообучает Mistral, Qwen и Llama под русский, есть компактные версии для обычного ПК.
+В каталоге 32 семейства из России (25 свободных, 7 с условиями), а явная поддержка русского заявлена у 100 семейств. Для текста это [GigaChat](/ii-modeli/gigachat/) от Сбера — от лёгкой 10B-A1.8B до флагманов до 702B, всё под MIT; в июле вышла GigaChat3.1-Audio, которая понимает звук и записи до двух часов. [YandexGPT / AliceAI](/ii-modeli/yandexgpt/) обучены с нуля с упором на русский; новые AliceAI-Foundation 80B-A3B и экономичная AliceAI-T5 35B-A0.6B выложены под Apache 2.0 как база для дообучения. [T-Pro / T-Lite](/ii-modeli/t-pro/) от Т-Банка — дообучения Qwen под русский, а T-Search 36B-A3B — агент для многошагового поиска на русском и английском. [Vikhr](/ii-modeli/vikhr/) дообучает Mistral, Qwen и Llama под русский, а его Borealis распознаёт и понимает русскую речь.
 
-Рядом с ними — дообучения сообщества и научных групп. [Saiga](/ii-modeli/saiga/) Ильи Гусева — самая известная русскоязычная доучка: Llama, Mistral, Gemma и YandexGPT, дообученные отвечать на русском как ассистент. Лицензия наследуется от базовой модели, поэтому смотреть её надо у конкретной версии. [Ruadapt (RuadaptQwen)](/ii-modeli/ruadapt-qwen/) из НИВЦ МГУ — Qwen с заменённым токенизатором и дообучением на русских текстах, за счёт этого русский текст генерируется до двух раз быстрее исходной модели того же размера; основные версии под Apache 2.0. [ruGPT-3.5](/ii-modeli/rugpt/) 13B от Сбера под MIT — база, из которой вырос GigaChat. Контекст у неё всего 2048 токенов, так что это основа для узкого дообучения.
+В 2024–2026 годах к Сберу, Яндексу и Т-Банку присоединились новые разработчики. [A-Vibe](/ii-modeli/a-vibe/) от Авито построена на Qwen3-8B, но со своим токенизатором: русский текст генерируется на 15–25% быстрее, модель умеет вызывать функции. Её зрячая пара [A-Vision](/ii-modeli/a-vision/) описывает фото и читает надписи. МТС AI выложила [Cotype Nano](/ii-modeli/cotype/) на 1,5B с версией для процессора и помощника программиста [Kodify-Nano](/ii-modeli/kodify/) с плагинами для VS Code и JetBrains. У Cotype Nano в метаданных Hugging Face указана лицензия other, поэтому файл лицензии стоит прочитать до запуска. [Meno](/ii-modeli/meno/) Ивана Бондаренко из НГУ сделана для работы с документами: ответы по базе знаний и извлечение фактов. А [Zarya](/ii-modeli/zarya/) от Сбера пишет текст блоками через диффузию — это исследовательский прототип, для рабочих систем авторы его не рекомендуют.
 
-Отдельно стоит [mGPT](/ii-modeli/mgpt/) от Сбера: многоязычная модель на 61 язык, включая языки народов России и СНГ, с отдельными доучками под бурятский, якутский, татарский, башкирский, казахский и другие языки. Для открытых моделей это редкость.
+Рядом — дообучения сообщества: [Saiga](/ii-modeli/saiga/) Ильи Гусева (лицензия наследуется от базовой модели), [RuadaptQwen](/ii-modeli/ruadapt-qwen/) из НИВЦ МГУ, которая генерирует русский текст до двух раз быстрее исходного Qwen, и [ruGPT-3.5](/ii-modeli/rugpt/) — база, из которой вырос GigaChat. [mGPT](/ii-modeli/mgpt/) знает 61 язык, включая языки народов России.
 
-Для разбора русского текста хватает процессора. [FRED-T5](/ii-modeli/fred-t5/) от Сбера пересказывает, перефразирует и исправляет орфографию (версии SAGE). [ruBERT, ruRoBERTa и ruELECTRA](/ii-modeli/rubert/) — энкодеры Сбера для классификации и извлечения сущностей. [rubert-tiny](/ii-modeli/rubert-tiny/) Давида Дале весит 12–29 миллионов параметров и имеет готовые версии для тональности и токсичности. [RuModernBERT и USER](/ii-modeli/deepvk-encoders/) от VK читают длинные тексты и дают векторы для поиска.
+Для разбора русского текста хватает процессора. [FRED-T5](/ii-modeli/fred-t5/) пересказывает и исправляет орфографию, [ruBERT и ruRoBERTa](/ii-modeli/rubert/) служат основой классификаторов, [rubert-tiny](/ii-modeli/rubert-tiny/) весит 12–29 миллионов параметров. На нём же построены [готовые русские классификаторы](/ii-modeli/ru-classifiers/) токсичности, тональности и эмоций, которые работают за миллисекунды. [RuModernBERT и USER](/ii-modeli/deepvk-encoders/) от VK читают длинные тексты и дают векторы для поиска. Для судейства на русском есть [POLLUX](/ii-modeli/pollux/) от Сбера: модели от 4B до 32B ставят балл ответам других нейросетей и объясняют оценку. [ruCLIP](/ii-modeli/ruclip/) ищет картинки по русскому описанию, а [kazRush](/ii-modeli/kazrush/) от VK на 197M переводит между казахским и русским на обычном процессоре.
 
-Для речи — [GigaAM](/ii-modeli/gigaam/) (одна из самых точных моделей для русской речи, есть многоязычная версия с казахским, киргизским и узбекским), [T-one](/ii-modeli/t-one/) (72M, потоковое распознавание телефонных разговоров без видеокарты), [Vosk](/ii-modeli/vosk/) (офлайн-распознавание русской речи, которое работает даже на Raspberry Pi и телефоне, Apache 2.0) и [Silero](/ii-modeli/silero/) — лёгкий синтез русской речи, в версии v5 добавлены языки СНГ и народов России. Для картинок и видео — [Kandinsky](/ii-modeli/kandinsky/), который понимает запросы на русском и российский культурный контекст. Для поиска по документам — [FRIDA и Giga-Embeddings](/ii-modeli/giga-embeddings/), по данным разработчиков, в числе лучших на русскоязычных тестах поиска. А [LaMa](/ii-modeli/lama/), сделанная в московском центре Samsung AI вместе со Сколтехом, до сих пор остаётся стандартом для удаления лишних объектов с фото.
+Для речи — [GigaAM](/ii-modeli/gigaam/) (одна из самых точных моделей для русской речи, в июле вышла многоязычная версия с казахским, киргизским и узбекским), [T-one](/ii-modeli/t-one/) для телефонии без видеокарты, [Vosk](/ii-modeli/vosk/) для офлайн-распознавания и [Silero](/ii-modeli/silero/) для лёгкого синтеза. [Silero VAD](/ii-modeli/silero-vad/) весом около 2 МБ отличает голос от тишины и нужен почти в каждом голосовом боте. [ESpeech-TTS](/ii-modeli/espeech-tts/) клонирует голос на русском, но построена на архитектуре F5-TTS с некоммерческими официальными весами — здесь нужен юрист. [Модели на датасете Dusha](/ii-modeli/dusha-emotion/) определяют эмоцию по голосу: нейтрально, злость, позитив, грусть. Для картинок и видео — [Kandinsky](/ii-modeli/kandinsky/).
 
-Из зарубежных семейств русский явно указан у [Qwen](/ii-modeli/qwen/), [Whisper](/ii-modeli/whisper/), многоязычных [E5](/ii-modeli/e5/), [Qwen3 Embedding](/ii-modeli/qwen-embedding/), [Omnilingual ASR](/ii-modeli/omnilingual-asr/), [CosyVoice](/ii-modeli/cosyvoice/), [VoxCPM](/ii-modeli/voxcpm/), [PaddleOCR-VL](/ii-modeli/paddleocr-vl/) и фильтра [Qwen3Guard](/ii-modeli/qwen3guard/). Обратное тоже бывает: у Kokoro и Parler-TTS русского нет, это стоит проверить до выбора.
-
-Переводчики с русским в каталоге тоже есть, и здесь снова решает лицензия. Для коммерции подходят [MADLAD-400](/ii-modeli/madlad/) (более 400 языков, Apache 2.0), [M2M-100](/ii-modeli/m2m-100/) (MIT), [OPUS-MT](/ii-modeli/opus-mt/) с отдельными лёгкими моделями под пару русский–английский, [Seed-X](/ii-modeli/seed-x/) и [EuroLLM](/ii-modeli/eurollm/). С условиями — [Hunyuan-MT](/ii-modeli/hy-mt/), [TranslateGemma](/ii-modeli/translategemma/) и [ALMA](/ii-modeli/alma/). А известные [NLLB-200](/ii-modeli/nllb/) и [Tower](/ii-modeli/tower/) — только некоммерческие. Практическую сторону я разбирал в статье про [нейросеть для перевода](/blog/neyroset-dlya-perevoda-2026/).
+Из зарубежных семейств русский явно указан у [Qwen](/ii-modeli/qwen/), [Whisper](/ii-modeli/whisper/), [E5](/ii-modeli/e5/), [Qwen3 Embedding](/ii-modeli/qwen-embedding/), [Omnilingual ASR](/ii-modeli/omnilingual-asr/), [CosyVoice](/ii-modeli/cosyvoice/), [VoxCPM](/ii-modeli/voxcpm/), [PaddleOCR-VL](/ii-modeli/paddleocr-vl/) и [Qwen3Guard](/ii-modeli/qwen3guard/). Обратное тоже бывает: у Kokoro и Parler-TTS русского нет. Для перевода в коммерции подходят [MADLAD-400](/ii-modeli/madlad/) и [OPUS-MT](/ii-modeli/opus-mt/), а [NLLB-200](/ii-modeli/nllb/) только некоммерческая (см. [нейросеть для перевода](/blog/neyroset-dlya-perevoda-2026/)).
 
 ## Лицензии: что можно в коммерцию
 
-В каталоге семейства разделены на три группы. **Можно в коммерцию** — 207 семейств: Apache 2.0, MIT и похожие свободные лицензии, например [GigaChat](/ii-modeli/gigachat/), [gpt-oss](/ii-modeli/gpt-oss/), [Wan](/ii-modeli/wan/). **Коммерция с условиями** — 111 семейств. **Только некоммерческое** — 28 семейств, среди них [Coqui XTTS](/ii-modeli/xtts/), [Seamless](/ii-modeli/seamless/), [Ideogram 4](/ii-modeli/ideogram/), переводчик [NLLB-200](/ii-modeli/nllb/), реставрация лиц [CodeFormer](/ii-modeli/codeformer/) и большинство моделей примерки одежды. За последнее время доля некоммерческих выросла: новые направления вроде примерки и обработки фото часто выходят из научных лабораторий с лицензиями только для исследований.
+В каталоге семейства разделены на три группы. **Можно в коммерцию** — 288 семейств: Apache 2.0, MIT и похожие свободные лицензии, например [GigaChat](/ii-modeli/gigachat/), [gpt-oss](/ii-modeli/gpt-oss/), [Wan](/ii-modeli/wan/). **Коммерция с условиями** — 145 семейств. **Только некоммерческое** — 51 семейство, среди них [Coqui XTTS](/ii-modeli/xtts/), [Seamless](/ii-modeli/seamless/), [NLLB-200](/ii-modeli/nllb/), [CodeFormer](/ii-modeli/codeformer/), большинство моделей примерки одежды и лиц. Доля некоммерческих выросла: новые направления часто выходят из лабораторий с лицензиями только для исследований.
 
-Условия во второй группе бывают очень разными. Вот типичные примеры из каталога:
+Условия во второй группе бывают очень разными:
 
-- **Порог по выручке.** У [Stable Audio](/ii-modeli/stable-audio/) бесплатно для компаний с выручкой до 1 млн долларов в год, у [LFM](/ii-modeli/lfm/) — до 10 млн долларов, выше нужна отдельная лицензия.
+- **Порог по выручке.** У [Stable Audio](/ii-modeli/stable-audio/) бесплатно для компаний с выручкой до 1 млн долларов в год, у [LFM](/ii-modeli/lfm/) — до 10 млн долларов.
 
-- **Ограничение по территории.** Лицензия Tencent Hunyuan Community License у [HunyuanVideo](/ii-modeli/hunyuan-video/) не действует в ЕС, Великобритании и Южной Корее.
+- **Ограничение по территории.** Лицензия Tencent у [HunyuanVideo](/ii-modeli/hunyuan-video/) не действует в ЕС, Великобритании и Южной Корее.
 
-- **Обязанность открыть свой код.** [YOLO](/ii-modeli/yolo/) распространяется под AGPL-3.0: код продукта придётся открыть или купить корпоративную лицензию.
+- **Обязанность открыть свой код.** [YOLO](/ii-modeli/yolo/) под AGPL-3.0: код продукта придётся открыть или купить корпоративную лицензию.
 
-Отдельная ловушка — разные лицензии внутри одного семейства. У [FLUX](/ii-modeli/flux/) версии [schnell] и [klein] 4B под Apache 2.0, а версии [dev] некоммерческие. У [TimesFM](/ii-modeli/timesfm/) версии до 2.5 под Apache 2.0, а TimesFM 3.0 — уже некоммерческая. Поэтому смотреть надо на лицензию конкретной версии, а не семейства. Подробно о том, как читать лицензии по слоям, я писал в разборе [лицензий открытых моделей](/blog/licenzii-otkrytyh-modeley-2026/). И оговорка: я даю инженерную проверку, а финальное решение по лицензии для бизнеса принимает юрист.
+- **Запрет на отрасль.** [OlmoEarth](/ii-modeli/olmoearth/) бесплатна и для бизнеса, но лицензия запрещает военное применение, слежку и добычу полезных ископаемых — нефти, газа, руды. Для горнодобывающей компании это закрытая дверь, а [Prithvi](/ii-modeli/prithvi/) и [TerraMind](/ii-modeli/terramind/) со свободными лицензиями такого запрета не имеют.
+
+- **Некоммерческие веса при открытом коде.** У [InsightFace](/ii-modeli/insightface/) код MIT, а веса исследовательские. Модели вызова функций [xLAM](/ii-modeli/xlam/) от Salesforce сильны в тестах, но выложены под CC-BY-NC 4.0 — для агента в продукте не подходят. У [AlphaFold 3](/ii-modeli/alphafold3/) веса только для некоммерческих организаций, открытые аналоги — [Boltz](/ii-modeli/boltz/) и [OpenFold3](/ii-modeli/openfold/).
+
+Отдельная ловушка — разные лицензии внутри семейства и их смена со временем. У [FLUX](/ii-modeli/flux/) версии [schnell] и [klein] 4B под Apache 2.0, а [dev] некоммерческие. У [TimesFM](/ii-modeli/timesfm/) версии до 2.5 под Apache 2.0, а 3.0 — уже некоммерческая. Бывает и наоборот: веса [GraphCast](/ii-modeli/graphcast/) раньше были некоммерческими, а с 6 августа 2026 года выложены под CC-BY 4.0. Поэтому смотреть надо на лицензию конкретной версии на дату внедрения. Подробно — в разборе [лицензий открытых моделей](/blog/licenzii-otkrytyh-modeley-2026/). Я даю инженерную проверку, а финальное решение принимает юрист.
 
 ## Какое железо нужно
 
 В каталоге у каждой модели отмечено, на каком классе железа запускаются её версии. Один и тот же Qwen есть и в версии для ноутбука, и во флагмане для кластера, поэтому классы пересекаются.
 
-**Ноутбук или обычный ПК** (до 8 ГБ видеопамяти) — версии есть у 249 семейств. Сюда попадают распознавание речи [Whisper](/ii-modeli/whisper/), [GigaAM](/ii-modeli/gigaam/) и [T-one](/ii-modeli/t-one/), синтез [Silero](/ii-modeli/silero/), маленькие языковые [SmolLM](/ii-modeli/smollm/), эмбеддинги [BGE-M3](/ii-modeli/bge-m3/), OCR вроде [PaddleOCR-VL](/ii-modeli/paddleocr-vl/) на 0.9B, а ещё почти все модели для обработки фото, разбора русского текста и табличных данных.
+**Ноутбук или обычный ПК** (до 8 ГБ видеопамяти) — версии есть у 356 семейств. Сюда попадают распознавание речи [Whisper](/ii-modeli/whisper/), [GigaAM](/ii-modeli/gigaam/) и [T-one](/ii-modeli/t-one/), [Silero VAD](/ii-modeli/silero-vad/), маленькие языковые [SmolLM](/ii-modeli/smollm/) и [Cotype Nano](/ii-modeli/cotype/), эмбеддинги и реранкеры, проверка фактов [HHEM](/ii-modeli/hhem/), поиск по сканам [ModernVBERT](/ii-modeli/modernvbert/), почти все модели для обработки фото, разбора русского текста и табличных данных.
 
-**Одна видеокарта на 16–80 ГБ** — версии есть у 260 семейств. Это [gpt-oss](/ii-modeli/gpt-oss/) 20B и 120B, [T-Pro](/ii-modeli/t-pro/) на 32B, [Muse Glimmer](/ii-modeli/muse-glimmer/) 30B, генерация картинок [FLUX](/ii-modeli/flux/) и видео [Wan](/ii-modeli/wan/).
+**Одна видеокарта на 16–80 ГБ** — версии есть у 354 семейств. Это [gpt-oss](/ii-modeli/gpt-oss/), [T-Pro](/ii-modeli/t-pro/), [A-Vision](/ii-modeli/a-vision/), [Muse Glimmer](/ii-modeli/muse-glimmer/) 30B, генерация картинок [FLUX](/ii-modeli/flux/) и видео [Wan](/ii-modeli/wan/), погодные модели вроде [ACE2](/ii-modeli/ace2/).
 
-**Кластер из нескольких видеокарт** — нужен для флагманов 69 семейств: [DeepSeek](/ii-modeli/deepseek/) до 1.6T-A49B, [Kimi](/ii-modeli/kimi/) до 2.8T-A104B, [GigaChat](/ii-modeli/gigachat/) 702B, [Inkling](/ii-modeli/inkling/) 975B-A41B. Для большинства бизнес-задач такие размеры не нужны. Как посчитать память под конкретную модель, я разбирал в статье [сколько железа нужно локальному ИИ](/blog/skolko-zheleza-nuzhno-lokalnomu-ii-2026/), а про выбор видеокарты — в материале о [GPU для локального ИИ](/blog/gpu-dlya-lokalnogo-ii-2026/).
+**Кластер из нескольких видеокарт** — нужен для флагманов 82 семейств: [DeepSeek](/ii-modeli/deepseek/), [Kimi](/ii-modeli/kimi/), [GigaChat](/ii-modeli/gigachat/) 702B. Только кластер требуют всего 5 семейств, например [Inkling](/ii-modeli/inkling/). Для большинства бизнес-задач такие размеры не нужны. Как посчитать память под модель — в статье [сколько железа нужно локальному ИИ](/blog/skolko-zheleza-nuzhno-lokalnomu-ii-2026/), про выбор видеокарты — в материале о [GPU для локального ИИ](/blog/gpu-dlya-lokalnogo-ii-2026/).
 
 ## Как выбрать модель под задачу
 
 Я иду по пяти шагам и не начинаю с рейтингов.
 
-**1. Задача.** Сначала понять, что именно нужно: отвечать клиентам, расшифровывать звонки, разбирать сканы, искать по базе знаний. От этого зависит направление из таблицы выше, и выбор сразу сужается с 346 семейств до одного-двух десятков.
+**1. Задача.** Отвечать клиентам, расшифровывать звонки, разбирать сканы, искать по базе знаний, строить отчёты из базы. От этого зависит направление из таблиц выше, и выбор сужается с 484 семейств до одного-двух десятков.
 
-**2. Язык.** Если работа идёт на русском, в приоритете семейства, где русский явно заявлен или ради него модель и делалась. Для речи и поиска это особенно заметно.
+**2. Язык.** Для работы на русском в приоритете семейства, где русский заявлен явно или ради него модель и делалась.
 
-**3. Лицензия.** Проверяю лицензию конкретной версии под коммерческий сценарий заказчика, до установки. Модель, которую нельзя использовать в продукте, не нужна, какой бы сильной она ни была.
+**3. Лицензия.** Проверяю лицензию конкретной версии под сценарий заказчика, до установки, включая лицензии базовых моделей и встроенных компонентов вроде детектора лиц.
 
-**4. Железо.** Смотрю, что есть у заказчика или что он готов поставить, и выбираю размер под это. Часто версия поменьше на одной видеокарте полезнее флагмана, для которого нужен кластер.
+**4. Железо.** Выбираю размер под то, что есть у заказчика: версия на одной видеокарте часто полезнее флагмана для кластера.
 
-**5. Проверка на своих примерах.** Беру двух-трёх кандидатов и прогоняю на реальных данных: письмах, звонках, документах. Бенчмарки дают ориентир, но на конкретной задаче расклад может оказаться иным. Подробнее о шорт-листе под русский — в статье [какой локальный LLM выбрать](/blog/kakoy-lokalnyy-llm-vybrat-2026/), а о том, нужна ли модели база знаний или дообучение, — в разборе [RAG или дообучение](/blog/rag-ili-doobuchenie-modeli-2026/).
+**5. Проверка на своих примерах.** Беру двух-трёх кандидатов и прогоняю на реальных письмах, звонках, документах. Для текстовых задач оценку можно частично автоматизировать моделью-судьёй. Подробнее о шорт-листе под русский — в статье [какой локальный LLM выбрать](/blog/kakoy-lokalnyy-llm-vybrat-2026/), а о выборе между базой знаний и дообучением — в разборе [RAG или дообучение](/blog/rag-ili-doobuchenie-modeli-2026/).
 
 ## Как я ставлю модель заказчику
 
-Начинаю с задачи и данных: что должна делать модель, на каком языке, какие данные нельзя выпускать из компании. По ответам подбираю два-три семейства из каталога и сверяю лицензии со сценарием заказчика. Затем разворачиваю модель на арендованном сервере, на железе заказчика или в закрытом контуре без интернета и проверяю, что она выдерживает нужный поток.
-
-Специфику бизнеса модель получает через базу знаний с поиском по смыслу, если нужно отвечать по документам и прайсам, или через дообучение LoRA, если нужен особый стиль ответов. Последний шаг — встраивание в CRM, 1С, Telegram- или MAX-бота: пользу модель даёт там, где сотрудники и клиенты уже работают.
+Начинаю с задачи и данных: что должна делать модель, на каком языке, какие данные нельзя выпускать из компании. Подбираю два-три семейства из каталога, сверяю лицензии и разворачиваю модель на арендованном сервере, на железе заказчика или в закрытом контуре без интернета. Специфику бизнеса модель получает через базу знаний с поиском по смыслу или через дообучение LoRA, а последний шаг — встраивание в CRM, 1С, Telegram- или MAX-бота, где сотрудники и клиенты уже работают.
 
 ## Частые вопросы
 
@@ -162,29 +213,33 @@ Llama выпустила сразу четыре поколения: Llama 3, 3.
 
 ### Открытая модель — значит бесплатная для бизнеса?
 
-Не всегда. В каталоге 207 семейств без оговорок для коммерции, 111 с условиями (порог выручки, территория, открытие кода, некоммерческая базовая модель) и 28 только некоммерческих. Скачать можно почти всё, а использовать в продукте — не всё.
+Не всегда. В каталоге 288 семейств без оговорок для коммерции, 145 с условиями (порог выручки, территория, открытие кода, запрет на отрасль, некоммерческая базовая модель) и 51 только некоммерческое. Скачать можно почти всё, а использовать в продукте — не всё.
 
 ### Какие открытые модели лучше всего работают с русским?
 
-Для текста — GigaChat, YandexGPT / AliceAI, T-Pro, Vikhr, Saiga, RuadaptQwen и Qwen. Для речи — GigaAM, T-one, Vosk, Silero. Для поиска по документам — Giga-Embeddings и USER от VK, для классификации и орфографии — ruBERT, rubert-tiny и FRED-T5. Для языков народов России — mGPT. Окончательный выбор делается тестом на ваших данных.
+Для текста — GigaChat, YandexGPT / AliceAI, T-Pro, A-Vibe, Vikhr, Saiga, RuadaptQwen и Qwen. Для речи — GigaAM, T-one, Vosk, Silero. Для поиска — Giga-Embeddings и USER от VK, для классификации — ruBERT, rubert-tiny и готовые классификаторы на нём, для оценки ответов — POLLUX. Окончательный выбор делается тестом на ваших данных.
 
-### Можно ли сделать виртуальную примерку на открытой модели для магазина?
+### Какие модели нужны для бота, который отвечает по документам?
 
-Можно, но выбор узкий. Из 10 семейств примерки в каталоге без оговорок для коммерции только FASHN VTON под Apache 2.0, ещё у двух условия, а семь, включая популярные IDM-VTON и CatVTON, только некоммерческие. Для пилота подходят все, для продукта нужно проверить лицензию до старта.
+Минимум две: эмбеддинги для поиска (например, Giga-Embeddings или BGE-M3) и языковая модель для ответа. Точность заметно поднимают реранкер вроде BGE Reranker и проверка фактов HHEM. Для сканов без текстового слоя нужен OCR или поиск по страницам как по картинкам.
+
+### Можно ли использовать открытые модели для распознавания лиц в продукте?
+
+С большой осторожностью. Из 6 семейств направления пять некоммерческие, включая готовые веса InsightFace, на которых построено большинство генераторов с сохранением лица. Для продукта нужна коммерческая лицензия или другая модель, плюс соблюдение правил о биометрии.
 
 ### Можно ли запустить модель без видеокарты?
 
-Да, у 249 семейств из каталога есть версии для ноутбука или обычного ПК. Распознавание речи, синтез, эмбеддинги и небольшие языковые модели работают даже на процессоре, просто медленнее.
+Да, у 356 семейств есть версии для ноутбука или обычного ПК. Распознавание речи, синтез, эмбеддинги, классификаторы и небольшие языковые модели работают даже на процессоре, просто медленнее.
 
 ### Как часто выходят новые версии?
 
-Очень часто: в каталоге 418 выпусков за 2025 год и 245 за январь–сентябрь 2026-го. Гнаться за каждой новинкой не нужно, важнее, чтобы выбранная версия решала задачу и подходила по лицензии.
+Очень часто: 562 выпуска за 2025 год и 339 за январь–сентябрь 2026-го. Гнаться за каждой новинкой не нужно, важнее, чтобы выбранная версия решала задачу и подходила по лицензии.
 
 ## Коротко о главном
 
-За четыре года открытые модели прошли путь от единичных выпусков вроде Whisper, Stable Diffusion и BLOOM до сотен версий в год. Сегодня они закрывают 26 направлений — от чат-ботов и расшифровки звонков до примерки одежды, модерации, агентов для компьютера и прогнозов спроса, а у российских разработчиков есть сильные открытые модели для текста, речи, картинок и поиска.
+За четыре года открытые модели прошли путь от единичных выпусков вроде Whisper, Stable Diffusion и BLOOM до сотен версий в год. Сегодня каталог насчитывает 484 семейства в 37 направлениях — от чат-ботов, расшифровки звонков и поиска по документам до погоды, спутниковых снимков и биологии. У российских разработчиков уже 32 открытых семейства: к Сберу, Яндексу и Т-Банку добавились Авито, МТС AI, VK и независимые команды.
 
-Главное при выборе — не громкое имя, а связка из пяти вещей: задача, язык, лицензия конкретной версии, железо и проверка на своих примерах. Лицензия заслуживает отдельного внимания: у трети семейств есть условия для коммерции, ещё 28 только некоммерческие, и внутри одного семейства условия могут различаться от версии к версии.
+Главное при выборе — не громкое имя, а связка из пяти вещей: задача, язык, лицензия конкретной версии, железо и проверка на своих примерах. Лицензия заслуживает отдельного внимания: у 145 семейств есть условия, 51 только некоммерческое, а условия меняются от версии к версии и даже со временем.
 
 Если хотите, чтобы модель подобрали, поставили на ваш сервер или в закрытый контур, дообучили под ваши данные и встроили в CRM, 1С или бота, — я помогу пройти этот путь целиком. Напишите в Telegram, MAX или VK.
 
