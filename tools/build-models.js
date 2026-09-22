@@ -80,7 +80,7 @@ function head({ title, description, url, ld }) {
     .replace(/(<meta property="og:url" content=")[^"]*/, `$1${url}`)
     .replace(/(<meta property="og:title" content=")[^"]*/, `$1${esc(title)}`)
     .replace(/(<meta property="og:description" content=")[^"]*/, `$1${esc(description)}`);
-  h += '<link rel="stylesheet" href="/assets/models.css?v=6">\n';
+  h += '<link rel="stylesheet" href="/assets/models.css?v=7">\n';
   for (const obj of ld) h += `<script type="application/ld+json">${JSON.stringify(obj)}</script>\n`;
   return h;
 }
@@ -140,7 +140,7 @@ function catalog() {
   </header>
   <div class="md-fresh" aria-label="Последние релизы">
     <div class="md-fresh-title"><i class="ph ph-sparkle" aria-hidden="true"></i>Свежие релизы</div>
-    <ol class="md-fresh-list">${fresh.map((m) => `<li><a href="/ii-modeli/${m.id}/"><span class="md-fresh-date">${fmtMonth(m.latest)}</span><span class="md-fresh-name">${esc(m.versions[m.versions.length - 1][0])}</span><span class="md-fresh-dev">${esc(m.developer)}</span></a></li>`).join('')}</ol>
+    <ol class="md-fresh-list">${fresh.map((m) => `<li><a href="/ii-modeli/${m.id}/"><span class="md-fresh-date">${fmtMonth(m.latest)}</span><span class="md-fresh-name" title="${esc(m.versions[m.versions.length - 1][0])}">${esc(m.versions[m.versions.length - 1][0])}</span><span class="md-fresh-dev" title="${esc(m.developer)}">${esc(m.developer)}</span></a></li>`).join('')}</ol>
   </div>
   <div class="md-tools">
     <label class="md-search"><i class="ph ph-magnifying-glass" aria-hidden="true"></i><input id="mdQ" type="search" placeholder="Модель, разработчик или задача: «расшифровка звонков»" autocomplete="off" aria-label="Поиск по моделям"></label>
