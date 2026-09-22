@@ -58,6 +58,41 @@ for (const s of servicesArr) {
   });
 }
 
+// Энциклопедия открытых ИИ-моделей: карточки моделей и страницы-подборки.
+// Данные и подписи те же, что у build-models.js.
+try {
+  const models = require('./models-data.js');
+  const { MOD, INDUSTRY, COM } = require('./models-i18n.js');
+  for (const m of models) {
+    if (!m || !m.id || !m.name) continue;
+    index.push({
+      t: m.name,
+      d: (m.summary || '').slice(0, 180),
+      u: `/ii-modeli/${m.id}/`,
+      k: 'ИИ-модель',
+      c: (MOD[m.modality[0]] || {}).ru || '',
+      g: [m.developer, m.country, ...(m.tasks || []), ...(m.modality || []).map((x) => (MOD[x] || {}).ru || ''),
+        ...(m.industries || []).map((x) => (INDUSTRY[x] || {}).ru || ''),
+        (COM[m.commercial] || {}).ru || '', m.ru === 'yes' ? 'русский язык' : ''].join(' '),
+    });
+  }
+  const coll = require('./models/_collections.js');
+  const groups = [['modality', 'napravlenie'], ['industry', 'sfera'], ['special', 'podborki']];
+  for (const [key, dir] of groups) {
+    for (const c of Object.values(coll[key] || {})) {
+      if (!c || !c.slug) continue;
+      index.push({ t: c.h1, d: (c.description || c.intro || '').slice(0, 180), u: `/ii-modeli/${dir}/${c.slug}/`, k: 'Подборка моделей', c: 'ИИ-модели', g: '' });
+    }
+  }
+  const cmp = require('./models/_compare.js');
+  for (const p of cmp) {
+    if (!p || !p.slug) continue;
+    index.push({ t: p.h1, d: p.description || '', u: `/ii-modeli/sravnenie/${p.slug}/`, k: 'Сравнение моделей', c: 'ИИ-модели', g: `${p.a} ${p.b}` });
+  }
+} catch (e) {
+  console.log(`  ⚠ Модели не попали в поиск: ${e.message}`);
+}
+
 const out = path.join(ROOT, 'search-index.json');
 fs.writeFileSync(out, JSON.stringify(index), 'utf8');
 console.log(`Поисковый индекс: ${index.length} записей → ${out}`);

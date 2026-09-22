@@ -11,11 +11,12 @@ const ROOT = path.resolve(__dirname, '..');
 const SITE = 'https://chimitdorzhi.tech';
 const UPDATED = { ru: '22.09.2026', en: '22 Sep 2026' };
 const LASTMOD = '2026-09-22';
-const CSS_V = 12;
+const CSS_V = 13;
 const LANGS = ['ru', 'en'];
 const BASE = { ru: '/ii-modeli/', en: '/en/ii-modeli/' };
 const OUT = { ru: path.join(ROOT, 'ii-modeli'), en: path.join(ROOT, 'en', 'ii-modeli') };
 const MOD_KEYS = Object.keys(MOD);
+const FIRST = 60; // сколько карточек в разметке каталога; остальные страница строит из JSON
 
 // --- Данные и проверка записей ---
 const ALL = require('./models-data.js').filter((m) => {
@@ -254,7 +255,7 @@ function catalog(lang, colls) {
   </div>
   <div class="md-chips" role="group" aria-label="${t.dirLabel}"><div class="md-chip-all"><button type="button" class="md-chip is-on" data-mod="" aria-pressed="true"><i class="ph ph-squares-four" aria-hidden="true"></i>${t.allDirs}<span>${models.length}</span></button></div>${chips}</div>
   <p class="md-count" id="mdCount" aria-live="polite">${t.shown} ${models.length} ${t.of} ${models.length}</p>
-  <div class="md-grid" id="mdGrid">${sorted.map((m) => card(m, lang)).join('\n')}</div>
+  <div class="md-grid" id="mdGrid">${sorted.slice(0, FIRST).map((m) => card(m, lang)).join('\n')}</div>
   <p class="md-empty" id="mdEmpty" hidden>${t.empty} <a href="${tg(t.tgFind)}" target="_blank" rel="noopener">${t.emptyLink}</a> ${t.emptyTail}</p>
   <div class="md-tray" id="mdTray" hidden role="region" aria-label="${t.compareTitle}">
     <div class="md-tray-list" id="mdTrayList"></div>
@@ -268,12 +269,25 @@ function catalog(lang, colls) {
     <div class="md-dialog-body" id="mdDialogBody"></div>
     <div class="md-dialog-foot"><a class="btn btn-accent" id="mdDialogTg" href="#" target="_blank" rel="noopener"><i class="ph ph-telegram-logo" aria-hidden="true"></i>${t.discuss}</a></div>
   </dialog>
-  <script type="application/json" id="mdData">${JSON.stringify(Object.fromEntries(models.map((m0) => { const m = loc(m0, lang); return [m.id, {
-    n: m.name, d: m.developer + ', ' + m.country, mo: m.modality.map((x) => modLabel(x, lang)).join(', '), s: m.sizes,
-    l: COM[m.commercial][lang], lc: COM[m.commercial].cls, lt: m.license, h: m.hardware.map((x) => HW[x][lang][0]).join(', '),
-    r: m.ru ? RU_LANG[lang][m.ru] : '', o: m.ollama === undefined ? '' : (m.ollama ? t.has : t.no), c: m.cpu === undefined ? '' : (m.cpu ? t.yes : t.no),
-    y: fmtMonth(m.first, lang) + ' – ' + fmtMonth(m.latest, lang), t: m.tasks.slice(0, 3),
-  }]; }))).replace(/</g, '\\u003c')}</script>
+  <script type="application/json" id="mdAll">${JSON.stringify(sorted.map((m0) => { const m = loc(m0, lang); return {
+    i: m.id, n: m.name, de: `${m.developer} · ${m.country}`, su: m.summary, ta: m.tasks.slice(0, 3), si: m.sizes,
+    mk: m.modality[0], hk: m.hardware[0], co: m.commercial, yr: years(m),
+    dm: m.modality.join(' '), dh: m.hardware.join(' '), dl: m.latest, df: m.first, dn: m.name.toLowerCase(),
+    dc: countryKeys(m0).join(' '), dd: brandKeys(m0).join(' '), dr: m.ru || '', di: (m.industries || []).join(' '),
+    do: m.ollama ? 1 : 0, dp: m.cpu ? 1 : 0,
+    // поля только для таблицы сравнения
+    mo: m.modality.map((x) => modLabel(x, lang)).join(', '), h: m.hardware.map((x) => HW[x][lang][0]).join(', '), lt: m.license,
+    rl: m.ru ? RU_LANG[lang][m.ru] : '', ol: m.ollama === undefined ? '' : (m.ollama ? t.has : t.no), cl: m.cpu === undefined ? '' : (m.cpu ? t.yes : t.no),
+    yl: `${fmtMonth(m.first, lang)} – ${fmtMonth(m.latest, lang)}`,
+    dq: [m.name, m.developer, m.country, ...m.modality.map((x) => modLabel(x, lang)), ...m.tasks, ...(m.industries || []).map((k) => (INDUSTRY[k] || {})[lang] || '')].join(' ').toLowerCase().replace(/ё/g, 'е').slice(0, 320),
+  }; })).replace(/</g, '\\u003c')}</script>
+  <script type="application/json" id="mdLabels">${JSON.stringify({
+    mod: Object.fromEntries(MOD_KEYS.map((k) => [k, { l: modLabel(k, lang), i: MOD[k].icon }])),
+    hw: Object.fromEntries(Object.keys(HW).map((k) => [k, HW[k][lang][0]])),
+    com: Object.fromEntries(Object.keys(COM).map((k) => [k, { l: COM[k][lang], c: COM[k].cls }])),
+    sizes: t.sizes, hwLabel: t.fHw, from: t.hwFrom, more: t.more, compare: t.compare, ruBadge: t.ruBadge, ollamaBadge: t.ollamaBadge, base: BASE[lang],
+  }).replace(/</g, '\\u003c')}</script>
+
   <script type="application/json" id="mdUi">${JSON.stringify({ shown: t.shown, of: t.of, compareOf: t.compareOf, removeX: t.removeX, pickTwo: t.pickTwo, param: t.param, rows: t.rows, tgCompare: t.tgCompare, tgTask: t.tgTask, base: BASE[lang], locale: lang }).replace(/</g, '\\u003c')}</script>
   ${collectionLinks(lang, colls, null)}
   ${offer(lang)}
@@ -281,8 +295,26 @@ function catalog(lang, colls) {
   const js = `<script>
 (function(){
   var grid=document.getElementById('mdGrid'); if(!grid) return;
-  var cards=[].slice.call(grid.querySelectorAll('.md-card'));
   var $=function(id){return document.getElementById(id);};
+  var FIRST_RENDERED=grid.querySelectorAll('.md-card').length;
+  // В разметке только первые карточки — остальные собираем из JSON, чтобы страница была лёгкой.
+  var LB=JSON.parse($('mdLabels').textContent), ALL=JSON.parse($('mdAll').textContent), REST=ALL.slice(FIRST_RENDERED);
+  function e_(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function cardHtml(m){
+    var mo=LB.mod[m.mk], co=LB.com[m.co];
+    return '<article class="md-card" data-id="'+m.i+'" data-mod="'+m.dm+'" data-hw="'+m.dh+'" data-com="'+m.co+'" data-latest="'+m.dl+'" data-first="'+m.df+'" data-name="'+e_(m.dn)+'" data-country="'+m.dc+'" data-dev="'+m.dd+'" data-ru="'+m.dr+'" data-ind="'+m.di+'" data-ollama="'+m.do+'" data-cpu="'+m.dp+'" data-q="'+e_(m.dq)+'">'
+      +'<div class="md-card-top"><span class="md-mod"><i class="ph ph-'+mo.i+'" aria-hidden="true"></i>'+mo.l+'</span><span class="md-card-meta">'
+      +(m.dr==='yes'?'<span class="md-badge md-badge-ru" title="'+LB.ruBadge+'">RU</span>':'')+(m.do?'<span class="md-badge" title="'+LB.ollamaBadge+'">Ollama</span>':'')
+      +'<span class="md-year">'+m.yr+'</span></span></div>'
+      +'<h2 class="md-name"><a href="'+LB.base+m.i+'/">'+e_(m.n)+'</a></h2>'
+      +'<div class="md-dev">'+e_(m.de)+'</div><p class="md-sum">'+e_(m.su)+'</p>'
+      +'<ul class="md-tasks">'+m.ta.map(function(x){return '<li>'+e_(x)+'</li>';}).join('')+'</ul>'
+      +'<dl class="md-specs"><div><dt>'+LB.sizes+'</dt><dd>'+e_(m.si)+'</dd></div><div><dt>'+LB.hwLabel+'</dt><dd>'+LB.from+': '+LB.hw[m.hk]+'</dd></div></dl>'
+      +'<div class="md-card-foot"><span class="md-lic md-lic-'+co.c+'">'+co.l+'</span><span class="md-more">'+LB.more+'<i class="ph ph-arrow-right" aria-hidden="true"></i></span></div>'
+      +'<label class="md-cmp"><input type="checkbox" class="md-cmp-box" value="'+m.i+'"><span>'+LB.compare+'</span></label></article>';
+  }
+  if(REST.length) grid.insertAdjacentHTML('beforeend', REST.map(cardHtml).join(''));
+  var cards=[].slice.call(grid.querySelectorAll('.md-card'));
   var UI=JSON.parse($('mdUi').textContent);
   var q=$('mdQ'), sort=$('md-sort'), ollama=$('mdOllama'), cpu=$('mdCpu'), reset=$('mdReset');
   var sels=[].slice.call(document.querySelectorAll('.md-selects select[data-f]')).filter(function(s){return s.dataset.f!=='sort';});
@@ -327,7 +359,8 @@ function catalog(lang, colls) {
   });
 
   // --- Сравнение: до трёх моделей ---
-  var DATA=JSON.parse($('mdData').textContent), picked=[], MAX=3;
+  var DATA={}; ALL.forEach(function(m){ DATA[m.i]={n:m.n,d:m.de.replace(' · ',', '),mo:m.mo,s:m.si,l:LB.com[m.co].l,lc:LB.com[m.co].c,lt:m.lt,h:m.h,r:m.rl,o:m.ol,c:m.cl,y:m.yl,t:m.ta}; });
+  var picked=[], MAX=3;
   var tray=$('mdTray'), list=$('mdTrayList'), dlg=$('mdDialog');
   var boxes=[].slice.call(grid.querySelectorAll('.md-cmp-box'));
   function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
@@ -384,6 +417,13 @@ function detail(m0, lang) {
   const arts = lang === 'ru' ? (ARTICLES[m.id] || []).slice(0, 6) : [];
   const src = m.source || m.hf || m.github;
   const both = EN_IDS.has(m.id);
+  // Частые вопросы собираются из данных карточки — и отдаются поисковикам разметкой FAQPage.
+  const faq = [
+    [t.faqQ1(m.name), t.faqA[m.commercial](m.name, m.license)],
+    [t.faqQ2(m.name), t.faqA2(HW[m.hardware[0]][lang][1], m.cpu)],
+    [t.faqQ3(m.name), t.faqA3[m.ru || 'unknown']],
+    [t.faqQ4(m.name), t.faqA4(m.name)],
+  ];
   const main = `<section class="section md-page md-detail"><div class="container">
   ${crumbs(lang, [[BASE[lang], t.section], [null, m.name]])}
   <header class="md-d-hero">
@@ -412,6 +452,12 @@ function detail(m0, lang) {
       <section><h2>${t.whereH}</h2><div class="md-where">${m.where.map((w) => `<span>${esc(w)}</span>`).join('')}</div></section>
       <section><h2>${t.hwH}</h2><div class="md-hw">${Object.keys(HW).map((k) => `<div class="md-hw-row${m.hardware.includes(k) ? ' is-on' : ''}"><i class="ph ph-${HW[k].icon}" aria-hidden="true"></i><div><b>${HW[k][lang][0]}</b><span>${HW[k][lang][1]}</span></div><em>${m.hardware.includes(k) ? t.fits : t.noVer}</em></div>`).join('')}</div></section>
       <section><h2>${t.versionsH}</h2><ol class="md-timeline">${[...m.versions].reverse().map(([n, d]) => `<li><time>${fmtMonth(d, lang)}</time><span>${esc(n)}</span></li>`).join('')}</ol></section>
+      <section><h2>${t.runH}</h2><div class="md-run">
+        ${m.ollama ? `<div class="md-run-row"><i class="ph ph-lightning" aria-hidden="true"></i><div><b>${t.runOllamaT}</b><span>${t.runOllamaD}</span><a class="md-more" href="https://ollama.com/search?q=${encodeURIComponent(m.name)}" target="_blank" rel="noopener nofollow">${t.runOllamaBtn}<i class="ph ph-arrow-up-right" aria-hidden="true"></i></a></div></div>` : ''}
+        <div class="md-run-row"><i class="ph ph-hard-drives" aria-hidden="true"></i><div><b>${t.runServerT}</b><span>${t.runServerD}</span>${m.hf ? `<a class="md-more" href="${m.hf}" target="_blank" rel="noopener nofollow">Hugging Face<i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>` : ''}</div></div>
+        <div class="md-run-row"><i class="ph ph-cpu" aria-hidden="true"></i><div><b>${t.runHwT}</b><span>${t.runHwD}</span><a class="md-more" href="${BASE[lang]}kalkulyator-zheleza/">${t.runHwBtn}<i class="ph ph-arrow-right" aria-hidden="true"></i></a></div></div>
+      </div><p class="md-run-note">${t.runNote}</p></section>
+      <section><h2>${t.faqH}</h2><div class="md-faq">${faq.map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('')}</div></section>
       <section><h2>${t.howH}</h2><ol class="md-steps md-steps-v">${t.how.map(([b, s]) => `<li><b>${b}</b><span>${s}</span></li>`).join('')}</ol></section>
       ${cmps.length ? `<section><h2>${t.comparesH}</h2><ul class="md-links">${cmps.map((p) => `<li><a href="${BASE[lang]}sravnenie/${p.slug}/">${esc(lang === 'en' ? (p.h1_en || p.h1) : p.h1)}</a></li>`).join('')}</ul></section>` : ''}
       ${arts.length ? `<section><h2>${t.articlesH}</h2><ul class="md-links md-articles">${arts.map((a) => `<li><a href="/blog/${a.slug}/">${esc(a.title)}</a></li>`).join('')}</ul></section>` : ''}
@@ -433,6 +479,7 @@ function detail(m0, lang) {
     { '@context': 'https://schema.org', '@type': 'SoftwareApplication', name: m.name, applicationCategory: 'AI model', description: m.summary, url, inLanguage: lang,
       author: { '@type': 'Organization', name: m.developer }, license: m.license, datePublished: m.first, dateModified: m.latest, offers: { '@type': 'Offer', price: 0, priceCurrency: 'USD' } },
     ldCrumbs(lang, [[`${SITE}${BASE[lang]}`, t.section], [url, m.name]]),
+    { '@context': 'https://schema.org', '@type': 'FAQPage', inLanguage: lang, mainEntity: faq.map(([q, x]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: x } })) },
   ];
   writePage(lang, `${m.id}/`, { title: t.detailTitle(m.name), description: t.detailDesc(m.name, m.developer, m.summary).slice(0, 158), ld, main, extraJs: '', image: `${url}cover.png`, altRel: both ? `${m.id}/` : undefined });
 }
