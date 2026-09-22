@@ -1,271 +1,293 @@
-// Сборка раздела /ii-modeli/ — энциклопедия открытых ИИ-моделей.
-// Данные: tools/models-data.js. Шапка, навигация и подвал берутся из
-// predlozheniya/index.html, чтобы раздел жил в той же оболочке сайта.
+// Сборка раздела /ii-modeli/ (и английской копии /en/ii-modeli/) — энциклопедия открытых ИИ-моделей.
+// Данные: tools/models-data.js (+ tools/models/*.js). Подписи: tools/models-i18n.js.
+// Тексты подборок: tools/models/_collections.js, сравнения: tools/models/_compare.js (оба необязательны).
+// Шапка, навигация и подвал берутся из predlozheniya/index.html, чтобы раздел жил в оболочке сайта.
+// Порядок сборки сайта: build-services → build-offers → … → build-models → build-blog (блог последним).
 const fs = require('fs');
 const path = require('path');
+const { MOD, GROUPS, HW, COM, INDUSTRY, RU_LANG, COUNTRY, OTHER_COUNTRY, MONTHS, MONTHS_FULL, T } = require('./models-i18n.js');
 
 const ROOT = path.resolve(__dirname, '..');
-const OUT = path.join(ROOT, 'ii-modeli');
 const SITE = 'https://chimitdorzhi.tech';
-const UPDATED = '22.09.2026';
-const MODELS = require('./models-data.js').filter((m) => {
+const UPDATED = { ru: '22.09.2026', en: '22 Sep 2026' };
+const LASTMOD = '2026-09-22';
+const CSS_V = 12;
+const LANGS = ['ru', 'en'];
+const BASE = { ru: '/ii-modeli/', en: '/en/ii-modeli/' };
+const OUT = { ru: path.join(ROOT, 'ii-modeli'), en: path.join(ROOT, 'en', 'ii-modeli') };
+const MOD_KEYS = Object.keys(MOD);
+
+// --- Данные и проверка записей ---
+const ALL = require('./models-data.js').filter((m) => {
   const bad = [];
   for (const k of ['id', 'name', 'developer', 'country', 'first', 'latest', 'sizes', 'license', 'summary']) if (!m[k]) bad.push(k);
   if (!/^[a-z0-9-]+$/.test(m.id || '')) bad.push('id-format');
   if (!/^\d{4}-\d{2}$/.test(m.first || '') || !/^\d{4}-\d{2}$/.test(m.latest || '')) bad.push('dates');
-  if (!Array.isArray(m.modality) || !m.modality.length || m.modality.some((x) => !['text','code','vlm','ocr','image','video','avatar','asr','tts','omni','audio','3d','vision','embed','timeseries','robotics','tryon','photo','translate','safety','voice','agent','tabular','nlp','medical','reasoning','rerank','docsearch','sql','judge','face','finance','cyber','weather','geo','bio','driving'].includes(x))) bad.push('modality');
-  if (!Array.isArray(m.hardware) || !m.hardware.length || m.hardware.some((x) => !['min', 'gpu', 'multi'].includes(x))) bad.push('hardware');
-  if (!['yes', 'conditional', 'no'].includes(m.commercial)) bad.push('commercial');
+  if (!Array.isArray(m.modality) || !m.modality.length || m.modality.some((x) => !MOD_KEYS.includes(x))) bad.push('modality');
+  if (!Array.isArray(m.hardware) || !m.hardware.length || m.hardware.some((x) => !HW[x])) bad.push('hardware');
+  if (!COM[m.commercial]) bad.push('commercial');
   if (!Array.isArray(m.tasks) || m.tasks.length < 2 || !Array.isArray(m.where) || !m.where.length) bad.push('tasks/where');
   if (!Array.isArray(m.versions) || !m.versions.length || m.versions.some((v) => !/^\d{4}-\d{2}$/.test(v[1]))) bad.push('versions');
   if (bad.length) console.log(`  ⚠ ${m.id || m.name}: пропущено (${bad.join(', ')})`);
   return !bad.length;
 });
+// Английская страница строится только для записей с готовым переводом.
+const hasEn = (m) => m.en && m.en.summary && Array.isArray(m.en.tasks) && m.en.tasks.length && Array.isArray(m.en.where);
+const MODELS = { ru: ALL, en: ALL.filter(hasEn) };
+const EN_IDS = new Set(MODELS.en.map((m) => m.id));
+// Поля записи на нужном языке.
+function loc(m, lang) {
+  if (lang === 'ru') return m;
+  const e = m.en || {};
+  return { ...m, summary: e.summary, tasks: e.tasks, where: e.where, license: e.license || m.license,
+    developer: e.developer || m.developer, country: e.country || m.country, sizes: e.sizes || m.sizes };
+}
 
-const MOD = {
-  text:       { label: 'Текст',            icon: 'chat-text' },
-  code:       { label: 'Код',              icon: 'code' },
-  vlm:        { label: 'Картинка + текст', icon: 'eye' },
-  ocr:        { label: 'Документы и OCR',  icon: 'scan' },
-  image:      { label: 'Картинки',         icon: 'image' },
-  video:      { label: 'Видео',            icon: 'film-strip' },
-  avatar:     { label: 'Аватары',          icon: 'user-focus' },
-  asr:        { label: 'Речь в текст',     icon: 'microphone' },
-  tts:        { label: 'Синтез речи',      icon: 'megaphone' },
-  omni:       { label: 'Голосовые ассистенты', icon: 'headset' },
-  audio:      { label: 'Музыка и звук',    icon: 'music-notes' },
-  '3d':       { label: '3D',               icon: 'cube' },
-  vision:     { label: 'Компьютерное зрение', icon: 'crosshair' },
-  embed:      { label: 'Поиск и RAG',      icon: 'magnifying-glass' },
-  timeseries: { label: 'Прогнозы',         icon: 'chart-line-up' },
-  robotics:   { label: 'Роботы',           icon: 'robot' },
-  tryon:      { label: 'Примерка одежды',  icon: 't-shirt' },
-  photo:      { label: 'Обработка фото',   icon: 'magic-wand' },
-  translate:  { label: 'Перевод',          icon: 'translate' },
-  safety:     { label: 'Модерация и безопасность', icon: 'shield-check' },
-  voice:      { label: 'Голос: спикеры и звук', icon: 'waveform' },
-  agent:      { label: 'Агенты для компьютера', icon: 'cursor-click' },
-  tabular:    { label: 'Табличные данные', icon: 'table' },
-  nlp:        { label: 'Разбор текста',    icon: 'text-aa' },
-  medical:    { label: 'Медицина',         icon: 'first-aid' },
-  reasoning:  { label: 'Математика и рассуждения', icon: 'brain' },
-  rerank:     { label: 'Реранкеры', icon: 'funnel' },
-  docsearch:  { label: 'Поиск по сканам документов', icon: 'files' },
-  sql:        { label: 'Текст в SQL', icon: 'database' },
-  judge:      { label: 'Проверка фактов и оценка ответов', icon: 'gavel' },
-  face:       { label: 'Лица', icon: 'scan-smiley' },
-  finance:    { label: 'Финансы', icon: 'currency-circle-dollar' },
-  cyber:      { label: 'Кибербезопасность', icon: 'bug' },
-  weather:    { label: 'Погода и климат', icon: 'cloud-sun' },
-  geo:        { label: 'Спутниковые снимки и гео', icon: 'globe-hemisphere-east' },
-  bio:        { label: 'Биология и химия', icon: 'flask' },
-  driving:    { label: 'Автономное вождение', icon: 'car' },
-};
-const HW = {
-  min:   { short: 'Ноутбук',        long: 'Ноутбук или обычный ПК, до 8 ГБ видеопамяти — младшие версии', icon: 'laptop' },
-  gpu:   { short: '1 видеокарта',   long: 'Одна видеокарта на 16–80 ГБ — средние версии', icon: 'cpu' },
-  multi: { short: 'Кластер',        long: 'Сервер с несколькими видеокартами — флагманские версии', icon: 'hard-drives' },
-};
-const COM = {
-  yes:         { label: 'Можно в коммерцию', cls: 'ok' },
-  conditional: { label: 'Коммерция с условиями', cls: 'warn' },
-  no:          { label: 'Только некоммерческое', cls: 'no' },
-};
-const MONTHS = ['янв', 'фев', 'мар', 'апр', 'май', 'июн', 'июл', 'авг', 'сен', 'окт', 'ноя', 'дек'];
-const fmtMonth = (ym) => { const [y, m] = ym.split('-'); return MONTHS[+m - 1] + ' ' + y; };
+const readOpt = (f) => { try { return require(f); } catch (e) { return null; } };
+const COLL = readOpt('./models/_collections.js');
+const CMP = (readOpt('./models/_compare.js') || []).filter((c) => ALL.some((m) => m.id === c.a) && ALL.some((m) => m.id === c.b));
+
+// --- Утилиты ---
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const tg = (text) => 'https://t.me/chimitdorzhi?text=' + encodeURIComponent(text);
+const fmtMonth = (ym, lang) => { const [y, m] = ym.split('-'); return MONTHS[lang][+m - 1] + ' ' + y; };
+const years = (m) => { const a = m.first.slice(0, 4), b = m.latest.slice(0, 4); return a === b ? a : `${a}–${b}`; };
+const modLabel = (k, lang) => MOD[k][lang];
+const modChip = (k, lang) => `<span class="md-mod"><i class="ph ph-${MOD[k].icon}" aria-hidden="true"></i>${modLabel(k, lang)}</span>`;
+const lic = (c, lang) => `<span class="md-lic md-lic-${COM[c].cls}">${COM[c][lang]}</span>`;
+const countryKeys = (m) => { const k = COUNTRY.filter(([, , re]) => re.test(m.country)).map(([key]) => key); return k.length ? k : ['other']; };
+const BRANDS = [
+  ['sber', 'Сбер', 'Sber', /Сбер|ai-forever|SberDevices|ai-sage|Salute/i], ['yandex', 'Яндекс', 'Yandex', /Яндекс|Yandex/i], ['tbank', 'Т-Банк', 'T-Bank', /Т-Банк|T-Bank|T-Tech|Тинькофф/i],
+  ['alibaba', 'Alibaba', 'Alibaba', /Alibaba|Qwen|Tongyi|Alibaba Cloud|DAMO/i], ['google', 'Google', 'Google', /Google|DeepMind/i], ['meta', 'Meta', 'Meta', /(^|[^A-Za-z])Meta([^A-Za-z]|$)|FAIR/],
+  ['nvidia', 'NVIDIA', 'NVIDIA', /NVIDIA/i], ['microsoft', 'Microsoft', 'Microsoft', /Microsoft/i], ['deepseek', 'DeepSeek', 'DeepSeek', /DeepSeek/i], ['tencent', 'Tencent', 'Tencent', /Tencent|Hunyuan/i],
+  ['bytedance', 'ByteDance', 'ByteDance', /ByteDance/i], ['mistral', 'Mistral AI', 'Mistral AI', /Mistral/i], ['openai', 'OpenAI', 'OpenAI', /OpenAI/i], ['ibm', 'IBM', 'IBM', /IBM/i],
+  ['ai2', 'Ai2 (Allen AI)', 'Ai2 (Allen AI)', /Ai2|Allen/i], ['hf', 'Hugging Face', 'Hugging Face', /Hugging ?Face/i], ['stability', 'Stability AI', 'Stability AI', /Stability/i], ['zhipu', 'Zhipu / Z.ai', 'Zhipu / Z.ai', /Zhipu|Z\.ai|THUDM|zai-org/i],
+  ['moonshot', 'Moonshot AI', 'Moonshot AI', /Moonshot/i], ['baidu', 'Baidu', 'Baidu', /Baidu/i], ['xiaomi', 'Xiaomi', 'Xiaomi', /Xiaomi/i], ['meituan', 'Meituan', 'Meituan', /Meituan/i],
+  ['ant', 'Ant Group', 'Ant Group', /Ant Group|inclusionAI|Ant /i], ['minimax', 'MiniMax', 'MiniMax', /MiniMax/i], ['nous', 'Nous Research', 'Nous Research', /Nous/i], ['cohere', 'Cohere', 'Cohere', /Cohere/i],
+];
+const brandKeys = (m) => BRANDS.filter((b) => b[3].test(m.developer)).map((b) => b[0]);
+const hasField = (list, k) => list.filter((m) => m[k] !== undefined).length >= list.length * 0.5;
+const plural = (n, one, few, many) => (n % 10 === 1 && n % 100 !== 11 ? one : (n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20) ? few : many));
 
-// --- Оболочка сайта из готовой страницы ---
+// --- Оболочка сайта ---
 const shellSrc = fs.readFileSync(path.join(ROOT, 'predlozheniya', 'index.html'), 'utf8');
 const headTpl = shellSrc.slice(0, shellSrc.indexOf('<script type="application/ld+json">'));
 const bodyStart = shellSrc.slice(shellSrc.indexOf('</head>'), shellSrc.indexOf('<main id="main">'));
 const footer = shellSrc.slice(shellSrc.indexOf('<footer'), shellSrc.indexOf('</footer>') + 9);
 const scripts = (shellSrc.match(/<script src="\/i18n\.js[^"]*" defer><\/script>\s*<script src="\/script\.js[^"]*" defer><\/script>/) || [''])[0];
 
-function head({ title, description, url, ld, image }) {
+function head({ lang, title, description, url, ld, image, alt }) {
+  const img = image || `${SITE}${BASE[lang]}cover.png`;
   let h = headTpl
-    .replace(/(<meta property="og:image" content=")[^"]*/, `$1${image || `${SITE}/ii-modeli/cover.png`}`)
-    .replace(/(<meta property="og:image" content="[^"]*">)/, '$1\n    <meta property="og:image:width" content="1200">\n    <meta property="og:image:height" content="630">\n    <meta name="twitter:image" content="' + (image || `${SITE}/ii-modeli/cover.png`) + '">')
+    .replace(/<html lang="ru"([^>]*)data-lang="ru"/, lang === 'en' ? '<html lang="en"$1data-lang="en"' : '<html lang="ru"$1data-lang="ru"')
+    .replace(/(<meta property="og:locale" content=")[^"]*/, `$1${lang === 'en' ? 'en_US' : 'ru_RU'}`)
+    .replace(/(<meta property="og:image" content=")[^"]*/, `$1${img}`)
+    .replace(/(<meta property="og:image" content="[^"]*">)/, `$1\n    <meta property="og:image:width" content="1200">\n    <meta property="og:image:height" content="630">\n    <meta name="twitter:image" content="${img}">`)
     .replace(/<title>[^<]*<\/title>/, `<title>${esc(title)}</title>`)
     .replace(/(<meta name="description" content=")[^"]*/, `$1${esc(description)}`)
     .replace(/(<link rel="canonical" href=")[^"]*/, `$1${url}`)
     .replace(/(<meta property="og:url" content=")[^"]*/, `$1${url}`)
     .replace(/(<meta property="og:title" content=")[^"]*/, `$1${esc(title)}`)
     .replace(/(<meta property="og:description" content=")[^"]*/, `$1${esc(description)}`);
-  h += '<link rel="stylesheet" href="/assets/models.css?v=11">\n';
-  for (const obj of ld) h += `<script type="application/ld+json">${JSON.stringify(obj)}</script>\n`;
+  if (alt) h += `<link rel="alternate" hreflang="ru" href="${alt.ru}">\n<link rel="alternate" hreflang="en" href="${alt.en}">\n<link rel="alternate" hreflang="x-default" href="${alt.ru}">\n`;
+  h += `<link rel="stylesheet" href="/assets/models.css?v=${CSS_V}">\n`;
+  for (const obj of ld || []) h += `<script type="application/ld+json">${JSON.stringify(obj)}</script>\n`;
   return h;
 }
-// Пометка про Meta, как в блоге: Llama, SAM, DINO и др. — модели Meta, а упоминание без
-// пометки грозит штрафом по ст. 13.15 КоАП. Ищем только в тексте, не в адресах ссылок.
-function metaNote(html) {
-  const text = html.replace(/href="[^"]*"/g, '');
+// Пометка про Meta, как в блоге: упоминание без неё грозит штрафом по ст. 13.15 КоАП.
+function metaNote(html, lang) {
+  const text = html.replace(/href="[^"]*"/g, '').replace(/<script[\s\S]*?<\/script>/g, '');
   const meta = /(^|[^0-9A-Za-zА-Яа-я])Meta([^0-9A-Za-zА-Яа-я]|$)/.test(text);
   const net = /instagram|инстаграм|facebook|фейсбук/i.test(text);
   if (!meta && !net) return '';
-  const what = net ? 'Instagram и Facebook принадлежат компании Meta, которая' : 'Meta —';
-  return '<aside class="blog-legal-note md-legal" role="note"><p><strong>Важно.</strong> ' + what + ' признана в России экстремистской организацией, её деятельность на территории Российской Федерации запрещена.</p></aside>';
+  const t = T[lang];
+  return `<aside class="blog-legal-note md-legal" role="note"><p><strong>${t.important}</strong> ${net ? t.metaNoteNet : t.metaNoteMeta} ${t.metaNoteTail}</p></aside>`;
 }
-function page({ title, description, url, ld, main, extraJs = '', image }) {
-  const note = metaNote(main);
+const PAGES = []; // для sitemap
+function writePage(lang, rel, { title, description, ld, main, extraJs = '', image, altRel }) {
+  const url = `${SITE}${BASE[lang]}${rel}`;
+  const alt = altRel !== undefined ? { ru: `${SITE}${BASE.ru}${altRel}`, en: `${SITE}${BASE.en}${altRel}` } : null;
+  const note = metaNote(main, lang);
   if (note) main = main.replace(/<\/div><\/section>\s*$/, note + '</div></section>');
-  return head({ title, description, url, ld, image }) + bodyStart + `<main id="main">\n${main}\n</main>\n` + footer + '\n' + scripts + extraJs + '\n</body>\n</html>\n';
+  const html = head({ lang, title, description, url, ld, image, alt }) + bodyStart + `<main id="main">\n${main}\n</main>\n` + footer + '\n' + scripts + extraJs + '\n</body>\n</html>\n';
+  const dir = path.join(OUT[lang], rel);
+  fs.mkdirSync(dir, { recursive: true });
+  fs.writeFileSync(path.join(dir, 'index.html'), html);
+  PAGES.push(url);
+}
+const crumbs = (lang, items) => `<nav class="breadcrumbs" aria-label="${lang === 'ru' ? 'Хлебные крошки' : 'Breadcrumbs'}"><a href="${lang === 'ru' ? '/' : '/en/'}">${T[lang].home}</a>${items.map(([href, label]) => `<span class="breadcrumbs-sep">›</span>${href ? `<a href="${href}">${esc(label)}</a>` : `<span aria-current="page">${esc(label)}</span>`}`).join('')}</nav>`;
+const ldCrumbs = (lang, items) => ({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [[`${SITE}${lang === 'ru' ? '/' : '/en/'}`, T[lang].home], ...items].map(([item, name], i) => ({ '@type': 'ListItem', position: i + 1, name, item })) });
+function offer(lang) {
+  const t = T[lang];
+  return `<section class="md-offer" aria-labelledby="mdOfferT">
+    <div class="md-offer-text"><h2 id="mdOfferT">${t.offerH}</h2><p>${t.offerP}</p></div>
+    <ol class="md-steps">${t.steps.map(([b, s]) => `<li><b>${b}</b><span>${s}</span></li>`).join('')}</ol>
+    <a class="btn btn-accent md-offer-btn" href="${tg(t.tgDeploy)}" target="_blank" rel="noopener"><i class="ph ph-telegram-logo" aria-hidden="true"></i>${t.offerBtn}</a>
+  </section>`;
 }
 
-const modChip = (m) => `<span class="md-mod"><i class="ph ph-${MOD[m].icon}" aria-hidden="true"></i>${MOD[m].label}</span>`;
-const lic = (c) => `<span class="md-lic md-lic-${COM[c].cls}">${COM[c].label}</span>`;
-const hwMin = (arr) => HW[arr[0]].short;
-// Выпадающий фильтр каталога: id select = md-<id>, значение пустое = «любое».
-const sel = (id, label, anyLabel, opts) => `<label class="md-select"><span>${label}</span><select id="md-${id}" data-f="${id}">${anyLabel !== null ? `<option value="">${anyLabel}</option>` : ''}${opts.map(([v, t]) => `<option value="${v}">${esc(t)}</option>`).join('')}</select></label>`;
-const years = (m) => { const a = m.first.slice(0, 4), b = m.latest.slice(0, 4); return a === b ? a : `${a}–${b}`; };
+// --- Статьи блога, которые ссылаются на карточку модели (только для русской версии) ---
+const ARTICLES = {};
+(() => {
+  const dir = path.join(ROOT, 'blog');
+  if (!fs.existsSync(dir)) return;
+  for (const slug of fs.readdirSync(dir)) {
+    const f = path.join(dir, slug, 'index.html');
+    if (!fs.existsSync(f)) continue;
+    const html = fs.readFileSync(f, 'utf8');
+    if (html.indexOf('/ii-modeli/') < 0) continue;
+    const title = ((html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/) || [])[1] || '').replace(/<[^>]+>/g, '').trim();
+    if (!title) continue;
+    const ids = new Set([...html.matchAll(/href="\/ii-modeli\/([a-z0-9-]+)\/"/g)].map((x) => x[1]));
+    for (const id of ids) (ARTICLES[id] = ARTICLES[id] || []).push({ slug, title });
+  }
+})();
 
-// --- Группы для фильтров ---
-// Страна: одна модель может относиться к нескольким группам («США / Китай»).
-const COUNTRY = [
-  ['ru', 'Россия', /Росси/],
-  ['cn', 'Китай', /Китай|Гонконг|Тайвань/],
-  ['us', 'США', /США/],
-  ['eu', 'Европа', /Франц|Герман|Швейц|Великобрит|Австри|Нидерланд|Испан|Итал|Швец|Финлянд|Норвег|Дани|Польш|Португал|Бельги|Ирланд|Чехи|Люксембург|Европ|ЕС/],
-];
-const countryKeys = (m) => { const k = COUNTRY.filter(([, , re]) => re.test(m.country)).map(([key]) => key); return k.length ? k : ['other']; };
-// Разработчик: приводим разные написания к бренду. В список фильтра попадают бренды с 2+ семействами.
-const BRANDS = [
-  ['sber', 'Сбер', /Сбер|ai-forever|SberDevices|ai-sage|Salute/i], ['yandex', 'Яндекс', /Яндекс|Yandex/i], ['tbank', 'Т-Банк', /Т-Банк|T-Bank|T-Tech|Тинькофф/i],
-  ['alibaba', 'Alibaba', /Alibaba|Qwen|Tongyi|Alibaba Cloud|DAMO/i], ['google', 'Google', /Google|DeepMind/i], ['meta', 'Meta', /(^|[^A-Za-z])Meta([^A-Za-z]|$)|FAIR/],
-  ['nvidia', 'NVIDIA', /NVIDIA/i], ['microsoft', 'Microsoft', /Microsoft/i], ['deepseek', 'DeepSeek', /DeepSeek/i], ['tencent', 'Tencent', /Tencent|Hunyuan/i],
-  ['bytedance', 'ByteDance', /ByteDance/i], ['mistral', 'Mistral AI', /Mistral/i], ['openai', 'OpenAI', /OpenAI/i], ['ibm', 'IBM', /IBM/i],
-  ['ai2', 'Ai2 (Allen AI)', /Ai2|Allen/i], ['hf', 'Hugging Face', /Hugging ?Face/i], ['stability', 'Stability AI', /Stability/i], ['zhipu', 'Zhipu / Z.ai', /Zhipu|Z\.ai|THUDM|zai-org/i],
-  ['moonshot', 'Moonshot AI', /Moonshot/i], ['baidu', 'Baidu', /Baidu/i], ['xiaomi', 'Xiaomi', /Xiaomi/i], ['meituan', 'Meituan', /Meituan/i],
-  ['ant', 'Ant Group', /Ant Group|inclusionAI|Ant /i], ['minimax', 'MiniMax', /MiniMax/i], ['nous', 'Nous Research', /Nous/i], ['cohere', 'Cohere', /Cohere/i],
-];
-const brandKeys = (m) => BRANDS.filter(([, , re]) => re.test(m.developer)).map(([k]) => k);
-const INDUSTRY = {
-  retail: 'Торговля и маркетплейсы', support: 'Поддержка клиентов', docs: 'Документы и бухгалтерия', legal: 'Юристы',
-  medical: 'Медицина', education: 'Образование', marketing: 'Маркетинг и контент', media: 'Медиа и продакшн', hr: 'HR',
-  manufacturing: 'Производство и склад', finance: 'Финансы', dev: 'Разработка ПО', security: 'Безопасность', science: 'Наука', gov: 'Госсектор',
-};
-const RU = { yes: 'Есть', no: 'Нет', na: 'Не требуется', unknown: 'Не заявлен' };
-// Эти поля собираются отдельно; фильтр показываем, только когда данные есть у заметной части каталога.
-const hasField = (k) => MODELS.filter((m) => m[k] !== undefined).length >= MODELS.length * 0.5;
-
-// --- Карточка в каталоге ---
-function card(m) {
-  const q = [m.name, m.developer, m.country, ...m.modality.map((x) => MOD[x].label), ...m.tasks, ...m.where, ...(m.industries || []).map((k) => INDUSTRY[k] || '')].join(' ').toLowerCase().replace(/ё/g, 'е');
-  const badges = (m.ru === 'yes' ? '<span class="md-badge md-badge-ru" title="Русский язык заявлен">RU</span>' : '') + (m.ollama ? '<span class="md-badge" title="Есть в библиотеке Ollama">Ollama</span>' : '');
-  return `<article class="md-card" data-id="${m.id}" data-mod="${m.modality.join(' ')}" data-hw="${m.hardware.join(' ')}" data-com="${m.commercial}" data-latest="${m.latest}" data-first="${m.first}" data-name="${esc(m.name.toLowerCase())}" data-country="${countryKeys(m).join(' ')}" data-dev="${brandKeys(m).join(' ')}" data-ru="${m.ru || ''}" data-ind="${(m.industries || []).join(' ')}" data-ollama="${m.ollama ? 1 : 0}" data-cpu="${m.cpu ? 1 : 0}" data-q="${esc(q)}">
-  <div class="md-card-top">${modChip(m.modality[0])}<span class="md-card-meta">${badges}<span class="md-year">${years(m)}</span></span></div>
-  <h2 class="md-name"><a href="/ii-modeli/${m.id}/">${esc(m.name)}</a></h2>
+// --- Карточка модели в сетке ---
+function card(m0, lang, { compare = true } = {}) {
+  const t = T[lang], m = loc(m0, lang);
+  const q = [m.name, m.developer, m.country, ...m.modality.map((x) => modLabel(x, lang)), ...m.tasks, ...m.where, ...(m.industries || []).map((k) => (INDUSTRY[k] || {})[lang] || '')].join(' ').toLowerCase().replace(/ё/g, 'е');
+  const badges = (m.ru === 'yes' ? `<span class="md-badge md-badge-ru" title="${t.ruBadge}">RU</span>` : '') + (m.ollama ? `<span class="md-badge" title="${t.ollamaBadge}">Ollama</span>` : '');
+  return `<article class="md-card" data-id="${m.id}" data-mod="${m.modality.join(' ')}" data-hw="${m.hardware.join(' ')}" data-com="${m.commercial}" data-latest="${m.latest}" data-first="${m.first}" data-name="${esc(m.name.toLowerCase())}" data-country="${countryKeys(m0).join(' ')}" data-dev="${brandKeys(m0).join(' ')}" data-ru="${m.ru || ''}" data-ind="${(m.industries || []).join(' ')}" data-ollama="${m.ollama ? 1 : 0}" data-cpu="${m.cpu ? 1 : 0}" data-q="${esc(q)}">
+  <div class="md-card-top">${modChip(m.modality[0], lang)}<span class="md-card-meta">${badges}<span class="md-year">${years(m)}</span></span></div>
+  <h2 class="md-name"><a href="${BASE[lang]}${m.id}/">${esc(m.name)}</a></h2>
   <div class="md-dev">${esc(m.developer)} · ${esc(m.country)}</div>
   <p class="md-sum">${esc(m.summary)}</p>
-  <ul class="md-tasks">${m.tasks.slice(0, 3).map((t) => `<li>${esc(t)}</li>`).join('')}</ul>
+  <ul class="md-tasks">${m.tasks.slice(0, 3).map((x) => `<li>${esc(x)}</li>`).join('')}</ul>
   <dl class="md-specs">
-    <div><dt>Размеры</dt><dd>${esc(m.sizes)}</dd></div>
-    <div><dt>Железо</dt><dd>от: ${hwMin(m.hardware)}</dd></div>
+    <div><dt>${t.sizes}</dt><dd>${esc(m.sizes)}</dd></div>
+    <div><dt>${t.fHw}</dt><dd>${t.hwFrom}: ${HW[m.hardware[0]][lang][0]}</dd></div>
   </dl>
-  <div class="md-card-foot">${lic(m.commercial)}<span class="md-more">Подробнее<i class="ph ph-arrow-right" aria-hidden="true"></i></span></div>
-  <label class="md-cmp"><input type="checkbox" class="md-cmp-box" value="${m.id}"><span>Сравнить</span></label>
+  <div class="md-card-foot">${lic(m.commercial, lang)}<span class="md-more">${t.more}<i class="ph ph-arrow-right" aria-hidden="true"></i></span></div>
+  ${compare ? `<label class="md-cmp"><input type="checkbox" class="md-cmp-box" value="${m.id}"><span>${t.compare}</span></label>` : ''}
 </article>`;
+}
+// Карточки кликабельны целиком (без фильтров — для подборок).
+const cardClickJs = `<script>(function(){[].forEach.call(document.querySelectorAll('.md-card'),function(c){c.addEventListener('click',function(e){if(e.target.closest('a,label,input'))return;location.href=c.querySelector('.md-name a').getAttribute('href');});});})();</script>`;
+
+// --- Подборки: адреса и отбор моделей ---
+function collectionList(lang) {
+  if (!COLL) return [];
+  const list = [];
+  const models = MODELS[lang];
+  for (const [k, c] of Object.entries(COLL.modality || {})) {
+    if (!MOD[k] || !c.slug) continue;
+    const items = models.filter((m) => m.modality.includes(k));
+    if (items.length) list.push({ kind: 'modality', key: k, rel: `napravlenie/${c.slug}/`, c, items });
+  }
+  for (const [k, c] of Object.entries(COLL.industry || {})) {
+    if (!INDUSTRY[k] || !c.slug) continue;
+    const items = models.filter((m) => (m.industries || []).includes(k));
+    if (items.length) list.push({ kind: 'industry', key: k, rel: `sfera/${c.slug}/`, c, items });
+  }
+  const SPECIAL = { russian: (m) => m.ru === 'yes', commercial: (m) => m.commercial === 'yes', laptop: (m) => m.hardware.includes('min'), ollama: (m) => m.ollama === true, cpu: (m) => m.cpu === true };
+  for (const [k, c] of Object.entries(COLL.special || {})) {
+    if (!SPECIAL[k] || !c.slug) continue;
+    const items = models.filter(SPECIAL[k]);
+    if (items.length) list.push({ kind: 'special', key: k, rel: `podborki/${c.slug}/`, c, items });
+  }
+  return list;
+}
+const ctext = (c, field, lang) => (lang === 'en' ? c[field + '_en'] : c[field]) || c[field];
+function collectionLinks(lang, colls, currentRel) {
+  const t = T[lang];
+  const block = (label, kind) => {
+    const items = colls.filter((x) => x.kind === kind);
+    if (!items.length) return '';
+    return `<div class="md-links-group"><h3>${label}</h3><ul class="md-links">${items.map((x) => `<li>${x.rel === currentRel ? `<span aria-current="page">${esc(ctext(x.c, 'h1', lang))}</span>` : `<a href="${BASE[lang]}${x.rel}">${esc(ctext(x.c, 'h1', lang))}</a>`} <small>${x.items.length}</small></li>`).join('')}</ul></div>`;
+  };
+  const cmp = CMP.filter((p) => lang === 'ru' || (EN_IDS.has(p.a) && EN_IDS.has(p.b)));
+  const cmpBlock = cmp.length ? `<div class="md-links-group"><h3>${t.comparisons}</h3><ul class="md-links">${cmp.map((p) => `<li><a href="${BASE[lang]}sravnenie/${p.slug}/">${esc(lang === 'en' ? (p.h1_en || p.h1) : p.h1)}</a></li>`).join('')}</ul></div>` : '';
+  return `<section class="md-colls" aria-labelledby="mdCollsT"><h2 id="mdCollsT">${t.collectionsH}</h2><div class="md-colls-grid">${block(t.special, 'special')}${block(t.byDirection, 'modality')}${block(t.byIndustry, 'industry')}${cmpBlock}</div></section>`;
 }
 
 // --- Каталог ---
-function catalog() {
+function catalog(lang, colls) {
+  const t = T[lang], models = MODELS[lang];
   const counts = {};
-  for (const m of MODELS) for (const x of m.modality) counts[x] = (counts[x] || 0) + 1;
-  // Направлений много, поэтому кнопки разложены по группам. Ключ без группы попадает в «Прочее».
-  const GROUPS = [
-    ['Текст и код', ['text', 'code', 'reasoning', 'nlp', 'translate', 'sql', 'agent', 'judge', 'safety']],
-    ['Документы и поиск', ['ocr', 'docsearch', 'embed', 'rerank', 'tabular']],
-    ['Картинки и видео', ['image', 'video', 'vlm', 'photo', 'tryon', 'avatar', 'face', '3d', 'vision']],
-    ['Речь и звук', ['asr', 'tts', 'voice', 'omni', 'audio']],
-    ['Отрасли и наука', ['medical', 'finance', 'cyber', 'timeseries', 'weather', 'geo', 'bio', 'driving', 'robotics']],
-  ];
-  const grouped = new Set(GROUPS.flatMap(([, ks]) => ks));
-  const rest = Object.keys(MOD).filter((k) => !grouped.has(k));
-  if (rest.length) GROUPS.push(['Прочее', rest]);
-  const chip = (k) => `<button type="button" class="md-chip" data-mod="${k}" aria-pressed="false"><i class="ph ph-${MOD[k].icon}" aria-hidden="true"></i>${MOD[k].label}<span>${counts[k]}</span></button>`;
-  const chips = GROUPS.map(([label, ks]) => {
-    const inner = ks.filter((k) => counts[k]).map(chip).join('');
-    return inner ? `<div class="md-chip-group"><span class="md-chip-label">${label}</span><div class="md-chip-row">${inner}</div></div>` : '';
+  for (const m of models) for (const x of m.modality) counts[x] = (counts[x] || 0) + 1;
+  const grouped = new Set(GROUPS.flatMap((g) => g.keys));
+  const groups = [...GROUPS];
+  const rest = MOD_KEYS.filter((k) => !grouped.has(k));
+  if (rest.length) groups.push({ ru: 'Прочее', en: 'Other', keys: rest });
+  const chip = (k) => `<button type="button" class="md-chip" data-mod="${k}" aria-pressed="false"><i class="ph ph-${MOD[k].icon}" aria-hidden="true"></i>${modLabel(k, lang)}<span>${counts[k]}</span></button>`;
+  const chips = groups.map((g) => {
+    const inner = g.keys.filter((k) => counts[k]).map(chip).join('');
+    return inner ? `<div class="md-chip-group"><span class="md-chip-label">${g[lang]}</span><div class="md-chip-row">${inner}</div></div>` : '';
   }).join('');
-  const sorted = [...MODELS].sort((a, b) => b.latest.localeCompare(a.latest));
+  const sorted = [...models].sort((a, b) => b.latest.localeCompare(a.latest));
   const fresh = sorted.slice(0, 5);
+  const sel = (id, label, anyLabel, opts) => `<label class="md-select"><span>${label}</span><select id="md-${id}" data-f="${id}">${anyLabel !== null ? `<option value="">${anyLabel}</option>` : ''}${opts.map(([v, x]) => `<option value="${v}">${esc(x)}</option>`).join('')}</select></label>`;
+  const countryOpts = [...COUNTRY.map(([k, l]) => [k, l[lang]]), ['other', OTHER_COUNTRY[lang]]].filter(([k]) => models.some((m) => countryKeys(m).includes(k))).map(([k, l]) => [k, `${l} (${models.filter((m) => countryKeys(m).includes(k)).length})`]);
+  const devOpts = BRANDS.map((b) => [b[0], lang === 'ru' ? b[1] : b[2], models.filter((m) => brandKeys(m).includes(b[0])).length]).filter((x) => x[2] >= 2).sort((a, b) => b[2] - a[2]).map(([k, l, n]) => [k, `${l} (${n})`]);
+  const toolLinks = t.tools.map(([rel, icon, label]) => `<a class="md-toolbtn" href="${BASE[lang]}${rel}/"><i class="ph ph-${icon}" aria-hidden="true"></i>${label}</a>`).join('');
   const main = `<section class="section md-page"><div class="container">
-  <nav class="breadcrumbs" aria-label="Хлебные крошки"><a href="/">Главная</a><span class="breadcrumbs-sep">›</span><span aria-current="page">ИИ-модели</span></nav>
+  ${crumbs(lang, [[null, t.section]])}
   <header class="md-hero">
-    <span class="section-label">ЭНЦИКЛОПЕДИЯ</span>
-    <h1 class="section-heading">Открытые <span class="text-gradient">ИИ-модели</span></h1>
-    <p class="section-sub">Модели с открытыми весами с 2022 года: текст, код, картинки, видео, речь, 3D. По каждой коротко: какие задачи решает, где применяется, какое нужно железо и можно ли в коммерцию. Любую из них поставлю на ваш сервер и дообучу под вашу задачу.</p>
-    <div class="md-stats"><span><b>${MODELS.length}</b> семейств</span><span><b>${Object.keys(counts).length}</b> направлений</span><span>Обновлено ${UPDATED}</span><a class="md-guide" href="/blog/otkrytye-ii-modeli-2022-2026-putevoditel/"><i class="ph ph-book-open" aria-hidden="true"></i>Путеводитель: как выбрать модель</a></div>
+    <span class="section-label">${t.label}</span>
+    <h1 class="section-heading">${t.h1a} <span class="text-gradient">${t.h1b}</span></h1>
+    <p class="section-sub">${t.sub}</p>
+    <div class="md-stats"><span><b>${models.length}</b> ${t.families}</span><span><b>${Object.keys(counts).length}</b> ${t.directions}</span><span>${t.updated} ${UPDATED[lang]}</span><a class="md-guide" href="/blog/otkrytye-ii-modeli-2022-2026-putevoditel/"><i class="ph ph-book-open" aria-hidden="true"></i>${t.guide}</a></div>
+    <div class="md-toolbar">${toolLinks}</div>
   </header>
-  <div class="md-fresh" aria-label="Последние релизы">
-    <div class="md-fresh-title"><i class="ph ph-sparkle" aria-hidden="true"></i>Свежие релизы</div>
-    <ol class="md-fresh-list">${fresh.map((m) => `<li><a href="/ii-modeli/${m.id}/"><span class="md-fresh-date">${fmtMonth(m.latest)}</span><span class="md-fresh-name" title="${esc(m.versions[m.versions.length - 1][0])}">${esc(m.versions[m.versions.length - 1][0])}</span><span class="md-fresh-dev" title="${esc(m.developer)}">${esc(m.developer)}</span></a></li>`).join('')}</ol>
+  <div class="md-fresh" aria-label="${t.fresh}">
+    <div class="md-fresh-title"><i class="ph ph-sparkle" aria-hidden="true"></i>${t.fresh}</div>
+    <ol class="md-fresh-list">${fresh.map((m) => `<li><a href="${BASE[lang]}${m.id}/"><span class="md-fresh-date">${fmtMonth(m.latest, lang)}</span><span class="md-fresh-name" title="${esc(m.versions[m.versions.length - 1][0])}">${esc(m.versions[m.versions.length - 1][0])}</span><span class="md-fresh-dev" title="${esc(loc(m, lang).developer)}">${esc(loc(m, lang).developer)}</span></a></li>`).join('')}</ol>
   </div>
   <div class="md-tools">
-    <label class="md-search"><i class="ph ph-magnifying-glass" aria-hidden="true"></i><input id="mdQ" type="search" placeholder="Модель, разработчик или задача: «расшифровка звонков»" autocomplete="off" aria-label="Поиск по моделям"></label>
+    <label class="md-search"><i class="ph ph-magnifying-glass" aria-hidden="true"></i><input id="mdQ" type="search" placeholder="${esc(t.searchPh)}" autocomplete="off" aria-label="${t.searchLabel}"></label>
     <div class="md-selects">
-      ${sel('hw', 'Железо', 'Любое', [['min', 'Хватит ноутбука'], ['gpu', 'Одна видеокарта'], ['multi', 'Кластер']])}
-      ${sel('com', 'Лицензия', 'Любая', [['yes', 'Можно в коммерцию'], ['conditional', 'С условиями'], ['no', 'Только некоммерческое']])}
-      ${hasField('ru') ? sel('ru', 'Русский язык', 'Не важно', [['yes', 'Русский заявлен']]) : ''}
-      ${hasField('industries') ? sel('ind', 'Сфера', 'Любая', Object.entries(INDUSTRY).filter(([k]) => MODELS.some((m) => (m.industries || []).includes(k)))) : ''}
-      ${sel('country', 'Страна', 'Любая', [...COUNTRY.map(([k, l]) => [k, l]), ['other', 'Другие']].filter(([k]) => MODELS.some((m) => countryKeys(m).includes(k))).map(([k, l]) => [k, `${l} (${MODELS.filter((m) => countryKeys(m).includes(k)).length})`]))}
-      ${sel('dev', 'Разработчик', 'Любой', BRANDS.map(([k, l]) => [k, l, MODELS.filter((m) => brandKeys(m).includes(k)).length]).filter((x) => x[2] >= 2).sort((a, b) => b[2] - a[2]).map(([k, l, n]) => [k, `${l} (${n})`]))}
-      ${sel('fresh', 'Свежесть', 'Любая', [['2026', 'Обновлялась в 2026'], ['2025', 'Последняя версия — 2025'], ['old', 'Раньше 2025']])}
-      ${sel('sort', 'Порядок', null, [['new', 'Сначала новые'], ['old', 'Сначала старые'], ['az', 'По алфавиту']])}
+      ${sel('hw', t.fHw, t.fAny, [['min', t.hwOpts[0]], ['gpu', t.hwOpts[1]], ['multi', t.hwOpts[2]]])}
+      ${sel('com', t.fCom, t.fAnyF, [['yes', t.comOpts[0]], ['conditional', t.comOpts[1]], ['no', t.comOpts[2]]])}
+      ${hasField(models, 'ru') ? sel('ru', t.fRu, t.fRuAny, [['yes', t.fRuYes]]) : ''}
+      ${hasField(models, 'industries') ? sel('ind', t.fInd, t.fAnyF, Object.entries(INDUSTRY).filter(([k]) => models.some((m) => (m.industries || []).includes(k))).map(([k, v]) => [k, v[lang]])) : ''}
+      ${sel('country', t.fCountry, t.fAnyF, countryOpts)}
+      ${sel('dev', t.fDev, t.fAnyM, devOpts)}
+      ${sel('fresh', t.fFresh, t.fAnyF, [['2026', t.freshOpts[0]], ['2025', t.freshOpts[1]], ['old', t.freshOpts[2]]])}
+      ${sel('sort', t.fSort, null, [['new', t.sortOpts[0]], ['old', t.sortOpts[1]], ['az', t.sortOpts[2]]])}
     </div>
     <div class="md-toggles">
-      ${hasField('ollama') ? '<label class="md-toggle"><input type="checkbox" id="mdOllama"><span>Есть в Ollama — запуск в один клик</span></label>' : ''}
-      ${hasField('cpu') ? '<label class="md-toggle"><input type="checkbox" id="mdCpu"><span>Работает без видеокарты</span></label>' : ''}
-      <button type="button" class="md-reset" id="mdReset" hidden><i class="ph ph-x" aria-hidden="true"></i>Сбросить фильтры</button>
+      ${hasField(models, 'ollama') ? `<label class="md-toggle"><input type="checkbox" id="mdOllama"><span>${t.tOllama}</span></label>` : ''}
+      ${hasField(models, 'cpu') ? `<label class="md-toggle"><input type="checkbox" id="mdCpu"><span>${t.tCpu}</span></label>` : ''}
+      <button type="button" class="md-reset" id="mdReset" hidden><i class="ph ph-x" aria-hidden="true"></i>${t.reset}</button>
     </div>
   </div>
-  <div class="md-chips" role="group" aria-label="Направление"><div class="md-chip-all"><button type="button" class="md-chip is-on" data-mod="" aria-pressed="true"><i class="ph ph-squares-four" aria-hidden="true"></i>Все направления<span>${MODELS.length}</span></button></div>${chips}</div>
-  <p class="md-count" id="mdCount" aria-live="polite">Показано ${MODELS.length} из ${MODELS.length}</p>
-  <div class="md-grid" id="mdGrid">${sorted.map(card).join('\n')}</div>
-  <p class="md-empty" id="mdEmpty" hidden>Под эти условия моделей нет. Сбросьте фильтр или <a href="${tg('Здравствуйте! Ищу открытую модель под задачу: ')}" target="_blank" rel="noopener">опишите задачу</a> — подберу сам.</p>
-  <div class="md-tray" id="mdTray" hidden role="region" aria-label="Сравнение моделей">
+  <div class="md-chips" role="group" aria-label="${t.dirLabel}"><div class="md-chip-all"><button type="button" class="md-chip is-on" data-mod="" aria-pressed="true"><i class="ph ph-squares-four" aria-hidden="true"></i>${t.allDirs}<span>${models.length}</span></button></div>${chips}</div>
+  <p class="md-count" id="mdCount" aria-live="polite">${t.shown} ${models.length} ${t.of} ${models.length}</p>
+  <div class="md-grid" id="mdGrid">${sorted.map((m) => card(m, lang)).join('\n')}</div>
+  <p class="md-empty" id="mdEmpty" hidden>${t.empty} <a href="${tg(t.tgFind)}" target="_blank" rel="noopener">${t.emptyLink}</a> ${t.emptyTail}</p>
+  <div class="md-tray" id="mdTray" hidden role="region" aria-label="${t.compareTitle}">
     <div class="md-tray-list" id="mdTrayList"></div>
     <div class="md-tray-actions">
-      <button type="button" class="btn btn-accent" id="mdCmpOpen"><i class="ph ph-scales" aria-hidden="true"></i>Сравнить</button>
-      <button type="button" class="md-tray-clear" id="mdCmpClear"><i class="ph ph-trash" aria-hidden="true"></i>Очистить</button>
+      <button type="button" class="btn btn-accent" id="mdCmpOpen"><i class="ph ph-scales" aria-hidden="true"></i>${t.compare}</button>
+      <button type="button" class="md-tray-clear" id="mdCmpClear"><i class="ph ph-trash" aria-hidden="true"></i>${t.compareClear}</button>
     </div>
   </div>
   <dialog class="md-dialog" id="mdDialog" aria-labelledby="mdDialogT">
-    <div class="md-dialog-head"><h2 id="mdDialogT">Сравнение моделей</h2><button type="button" class="md-dialog-x" id="mdDialogX" aria-label="Закрыть"><i class="ph ph-x" aria-hidden="true"></i></button></div>
+    <div class="md-dialog-head"><h2 id="mdDialogT">${t.compareTitle}</h2><button type="button" class="md-dialog-x" id="mdDialogX" aria-label="${t.close}"><i class="ph ph-x" aria-hidden="true"></i></button></div>
     <div class="md-dialog-body" id="mdDialogBody"></div>
-    <div class="md-dialog-foot"><a class="btn btn-accent" id="mdDialogTg" href="#" target="_blank" rel="noopener"><i class="ph ph-telegram-logo" aria-hidden="true"></i>Обсудить выбор</a></div>
+    <div class="md-dialog-foot"><a class="btn btn-accent" id="mdDialogTg" href="#" target="_blank" rel="noopener"><i class="ph ph-telegram-logo" aria-hidden="true"></i>${t.discuss}</a></div>
   </dialog>
-  <script type="application/json" id="mdData">${JSON.stringify(Object.fromEntries(MODELS.map((m) => [m.id, {
-    n: m.name, d: m.developer + ', ' + m.country, mo: m.modality.map((x) => MOD[x].label).join(', '), s: m.sizes,
-    l: COM[m.commercial].label, lc: COM[m.commercial].cls, lt: m.license, h: m.hardware.map((x) => HW[x].short).join(', '),
-    r: m.ru ? RU[m.ru] : '', o: m.ollama === undefined ? '' : (m.ollama ? 'Есть' : 'Нет'), c: m.cpu === undefined ? '' : (m.cpu ? 'Да' : 'Нет'),
-    y: fmtMonth(m.first) + ' – ' + fmtMonth(m.latest), t: m.tasks.slice(0, 3),
-  }]))).replace(/</g, '\\u003c')}</script>
-  <section class="md-offer" aria-labelledby="mdOfferT">
-    <div class="md-offer-text">
-      <h2 id="mdOfferT">Нужна модель под вашу задачу?</h2>
-      <p>Открытую модель можно поставить на свой сервер: данные не уходят в чужое облако, нет оплаты за каждый запрос, модель можно дообучить на ваших документах.</p>
-    </div>
-    <ol class="md-steps">
-      <li><b>Подберу</b><span>Модель и размер под задачу и бюджет на железо</span></li>
-      <li><b>Поставлю</b><span>На ваш сервер или в закрытый контур, с API</span></li>
-      <li><b>Дообучу</b><span>На ваших данных или подключу базу знаний</span></li>
-      <li><b>Встрою</b><span>В CRM, 1С, бота, сайт или рабочий чат</span></li>
-    </ol>
-    <a class="btn btn-accent md-offer-btn" href="${tg('Здравствуйте! Хочу поставить открытую ИИ-модель на свой сервер. Задача: ')}" target="_blank" rel="noopener"><i class="ph ph-telegram-logo" aria-hidden="true"></i>Обсудить внедрение</a>
-  </section>
+  <script type="application/json" id="mdData">${JSON.stringify(Object.fromEntries(models.map((m0) => { const m = loc(m0, lang); return [m.id, {
+    n: m.name, d: m.developer + ', ' + m.country, mo: m.modality.map((x) => modLabel(x, lang)).join(', '), s: m.sizes,
+    l: COM[m.commercial][lang], lc: COM[m.commercial].cls, lt: m.license, h: m.hardware.map((x) => HW[x][lang][0]).join(', '),
+    r: m.ru ? RU_LANG[lang][m.ru] : '', o: m.ollama === undefined ? '' : (m.ollama ? t.has : t.no), c: m.cpu === undefined ? '' : (m.cpu ? t.yes : t.no),
+    y: fmtMonth(m.first, lang) + ' – ' + fmtMonth(m.latest, lang), t: m.tasks.slice(0, 3),
+  }]; }))).replace(/</g, '\\u003c')}</script>
+  <script type="application/json" id="mdUi">${JSON.stringify({ shown: t.shown, of: t.of, compareOf: t.compareOf, removeX: t.removeX, pickTwo: t.pickTwo, param: t.param, rows: t.rows, tgCompare: t.tgCompare, tgTask: t.tgTask, base: BASE[lang], locale: lang }).replace(/</g, '\\u003c')}</script>
+  ${collectionLinks(lang, colls, null)}
+  ${offer(lang)}
 </div></section>`;
   const js = `<script>
 (function(){
   var grid=document.getElementById('mdGrid'); if(!grid) return;
   var cards=[].slice.call(grid.querySelectorAll('.md-card'));
   var $=function(id){return document.getElementById(id);};
+  var UI=JSON.parse($('mdUi').textContent);
   var q=$('mdQ'), sort=$('md-sort'), ollama=$('mdOllama'), cpu=$('mdCpu'), reset=$('mdReset');
   var sels=[].slice.call(document.querySelectorAll('.md-selects select[data-f]')).filter(function(s){return s.dataset.f!=='sort';});
   var chips=[].slice.call(document.querySelectorAll('.md-chip')), mod='';
   var count=$('mdCount'), empty=$('mdEmpty');
-  // Значение select → какое поле карточки проверять и как (список через пробел или точное совпадение).
   var FIELD={hw:['hw',1],com:['com',0],ru:['ru',0],ind:['ind',1],country:['country',1],dev:['dev',1]};
   function has(list,v){return (' '+list+' ').indexOf(' '+v+' ')>-1;}
   cards.forEach(function(c){ c.addEventListener('click',function(e){ if(e.target.closest('a,label,input')) return; location.href=c.querySelector('.md-name a').getAttribute('href'); }); });
@@ -284,11 +306,11 @@ function catalog() {
       }
       c.hidden=!ok; if(ok) n++;
     });
-    count.textContent='Показано '+n+' из '+cards.length; empty.hidden=n>0; reset.hidden=!active;
+    count.textContent=UI.shown+' '+n+' '+UI.of+' '+cards.length; empty.hidden=n>0; reset.hidden=!active;
   }
   function order(){
     var s=sort.value;
-    cards.sort(function(a,b){ return s==='az' ? a.dataset.name.localeCompare(b.dataset.name,'ru') : s==='old' ? a.dataset.first.localeCompare(b.dataset.first) : b.dataset.latest.localeCompare(a.dataset.latest); })
+    cards.sort(function(a,b){ return s==='az' ? a.dataset.name.localeCompare(b.dataset.name,UI.locale) : s==='old' ? a.dataset.first.localeCompare(b.dataset.first) : b.dataset.latest.localeCompare(a.dataset.latest); })
       .forEach(function(c){ grid.appendChild(c); });
   }
   function setChip(ch){
@@ -312,31 +334,31 @@ function catalog() {
   function syncCmp(){
     boxes.forEach(function(b){ b.checked=picked.indexOf(b.value)>-1; b.disabled=!b.checked&&picked.length>=MAX; b.closest('.md-card').classList.toggle('is-picked',b.checked); });
     tray.hidden=!picked.length;
-    list.innerHTML='<span class="md-tray-label">Сравнение '+picked.length+' из '+MAX+':</span>'+picked.map(function(id){
-      return '<span class="md-tray-item">'+esc(DATA[id].n)+'<button type="button" data-rm="'+id+'" aria-label="Убрать '+esc(DATA[id].n)+'"><i class="ph ph-x" aria-hidden="true"></i></button></span>';
+    list.innerHTML='<span class="md-tray-label">'+UI.compareOf+' '+picked.length+' / '+MAX+':</span>'+picked.map(function(id){
+      return '<span class="md-tray-item">'+esc(DATA[id].n)+'<button type="button" data-rm="'+id+'" aria-label="'+UI.removeX+' '+esc(DATA[id].n)+'"><i class="ph ph-x" aria-hidden="true"></i></button></span>';
     }).join('');
     $('mdCmpOpen').disabled=picked.length<2;
-    $('mdCmpOpen').title=picked.length<2?'Выберите хотя бы две модели':'';
+    $('mdCmpOpen').title=picked.length<2?UI.pickTwo:'';
   }
   boxes.forEach(function(b){ b.addEventListener('change',function(){
     var i=picked.indexOf(b.value); if(b.checked&&i<0&&picked.length<MAX) picked.push(b.value); if(!b.checked&&i>-1) picked.splice(i,1); syncCmp();
   }); });
   list.addEventListener('click',function(e){ var r=e.target.closest('[data-rm]'); if(!r) return; picked.splice(picked.indexOf(r.dataset.rm),1); syncCmp(); });
   $('mdCmpClear').addEventListener('click',function(){ picked=[]; syncCmp(); });
-  var ROWS=[['mo','Направление'],['d','Разработчик'],['y','Выпуски'],['s','Размеры'],['h','Железо'],['l','Коммерция'],['lt','Лицензия'],['r','Русский язык'],['o','Ollama'],['c','Без видеокарты'],['t','Задачи']];
+  var ROWS=['mo','d','y','s','h','l','lt','r','o','c','t'];
   $('mdCmpOpen').addEventListener('click',function(){
     var m=picked.map(function(id){return DATA[id];});
-    var h='<div class="md-cmp-scroll"><table class="md-cmp-table"><thead><tr><th scope="col"><span class="md-sr">Параметр</span></th>'+picked.map(function(id){return '<th scope="col"><a href="/ii-modeli/'+id+'/">'+esc(DATA[id].n)+'</a></th>';}).join('')+'</tr></thead><tbody>';
-    ROWS.forEach(function(r){
-      if(m.every(function(x){return !x[r[0]]||(Array.isArray(x[r[0]])&&!x[r[0]].length);})) return;
-      h+='<tr><th scope="row">'+r[1]+'</th>'+m.map(function(x){
-        var v=x[r[0]]; if(r[0]==='l') return '<td><span class="md-lic md-lic-'+x.lc+'">'+esc(v)+'</span></td>';
-        if(Array.isArray(v)) return '<td><ul>'+v.map(function(t){return '<li>'+esc(t)+'</li>';}).join('')+'</ul></td>';
+    var h='<div class="md-cmp-scroll"><table class="md-cmp-table"><thead><tr><th scope="col"><span class="md-sr">'+UI.param+'</span></th>'+picked.map(function(id){return '<th scope="col"><a href="'+UI.base+id+'/">'+esc(DATA[id].n)+'</a></th>';}).join('')+'</tr></thead><tbody>';
+    ROWS.forEach(function(k){
+      if(m.every(function(x){return !x[k]||(Array.isArray(x[k])&&!x[k].length);})) return;
+      h+='<tr><th scope="row">'+UI.rows[k]+'</th>'+m.map(function(x){
+        var v=x[k]; if(k==='l') return '<td><span class="md-lic md-lic-'+x.lc+'">'+esc(v)+'</span></td>';
+        if(Array.isArray(v)) return '<td><ul>'+v.map(function(z){return '<li>'+esc(z)+'</li>';}).join('')+'</ul></td>';
         return '<td>'+(v?esc(v):'—')+'</td>';
       }).join('')+'</tr>';
     });
     $('mdDialogBody').innerHTML=h+'</tbody></table></div>';
-    $('mdDialogTg').href='https://t.me/chimitdorzhi?text='+encodeURIComponent('Здравствуйте! Выбираю между моделями: '+m.map(function(x){return x.n;}).join(', ')+'. Задача: ');
+    $('mdDialogTg').href='https://t.me/chimitdorzhi?text='+encodeURIComponent(UI.tgCompare+m.map(function(x){return x.n;}).join(', ')+UI.tgTask);
     if(dlg.showModal) dlg.showModal(); else dlg.setAttribute('open','');
   });
   $('mdDialogX').addEventListener('click',function(){ dlg.close(); });
@@ -345,107 +367,353 @@ function catalog() {
 })();
 </script>`;
   const ld = [
-    { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Энциклопедия открытых ИИ-моделей', url: `${SITE}/ii-modeli/`, inLanguage: 'ru', dateModified: '2026-09-22',
-      mainEntity: { '@type': 'ItemList', itemListElement: sorted.map((m, i) => ({ '@type': 'ListItem', position: i + 1, url: `${SITE}/ii-modeli/${m.id}/`, name: m.name })) } },
-    { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Главная', item: `${SITE}/` },
-      { '@type': 'ListItem', position: 2, name: 'ИИ-модели', item: `${SITE}/ii-modeli/` }] },
+    { '@context': 'https://schema.org', '@type': 'CollectionPage', name: t.catLd, url: `${SITE}${BASE[lang]}`, inLanguage: lang, dateModified: LASTMOD,
+      mainEntity: { '@type': 'ItemList', itemListElement: sorted.map((m, i) => ({ '@type': 'ListItem', position: i + 1, url: `${SITE}${BASE[lang]}${m.id}/`, name: m.name })) } },
+    ldCrumbs(lang, [[`${SITE}${BASE[lang]}`, t.section]]),
   ];
-  return page({
-    title: 'Открытые ИИ-модели 2022–2026: энциклопедия — задачи, железо, лицензии',
-    description: 'Каталог открытых ИИ-моделей: текст, код, картинки, видео, речь, 3D. По каждой — задачи, где применяется, требования к железу и лицензия. Установка на ваш сервер.',
-    url: `${SITE}/ii-modeli/`, ld, main, extraJs: js,
-  });
+  writePage(lang, '', { title: t.catTitle, description: t.catDesc, ld, main, extraJs: js, altRel: '' });
 }
 
 // --- Страница модели ---
-function detail(m) {
-  const byId = Object.fromEntries(MODELS.map((x) => [x.id, x]));
+function detail(m0, lang) {
+  const t = T[lang], m = loc(m0, lang);
+  const byId = Object.fromEntries(MODELS[lang].map((x) => [x.id, x]));
   const alts = (m.alternatives || []).map((id) => byId[id]).filter(Boolean);
-  const cta = tg(`Здравствуйте! Хочу поставить ${m.name} на свой сервер. Задача: `);
+  const cta = tg(t.tgModel(m.name));
+  const cmps = CMP.filter((p) => (p.a === m.id || p.b === m.id) && (lang === 'ru' || (EN_IDS.has(p.a) && EN_IDS.has(p.b))));
+  const arts = lang === 'ru' ? (ARTICLES[m.id] || []).slice(0, 6) : [];
+  const src = m.source || m.hf || m.github;
+  const both = EN_IDS.has(m.id);
   const main = `<section class="section md-page md-detail"><div class="container">
-  <nav class="breadcrumbs" aria-label="Хлебные крошки"><a href="/">Главная</a><span class="breadcrumbs-sep">›</span><a href="/ii-modeli/">ИИ-модели</a><span class="breadcrumbs-sep">›</span><span aria-current="page">${esc(m.name)}</span></nav>
+  ${crumbs(lang, [[BASE[lang], t.section], [null, m.name]])}
   <header class="md-d-hero">
-    <div class="md-d-mods">${m.modality.map(modChip).join('')}</div>
+    <div class="md-d-mods">${m.modality.map((k) => modChip(k, lang)).join('')}</div>
     <h1 class="md-d-title">${esc(m.name)}</h1>
     <p class="md-d-lead">${esc(m.summary)}</p>
     <dl class="md-d-facts">
-      <div><dt>Разработчик</dt><dd>${esc(m.developer)}, ${esc(m.country)}</dd></div>
-      <div><dt>Первый выпуск</dt><dd>${fmtMonth(m.first)}</dd></div>
-      <div><dt>Последний выпуск</dt><dd>${fmtMonth(m.latest)}</dd></div>
-      <div><dt>Размеры</dt><dd>${esc(m.sizes)}</dd></div>
-      <div><dt>Лицензия</dt><dd>${lic(m.commercial)}<small>${esc(m.license)}</small></dd></div>
-      ${m.ru && m.ru !== 'na' ? `<div><dt>Русский язык</dt><dd>${RU[m.ru]}</dd></div>` : ''}
-      ${m.ollama !== undefined || m.cpu !== undefined ? `<div><dt>Запуск</dt><dd>${m.ollama ? 'Есть в Ollama' : 'Через свой сервер'}<small>${m.cpu ? 'Работает и без видеокарты' : 'Нужна видеокарта'}</small></dd></div>` : ''}
-      ${(m.industries || []).length ? `<div><dt>Сферы</dt><dd><small>${m.industries.map((k) => INDUSTRY[k]).filter(Boolean).join(', ')}</small></dd></div>` : ''}
+      <div><dt>${t.dev}</dt><dd>${esc(m.developer)}, ${esc(m.country)}</dd></div>
+      <div><dt>${t.first}</dt><dd>${fmtMonth(m.first, lang)}</dd></div>
+      <div><dt>${t.latest}</dt><dd>${fmtMonth(m.latest, lang)}</dd></div>
+      <div><dt>${t.sizes}</dt><dd>${esc(m.sizes)}</dd></div>
+      <div><dt>${t.license}</dt><dd>${lic(m.commercial, lang)}<small>${esc(m.license)}</small></dd></div>
+      ${m.ru && m.ru !== 'na' ? `<div><dt>${t.ruLang}</dt><dd>${RU_LANG[lang][m.ru]}</dd></div>` : ''}
+      ${m.ollama !== undefined || m.cpu !== undefined ? `<div><dt>${t.run}</dt><dd>${m.ollama ? t.runOllama : t.runServer}<small>${m.cpu ? t.runCpu : t.runGpu}</small></dd></div>` : ''}
+      ${(m.industries || []).length ? `<div><dt>${t.spheres}</dt><dd><small>${m.industries.map((k) => (INDUSTRY[k] || {})[lang]).filter(Boolean).join(', ')}</small></dd></div>` : ''}
     </dl>
     <div class="md-d-actions">
-      <a class="btn btn-accent" href="${cta}" target="_blank" rel="noopener"><i class="ph ph-telegram-logo" aria-hidden="true"></i>Поставить на свой сервер</a>
+      <a class="btn btn-accent" href="${cta}" target="_blank" rel="noopener"><i class="ph ph-telegram-logo" aria-hidden="true"></i>${t.deployBtn}</a>
       ${m.hf ? `<a class="btn btn-ghost" href="${m.hf}" target="_blank" rel="noopener nofollow">Hugging Face<i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>` : ''}
       ${m.github ? `<a class="btn btn-ghost" href="${m.github}" target="_blank" rel="noopener nofollow"><i class="ph ph-git-branch" aria-hidden="true"></i>GitHub</a>` : ''}
     </div>
   </header>
   <div class="md-d-body">
     <div class="md-d-main">
-      <section><h2>Какие задачи решает</h2><ul class="md-check">${m.tasks.map((t) => `<li><i class="ph ph-check-circle" aria-hidden="true"></i>${esc(t)}</li>`).join('')}</ul></section>
-      <section><h2>Где применяется</h2><div class="md-where">${m.where.map((w) => `<span>${esc(w)}</span>`).join('')}</div></section>
-      <section><h2>Требования к железу</h2><div class="md-hw">${Object.keys(HW).map((k) => `<div class="md-hw-row${m.hardware.includes(k) ? ' is-on' : ''}"><i class="ph ph-${HW[k].icon}" aria-hidden="true"></i><div><b>${HW[k].short}</b><span>${HW[k].long}</span></div><em>${m.hardware.includes(k) ? 'подходит' : 'нет версий'}</em></div>`).join('')}</div></section>
-      <section><h2>Версии</h2><ol class="md-timeline">${[...m.versions].reverse().map(([n, d]) => `<li><time>${fmtMonth(d)}</time><span>${esc(n)}</span></li>`).join('')}</ol></section>
-      <section><h2>Как внедряю у заказчика</h2><ol class="md-steps md-steps-v">
-        <li><b>Подбор</b><span>Выбираю размер модели под задачу и ваше железо, проверяю на ваших примерах.</span></li>
-        <li><b>Установка</b><span>Разворачиваю на вашем сервере или в закрытом контуре, отдаю API.</span></li>
-        <li><b>Дообучение</b><span>Дообучаю на ваших данных (LoRA) или подключаю базу знаний — что дешевле для задачи.</span></li>
-        <li><b>Встраивание</b><span>Подключаю к CRM, 1С, боту, сайту или рабочему чату, настраиваю мониторинг.</span></li>
-      </ol></section>
-      ${alts.length ? `<section><h2>Похожие модели</h2><div class="md-alts">${alts.map((a) => `<a href="/ii-modeli/${a.id}/">${modChip(a.modality[0])}<b>${esc(a.name)}</b><span class="md-alt-dev">${esc(a.developer)} · ${esc(a.country)}</span>${lic(a.commercial)}<p>${esc(a.summary)}</p><span class="md-alt-foot"><span class="md-more">Подробнее<i class="ph ph-arrow-right" aria-hidden="true"></i></span></span></a>`).join('')}</div></section>` : ''}
+      <section><h2>${t.tasksH}</h2><ul class="md-check">${m.tasks.map((x) => `<li><i class="ph ph-check-circle" aria-hidden="true"></i>${esc(x)}</li>`).join('')}</ul></section>
+      <section><h2>${t.whereH}</h2><div class="md-where">${m.where.map((w) => `<span>${esc(w)}</span>`).join('')}</div></section>
+      <section><h2>${t.hwH}</h2><div class="md-hw">${Object.keys(HW).map((k) => `<div class="md-hw-row${m.hardware.includes(k) ? ' is-on' : ''}"><i class="ph ph-${HW[k].icon}" aria-hidden="true"></i><div><b>${HW[k][lang][0]}</b><span>${HW[k][lang][1]}</span></div><em>${m.hardware.includes(k) ? t.fits : t.noVer}</em></div>`).join('')}</div></section>
+      <section><h2>${t.versionsH}</h2><ol class="md-timeline">${[...m.versions].reverse().map(([n, d]) => `<li><time>${fmtMonth(d, lang)}</time><span>${esc(n)}</span></li>`).join('')}</ol></section>
+      <section><h2>${t.howH}</h2><ol class="md-steps md-steps-v">${t.how.map(([b, s]) => `<li><b>${b}</b><span>${s}</span></li>`).join('')}</ol></section>
+      ${cmps.length ? `<section><h2>${t.comparesH}</h2><ul class="md-links">${cmps.map((p) => `<li><a href="${BASE[lang]}sravnenie/${p.slug}/">${esc(lang === 'en' ? (p.h1_en || p.h1) : p.h1)}</a></li>`).join('')}</ul></section>` : ''}
+      ${arts.length ? `<section><h2>${t.articlesH}</h2><ul class="md-links md-articles">${arts.map((a) => `<li><a href="/blog/${a.slug}/">${esc(a.title)}</a></li>`).join('')}</ul></section>` : ''}
+      ${alts.length ? `<section><h2>${t.altsH}</h2><div class="md-alts">${alts.map((a0) => { const a = loc(a0, lang); return `<a href="${BASE[lang]}${a.id}/">${modChip(a.modality[0], lang)}<b>${esc(a.name)}</b><span class="md-alt-dev">${esc(a.developer)} · ${esc(a.country)}</span>${lic(a.commercial, lang)}<p>${esc(a.summary)}</p><span class="md-alt-foot"><span class="md-more">${t.more}<i class="ph ph-arrow-right" aria-hidden="true"></i></span></span></a>`; }).join('')}</div></section>` : ''}
+      <p class="md-source">${src ? `${t.source}: <a href="${esc(src)}" target="_blank" rel="noopener nofollow">${esc(src.replace(/^https?:\/\//, '').slice(0, 70))}</a>. ` : ''}${t.checked(UPDATED[lang])}</p>
     </div>
     <aside class="md-d-side">
       <div class="md-side-card">
-        <div class="md-side-title">Внедрение ${esc(m.name)} под ключ</div>
-        <ul><li>Данные остаются у вас</li><li>Без оплаты за каждый запрос</li><li>Дообучение на ваших документах</li><li>Интеграция с вашими системами</li></ul>
-        <a class="btn btn-accent" href="${cta}" target="_blank" rel="noopener"><i class="ph ph-telegram-logo" aria-hidden="true"></i>Обсудить задачу</a>
-        <a class="md-side-back" href="/ii-modeli/"><i class="ph ph-arrow-left" aria-hidden="true"></i>Все модели</a>
+        <div class="md-side-title">${esc(t.sideTitle(m.name))}</div>
+        <ul>${t.sideList.map((x) => `<li>${x}</li>`).join('')}</ul>
+        <a class="btn btn-accent" href="${cta}" target="_blank" rel="noopener"><i class="ph ph-telegram-logo" aria-hidden="true"></i>${t.sideBtn}</a>
+        <a class="md-side-back" href="${BASE[lang]}"><i class="ph ph-arrow-left" aria-hidden="true"></i>${t.allModels}</a>
       </div>
     </aside>
   </div>
 </div></section>`;
-  const url = `${SITE}/ii-modeli/${m.id}/`;
+  const url = `${SITE}${BASE[lang]}${m.id}/`;
   const ld = [
-    { '@context': 'https://schema.org', '@type': 'SoftwareApplication', name: m.name, applicationCategory: 'AI model', description: m.summary, url,
+    { '@context': 'https://schema.org', '@type': 'SoftwareApplication', name: m.name, applicationCategory: 'AI model', description: m.summary, url, inLanguage: lang,
       author: { '@type': 'Organization', name: m.developer }, license: m.license, datePublished: m.first, dateModified: m.latest, offers: { '@type': 'Offer', price: 0, priceCurrency: 'USD' } },
-    { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Главная', item: `${SITE}/` },
-      { '@type': 'ListItem', position: 2, name: 'ИИ-модели', item: `${SITE}/ii-modeli/` },
-      { '@type': 'ListItem', position: 3, name: m.name, item: url }] },
+    ldCrumbs(lang, [[`${SITE}${BASE[lang]}`, t.section], [url, m.name]]),
   ];
-  return page({
-    title: `${m.name}: задачи, требования к железу и лицензия — открытая ИИ-модель`,
-    description: `${m.name} от ${m.developer}: ${m.summary}`.slice(0, 158),
-    url, ld, main, image: `${url}cover.png`,
-  });
+  writePage(lang, `${m.id}/`, { title: t.detailTitle(m.name), description: t.detailDesc(m.name, m.developer, m.summary).slice(0, 158), ld, main, extraJs: '', image: `${url}cover.png`, altRel: both ? `${m.id}/` : undefined });
 }
 
-fs.mkdirSync(OUT, { recursive: true });
-fs.writeFileSync(path.join(OUT, 'index.html'), catalog());
-for (const m of MODELS) {
-  fs.mkdirSync(path.join(OUT, m.id), { recursive: true });
-  fs.writeFileSync(path.join(OUT, m.id, 'index.html'), detail(m));
+// --- Страница подборки ---
+function collectionPage(x, lang, colls) {
+  const t = T[lang];
+  const h1 = ctext(x.c, 'h1', lang), intro = ctext(x.c, 'intro', lang);
+  const sorted = [...x.items].sort((a, b) => b.latest.localeCompare(a.latest));
+  const altExists = colls.alt && colls.alt.has(x.rel);
+  const main = `<section class="section md-page"><div class="container">
+  ${crumbs(lang, [[BASE[lang], t.section], [null, h1]])}
+  <header class="md-hero">
+    <span class="section-label">${lang === 'ru' ? 'ПОДБОРКА' : 'COLLECTION'}</span>
+    <h1 class="section-heading">${esc(h1)}</h1>
+    ${intro ? `<p class="section-sub">${esc(intro)}</p>` : ''}
+    <div class="md-stats"><span>${t.inCollection(sorted.length)}</span><span>${t.updated} ${UPDATED[lang]}</span><a class="md-guide" href="${BASE[lang]}"><i class="ph ph-funnel" aria-hidden="true"></i>${t.openCatalog}</a></div>
+  </header>
+  <div class="md-grid">${sorted.map((m) => card(m, lang, { compare: false })).join('\n')}</div>
+  ${collectionLinks(lang, colls, x.rel)}
+  ${offer(lang)}
+</div></section>`;
+  const url = `${SITE}${BASE[lang]}${x.rel}`;
+  const ld = [
+    { '@context': 'https://schema.org', '@type': 'CollectionPage', name: h1, url, inLanguage: lang, dateModified: LASTMOD,
+      mainEntity: { '@type': 'ItemList', itemListElement: sorted.map((m, i) => ({ '@type': 'ListItem', position: i + 1, url: `${SITE}${BASE[lang]}${m.id}/`, name: m.name })) } },
+    ldCrumbs(lang, [[`${SITE}${BASE[lang]}`, t.section], [url, h1]]),
+  ];
+  writePage(lang, x.rel, { title: ctext(x.c, 'title', lang) || h1, description: ctext(x.c, 'description', lang) || intro || h1, ld, main, extraJs: cardClickJs, altRel: altExists ? x.rel : undefined });
 }
-// sitemap.xml: убираем прежние /ii-modeli/ и дописываем актуальные.
+
+// --- Страница сравнения «A или B» ---
+function comparePage(p, lang) {
+  const t = T[lang];
+  const byId = Object.fromEntries(MODELS[lang].map((x) => [x.id, x]));
+  const A = byId[p.a], B = byId[p.b];
+  if (!A || !B) return false;
+  const a = loc(A, lang), b = loc(B, lang);
+  const f = (k) => (lang === 'en' ? p[k + '_en'] : p[k]) || p[k];
+  const rows = [
+    [t.rows.mo, (m) => m.modality.map((k) => modLabel(k, lang)).join(', ')],
+    [t.rows.d, (m) => `${m.developer}, ${m.country}`],
+    [t.rows.y, (m) => `${fmtMonth(m.first, lang)} – ${fmtMonth(m.latest, lang)}`],
+    [t.rows.s, (m) => m.sizes],
+    [t.rows.h, (m) => m.hardware.map((x) => HW[x][lang][0]).join(', ')],
+    [t.rows.l, (m) => COM[m.commercial][lang]],
+    [t.rows.lt, (m) => m.license],
+    [t.rows.r, (m) => (m.ru ? RU_LANG[lang][m.ru] : '—')],
+    [t.rows.o, (m) => (m.ollama ? t.has : t.no)],
+    [t.rows.c, (m) => (m.cpu ? t.yes : t.no)],
+  ];
+  const others = CMP.filter((x) => x.slug !== p.slug && (lang === 'ru' || (EN_IDS.has(x.a) && EN_IDS.has(x.b))));
+  const chooseList = (m, items) => (items && items.length ? `<div class="md-choose"><h3>${t.chooseIf(m.name)}</h3><ul class="md-check">${items.map((x) => `<li><i class="ph ph-check-circle" aria-hidden="true"></i>${esc(x)}</li>`).join('')}</ul><a class="md-more" href="${BASE[lang]}${m.id}/">${m.name}<i class="ph ph-arrow-right" aria-hidden="true"></i></a></div>` : '');
+  const main = `<section class="section md-page"><div class="container">
+  ${crumbs(lang, [[BASE[lang], t.section], [null, f('h1')]])}
+  <header class="md-hero">
+    <span class="section-label">${lang === 'ru' ? 'СРАВНЕНИЕ' : 'COMPARISON'}</span>
+    <h1 class="section-heading">${esc(f('h1'))}</h1>
+    <p class="section-sub">${esc(f('verdict'))}</p>
+  </header>
+  <section class="md-cmp-page"><h2>${t.cmpTableH}</h2>
+    <div class="md-cmp-scroll"><table class="md-cmp-table"><thead><tr><th scope="col"><span class="md-sr">${t.param}</span></th><th scope="col"><a href="${BASE[lang]}${a.id}/">${esc(a.name)}</a></th><th scope="col"><a href="${BASE[lang]}${b.id}/">${esc(b.name)}</a></th></tr></thead>
+    <tbody>${rows.map(([label, fn]) => `<tr><th scope="row">${label}</th><td>${esc(fn(a))}</td><td>${esc(fn(b))}</td></tr>`).join('')}
+    <tr><th scope="row">${t.rows.t}</th><td><ul>${a.tasks.map((x) => `<li>${esc(x)}</li>`).join('')}</ul></td><td><ul>${b.tasks.map((x) => `<li>${esc(x)}</li>`).join('')}</ul></td></tr></tbody></table></div>
+  </section>
+  <div class="md-choose-grid">${chooseList(a, f('choose_a'))}${chooseList(b, f('choose_b'))}</div>
+  <div class="md-d-actions md-cmp-cta"><a class="btn btn-accent" href="${tg(t.tgCompare + a.name + ', ' + b.name + t.tgTask)}" target="_blank" rel="noopener"><i class="ph ph-telegram-logo" aria-hidden="true"></i>${t.discuss}</a></div>
+  ${others.length ? `<section class="md-colls"><h2>${t.otherCmp}</h2><ul class="md-links md-links-cols">${others.map((x) => `<li><a href="${BASE[lang]}sravnenie/${x.slug}/">${esc(lang === 'en' ? (x.h1_en || x.h1) : x.h1)}</a></li>`).join('')}</ul></section>` : ''}
+  ${offer(lang)}
+</div></section>`;
+  const url = `${SITE}${BASE[lang]}sravnenie/${p.slug}/`;
+  writePage(lang, `sravnenie/${p.slug}/`, { title: f('title') || f('h1'), description: f('description') || f('verdict'), ld: [ldCrumbs(lang, [[`${SITE}${BASE[lang]}`, t.section], [url, f('h1')]])], main, altRel: EN_IDS.has(p.a) && EN_IDS.has(p.b) ? `sravnenie/${p.slug}/` : undefined });
+  return true;
+}
+
+// --- «Новое»: выпуски последних 6 месяцев по полю versions ---
+function newPage(lang) {
+  const t = T[lang];
+  const rel = [];
+  for (const m of MODELS[lang]) for (const [name, d] of m.versions) rel.push({ m, name, d });
+  const maxD = rel.reduce((x, r) => (r.d > x ? r.d : x), '0000-00');
+  const [my, mm] = maxD.split('-').map(Number);
+  const cut = new Date(Date.UTC(my, mm - 6, 1)).toISOString().slice(0, 7);
+  const recent = rel.filter((r) => r.d >= cut).sort((x, y) => y.d.localeCompare(x.d) || x.m.name.localeCompare(y.m.name));
+  const months = [...new Set(recent.map((r) => r.d))];
+  const main = `<section class="section md-page"><div class="container">
+  ${crumbs(lang, [[BASE[lang], t.section], [null, t.newH]])}
+  <header class="md-hero"><span class="section-label">${lang === 'ru' ? 'ХРОНИКА' : 'CHANGELOG'}</span><h1 class="section-heading">${t.newH}</h1><p class="section-sub">${t.newSub}</p>
+    <div class="md-stats"><span>${t.updated} ${UPDATED[lang]}</span><a class="md-guide" href="${BASE[lang]}"><i class="ph ph-funnel" aria-hidden="true"></i>${t.openCatalog}</a></div></header>
+  ${months.map((d) => { const [y, mo] = d.split('-'); return `<section class="md-new-month"><h2>${MONTHS_FULL[lang][+mo - 1]} ${y}</h2><ul class="md-new-list">${recent.filter((r) => r.d === d).map((r) => { const m = loc(r.m, lang); return `<li><div class="md-new-main"><b>${esc(r.name)}</b><span>${t.family}: <a href="${BASE[lang]}${m.id}/">${esc(m.name)}</a> · ${esc(m.developer)}</span></div><div class="md-new-meta">${modChip(m.modality[0], lang)}${lic(m.commercial, lang)}</div></li>`; }).join('')}</ul></section>`; }).join('')}
+  ${offer(lang)}
+</div></section>`;
+  writePage(lang, 'novoe/', { title: t.newTitle, description: t.newDesc, ld: [ldCrumbs(lang, [[`${SITE}${BASE[lang]}`, t.section], [`${SITE}${BASE[lang]}novoe/`, t.newH]])], main, altRel: 'novoe/' });
+}
+
+// --- Калькулятор железа ---
+function calcPage(lang) {
+  const t = T[lang], ru = lang === 'ru';
+  const L = ru ? {
+    params: 'Размер модели, млрд параметров', paramsHint: 'Для MoE-моделей берите полный размер (например, 30B-A3B → 30): в память грузятся все эксперты.',
+    quant: 'Точность весов', qOpts: [['2', 'FP16 / BF16 — без сжатия'], ['1', '8 бит (Q8)'], ['0.56', '4 бита (Q4) — самый частый вариант']],
+    ctx: 'Длина контекста', ctxOpts: [['4', '4 тыс. токенов — короткий чат'], ['32', '32 тыс. — документы средней длины'], ['128', '128 тыс. — длинные договоры, книги']],
+    users: 'Одновременных запросов', result: 'Нужно видеопамяти', weights: 'веса', kv: 'контекст (KV-кэш)', overhead: 'служебное',
+    fits: 'Подойдёт', cpu: 'На процессоре: нужно столько же оперативной памяти, но ответы будут в разы медленнее.',
+    note: 'Это ориентировочная оценка (±30%): точные цифры зависят от архитектуры модели, движка (llama.cpp, vLLM, Ollama) и настроек. Перед покупкой железа проверю модель на ваших задачах.',
+    presets: 'Быстрый выбор', cta: 'Подобрать железо под мою задачу', tgCalc: 'Здравствуйте! Посчитал в калькуляторе: модель ~{p}B, {q}, контекст {c} тыс., нужно ~{g} ГБ видеопамяти. Помогите подобрать железо. Задача: ',
+    gpus: [[8, 'Ноутбук или видеокарта на 8 ГБ'], [12, 'Видеокарта на 12 ГБ'], [16, 'Видеокарта на 16 ГБ'], [24, 'Видеокарта на 24 ГБ (уровень RTX 4090)'], [32, 'Видеокарта на 32 ГБ (уровень RTX 5090)'], [48, 'Профессиональная карта на 48 ГБ'], [80, 'Серверная карта на 80 ГБ (уровень A100 / H100)'], [160, 'Две серверные карты по 80 ГБ'], [320, 'Четыре серверные карты по 80 ГБ'], [640, 'Восемь серверных карт по 80 ГБ'], [1128, 'Восемь карт по 141 ГБ (уровень H200)']],
+    tooBig: 'Больше одного сервера: нужен кластер из нескольких узлов.', gb: 'ГБ', qNames: { '2': 'FP16', '1': '8 бит', '0.56': '4 бита' },
+    h2How: 'Как считаем', how: ['Веса: число параметров × байт на параметр (2 для FP16, 1 для 8 бит, около 0,56 для 4 бит).', 'Контекст: память под KV-кэш растёт с длиной контекста и числом одновременных запросов.', 'Плюс около 10% и 1 ГБ на служебные нужды движка.'],
+  } : {
+    params: 'Model size, billion parameters', paramsHint: 'For MoE models use the total size (e.g. 30B-A3B → 30): all experts are loaded into memory.',
+    quant: 'Weight precision', qOpts: [['2', 'FP16 / BF16 — uncompressed'], ['1', '8-bit (Q8)'], ['0.56', '4-bit (Q4) — the most common choice']],
+    ctx: 'Context length', ctxOpts: [['4', '4K tokens — short chat'], ['32', '32K — medium documents'], ['128', '128K — long contracts, books']],
+    users: 'Concurrent requests', result: 'VRAM needed', weights: 'weights', kv: 'context (KV cache)', overhead: 'overhead',
+    fits: 'Fits', cpu: 'On a CPU: you need the same amount of RAM, but responses will be several times slower.',
+    note: 'This is a rough estimate (±30%): exact numbers depend on the model architecture, the engine (llama.cpp, vLLM, Ollama) and settings. Before buying hardware I will test the model on your tasks.',
+    presets: 'Quick pick', cta: 'Pick hardware for my task', tgCalc: 'Hello! Calculator result: model ~{p}B, {q}, context {c}K, needs ~{g} GB of VRAM. Please help me choose hardware. Task: ',
+    gpus: [[8, 'Laptop or 8 GB GPU'], [12, '12 GB GPU'], [16, '16 GB GPU'], [24, '24 GB GPU (RTX 4090 class)'], [32, '32 GB GPU (RTX 5090 class)'], [48, '48 GB workstation GPU'], [80, '80 GB server GPU (A100 / H100 class)'], [160, 'Two 80 GB server GPUs'], [320, 'Four 80 GB server GPUs'], [640, 'Eight 80 GB server GPUs'], [1128, 'Eight 141 GB GPUs (H200 class)']],
+    tooBig: 'More than one server: you need a multi-node cluster.', gb: 'GB', qNames: { '2': 'FP16', '1': '8-bit', '0.56': '4-bit' },
+    h2How: 'How it is calculated', how: ['Weights: parameters × bytes per parameter (2 for FP16, 1 for 8-bit, about 0.56 for 4-bit).', 'Context: KV cache memory grows with context length and the number of concurrent requests.', 'Plus about 10% and 1 GB of engine overhead.'],
+  };
+  const presets = [1, 3, 8, 14, 32, 70, 120, 235, 671];
+  const main = `<section class="section md-page"><div class="container">
+  ${crumbs(lang, [[BASE[lang], t.section], [null, t.calcH]])}
+  <header class="md-hero"><span class="section-label">${ru ? 'ИНСТРУМЕНТ' : 'TOOL'}</span><h1 class="section-heading">${t.calcH}</h1><p class="section-sub">${esc(t.calcDesc)}</p></header>
+  <div class="md-calc">
+    <form class="md-calc-form" id="calcForm" onsubmit="return false">
+      <label class="md-field"><span>${L.params}</span><input type="number" id="cP" min="0.1" max="3000" step="0.1" value="8" inputmode="decimal"><small>${L.paramsHint}</small></label>
+      <div class="md-presets" role="group" aria-label="${L.presets}">${presets.map((p) => `<button type="button" class="md-chip" data-p="${p}">${p}B</button>`).join('')}</div>
+      <label class="md-field"><span>${L.quant}</span><select id="cQ">${L.qOpts.map(([v, x], i) => `<option value="${v}"${i === 2 ? ' selected' : ''}>${x}</option>`).join('')}</select></label>
+      <label class="md-field"><span>${L.ctx}</span><select id="cC">${L.ctxOpts.map(([v, x], i) => `<option value="${v}"${i === 1 ? ' selected' : ''}>${x}</option>`).join('')}</select></label>
+      <label class="md-field"><span>${L.users}</span><input type="number" id="cU" min="1" max="256" step="1" value="1" inputmode="numeric"></label>
+    </form>
+    <div class="md-calc-out" aria-live="polite">
+      <div class="md-calc-total"><span>${L.result}</span><b id="cTotal">—</b></div>
+      <div class="md-calc-bars" id="cBars"></div>
+      <div class="md-calc-fit"><span>${L.fits}</span><b id="cFit">—</b></div>
+      <p class="md-calc-cpu">${L.cpu}</p>
+      <a class="btn btn-accent" id="cTg" href="#" target="_blank" rel="noopener"><i class="ph ph-telegram-logo" aria-hidden="true"></i>${L.cta}</a>
+    </div>
+  </div>
+  <section class="md-calc-how"><h2>${L.h2How}</h2><ul class="md-check">${L.how.map((x) => `<li><i class="ph ph-check-circle" aria-hidden="true"></i>${x}</li>`).join('')}</ul><p class="md-source">${L.note}</p></section>
+  ${offer(lang)}
+</div></section>`;
+  const js = `<script type="application/json" id="calcL">${JSON.stringify(L).replace(/</g, '\\u003c')}</script>
+<script>
+(function(){
+  var L=JSON.parse(document.getElementById('calcL').textContent), $=function(id){return document.getElementById(id);};
+  function fmt(x){return (x<10?x.toFixed(1):Math.round(x)).toString().replace('.',${ru ? "','" : "'.'"});}
+  function calc(){
+    var P=Math.max(0.1,parseFloat($('cP').value)||0), q=parseFloat($('cQ').value), c=parseFloat($('cC').value), u=Math.max(1,parseInt($('cU').value,10)||1);
+    // Веса: параметры × байт на параметр. KV-кэш — грубая оценка для GQA-моделей: растёт как √P, линейно с контекстом и числом запросов.
+    var w=P*q, kv=0.0475*Math.sqrt(P)*c*u, ov=w*0.1+1, total=w+kv+ov;
+    $('cTotal').textContent='≈ '+fmt(total)+' '+L.gb;
+    var bars=[[L.weights,w],[L.kv,kv],[L.overhead,ov]];
+    $('cBars').innerHTML=bars.map(function(b){return '<div class="md-calc-bar"><span>'+b[0]+'</span><i style="width:'+Math.max(2,Math.round(b[1]/total*100))+'%"></i><b>'+fmt(b[1])+' '+L.gb+'</b></div>';}).join('');
+    var fit=null; for(var i=0;i<L.gpus.length;i++){ if(total<=L.gpus[i][0]){ fit=L.gpus[i][1]; break; } }
+    $('cFit').textContent=fit||L.tooBig;
+    $('cTg').href='https://t.me/chimitdorzhi?text='+encodeURIComponent(L.tgCalc.replace('{p}',fmt(P)).replace('{q}',L.qNames[$('cQ').value]).replace('{c}',c).replace('{g}',fmt(total)));
+  }
+  ['cP','cQ','cC','cU'].forEach(function(id){ $(id).addEventListener('input',calc); $(id).addEventListener('change',calc); });
+  [].forEach.call(document.querySelectorAll('.md-presets [data-p]'),function(b){ b.addEventListener('click',function(){ $('cP').value=b.dataset.p; calc(); }); });
+  calc();
+})();
+</script>`;
+  writePage(lang, 'kalkulyator-zheleza/', { title: t.calcTitle, description: t.calcDesc, ld: [ldCrumbs(lang, [[`${SITE}${BASE[lang]}`, t.section], [`${SITE}${BASE[lang]}kalkulyator-zheleza/`, t.calcH]])], main, extraJs: js, altRel: 'kalkulyator-zheleza/' });
+}
+
+// --- Подбор модели за 4 вопроса ---
+function quizPage(lang) {
+  const t = T[lang], ru = lang === 'ru';
+  const TASKS = ru ? [
+    ['chat', 'Чат-бот и ответы клиентам', ['text']], ['rag', 'Поиск по базе документов (RAG)', ['embed', 'rerank', 'docsearch']],
+    ['ocr', 'Распознавание документов и сканов', ['ocr', 'docsearch']], ['asr', 'Расшифровка звонков и совещаний', ['asr']],
+    ['tts', 'Озвучка и синтез речи', ['tts']], ['img', 'Картинки для маркетинга и карточек товаров', ['image', 'photo', 'tryon']],
+    ['video', 'Видео и аватары', ['video', 'avatar']], ['code', 'Код, разработка, SQL', ['code', 'sql']],
+    ['tr', 'Перевод текстов', ['translate']], ['cv', 'Анализ фото и видео с камер', ['vision', 'vlm']],
+    ['fc', 'Прогнозы и таблицы', ['timeseries', 'tabular']], ['safe', 'Модерация, безопасность, проверка ответов', ['safety', 'cyber', 'judge']],
+  ] : [
+    ['chat', 'Chatbot and customer answers', ['text']], ['rag', 'Search over company documents (RAG)', ['embed', 'rerank', 'docsearch']],
+    ['ocr', 'Document and scan recognition', ['ocr', 'docsearch']], ['asr', 'Call and meeting transcription', ['asr']],
+    ['tts', 'Voice-over and speech synthesis', ['tts']], ['img', 'Marketing and product images', ['image', 'photo', 'tryon']],
+    ['video', 'Video and avatars', ['video', 'avatar']], ['code', 'Code, development, SQL', ['code', 'sql']],
+    ['tr', 'Text translation', ['translate']], ['cv', 'Camera photo and video analysis', ['vision', 'vlm']],
+    ['fc', 'Forecasts and tables', ['timeseries', 'tabular']], ['safe', 'Moderation, security, answer checking', ['safety', 'cyber', 'judge']],
+  ];
+  const Q = ru ? {
+    q1: 'Какая задача?', q2: 'Нужен русский язык?', q2o: [['yes', 'Да, обязательно'], ['any', 'Не важно']],
+    q3: 'Какое железо есть или планируется?', q3o: [['min', 'Ноутбук или сервер без мощной видеокарты'], ['gpu', 'Одна видеокарта'], ['multi', 'Сервер с несколькими видеокартами']],
+    q4: 'Для чего модель?', q4o: [['yes', 'Коммерческий продукт или работа с клиентами'], ['any', 'Внутренние задачи или эксперименты']],
+    next: 'Дальше', back: 'Назад', show: 'Показать модели', again: 'Пройти заново', step: 'Вопрос', of: 'из',
+    resH: 'Подходящие модели', resNone: 'По этим условиям точного совпадения нет — показываю ближайшие варианты.', noRu: 'Моделей с заявленным русским под эти условия нет — показываю лучшие без него.',
+    tg: 'Здравствуйте! Прошёл подбор модели: задача — {t}; русский — {r}; железо — {h}; использование — {c}. Предложено: {m}. Хочу обсудить внедрение.', tgBtn: 'Обсудить внедрение', open: 'Открыть карточку',
+    ruW: { yes: 'нужен', any: 'не важен' },
+  } : {
+    q1: 'What is the task?', q2: 'Do you need Russian?', q2o: [['yes', 'Yes, required'], ['any', 'Does not matter']],
+    q3: 'What hardware do you have or plan?', q3o: [['min', 'A laptop or server without a powerful GPU'], ['gpu', 'One GPU'], ['multi', 'A server with several GPUs']],
+    q4: 'What will the model be used for?', q4o: [['yes', 'A commercial product or client-facing work'], ['any', 'Internal tasks or experiments']],
+    next: 'Next', back: 'Back', show: 'Show models', again: 'Start over', step: 'Question', of: 'of',
+    resH: 'Matching models', resNone: 'No exact match for these conditions — showing the closest options.', noRu: 'No models with stated Russian support match — showing the best ones without it.',
+    tg: 'Hello! I used the model finder: task — {t}; Russian — {r}; hardware — {h}; use — {c}. Suggested: {m}. I would like to discuss deployment.', tgBtn: 'Discuss deployment', open: 'Open card',
+    ruW: { yes: 'required', any: 'not required' },
+  };
+  const data = MODELS[lang].map((m0) => { const m = loc(m0, lang); return { i: m.id, n: m.name, s: m.summary, mo: m.modality, r: m.ru || '', h: m.hardware, c: m.commercial, o: m.ollama ? 1 : 0, y: m.latest, cl: COM[m.commercial][lang], cc: COM[m.commercial].cls, d: m.developer }; });
+  const radio = (name, opts) => opts.map(([v, x], i) => `<label class="md-opt"><input type="radio" name="${name}" value="${v}"${i === 0 ? ' checked' : ''}><span>${esc(x)}</span></label>`).join('');
+  const main = `<section class="section md-page"><div class="container">
+  ${crumbs(lang, [[BASE[lang], t.section], [null, t.quizH]])}
+  <header class="md-hero"><span class="section-label">${ru ? 'ПОДБОР' : 'FINDER'}</span><h1 class="section-heading">${t.quizH}</h1><p class="section-sub">${esc(t.quizDesc)}</p></header>
+  <form class="md-quiz" id="quiz" onsubmit="return false">
+    <fieldset class="md-q" data-step="1"><legend><small>${Q.step} 1 ${Q.of} 4</small>${Q.q1}</legend><div class="md-opts md-opts-grid">${radio('task', TASKS.map(([k, x]) => [k, x]))}</div></fieldset>
+    <fieldset class="md-q" data-step="2" hidden><legend><small>${Q.step} 2 ${Q.of} 4</small>${Q.q2}</legend><div class="md-opts">${radio('ru', Q.q2o)}</div></fieldset>
+    <fieldset class="md-q" data-step="3" hidden><legend><small>${Q.step} 3 ${Q.of} 4</small>${Q.q3}</legend><div class="md-opts">${radio('hw', Q.q3o)}</div></fieldset>
+    <fieldset class="md-q" data-step="4" hidden><legend><small>${Q.step} 4 ${Q.of} 4</small>${Q.q4}</legend><div class="md-opts">${radio('com', Q.q4o)}</div></fieldset>
+    <div class="md-quiz-nav"><button type="button" class="btn btn-ghost" id="qBack" hidden>${Q.back}</button><button type="button" class="btn btn-accent" id="qNext">${Q.next}</button></div>
+  </form>
+  <section class="md-quiz-res" id="qRes" hidden aria-live="polite"><h2>${Q.resH}</h2><p class="md-source" id="qNote" hidden></p><div class="md-grid" id="qGrid"></div>
+    <div class="md-d-actions"><a class="btn btn-accent" id="qTg" href="#" target="_blank" rel="noopener"><i class="ph ph-telegram-logo" aria-hidden="true"></i>${Q.tgBtn}</a><button type="button" class="btn btn-ghost" id="qAgain">${Q.again}</button></div></section>
+  ${offer(lang)}
+</div></section>`;
+  const js = `<script type="application/json" id="qData">${JSON.stringify({ Q, TASKS, data, base: BASE[lang], more: t.more }).replace(/</g, '\\u003c')}</script>
+<script>
+(function(){
+  var D=JSON.parse(document.getElementById('qData').textContent), Q=D.Q, $=function(id){return document.getElementById(id);};
+  var steps=[].slice.call(document.querySelectorAll('.md-q')), cur=0;
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function val(n){var x=document.querySelector('input[name="'+n+'"]:checked');return x?x.value:'';}
+  function show(i){ steps.forEach(function(s,j){ s.hidden=j!==i; }); cur=i; $('qBack').hidden=i===0; $('qNext').textContent=i===steps.length-1?Q.show:Q.next; var f=steps[i].querySelector('input:checked')||steps[i].querySelector('input'); if(f) f.focus(); }
+  function run(){
+    var task=D.TASKS.filter(function(x){return x[0]===val('task');})[0], ru=val('ru'), hw=val('hw'), com=val('com');
+    var allowHw={min:['min'],gpu:['min','gpu'],multi:['min','gpu','multi']}[hw];
+    var pool=D.data.filter(function(m){ return m.mo.some(function(k){return task[2].indexOf(k)>-1;}); });
+    var strict=pool.filter(function(m){ return m.h.some(function(h){return allowHw.indexOf(h)>-1;}) && (com!=='yes'||m.c!=='no'); });
+    var note='';
+    var list=strict.length?strict:pool; if(!strict.length) note=Q.resNone;
+    if(ru==='yes'){ var withRu=list.filter(function(m){return m.r==='yes';}); if(withRu.length) list=withRu; else note=Q.noRu; }
+    function score(m){ var s=0; if(ru==='yes'&&m.r==='yes') s+=3; s+= m.c==='yes'?2:(m.c==='conditional'?1:0); s+=m.o?1:0; s+= m.y>='2026'?2:(m.y>='2025'?1:0); if(task[2].indexOf(m.mo[0])>-1) s+=1; return s; }
+    list=list.slice().sort(function(a,b){ return score(b)-score(a) || b.y.localeCompare(a.y); }).slice(0,3);
+    $('qGrid').innerHTML=list.map(function(m){ return '<article class="md-card"><div class="md-card-top"><span class="md-card-meta">'+(m.r==='yes'?'<span class="md-badge md-badge-ru">RU</span>':'')+(m.o?'<span class="md-badge">Ollama</span>':'')+'</span></div><h3 class="md-name"><a href="'+D.base+m.i+'/">'+esc(m.n)+'</a></h3><div class="md-dev">'+esc(m.d)+'</div><p class="md-sum">'+esc(m.s)+'</p><div class="md-card-foot"><span class="md-lic md-lic-'+m.cc+'">'+esc(m.cl)+'</span><a class="md-more" href="'+D.base+m.i+'/">'+Q.open+'</a></div></article>'; }).join('');
+    $('qNote').hidden=!note; $('qNote').textContent=note;
+    var hwLabel=Q.q3o.filter(function(x){return x[0]===hw;})[0][1], comLabel=Q.q4o.filter(function(x){return x[0]===com;})[0][1];
+    $('qTg').href='https://t.me/chimitdorzhi?text='+encodeURIComponent(Q.tg.replace('{t}',task[1]).replace('{r}',Q.ruW[ru]).replace('{h}',hwLabel).replace('{c}',comLabel).replace('{m}',list.map(function(m){return m.n;}).join(', ')));
+    $('quiz').hidden=true; $('qRes').hidden=false; $('qRes').scrollIntoView({block:'start'});
+  }
+  $('qNext').addEventListener('click',function(){ if(cur<steps.length-1) show(cur+1); else run(); });
+  $('qBack').addEventListener('click',function(){ if(cur>0) show(cur-1); });
+  $('qAgain').addEventListener('click',function(){ $('qRes').hidden=true; $('quiz').hidden=false; show(0); });
+  show(0);
+})();
+</script>`;
+  writePage(lang, 'podbor/', { title: t.quizTitle, description: t.quizDesc, ld: [ldCrumbs(lang, [[`${SITE}${BASE[lang]}`, t.section], [`${SITE}${BASE[lang]}podbor/`, t.quizH]])], main, extraJs: js, altRel: 'podbor/' });
+}
+
+// --- Сборка всех страниц ---
+const COLLS = { ru: collectionList('ru'), en: collectionList('en') };
+COLLS.ru.alt = new Set(COLLS.en.map((x) => x.rel));
+COLLS.en.alt = new Set(COLLS.ru.map((x) => x.rel));
+for (const lang of LANGS) {
+  if (!MODELS[lang].length) { console.log(`  ⚠ ${lang}: нет моделей с переводом — версия не собрана`); continue; }
+  fs.mkdirSync(OUT[lang], { recursive: true });
+  catalog(lang, COLLS[lang]);
+  for (const m of MODELS[lang]) detail(m, lang);
+  for (const x of COLLS[lang]) collectionPage(x, lang, COLLS[lang]);
+  for (const p of CMP) comparePage(p, lang);
+  newPage(lang);
+  calcPage(lang);
+  quizPage(lang);
+}
+
+// sitemap.xml: убираем прежние /ii-modeli/ и /en/ii-modeli/ и дописываем актуальные.
 // build-services перезаписывает sitemap целиком, поэтому этот скрипт идёт после него.
 const SM = path.join(ROOT, 'sitemap.xml');
 if (fs.existsSync(SM)) {
-  let sm = fs.readFileSync(SM, 'utf8').replace(/\s*<url>\s*<loc>https:\/\/chimitdorzhi\.tech\/ii-modeli\/[^<]*<\/loc>[\s\S]*?<\/url>/g, '');
-  const urls = [`${SITE}/ii-modeli/`, ...MODELS.map((m) => `${SITE}/ii-modeli/${m.id}/`)];
-  const block = urls.map((u) => `  <url>\n    <loc>${u}</loc>\n    <lastmod>2026-09-22</lastmod>\n  </url>`).join('\n');
+  let sm = fs.readFileSync(SM, 'utf8').replace(/\s*<url>\s*<loc>https:\/\/chimitdorzhi\.tech\/(en\/)?ii-modeli\/[^<]*<\/loc>[\s\S]*?<\/url>/g, '');
+  const block = PAGES.map((u) => `  <url>\n    <loc>${u}</loc>\n    <lastmod>${LASTMOD}</lastmod>\n  </url>`).join('\n');
   sm = sm.replace('</urlset>', block + '\n</urlset>');
   fs.writeFileSync(SM, sm);
 }
-console.log(`  /ii-modeli/: каталог + ${MODELS.length} страниц моделей`);
+console.log(`  /ii-modeli/: ${MODELS.ru.length} моделей RU, ${MODELS.en.length} EN; подборок ${COLLS.ru.length}/${COLLS.en.length}; сравнений ${CMP.length}; всего страниц ${PAGES.length}`);
 
 // --- Обложки 1200×630 для превью в мессенджерах и соцсетях ---
-// Стиль как у обложек блога (tools/og-generator.js): тёмная основа, жёлтая плашка,
-// диагональ справа. Одна обложка на каталог и по одной на модель.
+// Стиль как у обложек блога (tools/og-generator.js): тёмная основа, жёлтая плашка, диагональ справа.
 const INK_DEEP = '#070a14';
 const AMBER = '#f5b642';
 const BLUE = '#2f5fe0';
@@ -463,21 +731,23 @@ function wrap(text, maxChars, maxLines) {
   if (lines.length > maxLines) { const cut = lines.slice(0, maxLines); cut[maxLines - 1] = cut[maxLines - 1].replace(/.{0,2}$/, '') + '…'; return cut; }
   return lines.map((l) => (l.length > maxChars + 4 ? l.slice(0, maxChars + 2) + '…' : l));
 }
-function frame(inner) {
+function frame(inner, lang) {
+  const t = T[lang];
   return `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <rect width="1200" height="630" fill="${INK_DEEP}"/>
   <path d="M860 0 L1200 0 L1200 630 L660 630 Z" fill="${BLUE}" fill-opacity="0.92"/>
   <path d="M1010 0 L1200 0 L1200 630 L820 630 Z" fill="${AMBER}" fill-opacity="0.2"/>
   <circle cx="1090" cy="470" r="86" fill="none" stroke="#ffffff" stroke-opacity="0.28" stroke-width="3"/>
   <rect x="72" y="66" width="190" height="40" rx="20" fill="${AMBER}"/>
-  <text x="167" y="93" text-anchor="middle" font-family="${FONT}" font-weight="800" font-size="18" letter-spacing="2" fill="${INK_DEEP}">ИИ-МОДЕЛИ</text>
+  <text x="167" y="93" text-anchor="middle" font-family="${FONT}" font-weight="800" font-size="18" letter-spacing="2" fill="${INK_DEEP}">${t.coverTag}</text>
   ${inner}
   <line x1="72" y1="528" x2="700" y2="528" stroke="#ffffff" stroke-opacity="0.2" stroke-width="2"/>
-  <text x="72" y="570" font-family="${FONT}" font-weight="800" font-size="24" fill="#ffffff">Чимитдоржи Дарижапов</text>
-  <text x="72" y="600" font-family="${FONT}" font-weight="500" font-size="19" fill="#ffffff" fill-opacity="0.6">chimitdorzhi.tech · энциклопедия открытых ИИ-моделей</text>
+  <text x="72" y="570" font-family="${FONT}" font-weight="800" font-size="24" fill="#ffffff">${t.coverAuthor}</text>
+  <text x="72" y="600" font-family="${FONT}" font-weight="500" font-size="19" fill="#ffffff" fill-opacity="0.6">${t.coverSite}</text>
 </svg>`;
 }
-function modelCoverSvg(m) {
+function modelCoverSvg(m0, lang) {
+  const m = loc(m0, lang), t = T[lang];
   // На обложке без пояснений в скобках: «Sentence Transformers (SBERT)» → «Sentence Transformers».
   const clean = m.name.replace(/\s*\([^)]*\)/g, '').trim();
   let name = wrap(clean, 16, 2), fs1 = name.length > 1 ? 60 : (clean.length > 12 ? 66 : 80);
@@ -486,32 +756,41 @@ function modelCoverSvg(m) {
   const titles = name.map((l, i) => `<text x="72" y="${nameY + i * (fs1 * 1.12)}" font-family="${FONT}" font-weight="800" font-size="${fs1}" fill="#ffffff">${xml(l)}</text>`).join('');
   const devY = nameY + (name.length - 1) * fs1 * 1.12 + 52;
   const dev = wrap(`${m.developer} · ${m.country}`, 44, 1)[0];
-  const facts = [
-    [null, MOD[m.modality[0]].label],
-    [LIC_DOT[m.commercial], COM[m.commercial].label],
-    [null, `Железо: от ${({ min: 'ноутбука', gpu: 'одной видеокарты', multi: 'кластера' })[m.hardware[0]]}`],
-  ];
-  const factRows = facts.map(([dot, t], i) => {
+  const facts = [[null, modLabel(m.modality[0], lang)], [LIC_DOT[m.commercial], COM[m.commercial][lang]], [null, `${t.coverHw} ${HW[m.hardware[0]][lang][2]}`]];
+  const factRows = facts.map(([dot, x], i) => {
     const y = devY + 58 + i * 40;
     return (dot ? `<circle cx="80" cy="${y - 7}" r="7" fill="${dot}"/>` : `<rect x="74" y="${y - 13}" width="12" height="12" rx="3" fill="${AMBER}"/>`)
-      + `<text x="100" y="${y}" font-family="${FONT}" font-weight="600" font-size="24" fill="#ffffff" fill-opacity="0.9">${xml(t)}</text>`;
+      + `<text x="100" y="${y}" font-family="${FONT}" font-weight="600" font-size="24" fill="#ffffff" fill-opacity="0.9">${xml(x)}</text>`;
   }).join('');
   return frame(`${titles}
   <text x="72" y="${devY}" font-family="${FONT}" font-weight="500" font-size="26" fill="#ffffff" fill-opacity="0.65">${xml(dev)}</text>
-  ${factRows}`);
+  ${factRows}`, lang);
 }
-function catalogCoverSvg(nFamilies, nDirections) {
-  return frame(`<text x="72" y="210" font-family="${FONT}" font-weight="800" font-size="70" fill="#ffffff">Открытые ИИ-модели</text>
+function catalogCoverSvg(lang, n, dirs) {
+  const t = T[lang];
+  return frame(`<text x="72" y="210" font-family="${FONT}" font-weight="800" font-size="70" fill="#ffffff">${t.coverCatA}</text>
   <text x="72" y="292" font-family="${FONT}" font-weight="800" font-size="70" fill="${AMBER}">2022–2026</text>
-  <text x="72" y="372" font-family="${FONT}" font-weight="600" font-size="28" fill="#ffffff" fill-opacity="0.9">${nFamilies} семейств · ${nDirections} направлений</text>
-  <text x="72" y="418" font-family="${FONT}" font-weight="500" font-size="24" fill="#ffffff" fill-opacity="0.65">Задачи, железо, лицензии, русский язык</text>`);
+  <text x="72" y="372" font-family="${FONT}" font-weight="600" font-size="28" fill="#ffffff" fill-opacity="0.9">${n} ${t.families} · ${dirs} ${t.directions}</text>
+  <text x="72" y="418" font-family="${FONT}" font-weight="500" font-size="24" fill="#ffffff" fill-opacity="0.65">${t.coverCatB}</text>`, lang);
 }
 (async () => {
   let sharp;
   try { sharp = require('sharp'); } catch (e) { console.log('  ⚠ sharp недоступен — обложки /ii-modeli/ не пересобраны'); return; }
-  const render = (svg, file) => sharp(Buffer.from(svg)).png({ compressionLevel: 9, palette: true }).toFile(file);
-  const dirs = new Set(MODELS.flatMap((m) => m.modality)).size;
-  await render(catalogCoverSvg(MODELS.length, dirs), path.join(OUT, 'cover.png'));
-  for (const m of MODELS) await render(modelCoverSvg(m), path.join(OUT, m.id, 'cover.png'));
-  console.log(`  /ii-modeli/: обложки 1200×630 — ${MODELS.length + 1}`);
+  const crypto = require('crypto');
+  // Перерисовываем только изменившиеся обложки: хеш SVG хранится рядом в cover.svg.hash (не публикуется — .gitignore не нужен, файл мелкий).
+  const render = async (svg, file) => {
+    const h = crypto.createHash('md5').update(svg).digest('hex'), hf = file + '.hash';
+    if (fs.existsSync(file) && fs.existsSync(hf) && fs.readFileSync(hf, 'utf8') === h) return 0;
+    await sharp(Buffer.from(svg)).png({ compressionLevel: 9, palette: true }).toFile(file);
+    fs.writeFileSync(hf, h);
+    return 1;
+  };
+  let n = 0;
+  for (const lang of LANGS) {
+    if (!MODELS[lang].length) continue;
+    const dirs = new Set(MODELS[lang].flatMap((m) => m.modality)).size;
+    n += await render(catalogCoverSvg(lang, MODELS[lang].length, dirs), path.join(OUT[lang], 'cover.png'));
+    for (const m of MODELS[lang]) n += await render(modelCoverSvg(m, lang), path.join(OUT[lang], m.id, 'cover.png'));
+  }
+  console.log(`  /ii-modeli/: обложки перерисованы — ${n}`);
 })();

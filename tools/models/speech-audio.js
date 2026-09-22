@@ -34,6 +34,13 @@ module.exports = [
     alternatives: ['whisper', 'gigaam', 'qwen-asr'],
     source: 'https://huggingface.co/nvidia/nemotron-3.5-asr-streaming-0.6b',
     verified: true,
+    en: {
+      summary: 'Fast NVIDIA speech recognition models, including streaming ones for real-time use. Parakeet TDT v3 and Nemotron 3.5 ASR understand Russian.',
+      tasks: ['Transcribing calls and meetings', 'Video subtitles', 'Real-time voice input', 'Tagging audio archives'],
+      where: ['Call centers', 'Media', 'Voice bots', 'Internal company services'],
+      license: 'Mixed: Parakeet and Canary mostly CC-BY-4.0 (the first Canary-1B is non-commercial), Parakeet Unified and Nemotron Speech Streaming under the NVIDIA Open Model License, Nemotron 3.5 ASR under OpenMDW',
+      country: 'USA',
+    },
   },
   {
     id: 'gigaam',
@@ -64,6 +71,14 @@ module.exports = [
     alternatives: ['t-one', 'whisper', 'parakeet'],
     source: 'https://huggingface.co/ai-sage/GigaAM-Multilingual',
     verified: true,
+    en: {
+      summary: 'Sber\'s models for Russian speech recognition, among the most accurate for Russian. Includes emotion recognition, v3 with punctuation, and a multilingual version (Russian, Kazakh, Kyrgyz, Uzbek).',
+      tasks: ['Transcribing calls in Russian', 'Meeting minutes', 'Voice control of services', 'Emotion analysis in conversations'],
+      where: ['Call centers', 'Banking and insurance', 'Public sector', 'Retail'],
+      license: 'MIT',
+      developer: 'Sber',
+      country: 'Russia',
+    },
   },
   {
     id: 't-one',
@@ -88,6 +103,14 @@ module.exports = [
     alternatives: ['gigaam', 'parakeet'],
     source: 'https://huggingface.co/t-tech/T-one',
     verified: true,
+    en: {
+      summary: 'A compact T-Bank streaming model for recognizing Russian speech in phone calls. Works in real time even without a GPU.',
+      tasks: ['Transcribing phone calls', 'Voice robots on the line', 'Call quality control', 'Searching call recordings'],
+      where: ['Call centers', 'Banks', 'Delivery services', 'Telecom'],
+      license: 'Apache 2.0',
+      developer: 'T-Bank',
+      country: 'Russia',
+    },
   },
   {
     id: 'moonshine',
@@ -116,6 +139,13 @@ module.exports = [
     alternatives: ['whisper', 'parakeet'],
     source: 'https://arxiv.org/abs/2602.12241',
     verified: true,
+    en: {
+      summary: 'Very small and fast speech recognition models for phones, tablets and embedded devices. Version 2 streams, producing text while the person is still speaking.',
+      tasks: ['Voice control of devices', 'Offline recognition on a phone', 'Live subtitles', 'Voice interfaces in apps'],
+      where: ['Device makers', 'Mobile apps', 'Smart home', 'Kiosks and terminals'],
+      license: 'MIT; exception: older non-streaming models for languages other than English (non-commercial Moonshine Community License)',
+      country: 'USA',
+    },
   },
   {
     id: 'voxtral',
@@ -144,6 +174,13 @@ module.exports = [
     alternatives: ['whisper', 'qwen-asr', 'mistral'],
     source: 'https://huggingface.co/mistralai/Voxtral-4B-TTS-2603',
     verified: true,
+    en: {
+      summary: 'Mistral\'s speech models: they understand audio, transcribe and answer questions about a recording. The Realtime version recognizes speech live and supports Russian; speech synthesis is also available.',
+      tasks: ['Transcribing and summarizing recordings', 'Asking questions about audio', 'Real-time recognition', 'Text-to-speech (non-commercial)'],
+      where: ['Call centers', 'Media', 'Legal and consulting', 'Voice assistants'],
+      license: 'Recognition models (Mini 3B, Small 24B, Mini 4B Realtime) are Apache 2.0; Voxtral-4B-TTS is CC BY-NC 4.0, non-commercial only',
+      country: 'France',
+    },
   },
   {
     id: 'qwen-asr',
@@ -171,6 +208,13 @@ module.exports = [
     alternatives: ['whisper', 'parakeet', 'sensevoice'],
     source: 'https://huggingface.co/Qwen/Qwen3-ASR-1.7B',
     verified: true,
+    en: {
+      summary: 'Speech recognition models from the Qwen team for 50+ languages, including Russian. They handle noise, singing and accents well.',
+      tasks: ['Transcribing calls and meetings', 'Video subtitles', 'Multilingual recognition', 'Voice input in apps'],
+      where: ['Call centers', 'Media and online learning', 'International companies', 'Voice bots'],
+      license: 'Apache 2.0',
+      country: 'China',
+    },
   },
   {
     id: 'cohere-transcribe',
@@ -198,6 +242,13 @@ module.exports = [
     alternatives: ['whisper', 'parakeet', 'qwen-asr'],
     source: 'https://huggingface.co/CohereLabs/cohere-transcribe-arabic-07-2026',
     verified: true,
+    en: {
+      summary: 'Cohere\'s speech recognition model for 14 languages (Russian is not on the list), with a separate version for Arabic. Built for accurate transcription of business recordings.',
+      tasks: ['Transcribing meetings and interviews', 'Subtitles', 'Searching an audio archive', 'Preparing text for analysis'],
+      where: ['International companies', 'Media', 'Consulting', 'Call centers'],
+      license: 'Apache 2.0',
+      country: 'Canada',
+    },
   },
   {
     id: 'omnilingual-asr',
@@ -225,6 +276,13 @@ module.exports = [
     alternatives: ['whisper', 'seamless', 'qwen-asr'],
     source: 'https://github.com/facebookresearch/omnilingual-asr',
     verified: true,
+    en: {
+      summary: 'Speech recognition for 1,600+ languages, including Russian and rare languages no system supported before. A new language can be added from a few examples.',
+      tasks: ['Transcription in rare and local languages', 'Digitizing oral archives', 'Subtitles in many languages', 'Voice services for minority languages'],
+      where: ['Public sector and regions', 'Museums and archives', 'Media', 'Education'],
+      license: 'Apache 2.0',
+      country: 'USA',
+    },
   },
   {
     id: 'granite-speech',
@@ -255,6 +313,13 @@ module.exports = [
     alternatives: ['whisper', 'parakeet', 'granite'],
     source: 'https://huggingface.co/ibm-granite/granite-speech-5.0-470m-turboctc',
     verified: true,
+    en: {
+      summary: 'IBM speech models for recognizing and translating speech in English, several European languages and Japanese. Designed for enterprise use.',
+      tasks: ['Transcribing business meetings', 'Translating speech into text in another language', 'Voice assistants', 'Processing call recordings'],
+      where: ['Large companies', 'Call centers', 'Finance', 'International teams'],
+      license: 'Apache 2.0 (the granite-speech-5.0-470m-turboctc-nc variant is non-commercial)',
+      country: 'USA',
+    },
   },
   {
     id: 'sensevoice',
@@ -282,6 +347,14 @@ module.exports = [
     alternatives: ['whisper', 'qwen-asr', 'parakeet'],
     source: 'https://huggingface.co/FunAudioLLM/Fun-ASR-Nano-2512',
     verified: true,
+    en: {
+      summary: 'Alibaba\'s set of fast speech recognition models, primarily for Chinese and Asian languages. SenseVoice also detects emotions and sound events.',
+      tasks: ['Transcribing calls', 'Detecting emotions in the voice', 'Recognizing laughter, music and other sounds', 'Voice bots'],
+      where: ['Call centers', 'Working with Asian markets', 'Media', 'Voice interfaces'],
+      license: 'SenseVoice Small uses its own FunASR license; Fun-ASR-Nano is Apache 2.0',
+      country: 'China',
+      sizes: 'about 230M – 800M',
+    },
   },
   {
     id: 'vibevoice',
@@ -311,6 +384,13 @@ module.exports = [
     alternatives: ['whisper', 'dia', 'higgs-audio'],
     source: 'https://huggingface.co/microsoft/VibeVoice-ASR-Streaming-7B',
     verified: true,
+    en: {
+      summary: 'Microsoft speech models: long multi-voice dialogue synthesis, fast synthesis for live conversation, and recognition of long recordings split by speaker, including in Russian.',
+      tasks: ['Transcribing long meetings with speaker labels', 'Voicing podcasts and dialogues', 'Real-time voice for assistants', 'Analyzing call recordings'],
+      where: ['Media and podcasts', 'Call centers', 'Corporate meetings', 'Voice assistants'],
+      license: 'MIT',
+      country: 'USA',
+    },
   },
 
   // ---------- Синтез речи (tts) ----------
@@ -340,6 +420,14 @@ module.exports = [
     alternatives: ['xtts', 'f5-tts', 'chatterbox'],
     source: 'https://huggingface.co/suno/bark-small',
     verified: true,
+    en: {
+      summary: 'One of the first open models to voice text with intonation, laughter and pauses. Supports about ten languages, including Russian. Now outdated.',
+      tasks: ['Draft voiceovers for videos', 'Voice service prototypes', 'Sound effects in speech'],
+      where: ['Media', 'Marketing', 'Prototyping'],
+      license: 'MIT',
+      country: 'USA',
+      sizes: 'about 300M – 1B',
+    },
   },
   {
     id: 'xtts',
@@ -367,6 +455,14 @@ module.exports = [
     alternatives: ['f5-tts', 'chatterbox', 'cosyvoice'],
     source: 'https://huggingface.co/coqui/XTTS-v2',
     verified: true,
+    en: {
+      summary: 'A popular model for cloning a voice from a short sample in 17 languages, including Russian. Coqui has shut down and development has stopped.',
+      tasks: ['Voice cloning from a sample', 'Multilingual voiceover', 'Research and prototypes'],
+      where: ['Research', 'Education', 'Non-commercial projects'],
+      license: 'Coqui Public Model License, non-commercial use only',
+      country: 'Germany',
+      sizes: 'about 470M',
+    },
   },
   {
     id: 'styletts',
@@ -391,6 +487,15 @@ module.exports = [
     alternatives: ['kokoro', 'piper', 'f5-tts'],
     source: 'https://github.com/yl4579/StyleTTS2',
     verified: true,
+    en: {
+      summary: 'A lightweight English speech synthesis model with natural intonation. Many other models, such as Kokoro, are built on it.',
+      tasks: ['Voicing texts in English', 'A base for fine-tuning your own voice', 'Voice service prototypes'],
+      where: ['Product development', 'Education', 'Media'],
+      license: 'Code MIT; the pretrained weights require telling listeners that the voice is synthesized',
+      developer: 'Columbia University',
+      country: 'USA',
+      sizes: 'about 150M',
+    },
   },
   {
     id: 'piper',
@@ -418,6 +523,14 @@ module.exports = [
     alternatives: ['silero', 'kokoro'],
     source: 'https://github.com/OHF-Voice/piper1-gpl',
     verified: true,
+    en: {
+      summary: 'Very fast speech synthesis that runs even on a Raspberry Pi. Ready-made voices in 35+ languages, including several Russian ones.',
+      tasks: ['Voicing notifications and bot replies', 'Voice for offline devices', 'Voice menus', 'Reading text aloud'],
+      where: ['Smart home', 'Embedded devices', 'Voice bots', 'Terminals and kiosks'],
+      license: 'The old engine is MIT, the new piper1-gpl is GPL-3.0; each voice has its own license (some free, some non-commercial)',
+      country: 'USA',
+      sizes: 'about 5M – 30M',
+    },
   },
   {
     id: 'silero',
@@ -446,6 +559,14 @@ module.exports = [
     alternatives: ['piper', 'qwen-tts', 'cosyvoice'],
     source: 'https://github.com/snakers4/silero-models',
     verified: true,
+    en: {
+      summary: 'Lightweight Russian speech synthesis that runs on a regular CPU. Version v5 added CIS languages and languages of Russia\'s peoples: Tatar, Bashkir, Yakut, Kazakh and others.',
+      tasks: ['Voicing voice bot replies', 'Reading texts in Russian', 'Voices in the languages of Russia\'s peoples', 'Voicing notifications'],
+      where: ['Voice bots', 'Public sector and regions', 'Education', 'Accessibility for the visually impaired'],
+      license: 'Main models are CC BY-NC (non-commercial); the base models for CIS languages, v5_cis_base, are MIT',
+      country: 'Russia',
+      sizes: 'tens of megabytes',
+    },
   },
   {
     id: 'f5-tts',
@@ -473,6 +594,15 @@ module.exports = [
     alternatives: ['cosyvoice', 'chatterbox', 'voxcpm'],
     source: 'https://huggingface.co/SWivid/F5-TTS',
     verified: true,
+    en: {
+      summary: 'A voice cloning model that needs only a few seconds of a sample, in English and Chinese. The community has released many fine-tuned versions for other languages, including Russian.',
+      tasks: ['Voice cloning', 'Voicing audiobooks and videos', 'Research and prototypes'],
+      where: ['Research', 'Media (non-commercial projects)', 'Education'],
+      license: 'Code MIT, official weights CC BY-NC 4.0, non-commercial',
+      developer: 'Shanghai Jiao Tong University and partners',
+      country: 'China',
+      sizes: 'about 340M',
+    },
   },
   {
     id: 'fish-speech',
@@ -502,6 +632,14 @@ module.exports = [
     alternatives: ['cosyvoice', 'indextts', 'qwen-tts'],
     source: 'https://huggingface.co/fishaudio/s2-pro',
     verified: true,
+    en: {
+      summary: 'Speech synthesis with voice cloning and emotion control in 80+ languages, including Russian. Quality is close to paid services, but the weights are for research only.',
+      tasks: ['Voice cloning', 'Emotional voiceover', 'Multilingual voiceover'],
+      where: ['Research', 'Media', 'Prototyping'],
+      license: 'Early versions CC BY-NC-SA 4.0, S2-Pro under the Fish Audio Research License; commercial use only under a separate agreement',
+      country: 'USA / China',
+      sizes: '0.5B – about 4.5B',
+    },
   },
   {
     id: 'cosyvoice',
@@ -530,6 +668,13 @@ module.exports = [
     alternatives: ['qwen-tts', 'voxcpm', 'fish-speech'],
     source: 'https://huggingface.co/FunAudioLLM/Fun-CosyVoice3-0.5B-2512',
     verified: true,
+    en: {
+      summary: 'Speech synthesis with voice cloning from a short sample and streaming output for live dialogue. Version 3 supports 9 languages, including Russian.',
+      tasks: ['Voice for a bot or assistant', 'Cloning a brand voice', 'Voicing videos', 'Multilingual voiceover'],
+      where: ['Call centers', 'Media and marketing', 'Online learning', 'Voice bots'],
+      license: 'Apache 2.0',
+      country: 'China',
+    },
   },
   {
     id: 'kokoro',
@@ -558,6 +703,14 @@ module.exports = [
     alternatives: ['piper', 'styletts', 'chatterbox'],
     source: 'https://huggingface.co/hexgrad/Kokoro-82M',
     verified: true,
+    en: {
+      summary: 'A tiny speech synthesis model (82M) that sounds on par with large ones. Runs on a regular CPU; English and a few other languages, no Russian.',
+      tasks: ['Voicing articles and notifications', 'Voice for apps without a GPU', 'Bulk text voiceover'],
+      where: ['Mobile and web apps', 'Media', 'Online learning'],
+      license: 'Apache 2.0',
+      developer: 'hexgrad (independent developer)',
+      country: 'not disclosed',
+    },
   },
   {
     id: 'parler-tts',
@@ -586,6 +739,13 @@ module.exports = [
     alternatives: ['qwen-tts', 'kokoro', 'dia'],
     source: 'https://huggingface.co/parler-tts/parler-tts-mini-multilingual-v1.1',
     verified: true,
+    en: {
+      summary: 'Speech synthesis where the voice is set by a text description ("a calm female voice, clean recording"). English and 8 European languages, no Russian.',
+      tasks: ['Choosing a voice by description', 'Voicing videos', 'Voice service prototypes'],
+      where: ['Media', 'Marketing', 'Online learning'],
+      license: 'Apache 2.0',
+      country: 'USA',
+    },
   },
   {
     id: 'dia',
@@ -613,6 +773,13 @@ module.exports = [
     alternatives: ['vibevoice', 'higgs-audio', 'moss-tts'],
     source: 'https://huggingface.co/nari-labs/Dia2-2B',
     verified: true,
+    en: {
+      summary: 'A model that voices entire two-person dialogues with laughter, sighs and pauses. English only.',
+      tasks: ['Voicing dialogues and podcasts', 'Ads with natural speech', 'Training role-plays'],
+      where: ['Media and podcasts', 'Marketing', 'Online learning'],
+      license: 'Apache 2.0',
+      country: 'South Korea',
+    },
   },
   {
     id: 'orpheus',
@@ -637,6 +804,13 @@ module.exports = [
     alternatives: ['csm', 'chatterbox', 'qwen-tts'],
     source: 'https://huggingface.co/canopylabs/orpheus-3b-0.1-ft',
     verified: true,
+    en: {
+      summary: 'Language-model-based speech synthesis with lively intonation and emotional cues. Responds quickly, suitable for voice assistants. Mainly English.',
+      tasks: ['Real-time voice for an assistant', 'Emotional voiceover', 'Voice cloning'],
+      where: ['Voice bots', 'Media', 'Product development'],
+      license: 'Apache 2.0',
+      country: 'USA',
+    },
   },
   {
     id: 'csm',
@@ -661,6 +835,13 @@ module.exports = [
     alternatives: ['orpheus', 'moshi', 'dia'],
     source: 'https://huggingface.co/sesame/csm-1b',
     verified: true,
+    en: {
+      summary: 'A conversational speech model that takes the context of the conversation into account and sounds like a real person. English only.',
+      tasks: ['Voice for a conversational assistant', 'Voicing dialogues', 'Voice product prototypes'],
+      where: ['Voice bots', 'Product development', 'Media'],
+      license: 'Apache 2.0',
+      country: 'USA',
+    },
   },
   {
     id: 'chatterbox',
@@ -689,6 +870,14 @@ module.exports = [
     alternatives: ['cosyvoice', 'f5-tts', 'kokoro'],
     source: 'https://huggingface.co/ResembleAI/chatterbox-flash',
     verified: true,
+    en: {
+      summary: 'Speech synthesis with voice cloning and adjustable expressiveness. The multilingual version supports 23 languages, including Russian; Turbo and Flash are sped up for live dialogue.',
+      tasks: ['Voice for a bot or assistant', 'Cloning a brand voice', 'Voicing videos', 'Multilingual voiceover'],
+      where: ['Call centers', 'Media and marketing', 'Games', 'Voice bots'],
+      license: 'MIT',
+      country: 'USA',
+      sizes: 'about 350M – 500M',
+    },
   },
   {
     id: 'indextts',
@@ -718,6 +907,14 @@ module.exports = [
     alternatives: ['cosyvoice', 'fish-speech', 'qwen-tts'],
     source: 'https://huggingface.co/IndexTeam/IndexTTS-2.5',
     verified: true,
+    en: {
+      summary: 'Speech synthesis with voice cloning and precise duration control, handy for video dubbing. Controls emotion separately from timbre.',
+      tasks: ['Video dubbing matched to timing', 'Voice cloning', 'Emotional voiceover'],
+      where: ['Media and video production', 'Games', 'Marketing'],
+      license: 'IndexTTS and 1.5 are Apache 2.0; IndexTTS2 and 2.5 use the bilibili Model License (free, but with restrictions for very large companies)',
+      country: 'China',
+      sizes: 'about 1B – 2B',
+    },
   },
   {
     id: 'moss-tts',
@@ -748,6 +945,14 @@ module.exports = [
     alternatives: ['dia', 'vibevoice', 'higgs-audio'],
     source: 'https://huggingface.co/OpenMOSS-Team/MOSS-TTS-v1.5',
     verified: true,
+    en: {
+      summary: 'A speech synthesis family: multi-voice dialogue voicing (TTSD), fast synthesis for live conversation and the tiny Nano. Version 1.5 supports 30+ languages, including Russian.',
+      tasks: ['Voicing podcasts and dialogues', 'Voice for an assistant', 'Voice cloning', 'Multilingual voiceover'],
+      where: ['Media and podcasts', 'Online learning', 'Voice bots'],
+      license: 'Apache 2.0',
+      developer: 'OpenMOSS (Fudan University)',
+      country: 'China',
+    },
   },
   {
     id: 'higgs-audio',
@@ -777,6 +982,14 @@ module.exports = [
     alternatives: ['moss-tts', 'vibevoice', 'fish-speech'],
     source: 'https://huggingface.co/bosonai/higgs-tts-3-4b',
     verified: true,
+    en: {
+      summary: 'Expressive speech and dialogue synthesis with voice cloning, plus recognition models. Version 3 of the synthesis supports about 100 languages, including Russian, but is non-commercial.',
+      tasks: ['Expressive video voiceover', 'Voicing dialogues', 'Voice cloning', 'Speech transcription'],
+      where: ['Media', 'Games', 'Marketing'],
+      license: 'Higgs Audio v2 uses the Boson Community License based on the Llama 3 license (above 100,000 users a year a separate license is needed); v3 recognition models are Apache 2.0; higgs-tts-3 is non-commercial only',
+      country: 'USA',
+      sizes: 'about 3B – 8B',
+    },
   },
   {
     id: 'qwen-tts',
@@ -801,6 +1014,13 @@ module.exports = [
     alternatives: ['cosyvoice', 'voxcpm', 'chatterbox'],
     source: 'https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-Base',
     verified: true,
+    en: {
+      summary: 'Speech synthesis in 10 languages, including Russian: voice cloning from 3 seconds, ready-made voices and creating a voice from a text description.',
+      tasks: ['Voice for a bot or assistant', 'Cloning a brand voice', 'Choosing a voice by description', 'Voicing videos'],
+      where: ['Call centers', 'Media and marketing', 'Online learning', 'Voice bots'],
+      license: 'Apache 2.0',
+      country: 'China',
+    },
   },
   {
     id: 'voxcpm',
@@ -829,6 +1049,14 @@ module.exports = [
     alternatives: ['cosyvoice', 'qwen-tts', 'f5-tts'],
     source: 'https://huggingface.co/openbmb/VoxCPM2',
     verified: true,
+    en: {
+      summary: 'Speech synthesis with voice cloning and natural intonation. VoxCPM2 supports 30 languages, including Russian.',
+      tasks: ['Voice cloning', 'Voicing videos and audiobooks', 'Voice for an assistant', 'Multilingual voiceover'],
+      where: ['Media', 'Online learning', 'Voice bots'],
+      license: 'Apache 2.0',
+      developer: 'OpenBMB (ModelBest, Tsinghua University)',
+      country: 'China',
+    },
   },
   {
     id: 'zonos',
@@ -856,6 +1084,14 @@ module.exports = [
     alternatives: ['chatterbox', 'f5-tts', 'orpheus'],
     source: 'https://huggingface.co/Zyphra/ZONOS2',
     verified: true,
+    en: {
+      summary: 'Speech synthesis with voice cloning and fine control over emotion, speed and pitch.',
+      tasks: ['Voice cloning', 'Emotional voiceover', 'Voicing videos'],
+      where: ['Media', 'Marketing', 'Games'],
+      license: 'Apache 2.0',
+      country: 'USA',
+      sizes: 'about 1.6B',
+    },
   },
 
   // ---------- Голосовые ассистенты и перевод (omni) ----------
@@ -886,6 +1122,13 @@ module.exports = [
     alternatives: ['qwen-omni', 'minicpm-o', 'seamless'],
     source: 'https://huggingface.co/kyutai/hibiki-zero-3b-pytorch-bf16',
     verified: true,
+    en: {
+      summary: 'A voice assistant that listens and speaks at the same time, with no delay for recognition and synthesis. Hibiki does simultaneous speech-to-speech translation between several European languages.',
+      tasks: ['Real-time voice conversation partner', 'Simultaneous speech translation', 'Zero-latency voice interfaces'],
+      where: ['Voice bots', 'International meetings', 'Product development'],
+      license: 'Moshi and Hibiki are CC-BY-4.0; Hibiki-Zero and some newer fine-tuned versions are non-commercial (CC BY-NC)',
+      country: 'France',
+    },
   },
   {
     id: 'qwen-omni',
@@ -914,6 +1157,13 @@ module.exports = [
     alternatives: ['minicpm-o', 'moshi', 'qwen'],
     source: 'https://huggingface.co/Qwen/Qwen3-Omni-30B-A3B-Instruct',
     verified: true,
+    en: {
+      summary: 'Models that understand text, images, audio and video and reply by voice in real time. Qwen3-Omni speaks 10 languages, including Russian.',
+      tasks: ['Voice assistant for customers', 'Analyzing calls and videos', 'Voice answers about documents and images', 'Describing audio recordings'],
+      where: ['Call centers', 'Retail and service', 'Media', 'Internal assistants'],
+      license: 'Apache 2.0',
+      country: 'China',
+    },
   },
   {
     id: 'seamless',
@@ -941,6 +1191,13 @@ module.exports = [
     alternatives: ['moshi', 'whisper', 'omnilingual-asr'],
     source: 'https://huggingface.co/facebook/seamless-m4t-v2-large',
     verified: true,
+    en: {
+      summary: 'Speech and text translation across roughly a hundred languages, including Russian: speech to text, speech to speech, and streaming translation that keeps intonation.',
+      tasks: ['Speech-to-speech translation', 'Translating and transcribing recordings', 'Streaming translation'],
+      where: ['Research', 'Education', 'Non-commercial projects'],
+      license: 'CC BY-NC 4.0, non-commercial use only',
+      country: 'USA',
+    },
   },
   {
     id: 'minicpm-o',
@@ -968,6 +1225,14 @@ module.exports = [
     alternatives: ['qwen-omni', 'minicpm-v', 'moshi'],
     source: 'https://huggingface.co/openbmb/MiniCPM-o-4_5',
     verified: true,
+    en: {
+      summary: 'A small model that sees, hears and replies by voice in real time, and can clone a voice. Voice dialogue in English and Chinese, text in 30+ languages.',
+      tasks: ['Voice assistant on your own server', 'Analyzing videos and documents', 'Voice answers about a camera image'],
+      where: ['Retail and service', 'Manufacturing', 'Product development'],
+      license: 'Apache 2.0',
+      developer: 'OpenBMB (ModelBest, Tsinghua University)',
+      country: 'China',
+    },
   },
 
   // ---------- Музыка и звук (audio) ----------
@@ -998,6 +1263,13 @@ module.exports = [
     alternatives: ['stable-audio', 'ace-step'],
     source: 'https://huggingface.co/facebook/musicgen-stem-7cb',
     verified: true,
+    en: {
+      summary: 'Generates instrumental music from a text description or a sample melody. One of the first open models of its kind.',
+      tasks: ['Draft music sketches', 'Music for video prototypes', 'Research'],
+      where: ['Research', 'Education', 'Non-commercial projects'],
+      license: 'Code MIT, weights CC BY-NC 4.0, non-commercial',
+      country: 'USA',
+    },
   },
   {
     id: 'stable-audio',
@@ -1026,6 +1298,14 @@ module.exports = [
     alternatives: ['ace-step', 'musicgen'],
     source: 'https://huggingface.co/stabilityai/stable-audio-3-medium',
     verified: true,
+    en: {
+      summary: 'Generates short music clips and sound effects from a description. Version 3 is split into separate models for music and for sounds.',
+      tasks: ['Sound effects for videos and games', 'Background music and jingles', 'Interface sounds'],
+      where: ['Video production', 'Games', 'Marketing'],
+      license: 'Stability AI Community License: free for companies with revenue up to $1 million a year, a paid license above that',
+      country: 'UK',
+      sizes: 'about 0.5B – 2.3B',
+    },
   },
   {
     id: 'yue',
@@ -1054,6 +1334,14 @@ module.exports = [
     alternatives: ['ace-step', 'diffrhythm', 'songgeneration'],
     source: 'https://huggingface.co/m-a-p/YuE2-3B',
     verified: true,
+    en: {
+      summary: 'Generates full songs with vocals and accompaniment from lyrics and a style description: English, Chinese, Japanese, Korean.',
+      tasks: ['Songs and jingles from lyrics', 'Demo versions of tracks', 'Music for videos'],
+      where: ['Marketing', 'Media', 'Music studios'],
+      license: 'YuE (first version) is Apache 2.0; YuE2 is CC BY-NC 4.0, non-commercial',
+      developer: 'M-A-P and HKUST',
+      country: 'China',
+    },
   },
   {
     id: 'ace-step',
@@ -1083,6 +1371,15 @@ module.exports = [
     alternatives: ['yue', 'diffrhythm', 'heartmula'],
     source: 'https://huggingface.co/ACE-Step/acestep-v15-xl-sft-diffusers',
     verified: true,
+    en: {
+      summary: 'Fast generation of songs with vocals in 19 languages, including Russian: a full song in seconds, editing of individual parts and style changes.',
+      tasks: ['Songs and jingles for ads', 'Background music for videos', 'Demo versions of tracks', 'Reworking a track in a different style'],
+      where: ['Marketing', 'Media and bloggers', 'Music studios', 'Games'],
+      license: 'v1 is Apache 2.0; v1.5 and XL are MIT',
+      developer: 'ACE Studio and StepFun',
+      country: 'China',
+      sizes: 'about 2B – 4B',
+    },
   },
   {
     id: 'diffrhythm',
@@ -1111,6 +1408,15 @@ module.exports = [
     alternatives: ['ace-step', 'yue', 'heartmula'],
     source: 'https://huggingface.co/ASLP-lab/DiffRhythm2',
     verified: true,
+    en: {
+      summary: 'Fast generation of a full song with vocals from lyrics and a style sample, up to several minutes long.',
+      tasks: ['Songs and jingles from lyrics', 'Music for videos', 'Demo versions of tracks'],
+      where: ['Marketing', 'Media', 'Music studios'],
+      license: 'Apache 2.0',
+      developer: 'ASLP-lab (Northwestern Polytechnical University)',
+      country: 'China',
+      sizes: 'about 1.1B',
+    },
   },
   {
     id: 'songgeneration',
@@ -1138,6 +1444,14 @@ module.exports = [
     alternatives: ['ace-step', 'yue', 'heartmula'],
     source: 'https://huggingface.co/lglg666/SongGeneration-v2-large',
     verified: false, // официальные репозитории недоступны, лицензия не подтверждена
+    en: {
+      summary: 'High-quality generation of songs with vocals and accompaniment; version 2 is close to paid services. Weights are for research only.',
+      tasks: ['Music generation research', 'Demo versions of songs', 'Benchmarking against commercial services'],
+      where: ['Research', 'Education'],
+      license: 'Tencent\'s own license: research and education only, commercial use prohibited',
+      country: 'China',
+      sizes: 'about 4B',
+    },
   },
   {
     id: 'heartmula',
@@ -1165,5 +1479,12 @@ module.exports = [
     alternatives: ['ace-step', 'yue', 'diffrhythm'],
     source: 'https://huggingface.co/HeartMuLa/MuLaCover',
     verified: true,
+    en: {
+      summary: 'An open model for generating songs with vocals in Chinese, English, Japanese, Korean and Spanish, plus a codec and a lyrics transcription model.',
+      tasks: ['Songs and jingles from lyrics', 'Music for videos', 'Transcribing song lyrics'],
+      where: ['Marketing', 'Media', 'Music studios'],
+      license: 'Apache 2.0; the MuLaCover cover model is CC BY-NC 4.0',
+      country: 'not disclosed',
+    },
   },
 ];

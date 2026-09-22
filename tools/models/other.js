@@ -25,6 +25,13 @@ module.exports = [
     alternatives: ['triposr', 'trellis'],
     source: 'https://huggingface.co/openai/shap-e',
     verified: true,
+    en: {
+      summary: 'Early open OpenAI models that create a 3D object from text or an image in seconds. Quality is basic, but they are fast and easy to run.',
+      tasks: ['Rough 3D mock-ups from a description', 'Quick object prototypes for games and AR', 'Training and research pilots in 3D'],
+      where: ['Game development', 'Design and prototyping', 'Education'],
+      license: 'MIT',
+      country: 'USA',
+    },
   },
   {
     id: 'triposr',
@@ -49,6 +56,15 @@ module.exports = [
     alternatives: ['stable-fast-3d', 'trellis', 'hunyuan3d'],
     source: 'https://huggingface.co/VAST-AI/TripoSplat',
     verified: true,
+    en: {
+      summary: 'VAST family: a 3D model from a single photo. TripoSR runs in under a second, TripoSG gives cleaner geometry, TripoSplat builds a scene from Gaussian points.',
+      tasks: ['3D product model from a photo', 'Object assets for games and AR', 'Quick 3D prototype for printing'],
+      where: ['E-commerce', 'Game development', '3D printing and design'],
+      license: 'MIT',
+      developer: 'VAST (TripoSR together with Stability AI)',
+      country: 'China',
+      sizes: 'up to 1.5B',
+    },
   },
   {
     id: 'stable-fast-3d',
@@ -73,6 +89,13 @@ module.exports = [
     alternatives: ['triposr', 'trellis'],
     source: 'https://huggingface.co/stabilityai/stable-point-aware-3d',
     verified: true,
+    en: {
+      summary: 'Stability AI models that turn a single photo into a textured 3D model in about a second. SPAR3D lets you adjust the shape through a point cloud.',
+      tasks: ['3D product cards from photos', 'Assets for games and AR', 'Quick mock-ups for design'],
+      where: ['E-commerce', 'Game development', 'Marketing and advertising'],
+      license: 'Stability AI Community License: free for revenue up to 1 million dollars a year, above that a paid license is required',
+      country: 'UK',
+    },
   },
   {
     id: 'instantmesh',
@@ -97,6 +120,14 @@ module.exports = [
     alternatives: ['triposr', 'stable-fast-3d'],
     source: 'https://huggingface.co/TencentARC/InstantMesh',
     verified: true,
+    en: {
+      summary: 'Builds a 3D mesh from a single image in about 10 seconds: first it draws the object from several angles, then assembles the model from them.',
+      tasks: ['3D model of an object from a photo', 'Assets for games and visualizations', 'Prototypes for 3D printing'],
+      where: ['Game development', 'Design', 'E-commerce'],
+      license: 'Apache 2.0',
+      country: 'China',
+      sizes: 'size not stated on the model card',
+    },
   },
   {
     id: 'trellis',
@@ -121,6 +152,14 @@ module.exports = [
     alternatives: ['hunyuan3d', 'triposr'],
     source: 'https://huggingface.co/microsoft/TRELLIS.2-4B',
     verified: true,
+    en: {
+      summary: 'One of the strongest open 3D models: from an image or text it produces a textured mesh or a Gaussian scene. TRELLIS.2 is noticeably more detailed than the first version.',
+      tasks: ['3D models of products and interiors from photos', 'Assets for games and AR/VR', 'Prototypes for 3D printing'],
+      where: ['Game development', 'E-commerce', 'Architecture and interior design'],
+      license: 'MIT',
+      country: 'USA',
+      sizes: 'up to 4B (TRELLIS.2)',
+    },
   },
   {
     id: 'hunyuan3d',
@@ -145,6 +184,14 @@ module.exports = [
     alternatives: ['trellis', 'triposr'],
     source: 'https://huggingface.co/tencent/Hunyuan3D-Omni',
     verified: true,
+    en: {
+      summary: 'Tencent\'s open 3D line: shape and texture from an image, at the level of paid services. Omni adds control of pose and shape, Part splits a model into parts.',
+      tasks: ['Textured 3D product models', 'Characters and objects for games', 'Splitting a model into parts for printing'],
+      where: ['Game development', 'E-commerce', 'Industrial design'],
+      license: 'Tencent Hunyuan Community License: commercial use allowed, but the license does not apply in the EU, UK and South Korea; versions 2.5 and newer only via API',
+      country: 'China',
+      sizes: 'set of models: shape and textures',
+    },
   },
   {
     id: 'hy-world',
@@ -169,6 +216,14 @@ module.exports = [
     alternatives: ['hunyuan3d', 'cosmos'],
     source: 'https://huggingface.co/tencent/HY-World-2.0',
     verified: true,
+    en: {
+      summary: 'Generates whole 3D worlds and scenes from text or an image that you can walk through. The second version builds a scene from video and photos.',
+      tasks: ['3D scenes for games and virtual tours', 'Backgrounds and environments for video production', 'Draft locations for simulations'],
+      where: ['Game development', 'Film and advertising', 'Real estate and tourism'],
+      license: 'Tencent\'s own license: commercial use allowed, but it does not apply in the EU, UK and South Korea',
+      country: 'China',
+      sizes: 'set of several models',
+    },
   },
   {
     id: 'sam-3d',
@@ -193,6 +248,14 @@ module.exports = [
     alternatives: ['sam', 'trellis', 'hunyuan3d'],
     source: 'https://huggingface.co/facebook/sam-3d-body-dinov3',
     verified: true,
+    en: {
+      summary: 'Reconstructs the 3D shape of an object or a human body from one ordinary photo, even when the object is partly hidden. Two models: Objects and Body.',
+      tasks: ['3D model of an item from a catalog photo', 'Estimating body pose and shape from a photo', 'Try-on and AR scenarios'],
+      where: ['E-commerce', 'Fitness and sports', 'AR and virtual try-on'],
+      license: 'SAM License (Meta\'s own license, commercial use allowed with conditions); access on request on HF',
+      country: 'USA',
+      sizes: 'size not stated on the model card',
+    },
   },
 
   // ---------- Компьютерное зрение ----------
@@ -219,6 +282,13 @@ module.exports = [
     alternatives: ['rf-detr', 'grounding-dino'],
     source: 'https://huggingface.co/Ultralytics/YOLO26',
     verified: true,
+    en: {
+      summary: 'The most widely used real-time object detector: finds and marks items in video even on modest hardware. YOLOv5 came out back in 2020; the catalog starts from YOLOv8.',
+      tasks: ['Counting people, cars and goods on video', 'Checking hard hats and workwear', 'Spotting defects on the production line', 'Shelf display checks'],
+      where: ['Manufacturing', 'Retail and warehouses', 'Security and video surveillance', 'Transport'],
+      license: 'AGPL-3.0 (you would have to open your product\'s code) or a paid Ultralytics enterprise license',
+      country: 'USA',
+    },
   },
   {
     id: 'rf-detr',
@@ -243,6 +313,13 @@ module.exports = [
     alternatives: ['yolo', 'grounding-dino'],
     source: 'https://github.com/roboflow/rf-detr/releases',
     verified: true,
+    en: {
+      summary: 'Real-time object detector, an open alternative to YOLO without AGPL. Supports segmentation (object outlines) and, since 2026, keypoints.',
+      tasks: ['Object detection in video and photos', 'Precise outlines of parts and defects', 'Fine-tuning for your own object classes'],
+      where: ['Manufacturing', 'Warehouses and logistics', 'Agriculture', 'Video analytics'],
+      license: 'Apache 2.0 for Nano to Large sizes; XL and 2XL under Roboflow\'s own license',
+      country: 'USA',
+    },
   },
   {
     id: 'grounding-dino',
@@ -267,6 +344,13 @@ module.exports = [
     alternatives: ['yolo', 'rf-detr', 'sam'],
     source: 'https://huggingface.co/IDEA-Research/Rex-Omni',
     verified: true,
+    en: {
+      summary: 'Finds any objects in an image from a text description, without training on your data: "red box", "person without a hard hat". Rex-Omni is the new VLM-based generation.',
+      tasks: ['Finding objects by description without labeling', 'Automatic data labeling for training', 'Checking photos against requirements'],
+      where: ['Video analytics', 'Retail', 'Data preparation for AI'],
+      license: 'Grounding DINO: Apache 2.0; Rex-Omni: own IDEA License based on the Qwen Research License',
+      country: 'China',
+    },
   },
   {
     id: 'dino',
@@ -291,6 +375,13 @@ module.exports = [
     alternatives: ['clip-siglip', 'sam'],
     source: 'https://huggingface.co/facebook/dinov3-vit7b16-pretrain-lvd1689m',
     verified: true,
+    en: {
+      summary: 'Foundation models that turn an image into a numeric "fingerprint". They are used to build similar-image search, classification and segmentation without large labeled datasets.',
+      tasks: ['Finding similar products and photos', 'Image classification on small datasets', 'Base for your own quality-control models'],
+      where: ['Retail and marketplaces', 'Manufacturing', 'Satellite imagery and agriculture'],
+      license: 'DINOv2: Apache 2.0; DINOv3: own DINOv3 License, commercial use allowed, access on request',
+      country: 'USA',
+    },
   },
   {
     id: 'depth-anything',
@@ -315,6 +406,14 @@ module.exports = [
     alternatives: ['moge', 'dino'],
     source: 'https://huggingface.co/depth-anything/DA3-LARGE-1.1',
     verified: true,
+    en: {
+      summary: 'Estimates depth, the distance to every point, from one ordinary photo or video. DA3 reconstructs scene geometry from several frames.',
+      tasks: ['Estimating distances and volumes from a camera', 'Depth effects for photo and video', 'Navigation for robots and drones'],
+      where: ['Robotics', 'Construction and real estate', 'Video production'],
+      license: 'Small versions: Apache 2.0; large ones (Large/Giant) are often CC-BY-NC, non-commercial use only',
+      developer: 'ByteDance and the University of Hong Kong',
+      country: 'China',
+    },
   },
   {
     id: 'moge',
@@ -339,6 +438,13 @@ module.exports = [
     alternatives: ['depth-anything'],
     source: 'https://huggingface.co/Ruicheng/moge-3-vitg',
     verified: true,
+    en: {
+      summary: 'Reconstructs the 3D geometry of a scene from one photo: depth in meters, a point cloud and surface normals.',
+      tasks: ['Measuring rooms and objects from photos', '3D point cloud from a single shot', 'Preparing data for robots and AR'],
+      where: ['Construction and renovation', 'Robotics', 'AR and interior design'],
+      license: 'MIT',
+      country: 'USA',
+    },
   },
   {
     id: 'clip-siglip',
@@ -363,6 +469,14 @@ module.exports = [
     alternatives: ['dino', 'jina-embeddings'],
     source: 'https://huggingface.co/google/siglip2-giant-opt-patch16-384',
     verified: true,
+    en: {
+      summary: 'Models that map images and text into a shared space: you can search photos by words and classify images without training. OpenAI\'s CLIP (2021) is the predecessor.',
+      tasks: ['Image search by text query', 'Automatic catalog labeling and tagging', 'Filtering prohibited content'],
+      where: ['Marketplaces and retail', 'Media and photo banks', 'Content moderation'],
+      license: 'Apache 2.0',
+      country: 'USA',
+      sizes: 'about 0.2B to 2B',
+    },
   },
 
   // ---------- Поиск и RAG ----------
@@ -389,6 +503,13 @@ module.exports = [
     alternatives: ['bge-m3', 'gte', 'giga-embeddings'],
     source: 'https://huggingface.co/intfloat/multilingual-e5-large-instruct',
     verified: true,
+    en: {
+      summary: 'Proven models for semantic search. The multilingual versions work well with Russian and are still a reliable base for RAG.',
+      tasks: ['Search across a knowledge base and documents', 'Finding answers for a chatbot (RAG)', 'Finding similar requests and duplicates'],
+      where: ['Customer support', 'Legal and document management', 'Internal knowledge bases'],
+      license: 'MIT',
+      country: 'USA',
+    },
   },
   {
     id: 'gte',
@@ -413,6 +534,13 @@ module.exports = [
     alternatives: ['bge-m3', 'e5', 'qwen-embedding'],
     source: 'https://huggingface.co/Alibaba-NLP/gte-modernbert-base',
     verified: true,
+    en: {
+      summary: 'Alibaba embeddings and rerankers for search: from tiny to 7B based on Qwen2. There is a multilingual mGTE version with long context.',
+      tasks: ['Semantic search across documents', 'Reranking search results', 'Clustering and classifying texts'],
+      where: ['Customer support', 'E-commerce (catalog search)', 'Knowledge bases'],
+      license: 'Apache 2.0 (first versions: MIT)',
+      country: 'China',
+    },
   },
   {
     id: 'nomic-embed',
@@ -437,6 +565,13 @@ module.exports = [
     alternatives: ['bge-m3', 'gte', 'jina-embeddings'],
     source: 'https://huggingface.co/nomic-ai/nomic-embed-code',
     verified: true,
+    en: {
+      summary: 'Fully open embeddings, with weights, data and training code. v2 is multilingual on MoE; there are versions for code and for searching PDF pages.',
+      tasks: ['Search across documents and a knowledge base', 'Code search', 'Search across scans and PDFs without text recognition'],
+      where: ['IT departments', 'Customer support', 'Document management'],
+      license: 'Apache 2.0 (some multimodal versions follow the base model\'s terms)',
+      country: 'USA',
+    },
   },
   {
     id: 'jina-embeddings',
@@ -461,6 +596,13 @@ module.exports = [
     alternatives: ['bge-m3', 'qwen-embedding', 'nomic-embed'],
     source: 'https://huggingface.co/jinaai/jina-embeddings-v5-omni-small',
     verified: true,
+    en: {
+      summary: 'Strong multilingual embeddings with long context; v5-omni understands text, images and audio. Recent versions are open for non-commercial use only.',
+      tasks: ['Search across documents in many languages', 'Search across images and scans', 'Classification and clustering'],
+      where: ['Knowledge bases', 'Media', 'E-commerce'],
+      license: 'v2: Apache 2.0; v3 and v5: CC-BY-NC (non-commercial only, businesses need a paid license); v4: Qwen Research License',
+      country: 'Germany',
+    },
   },
   {
     id: 'qwen-embedding',
@@ -485,6 +627,13 @@ module.exports = [
     alternatives: ['bge-m3', 'gte', 'giga-embeddings'],
     source: 'https://huggingface.co/Qwen/Qwen3-VL-Embedding-8B',
     verified: true,
+    en: {
+      summary: 'Embeddings and rerankers based on Qwen3, among the best open ones for multilingual search, including Russian. VL versions search images, screenshots and video.',
+      tasks: ['Knowledge base search for RAG', 'Reranking results before answering', 'Search across scans, slides and screenshots'],
+      where: ['Customer support', 'Legal and document management', 'E-commerce'],
+      license: 'Apache 2.0',
+      country: 'China',
+    },
   },
   {
     id: 'nemotron-embed',
@@ -509,6 +658,13 @@ module.exports = [
     alternatives: ['qwen-embedding', 'bge-m3'],
     source: 'https://huggingface.co/nvidia/Nemotron-3-Embed-1B-BF16',
     verified: true,
+    en: {
+      summary: 'NVIDIA embeddings for search and RAG. Nemotron-3-Embed, released in 2026, is under the permissive OpenMDW license and works in many languages.',
+      tasks: ['Search across corporate documents', 'RAG for chatbots and assistants', 'Search across images and pages (VL versions)'],
+      where: ['Large companies', 'Customer support', 'Document management'],
+      license: 'Nemotron-3-Embed: OpenMDW 1.1; llama-nemotron-embed-1b-v2: NVIDIA Open Model License; llama-embed-nemotron-8b: non-commercial only',
+      country: 'USA',
+    },
   },
   {
     id: 'giga-embeddings',
@@ -533,6 +689,14 @@ module.exports = [
     alternatives: ['bge-m3', 'e5', 'qwen-embedding'],
     source: 'https://huggingface.co/ai-sage/Giga-Embeddings-instruct-480M-0826',
     verified: true,
+    en: {
+      summary: 'Sber embeddings built for Russian: according to the developers, among the best on Russian-language search benchmarks. FRIDA is compact, Giga-Embeddings is more powerful.',
+      tasks: ['Search across Russian-language documents', 'RAG for chatbots in Russian', 'Classifying requests and reviews'],
+      where: ['Banking and finance', 'Public sector and legal', 'Customer support'],
+      license: 'MIT',
+      developer: 'Sber (SberDevices)',
+      country: 'Russia',
+    },
   },
   {
     id: 'embeddinggemma',
@@ -557,6 +721,13 @@ module.exports = [
     alternatives: ['gemma', 'e5', 'granite-embedding'],
     source: 'https://huggingface.co/google/embeddinggemma-300m',
     verified: true,
+    en: {
+      summary: 'A small multilingual embedding model based on Gemma 3 that runs even on a phone or laptop without internet.',
+      tasks: ['On-device document search', 'RAG without sending data outside', 'Text classification'],
+      where: ['Mobile apps', 'Work with sensitive data', 'Small businesses'],
+      license: 'Gemma Terms of Use (Google\'s own license, commercial use allowed with usage rules)',
+      country: 'USA',
+    },
   },
   {
     id: 'pplx-embed',
@@ -581,6 +752,13 @@ module.exports = [
     alternatives: ['qwen-embedding', 'voyage-4-nano'],
     source: 'https://huggingface.co/perplexity-ai/pplx-embed-v1-late-0.6b',
     verified: true,
+    en: {
+      summary: 'Embeddings from the Perplexity search service. Some versions take into account the context of the whole document, not just a single fragment.',
+      tasks: ['Search across large document collections', 'RAG that accounts for document context', 'Website and catalog search'],
+      where: ['Media and publishing', 'Knowledge bases', 'Online services'],
+      license: 'MIT',
+      country: 'USA',
+    },
   },
   {
     id: 'voyage-4-nano',
@@ -605,6 +783,14 @@ module.exports = [
     alternatives: ['pplx-embed', 'granite-embedding'],
     source: 'https://huggingface.co/voyageai/voyage-4-nano',
     verified: true,
+    en: {
+      summary: 'The only open model in the Voyage 4 line: its vectors are compatible with the paid larger versions, so you can start locally and move to the API later.',
+      tasks: ['Document search on your own server', 'RAG for small knowledge bases', 'Finding similar texts'],
+      where: ['Small and mid-sized businesses', 'Knowledge bases', 'Customer support'],
+      license: 'Apache 2.0',
+      country: 'USA',
+      sizes: 'about 340M',
+    },
   },
   {
     id: 'granite-embedding',
@@ -629,6 +815,13 @@ module.exports = [
     alternatives: ['granite', 'e5', 'bge-m3'],
     source: 'https://huggingface.co/ibm-granite/granite-embedding-311m-multilingual-r2',
     verified: true,
+    en: {
+      summary: 'Lightweight IBM embeddings for enterprise search, trained on data with clear rights. R2, released in 2026, became multilingual.',
+      tasks: ['Search across corporate documents', 'RAG on a regular server without a GPU', 'Reranking results'],
+      where: ['Large companies', 'Finance and insurance', 'Knowledge bases'],
+      license: 'Apache 2.0',
+      country: 'USA',
+    },
   },
 
   // ---------- Прогнозы ----------
@@ -655,6 +848,13 @@ module.exports = [
     alternatives: ['chronos', 'toto', 'tirex'],
     source: 'https://huggingface.co/google/timesfm-3.0-pytorch',
     verified: true,
+    en: {
+      summary: 'A ready-made Google forecasting model: forecasts any time series without training on your data.',
+      tasks: ['Sales and demand forecasting', 'Purchase and inventory planning', 'Load and traffic forecasting'],
+      where: ['Retail', 'Logistics and warehouses', 'Energy'],
+      license: 'Versions 1.0 to 2.5: Apache 2.0; TimesFM 3.0: non-commercial license',
+      country: 'USA',
+    },
   },
   {
     id: 'chronos',
@@ -679,6 +879,13 @@ module.exports = [
     alternatives: ['timesfm', 'toto', 'tirex'],
     source: 'https://huggingface.co/amazon/chronos-2',
     verified: true,
+    en: {
+      summary: 'Amazon forecasting models, among the most downloaded. Chronos-2 takes external factors into account: prices, promotions, weather.',
+      tasks: ['Demand forecasting with promotions and prices', 'Inventory planning', 'Forecasting revenue and customer flow'],
+      where: ['Retail and e-commerce', 'Manufacturing', 'Finance'],
+      license: 'Apache 2.0',
+      country: 'USA',
+    },
   },
   {
     id: 'moirai',
@@ -703,6 +910,13 @@ module.exports = [
     alternatives: ['chronos', 'timesfm'],
     source: 'https://huggingface.co/Salesforce/moirai-2.0-R-small',
     verified: true,
+    en: {
+      summary: 'Salesforce\'s universal forecasting model for series with different frequencies and many variables. Weights are open for research only.',
+      tasks: ['Research forecasting pilots', 'Comparison with other forecasting models', 'Forecasts across many related series'],
+      where: ['Analytics and research', 'Retail', 'Energy'],
+      license: 'CC-BY-NC 4.0: non-commercial use only',
+      country: 'USA',
+    },
   },
   {
     id: 'lag-llama',
@@ -727,6 +941,14 @@ module.exports = [
     alternatives: ['chronos', 'timesfm'],
     source: 'https://huggingface.co/time-series-foundation-models/Lag-Llama',
     verified: true,
+    en: {
+      summary: 'One of the first open out-of-the-box forecasting models. Tiny, gives a probabilistic forecast, now behind Chronos and TimesFM.',
+      tasks: ['Probabilistic sales forecast', 'Quick forecasting pilots', 'Baseline model for comparison'],
+      where: ['Analytics', 'Retail', 'Finance'],
+      license: 'Apache 2.0',
+      developer: 'ServiceNow, Mila and partners',
+      country: 'Canada',
+    },
   },
   {
     id: 'toto',
@@ -751,6 +973,13 @@ module.exports = [
     alternatives: ['chronos', 'timesfm', 'tirex'],
     source: 'https://huggingface.co/Datadog/Toto-2.0-2.5B',
     verified: true,
+    en: {
+      summary: 'A Datadog forecasting model trained on server and application metrics. Especially strong for IT monitoring: load, latency, errors.',
+      tasks: ['Server load forecasting', 'Anomaly detection in metrics', 'Capacity planning'],
+      where: ['IT and DevOps', 'Online services', 'Telecom'],
+      license: 'Apache 2.0',
+      country: 'USA',
+    },
   },
   {
     id: 'tirex',
@@ -775,6 +1004,14 @@ module.exports = [
     alternatives: ['chronos', 'timesfm', 'toto'],
     source: 'https://huggingface.co/NX-AI/TiRex-2',
     verified: true,
+    en: {
+      summary: 'A compact forecasting model on the xLSTM architecture, a leader in open benchmarks despite its small size. Runs fast on a regular CPU.',
+      tasks: ['Demand and sales forecasting', 'Energy consumption forecasting', 'Forecasts on modest hardware and on site'],
+      where: ['Manufacturing', 'Energy', 'Retail'],
+      license: 'TiRex-2: Apache 2.0; first version: NXAI Community License',
+      country: 'Austria',
+      sizes: 'about 35M to 82M',
+    },
   },
 
   // ---------- Роботы ----------
@@ -801,6 +1038,14 @@ module.exports = [
     alternatives: ['openpi', 'smolvla'],
     source: 'https://huggingface.co/moojink/openvla-7b-oft-finetuned-libero-spatial',
     verified: true,
+    en: {
+      summary: 'The first large open vision-language-action model: a robot arm carries out commands like "put the apple in the bowl". OFT makes it several times faster.',
+      tasks: ['Controlling a robot arm by text command', 'Pilots for robotizing simple operations', 'Base for fine-tuning to your own robot'],
+      where: ['Manufacturing', 'Warehouses and logistics', 'Research labs'],
+      license: 'MIT',
+      developer: 'Stanford, Berkeley and partners',
+      country: 'USA',
+    },
   },
   {
     id: 'openpi',
@@ -825,6 +1070,14 @@ module.exports = [
     alternatives: ['gr00t', 'openvla', 'smolvla'],
     source: 'https://github.com/Physical-Intelligence/openpi',
     verified: true,
+    en: {
+      summary: 'Robot control models from Physical Intelligence: folding laundry, tidying up, handling objects. π0.5 copes better in unfamiliar settings.',
+      tasks: ['Controlling robot arms and two-armed robots', 'Fine-tuning for your own operations', 'Pilots for automating manual work'],
+      where: ['Manufacturing', 'Warehouses', 'Service robotics'],
+      license: 'Code and weights released under Apache 2.0, but the model is built on Google\'s PaliGemma; copies in LeRobot carry Gemma terms',
+      country: 'USA',
+      sizes: 'about 3B',
+    },
   },
   {
     id: 'gr00t',
@@ -849,6 +1102,13 @@ module.exports = [
     alternatives: ['openpi', 'cosmos', 'lingbot-vla'],
     source: 'https://huggingface.co/nvidia/GR00T-N1.7-3B',
     verified: true,
+    en: {
+      summary: 'NVIDIA\'s foundation model for humanoid robots and robot arms: it sees, understands a command and outputs movements. Built into the Isaac ecosystem.',
+      tasks: ['Controlling humanoid robots', 'Fine-tuning for your own robotic cell', 'Training in simulation with transfer to a real robot'],
+      where: ['Manufacturing', 'Warehouses and logistics', 'Robotics startups'],
+      license: 'NVIDIA Open Model License (commercial use allowed on NVIDIA\'s terms)',
+      country: 'USA',
+    },
   },
   {
     id: 'cosmos',
@@ -873,6 +1133,13 @@ module.exports = [
     alternatives: ['gr00t', 'wan', 'hy-world'],
     source: 'https://nvidianews.nvidia.com/news/nvidia-launches-cosmos-3-the-open-frontier-foundation-model-for-physical-ai',
     verified: true,
+    en: {
+      summary: '"World" models for robots and self-driving vehicles: they generate realistic video of physical scenes and predict actions. Cosmos 3 combines understanding, generation and control.',
+      tasks: ['Synthetic video for training robots and self-driving vehicles', 'Testing scenarios in simulation', 'Robot control (Policy versions)'],
+      where: ['Robotics', 'Autonomous transport', 'Manufacturing and warehouses'],
+      license: 'Cosmos 3: OpenMDW 1.1 (permissive, commercial use allowed); earlier versions: NVIDIA Open Model License, commercial use also allowed',
+      country: 'USA',
+    },
   },
   {
     id: 'smolvla',
@@ -897,6 +1164,13 @@ module.exports = [
     alternatives: ['openvla', 'openpi'],
     source: 'https://huggingface.co/lerobot/smolvla_base',
     verified: true,
+    en: {
+      summary: 'A small robot control model that runs on a regular laptop. Trained on open data from the LeRobot community, suited to low-cost robot arms.',
+      tasks: ['Controlling a low-cost robot arm', 'Quick robotization pilots and demos', 'Training staff and students'],
+      where: ['Small-scale manufacturing', 'Education', 'Robotics startups'],
+      license: 'Apache 2.0',
+      country: 'USA',
+    },
   },
   {
     id: 'molmoact',
@@ -921,6 +1195,13 @@ module.exports = [
     alternatives: ['openvla', 'openpi', 'molmo'],
     source: 'https://huggingface.co/allenai/MolmoAct2',
     verified: true,
+    en: {
+      summary: 'A fully open robot control model that first "reasons" about space and trajectory, then acts. Its reasoning can be checked.',
+      tasks: ['Controlling a robot arm with explainable steps', 'Fine-tuning for your own robot', 'Research pilots'],
+      where: ['Manufacturing', 'Research labs', 'Warehouses'],
+      license: 'Apache 2.0 (code and first version; the license for the MolmoAct2 base checkpoint is not stated on the model card)',
+      country: 'USA',
+    },
   },
   {
     id: 'lingbot-vla',
@@ -945,6 +1226,13 @@ module.exports = [
     alternatives: ['gr00t', 'openpi', 'xiaomi-robotics'],
     source: 'https://huggingface.co/robbyant/lingbot-vla-v2-6b',
     verified: true,
+    en: {
+      summary: 'A robot control model from Ant Group trained on a large volume of data from real robots. Version 2.0 works with different types of robot arms.',
+      tasks: ['Controlling a two-armed robot', 'Fine-tuning for your own operation', 'Assembly and sorting pilots'],
+      where: ['Manufacturing', 'Warehouses and logistics', 'Robotics startups'],
+      license: 'Apache 2.0',
+      country: 'China',
+    },
   },
   {
     id: 'xiaomi-robotics',
@@ -969,6 +1257,13 @@ module.exports = [
     alternatives: ['lingbot-vla', 'openpi', 'gr00t'],
     source: 'https://huggingface.co/XiaomiRobotics/Xiaomi-Robotics-1-5B',
     verified: true,
+    en: {
+      summary: 'Open robot control models from Xiaomi. Robotics-1 is designed for household and kitchen tasks, U0 combines scene understanding and action.',
+      tasks: ['Controlling a robot arm by command', 'Household and service scenarios', 'Base for fine-tuning'],
+      where: ['Service robotics', 'Manufacturing', 'Research'],
+      license: 'Apache 2.0',
+      country: 'China',
+    },
   },
   {
     id: 'gigabrain',
@@ -993,5 +1288,12 @@ module.exports = [
     alternatives: ['openpi', 'lingbot-vla', 'cosmos'],
     source: 'https://huggingface.co/open-gigaai/GigaBrain-0.7-3.5B-Base',
     verified: true,
+    en: {
+      summary: 'A robot control model trained mostly on synthetic data from a world model. It reduces spending on collecting data from real robots.',
+      tasks: ['Controlling a robot arm', 'Fine-tuning on a small amount of your own data', 'Sorting and assembly pilots'],
+      where: ['Manufacturing', 'Warehouses', 'Robotics startups'],
+      license: 'Apache 2.0',
+      country: 'China',
+    },
   },
 ];

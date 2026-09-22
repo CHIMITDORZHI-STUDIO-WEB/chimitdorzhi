@@ -24,6 +24,14 @@ module.exports = [
     alternatives: ['madlad', 'm2m-100', 'seamless'],
     source: 'https://huggingface.co/facebook/nllb-moe-54b',
     verified: true,
+    en: {
+      summary: 'A translator for 200 languages, including rare and minor ones. Russian is supported. Strong language coverage, but the license prohibits commercial use.',
+      tasks: ['Translating texts between 200 languages', 'Translating into rare languages where no other models exist', 'Comparing quality when choosing a translator'],
+      where: ['Research and universities', 'Non-profit and humanitarian projects'],
+      license: 'CC-BY-NC 4.0: non-commercial use only',
+      country: 'USA',
+      sizes: '600M to 3.3B (plus 54B MoE)',
+    },
   },
   {
     id: 'madlad',
@@ -48,6 +56,13 @@ module.exports = [
     alternatives: ['nllb', 'm2m-100', 'translategemma'],
     source: 'https://huggingface.co/google/madlad400-10b-mt',
     verified: true,
+    en: {
+      summary: 'Google\'s translator for more than 400 languages under a permissive license. Russian is supported. A good substitute for NLLB when commercial use is needed.',
+      tasks: ['Translating documents and emails', 'Translating catalogs and product descriptions', 'Translating into CIS and Asian languages'],
+      where: ['Foreign trade', 'Online stores', 'Customer support'],
+      license: 'Apache 2.0',
+      country: 'USA',
+    },
   },
   {
     id: 'm2m-100',
@@ -72,6 +87,13 @@ module.exports = [
     alternatives: ['nllb', 'madlad', 'opus-mt'],
     source: 'https://huggingface.co/facebook/m2m100_418M',
     verified: true,
+    en: {
+      summary: 'An early Meta translator that translates directly between 100 languages, without English in the middle. Russian is supported. Old, but light and permissively licensed.',
+      tasks: ['Translation between any pair of 100 languages', 'Quick draft translation on modest hardware', 'Base for fine-tuning to your subject area'],
+      where: ['Logistics and foreign trade', 'Customer support'],
+      license: 'MIT',
+      country: 'USA',
+    },
   },
   {
     id: 'opus-mt',
@@ -96,6 +118,14 @@ module.exports = [
     alternatives: ['m2m-100', 'madlad', 'hy-mt'],
     source: 'https://huggingface.co/Helsinki-NLP/opus-mt_tiny_eng-ita',
     verified: true,
+    en: {
+      summary: 'More than a thousand small translators, each for its own language pair. Russian-English and back are available. Fast even on a regular CPU.',
+      tasks: ['Bulk translation of short texts', 'Translation right on the server without a GPU', 'Translating reviews and requests before analysis'],
+      where: ['Online stores and marketplaces', 'Customer support', 'Analytics'],
+      license: 'Apache 2.0 or CC-BY 4.0 (depends on the language pair)',
+      developer: 'Helsinki-NLP, University of Helsinki',
+      country: 'Finland',
+    },
   },
   {
     id: 'tower',
@@ -120,6 +150,13 @@ module.exports = [
     alternatives: ['hy-mt', 'seed-x', 'alma'],
     source: 'https://huggingface.co/Unbabel/Tower-Plus-72B',
     verified: true,
+    en: {
+      summary: 'Language models tailored for translation and multilingual text work: translating, editing, and assessing translation quality. Russian is supported. Non-commercial license.',
+      tasks: ['Translation that respects context and terminology', 'Post-editing machine translation', 'Assessing the quality of a finished translation'],
+      where: ['Translation agencies (for research and pilots)', 'Research groups'],
+      license: 'CC-BY-NC 4.0 and CC-BY-NC-SA 4.0: non-commercial use only',
+      country: 'Portugal',
+    },
   },
   {
     id: 'hy-mt',
@@ -144,6 +181,13 @@ module.exports = [
     alternatives: ['seed-x', 'translategemma', 'hunyuan'],
     source: 'https://huggingface.co/tencent/Hy-MT2-30B-A3B',
     verified: true,
+    en: {
+      summary: 'Tencent translators for 33 languages; the first version won the WMT25 competition. Russian is supported. The small 1.8B version runs on a laptop; the new Hy-MT2 is under Apache 2.0.',
+      tasks: ['Translating documents while keeping formatting', 'Translation with a set glossary of terms', 'Translating correspondence with Chinese partners'],
+      where: ['Trade with China and imports', 'Logistics', 'Customer support'],
+      license: 'Hy-MT2: Apache 2.0; earlier Hunyuan-MT and HY-MT1.5: Tencent license (does not apply in the EU, UK and South Korea)',
+      country: 'China',
+    },
   },
   {
     id: 'seed-x',
@@ -168,6 +212,13 @@ module.exports = [
     alternatives: ['hy-mt', 'translategemma', 'tower'],
     source: 'https://huggingface.co/ByteDance-Seed/Seed-X-PPO-7B',
     verified: true,
+    en: {
+      summary: 'A compact ByteDance translator for 28 languages, close in quality to large closed systems. Russian is supported. Ready-made compressed versions are available.',
+      tasks: ['Translating business correspondence and documents', 'Translating product cards', 'Translating technical and legal texts'],
+      where: ['Trade with China', 'Online stores', 'Legal departments'],
+      license: 'OpenMDW (permissive, commercial use allowed)',
+      country: 'China',
+    },
   },
   {
     id: 'alma',
@@ -192,6 +243,14 @@ module.exports = [
     alternatives: ['tower', 'seed-x', 'eurollm'],
     source: 'https://huggingface.co/haoranxu/X-ALMA-13B-Group1',
     verified: true,
+    en: {
+      summary: 'Research translators based on Llama 2. The first ALMA covered 5 pairs with English, including Russian; X-ALMA expanded coverage to 50 languages.',
+      tasks: ['Translation between English and Russian', 'Experiments with LLM-based translation', 'Base for fine-tuning a translator'],
+      where: ['Research groups', 'Translation agencies (pilots)'],
+      license: 'MIT on the model card, but the models are built on Llama 2, so the Llama 2 terms also apply',
+      developer: 'Johns Hopkins University and Microsoft',
+      country: 'USA',
+    },
   },
   {
     id: 'eurollm',
@@ -216,6 +275,14 @@ module.exports = [
     alternatives: ['tower', 'aya', 'mistral'],
     source: 'https://huggingface.co/utter-project/EuroLLM-9B-Instruct-2512',
     verified: true,
+    en: {
+      summary: 'European language models trained on all EU languages and several others, with a focus on translation. Russian is supported. Permissive license.',
+      tasks: ['Translation and localization of texts', 'Answering questions in different languages', 'Draft emails for foreign partners'],
+      where: ['Exports and work with Europe', 'Marketing and localization', 'Customer support'],
+      license: 'Apache 2.0',
+      developer: 'UTTER consortium (Unbabel, universities of Lisbon, Edinburgh, Amsterdam and others)',
+      country: 'European Union',
+    },
   },
   {
     id: 'translategemma',
@@ -240,6 +307,13 @@ module.exports = [
     alternatives: ['hy-mt', 'madlad', 'gemma'],
     source: 'https://blog.google/innovation-and-ai/technology/developers-tools/translategemma/',
     verified: true,
+    en: {
+      summary: 'Translators based on Gemma 3 for 55 languages that can also translate text in images. Russian is supported. The 4B version fits on a laptop.',
+      tasks: ['Translating documents and correspondence', 'Translating text from screenshots and photos', 'Localizing websites and apps'],
+      where: ['Foreign trade', 'Marketing and localization', 'Customer support'],
+      license: 'Gemma Terms of Use: commercial use allowed with restrictions on types of use',
+      country: 'USA',
+    },
   },
 
   // ---------- МОДЕРАЦИЯ И ЗАЩИТА ----------
@@ -266,6 +340,13 @@ module.exports = [
     alternatives: ['qwen3guard', 'shieldgemma', 'granite-guardian'],
     source: 'https://huggingface.co/meta-llama/Llama-Guard-4-12B',
     verified: true,
+    en: {
+      summary: 'Filter models that check chatbot requests and replies for dangerous topics against a list of categories. Version 4 also checks images. Russian is not officially supported.',
+      tasks: ['Checking user questions to the bot', 'Checking bot replies before sending', 'Reporting which rule category was violated'],
+      where: ['Chatbots and AI assistants', 'Customer support', 'Content moderation'],
+      license: 'Llama 2, 3.1 and 4 licenses: commercial use allowed with restrictions',
+      country: 'USA',
+    },
   },
   {
     id: 'prompt-guard',
@@ -290,6 +371,13 @@ module.exports = [
     alternatives: ['llama-guard', 'granite-guardian', 'qwen3guard'],
     source: 'https://huggingface.co/meta-llama/Llama-Prompt-Guard-2-22M',
     verified: true,
+    en: {
+      summary: 'Tiny classifiers that catch attempts to hack a bot: prompt injections and rule bypassing. The 86M version is multilingual, 22M is English only.',
+      tasks: ['Protecting a bot from prompt injections', 'Checking emails and documents that reach an AI agent', 'Fast filter in front of a large model'],
+      where: ['Chatbots and AI agents', 'Information security'],
+      license: 'Llama 3.1 and 4 licenses: commercial use allowed with restrictions',
+      country: 'USA',
+    },
   },
   {
     id: 'shieldgemma',
@@ -314,6 +402,13 @@ module.exports = [
     alternatives: ['llama-guard', 'qwen3guard', 'wildguard'],
     source: 'https://huggingface.co/google/shieldgemma-2-4b-it',
     verified: true,
+    en: {
+      summary: 'Gemma-based filters: they check text for dangerous and offensive content, and ShieldGemma 2 checks images. Focused on English.',
+      tasks: ['Moderating user messages', 'Checking bot replies', 'Checking generated images before publishing'],
+      where: ['Content moderation', 'Chatbots', 'Image generation services'],
+      license: 'Gemma Terms of Use: commercial use allowed with restrictions on types of use',
+      country: 'USA',
+    },
   },
   {
     id: 'qwen3guard',
@@ -338,6 +433,13 @@ module.exports = [
     alternatives: ['llama-guard', 'nemotron-safety', 'granite-guardian'],
     source: 'https://huggingface.co/Qwen/Qwen3Guard-Stream-8B',
     verified: true,
+    en: {
+      summary: 'Safety filters for 119 languages, Russian among them. The Stream version checks a bot\'s reply while it is being generated and can cut it off on the fly.',
+      tasks: ['Filtering bot requests in Russian', 'Stopping a dangerous reply during generation', 'Labeling messages by risk category'],
+      where: ['Chatbots and AI assistants', 'Community moderation', 'Customer support'],
+      license: 'Apache 2.0',
+      country: 'China',
+    },
   },
   {
     id: 'granite-guardian',
@@ -362,6 +464,13 @@ module.exports = [
     alternatives: ['llama-guard', 'qwen3guard', 'granite'],
     source: 'https://huggingface.co/ibm-granite/granite-guardian-4.1-8b',
     verified: true,
+    en: {
+      summary: 'IBM judge models: they catch harm, profanity and jailbreak attempts, and in RAG and agents check whether an answer is grounded in the documents. You can state your own rule in words.',
+      tasks: ['Checking bot requests and replies', 'Finding made-up facts in knowledge-base answers', 'Checking your own rules written as text'],
+      where: ['Chatbots and AI agents', 'Banking and insurance', 'Quality control of AI systems'],
+      license: 'Apache 2.0',
+      country: 'USA',
+    },
   },
   {
     id: 'nemotron-safety',
@@ -386,6 +495,13 @@ module.exports = [
     alternatives: ['llama-guard', 'qwen3guard', 'nemotron'],
     source: 'https://huggingface.co/nvidia/Nemotron-3.5-Content-Safety',
     verified: true,
+    en: {
+      summary: 'NVIDIA content filters for bots, with separate models for keeping the conversation on topic and detecting jailbreaks. Safety Guard v3 was trained on 9 languages; Russian was tested only without fine-tuning.',
+      tasks: ['Checking bot requests and replies', 'Keeping the bot within its topic', 'Detecting attempts to bypass rules'],
+      where: ['Chatbots and AI assistants', 'Customer support', 'Content moderation'],
+      license: 'NVIDIA and OpenMDW licenses together with the base model terms (Llama, Gemma)',
+      country: 'USA',
+    },
   },
   {
     id: 'wildguard',
@@ -410,6 +526,13 @@ module.exports = [
     alternatives: ['llama-guard', 'shieldgemma', 'granite-guardian'],
     source: 'https://huggingface.co/allenai/wildguard',
     verified: true,
+    en: {
+      summary: 'An open Ai2 filter: in a single pass it determines whether a request is harmful, whether a reply is harmful, and whether the bot refused needlessly. Works in English.',
+      tasks: ['Checking requests to the bot', 'Checking bot replies', 'Finding unnecessary bot refusals on harmless questions'],
+      where: ['Chatbots', 'Quality control of AI systems'],
+      license: 'Apache 2.0',
+      country: 'USA',
+    },
   },
   {
     id: 'gpt-oss-safeguard',
@@ -434,6 +557,13 @@ module.exports = [
     alternatives: ['gpt-oss', 'granite-guardian', 'qwen3guard'],
     source: 'https://huggingface.co/openai/gpt-oss-safeguard-120b',
     verified: true,
+    en: {
+      summary: 'Moderation by your own rules: you write the policy in plain text, and the model reasons and gives a decision with an explanation. Built on gpt-oss.',
+      tasks: ['Moderation by internal company rules', 'Labeling disputed messages with an explanation', 'Checking reviews and listings before publishing'],
+      where: ['Marketplaces and classifieds', 'Community moderation', 'Chatbots'],
+      license: 'Apache 2.0',
+      country: 'USA',
+    },
   },
   {
     id: 'privacy-filter',
@@ -458,6 +588,14 @@ module.exports = [
     alternatives: ['gliner-pii', 'piiranha', 'gliner'],
     source: 'https://huggingface.co/openai/privacy-filter',
     verified: true,
+    en: {
+      summary: 'Finds and hides personal data: names, addresses, phone numbers, emails, account numbers, passwords. Runs even in the browser. Trained mostly on English.',
+      tasks: ['Removing personal data from text before sending it to cloud AI', 'Finding passwords and keys in texts', 'Anonymizing correspondence for analytics'],
+      where: ['Information security', 'Customer support', 'Legal departments'],
+      license: 'Apache 2.0',
+      country: 'USA',
+      sizes: '1.5B (50M active)',
+    },
   },
   {
     id: 'gliner-pii',
@@ -482,6 +620,15 @@ module.exports = [
     alternatives: ['privacy-filter', 'gliner', 'piiranha'],
     source: 'https://huggingface.co/fastino/gliner2-privacy-filter-PII-multi',
     verified: true,
+    en: {
+      summary: 'Small GLiNER-based models for finding personal data: passports, phone numbers, accounts, addresses. Data types are set in words. Russian is not officially supported.',
+      tasks: ['Masking personal data before cloud AI', 'Finding passport data and bank details in documents', 'Checking data exports for leaks'],
+      where: ['Information security', 'Banking and insurance', 'HR departments'],
+      license: 'Mostly Apache 2.0; the NVIDIA version: NVIDIA Open Model License',
+      developer: 'GLiNER community (Fastino, Knowledgator, NVIDIA and others)',
+      country: 'USA',
+      sizes: 'about 200M to 500M',
+    },
   },
   {
     id: 'piiranha',
@@ -506,6 +653,13 @@ module.exports = [
     alternatives: ['privacy-filter', 'gliner-pii'],
     source: 'https://huggingface.co/iiiorg/piiranha-v1-detect-personal-information',
     verified: true,
+    en: {
+      summary: 'A popular detector of 17 types of personal data in six European languages. No Russian and a non-commercial license: suitable for trials and research.',
+      tasks: ['Finding personal data in texts', 'Comparing the quality of PII detectors'],
+      where: ['Research', 'Data protection pilots'],
+      license: 'CC-BY-NC-ND 4.0: non-commercial use only',
+      country: 'not disclosed',
+    },
   },
 
   // ---------- РАЗБОР ТЕКСТА (NLP) ----------
@@ -532,6 +686,15 @@ module.exports = [
     alternatives: ['gliner-pii', 'deberta-v3', 'rubert'],
     source: 'https://huggingface.co/fastino/gliner2.5-multi-v1',
     verified: true,
+    en: {
+      summary: 'Finds the entities you need in text without training: just list what to look for (name, amount, date). GLiNER2 also classifies text. Multilingual versions understand Russian.',
+      tasks: ['Extracting names, amounts and dates from emails and contracts', 'Parsing requests into CRM fields', 'Classifying requests by topic'],
+      where: ['Legal departments', 'Accounting and document management', 'Sales and CRM'],
+      license: 'Apache 2.0',
+      developer: 'Urchade Zaratiana and Fastino AI',
+      country: 'France / USA',
+      sizes: 'about 50M to 500M',
+    },
   },
   {
     id: 'modernbert',
@@ -556,6 +719,14 @@ module.exports = [
     alternatives: ['deepvk-encoders', 'deberta-v3', 'xlm-roberta'],
     source: 'https://huggingface.co/answerdotai/ModernBERT-Large-Instruct',
     verified: true,
+    en: {
+      summary: 'A modern replacement for classic BERT: faster, reads up to 8 thousand tokens at once. A base for your own classifiers. Trained on English and code; for Russian there is RuModernBERT.',
+      tasks: ['Classifying requests and documents', 'Finding relevant passages in long texts', 'Base for your own classifier after fine-tuning'],
+      where: ['Customer support', 'Document management', 'Analytics'],
+      license: 'Apache 2.0',
+      developer: 'Answer.AI and LightOn',
+      country: 'USA / France',
+    },
   },
   {
     id: 'deberta-v3',
@@ -580,6 +751,13 @@ module.exports = [
     alternatives: ['modernbert', 'xlm-roberta', 'gliner'],
     source: 'https://huggingface.co/microsoft/deberta-v3-base',
     verified: true,
+    en: {
+      summary: 'A time-tested encoder behind many classifiers and NER models (including GLiNER). The multilingual mDeBERTa-v3 understands Russian.',
+      tasks: ['Classifying review sentiment', 'Entity extraction after fine-tuning', 'Checking whether a conclusion follows from a text'],
+      where: ['Customer support', 'Marketing and analytics', 'Legal departments'],
+      license: 'MIT',
+      country: 'USA',
+    },
   },
   {
     id: 'xlm-roberta',
@@ -604,6 +782,13 @@ module.exports = [
     alternatives: ['deberta-v3', 'rubert', 'bge-m3'],
     source: 'https://huggingface.co/facebook/xlm-roberta-xl',
     verified: true,
+    en: {
+      summary: 'A classic multilingual encoder for 100 languages, including Russian. The base of many sentiment, NER and embedding models, including BGE-M3.',
+      tasks: ['Detecting review sentiment in different languages', 'Extracting names and organizations after fine-tuning', 'Classifying requests'],
+      where: ['Customer support', 'Marketing', 'Review analytics'],
+      license: 'MIT',
+      country: 'USA',
+    },
   },
   {
     id: 'rubert',
@@ -628,6 +813,14 @@ module.exports = [
     alternatives: ['rubert-tiny', 'deepvk-encoders', 'giga-embeddings'],
     source: 'https://huggingface.co/ai-forever/ru-en-RoSBERTa',
     verified: true,
+    en: {
+      summary: 'Sber\'s Russian-language encoders trained on large Russian corpora. A base for classifiers, NER and semantic search in Russian.',
+      tasks: ['Classifying requests in Russian', 'Extracting names, amounts and dates after fine-tuning', 'Detecting review sentiment'],
+      where: ['Banking and insurance', 'Customer support', 'Document management'],
+      license: 'Apache 2.0 and MIT; the license for ruRoBERTa-large is not stated on the model card, needs checking',
+      country: 'Russia',
+      sizes: 'about 30M to 430M',
+    },
   },
   {
     id: 'rubert-tiny',
@@ -652,6 +845,14 @@ module.exports = [
     alternatives: ['rubert', 'deepvk-encoders'],
     source: 'https://huggingface.co/cointegrated/rubert-tiny2',
     verified: true,
+    en: {
+      summary: 'A very small Russian-English BERT that runs fast on a regular CPU. Ready-made fine-tuned versions exist for sentiment, toxicity and emotions.',
+      tasks: ['Detecting review sentiment', 'Filtering rude chat messages', 'Fast classification of requests'],
+      where: ['Customer support', 'Online stores', 'Chatbots'],
+      license: 'MIT',
+      developer: 'David Dale (cointegrated)',
+      country: 'Russia',
+    },
   },
   {
     id: 'deepvk-encoders',
@@ -676,5 +877,12 @@ module.exports = [
     alternatives: ['rubert', 'modernbert', 'giga-embeddings'],
     source: 'https://huggingface.co/deepvk/GeRaCl-USER2-base',
     verified: true,
+    en: {
+      summary: 'Russian encoders from the VK team: RuModernBERT reads long texts, USER produces vectors for search, GeRaCl classifies texts by topic without training.',
+      tasks: ['Classifying requests without labeled data', 'Knowledge base search in Russian', 'Analyzing long contracts'],
+      where: ['Customer support', 'Document management', 'Company knowledge bases'],
+      license: 'Apache 2.0',
+      country: 'Russia',
+    },
   },
 ];

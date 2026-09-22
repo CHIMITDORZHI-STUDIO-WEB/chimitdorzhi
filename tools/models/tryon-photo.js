@@ -25,6 +25,15 @@ module.exports = [
     alternatives: ['catvton', 'leffa', 'fashn-vton'],
     source: 'https://huggingface.co/api/models/yisol/IDM-VTON',
     verified: true,
+    en: {
+      summary: 'One of the best-known open virtual try-on models: moves a garment from a product photo onto a photo of a person, keeping prints and logos well. Non-commercial license.',
+      tasks: ['Pilot of a fitting room on a store website', 'Prototype product cards on a model without a photo shoot', 'Comparison with commercial try-on services'],
+      where: ['Online apparel retail', 'Marketplaces', 'Retail research departments'],
+      license: 'CC BY-NC-SA 4.0 (non-commercial use only)',
+      developer: 'KAIST and OMNIOUS.AI',
+      country: 'South Korea',
+      sizes: 'based on SDXL',
+    },
   },
   {
     id: 'catvton',
@@ -49,6 +58,14 @@ module.exports = [
     alternatives: ['fastfit', 'idm-vton', 'ootdiffusion'],
     source: 'https://huggingface.co/api/models?author=zhengchong',
     verified: true,
+    en: {
+      summary: 'A lightweight try-on model that runs on a regular GPU. There is a mask-free version and CatV2TON, which also tries clothes on in video.',
+      tasks: ['Trying a garment on a customer\'s photo', 'Draft product cards on a model', 'Try-on in a short video'],
+      where: ['Online apparel retail', 'Marketplaces', 'Fashion startups'],
+      license: 'CC BY-NC-SA 4.0 (CatVTON), CC BY-NC-ND 4.0 (CatV2TON) — non-commercial use only',
+      developer: 'Sun Yat-sen University and Pixocial',
+      country: 'China',
+    },
   },
   {
     id: 'fastfit',
@@ -73,6 +90,15 @@ module.exports = [
     alternatives: ['catvton', 'omnitry', 'any2anytryon'],
     source: 'https://github.com/Zheng-Chong/FastFit',
     verified: true,
+    en: {
+      summary: 'Tries on several items at once: top, bottom, shoes, bag. Faster than earlier models thanks to caching. Non-commercial license.',
+      tasks: ['Building an outfit from several products on one model', '"Build a look" pilot on a website', 'Lookbook prototypes without a shoot'],
+      where: ['Online apparel and footwear retail', 'Marketplaces', 'Fashion brands'],
+      license: 'FastFit Non-Commercial License (commercial use under agreement with LavieAI)',
+      developer: 'LavieAI and Sun Yat-sen University',
+      country: 'China',
+      sizes: 'based on SD 1.5 inpainting',
+    },
   },
   {
     id: 'ootdiffusion',
@@ -97,6 +123,14 @@ module.exports = [
     alternatives: ['idm-vton', 'catvton', 'stableviton'],
     source: 'https://huggingface.co/api/models/levihsu/OOTDiffusion/commits/main',
     verified: true,
+    en: {
+      summary: 'An early popular open try-on model: one version for upper-body garments, another for full-length outfits. Non-commercial license.',
+      tasks: ['Trying tops on a model photo', 'Full-length try-on: tops, bottoms, dresses', 'Fitting room prototype for testing'],
+      where: ['Online apparel retail', 'Marketplaces', 'Retail research departments'],
+      license: 'CC BY-NC-SA 4.0 (non-commercial use only)',
+      country: 'China',
+      sizes: 'based on Stable Diffusion',
+    },
   },
   {
     id: 'leffa',
@@ -121,6 +155,15 @@ module.exports = [
     alternatives: ['idm-vton', 'fashn-vton', 'catvton'],
     source: 'https://github.com/franciszzj/Leffa',
     verified: true,
+    en: {
+      summary: 'Meta\'s model for virtual try-on and changing a person\'s pose in a photo. Carefully transfers fine fabric details and lettering. MIT license, but the training data is non-commercial.',
+      tasks: ['Trying clothes on a model photo', 'Changing the model pose in an existing shot', 'Adding extra angles for a product card'],
+      where: ['Online apparel retail', 'Marketplaces', 'Photo studios and content teams'],
+      license: 'MIT for code and weights, but the weights were trained on the VITON-HD and DressCode datasets with non-commercial terms — for business use, check with a lawyer',
+      developer: 'Meta AI (with King\'s College London)',
+      country: 'USA',
+      sizes: 'based on Stable Diffusion',
+    },
   },
   {
     id: 'stableviton',
@@ -145,6 +188,14 @@ module.exports = [
     alternatives: ['idm-vton', 'ootdiffusion'],
     source: 'https://github.com/rlawjdghek/StableVITON',
     verified: true,
+    en: {
+      summary: 'A research try-on model from CVPR 2024, one of the first built on Stable Diffusion. Now mostly used as a comparison baseline.',
+      tasks: ['Pilot of upper-body garment try-on', 'Comparing quality of different try-on models', 'Training your own try-on on the open code'],
+      where: ['Online apparel retail', 'Retail research departments', 'Education'],
+      license: 'CC BY-NC-SA 4.0 (non-commercial use only)',
+      country: 'South Korea',
+      sizes: 'based on Stable Diffusion',
+    },
   },
   {
     id: 'fitdit',
@@ -169,6 +220,15 @@ module.exports = [
     alternatives: ['idm-vton', 'leffa', 'fashn-vton'],
     source: 'https://github.com/BoyuanJiang/FitDiT',
     verified: true,
+    en: {
+      summary: 'Tencent\'s transformer-based try-on: more accurately reproduces fabric texture, fine prints and garment length. Non-commercial license.',
+      tasks: ['Try-on of items with complex prints and textures', 'Test product cards on a model', 'Checking length and fit on a photo'],
+      where: ['Online apparel retail', 'Marketplaces', 'Fashion brands'],
+      license: 'CC BY-NC-SA 4.0 (non-commercial use only)',
+      developer: 'Tencent and Fudan University',
+      country: 'China',
+      sizes: 'based on SD3',
+    },
   },
   {
     id: 'any2anytryon',
@@ -193,6 +253,15 @@ module.exports = [
     alternatives: ['omnitry', 'fastfit', 'flux'],
     source: 'https://huggingface.co/api/models/loooooong/Any2anyTryon',
     verified: true,
+    en: {
+      summary: 'An all-round FLUX-based apparel toolkit: try-on, generating a model wearing a given item, and "taking off" an item from a person into a separate product photo.',
+      tasks: ['Try-on from a product photo', 'Photo of a model wearing an item from a text description', 'Clean product photo extracted from a shot of a person'],
+      where: ['Online apparel retail', 'Marketplaces', 'Content teams'],
+      license: 'License not stated; runs on top of FLUX.1 [dev] with a non-commercial license',
+      developer: 'Beijing University of Posts and Telecommunications and others',
+      country: 'China',
+      sizes: 'add-ons (LoRA) for FLUX.1 dev 12B',
+    },
   },
   {
     id: 'omnitry',
@@ -217,6 +286,14 @@ module.exports = [
     alternatives: ['any2anytryon', 'fashn-vton', 'flux'],
     source: 'https://github.com/Kunbyte-AI/OmniTry',
     verified: true,
+    en: {
+      summary: 'Try-on beyond clothing: glasses, earrings, bags, hats, watches and other accessories. Works without a mask. Needs a GPU with 28 GB or more.',
+      tasks: ['Trying accessories and jewelry on a photo', 'Product cards with an accessory on a model', 'Online fitting room for eyewear and jewelry'],
+      where: ['Jewelry and eyewear', 'Online accessory retail', 'Marketplaces'],
+      license: 'Apache 2.0 for the model itself, but it requires the base FLUX.1 Fill [dev] with a non-commercial license (for business — a Black Forest Labs license)',
+      country: 'China',
+      sizes: 'add-on for FLUX.1 Fill dev 12B',
+    },
   },
   {
     id: 'fashn-vton',
@@ -241,6 +318,13 @@ module.exports = [
     alternatives: ['leffa', 'idm-vton', 'omnitry'],
     source: 'https://huggingface.co/fashn-ai/fashn-vton-1.5',
     verified: true,
+    en: {
+      summary: 'A rare open try-on model with a commercial license: mask-free, accepts a photo of the item on a model or a flat lay. Weights are about 2 GB.',
+      tasks: ['Product cards on a model without a photo shoot', 'Fitting room on a store website', 'Catalog from flat-lay clothing photos'],
+      where: ['Online apparel retail', 'Marketplaces', 'Fashion brands'],
+      license: 'Apache 2.0',
+      country: 'Israel',
+    },
   },
 
   // ---------- Удаление фона ----------
@@ -267,6 +351,13 @@ module.exports = [
     alternatives: ['birefnet', 'ben2', 'inspyrenet'],
     source: 'https://huggingface.co/api/models?author=briaai',
     verified: true,
+    en: {
+      summary: 'BRIA\'s background removal, trained on licensed photos. Soft edges, hair, transparency. Video versions available. Business use requires a paid agreement.',
+      tasks: ['Cutting products out onto a white background', 'Staff and expert photos without background', 'Background removal in video'],
+      where: ['Online retail and marketplaces', 'Advertising and design', 'Photo studios'],
+      license: 'BRIA non-commercial license (RMBG-2.0 — CC BY-NC 4.0); for business — paid BRIA license',
+      country: 'Israel',
+    },
   },
   {
     id: 'birefnet',
@@ -291,6 +382,15 @@ module.exports = [
     alternatives: ['rmbg', 'ben2', 'inspyrenet'],
     source: 'https://huggingface.co/api/models?author=ZhengPeng7',
     verified: true,
+    en: {
+      summary: 'An open MIT-licensed model for precise object segmentation and background removal. RMBG-2.0 is built on it. Versions for 2K and for hair and semi-transparent edges.',
+      tasks: ['Bulk background removal from product photos', 'Precise masks for design and print', 'Cutting out people with hair for advertising'],
+      where: ['Online retail and marketplaces', 'Advertising and design', 'Printing'],
+      license: 'MIT',
+      developer: 'Nankai University',
+      country: 'China',
+      sizes: 'about 220M (lightweight lite versions available)',
+    },
   },
   {
     id: 'ben2',
@@ -315,6 +415,14 @@ module.exports = [
     alternatives: ['birefnet', 'rmbg'],
     source: 'https://huggingface.co/api/models?author=PramaLLC',
     verified: true,
+    en: {
+      summary: 'A background removal model focused on difficult edges: hair, fur, fine details. The open version is MIT-licensed and can process video.',
+      tasks: ['Cutting out products and people from photos', 'Background removal in video', 'Preparing photos for a catalog'],
+      where: ['Online retail', 'Advertising and social media', 'Video production'],
+      license: 'BEN — Apache 2.0, BEN2 base — MIT',
+      country: 'USA',
+      sizes: 'about 95M',
+    },
   },
   {
     id: 'inspyrenet',
@@ -339,6 +447,15 @@ module.exports = [
     alternatives: ['birefnet', 'rmbg', 'ben2'],
     source: 'https://github.com/plemeri/transparent-background',
     verified: true,
+    en: {
+      summary: 'A salient object detection model and the ready-made transparent-background tool built on it: removes backgrounds from photos, video and webcam with one command.',
+      tasks: ['Batch background removal from photos', 'Replacing the background with a color or blur', 'Background removal in video'],
+      where: ['Online retail', 'Photo studios', 'Design'],
+      license: 'MIT',
+      developer: 'Taehoon Kim (POSTECH)',
+      country: 'South Korea',
+      sizes: 'small (based on Swin-B)',
+    },
   },
 
   // ---------- Апскейл и восстановление ----------
@@ -365,6 +482,14 @@ module.exports = [
     alternatives: ['hat', 'seedvr', 'supir'],
     source: 'https://github.com/xinntao/Real-ESRGAN/releases',
     verified: true,
+    en: {
+      summary: 'The classic for upscaling photos 2–4x while cleaning noise and compression artifacts. Lightweight, runs even on a CPU. Versions for drawings and anime.',
+      tasks: ['Upscaling old and small product photos', 'Cleaning images of compression artifacts', 'Preparing images for print'],
+      where: ['Online retail', 'Printing', 'Media and archives'],
+      license: 'BSD-3-Clause',
+      country: 'China',
+      sizes: 'about 17M',
+    },
   },
   {
     id: 'swinir',
@@ -389,6 +514,14 @@ module.exports = [
     alternatives: ['hat', 'real-esrgan'],
     source: 'https://github.com/JingyunLiang/SwinIR/releases',
     verified: true,
+    en: {
+      summary: 'A transformer model for upscaling, denoising and removing JPEG artifacts from photos. Lightweight and proven; often embedded in other systems.',
+      tasks: ['Photo upscaling', 'Image denoising', 'Removing compression artifacts'],
+      where: ['Media and archives', 'Printing', 'Online retail'],
+      license: 'Apache 2.0',
+      country: 'Switzerland',
+      sizes: 'about 12M',
+    },
   },
   {
     id: 'hat',
@@ -413,6 +546,14 @@ module.exports = [
     alternatives: ['swinir', 'real-esrgan', 'supir'],
     source: 'https://github.com/XPixelGroup/HAT',
     verified: true,
+    en: {
+      summary: 'Transformer-based photo upscaling, more accurate than SwinIR on fine details. Versions for real noisy photos and a lightweight HAT-S.',
+      tasks: ['Upscaling product and interior photos', 'Preparing images for print', 'Sharpening archival photos'],
+      where: ['Printing', 'Online retail', 'Media and archives'],
+      license: 'Apache 2.0',
+      developer: 'XPixel Group (Shenzhen Institutes of Advanced Technology, Chinese Academy of Sciences, and others)',
+      country: 'China',
+    },
   },
   {
     id: 'supir',
@@ -437,6 +578,15 @@ module.exports = [
     alternatives: ['seedvr', 'stablesr', 'flux-upscaler'],
     source: 'https://github.com/Fanghua-Yu/SUPIR',
     verified: true,
+    en: {
+      summary: 'Powerful SDXL-based restoration of badly damaged photos: it recreates details rather than just upscaling. Hardware-hungry; non-commercial license.',
+      tasks: ['Restoring old and blurry photos', 'Upscaling with detail reconstruction', 'Archive restoration pilots'],
+      where: ['Media and archives', 'Photo studios', 'Museums and libraries'],
+      license: 'Non-commercial use only (commercial use with the authors\' written permission)',
+      developer: 'XPixel Group (Shenzhen Institutes of Advanced Technology, Chinese Academy of Sciences, Shanghai AI Lab and others)',
+      country: 'China',
+      sizes: 'based on SDXL, plus LLaVA 13B for captions',
+    },
   },
   {
     id: 'stablesr',
@@ -461,6 +611,15 @@ module.exports = [
     alternatives: ['supir', 'seedvr'],
     source: 'https://github.com/IceClear/StableSR',
     verified: true,
+    en: {
+      summary: 'One of the first Stable Diffusion-based photo upscalers: restores realistic details. Non-commercial license.',
+      tasks: ['Upscaling photos with detail reconstruction', 'Research restoration pilots', 'Comparison with classic upscalers'],
+      where: ['Media and archives', 'Photo studios', 'Education'],
+      license: 'NTU S-Lab License 1.0 (non-commercial)',
+      developer: 'S-Lab, Nanyang Technological University',
+      country: 'Singapore',
+      sizes: 'based on SD 2.1',
+    },
   },
   {
     id: 'seedvr',
@@ -485,6 +644,13 @@ module.exports = [
     alternatives: ['supir', 'real-esrgan', 'flux-upscaler'],
     source: 'https://huggingface.co/api/models/ByteDance-Seed/SeedVR2-7B',
     verified: true,
+    en: {
+      summary: 'ByteDance\'s video and photo restoration and upscaling. SeedVR2 does it in a single step, so it is noticeably faster than similar models. Commercial-friendly license.',
+      tasks: ['Upscaling photos and video to 2K–4K', 'Restoring old videos and photos', 'Enhancing user photos before publishing'],
+      where: ['Media and video production', 'Archives', 'Online retail'],
+      license: 'Apache 2.0',
+      country: 'China',
+    },
   },
   {
     id: 'flux-upscaler',
@@ -509,6 +675,14 @@ module.exports = [
     alternatives: ['seedvr', 'supir', 'flux'],
     source: 'https://huggingface.co/api/models/jasperai/Flux.1-dev-Controlnet-Upscaler',
     verified: true,
+    en: {
+      summary: 'A FLUX add-on for upscaling small and blurry images with detail reconstruction. Popular, but under the non-commercial FLUX dev license.',
+      tasks: ['Upscaling small images with detail reconstruction', 'Enhancing generated images', 'Upscaling pilots for a catalog'],
+      where: ['Advertising and design', 'Content teams', 'Online retail'],
+      license: 'FLUX.1 [dev] Non-Commercial License',
+      country: 'USA',
+      sizes: 'add-on for FLUX.1 dev 12B',
+    },
   },
 
   // ---------- Реставрация лиц ----------
@@ -535,6 +709,15 @@ module.exports = [
     alternatives: ['gfpgan', 'supir'],
     source: 'https://github.com/sczhou/CodeFormer',
     verified: true,
+    en: {
+      summary: 'Popular face restoration for old and blurry photos; also works on video. Has face inpainting and colorization modes. Non-commercial license.',
+      tasks: ['Restoring faces in old photos', 'Enhancing faces in low-quality video', 'Family archive restoration pilots'],
+      where: ['Photo studios and photo shops', 'Media and archives', 'Museums'],
+      license: 'NTU S-Lab License 1.0 (non-commercial)',
+      developer: 'S-Lab, Nanyang Technological University',
+      country: 'Singapore',
+      sizes: 'small, up to 0.1B',
+    },
   },
   {
     id: 'gfpgan',
@@ -559,6 +742,14 @@ module.exports = [
     alternatives: ['codeformer', 'real-esrgan'],
     source: 'https://github.com/TencentARC/GFPGAN/releases',
     verified: true,
+    en: {
+      summary: 'Proven face restoration for old and compressed photos, with a commercial-friendly license. Often paired with Real-ESRGAN; the most used versions are 1.3 and 1.4.',
+      tasks: ['Restoring faces in old photos', 'Enhancing avatars and profile photos', 'Restoration in a photo shop or online service'],
+      where: ['Photo studios and photo shops', 'Media and archives', 'Online photo editing services'],
+      license: 'Apache 2.0',
+      country: 'China',
+      sizes: 'small, up to 0.1B',
+    },
   },
 
   // ---------- Удаление объектов, свет, цвет ----------
@@ -585,6 +776,15 @@ module.exports = [
     alternatives: ['powerpaint', 'flux'],
     source: 'https://github.com/advimman/lama',
     verified: true,
+    en: {
+      summary: 'Removes unwanted objects, text and watermarks from photos with clean background fill. Lightweight and fast; still the standard for this task.',
+      tasks: ['Removing price tags, people and clutter from photos', 'Cleaning interior and real estate photos', 'Removing text and dates from archival photos'],
+      where: ['Real estate', 'Online retail', 'Photo studios'],
+      license: 'Apache 2.0',
+      developer: 'Samsung AI Center Moscow (with Skoltech)',
+      country: 'Russia',
+      sizes: 'about 51M',
+    },
   },
   {
     id: 'powerpaint',
@@ -609,6 +809,15 @@ module.exports = [
     alternatives: ['lama', 'flux', 'controlnet'],
     source: 'https://github.com/open-mmlab/PowerPaint',
     verified: true,
+    en: {
+      summary: 'All-round photo inpainting: remove an object, insert a new one from a description, change a shape or extend the frame beyond its edges.',
+      tasks: ['Removing and replacing objects in photos', 'Extending the frame to a required format', 'Inserting a product or detail from a text description'],
+      where: ['Advertising and design', 'Online retail', 'Real estate'],
+      license: 'MIT (code), Apache 2.0 (v2-1 weights)',
+      developer: 'Shanghai AI Laboratory (OpenMMLab) and Tsinghua University',
+      country: 'China',
+      sizes: 'based on SD 1.5',
+    },
   },
   {
     id: 'ic-light',
@@ -633,6 +842,15 @@ module.exports = [
     alternatives: ['controlnet', 'stable-diffusion', 'rmbg'],
     source: 'https://github.com/lllyasviel/IC-Light',
     verified: true,
+    en: {
+      summary: 'Changes lighting in a photo: relights an object or person from a description or to match a given background, so a cut-out looks natural.',
+      tasks: ['Matching product lighting to a new background', 'Studio lighting for portraits without a reshoot', 'Consistent lighting style across a catalog'],
+      where: ['Online retail', 'Advertising and design', 'Photo studios'],
+      license: 'Apache 2.0 (the newer FLUX-based IC-Light v2 has not been released openly)',
+      developer: 'Lvmin Zhang (author of ControlNet)',
+      country: 'USA',
+      sizes: 'based on SD 1.5',
+    },
   },
   {
     id: 'ddcolor',
@@ -657,5 +875,13 @@ module.exports = [
     alternatives: ['codeformer', 'gfpgan'],
     source: 'https://github.com/piddnad/DDColor',
     verified: true,
+    en: {
+      summary: 'Colorizes black-and-white photos in natural colors. A lightweight model with a commercial-friendly license; a compact tiny version is available.',
+      tasks: ['Colorizing archival photos', 'Color versions of historical photos for publications', 'Family photo restoration service'],
+      where: ['Media and archives', 'Museums and libraries', 'Photo studios'],
+      license: 'Apache 2.0',
+      country: 'China',
+      sizes: 'DDColor-T (tiny) and DDColor-L',
+    },
   },
 ];

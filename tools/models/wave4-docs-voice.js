@@ -25,6 +25,13 @@ module.exports = [
     alternatives: ['deepseek-ocr', 'paddleocr-vl', 'dots-ocr'],
     source: 'https://huggingface.co/api/models/baidu/Unlimited-OCR',
     verified: true,
+    en: {
+      summary: 'Baidu\'s OCR model building on DeepSeek-OCR ideas: processes multi-page documents and PDFs in a single pass and outputs structured text. Claimed to be multilingual, but the language list is not published.',
+      tasks: ['Converting multi-page PDFs and scans to text and Markdown', 'Recognizing contracts, invoices and reports', 'Preparing document archives for search and RAG'],
+      where: ['Document management', 'Accounting', 'Legal departments', 'Archives'],
+      license: 'MIT',
+      country: 'China',
+    },
   },
   {
     id: 'nuextract',
@@ -49,6 +56,13 @@ module.exports = [
     alternatives: ['gliner', 'olmocr', 'docling'],
     source: 'https://huggingface.co/api/models/numind/NuExtract3',
     verified: true,
+    en: {
+      summary: 'Models for template-based data extraction: give it a document or scan and a JSON field template, get a filled-in JSON back. NuExtract3 (4B) also converts scans to Markdown.',
+      tasks: ['Extracting company details, amounts and dates from invoices and contracts into JSON', 'Parsing receipts, waybills and forms against a set template', 'Converting scans to Markdown for search', 'Filling CRM and accounting system records from emails'],
+      where: ['Accounting and document management', 'Legal departments', 'Logistics and procurement', 'Banking and insurance'],
+      license: 'NuExtract 1.x and 2.0 (2B, 8B) are MIT, NuExtract3 is Apache 2.0; exception: NuExtract-2.0-4B is under the Qwen research license',
+      country: 'France',
+    },
   },
   {
     id: 'surya',
@@ -73,6 +87,14 @@ module.exports = [
     alternatives: ['chandra-ocr', 'pp-ocr', 'docling'],
     source: 'https://huggingface.co/datalab-to/surya-ocr-2',
     verified: true,
+    en: {
+      summary: 'A compact OCR toolkit from the makers of Marker and Chandra: text recognition, page layout, reading order and tables. Surya OCR 2 (650M) also runs on a CPU; Russian scored 88.8% in benchmarks.',
+      tasks: ['Recognizing scans and PDFs, including in Russian', 'Page layout: headings, tables, images, reading order', 'Recognizing tables by rows and columns', 'Batch processing of large archives on your own server'],
+      where: ['Document management', 'Accounting', 'Archives and libraries', 'Legal departments'],
+      license: 'Code Apache 2.0; weights under a modified AI Pubs OpenRAIL-M: free for research, personal use and companies with revenue and funding up to $5 million, a paid license for everyone else. Early 2024 weights are CC BY-NC-SA',
+      country: 'USA',
+      sizes: 'up to 650M',
+    },
   },
   {
     id: 'pp-ocr',
@@ -97,6 +119,14 @@ module.exports = [
     alternatives: ['paddleocr-vl', 'surya', 'docling'],
     source: 'https://huggingface.co/PaddlePaddle/PP-OCRv6_medium_rec',
     verified: true,
+    en: {
+      summary: 'Classic lightweight PaddleOCR models: detecting and recognizing lines of text plus page layout. They run on CPUs and phones; there is a separate model for East Slavic languages, including Russian.',
+      tasks: ['Recognizing text on scans, photos and screens', 'Reading labels, displays and markings in production and warehouses', 'Page layout: tables, formulas, stamps, headings', 'Embedding OCR in mobile and offline apps'],
+      where: ['Document management', 'Warehousing and logistics', 'Manufacturing', 'Retail'],
+      license: 'Apache 2.0',
+      country: 'China',
+      sizes: 'from 1.5M to tens of millions of parameters',
+    },
   },
   {
     id: 'table-transformer',
@@ -121,6 +151,13 @@ module.exports = [
     alternatives: ['docling', 'pp-ocr', 'surya'],
     source: 'https://huggingface.co/api/models/microsoft/table-transformer-structure-recognition-v1.1-all',
     verified: true,
+    en: {
+      summary: 'Small models that find tables on PDF and scanned pages and restore their structure: rows, columns, headers. The text inside is read by a separate OCR.',
+      tasks: ['Finding tables in reports, statements and invoices', 'Restoring rows and columns for export to Excel', 'Preparing tabular data for analysis and RAG'],
+      where: ['Accounting and finance', 'Document management', 'Analytics'],
+      license: 'MIT',
+      country: 'USA',
+    },
   },
   {
     id: 'layoutlm',
@@ -145,6 +182,14 @@ module.exports = [
     alternatives: ['nuextract', 'florence-2', 'docling'],
     source: 'https://huggingface.co/api/models/microsoft/layoutlmv3-base',
     verified: true,
+    en: {
+      summary: 'Classic document understanding models: they take into account the text, its position on the page and the image. They are fine-tuned to extract fields from forms and receipts. Only the first version is free for commercial use.',
+      tasks: ['Extracting fields from questionnaires, forms and receipts after fine-tuning', 'Classifying document types', 'Answering questions about a scanned page'],
+      where: ['Document management', 'Insurance and banking', 'Research'],
+      license: 'LayoutLM v1 is MIT; LayoutLMv2, LayoutXLM and LayoutLMv3 are CC BY-NC-SA 4.0 (non-commercial)',
+      country: 'USA',
+      sizes: 'about 110M – 370M',
+    },
   },
   {
     id: 'trocr',
@@ -169,6 +214,13 @@ module.exports = [
     alternatives: ['pp-ocr', 'surya', 'got-ocr'],
     source: 'https://github.com/microsoft/unilm/tree/master/trocr',
     verified: true,
+    en: {
+      summary: 'Recognizes a single line of text, including handwriting. The official weights are English only, but the model is often fine-tuned for other languages; there are community Russian versions.',
+      tasks: ['Recognizing handwritten lines in questionnaires and forms', 'Recognizing printed lines after text detection on the page', 'A base for fine-tuning to your own handwriting or font'],
+      where: ['Document management', 'Archives', 'Education'],
+      license: 'MIT',
+      country: 'USA',
+    },
   },
 
   // ---------- ГОЛОС: определение речи и конца реплики ----------
@@ -195,6 +247,14 @@ module.exports = [
     alternatives: ['ten-vad', 'fireredvad', 'smart-turn'],
     source: 'https://github.com/snakers4/silero-vad',
     verified: true,
+    en: {
+      summary: 'The most popular open speech detector: tells voice apart from silence and noise. Processes an audio chunk in under a millisecond on a single CPU core; trained on recordings in more than 6,000 languages.',
+      tasks: ['Cutting calls and recordings before speech recognition', 'Detecting when the customer is speaking in a voice bot', 'Filtering out silence and noise to save on transcription'],
+      where: ['Call centers', 'Voice bots and assistants', 'Media and podcasts'],
+      license: 'MIT',
+      country: 'Russia',
+      sizes: 'about 2 MB',
+    },
   },
   {
     id: 'ten-vad',
@@ -219,6 +279,15 @@ module.exports = [
     alternatives: ['silero-vad', 'fireredvad', 'smart-turn'],
     source: 'https://github.com/TEN-framework/ten-vad',
     verified: true,
+    en: {
+      summary: 'A lightweight speech detector for real-time voice assistants: it notices the start and end of a phrase faster than Silero VAD. Runs on servers, phones and in the browser.',
+      tasks: ['Zero-lag speech detection in a voice bot', 'Fast assistant response at the end of a phrase', 'Use in mobile apps and the browser'],
+      where: ['Voice bots', 'Call centers', 'Product development'],
+      license: 'Apache 2.0 with additional terms: it may not be used in products competing with Agora or to let third parties build their own apps on it',
+      developer: 'Agora (TEN project)',
+      country: 'USA / China',
+      sizes: 'very small, the library is smaller than Silero VAD',
+    },
   },
   {
     id: 'smart-turn',
@@ -243,6 +312,13 @@ module.exports = [
     alternatives: ['silero-vad', 'ten-vad', 'moshi'],
     source: 'https://huggingface.co/api/models/pipecat-ai/smart-turn-v3/commits/main',
     verified: true,
+    en: {
+      summary: 'Uses intonation to tell whether a person has finished a thought or just paused, so a voice bot does not interrupt. Version 3 is 8 MB, runs on a CPU and understands 23 languages, including Russian.',
+      tasks: ['Voice bot does not interrupt the customer during pauses', 'Fast reply when the customer has really finished', 'An add-on to a standard speech detector in voice assistants'],
+      where: ['Call centers', 'Voice bots and assistants', 'Appointment booking and delivery'],
+      license: 'BSD 2-Clause',
+      country: 'USA',
+    },
   },
   {
     id: 'fireredvad',
@@ -267,6 +343,14 @@ module.exports = [
     alternatives: ['silero-vad', 'ten-vad', 'pyannote'],
     source: 'https://huggingface.co/FireRedTeam/FireRedVAD',
     verified: true,
+    en: {
+      summary: 'A speech and sound event detector: tells apart speech, singing and music. In a 102-language test (the FLEURS set, which includes Russian) it beat Silero VAD and TEN VAD. Has a streaming mode.',
+      tasks: ['Cutting recordings before speech recognition', 'Separating speech from music and singing in broadcasts and videos', 'Speech detection in voice bots'],
+      where: ['Call centers', 'Media and video production', 'Voice bots'],
+      license: 'Apache 2.0',
+      country: 'China',
+      sizes: 'compact, exact size not stated',
+    },
   },
 
   // ---------- ГОЛОС: синтез речи ----------
@@ -293,6 +377,13 @@ module.exports = [
     alternatives: ['f5-tts', 'cosyvoice', 'fish-speech'],
     source: 'https://github.com/k2-fsa/OmniVoice',
     verified: true,
+    en: {
+      summary: 'Speech synthesis with voice cloning from a short sample in 646 languages, including Russian and languages of Russia\'s peoples. A voice can be described in words. Weights are for non-commercial use only.',
+      tasks: ['Voiceover in rare languages', 'Voice cloning from a sample', 'Research and prototypes of multilingual voiceover'],
+      where: ['Research', 'Education', 'Media (non-commercial projects)'],
+      license: 'Code Apache 2.0, weights CC BY-NC (non-commercial because of the training data)',
+      country: 'China',
+    },
   },
   {
     id: 'supertonic',
@@ -317,6 +408,14 @@ module.exports = [
     alternatives: ['piper', 'kokoro', 'silero'],
     source: 'https://huggingface.co/api/models/Supertone/supertonic-3',
     verified: true,
+    en: {
+      summary: 'Very fast, lightweight speech synthesis that runs directly on the device, without a GPU or the cloud. Supertonic 3 speaks 31 languages, including Russian.',
+      tasks: ['Voicing voice bot replies on an ordinary server', 'Voiceover in offline and mobile apps', 'Reading texts and notifications aloud'],
+      where: ['Voice bots', 'Mobile apps', 'Education'],
+      license: 'Code MIT, weights OpenRAIL-M (commercial use allowed, but with a list of prohibited uses)',
+      country: 'South Korea',
+      sizes: 'about 99M',
+    },
   },
   {
     id: 'melotts',
@@ -341,6 +440,15 @@ module.exports = [
     alternatives: ['piper', 'kokoro', 'openvoice'],
     source: 'https://github.com/myshell-ai/MeloTTS',
     verified: true,
+    en: {
+      summary: 'Lightweight multilingual speech synthesis that keeps up in real time on an ordinary CPU. English with accents, Spanish, French, Chinese, Japanese and Korean; no Russian.',
+      tasks: ['Voicing bot replies in foreign languages', 'Voicing training materials', 'Reading texts aloud on a server without a GPU'],
+      where: ['Voice bots', 'Education', 'Media'],
+      license: 'MIT',
+      developer: 'MyShell and MIT',
+      country: 'USA',
+      sizes: 'small, runs in real time on a CPU',
+    },
   },
   {
     id: 'kyutai-tts-stt',
@@ -365,6 +473,13 @@ module.exports = [
     alternatives: ['moshi', 'kokoro', 'parakeet'],
     source: 'https://github.com/kyutai-labs/pocket-tts/releases',
     verified: true,
+    en: {
+      summary: 'Streaming speech recognition and synthesis models from the makers of Moshi: they start speaking and transcribing without waiting for the end of a phrase. Pocket TTS (100M) runs on a CPU. English, French and a few other European languages, no Russian.',
+      tasks: ['Streaming speech transcription for voice bots', 'Voicing replies with minimal delay', 'Speech synthesis on a server without a GPU (Pocket TTS)'],
+      where: ['Voice bots', 'Call centers', 'Product development'],
+      license: 'CC BY 4.0 (weights), code MIT and Apache 2.0',
+      country: 'France',
+    },
   },
   {
     id: 'espeech-tts',
@@ -389,5 +504,14 @@ module.exports = [
     alternatives: ['f5-tts', 'silero', 'xtts'],
     source: 'https://huggingface.co/api/models/ESpeech/ESpeech-TTS-1_RL-V2',
     verified: true,
+    en: {
+      summary: 'Russian speech synthesis with voice cloning based on the F5-TTS architecture, trained on Russian speech datasets collected by the authors. Stress is placed automatically. Several variants, including a "podcaster" one.',
+      tasks: ['Voicing videos and audiobooks in Russian', 'Cloning a narrator\'s voice from a sample', 'Voice for a bot or assistant in Russian'],
+      where: ['Media and content', 'Voice bots', 'Education'],
+      license: 'Apache 2.0 according to the HF model card; the model is built on the F5-TTS architecture, whose official weights are non-commercial, so check with a lawyer before commercial launch',
+      developer: 'ESpeech (independent group of Russian-speaking developers)',
+      country: 'Russia',
+      sizes: 'about 340M',
+    },
   },
 ];

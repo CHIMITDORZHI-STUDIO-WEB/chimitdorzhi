@@ -23,6 +23,14 @@ module.exports = [
     alternatives: ['vikhr', 't-pro', 'ruadapt-qwen'],
     source: 'https://huggingface.co/IlyaGusev/saiga_gemma3_12b',
     verified: true,
+    en: {
+      summary: 'The best-known Russian community fine-tune: open models (Llama, Mistral, Gemma, YandexGPT) trained to act as a Russian-speaking assistant. A convenient starting point for a Russian chatbot on your own server.',
+      tasks: ['Russian-language chat assistant', 'Answers based on the company knowledge base', 'Drafts of emails, descriptions and posts in Russian', 'Summarizing and simplifying Russian texts'],
+      where: ['Customer support', 'Marketing and content', 'Internal services for employees', 'Small business without an API budget'],
+      license: 'LoRA adapters: CC-BY 4.0; the complete model inherits the base license: Llama Community License, Gemma Terms, Apache 2.0 for the Mistral Nemo version, YandexGPT\'s own license for the YandexGPT 5 Lite version',
+      developer: 'Ilya Gusev (IlyaGusev)',
+      country: 'Russia',
+    },
   },
   {
     id: 'ruadapt-qwen',
@@ -47,6 +55,14 @@ module.exports = [
     alternatives: ['qwen', 'saiga', 't-pro'],
     source: 'https://huggingface.co/RefalMachine/RuadaptQwen3-4B-Instruct',
     verified: true,
+    en: {
+      summary: 'Qwen models adapted for Russian: a new tokenizer plus further training on Russian texts. As a result, Russian text is generated up to twice as fast as with the original model of the same size.',
+      tasks: ['Russian-language assistant on your own server', 'Answers based on company documents (RAG) in Russian', 'Analysis and summaries of long Russian texts', 'Step-by-step reasoning in versions with a thinking mode'],
+      where: ['Customer support', 'Legal and document management', 'Analytics', 'IT department'],
+      license: 'Apache 2.0 for the main versions based on Qwen2.5 and Qwen3; the Qwen2.5-3B version inherits Qwen\'s research license',
+      developer: 'Lomonosov Moscow State University Research Computing Center, LAIR lab (RefalMachine)',
+      country: 'Russia',
+    },
   },
   {
     id: 'rugpt',
@@ -71,6 +87,14 @@ module.exports = [
     alternatives: ['gigachat', 'mgpt', 'saiga'],
     source: 'https://huggingface.co/ai-forever/ruGPT-3.5-13B',
     verified: true,
+    en: {
+      summary: 'Sber\'s 13-billion-parameter base Russian model; GigaChat grew out of its fine-tuned version. Continues texts in Russian and English, context only 2048 tokens; today useful as a base for narrow fine-tuning.',
+      tasks: ['Base for fine-tuning on a narrow Russian-language task', 'Generating template Russian texts', 'Experiments with Russian-language models without license restrictions'],
+      where: ['IT departments and R&D', 'Content teams', 'Education'],
+      license: 'MIT',
+      developer: 'Sber (ai-forever)',
+      country: 'Russia',
+    },
   },
   {
     id: 'mgpt',
@@ -95,6 +119,14 @@ module.exports = [
     alternatives: ['rugpt', 'bloom', 'aya'],
     source: 'https://huggingface.co/ai-forever/mGPT-1.3B-buryat',
     verified: true,
+    en: {
+      summary: 'Sber\'s multilingual model covering 61 languages, including languages of the peoples of Russia and the CIS. Separate fine-tunes exist for Buryat, Yakut, Tatar, Bashkir, Kazakh and others, rare for open models.',
+      tasks: ['Texts in languages of the peoples of Russia and the CIS', 'Base for fine-tuning on a less common language', 'Drafts and templates in several languages'],
+      where: ['Regional media and administrations', 'Education and culture', 'Companies operating in the CIS'],
+      license: 'Apache 2.0 (mGPT 1.3B), MIT (mGPT 13B and language versions)',
+      developer: 'Sber (ai-forever)',
+      country: 'Russia',
+    },
   },
   {
     id: 'fred-t5',
@@ -119,6 +151,14 @@ module.exports = [
     alternatives: ['flan-t5', 'rubert', 'rugpt'],
     source: 'https://huggingface.co/ai-forever/sage-fredt5-large',
     verified: true,
+    en: {
+      summary: 'Sber\'s Russian text-to-text model, successor to ruT5 (2021). Small and fast: fine-tuned for summarizing, paraphrasing and fixing errors in Russian text; ready-made SAGE spell-checking versions exist.',
+      tasks: ['Fixing spelling mistakes and typos in Russian text', 'Short summaries and paraphrasing', 'Normalizing requests and inquiries before processing', 'Base for low-cost narrow fine-tuning'],
+      where: ['Customer support', 'Content and editorial teams', 'Processing requests and forms'],
+      license: 'Apache 2.0 (FRED-T5), MIT (spell-checking versions)',
+      developer: 'Sber (ai-forever)',
+      country: 'Russia',
+    },
   },
   {
     id: 'vosk',
@@ -143,6 +183,14 @@ module.exports = [
     alternatives: ['gigaam', 't-one', 'whisper'],
     source: 'https://huggingface.co/alphacep/vosk-model-streaming-ru',
     verified: true,
+    en: {
+      summary: 'Offline Russian speech recognition that runs even on a Raspberry Pi or a phone, without internet. Streaming models for live audio and simple Russian speech synthesis, Vosk TTS, are available.',
+      tasks: ['Transcribing Russian calls and recordings without the cloud', 'Voice control in apps and kiosks', 'Low-latency streaming speech recognition', 'Simple Russian text-to-speech'],
+      where: ['Call centers', 'Embedded devices and kiosks', 'Mobile apps', 'Companies with a closed IT environment'],
+      license: 'Apache 2.0',
+      country: 'Russia',
+      sizes: 'about 45 MB – 1.8 GB',
+    },
   },
   {
     id: 'hermes',
@@ -167,6 +215,13 @@ module.exports = [
     alternatives: ['llama', 'dolphin', 'tulu'],
     source: 'https://huggingface.co/NousResearch/Hermes-4.3-36B',
     verified: true,
+    en: {
+      summary: 'Nous Research fine-tunes on top of Llama, Mistral, Qwen and Seed-OSS. Valued for precise instruction following, function calling and strict JSON output; they refuse less often than the originals; Hermes 4 has a reasoning mode.',
+      tasks: ['Agents that call functions and APIs', 'Data extraction in strict JSON format', 'Assistant with flexible role and tone settings', 'Role-play scenarios and dialogue simulators'],
+      where: ['IT and automation', 'Customer support', 'Staff training', 'Games and entertainment'],
+      license: 'Depends on the base: Hermes 4 14B and 4.3 36B, OpenHermes and Mistral-based versions: Apache 2.0; Llama 3 versions: Llama Community License; early LLaMA 1 versions: non-commercial only',
+      country: 'USA',
+    },
   },
   {
     id: 'dolphin',
@@ -191,6 +246,14 @@ module.exports = [
     alternatives: ['hermes', 'llama-guard', 'mistral'],
     source: 'https://huggingface.co/dphn/Dolphin-X1-Trinity-Nano',
     verified: true,
+    en: {
+      summary: 'Uncensored fine-tunes of Llama, Mistral, Qwen and others that fulfill almost any request. Filtering and moderation are fully on the deployer; do not show it to customers without your own filter.',
+      tasks: ['Assistant that does not refuse legal but sensitive topics', 'Internal tools under a strict system prompt', 'Role-play and creative scenarios', 'Base for your own model with your own rules'],
+      where: ['Internal IT tools', 'Research and security testing', 'Creative teams'],
+      license: 'Depends on the base: Mistral, Qwen and Tulu 3 versions: Apache 2.0; Llama versions: Llama Community License; Dolphin-Xgen-RL: CC-BY-NC (non-commercial)',
+      developer: 'Cognitive Computations (Eric Hartford)',
+      country: 'USA',
+    },
   },
   {
     id: 'openchat',
@@ -215,6 +278,14 @@ module.exports = [
     alternatives: ['zephyr', 'mistral', 'hermes'],
     source: 'https://huggingface.co/openchat/openchat-3.6-8b-20240522',
     verified: true,
+    en: {
+      summary: 'Fine-tunes of Mistral 7B and Llama 3 8B using the C-RLFT method that caught up with ChatGPT-3.5 in 2023–2024 at just 7–8B. A lightweight general-purpose assistant for a modest server.',
+      tasks: ['Chat assistant on an inexpensive server', 'Drafts of emails and replies', 'Help with simple code', 'Classification and analysis of requests'],
+      where: ['Small business', 'Customer support', 'IT department'],
+      license: 'OpenChat 3.5: Apache 2.0; 3.6: Llama 3 Community License; early LLaMA-based versions: non-commercial',
+      developer: 'OpenChat (Tsinghua University)',
+      country: 'China',
+    },
   },
   {
     id: 'zephyr',
@@ -239,6 +310,13 @@ module.exports = [
     alternatives: ['openchat', 'mistral', 'tulu'],
     source: 'https://huggingface.co/HuggingFaceH4/zephyr-orpo-141b-A35b-v0.1',
     verified: true,
+    en: {
+      summary: 'Hugging Face educational chat models based on Mistral, Gemma and Mixtral with an open fine-tuning recipe. Zephyr 7B Beta showed a small model can be trained to large-model level without human labeling.',
+      tasks: ['Lightweight chat assistant', 'Reference and starting point for your own fine-tuning', 'Drafts of texts and replies'],
+      where: ['IT and R&D', 'Education', 'Small business'],
+      license: 'MIT (Zephyr 7B), Apache 2.0 (Zephyr 141B); the Gemma-based version: Gemma Terms',
+      country: 'USA',
+    },
   },
   {
     id: 'vicuna',
@@ -263,6 +341,14 @@ module.exports = [
     alternatives: ['llama', 'openchat', 'zephyr'],
     source: 'https://huggingface.co/lmsys/vicuna-13b-v1.5-16k',
     verified: true,
+    en: {
+      summary: 'One of the first open chat models (2023): LLaMA fine-tuned on user conversations with ChatGPT. A historical milestone; today it is weaker than any modern model of the same size.',
+      tasks: ['Experiments and team training', 'Simple chat assistant for tests', 'Comparison with newer models'],
+      where: ['R&D', 'Education'],
+      license: 'v1.5: Llama 2 Community License; early LLaMA 1 versions (v0 released only as weight deltas): non-commercial',
+      developer: 'LMSYS (Berkeley and partners)',
+      country: 'USA',
+    },
   },
   {
     id: 'wizardlm',
@@ -287,6 +373,14 @@ module.exports = [
     alternatives: ['vicuna', 'code-llama', 'hermes'],
     source: 'https://huggingface.co/WizardLMTeam/WizardCoder-33B-V1.1',
     verified: true,
+    en: {
+      summary: 'Fine-tunes of Llama, Mistral and StarCoder using Evol-Instruct, which automatically makes instructions more complex. WizardLM-2 was released in April 2024 and removed almost immediately, so only the 2023 versions are relevant.',
+      tasks: ['Complex multi-step instructions', 'Help for developers', 'Solving math problems', 'Experiments with fine-tuning methods'],
+      where: ['IT department', 'Education', 'R&D'],
+      license: 'Depends on the base: Llama 2 versions: Llama 2 Community License; WizardCoder 33B: DeepSeek license; early LLaMA 1 versions: non-commercial',
+      developer: 'WizardLM (Microsoft and Peking University)',
+      country: 'USA / China',
+    },
   },
   {
     id: 'tulu',
@@ -311,5 +405,12 @@ module.exports = [
     alternatives: ['olmo', 'llama', 'hermes'],
     source: 'https://huggingface.co/allenai/Llama-3.1-Tulu-3.1-8B',
     verified: true,
+    en: {
+      summary: 'Ai2 fine-tunes of Llama with a fully open recipe: data, code and all intermediate stages. Tulu 3 405B is one of the largest openly fine-tuned models; OLMo chat versions use the same recipe.',
+      tasks: ['Employee assistant on your own server', 'Math and precise instruction following', 'Reference recipe for your own fine-tuning'],
+      where: ['IT and R&D', 'Analytics', 'Education'],
+      license: 'Tulu 3: Llama 3.1 Community License; Tulu 2: Ai2 ImpACT Low-Risk; the first version was released as weight deltas to LLaMA 1',
+      country: 'USA',
+    },
   },
 ];

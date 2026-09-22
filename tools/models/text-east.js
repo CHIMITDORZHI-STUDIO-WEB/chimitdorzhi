@@ -20,6 +20,13 @@ module.exports = [
     alternatives: ['deepseek-r1', 'kimi', 'glm'],
     source: 'https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash',
     verified: true,
+    en: {
+      summary: 'DeepSeek\'s flagship line: from the first 7B/67B to V4-Pro with 1.6 trillion parameters. Closed-model quality under an open MIT license; V4-Flash-Vision-Exp and V4.1-Flash understand images, context up to 1M tokens.',
+      tasks: ['Employee assistant on your own server', 'Analysis of long contracts and reports', 'Agents that work with tools and APIs', 'Help for developers'],
+      where: ['Legal and finance', 'Customer support', 'IT department', 'Analytics'],
+      license: 'MIT (V2 and earlier versions: DeepSeek\'s own license prohibiting harmful use)',
+      country: 'China',
+    },
   },
   {
     id: 'kimi',
@@ -41,6 +48,13 @@ module.exports = [
     alternatives: ['deepseek', 'glm', 'kimi-vl'],
     source: 'https://huggingface.co/moonshotai/Kimi-K3',
     verified: true,
+    en: {
+      summary: 'Very large Moonshot MoE models for agentic work. K3 (2.8 trillion parameters) was the largest open model at release, with up to 1M tokens of context and image understanding; K2.7-Code is built for programming.',
+      tasks: ['Multi-step agents: search, data collection, reports', 'In-depth document analysis', 'Help for developers', 'Analysis of screenshots and spreadsheets'],
+      where: ['Analytics departments', 'Software development', 'Consulting', 'Market research'],
+      license: 'K2–K2.7-Code: modified MIT (at 100 million users or $20 million monthly revenue, Kimi must be credited in the interface); K3: own Kimi K3 License, API businesses with revenue from $20 million a year need a separate agreement',
+      country: 'China',
+    },
   },
   {
     id: 'glm',
@@ -62,6 +76,13 @@ module.exports = [
     alternatives: ['deepseek', 'kimi', 'minimax'],
     source: 'https://huggingface.co/zai-org/GLM-5.3',
     verified: true,
+    en: {
+      summary: 'One of the oldest Chinese open lines: from ChatGLM-6B to GLM-5.3. Strong at agentic tasks and programming; GLM-5.3-Flash understands images and is released under MIT.',
+      tasks: ['Corporate chat assistant', 'Agents for routine office tasks', 'Help for developers', 'Working with long documents'],
+      where: ['IT department', 'Customer support', 'Document management', 'Education'],
+      license: 'GLM-4.5 – GLM-5.2 and GLM-5.3-Flash: MIT; GLM-5.3: own license (API providers with revenue from $10 billion need a review by Z.ai); early ChatGLM and GLM-4-9B: own license with registration',
+      country: 'China',
+    },
   },
   {
     id: 'minimax',
@@ -83,6 +104,13 @@ module.exports = [
     alternatives: ['glm', 'kimi', 'deepseek'],
     source: 'https://huggingface.co/MiniMaxAI/MiniMax-M3',
     verified: true,
+    en: {
+      summary: 'Large MoE models with very long context (up to 1M tokens for Text-01 and M3). M3 is multimodal and understands images. Licenses differ greatly from version to version.',
+      tasks: ['Analysis of large document archives in a single request', 'Agents with tools', 'Help for developers', 'Conversational characters and scenarios'],
+      where: ['Lawyers', 'Analytics', 'Software development', 'Content and entertainment'],
+      license: 'Mixed: M1: Apache 2.0; M2 and M2.5: modified MIT; M2.7: non-commercial only; M3: MiniMax Community License (notify MiniMax for commercial use; from $20 million annual revenue, separate permission is required)',
+      country: 'China',
+    },
   },
   {
     id: 'hunyuan',
@@ -104,6 +132,13 @@ module.exports = [
     alternatives: ['qwen', 'deepseek', 'ernie'],
     source: 'https://huggingface.co/tencent/Hy4-preview',
     verified: true,
+    en: {
+      summary: 'Tencent language models: from small 0.5B–7B to Hy4-preview with 770 billion parameters. Since 2026 the line has been renamed Hy, and new versions are released under Apache 2.0.',
+      tasks: ['Corporate assistant', 'Translation and multilingual texts', 'Agents with tools', 'Small models for a laptop'],
+      where: ['Customer support', 'International trade', 'IT department', 'Media'],
+      license: 'Hy3 and Hy4-preview: Apache 2.0; Hunyuan-Large, A13B and the 2025 small models: Tencent Hunyuan Community License, not valid in the EU, UK and South Korea',
+      country: 'China',
+    },
   },
   {
     id: 'yi',
@@ -125,6 +160,13 @@ module.exports = [
     alternatives: ['qwen', 'internlm', 'baichuan'],
     source: 'https://huggingface.co/01-ai/Yi-1.5-34B-Chat',
     verified: true,
+    en: {
+      summary: 'Bilingual (English and Chinese) 01.AI models of 6–34B, with versions supporting up to 200K tokens of context. No new open releases since 2024.',
+      tasks: ['Chat assistant on a single GPU', 'Analysis of long documents', 'Classification and data extraction from text'],
+      where: ['Customer support', 'Document management', 'Research'],
+      license: 'Apache 2.0',
+      country: 'China',
+    },
   },
   {
     id: 'baichuan',
@@ -146,6 +188,13 @@ module.exports = [
     alternatives: ['qwen', 'yi', 'internlm'],
     source: 'https://huggingface.co/baichuan-inc/Baichuan-M3-235B',
     verified: true,
+    en: {
+      summary: 'First general-purpose Chinese models, then a medical line from 2025. Baichuan-M3 (based on Qwen3-235B) is trained to model a doctor\'s clinical reasoning.',
+      tasks: ['Reference assistant for doctors', 'Preliminary patient intake questions', 'Analysis of medical documents', 'Training medical staff'],
+      where: ['Clinics', 'Telemedicine', 'Pharma', 'Health insurance'],
+      license: 'Baichuan-M2 and M3: Apache 2.0; Baichuan 1/2: own license (commercial use on application)',
+      country: 'China',
+    },
   },
   {
     id: 'internlm',
@@ -167,6 +216,14 @@ module.exports = [
     alternatives: ['qwen', 'internvl', 'deepseek'],
     source: 'https://huggingface.co/internlm/Intern-S2-397B',
     verified: true,
+    en: {
+      summary: 'Models from Shanghai AI Laboratory. The early InternLM line is general-purpose; the new Intern-S1/S2 is scientific: it understands formulas, molecules, charts and images.',
+      tasks: ['Research assistant: papers, formulas, data', 'Analysis of scientific and technical documents', 'Corporate chat on small models'],
+      where: ['Research institutes and R&D', 'Chemistry and pharma', 'Engineering departments', 'Education'],
+      license: 'InternLM3 and Intern-S1/S2: Apache 2.0; InternLM2 and 2.5: own license, commercial use via a free application',
+      country: 'China',
+      sizes: '1.8B – about 1T',
+    },
   },
   {
     id: 'step',
@@ -188,6 +245,13 @@ module.exports = [
     alternatives: ['minimax', 'mimo', 'longcat'],
     source: 'https://huggingface.co/stepfun-ai/Step-3.7-Flash',
     verified: true,
+    en: {
+      summary: 'StepFun MoE models built for fast, low-cost work: with 196 billion parameters, Step-3.5/3.7-Flash use about 11 billion per token. Compact Step3-VL-10B for images and voice Step-Audio 2 mini are available.',
+      tasks: ['High-load agents', 'Analysis of documents with diagrams and screenshots', 'Help for developers'],
+      where: ['Software development', 'Customer support', 'Operations departments'],
+      license: 'Apache 2.0',
+      country: 'China',
+    },
   },
   {
     id: 'ling',
@@ -209,6 +273,13 @@ module.exports = [
     alternatives: ['qwen', 'deepseek', 'longcat'],
     source: 'https://huggingface.co/inclusionAI/Ling-3.0-flash',
     verified: true,
+    en: {
+      summary: 'An Ant Group family: Ling for standard models, Ring for reasoning ones. There are trillion-parameter flagships and the efficient Ling-3.0-tiny, which needs only 1.3 billion active parameters.',
+      tasks: ['Corporate assistant', 'Agents for office processes', 'Financial analytics (Fin version available)', 'Lightweight model for a laptop'],
+      where: ['Finance and banking', 'Customer support', 'IT department'],
+      license: 'MIT',
+      country: 'China',
+    },
   },
   {
     id: 'longcat',
@@ -230,6 +301,13 @@ module.exports = [
     alternatives: ['deepseek', 'ling', 'mimo'],
     source: 'https://huggingface.co/meituan-longcat/LongCat-2.0',
     verified: true,
+    en: {
+      summary: 'Models from Meituan, China\'s largest delivery service. LongCat-Flash adjusts compute to query complexity; LongCat-2.0 has 1.6 trillion parameters under MIT. Omni models (Flash-Omni, Next) and AudioDiT speech synthesis too.',
+      tasks: ['Agents for orders and service processes', 'Corporate assistant', 'Analysis of long documents'],
+      where: ['Retail and delivery', 'Customer support', 'Logistics'],
+      license: 'MIT',
+      country: 'China',
+    },
   },
   {
     id: 'mimo',
@@ -251,6 +329,13 @@ module.exports = [
     alternatives: ['step', 'longcat', 'deepseek'],
     source: 'https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Pro-RL',
     verified: true,
+    en: {
+      summary: 'Xiaomi models for reasoning and agents: from the compact MiMo-7B to MiMo-V2.6-Pro with 1 trillion parameters. Also MiMo-VL for images, voice MiMo-Audio and MiMo-V2.5-ASR speech recognition (Chinese and English).',
+      tasks: ['Logic and calculation tasks', 'Agents with tools', 'Help for developers'],
+      where: ['Software development', 'Analytics', 'Electronics manufacturing'],
+      license: 'MIT',
+      country: 'China',
+    },
   },
   {
     id: 'ernie',
@@ -272,6 +357,13 @@ module.exports = [
     alternatives: ['qwen', 'hunyuan', 'glm'],
     source: 'https://huggingface.co/baidu/ERNIE-4.5-21B-A3B-Thinking',
     verified: true,
+    en: {
+      summary: 'Baidu\'s first open line: from a tiny 0.3B to MoE with 424 billion parameters, including versions that understand images. The mid-size 21B-A3B fits on one GPU; ERNIE-Image 8B draws images with text.',
+      tasks: ['Corporate assistant', 'Analysis of documents and images', 'Customer request classification'],
+      where: ['Customer support', 'Document management', 'E-commerce'],
+      license: 'Apache 2.0',
+      country: 'China',
+    },
   },
   {
     id: 'seed-oss',
@@ -293,6 +385,13 @@ module.exports = [
     alternatives: ['qwen', 'glm', 'gemma'],
     source: 'https://huggingface.co/ByteDance-Seed/Seed-OSS-36B-Instruct',
     verified: true,
+    en: {
+      summary: 'An open ByteDance 36B model with up to 512K tokens of context and an adjustable thinking budget. Fits on a single powerful GPU.',
+      tasks: ['Analysis of long documents', 'Agents with tools', 'Corporate assistant'],
+      where: ['Lawyers', 'Analytics', 'IT department'],
+      license: 'Apache 2.0',
+      country: 'China',
+    },
   },
   {
     id: 'exaone',
@@ -314,6 +413,13 @@ module.exports = [
     alternatives: ['solar', 'kanana', 'hyperclova'],
     source: 'https://huggingface.co/LGAI-EXAONE/K-EXAONE-2.0-750B-A37B',
     verified: true,
+    en: {
+      summary: 'Korean-English models from LG. Most of the line is non-commercial, but the flagship K-EXAONE 2.0 with 750 billion parameters is released under Apache 2.0.',
+      tasks: ['Corporate assistant', 'Working with Korean and English texts', 'Analysis of documents and images (4.5)'],
+      where: ['Manufacturing', 'Work with Korean partners', 'Research'],
+      license: 'Mixed: EXAONE 3.0–4.5: non-commercial only; K-EXAONE 236B: own license (commercial use allowed, distribution to third parties by agreement); K-EXAONE 2.0: Apache 2.0',
+      country: 'South Korea',
+    },
   },
   {
     id: 'solar',
@@ -335,6 +441,13 @@ module.exports = [
     alternatives: ['exaone', 'kanana', 'mistral'],
     source: 'https://huggingface.co/upstage/Solar-Open2-250B',
     verified: true,
+    en: {
+      summary: 'Models from Korea\'s Upstage. Solar Open 2 is built for office document work: 250 billion parameters, 15 billion active; languages are English, Korean and Japanese.',
+      tasks: ['Working with office documents', 'Agents for routine tasks', 'Help for developers'],
+      where: ['Document management', 'Back office', 'Work with Korean and Japanese partners'],
+      license: 'SOLAR-10.7B: Apache 2.0; Solar Open and Open 2: Upstage Solar License (based on Apache 2.0: commercial use allowed, but a fine-tuned model\'s name must start with Solar, plus a Built with Solar notice)',
+      country: 'South Korea',
+    },
   },
   {
     id: 'kanana',
@@ -356,6 +469,13 @@ module.exports = [
     alternatives: ['exaone', 'hyperclova', 'solar'],
     source: 'https://huggingface.co/kakaocorp/kanana-2-3b-instruct',
     verified: true,
+    en: {
+      summary: 'Compact Korean-English models from Kakao. Kanana 2 30B-A3B is fast thanks to MoE; small 1–3B versions suit a regular PC.',
+      tasks: ['Support chatbot', 'Customer request classification', 'Lightweight assistant on your own PC'],
+      where: ['Customer support', 'Messengers and services', 'Work with Korean partners'],
+      license: 'Kanana 1.5: Apache 2.0; Kanana 2: Kakao\'s own license (companies with more than 10 million monthly users need a separate license); Kanana Nano: CC-BY-NC',
+      country: 'South Korea',
+    },
   },
   {
     id: 'hyperclova',
@@ -377,6 +497,13 @@ module.exports = [
     alternatives: ['exaone', 'kanana', 'solar'],
     source: 'https://huggingface.co/naver-hyperclovax/HyperCLOVAX-SEED-Think-32B',
     verified: true,
+    en: {
+      summary: 'Open smaller models from Korea\'s Naver: from 0.5B to 32B, including reasoning Think versions and multimodal versions that understand images.',
+      tasks: ['Lightweight Korean-English assistant', 'Analysis of images and documents', 'Text classification'],
+      where: ['Work with Korean partners', 'Customer support', 'Media'],
+      license: 'Own HyperCLOVA X SEED license with additional commercial terms',
+      country: 'South Korea',
+    },
   },
   {
     id: 'gigachat',
@@ -398,6 +525,14 @@ module.exports = [
     alternatives: ['yandexgpt', 't-pro', 'giga-embeddings'],
     source: 'https://huggingface.co/ai-sage/GigaChat3.5-432B-A28B-Reasoning',
     verified: true,
+    en: {
+      summary: 'Sber open models with strong Russian language support and local context, from 10B-A1.8B to 702B, all MIT. GigaChat3.1-Audio handles recordings up to two hours; GFusion is a fast diffusion text version.',
+      tasks: ['Russian-language employee assistant on your own server', 'Customer replies and request handling in Russian', 'Working with contracts and internal policies', 'Drafting emails and reports'],
+      where: ['Banking and finance', 'Government and companies required to store data in Russia', 'Customer support', 'Legal and HR'],
+      license: 'MIT',
+      developer: 'Sber',
+      country: 'Russia',
+    },
   },
   {
     id: 'yandexgpt',
@@ -419,6 +554,14 @@ module.exports = [
     alternatives: ['gigachat', 't-pro', 'vikhr'],
     source: 'https://huggingface.co/yandex/AliceAI-Foundation-80B-A3B-Base',
     verified: true,
+    en: {
+      summary: 'Yandex models trained from scratch with a focus on the Russian language and Russian context. The new AliceAI-Foundation 80B-A3B and efficient AliceAI-T5 35B-A0.6B are Apache 2.0 base models for fine-tuning.',
+      tasks: ['Russian-language assistant and chatbot', 'Answers based on the company knowledge base', 'Base for industry-specific fine-tuning', 'Texts and emails in Russian'],
+      where: ['Customer support', 'Retail and services', 'Companies required to store data in Russia', 'Media'],
+      license: 'YaLM-100B, AliceAI-T5 and AliceAI-Foundation: Apache 2.0; YandexGPT-5-Lite: Yandex\'s own license agreement, commercial use on its terms',
+      developer: 'Yandex',
+      country: 'Russia',
+    },
   },
   {
     id: 't-pro',
@@ -440,6 +583,14 @@ module.exports = [
     alternatives: ['gigachat', 'yandexgpt', 'qwen'],
     source: 'https://huggingface.co/t-tech/T-pro-it-2.1',
     verified: true,
+    en: {
+      summary: 'T-Bank models fine-tuned from Qwen for Russian: they write and reason in Russian noticeably better than the original. T-Lite is 8B, T-Pro 32B on one GPU; T-Search is a multi-step search agent in Russian and English.',
+      tasks: ['Russian-language support chatbot', 'Analysis of requests and documents in Russian', 'Answers based on the company knowledge base', 'Drafts of emails and reports'],
+      where: ['Banking and fintech', 'Customer support', 'Legal and HR', 'Retail'],
+      license: 'Apache 2.0 (versions 2.0, 2.1 and T-Search; based on Qwen)',
+      developer: 'T-Bank',
+      country: 'Russia',
+    },
   },
   {
     id: 'vikhr',
@@ -461,5 +612,12 @@ module.exports = [
     alternatives: ['t-pro', 'gigachat', 'yandexgpt'],
     source: 'https://huggingface.co/Vikhrmodels/Vistral-24B-Instruct',
     verified: true,
+    en: {
+      summary: 'Russian-language fine-tunes of open models (Mistral, Qwen, Llama) by the independent Vikhr team, with compact versions for a regular PC. Borealis is an audio model for recognizing and understanding Russian speech.',
+      tasks: ['Russian-language assistant on your own PC or server', 'Knowledge-base answers (RAG)', 'Texts and emails in Russian'],
+      where: ['Small business', 'Customer support', 'Education'],
+      license: 'Main versions: Apache 2.0; some fine-tunes inherit the base model license (Llama, YandexGPT)',
+      country: 'Russia',
+    },
   },
 ];

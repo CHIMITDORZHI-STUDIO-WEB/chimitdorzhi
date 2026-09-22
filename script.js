@@ -282,6 +282,9 @@ document.addEventListener('DOMContentLoaded', () => {
   if(document.querySelector('.wx-rail')) return; // главная уже с сайдбаром
   var path=location.pathname.replace(/\/index\.html$/,'/');
   var seg=path.replace(/^\/+|\/+$/g,'').split('/').filter(Boolean);
+  // Английская копия энциклопедии живёт в /en/ii-modeli/ — для сайдбара это тот же раздел.
+  var isEnModels = seg[0]==='en' && seg[1]==='ii-modeli';
+  if(isEnModels) seg=seg.slice(1);
   var s0=seg[0]||'';
   var isArticle = s0==='blog' && seg.length===2 && ['category','page','tag'].indexOf(seg[1])<0;
   var isBlog = s0==='blog' && !isArticle;
@@ -304,7 +307,7 @@ document.addEventListener('DOMContentLoaded', () => {
   h+=n('/services/','ph-stack','Услуги',isServices,false,'nav.services');
   h+=n('/services/cifrovoy-sotrudnik/','ph-user-focus','Цифровой сотрудник',location.pathname.indexOf('cifrovoy-sotrudnik')>-1,false,'nav.employee');
   h+=n('/ai-economy/','ph-chart-line-up','ИИ и экономика',isAiEcon,false,'nav.aiecon');
-  h+=n('/ii-modeli/','ph-cpu','ИИ-модели',isModels,false,'nav.models');
+  h+=n(isEnModels?'/en/ii-modeli/':'/ii-modeli/','ph-cpu','ИИ-модели',isModels,false,'nav.models');
   h+=n('/cases/','ph-briefcase','Кейсы',isCases,false,'nav.cases');
   h+=n('/blog/','ph-newspaper','Блог',isBlog,false,'nav.blog');
   h+=n('/predlozheniya/','ph-gift','Предложения',isOffers,false,'nav.offers');

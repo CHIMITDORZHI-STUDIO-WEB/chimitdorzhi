@@ -24,6 +24,14 @@ module.exports = [
     alternatives: ['qwen-vl', 'internvl', 'molmo'],
     source: 'https://huggingface.co/lmms-lab-encoder/LLaVA-OneVision-2-8B-Instruct',
     verified: true,
+    en: {
+      summary: 'The open project that started the trend for image-plus-text models. The OneVision line understands photos, documents and video; training data and recipes are open.',
+      tasks: ['Answering questions about photos and screenshots', 'Describing products from a photo', 'Frame-by-frame video analysis', 'A base for fine-tuning your own vision model'],
+      where: ['E-commerce', 'Research teams', 'Content moderation'],
+      license: 'Newer OneVision versions: Apache 2.0; the first LLaVA models on Llama and Vicuna inherit their licenses',
+      developer: 'LLaVA / LMMs-Lab (researchers from the USA and China)',
+      country: 'USA / China',
+    },
   },
   {
     id: 'qwen-vl',
@@ -48,6 +56,14 @@ module.exports = [
     alternatives: ['qwen', 'internvl', 'minicpm-v'],
     source: 'https://huggingface.co/Qwen/Qwen3-VL-8B-Instruct',
     verified: true,
+    en: {
+      summary: 'One of the strongest open vision models: reads documents, tables, charts and video, and works with user interfaces. Since Qwen3.5, vision is built directly into the main Qwen model.',
+      tasks: ['Extracting data from scanned invoices and delivery notes', 'Analysing photos of products and shelves', 'Analysing video and camera footage', 'An agent that operates an interface from screenshots'],
+      where: ['Accounting and document workflow', 'Retail and warehousing', 'E-commerce', 'Customer support'],
+      license: 'Qwen3-VL: Apache 2.0; older Qwen-VL and some Qwen2/2.5-VL models (3B, 72B) have their own Qwen licenses',
+      developer: 'Alibaba (Qwen team)',
+      country: 'China',
+    },
   },
   {
     id: 'internvl',
@@ -72,6 +88,13 @@ module.exports = [
     alternatives: ['qwen-vl', 'internlm', 'minicpm-v'],
     source: 'https://huggingface.co/InternVL-U/InternVL-U',
     verified: true,
+    en: {
+      summary: 'A large family of Chinese vision models sized from 1B to 241B. InternVL-U (4B) combines image understanding, generation and editing.',
+      tasks: ['Understanding documents, diagrams and charts', 'Answering questions about photos', 'Video analysis', 'Generating and editing images (InternVL-U)'],
+      where: ['Document workflow', 'Manufacturing and quality control', 'E-commerce'],
+      license: 'InternVL3.5: Apache 2.0; InternVL-U: MIT; some large versions inherit the base model\'s license (for example, Qwen)',
+      country: 'China',
+    },
   },
   {
     id: 'minicpm-v',
@@ -96,6 +119,14 @@ module.exports = [
     alternatives: ['qwen-vl', 'smolvlm', 'minicpm-o'],
     source: 'https://huggingface.co/openbmb/MiniCPM-V-4.6',
     verified: true,
+    en: {
+      summary: 'Compact vision models that run even on a phone or laptop. Good at reading text in photos and understanding video; version 4.6 is only 1.3B.',
+      tasks: ['On-device text recognition in photos', 'Processing receipts and documents without sending them to the cloud', 'Describing photos and video', 'A built-in assistant for a mobile app'],
+      where: ['Mobile apps', 'Retail', 'Field services'],
+      license: 'Apache 2.0 (early versions had their own MiniCPM license requiring registration for commercial use)',
+      developer: 'OpenBMB (ModelBest and Tsinghua University)',
+      country: 'China',
+    },
   },
   {
     id: 'cogvlm',
@@ -120,6 +151,14 @@ module.exports = [
     alternatives: ['glm', 'qwen-vl', 'glm-ocr'],
     source: 'https://huggingface.co/zai-org/GLM-4.6V',
     verified: true,
+    en: {
+      summary: 'Vision models from Zhipu: first CogVLM, then the GLM-V line. GLM-4.6V can call tools based on images and act as an agent operating an interface.',
+      tasks: ['Answering questions about photos and documents', 'An agent that operates an interface from screenshots', 'Analysing charts and reports', 'Captions for photos and video'],
+      where: ['Document workflow', 'Customer support', 'Analytics'],
+      license: 'GLM-4.1V / 4.5V / 4.6V: MIT; CogVLM and CogVLM2: their own licenses (CogVLM2 is based on Llama 3)',
+      developer: 'Zhipu AI (Z.ai) and Tsinghua University',
+      country: 'China',
+    },
   },
   {
     id: 'idefics',
@@ -144,6 +183,13 @@ module.exports = [
     alternatives: ['smolvlm', 'llava', 'molmo'],
     source: 'https://huggingface.co/HuggingFaceM4/Idefics3-8B-Llama3',
     verified: true,
+    en: {
+      summary: 'Open vision models from Hugging Face that reproduced the closed Flamingo. Idefics3 became the basis for the compact SmolVLM line.',
+      tasks: ['Answering questions about images', 'Analysing documents and screenshots', 'A base for fine-tuning'],
+      where: ['Research teams', 'E-commerce'],
+      license: 'Idefics2 and Idefics3: Apache 2.0; the first IDEFICS on LLaMA: research only',
+      country: 'France / USA',
+    },
   },
   {
     id: 'molmo',
@@ -168,6 +214,13 @@ module.exports = [
     alternatives: ['qwen-vl', 'moondream', 'molmoact'],
     source: 'https://huggingface.co/allenai/MolmoWeb-8B',
     verified: true,
+    en: {
+      summary: 'Fully open vision models from Ai2 (weights and data). They can point to a spot in an image and count objects; Molmo2 understands video, MolmoWeb controls a browser.',
+      tasks: ['Counting products and objects in photos', 'Pointing to where an item is in an image', 'Video analysis', 'An agent that works with websites (MolmoWeb)'],
+      where: ['Warehousing and retail', 'Manufacturing', 'Research teams'],
+      license: 'Apache 2.0',
+      country: 'USA',
+    },
   },
   {
     id: 'paligemma',
@@ -192,6 +245,13 @@ module.exports = [
     alternatives: ['gemma', 'florence-2', 'qwen-vl'],
     source: 'https://huggingface.co/google/paligemma2-28b-pt-896',
     verified: true,
+    en: {
+      summary: 'Google\'s vision model built on Gemma, designed as a base for fine-tuning on a narrow task: captions, object detection, reading text.',
+      tasks: ['Fine-tuning for your own recognition task', 'Finding objects in photos', 'Reading text in images', 'Photo captions'],
+      where: ['Manufacturing', 'Retail', 'Research teams'],
+      license: 'Gemma Terms of Use (commercial use allowed under usage rules)',
+      country: 'USA',
+    },
   },
   {
     id: 'florence-2',
@@ -216,6 +276,13 @@ module.exports = [
     alternatives: ['paligemma', 'moondream', 'grounding-dino'],
     source: 'https://huggingface.co/microsoft/Florence-2-large',
     verified: true,
+    en: {
+      summary: 'A very small vision model: captions, object detection, segmentation and text reading from a single prompt. Runs even on a CPU.',
+      tasks: ['Reading text in photos', 'Finding and highlighting objects', 'Automatic photo captions', 'Labelling data for training'],
+      where: ['Manufacturing', 'Retail', 'Data labelling'],
+      license: 'MIT',
+      country: 'USA',
+    },
   },
   {
     id: 'moondream',
@@ -240,6 +307,13 @@ module.exports = [
     alternatives: ['florence-2', 'smolvlm', 'molmo'],
     source: 'https://huggingface.co/moondream/moondream3.1-9B-A2B',
     verified: true,
+    en: {
+      summary: 'A small, fast vision model for product use cases: answering questions, finding and pointing to objects, captions. Moondream 3.1 is a 9B MoE with 2B active.',
+      tasks: ['Finding and counting objects in photos', 'Checking photos from field reports', 'Captions and tags for a catalogue', 'Processing camera frames'],
+      where: ['Retail and warehousing', 'Field services', 'E-commerce'],
+      license: 'Moondream 2: Apache 2.0; Moondream 3: Moondream Model License (commercial use in your own products is allowed; you cannot sell access to the model itself as a cloud service)',
+      country: 'USA',
+    },
   },
   {
     id: 'smolvlm',
@@ -264,6 +338,13 @@ module.exports = [
     alternatives: ['moondream', 'minicpm-v', 'docling'],
     source: 'https://huggingface.co/HuggingFaceTB/SmolVLM2-2.2B-Instruct',
     verified: true,
+    en: {
+      summary: 'The smallest vision models from Hugging Face, starting at 256M; they run in a browser and on a phone. SmolVLM2 also understands video.',
+      tasks: ['Describing photos and video on low-end hardware', 'Reading simple documents', 'Embedding in mobile and offline apps'],
+      where: ['Mobile apps', 'Embedded devices', 'Education'],
+      license: 'Apache 2.0',
+      country: 'France / USA',
+    },
   },
   {
     id: 'kimi-vl',
@@ -288,6 +369,13 @@ module.exports = [
     alternatives: ['kimi', 'qwen-vl', 'keye-vl'],
     source: 'https://huggingface.co/moonshotai/Kimi-VL-A3B-Thinking-2506',
     verified: true,
+    en: {
+      summary: 'An efficient MoE vision model (16B, 3B active) with a long context and a reasoning version. Handles long documents and video well.',
+      tasks: ['Analysing long PDFs and presentations', 'Answering questions about video', 'Operating interfaces from screenshots'],
+      where: ['Document workflow', 'Analytics', 'Customer support'],
+      license: 'MIT',
+      country: 'China',
+    },
   },
   {
     id: 'janus',
@@ -312,6 +400,13 @@ module.exports = [
     alternatives: ['bagel', 'omnigen', 'qwen-vl'],
     source: 'https://huggingface.co/deepseek-ai/Janus-Pro-7B',
     verified: true,
+    en: {
+      summary: 'A single model that both understands images and draws them from a description. Janus-Pro-7B drew attention in early 2025, but its image quality is below specialised models.',
+      tasks: ['Answering questions about images', 'Draft illustrations from a description', 'Experiments with a unified vision and generation model'],
+      where: ['Marketing', 'Research teams'],
+      license: 'Code: MIT; weights: DeepSeek Model License (commercial use allowed, some uses prohibited)',
+      country: 'China',
+    },
   },
   {
     id: 'keye-vl',
@@ -336,6 +431,13 @@ module.exports = [
     alternatives: ['qwen-vl', 'kimi-vl', 'internvl'],
     source: 'https://huggingface.co/Kwai-Keye/Keye-VL-2.0-30B-A3B',
     verified: true,
+    en: {
+      summary: 'Vision models from Kuaishou focused on short videos. Keye-VL-2.0 (30B, 3B active) understands well what happens in a clip and when.',
+      tasks: ['Analysing and describing short videos', 'Reviewing clips and content', 'Finding the right moment in a video', 'Answering questions about photos'],
+      where: ['Media and social networks', 'Marketing', 'Content moderation'],
+      license: 'Apache 2.0',
+      country: 'China',
+    },
   },
   {
     id: 'ovis',
@@ -360,6 +462,13 @@ module.exports = [
     alternatives: ['qwen-vl', 'internvl', 'paddleocr-vl'],
     source: 'https://huggingface.co/ATH-MaaS/OvisOCR2',
     verified: true,
+    en: {
+      summary: 'Vision models from Alibaba\'s international division with strong text and table reading. The line includes the Ovis2.6 MoE and separate compact OvisOCR models for documents.',
+      tasks: ['Extracting data from invoices, contracts and delivery notes', 'Table recognition', 'Answering questions about photos and charts', 'Analysing product listings'],
+      where: ['Document workflow', 'E-commerce', 'Accounting'],
+      license: 'Apache 2.0',
+      country: 'China',
+    },
   },
   {
     id: 'granite-vision',
@@ -384,6 +493,13 @@ module.exports = [
     alternatives: ['granite', 'docling', 'qwen-vl'],
     source: 'https://huggingface.co/ibm-granite/granite-vision-4.1-4b',
     verified: true,
+    en: {
+      summary: 'Compact IBM models for business documents: tables, charts, forms, field-value pairs. The model card openly warns that it works best with English.',
+      tasks: ['Extracting fields from forms and invoices', 'Turning charts and tables into data', 'Answering questions about documents'],
+      where: ['Document workflow', 'Accounting', 'Finance'],
+      license: 'Apache 2.0',
+      country: 'USA',
+    },
   },
 
   // ---------- OCR: распознавание документов ----------
@@ -410,6 +526,13 @@ module.exports = [
     alternatives: ['got-ocr', 'olmocr', 'mineru'],
     source: 'https://huggingface.co/facebook/nougat-base',
     verified: true,
+    en: {
+      summary: 'An early model that converts scientific PDFs into text with formulas. Now outdated and outperformed by almost all modern OCR models.',
+      tasks: ['Converting scientific papers from PDF into text with formulas', 'Digitising technical documentation'],
+      where: ['Science and education', 'Technical archives'],
+      license: 'Large version: CC-BY-NC 4.0 (non-commercial); small version: CC-BY 4.0',
+      country: 'USA',
+    },
   },
   {
     id: 'got-ocr',
@@ -434,6 +557,13 @@ module.exports = [
     alternatives: ['paddleocr-vl', 'deepseek-ocr', 'step'],
     source: 'https://huggingface.co/stepfun-ai/GOT-OCR-2.0-hf',
     verified: true,
+    en: {
+      summary: 'One of the first general-purpose new-generation OCR models: text, formulas, tables, sheet music and diagrams. Small and runs on low-end hardware, but already behind newer models.',
+      tasks: ['Recognising scanned invoices and contracts', 'Converting tables into an editable format', 'Recognising formulas and diagrams'],
+      where: ['Accounting', 'Document workflow', 'Archives'],
+      license: 'Apache 2.0',
+      country: 'China',
+    },
   },
   {
     id: 'olmocr',
@@ -458,6 +588,13 @@ module.exports = [
     alternatives: ['mineru', 'chandra-ocr', 'dots-ocr'],
     source: 'https://huggingface.co/allenai/olmOCR-2-7B-1025',
     verified: true,
+    en: {
+      summary: 'A model and toolkit for converting PDFs into clean text at scale, preserving reading order, tables and formulas. Built to process millions of pages.',
+      tasks: ['Bulk digitisation of a PDF archive', 'Converting contracts and reports into text', 'Preparing documents for search and RAG', 'Table recognition'],
+      where: ['Document workflow', 'Legal departments', 'Archives and libraries'],
+      license: 'Apache 2.0',
+      country: 'USA',
+    },
   },
   {
     id: 'docling',
@@ -482,6 +619,14 @@ module.exports = [
     alternatives: ['granite-vision', 'mineru', 'paddleocr-vl'],
     source: 'https://huggingface.co/ibm-granite/granite-docling-258M',
     verified: true,
+    en: {
+      summary: 'Tiny models for the open Docling document converter: they turn a page into markup with tables, formulas and code. Run on an ordinary laptop.',
+      tasks: ['Converting PDFs and scans to Markdown for search and RAG', 'Recognising tables in reports', 'Processing invoices and contracts on an ordinary PC'],
+      where: ['Document workflow', 'Legal departments', 'Internal knowledge bases'],
+      license: 'Granite-Docling: Apache 2.0; SmolDocling: CDLA-Permissive 2.0',
+      developer: 'IBM and Hugging Face',
+      country: 'USA',
+    },
   },
   {
     id: 'dots-ocr',
@@ -506,6 +651,14 @@ module.exports = [
     alternatives: ['paddleocr-vl', 'mineru', 'deepseek-ocr'],
     source: 'https://huggingface.co/dots-studio/dots.mocr',
     verified: true,
+    en: {
+      summary: 'A multilingual document parsing model: text, tables, formulas and reading order in one pass. dots.mocr also turns charts and diagrams into vector SVG.',
+      tasks: ['Recognising invoices, contracts and delivery notes', 'Converting tables into an editable format', 'Converting charts and diagrams into vector format', 'Preparing documents for RAG'],
+      where: ['Document workflow', 'Accounting', 'Analytics'],
+      license: 'MIT',
+      country: 'China',
+      sizes: 'about 3B',
+    },
   },
   {
     id: 'deepseek-ocr',
@@ -530,6 +683,14 @@ module.exports = [
     alternatives: ['paddleocr-vl', 'dots-ocr', 'glm-ocr'],
     source: 'https://huggingface.co/deepseek-ai/DeepSeek-OCR-2',
     verified: true,
+    en: {
+      summary: 'An OCR model that compresses a page into a small number of visual tokens, so it processes large volumes quickly. Version 2 better understands reading order.',
+      tasks: ['Bulk recognition of scanned invoices and contracts', 'Table recognition', 'Converting PDFs to Markdown for search and RAG'],
+      where: ['Document workflow', 'Accounting', 'Archives'],
+      license: 'DeepSeek-OCR: MIT; DeepSeek-OCR 2: Apache 2.0',
+      country: 'China',
+      sizes: 'about 3B',
+    },
   },
   {
     id: 'paddleocr-vl',
@@ -554,6 +715,13 @@ module.exports = [
     alternatives: ['glm-ocr', 'mineru', 'qianfan-ocr'],
     source: 'https://huggingface.co/PaddlePaddle/PaddleOCR-VL-1.6',
     verified: true,
+    en: {
+      summary: 'A compact document parsing model from the popular PaddleOCR toolkit. Per the model card it supports 109 languages, including Russian; version 1.6 leads the OmniDocBench benchmark.',
+      tasks: ['Recognising invoices, contracts and delivery notes, including in Russian', 'Recognising tables, formulas and stamps', 'Converting scans to Markdown and JSON', 'Running on an ordinary PC without a powerful GPU'],
+      where: ['Accounting', 'Document workflow', 'Logistics', 'Archives'],
+      license: 'Apache 2.0',
+      country: 'China',
+    },
   },
   {
     id: 'glm-ocr',
@@ -578,6 +746,13 @@ module.exports = [
     alternatives: ['paddleocr-vl', 'cogvlm', 'lighton-ocr'],
     source: 'https://huggingface.co/zai-org/GLM-OCR',
     verified: true,
+    en: {
+      summary: 'A lightweight OCR model from Zhipu for document parsing. The model card lists Russian among supported languages; built for high load and low-end hardware.',
+      tasks: ['Recognising invoices, contracts and delivery notes, including in Russian', 'Recognising tables and formulas', 'Extracting fields to JSON', 'High-volume document streams'],
+      where: ['Accounting', 'Document workflow', 'Logistics'],
+      license: 'MIT (the PP-DocLayoutV3 page layout module: Apache 2.0)',
+      country: 'China',
+    },
   },
   {
     id: 'mineru',
@@ -602,6 +777,13 @@ module.exports = [
     alternatives: ['paddleocr-vl', 'docling', 'olmocr'],
     source: 'https://huggingface.co/opendatalab/MinerU2.5-Pro-2605-1.2B',
     verified: true,
+    en: {
+      summary: 'A popular open tool for converting PDFs to Markdown with its own small model. MinerU2.5-Pro was improved through data alone, without growing in size. Languages on the card: Chinese and English.',
+      tasks: ['Converting PDF reports and contracts to Markdown', 'Recognising tables and formulas', 'Preparing documents for RAG and search'],
+      where: ['Document workflow', 'Internal knowledge bases', 'Analytics'],
+      license: 'MinerU2.5-Pro: Apache 2.0; the first MinerU2.5: AGPL 3.0',
+      country: 'China',
+    },
   },
   {
     id: 'chandra-ocr',
@@ -626,6 +808,13 @@ module.exports = [
     alternatives: ['olmocr', 'dots-ocr', 'paddleocr-vl'],
     source: 'https://huggingface.co/datalab-to/chandra-ocr-2',
     verified: true,
+    en: {
+      summary: 'A strong OCR model from the authors of Marker and Surya: handwriting, forms, tables. Per the model card it supports 90+ languages, with Russian among the examples.',
+      tasks: ['Recognising invoices, contracts and delivery notes, including in Russian', 'Recognising handwritten forms and questionnaires', 'Recognising complex tables'],
+      where: ['Document workflow', 'Accounting', 'Insurance and banking'],
+      license: 'Modified OpenRAIL-M: free for research and for companies with revenue and funding up to 2 million dollars, no competing with their API; everyone else needs a paid license',
+      country: 'USA',
+    },
   },
   {
     id: 'hunyuan-ocr',
@@ -650,6 +839,13 @@ module.exports = [
     alternatives: ['paddleocr-vl', 'glm-ocr', 'hunyuan'],
     source: 'https://github.com/Tencent-Hunyuan/HunyuanOCR',
     verified: true,
+    en: {
+      summary: 'A lightweight OCR model from Tencent: document parsing, finding text in photos, field extraction and translating text from images. Version 1.5 is faster and runs on an ordinary PC.',
+      tasks: ['Extracting fields from invoices and delivery notes', 'Recognising tables and formulas', 'Translating text in photos and scans', 'Reading text in photos and video'],
+      where: ['Document workflow', 'Logistics', 'Accounting'],
+      license: 'Tencent Hunyuan Community License (commercial use allowed, but not valid in the EU, UK and South Korea)',
+      country: 'China',
+    },
   },
   {
     id: 'lighton-ocr',
@@ -674,6 +870,13 @@ module.exports = [
     alternatives: ['glm-ocr', 'paddleocr-vl', 'docling'],
     source: 'https://huggingface.co/lightonai/LightOnOCR-2-1B',
     verified: true,
+    en: {
+      summary: 'A French 1B OCR model that converts a page into text in one pass and is fast on high volumes. Languages on the card: European languages, Chinese and Japanese; no Russian.',
+      tasks: ['Recognising invoices and contracts in European languages', 'Table recognition', 'Converting PDFs to text for search and RAG', 'Locating element coordinates on a page (bbox versions)'],
+      where: ['Document workflow', 'Legal departments', 'Archives'],
+      license: 'Apache 2.0',
+      country: 'France',
+    },
   },
   {
     id: 'nanonets-ocr',
@@ -698,6 +901,13 @@ module.exports = [
     alternatives: ['qwen-vl', 'olmocr', 'chandra-ocr'],
     source: 'https://huggingface.co/nanonets/Nanonets-OCR2-3B',
     verified: true,
+    en: {
+      summary: 'A model that converts documents to Markdown with tables, stamps, signatures, checkboxes and watermarks. The OCR2 model card lists Russian among its languages.',
+      tasks: ['Recognising invoices, contracts and delivery notes, including in Russian', 'Recognising stamps, signatures and marks', 'Handwriting recognition', 'Table recognition'],
+      where: ['Document workflow', 'Accounting', 'Legal departments'],
+      license: 'Nanonets-OCR2-1.5B-exp: Apache 2.0; the 3B versions have no license stated on the card and are based on Qwen2.5-VL-3B with its own license',
+      country: 'USA / India',
+    },
   },
   {
     id: 'teleocr',
@@ -722,6 +932,14 @@ module.exports = [
     alternatives: ['paddleocr-vl', 'qianfan-ocr', 'mineru'],
     source: 'https://huggingface.co/StarDoc-AI/TeleOCR',
     verified: true,
+    en: {
+      summary: 'A new lightweight document parsing model that led the OmniDocBench v1.6 benchmark at release. Handles pages photographed on a phone and crumpled pages well. Languages on the card: Chinese, English, Japanese.',
+      tasks: ['Recognising invoices and delivery notes photographed on a phone', 'Recognising tables and formulas', 'Converting documents to Markdown for RAG'],
+      where: ['Document workflow', 'Logistics', 'Accounting'],
+      license: 'Apache 2.0',
+      country: 'China',
+      sizes: 'about 1.2B',
+    },
   },
   {
     id: 'qianfan-ocr',
@@ -746,5 +964,12 @@ module.exports = [
     alternatives: ['paddleocr-vl', 'ernie', 'glm-ocr'],
     source: 'https://huggingface.co/baidu/Qianfan-OCR',
     verified: true,
+    en: {
+      summary: 'A Baidu model that not only recognises a document but also answers questions about it. Per the model card it supports 192 languages, including Cyrillic.',
+      tasks: ['Recognising invoices, contracts and delivery notes, including in Russian', 'Page layout analysis and table recognition', 'Answering questions about a document', 'Extracting key fields'],
+      where: ['Accounting', 'Document workflow', 'Banking and insurance'],
+      license: 'Apache 2.0',
+      country: 'China',
+    },
   },
 ];

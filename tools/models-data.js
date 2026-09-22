@@ -14,6 +14,13 @@ const BASE = [
     versions: [['Qwen', '2023-08'], ['Qwen1.5', '2024-02'], ['Qwen2', '2024-06'], ['Qwen2.5', '2024-09'], ['Qwen3', '2025-04'], ['Qwen3.5', '2026-02'], ['Qwen3.6', '2026-04'], ['Qwen3.8 (27B – 2.4T-A95B)', '2026-08']],
     hf: 'https://huggingface.co/Qwen', github: 'https://github.com/QwenLM',
     alternatives: ['llama', 'gemma', 'mistral'],
+    en: {
+      summary: 'A family of language models with strong Russian language support, from small versions for a laptop to a flagship on par with commercial APIs.',
+      tasks: ['Chatbot and knowledge-base assistant', 'Replies to emails and customer requests', 'Document parsing and classification', 'Product description generation'],
+      where: ['Customer support', 'E-commerce', 'Legal and accounting', 'Internal knowledge bases'],
+      license: 'Apache 2.0 (most versions); the larger Qwen3.8 models have their own license',
+      country: 'China',
+    },
   },
   {
     id: 'llama', name: 'Llama', developer: 'Meta', country: 'США',
@@ -25,6 +32,13 @@ const BASE = [
     versions: [['LLaMA', '2023-02'], ['Llama 2', '2023-07'], ['Llama 3', '2024-04'], ['Llama 3.1', '2024-07'], ['Llama 3.2', '2024-09'], ['Llama 3.3', '2024-12'], ['Llama 4', '2025-04']],
     hf: 'https://huggingface.co/meta-llama', github: 'https://github.com/meta-llama',
     alternatives: ['qwen', 'gemma', 'mistral'],
+    en: {
+      summary: 'The models that started mass open source in AI. A huge ecosystem of fine-tuned versions and tools.',
+      tasks: ['Assistant for employees', 'Summaries of meetings and documents', 'Base for industry-specific fine-tuning', 'Image understanding (Vision versions)'],
+      where: ['Corporate assistants', 'Education', 'AI product development'],
+      license: 'Llama Community License',
+      country: 'USA',
+    },
   },
   {
     id: 'deepseek-r1', name: 'DeepSeek-R1', developer: 'DeepSeek', country: 'Китай',
@@ -36,6 +50,13 @@ const BASE = [
     versions: [['DeepSeek-R1', '2025-01'], ['R1-Distill', '2025-01'], ['R1-0528', '2025-05']],
     hf: 'https://huggingface.co/deepseek-ai', github: 'https://github.com/deepseek-ai',
     alternatives: ['qwen', 'gpt-oss'],
+    en: {
+      summary: 'A reasoning model that thinks step by step before answering. Strong at calculations, logic and code; compact distilled versions are available.',
+      tasks: ['Complex calculations and logic checks', 'Analysis of contracts and internal policies', 'Help for developers', 'Step-by-step review of disputed cases'],
+      where: ['Finance and analytics', 'Legal departments', 'Software development'],
+      license: 'MIT',
+      country: 'China',
+    },
   },
   {
     id: 'gpt-oss', name: 'gpt-oss', developer: 'OpenAI', country: 'США',
@@ -47,6 +68,13 @@ const BASE = [
     versions: [['gpt-oss-20b', '2025-08'], ['gpt-oss-120b', '2025-08']],
     hf: 'https://huggingface.co/openai', github: 'https://github.com/openai/gpt-oss',
     alternatives: ['qwen', 'deepseek-r1'],
+    en: {
+      summary: 'OpenAI\'s first open models since GPT-2. Reasoning and tool calling; the smaller version fits on a single GPU.',
+      tasks: ['AI agent that calls internal systems', 'Answers based on internal policies', 'Drafts of emails and reports'],
+      where: ['Corporate agents', 'Closed, cloud-free environments'],
+      license: 'Apache 2.0',
+      country: 'USA',
+    },
   },
   {
     id: 'gemma', name: 'Gemma', developer: 'Google', country: 'США',
@@ -58,6 +86,13 @@ const BASE = [
     versions: [['Gemma', '2024-02'], ['CodeGemma', '2024-04'], ['Gemma 2', '2024-06'], ['Gemma 3', '2025-03'], ['Gemma 3n', '2025-06'], ['FunctionGemma 270M', '2025-12'], ['Gemma 4', '2026-04'], ['DiffusionGemma 26B-A4B', '2026-06']],
     hf: 'https://huggingface.co/google', github: 'https://github.com/google-deepmind/gemma',
     alternatives: ['qwen', 'llama'],
+    en: {
+      summary: 'Compact Google models that run well on a single computer; larger versions understand images. Includes CodeGemma for code, FunctionGemma 270M for function calling and the fast DiffusionGemma.',
+      tasks: ['Offline assistant on a laptop', 'Reading photos of documents and receipts', 'Customer request classification'],
+      where: ['Small business', 'Low-end hardware', 'Mobile devices'],
+      license: 'Gemma 4 and DiffusionGemma: Apache 2.0; earlier versions, CodeGemma and FunctionGemma: Gemma Terms of Use',
+      country: 'USA',
+    },
   },
   {
     id: 'mistral', name: 'Mistral', developer: 'Mistral AI', country: 'Франция',
@@ -69,6 +104,13 @@ const BASE = [
     versions: [['Mistral 7B', '2023-09'], ['Mixtral 8x7B', '2023-12'], ['Mistral NeMo / Mathstral 7B', '2024-07'], ['Pixtral 12B', '2024-09'], ['Mistral Small 3', '2025-01'], ['Magistral Small', '2025-06'], ['Mistral Large 3 / Ministral 3 (3B, 8B, 14B)', '2025-12'], ['Mistral Small 4 / Leanstral', '2026-03'], ['Mistral Medium 3.5 128B', '2026-04'], ['Leanstral 1.5 119B-A6B / Shieldstral-1.0-3B', '2026-07']],
     hf: 'https://huggingface.co/mistralai', github: 'https://github.com/mistralai',
     alternatives: ['qwen', 'llama'],
+    en: {
+      summary: 'European models focused on speed. Mixtral was one of the first open mixture-of-experts models; there are versions for images (Pixtral, Medium 3.5), Lean proofs and moderation (Shieldstral).',
+      tasks: ['Fast chat responses', 'Data extraction from text', 'Translation and multilingual work'],
+      where: ['Customer support', 'Request processing', 'European projects'],
+      license: 'Apache 2.0 (most versions, including Ministral 3, Pixtral 12B, Leanstral and Shieldstral); Mistral Medium 3.5: modified MIT, companies with large revenue need paid access',
+      country: 'France',
+    },
   },
   {
     id: 'whisper', name: 'Whisper', developer: 'OpenAI', country: 'США',
@@ -80,6 +122,13 @@ const BASE = [
     versions: [['Whisper', '2022-09'], ['large-v2', '2022-12'], ['Distil-Whisper (Hugging Face)', '2023-11'], ['large-v3', '2023-11'], ['large-v3-turbo', '2024-10'], ['distil-large-v3.5', '2025-03']],
     hf: 'https://huggingface.co/openai/whisper-large-v3', github: 'https://github.com/openai/whisper',
     alternatives: [],
+    en: {
+      summary: 'Speech recognition in 99 languages, including Russian. The de facto standard for transcribing calls and meetings. Hugging Face\'s faster Distil-Whisper is English only.',
+      tasks: ['Transcription of calls and video meetings', 'Video subtitles', 'Voice messages to text', 'Meeting minutes'],
+      where: ['Sales teams', 'Call centers', 'Media and bloggers', 'Lawyers'],
+      license: 'MIT',
+      country: 'USA',
+    },
   },
   {
     id: 'flux', name: 'FLUX', developer: 'Black Forest Labs', country: 'Германия',
@@ -91,6 +140,13 @@ const BASE = [
     versions: [['FLUX.1 [schnell] / [dev]', '2024-08'], ['FLUX.1 Tools', '2024-11'], ['FLUX.1 Kontext [dev]', '2025-06'], ['FLUX.2 [dev]', '2025-11'], ['FLUX.2 [klein]', '2026-01']],
     hf: 'https://huggingface.co/black-forest-labs', github: 'https://github.com/black-forest-labs/flux',
     alternatives: ['qwen-image'],
+    en: {
+      summary: 'Image generation from the creators of Stable Diffusion. Renders text in images well and keeps the composition.',
+      tasks: ['Images for product cards', 'Banners and covers', 'Photo editing by description (Kontext)'],
+      where: ['Marketplaces', 'Marketing and social media', 'Design studios'],
+      license: 'FLUX.1 [schnell] and FLUX.2 [klein] 4B: Apache 2.0; [dev] versions: non-commercial',
+      country: 'Germany',
+    },
   },
   {
     id: 'qwen-image', name: 'Qwen-Image', developer: 'Alibaba', country: 'Китай',
@@ -102,6 +158,13 @@ const BASE = [
     versions: [['Qwen-Image', '2025-08'], ['Qwen-Image-Edit', '2025-08'], ['Qwen-Image-2512', '2025-12'], ['Qwen-Image-2.1', '2026-09']],
     hf: 'https://huggingface.co/Qwen/Qwen-Image', github: 'https://github.com/QwenLM/Qwen-Image',
     alternatives: ['flux'],
+    en: {
+      summary: 'Image generation and editing, including text in images. Earlier versions allow commercial use; the latest 2.1 is non-commercial only.',
+      tasks: ['Infographics for product cards', 'Photo editing by text command', 'Ad creatives'],
+      where: ['Marketplaces', 'Online stores', 'Advertising'],
+      license: 'Up to Qwen-Image-2512: Apache 2.0; Qwen-Image-2.1: research, non-commercial',
+      country: 'China',
+    },
   },
   {
     id: 'wan', name: 'Wan', developer: 'Alibaba', country: 'Китай',
@@ -113,6 +176,13 @@ const BASE = [
     versions: [['Wan 2.1', '2025-02'], ['Wan2.1-VACE', '2025-05'], ['Wan 2.2', '2025-07'], ['Wan2.2-S2V-14B', '2025-08'], ['Wan-Dancer-14B', '2026-07'], ['Wan2.2-Animate-2', '2026-07']],
     hf: 'https://huggingface.co/Wan-AI', github: 'https://github.com/Wan-Video',
     alternatives: [],
+    en: {
+      summary: 'Text-to-video and image-to-video; the small version runs on a gaming GPU. After 2.2 only applied models are open: editing (VACE), audio-driven talking characters (S2V), dancing to music (Dancer).',
+      tasks: ['Short promo videos', 'Animating product photos', 'Videos for social media'],
+      where: ['Social media and advertising', 'E-commerce', 'Video production'],
+      license: 'Apache 2.0',
+      country: 'China',
+    },
   },
   {
     id: 'bge-m3', name: 'BGE-M3', developer: 'BAAI', country: 'Китай',
@@ -124,6 +194,13 @@ const BASE = [
     versions: [['BGE-M3', '2024-01']],
     hf: 'https://huggingface.co/BAAI/bge-m3', github: 'https://github.com/FlagOpen/FlagEmbedding',
     alternatives: [],
+    en: {
+      summary: 'A model for meaning-based search in about a hundred languages. The core of RAG: the bot finds the right part of a document before answering.',
+      tasks: ['Search across a document base', 'RAG for a chatbot', 'Finding similar requests and duplicates'],
+      where: ['Knowledge bases', 'Legal archives', 'Customer support'],
+      license: 'MIT',
+      country: 'China',
+    },
   },
   {
     id: 'sam', name: 'Segment Anything (SAM)', developer: 'Meta', country: 'США',
@@ -135,6 +212,13 @@ const BASE = [
     versions: [['SAM', '2023-04'], ['SAM 2', '2024-07'], ['SAM 3', '2025-11'], ['SAM 3.1', '2026-03']],
     hf: 'https://huggingface.co/facebook', github: 'https://github.com/facebookresearch/sam2',
     alternatives: [],
+    en: {
+      summary: 'Selects any object in photos and videos with a click or a box. The basis for background removal and object counting.',
+      tasks: ['Background removal from product photos', 'Counting objects in photos', 'Data labeling for training'],
+      where: ['E-commerce', 'Manufacturing and quality control', 'Agriculture'],
+      license: 'SAM and SAM 2: Apache 2.0; SAM 3: SAM License (commercial use allowed)',
+      country: 'USA',
+    },
   },
 ];
 
@@ -144,7 +228,7 @@ const fs = require('fs');
 const path = require('path');
 const byId = new Map(BASE.map((m) => [m.id, m]));
 const dir = path.join(__dirname, 'models');
-for (const f of fs.existsSync(dir) ? fs.readdirSync(dir).filter((x) => x.endsWith('.js')).sort() : []) {
+for (const f of fs.existsSync(dir) ? fs.readdirSync(dir).filter((x) => x.endsWith('.js') && !x.startsWith('_')).sort() : []) {
   for (const m of require(path.join(dir, f))) {
     if (m.verified === false) continue; // непроверенное не публикуем
     byId.set(m.id, m);

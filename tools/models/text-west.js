@@ -23,6 +23,14 @@ module.exports = [
     alternatives: ['falcon', 'olmo', 'pythia'],
     source: 'https://huggingface.co/bigscience/bloomz',
     verified: true,
+    en: {
+      summary: 'One of the first large open models, trained by a community of hundreds of researchers in 46 languages. Today it is interesting mostly as a historical milestone.',
+      tasks: ['Text generation and translation in many languages', 'Experiments and team training', 'Base model for fine-tuning on a narrow task'],
+      where: ['Research groups', 'Education'],
+      license: 'BigScience RAIL 1.0: commercial use allowed, but certain uses are prohibited',
+      developer: 'BigScience (Hugging Face and the community)',
+      country: 'France',
+    },
   },
   {
     id: 'opt',
@@ -47,6 +55,14 @@ module.exports = [
     alternatives: ['pythia', 'bloom', 'llama'],
     source: 'https://huggingface.co/facebook/opt-66b',
     verified: true,
+    en: {
+      summary: 'An early open Meta series matching GPT-3 in size. Outdated; useful for research and comparison.',
+      tasks: ['Research experiments', 'Training specialists', 'Comparison with modern models'],
+      where: ['Research groups', 'Universities'],
+      license: 'OPT License: non-commercial and research use only',
+      country: 'USA',
+      sizes: '125M – 66B (175B on request)',
+    },
   },
   {
     id: 'pythia',
@@ -71,6 +87,13 @@ module.exports = [
     alternatives: ['olmo', 'opt', 'bloom'],
     source: 'https://huggingface.co/EleutherAI/pythia-12b',
     verified: true,
+    en: {
+      summary: 'Fully open models from the non-profit lab EleutherAI: GPT-NeoX-20B and the Pythia series with published intermediate training checkpoints.',
+      tasks: ['Base model for fine-tuning', 'Research into model behavior', 'Simple text generation and completion'],
+      where: ['Research groups', 'Universities', 'R&D departments'],
+      license: 'Apache 2.0',
+      country: 'USA',
+    },
   },
   {
     id: 'flan-t5',
@@ -95,6 +118,13 @@ module.exports = [
     alternatives: ['smollm', 'phi', 'granite'],
     source: 'https://huggingface.co/google/flan-ul2',
     verified: true,
+    en: {
+      summary: 'Compact input-output models trained to follow instructions. Still used as a cheap base for classification, extraction and short answers.',
+      tasks: ['Classification of requests and documents', 'Extracting fields from text', 'Short answers and summaries', 'Fine-tuning for a narrow task'],
+      where: ['Customer support', 'Document management', 'Analytics'],
+      license: 'Apache 2.0',
+      country: 'USA',
+    },
   },
   {
     id: 'falcon',
@@ -119,6 +149,13 @@ module.exports = [
     alternatives: ['jamba', 'lfm', 'granite'],
     source: 'https://huggingface.co/tiiuae/Falcon-H1-Tiny-90M-Instruct',
     verified: true,
+    en: {
+      summary: 'A family from Abu Dhabi: from the early Falcon 40B and 180B to hybrid Falcon-H1 and tiny Falcon-H1-Tiny models of 90–600M parameters for devices.',
+      tasks: ['Assistant and answers based on documents', 'Running on low-end hardware and devices', 'Tool calling in simple agents', 'Texts in Arabic and European languages'],
+      where: ['Customer support', 'Embedded devices', 'Government and large companies'],
+      license: 'Falcon 7B/40B: Apache 2.0; Falcon 180B and from Falcon 2 onward: TII Falcon License (based on Apache, with an acceptable use policy)',
+      country: 'UAE',
+    },
   },
   {
     id: 'mpt',
@@ -143,6 +180,13 @@ module.exports = [
     alternatives: ['falcon', 'pythia', 'dbrx'],
     source: 'https://huggingface.co/mosaicml',
     verified: false,
+    en: {
+      summary: 'One of the first open models licensed for commercial use and with a long context. Official weights are no longer distributed; community copies remain.',
+      tasks: ['Text generation', 'Long texts (StoryWriter version)', 'Research'],
+      where: ['Research groups'],
+      license: 'Base versions Apache 2.0, chat versions CC-BY-NC; the official Hugging Face repositories are currently closed',
+      country: 'USA',
+    },
   },
   {
     id: 'phi',
@@ -167,6 +211,13 @@ module.exports = [
     alternatives: ['gemma', 'smollm', 'granite'],
     source: 'https://huggingface.co/microsoft/Phi-4-reasoning-vision-15B',
     verified: true,
+    en: {
+      summary: 'Small Microsoft models trained on carefully selected data: strong at logic and math for their modest size. Versions with images and speech are available.',
+      tasks: ['Assistant on a laptop or your own server', 'Reasoning and calculation tasks', 'Analysis of images and diagrams (vision versions)', 'Classification and data extraction'],
+      where: ['Internal company services', 'Education', 'Analytics'],
+      license: 'MIT',
+      country: 'USA',
+    },
   },
   {
     id: 'olmo',
@@ -191,6 +242,13 @@ module.exports = [
     alternatives: ['apertus', 'pythia', 'smollm'],
     source: 'https://huggingface.co/allenai/Olmo-Hybrid-7B',
     verified: true,
+    en: {
+      summary: 'Fully open models: not only the weights but also the data, training code and intermediate checkpoints are published. Useful when transparent provenance matters.',
+      tasks: ['Assistant and answers based on documents', 'Reasoning tasks (Think versions)', 'Fine-tuning on your data with a clear model history'],
+      where: ['Government and regulated industries', 'Research groups', 'Education'],
+      license: 'Apache 2.0',
+      country: 'USA',
+    },
   },
   {
     id: 'dbrx',
@@ -215,6 +273,13 @@ module.exports = [
     alternatives: ['mpt', 'jamba', 'command'],
     source: 'https://www.databricks.com/blog/introducing-dbrx-new-state-art-open-llm',
     verified: false,
+    en: {
+      summary: 'A large MoE model from Databricks (2024). The official repositories are closed, so it is not suitable for new deployments.',
+      tasks: ['Answers based on corporate data', 'SQL and code generation', 'Text analysis'],
+      where: ['Data analytics', 'IT departments'],
+      license: 'Databricks Open Model License (with restrictions); official weights on Hugging Face are currently closed',
+      country: 'USA',
+    },
   },
   {
     id: 'grok',
@@ -239,6 +304,14 @@ module.exports = [
     alternatives: ['inkling', 'nemotron', 'llama'],
     source: 'https://huggingface.co/xai-org/grok-2',
     verified: true,
+    en: {
+      summary: 'xAI publishes the weights of previous Grok generations. The models are very large and need a GPU cluster, so in practice they are rarely run.',
+      tasks: ['Research on large models', 'Assistant on your own infrastructure', 'Text generation and analysis'],
+      where: ['Large IT companies', 'Research groups'],
+      license: 'Grok-1: Apache 2.0; Grok-2: Grok 2 Community License (commercial use if xAI rules are followed; it may not be used to train other large models)',
+      country: 'USA',
+      sizes: '314B (Grok-1), Grok-2 is larger',
+    },
   },
   {
     id: 'jamba',
@@ -263,6 +336,13 @@ module.exports = [
     alternatives: ['falcon', 'granite', 'command'],
     source: 'https://huggingface.co/ai21labs/AI21-Jamba2-Mini',
     verified: true,
+    en: {
+      summary: 'A hybrid of Transformer and Mamba with a window of up to 256K tokens: handles long documents faster than conventional models. Jamba2 focuses on accurate, source-based answers.',
+      tasks: ['Answers based on long policies and contracts', 'Knowledge-base search (RAG)', 'Summaries of large documents', 'Following strict instructions'],
+      where: ['Legal departments', 'Customer support', 'Finance'],
+      license: 'Jamba v0.1, Reasoning 3B and Jamba2: Apache 2.0; Jamba 1.5–1.7: Jamba Open Model License with a revenue limit',
+      country: 'Israel',
+    },
   },
   {
     id: 'command',
@@ -287,6 +367,13 @@ module.exports = [
     alternatives: ['aya', 'jamba', 'granite'],
     source: 'https://huggingface.co/CohereLabs/command-a-plus-05-2026-bf16',
     verified: true,
+    en: {
+      summary: 'Business models: document search with source citations, tool calling, many languages. Command A+ (2026) was the first under Apache 2.0, followed by the North line: code, translation and compact vision.',
+      tasks: ['Knowledge-base answers with source citations', 'Agents that work with internal systems', 'Translation and correspondence in different languages', 'Analysis of documents with images (A+)'],
+      where: ['Large companies', 'Customer support', 'Legal and finance departments'],
+      license: 'Command R, R+, R7B, Command A (2024–2025) and North Small Translate: CC-BY-NC, non-commercial only; Command A+ (05-2026), North Mini Code and North Micro Vision: Apache 2.0',
+      country: 'Canada',
+    },
   },
   {
     id: 'aya',
@@ -311,6 +398,13 @@ module.exports = [
     alternatives: ['command', 'apertus', 'sarvam'],
     source: 'https://huggingface.co/CohereLabs/tiny-aya-global',
     verified: true,
+    en: {
+      summary: 'Multilingual models from Cohere\'s research arm, covering 23 to 100+ languages. Tiny Aya (2026, 3.3B) runs on a regular PC, but for non-commercial use only.',
+      tasks: ['Translation and correspondence in less common languages', 'Multilingual chat assistant', 'Analysis of images with text (Vision)'],
+      where: ['Education', 'Non-profit projects', 'Research'],
+      license: 'Aya 101: Apache 2.0; Aya 23, Expanse, Vision and Tiny Aya: CC-BY-NC, non-commercial only',
+      country: 'Canada',
+    },
   },
   {
     id: 'nemotron',
@@ -335,6 +429,13 @@ module.exports = [
     alternatives: ['llama', 'qwen', 'granite'],
     source: 'https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16',
     verified: true,
+    en: {
+      summary: 'NVIDIA models for agents and reasoning, optimized to run fast on its GPUs. Nemotron 3 is a Mamba and MoE hybrid from 4B to 550B; Nano Omni handles video, audio and images (English only).',
+      tasks: ['Agents with tool calling', 'Reasoning and calculation tasks', 'Answers based on long documents', 'Synthetic training data generation'],
+      where: ['IT and development', 'Industry', 'Large companies with their own GPU cluster'],
+      license: 'Nemotron-4, Llama-Nemotron, Nemotron 3 Nano, Nano Omni, Cascade 2 and Super: NVIDIA Open Model License / Open Model Agreement (commercial use allowed with conditions; Llama-based versions add Llama terms); Nemotron 3 Ultra and 3.5 Lightning: OpenMDW-1.1',
+      country: 'USA',
+    },
   },
   {
     id: 'granite',
@@ -359,6 +460,13 @@ module.exports = [
     alternatives: ['phi', 'command', 'nemotron'],
     source: 'https://huggingface.co/ibm-granite/granite-4.2-30b',
     verified: true,
+    en: {
+      summary: 'IBM enterprise models with transparent training data and ISO 42001 certification. Granite 4 is a memory-efficient Mamba and Transformer hybrid.',
+      tasks: ['Answers based on internal documents (RAG)', 'Tool calling and agent work', 'Data extraction and classification', 'Coding help'],
+      where: ['Banking and insurance', 'Government', 'IT departments of large companies'],
+      license: 'Apache 2.0',
+      country: 'USA',
+    },
   },
   {
     id: 'smollm',
@@ -383,6 +491,13 @@ module.exports = [
     alternatives: ['lfm', 'phi', 'gemma'],
     source: 'https://huggingface.co/HuggingFaceTB/SmolLM3-3B',
     verified: true,
+    en: {
+      summary: 'Tiny open Hugging Face models for phones and laptops. SmolLM3 (3B) can reason and handle long context; the full training recipe is open.',
+      tasks: ['Simple on-device assistant', 'Classification and routing of requests', 'Base for fine-tuning on a narrow task'],
+      where: ['Mobile apps', 'Embedded devices', 'Education'],
+      license: 'Apache 2.0',
+      country: 'USA',
+    },
   },
   {
     id: 'lfm',
@@ -407,6 +522,13 @@ module.exports = [
     alternatives: ['smollm', 'phi', 'falcon'],
     source: 'https://huggingface.co/LiquidAI/LFM2.5-2.6B',
     verified: true,
+    en: {
+      summary: 'Models with a new architecture for on-device use: fast on a regular CPU and on phones. Versions for data extraction, RAG and tools, plus LFM2.5-VL for images and voice LFM2.5-Audio.',
+      tasks: ['Offline assistant on a laptop or phone', 'Data extraction from documents', 'Tool calling in apps', 'Knowledge-base search (RAG)'],
+      where: ['Mobile apps', 'Automotive and consumer electronics', 'Small business'],
+      license: 'LFM Open License v1.0: free for companies with revenue up to 10 million dollars a year; above that, a separate license is required',
+      country: 'USA',
+    },
   },
   {
     id: 'apertus',
@@ -431,6 +553,13 @@ module.exports = [
     alternatives: ['olmo', 'aya', 'mistral'],
     source: 'https://huggingface.co/swiss-ai/Apertus-v1.5-70B',
     verified: true,
+    en: {
+      summary: 'Switzerland\'s public open model: weights, data and recipe are open, with more than 1000 languages in training. Version 1.5 understands images.',
+      tasks: ['Multilingual assistant', 'Answers based on documents', 'Analysis of images and scans (v1.5)', 'Fine-tuning with clear data provenance'],
+      where: ['Government', 'Education and science', 'Regulated industries'],
+      license: 'Apache 2.0',
+      country: 'Switzerland',
+    },
   },
   {
     id: 'muse-glimmer',
@@ -455,6 +584,13 @@ module.exports = [
     alternatives: ['llama', 'gemma', 'qwen'],
     source: 'https://huggingface.co/meta-models/Muse-Glimmer-30B',
     verified: true,
+    en: {
+      summary: 'An open Meta model for agents on affordable hardware: distilled from the closed Muse Spark, understands text and images, trained on 100+ languages.',
+      tasks: ['Agents with tool calling', 'Analysis of screenshots, charts and documents', 'Multilingual assistant'],
+      where: ['Office process automation', 'Customer support', 'IT departments'],
+      license: 'Apache 2.0',
+      country: 'USA',
+    },
   },
   {
     id: 'inkling',
@@ -479,6 +615,13 @@ module.exports = [
     alternatives: ['command', 'nemotron', 'deepseek'],
     source: 'https://huggingface.co/thinkingmachines/Inkling-Small',
     verified: true,
+    en: {
+      summary: 'Flagship open models from Mira Murati\'s lab: they take text, images and audio. Large MoE models that need several GPUs.',
+      tasks: ['Flagship-level corporate assistant', 'Analysis of documents, images and audio', 'Programming help', 'Agents for complex multi-step tasks'],
+      where: ['Large companies', 'IT and development', 'Analytics'],
+      license: 'Apache 2.0',
+      country: 'USA',
+    },
   },
   {
     id: 'laguna',
@@ -503,6 +646,13 @@ module.exports = [
     alternatives: ['qwen-coder', 'devstral', 'kat-coder'],
     source: 'https://huggingface.co/poolside/Laguna-S-2.1',
     verified: true,
+    en: {
+      summary: 'Models for agentic programming: they edit code in a repository on their own. The small XS runs on a Mac with 36 GB of memory; S 2.1 has a 1M-token context.',
+      tasks: ['Coding agent for in-house development', 'Bug fixing and code improvements', 'Working with large codebases'],
+      where: ['IT departments', 'Software development', 'System integrators'],
+      license: 'Laguna XS.2 and M.1: Apache 2.0; Laguna XS 2.1 and S 2.1: OpenMDW-1.1 (free commercial use)',
+      country: 'USA',
+    },
   },
   {
     id: 'trinity',
@@ -527,6 +677,13 @@ module.exports = [
     alternatives: ['olmo', 'nemotron', 'gpt-oss'],
     source: 'https://huggingface.co/arcee-ai/Trinity-Large-Thinking',
     verified: true,
+    en: {
+      summary: 'An American family of MoE models trained from scratch: Nano, Mini and Large. Trinity-Large-Thinking (398B) reasons before answering.',
+      tasks: ['Agents with tool calling', 'Reasoning tasks', 'Corporate assistant on your own servers'],
+      where: ['IT departments', 'Large companies', 'Analytics'],
+      license: 'OpenMDW-1.1 (free commercial use)',
+      country: 'USA',
+    },
   },
   {
     id: 'sarvam',
@@ -551,6 +708,13 @@ module.exports = [
     alternatives: ['aya', 'apertus', 'qwen'],
     source: 'https://huggingface.co/sarvamai/sarvam-105b',
     verified: true,
+    en: {
+      summary: 'Indian models focused on 22 languages of India. Sarvam 30B and 105B (2026) are MoE models with strong reasoning and agent skills.',
+      tasks: ['Multilingual customer support', 'Reasoning and calculation tasks', 'Agents with tool calling'],
+      where: ['Companies with customers in India', 'Government', 'Call centers'],
+      license: 'Main versions Apache 2.0 (Sarvam-M, Sarvam 30B and 105B)',
+      country: 'India',
+    },
   },
   {
     id: 'intellect',
@@ -575,6 +739,13 @@ module.exports = [
     alternatives: ['trinity', 'olmo', 'glm'],
     source: 'https://huggingface.co/PrimeIntellect/INTELLECT-3.1',
     verified: true,
+    en: {
+      summary: 'Models trained in a distributed way on GPUs from around the world. INTELLECT-3 (106B) is further trained with reinforcement learning for math, code and agents.',
+      tasks: ['Reasoning and math tasks', 'Programming help', 'Agents with tool calling'],
+      where: ['IT and development', 'Research groups'],
+      license: 'INTELLECT-1 and 2: Apache 2.0; INTELLECT-3 and 3.1: MIT',
+      country: 'USA',
+    },
   },
   {
     id: 'reka',
@@ -599,5 +770,12 @@ module.exports = [
     alternatives: ['phi', 'muse-glimmer', 'lfm'],
     source: 'https://huggingface.co/RekaAI/reka-edge-2603',
     verified: true,
+    en: {
+      summary: 'Compact Reka models: Flash 3 (21B) for reasoning and Reka Edge (7B), which quickly analyzes images and video on-device.',
+      tasks: ['Photo and video analysis (Edge)', 'Object detection in images', 'Reasoning tasks (Flash)'],
+      where: ['Video analytics', 'Embedded devices', 'Retail'],
+      license: 'Reka Flash 3 and 3.1: Apache 2.0; Reka Edge: own license, commercial use free with revenue up to 1 million dollars a year',
+      country: 'USA',
+    },
   },
 ];

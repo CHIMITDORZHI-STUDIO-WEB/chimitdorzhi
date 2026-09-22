@@ -26,6 +26,14 @@ module.exports = [
     alternatives: ['graphcast', 'aifs', 'fourcastnet'],
     source: 'https://github.com/microsoft/aurora/releases',
     verified: true,
+    en: {
+      summary: 'A foundation model of Earth\'s atmosphere: global weather forecasts, plus separate versions for air quality and ocean waves. Computes a forecast in seconds instead of hours on a supercomputer.',
+      tasks: ['Your own forecast of temperature, wind and precipitation for company locations', 'Sea state estimates for planning voyages and port operations', 'Air pollution forecasts for industrial sites', 'Fine-tuning on your own weather station data for local needs'],
+      where: ['Logistics and shipping', 'Energy (wind, grid load)', 'Weather risk insurance', 'Agricultural holdings'],
+      license: 'MIT',
+      country: 'USA',
+      sizes: 'about 1.3B (a small test version is available)',
+    },
   },
   {
     id: 'ace2',
@@ -50,6 +58,14 @@ module.exports = [
     alternatives: ['aurora', 'fourcastnet', 'graphcast'],
     source: 'https://huggingface.co/api/models?author=allenai&search=ACE',
     verified: true,
+    en: {
+      summary: 'A fast climate model emulator: simulates the atmosphere years and decades ahead on a single GPU. Coupled with an ocean model (SamudrACE) for long-term scenarios.',
+      tasks: ['Decades-long climate scenarios to assess long-term asset risks', 'Large-scale what-if runs on temperature and precipitation', 'Preparing data for crop yield and energy demand models'],
+      where: ['Insurance and reinsurance', 'Real estate development and infrastructure', 'Research and industry institutes'],
+      license: 'Apache 2.0',
+      country: 'USA',
+      sizes: 'checkpoint of about 1.8 GB',
+    },
   },
   {
     id: 'graphcast',
@@ -74,6 +90,14 @@ module.exports = [
     alternatives: ['aurora', 'aifs', 'fourcastnet'],
     source: 'https://github.com/google-deepmind/weathernext/blob/main/docs/weathernext1_graph/README.md',
     verified: true,
+    en: {
+      summary: 'Google DeepMind\'s family of global weather models: GraphCast (10-day forecast), GenCast (probabilistic ensemble) and WeatherNext 2 with cyclone forecasting. Since August 2026 the weights are cleared for commercial use.',
+      tasks: ['Medium-range weather forecasts for planning shifts, voyages and deliveries', 'Probabilistic assessment of extreme weather for insurance portfolios', 'Tropical cyclone track forecasts for marine and port operations'],
+      where: ['Logistics and transport', 'Insurance', 'Energy and power grids', 'Agribusiness'],
+      license: 'Code — Apache 2.0, weights — CC-BY 4.0 (since 06.08.2026; previously the weights were non-commercial)',
+      country: 'UK',
+      sizes: 'from lightweight 1° versions to full 0.25°',
+    },
   },
   {
     id: 'fourcastnet',
@@ -98,6 +122,14 @@ module.exports = [
     alternatives: ['aurora', 'graphcast', 'aifs'],
     source: 'https://huggingface.co/api/models?author=nvidia&search=fourcastnet',
     verified: true,
+    en: {
+      summary: 'NVIDIA\'s set of weather and climate models: global FourCastNet forecasts, downscaling to kilometers (CorrDiff), regional storm forecasts (StormCast), climate generation (cBottle, Atlas). Run via Earth2Studio.',
+      tasks: ['Global forecasts followed by downscaling to the region you need', 'Short-term forecasts of thunderstorms and heavy rain for dispatch services', 'Generating many weather scenarios for stress tests', 'Assessing wind and temperature loads on facilities'],
+      where: ['Energy and power grids', 'Insurance', 'Logistics', 'Weather services and research centers'],
+      license: 'Mixed: FourCastNet — Apache 2.0, StormCast and CorrDiff — OpenMDW 1.1, Atlas — NVIDIA Open Model License; the cBottle model card lists an NVIDIA evaluation agreement',
+      country: 'USA',
+      sizes: '98M – 2.5B (FourCastNet 3 — about 711M)',
+    },
   },
   {
     id: 'pangu-weather',
@@ -122,6 +154,14 @@ module.exports = [
     alternatives: ['graphcast', 'aurora', 'aifs'],
     source: 'https://github.com/198808xc/Pangu-Weather',
     verified: true,
+    en: {
+      summary: 'One of the first weather neural networks, published in Nature and added to ECMWF charts. The weights are open for research only; commercial use is prohibited.',
+      tasks: ['Research weather forecasts a week ahead', 'Comparison with other weather models on your own data', 'Training courses on weather neural networks'],
+      where: ['Universities and research groups', 'R&D departments'],
+      license: 'CC-BY-NC-SA 4.0 — commercial use is explicitly prohibited',
+      country: 'China',
+      sizes: '4 models of ~1.1 GB each (1, 3, 6 and 24-hour steps)',
+    },
   },
   {
     id: 'aifs',
@@ -146,6 +186,15 @@ module.exports = [
     alternatives: ['graphcast', 'aurora', 'fourcastnet'],
     source: 'https://huggingface.co/api/models?author=ecmwf',
     verified: true,
+    en: {
+      summary: 'ECMWF\'s weather neural network running operationally: a 15-day forecast four times a day, an ensemble version with 51 scenarios, and since version 2, ocean waves.',
+      tasks: ['Running your own forecast from open initial data', 'Ensemble forecasts to estimate the probability of frost, downpours and storms', 'Wave forecasts for marine operations'],
+      where: ['Energy and power grids', 'Agribusiness', 'Marine logistics', 'Insurance'],
+      license: 'CC-BY 4.0',
+      developer: 'European Centre for Medium-Range Weather Forecasts (ECMWF)',
+      country: 'Europe (intergovernmental organization)',
+      sizes: 'checkpoint of about 1 GB',
+    },
   },
 
   // ---------- СПУТНИКОВЫЕ СНИМКИ И ГЕО ----------
@@ -172,6 +221,15 @@ module.exports = [
     alternatives: ['terramind', 'olmoearth', 'satlas'],
     source: 'https://huggingface.co/api/models?author=ibm-nasa-geospatial',
     verified: true,
+    en: {
+      summary: 'Foundation models for Landsat and Sentinel-2 satellite imagery that account for image time series. Ready-made fine-tunes for floods, burn scars and crop types, plus a separate weather model, WxC.',
+      tasks: ['Mapping crops and field condition over the season', 'Assessing flood zones and burn scars after natural disasters', 'Monitoring changes in buildings and land use', 'Fine-tuning for your own object classes on satellite data'],
+      where: ['Agricultural holdings and crop insurance', 'Insurance companies', 'Real estate development', 'Municipal services'],
+      license: 'Apache 2.0 (Prithvi-EO), CDLA-Permissive 2.0 (Prithvi WxC)',
+      developer: 'IBM and NASA',
+      country: 'USA',
+      sizes: 'tiny – 600M (imagery), 2.3B (Prithvi WxC weather)',
+    },
   },
   {
     id: 'terramind',
@@ -196,6 +254,15 @@ module.exports = [
     alternatives: ['prithvi', 'olmoearth', 'terrafm'],
     source: 'https://huggingface.co/api/models?author=ibm-esa-geospatial',
     verified: true,
+    en: {
+      summary: 'A multimodal Earth model: understands optical and radar imagery, terrain, vegetation index and land use maps, and can generate a missing data type (for example, a "see-through-clouds" image from radar).',
+      tasks: ['Analyzing fields and forests even in cloudy weather using radar imagery', 'Land use maps for assessing plots', 'Flood and wildfire assessment (ready-made fine-tunes available)'],
+      where: ['Agribusiness', 'Forestry', 'Insurance', 'Real estate development and land registry'],
+      license: 'Apache 2.0',
+      developer: 'IBM and the European Space Agency (ESA)',
+      country: 'USA / Europe',
+      sizes: 'tiny – large (checkpoints from ~200 MB to ~3.8 GB)',
+    },
   },
   {
     id: 'olmoearth',
@@ -220,6 +287,14 @@ module.exports = [
     alternatives: ['prithvi', 'terramind', 'satlas'],
     source: 'https://huggingface.co/allenai/OlmoEarth-v1_2-Base/blob/main/LICENSE.txt',
     verified: true,
+    en: {
+      summary: 'Ai2\'s family of models for Sentinel-1, Sentinel-2 and Landsat imagery, with ready-made fine-tunes for mangroves, deforestation and ecosystem types. The license excludes the extractive industries.',
+      tasks: ['Monitoring deforestation and forest condition across the supply chain', 'Classifying land and crops from image series', 'Image embeddings for finding similar plots'],
+      where: ['Agribusiness', 'Forestry and ESG reporting', 'Insurance', 'Environmental agencies'],
+      license: 'OlmoEarth Artifact License: free, including for business, but military use, surveillance and resource extraction (oil, gas, mining) are prohibited',
+      country: 'USA',
+      sizes: 'Nano – Large (Base about 114M)',
+    },
   },
   {
     id: 'terrafm',
@@ -244,6 +319,13 @@ module.exports = [
     alternatives: ['terramind', 'prithvi', 'olmoearth'],
     source: 'https://huggingface.co/api/models/MBZUAI/TerraFM',
     verified: true,
+    en: {
+      summary: 'A compact research model for satellite imagery, trained on both optical (Sentinel-2) and radar (Sentinel-1) data. Narrower in scope and community than Prithvi and TerraMind.',
+      tasks: ['Classification and segmentation of satellite imagery after fine-tuning', 'A base for a land monitoring prototype'],
+      where: ['Research groups', 'Geospatial analytics teams'],
+      license: 'Apache 2.0',
+      country: 'UAE',
+    },
   },
   {
     id: 'satlas',
@@ -268,6 +350,14 @@ module.exports = [
     alternatives: ['olmoearth', 'prithvi', 'terramind'],
     source: 'https://github.com/allenai/satlaspretrain_models',
     verified: true,
+    en: {
+      summary: 'Pretrained models from the Satlas project for Sentinel-2, Landsat and high-resolution aerial imagery. The predecessor of OlmoEarth, still used in TorchGeo.',
+      tasks: ['Detecting objects in imagery: solar farms, wind turbines, ships', 'Mapping roads and buildings from aerial photos', 'A starting point for fine-tuning your own geo model'],
+      where: ['Energy', 'Geospatial analytics', 'Municipal services'],
+      license: 'Code — Apache 2.0, weights — ODC-BY (attribution required)',
+      country: 'USA',
+      sizes: 'Swin-v2 and ResNet backbones (Base)',
+    },
   },
 
   // ---------- БИОЛОГИЯ И ХИМИЯ ----------
@@ -294,6 +384,14 @@ module.exports = [
     alternatives: ['boltz', 'openfold', 'evo'],
     source: 'https://github.com/Biohub/esm#licenses',
     verified: true,
+    en: {
+      summary: 'Protein language models: they understand amino acid sequences, predict structure (ESMFold2) and help with protein design. Since 2026 all open versions are under MIT.',
+      tasks: ['Protein embeddings for predicting properties (stability, solubility)', 'Predicting 3D structures of proteins and complexes', 'Screening enzyme and antibody design candidates before lab work'],
+      where: ['Pharma and biotech', 'Industrial biotechnology (enzymes)', 'Research institutes'],
+      license: 'MIT (all published weights, including ESM3 open and ESM C; the large ESM3 98B is cloud-only)',
+      country: 'USA',
+      sizes: '8M – 15B (ESM-2), 300M – 6B (ESM C), 1.4B (open ESM3)',
+    },
   },
   {
     id: 'evo',
@@ -318,6 +416,14 @@ module.exports = [
     alternatives: ['esm', 'boltz'],
     source: 'https://huggingface.co/api/models?author=arcinstitute',
     verified: true,
+    en: {
+      summary: 'DNA language models with context up to a million nucleotides: they assess the impact of mutations, annotate genomes and generate sequences. Evo 2 is trained on genomes from all domains of life.',
+      tasks: ['Assessing the likely harmfulness of genetic variants for research', 'Annotating genomes of microorganisms and plants', 'Finding promising sequences in breeding and synthetic biology'],
+      where: ['Biotech and pharma', 'Agricultural genetics and breeding', 'Research labs'],
+      license: 'Apache 2.0',
+      developer: 'Arc Institute (with Together AI, Stanford, NVIDIA)',
+      country: 'USA',
+    },
   },
   {
     id: 'boltz',
@@ -342,6 +448,15 @@ module.exports = [
     alternatives: ['alphafold3', 'openfold', 'esm'],
     source: 'https://github.com/jwohlwend/boltz/releases',
     verified: true,
+    en: {
+      summary: 'An open MIT-licensed alternative to AlphaFold 3: predicts structures of protein, DNA and small-molecule complexes; Boltz-2 estimates binding strength, BoltzGen designs new binding proteins.',
+      tasks: ['Predicting how a candidate molecule binds to a target protein', 'Ranking compounds by predicted binding strength before synthesis', 'Designing binder proteins for a given target'],
+      where: ['Pharma and biotech', 'Contract research organizations', 'Research groups'],
+      license: 'MIT',
+      developer: 'MIT (Jameel Clinic) and Recursion',
+      country: 'USA',
+      sizes: 'checkpoints of about 2 GB',
+    },
   },
   {
     id: 'alphafold3',
@@ -366,6 +481,15 @@ module.exports = [
     alternatives: ['boltz', 'openfold', 'esm'],
     source: 'https://github.com/google-deepmind/alphafold3/blob/main/WEIGHTS_TERMS_OF_USE.md',
     verified: true,
+    en: {
+      summary: 'The reference model for the structure of biomolecules and their complexes. Weights are provided for non-commercial research only; companies need commercial access via Google Cloud or open alternatives (Boltz, OpenFold3).',
+      tasks: ['Academic research on protein and complex structures', 'Benchmarking open alternatives against the reference on your own targets'],
+      where: ['Universities and non-profit institutes'],
+      license: 'Code — Apache 2.0, weights — Google\'s own terms: non-commercial use by non-profit organizations only; for business — paid access via Google Cloud',
+      developer: 'Google DeepMind and Isomorphic Labs',
+      country: 'UK',
+      sizes: 'a single set of weights',
+    },
   },
   {
     id: 'openfold',
@@ -390,6 +514,15 @@ module.exports = [
     alternatives: ['boltz', 'alphafold3', 'esm'],
     source: 'https://github.com/aqlaboratory/openfold-3/releases',
     verified: true,
+    en: {
+      summary: 'A fully open reproduction of AlphaFold 2 and then AlphaFold 3 under Apache 2.0, with training data. OpenFold3 predicts complexes of proteins, nucleic acids and ligands.',
+      tasks: ['Predicting structures of proteins and ligand complexes', 'Fine-tuning on the company\'s own data (training code is open)', 'An in-house structural analysis service without sending data outside'],
+      where: ['Pharma and biotech', 'Consortia and research centers'],
+      license: 'Apache 2.0',
+      developer: 'AlQuraishi Lab (Columbia University) and the OpenFold consortium',
+      country: 'USA',
+      sizes: 'a single set of weights per version',
+    },
   },
 
   // ---------- ЦИФРОВАЯ ПАТОЛОГИЯ ----------
@@ -416,6 +549,15 @@ module.exports = [
     alternatives: ['virchow', 'h-optimus', 'conch'],
     source: 'https://huggingface.co/MahmoodLab/UNI2-h',
     verified: true,
+    en: {
+      summary: 'A foundation model for histology slides: turns patches of digital slides into features for tissue classification. Does not replace a doctor; decisions are made by a specialist.',
+      tasks: ['Research classifiers of tissue types from digital slides', 'Finding similar cases in a slide archive', 'Preparing features for research prognosis models'],
+      where: ['Clinic research departments', 'Pathology research labs'],
+      license: 'CC-BY-NC-ND 4.0, academic research only; commercial companies — on request to the authors',
+      developer: 'Mahmood Lab (Mass General Brigham, Harvard)',
+      country: 'USA',
+      sizes: 'about 300M (UNI) – about 680M (UNI2-h)',
+    },
   },
   {
     id: 'conch',
@@ -440,6 +582,15 @@ module.exports = [
     alternatives: ['uni', 'virchow', 'medsiglip'],
     source: 'https://huggingface.co/api/models?author=MahmoodLab',
     verified: true,
+    en: {
+      summary: 'Image-plus-text models for pathology: search slides by an English description, classify without fine-tuning; TITAN describes a whole slide. Does not replace a doctor; decisions are made by a specialist.',
+      tasks: ['Text-query search across a slide archive for research', 'Draft slide descriptions for research projects', 'Tissue classification without labels at the start of a study'],
+      where: ['Clinic research departments', 'Research labs and pharma R&D'],
+      license: 'CC-BY-NC-ND 4.0, academic research only',
+      developer: 'Mahmood Lab (Mass General Brigham, Harvard)',
+      country: 'USA',
+      sizes: 'about 160M – 300M',
+    },
   },
   {
     id: 'virchow',
@@ -464,6 +615,14 @@ module.exports = [
     alternatives: ['uni', 'h-optimus', 'conch'],
     source: 'https://huggingface.co/api/models?author=paige-ai',
     verified: true,
+    en: {
+      summary: 'Paige\'s pathology foundation model, trained on millions of digital slides. The first version is Apache 2.0, the second is for research only. Does not replace a doctor; decisions are made by a specialist.',
+      tasks: ['Slide patch features for research classifiers', 'Selecting slides for re-review in research projects', 'Comparison with other pathology models on your own archive'],
+      where: ['Clinic research departments', 'Pathology labs', 'Pharma R&D'],
+      license: 'Mixed: Virchow — Apache 2.0, Virchow2 — CC-BY-NC-ND 4.0 (academic research only, commercial requests are declined by default)',
+      country: 'USA',
+      sizes: 'about 632M',
+    },
   },
   {
     id: 'h-optimus',
@@ -488,6 +647,13 @@ module.exports = [
     alternatives: ['virchow', 'uni', 'conch'],
     source: 'https://huggingface.co/api/models?author=bioptimus',
     verified: true,
+    en: {
+      summary: 'Pathology foundation models from France\'s Bioptimus with 1.1B parameters, plus the compact H0-mini. The first version is open under Apache 2.0. Does not replace a doctor; decisions are made by a specialist.',
+      tasks: ['Histology slide patch features for research models', 'A prototype for sorting slides by tissue type', 'Research projects linking morphology and molecular data'],
+      where: ['Clinic research departments', 'Pharma and biotech R&D'],
+      license: 'Mixed: H-optimus-0 — Apache 2.0, H-optimus-1 and H0-mini — CC-BY-NC-ND 4.0 (commercial use under a separate license)',
+      country: 'France',
+    },
   },
 
   // ---------- АВТОНОМНОЕ ВОЖДЕНИЕ ----------
@@ -514,6 +680,13 @@ module.exports = [
     alternatives: ['qwen-drive', 'cosmos', 'openpilot'],
     source: 'https://huggingface.co/nvidia/Alpamayo-1.5-10B',
     verified: true,
+    en: {
+      summary: 'Vision-language-action models for self-driving vehicles: they plan a trajectory from camera video and explain the decision in text. Used to develop and test autopilot systems, not as a ready-made autopilot.',
+      tasks: ['Auto-labeling camera recordings to train your own driver assistance systems', 'Analyzing complex road scenes with text explanations', 'Testing autopilot systems in simulation on rare scenarios'],
+      where: ['Automakers and ADAS suppliers', 'Autonomous vehicle developers', 'Testing centers'],
+      license: 'Weights — OpenMDW 1.1, code — Apache 2.0; however, the Alpamayo 1 and 1.5 model cards state "for non-commercial use, commercial license on request"',
+      country: 'USA',
+    },
   },
   {
     id: 'qwen-drive',
@@ -538,6 +711,14 @@ module.exports = [
     alternatives: ['alpamayo', 'qwen-vl', 'openpilot'],
     source: 'https://huggingface.co/api/models/Qwen/Qwen-Drive-1.0-4B',
     verified: true,
+    en: {
+      summary: 'An autonomous driving model based on Qwen3.5-4B: 3D detection of objects around the vehicle, answers to questions about the road scene and trajectory planning in one model.',
+      tasks: ['A perception and planning prototype for autonomous vehicles on closed sites', 'Answering questions about camera recordings when reviewing incidents', 'Labeling road scenes to train your own models'],
+      where: ['Automakers and ADAS suppliers', 'Autonomous warehouse and mining vehicles', 'Research groups'],
+      license: 'Apache 2.0',
+      developer: 'Alibaba (Qwen team)',
+      country: 'China',
+    },
   },
   {
     id: 'openpilot',
@@ -562,5 +743,13 @@ module.exports = [
     alternatives: ['alpamayo', 'qwen-drive'],
     source: 'https://github.com/commaai/openpilot/commits/master',
     verified: true,
+    en: {
+      summary: 'An open driver assistance system: a neural network keeps the lane and controls speed from a camera, plus a driver attention monitoring model. The models live right in the repository and are updated constantly.',
+      tasks: ['A research testbed for driver assistance systems', 'Studying driver attention monitoring with an in-cabin camera', 'Comparison with your own lane-keeping algorithms'],
+      where: ['Automaker engineering teams', 'Universities and testing centers'],
+      license: 'MIT (the whole repository, including model files)',
+      country: 'USA',
+      sizes: 'compact, designed for an in-vehicle device',
+    },
   },
 ];

@@ -30,6 +30,15 @@ module.exports = [
     alternatives: ['e5', 'bge-m3', 'rubert-tiny'],
     source: 'https://huggingface.co/sentence-transformers/static-similarity-mrl-multilingual-v1',
     verified: true,
+    en: {
+      summary: 'The classic for meaning-based search: small, fast models that run even on a modest server without a GPU. The multilingual versions understand Russian.',
+      tasks: ['Search across a knowledge base and FAQ', 'Finding similar tickets and duplicates', 'Grouping reviews and requests by topic'],
+      where: ['Customer support', 'Internal knowledge bases', 'E-commerce'],
+      license: 'Apache 2.0',
+      developer: 'UKP Lab (TU Darmstadt), later Hugging Face',
+      country: 'Germany',
+      sizes: 'about 20M – 470M',
+    },
   },
   {
     id: 'bge',
@@ -60,6 +69,14 @@ module.exports = [
     alternatives: ['bge-m3', 'e5', 'gte'],
     source: 'https://huggingface.co/BAAI/bge-reasoner-embed-qwen3-8b-0923',
     verified: true,
+    en: {
+      summary: 'Some of the most popular embeddings for search and RAG. The main v1.5 versions target English and Chinese; for Russian, BAAI has a separate model, bge-m3.',
+      tasks: ['Search across English-language documents', 'Picking passages for chatbot answers (RAG)', 'Code search (bge-code)'],
+      where: ['IT and software development', 'Internal knowledge bases', 'Customer support'],
+      license: 'MIT (v1, v1.5); Apache 2.0 (bge-en-icl, bge-code, bge-reasoner); bge-multilingual-gemma2 — under the Gemma license',
+      developer: 'BAAI (Beijing Academy of Artificial Intelligence)',
+      country: 'China',
+    },
   },
   {
     id: 'bge-reranker',
@@ -88,6 +105,14 @@ module.exports = [
     alternatives: ['bge-m3', 'qwen-embedding', 'jina-reranker'],
     source: 'https://huggingface.co/BAAI/bge-reranker-v2.5-gemma2-lightweight',
     verified: true,
+    en: {
+      summary: 'Rerankers: they take passages found by search and reorder them by how well they actually match the question. v2-m3 is multilingual and lightweight, often paired with bge-m3.',
+      tasks: ['Refining search results before a chatbot answers', 'Sorting knowledge base search results', 'Selecting the most relevant clauses of contracts and policies'],
+      where: ['Customer support', 'Legal and document management', 'Internal knowledge bases'],
+      license: 'MIT (base, large); Apache 2.0 (v2-m3, v2-gemma, v2-minicpm); v2.5-gemma2 — under the Gemma license',
+      developer: 'BAAI (Beijing Academy of Artificial Intelligence)',
+      country: 'China',
+    },
   },
   {
     id: 'mxbai',
@@ -118,6 +143,13 @@ module.exports = [
     alternatives: ['bge-reranker', 'nomic-embed', 'bge-m3'],
     source: 'https://huggingface.co/mixedbread-ai/mxbai-edge-colbert-v0-32m',
     verified: true,
+    en: {
+      summary: 'Embeddings and rerankers from Germany\'s Mixedbread. mxbai-embed-large is one of the most downloaded English search models; the v2 rerankers cover 100+ languages, including Russian.',
+      tasks: ['Search across a knowledge base', 'Reranking results before a bot answers', 'Product catalog search'],
+      where: ['Customer support', 'E-commerce', 'IT and software development'],
+      license: 'Apache 2.0',
+      country: 'Germany',
+    },
   },
   {
     id: 'arctic-embed',
@@ -146,6 +178,13 @@ module.exports = [
     alternatives: ['bge-m3', 'e5', 'gte'],
     source: 'https://www.snowflake.com/en/blog/engineering/snowflake-arctic-embed-2-multilingual/',
     verified: true,
+    en: {
+      summary: 'Snowflake embeddings built specifically for search. Version 2.0 is multilingual (Russian is on the language list), handles long texts up to 8K tokens and can compress vectors.',
+      tasks: ['Search across documents and knowledge bases', 'Picking passages for RAG', 'Search across reports and internal data'],
+      where: ['Internal knowledge bases', 'Finance and analytics', 'Customer support'],
+      license: 'Apache 2.0',
+      country: 'USA',
+    },
   },
   {
     id: 'harrier',
@@ -172,6 +211,13 @@ module.exports = [
     alternatives: ['qwen-embedding', 'e5', 'embeddinggemma'],
     source: 'https://huggingface.co/microsoft/harrier-oss-v1-27b',
     verified: true,
+    en: {
+      summary: 'Microsoft\'s 2026 multilingual embeddings with context up to 32K tokens; Russian is on the language list. The 270M and 0.6B versions run on a regular server, 27B is the most accurate.',
+      tasks: ['Multilingual knowledge base search', 'Picking passages for RAG', 'Search across long documents'],
+      where: ['Customer support', 'Legal and document management', 'Internal knowledge bases'],
+      license: 'MIT',
+      country: 'USA',
+    },
   },
   {
     id: 'octen-embedding',
@@ -201,6 +247,13 @@ module.exports = [
     alternatives: ['qwen-embedding', 'bge-m3', 'harrier'],
     source: 'https://huggingface.co/Octen/Octen-Embedding-4B-INT8',
     verified: true,
+    en: {
+      summary: 'Qwen3-Embedding models fine-tuned by the startup Octen for search in legal, financial and medical texts. As of January 2026 the 8B version topped the RTEB leaderboard.',
+      tasks: ['Search across contracts and case law', 'Search across financial reports', 'Search across long documents up to 32K tokens'],
+      where: ['Law firms', 'Banking and finance', 'Clinics (reference databases)'],
+      license: 'Apache 2.0',
+      country: 'USA / Singapore',
+    },
   },
   {
     id: 'jina-reranker',
@@ -231,6 +284,13 @@ module.exports = [
     alternatives: ['bge-reranker', 'qwen-embedding', 'jina-embeddings'],
     source: 'https://huggingface.co/jinaai/jina-reranker-v3.5',
     verified: true,
+    en: {
+      summary: 'Strong multilingual rerankers; m0 also ranks pages as images (scans, slides). The latest versions are open for non-commercial use only.',
+      tasks: ['Refining search results before a chatbot answers', 'Sorting retrieved PDF pages and slides', 'Catalog and knowledge base search'],
+      where: ['Customer support', 'Document management', 'E-commerce'],
+      license: 'v1 — Apache 2.0; v2, v3, v3.5 and m0 — CC-BY-NC 4.0 (for business use — via the API or an agreement with Jina)',
+      country: 'Germany',
+    },
   },
   {
     id: 'reader-lm',
@@ -258,6 +318,13 @@ module.exports = [
     alternatives: ['docling', 'jina-embeddings', 'gliner'],
     source: 'https://huggingface.co/jinaai/ReaderLM-v2',
     verified: true,
+    en: {
+      summary: 'Small models that turn raw web page HTML into clean Markdown or JSON. Handy for preparing websites for a knowledge base. Non-commercial license only.',
+      tasks: ['Cleaning website pages for a knowledge base', 'Extracting data from pages into JSON', 'Preparing texts for RAG'],
+      where: ['IT and software development', 'Marketing and competitor analysis', 'Internal knowledge bases'],
+      license: 'CC-BY-NC 4.0',
+      country: 'Germany',
+    },
   },
   {
     id: 'r3-rerank',
@@ -284,6 +351,13 @@ module.exports = [
     alternatives: ['qwen-embedding', 'bge-reranker'],
     source: 'https://huggingface.co/tencent/R3-embedding-0.6b',
     verified: true,
+    en: {
+      summary: 'A pair of small Tencent models based on Qwen3 that pick the right skill for an AI agent for a given request: the embedding model finds candidates, the reranker chooses the best one.',
+      tasks: ['Choosing a tool or skill for an AI agent', 'Routing requests between bot scenarios', 'Search across a catalog of internal tools'],
+      where: ['IT and software development', 'Teams building AI agents'],
+      license: 'Apache 2.0',
+      country: 'China',
+    },
   },
   {
     id: 'colpali',
@@ -315,6 +389,14 @@ module.exports = [
     alternatives: ['qwen-embedding', 'jina-embeddings', 'nomic-embed'],
     source: 'https://huggingface.co/vidore/colqwen-omni-v0.1',
     verified: true,
+    en: {
+      summary: 'Searches PDFs and scans as images: pages do not need to be OCR\'d first, the model finds the right one for a question directly, including tables and charts. Trained on English.',
+      tasks: ['Search across scans, presentations and PDFs', 'RAG over documents with tables and charts', 'Search across technical documentation'],
+      where: ['Document management', 'Law firms', 'Banking and insurance'],
+      license: 'Adapters are MIT or Apache 2.0, but the base models have their own licenses: PaliGemma — Gemma, Qwen2.5-VL-3B — Qwen research license (ColQwen2 on Qwen2-VL — Apache 2.0)',
+      developer: 'Illuin Technology (ViDoRe team)',
+      country: 'France',
+    },
   },
   {
     id: 'evie',
@@ -342,6 +424,13 @@ module.exports = [
     alternatives: ['colpali', 'qwen-embedding', 'jina-embeddings'],
     source: 'https://huggingface.co/tencent/EVIE-4.5B',
     verified: true,
+    en: {
+      summary: 'Tencent models based on Qwen3.5 for searching scans and PDFs as images. According to the model card, among the top of the ViDoRe leaderboard at release.',
+      tasks: ['Search across scans and PDFs without OCR', 'RAG over reports with tables and charts', 'Search across document archives'],
+      where: ['Document management', 'Banking and finance', 'Law firms'],
+      license: 'Apache 2.0',
+      country: 'China',
+    },
   },
   {
     id: 'modernvbert',
@@ -368,6 +457,13 @@ module.exports = [
     alternatives: ['colpali', 'evie'],
     source: 'https://arxiv.org/abs/2510.01149',
     verified: true,
+    en: {
+      summary: 'A compact (250M) model for searching document pages as images. According to the authors, it matches models 10 times larger and runs without a GPU.',
+      tasks: ['Search across scans and PDFs on a modest server', 'Indexing document archives', 'Search across slides and manuals'],
+      where: ['Document management', 'Internal knowledge bases'],
+      license: 'MIT',
+      country: 'France',
+    },
   },
   {
     id: 'clip',
@@ -398,6 +494,14 @@ module.exports = [
     alternatives: ['clip-siglip', 'perception-encoder', 'ruclip'],
     source: 'https://github.com/openai/CLIP',
     verified: true,
+    en: {
+      summary: 'The 2021 model that first linked images and text: search photos by words and classify them without training. English only; SigLIP 2 or PE are usually chosen today.',
+      tasks: ['Image search by text query', 'Automatic tags for a catalog', 'Finding similar images'],
+      where: ['E-commerce', 'Stock photo libraries and media', 'Content moderation'],
+      license: 'MIT',
+      country: 'USA',
+      sizes: 'about 0.15B – 0.6B',
+    },
   },
   {
     id: 'perception-encoder',
@@ -426,6 +530,14 @@ module.exports = [
     alternatives: ['clip-siglip', 'dino', 'metaclip'],
     source: 'https://github.com/facebookresearch/perception_models',
     verified: true,
+    en: {
+      summary: 'Meta\'s family of encoders for images and video, and with PE-AV also for audio. PE-Core searches by text more accurately than SigLIP 2 (per Meta); small versions are available.',
+      tasks: ['Search photos and videos by description', 'Catalog labeling and tagging', 'Search across audio and video (PE-AV)'],
+      where: ['E-commerce', 'Media and video archives', 'Video surveillance and security'],
+      license: 'Apache 2.0',
+      country: 'USA',
+      sizes: 'size not stated on the model card',
+    },
   },
   {
     id: 'metaclip',
@@ -455,6 +567,13 @@ module.exports = [
     alternatives: ['clip-siglip', 'perception-encoder', 'clip'],
     source: 'https://huggingface.co/facebook/metaclip-2-worldwide-b16',
     verified: true,
+    en: {
+      summary: 'Meta\'s open reproduction of CLIP with a transparent data collection recipe. MetaCLIP 2 is trained on multilingual data from around the world. Non-commercial license only.',
+      tasks: ['Image search by text', 'Image classification without training', 'Search research and prototypes'],
+      where: ['Media and stock photo libraries', 'E-commerce (prototypes)', 'Science'],
+      license: 'CC-BY-NC 4.0',
+      country: 'USA',
+    },
   },
   {
     id: 'clap',
@@ -483,5 +602,13 @@ module.exports = [
     alternatives: ['perception-encoder', 'clip'],
     source: 'https://huggingface.co/laion/larger_clap_music_and_speech',
     verified: true,
+    en: {
+      summary: 'CLIP for audio: maps audio and text into a shared space. Lets you search sounds and music by description and classify them without training. Text must be in English.',
+      tasks: ['Search sounds and music by description', 'Automatic tags for an audio library', 'Recognizing sound types (siren, breaking glass, voice)'],
+      where: ['Media and audio production', 'Marketing and advertising', 'Security systems'],
+      license: 'Apache 2.0 (weights on HF); code and original checkpoints — CC0',
+      country: 'Germany',
+      sizes: 'size not stated on the model card',
+    },
   },
 ];

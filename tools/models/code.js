@@ -23,6 +23,14 @@ module.exports = [
     alternatives: ['qwen-coder', 'deepseek-coder', 'mellum'],
     source: 'https://huggingface.co/bigcode/starcoder2-15b-instruct-v0.1',
     verified: true,
+    en: {
+      summary: 'One of the first open coding models, trained on an open set of source code with an option to exclude your own repository. Today it is more a base for fine-tuning than a leader.',
+      tasks: ['Code autocompletion in the editor', 'Fine-tuning on the company\'s internal code', 'Generating boilerplate code and tests'],
+      where: ['IT departments', 'Internal systems development'],
+      license: 'BigCode OpenRAIL-M (commercial use allowed, but there is a list of prohibited uses)',
+      developer: 'BigCode (Hugging Face and ServiceNow)',
+      country: 'USA / France',
+    },
   },
   {
     id: 'code-llama',
@@ -47,6 +55,13 @@ module.exports = [
     alternatives: ['llama', 'qwen-coder', 'deepseek-coder'],
     source: 'https://huggingface.co/codellama/CodeLlama-70b-Instruct-hf',
     verified: true,
+    en: {
+      summary: 'A version of Llama 2 further trained on code, with variants for Python and for chat. Outdated, but many ready-made fine-tuned versions and tools exist.',
+      tasks: ['Code autocompletion and explanation', 'Generating Python scripts', 'Base model for fine-tuning on your own stack'],
+      where: ['IT departments', 'Developer training'],
+      license: 'Llama 2 Community License (commercial use allowed with restrictions)',
+      country: 'USA',
+    },
   },
   {
     id: 'deepseek-coder',
@@ -71,6 +86,13 @@ module.exports = [
     alternatives: ['qwen-coder', 'deepseek', 'code-llama'],
     source: 'https://huggingface.co/deepseek-ai/DeepSeek-Coder-V2-Instruct-0724',
     verified: true,
+    en: {
+      summary: 'DeepSeek\'s coding model family: from small autocompletion models to the large MoE V2, which matched closed models in 2024. Later, coding moved into DeepSeek\'s general models.',
+      tasks: ['Code autocompletion and generation', 'Translating code between programming languages', 'Finding bugs and explaining other people\'s code'],
+      where: ['IT departments', 'Product development', 'Legacy system maintenance'],
+      license: 'DeepSeek License (commercial use allowed, some uses prohibited); code under MIT',
+      country: 'China',
+    },
   },
   {
     id: 'qwen-coder',
@@ -95,6 +117,14 @@ module.exports = [
     alternatives: ['qwen', 'devstral', 'deepseek-coder'],
     source: 'https://huggingface.co/Qwen/Qwen3-Coder-Next',
     verified: true,
+    en: {
+      summary: 'The broadest open coding family: from 0.5B for autocompletion to 480B for agents. Qwen3-Coder-Next (80B, 3B active) works as a developer agent on a single GPU.',
+      tasks: ['Code autocompletion in the editor', 'An agent that edits code in the repository on its own', 'Writing and refining scripts, SQL and integrations', 'In-house code review without data leaving the company'],
+      where: ['IT departments', 'Product development', 'Data analytics'],
+      license: 'Apache 2.0 (CodeQwen1.5 and Qwen2.5-Coder-3B have their own Qwen license)',
+      developer: 'Alibaba (Qwen team)',
+      country: 'China',
+    },
   },
   {
     id: 'codestral',
@@ -119,6 +149,13 @@ module.exports = [
     alternatives: ['devstral', 'qwen-coder', 'mistral'],
     source: 'https://huggingface.co/mistralai/Codestral-22B-v0.1',
     verified: true,
+    en: {
+      summary: 'Mistral\'s coding model covering 80+ programming languages. The open weights of the main version cannot be used in production without a paid license; newer Codestral versions are API-only.',
+      tasks: ['Evaluation and testing before buying a license', 'Code autocompletion (with a commercial license)', 'Research on coding model quality'],
+      where: ['IT departments', 'Research teams'],
+      license: 'Codestral 22B: Mistral Non-Production License (research and testing only); the spin-off Mamba-Codestral 7B: Apache 2.0',
+      country: 'France',
+    },
   },
   {
     id: 'devstral',
@@ -143,6 +180,14 @@ module.exports = [
     alternatives: ['qwen-coder', 'kat-coder', 'sera'],
     source: 'https://huggingface.co/mistralai/Devstral-2-123B-Instruct-2512',
     verified: true,
+    en: {
+      summary: 'Mistral models for agentic development: they read the repository, edit files and run commands on their own. The 24B version fits on a single GPU.',
+      tasks: ['A developer agent that fixes tickets from the tracker', 'Extending internal systems from a description', 'Automating routine code edits'],
+      where: ['IT departments', 'Product development', 'Implementation and integrations'],
+      license: 'Small 24B versions: Apache 2.0; Devstral 2 123B: modified MIT (not for companies with revenue above 20 million dollars per month)',
+      developer: 'Mistral AI (with All Hands AI)',
+      country: 'France',
+    },
   },
   {
     id: 'mellum',
@@ -167,6 +212,13 @@ module.exports = [
     alternatives: ['qwen-coder', 'starcoder', 'seed-coder'],
     source: 'https://blog.jetbrains.com/ai/2026/06/mellum2-goes-open-source-a-fast-model-for-ai-workflows/',
     verified: true,
+    en: {
+      summary: 'JetBrains models for fast code autocompletion. Mellum2 (12B, 2.5B active) is already a full assistant: it writes and edits code, calls tools and reasons.',
+      tasks: ['Fast code autocompletion on your own server', 'A developer assistant that does not send code to the cloud', 'Fine-tuning on the company\'s code'],
+      where: ['IT departments', 'Product development'],
+      license: 'Apache 2.0',
+      country: 'Czech Republic',
+    },
   },
   {
     id: 'kat-coder',
@@ -191,6 +243,13 @@ module.exports = [
     alternatives: ['qwen-coder', 'devstral', 'iquest-coder'],
     source: 'https://huggingface.co/Kwaipilot/KAT-Coder-V2.5-Dev',
     verified: true,
+    en: {
+      summary: 'Kuaishou models for agentic development, trained to solve real tasks in repositories. KAT-Coder-V2.5-Dev (35B, 3B active) is the open version of their closed flagship.',
+      tasks: ['An agent that fixes tasks in the repository', 'Code generation and refactoring', 'Automating routine development tasks'],
+      where: ['IT departments', 'Product development'],
+      license: 'Apache 2.0',
+      country: 'China',
+    },
   },
   {
     id: 'iquest-coder',
@@ -215,6 +274,13 @@ module.exports = [
     alternatives: ['qwen-coder', 'kat-coder', 'seed-coder'],
     source: 'https://huggingface.co/IQuestLab/IQuest-Coder-V1-40B-Instruct',
     verified: true,
+    en: {
+      summary: 'A family of coding models with standard and reasoning versions, including a Loop variant that runs through its layers a second time. Sizes from 7B to 40B.',
+      tasks: ['Writing and refining code', 'Solving tasks with step-by-step reasoning', 'Agentic work with a repository'],
+      where: ['IT departments', 'Product development'],
+      license: 'Modified MIT: commercial use requires showing an IQuest Coder notice in the product interface',
+      country: 'China',
+    },
   },
   {
     id: 'sera',
@@ -239,6 +305,13 @@ module.exports = [
     alternatives: ['devstral', 'qwen-coder', 'olmo'],
     source: 'https://huggingface.co/allenai/SERA-14B',
     verified: true,
+    en: {
+      summary: 'Fully open developer agents from Ai2: weights, data and training recipe are all public. Designed so a company can cheaply fine-tune the agent on its own repository.',
+      tasks: ['An agent for fixing issues in code', 'Fine-tuning the agent on an internal repository', 'Automating small edits and tests'],
+      where: ['IT departments', 'Product development'],
+      license: 'Apache 2.0',
+      country: 'USA',
+    },
   },
   {
     id: 'seed-coder',
@@ -263,5 +336,12 @@ module.exports = [
     alternatives: ['qwen-coder', 'mellum', 'seed-oss'],
     source: 'https://huggingface.co/ByteDance-Seed/Seed-Coder-8B-Reasoning',
     verified: true,
+    en: {
+      summary: 'A compact 8B coding model from ByteDance in base, instruct and reasoning versions. Its training data was selected by the model itself, with almost no hand-written rules.',
+      tasks: ['Code autocompletion and generation', 'Solving algorithmic problems', 'A base for fine-tuning on your own stack'],
+      where: ['IT departments', 'Developer training'],
+      license: 'MIT',
+      country: 'China',
+    },
   },
 ];

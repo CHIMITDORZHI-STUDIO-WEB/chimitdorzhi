@@ -24,6 +24,13 @@ module.exports = [
     alternatives: ['flux', 'sana', 'z-image'],
     source: 'https://huggingface.co/stabilityai/stable-diffusion-3.5-large',
     verified: true,
+    en: {
+      summary: 'The model that started open image generation. A huge ecosystem of fine-tunes, styles and plugins; runs even on a home PC. The popular SDXL-Lightning and Hyper-SD accelerators were made by ByteDance.',
+      tasks: ['Illustrations and banners for advertising', 'Backgrounds and scenes for product cards', 'Fine-tuning to a brand style', 'Draft visuals for designers'],
+      where: ['Marketing and advertising', 'Online stores', 'Design studios', 'Publishers'],
+      license: 'SD 1.x — CreativeML OpenRAIL-M, SDXL — OpenRAIL++, SD3 and SD3.5 — Stability AI Community License (free for revenue under $1M per year); Stable Cascade — non-commercial research license',
+      country: 'UK',
+    },
   },
   {
     id: 'kandinsky',
@@ -48,6 +55,14 @@ module.exports = [
     alternatives: ['flux', 'wan', 'z-image'],
     source: 'https://huggingface.co/kandinskylab/Kandinsky-5.0-T2I-Lite',
     verified: true,
+    en: {
+      summary: 'Sber\'s Russian family of image and video generation models. Understands Russian-language prompts and Russian cultural context well; released under MIT.',
+      tasks: ['Images from Russian-language descriptions', 'Short promo videos from text or a photo', 'Instruction-based image editing', 'Visuals for social media'],
+      where: ['Marketing and social media', 'Media and publishing', 'Education', 'Public sector and companies required to use Russian software'],
+      license: 'Apache 2.0 (versions 2.x–4), MIT (Kandinsky 5 and WM 1.0)',
+      developer: 'Sber (Kandinsky Lab)',
+      country: 'Russia',
+    },
   },
   {
     id: 'deepfloyd-if',
@@ -72,6 +87,13 @@ module.exports = [
     alternatives: ['stable-diffusion', 'pixart'],
     source: 'https://huggingface.co/DeepFloyd/IF-I-XL-v1.0',
     verified: true,
+    en: {
+      summary: 'An early model that was among the first to render text on images accurately. Today it is mostly of historical interest; development has stopped.',
+      tasks: ['Research experiments', 'Prototype images with captions'],
+      where: ['R&D departments', 'Universities'],
+      license: 'DeepFloyd IF License — research only, commercial use prohibited',
+      country: 'UK',
+    },
   },
   {
     id: 'pixart',
@@ -96,6 +118,14 @@ module.exports = [
     alternatives: ['sana', 'stable-diffusion'],
     source: 'https://huggingface.co/PixArt-alpha/PixArt-Sigma-XL-2-1024-MS',
     verified: true,
+    en: {
+      summary: 'A compact 0.6B image model with quality on par with much larger ones. The Sigma version does 4K; suits modest hardware.',
+      tasks: ['Illustrations for articles and social media', 'Backgrounds for product cards', 'Quick visual drafts'],
+      where: ['Marketing', 'Small business', 'Media'],
+      license: 'OpenRAIL++ (allows commercial use, prohibits harmful use)',
+      developer: 'Huawei Noah\'s Ark Lab and partners',
+      country: 'China',
+    },
   },
   {
     id: 'playground',
@@ -120,6 +150,14 @@ module.exports = [
     alternatives: ['stable-diffusion', 'flux'],
     source: 'https://huggingface.co/playgroundai/playground-v2.5-1024px-aesthetic',
     verified: true,
+    en: {
+      summary: 'An SDXL-based model focused on aesthetics: vivid colors, contrast, portraits. Compatible with SDXL ecosystem tools.',
+      tasks: ['Aesthetic ad visuals', 'Portraits and lifestyle images', 'Post covers'],
+      where: ['Marketing and social media', 'Design studios', 'E-commerce'],
+      license: 'Playground v2.5 Community License — free, but if image generation is your core product and the service has over 1M monthly users, a separate license is required',
+      country: 'USA',
+      sizes: 'about 2.6B',
+    },
   },
   {
     id: 'sana',
@@ -144,6 +182,13 @@ module.exports = [
     alternatives: ['pixart', 'z-image', 'flux'],
     source: 'https://huggingface.co/Efficient-Large-Model/SANA1.5_4.8B_1024px',
     verified: true,
+    en: {
+      summary: 'NVIDIA\'s fast image model: 4K images in seconds, runs even on a laptop GPU. The Sprint version generates in 1–2 steps.',
+      tasks: ['Bulk image generation', 'High-resolution visuals', 'Real-time generation inside apps'],
+      where: ['E-commerce', 'Marketing', 'Product teams'],
+      license: 'Apache 2.0',
+      country: 'USA',
+    },
   },
   {
     id: 'hunyuan-image',
@@ -168,6 +213,13 @@ module.exports = [
     alternatives: ['qwen-image', 'flux', 'hidream'],
     source: 'https://huggingface.co/tencent/HunyuanImage-3.0-Instruct',
     verified: true,
+    en: {
+      summary: 'Tencent\'s image models. HunyuanImage 3.0 is the largest open MoE generation model at 80B; it can reason about the prompt and edit by instruction.',
+      tasks: ['Complex scenes from long descriptions', 'Images with Chinese and English text', 'Instruction-based image editing', 'Advertising posters'],
+      where: ['Marketing', 'Media', 'Game development'],
+      license: 'Tencent Hunyuan Community License — commercial use allowed, but not valid in the EU, UK and South Korea; large services need a separate license',
+      country: 'China',
+    },
   },
   {
     id: 'hidream',
@@ -192,6 +244,14 @@ module.exports = [
     alternatives: ['flux', 'qwen-image', 'z-image'],
     source: 'https://huggingface.co/HiDream-ai/HiDream-O1-Image',
     verified: true,
+    en: {
+      summary: 'Open MIT-licensed image models: generation (I1), instruction-based editing (E1) and the unified O1-Image model that does both.',
+      tasks: ['Image generation from descriptions', 'Editing images with words', 'Variations of product photos'],
+      where: ['E-commerce', 'Marketing', 'Design studios'],
+      license: 'MIT',
+      country: 'China',
+      sizes: 'about 9B – 17B',
+    },
   },
   {
     id: 'omnigen',
@@ -216,6 +276,15 @@ module.exports = [
     alternatives: ['bagel', 'qwen-image', 'hidream'],
     source: 'https://huggingface.co/OmniGen2/OmniGen2',
     verified: true,
+    en: {
+      summary: 'An all-in-one model: generates, edits and moves an object or person from a photo into a new scene without separate plugins.',
+      tasks: ['Placing a product or person into a new scene', 'Instruction-based photo editing', 'Generation from multiple references'],
+      where: ['E-commerce', 'Photo studios', 'Marketing'],
+      license: 'MIT (v1), Apache 2.0 (OmniGen2)',
+      developer: 'BAAI (Beijing Academy of Artificial Intelligence)',
+      country: 'China',
+      sizes: 'about 4B',
+    },
   },
   {
     id: 'z-image',
@@ -240,6 +309,13 @@ module.exports = [
     alternatives: ['flux', 'qwen-image', 'sana'],
     source: 'https://huggingface.co/Tongyi-MAI/Z-Image',
     verified: true,
+    en: {
+      summary: 'A compact 6B model with photorealism on par with large models. The Turbo version produces an image in a few steps on a regular gaming GPU.',
+      tasks: ['Photorealistic ad images', 'Images with English and Chinese text', 'Bulk visual generation'],
+      where: ['E-commerce', 'Marketing and social media', 'Media'],
+      license: 'Apache 2.0',
+      country: 'China',
+    },
   },
   {
     id: 'glm-image',
@@ -264,6 +340,13 @@ module.exports = [
     alternatives: ['qwen-image', 'hunyuan-image'],
     source: 'https://huggingface.co/zai-org/GLM-Image',
     verified: true,
+    en: {
+      summary: 'A hybrid of a 9B language model and a 7B decoder. Strong at text-heavy images: posters, infographics, slides.',
+      tasks: ['Posters and banners with text', 'Infographics', 'Illustrations for presentations'],
+      where: ['Marketing', 'Education', 'Internal communications'],
+      license: 'MIT',
+      country: 'China',
+    },
   },
   {
     id: 'longcat-image',
@@ -288,6 +371,13 @@ module.exports = [
     alternatives: ['z-image', 'qwen-image'],
     source: 'https://huggingface.co/meituan-longcat/LongCat-Image-Edit-Turbo',
     verified: true,
+    en: {
+      summary: 'Meituan\'s 6B image generation and editing model. Renders Chinese text well; has a fast version for edits.',
+      tasks: ['Image generation from descriptions', 'Instruction-based photo editing', 'Visuals for product cards'],
+      where: ['E-commerce', 'Delivery and retail', 'Marketing'],
+      license: 'Apache 2.0',
+      country: 'China',
+    },
   },
   {
     id: 'krea',
@@ -312,6 +402,13 @@ module.exports = [
     alternatives: ['flux', 'chroma', 'z-image'],
     source: 'https://huggingface.co/krea/Krea-2-Raw',
     verified: true,
+    en: {
+      summary: 'A 12B image model focused on realism without the glossy "AI look". The Turbo version produces a 2K image in a couple of seconds.',
+      tasks: ['Realistic photos for advertising', 'High-resolution images', 'Style fine-tuning'],
+      where: ['Marketing', 'Design studios', 'E-commerce'],
+      license: 'Krea 2 Community License — free for teams up to 50 seats, large companies need a paid plan, content filtering is mandatory',
+      country: 'USA',
+    },
   },
   {
     id: 'ideogram',
@@ -336,6 +433,14 @@ module.exports = [
     alternatives: ['glm-image', 'qwen-image'],
     source: 'https://huggingface.co/ideogram-ai/ideogram-4-fp8',
     verified: true,
+    en: {
+      summary: 'Open weights of the Ideogram model, known for precise typography. Under a non-commercial license: for business, suitable only for testing.',
+      tasks: ['Testing text-in-image generation', 'Research and prototypes'],
+      where: ['R&D departments', 'Design studios (experiments)'],
+      license: 'Ideogram 4 Non-Commercial — non-commercial use only',
+      country: 'Canada',
+      sizes: 'about 9B',
+    },
   },
   {
     id: 'chroma',
@@ -360,6 +465,14 @@ module.exports = [
     alternatives: ['flux', 'krea'],
     source: 'https://huggingface.co/lodestones/Kroma',
     verified: true,
+    en: {
+      summary: 'A community model retrained from FLUX.1-schnell with a simplified architecture. No style censorship; popular as a base for fine-tuning.',
+      tasks: ['Base for fine-tuning your own styles', 'Artistic illustrations', 'Images for games'],
+      where: ['Design studios', 'Game development', 'Enthusiasts and R&D'],
+      license: 'Apache 2.0 for Chroma and Chroma2, Krea 2 Community License for Kroma',
+      developer: 'lodestones (independent developer)',
+      country: 'not disclosed',
+    },
   },
   {
     id: 'bagel',
@@ -384,6 +497,13 @@ module.exports = [
     alternatives: ['omnigen', 'janus', 'qwen-image'],
     source: 'https://huggingface.co/ByteDance-Seed/BAGEL-7B-MoT',
     verified: true,
+    en: {
+      summary: 'A unified model that understands images, generates them and edits them in a conversation. Similar to how images work in ChatGPT.',
+      tasks: ['Photo editing in a conversation', 'Answering questions about an image', 'Image generation with explanations'],
+      where: ['Product teams', 'E-commerce', 'R&D'],
+      license: 'Apache 2.0',
+      country: 'China',
+    },
   },
   {
     id: 'controlnet',
@@ -408,6 +528,14 @@ module.exports = [
     alternatives: ['stable-diffusion', 'flux'],
     source: 'https://huggingface.co/xinsir/controlnet-union-sdxl-1.0',
     verified: true,
+    en: {
+      summary: 'An add-on for image models: sets pose, outlines, depth or floor plan so the result follows the required composition exactly.',
+      tasks: ['Image from a sketch or outline', 'Keeping pose and composition', 'Interior visualization from a floor plan', 'Series with a consistent angle'],
+      where: ['Interior design and architecture', 'Advertising', 'Fashion and apparel'],
+      license: 'OpenRAIL (original), Apache 2.0 for popular SDXL versions',
+      developer: 'Lvmin Zhang (Stanford) and the community',
+      country: 'USA',
+    },
   },
 
   // ---------- Видео ----------
@@ -434,6 +562,15 @@ module.exports = [
     alternatives: ['stable-video-diffusion', 'ltx-video'],
     source: 'https://huggingface.co/guoyww/animatediff-sparsectrl-rgb',
     verified: true,
+    en: {
+      summary: 'A module that brings Stable Diffusion image models to life, turning them into short animations. One of the first open video technologies.',
+      tasks: ['Short animations in brand style', 'Animated covers and banners', 'Animated stickers'],
+      where: ['Social media', 'Design studios', 'Advertising'],
+      license: 'Apache 2.0',
+      developer: 'Shanghai AI Lab and CUHK',
+      country: 'China',
+      sizes: 'motion module on top of SD 1.5 / SDXL',
+    },
   },
   {
     id: 'stable-video-diffusion',
@@ -458,6 +595,14 @@ module.exports = [
     alternatives: ['ltx-video', 'wan', 'cogvideox'],
     source: 'https://huggingface.co/stabilityai/stable-video-diffusion-img2vid-xt',
     verified: true,
+    en: {
+      summary: 'Stability AI\'s first open video model: turns a photo into a 2–4 second clip. Now behind newer models in quality.',
+      tasks: ['Animating product photos', 'Short video intros', 'Animating illustrations'],
+      where: ['E-commerce', 'Social media'],
+      license: 'Stability AI Community License — free for revenue under $1M per year',
+      country: 'UK',
+      sizes: 'about 1.5B',
+    },
   },
   {
     id: 'open-sora',
@@ -482,6 +627,14 @@ module.exports = [
     alternatives: ['wan', 'hunyuan-video', 'cogvideox'],
     source: 'https://huggingface.co/hpcai-tech/Open-Sora-v2',
     verified: true,
+    en: {
+      summary: 'A fully open video generation project: weights, code and training recipe. Version 2.0 at 11B makes video from text and from an image.',
+      tasks: ['Video from a text description', 'Animating images', 'Training your own video model'],
+      where: ['R&D', 'Media', 'Advertising'],
+      license: 'Apache 2.0',
+      country: 'Singapore',
+      sizes: 'up to 11B',
+    },
   },
   {
     id: 'cogvideox',
@@ -506,6 +659,14 @@ module.exports = [
     alternatives: ['wan', 'ltx-video', 'hunyuan-video'],
     source: 'https://huggingface.co/zai-org/CogVideoX1.5-5B',
     verified: true,
+    en: {
+      summary: 'A 2–5B video model that runs on a single gaming GPU. A popular base for research and add-ons.',
+      tasks: ['Short clips from text', 'Animating images', 'Video fine-tuning experiments'],
+      where: ['Marketing', 'R&D', 'Education'],
+      license: '2B — Apache 2.0, 5B — CogVideoX License (commercial use after registration and with restrictions)',
+      developer: 'Zhipu AI (Z.ai) and Tsinghua University',
+      country: 'China',
+    },
   },
   {
     id: 'mochi',
@@ -530,6 +691,13 @@ module.exports = [
     alternatives: ['wan', 'hunyuan-video', 'ltx-video'],
     source: 'https://huggingface.co/genmo/mochi-1-preview',
     verified: true,
+    en: {
+      summary: 'An open 10B video model with realistic motion. At release it was among the strongest open models; no updates now.',
+      tasks: ['Video from a description', 'Short ad scenes'],
+      where: ['Advertising', 'Media'],
+      license: 'Apache 2.0',
+      country: 'USA',
+    },
   },
   {
     id: 'ltx-video',
@@ -554,6 +722,13 @@ module.exports = [
     alternatives: ['wan', 'hunyuan-video', 'magi'],
     source: 'https://huggingface.co/Lightricks/LTX-2.5',
     verified: true,
+    en: {
+      summary: 'A fast video model; with LTX-2 it generates video with sound and speech in one go. Camera and pose control, lightweight versions available.',
+      tasks: ['Ad videos with sound', 'Video from a product photo', 'Voiced scenes for social media', 'Camera and motion control'],
+      where: ['Marketing and social media', 'Production studios', 'E-commerce'],
+      license: 'LTX-Video 0.9 — Apache 2.0; LTX-2 and newer — LTX-2 Community License (free for revenue under $10M per year)',
+      country: 'Israel',
+    },
   },
   {
     id: 'hunyuan-video',
@@ -578,6 +753,13 @@ module.exports = [
     alternatives: ['wan', 'ltx-video', 'skyreels'],
     source: 'https://huggingface.co/tencent/HunyuanVideo-1.5',
     verified: true,
+    en: {
+      summary: 'Tencent\'s video model, one of the first open ones on par with closed services. Version 1.5 is lighter (8.3B) and runs on consumer GPUs.',
+      tasks: ['Video from a text script', 'Animating images', 'Base for fine-tuning your own video models'],
+      where: ['Advertising', 'Media', 'Game development'],
+      license: 'Tencent Hunyuan Community License — not valid in the EU, UK and South Korea',
+      country: 'China',
+    },
   },
   {
     id: 'skyreels',
@@ -602,6 +784,13 @@ module.exports = [
     alternatives: ['wan', 'hunyuan-video', 'infinitetalk'],
     source: 'https://huggingface.co/Skywork/SkyReels-V3-A2V-19B',
     verified: true,
+    en: {
+      summary: 'Video models for cinematic scenes with people. Can make videos of unlimited length, extend videos and create talking characters from audio.',
+      tasks: ['Long videos with continuation', 'Video with one character from a reference', 'Talking avatar from a voice'],
+      where: ['Production studios', 'Advertising', 'Series and short dramas'],
+      license: 'V1 — Apache 2.0, V2 and V3 — Skywork License (commercial use allowed with conditions)',
+      country: 'China',
+    },
   },
   {
     id: 'step-video',
@@ -626,6 +815,13 @@ module.exports = [
     alternatives: ['wan', 'hunyuan-video'],
     source: 'https://huggingface.co/stepfun-ai/stepvideo-ti2v',
     verified: true,
+    en: {
+      summary: 'A large 30B video model producing clips of up to 204 frames. Needs server hardware, but is open under MIT.',
+      tasks: ['Video from a description', 'Animating images'],
+      where: ['Media', 'R&D', 'Production'],
+      license: 'MIT',
+      country: 'China',
+    },
   },
   {
     id: 'magi',
@@ -650,6 +846,13 @@ module.exports = [
     alternatives: ['ltx-video', 'wan', 'skyreels'],
     source: 'https://huggingface.co/sand-ai/MAGI-2-preview',
     verified: true,
+    en: {
+      summary: 'Video generated chunk by chunk in sequence, so a clip can be extended indefinitely. MAGI-2 produces video with sound.',
+      tasks: ['Long videos with continuation', 'Video with sound', 'Animating images'],
+      where: ['Production studios', 'Media', 'Advertising'],
+      license: 'Apache 2.0',
+      country: 'China',
+    },
   },
   {
     id: 'sana-video',
@@ -674,6 +877,13 @@ module.exports = [
     alternatives: ['ltx-video', 'wan', 'cogvideox'],
     source: 'https://huggingface.co/Efficient-Large-Model/SANA-Video_2.0_5B_720p',
     verified: true,
+    en: {
+      summary: 'NVIDIA\'s lightweight, fast video model. Produces 720p clips on a single GPU; a 4-step version enables quick generation.',
+      tasks: ['Quick clips for social media', 'Bulk video generation', 'Video from an image'],
+      where: ['Social media', 'E-commerce', 'Product teams'],
+      license: 'Apache 2.0',
+      country: 'USA',
+    },
   },
   {
     id: 'longcat-video',
@@ -698,6 +908,13 @@ module.exports = [
     alternatives: ['wan', 'hunyuan-video', 'magi'],
     source: 'https://huggingface.co/meituan-longcat/LongCat-Video',
     verified: true,
+    en: {
+      summary: 'A 13.6B video model: from text, from an image and video continuation. Keeps quality on clips several minutes long.',
+      tasks: ['Long videos', 'Video from a photo', 'Continuing an existing video'],
+      where: ['Marketing', 'Media', 'E-commerce'],
+      license: 'MIT',
+      country: 'China',
+    },
   },
   {
     id: 'minimax-h3',
@@ -722,6 +939,14 @@ module.exports = [
     alternatives: ['wan', 'ltx-video', 'magi'],
     source: 'https://huggingface.co/MiniMaxAI/MiniMax-H3',
     verified: true,
+    en: {
+      summary: 'Open weights of MiniMax\'s Hailuo video model. A large 33B model that makes video from text and images, but needs several server GPUs.',
+      tasks: ['Cinematic ad videos', 'Video from text and images', 'Complex scenes with motion'],
+      where: ['Production studios', 'Advertising', 'Media'],
+      license: 'MiniMax H3 Community License — own license with conditions',
+      country: 'China',
+      sizes: '33B + 32B encoder',
+    },
   },
 
   // ---------- Аватары ----------
@@ -748,6 +973,15 @@ module.exports = [
     alternatives: ['liveportrait', 'musetalk'],
     source: 'https://huggingface.co/vinthony/SadTalker-V002rc',
     verified: true,
+    en: {
+      summary: 'An older lightweight talking-head model: one photo plus audio becomes a video. Runs on weak hardware, but quality is noticeably below newer models.',
+      tasks: ['Talking photo for greetings', 'Simple voiced avatars'],
+      where: ['Education', 'Social media'],
+      license: 'Apache 2.0 (code), MIT on the HF card',
+      developer: 'Xi\'an Jiaotong University and Tencent AI Lab',
+      country: 'China',
+      sizes: 'under 1B',
+    },
   },
   {
     id: 'liveportrait',
@@ -772,6 +1006,14 @@ module.exports = [
     alternatives: ['sadtalker', 'echomimic'],
     source: 'https://huggingface.co/KwaiVGI/LivePortrait',
     verified: true,
+    en: {
+      summary: 'Animates a portrait from a reference video: an actor\'s facial expressions and head turns are transferred to the photo. Runs fast even on a weak GPU.',
+      tasks: ['Animating portraits', 'Transferring an actor\'s expressions to a character', 'Mascot animation'],
+      where: ['Social media', 'Advertising', 'Museums and education'],
+      license: 'MIT',
+      country: 'China',
+      sizes: 'under 1B',
+    },
   },
   {
     id: 'musetalk',
@@ -796,6 +1038,14 @@ module.exports = [
     alternatives: ['liveportrait', 'infinitetalk', 'sadtalker'],
     source: 'https://github.com/TMElyralab/MuseTalk',
     verified: true,
+    en: {
+      summary: 'Real-time lip sync: matches the mouth in a video to new audio. Suits video translation and live avatars.',
+      tasks: ['Dubbing video into another language', 'Live avatar in a video chat', 'Editing speech in a finished video'],
+      where: ['Education', 'Media', 'Customer support'],
+      license: 'MIT (code), weights allowed for any purpose including commercial',
+      country: 'China',
+      sizes: 'under 1B',
+    },
   },
   {
     id: 'hallo',
@@ -820,6 +1070,15 @@ module.exports = [
     alternatives: ['echomimic', 'infinitetalk', 'musetalk'],
     source: 'https://huggingface.co/fudan-generative-ai/Hallo-Live',
     verified: true,
+    en: {
+      summary: 'A series of audio-driven talking portraits: from short clips to hour-long 4K videos. Hallo-Live is built for real-time use.',
+      tasks: ['Presenter video from a photo and audio', 'Long training videos', 'Live avatar'],
+      where: ['Education', 'Media', 'Corporate training'],
+      license: 'MIT',
+      developer: 'Fudan University',
+      country: 'China',
+      sizes: 'about 1B – 5B',
+    },
   },
   {
     id: 'echomimic',
@@ -844,6 +1103,14 @@ module.exports = [
     alternatives: ['hallo', 'infinitetalk', 'liveportrait'],
     source: 'https://github.com/antgroup/echomimic_v3',
     verified: true,
+    en: {
+      summary: 'Ant Group\'s talking avatars: the face and, from V2, hand gestures. V3-Flash produces video in 8 steps and fits into 12 GB of GPU memory.',
+      tasks: ['Presenter video from a photo and voice', 'Avatar with gestures for presentations', 'Voiced characters'],
+      where: ['Education', 'Finance and support', 'Social media'],
+      license: 'Apache 2.0',
+      country: 'China',
+      sizes: 'up to 1.3B',
+    },
   },
   {
     id: 'infinitetalk',
@@ -868,6 +1135,13 @@ module.exports = [
     alternatives: ['hallo', 'longcat-video-avatar', 'musetalk'],
     source: 'https://huggingface.co/MeiGen-AI/InfiniteTalk',
     verified: true,
+    en: {
+      summary: 'Dubbing and talking characters built on Wan: MultiTalk handles dialogue between several people, InfiniteTalk re-dubs videos of any length with facial and body motion.',
+      tasks: ['Video dubbing with matched facial expressions', 'Dialogue between two characters from audio', 'Long videos with a presenter'],
+      where: ['Media and production', 'Education', 'Advertising'],
+      license: 'Apache 2.0',
+      country: 'China',
+    },
   },
   {
     id: 'hunyuan-video-avatar',
@@ -892,6 +1166,14 @@ module.exports = [
     alternatives: ['infinitetalk', 'hallo', 'echomimic'],
     source: 'https://github.com/Tencent-Hunyuan/HunyuanVideo-Avatar',
     verified: true,
+    en: {
+      summary: 'Talking characters built on HunyuanVideo: conveys emotions from the voice, handles several characters and different styles.',
+      tasks: ['Presenter video from a photo and audio', 'Scenes with several speakers', 'Cartoon characters'],
+      where: ['Advertising', 'Media', 'Education'],
+      license: 'Tencent Hunyuan Community License — not valid in the EU, UK and South Korea',
+      country: 'China',
+      sizes: 'about 13B',
+    },
   },
   {
     id: 'liveavatar',
@@ -916,6 +1198,13 @@ module.exports = [
     alternatives: ['hallo', 'infinitetalk', 'musetalk'],
     source: 'https://github.com/Alibaba-Quark/LiveAvatar',
     verified: true,
+    en: {
+      summary: 'A real-time streaming avatar of unlimited length. Suits live broadcasts and dialogue, but needs powerful server hardware.',
+      tasks: ['Live avatar for customer dialogue', 'Endless broadcasts with a presenter', 'Interactive characters'],
+      where: ['Customer support', 'Streaming and e-commerce', 'Education'],
+      license: 'Apache 2.0',
+      country: 'China',
+    },
   },
   {
     id: 'longcat-video-avatar',
@@ -940,5 +1229,13 @@ module.exports = [
     alternatives: ['infinitetalk', 'hallo', 'liveavatar'],
     source: 'https://huggingface.co/meituan-longcat/LongCat-Video-Avatar-1.5',
     verified: true,
+    en: {
+      summary: 'Audio-driven talking people built on LongCat-Video. Version 1.5 is production-ready: stable long videos in Chinese and English.',
+      tasks: ['News or course presenter videos', 'Promo videos with a talking character', 'Singing and voice-over'],
+      where: ['Media', 'Education', 'Advertising'],
+      license: 'MIT',
+      country: 'China',
+      sizes: 'based on LongCat-Video 13.6B',
+    },
   },
 ];

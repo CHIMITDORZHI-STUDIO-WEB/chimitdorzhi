@@ -25,6 +25,13 @@ module.exports = [
     alternatives: ['omnisql', 'xiyan-sql', 'qwen-coder'],
     source: 'https://huggingface.co/defog/llama-3-sqlcoder-8b',
     verified: true,
+    en: {
+      summary: 'One of the first open models that turn a plain-language question into an SQL query against a database. Available in Ollama, but newer competitors are already stronger.',
+      tasks: ['Answering managers\' questions from the sales database without an analyst', 'Drafting SQL queries for reports', 'An assistant inside a BI system'],
+      where: ['Analytics and reporting', 'Online stores', 'Finance departments'],
+      license: 'CC-BY-SA 4.0 (early versions with OpenRAIL-M caveats): commercial use is allowed, but fine-tuned weights must be released under the same license',
+      country: 'USA',
+    },
   },
   {
     id: 'arctic-text2sql',
@@ -49,6 +56,13 @@ module.exports = [
     alternatives: ['omnisql', 'xiyan-sql', 'sqlcoder'],
     source: 'https://huggingface.co/Snowflake/Arctic-Text2SQL-R1-7B',
     verified: true,
+    en: {
+      summary: 'A Snowflake model for turning questions into SQL, trained with reinforcement learning by checking query results. The open 7B version is based on Qwen2.5-Coder.',
+      tasks: ['Plain-language questions to a data warehouse', 'Generating SQL for reports and dashboards', 'Checking and fixing analysts\' queries'],
+      where: ['Analytics and BI', 'Finance', 'Retail'],
+      license: 'Apache 2.0',
+      country: 'USA',
+    },
   },
   {
     id: 'omnisql',
@@ -73,6 +87,13 @@ module.exports = [
     alternatives: ['xiyan-sql', 'arctic-text2sql', 'sqlcoder'],
     source: 'https://huggingface.co/seeklhy/OmniSQL-32B',
     verified: true,
+    en: {
+      summary: 'Models for turning questions into SQL, trained on millions of synthetic query examples across different databases. Three sizes for different hardware.',
+      tasks: ['Database questions without knowing SQL', 'Generating queries for reports', 'A base for fine-tuning on your own database schema'],
+      where: ['Analytics and reporting', 'Banking and finance', 'Retail chains'],
+      license: 'Apache 2.0',
+      country: 'China',
+    },
   },
   {
     id: 'xiyan-sql',
@@ -97,6 +118,13 @@ module.exports = [
     alternatives: ['omnisql', 'arctic-text2sql', 'qwen-coder'],
     source: 'https://huggingface.co/XGenerationLab/XiYanSQL-QwenCoder-3B-2504',
     verified: true,
+    en: {
+      summary: 'Alibaba models for turning questions into SQL, based on Qwen2.5-Coder. They work with different SQL dialects; a small 3B version suits modest hardware.',
+      tasks: ['Plain-language database questions', 'Queries for different databases (PostgreSQL, MySQL, SQLite)', 'Automating routine reports'],
+      where: ['Analytics and BI', 'Finance', 'Retail and marketplaces'],
+      license: 'Apache 2.0',
+      country: 'China',
+    },
   },
   {
     id: 'duckdb-nsql',
@@ -121,6 +149,14 @@ module.exports = [
     alternatives: ['sqlcoder', 'xiyan-sql', 'code-llama'],
     source: 'https://huggingface.co/motherduckdb/DuckDB-NSQL-7B-v0.1',
     verified: true,
+    en: {
+      summary: 'A model for turning questions into SQL, built for the embedded analytics database DuckDB. Available in Ollama, convenient for working with CSV and Parquet locally.',
+      tasks: ['Plain-language questions about CSV and Parquet exports', 'DuckDB queries inside analytics scripts', 'Quick analytics on a laptop without a server'],
+      where: ['Data analysts', 'Software development', 'Financial reporting'],
+      license: 'Llama 2 Community License',
+      developer: 'MotherDuck and Numbers Station',
+      country: 'USA',
+    },
   },
 
   // ---------- ПРОВЕРКА ФАКТОВ И ОЦЕНКА ----------
@@ -147,6 +183,13 @@ module.exports = [
     alternatives: ['minicheck', 'granite-guardian'],
     source: 'https://huggingface.co/vectara/hallucination_evaluation_model',
     verified: true,
+    en: {
+      summary: 'A small model that checks whether an AI answer is grounded in the source text or made up. Runs on a CPU and works well as a filter in RAG systems.',
+      tasks: ['Checking knowledge base chatbot answers for fabrications', 'Quality control of document summaries', 'Comparing language models by their tendency to make errors'],
+      where: ['Support teams with an AI bot', 'Legal and document management', 'Internal knowledge bases'],
+      license: 'Apache 2.0 (the open version is HHEM-2.1-Open; the newer HHEM-2.3 is paid only)',
+      country: 'USA',
+    },
   },
   {
     id: 'minicheck',
@@ -171,6 +214,14 @@ module.exports = [
     alternatives: ['hhem', 'granite-guardian'],
     source: 'https://huggingface.co/bespokelabs/Bespoke-MiniCheck-7B',
     verified: true,
+    en: {
+      summary: 'Checks whether each claim in an AI answer is supported by the source documents. The small versions are free; the larger 7B is in Ollama but non-commercial.',
+      tasks: ['Checking RAG bot answers against documents', 'Finding unsupported claims in reports and summaries', 'Automated quality control of AI answers'],
+      where: ['Customer support', 'Legal and compliance', 'Company knowledge bases'],
+      license: 'Small versions (RoBERTa, DeBERTa, Flan-T5) — MIT; Bespoke-MiniCheck-7B — CC-BY-NC 4.0, commercial use by agreement',
+      developer: 'UT Austin and Bespoke Labs',
+      country: 'USA',
+    },
   },
   {
     id: 'skywork-reward',
@@ -195,6 +246,13 @@ module.exports = [
     alternatives: ['prometheus', 'qwen'],
     source: 'https://huggingface.co/Skywork/Skywork-Reward-V2-Qwen3-8B',
     verified: true,
+    en: {
+      summary: 'Reward models: they score how good a language model\'s answer is for the user. Used for fine-tuning your own models and picking the best of several answers.',
+      tasks: ['Choosing the best of several bot answers', 'Scoring answer quality during model fine-tuning', 'Comparing models before rollout'],
+      where: ['Teams that fine-tune models', 'Chatbot development', 'Quality control of AI services'],
+      license: 'V2 on Qwen3 — Apache 2.0; Llama-based versions — Llama 3.1/3.2 licenses; early versions — Skywork Community License',
+      country: 'China',
+    },
   },
   {
     id: 'prometheus',
@@ -219,6 +277,14 @@ module.exports = [
     alternatives: ['skywork-reward', 'mistral'],
     source: 'https://huggingface.co/prometheus-eval/prometheus-bgb-8x7b-v2.0',
     verified: true,
+    en: {
+      summary: 'An open judge model: it scores other models\' answers against your criteria and explains the score. A replacement for paid models in the reviewer role.',
+      tasks: ['Scoring chatbot answers on your own scale', 'Comparing two answer options', 'Quality checks before launching an AI service'],
+      where: ['AI service development', 'Education and grading', 'Support quality control'],
+      license: 'Apache 2.0',
+      developer: 'KAIST and LG AI Research (prometheus-eval)',
+      country: 'South Korea',
+    },
   },
 
   // ---------- ВЫЗОВ ФУНКЦИЙ ----------
@@ -245,6 +311,13 @@ module.exports = [
     alternatives: ['qwen', 'hermes', 'llama'],
     source: 'https://huggingface.co/Salesforce/xLAM-2-32b-fc-r',
     verified: true,
+    en: {
+      summary: 'Salesforce models for function calling and agents: they pick the right tool and fill in its parameters. Strong on benchmarks, but the license is non-commercial.',
+      tasks: ['Calling APIs and internal services on user request', 'Multi-step agents with several tools', 'Comparing approaches before choosing a commercial model'],
+      where: ['Research teams', 'AI agent prototypes'],
+      license: 'CC-BY-NC 4.0: research only; Llama-based versions are also subject to the Llama license',
+      country: 'USA',
+    },
   },
 
   // ---------- ЛИЦА ----------
@@ -271,6 +344,14 @@ module.exports = [
     alternatives: ['lvface', 'clip-siglip'],
     source: 'https://github.com/deepinsight/insightface/blob/master/python-package/docs/model_zoo.md',
     verified: true,
+    en: {
+      summary: 'The most widely used open toolkit for face detection and recognition. Many identity-preserving image generators are built on it. The pretrained weights are non-commercial.',
+      tasks: ['Detecting and comparing faces in photos', 'Face-based access in prototypes', 'Face processing as part of other AI systems'],
+      where: ['Research and prototypes', 'Security systems (with a commercial license)'],
+      license: 'Code is MIT, but all pretrained weights (buffalo, antelopev2, raccoon) are for non-commercial research only; a commercial license is available on request',
+      country: 'China',
+      sizes: 'packages from 16 MB to 407 MB',
+    },
   },
   {
     id: 'lvface',
@@ -295,6 +376,13 @@ module.exports = [
     alternatives: ['insightface', 'dino'],
     source: 'https://github.com/bytedance/LVFace',
     verified: true,
+    en: {
+      summary: 'Transformer-based face recognition from ByteDance, one of the most accurate open models on benchmarks. Weights are published in ONNX format but are non-commercial.',
+      tasks: ['Comparing faces and searching a photo database', 'Research on recognition accuracy', 'Access control prototypes'],
+      where: ['Research', 'Security system prototypes'],
+      license: 'Code is MIT, but the weights (trained on Glint360K) are for non-commercial research only',
+      country: 'China',
+    },
   },
   {
     id: 'instantid',
@@ -319,6 +407,14 @@ module.exports = [
     alternatives: ['pulid', 'ip-adapter-faceid', 'infiniteyou'],
     source: 'https://github.com/instantX-research/InstantID',
     verified: true,
+    en: {
+      summary: 'Generates images with a specific person\'s face from a single photo, without fine-tuning. Popular in ComfyUI, but the weights are for research only.',
+      tasks: ['Portraits in different styles from one photo', 'Avatar and character sketches', 'Photoshoot prototypes'],
+      where: ['Design and creative (for testing)', 'Research'],
+      license: 'Code is Apache 2.0, but the released weights and the InsightFace face recognizer it uses are for research only',
+      country: 'China',
+      sizes: 'adapter for SDXL',
+    },
   },
   {
     id: 'pulid',
@@ -343,6 +439,14 @@ module.exports = [
     alternatives: ['instantid', 'infiniteyou', 'ip-adapter-faceid'],
     source: 'https://huggingface.co/guozinan/PuLID',
     verified: true,
+    en: {
+      summary: 'Preserves a person\'s face when generating images from one photo, with less damage to style and background. Versions exist for SDXL and FLUX; the latter runs on a 16 GB card.',
+      tasks: ['Portraits and avatars from one photo', 'Ad characters with a recognizable face', 'Photoshoot prototypes'],
+      where: ['Marketing and creative', 'Design studios'],
+      license: 'Weights are Apache 2.0, but the FLUX version is subject to the non-commercial FLUX.1-dev license, and the InsightFace face recognizer is for research only',
+      country: 'China',
+      sizes: 'adapters for SDXL and FLUX.1-dev',
+    },
   },
   {
     id: 'ip-adapter-faceid',
@@ -367,6 +471,14 @@ module.exports = [
     alternatives: ['instantid', 'pulid', 'stable-diffusion'],
     source: 'https://huggingface.co/h94/IP-Adapter-FaceID',
     verified: true,
+    en: {
+      summary: 'One of the first adapters that transfer a face from a photo into a generated image. The SD 1.5 versions run on low-end cards, but the weights are non-commercial.',
+      tasks: ['Portraits from a photo in different styles', 'Image series with one character', 'Avatar experiments'],
+      where: ['Research', 'Design (for testing)'],
+      license: 'Research and non-commercial use only (due to the InsightFace weights)',
+      country: 'China',
+      sizes: 'adapters for SD 1.5 and SDXL',
+    },
   },
   {
     id: 'infiniteyou',
@@ -391,6 +503,14 @@ module.exports = [
     alternatives: ['pulid', 'instantid', 'flux'],
     source: 'https://huggingface.co/ByteDance/InfiniteYou',
     verified: true,
+    en: {
+      summary: 'FLUX-based image generation that preserves a face: follows the prompt better and less often pastes the face like a sticker. Research-only license.',
+      tasks: ['Portraits from one photo with a precise scene description', 'Testing characters for advertising', 'Comparing face-preservation methods'],
+      where: ['Research', 'Creative studios (for testing)'],
+      license: 'CC-BY-NC 4.0: research only; the FLUX.1-dev base and the InsightFace recognizer are also non-commercial',
+      country: 'China',
+      sizes: 'adapter for FLUX.1-dev',
+    },
   },
 
   // ---------- LIP-SYNC ----------
@@ -417,6 +537,14 @@ module.exports = [
     alternatives: ['musetalk', 'wav2lip', 'infinitetalk'],
     source: 'https://github.com/bytedance/LatentSync',
     verified: true,
+    en: {
+      summary: 'Matches lip movements in an existing video to a new voice track. Version 1.6 works at 512 pixels and produces a sharper face.',
+      tasks: ['Dubbing videos into another language with lip sync', 'Editing lines in finished video without reshooting', 'Talking avatars for training courses'],
+      where: ['Video production', 'Marketing', 'Online learning'],
+      license: 'Weights are OpenRAIL++ (commercial use with usage restrictions), code is Apache 2.0; the built-in InsightFace face detector is non-commercial and must be replaced for business use',
+      country: 'China',
+      sizes: 'requires 8–18 GB of VRAM',
+    },
   },
   {
     id: 'wav2lip',
@@ -441,6 +569,14 @@ module.exports = [
     alternatives: ['latentsync', 'musetalk', 'sadtalker'],
     source: 'https://github.com/Rudrabha/Wav2Lip',
     verified: true,
+    en: {
+      summary: 'The classic lip-to-audio sync model, still popular in hobbyist setups. Lip movements are accurate but the face looks blurry; the license is non-commercial.',
+      tasks: ['Quick dubbing tests', 'Comparison with newer lip-sync models', 'Educational and research projects'],
+      where: ['Research and universities', 'Video service prototypes'],
+      license: 'Personal, research and non-commercial use only (trained on the LRS2 dataset); commercial use — through the authors',
+      country: 'India',
+      sizes: 'small model, 96-pixel face',
+    },
   },
 
   // ---------- NSFW ----------
@@ -467,6 +603,14 @@ module.exports = [
     alternatives: ['shieldgemma', 'clip-siglip'],
     source: 'https://huggingface.co/Freepik/nsfw_image_detector',
     verified: true,
+    en: {
+      summary: 'Small models that tell explicit images from regular ones. The Freepik model distinguishes four levels of explicitness. They run on a CPU.',
+      tasks: ['Filtering user photos and avatars', 'Checking generated images before publishing', 'Labeling a media library'],
+      where: ['Marketplaces and classifieds', 'Social networks and communities', 'Image generation services'],
+      license: 'Falconsai — Apache 2.0, Freepik — MIT',
+      developer: 'Falconsai and Freepik',
+      country: 'USA and Spain',
+    },
   },
 
   // ---------- ФИНАНСЫ ----------
@@ -493,6 +637,14 @@ module.exports = [
     alternatives: ['chronos', 'timesfm', 'moirai'],
     source: 'https://github.com/shiyu-coder/Kronos',
     verified: true,
+    en: {
+      summary: 'A foundation model for market candlestick data: trained on data from more than 45 exchanges, it forecasts prices and volumes. The largest version, large, is not open.',
+      tasks: ['Forecasting candlesticks and trading volumes', 'Volatility estimation', 'A base for fine-tuning on your own series'],
+      where: ['Investment and analytics teams', 'Fintech startups'],
+      license: 'MIT',
+      developer: 'Tsinghua University (NeoQuasar)',
+      country: 'China',
+    },
   },
   {
     id: 'finbert',
@@ -517,6 +669,13 @@ module.exports = [
     alternatives: ['deberta-v3', 'modernbert', 'fin-r1'],
     source: 'https://huggingface.co/ProsusAI/finbert',
     verified: true,
+    en: {
+      summary: 'A classic model that determines the tone of financial news: positive, negative or neutral. English only, runs fast on a CPU.',
+      tasks: ['Scoring the tone of company news', 'Labeling reports and press releases', 'Signals for analytics dashboards'],
+      where: ['Investment analytics', 'Banks', 'Financial media'],
+      license: 'Apache 2.0 (per the GitHub repository)',
+      country: 'Netherlands',
+    },
   },
   {
     id: 'fin-r1',
@@ -541,6 +700,14 @@ module.exports = [
     alternatives: ['qwen', 'deepseek-r1', 'finbert'],
     source: 'https://huggingface.co/SUFE-AIFLM-Lab/Fin-R1',
     verified: true,
+    en: {
+      summary: 'A reasoning model for financial tasks based on Qwen2.5-7B: calculations, report analysis, regulatory questions. Trained on Chinese and English data.',
+      tasks: ['Financial calculations with step-by-step explanations', 'Answering questions about financial statements', 'Analyzing tables of financial data'],
+      where: ['Banks and brokers', 'Finance departments', 'Analytics'],
+      license: 'Apache 2.0',
+      developer: 'Shanghai University of Finance and Economics (SUFE)',
+      country: 'China',
+    },
   },
 
   // ---------- ЮРИСТЫ ----------
@@ -567,6 +734,13 @@ module.exports = [
     alternatives: ['mistral', 'qwen', 'llama'],
     source: 'https://huggingface.co/Equall/SaulLM-141B-Instruct',
     verified: true,
+    en: {
+      summary: 'Language models for legal texts, fine-tuned on US and European legal corpora (based on Mistral and Mixtral). English only.',
+      tasks: ['Reviewing English-language contracts', 'Spotting risks and non-standard terms', 'Drafting legal memos'],
+      where: ['Law firms', 'Legal departments of international companies', 'Compliance'],
+      license: 'MIT',
+      country: 'France',
+    },
   },
 
   // ---------- КИБЕРБЕЗОПАСНОСТЬ ----------
@@ -593,6 +767,13 @@ module.exports = [
     alternatives: ['llama-primus', 'llama'],
     source: 'https://huggingface.co/fdtn-ai/Foundation-Sec-8B-Reasoning',
     verified: true,
+    en: {
+      summary: 'Cisco models for information security based on Llama 3.1 8B: analysis of vulnerabilities, threats and incidents. Can be deployed inside your own perimeter.',
+      tasks: ['Analyzing vulnerability and threat reports', 'Helping SOC analysts during incidents', 'Mapping threats to MITRE ATT&CK'],
+      where: ['Security teams and SOCs', 'Integrators and MSSPs', 'Security product development'],
+      license: 'Base model is Apache 2.0; Instruct and Reasoning — Cisco\'s changes under Apache 2.0 plus the Llama 3.1 Community License',
+      country: 'USA',
+    },
   },
   {
     id: 'llama-primus',
@@ -617,6 +798,13 @@ module.exports = [
     alternatives: ['foundation-sec', 'llama'],
     source: 'https://huggingface.co/trendmicro-ailab/Llama-Primus-Reasoning',
     verified: true,
+    en: {
+      summary: 'Trend Micro cybersecurity models based on Llama 3.1 8B, fine-tuned on a corpus of security texts. A reasoning version is available.',
+      tasks: ['Answering questions about threats and vulnerabilities', 'Analyzing cyberattack reports', 'A base for fine-tuning for SOC tasks'],
+      where: ['Security teams', 'Security product development'],
+      license: 'MIT for the changes, but the Llama 3.1 base license also applies',
+      country: 'Japan',
+    },
   },
   {
     id: 'aprielguard',
@@ -641,5 +829,12 @@ module.exports = [
     alternatives: ['llama-guard', 'granite-guardian', 'prompt-guard'],
     source: 'https://huggingface.co/blog/ServiceNow-AI/aprielguard',
     verified: true,
+    en: {
+      summary: 'A guard model that catches both harmful content and attacks on AI (prompt injection, jailbreaks), including when agents use tools.',
+      tasks: ['Screening chatbot requests for attacks and jailbreaks', 'Filtering harmful model answers', 'Monitoring the actions of AI agents that use tools'],
+      where: ['Support with AI bots', 'Security teams', 'AI agent development'],
+      license: 'MIT',
+      country: 'USA',
+    },
   },
 ];

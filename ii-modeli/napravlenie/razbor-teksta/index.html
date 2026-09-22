@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Анализ текста 2026: классификация и извлечение сущностей</title>
+    <meta name="description" content="Открытые модели для разбора текста: классификация обращений, анализ тональности, извлечение имён, дат и сумм. Лёгкие, быстрые и недорогие.">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/ii-modeli/napravlenie/razbor-teksta/">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://chimitdorzhi.tech/ii-modeli/napravlenie/razbor-teksta/">
+    <meta property="og:title" content="Анализ текста 2026: классификация и извлечение сущностей">
+    <meta property="og:description" content="Открытые модели для разбора текста: классификация обращений, анализ тональности, извлечение имён, дат и сумм. Лёгкие, быстрые и недорогие.">
+    <meta property="og:image" content="https://chimitdorzhi.tech/ii-modeli/cover.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/ii-modeli/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="preload" href="/assets/fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="/assets/phosphor/regular.css"><link rel="stylesheet" href="/assets/phosphor/fill.css"></noscript>
+    <link rel="stylesheet" href="/style.css?v=78">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/ii-modeli/napravlenie/razbor-teksta/">
+<link rel="alternate" hreflang="en" href="https://chimitdorzhi.tech/en/ii-modeli/napravlenie/razbor-teksta/">
+<link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/ii-modeli/napravlenie/razbor-teksta/">
+<link rel="stylesheet" href="/assets/models.css?v=12">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Открытые модели для анализа и разбора текста","url":"https://chimitdorzhi.tech/ii-modeli/napravlenie/razbor-teksta/","inLanguage":"ru","dateModified":"2026-09-22","mainEntity":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"url":"https://chimitdorzhi.tech/ii-modeli/gliner/","name":"GLiNER"},{"@type":"ListItem","position":2,"url":"https://chimitdorzhi.tech/ii-modeli/gliner-pii/","name":"GLiNER-PII"},{"@type":"ListItem","position":3,"url":"https://chimitdorzhi.tech/ii-modeli/privacy-filter/","name":"OpenAI Privacy Filter"},{"@type":"ListItem","position":4,"url":"https://chimitdorzhi.tech/ii-modeli/nuextract/","name":"NuExtract"},{"@type":"ListItem","position":5,"url":"https://chimitdorzhi.tech/ii-modeli/meno/","name":"Meno (Иван Бондаренко)"},{"@type":"ListItem","position":6,"url":"https://chimitdorzhi.tech/ii-modeli/deepvk-encoders/","name":"RuModernBERT и USER (deepvk)"},{"@type":"ListItem","position":7,"url":"https://chimitdorzhi.tech/ii-modeli/modernbert/","name":"ModernBERT"},{"@type":"ListItem","position":8,"url":"https://chimitdorzhi.tech/ii-modeli/reader-lm/","name":"ReaderLM (Jina)"},{"@type":"ListItem","position":9,"url":"https://chimitdorzhi.tech/ii-modeli/piiranha/","name":"Piiranha"},{"@type":"ListItem","position":10,"url":"https://chimitdorzhi.tech/ii-modeli/minicheck/","name":"MiniCheck"},{"@type":"ListItem","position":11,"url":"https://chimitdorzhi.tech/ii-modeli/rubert/","name":"ruBERT, ruRoBERTa, ruELECTRA (ai-forever)"},{"@type":"ListItem","position":12,"url":"https://chimitdorzhi.tech/ii-modeli/hhem/","name":"HHEM (Vectara)"},{"@type":"ListItem","position":13,"url":"https://chimitdorzhi.tech/ii-modeli/fred-t5/","name":"FRED-T5"},{"@type":"ListItem","position":14,"url":"https://chimitdorzhi.tech/ii-modeli/ru-classifiers/","name":"Русские классификаторы токсичности и тональности"},{"@type":"ListItem","position":15,"url":"https://chimitdorzhi.tech/ii-modeli/layoutlm/","name":"LayoutLM (v1–v3, LayoutXLM)"},{"@type":"ListItem","position":16,"url":"https://chimitdorzhi.tech/ii-modeli/xlm-roberta/","name":"XLM-RoBERTa"},{"@type":"ListItem","position":17,"url":"https://chimitdorzhi.tech/ii-modeli/deberta-v3/","name":"DeBERTa-v3 и mDeBERTa-v3"},{"@type":"ListItem","position":18,"url":"https://chimitdorzhi.tech/ii-modeli/rubert-tiny/","name":"rubert-tiny"},{"@type":"ListItem","position":19,"url":"https://chimitdorzhi.tech/ii-modeli/finbert/","name":"FinBERT"}]}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"https://chimitdorzhi.tech/"},{"@type":"ListItem","position":2,"name":"ИИ-модели","item":"https://chimitdorzhi.tech/ii-modeli/"},{"@type":"ListItem","position":3,"name":"Открытые модели для анализа и разбора текста","item":"https://chimitdorzhi.tech/ii-modeli/napravlenie/razbor-teksta/"}]}</script>
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/" data-i18n="nav.home">Главная</a></li>
+            <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+            <li class="nav-dropdown">
+                <a href="/cases/" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+                <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему" aria-pressed="false">
+                <i class="ph ph-moon" aria-hidden="true"></i>
+            </button>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/" data-i18n="nav.home">Главная</a></li>
+        <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+        <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+        <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+        <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+        <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+        <li class="mobile-has-submenu">
+            <details>
+                <summary aria-label="Проекты — развернуть"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down" aria-hidden="true"></i></summary>
+                <ul class="mobile-submenu">
+                    <li>
+                        <a href="https://gerel.space" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">Gerel.space</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/universe_buryat/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/arey/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.arey">AREY</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/mwrlife/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">MWR Life</span>
+                                <span class="mobile-sub-desc">Travel-клуб и партнёрка</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </details>
+        </li>
+        <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+    </ul>
+    <div class="mobile-controls">
+        <div class="mobile-lang-switcher" role="group" aria-label="Выбор языка">
+            <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+            <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+            <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+        </div>
+        <button class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle" aria-label="Переключить тему" aria-pressed="false">
+            <i class="ph ph-moon" aria-hidden="true"></i>
+        </button>
+    </div>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+    <main id="main">
+<section class="section md-page"><div class="container">
+  <nav class="breadcrumbs" aria-label="Хлебные крошки"><a href="/">Главная</a><span class="breadcrumbs-sep">›</span><a href="/ii-modeli/">ИИ-модели</a><span class="breadcrumbs-sep">›</span><span aria-current="page">Открытые модели для анализа и разбора текста</span></nav>
+  <header class="md-hero">
+    <span class="section-label">ПОДБОРКА</span>
+    <h1 class="section-heading">Открытые модели для анализа и разбора текста</h1>
+    <p class="section-sub">Эти модели классифицируют обращения, определяют тональность отзывов и извлекают из текста имена, адреса, даты и суммы. Они легче больших языковых моделей и быстро работают на обычном сервере. Проверьте поддержку русского, возможность дообучить модель на своих примерах и лицензию.</p>
+    <div class="md-stats"><span>В подборке 19 семейств открытых моделей.</span><span>Обновлено 22.09.2026</span><a class="md-guide" href="/ii-modeli/"><i class="ph ph-funnel" aria-hidden="true"></i>Открыть весь каталог с фильтрами</a></div>
+  </header>
+  <div class="md-grid"><article class="md-card" data-id="gliner" data-mod="nlp" data-hw="min" data-com="yes" data-latest="2026-08" data-first="2024-02" data-name="gliner" data-country="us eu" data-dev="" data-ru="unknown" data-ind="docs dev legal" data-ollama="0" data-cpu="1" data-q="gliner урчаде заратиана и fastino ai франция / сша разбор текста извлечение имен, сумм и дат из писем и договоров разбор заявок на поля crm классификация обращений по темам юридические отделы бухгалтерия и документооборот продажи и crm документы и бухгалтерия разработка по юристы">
+  <div class="md-card-top"><span class="md-mod"><i class="ph ph-text-aa" aria-hidden="true"></i>Разбор текста</span><span class="md-card-meta"><span class="md-year">2024–2026</span></span></div>
+  <h2 class="md-name"><a href="/ii-modeli/gliner/">GLiNER</a></h2>
+  <div class="md-dev">Урчаде Заратиана и Fastino AI · Франция / США</div>
+  <p class="md-sum">Находит в тексте нужные сущности без обучения: просто перечисляете, что искать (имя, сумма, дата). GLiNER2 заодно классифицирует текст. Многоязычные версии понимают русский.</p>
+  <ul class="md-tasks"><li>Извлечение имён, сумм и дат из писем и договоров</li><li>Разбор заявок на поля CRM</li><li>Классификация обращений по темам</li></ul>
+  <dl class="md-specs">
+    <div><dt>Размеры</dt><dd>около 50M – 500M</dd></div>
+    <div><dt>Железо</dt><dd>от: Ноутбук</dd></div>
+  </dl>
+  <div class="md-card-foot"><span class="md-lic md-lic-ok">Можно в коммерцию</span><span class="md-more">Подробнее<i class="ph ph-arrow-right" aria-hidden="true"></i></span></div>
+  
+</article>
+<article class="md-card" data-id="gliner-pii" data-mod="safety nlp" data-hw="min" data-com="yes" data-latest="2026-06" data-first="2024-04" data-name="gliner-pii" data-country="us" data-dev="nvidia" data-ru="no" data-ind="security legal docs" data-ollama="0" data-cpu="1" data-q="gliner-pii сообщество gliner (fastino, knowledgator, nvidia и др.) сша модерация и безопасность разбор текста маскирование персональных данных перед облачным ии поиск паспортных данных и реквизитов в документах проверка выгрузок на утечки информационная безопасность банки и страхование кадровые службы безопасность юристы документы и бухгалтерия">
+  <div class="md-card-top"><span class="md-mod"><i class="ph ph-shield-check" aria-hidden="true"></i>Модерация и безопасность</span><span class="md-card-meta"><span class="md-year">2024–2026</span></span></div>
+  <h2 class="md-name"><a href="/ii-modeli/gliner-pii/">GLiNER-PII</a></h2>
+  <div class="md-dev">Сообщество GLiNER (Fastino, Knowledgator, NVIDIA и др.) · США</div>
+  <p class="md-sum">Маленькие модели на основе GLiNER для поиска персональных данных: паспортов, телефонов, счетов, адресов. Типы данных задаются словами. Русский официально не заявлен.</p>
+  <ul class="md-tasks"><li>Маскирование персональных данных перед облачным ИИ</li><li>Поиск паспортных данных и реквизитов в документах</li><li>Проверка выгрузок на утечки</li></ul>
+  <dl class="md-specs">
+    <div><dt>Размеры</dt><dd>около 200M – 500M</dd></div>
+    <div><dt>Железо</dt><dd>от: Ноутбук</dd></div>
+  </dl>
+  <div class="md-card-foot"><span class="md-lic md-lic-ok">Можно в коммерцию</span><span class="md-more">Подробнее<i class="ph ph-arrow-right" aria-hidden="true"></i></span></div>
+  
+</article>
+<article class="md-card" data-id="privacy-filter" data-mod="safety nlp" data-hw="min" data-com="yes" data-latest="2026-04" data-first="2026-04" data-name="openai privacy filter" data-country="us" data-dev="openai" data-ru="no" data-ind="security legal docs" data-ollama="0" data-cpu="1" data-q="openai privacy filter openai сша модерация и безопасность разбор текста очистка текста от персональных данных перед отправкой в облачный ии поиск паролей и ключей в текстах обезличивание переписки для аналитики информационная безопасность службы поддержки юридические отделы безопасность юристы документы и бухгалтерия">
+  <div class="md-card-top"><span class="md-mod"><i class="ph ph-shield-check" aria-hidden="true"></i>Модерация и безопасность</span><span class="md-card-meta"><span class="md-year">2026</span></span></div>
+  <h2 class="md-name"><a href="/ii-modeli/privacy-filter/">OpenAI Privacy Filter</a></h2>
+  <div class="md-dev">OpenAI · США</div>
+  <p class="md-sum">Находит и скрывает персональные данные: имена, адреса, телефоны, почту, номера счетов, пароли. Работает даже в браузере. Обучена в основном на английском.</p>
+  <ul class="md-tasks"><li>Очистка текста от персональных данных перед отправкой в облачный ИИ</li><li>Поиск паролей и ключей в текстах</li><li>Обезличивание переписки для аналитики</li></ul>
+  <dl class="md-specs">
+    <div><dt>Размеры</dt><dd>1.5B (50M активных)</dd></div>
+    <div><dt>Железо</dt><dd>от: Ноутбук</dd></div>
+  </dl>
+  <div class="md-card-foot"><span class="md-lic md-lic-ok">Можно в коммерцию</span><span class="md-more">Подробнее<i class="ph ph-arrow-right" aria-hidden="true"></i></span></div>
+  
+</article>
+<article class="md-card" data-id="nuextract" data-mod="nlp ocr" data-hw="min gpu" data-com="yes" data-latest="2026-04" data-first="2024-05" data-name="nuextract" data-country="eu" data-dev="" data-ru="unknown" data-ind="docs finance legal retail" data-ollama="1" data-cpu="1" data-q="nuextract numind франция разбор текста документы и ocr извлечение реквизитов, сумм и дат из счетов и договоров в json разбор чеков, накладных и анкет по заданному шаблону перевод сканов в markdown для поиска заполнение карточек crm и учетных систем из писем бухгалтерия и документооборот юридические отделы логистика и закупки банки и страхование документы и бухгалтерия финансы юристы торговля и маркетплейсы">
+  <div class="md-card-top"><span class="md-mod"><i class="ph ph-text-aa" aria-hidden="true"></i>Разбор текста</span><span class="md-card-meta"><span class="md-badge" title="Есть в библиотеке Ollama">Ollama</span><span class="md-year">2024–2026</span></span></div>
+  <h2 class="md-name"><a href="/ii-modeli/nuextract/">NuExtract</a></h2>
+  <div class="md-dev">NuMind · Франция</div>
+  <p class="md-sum">Модели для извлечения данных по шаблону: даёте документ или скан и JSON-шаблон полей, получаете заполненный JSON. NuExtract3 (4B) заодно переводит сканы в Markdown.</p>
+  <ul class="md-tasks"><li>Извлечение реквизитов, сумм и дат из счетов и договоров в JSON</li><li>Разбор чеков, накладных и анкет по заданному шаблону</li><li>Перевод сканов в Markdown для поиска</li></ul>
+  <dl class="md-specs">
+    <div><dt>Размеры</dt><dd>0.5B – 8B</dd></div>
+    <div><dt>Железо</dt><dd>от: Ноутбук</dd></div>
+  </dl>
+  <div class="md-card-foot"><span class="md-lic md-lic-ok">Можно в коммерцию</span><span class="md-more">Подробнее<i class="ph ph-arrow-right" aria-hidden="true"></i></span></div>
+  
+</article>
+<article class="md-card" data-id="meno" data-mod="text nlp" data-hw="min gpu" data-com="yes" data-latest="2026-04" data-first="2024-11" data-name="meno (иван бондаренко)" data-country="ru" data-dev="" data-ru="yes" data-ind="docs legal finance" data-ollama="0" data-cpu="1" data-q="meno (иван бондаренко) иван бондаренко (bond005), нгу россия текст разбор текста ответы на вопросы по внутренним документам извлечение имен, дат и сумм из договоров краткое изложение длинных текстов на русском юридические отделы документооборот базы знаний компаний документы и бухгалтерия юристы финансы">
+  <div class="md-card-top"><span class="md-mod"><i class="ph ph-chat-text" aria-hidden="true"></i>Текст</span><span class="md-card-meta"><span class="md-badge md-badge-ru" title="Русский язык заявлен">RU</span><span class="md-year">2024–2026</span></span></div>
+  <h2 class="md-name"><a href="/ii-modeli/meno/">Meno (Иван Бондаренко)</a></h2>
+  <div class="md-dev">Иван Бондаренко (bond005), НГУ · Россия</div>
+  <p class="md-sum">Русскоязычные модели для работы с документами, а не для болтовни: ответы по базе знаний, извлечение сущностей и фактов из текста на русском, длинный контекст.</p>
+  <ul class="md-tasks"><li>Ответы на вопросы по внутренним документам</li><li>Извлечение имён, дат и сумм из договоров</li><li>Краткое изложение длинных текстов на русском</li></ul>
+  <dl class="md-specs">
+    <div><dt>Размеры</dt><dd>1.5B – 7.6B</dd></div>
+    <div><dt>Железо</dt><dd>от: Ноутбук</dd></div>
+  </dl>
+  <div class="md-card-foot"><span class="md-lic md-lic-ok">Можно в коммерцию</span><span class="md-more">Подробнее<i class="ph ph-arrow-right" aria-hidden="true"></i></span></div>
+  
+</article>
+<article class="md-card" data-id="deepvk-encoders" data-mod="nlp embed" data-hw="min" data-com="yes" data-latest="2025-05" data-first="2023-02" data-name="rumodernbert и user (deepvk)" data-country="ru" data-dev="" data-ru="yes" data-ind="dev docs support" data-ollama="0" data-cpu="1" data-q="rumodernbert и user (deepvk) deepvk (vk) россия разбор текста поиск и rag классификация обращений без размеченных данных поиск по базе знаний на русском разбор длинных договоров службы поддержки документооборот базы знаний компаний разработка по документы и бухгалтерия поддержка клиентов">
+  <div class="md-card-top"><span class="md-mod"><i class="ph ph-text-aa" aria-hidden="true"></i>Разбор текста</span><span class="md-card-meta"><span class="md-badge md-badge-ru" title="Русский язык заявлен">RU</span><span class="md-year">2023–2025</span></span></div>
+  <h2 class="md-name"><a href="/ii-modeli/deepvk-encoders/">RuModernBERT и USER (deepvk)</a></h2>
+  <div class="md-dev">deepvk (VK) · Россия</div>
+  <p class="md-sum">Русские энкодеры от команды VK: RuModernBERT читает длинные тексты, USER даёт векторы для поиска, GeRaCl классифицирует тексты по темам без обучения.</p>
+  <ul class="md-tasks"><li>Классификация обращений без размеченных данных</li><li>Поиск по базе знаний на русском</li><li>Разбор длинных договоров</li></ul>
+  <dl class="md-specs">
+    <div><dt>Размеры</dt><dd>35M – 360M</dd></div>
+    <div><dt>Железо</dt><dd>от: Ноутбук</dd></div>
+  </dl>
+  <div class="md-card-foot"><span class="md-lic md-lic-ok">Можно в коммерцию</span><span class="md-more">Подробнее<i class="ph ph-arrow-right" aria-hidden="true"></i></span></div>
+  
+</article>
+<article class="md-card" data-id="modernbert" data-mod="nlp" data-hw="min" data-com="yes" data-latest="2025-01" data-first="2024-12" data-name="modernbert" data-country="us eu" data-dev="" data-ru="no" data-ind="dev docs" data-ollama="0" data-cpu="1" data-q="modernbert answer.ai и lighton сша / франция разбор текста классификация обращений и документов поиск нужных фрагментов в длинных текстах основа для своего классификатора после дообучения службы поддержки документооборот аналитика разработка по документы и бухгалтерия">
+  <div class="md-card-top"><span class="md-mod"><i class="ph ph-text-aa" aria-hidden="true"></i>Разбор текста</span><span class="md-card-meta"><span class="md-year">2024–2025</span></span></div>
+  <h2 class="md-name"><a href="/ii-modeli/modernbert/">ModernBERT</a></h2>
+  <div class="md-dev">Answer.AI и LightOn · США / Франция</div>
+  <p class="md-sum">Современная замена классическому BERT: быстрее, читает до 8 тысяч токенов за раз. Основа для своих классификаторов. Обучена на английском и коде, для русского есть RuModernBERT.</p>
+  <ul class="md-tasks"><li>Классификация обращений и документов</li><li>Поиск нужных фрагментов в длинных текстах</li><li>Основа для своего классификатора после дообучения</li></ul>
+  <dl class="md-specs">
+    <div><dt>Размеры</dt><dd>150M – 395M</dd></div>
+    <div><dt>Железо</dt><dd>от: Ноутбук</dd></div>
+  </dl>
+  <div class="md-card-foot"><span class="md-lic md-lic-ok">Можно в коммерцию</span><span class="md-more">Подробнее<i class="ph ph-arrow-right" aria-hidden="true"></i></span></div>
+  
+</article>
+<article class="md-card" data-id="reader-lm" data-mod="nlp" data-hw="min" data-com="no" data-latest="2025-01" data-first="2024-09" data-name="readerlm (jina)" data-country="eu" data-dev="" data-ru="yes" data-ind="dev docs marketing" data-ollama="1" data-cpu="1" data-q="readerlm (jina) jina ai германия разбор текста очистка страниц сайтов для базы знаний извлечение данных со страниц в json подготовка текстов для rag it и разработка маркетинг и аналитика конкурентов внутренние базы знаний разработка по документы и бухгалтерия маркетинг и контент">
+  <div class="md-card-top"><span class="md-mod"><i class="ph ph-text-aa" aria-hidden="true"></i>Разбор текста</span><span class="md-card-meta"><span class="md-badge md-badge-ru" title="Русский язык заявлен">RU</span><span class="md-badge" title="Есть в библиотеке Ollama">Ollama</span><span class="md-year">2024–2025</span></span></div>
+  <h2 class="md-name"><a href="/ii-modeli/reader-lm/">ReaderLM (Jina)</a></h2>
+  <div class="md-dev">Jina AI · Германия</div>
+  <p class="md-sum">Маленькие модели, которые превращают сырой HTML веб-страниц в чистый Markdown или JSON. Удобно готовить сайты для базы знаний. Лицензия только некоммерческая.</p>
+  <ul class="md-tasks"><li>Очистка страниц сайтов для базы знаний</li><li>Извлечение данных со страниц в JSON</li><li>Подготовка текстов для RAG</li></ul>
+  <dl class="md-specs">
+    <div><dt>Размеры</dt><dd>0.5B – 1.5B</dd></div>
+    <div><dt>Железо</dt><dd>от: Ноутбук</dd></div>
+  </dl>
+  <div class="md-card-foot"><span class="md-lic md-lic-no">Только некоммерческое</span><span class="md-more">Подробнее<i class="ph ph-arrow-right" aria-hidden="true"></i></span></div>
+  
+</article>
+<article class="md-card" data-id="piiranha" data-mod="safety nlp" data-hw="min" data-com="no" data-latest="2024-09" data-first="2024-09" data-name="piiranha" data-country="other" data-dev="" data-ru="no" data-ind="security legal medical" data-ollama="0" data-cpu="1" data-q="piiranha iiiorg не указана модерация и безопасность разбор текста поиск персональных данных в текстах сравнение качества детекторов pii исследования пилоты по защите данных безопасность юристы медицина">
+  <div class="md-card-top"><span class="md-mod"><i class="ph ph-shield-check" aria-hidden="true"></i>Модерация и безопасность</span><span class="md-card-meta"><span class="md-year">2024</span></span></div>
+  <h2 class="md-name"><a href="/ii-modeli/piiranha/">Piiranha</a></h2>
+  <div class="md-dev">iiiorg · не указана</div>
+  <p class="md-sum">Популярный детектор 17 типов персональных данных на шести европейских языках. Русского нет, лицензия некоммерческая — подходит для проб и исследований.</p>
+  <ul class="md-tasks"><li>Поиск персональных данных в текстах</li><li>Сравнение качества детекторов PII</li></ul>
+  <dl class="md-specs">
+    <div><dt>Размеры</dt><dd>278M</dd></div>
+    <div><dt>Железо</dt><dd>от: Ноутбук</dd></div>
+  </dl>
+  <div class="md-card-foot"><span class="md-lic md-lic-no">Только некоммерческое</span><span class="md-more">Подробнее<i class="ph ph-arrow-right" aria-hidden="true"></i></span></div>
+  
+</article>
+<article class="md-card" data-id="minicheck" data-mod="judge nlp" data-hw="min gpu" data-com="conditional" data-latest="2024-08" data-first="2024-04" data-name="minicheck" data-country="us" data-dev="" data-ru="no" data-ind="support docs legal" data-ollama="1" data-cpu="1" data-q="minicheck ut austin и bespoke labs сша проверка фактов и оценка ответов разбор текста проверка ответов rag-бота по документам поиск неподтвержденных утверждений в отчетах и пересказах автоматический контроль качества ии-ответов поддержка клиентов юристы и комплаенс базы знаний компаний поддержка клиентов документы и бухгалтерия юристы">
+  <div class="md-card-top"><span class="md-mod"><i class="ph ph-gavel" aria-hidden="true"></i>Проверка фактов и оценка ответов</span><span class="md-card-meta"><span class="md-badge" title="Есть в библиотеке Ollama">Ollama</span><span class="md-year">2024</span></span></div>
+  <h2 class="md-name"><a href="/ii-modeli/minicheck/">MiniCheck</a></h2>
+  <div class="md-dev">UT Austin и Bespoke Labs · США</div>
+  <p class="md-sum">Проверяет, подтверждается ли каждое утверждение в ответе ИИ исходными документами. Малые версии свободные, старшая 7B есть в Ollama, но некоммерческая.</p>
+  <ul class="md-tasks"><li>Проверка ответов RAG-бота по документам</li><li>Поиск неподтверждённых утверждений в отчётах и пересказах</li><li>Автоматический контроль качества ИИ-ответов</li></ul>
+  <dl class="md-specs">
+    <div><dt>Размеры</dt><dd>0.4B – 7B</dd></div>
+    <div><dt>Железо</dt><dd>от: Ноутбук</dd></div>
+  </dl>
+  <div class="md-card-foot"><span class="md-lic md-lic-warn">Коммерция с условиями</span><span class="md-more">Подробнее<i class="ph ph-arrow-right" aria-hidden="true"></i></span></div>
+  
+</article>
+<article class="md-card" data-id="rubert" data-mod="nlp embed" data-hw="min" data-com="yes" data-latest="2024-07" data-first="2020-11" data-name="rubert, ruroberta, ruelectra (ai-forever)" data-country="ru" data-dev="sber" data-ru="yes" data-ind="dev docs support" data-ollama="0" data-cpu="1" data-q="rubert, ruroberta, ruelectra (ai-forever) sberdevices (ai-forever) россия разбор текста поиск и rag классификация обращений на русском извлечение имен, сумм и дат после дообучения определение тональности отзывов банки и страхование службы поддержки документооборот разработка по документы и бухгалтерия поддержка клиентов">
+  <div class="md-card-top"><span class="md-mod"><i class="ph ph-text-aa" aria-hidden="true"></i>Разбор текста</span><span class="md-card-meta"><span class="md-badge md-badge-ru" title="Русский язык заявлен">RU</span><span class="md-year">2020–2024</span></span></div>
+  <h2 class="md-name"><a href="/ii-modeli/rubert/">ruBERT, ruRoBERTa, ruELECTRA (ai-forever)</a></h2>
+  <div class="md-dev">SberDevices (ai-forever) · Россия</div>
+  <p class="md-sum">Русскоязычные энкодеры Сбера, обученные на больших русских корпусах. Основа для классификаторов, NER и поиска по смыслу на русском.</p>
+  <ul class="md-tasks"><li>Классификация обращений на русском</li><li>Извлечение имён, сумм и дат после дообучения</li><li>Определение тональности отзывов</li></ul>
+  <dl class="md-specs">
+    <div><dt>Размеры</dt><dd>около 30M – 430M</dd></div>
+    <div><dt>Железо</dt><dd>от: Ноутбук</dd></div>
+  </dl>
+  <div class="md-card-foot"><span class="md-lic md-lic-ok">Можно в коммерцию</span><span class="md-more">Подробнее<i class="ph ph-arrow-right" aria-hidden="true"></i></span></div>
+  
+</article>
+<article class="md-card" data-id="hhem" data-mod="judge nlp" data-hw="min" data-com="yes" data-latest="2024-07" data-first="2023-10" data-name="hhem (vectara)" data-country="us" data-dev="" data-ru="no" data-ind="support docs legal" data-ollama="0" data-cpu="1" data-q="hhem (vectara) vectara сша проверка фактов и оценка ответов разбор текста проверка ответов чат-бота по базе знаний на выдумки контроль качества пересказов документов сравнение языковых моделей по склонности к ошибкам службы поддержки с ии-ботом юристы и документооборот внутренние базы знаний поддержка клиентов документы и бухгалтерия юристы">
+  <div class="md-card-top"><span class="md-mod"><i class="ph ph-gavel" aria-hidden="true"></i>Проверка фактов и оценка ответов</span><span class="md-card-meta"><span class="md-year">2023–2024</span></span></div>
+  <h2 class="md-name"><a href="/ii-modeli/hhem/">HHEM (Vectara)</a></h2>
+  <div class="md-dev">Vectara · США</div>
+  <p class="md-sum">Маленькая модель, которая проверяет, опирается ли ответ ИИ на исходный текст или выдуман. Работает на процессоре, удобна как фильтр в RAG-системах.</p>
+  <ul class="md-tasks"><li>Проверка ответов чат-бота по базе знаний на выдумки</li><li>Контроль качества пересказов документов</li><li>Сравнение языковых моделей по склонности к ошибкам</li></ul>
+  <dl class="md-specs">
+    <div><dt>Размеры</dt><dd>110M</dd></div>
+    <div><dt>Железо</dt><dd>от: Ноутбук</dd></div>
+  </dl>
+  <div class="md-card-foot"><span class="md-lic md-lic-ok">Можно в коммерцию</span><span class="md-more">Подробнее<i class="ph ph-arrow-right" aria-hidden="true"></i></span></div>
+  
+</article>
+<article class="md-card" data-id="fred-t5" data-mod="text nlp" data-hw="min" data-com="yes" data-latest="2024-03" data-first="2023-01" data-name="fred-t5" data-country="ru" data-dev="sber" data-ru="yes" data-ind="docs education support" data-ollama="0" data-cpu="1" data-q="fred-t5 сбер (ai-forever) россия текст разбор текста исправление орфографии и опечаток в русском тексте краткий пересказ и перефразирование нормализация заявок и обращений перед обработкой основа для дешевого узкого дообучения поддержка клиентов контент и редакции обработка обращений и анкет документы и бухгалтерия образование поддержка клиентов">
+  <div class="md-card-top"><span class="md-mod"><i class="ph ph-chat-text" aria-hidden="true"></i>Текст</span><span class="md-card-meta"><span class="md-badge md-badge-ru" title="Русский язык заявлен">RU</span><span class="md-year">2023–2024</span></span></div>
+  <h2 class="md-name"><a href="/ii-modeli/fred-t5/">FRED-T5</a></h2>
+  <div class="md-dev">Сбер (ai-forever) · Россия</div>
+  <p class="md-sum">Русская модель «текст в текст» от Сбера, наследница ruT5 (2021). Небольшая и быстрая: её дообучают на пересказ, перефразирование и исправление ошибок в русском тексте, есть готовые версии проверки орфографии SAGE.</p>
+  <ul class="md-tasks"><li>Исправление орфографии и опечаток в русском тексте</li><li>Краткий пересказ и перефразирование</li><li>Нормализация заявок и обращений перед обработкой</li></ul>
+  <dl class="md-specs">
+    <div><dt>Размеры</dt><dd>95M – 1.7B</dd></div>
+    <div><dt>Железо</dt><dd>от: Ноутбук</dd></div>
+  </dl>
+  <div class="md-card-foot"><span class="md-lic md-lic-ok">Можно в коммерцию</span><span class="md-more">Подробнее<i class="ph ph-arrow-right" aria-hidden="true"></i></span></div>
+  
+</article>
+<article class="md-card" data-id="ru-classifiers" data-mod="nlp safety" data-hw="min" data-com="conditional" data-latest="2023-05" data-first="2022-03" data-name="русские классификаторы токсичности и тональности" data-country="ru" data-dev="" data-ru="yes" data-ind="support security retail marketing" data-ollama="0" data-cpu="1" data-q="русские классификаторы токсичности и тональности давид дале (cointegrated) и сообщество россия разбор текста модерация и безопасность фильтр оскорблений в чатах и комментариях на русском разметка отзывов на позитив, нейтрал и негатив поиск раздраженных клиентов в обращениях службы поддержки модерация сообществ аналитика отзывов поддержка клиентов безопасность торговля и маркетплейсы маркетинг и контент">
+  <div class="md-card-top"><span class="md-mod"><i class="ph ph-text-aa" aria-hidden="true"></i>Разбор текста</span><span class="md-card-meta"><span class="md-badge md-badge-ru" title="Русский язык заявлен">RU</span><span class="md-year">2022–2023</span></span></div>
+  <h2 class="md-name"><a href="/ii-modeli/ru-classifiers/">Русские классификаторы токсичности и тональности</a></h2>
+  <div class="md-dev">Давид Дале (cointegrated) и сообщество · Россия</div>
+  <p class="md-sum">Готовые крошечные модели на rubert-tiny для русского текста: находят грубость и оскорбления, определяют тональность и эмоции. Работают на процессоре за миллисекунды.</p>
+  <ul class="md-tasks"><li>Фильтр оскорблений в чатах и комментариях на русском</li><li>Разметка отзывов на позитив, нейтрал и негатив</li><li>Поиск раздражённых клиентов в обращениях</li></ul>
+  <dl class="md-specs">
+    <div><dt>Размеры</dt><dd>12M – 29M</dd></div>
+    <div><dt>Железо</dt><dd>от: Ноутбук</dd></div>
+  </dl>
+  <div class="md-card-foot"><span class="md-lic md-lic-warn">Коммерция с условиями</span><span class="md-more">Подробнее<i class="ph ph-arrow-right" aria-hidden="true"></i></span></div>
+  
+</article>
+<article class="md-card" data-id="layoutlm" data-mod="nlp ocr" data-hw="min" data-com="conditional" data-latest="2022-07" data-first="2020-02" data-name="layoutlm (v1–v3, layoutxlm)" data-country="us" data-dev="microsoft" data-ru="no" data-ind="docs finance legal" data-ollama="0" data-cpu="1" data-q="layoutlm (v1–v3, layoutxlm) microsoft сша разбор текста документы и ocr извлечение полей из анкет, форм и чеков после дообучения классификация типов документов ответы на вопросы по отсканированной странице документооборот страхование и банки исследования документы и бухгалтерия финансы юристы">
+  <div class="md-card-top"><span class="md-mod"><i class="ph ph-text-aa" aria-hidden="true"></i>Разбор текста</span><span class="md-card-meta"><span class="md-year">2020–2022</span></span></div>
+  <h2 class="md-name"><a href="/ii-modeli/layoutlm/">LayoutLM (v1–v3, LayoutXLM)</a></h2>
+  <div class="md-dev">Microsoft · США</div>
+  <p class="md-sum">Классические модели понимания документов: учитывают текст, его расположение на странице и картинку. Их дообучают под извлечение полей из форм и чеков. Коммерчески свободна только первая версия.</p>
+  <ul class="md-tasks"><li>Извлечение полей из анкет, форм и чеков после дообучения</li><li>Классификация типов документов</li><li>Ответы на вопросы по отсканированной странице</li></ul>
+  <dl class="md-specs">
+    <div><dt>Размеры</dt><dd>около 110M – 370M</dd></div>
+    <div><dt>Железо</dt><dd>от: Ноутбук</dd></div>
+  </dl>
+  <div class="md-card-foot"><span class="md-lic md-lic-warn">Коммерция с условиями</span><span class="md-more">Подробнее<i class="ph ph-arrow-right" aria-hidden="true"></i></span></div>
+  
+</article>
+<article class="md-card" data-id="xlm-roberta" data-mod="nlp" data-hw="min gpu" data-com="yes" data-latest="2022-01" data-first="2019-11" data-name="xlm-roberta" data-country="us" data-dev="meta" data-ru="yes" data-ind="dev docs support" data-ollama="0" data-cpu="1" data-q="xlm-roberta meta сша разбор текста определение тональности отзывов на разных языках извлечение имен и организаций после дообучения классификация обращений службы поддержки маркетинг аналитика отзывов разработка по документы и бухгалтерия поддержка клиентов">
+  <div class="md-card-top"><span class="md-mod"><i class="ph ph-text-aa" aria-hidden="true"></i>Разбор текста</span><span class="md-card-meta"><span class="md-badge md-badge-ru" title="Русский язык заявлен">RU</span><span class="md-year">2019–2022</span></span></div>
+  <h2 class="md-name"><a href="/ii-modeli/xlm-roberta/">XLM-RoBERTa</a></h2>
+  <div class="md-dev">Meta · США</div>
+  <p class="md-sum">Классический многоязычный энкодер на 100 языков, включая русский. Основа многих моделей тональности, NER и эмбеддингов, в том числе BGE-M3.</p>
+  <ul class="md-tasks"><li>Определение тональности отзывов на разных языках</li><li>Извлечение имён и организаций после дообучения</li><li>Классификация обращений</li></ul>
+  <dl class="md-specs">
+    <div><dt>Размеры</dt><dd>270M – 10.7B</dd></div>
+    <div><dt>Железо</dt><dd>от: Ноутбук</dd></div>
+  </dl>
+  <div class="md-card-foot"><span class="md-lic md-lic-ok">Можно в коммерцию</span><span class="md-more">Подробнее<i class="ph ph-arrow-right" aria-hidden="true"></i></span></div>
+  
+</article>
+<article class="md-card" data-id="deberta-v3" data-mod="nlp" data-hw="min" data-com="yes" data-latest="2021-10" data-first="2021-10" data-name="deberta-v3 и mdeberta-v3" data-country="us" data-dev="microsoft" data-ru="yes" data-ind="dev docs support" data-ollama="0" data-cpu="1" data-q="deberta-v3 и mdeberta-v3 microsoft сша разбор текста классификация отзывов по тональности извлечение сущностей после дообучения проверка, следует ли вывод из текста службы поддержки маркетинг и аналитика юридические отделы разработка по документы и бухгалтерия поддержка клиентов">
+  <div class="md-card-top"><span class="md-mod"><i class="ph ph-text-aa" aria-hidden="true"></i>Разбор текста</span><span class="md-card-meta"><span class="md-badge md-badge-ru" title="Русский язык заявлен">RU</span><span class="md-year">2021</span></span></div>
+  <h2 class="md-name"><a href="/ii-modeli/deberta-v3/">DeBERTa-v3 и mDeBERTa-v3</a></h2>
+  <div class="md-dev">Microsoft · США</div>
+  <p class="md-sum">Проверенный временем энкодер, на котором построено множество классификаторов и NER-моделей (в том числе GLiNER). Многоязычная mDeBERTa-v3 понимает русский.</p>
+  <ul class="md-tasks"><li>Классификация отзывов по тональности</li><li>Извлечение сущностей после дообучения</li><li>Проверка, следует ли вывод из текста</li></ul>
+  <dl class="md-specs">
+    <div><dt>Размеры</dt><dd>70M – 435M</dd></div>
+    <div><dt>Железо</dt><dd>от: Ноутбук</dd></div>
+  </dl>
+  <div class="md-card-foot"><span class="md-lic md-lic-ok">Можно в коммерцию</span><span class="md-more">Подробнее<i class="ph ph-arrow-right" aria-hidden="true"></i></span></div>
+  
+</article>
+<article class="md-card" data-id="rubert-tiny" data-mod="nlp embed" data-hw="min" data-com="yes" data-latest="2021-10" data-first="2021-05" data-name="rubert-tiny" data-country="ru" data-dev="" data-ru="yes" data-ind="dev support docs" data-ollama="0" data-cpu="1" data-q="rubert-tiny давид дале (cointegrated) россия разбор текста поиск и rag определение тональности отзывов фильтр грубых сообщений в чате быстрая классификация обращений службы поддержки интернет-магазины чат-боты разработка по поддержка клиентов документы и бухгалтерия">
+  <div class="md-card-top"><span class="md-mod"><i class="ph ph-text-aa" aria-hidden="true"></i>Разбор текста</span><span class="md-card-meta"><span class="md-badge md-badge-ru" title="Русский язык заявлен">RU</span><span class="md-year">2021</span></span></div>
+  <h2 class="md-name"><a href="/ii-modeli/rubert-tiny/">rubert-tiny</a></h2>
+  <div class="md-dev">Давид Дале (cointegrated) · Россия</div>
+  <p class="md-sum">Очень маленький русско-английский BERT, работает быстро на обычном процессоре. Есть готовые дообученные версии для тональности, токсичности и эмоций.</p>
+  <ul class="md-tasks"><li>Определение тональности отзывов</li><li>Фильтр грубых сообщений в чате</li><li>Быстрая классификация обращений</li></ul>
+  <dl class="md-specs">
+    <div><dt>Размеры</dt><dd>12M – 29M</dd></div>
+    <div><dt>Железо</dt><dd>от: Ноутбук</dd></div>
+  </dl>
+  <div class="md-card-foot"><span class="md-lic md-lic-ok">Можно в коммерцию</span><span class="md-more">Подробнее<i class="ph ph-arrow-right" aria-hidden="true"></i></span></div>
+  
+</article>
+<article class="md-card" data-id="finbert" data-mod="finance nlp" data-hw="min" data-com="yes" data-latest="2020-12" data-first="2020-12" data-name="finbert" data-country="eu" data-dev="" data-ru="no" data-ind="finance" data-ollama="0" data-cpu="1" data-q="finbert prosus нидерланды финансы разбор текста оценка тона новостей о компаниях разметка отчетов и пресс-релизов сигналы для аналитических дашбордов инвестиционная аналитика банки финансовые медиа финансы">
+  <div class="md-card-top"><span class="md-mod"><i class="ph ph-currency-circle-dollar" aria-hidden="true"></i>Финансы</span><span class="md-card-meta"><span class="md-year">2020</span></span></div>
+  <h2 class="md-name"><a href="/ii-modeli/finbert/">FinBERT</a></h2>
+  <div class="md-dev">Prosus · Нидерланды</div>
+  <p class="md-sum">Классическая модель, которая определяет тон финансовых новостей: позитив, негатив или нейтрально. Только английский, быстро работает на процессоре.</p>
+  <ul class="md-tasks"><li>Оценка тона новостей о компаниях</li><li>Разметка отчётов и пресс-релизов</li><li>Сигналы для аналитических дашбордов</li></ul>
+  <dl class="md-specs">
+    <div><dt>Размеры</dt><dd>110M</dd></div>
+    <div><dt>Железо</dt><dd>от: Ноутбук</dd></div>
+  </dl>
+  <div class="md-card-foot"><span class="md-lic md-lic-ok">Можно в коммерцию</span><span class="md-more">Подробнее<i class="ph ph-arrow-right" aria-hidden="true"></i></span></div>
+  
+</article></div>
+  <section class="md-colls" aria-labelledby="mdCollsT"><h2 id="mdCollsT">Подборки</h2><div class="md-colls-grid"><div class="md-links-group"><h3>Быстрые подборки</h3><ul class="md-links"><li><a href="/ii-modeli/podborki/russkie/">Открытые ИИ-модели с русским языком</a> <small>100</small></li><li><a href="/ii-modeli/podborki/dlya-kommercii/">Открытые ИИ-модели для коммерческого использования</a> <small>288</small></li><li><a href="/ii-modeli/podborki/dlya-noutbuka/">ИИ-модели, которые работают на ноутбуке</a> <small>356</small></li><li><a href="/ii-modeli/podborki/ollama/">Модели, доступные в Ollama</a> <small>78</small></li><li><a href="/ii-modeli/podborki/bez-videokarty/">ИИ-модели, которые работают без видеокарты</a> <small>241</small></li></ul></div><div class="md-links-group"><h3>По направлению</h3><ul class="md-links"><li><a href="/ii-modeli/napravlenie/yazykovye-modeli/">Открытые языковые модели для бизнеса</a> <small>106</small></li><li><a href="/ii-modeli/napravlenie/dlya-koda/">Открытые нейросети для программирования</a> <small>34</small></li><li><a href="/ii-modeli/napravlenie/kartinka-i-tekst/">Мультимодальные модели: картинка и текст</a> <small>66</small></li><li><a href="/ii-modeli/napravlenie/raspoznavanie-dokumentov/">Открытые модели для распознавания документов</a> <small>27</small></li><li><a href="/ii-modeli/napravlenie/generatsiya-izobrazheniy/">Открытые нейросети для генерации изображений</a> <small>27</small></li><li><a href="/ii-modeli/napravlenie/generatsiya-video/">Открытые нейросети для генерации видео</a> <small>35</small></li><li><a href="/ii-modeli/napravlenie/avatary/">Открытые нейросети для говорящих аватаров</a> <small>14</small></li><li><a href="/ii-modeli/napravlenie/raspoznavanie-rechi/">Открытые модели для распознавания речи</a> <small>20</small></li><li><a href="/ii-modeli/napravlenie/sintez-rechi/">Открытые модели для синтеза речи</a> <small>31</small></li><li><a href="/ii-modeli/napravlenie/golosovye-assistenty/">Открытые модели для голосовых ассистентов</a> <small>14</small></li><li><a href="/ii-modeli/napravlenie/muzyka-i-zvuk/">Открытые нейросети для музыки и звука</a> <small>22</small></li><li><a href="/ii-modeli/napravlenie/3d-modeli/">Открытые нейросети для создания 3D-моделей</a> <small>14</small></li><li><a href="/ii-modeli/napravlenie/kompyuternoe-zrenie/">Открытые модели компьютерного зрения</a> <small>33</small></li><li><a href="/ii-modeli/napravlenie/poisk-i-rag/">Открытые модели эмбеддингов для поиска и RAG</a> <small>33</small></li><li><a href="/ii-modeli/napravlenie/prognozirovanie/">Открытые модели для прогнозирования временных рядов</a> <small>7</small></li><li><a href="/ii-modeli/napravlenie/robototekhnika/">Открытые модели для роботов</a> <small>10</small></li><li><a href="/ii-modeli/napravlenie/primerka-odezhdy/">Открытые нейросети для виртуальной примерки одежды</a> <small>10</small></li><li><a href="/ii-modeli/napravlenie/obrabotka-foto/">Открытые нейросети для обработки фото</a> <small>19</small></li><li><a href="/ii-modeli/napravlenie/perevod/">Открытые модели для машинного перевода</a> <small>12</small></li><li><a href="/ii-modeli/napravlenie/moderatsiya/">Открытые модели для модерации контента</a> <small>15</small></li><li><a href="/ii-modeli/napravlenie/golos-i-spikery/">Открытые модели для работы с голосом и звуком</a> <small>18</small></li><li><a href="/ii-modeli/napravlenie/agenty-dlya-kompyutera/">Открытые ИИ-агенты для управления компьютером</a> <small>17</small></li><li><a href="/ii-modeli/napravlenie/tablichnye-dannye/">Открытые модели для табличных данных</a> <small>7</small></li><li><span aria-current="page">Открытые модели для анализа и разбора текста</span> <small>19</small></li><li><a href="/ii-modeli/napravlenie/meditsina/">Открытые медицинские ИИ-модели</a> <small>18</small></li><li><a href="/ii-modeli/napravlenie/matematika-i-rassuzhdeniya/">Открытые модели для математики и рассуждений</a> <small>25</small></li><li><a href="/ii-modeli/napravlenie/rerankery/">Открытые реранкеры для поиска и RAG</a> <small>4</small></li><li><a href="/ii-modeli/napravlenie/poisk-po-skanam/">Открытые модели для поиска по сканам документов</a> <small>4</small></li><li><a href="/ii-modeli/napravlenie/tekst-v-sql/">Открытые модели для перевода запросов в SQL</a> <small>5</small></li><li><a href="/ii-modeli/napravlenie/proverka-otvetov/">Открытые модели для проверки фактов и оценки ответов ИИ</a> <small>5</small></li><li><a href="/ii-modeli/napravlenie/raspoznavanie-lits/">Открытые модели для распознавания лиц</a> <small>6</small></li><li><a href="/ii-modeli/napravlenie/finansy/">Открытые ИИ-модели для финансов</a> <small>3</small></li><li><a href="/ii-modeli/napravlenie/kiberbezopasnost/">Открытые ИИ-модели для кибербезопасности</a> <small>3</small></li><li><a href="/ii-modeli/napravlenie/pogoda-i-klimat/">Открытые модели для прогноза погоды и климата</a> <small>7</small></li><li><a href="/ii-modeli/napravlenie/sputnikovye-snimki/">Открытые модели для спутниковых снимков и геоданных</a> <small>5</small></li><li><a href="/ii-modeli/napravlenie/biologiya-i-khimiya/">Открытые модели для биологии и химии</a> <small>5</small></li><li><a href="/ii-modeli/napravlenie/avtonomnoe-vozhdenie/">Открытые модели для автономного вождения</a> <small>3</small></li></ul></div><div class="md-links-group"><h3>По сфере</h3><ul class="md-links"><li><a href="/ii-modeli/sfera/torgovlya-i-marketpleysy/">Нейросети для торговли и маркетплейсов</a> <small>101</small></li><li><a href="/ii-modeli/sfera/podderzhka-klientov/">Нейросети для поддержки клиентов</a> <small>135</small></li><li><a href="/ii-modeli/sfera/dokumenty-i-bukhgalteriya/">Нейросети для документов и бухгалтерии</a> <small>115</small></li><li><a href="/ii-modeli/sfera/dlya-yuristov/">Нейросети для юристов</a> <small>35</small></li><li><a href="/ii-modeli/sfera/meditsina/">Нейросети для медицины и клиник</a> <small>29</small></li><li><a href="/ii-modeli/sfera/obrazovanie/">Нейросети для образования</a> <small>89</small></li><li><a href="/ii-modeli/sfera/marketing-i-kontent/">Нейросети для маркетинга и контента</a> <small>84</small></li><li><a href="/ii-modeli/sfera/media-i-prodakshn/">Нейросети для медиа и продакшна</a> <small>165</small></li><li><a href="/ii-modeli/sfera/hr/">Нейросети для HR и подбора персонала</a> <small>2</small></li><li><a href="/ii-modeli/sfera/proizvodstvo-i-sklad/">Нейросети для производства и склада</a> <small>56</small></li><li><a href="/ii-modeli/sfera/finansy/">Нейросети для финансов и банков</a> <small>79</small></li><li><a href="/ii-modeli/sfera/razrabotka-po/">Нейросети для разработки ПО</a> <small>134</small></li><li><a href="/ii-modeli/sfera/bezopasnost/">Нейросети для безопасности</a> <small>32</small></li><li><a href="/ii-modeli/sfera/nauka/">Нейросети для науки и исследований</a> <small>136</small></li><li><a href="/ii-modeli/sfera/gossektor/">Нейросети для госсектора</a> <small>27</small></li></ul></div><div class="md-links-group"><h3>Сравнения моделей</h3><ul class="md-links"><li><a href="/ii-modeli/sravnenie/qwen-vs-gigachat/">Qwen или GigaChat: что выбрать для бизнеса</a></li><li><a href="/ii-modeli/sravnenie/qwen-vs-llama/">Qwen или Llama: что выбрать для бизнеса</a></li><li><a href="/ii-modeli/sravnenie/gigachat-vs-yandexgpt/">GigaChat или YandexGPT: что выбрать для бизнеса</a></li><li><a href="/ii-modeli/sravnenie/deepseek-vs-qwen/">DeepSeek или Qwen: что выбрать для бизнеса</a></li><li><a href="/ii-modeli/sravnenie/gemma-vs-llama/">Gemma или Llama: что выбрать для бизнеса</a></li><li><a href="/ii-modeli/sravnenie/mistral-vs-llama/">Mistral или Llama: что выбрать для бизнеса</a></li><li><a href="/ii-modeli/sravnenie/whisper-vs-gigaam/">Whisper или GigaAM: что выбрать для бизнеса</a></li><li><a href="/ii-modeli/sravnenie/whisper-vs-parakeet/">Whisper или Parakeet: что выбрать для бизнеса</a></li><li><a href="/ii-modeli/sravnenie/silero-vs-piper/">Silero или Piper: что выбрать для бизнеса</a></li><li><a href="/ii-modeli/sravnenie/flux-vs-stable-diffusion/">FLUX или Stable Diffusion: что выбрать для бизнеса</a></li><li><a href="/ii-modeli/sravnenie/flux-vs-qwen-image/">FLUX или Qwen-Image: что выбрать для бизнеса</a></li><li><a href="/ii-modeli/sravnenie/paddleocr-vl-vs-deepseek-ocr/">PaddleOCR-VL или DeepSeek-OCR: что выбрать для бизнеса</a></li><li><a href="/ii-modeli/sravnenie/bge-m3-vs-e5/">BGE-M3 или E5: что выбрать для бизнеса</a></li><li><a href="/ii-modeli/sravnenie/wan-vs-ltx-video/">Wan или LTX-Video: что выбрать для бизнеса</a></li><li><a href="/ii-modeli/sravnenie/yolo-vs-rf-detr/">YOLO или RF-DETR: что выбрать для бизнеса</a></li></ul></div></div></section>
+  <section class="md-offer" aria-labelledby="mdOfferT">
+    <div class="md-offer-text"><h2 id="mdOfferT">Нужна модель под вашу задачу?</h2><p>Открытую модель можно поставить на свой сервер: данные не уходят в чужое облако, нет оплаты за каждый запрос, модель можно дообучить на ваших документах.</p></div>
+    <ol class="md-steps"><li><b>Подберу</b><span>Модель и размер под задачу и бюджет на железо</span></li><li><b>Поставлю</b><span>На ваш сервер или в закрытый контур, с API</span></li><li><b>Дообучу</b><span>На ваших данных или подключу базу знаний</span></li><li><b>Встрою</b><span>В CRM, 1С, бота, сайт или рабочий чат</span></li></ol>
+    <a class="btn btn-accent md-offer-btn" href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BF%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%B8%D1%82%D1%8C%20%D0%BE%D1%82%D0%BA%D1%80%D1%8B%D1%82%D1%83%D1%8E%20%D0%98%D0%98-%D0%BC%D0%BE%D0%B4%D0%B5%D0%BB%D1%8C%20%D0%BD%D0%B0%20%D1%81%D0%B2%D0%BE%D0%B9%20%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80.%20%D0%97%D0%B0%D0%B4%D0%B0%D1%87%D0%B0%3A%20" target="_blank" rel="noopener"><i class="ph ph-telegram-logo" aria-hidden="true"></i>Обсудить внедрение</a>
+  </section>
+<aside class="blog-legal-note md-legal" role="note"><p><strong>Важно.</strong> Meta — признана в России экстремистской организацией, её деятельность на территории Российской Федерации запрещена.</p></aside></div></section>
+</main>
+<footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label">КОНТАКТ</span>
+            <h2>ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                <a href="tel:+971563369591" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +971 56 336 9591</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 Дарижапов Чимитдоржи. Все права защищены.</p>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/predlozheniya/" class="footer-policy-link">Предложения</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/blog/" class="footer-policy-link">Блог</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link">Политика конфиденциальности</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=44" defer></script>
+<script src="/script.js?v=40" defer></script><script>(function(){[].forEach.call(document.querySelectorAll('.md-card'),function(c){c.addEventListener('click',function(e){if(e.target.closest('a,label,input'))return;location.href=c.querySelector('.md-name a').getAttribute('href');});});})();</script>
+</body>
+</html>

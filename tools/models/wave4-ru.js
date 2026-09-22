@@ -23,6 +23,14 @@ module.exports = [
     alternatives: ['gigachat', 't-pro', 'qwen'],
     source: 'https://huggingface.co/MTSAIR/Cotype-Nano',
     verified: true,
+    en: {
+      summary: 'A lightweight Russian-language model from MTS AI for Russian texts: answers, summaries, drafts. A ready version for CPU without a GPU is available. The larger Cotype Pro is not released openly.',
+      tasks: ['Drafts of emails and descriptions in Russian', 'Short document summaries', 'Answers to common customer questions'],
+      where: ['Support teams', 'Office document management', 'Marketing'],
+      license: 'Apache 2.0 per the MTS AI text (license file in the repository); HF metadata says other, so read the file before commercial launch',
+      developer: 'MTS AI (MWS AI)',
+      country: 'Russia',
+    },
   },
   {
     id: 'kodify',
@@ -47,6 +55,14 @@ module.exports = [
     alternatives: ['qwen-coder', 'mellum', 'deepseek-coder'],
     source: 'https://huggingface.co/MTSAIR/Kodify-Nano',
     verified: true,
+    en: {
+      summary: 'A small coding assistant from MTS AI that understands requests in Russian. Runs locally, with plugins for VS Code and JetBrains.',
+      tasks: ['Code suggestions and completion in the editor', 'Code explanations in Russian', 'Drafts of tests and documentation'],
+      where: ['Development teams', 'IT departments with a closed environment'],
+      license: 'Apache 2.0 (MTS AI license text in the repository)',
+      developer: 'MTS AI (MWS AI)',
+      country: 'Russia',
+    },
   },
   {
     id: 'a-vibe',
@@ -71,6 +87,14 @@ module.exports = [
     alternatives: ['qwen', 't-pro', 'gigachat'],
     source: 'https://huggingface.co/AvitoTech/avibe',
     verified: true,
+    en: {
+      summary: 'Avito\'s model based on Qwen3-8B, retrained for Russian: its own tokenizer makes Russian text 15–25% faster. Supports function calling.',
+      tasks: ['Product and listing descriptions in Russian', 'Chatbot that calls internal services', 'Request analysis and classification'],
+      where: ['Marketplaces and online stores', 'Support teams', 'Marketing'],
+      license: 'Apache 2.0',
+      developer: 'Avito Tech',
+      country: 'Russia',
+    },
   },
   {
     id: 'a-vision',
@@ -95,6 +119,14 @@ module.exports = [
     alternatives: ['qwen-vl', 'internvl', 'minicpm-v'],
     source: 'https://huggingface.co/AvitoTech/avision',
     verified: true,
+    en: {
+      summary: 'Avito\'s Russian-language model that understands images: describes photos, answers questions about an image, reads text on it. Based on Qwen2.5-VL, faster in Russian than the original.',
+      tasks: ['Product descriptions from photos in Russian', 'Checking that a photo matches its description', 'Reading brands and text in images'],
+      where: ['Marketplaces and classifieds', 'Product card moderation', 'Online store catalogs'],
+      license: 'Apache 2.0',
+      developer: 'Avito Tech',
+      country: 'Russia',
+    },
   },
   {
     id: 'pollux',
@@ -119,6 +151,13 @@ module.exports = [
     alternatives: ['gigachat', 't-pro', 'qwen'],
     source: 'https://huggingface.co/ai-forever/Pollux-4B-Judge',
     verified: true,
+    en: {
+      summary: 'Judge models that evaluate other AI models\' answers in Russian: they score against a given criterion and explain the score in text.',
+      tasks: ['Automatic quality checks of Russian chatbot answers', 'Comparing several models before choosing one', 'Checking answers after fine-tuning'],
+      where: ['Teams deploying chatbots', 'Support teams', 'Research'],
+      license: 'MIT',
+      country: 'Russia',
+    },
   },
   {
     id: 'meno',
@@ -143,6 +182,14 @@ module.exports = [
     alternatives: ['ruadapt-qwen', 't-pro', 'saiga'],
     source: 'https://huggingface.co/bond005/meno-lite-0.1',
     verified: true,
+    en: {
+      summary: 'Russian-language models for working with documents rather than chatting: knowledge-base answers, extraction of entities and facts from Russian text, long context.',
+      tasks: ['Answers to questions based on internal documents', 'Extracting names, dates and amounts from contracts', 'Short summaries of long Russian texts'],
+      where: ['Legal departments', 'Document management', 'Company knowledge bases'],
+      license: 'Apache 2.0',
+      developer: 'Ivan Bondarenko (bond005), Novosibirsk State University',
+      country: 'Russia',
+    },
   },
   {
     id: 'ruclip',
@@ -167,6 +214,14 @@ module.exports = [
     alternatives: ['clip-siglip', 'jina-embeddings'],
     source: 'https://huggingface.co/ai-forever/ruclip-vit-large-patch14-336',
     verified: true,
+    en: {
+      summary: 'A Russian version of CLIP: matches images with Russian captions. Lets you search photos by description and sort images into categories without training.',
+      tasks: ['Product search by photo and by Russian description', 'Sorting images into categories without labeling', 'Checking that a photo matches its caption'],
+      where: ['Online stores', 'Photo and media archives', 'Content moderation'],
+      license: 'Apache 2.0 (GitHub repository)',
+      developer: 'Sber AI and SberDevices (ai-forever)',
+      country: 'Russia',
+    },
   },
   {
     id: 'kazrush',
@@ -191,6 +246,13 @@ module.exports = [
     alternatives: ['nllb', 'madlad', 'opus-mt'],
     source: 'https://huggingface.co/deepvk/kazRush-ru-kk',
     verified: true,
+    en: {
+      summary: 'Compact Kazakh-Russian translators from VK. At 197M they translate as well as the 600M NLLB and run on a regular CPU.',
+      tasks: ['Translating requests from Kazakh to Russian', 'Translating documents and instructions into Kazakh', 'Bilingual customer support'],
+      where: ['Companies with customers in Kazakhstan', 'Public services', 'Support teams'],
+      license: 'Apache 2.0',
+      country: 'Russia',
+    },
   },
   {
     id: 'zarya',
@@ -215,6 +277,13 @@ module.exports = [
     alternatives: ['qwen', 'gigachat', 'rugpt'],
     source: 'https://huggingface.co/ai-forever/Zarya-4B',
     verified: true,
+    en: {
+      summary: 'A Russian and English research prototype: the model writes text in blocks at once (diffusion) rather than word by word, which speeds up responses. The authors do not recommend it for production systems.',
+      tasks: ['Experiments with faster generation', 'Fine-tuning small models for your own tasks', 'Research'],
+      where: ['R&D teams', 'Universities and labs'],
+      license: 'MIT',
+      country: 'Russia',
+    },
   },
   {
     id: 'ru-classifiers',
@@ -239,6 +308,14 @@ module.exports = [
     alternatives: ['rubert-tiny', 'deepvk-encoders', 'qwen3guard'],
     source: 'https://huggingface.co/seara/rubert-tiny2-russian-sentiment',
     verified: true,
+    en: {
+      summary: 'Ready-made tiny rubert-tiny models for Russian text: detect rudeness and insults, sentiment and emotions. They run on a CPU in milliseconds.',
+      tasks: ['Filtering insults in Russian chats and comments', 'Labeling reviews as positive, neutral or negative', 'Spotting irritated customers in requests'],
+      where: ['Support teams', 'Community moderation', 'Review analytics'],
+      license: 'MIT for toxicity and seara sentiment; the license for cointegrated sentiment and emotion models is not stated on the model card',
+      developer: 'David Dale (cointegrated) and the community',
+      country: 'Russia',
+    },
   },
   {
     id: 'dusha-emotion',
@@ -263,5 +340,13 @@ module.exports = [
     alternatives: ['gigaam', 'sensevoice'],
     source: 'https://huggingface.co/waveletdeboshir/whisper-base-ser-dusha',
     verified: true,
+    en: {
+      summary: 'Models that detect emotion from voice in Russian speech: neutral, anger, positive, sadness. Trained on the open Dusha dataset from SberDevices.',
+      tasks: ['Finding calls with irritated customers', 'Assessing the tone of operator conversations', 'Prioritizing complaints in a call center'],
+      where: ['Call centers', 'Service quality control'],
+      license: 'Apache 2.0 for HuBERT-large; for the other versions the license is not stated on the model card',
+      developer: 'Community (xbgoose and others), Dusha dataset from SberDevices',
+      country: 'Russia',
+    },
   },
 ];

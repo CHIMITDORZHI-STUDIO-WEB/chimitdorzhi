@@ -31,6 +31,14 @@ module.exports = [
     alternatives: ['smollm', 'lfm', 'qwen'],
     source: 'https://huggingface.co/openbmb/MiniCPM5-2B',
     verified: true,
+    en: {
+      summary: 'Compact text models that run directly on a device: laptop, phone or mini PC. The 1B and 2B MiniCPM5 models focus on tool calling and long context.',
+      tasks: ['A local chat assistant without the cloud', 'Data extraction and text classification', 'Tool calling and simple agents on low-end hardware'],
+      where: ['Customer support', 'Document workflow', 'Embedded devices'],
+      license: 'Apache 2.0 (the first MiniCPM-2B and MiniCPM 2.0 had their own MiniCPM license requiring registration for commercial use)',
+      developer: 'OpenBMB (ModelBest and Tsinghua University)',
+      country: 'China',
+    },
   },
   {
     id: 'k2',
@@ -61,6 +69,14 @@ module.exports = [
     alternatives: ['olmo', 'jais', 'falcon'],
     source: 'https://huggingface.co/IFM/K2-Horizon-375B-A23B',
     verified: true,
+    en: {
+      summary: 'Fully open models from the UAE: data, training code and intermediate checkpoints are published along with the weights. K2-Horizon (2026) spans 0.9B to 375B with context up to 512K tokens.',
+      tasks: ['Reasoning, maths and technical questions', 'Analysing long documents', 'Agents and writing code', 'Verifiable training of your own models on open data'],
+      where: ['Research groups', 'IT departments', 'Education'],
+      license: 'Apache 2.0',
+      developer: 'MBZUAI, Institute of Foundation Models (IFM, LLM360 project)',
+      country: 'UAE',
+    },
   },
   {
     id: 'jais',
@@ -91,6 +107,14 @@ module.exports = [
     alternatives: ['allam', 'k2', 'falcon'],
     source: 'https://huggingface.co/inception42/Jais-2-8B-Chat',
     verified: true,
+    en: {
+      summary: 'A model family for Arabic and English, including Gulf dialects. Suits companies working with Arabic-speaking customers and government bodies in the region.',
+      tasks: ['A chatbot in Arabic and English', 'Translating and summarising documents in Arabic', 'Classifying customer requests'],
+      where: ['Customer support in the Middle East', 'UAE and Gulf public sector', 'Document workflow'],
+      license: 'Apache 2.0 (Jais 2: by access request on Hugging Face)',
+      developer: 'Inception (G42), MBZUAI and Cerebras',
+      country: 'UAE',
+    },
   },
   {
     id: 'allam',
@@ -115,6 +139,14 @@ module.exports = [
     alternatives: ['jais', 'k2'],
     source: 'https://huggingface.co/humain-ai/ALLaM-7B-Instruct-preview',
     verified: true,
+    en: {
+      summary: 'A Saudi model for Arabic and English, trained from scratch. One 7B version is openly available.',
+      tasks: ['An Arabic-language assistant', 'Answering questions about documents', 'Writing and editing texts in Arabic'],
+      where: ['Saudi public sector', 'Education', 'Customer support'],
+      license: 'Apache 2.0',
+      developer: 'HUMAIN (formerly SDAIA)',
+      country: 'Saudi Arabia',
+    },
   },
   {
     id: 'ornith',
@@ -142,6 +174,13 @@ module.exports = [
     alternatives: ['qwen-coder', 'devstral', 'kat-coder'],
     source: 'https://huggingface.co/ornith-ai/Ornith-1.5-9B',
     verified: true,
+    en: {
+      summary: 'Models for agentic development: they build their own plan and scaffolding for a task and execute it in the terminal. Fine-tuned from Qwen 3.5 and Gemma 4; work with Claude Code, OpenHands and similar tools.',
+      tasks: ['A developer agent in the terminal', 'Fixing bugs from a task description', 'Understanding and extending a large repository'],
+      where: ['Development teams', 'IT outsourcing', 'Internal automation'],
+      license: 'MIT',
+      country: 'not disclosed',
+    },
   },
   {
     id: 'apriel',
@@ -172,6 +211,13 @@ module.exports = [
     alternatives: ['phi', 'nemotron', 'granite'],
     source: 'https://huggingface.co/ServiceNow-AI/SuperApriel-15B-Instruct',
     verified: true,
+    en: {
+      summary: 'ServiceNow 15B models with step-by-step reasoning that fit on a single GPU. From version 1.5 they also understand images and are good at calling tools.',
+      tasks: ['A reasoning assistant for internal services', 'Tool calling and enterprise agents', 'Analysing screenshots and documents with images'],
+      where: ['IT services and service desk', 'Customer support', 'Development'],
+      license: 'MIT',
+      country: 'USA',
+    },
   },
   {
     id: 'cogito',
@@ -200,6 +246,13 @@ module.exports = [
     alternatives: ['deepseek-r1', 'llama', 'qwen'],
     source: 'https://www.deepcogito.com/research/cogito-v2-1',
     verified: true,
+    en: {
+      summary: 'Fine-tuned Llama, Qwen and DeepSeek models with a hybrid mode: answer immediately or reason first. The 671B v2.1 flagship spends noticeably fewer tokens on reasoning than DeepSeek R1.',
+      tasks: ['A chat assistant with a reasoning mode', 'Writing code and calling tools', 'Answering complex questions about documents'],
+      where: ['Customer support', 'Development', 'Analytics'],
+      license: 'v1 and the Llama-based v2 versions: Llama licenses; Qwen- and DeepSeek-based versions: Apache 2.0 / MIT',
+      country: 'USA',
+    },
   },
   {
     id: 'deepscaler',
@@ -228,6 +281,14 @@ module.exports = [
     alternatives: ['deepseek-r1', 'openthinker', 'sky-t1'],
     source: 'https://huggingface.co/agentica-org/DeepSWE-Preview',
     verified: true,
+    en: {
+      summary: 'Small models fine-tuned with reinforcement learning: DeepScaleR (1.5B) solves olympiad maths, DeepCoder writes code, DeepSWE works as a developer agent. Recipes and data are open.',
+      tasks: ['Solving maths problems with step-by-step working', 'Generating and checking code', 'An agent for fixing bugs in a repository'],
+      where: ['Education', 'Development', 'Research'],
+      license: 'MIT',
+      developer: 'Agentica (Berkeley, Sky Computing Lab) and Together AI',
+      country: 'USA',
+    },
   },
   {
     id: 'tinyllama',
@@ -256,6 +317,14 @@ module.exports = [
     alternatives: ['smollm', 'phi', 'pythia'],
     source: 'https://huggingface.co/TinyLlama/TinyLlama_v1.1',
     verified: true,
+    en: {
+      summary: 'A 1.1B model with the Llama 2 architecture, trained on 3 trillion tokens. Now behind newer small models, but still a popular base for experiments and fine-tuning.',
+      tasks: ['Simple chatbots on low-end hardware', 'Experiments and team training', 'A base for fine-tuning on a narrow task'],
+      where: ['Education', 'Research', 'Prototypes'],
+      license: 'Apache 2.0',
+      developer: 'TinyLlama (SUTD researchers)',
+      country: 'Singapore',
+    },
   },
   {
     id: 'orca',
@@ -280,6 +349,13 @@ module.exports = [
     alternatives: ['phi', 'llama', 'wizardlm'],
     source: 'https://huggingface.co/microsoft/Orca-2-13b',
     verified: true,
+    en: {
+      summary: 'Microsoft research models based on Llama 2, trained to choose a reasoning approach for each task. The orca-mini model in Ollama is a different project by independent developer Pankaj Mathur.',
+      tasks: ['Research on reasoning methods', 'Comparison with modern small models', 'Training specialists'],
+      where: ['Research groups', 'Universities'],
+      license: 'Microsoft Research License: research only, no commercial use',
+      country: 'USA',
+    },
   },
   {
     id: 'stablelm',
@@ -312,6 +388,13 @@ module.exports = [
     alternatives: ['smollm', 'phi', 'starcoder'],
     source: 'https://huggingface.co/stabilityai/stablelm-2-12b-chat',
     verified: true,
+    en: {
+      summary: 'Small models from Stability AI: StableLM 2 (1.6B) knows 7 European languages, Stable Code (3B) completes code. No updates since 2024.',
+      tasks: ['A lightweight chatbot on an ordinary PC', 'Code autocompletion in the editor', 'A base for fine-tuning on your own task'],
+      where: ['Development', 'Customer support', 'Education'],
+      license: 'Early Alpha and StableLM-3B-4E1T: CC BY-SA 4.0; StableLM 2 1.6B, Zephyr and Stable Code: Stability AI Community License (free for revenue up to 1 million dollars a year); StableLM 2 12B: non-commercial',
+      country: 'UK',
+    },
   },
   {
     id: 'yi-coder',
@@ -336,6 +419,13 @@ module.exports = [
     alternatives: ['yi', 'qwen-coder', 'deepseek-coder'],
     source: 'https://huggingface.co/01-ai/Yi-Coder-9B-Chat',
     verified: true,
+    en: {
+      summary: 'Coding models from 01.AI at 1.5B and 9B with a 128K-token context and support for 52 programming languages. A separate line next to the text Yi models.',
+      tasks: ['Code autocompletion and generation', 'Explaining and refactoring code', 'A programming assistant without the cloud'],
+      where: ['Development', 'IT departments'],
+      license: 'Apache 2.0',
+      country: 'China',
+    },
   },
   {
     id: 'codegeex',
@@ -363,6 +453,14 @@ module.exports = [
     alternatives: ['glm', 'qwen-coder', 'deepseek-coder'],
     source: 'https://huggingface.co/zai-org/codegeex4-all-9b',
     verified: true,
+    en: {
+      summary: 'Coding models from the creators of GLM. CodeGeeX4-ALL-9B, based on GLM-4-9B, combines autocompletion, code chat, function calling and repository search in one model.',
+      tasks: ['Code autocompletion in the IDE', 'A code chat assistant', 'Answering questions about a repository'],
+      where: ['Development', 'IT departments'],
+      license: 'Own CodeGeeX license: free for research, registration required for commercial use',
+      developer: 'Zhipu AI (Z.ai) and Tsinghua University',
+      country: 'China',
+    },
   },
   {
     id: 'opencoder',
@@ -387,6 +485,13 @@ module.exports = [
     alternatives: ['starcoder', 'qwen-coder', 'yi-coder'],
     source: 'https://huggingface.co/infly/OpenCoder-8B-Instruct',
     verified: true,
+    en: {
+      summary: 'Fully reproducible coding models: along with the weights, the data, its cleaning pipeline and the training recipe are open. Understand English and Chinese.',
+      tasks: ['Code generation and completion', 'Training your own coding model from an open recipe', 'A programming assistant on low-end hardware'],
+      where: ['Development', 'Education'],
+      license: 'Own INF license: commercial use allowed',
+      country: 'China',
+    },
   },
   {
     id: 'athene',
@@ -414,6 +519,13 @@ module.exports = [
     alternatives: ['qwen', 'llama', 'hermes'],
     source: 'https://huggingface.co/Nexusflow/Athene-V2-Agent',
     verified: true,
+    en: {
+      summary: 'Fine-tuned Llama 3 and Qwen 2.5 models from Nexusflow. Athene-V2-Agent is specially trained for function calling and agent scenarios. Commercial use is prohibited.',
+      tasks: ['Research on agents and function calling', 'Comparison with commercial models', 'Experiments with a chat assistant'],
+      where: ['Research groups', 'Prototype development'],
+      license: 'Nexusflow Research License: no commercial use and no hosting as a service',
+      country: 'USA',
+    },
   },
   {
     id: 'rnj',
@@ -441,6 +553,13 @@ module.exports = [
     alternatives: ['qwen-coder', 'seed-coder', 'olmo'],
     source: 'https://huggingface.co/EssentialAI/rnj-1.5-instruct',
     verified: true,
+    en: {
+      summary: 'An 8B model trained from scratch by the company of one of the authors of the transformer architecture. Strong at code and technical tasks; version 1.5 handles context up to 160K tokens.',
+      tasks: ['Writing and fixing code', 'A developer agent on a single GPU', 'Solving technical and scientific problems'],
+      where: ['Development', 'Engineering departments', 'Research'],
+      license: 'Apache 2.0',
+      country: 'USA',
+    },
   },
   {
     id: 'neural-chat',
@@ -468,6 +587,13 @@ module.exports = [
     alternatives: ['mistral', 'zephyr', 'openchat'],
     source: 'https://huggingface.co/Intel/neural-chat-7b-v3-3',
     verified: true,
+    en: {
+      summary: 'A fine-tuned Mistral 7B from Intel that showcased training and running on Intel CPUs and accelerators. Outdated; of interest as an example of optimisation for Intel hardware.',
+      tasks: ['A simple chat assistant', 'Experiments with running on Intel hardware', 'A base for fine-tuning'],
+      where: ['Customer support', 'Education'],
+      license: 'Apache 2.0',
+      country: 'USA',
+    },
   },
   {
     id: 'llada',
@@ -500,6 +626,14 @@ module.exports = [
     alternatives: ['ling', 'qwen', 'seed-oss'],
     source: 'https://huggingface.co/inclusionAI/LLaDA2.2-mini',
     verified: true,
+    en: {
+      summary: 'Diffusion language models: text is written in blocks and then refined rather than word by word, which speeds up generation. LLaDA2.2 can edit what it has written and targets agents. LLaDA-Image is a separate product.',
+      tasks: ['Fast generation of code and text', 'Agent scenarios with long context', 'Research into alternatives to standard LLMs'],
+      where: ['Development', 'Research groups'],
+      license: 'LLaDA 8B and 1.5: MIT; LLaDA-MoE and LLaDA2.x: Apache 2.0',
+      developer: 'Renmin University of China (GSAI) and Ant Group (inclusionAI)',
+      country: 'China',
+    },
   },
   {
     id: 'kimi-audio',
@@ -524,6 +658,13 @@ module.exports = [
     alternatives: ['qwen-omni', 'minicpm-o', 'audio-flamingo'],
     source: 'https://huggingface.co/moonshotai/Kimi-Audio-7B-Instruct',
     verified: true,
+    en: {
+      summary: 'A general-purpose audio model: speech recognition, answering questions about sounds, detecting emotions and voice dialogue. Trained on 13 million hours of audio; languages are English and Chinese.',
+      tasks: ['Speech recognition', 'Detecting emotions and sound events', 'Speech-to-speech voice dialogue'],
+      where: ['Call centres', 'Media', 'Voice bots'],
+      license: 'MIT (part of the code based on Qwen 2.5: Apache 2.0)',
+      country: 'China',
+    },
   },
   {
     id: 'audio-flamingo',
@@ -554,6 +695,13 @@ module.exports = [
     alternatives: ['qwen-omni', 'kimi-audio', 'voxtral'],
     source: 'https://huggingface.co/nvidia/audio-flamingo-next-hf',
     verified: true,
+    en: {
+      summary: 'Models that listen to speech, sounds and music and answer questions about them. Audio Flamingo Next handles recordings up to 30 minutes. Research use only.',
+      tasks: ['Detailed descriptions of audio recordings', 'Questions and answers about a long recording', 'Tagging music and sounds'],
+      where: ['Media and production', 'Research'],
+      license: 'NVIDIA non-commercial licenses (OneWay Noncommercial), research only',
+      country: 'USA',
+    },
   },
   {
     id: 'personaplex',
@@ -578,5 +726,12 @@ module.exports = [
     alternatives: ['moshi', 'qwen-omni', 'minicpm-o'],
     source: 'https://research.nvidia.com/labs/adlr/personaplex',
     verified: true,
+    en: {
+      summary: 'A voice conversation partner based on Moshi that listens and speaks at the same time and can be interrupted. The role is set by text, the voice by a sample recording. English only.',
+      tasks: ['A voice assistant with a set role', 'A conversation simulator for staff training', 'Voice interfaces without delay'],
+      where: ['Call centres', 'Staff training', 'Voice bots'],
+      license: 'Weights: NVIDIA Open Model License; code: MIT',
+      country: 'USA',
+    },
   },
 ];

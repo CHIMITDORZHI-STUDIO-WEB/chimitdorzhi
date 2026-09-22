@@ -25,6 +25,13 @@ module.exports = [
     alternatives: ['lingshu', 'hulu-med', 'gemma'],
     source: 'https://huggingface.co/google/medgemma-1.5-4b-it',
     verified: true,
+    en: {
+      summary: 'Google\'s medical version of Gemma: reads medical texts and images (X-ray, dermatology, histology). A tool for doctors and developers; does not replace a doctor, decisions are made by a specialist.',
+      tasks: ['Draft discharge summaries and reports for a doctor to review', 'Hints for doctors when reviewing images', 'Searching and summarising medical literature', 'Training medical staff'],
+      where: ['Clinics', 'Telemedicine', 'Pharmaceuticals', 'Medical startups'],
+      license: 'Health AI Developer Foundations (Google\'s own terms, commercial use allowed with restrictions)',
+      country: 'USA',
+    },
   },
   {
     id: 'medsiglip',
@@ -49,6 +56,14 @@ module.exports = [
     alternatives: ['medgemma', 'clip-siglip'],
     source: 'https://huggingface.co/google/medsiglip-448',
     verified: true,
+    en: {
+      summary: 'Google\'s lightweight encoder for medical images and text, the same one inside MedGemma. Sorts images and finds similar ones. Does not replace a doctor; decisions are made by a specialist.',
+      tasks: ['Finding similar images in a clinic\'s archive', 'Pre-sorting images for a doctor', 'A base for your own image classifiers', 'Case collections for staff training'],
+      where: ['Clinics and diagnostic centres', 'Telemedicine', 'Medical startups'],
+      license: 'Health AI Developer Foundations (Google\'s own terms)',
+      country: 'USA',
+      sizes: 'about 0.9B',
+    },
   },
   {
     id: 'meditron',
@@ -73,6 +88,13 @@ module.exports = [
     alternatives: ['medgemma', 'med42', 'apertus'],
     source: 'https://huggingface.co/api/models?author=EPFLiGHT&sort=createdAt&direction=-1',
     verified: true,
+    en: {
+      summary: 'Open medical models from Swiss EPFL, fine-tuned on clinical guidelines on top of various base models. Does not replace a doctor; decisions are made by a specialist.',
+      tasks: ['Answering staff questions based on clinical guidelines', 'Draft discharge summaries for a doctor to review', 'Searching medical literature', 'Staff training'],
+      where: ['Clinics', 'Telemedicine', 'Medical education', 'Medical startups'],
+      license: 'Mixed: Llama-based versions under the Llama license; Qwen, OLMo, Apertus and EuroLLM versions under Apache 2.0; Phi-4 version under MIT; Gemma version under Gemma Terms',
+      country: 'Switzerland',
+    },
   },
   {
     id: 'biomistral',
@@ -97,6 +119,14 @@ module.exports = [
     alternatives: ['openbiollm', 'meditron', 'mistral'],
     source: 'https://huggingface.co/api/models?author=BioMistral&sort=createdAt&direction=-1',
     verified: true,
+    en: {
+      summary: 'Mistral 7B fine-tuned on PubMed Central papers, plus several merges with the general model. Compact and easy to run. Does not replace a doctor; decisions are made by a specialist.',
+      tasks: ['Searching and summarising medical papers', 'Draft reference materials for staff', 'Explaining medical terminology', 'A base for your own fine-tuning'],
+      where: ['Pharmaceuticals', 'Medical startups', 'Medical education'],
+      license: 'Apache 2.0',
+      developer: 'Avignon University and Nantes University',
+      country: 'France',
+    },
   },
   {
     id: 'openbiollm',
@@ -121,6 +151,13 @@ module.exports = [
     alternatives: ['med42', 'biomistral', 'llama'],
     source: 'https://huggingface.co/aaditya/Llama3-OpenBioLLM-70B',
     verified: true,
+    en: {
+      summary: 'Llama 3 fine-tuned on medical and biological data. One of the first strong open medical models of 2024. Does not replace a doctor; decisions are made by a specialist.',
+      tasks: ['Extracting data from medical documents', 'Draft discharge summaries for a doctor to review', 'Searching medical literature', 'Staff training'],
+      where: ['Pharmaceuticals and clinical trials', 'Clinics', 'Medical startups'],
+      license: 'Llama 3 Community License',
+      country: 'India',
+    },
   },
   {
     id: 'med42',
@@ -145,6 +182,13 @@ module.exports = [
     alternatives: ['openbiollm', 'meditron', 'llama'],
     source: 'https://huggingface.co/m42-health/Llama3-Med42-8B',
     verified: true,
+    en: {
+      summary: 'Clinical models from Abu Dhabi-based M42, built on Llama and tuned to answer medical questions. Does not replace a doctor; decisions are made by a specialist.',
+      tasks: ['Reference answers to staff on clinical questions', 'Draft discharge summaries and letters for a doctor to review', 'Searching medical literature', 'Staff training'],
+      where: ['Clinics', 'Telemedicine', 'Medical startups'],
+      license: 'Med42 v1: M42\'s own license; Med42 v2: Llama 3 Community License',
+      country: 'UAE',
+    },
   },
   {
     id: 'clinical-camel',
@@ -169,6 +213,14 @@ module.exports = [
     alternatives: ['meditron', 'med42'],
     source: 'https://huggingface.co/wanglab/ClinicalCamel-70B',
     verified: true,
+    en: {
+      summary: 'An early medical model on Llama 2 70B, trained on dialogues based on medical texts. Now mainly of research interest. Does not replace a doctor; decisions are made by a specialist.',
+      tasks: ['Research pilots on medical dialogue', 'Training materials for staff', 'Comparison with newer medical models'],
+      where: ['Medical research centres', 'Medical education'],
+      license: 'CC-BY-NC 4.0 (non-commercial use only)',
+      developer: 'Bo Wang\'s lab (University of Toronto, Vector Institute)',
+      country: 'Canada',
+    },
   },
   {
     id: 'chexagent',
@@ -193,6 +245,13 @@ module.exports = [
     alternatives: ['medgemma', 'radfm', 'lingshu'],
     source: 'https://huggingface.co/StanfordAIMI/CheXOne',
     verified: true,
+    en: {
+      summary: 'Stanford models for chest X-rays: they describe the image and prepare a draft report. Does not replace a doctor; decisions are made by a specialist.',
+      tasks: ['A draft X-ray description for the radiologist', 'Hints for doctors when reviewing images', 'Checking reports for completeness', 'Training junior radiologists'],
+      where: ['Clinics and diagnostic centres', 'Telemedicine', 'Medical startups'],
+      license: 'Mixed: CheXagent-2: MIT; CheXOne: CC-BY-NC 4.0; CheXagent-8b: no license stated on the card',
+      country: 'USA',
+    },
   },
   {
     id: 'radfm',
@@ -217,6 +276,15 @@ module.exports = [
     alternatives: ['chexagent', 'medgemma'],
     source: 'https://github.com/chaoyi-wu/RadFM',
     verified: true,
+    en: {
+      summary: 'An early general-purpose radiology model: understands 2D and 3D images (CT, MRI) together with text. More of a research base. Does not replace a doctor; decisions are made by a specialist.',
+      tasks: ['Research pilots on CT and MRI analysis', 'Hints for doctors when reviewing images', 'A base for fine-tuning on the clinic\'s own images'],
+      where: ['Medical research centres', 'Diagnostic centres', 'Medical startups'],
+      license: 'MIT (code on GitHub; no license stated for the weights on Hugging Face)',
+      developer: 'Shanghai Jiao Tong University and Shanghai AI Lab',
+      country: 'China',
+      sizes: 'size not stated on the model card',
+    },
   },
   {
     id: 'lingshu',
@@ -241,6 +309,13 @@ module.exports = [
     alternatives: ['medgemma', 'hulu-med', 'qwen-vl'],
     source: 'https://huggingface.co/lingshu-medical-mllm/Lingshu-I-8B',
     verified: true,
+    en: {
+      summary: 'Alibaba\'s medical model based on Qwen2.5-VL: understands many types of medical images and medical text, and can reason step by step. Does not replace a doctor; decisions are made by a specialist.',
+      tasks: ['Hints for doctors when reviewing images', 'Draft reports and discharge summaries', 'Searching medical literature', 'Staff training'],
+      where: ['Clinics', 'Telemedicine', 'Medical startups'],
+      license: 'MIT',
+      country: 'China',
+    },
   },
   {
     id: 'huatuogpt',
@@ -265,6 +340,14 @@ module.exports = [
     alternatives: ['baichuan', 'ii-medical', 'lingshu'],
     source: 'https://huggingface.co/FreedomIntelligence/HuatuoGPT-3-9B',
     verified: true,
+    en: {
+      summary: 'A large family of medical models: chat, an imaging version, the reasoning HuatuoGPT-o1 and the new HuatuoGPT-3 on Qwen3. Does not replace a doctor; decisions are made by a specialist.',
+      tasks: ['Draft discharge summaries for a doctor to review', 'Searching medical literature', 'Hints for doctors when reviewing images (Vision)', 'Staff training'],
+      where: ['Clinics', 'Telemedicine', 'Pharmaceuticals', 'Medical startups'],
+      license: 'Apache 2.0',
+      developer: 'FreedomIntelligence (The Chinese University of Hong Kong, Shenzhen)',
+      country: 'China',
+    },
   },
   {
     id: 'ii-medical',
@@ -289,6 +372,13 @@ module.exports = [
     alternatives: ['huatuogpt', 'medgemma', 'qwen'],
     source: 'https://huggingface.co/Intelligent-Internet/II-Medical-32B-Preview',
     verified: true,
+    en: {
+      summary: 'Reasoning medical models on Qwen3, designed to run on an ordinary computer. Does not replace a doctor; decisions are made by a specialist.',
+      tasks: ['Reference answers to staff with the reasoning shown', 'Draft discharge summaries for a doctor to review', 'Searching medical literature', 'Staff training'],
+      where: ['Telemedicine', 'Clinics', 'Medical startups'],
+      license: 'Apache 2.0',
+      country: 'UK',
+    },
   },
   {
     id: 'hulu-med',
@@ -313,6 +403,14 @@ module.exports = [
     alternatives: ['lingshu', 'medgemma', 'huatuogpt'],
     source: 'https://huggingface.co/ZJU-AI4H/Hulu-Med-Flash-Preview-27B',
     verified: true,
+    en: {
+      summary: 'A medical model for text, images, 3D scans and video: from a light 4B to a large MoE. Does not replace a doctor; decisions are made by a specialist.',
+      tasks: ['Hints for doctors when reviewing images and CT scans', 'Draft reports and discharge summaries', 'Searching medical literature', 'Staff training'],
+      where: ['Clinics and diagnostic centres', 'Telemedicine', 'Medical startups'],
+      license: 'Apache 2.0',
+      developer: 'Zhejiang University',
+      country: 'China',
+    },
   },
   {
     id: 'antangelmed',
@@ -337,6 +435,14 @@ module.exports = [
     alternatives: ['baichuan', 'huatuogpt', 'ling'],
     source: 'https://huggingface.co/MedAIBase/AntAngelMed',
     verified: true,
+    en: {
+      summary: 'A large medical MoE model based on Ling-flash-2.0: 100B parameters with 6B active, so it answers quickly. Does not replace a doctor; decisions are made by a specialist.',
+      tasks: ['Reference answers to staff on clinical questions', 'Draft discharge summaries for a doctor to review', 'Searching medical literature', 'Staff training'],
+      where: ['Large clinics and hospital networks', 'Telemedicine', 'Pharmaceuticals'],
+      license: 'Apache 2.0',
+      developer: 'Ant Healthcare (Ant Group) and Zhejiang Provincial Medical Information Center',
+      country: 'China',
+    },
   },
 
   // ---------- МАТЕМАТИКА И РАССУЖДЕНИЯ ----------
@@ -363,6 +469,13 @@ module.exports = [
     alternatives: ['deepseek-r1', 'qwen', 'openthinker'],
     source: 'https://huggingface.co/Qwen/QwQ-32B',
     verified: true,
+    en: {
+      summary: 'Qwen\'s first open reasoning model: it thinks step by step before answering and comes close to DeepSeek-R1 on maths tasks with only 32B parameters.',
+      tasks: ['Calculations and formula checks', 'Complex analytics with step-by-step breakdowns', 'Checking the logic of contracts and internal policies', 'Training and working through problems'],
+      where: ['Finance and analytics', 'Legal departments', 'Engineering companies', 'Education'],
+      license: 'Apache 2.0',
+      country: 'China',
+    },
   },
   {
     id: 'openthinker',
@@ -387,6 +500,14 @@ module.exports = [
     alternatives: ['qwq', 'sky-t1', 's1'],
     source: 'https://huggingface.co/api/models?author=open-thoughts&sort=createdAt&direction=-1',
     verified: true,
+    en: {
+      summary: 'Fully open reasoning models: both weights and training data are published. Newer OpenThinkerAgent versions can carry out multi-step tasks.',
+      tasks: ['Calculations and formula checks', 'Complex analytics with step-by-step breakdowns', 'Checking the logic of internal policies', 'Training and working through problems'],
+      where: ['Finance and analytics', 'Engineering companies', 'Education', 'IT departments'],
+      license: 'Apache 2.0',
+      developer: 'Open Thoughts (Stanford, Berkeley and other universities)',
+      country: 'USA',
+    },
   },
   {
     id: 'sky-t1',
@@ -411,6 +532,14 @@ module.exports = [
     alternatives: ['s1', 'openthinker', 'qwq'],
     source: 'https://huggingface.co/api/models?author=NovaSky-AI&sort=createdAt&direction=-1',
     verified: true,
+    en: {
+      summary: 'A Berkeley reasoning model trained for under 450 dollars. It showed that o1-preview-level reasoning can be reproduced with modest resources.',
+      tasks: ['Calculations and formula checks', 'Working through problems step by step', 'A base for your own reasoning fine-tuning'],
+      where: ['Education', 'Research groups', 'Engineering companies'],
+      license: 'Apache 2.0 (32B versions; the 7B has no license stated on the card)',
+      developer: 'NovaSky (Sky Computing Lab, Berkeley)',
+      country: 'USA',
+    },
   },
   {
     id: 's1',
@@ -435,6 +564,14 @@ module.exports = [
     alternatives: ['sky-t1', 'openthinker', 'light-r1'],
     source: 'https://huggingface.co/api/models?author=simplescaling&sort=createdAt&direction=-1',
     verified: true,
+    en: {
+      summary: 'A reasoning model trained on just a thousand problems. It can be told to think longer to answer a hard question more accurately.',
+      tasks: ['Calculations and formula checks', 'Working through complex problems step by step', 'Training'],
+      where: ['Education', 'Research groups', 'Finance and analytics'],
+      license: 'Apache 2.0',
+      developer: 'Stanford University',
+      country: 'USA',
+    },
   },
   {
     id: 'deepseek-math',
@@ -459,6 +596,13 @@ module.exports = [
     alternatives: ['deepseek-prover', 'qwen-math', 'deepseek-r1'],
     source: 'https://huggingface.co/deepseek-ai/DeepSeek-Math-V2',
     verified: true,
+    en: {
+      summary: 'DeepSeek\'s maths models. The first 7B version introduced the GRPO training method; the 685B V2 writes and checks its own olympiad-level proofs.',
+      tasks: ['Calculations and formula checks', 'Checking mathematical workings in reports', 'Working through problems step by step', 'Training'],
+      where: ['Finance and analytics', 'Engineering companies', 'Education'],
+      license: 'DeepSeekMath 7B: DeepSeek\'s own license (commercial use allowed with restrictions); DeepSeek-Math-V2: Apache 2.0',
+      country: 'China',
+    },
   },
   {
     id: 'deepseek-prover',
@@ -483,6 +627,13 @@ module.exports = [
     alternatives: ['kimina-prover', 'goedel-prover', 'deepseek-math'],
     source: 'https://huggingface.co/deepseek-ai/DeepSeek-Prover-V2-7B',
     verified: true,
+    en: {
+      summary: 'DeepSeek models for formal proofs in Lean 4: the proof is checked by a program, not a person. A narrow tool for mathematicians and engineers.',
+      tasks: ['Formal verification of mathematical workings', 'Verifying algorithm correctness', 'Training and olympiad preparation'],
+      where: ['Research groups', 'Safety-critical software development', 'Education'],
+      license: 'DeepSeek\'s own license (commercial use allowed with restrictions)',
+      country: 'China',
+    },
   },
   {
     id: 'qwen-math',
@@ -507,6 +658,13 @@ module.exports = [
     alternatives: ['deepseek-math', 'acereason', 'qwen'],
     source: 'https://huggingface.co/Qwen/Qwen2.5-Math-PRM-7B',
     verified: true,
+    en: {
+      summary: 'Maths versions of Qwen: they solve problems step by step and can calculate via code. Includes reward models that check each step of a solution.',
+      tasks: ['Calculations and formula checks', 'Checking calculations in estimates and reports', 'Working through problems step by step', 'Training'],
+      where: ['Finance and analytics', 'Engineering companies', 'Education'],
+      license: '1.5B and 7B: Apache 2.0; 72B: Qwen license with restrictions',
+      country: 'China',
+    },
   },
   {
     id: 'kimina-prover',
@@ -531,6 +689,14 @@ module.exports = [
     alternatives: ['deepseek-prover', 'goedel-prover', 'kimi'],
     source: 'https://huggingface.co/api/models?author=AI-MO&sort=createdAt&direction=-1',
     verified: true,
+    en: {
+      summary: 'Models for formal proofs in Lean 4 from Moonshot AI (Kimi) and Numina. Small versions from 0.6B run on a laptop.',
+      tasks: ['Formal verification of mathematical workings', 'Translating a problem from plain language into Lean', 'Training and olympiad preparation'],
+      where: ['Research groups', 'Education', 'Safety-critical software development'],
+      license: 'Kimina-Prover-72B: MIT; the rest: Apache 2.0',
+      developer: 'Moonshot AI and Project Numina',
+      country: 'China, France',
+    },
   },
   {
     id: 'goedel-prover',
@@ -555,6 +721,14 @@ module.exports = [
     alternatives: ['deepseek-prover', 'kimina-prover'],
     source: 'https://huggingface.co/Goedel-LM/Goedel-Code-Prover-8B',
     verified: true,
+    en: {
+      summary: 'Open models for formal proofs in Lean 4 from Princeton. The new Goedel-Code-Prover proves program correctness.',
+      tasks: ['Formal verification of mathematical workings', 'Verifying code correctness', 'Training'],
+      where: ['Research groups', 'Safety-critical software development', 'Education'],
+      license: 'First version: MIT; V2 and Code-Prover: Apache 2.0',
+      developer: 'Princeton University',
+      country: 'USA',
+    },
   },
   {
     id: 'acereason',
@@ -579,6 +753,13 @@ module.exports = [
     alternatives: ['qwen-math', 'nemotron', 'light-r1'],
     source: 'https://huggingface.co/nvidia/AceReason-Nemotron-1.1-7B',
     verified: true,
+    en: {
+      summary: 'NVIDIA models for maths and reasoning based on Qwen. AceReason was fine-tuned with reinforcement learning first on maths, then on code.',
+      tasks: ['Calculations and formula checks', 'Complex analytics with step-by-step breakdowns', 'Working through programming problems', 'Training'],
+      where: ['Finance and analytics', 'Engineering companies', 'IT departments', 'Education'],
+      license: 'AceMath: CC-BY-NC 4.0 (non-commercial); AceReason and AceMath-RL: NVIDIA Open Model License',
+      country: 'USA',
+    },
   },
   {
     id: 'light-r1',
@@ -603,6 +784,13 @@ module.exports = [
     alternatives: ['s1', 'sky-t1', 'deepseek-r1'],
     source: 'https://huggingface.co/qihoo360/Light-R1-14B-DS',
     verified: true,
+    en: {
+      summary: 'Reasoning models from Qihoo 360: a standard Qwen2.5 was fine-tuned for long reasoning using an open recipe; data and code are published.',
+      tasks: ['Calculations and formula checks', 'Working through problems step by step', 'A base for your own reasoning fine-tuning'],
+      where: ['Education', 'Finance and analytics', 'Research groups'],
+      license: 'Apache 2.0',
+      country: 'China',
+    },
   },
   {
     id: 'qed-nano',
@@ -627,5 +815,12 @@ module.exports = [
     alternatives: ['deepseek-math', 'kimina-prover', 'qwen'],
     source: 'https://huggingface.co/lm-provers/QED-Nano',
     verified: true,
+    en: {
+      summary: 'A small 4B model on Qwen3 that writes mathematical proofs in plain language almost at the level of large models. Runs on a laptop.',
+      tasks: ['Checking the logic of reasoning and workings', 'Step-by-step explanations of solutions', 'Training and olympiad preparation'],
+      where: ['Education', 'Research groups'],
+      license: 'Apache 2.0',
+      country: 'USA, Switzerland, France',
+    },
   },
 ];

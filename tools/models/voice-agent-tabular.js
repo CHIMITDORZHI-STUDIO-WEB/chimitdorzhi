@@ -26,6 +26,15 @@ module.exports = [
     alternatives: ['nvidia-sortformer', 'wespeaker', 'whisper'],
     source: 'https://huggingface.co/api/models/pyannote/speaker-diarization-community-1',
     verified: true,
+    en: {
+      summary: 'The most widely used open tool for splitting a recording by speaker: who spoke and when. Usually paired with speech recognition. Weights are issued after a short form on HF.',
+      tasks: ['Tagging calls: which part is the agent, which is the customer', 'Meeting minutes with speaker labels', 'Preparing recordings for transcription and analysis'],
+      where: ['Call centers and sales teams', 'Legal and HR (interviews, negotiations)', 'Media and podcasts'],
+      license: 'MIT (2.x, 3.0, 3.1), CC-BY 4.0 (community-1); download after accepting the terms on HF',
+      developer: 'pyannoteAI (Hervé Bredin)',
+      country: 'France',
+      sizes: 'a few million parameters',
+    },
   },
   {
     id: 'nvidia-sortformer',
@@ -50,6 +59,13 @@ module.exports = [
     alternatives: ['pyannote', 'wespeaker', 'parakeet'],
     source: 'https://huggingface.co/api/models?author=nvidia&search=sortformer',
     verified: true,
+    en: {
+      summary: 'NVIDIA models for "who is speaking": TitaNet recognizes a specific person\'s voice, Sortformer splits a recording into up to 4 speakers, including live during a call.',
+      tasks: ['Real-time speaker tagging in conversations', 'Checking that the same person is calling (voiceprint)', 'Preparing meeting transcripts'],
+      where: ['Call centers', 'Banks and security teams', 'Video conferencing'],
+      license: 'Mixed: TitaNet and Streaming Sortformer v2 are CC-BY 4.0, v2.1 uses the NVIDIA Open Model License, Sortformer v1 is CC-BY-NC',
+      country: 'USA',
+    },
   },
   {
     id: 'wespeaker',
@@ -74,6 +90,15 @@ module.exports = [
     alternatives: ['pyannote', 'nvidia-sortformer'],
     source: 'https://huggingface.co/api/models?author=Wespeaker',
     verified: true,
+    en: {
+      summary: 'A set of ready-made voiceprint models: checks whether the same person speaks in two recordings and helps split a recording by speaker. One of the models is built into pyannote 3.x.',
+      tasks: ['Voice verification of a customer during a call', 'Finding repeat calls from the same person', 'Splitting a recording by speaker'],
+      where: ['Banking and insurance', 'Call centers', 'Security teams'],
+      license: 'Code Apache 2.0; weights CC-BY 4.0 (VoxCeleb) and Apache 2.0 (CN-Celeb)',
+      developer: 'WeNet community',
+      country: 'China',
+      sizes: 'from a few to tens of millions of parameters',
+    },
   },
   // ---------- ГОЛОС: разделение звука и очистка ----------
   {
@@ -99,6 +124,15 @@ module.exports = [
     alternatives: ['uvr-mdx', 'sam-audio', 'clearervoice'],
     source: 'https://pypi.org/project/demucs/',
     verified: true,
+    en: {
+      summary: 'A classic model that splits a track into vocals, drums, bass and the rest. The v4 hybrid transformer version remains the benchmark; the project is now maintained by its author in his own repository.',
+      tasks: ['Separating vocals from music in a recording', 'Backing tracks and karaoke stems', 'Cleaning speech in videos with background music'],
+      where: ['Media and production', 'Music services', 'Karaoke and entertainment'],
+      license: 'MIT',
+      developer: 'Meta AI, then Alexandre Défossez',
+      country: 'France',
+      sizes: 'tens of millions of parameters',
+    },
   },
   {
     id: 'uvr-mdx',
@@ -123,6 +157,15 @@ module.exports = [
     alternatives: ['demucs', 'sam-audio'],
     source: 'https://github.com/ZFTurbo/Music-Source-Separation-Training/releases',
     verified: true,
+    en: {
+      summary: 'A large open collection of models for separating vocals from music and noise: MDX-Net, BS-RoFormer, Mel-RoFormer, SCNet. The quality leaders for vocals among open solutions.',
+      tasks: ['Clean vocals from a recording with music', 'Backing tracks and stems for karaoke', 'Removing background music and noise from videos'],
+      where: ['Media and production', 'Music studios', 'Karaoke'],
+      license: 'Code MIT; individual weights have different terms, check each model',
+      developer: 'Community: Ultimate Vocal Remover (Anjok07), ZFTurbo, MVSep',
+      country: 'International community',
+      sizes: 'from tens to hundreds of millions of parameters',
+    },
   },
   {
     id: 'sam-audio',
@@ -147,6 +190,14 @@ module.exports = [
     alternatives: ['demucs', 'uvr-mdx', 'sam'],
     source: 'https://huggingface.co/api/models/facebook/sam-audio-large',
     verified: true,
+    en: {
+      summary: 'A model that cuts the sound you need out of a recording based on a text description, a mark on the video or a time range: a voice, an instrument, noise. Weights are available on request.',
+      tasks: ['Isolating one person\'s voice from a noisy recording', 'Removing unwanted sound from a video', 'Splitting a recording into separate sound sources'],
+      where: ['Media and production', 'Video shooting and editing', 'Transcription services'],
+      license: 'SAM License: commercial use allowed, with sanctions and military restrictions; access on request via HF',
+      country: 'USA',
+      sizes: 'small, base, large (5 to 15 GB of weights)',
+    },
   },
   {
     id: 'deepfilternet',
@@ -171,6 +222,15 @@ module.exports = [
     alternatives: ['clearervoice', 'resemble-enhance'],
     source: 'https://github.com/Rikorose/DeepFilterNet/releases',
     verified: true,
+    en: {
+      summary: 'Lightweight real-time speech noise suppression that works even on a regular CPU and low-power devices. Removes hum, street and office noise while keeping the voice.',
+      tasks: ['Cleaning calls and voice messages of noise', 'Preparing recordings before speech recognition', 'Noise suppression for video calls'],
+      where: ['Call centers', 'Video conferencing and telephony', 'Media and podcasts'],
+      license: 'MIT or Apache 2.0, your choice',
+      developer: 'Hendrik Schröter (University of Erlangen)',
+      country: 'Germany',
+      sizes: 'about 2M',
+    },
   },
   {
     id: 'clearervoice',
@@ -195,6 +255,14 @@ module.exports = [
     alternatives: ['deepfilternet', 'resemble-enhance', 'demucs'],
     source: 'https://huggingface.co/api/models?author=alibabasglab',
     verified: true,
+    en: {
+      summary: 'Alibaba\'s set of speech cleanup models: noise suppression, separating overlapping voices, upscaling audio to 48 kHz, and isolating a voice using video of the speaker\'s face.',
+      tasks: ['Noise suppression in conversation recordings', 'Separating two voices speaking at once', 'Improving old and phone recordings'],
+      where: ['Call centers', 'Media and archives', 'Video calls'],
+      license: 'Apache 2.0',
+      country: 'China',
+      sizes: 'under 1B',
+    },
   },
   {
     id: 'resemble-enhance',
@@ -219,6 +287,14 @@ module.exports = [
     alternatives: ['deepfilternet', 'clearervoice'],
     source: 'https://huggingface.co/api/models/ResembleAI/resemble-enhance',
     verified: true,
+    en: {
+      summary: 'A speech enhancement model: removes noise and restores lost frequencies so a muffled recording sounds studio-quality. Good for preparing a voice for voiceover.',
+      tasks: ['Restoring old and phone recordings', 'Cleaning a voice before voiceover and cloning', 'Improving audio in videos and podcasts'],
+      where: ['Media and production', 'Archives', 'Online learning'],
+      license: 'MIT',
+      country: 'USA',
+      sizes: 'under 1B',
+    },
   },
   // ---------- ГОЛОС: клонирование и конверсия ----------
   {
@@ -244,6 +320,15 @@ module.exports = [
     alternatives: ['seed-vc', 'xtts', 'f5-tts'],
     source: 'https://huggingface.co/api/models/myshell-ai/OpenVoiceV2',
     verified: true,
+    en: {
+      summary: 'Instant voice cloning from a short sample with control over emotion and accent; V2 speaks several languages. Use only with the voice owner\'s consent.',
+      tasks: ['Voicing videos with the company narrator\'s voice', 'Voice bot with a recognizable brand voice', 'Transferring timbre onto existing speech synthesis'],
+      where: ['Marketing and media', 'Online learning', 'Call centers'],
+      license: 'MIT (V1 and V2)',
+      developer: 'MyShell and MIT',
+      country: 'USA',
+      sizes: 'under 1B',
+    },
   },
   {
     id: 'seed-vc',
@@ -268,6 +353,14 @@ module.exports = [
     alternatives: ['rvc', 'openvoice'],
     source: 'https://github.com/Plachtaa/seed-vc',
     verified: true,
+    en: {
+      summary: 'Voice conversion without training: transfers timbre from a 1–30 second sample, can sing and work in real time; V2 also changes accent. Use only with the voice owner\'s consent.',
+      tasks: ['Re-voicing a video with a different voice', 'Voice anonymization in recordings', 'Real-time voice for streams'],
+      where: ['Media and production', 'Entertainment and streaming', 'Services that need to hide a voice'],
+      license: 'GPL-3.0: commercial use possible, but modified code must be opened when distributed',
+      country: 'China',
+      sizes: 'about 70M – 200M',
+    },
   },
   {
     id: 'rvc',
@@ -292,6 +385,15 @@ module.exports = [
     alternatives: ['seed-vc', 'gpt-sovits'],
     source: 'https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI/releases',
     verified: true,
+    en: {
+      summary: 'The most widely used open voice conversion tool: a model for a specific voice trains on 10–30 minutes of recording and works in real time. Use only with the voice owner\'s consent.',
+      tasks: ['Voicing content with one brand voice', 'Covers and vocal work', 'Real-time voice changing'],
+      where: ['Media and production', 'Music', 'Entertainment and streaming'],
+      license: 'MIT',
+      developer: 'RVC-Project community',
+      country: 'China',
+      sizes: 'tens of millions of parameters',
+    },
   },
   {
     id: 'gpt-sovits',
@@ -316,6 +418,15 @@ module.exports = [
     alternatives: ['rvc', 'f5-tts', 'cosyvoice'],
     source: 'https://github.com/RVC-Boss/GPT-SoVITS/releases',
     verified: true,
+    en: {
+      summary: 'Speech synthesis with voice cloning: a 5-second sample is enough, and after fine-tuning on a minute of recording the voice sounds noticeably more accurate. Use only with the voice owner\'s consent.',
+      tasks: ['Voicing texts with a specific narrator\'s voice', 'Voice for a bot or assistant', 'Dubbing training videos'],
+      where: ['Media and production', 'Online learning', 'Games'],
+      license: 'MIT',
+      developer: 'RVC-Boss and community',
+      country: 'China',
+      sizes: 'under 1B',
+    },
   },
 
   // ---------- АГЕНТЫ: управление компьютером и разбор интерфейса ----------
@@ -342,6 +453,13 @@ module.exports = [
     alternatives: ['opencua', 'holo', 'gui-owl'],
     source: 'https://huggingface.co/api/models?author=ByteDance-Seed',
     verified: true,
+    en: {
+      summary: 'A model that looks at a screenshot and controls the mouse and keyboard itself: clicks, fills in fields, navigates menus. The first generation and 1.5-7B are open; UI-TARS-2 weights were not released.',
+      tasks: ['Working in legacy software without an API', 'Filling in forms and moving data between systems', 'UI autotests from plain-language scenarios'],
+      where: ['Back office and accounting', 'IT and testing', 'Operations teams'],
+      license: 'Apache 2.0 (UI-TARS-2 weights were not released)',
+      country: 'China',
+    },
   },
   {
     id: 'omniparser',
@@ -366,6 +484,14 @@ module.exports = [
     alternatives: ['ui-tars', 'florence-2', 'yolo'],
     source: 'https://huggingface.co/microsoft/OmniParser-v2.0',
     verified: true,
+    en: {
+      summary: 'Breaks a screenshot down into buttons, fields and icons with labels so a regular language model can understand and control the screen. It does not click itself; it serves as the agent\'s eyes.',
+      tasks: ['Mapping legacy software screens for automation', 'Preparing an agent to work in an interface', 'Checking that the required elements are on screen'],
+      where: ['IT and testing', 'Back office', 'Process automation (RPA)'],
+      license: 'Icon detector is AGPL-3.0, captioning model is MIT',
+      country: 'USA',
+      sizes: 'under 1B (detector + captioning)',
+    },
   },
   {
     id: 'holo',
@@ -390,6 +516,13 @@ module.exports = [
     alternatives: ['ui-tars', 'opencua', 'fara'],
     source: 'https://huggingface.co/api/models?author=Hcompany',
     verified: true,
+    en: {
+      summary: 'A French model family for controlling a browser and computer: precisely finds the right element on screen and handles multi-step tasks. The latest Holo3 and 3.1 are open under Apache 2.0.',
+      tasks: ['Working in web portals and legacy software without an API', 'Filling in forms and applications', 'Testing interfaces against scenarios'],
+      where: ['Back office', 'E-commerce', 'IT and testing'],
+      license: 'Mixed: Holo3 and Holo 3.1, Holo2-4B/8B are Apache 2.0; Holo1.5-72B, Holo2-30B and 235B are CC-BY-NC; early 3B versions are research-only',
+      country: 'France',
+    },
   },
   {
     id: 'opencua',
@@ -414,6 +547,15 @@ module.exports = [
     alternatives: ['ui-tars', 'holo', 'evocua'],
     source: 'https://huggingface.co/api/models?author=xlangai',
     verified: true,
+    en: {
+      summary: 'Fully open desktop agents: weights, data and training code. They work on Windows, macOS and Linux; the latest Qwen-CUA controls a computer with ordinary clicks and keystrokes.',
+      tasks: ['Working in desktop software without an API', 'Moving data between systems', 'Running user scenarios for tests'],
+      where: ['Back office and accounting', 'IT and testing', 'Operations teams'],
+      license: 'MIT (OpenCUA), Apache 2.0 (Qwen-CUA)',
+      developer: 'XLANG Lab (University of Hong Kong)',
+      country: 'China',
+      sizes: '7B – about 400B (MoE)',
+    },
   },
   {
     id: 'cogagent',
@@ -438,6 +580,14 @@ module.exports = [
     alternatives: ['gui-owl', 'ui-tars', 'cogvlm'],
     source: 'https://huggingface.co/zai-org/AutoGLM-Phone-9B',
     verified: true,
+    en: {
+      summary: 'One of the first open models for controlling an interface from a screenshot; its successor, AutoGLM-Phone, works in Android smartphone apps.',
+      tasks: ['Automating actions in mobile apps', 'Working in web interfaces without an API', 'Testing apps against scenarios'],
+      where: ['Mobile development and testing', 'Back office', 'E-commerce'],
+      license: 'Mixed: CogAgent-18B is Apache 2.0, CogAgent-9B has its own license (commercial use after registration), AutoGLM-Phone is MIT',
+      developer: 'Zhipu AI (Z.ai) and Tsinghua University',
+      country: 'China',
+    },
   },
   {
     id: 'showui',
@@ -462,6 +612,15 @@ module.exports = [
     alternatives: ['ui-tars', 'mai-ui'],
     source: 'https://huggingface.co/api/models?author=showlab&search=ShowUI',
     verified: true,
+    en: {
+      summary: 'A lightweight model for working with interfaces: finds buttons and fields by description and performs actions on the web and on a phone. ShowUI-π can drag with the mouse.',
+      tasks: ['Clicking and filling in forms from a task description', 'Web UI autotests', 'An assistant on a low-end computer without the cloud'],
+      where: ['IT and testing', 'Back office', 'E-commerce'],
+      license: 'MIT (ShowUI-2B); no license is stated on the ShowUI-π model card',
+      developer: 'Show Lab (National University of Singapore)',
+      country: 'Singapore',
+      sizes: '2B (ShowUI), about 500M (ShowUI-π)',
+    },
   },
   {
     id: 'magma',
@@ -486,6 +645,13 @@ module.exports = [
     alternatives: ['fara', 'openvla'],
     source: 'https://huggingface.co/api/models/microsoft/Magma-8B',
     verified: true,
+    en: {
+      summary: 'An agent model that plans actions both in an interface (buttons on screen) and for a robot (arm movements). For now more of a research base than a finished product.',
+      tasks: ['Pilots in interface control', 'Research projects spanning screens and robotics', 'Analyzing screenshots with an action plan'],
+      where: ['IT and R&D', 'Robotics', 'Process automation'],
+      license: 'MIT',
+      country: 'USA',
+    },
   },
   {
     id: 'gui-owl',
@@ -510,6 +676,13 @@ module.exports = [
     alternatives: ['mai-ui', 'ui-venus', 'ui-tars'],
     source: 'https://huggingface.co/api/models?author=mPLUG&search=GUI',
     verified: true,
+    en: {
+      summary: 'Models for controlling phones and computers from the Mobile-Agent project: they work with Android, Windows, macOS and the browser; version 1.5 has a reasoning mode.',
+      tasks: ['Automating actions in mobile apps', 'Working in desktop software without an API', 'Testing apps against scenarios'],
+      where: ['Mobile development and testing', 'Back office', 'E-commerce'],
+      license: 'MIT',
+      country: 'China',
+    },
   },
   {
     id: 'fara',
@@ -534,6 +707,13 @@ module.exports = [
     alternatives: ['holo', 'ui-tars', 'opencua'],
     source: 'https://huggingface.co/api/models?author=microsoft&search=Fara',
     verified: true,
+    en: {
+      summary: 'Small Microsoft models for working in the browser: they look at the page and click, type and scroll. Designed to run directly on a work computer without the cloud.',
+      tasks: ['Filling in web forms and applications', 'Collecting data from web portals without an API', 'Checking websites against scenarios'],
+      where: ['Back office', 'E-commerce', 'IT and testing'],
+      license: 'MIT',
+      country: 'USA',
+    },
   },
   {
     id: 'ui-venus',
@@ -558,6 +738,13 @@ module.exports = [
     alternatives: ['gui-owl', 'mai-ui'],
     source: 'https://huggingface.co/api/models?author=inclusionAI&search=UI-Venus',
     verified: true,
+    en: {
+      summary: 'An Ant Group family for finding elements on screen and completing tasks in phone and computer interfaces. UI-Venus-2 was specifically trained to refuse dangerous actions.',
+      tasks: ['Automating actions in mobile apps', 'Filling in forms in web interfaces', 'UI autotests'],
+      where: ['Finance and payment services', 'Mobile development', 'Back office'],
+      license: 'Apache 2.0 (no license is stated on the UI-Venus-2 model card)',
+      country: 'China',
+    },
   },
   {
     id: 'mai-ui',
@@ -582,6 +769,13 @@ module.exports = [
     alternatives: ['gui-owl', 'ui-venus', 'showui'],
     source: 'https://huggingface.co/api/models?author=Tongyi-MAI&search=MAI-UI',
     verified: true,
+    en: {
+      summary: 'Compact Alibaba models for working in smartphone and computer interfaces: they find elements and complete multi-step tasks. The small size allows running on an ordinary GPU.',
+      tasks: ['Automating actions in mobile apps', 'Working in software without an API', 'UI autotests'],
+      where: ['Mobile development', 'Back office', 'IT and testing'],
+      license: 'Apache 2.0',
+      country: 'China',
+    },
   },
   {
     id: 'evocua',
@@ -606,6 +800,13 @@ module.exports = [
     alternatives: ['opencua', 'ui-tars'],
     source: 'https://huggingface.co/api/models?author=meituan&search=EvoCUA',
     verified: true,
+    en: {
+      summary: 'Meituan\'s computer-control agent, trained on a large number of simulated tasks in desktop software. It outputs clicks and keyboard input.',
+      tasks: ['Working in office and legacy software without an API', 'Moving data between systems', 'Running test scenarios'],
+      where: ['Back office and accounting', 'IT and testing', 'Operations teams'],
+      license: 'Apache 2.0',
+      country: 'China',
+    },
   },
 
   // ---------- ТАБЛИЧНЫЕ ДАННЫЕ ----------
@@ -632,6 +833,15 @@ module.exports = [
     alternatives: ['tabicl', 'mitra', 'tabdpt'],
     source: 'https://huggingface.co/api/models?author=Prior-Labs',
     verified: true,
+    en: {
+      summary: 'A ready-made model for tables: it takes example rows and immediately predicts for new ones, without lengthy training or tuning. Only v2 is free for business; newer versions are non-commercial.',
+      tasks: ['Predicting customer churn from a CRM export', 'Scoring applications and leads', 'Classifying customers from 1C data'],
+      where: ['Sales and CRM', 'Finance and lending', 'Retail and telecom'],
+      license: 'v1 is Apache 2.0, v2 is Apache 2.0 with required attribution; 2.5, 2.6, 3 and 3.5 are non-commercial only, business use needs a paid license',
+      developer: 'Prior Labs (University of Freiburg)',
+      country: 'Germany',
+      sizes: 'from a few to hundreds of millions of parameters',
+    },
   },
   {
     id: 'tabicl',
@@ -656,6 +866,15 @@ module.exports = [
     alternatives: ['tabpfn', 'mitra', 'tabdpt'],
     source: 'https://huggingface.co/api/models/jingang/TabICL/tree/main',
     verified: true,
+    en: {
+      summary: 'An open tabular model from the creators of scikit-learn: classifies and predicts from examples without training and handles tables of up to hundreds of thousands of rows. The license allows business use.',
+      tasks: ['Predicting customer churn', 'Scoring applications and deals', 'Classifying customers from 1C and CRM data'],
+      where: ['Sales and CRM', 'Finance', 'Retail and logistics'],
+      license: 'BSD-3-Clause',
+      developer: 'Inria (Soda team)',
+      country: 'France',
+      sizes: 'about 25–30M',
+    },
   },
   {
     id: 'mitra',
@@ -680,6 +899,15 @@ module.exports = [
     alternatives: ['tabpfn', 'tabicl', 'tabdpt'],
     source: 'https://huggingface.co/autogluon/mitra-classifier-2',
     verified: true,
+    en: {
+      summary: 'Amazon\'s tabular model built into AutoGluon: classification and regression from examples with brief fine-tuning. Mitra-v2 handles more rows and columns.',
+      tasks: ['Predicting churn and repeat purchases', 'Scoring applications', 'Predicting deal or order value'],
+      where: ['Sales and CRM', 'E-commerce', 'Finance'],
+      license: 'Apache 2.0',
+      developer: 'Amazon (AutoGluon team)',
+      country: 'USA',
+      sizes: 'about 76M',
+    },
   },
   {
     id: 'tabdpt',
@@ -704,6 +932,14 @@ module.exports = [
     alternatives: ['tabpfn', 'tabicl', 'mitra'],
     source: 'https://github.com/layer6ai-labs/TabDPT-inference/releases',
     verified: true,
+    en: {
+      summary: 'A tabular model from a Canadian bank\'s AI lab, trained on real tables rather than only synthetic ones. Version 1.2 Turbo made computation orders of magnitude faster.',
+      tasks: ['Scoring applications and customers', 'Predicting churn', 'Classifying transactions and customers'],
+      where: ['Banking and finance', 'Insurance', 'Sales and CRM'],
+      license: 'Apache 2.0',
+      country: 'Canada',
+      sizes: 'about 60–80M',
+    },
   },
   {
     id: 'limix',
@@ -728,6 +964,15 @@ module.exports = [
     alternatives: ['tabpfn', 'tabicl'],
     source: 'https://huggingface.co/stable-ai/LimiX-2',
     verified: true,
+    en: {
+      summary: 'A table model that alone can classify, predict numbers and fill in missing data. The lightweight LimiX-2M runs on an ordinary computer.',
+      tasks: ['Filling gaps in 1C and CRM exports', 'Churn prediction and scoring', 'Classifying customers and products'],
+      where: ['Sales and CRM', 'Manufacturing', 'Finance'],
+      license: 'LimiX-16M and 2M are Apache 2.0; LimiX-2 is non-commercial',
+      developer: 'Stable AI (Beijing, with Tsinghua University)',
+      country: 'China',
+      sizes: '2M – 16M and LimiX-2',
+    },
   },
   {
     id: 'tabfm',
@@ -752,6 +997,14 @@ module.exports = [
     alternatives: ['tabpfn', 'tabicl', 'exaone-tabular'],
     source: 'https://huggingface.co/google/tabfm-1.0.0-pytorch',
     verified: true,
+    en: {
+      summary: 'Google\'s large tabular model: classification and regression from examples without training, with numeric and categorical columns. Weights are for non-commercial use only.',
+      tasks: ['Pilot comparison with current scoring models', 'Exploring customer data', 'Testing churn hypotheses'],
+      where: ['R&D and analytics', 'Finance', 'Sales and CRM'],
+      license: 'Non-commercial TabFM license',
+      country: 'USA',
+      sizes: 'about 1.6B',
+    },
   },
   {
     id: 'exaone-tabular',
@@ -776,5 +1029,13 @@ module.exports = [
     alternatives: ['tabicl', 'tabpfn', 'exaone'],
     source: 'https://huggingface.co/LG-AI-Research/EXAONE-Tabular',
     verified: true,
+    en: {
+      summary: 'LG\'s small tabular model: with 21M parameters it nearly matches the leaders in classification and regression accuracy. Weights are for non-commercial use only.',
+      tasks: ['Pilot churn forecasts', 'Testing scoring hypotheses', 'Exploring customer data'],
+      where: ['R&D and analytics', 'Finance', 'Manufacturing'],
+      license: 'Code is freely open; weights are under the non-commercial EXAONE license',
+      country: 'South Korea',
+      sizes: 'about 21M',
+    },
   },
 ];

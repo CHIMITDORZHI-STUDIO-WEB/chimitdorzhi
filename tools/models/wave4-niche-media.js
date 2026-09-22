@@ -27,6 +27,15 @@ module.exports = [
     alternatives: ['mapanything', 'pi3', 'dust3r'],
     source: 'https://github.com/facebookresearch/vggt',
     verified: true,
+    en: {
+      summary: 'Reconstructs a 3D scene from one, several or hundreds of photos in seconds: camera positions, depth and a point cloud. Best Paper at CVPR 2025.',
+      tasks: ['3D model of a room or object from a photo series', 'Camera pose estimation for photogrammetry', 'Point cloud for measurements and comparison with the plan', 'Groundwork for 3D scenes and Gaussian splats'],
+      where: ['Construction and real estate', 'Manufacturing and geometry inspection', 'Game development and visual effects'],
+      license: 'VGGT-1B — CC-BY-NC 4.0; VGGT-1B-Commercial — own license, commercial use allowed (except military use); VGGT-Omega — non-commercial research',
+      developer: 'Meta and the University of Oxford (VGG)',
+      country: 'USA / UK',
+      sizes: 'about 1.2B',
+    },
   },
   {
     id: 'mapanything',
@@ -51,6 +60,15 @@ module.exports = [
     alternatives: ['vggt', 'pi3', 'depth-anything'],
     source: 'https://huggingface.co/facebook/map-anything-apache-v1',
     verified: true,
+    en: {
+      summary: 'A single model builds a metric 3D reconstruction from photos, and uses camera, depth or pose data when available. One weights variant is under Apache 2.0.',
+      tasks: ['3D reconstruction of an object or room from photos', 'Exporting the scene to COLMAP format for further processing', 'Depth and camera pose estimation', 'Refining the model when capture parameters are known'],
+      where: ['Construction and surveying', 'Manufacturing', 'Game development and visual effects'],
+      license: 'Two weights variants: the main one — CC-BY-NC 4.0, a separate one — Apache 2.0 (for commercial use); code — Apache 2.0',
+      developer: 'Meta and Carnegie Mellon University',
+      country: 'USA',
+      sizes: 'about 1.2B',
+    },
   },
   {
     id: 'pi3',
@@ -75,6 +93,13 @@ module.exports = [
     alternatives: ['vggt', 'mapanything', 'dust3r'],
     source: 'https://github.com/yyfz/Pi3',
     verified: true,
+    en: {
+      summary: 'Reconstructs a 3D scene and camera positions from a set of photos or a video without relying on a "reference" frame. Pi3X gives smoother point clouds and approximate scale in meters.',
+      tasks: ['3D scene reconstruction from video', 'Camera pose estimation from frames', 'Point clouds for research and prototypes'],
+      where: ['Research and R&D', 'Visual effects', 'Robotics'],
+      license: 'Code — BSD 3-Clause; Pi3 and Pi3X weights per the README — CC-BY-NC 4.0 (non-commercial use only)',
+      country: 'China',
+    },
   },
   {
     id: 'dust3r',
@@ -99,6 +124,13 @@ module.exports = [
     alternatives: ['vggt', 'mapanything', 'pi3'],
     source: 'https://huggingface.co/naver/blast3r-matcher',
     verified: true,
+    en: {
+      summary: 'The family that started "single-pass" 3D reconstruction from a pair or set of photos without camera calibration. MASt3R added point matching and scale; MUSt3R and BLASt3R added video support.',
+      tasks: ['3D scene from several photos without calibration', 'Point matching between images', 'Mapping from video (SLAM)'],
+      where: ['Research and R&D', 'Robotics', 'Visual effects'],
+      license: 'CC-BY-NC-SA 4.0 (DUSt3R, MASt3R); MUSt3R and BLASt3R — NAVER non-commercial licenses',
+      country: 'France (NAVER, South Korea)',
+    },
   },
 
   // ---------- Поза, тело, движения ----------
@@ -125,6 +157,13 @@ module.exports = [
     alternatives: ['vitpose', 'sam', 'depth-anything'],
     source: 'https://github.com/facebookresearch/sapiens2',
     verified: true,
+    en: {
+      summary: 'Meta\'s models for analyzing people in photos: pose keypoints, body part segmentation, normals and depth. Sapiens2 was trained at high resolution and adds human matting.',
+      tasks: ['Pose and body keypoint detection', 'Segmentation of body parts and clothing', 'Separating a person from the background', 'Preparing data for try-on and avatars'],
+      where: ['Photo and video production', 'Fashion and online try-on', 'Sports and fitness apps'],
+      license: 'Sapiens — CC-BY-NC 4.0; Sapiens2 — own Meta license, commercial use allowed with conditions',
+      country: 'USA',
+    },
   },
   {
     id: 'vitpose',
@@ -149,6 +188,15 @@ module.exports = [
     alternatives: ['sapiens', 'yolo'],
     source: 'https://huggingface.co/usyd-community/vitpose-plus-huge',
     verified: true,
+    en: {
+      summary: 'A simple, accurate model for human pose estimation via keypoints. ViTPose++ handles human, animal and whole-body poses; built into the Transformers library.',
+      tasks: ['Body keypoints in photos and video', 'Motion analysis in sports and rehabilitation', 'Monitoring work postures and safety practices', 'Preparing a skeleton for animation'],
+      where: ['Sports and fitness', 'Manufacturing and occupational safety', 'Video production'],
+      license: 'Apache 2.0',
+      developer: 'University of Sydney and JD Explore Academy',
+      country: 'Australia / China',
+      sizes: '33M – about 1B',
+    },
   },
   {
     id: 'hy-motion',
@@ -173,6 +221,13 @@ module.exports = [
     alternatives: ['sapiens', 'hunyuan3d'],
     source: 'https://huggingface.co/tencent/HY-Motion-1.0',
     verified: true,
+    en: {
+      summary: 'Generates 3D human motion animation from a text description: the skeletal animation is ready for 3D editors and game engines. Understands English and Chinese.',
+      tasks: ['Character animation from a text description', 'Draft animation for games and videos', 'Motion library for avatars'],
+      where: ['Game development', 'Animation and video production', 'Training simulators'],
+      license: 'Tencent Hunyuan Community License (not valid in the EU, UK and South Korea)',
+      country: 'China',
+    },
   },
 
   // ---------- Модели мира и игр ----------
@@ -199,6 +254,13 @@ module.exports = [
     alternatives: ['hunyuan-gamecraft', 'hy-world', 'cosmos'],
     source: 'https://github.com/SkyworkAI/Matrix-Game',
     verified: true,
+    en: {
+      summary: 'An interactive "world model": generates video of a game world in real time and responds to keyboard and mouse input. Version 3.0 keeps scene memory for minutes.',
+      tasks: ['Game world prototypes without an engine', 'Interactive demos and simulations', 'Generating data to train agents'],
+      where: ['Game development', 'Research and R&D', 'Interactive media'],
+      license: 'MIT (1.0 and 2.0), Apache 2.0 (3.0)',
+      country: 'China',
+    },
   },
   {
     id: 'hunyuan-gamecraft',
@@ -223,6 +285,14 @@ module.exports = [
     alternatives: ['matrix-game', 'hunyuan-video', 'hy-world'],
     source: 'https://github.com/Tencent-Hunyuan/Hunyuan-GameCraft-1.0',
     verified: true,
+    en: {
+      summary: 'Turns a single image into a controllable game-scene video: the camera moves on keyboard commands. Minimum 24 GB of GPU memory, 80 GB recommended.',
+      tasks: ['Interactive video prototypes of game locations', 'Camera walkthrough videos of a scene', 'Level demos for pitches'],
+      where: ['Game development', 'Advertising and video production'],
+      license: 'Tencent Hunyuan Community License (not valid in the EU, UK and South Korea)',
+      country: 'China',
+      sizes: 'based on HunyuanVideo',
+    },
   },
 
   // ---------- Понимание видео ----------
@@ -249,6 +319,13 @@ module.exports = [
     alternatives: ['internvideo', 'qwen-vl', 'llava'],
     source: 'https://github.com/DAMO-NLP-SG/VideoLLaMA3',
     verified: true,
+    en: {
+      summary: 'Models that watch a video and answer questions about it: what happens, when, who does what. VideoLLaMA 3 at 2B and 7B is among the strongest in its size class.',
+      tasks: ['Video description and short summary', 'Finding a moment in a recording by question', 'Tagging a video archive', 'Reviewing videos before publishing'],
+      where: ['Media and video production', 'Video surveillance', 'Training and online courses'],
+      license: 'Apache 2.0 (VideoLLaMA 2 and 3); the first version is built on LLaMA and carries its restrictions',
+      country: 'China',
+    },
   },
   {
     id: 'internvideo',
@@ -273,6 +350,14 @@ module.exports = [
     alternatives: ['videollama', 'internvl', 'qwen-vl'],
     source: 'https://github.com/OpenGVLab/InternVideo',
     verified: true,
+    en: {
+      summary: 'A family of video models: encoders for search and classification of clips, and chat models that analyze long videos. InternVideo 3 is designed for multi-hour recordings.',
+      tasks: ['Searching a video archive with a text query', 'Action recognition in video', 'Answering questions about a long recording', 'Automatic video tagging'],
+      where: ['Media and video archives', 'Video surveillance', 'Research'],
+      license: 'Apache 2.0 / MIT',
+      country: 'China',
+      sizes: 'small encoders – 9B',
+    },
   },
   {
     id: 'moss-vl',
@@ -297,6 +382,15 @@ module.exports = [
     alternatives: ['internvideo', 'videollama', 'qwen-vl'],
     source: 'https://huggingface.co/OpenMOSS-Team/MOSS-VL-Instruct-0708',
     verified: true,
+    en: {
+      summary: 'An image + video + text model focused on long videos and precise linking of events to timestamps. A Realtime version handles live video streams.',
+      tasks: ['Analyzing long videos and finding events by time', 'Real-time streaming video analysis', 'Understanding photos and documents'],
+      where: ['Media and video archives', 'Video surveillance', 'Document management'],
+      license: 'Apache 2.0',
+      developer: 'OpenMOSS (Fudan University)',
+      country: 'China',
+      sizes: 'about 11B',
+    },
   },
 
   // ---------- Интерполяция и маттинг ----------
@@ -323,6 +417,15 @@ module.exports = [
     alternatives: ['real-esrgan', 'seedvr'],
     source: 'https://github.com/hzwer/Practical-RIFE',
     verified: true,
+    en: {
+      summary: 'Generates intermediate frames: turns 24–30 fps into 60 fps and more and makes smooth slow motion. Versions 4.24+ smooth out video from generative models well.',
+      tasks: ['Increasing video frame rate', 'Smooth slow-motion video', 'Smoothing clips from AI generators'],
+      where: ['Video production', 'Advertising and social media', 'Archival video restoration'],
+      license: 'MIT',
+      developer: 'hzwer (Zhewei Huang) and co-authors',
+      country: 'China',
+      sizes: 'lightweight model (size not stated on the model card)',
+    },
   },
   {
     id: 'matanyone',
@@ -347,6 +450,15 @@ module.exports = [
     alternatives: ['birefnet', 'sam', 'rmbg'],
     source: 'https://github.com/pq-yang/MatAnyone',
     verified: true,
+    en: {
+      summary: 'Cuts a person out of video with a precise alpha mask, including hair and edges, without a green screen. Needs a first-frame mask, for example from SAM.',
+      tasks: ['Background replacement in video without chroma key', 'Cutting out a person for editing and effects', 'Preparing videos for advertising and social media'],
+      where: ['Video production', 'Advertising and social media', 'Online learning'],
+      license: 'S-Lab License 1.0 (non-commercial use only)',
+      developer: 'S-Lab, Nanyang Technological University',
+      country: 'Singapore',
+      sizes: 'about 35M',
+    },
   },
 
   // ---------- Звук к видео и видео со звуком ----------
@@ -373,6 +485,15 @@ module.exports = [
     alternatives: ['hunyuan-video-foley', 'thinksound', 'stable-audio'],
     source: 'https://github.com/hkchengrex/MMAudio',
     verified: true,
+    en: {
+      summary: 'Adds sound to silent video: generates noises and sound effects in sync with the on-screen action, from the video and a text prompt. One of the first strong open Foley models.',
+      tasks: ['Sound effects for silent video', 'Sound for clips from AI generators', 'Draft sound design for editing'],
+      where: ['Video production', 'Game development', 'Research'],
+      license: 'Weights — CC-BY-NC 4.0 (non-commercial), code — MIT',
+      developer: 'University of Illinois and Sony AI',
+      country: 'USA / Japan',
+      sizes: 'size not stated on the model card',
+    },
   },
   {
     id: 'hunyuan-video-foley',
@@ -397,6 +518,14 @@ module.exports = [
     alternatives: ['mmaudio', 'thinksound', 'hunyuan-video'],
     source: 'https://huggingface.co/tencent/HunyuanVideo-Foley',
     verified: true,
+    en: {
+      summary: 'Generates studio-quality (48 kHz) audio for video from the picture and a text prompt: footsteps, impacts, ambience, in sync with the action on screen.',
+      tasks: ['Foley and sound effects for video', 'Sound for AI-generated ads', 'Sound design for short videos'],
+      where: ['Video production', 'Advertising and social media', 'Game development'],
+      license: 'Tencent Hunyuan Community License (not valid in the EU, UK and South Korea)',
+      country: 'China',
+      sizes: 'not stated on the model card (weights about 10 GB; XL version with memory offloading)',
+    },
   },
   {
     id: 'thinksound',
@@ -421,6 +550,14 @@ module.exports = [
     alternatives: ['mmaudio', 'hunyuan-video-foley', 'stable-audio'],
     source: 'https://github.com/FunAudioLLM/ThinkSound',
     verified: true,
+    en: {
+      summary: 'Generates and edits audio for video, text or audio, first "reasoning" about the scene with a multimodal model. PrismAudio is the next version for video-to-audio.',
+      tasks: ['Audio for video based on the scene', 'Editing individual sounds in a track', 'Sound effects from a description'],
+      where: ['Video production', 'Advertising', 'Game development'],
+      license: 'Apache 2.0 (ThinkSound), MIT (PrismAudio)',
+      country: 'China',
+      sizes: 'size not stated on the model card',
+    },
   },
   {
     id: 'mova',
@@ -445,6 +582,13 @@ module.exports = [
     alternatives: ['ovi', 'magihuman', 'wan'],
     source: 'https://github.com/OpenMOSS/MOVA',
     verified: true,
+    en: {
+      summary: 'Generates video with sound in one pass: lip-synced speech, effects and ambience. A 32B-parameter MoE architecture, with 360p and 720p versions.',
+      tasks: ['Short clips with speech and sound from a description', 'Ad scenes with dialogue', 'Video prototypes for storyboards'],
+      where: ['Advertising and social media', 'Video production'],
+      license: 'Apache 2.0',
+      country: 'China',
+    },
   },
   {
     id: 'ovi',
@@ -469,6 +613,13 @@ module.exports = [
     alternatives: ['mova', 'magihuman', 'wan'],
     source: 'https://github.com/character-ai/Ovi',
     verified: true,
+    en: {
+      summary: 'Generates video together with sound and speech from text or an image: two branches (video based on Wan 2.2 and a 5B audio branch) run in sync. Needs 24–32 GB of GPU memory.',
+      tasks: ['Short clips with talking characters', 'Animating an image with voice-over', 'Ad scene prototypes'],
+      where: ['Advertising and social media', 'Video production', 'Entertainment services'],
+      license: 'Apache 2.0',
+      country: 'USA',
+    },
   },
   {
     id: 'magihuman',
@@ -493,6 +644,14 @@ module.exports = [
     alternatives: ['magi', 'ovi', 'infinitetalk'],
     source: 'https://huggingface.co/GAIR/daVinci-MagiHuman',
     verified: true,
+    en: {
+      summary: 'Generates video of a talking person with sound in one go: a single transformer processes text, video and audio. Speech in 7 languages; Russian is not among them. Fast distilled versions are available.',
+      tasks: ['Presenter video from a script', 'Ad videos with a talking character', 'Training videos with a narrator'],
+      where: ['Marketing and social media', 'Online learning', 'Video production'],
+      license: 'Apache 2.0',
+      developer: 'SII-GAIR and Sand.ai',
+      country: 'China',
+    },
   },
 
   // ---------- Анимация персонажей ----------
@@ -519,6 +678,14 @@ module.exports = [
     alternatives: ['wan', 'liveportrait', 'animatediff'],
     source: 'https://huggingface.co/zai-org/SCAIL-2',
     verified: true,
+    en: {
+      summary: 'Animates a character from an image using motion from another video, including complex turns and multiple characters. SCAIL-2 works without an intermediate skeleton and can replace a character in a clip.',
+      tasks: ['Transferring an actor\'s motion to a character', 'Replacing a character in a finished video', 'Animating mascots and illustrations'],
+      where: ['Video production', 'Advertising and social media', 'Game development'],
+      license: 'MIT (weights on HF), code — Apache 2.0',
+      developer: 'Zhipu AI (Z.ai) and Tsinghua University',
+      country: 'China',
+    },
   },
 
   // ---------- Музыкальные эмбеддинги и классификация звука ----------
@@ -545,6 +712,13 @@ module.exports = [
     alternatives: ['muq', 'ast', 'clip-siglip'],
     source: 'https://huggingface.co/m-a-p/MERT-v2-FullSong',
     verified: true,
+    en: {
+      summary: 'A music encoder: turns a track into a numeric representation used to detect genre, mood, key and rhythm. MERT-v2 handles full songs up to 6 minutes.',
+      tasks: ['Automatic tagging of a music catalog', 'Finding similar tracks', 'Detecting genre, mood and tempo'],
+      where: ['Music services and labels', 'Media', 'Research'],
+      license: 'CC-BY-NC 4.0 (non-commercial)',
+      country: 'UK / China',
+    },
   },
   {
     id: 'muq',
@@ -569,6 +743,13 @@ module.exports = [
     alternatives: ['mert', 'ast'],
     source: 'https://github.com/tencent-ailab/MuQ',
     verified: true,
+    en: {
+      summary: 'The MuQ music encoder and the MuQ-MuLan model, which matches music and text: you can search for tracks by a description in English or Chinese.',
+      tasks: ['Searching music by text description', 'Tagging tracks by genre and mood', 'Finding similar music'],
+      where: ['Music services', 'Media and production', 'Research'],
+      license: 'Weights — CC-BY-NC 4.0 (non-commercial), code — MIT',
+      country: 'China',
+    },
   },
   {
     id: 'ast',
@@ -593,5 +774,13 @@ module.exports = [
     alternatives: ['mert', 'muq', 'sam-audio'],
     source: 'https://huggingface.co/MIT/ast-finetuned-audioset-10-10-0.4593',
     verified: true,
+    en: {
+      summary: 'A classic 2021 sound recognition model: detects 527 AudioSet event classes (siren, barking, breaking glass, music). Lightweight, runs without a GPU, in Transformers since 2022.',
+      tasks: ['Sound event recognition', 'Tagging an audio archive', 'Detecting alarm sounds', 'Voice command recognition'],
+      where: ['Security and monitoring', 'Manufacturing (acoustic monitoring)', 'Media'],
+      license: 'BSD 3-Clause',
+      country: 'USA',
+      sizes: 'about 87M',
+    },
   },
 ];
