@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1886**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1887**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -1824,6 +1824,7 @@
 
 ## Экспертное
 
+- [ИИ-агент, который сам управляет смартфоном: что это меняет для бизнеса](./ii-agent-upravlyaet-smartfonom-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-agent-upravlyaet-smartfonom-2026/)
 - [Что я не делаю и почему: честные границы работы](./chto-ya-ne-delayu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chto-ya-ne-delayu-2026/)
 - [Bonsai 2 27B: модель на 27 млрд параметров в 5,9 ГБ — что это значит для бизнеса](./bonsai-2-27b-szhataya-model-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bonsai-2-27b-szhataya-model-2026/)
 - [Синхронный перевод в реальном времени: Qwen3.8-LiveTranslate и где это нужно бизнесу](./qwen-livetranslate-sinhronnyy-perevod-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/qwen-livetranslate-sinhronnyy-perevod-2026/)
