@@ -760,7 +760,7 @@ module.exports = [
     industries: ['dev', 'docs'],
     ollama: false,
     cpu: true,
-    summary: 'Компактные модели Alibaba для работы в интерфейсе смартфона и компьютера: находят элементы и выполняют многошаговые задачи. Малый размер позволяет запуск на обычной видеокарте.',
+    summary: 'Компактные модели Alibaba для работы в интерфейсе смартфона и компьютера: находят элементы и выполняют многошаговые задачи. Агент действует от имени пользователя в его приложениях, поэтому доступы и границы задаются до запуска. Продолжение линейки, Qwen-UI-Agent, анонсировано в июле 2026 года, но веса пока не выложены.',
     tasks: ['Автоматизация действий в мобильных приложениях', 'Работа в программах без API', 'Автотесты интерфейсов'],
     where: ['Мобильная разработка', 'Бэк-офис', 'IT и тестирование'],
     versions: [['MAI-UI 2B / 8B', '2025-12']],
@@ -770,7 +770,7 @@ module.exports = [
     source: 'https://huggingface.co/api/models?author=Tongyi-MAI&search=MAI-UI',
     verified: true,
     en: {
-      summary: 'Compact Alibaba models for working in smartphone and computer interfaces: they find elements and complete multi-step tasks. The small size allows running on an ordinary GPU.',
+      summary: 'Compact Alibaba models for working in smartphone and computer interfaces: they find elements and complete multi-step tasks. The agent acts on the user\'s behalf inside their apps, so access rights and limits are set before launch. The follow-up line, Qwen-UI-Agent, was announced in July 2026, but its weights have not been released.',
       tasks: ['Automating actions in mobile apps', 'Working in software without an API', 'UI autotests'],
       where: ['Mobile development', 'Back office', 'IT and testing'],
       license: 'Apache 2.0',

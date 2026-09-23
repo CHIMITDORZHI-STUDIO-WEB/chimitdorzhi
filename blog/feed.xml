@@ -14,6 +14,129 @@
       <link>https://chimitdorzhi.tech/blog/</link>
     </image>
     <item>
+      <title>ИИ-агент, который сам управляет смартфоном: что это меняет для бизнеса</title>
+      <link>https://chimitdorzhi.tech/blog/ii-agent-upravlyaet-smartfonom-2026/</link>
+      <guid isPermaLink="true">https://chimitdorzhi.tech/blog/ii-agent-upravlyaet-smartfonom-2026/</guid>
+      <description><![CDATA[Qwen показала набор агентов, которые работают прямо на смартфоне: один разбирает задачу на шаги, второй выполняет её в приложениях, третий делает картинки. Разбираю, что именно заявлено, почему приоритет API над кликами важнее процентов в таблице и какие доступы надо резать до запуска.]]></description>
+      <content:encoded><![CDATA[<p><img src="https://chimitdorzhi.tech/blog/ii-agent-upravlyaet-smartfonom-2026/cover.jpg" alt="ИИ-агент, который сам управляет смартфоном: что это меняет для бизнеса"/></p>
+
+<div class="blog-tldr">
+  <strong>Коротко.</strong> Qwen показала Qwen Intelligence — набор из трёх агентов, которые работают на смартфоне: один планирует задачу, второй выполняет её в приложениях, третий делает картинки. Самое важное в анонсе: исполнитель сначала идёт в API приложения и только при необходимости переключается на тыканье по экрану. Но я проверил репозитории по ссылкам из анонса, и весов там нет ни у одного из трёх агентов. Ниже разбираю, что это значит и почему подход всё равно заслуживает внимания.
+</div>
+
+<h2 id="chto-obyavleno">Что объявили</h2>
+
+<p>Команда Qwen выпустила Qwen Intelligence — набор агентов для смартфонов. В нём три части, и каждая отвечает за свой кусок работы.</p>
+
+<p><strong>Mobile Planner Agent</strong> разбирает сложную задачу на шаги и координирует выполнение. Это не исполнитель, а тот, кто решает, из чего задача состоит и в каком порядке её делать.</p>
+
+<p><strong>Mobile-Use Agent</strong> выполняет действия в приложениях через API, а при необходимости переключается на графический интерфейс. По данным разработчиков, на бенчмарке MobileWorld он показывает 82,1%, на MobileWorld-Real — 92,2%.</p>
+
+<p><strong>Mobile Creative Agent</strong> превращает короткий запрос в готовый визуальный контент. Заявленная генерация изображения — около трёх секунд.</p>
+
+<p>Вместе с агентами Qwen открыла набор бенчмарков: MobilePA-Bench, MobileWorld, MobileWorld-Real и MobileWorld-Safety. Они проверяют планирование, работу между приложениями, поведение на реальных устройствах и безопасность. Последний пункт в этом списке интереснее остальных, и ниже объясню почему.</p>
+
+<p>Источники: <a href="https://qwenintelligence.com" target="_blank" rel="noopener nofollow">сайт Qwen Intelligence</a>, <a href="https://github.com/Tongyi-MAI/Qwen-Planner-Agent" target="_blank" rel="noopener nofollow">репозиторий планировщика</a>, <a href="https://tongyi-mai.github.io/Qwen-UI-Agent/" target="_blank" rel="noopener nofollow">страница исполнителя</a>, <a href="https://arxiv.org/abs/2608.16887" target="_blank" rel="noopener nofollow">статья про творческого агента</a>, <a href="https://github.com/Tongyi-MAI/MobileWorld" target="_blank" rel="noopener nofollow">репозиторий MobileWorld</a>.</p>
+
+<h2 id="chto-v-pervoistochnikah">Что я нашёл в первоисточниках</h2>
+
+<p>Прежде чем разбирать содержание, я всегда открываю репозитории по ссылкам из анонса. Здесь картина такая.</p>
+
+<p>Репозиторий планировщика содержит исходники сайта и технического отчёта. В его описании прямо написано, что это не репозиторий для публикации весов, обучающего кода и реализации агента. Раздел релизов пустой.</p>
+
+<p>С исполнителем то же самое: по ссылке лежат исходники страницы проекта, а не модель. Оттуда идёт отсылка к предыдущей линейке той же команды, MAI-UI. У неё веса действительно выложены, две версии на 2 и 8 миллиардов параметров под Apache 2.0, но это релиз декабря 2025 года. Карточки ресурсов на сайте нового агента помечены как «скоро», и в инструкции по правке сайта так и записано: заменить их на ссылки на отчёт, код и чекпоинты в момент релиза.</p>
+
+<p>Третий агент не подтверждается вовсе. Ссылка на статью из анонса ведёт на другую работу, про обучение диффузионных моделей генерации картинок в пространстве пикселей. К мобильным агентам она отношения не имеет. Репозитория с таким названием у команды нет.</p>
+
+<p>Вывод простой. Сейчас это опубликованная заявка на подход и набор бенчмарков, а не инструмент, который можно скачать. Бенчмарки, кстати, выложены по-настоящему, и это само по себе полезно.</p>
+
+<p>Пишу об этом не чтобы придраться. Просто между «вышло» и «можно поставить» в новостях про ИИ регулярно лежит несколько месяцев, и планировать работу по заголовку дороже, чем потратить двадцать минут на проверку.</p>
+
+<h2 id="pochemu-eto-drugoe">Чем это отличается от агента в браузере</h2>
+
+<p>Агенты, которые кликают по интерфейсу, существуют не первый год. Они смотрят на скриншот, находят кнопку, нажимают, смотрят снова. Такой подход работает, но у него две врождённые болезни.</p>
+
+<p>Первая — хрупкость. Приложение обновилось, кнопка переехала на двадцать пикселей, и сценарий рассыпался. Агент не понимает, что происходит, он видит картинку и ищет на ней знакомое.</p>
+
+<p>Вторая — скорость и стоимость. Каждый шаг это скриншот, его разбор, решение и действие. На десяти шагах это терпимо, на сотне превращается в медленный и дорогой процесс.</p>
+
+<p>Телефон добавляет к этому третью проблему. На компьютере агент работает в окне браузера, и в худшем случае он испортит вкладку. На смартфоне у него под рукой мессенджеры, банк, почта, фотографии, карта, календарь и список контактов. Всё, что определяет человека.</p>
+
+<h2 id="api-ili-ekran">Почему важно, что сначала API, а не экран</h2>
+
+<p>Самая содержательная фраза во всём анонсе — про то, что исполнитель действует через API приложений и переключается на графический интерфейс только при необходимости. Это смена подхода, а не улучшение метрики.</p>
+
+<p>Обращение к API — это разговор на языке приложения. Агент не ищет кнопку «Отправить», он вызывает функцию отправки с понятными параметрами. Такое действие проверяемо: видно, что именно вызвали и с чем. Его можно запретить, ограничить, записать в журнал. Клик по экрану записать в журнал тоже можно, но из записи «нажал в точку 640 на 1200» вы ничего не восстановите.</p>
+
+<p>Отсюда практический вывод. Если вы будете выбирать мобильного агента, смотрите не на проценты в таблице, а на то, через что он делает действия. Агент, который умеет в API, дешевле в эксплуатации и, что важнее, поддаётся контролю. Агент, который только тыкает в экран, всегда будет чёрным ящиком с красивой демонстрацией.</p>
+
+<h2 id="chto-eto-daet-biznesu">Какие задачи это реально закрывает</h2>
+
+<p>Я держу в голове простое правило: агент окупается там, где человек делает одинаковую последовательность действий много раз и при этом ничего не решает. Вот куда это ложится на телефоне.</p>
+
+<ul>
+  <li><strong>Разбор входящего в мессенджерах.</strong> Заявки приходят в три разных чата, их надо собрать в одно место. Человек делает это копипастом, и делает плохо после шестого раза.</li>
+  <li><strong>Публикация контента.</strong> Одно и то же объявление в несколько площадок, с подгонкой формата под каждую. Творческий агент из анонса как раз про это.</li>
+  <li><strong>Сбор данных с экранов.</strong> Есть приложение поставщика без выгрузки, и остатки оттуда переписывают руками в таблицу.</li>
+  <li><strong>Рутина выездного сотрудника.</strong> Отметиться, сфотографировать, заполнить форму, отправить. Пять действий, которые повторяются двадцать раз за смену.</li>
+</ul>
+
+<p>Заметьте, что во всех четырёх случаях ценность не в интеллекте агента, а в том, что он не устаёт и не пропускает шаги. Именно такие задачи я и беру первыми, когда <a href="https://chimitdorzhi.tech/services/ai-agents/">внедряю агента в бизнес</a>: они дают измеримый результат за неделю и не требуют доверия к машине в спорных решениях.</p>
+
+<h2 id="gde-grabli">Где грабли</h2>
+
+<p>Теперь неприятная часть, которой в анонсах не бывает.</p>
+
+<p><strong>Агент действует от вашего имени.</strong> Он не сторонний сервис, который вы пустили в свой контур. Он сидит внутри ваших сессий, уже авторизованный везде, где авторизованы вы. Если он отправит сообщение не туда, это отправили вы.</p>
+
+<p><strong>Доступы надо резать до запуска.</strong> Отдельный телефон или отдельный профиль под рабочие задачи, список приложений, куда агенту можно, и явный запрет на всё остальное. Банк, госуслуги и личная переписка в этот список не входят никогда.</p>
+
+<p><strong>Действия, которые нельзя отменить, остаются за человеком.</strong> Отправить, оплатить, удалить, подтвердить. Агент готовит, человек нажимает. Это скучное правило, но оно единственное, которое работает без исключений.</p>
+
+<p><strong>Персональные данные.</strong> Телефон сотрудника это чужие контакты, чужая переписка и чужие фотографии. Порядок обработки, сроки хранения и то, что именно попадает в логи агента, стоит в общих чертах обсудить с юристом до внедрения, а не после жалобы.</p>
+
+<p>Отдельно отмечу, что Qwen выпустила бенчмарк MobileWorld-Safety. Сам факт, что безопасность вынесли в отдельный набор проверок, говорит больше, чем проценты из основного теста: разработчики понимают, что агент с доступом к телефону это не про удобство, а про риск.</p>
+
+<h2 id="kak-proveryayu">Как я проверяю такие анонсы</h2>
+
+<p>За последний год через меня прошло несколько десятков подобных новостей. Методика у меня одна и довольно занудная.</p>
+
+<p><strong>Первое — ищу веса, а не лендинг.</strong> Красивый сайт, статья и таблица с процентами не означают, что модель можно скачать и поставить себе. Половина громких анонсов оказывается описанием архитектуры, а не работающим файлом.</p>
+
+<p><strong>Второе — читаю лицензию целиком, а не строку на карточке.</strong> Разные лицензии у кода и у весов встречаются постоянно. Бывает и так, что в карточке стоит свободная лицензия, а в описании репозитория прямо написано ограничение.</p>
+
+<p><strong>Третье — воспроизвожу на своей задаче.</strong> Бенчмарк проверяет то, что в бенчмарке. Ваш сценарий с вашими приложениями в него не входит. Я собираю двадцать реальных случаев из работы клиента и прогоняю агента на них вслепую, а результат сверяет человек.</p>
+
+<p><strong>Четвёртое — считаю деньги.</strong> Агент на телефоне это либо своё железо, либо оплата за каждый запрос. Пока не посчитан объём обращений в месяц, разговор о внедрении преждевременный.</p>
+
+<p>Ровно так же я разбираю каждую новую открытую модель перед тем, как добавить её в <a href="https://chimitdorzhi.tech/ii-modeli/">каталог открытых ИИ-моделей</a>: если веса не подтвердились, карточки не будет, даже если анонс громкий.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+
+<p><strong>Можно ли уже поставить это себе?</strong> Нет. На момент выхода анонса опубликованы страницы проектов, набор бенчмарков и репозитории с исходниками сайтов. Весов нет ни у планировщика, ни у исполнителя, ни у творческого агента. Скачать и поставить сегодня можно только предыдущую линейку той же команды, MAI-UI, релиз декабря 2025 года под Apache 2.0.</p>
+
+<p><strong>Заменит ли такой агент мобильное приложение?</strong> Нет. Агент хорош там, где надо повторить действия человека в чужих приложениях, которые вы не контролируете. Если процесс ваш и повторяется каждый день, дешевле и надёжнее сделать нормальную интеграцию или своё приложение.</p>
+
+<p><strong>Нужен ли мощный телефон?</strong> Зависит от того, где считается модель. Часть работы может уходить на сервер, часть выполняться на устройстве. Требования к железу проверяются по документации конкретной версии, а не по общему анонсу.</p>
+
+<p><strong>Что с безопасностью на рабочих телефонах сотрудников?</strong> Начинать стоит с отдельного устройства или рабочего профиля. Смешивать личный телефон сотрудника и агента с доступами не нужно ни с технической стороны, ни с точки зрения отношений с людьми.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+
+<p>Qwen Intelligence интересен не процентами, а тремя вещами: разделением на планировщика, исполнителя и генератор контента, приоритетом API над кликами по экрану и отдельным бенчмарком на безопасность. Первое делает систему разбираемой, второе — управляемой, третье — честной.</p>
+
+<p>Если вы думаете про агента на телефоне, начните не с выбора модели, а с двух вопросов. Какие двадцать повторяющихся действий он снимет с человека и что произойдёт, если он ошибётся на каждом из них. Ответы на эти вопросы определяют всё остальное.</p>
+
+<p>Если хотите разобрать конкретный процесс и понять, есть ли там место агенту, напишите мне. Посмотрю задачу и скажу прямо, нужен ли тут агент или хватит обычной интеграции.</p>
+]]></content:encoded>
+      <pubDate>Wed, 23 Sep 2026 04:00:00 GMT</pubDate>
+      <category>Экспертный блог</category>
+      <author>noreply@chimitdorzhi.tech (Чимитдоржи Дарижапов)</author>
+      <enclosure url="https://chimitdorzhi.tech/blog/ii-agent-upravlyaet-smartfonom-2026/cover.jpg" type="image/png" length="0"/>
+      <media:thumbnail url="https://chimitdorzhi.tech/blog/ii-agent-upravlyaet-smartfonom-2026/cover.jpg"/>
+      <media:content url="https://chimitdorzhi.tech/blog/ii-agent-upravlyaet-smartfonom-2026/cover.jpg" medium="image" type="image/png"/>
+    </item>
+    <item>
       <title>Теплицы и гидропоника: продажи в сезон, монтаж и допродажи</title>
       <link>https://chimitdorzhi.tech/blog/teplicy-prodazhi-montazh-dopprodazhi-2026/</link>
       <guid isPermaLink="true">https://chimitdorzhi.tech/blog/teplicy-prodazhi-montazh-dopprodazhi-2026/</guid>
@@ -89,7 +212,7 @@
 <p>Конфигуратор с ценой снимает большую часть расчётов, заказ с предоплатой и статусами убирает лишние звонки, календарь бригад с напоминаниями даёт честные даты монтажа. После продажи база клиентов работает дальше: полив, свет, семена и грунт предлагаются в нужный момент и с согласия клиента.</p>
 <p>Я могу собрать конфигуратор под ваш ассортимент, заказы со статусами и предоплатой, график монтажа с напоминаниями и сценарии допродаж по базе. Начнём с того, что сильнее всего болит этой весной. Напишите в Telegram, MAX или VK.</p>
 ]]></content:encoded>
-      <pubDate>Wed, 23 Sep 2026 04:00:00 GMT</pubDate>
+      <pubDate>Wed, 23 Sep 2026 04:48:00 GMT</pubDate>
       <category>Отрасли</category>
       <author>noreply@chimitdorzhi.tech (Чимитдоржи Дарижапов)</author>
       <enclosure url="https://chimitdorzhi.tech/blog/teplicy-prodazhi-montazh-dopprodazhi-2026/cover.png" type="image/png" length="0"/>
@@ -173,7 +296,7 @@
 <p>Одна система собирает заявку с фото и размерами, ведёт проект по этапам, фиксирует согласованные версии, считает смету и график работ. После сдачи клиент переходит на абонемент на уход с напоминаниями и фотоотчётами, и компания получает повторные деньги, в том числе в межсезонье.</p>
 <p>Я могу разобрать ваш путь клиента от заявки до ухода, собрать форму заявки, страницу проекта с согласованием, смету из справочника и абонементы с напоминаниями. Начнём с того, что болит сильнее всего, остальное добавим следом. Напишите в Telegram, MAX или VK.</p>
 ]]></content:encoded>
-      <pubDate>Wed, 23 Sep 2026 04:48:00 GMT</pubDate>
+      <pubDate>Wed, 23 Sep 2026 05:36:00 GMT</pubDate>
       <category>Отрасли</category>
       <author>noreply@chimitdorzhi.tech (Чимитдоржи Дарижапов)</author>
       <enclosure url="https://chimitdorzhi.tech/blog/landshaftnyy-dizayn-proekt-i-uhod-2026/cover.png" type="image/png" length="0"/>
@@ -259,7 +382,7 @@
 <p>Одна система собирает заявку с планом, считает смету по справочнику, фиксирует изменения письменно, даёт бригадам задания на телефон, хранит фото скрытых работ и собирает акт. После сдачи объект остаётся в базе для гарантии и сервиса.</p>
 <p>Я могу собрать такую систему под ваш процесс: заявки, справочник работ и материалов, согласование изменений, задания бригадам и акты. Напишите в Telegram, MAX или VK.</p>
 ]]></content:encoded>
-      <pubDate>Wed, 23 Sep 2026 05:36:00 GMT</pubDate>
+      <pubDate>Wed, 23 Sep 2026 06:24:00 GMT</pubDate>
       <category>Отрасли</category>
       <author>noreply@chimitdorzhi.tech (Чимитдоржи Дарижапов)</author>
       <enclosure url="https://chimitdorzhi.tech/blog/elektromontazh-zayavki-smety-akty-2026/cover.png" type="image/png" length="0"/>
@@ -340,7 +463,7 @@
 <p>Калькулятор на сайте даёт предварительную цену, заявка приходит с фото участка, замер делается в приложении, расчёт идёт по правилам, и КП уходит клиенту в тот же день. Дальше график монтажа, фотоотчёт и отзыв.</p>
 <p>Я могу собрать такую систему под ваш процесс: калькулятор, заявки, приложение для замерщика, расчёт по вашим правилам и КП. Напишите в Telegram, MAX или VK.</p>
 ]]></content:encoded>
-      <pubDate>Wed, 23 Sep 2026 06:24:00 GMT</pubDate>
+      <pubDate>Wed, 23 Sep 2026 07:12:00 GMT</pubDate>
       <category>Отрасли</category>
       <author>noreply@chimitdorzhi.tech (Чимитдоржи Дарижапов)</author>
       <enclosure url="https://chimitdorzhi.tech/blog/zabory-i-vorota-ot-zayavki-do-rascheta-2026/cover.png" type="image/png" length="0"/>
@@ -427,7 +550,7 @@
 <p>Одна система собирает заявки, считает варианты по параметрам участка и семьи, ведёт график монтажа и накапливает базу установленных систем. По этой базе клиенты сами получают напоминания и записываются на откачку и обслуживание в мессенджере.</p>
 <p>Я могу собрать такую систему под ваш процесс: заявки с анкетой, расчёт, график бригад, базу систем и напоминания о сервисе. Напишите в Telegram, MAX или VK.</p>
 ]]></content:encoded>
-      <pubDate>Wed, 23 Sep 2026 07:12:00 GMT</pubDate>
+      <pubDate>Wed, 23 Sep 2026 08:00:00 GMT</pubDate>
       <category>Отрасли</category>
       <author>noreply@chimitdorzhi.tech (Чимитдоржи Дарижапов)</author>
       <enclosure url="https://chimitdorzhi.tech/blog/kolodcy-i-septiki-zayavki-i-obsluzhivanie-2026/cover.png" type="image/png" length="0"/>
@@ -519,7 +642,7 @@
 <p>Одна система собирает заявки из всех каналов, задаёт клиенту несколько вопросов про участок, записывает на выезд, считает смету по шаблону на месте, ведёт работы по статусам и отдаёт клиенту паспорт скважины. Напоминание о сервисе возвращает клиента и даёт работу в межсезонье.</p>
 <p>Я могу собрать такую систему под ваш процесс: заявки, анкету, календарь бригад, шаблон сметы с вариантами обустройства и напоминания о сервисе. Напишите в Telegram, MAX или VK.</p>
 ]]></content:encoded>
-      <pubDate>Wed, 23 Sep 2026 08:00:00 GMT</pubDate>
+      <pubDate>Wed, 23 Sep 2026 08:48:00 GMT</pubDate>
       <category>Отрасли</category>
       <author>noreply@chimitdorzhi.tech (Чимитдоржи Дарижапов)</author>
       <enclosure url="https://chimitdorzhi.tech/blog/burenie-skvazhin-zayavki-i-smeta-2026/cover.png" type="image/png" length="0"/>
@@ -602,7 +725,7 @@
 <p>Одна система принимает заявку с расчётом, назначает машину, собирает отметки водителя с фото документов и сама сообщает клиенту статус. Постоянный клиент видит историю и документы в кабинете.</p>
 <p>Если у вас диспетчер весь день отвечает на звонки о статусе груза, опишите, как устроены перевозки сейчас. Я предложу схему и первую версию под ваш парк. Напишите в Telegram, MAX или VK.</p>
 ]]></content:encoded>
-      <pubDate>Wed, 23 Sep 2026 08:48:00 GMT</pubDate>
+      <pubDate>Wed, 23 Sep 2026 09:36:00 GMT</pubDate>
       <category>Отрасли</category>
       <author>noreply@chimitdorzhi.tech (Чимитдоржи Дарижапов)</author>
       <enclosure url="https://chimitdorzhi.tech/blog/transportnaya-kompaniya-status-gruza-2026/cover.png" type="image/png" length="0"/>
@@ -686,7 +809,7 @@
 <p>Одна система держит объекты с фото и статусами, клиентов с запросами, подбирает варианты, назначает показы с напоминаниями и отправляет подборки ссылкой. Воронка показывает работу каждого агента, а база остаётся у агентства.</p>
 <p>Если у вас база живёт в таблицах и телефонах агентов, опишите, как устроена работа сейчас. Я предложу схему и первую версию под ваше агентство. Напишите в Telegram, MAX или VK.</p>
 ]]></content:encoded>
-      <pubDate>Wed, 23 Sep 2026 09:36:00 GMT</pubDate>
+      <pubDate>Wed, 23 Sep 2026 10:24:00 GMT</pubDate>
       <category>Отрасли</category>
       <author>noreply@chimitdorzhi.tech (Чимитдоржи Дарижапов)</author>
       <enclosure url="https://chimitdorzhi.tech/blog/agentstvo-nedvizhimosti-obekty-klienty-pokazy-2026/cover.png" type="image/png" length="0"/>
@@ -773,7 +896,7 @@
 <p>Бот или кабинет клиента принимает документы с типом и периодом, раскладывает по папкам, ведёт чек-лист, сам напоминает до срока и показывает статусы. Распознавание снимает часть ручного ввода, доступы защищают данные клиентов.</p>
 <p>Если у вас документы клиентов разбросаны по чатам и почте, опишите, как устроен сбор сейчас. Я предложу схему и первую версию под ваших клиентов. Напишите в Telegram, MAX или VK.</p>
 ]]></content:encoded>
-      <pubDate>Wed, 23 Sep 2026 10:24:00 GMT</pubDate>
+      <pubDate>Wed, 23 Sep 2026 11:12:00 GMT</pubDate>
       <category>Отрасли</category>
       <author>noreply@chimitdorzhi.tech (Чимитдоржи Дарижапов)</author>
       <enclosure url="https://chimitdorzhi.tech/blog/buhgalterskaya-kompaniya-sbor-dokumentov-2026/cover.png" type="image/png" length="0"/>
@@ -858,7 +981,7 @@
 <p>Одна система собирает заявки из всех каналов, записывает на замер с напоминанием, даёт замерщику анкету и форму с фото, считает цену на месте. Дальше заказ идёт по статусам до монтажа, а после монтажа клиент оставляет отзыв.</p>
 <p>Если у вас заявки живут в почте, мессенджерах и личных телефонах, опишите, как устроен путь от звонка до монтажа сейчас. Я предложу схему и первую версию под ваш процесс. Напишите в Telegram, MAX или VK.</p>
 ]]></content:encoded>
-      <pubDate>Wed, 23 Sep 2026 11:12:00 GMT</pubDate>
+      <pubDate>Wed, 23 Sep 2026 12:00:00 GMT</pubDate>
       <category>Отрасли</category>
       <author>noreply@chimitdorzhi.tech (Чимитдоржи Дарижапов)</author>
       <enclosure url="https://chimitdorzhi.tech/blog/okna-i-natyazhnye-potolki-ot-zvonka-do-zamera-2026/cover.png" type="image/png" length="0"/>
@@ -942,7 +1065,7 @@
 <p>Заявка с фото и замером, смета из справочника, закупка по смете, письменное согласование допработ, фотоотчёт и оплата по этапам делают ремонт прозрачным и для компании, и для клиента.</p>
 <p>Я могу собрать CRM под ваш процесс ремонта: заявки, сметы по шаблону, бот для клиента с фотоотчётами и согласованиями, график объектов. Напишите в Telegram, MAX или VK.</p>
 ]]></content:encoded>
-      <pubDate>Wed, 23 Sep 2026 12:00:00 GMT</pubDate>
+      <pubDate>Wed, 23 Sep 2026 12:48:00 GMT</pubDate>
       <category>Отрасли</category>
       <author>noreply@chimitdorzhi.tech (Чимитдоржи Дарижапов)</author>
       <enclosure url="https://chimitdorzhi.tech/blog/remont-kvartir-zayavki-smety-fotootchety-2026/cover.png" type="image/png" length="0"/>
@@ -954,7 +1077,7 @@
       <link>https://chimitdorzhi.tech/blog/dozakaz-v-opte-napominaniya-klientam-2026/</link>
       <guid isPermaLink="true">https://chimitdorzhi.tech/blog/dozakaz-v-opte-napominaniya-klientam-2026/</guid>
       <description><![CDATA[Оптовый клиент уходит тихо: просто перестаёт заказывать. Разбираю, как заметить это вовремя и вернуть его напоминанием, а не скидкой.]]></description>
-      <content:encoded><![CDATA[<p><img src="https://chimitdorzhi.tech/blog/dozakaz-v-opte-napominaniya-klientam-2026/cover.png" alt="Дозаказ в опте: как напоминать постоянным клиентам, пока они не ушли к конкуренту"/></p>
+      <content:encoded><![CDATA[<p><img src="https://chimitdorzhi.tech/blog/dozakaz-v-opte-napominaniya-klientam-2026/cover.jpg" alt="Дозаказ в опте: как напоминать постоянным клиентам, пока они не ушли к конкуренту"/></p>
 
 <div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
 <li>Оптовые клиенты заказывают с понятной периодичностью. Если заказ задержался, это сигнал: клиента переманили, у него проблемы или он просто забыл.</li>
@@ -1027,19 +1150,19 @@
 <p>Напоминание с прошлым заказом и кнопкой «повторить», кабинет с персональными ценами и остатками и еженедельный отчёт по засыпающим клиентам дают шанс удержать клиента до того, как он уйдёт окончательно.</p>
 <p>Я могу посчитать циклы по вашей истории из учёта, настроить сигналы менеджерам, напоминания с повтором заказа и кабинет для оптовых клиентов. Напишите в Telegram, MAX или VK.</p>
 ]]></content:encoded>
-      <pubDate>Wed, 23 Sep 2026 12:48:00 GMT</pubDate>
+      <pubDate>Wed, 23 Sep 2026 13:36:00 GMT</pubDate>
       <category>Продажи и стартап</category>
       <author>noreply@chimitdorzhi.tech (Чимитдоржи Дарижапов)</author>
-      <enclosure url="https://chimitdorzhi.tech/blog/dozakaz-v-opte-napominaniya-klientam-2026/cover.png" type="image/png" length="0"/>
-      <media:thumbnail url="https://chimitdorzhi.tech/blog/dozakaz-v-opte-napominaniya-klientam-2026/cover.png"/>
-      <media:content url="https://chimitdorzhi.tech/blog/dozakaz-v-opte-napominaniya-klientam-2026/cover.png" medium="image" type="image/png"/>
+      <enclosure url="https://chimitdorzhi.tech/blog/dozakaz-v-opte-napominaniya-klientam-2026/cover.jpg" type="image/png" length="0"/>
+      <media:thumbnail url="https://chimitdorzhi.tech/blog/dozakaz-v-opte-napominaniya-klientam-2026/cover.jpg"/>
+      <media:content url="https://chimitdorzhi.tech/blog/dozakaz-v-opte-napominaniya-klientam-2026/cover.jpg" medium="image" type="image/png"/>
     </item>
     <item>
       <title>Отправили КП, а клиент пропал: как возвращаться к нему без навязчивости</title>
       <link>https://chimitdorzhi.tech/blog/otpravili-kp-klient-propal-2026/</link>
       <guid isPermaLink="true">https://chimitdorzhi.tech/blog/otpravili-kp-klient-propal-2026/</guid>
       <description><![CDATA[Молчание после КП — не отказ. Разбираю, почему клиенты пропадают и как возвращаться к ним с пользой, а не с вопросом «ну что, решили?».]]></description>
-      <content:encoded><![CDATA[<p><img src="https://chimitdorzhi.tech/blog/otpravili-kp-klient-propal-2026/cover.png" alt="Отправили КП, а клиент пропал: как возвращаться к нему без навязчивости"/></p>
+      <content:encoded><![CDATA[<p><img src="https://chimitdorzhi.tech/blog/otpravili-kp-klient-propal-2026/cover.jpg" alt="Отправили КП, а клиент пропал: как возвращаться к нему без навязчивости"/></p>
 
 <div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
 <li>Клиент пропадает после КП не из вредности: предложение непонятное, нет следующего шага, он сравнивает или решает вообще не он.</li>
@@ -1114,19 +1237,19 @@
 <p>Возвращаться нужно по графику и с пользой, а не вопросом «ну что, решили?». CRM держит напоминания, ссылка подсказывает момент, а последнее вежливое сообщение позволяет отпустить клиента без потерь.</p>
 <p>Я могу настроить генерацию КП из данных заявки, отслеживание открытий и напоминания в CRM под ваш процесс продаж. Напишите в Telegram, MAX или VK.</p>
 ]]></content:encoded>
-      <pubDate>Wed, 23 Sep 2026 13:36:00 GMT</pubDate>
+      <pubDate>Wed, 23 Sep 2026 14:24:00 GMT</pubDate>
       <category>Продажи и стартап</category>
       <author>noreply@chimitdorzhi.tech (Чимитдоржи Дарижапов)</author>
-      <enclosure url="https://chimitdorzhi.tech/blog/otpravili-kp-klient-propal-2026/cover.png" type="image/png" length="0"/>
-      <media:thumbnail url="https://chimitdorzhi.tech/blog/otpravili-kp-klient-propal-2026/cover.png"/>
-      <media:content url="https://chimitdorzhi.tech/blog/otpravili-kp-klient-propal-2026/cover.png" medium="image" type="image/png"/>
+      <enclosure url="https://chimitdorzhi.tech/blog/otpravili-kp-klient-propal-2026/cover.jpg" type="image/png" length="0"/>
+      <media:thumbnail url="https://chimitdorzhi.tech/blog/otpravili-kp-klient-propal-2026/cover.jpg"/>
+      <media:content url="https://chimitdorzhi.tech/blog/otpravili-kp-klient-propal-2026/cover.jpg" medium="image" type="image/png"/>
     </item>
     <item>
       <title>Какой заявке звонить первой: как отделить горячих клиентов от любопытных</title>
       <link>https://chimitdorzhi.tech/blog/kakoy-zayavke-zvonit-pervoy-2026/</link>
       <guid isPermaLink="true">https://chimitdorzhi.tech/blog/kakoy-zayavke-zvonit-pervoy-2026/</guid>
       <description><![CDATA[Когда заявок много, первым должен быть звонок тому, кто готов купить. Показываю, как отсортировать заявки и не потерять остальных.]]></description>
-      <content:encoded><![CDATA[<p><img src="https://chimitdorzhi.tech/blog/kakoy-zayavke-zvonit-pervoy-2026/cover.png" alt="Какой заявке звонить первой: как отделить горячих клиентов от любопытных"/></p>
+      <content:encoded><![CDATA[<p><img src="https://chimitdorzhi.tech/blog/kakoy-zayavke-zvonit-pervoy-2026/cover.jpg" alt="Какой заявке звонить первой: как отделить горячих клиентов от любопытных"/></p>
 
 <div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
 <li>Горячую заявку видно по признакам: конкретная задача, понятный срок, названный бюджет, повторный клиент, рекомендация, выбранная на сайте услуга.</li>
@@ -1200,19 +1323,19 @@
 <p>Два-три вопроса с кнопками дают CRM всё, чтобы поставить оценку и отсортировать список. Холодных при этом не бросаем: ведём их полезными сообщениями с согласия и напоминаниями.</p>
 <p>Я могу связать ваши формы, ботов и CRM так, чтобы заявка приходила уже с оценкой, а горячие не ждали до вечера. Напишите в Telegram, MAX или VK.</p>
 ]]></content:encoded>
-      <pubDate>Wed, 23 Sep 2026 14:24:00 GMT</pubDate>
+      <pubDate>Wed, 23 Sep 2026 15:12:00 GMT</pubDate>
       <category>Продажи и стартап</category>
       <author>noreply@chimitdorzhi.tech (Чимитдоржи Дарижапов)</author>
-      <enclosure url="https://chimitdorzhi.tech/blog/kakoy-zayavke-zvonit-pervoy-2026/cover.png" type="image/png" length="0"/>
-      <media:thumbnail url="https://chimitdorzhi.tech/blog/kakoy-zayavke-zvonit-pervoy-2026/cover.png"/>
-      <media:content url="https://chimitdorzhi.tech/blog/kakoy-zayavke-zvonit-pervoy-2026/cover.png" medium="image" type="image/png"/>
+      <enclosure url="https://chimitdorzhi.tech/blog/kakoy-zayavke-zvonit-pervoy-2026/cover.jpg" type="image/png" length="0"/>
+      <media:thumbnail url="https://chimitdorzhi.tech/blog/kakoy-zayavke-zvonit-pervoy-2026/cover.jpg"/>
+      <media:content url="https://chimitdorzhi.tech/blog/kakoy-zayavke-zvonit-pervoy-2026/cover.jpg" medium="image" type="image/png"/>
     </item>
     <item>
       <title>Как проверять работу менеджеров по продажам без слежки</title>
       <link>https://chimitdorzhi.tech/blog/kak-proveryat-menedzherov-bez-slezhki-2026/</link>
       <guid isPermaLink="true">https://chimitdorzhi.tech/blog/kak-proveryat-menedzherov-bez-slezhki-2026/</guid>
       <description><![CDATA[Контроль продаж не обязан быть слежкой. Разбираю, что смотреть, как разбирать звонки и как использовать это для роста, а не для наказаний.]]></description>
-      <content:encoded><![CDATA[<p><img src="https://chimitdorzhi.tech/blog/kak-proveryat-menedzherov-bez-slezhki-2026/cover.png" alt="Как проверять работу менеджеров по продажам без слежки"/></p>
+      <content:encoded><![CDATA[<p><img src="https://chimitdorzhi.tech/blog/kak-proveryat-menedzherov-bez-slezhki-2026/cover.jpg" alt="Как проверять работу менеджеров по продажам без слежки"/></p>
 
 <div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
 <li>Проверять менеджеров стоит по результатам работы с клиентом, а не по минутам в сети: скорость ответа, доля заявок, дошедших до предложения и до оплаты, причины отказов, заполненность CRM.</li>
@@ -1285,12 +1408,12 @@
 <p>Разбор разговоров, выборочный или с помощью ИИ-анализа, показывает, почему цифры такие. Результаты работают, когда превращаются в разборы и обновлённые скрипты, а не только в штрафы. О записи и анализе сотрудников и клиентов предупреждают заранее, а согласия обсуждают с юристом.</p>
 <p>Я могу настроить отчёт по отделу продаж, анализ звонков и скрипты в CRM так, чтобы руководитель видел, что происходит, а менеджеры получали понятную обратную связь. Напишите в Telegram, MAX или VK.</p>
 ]]></content:encoded>
-      <pubDate>Wed, 23 Sep 2026 15:12:00 GMT</pubDate>
+      <pubDate>Wed, 23 Sep 2026 16:00:00 GMT</pubDate>
       <category>Продажи и стартап</category>
       <author>noreply@chimitdorzhi.tech (Чимитдоржи Дарижапов)</author>
-      <enclosure url="https://chimitdorzhi.tech/blog/kak-proveryat-menedzherov-bez-slezhki-2026/cover.png" type="image/png" length="0"/>
-      <media:thumbnail url="https://chimitdorzhi.tech/blog/kak-proveryat-menedzherov-bez-slezhki-2026/cover.png"/>
-      <media:content url="https://chimitdorzhi.tech/blog/kak-proveryat-menedzherov-bez-slezhki-2026/cover.png" medium="image" type="image/png"/>
+      <enclosure url="https://chimitdorzhi.tech/blog/kak-proveryat-menedzherov-bez-slezhki-2026/cover.jpg" type="image/png" length="0"/>
+      <media:thumbnail url="https://chimitdorzhi.tech/blog/kak-proveryat-menedzherov-bez-slezhki-2026/cover.jpg"/>
+      <media:content url="https://chimitdorzhi.tech/blog/kak-proveryat-menedzherov-bez-slezhki-2026/cover.jpg" medium="image" type="image/png"/>
     </item>
     <item>
       <title>Клиенты пишут ночью и в выходные: ИИ-консультант, который отвечает и записывает</title>
@@ -1372,7 +1495,7 @@
 <p>ИИ-консультант отвечает по базе знаний, помогает выбрать услугу, записывает и собирает контакты с согласием. Он не обещает того, чего нет в базе, и передаёт сложное человеку. Чтобы он не выдумывал, нужны аккуратная база, проверка до запуска и регулярный просмотр диалогов.</p>
 <p>Я могу посчитать ваши обращения вне рабочего времени, собрать базу знаний, настроить консультанта в ваших каналах и сопровождать его после запуска. Напишите в Telegram, MAX или VK.</p>
 ]]></content:encoded>
-      <pubDate>Wed, 23 Sep 2026 16:00:00 GMT</pubDate>
+      <pubDate>Wed, 23 Sep 2026 16:48:00 GMT</pubDate>
       <category>AI для разработчиков</category>
       <author>noreply@chimitdorzhi.tech (Чимитдоржи Дарижапов)</author>
       <enclosure url="https://chimitdorzhi.tech/blog/klienty-pishut-nochyu-ii-konsultant-2026/cover.png" type="image/png" length="0"/>
@@ -1384,7 +1507,7 @@
       <link>https://chimitdorzhi.tech/blog/menedzhery-ne-perezvanivayut-2026/</link>
       <guid isPermaLink="true">https://chimitdorzhi.tech/blog/menedzhery-ne-perezvanivayut-2026/</guid>
       <description><![CDATA[Скорость ответа на заявку часто решает больше, чем цена. Показываю, как её измерить и настроить так, чтобы заявки не остывали.]]></description>
-      <content:encoded><![CDATA[<p><img src="https://chimitdorzhi.tech/blog/menedzhery-ne-perezvanivayut-2026/cover.png" alt="Менеджеры не перезванивают: как контролировать скорость ответа на заявку"/></p>
+      <content:encoded><![CDATA[<p><img src="https://chimitdorzhi.tech/blog/menedzhery-ne-perezvanivayut-2026/cover.jpg" alt="Менеджеры не перезванивают: как контролировать скорость ответа на заявку"/></p>
 
 <div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
 <li>Клиент обычно пишет в несколько компаний сразу, и разговор чаще достаётся тому, кто ответил первым. Скорость ответа — не вежливость, а часть продажи.</li>
@@ -1459,19 +1582,19 @@
 <p>Помогают простые правила: заявка сразу ответственному, напоминание, передача другому и автоответ клиенту. А недельный отчёт превращает спор о том, кто перезвонил, в спокойный разговор о причинах. Наказания имеют смысл только после того, как убраны перегрузка и неудобные каналы.</p>
 <p>Я могу замерить скорость ответа на ваши заявки, настроить уведомления, напоминания и передачу, а также собрать короткий отчёт для руководителя. Напишите в Telegram, MAX или VK.</p>
 ]]></content:encoded>
-      <pubDate>Wed, 23 Sep 2026 16:48:00 GMT</pubDate>
+      <pubDate>Wed, 23 Sep 2026 17:36:00 GMT</pubDate>
       <category>Продажи и стартап</category>
       <author>noreply@chimitdorzhi.tech (Чимитдоржи Дарижапов)</author>
-      <enclosure url="https://chimitdorzhi.tech/blog/menedzhery-ne-perezvanivayut-2026/cover.png" type="image/png" length="0"/>
-      <media:thumbnail url="https://chimitdorzhi.tech/blog/menedzhery-ne-perezvanivayut-2026/cover.png"/>
-      <media:content url="https://chimitdorzhi.tech/blog/menedzhery-ne-perezvanivayut-2026/cover.png" medium="image" type="image/png"/>
+      <enclosure url="https://chimitdorzhi.tech/blog/menedzhery-ne-perezvanivayut-2026/cover.jpg" type="image/png" length="0"/>
+      <media:thumbnail url="https://chimitdorzhi.tech/blog/menedzhery-ne-perezvanivayut-2026/cover.jpg"/>
+      <media:content url="https://chimitdorzhi.tech/blog/menedzhery-ne-perezvanivayut-2026/cover.jpg" medium="image" type="image/png"/>
     </item>
     <item>
       <title>Заявки есть, продаж нет: где теряются клиенты между заявкой и оплатой</title>
       <link>https://chimitdorzhi.tech/blog/zayavki-est-prodazh-net-2026/</link>
       <guid isPermaLink="true">https://chimitdorzhi.tech/blog/zayavki-est-prodazh-net-2026/</guid>
       <description><![CDATA[Если заявки приходят, а денег нет, проблема почти всегда между заявкой и оплатой. Разбираю этапы, где теряются клиенты, и как найти своё узкое место.]]></description>
-      <content:encoded><![CDATA[<p><img src="https://chimitdorzhi.tech/blog/zayavki-est-prodazh-net-2026/cover.png" alt="Заявки есть, продаж нет: где теряются клиенты между заявкой и оплатой"/></p>
+      <content:encoded><![CDATA[<p><img src="https://chimitdorzhi.tech/blog/zayavki-est-prodazh-net-2026/cover.jpg" alt="Заявки есть, продаж нет: где теряются клиенты между заявкой и оплатой"/></p>
 
 <div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
 <li>Если заявки идут, а продаж мало, проблема почти никогда не в рекламе. Клиенты теряются на пути от заявки до оплаты, и у этого пути есть конкретные шаги.</li>
@@ -1545,12 +1668,12 @@
 <p>Найти своё узкое место можно за вечер: посчитать, сколько заявок за месяц дошло до каждого этапа, и посмотреть, где провал больше. Начинать ремонт стоит с приёма заявок и скорости ответа, потом переходить к повторным контактам и качеству разговора.</p>
 <p>Я могу посчитать вашу воронку по этапам, найти, где уходят клиенты, и настроить приём заявок, напоминания и отчёт так, чтобы путь был виден целиком. Напишите в Telegram, MAX или VK.</p>
 ]]></content:encoded>
-      <pubDate>Wed, 23 Sep 2026 17:36:00 GMT</pubDate>
+      <pubDate>Wed, 23 Sep 2026 18:24:00 GMT</pubDate>
       <category>Продажи и стартап</category>
       <author>noreply@chimitdorzhi.tech (Чимитдоржи Дарижапов)</author>
-      <enclosure url="https://chimitdorzhi.tech/blog/zayavki-est-prodazh-net-2026/cover.png" type="image/png" length="0"/>
-      <media:thumbnail url="https://chimitdorzhi.tech/blog/zayavki-est-prodazh-net-2026/cover.png"/>
-      <media:content url="https://chimitdorzhi.tech/blog/zayavki-est-prodazh-net-2026/cover.png" medium="image" type="image/png"/>
+      <enclosure url="https://chimitdorzhi.tech/blog/zayavki-est-prodazh-net-2026/cover.jpg" type="image/png" length="0"/>
+      <media:thumbnail url="https://chimitdorzhi.tech/blog/zayavki-est-prodazh-net-2026/cover.jpg"/>
+      <media:content url="https://chimitdorzhi.tech/blog/zayavki-est-prodazh-net-2026/cover.jpg" medium="image" type="image/png"/>
     </item>
     <item>
       <title>Мастер на дому или частный специалист: запись, оплата и напоминания без администратора</title>
@@ -1638,7 +1761,7 @@
 <p>Напоминания, перенос кнопкой, предоплата по желанию и база клиентов с историей берут на себя работу администратора. Рабочие часы в записи защищают личное время, а адрес и телефон заранее делают выезды безопаснее. Вопросы по чекам и налогам — к бухгалтеру.</p>
 <p>Я могу настроить запись под ваш график и услуги: ссылку, свободные окна, напоминания, оплату и базу клиентов, с удалённой настройкой и понятной инструкцией. Напишите в Telegram, MAX или VK.</p>
 ]]></content:encoded>
-      <pubDate>Wed, 23 Sep 2026 18:24:00 GMT</pubDate>
+      <pubDate>Wed, 23 Sep 2026 19:12:00 GMT</pubDate>
       <category>Отрасли</category>
       <author>noreply@chimitdorzhi.tech (Чимитдоржи Дарижапов)</author>
       <enclosure url="https://chimitdorzhi.tech/blog/master-na-domu-zapis-bez-administratora-2026/cover.png" type="image/png" length="0"/>
@@ -1650,7 +1773,7 @@
       <link>https://chimitdorzhi.tech/blog/avtomatizaciya-dlya-ip-bez-sotrudnikov-2026/</link>
       <guid isPermaLink="true">https://chimitdorzhi.tech/blog/avtomatizaciya-dlya-ip-bez-sotrudnikov-2026/</guid>
       <description><![CDATA[Когда всё делает один человек, лишние сервисы только мешают. Разбираю, что действительно разгрузит ИП, а что пока рано.]]></description>
-      <content:encoded><![CDATA[<p><img src="https://chimitdorzhi.tech/blog/avtomatizaciya-dlya-ip-bez-sotrudnikov-2026/cover.png" alt="Автоматизация для ИП без сотрудников: что имеет смысл, а что нет"/></p>
+      <content:encoded><![CDATA[<p><img src="https://chimitdorzhi.tech/blog/avtomatizaciya-dlya-ip-bez-sotrudnikov-2026/cover.jpg" alt="Автоматизация для ИП без сотрудников: что имеет смысл, а что нет"/></p>
 
 <div class="blog-tldr">
   <h3>Коротко (TL;DR)</h3>
@@ -1734,9 +1857,9 @@
       <pubDate>Wed, 23 Sep 2026 19:12:00 GMT</pubDate>
       <category>Продажи и стартап</category>
       <author>noreply@chimitdorzhi.tech (Чимитдоржи Дарижапов)</author>
-      <enclosure url="https://chimitdorzhi.tech/blog/avtomatizaciya-dlya-ip-bez-sotrudnikov-2026/cover.png" type="image/png" length="0"/>
-      <media:thumbnail url="https://chimitdorzhi.tech/blog/avtomatizaciya-dlya-ip-bez-sotrudnikov-2026/cover.png"/>
-      <media:content url="https://chimitdorzhi.tech/blog/avtomatizaciya-dlya-ip-bez-sotrudnikov-2026/cover.png" medium="image" type="image/png"/>
+      <enclosure url="https://chimitdorzhi.tech/blog/avtomatizaciya-dlya-ip-bez-sotrudnikov-2026/cover.jpg" type="image/png" length="0"/>
+      <media:thumbnail url="https://chimitdorzhi.tech/blog/avtomatizaciya-dlya-ip-bez-sotrudnikov-2026/cover.jpg"/>
+      <media:content url="https://chimitdorzhi.tech/blog/avtomatizaciya-dlya-ip-bez-sotrudnikov-2026/cover.jpg" medium="image" type="image/png"/>
     </item>
     <item>
       <title>Открытые ИИ-модели 2022–2026: полный путеводитель для бизнеса</title>
@@ -1938,7 +2061,7 @@
       <link>https://chimitdorzhi.tech/blog/audit-sayta-po-152-fz-dokazatelstva-keys-2026/</link>
       <guid isPermaLink="true">https://chimitdorzhi.tech/blog/audit-sayta-po-152-fz-dokazatelstva-keys-2026/</guid>
       <description><![CDATA[Проверил не документы, а поведение сайта учреждения культуры. Метрика с Вебвизором и отраслевой счётчик ставили 12 cookie за 4 секунды до согласия и не реагировали на отказ. Ещё шесть нарушений, отчёт на 13 страниц с доказательствами.]]></description>
-      <content:encoded><![CDATA[<p><img src="https://chimitdorzhi.tech/blog/audit-sayta-po-152-fz-dokazatelstva-keys-2026/cover.png" alt="Аудит сайта по закону о персональных данных: с доказательствами"/></p>
+      <content:encoded><![CDATA[<p><img src="https://chimitdorzhi.tech/blog/audit-sayta-po-152-fz-dokazatelstva-keys-2026/cover.jpg" alt="Аудит сайта по закону о персональных данных: с доказательствами"/></p>
 
 <div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
 <li>Проверил сайт учреждения культуры на соответствие закону о персональных данных. Итог — отчёт на 13 страниц в PDF, каждая находка подтверждена скриншотом и журналом сетевых запросов.</li>
@@ -2011,16 +2134,16 @@
       <pubDate>Tue, 22 Sep 2026 04:48:00 GMT</pubDate>
       <category>Кейсы</category>
       <author>noreply@chimitdorzhi.tech (Чимитдоржи Дарижапов)</author>
-      <enclosure url="https://chimitdorzhi.tech/blog/audit-sayta-po-152-fz-dokazatelstva-keys-2026/cover.png" type="image/png" length="0"/>
-      <media:thumbnail url="https://chimitdorzhi.tech/blog/audit-sayta-po-152-fz-dokazatelstva-keys-2026/cover.png"/>
-      <media:content url="https://chimitdorzhi.tech/blog/audit-sayta-po-152-fz-dokazatelstva-keys-2026/cover.png" medium="image" type="image/png"/>
+      <enclosure url="https://chimitdorzhi.tech/blog/audit-sayta-po-152-fz-dokazatelstva-keys-2026/cover.jpg" type="image/png" length="0"/>
+      <media:thumbnail url="https://chimitdorzhi.tech/blog/audit-sayta-po-152-fz-dokazatelstva-keys-2026/cover.jpg"/>
+      <media:content url="https://chimitdorzhi.tech/blog/audit-sayta-po-152-fz-dokazatelstva-keys-2026/cover.jpg" medium="image" type="image/png"/>
     </item>
     <item>
       <title>Распознавание и перевод старомонгольского текста по фото</title>
       <link>https://chimitdorzhi.tech/blog/raspoznavanie-staromongolskogo-teksta-keys-2026/</link>
       <guid isPermaLink="true">https://chimitdorzhi.tech/blog/raspoznavanie-staromongolskogo-teksta-keys-2026/</guid>
       <description><![CDATA[Китайские сервисы оказались недоступны, поэтому текст на старописьменной монгольской вязи распознал открытой моделью image2bichig и сверил с опубликованной версией легенды. Три слоя результата, отчёт на 5 страниц и чёткая граница между надёжным и черновым.]]></description>
-      <content:encoded><![CDATA[<p><img src="https://chimitdorzhi.tech/blog/raspoznavanie-staromongolskogo-teksta-keys-2026/cover.png" alt="Распознавание и перевод старомонгольского текста по фото"/></p>
+      <content:encoded><![CDATA[<p><img src="https://chimitdorzhi.tech/blog/raspoznavanie-staromongolskogo-teksta-keys-2026/cover.jpg" alt="Распознавание и перевод старомонгольского текста по фото"/></p>
 
 <div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
 <li>Задача: распознать по фотографии текст на старописьменной монгольской вязи и перевести его. Мини-программы WeChat и китайские сервисы распознавания оказались недоступны.</li>
@@ -2089,16 +2212,16 @@
       <pubDate>Tue, 22 Sep 2026 05:36:00 GMT</pubDate>
       <category>Кейсы</category>
       <author>noreply@chimitdorzhi.tech (Чимитдоржи Дарижапов)</author>
-      <enclosure url="https://chimitdorzhi.tech/blog/raspoznavanie-staromongolskogo-teksta-keys-2026/cover.png" type="image/png" length="0"/>
-      <media:thumbnail url="https://chimitdorzhi.tech/blog/raspoznavanie-staromongolskogo-teksta-keys-2026/cover.png"/>
-      <media:content url="https://chimitdorzhi.tech/blog/raspoznavanie-staromongolskogo-teksta-keys-2026/cover.png" medium="image" type="image/png"/>
+      <enclosure url="https://chimitdorzhi.tech/blog/raspoznavanie-staromongolskogo-teksta-keys-2026/cover.jpg" type="image/png" length="0"/>
+      <media:thumbnail url="https://chimitdorzhi.tech/blog/raspoznavanie-staromongolskogo-teksta-keys-2026/cover.jpg"/>
+      <media:content url="https://chimitdorzhi.tech/blog/raspoznavanie-staromongolskogo-teksta-keys-2026/cover.jpg" medium="image" type="image/png"/>
     </item>
     <item>
       <title>Мультсериал по либретто спектакля, собранный ИИ</title>
       <link>https://chimitdorzhi.tech/blog/multserial-po-libretto-ii-keys-2026/</link>
       <guid isPermaLink="true">https://chimitdorzhi.tech/blog/multserial-po-libretto-ii-keys-2026/</guid>
       <description><![CDATA[По либретто национального спектакля собрал пробный ролик, трейлер на 54 секунды и первую вертикальную серию на 52 секунды. Весь сюжет разбит на 10 серий с крючками. Серия обошлась примерно в 7,8 доллара, пока нигде не опубликовано.]]></description>
-      <content:encoded><![CDATA[<p><img src="https://chimitdorzhi.tech/blog/multserial-po-libretto-ii-keys-2026/cover.png" alt="Мультсериал по либретто спектакля, собранный ИИ"/></p>
+      <content:encoded><![CDATA[<p><img src="https://chimitdorzhi.tech/blog/multserial-po-libretto-ii-keys-2026/cover.jpg" alt="Мультсериал по либретто спектакля, собранный ИИ"/></p>
 
 <div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
 <li>По либретто национального спектакля и тайминг-листу собрал пробный ролик, трейлер (третья версия, 54 секунды) и первую серию мультсериала — 52 секунды, вертикальный формат.</li>
@@ -2172,16 +2295,16 @@
       <pubDate>Tue, 22 Sep 2026 06:24:00 GMT</pubDate>
       <category>Кейсы</category>
       <author>noreply@chimitdorzhi.tech (Чимитдоржи Дарижапов)</author>
-      <enclosure url="https://chimitdorzhi.tech/blog/multserial-po-libretto-ii-keys-2026/cover.png" type="image/png" length="0"/>
-      <media:thumbnail url="https://chimitdorzhi.tech/blog/multserial-po-libretto-ii-keys-2026/cover.png"/>
-      <media:content url="https://chimitdorzhi.tech/blog/multserial-po-libretto-ii-keys-2026/cover.png" medium="image" type="image/png"/>
+      <enclosure url="https://chimitdorzhi.tech/blog/multserial-po-libretto-ii-keys-2026/cover.jpg" type="image/png" length="0"/>
+      <media:thumbnail url="https://chimitdorzhi.tech/blog/multserial-po-libretto-ii-keys-2026/cover.jpg"/>
+      <media:content url="https://chimitdorzhi.tech/blog/multserial-po-libretto-ii-keys-2026/cover.jpg" medium="image" type="image/png"/>
     </item>
     <item>
       <title>Конвейер роликов «фото + инфографика» с автоответами по кодовому слову</title>
       <link>https://chimitdorzhi.tech/blog/konveyer-rolikov-foto-infografika-keys-2026/</link>
       <guid isPermaLink="true">https://chimitdorzhi.tech/blog/konveyer-rolikov-foto-infografika-keys-2026/</guid>
       <description><![CDATA[HTML-шаблон, покадровый рендер с проверкой, что текст не заходит на лицо, публикация и автоответы по кодовому слову. Сделан 91 ролик, пустую воронку объяснила одна настройка комментариев, первый живой лид — это начало, а не результат.]]></description>
-      <content:encoded><![CDATA[<p><img src="https://chimitdorzhi.tech/blog/konveyer-rolikov-foto-infografika-keys-2026/cover.png" alt="Конвейер роликов «фото + инфографика» с автоответами по кодовому слову"/></p>
+      <content:encoded><![CDATA[<p><img src="https://chimitdorzhi.tech/blog/konveyer-rolikov-foto-infografika-keys-2026/cover.jpg" alt="Конвейер роликов «фото + инфографика» с автоответами по кодовому слову"/></p>
 
 <div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
 <li>Для своего маркетинга я собрал конвейер вертикальных роликов в формате «фото + инфографика» с автоответами на кодовое слово в комментариях и директе.</li>
@@ -2250,16 +2373,16 @@
       <pubDate>Tue, 22 Sep 2026 07:12:00 GMT</pubDate>
       <category>Кейсы</category>
       <author>noreply@chimitdorzhi.tech (Чимитдоржи Дарижапов)</author>
-      <enclosure url="https://chimitdorzhi.tech/blog/konveyer-rolikov-foto-infografika-keys-2026/cover.png" type="image/png" length="0"/>
-      <media:thumbnail url="https://chimitdorzhi.tech/blog/konveyer-rolikov-foto-infografika-keys-2026/cover.png"/>
-      <media:content url="https://chimitdorzhi.tech/blog/konveyer-rolikov-foto-infografika-keys-2026/cover.png" medium="image" type="image/png"/>
+      <enclosure url="https://chimitdorzhi.tech/blog/konveyer-rolikov-foto-infografika-keys-2026/cover.jpg" type="image/png" length="0"/>
+      <media:thumbnail url="https://chimitdorzhi.tech/blog/konveyer-rolikov-foto-infografika-keys-2026/cover.jpg"/>
+      <media:content url="https://chimitdorzhi.tech/blog/konveyer-rolikov-foto-infografika-keys-2026/cover.jpg" medium="image" type="image/png"/>
     </item>
     <item>
       <title>Инструменты для партнёров турклуба: повод заговорить вместо голой ссылки</title>
       <link>https://chimitdorzhi.tech/blog/instrumenty-dlya-partnerov-turkluba-keys-2026/</link>
       <guid isPermaLink="true">https://chimitdorzhi.tech/blog/instrumenty-dlya-partnerov-turkluba-keys-2026/</guid>
       <description><![CDATA[Тест на 6 вопросов, «угадай цену», подбор поездки по месяцу, открытка, тренажёр возражений и калькулятор окупаемости на chimitdorzhi.space. Личные ссылки получили 16 партнёров, а первый отзыв показал: голую ссылку не открывают, нужна подводка.]]></description>
-      <content:encoded><![CDATA[<p><img src="https://chimitdorzhi.tech/blog/instrumenty-dlya-partnerov-turkluba-keys-2026/cover.png" alt="Инструменты для партнёров турклуба: повод заговорить вместо голой ссылки"/></p>
+      <content:encoded><![CDATA[<p><img src="https://chimitdorzhi.tech/blog/instrumenty-dlya-partnerov-turkluba-keys-2026/cover.jpg" alt="Инструменты для партнёров турклуба: повод заговорить вместо голой ссылки"/></p>
 
 <div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
 <li>Туристическому клубу с партнёрской сетью нужны были поводы начать разговор с холодными контактами, а не очередная ссылка «посмотри, что у нас есть».</li>
@@ -2336,16 +2459,16 @@
       <pubDate>Tue, 22 Sep 2026 08:00:00 GMT</pubDate>
       <category>Кейсы</category>
       <author>noreply@chimitdorzhi.tech (Чимитдоржи Дарижапов)</author>
-      <enclosure url="https://chimitdorzhi.tech/blog/instrumenty-dlya-partnerov-turkluba-keys-2026/cover.png" type="image/png" length="0"/>
-      <media:thumbnail url="https://chimitdorzhi.tech/blog/instrumenty-dlya-partnerov-turkluba-keys-2026/cover.png"/>
-      <media:content url="https://chimitdorzhi.tech/blog/instrumenty-dlya-partnerov-turkluba-keys-2026/cover.png" medium="image" type="image/png"/>
+      <enclosure url="https://chimitdorzhi.tech/blog/instrumenty-dlya-partnerov-turkluba-keys-2026/cover.jpg" type="image/png" length="0"/>
+      <media:thumbnail url="https://chimitdorzhi.tech/blog/instrumenty-dlya-partnerov-turkluba-keys-2026/cover.jpg"/>
+      <media:content url="https://chimitdorzhi.tech/blog/instrumenty-dlya-partnerov-turkluba-keys-2026/cover.jpg" medium="image" type="image/png"/>
     </item>
     <item>
       <title>Бот спортивной аналитики: как я проверил модель и признал, что рынок точнее</title>
       <link>https://chimitdorzhi.tech/blog/bot-sportivnoy-analitiki-backtest-keys-2026/</link>
       <guid isPermaLink="true">https://chimitdorzhi.tech/blog/bot-sportivnoy-analitiki-backtest-keys-2026/</guid>
       <description><![CDATA[Бэктест на 4150 матчах дал 51,3% попаданий против 47,3% у правила «всегда хозяева», но линия контор угадывает 53,8% против 51,5% у модели. Я признал, что рынок точнее, и перестроил продукт на поиск лучшей цены.]]></description>
-      <content:encoded><![CDATA[<p><img src="https://chimitdorzhi.tech/blog/bot-sportivnoy-analitiki-backtest-keys-2026/cover.png" alt="Бот спортивной аналитики: как я проверил модель и признал, что рынок точнее"/></p>
+      <content:encoded><![CDATA[<p><img src="https://chimitdorzhi.tech/blog/bot-sportivnoy-analitiki-backtest-keys-2026/cover.jpg" alt="Бот спортивной аналитики: как я проверил модель и признал, что рынок точнее"/></p>
 
 <div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
 <li>Заказчик хотел бота, который считает вероятности исходов матчей, ищет цену лучше линии, раскладывает бюджет по экспрессу на 15 матчей и ведёт банк с журналом.</li>
@@ -2422,16 +2545,16 @@
       <pubDate>Tue, 22 Sep 2026 08:48:00 GMT</pubDate>
       <category>Кейсы</category>
       <author>noreply@chimitdorzhi.tech (Чимитдоржи Дарижапов)</author>
-      <enclosure url="https://chimitdorzhi.tech/blog/bot-sportivnoy-analitiki-backtest-keys-2026/cover.png" type="image/png" length="0"/>
-      <media:thumbnail url="https://chimitdorzhi.tech/blog/bot-sportivnoy-analitiki-backtest-keys-2026/cover.png"/>
-      <media:content url="https://chimitdorzhi.tech/blog/bot-sportivnoy-analitiki-backtest-keys-2026/cover.png" medium="image" type="image/png"/>
+      <enclosure url="https://chimitdorzhi.tech/blog/bot-sportivnoy-analitiki-backtest-keys-2026/cover.jpg" type="image/png" length="0"/>
+      <media:thumbnail url="https://chimitdorzhi.tech/blog/bot-sportivnoy-analitiki-backtest-keys-2026/cover.jpg"/>
+      <media:content url="https://chimitdorzhi.tech/blog/bot-sportivnoy-analitiki-backtest-keys-2026/cover.jpg" medium="image" type="image/png"/>
     </item>
     <item>
       <title>Корпоративный сайт компании из ОАЭ: два языка и анимация без шаблонности</title>
       <link>https://chimitdorzhi.tech/blog/korporativnyy-sayt-kompanii-oae-keys-2026/</link>
       <guid isPermaLink="true">https://chimitdorzhi.tech/blog/korporativnyy-sayt-kompanii-oae-keys-2026/</guid>
       <description><![CDATA[Официальный сайт компании из свободной зоны ОАЭ на двух языках. Задача — не выглядеть сделанным ИИ и хорошо работать на телефоне. Антиква, палитра из логотипа, GSAP-силуэт небоскрёбов, SEO и GEO, замеренные контраст и скорость.]]></description>
-      <content:encoded><![CDATA[<p><img src="https://chimitdorzhi.tech/blog/korporativnyy-sayt-kompanii-oae-keys-2026/cover.png" alt="Корпоративный сайт компании из ОАЭ: два языка и анимация без шаблонности"/></p>
+      <content:encoded><![CDATA[<p><img src="https://chimitdorzhi.tech/blog/korporativnyy-sayt-kompanii-oae-keys-2026/cover.jpg" alt="Корпоративный сайт компании из ОАЭ: два языка и анимация без шаблонности"/></p>
 
 <div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
 <li>Компания из свободной зоны ОАЭ, официальный сайт на двух языках. Главные требования: не выглядеть сделанным ИИ и хорошо работать на телефоне.</li>
@@ -2500,16 +2623,16 @@
       <pubDate>Tue, 22 Sep 2026 09:36:00 GMT</pubDate>
       <category>Кейсы</category>
       <author>noreply@chimitdorzhi.tech (Чимитдоржи Дарижапов)</author>
-      <enclosure url="https://chimitdorzhi.tech/blog/korporativnyy-sayt-kompanii-oae-keys-2026/cover.png" type="image/png" length="0"/>
-      <media:thumbnail url="https://chimitdorzhi.tech/blog/korporativnyy-sayt-kompanii-oae-keys-2026/cover.png"/>
-      <media:content url="https://chimitdorzhi.tech/blog/korporativnyy-sayt-kompanii-oae-keys-2026/cover.png" medium="image" type="image/png"/>
+      <enclosure url="https://chimitdorzhi.tech/blog/korporativnyy-sayt-kompanii-oae-keys-2026/cover.jpg" type="image/png" length="0"/>
+      <media:thumbnail url="https://chimitdorzhi.tech/blog/korporativnyy-sayt-kompanii-oae-keys-2026/cover.jpg"/>
+      <media:content url="https://chimitdorzhi.tech/blog/korporativnyy-sayt-kompanii-oae-keys-2026/cover.jpg" medium="image" type="image/png"/>
     </item>
     <item>
       <title>Паллетный учёт на ТСД для оптовика: приложение под 1С</title>
       <link>https://chimitdorzhi.tech/blog/palletnyy-uchet-tsd-1c-keys-2026/</link>
       <guid isPermaLink="true">https://chimitdorzhi.tech/blog/palletnyy-uchet-tsd-1c-keys-2026/</guid>
       <description><![CDATA[Оптовик мясной продукции, 7 терминалов на Android. Приложение для учёта паллет рядом с 1С УТ: приёмка фуры, разделение, отгрузка, этикетки с QR и протокол обмена с защитой от дублей. Разработано и отдано демо-сборкой, подключение к 1С — следующий этап.]]></description>
-      <content:encoded><![CDATA[<p><img src="https://chimitdorzhi.tech/blog/palletnyy-uchet-tsd-1c-keys-2026/cover.png" alt="Паллетный учёт на ТСД для оптовика: приложение под 1С"/></p>
+      <content:encoded><![CDATA[<p><img src="https://chimitdorzhi.tech/blog/palletnyy-uchet-tsd-1c-keys-2026/cover.jpg" alt="Паллетный учёт на ТСД для оптовика: приложение под 1С"/></p>
 
 <div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
 <li>Оптовик мясной продукции, 7 терминалов сбора данных на Android. Нужен учёт паллет: приёмка фуры, формирование, разделение и расформирование, отгрузка целыми паллетами и россыпью. Товарный учёт в 1С УТ не трогаем.</li>
@@ -2579,16 +2702,16 @@
       <pubDate>Tue, 22 Sep 2026 10:24:00 GMT</pubDate>
       <category>Кейсы</category>
       <author>noreply@chimitdorzhi.tech (Чимитдоржи Дарижапов)</author>
-      <enclosure url="https://chimitdorzhi.tech/blog/palletnyy-uchet-tsd-1c-keys-2026/cover.png" type="image/png" length="0"/>
-      <media:thumbnail url="https://chimitdorzhi.tech/blog/palletnyy-uchet-tsd-1c-keys-2026/cover.png"/>
-      <media:content url="https://chimitdorzhi.tech/blog/palletnyy-uchet-tsd-1c-keys-2026/cover.png" medium="image" type="image/png"/>
+      <enclosure url="https://chimitdorzhi.tech/blog/palletnyy-uchet-tsd-1c-keys-2026/cover.jpg" type="image/png" length="0"/>
+      <media:thumbnail url="https://chimitdorzhi.tech/blog/palletnyy-uchet-tsd-1c-keys-2026/cover.jpg"/>
+      <media:content url="https://chimitdorzhi.tech/blog/palletnyy-uchet-tsd-1c-keys-2026/cover.jpg" medium="image" type="image/png"/>
     </item>
     <item>
       <title>Каталог косметики: пустая витрина, 591 товар и связь с кассой</title>
       <link>https://chimitdorzhi.tech/blog/katalog-kosmetiki-sinhronizaciya-kassy-keys-2026/</link>
       <guid isPermaLink="true">https://chimitdorzhi.tech/blog/katalog-kosmetiki-sinhronizaciya-kassy-keys-2026/</guid>
       <description><![CDATA[Сеть магазинов косметики: каталог заполнен, а сайт показывает демо-товары в долларах. Две причины пустой витрины, разметка 591 товара, фильтр по бренду и связь кассы с сайтом без платного посредника. Остатки пока честно помечены как непроверенные.]]></description>
-      <content:encoded><![CDATA[<p><img src="https://chimitdorzhi.tech/blog/katalog-kosmetiki-sinhronizaciya-kassy-keys-2026/cover.png" alt="Каталог косметики: пустая витрина, 591 товар и связь с кассой"/></p>
+      <content:encoded><![CDATA[<p><img src="https://chimitdorzhi.tech/blog/katalog-kosmetiki-sinhronizaciya-kassy-keys-2026/cover.jpg" alt="Каталог косметики: пустая витрина, 591 товар и связь с кассой"/></p>
 
 <div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
 <li>Сеть магазинов косметики, сайт на конструкторе. Каталог был заполнен, а витрина показывала демо-товары с ценами в долларах. Нашёл две причины: не тот источник у блока магазина и 591 товар, поштучно выключенный в видимости.</li>
@@ -2659,16 +2782,16 @@
       <pubDate>Tue, 22 Sep 2026 11:12:00 GMT</pubDate>
       <category>Кейсы</category>
       <author>noreply@chimitdorzhi.tech (Чимитдоржи Дарижапов)</author>
-      <enclosure url="https://chimitdorzhi.tech/blog/katalog-kosmetiki-sinhronizaciya-kassy-keys-2026/cover.png" type="image/png" length="0"/>
-      <media:thumbnail url="https://chimitdorzhi.tech/blog/katalog-kosmetiki-sinhronizaciya-kassy-keys-2026/cover.png"/>
-      <media:content url="https://chimitdorzhi.tech/blog/katalog-kosmetiki-sinhronizaciya-kassy-keys-2026/cover.png" medium="image" type="image/png"/>
+      <enclosure url="https://chimitdorzhi.tech/blog/katalog-kosmetiki-sinhronizaciya-kassy-keys-2026/cover.jpg" type="image/png" length="0"/>
+      <media:thumbnail url="https://chimitdorzhi.tech/blog/katalog-kosmetiki-sinhronizaciya-kassy-keys-2026/cover.jpg"/>
+      <media:content url="https://chimitdorzhi.tech/blog/katalog-kosmetiki-sinhronizaciya-kassy-keys-2026/cover.jpg" medium="image" type="image/png"/>
     </item>
     <item>
       <title>Абонементы и пакеты услуг: как продавать и не запутаться в остатках визитов</title>
       <link>https://chimitdorzhi.tech/blog/abonementy-i-pakety-uslug-2026/</link>
       <guid isPermaLink="true">https://chimitdorzhi.tech/blog/abonementy-i-pakety-uslug-2026/</guid>
       <description><![CDATA[Абонемент даёт деньги вперёд, но легко превращается в споры об остатке. Разбираю, как его упаковать и вести учёт без тетради.]]></description>
-      <content:encoded><![CDATA[<p><img src="https://chimitdorzhi.tech/blog/abonementy-i-pakety-uslug-2026/cover.png" alt="Абонементы и пакеты услуг: как продавать и не запутаться в остатках визитов"/></p>
+      <content:encoded><![CDATA[<p><img src="https://chimitdorzhi.tech/blog/abonementy-i-pakety-uslug-2026/cover.jpg" alt="Абонементы и пакеты услуг: как продавать и не запутаться в остатках визитов"/></p>
 
 <div class="blog-tldr">
   <h3>Коротко (TL;DR)</h3>
@@ -2750,9 +2873,9 @@
       <pubDate>Tue, 22 Sep 2026 12:00:00 GMT</pubDate>
       <category>Продажи и стартап</category>
       <author>noreply@chimitdorzhi.tech (Чимитдоржи Дарижапов)</author>
-      <enclosure url="https://chimitdorzhi.tech/blog/abonementy-i-pakety-uslug-2026/cover.png" type="image/png" length="0"/>
-      <media:thumbnail url="https://chimitdorzhi.tech/blog/abonementy-i-pakety-uslug-2026/cover.png"/>
-      <media:content url="https://chimitdorzhi.tech/blog/abonementy-i-pakety-uslug-2026/cover.png" medium="image" type="image/png"/>
+      <enclosure url="https://chimitdorzhi.tech/blog/abonementy-i-pakety-uslug-2026/cover.jpg" type="image/png" length="0"/>
+      <media:thumbnail url="https://chimitdorzhi.tech/blog/abonementy-i-pakety-uslug-2026/cover.jpg"/>
+      <media:content url="https://chimitdorzhi.tech/blog/abonementy-i-pakety-uslug-2026/cover.jpg" medium="image" type="image/png"/>
     </item>
     <item>
       <title>Карта лояльности в телефоне без приложения: бот, кошелёк телефона и QR</title>
@@ -5025,7 +5148,7 @@
       <link>https://chimitdorzhi.tech/blog/qwen-livetranslate-sinhronnyy-perevod-2026/</link>
       <guid isPermaLink="true">https://chimitdorzhi.tech/blog/qwen-livetranslate-sinhronnyy-perevod-2026/</guid>
       <description><![CDATA[Синхронный перевод дошёл до задержки в пару секунд. Разбираю, где он уже полезен бизнесу, а где ошибка в цифрах обойдётся дорого.]]></description>
-      <content:encoded><![CDATA[<p><img src="https://chimitdorzhi.tech/blog/qwen-livetranslate-sinhronnyy-perevod-2026/cover.png" alt="Синхронный перевод в реальном времени: Qwen3.8-LiveTranslate и где это нужно бизнесу"/></p>
+      <content:encoded><![CDATA[<p><img src="https://chimitdorzhi.tech/blog/qwen-livetranslate-sinhronnyy-perevod-2026/cover.jpg" alt="Синхронный перевод в реальном времени: Qwen3.8-LiveTranslate и где это нужно бизнесу"/></p>
 
 <div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
 <li>Qwen выпустил Qwen3.8-LiveTranslate — модель синхронного перевода в реальном времени. Заявлено понимание 60 языков и различение нескольких говорящих с сохранением их голосов в переводе.</li>
@@ -5097,16 +5220,16 @@
       <pubDate>Mon, 21 Sep 2026 16:00:00 GMT</pubDate>
       <category>Экспертный блог</category>
       <author>noreply@chimitdorzhi.tech (Чимитдоржи Дарижапов)</author>
-      <enclosure url="https://chimitdorzhi.tech/blog/qwen-livetranslate-sinhronnyy-perevod-2026/cover.png" type="image/png" length="0"/>
-      <media:thumbnail url="https://chimitdorzhi.tech/blog/qwen-livetranslate-sinhronnyy-perevod-2026/cover.png"/>
-      <media:content url="https://chimitdorzhi.tech/blog/qwen-livetranslate-sinhronnyy-perevod-2026/cover.png" medium="image" type="image/png"/>
+      <enclosure url="https://chimitdorzhi.tech/blog/qwen-livetranslate-sinhronnyy-perevod-2026/cover.jpg" type="image/png" length="0"/>
+      <media:thumbnail url="https://chimitdorzhi.tech/blog/qwen-livetranslate-sinhronnyy-perevod-2026/cover.jpg"/>
+      <media:content url="https://chimitdorzhi.tech/blog/qwen-livetranslate-sinhronnyy-perevod-2026/cover.jpg" medium="image" type="image/png"/>
     </item>
     <item>
       <title>Bonsai 2 27B: модель на 27 млрд параметров в 5,9 ГБ — что это значит для бизнеса</title>
       <link>https://chimitdorzhi.tech/blog/bonsai-2-27b-szhataya-model-2026/</link>
       <guid isPermaLink="true">https://chimitdorzhi.tech/blog/bonsai-2-27b-szhataya-model-2026/</guid>
       <description><![CDATA[Модель на 27 млрд параметров теперь влезает в обычную видеокарту. Разбираю, что даёт сжатие, где оно теряет качество и как я проверяю такие модели.]]></description>
-      <content:encoded><![CDATA[<p><img src="https://chimitdorzhi.tech/blog/bonsai-2-27b-szhataya-model-2026/cover.png" alt="Bonsai 2 27B: модель на 27 млрд параметров в 5,9 ГБ — что это значит для бизнеса"/></p>
+      <content:encoded><![CDATA[<p><img src="https://chimitdorzhi.tech/blog/bonsai-2-27b-szhataya-model-2026/cover.jpg" alt="Bonsai 2 27B: модель на 27 млрд параметров в 5,9 ГБ — что это значит для бизнеса"/></p>
 
 <div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
 <li>Команда PrismML выпустила Bonsai 2 27B — сверхсжатую версию Qwen3.8 27B. Модель занимает 5,9 ГБ вместо 54, примерно в девять раз компактнее.</li>
@@ -5173,9 +5296,9 @@
       <pubDate>Mon, 21 Sep 2026 16:48:00 GMT</pubDate>
       <category>Экспертный блог</category>
       <author>noreply@chimitdorzhi.tech (Чимитдоржи Дарижапов)</author>
-      <enclosure url="https://chimitdorzhi.tech/blog/bonsai-2-27b-szhataya-model-2026/cover.png" type="image/png" length="0"/>
-      <media:thumbnail url="https://chimitdorzhi.tech/blog/bonsai-2-27b-szhataya-model-2026/cover.png"/>
-      <media:content url="https://chimitdorzhi.tech/blog/bonsai-2-27b-szhataya-model-2026/cover.png" medium="image" type="image/png"/>
+      <enclosure url="https://chimitdorzhi.tech/blog/bonsai-2-27b-szhataya-model-2026/cover.jpg" type="image/png" length="0"/>
+      <media:thumbnail url="https://chimitdorzhi.tech/blog/bonsai-2-27b-szhataya-model-2026/cover.jpg"/>
+      <media:content url="https://chimitdorzhi.tech/blog/bonsai-2-27b-szhataya-model-2026/cover.jpg" medium="image" type="image/png"/>
     </item>
     <item>
       <title>Сделайте как у конкурента: почему копия чужого решения обычно не работает</title>
@@ -5352,107 +5475,6 @@
       <enclosure url="https://chimitdorzhi.tech/blog/uzhe-probovali-ne-srabotalo-2026/cover.png" type="image/png" length="0"/>
       <media:thumbnail url="https://chimitdorzhi.tech/blog/uzhe-probovali-ne-srabotalo-2026/cover.png"/>
       <media:content url="https://chimitdorzhi.tech/blog/uzhe-probovali-ne-srabotalo-2026/cover.png" medium="image" type="image/png"/>
-    </item>
-    <item>
-      <title>Что реально можно сделать за неделю: список задач с результатом</title>
-      <link>https://chimitdorzhi.tech/blog/chto-mozhno-sdelat-za-nedelyu-2026/</link>
-      <guid isPermaLink="true">https://chimitdorzhi.tech/blog/chto-mozhno-sdelat-za-nedelyu-2026/</guid>
-      <description><![CDATA[Не каждая задача — это проект на месяцы. Показываю, что реально запускается за неделю, и честно говорю, что за неделю не сделать.]]></description>
-      <content:encoded><![CDATA[<p><img src="https://chimitdorzhi.tech/blog/chto-mozhno-sdelat-za-nedelyu-2026/cover.png" alt="Что реально можно сделать за неделю: список задач с результатом"/></p>
-
-<div class="blog-tldr">
-  <h3>Коротко (TL;DR)</h3>
-  <ul>
-    <li>За неделю делается одна законченная вещь с понятным результатом: бот приёма заявок, запись, магазин в мессенджере, парсер, отчёт, калькулятор, лендинг на одну услугу.</li>
-    <li>Неделя считается не с момента оплаты, а с момента, когда у меня есть доступы и ответы на вопросы. Без них срок стоит.</li>
-    <li>За неделю не делаются большие системы с ролями, интеграции с закрытыми учётными системами и мобильные приложения в магазинах.</li>
-    <li>Маленькая работающая вещь почти всегда полезнее большого проекта, который обсуждают третий месяц.</li>
-  </ul>
-</div>
-
-<p>Мне часто пишут «нужно всё и сразу», а потом переписка затухает: объём большой, цена непонятна, решение откладывается. При этом у того же человека есть три задачи, каждая из которых закрывается за несколько дней и приносит пользу сразу. Поэтому вот честная витрина коротких работ: что укладывается в неделю, что вы получаете на выходе и что нужно от вас. И отдельно — чего за неделю не бывает.</p>
-
-<h2 id="chto-znachit-nedelya">Что значит «за неделю»</h2>
-<p>Неделя — это пять-семь рабочих дней на одну законченную задачу. Не на «начать проект», а на рабочую вещь, которой можно пользоваться в понедельник.</p>
-<p>Отсчёт идёт не с оплаты, а с момента, когда у меня на руках всё нужное: доступы, тексты, прайс, ответы по логике. Самая частая причина сорванного короткого срока — не сложность, а три дня ожидания списка услуг или токена бота.</p>
-<p>Второе условие: одна задача за раз. Неделя работает потому, что в ней нет согласований дизайна в пять кругов и нет «а давайте заодно». Всё, что «заодно», превращает недельную работу в месячную.</p>
-
-<h2 id="zayavki-i-zapis">Заявки, запись и напоминания</h2>
-<p><strong>Бот приёма заявок.</strong> Человек пишет боту, отвечает на три-пять вопросов, заявка падает вам в мессенджер и в таблицу. Вы получаете единое место, где видно все обращения, и перестаёте терять их в личке. От вас нужны: список вопросов, которые надо задать, и чат, куда слать уведомления. Про то, чем такой бот отличается от «большого бота на всё», я писал отдельно: <a href="/blog/prostoy-bot-na-odnu-zadachu-2026/">простой бот на одну задачу</a>.</p>
-<p><strong>Запись через бота.</strong> Клиент выбирает услугу, мастера и свободное время, получает подтверждение, вы видите расписание. На выходе — работающая запись без звонков и переписок. От вас нужны: услуги с длительностью, график работы и правила переноса или отмены.</p>
-<p><strong>Напоминания клиентам.</strong> Автоматическое сообщение за сутки и за час до визита, о сроке продления или об оплате. Результат простой и измеримый — меньше неявок. От вас нужен источник данных: таблица, CRM или та же запись из бота.</p>
-<p><strong>Заявки с сайта в мессенджер и CRM.</strong> Форма на существующем сайте начинает отправлять обращения не только на почту, а туда, где вы их точно увидите, с пометкой, с какой страницы пришёл человек. От вас — доступ к сайту и понимание, кто должен получать уведомления.</p>
-
-<h2 id="prodazhi">Продажи: магазин, лендинг, калькулятор</h2>
-<p><strong>Магазин в мессенджере с оплатой.</strong> Каталог, корзина, оформление заказа и приём оплаты прямо в переписке, без сайта. Это самый быстрый способ проверить спрос. От вас нужны товары с ценами и фотографиями и реквизиты для подключения оплаты. Подробнее формат разобран в статье <a href="/blog/magazin-v-telegram-ili-max-bez-sayta-2026/">магазин в Telegram или MAX без сайта</a>.</p>
-<p><strong>Лендинг на одну услугу.</strong> Одна страница под одну услугу или одно объявление: понятное предложение, ответы на возражения, форма заявки, аналитика. От вас — описание услуги, цены или вилка, фотографии работ и примеры вопросов, которые задают клиенты.</p>
-<p><strong>Калькулятор на сайт.</strong> Посетитель вводит свои параметры и видит цену или расчёт, а вы получаете заявку с уже заполненными цифрами. Такие расчёты заметно повышают качество обращений: человек приходит, уже понимая порядок суммы. От вас нужна формула расчёта — именно она, а не «посчитайте как-нибудь».</p>
-
-<h2 id="dannye">Данные: парсеры, выгрузки, документы</h2>
-<p><strong>Парсер цен в таблицу.</strong> Скрипт обходит нужные сайты и складывает цены конкурентов или поставщиков в таблицу по расписанию. На выходе — актуальные данные каждое утро без ручного обхода вкладок. От вас нужен список источников и понимание, какие поля важны.</p>
-<p><strong>Выгрузка из CRM или учётной системы в отчёт.</strong> Данные собираются автоматически и превращаются в готовый отчёт: продажи, остатки, задолженности, воронка. От вас — доступ к системе и образец отчёта, который вы сейчас собираете руками.</p>
-<p><strong>Генератор документов.</strong> По данным из формы или таблицы формируются договоры, счета и акты по вашему шаблону, с правильной нумерацией. От вас нужны шаблоны в том виде, в каком вы их используете, и список полей, которые подставляются.</p>
-<p>Все эти вещи живут в формате точечных работ, а не большого проекта, — про них есть отдельная страница: <a href="/predlozheniya/razovye-zadachi-skripty-parsery/">разовые задачи, скрипты и парсеры</a>.</p>
-
-<h2 id="komanda">Для команды: чек-листы и отчёт со смены</h2>
-<p><strong>Чек-листы и отчёт со смены в боте.</strong> Сотрудник открывает бота, проходит список задач, отмечает выполненное, при необходимости прикладывает фото, в конце смены отправляет отчёт. Руководитель видит в одном месте, кто что сделал и когда, без звонков и переписок в общем чате.</p>
-<p>От вас нужны сами чек-листы — реальные, а не идеальные, — список людей и смен и получатели отчётов. Это одна из самых недооценённых недельных задач: она почти ничего не меняет в процессах, но убирает вечерний обзвон «ну как там у вас».</p>
-
-<p>Сводка по всем задачам выше — для быстрого выбора.</p>
-<div class="blog-table"><table>
-  <thead>
-    <tr><th>Задача</th><th>Что на выходе</th><th>Что нужно от вас</th></tr>
-  </thead>
-  <tbody>
-    <tr><td>Бот приёма заявок</td><td>Все обращения в одном чате и в таблице</td><td>Список вопросов, чат для уведомлений</td></tr>
-    <tr><td>Запись через бота</td><td>Расписание и подтверждения без звонков</td><td>Услуги, длительность, график, правила отмены</td></tr>
-    <tr><td>Напоминания клиентам</td><td>Меньше неявок и просрочек</td><td>Источник данных и текст сообщений</td></tr>
-    <tr><td>Заявки с сайта в мессенджер и CRM</td><td>Заявка приходит туда, где её увидят, с источником</td><td>Доступ к сайту, получатели уведомлений</td></tr>
-    <tr><td>Магазин в мессенджере</td><td>Каталог, корзина и оплата без сайта</td><td>Товары с ценами и фото, реквизиты для оплаты</td></tr>
-    <tr><td>Лендинг на одну услугу</td><td>Страница под одно объявление с формой и аналитикой</td><td>Описание услуги, цены, фотографии, вопросы клиентов</td></tr>
-    <tr><td>Калькулятор на сайт</td><td>Расчёт для посетителя и заявка с цифрами</td><td>Точная формула расчёта</td></tr>
-    <tr><td>Парсер цен в таблицу</td><td>Актуальные цены по расписанию</td><td>Список источников и нужных полей</td></tr>
-    <tr><td>Выгрузка в отчёт</td><td>Готовый отчёт вместо ручной сборки</td><td>Доступ к системе, образец текущего отчёта</td></tr>
-    <tr><td>Генератор документов</td><td>Договоры, счета и акты по шаблону</td><td>Шаблоны и список подставляемых полей</td></tr>
-    <tr><td>Чек-листы и отчёт со смены</td><td>Видно, кто что сделал, в одном месте</td><td>Реальные чек-листы, люди, смены</td></tr>
-  </tbody>
-</table></div>
-
-<h2 id="ne-delaetsya">Чего за неделю не бывает</h2>
-<p>Эта часть важнее списка выше: именно из завышенных ожиданий рождаются испорченные отношения.</p>
-<p><strong>Большие системы.</strong> CRM под ваши процессы, личные кабинеты с ролями, маркетплейс с продавцами и расчётами — это месяцы. За неделю делается первый кусок такой системы, но не система.</p>
-<p><strong>Сложные интеграции.</strong> Связка с учётной системой, где нужен доступ к чужому серверу, или с сервисом без нормального программного интерфейса. Здесь неделя уходит только на выяснение, возможно ли это в принципе.</p>
-<p><strong>Мобильные приложения.</strong> Приложение в магазинах — это разработка плюс проверка площадками, которая идёт своим сроком и от меня не зависит. Если нужно быстро, разумнее сделать бота или веб-приложение внутри мессенджера.</p>
-<p><strong>Всё, где логика ещё не решена.</strong> Если внутри компании не договорились, как считается скидка или кто утверждает заявку, никакой срок не спасёт. Сначала решение, потом код.</p>
-
-<h2 id="kak-vyglyadit">Как это выглядит на практике</h2>
-<p>Обычно разговор начинается с большого запроса: человек описывает систему на все случаи жизни, и видно, что до запуска месяцы. Я спрашиваю одно — что болит прямо сейчас. Ответ почти всегда короткий: теряются заявки или вечером час уходит на сбор отчёта.</p>
-<p>Дальше мы отрезаем от запроса один кусок, который закрывает эту боль. В понедельник я получаю доступы и ответы на вопросы, во вторник и среду собираю рабочую версию, в четверг заказчик проходит её сам на реальных данных и присылает замечания одним списком, в пятницу я их закрываю и передаю доступы с короткой инструкцией.</p>
-<p>Дальше главное: неделю-другую вещью пользуются по-настоящему. И почти всегда оказывается, что половина пунктов из первоначального списка не нужна, а нужны две вещи, о которых на старте никто не думал. Их и делаем следующим шагом — снова за неделю.</p>
-
-<h2 id="faq">Частые вопросы</h2>
-<h3>Неделя — это точно неделя?</h3>
-<p>Это рабочий срок при условии, что материалы и доступы у меня есть и объём не растёт по ходу. Если появляются новые пункты, срок сдвигается — я говорю об этом сразу, а не в последний день.</p>
-<h3>Можно ли сделать несколько задач подряд?</h3>
-<p>Да, и это самый здоровый путь. Одна задача — неделя, потом пауза на реальное использование, потом следующая. Так вы платите по частям и каждый раз видите результат.</p>
-<h3>Что если задача окажется сложнее, чем выглядела?</h3>
-<p>Такое бывает, обычно из-за закрытых сервисов или неочевидной логики. Выполнимость я проверяю до начала работ и, если неделя не получается, называю реальный срок, а не тяну.</p>
-<h3>Остаются ли доступы у меня?</h3>
-<p>Да. Бот, сервер, аккаунты и код оформляются на вас, у меня остаётся доступ на время работы и на поддержку, если она нужна.</p>
-<h3>Нужно ли техническое задание на такую работу?</h3>
-<p>Многостраничное — нет. Достаточно короткого описания результата: что человек делает, что происходит дальше, что вы видите. Его согласуем перед стартом, чтобы потом не спорить, что считать сделанным.</p>
-
-<h2 id="vyvody">Коротко о главном</h2>
-<p>За неделю делается одна законченная вещь: бот приёма заявок, запись, напоминания, магазин в мессенджере, лендинг на одну услугу, калькулятор, парсер, выгрузка в отчёт, генератор документов или чек-листы для смены. У каждой есть понятный результат и короткий список того, что нужно от вас.</p>
-<p>За неделю не делаются большие системы с ролями, интеграции с закрытыми учётными системами и приложения для магазинов. Не делается и то, где внутри компании ещё не решили, как должно работать. Это честнее сказать на старте, чем обнаружить в середине.</p>
-<p>Если у вас есть большой запрос, напишите, что болит прямо сейчас. Отрежем от него один кусок, сделаем за неделю и посмотрим на реальном использовании, что нужно дальше. Напишите в Telegram, MAX или VK.</p>
-]]></content:encoded>
-      <pubDate>Mon, 21 Sep 2026 19:12:00 GMT</pubDate>
-      <category>Разработка</category>
-      <author>noreply@chimitdorzhi.tech (Чимитдоржи Дарижапов)</author>
-      <enclosure url="https://chimitdorzhi.tech/blog/chto-mozhno-sdelat-za-nedelyu-2026/cover.png" type="image/png" length="0"/>
-      <media:thumbnail url="https://chimitdorzhi.tech/blog/chto-mozhno-sdelat-za-nedelyu-2026/cover.png"/>
-      <media:content url="https://chimitdorzhi.tech/blog/chto-mozhno-sdelat-za-nedelyu-2026/cover.png" medium="image" type="image/png"/>
     </item>
   </channel>
 </rss>
