@@ -1,0 +1,50 @@
+// Limite от Paradigma: маленькая математическая модель и оценщик решений.
+// Факты сверены по карточкам Hugging Face организации paradigma-inc на 23.09.2026.
+module.exports = [
+  {
+    id: 'limite',
+    name: 'Limite (Violetto и Value Model)',
+    developer: 'Paradigma', country: 'не указана',
+    modality: ['reasoning', 'text', 'judge'],
+    first: '2026-09', latest: '2026-09',
+    sizes: '1B',
+    license: 'Apache 2.0 у Violetto и Value Model; у базовых сборок лицензия на карточке не указана',
+    commercial: 'yes',
+    hardware: ['gpu'],
+    ru: 'unknown',
+    industries: ['science', 'education'],
+    ollama: false,
+    cpu: false,
+    quant: [],
+    summary: 'Модель на 1 млрд параметров, которая делает только одно: решает математические задачи. Отвечает в один ход, без диалога, и на вопросы вне математики отвечает плохо. Рядом идёт Value Model, которая оценивает чужое решение по шагам.',
+    tasks: [
+      'Решение математических задач одним ответом',
+      'Отбор лучшего решения из нескольких вариантов',
+      'Оценка рассуждения по шагам при обучении другой модели',
+      'Проверка расчётов внутри своего контура, без облака',
+    ],
+    where: ['Образование', 'Исследовательские группы', 'Разработка ИИ'],
+    versions: [
+      ['Limite 1B base', '2026-09'],
+      ['Limite 1B Violetto', '2026-09'],
+      ['Limite 1B Value Model', '2026-09'],
+    ],
+    hf: 'https://huggingface.co/paradigma-inc',
+    github: 'https://github.com/paradigma-inc/limite-violetto',
+    alternatives: ['deepseek-math', 'qwen-math', 'goedel-prover'],
+    source: 'https://huggingface.co/api/models?author=paradigma-inc',
+    verified: true,
+    en: {
+      summary: 'A 1B model that does exactly one thing: it solves maths problems. It answers in a single turn, with no dialogue, and handles non-maths questions poorly. A companion Value Model scores someone else\'s solution step by step.',
+      tasks: [
+        'Solving maths problems in a single answer',
+        'Picking the best solution out of several candidates',
+        'Scoring reasoning step by step when training another model',
+        'Checking calculations inside your own perimeter, without a cloud',
+      ],
+      where: ['Education', 'Research groups', 'AI development'],
+      license: 'Apache 2.0 for Violetto and the Value Model; the base builds have no license stated on their cards',
+      country: 'not disclosed',
+    },
+  },
+];
