@@ -1,0 +1,46 @@
+// LensVLM от Apple: длинный документ как набор уменьшенных страниц.
+// Факты сверены по карточке и файлу LICENSE репозитория apple/LensVLM-9B на 24.09.2026.
+module.exports = [
+  {
+    id: 'lensvlm',
+    name: 'LensVLM',
+    developer: 'Apple', country: 'США',
+    modality: ['vlm', 'docsearch'],
+    first: '2026-09', latest: '2026-09',
+    sizes: '9B',
+    license: 'Apple Machine Learning Research Model License: только исследования, коммерческое использование не разрешено. Модель дообучена из Qwen3.5-9B, условия базовой модели тоже действуют',
+    commercial: 'no',
+    hardware: ['gpu'],
+    ru: 'unknown',
+    industries: ['docs', 'science', 'legal'],
+    ollama: false,
+    cpu: false,
+    quant: [],
+    summary: 'Читает длинные документы иначе: превращает страницы в уменьшенные картинки и разворачивает полный текст только тех страниц, которые нужны для ответа. Так на длинный документ уходит меньше контекста.',
+    tasks: [
+      'Ответы по многостраничным документам',
+      'Поиск нужной страницы в большом отчёте или деле',
+      'Разбор сканов и PDF без предварительного распознавания',
+      'Исследования по работе с длинным контекстом',
+    ],
+    where: ['Документооборот', 'Исследовательские группы', 'Юридические отделы'],
+    versions: [['LensVLM-9B', '2026-09']],
+    hf: 'https://huggingface.co/apple/LensVLM-9B',
+    github: null,
+    alternatives: ['colpali', 'qwen-vl', 'docling'],
+    source: 'https://huggingface.co/apple/LensVLM-9B',
+    verified: true,
+    en: {
+      summary: 'Reads long documents differently: it turns pages into downscaled images and expands the full text only for the pages needed to answer. A long document then costs far less context.',
+      tasks: [
+        'Answering questions over multi-page documents',
+        'Finding the right page in a large report or case file',
+        'Working with scans and PDFs without a separate OCR step',
+        'Research on long-context handling',
+      ],
+      where: ['Document workflows', 'Research groups', 'Legal departments'],
+      license: 'Apple Machine Learning Research Model License: research only, commercial use is not granted. Fine-tuned from Qwen3.5-9B, whose terms also apply',
+      country: 'USA',
+    },
+  },
+];
