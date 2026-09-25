@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1896**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1897**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -1833,6 +1833,7 @@
 - [Покупатель будет не человек: ИИ-агент платит картой Mastercard](./agentcard-ii-agent-platit-kartoy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/agentcard-ii-agent-platit-kartoy-2026/)
 - [Gemini 3.8 Flash TTS: голос менеджера за 30 секунд и без студии](./gemini-tts-golos-za-30-sekund-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gemini-tts-golos-za-30-sekund-2026/)
 - [950 ИИ-агентов за сутки нашли новый фермент: что это даёт бизнесу](./950-ii-agentov-nashli-ferment-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/950-ii-agentov-nashli-ferment-2026/)
+- [У вашего сайта появилось лицо. Минута его работы стоит 37 центов](./gemini-live-avatar-lico-sayta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gemini-live-avatar-lico-sayta-2026/)
 - [ИИ-агент, который сам управляет смартфоном: что это меняет для бизнеса](./ii-agent-upravlyaet-smartfonom-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-agent-upravlyaet-smartfonom-2026/)
 - [Что я не делаю и почему: честные границы работы](./chto-ya-ne-delayu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chto-ya-ne-delayu-2026/)
 - [Bonsai 2 27B: модель на 27 млрд параметров в 5,9 ГБ — что это значит для бизнеса](./bonsai-2-27b-szhataya-model-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bonsai-2-27b-szhataya-model-2026/)
