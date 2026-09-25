@@ -28,6 +28,7 @@ const blogBatchSeoCluster23 = require('./blog-batch-seo-cluster23-2026.js');
 const blogBatchNewsSep23 = require('./blog-batch-news-sep23-2026.js');
 const blogBatchNewsSep25 = require('./blog-batch-news-sep25-2026.js');
 const blogBatchNewsSep25b = require('./blog-batch-news-sep25b-2026.js');
+const blogBatchNewsSep26 = require('./blog-batch-news-sep26-2026.js');
 const blogBatchSeoCluster24 = require('./blog-batch-seo-cluster24-2026.js');
 const blogBatchSeoCluster25 = require('./blog-batch-seo-cluster25-2026.js');
 const blogBatchSeoCluster26 = require('./blog-batch-seo-cluster26-2026.js');
@@ -10866,7 +10867,7 @@ const ALL_ARTICLES = [
   blogBatchSeoCluster18, blogBatchSeoCluster19, blogBatchSeoCluster20,
   blogBatchSeoCluster21, blogBatchSeoCluster22, blogBatchSeoCluster23,
   blogBatchSeoCluster24, blogBatchSeoCluster25, blogBatchSeoCluster26, blogBatchSeoCluster27, blogBatchSeoCluster28, blogBatchSeoCluster29, blogBatchSeoCluster30, blogBatchSeoCluster31, blogBatchKeysySent, blogBatchIgry, blogBatchIgry2, blogBatchVllm, blogBatchIgry3, blogBatchCifrSledGpt, blogBatchKeysySent2, blogBatchIgry4, blogBatchIgry5, blogBatchIgry6, blogBatchAvtorskie, blogBatch1cSklad, blogBatch1cSklad2, blogBatch1c3, blogBatchRutina, blogBatchZakazchiku, blogBatchKrome1c, blogBatchRazovye, blogBatchRazovye2, blogBatchRazovye3, blogBatchRazovye4, blogBatchProgrammy, blogBatchQwenUnc, blogBatchImStart, blogBatchSkolko, blogBatchSkolko2, blogBatchSkolko3, blogBatchDoverie, blogBatchQwenSent, blogBatchPokupka, blogBatchProdazhiOtrasli, blogBatchNishiUslug, blogBatchKeysySent3, blogBatchOtkrytyeModeli,
-  blogBatchKeysySenA, blogBatchKeysySenB, blogBatchKeysySenC, blogBatchKeysySenD, blogBatchKeysySenE, blogBatchKeysySenF, blogBatchNewsSep23, blogBatchNewsSep25, blogBatchNewsSep25b);
+  blogBatchKeysySenA, blogBatchKeysySenB, blogBatchKeysySenC, blogBatchKeysySenD, blogBatchKeysySenE, blogBatchKeysySenF, blogBatchNewsSep23, blogBatchNewsSep25, blogBatchNewsSep25b, blogBatchNewsSep26);
 
 // --- Проход взаимной перелинковки ---------------------------------------
 // Гарантирует, что у каждой опубликованной статьи есть хотя бы одна входящая
