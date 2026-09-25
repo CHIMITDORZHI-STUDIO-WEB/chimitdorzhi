@@ -6,9 +6,13 @@
 // пока автопостинг стоял), их скрипт тоже не трогает.
 //
 // Авторизация: JWT (5 мин) добывается через POST /v3.4/auth/refresh по
-// auth-refresh-remember; держит сессию стабильный osnova-remember (~60 дней).
+// refresh-токену. На vc.ru он лежит в localStorage под ключом
+// auth-refresh-token (поле token). Токен одноразовый: каждый refresh выдаёт
+// новый, а старый умирает. Поэтому новый токен пишется в файл VC_REFRESH_OUT,
+// и следующий шаг workflow кладёт его обратно в секрет VC_AUTH_REFRESH.
+// Без этого секрет протухает после первого же прогона.
 //
-// env: VC_AUTH_REFRESH, VC_OSNOVA_REMEMBER, VC_SUBSITE_ID (+ опц. VC_PER_RUN,
+// env: VC_AUTH_REFRESH, VC_SUBSITE_ID (+ опц. VC_REFRESH_OUT, VC_PER_RUN,
 //      VC_DELAY_MIN_S, VC_DELAY_MAX_S)
 
 const fs = require('fs');
@@ -20,7 +24,8 @@ const API = 'https://api.vc.ru';
 const STATE_FILE = path.join(__dirname, 'vc-posted.json');
 const UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36';
 
-const REMEMBER = process.env.VC_OSNOVA_REMEMBER || '';
+const REMEMBER = process.env.VC_OSNOVA_REMEMBER || ''; // устарело, VC больше не ставит эту куку
+const REFRESH_OUT = process.env.VC_REFRESH_OUT || '';
 let   REFRESH  = process.env.VC_AUTH_REFRESH || '';
 const SUBSITE  = process.env.VC_SUBSITE_ID || '';
 let   JWT      = (process.env.VC_JWT || '').replace(/^Bearer\s+/i, '').trim();
@@ -77,9 +82,9 @@ function explainAuthFailure(rf) {
   const snippet = String(rf.body || '').replace(/\s+/g, ' ').slice(0, 200);
   if (rf.status === 401 || rf.status === 403) {
     return `VC ответил ${rf.status}: refresh-кука протухла или отозвана. `
-      + 'Обнови секреты VC_AUTH_REFRESH и VC_OSNOVA_REMEMBER — их надо заново взять '
-      + 'из куков залогиненного vc.ru (DevTools → Application → Cookies): '
-      + 'auth-refresh-remember и osnova-remember.';
+      + 'Обнови секрет VC_AUTH_REFRESH: залогинься на vc.ru в отдельном профиле браузера, '
+      + 'DevTools → Application → Local storage → https://vc.ru → ключ auth-refresh-token, '
+      + 'поле token. Окно потом просто закрой, не выходя из аккаунта.';
   }
   if (rf.status === 429) {
     return 'VC ответил 429: слишком часто. Это временно, следующий прогон по расписанию должен пройти.';
@@ -140,7 +145,11 @@ async function ensureAuth() {
   if (!REFRESH) return !!JWT;
   const rf = await refreshAuth();
   if (rf.jwt) JWT = rf.jwt;
-  if (rf.newRefresh) REFRESH = rf.newRefresh;
+  if (rf.newRefresh && rf.newRefresh !== REFRESH) {
+    REFRESH = rf.newRefresh;
+    console.log(`::add-mask::${REFRESH}`);
+    if (REFRESH_OUT) fs.writeFileSync(REFRESH_OUT, REFRESH, 'utf8');
+  }
   if (!rf.jwt) lastAuthFailure = explainAuthFailure(rf);
   return !!rf.jwt;
 }
@@ -156,16 +165,18 @@ async function ensureAuth() {
   const published = ALL.filter(a => a && a.published === true && a.slug)
     .sort((x, y) => String(y.datePublished).localeCompare(String(x.datePublished)));
   const queue = published.filter(a => !handled.has(a.slug)).slice(0, PER_RUN);
+  // Обновляем сессию каждый прогон, даже когда постить нечего: так токен
+  // не протухает в тихие дни.
+  if (!(await ensureAuth())) { log('Не удалось авторизоваться.', lastAuthFailure); process.exit(1); }
   if (!queue.length) { log('Новых статей нет — все уже в черновиках VC.'); return; }
   log(`В очереди: ${queue.length}. Заливаю черновиками (пауза ${DELAY_MIN_S}–${DELAY_MAX_S} с)...`);
 
-  if (!(await ensureAuth())) { log('Не удалось авторизоваться.', lastAuthFailure); process.exit(1); }
   const me = await fetch(`${API}/v2.1/subsite/me`, { headers: authHeaders() });
   if (me.status !== 200) { log('Авторизация не прошла:', (await me.text()).slice(0, 150)); process.exit(1); }
 
   let done = 0, fails = 0;
   for (let i = 0; i < queue.length; i++) {
-    if (i > 0 && i % 8 === 0) await ensureAuth(); // JWT живёт 5 мин
+    if (i > 0) await ensureAuth(); // JWT живёт 5 мин, а паузы между постами до 3 мин
     const a = queue[i];
     let r;
     try { r = await createDraft(a); } catch (e) { r = { status: 0, body: e.message, withCover: false }; }
