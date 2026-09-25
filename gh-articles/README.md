@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1887**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1896**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -302,6 +302,7 @@
 
 ## Open-source и свой сервер
 
+- [FLUX 3 Action: мозг для робота-манипулятора на игровой видеокарте](./flux-3-action-robot-na-igrovoy-videokarte-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/flux-3-action-robot-na-igrovoy-videokarte-2026/)
 - [Открытые ИИ-модели 2022–2026: полный путеводитель для бизнеса](./otkrytye-ii-modeli-2022-2026-putevoditel.md) · [читать на сайте](https://chimitdorzhi.tech/blog/otkrytye-ii-modeli-2022-2026-putevoditel/)
 - [ИИ разбирает чеки в таблицу: что это заменяет, а что нет](./ii-razbiraet-cheki-v-tablicu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-razbiraet-cheki-v-tablicu-2026/)
 - [Клонирование голоса на своём сервере: где проходит граница](./klonirovanie-golosa-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/klonirovanie-golosa-na-svoem-servere-2026/)
@@ -512,6 +513,8 @@
 
 ## Безопасность
 
+- [Вирус советуется с четырьмя нейросетями, прежде чем украсть ваши данные](./virus-sovetuetsya-s-neyrosetyami-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/virus-sovetuetsya-s-neyrosetyami-2026/)
+- [ИИ-агент OpenAI обошёл защиту Medicare, и это заметили через два месяца](./ii-agent-medicare-incident-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-agent-medicare-incident-2026/)
 - [Взломали Telegram или MAX компании: что делать в первый час](./vzlomali-telegram-ili-max-kompanii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vzlomali-telegram-ili-max-kompanii-2026/)
 - [Сайт, домен или бот записаны на бывшего сотрудника или подрядчика: как вернуть и не допустить](./dostupy-zapisany-na-byvshego-sotrudnika-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/dostupy-zapisany-na-byvshego-sotrudnika-2026/)
 - [Корпоративная почта и общий диск: как навести порядок с доступами, чтобы файлы не жили в личных аккаунтах](./korporativnaya-pochta-i-obshchiy-disk-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/korporativnaya-pochta-i-obshchiy-disk-2026/)
@@ -1824,6 +1827,12 @@
 
 ## Экспертное
 
+- [Diablo II без Diablo II: модель мира Agora-2 для бизнеса и киберспорта](./agora-2-model-mira-diablo-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/agora-2-model-mira-diablo-2026/)
+- [ИИ-агенты сговорились в 94% прогонов: что это значит для ваших цен](./ii-agenty-sgovor-cen-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-agenty-sgovor-cen-2026/)
+- [Amazon пустил ИИ в кабинет продавца. Wildberries и Ozon следующие](./amazon-ii-agenty-v-kabinete-prodavca-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/amazon-ii-agenty-v-kabinete-prodavca-2026/)
+- [Покупатель будет не человек: ИИ-агент платит картой Mastercard](./agentcard-ii-agent-platit-kartoy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/agentcard-ii-agent-platit-kartoy-2026/)
+- [Gemini 3.8 Flash TTS: голос менеджера за 30 секунд и без студии](./gemini-tts-golos-za-30-sekund-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gemini-tts-golos-za-30-sekund-2026/)
+- [950 ИИ-агентов за сутки нашли новый фермент: что это даёт бизнесу](./950-ii-agentov-nashli-ferment-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/950-ii-agentov-nashli-ferment-2026/)
 - [ИИ-агент, который сам управляет смартфоном: что это меняет для бизнеса](./ii-agent-upravlyaet-smartfonom-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-agent-upravlyaet-smartfonom-2026/)
 - [Что я не делаю и почему: честные границы работы](./chto-ya-ne-delayu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chto-ya-ne-delayu-2026/)
 - [Bonsai 2 27B: модель на 27 млрд параметров в 5,9 ГБ — что это значит для бизнеса](./bonsai-2-27b-szhataya-model-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bonsai-2-27b-szhataya-model-2026/)
