@@ -390,7 +390,7 @@ function footer() {
     </div>
 </footer>
 <script src="/i18n.js?v=44" defer></script>
-<script src="/script.js?v=40" defer></script>`;
+<script src="/script.js?v=41" defer></script>`;
 }
 
 // ---------- хаб ----------

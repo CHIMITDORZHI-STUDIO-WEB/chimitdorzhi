@@ -58,6 +58,19 @@ for (const s of servicesArr) {
   });
 }
 
+// Страница цен: каждая позиция ведёт прямо в свою строку /ceny/#p-<id>.
+try {
+  const prices = require('./prices-data.js');
+  index.push({ t: 'Цены на разработку и внедрение ИИ', d: 'Сколько стоят сайты, боты, 1С, ИИ-агенты и автоматизация: цены от, сроки и расходы после запуска.', u: '/ceny/', k: 'Цены', c: 'Цены', g: 'цена стоимость сколько стоит прайс смета' });
+  for (const r of prices) {
+    if (r.price.kind === 'included' || r.price.kind === 'text') continue;
+    const p = r.price.kind === 'project' ? 'по проекту' : 'от ' + r.price.value.toLocaleString('ru-RU') + ' ₽' + (r.price.unit === 'month' ? '/мес' : r.price.unit === 'hour' ? '/час' : '');
+    index.push({ t: `${r.name}: ${p}`, d: r.what, u: `/ceny/#p-${r.id}`, k: 'Цена', c: r.section, g: 'цена стоимость сколько стоит' });
+  }
+} catch (e) {
+  console.log(`  ⚠ Цены не попали в поиск: ${e.message}`);
+}
+
 // Энциклопедия открытых ИИ-моделей: карточки моделей и страницы-подборки.
 // Данные и подписи те же, что у build-models.js.
 try {

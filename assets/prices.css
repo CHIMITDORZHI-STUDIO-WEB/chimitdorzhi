@@ -1,0 +1,117 @@
+/* Страница /ceny/ — «Что я делаю и сколько это стоит».
+   Фильтры, чипы и поиск берутся из models.css; здесь строки прайса, сценарии и смета.
+   Цвета только из токенов сайта, чтобы тёмная тема работала без отдельных правил.
+   Основной текст 14px, плотные отступы: владелец сайта смотрит в 1536×713 при 125%. */
+
+.pr-page { padding-bottom: 120px; }
+.pr-hero .section-sub { max-width: 72ch; font-size: .95rem; }
+.pr-h2 { font-size: 1.35rem; font-weight: 800; margin: 0 0 12px; display: flex; align-items: center; gap: 10px; text-wrap: balance; }
+.pr-h2 i { color: var(--accent); font-size: 1.25rem; }
+
+/* --- Сценарии «Мне нужно…» --- */
+.pr-scen { margin: 8px 0 26px; }
+/* Пять сценариев: на широком экране в один ряд, иначе 3 + 2 на сетке из шести колонок,
+   чтобы ни одна карточка не оставалась одна в строке. */
+.pr-scen-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px; }
+.pr-scen-card { grid-column: span 2; }
+.pr-scen-card:nth-child(n+4) { grid-column: span 3; }
+@media (min-width: 1400px) {
+  .pr-scen-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  .pr-scen-card, .pr-scen-card:nth-child(n+4) { grid-column: auto; }
+}
+.pr-scen-card { display: flex; flex-direction: column; gap: 8px; padding: 16px; border-radius: var(--md-radius, 18px); border: 1px solid var(--border); background: var(--bg-card); }
+.pr-scen-card h3 { font-size: 1rem; font-weight: 800; margin: 0; line-height: 1.25; }
+.pr-scen-card > p { margin: 0; font-size: .82rem; line-height: 1.45; color: var(--text-secondary); }
+.pr-scen-card ul { list-style: none; margin: 2px 0 0; padding: 0; display: grid; gap: 3px; }
+.pr-scen-card li { position: relative; padding-left: 14px; font-size: .82rem; line-height: 1.35; }
+.pr-scen-card li::before { content: ""; position: absolute; left: 2px; top: .5em; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
+.pr-scen-sum { margin-top: auto; padding-top: 8px; border-top: 1px solid var(--border); display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 8px; }
+.pr-scen-sum b { font-size: 1.1rem; font-variant-numeric: tabular-nums; }
+.pr-scen-sum span { font-size: .78rem; color: var(--text-secondary); }
+.pr-scen-btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 34px; padding: 0 12px; font-size: .85rem; }
+
+/* --- Список --- */
+.pr-group { margin: 26px 0 0; scroll-margin-top: 90px; }
+.pr-group[hidden] { display: none; }
+.pr-rows { list-style: none; margin: 0; padding: 0; border: 1px solid var(--border); border-radius: 14px; background: var(--bg-card); overflow: hidden; }
+.pr-row { display: grid; grid-template-columns: minmax(0, 1fr) 168px 128px 118px; gap: 14px; align-items: center; padding: 11px 14px; border-top: 1px solid var(--border); transition: background .15s; }
+.pr-row:first-child { border-top: 0; }
+.pr-row { scroll-margin-top: 90px; }
+.pr-row:target { background: var(--accent-glow, rgba(37, 99, 235, .1)); box-shadow: inset 3px 0 0 var(--accent); }
+.pr-row[hidden] { display: none; }
+.pr-row:hover { background: var(--bg-card-hover, rgba(37, 99, 235, .04)); }
+.pr-row.is-picked { background: var(--accent-glow, rgba(37, 99, 235, .08)); }
+.pr-name { font-size: .92rem; font-weight: 700; line-height: 1.3; margin: 0; }
+.pr-what { font-size: .84rem; line-height: 1.45; color: var(--text-secondary); margin: 3px 0 0; }
+.pr-monthly { display: none; align-items: flex-start; gap: 5px; margin: 5px 0 0; font-size: .78rem; line-height: 1.4; color: var(--text-secondary); }
+.pr-monthly i { color: var(--accent); font-size: .9rem; margin-top: 1px; flex: none; }
+.pr-show-monthly .pr-monthly { display: flex; }
+.pr-price { display: flex; flex-direction: column; gap: 1px; }
+.pr-price b { font-size: .98rem; font-weight: 800; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.pr-price span { font-size: .74rem; color: var(--text-secondary); }
+.pr-price.is-project b { color: var(--accent); }
+.pr-term { display: flex; align-items: center; gap: 5px; font-size: .82rem; color: var(--text-secondary); }
+.pr-term i { font-size: .95rem; flex: none; }
+.pr-act { display: flex; justify-content: flex-end; }
+
+/* Кнопка «В смету»: все состояния — обычное, наведение, фокус, нажатие, выбрано */
+.pr-add { display: inline-flex; align-items: center; gap: 6px; min-height: 32px; padding: 0 11px; border-radius: 9px; border: 1.5px solid var(--border); background: transparent; color: var(--text); font: inherit; font-size: .82rem; font-weight: 700; cursor: pointer; white-space: nowrap; transition: border-color .15s, background .15s, color .15s, transform .1s; }
+.pr-add:hover { border-color: var(--accent); color: var(--accent); }
+.pr-add:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.pr-add:active { transform: scale(.97); }
+.pr-add.is-on { background: var(--accent); border-color: var(--accent); color: #fff; }
+.pr-add.is-on:hover { filter: brightness(1.08); color: #fff; }
+.pr-add:disabled { opacity: .45; cursor: not-allowed; }
+
+/* --- Пакет «Цифровой сотрудник» --- */
+.pr-package { border: 1px solid var(--border); border-radius: 14px; background: var(--bg-card); padding: 16px; display: grid; gap: 14px; }
+.pr-package-head { display: grid; gap: 6px; }
+.pr-package-lead { margin: 0; font-size: .95rem; font-weight: 700; line-height: 1.45; }
+.pr-package-how { margin: 0; font-size: .84rem; line-height: 1.5; color: var(--text-secondary); max-width: 90ch; }
+.pr-more { display: inline-flex; align-items: center; gap: 5px; font-size: .84rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+.pr-more:hover { text-decoration: underline; }
+.pr-more:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+.pr-rows-inset { border-radius: 10px; }
+.pr-roles-h { font-size: .78rem; font-weight: 800; text-transform: uppercase; letter-spacing: .05em; color: var(--text-secondary); margin: 2px 0 0; }
+.pr-roles { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 8px 16px; }
+.pr-roles li { display: grid; gap: 2px; padding: 8px 0; border-top: 1px solid var(--border); }
+.pr-roles b { font-size: .88rem; }
+.pr-roles span { font-size: .8rem; line-height: 1.45; color: var(--text-secondary); }
+
+.pr-cta { margin-top: 30px; }
+
+/* --- Смета: плашка снизу, появляется при первой добавленной позиции --- */
+.pr-tray { position: fixed; left: 50%; bottom: 14px; transform: translateX(-50%); z-index: 60; width: min(980px, calc(100% - 24px)); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; padding: 10px 12px 10px 16px; border-radius: 14px; border: 1px solid var(--border); background: var(--bg-card); box-shadow: 0 14px 40px rgba(15, 23, 42, .18); transition: box-shadow .2s; }
+.pr-tray[hidden] { display: none; }
+/* Пока открыта смета, плавающая кнопка Telegram сайта не нужна: в смете своя кнопка отправки */
+.pr-tray-open .contact-fab { visibility: hidden; pointer-events: none; }
+.pr-tray.is-flash { box-shadow: 0 0 0 3px var(--accent), 0 14px 40px rgba(15, 23, 42, .18); }
+.pr-tray-info { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 14px; font-size: .86rem; }
+.pr-tray-info b { font-size: .9rem; }
+.pr-tray-info span { font-variant-numeric: tabular-nums; }
+.pr-tray-info span:empty { display: none; }
+#prTrayOnce, #prTrayMonth { font-weight: 700; }
+#prTrayExtra { color: var(--text-secondary); font-size: .8rem; }
+.pr-tray-actions { display: flex; align-items: center; gap: 8px; }
+.pr-tray-actions .btn { display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 0 14px; font-size: .86rem; }
+.pr-tray-clear { display: inline-flex; align-items: center; gap: 5px; min-height: 36px; padding: 0 10px; border: 0; border-radius: 9px; background: transparent; color: var(--text-secondary); font: inherit; font-size: .82rem; cursor: pointer; }
+.pr-tray-clear:hover { color: var(--text); background: var(--bg-card-hover, rgba(37, 99, 235, .06)); }
+.pr-tray-clear:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* --- Телефон: строка складывается, цена и кнопка в одну линию --- */
+@media (max-width: 760px) {
+  .pr-row { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "main main" "price act" "term act"; gap: 6px 10px; padding: 12px; }
+  .pr-main { grid-area: main; }
+  .pr-price { grid-area: price; flex-direction: row; align-items: baseline; gap: 8px; }
+  .pr-term { grid-area: term; }
+  .pr-act { grid-area: act; align-self: center; }
+  .pr-scen-grid { grid-template-columns: 1fr; }
+  .pr-scen-card, .pr-scen-card:nth-child(n+4) { grid-column: auto; }
+  .pr-tray { bottom: 8px; padding: 10px 12px; }
+  .pr-tray-actions { width: 100%; }
+  .pr-tray-actions .btn { flex: 1; justify-content: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pr-row, .pr-add, .pr-tray { transition: none; }
+}

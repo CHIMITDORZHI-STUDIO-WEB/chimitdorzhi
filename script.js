@@ -294,8 +294,9 @@ document.addEventListener('DOMContentLoaded', () => {
   var isAbout = s0==='about';
   var isAiEcon = s0==='ai-economy';
   var isModels = s0==='ii-modeli';
+  var isPrices = s0==='ceny';
   if(isArticle){ document.body.classList.add('wx-read'); return; } /* статья: новый стиль без сайдбара */
-  if(!(isBlog||isServices||isOffers||isCases||isAbout||isAiEcon||isModels)) return;
+  if(!(isBlog||isServices||isOffers||isCases||isAbout||isAiEcon||isModels||isPrices)) return;
   function n(href,ic,label,on,ext,key){return '<a href="'+href+'"'+(ext?' target="_blank" rel="noopener"':'')+(on?' aria-current="page"':'')+' class="wx-nav'+(on?' on':'')+'"><i class="ph-fill '+ic+'" aria-hidden="true"></i> <span'+(key?' data-i18n="'+key+'"':'')+'>'+label+'</span></a>';}
   function grp(label,key){return '<div class="wx-grp" data-i18n="'+key+'">'+label+'</div>';}
   /* .wx-rail-top — прокручиваемая часть: логотип, поиск, навигация.
@@ -305,6 +306,7 @@ document.addEventListener('DOMContentLoaded', () => {
   h+='<button type="button" class="wx-search js-search-open" aria-label="Поиск"><i class="ph ph-magnifying-glass"></i> <span data-i18n="sb.search">Поиск…</span></button>';
   h+=n('/','ph-squares-four','Главная',false,false,'nav.home');
   h+=n('/services/','ph-stack','Услуги',isServices,false,'nav.services');
+  h+=n('/ceny/','ph-tag','Цены',isPrices,false,'nav.prices');
   h+=n('/services/cifrovoy-sotrudnik/','ph-user-focus','Цифровой сотрудник',location.pathname.indexOf('cifrovoy-sotrudnik')>-1,false,'nav.employee');
   h+=n('/ai-economy/','ph-chart-line-up','ИИ и экономика',isAiEcon,false,'nav.aiecon');
   h+=n(isEnModels?'/en/ii-modeli/':'/ii-modeli/','ph-cpu','ИИ-модели',isModels,false,'nav.models');
