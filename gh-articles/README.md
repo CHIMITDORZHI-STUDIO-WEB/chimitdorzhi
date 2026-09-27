@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1897**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1900**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -302,6 +302,7 @@
 
 ## Open-source и свой сервер
 
+- [Спросите у планёрки, что вы обещали клиенту: Speakr на своём сервере](./speakr-sprosite-u-planerki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/speakr-sprosite-u-planerki-2026/)
 - [FLUX 3 Action: мозг для робота-манипулятора на игровой видеокарте](./flux-3-action-robot-na-igrovoy-videokarte-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/flux-3-action-robot-na-igrovoy-videokarte-2026/)
 - [Открытые ИИ-модели 2022–2026: полный путеводитель для бизнеса](./otkrytye-ii-modeli-2022-2026-putevoditel.md) · [читать на сайте](https://chimitdorzhi.tech/blog/otkrytye-ii-modeli-2022-2026-putevoditel/)
 - [ИИ разбирает чеки в таблицу: что это заменяет, а что нет](./ii-razbiraet-cheki-v-tablicu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-razbiraet-cheki-v-tablicu-2026/)
@@ -1278,6 +1279,7 @@
 
 ## Право и 152-ФЗ
 
+- [Клиент рассказал вам всё. А запись ушла на сервер в США](./zapisi-priemov-152-fz-bez-oblaka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zapisi-priemov-152-fz-bez-oblaka-2026/)
 - [Пакетная проверка контрагентов по ИНН: список из таблицы за один раз](./paketnaya-proverka-kontragentov-po-inn-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/paketnaya-proverka-kontragentov-po-inn-2026/)
 - [Сроки документов и оборудования под контролем: медкнижки, удостоверения, поверка, ТО](./napominaniya-o-srokah-dokumentov-i-oborudovaniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/napominaniya-o-srokah-dokumentov-i-oborudovaniya-2026/)
 - [Что грозит компании, если утекла база клиентов](./chto-grozit-kompanii-za-utechku-bazy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chto-grozit-kompanii-za-utechku-bazy-2026/)
@@ -1827,6 +1829,7 @@
 
 ## Экспертное
 
+- [Юань упал на 2%, и бот уже пишет: пора оплачивать поставку](./bot-kurs-yuanya-dlya-importera-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bot-kurs-yuanya-dlya-importera-2026/)
 - [Diablo II без Diablo II: модель мира Agora-2 для бизнеса и киберспорта](./agora-2-model-mira-diablo-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/agora-2-model-mira-diablo-2026/)
 - [ИИ-агенты сговорились в 94% прогонов: что это значит для ваших цен](./ii-agenty-sgovor-cen-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-agenty-sgovor-cen-2026/)
 - [Amazon пустил ИИ в кабинет продавца. Wildberries и Ozon следующие](./amazon-ii-agenty-v-kabinete-prodavca-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/amazon-ii-agenty-v-kabinete-prodavca-2026/)
