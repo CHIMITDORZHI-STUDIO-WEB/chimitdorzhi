@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1900**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1918**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -575,6 +575,7 @@
 
 ## Бизнес-кругозор
 
+- [Домен записан на бывшего разработчика: как вернуть его компании](./kak-vernut-domen-u-razrabotchika-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-vernut-domen-u-razrabotchika-2026/)
 - [CRM-таблица клиентов: как перейти от Excel к своей CRM](./crm-tablica-klientov-iz-excel-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/crm-tablica-klientov-iz-excel-2026/)
 - [Оплата поставщику в Китай: как проводят ВЭД-платежи в 2026](./oplata-postavshchiku-v-kitay-ved-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/oplata-postavshchiku-v-kitay-ved-2026/)
 - [Balanced Scorecard: сбалансированная система показателей простыми словами](./balanced-scorecard-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/balanced-scorecard-2027/)
@@ -868,6 +869,8 @@
 
 ## Маркетинг
 
+- [QR-наклейка на авто: каждая машина приводит клиента, и видно кто](./qr-nakleyki-partnerka-arenda-avto-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/qr-nakleyki-partnerka-arenda-avto-2026/)
+- [Один кошелёк на кофейню, барбершоп и цветочный: лояльность города](./obshchaya-loyalnost-goroda-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/obshchaya-loyalnost-goroda-2026/)
 - [Сделайте как у конкурента: почему копия чужого решения обычно не работает](./sdelayte-kak-u-konkurenta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sdelayte-kak-u-konkurenta-2026/)
 - [Qwen-Image-2.1: генерация картинок в 2K с прозрачным фоном — что это даёт магазину](./qwen-image-2-1-kartochki-tovarov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/qwen-image-2-1-kartochki-tovarov-2026/)
 - [Подарочные сертификаты: как продавать онлайн и не запутаться в погашениях](./podarochnye-sertifikaty-onlayn-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/podarochnye-sertifikaty-onlayn-2026/)
@@ -998,6 +1001,16 @@
 
 ## Отрасли
 
+- [Конфигуратор торта: клиент собирает как в игре и платит](./konfigurator-torta-onlayn-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/konfigurator-torta-onlayn-2026/)
+- [Букет по бюджету: клиент выбрал сам, флорист получил заказ с фото](./konfigurator-buketa-po-byudzhetu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/konfigurator-buketa-po-byudzhetu-2026/)
+- [Инструктор отметил 56 часов вождения. А сколько откатал?](./uchet-vozhdeniya-kontrol-instruktorov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uchet-vozhdeniya-kontrol-instruktorov-2026/)
+- [Посуточная без комиссии площадок: гость бронирует напрямую](./posutochnaya-arenda-bez-komissii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/posutochnaya-arenda-bez-komissii-2026/)
+- [Китайский турист не найдёт вашу гостиницу в Яндексе](./sayt-oteley-na-kitayskom-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-oteley-na-kitayskom-2026/)
+- [Болгарка уехала на объект и не вернулась: учёт инструмента по QR](./uchet-instrumenta-po-qr-brigady-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uchet-instrumenta-po-qr-brigady-2026/)
+- [Своё такси в районе без комиссии агрегатора: заказ в боте](./svoe-taksi-bez-agregatora-max-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/svoe-taksi-bez-agregatora-max-2026/)
+- [Единое окно сообщений для сети магазинов: 9 точек, 9 аккаунтов](./edinoe-okno-soobshcheniy-set-magazinov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/edinoe-okno-soobshcheniy-set-magazinov-2026/)
+- [Переслал пост в бота, и авто уже на сайте-витрине с фильтрами](./vitrina-avto-iz-postov-kanala-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vitrina-avto-iz-postov-kanala-2026/)
+- [Риелтор подбирает квартиру в Telegram, а бот отсеивает пустые заявки](./bot-mini-app-dlya-rieltora-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bot-mini-app-dlya-rieltora-2026/)
 - [Как нанимать продавцов, официантов и курьеров через бота](./nayom-cherez-bota-prodavcy-oficianty-kurery-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nayom-cherez-bota-prodavcy-oficianty-kurery-2026/)
 - [Почему кандидаты не приходят на собеседование и что с этим делать](./kandidaty-ne-prihodyat-na-sobesedovanie-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kandidaty-ne-prihodyat-na-sobesedovanie-2026/)
 - [YCLIENTS, Dikidi или свой бот для записи: что выбрать салону](./yclients-dikidi-ili-svoy-bot-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/yclients-dikidi-ili-svoy-bot-2026/)
@@ -1471,6 +1484,11 @@
 
 ## Разработка
 
+- [Клиент сам собрал дверь и сразу увидел цену](./konfigurator-dverey-cena-srazu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/konfigurator-dverey-cena-srazu-2026/)
+- [Конфигуратор кухонь: клиент собрал, увидел цену, заявка в цех](./konfigurator-kuhni-shkafa-kupe-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/konfigurator-kuhni-shkafa-kupe-2026/)
+- [Калькулятор окон: замерщик едет к тем, кто согласен на цену](./konfigurator-okon-balkona-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/konfigurator-okon-balkona-2026/)
+- [Конфигуратор бань и домов: клиент собрал проект и получил смету](./konfigurator-bani-doma-brusa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/konfigurator-bani-doma-brusa-2026/)
+- [Калькулятор забора, ворот и навеса: цена за минуту без мастера](./kalkulyator-zabora-vorot-navesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kalkulyator-zabora-vorot-navesa-2026/)
 - [Сделать самому на конструкторе или заказать: честное сравнение для сайта и бота](./konstruktor-ili-zakazat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/konstruktor-ili-zakazat-2026/)
 - [Кому не нужна автоматизация: признаки, что рано](./komu-ne-nuzhna-avtomatizaciya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/komu-ne-nuzhna-avtomatizaciya-2026/)
 - [Как принять работу у подрядчика: чек-лист приёмки сайта, бота и интеграции](./priemka-raboty-podryadchika-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/priemka-raboty-podryadchika-2026/)
