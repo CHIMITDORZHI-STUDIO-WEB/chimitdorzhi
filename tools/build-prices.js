@@ -11,35 +11,12 @@ const URL_ = SITE + REL;
 const UPDATED = '25.09.2026';
 const LASTMOD = '2026-09-25';
 const MODELS_CSS_V = (fs.readFileSync(path.join(__dirname, 'build-models.js'), 'utf8').match(/const CSS_V = (\d+);/) || [])[1] || '1';
-const CSS_V = 1;
+const CSS_V = 2;
 
 const ROWS = require('./prices-data.js');
 
-// Группы навигации: порядок = порядок на странице.
-const GROUPS = [
-  { key: 'ai', label: 'Искусственный интеллект', short: 'ИИ', icon: 'brain' },
-  { key: 'employee', label: 'Цифровой сотрудник', short: 'Цифровой сотрудник', icon: 'user-focus' },
-  { key: 'c1', label: '1С и учёт', short: '1С и учёт', icon: 'receipt' },
-  { key: 'web', label: 'Сайты и приложения', short: 'Сайты и приложения', icon: 'browser' },
-  { key: 'bots', label: 'Боты и мессенджеры', short: 'Боты', icon: 'chat-circle-dots' },
-  { key: 'ind', label: 'Решения для отраслей', short: 'Отрасли', icon: 'storefront' },
-  { key: 'mkt', label: 'Маркетинг и продвижение', short: 'Маркетинг', icon: 'megaphone' },
-  { key: 'sec', label: 'Безопасность и поддержка', short: 'Безопасность', icon: 'shield-check' },
-];
-
-// Типовые ситуации: готовый набор позиций, который одной кнопкой попадает в смету.
-const SCENARIOS = [
-  { title: 'Продаю на маркетплейсах', note: 'Связать 1С с площадками, маркировка, карточки и ведение кабинетов',
-    ids: ['1s-i-marketpleysy', 'markirovka-chestnyy-znak', 'kontent-dlya-marketpleysov-i-reklamy', 'menedzher-marketpleysov'] },
-  { title: 'Работаю по записи', note: 'Салон, клиника, гостиница: запись с предоплатой, бот, отзывы на картах',
-    ids: ['onlayn-zapis-i-bronirovanie', 'bot-v-messendzhere', 'otzyvy-i-kartochki-na-kartah', 'audit-sayta-po-152-fz'] },
-  { title: 'Оптовая торговля с 1С', note: 'Кабинет оптовика, заказы из мессенджера, ЭДО и отчёты владельцу',
-    ids: ['b2b-kabinet-s-1s', 'bot-zakazov-s-1s', 'edo-i-elektronnaya-podpis', 'otchety-dlya-sobstvennika'] },
-  { title: 'Производство и склад', note: 'Описать процессы, CRM под них, учёт въезда и видеоаналитика',
-    ids: ['opisanie-processov-i-reglamenty', 'crm-pod-process', 'vezd-po-nomeram', 'videoanalitika-na-gotovyh-modelyah'] },
-  { title: 'Хочу ИИ, не знаю, с чего начать', note: 'Аудит, пилот ассистента за три дня и консультант по базе знаний',
-    ids: ['audit-i-plan-vnedreniya-ii', 'pilot-za-3-dnya', 'ii-konsultant', 'rabota-assistenta'] },
-];
+// Группы и сценарии общие с PDF-версией: tools/prices-meta.js
+const { GROUPS, SCENARIOS } = require('./prices-meta.js');
 
 // --- Проверка данных ---
 const byId = Object.fromEntries(ROWS.map((r) => [r.id, r]));
@@ -144,6 +121,7 @@ const main = `<section class="section md-page pr-page"><div class="container">
     <h1 class="section-heading">Что я делаю и <span class="text-gradient">сколько это стоит</span></h1>
     <p class="section-sub">Цены указаны от нижней границы: точная сумма после разговора о задаче и объёме. Под каждой позицией отдельно написано, что вы будете платить после запуска не мне, а за сервер, подписки и сервисы.</p>
     <div class="md-stats"><span><b>${directions}</b> направлений</span><span><b>${GROUPS.length}</b> групп</span><span>Обновлено ${UPDATED}</span></div>
+    <p class="pr-pdf"><a class="pr-pdf-btn" href="/ceny/chimitdorzhi-ceny-2026.pdf" download><i class="ph ph-file-pdf" aria-hidden="true"></i> Скачать прайс в PDF</a></p>
   </header>
 
   <section class="pr-scen" aria-labelledby="prScenH">

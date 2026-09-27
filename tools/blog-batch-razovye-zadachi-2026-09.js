@@ -66,7 +66,7 @@ module.exports = [
     tags: ['Google-таблицы', 'скрипты', 'автоматизация', 'разовые задачи'],
     relatedSlugs: ['excel-spasenie-i-tupik-2026', 'napisat-skript-na-zakaz-2026', 'vygruzka-iz-crm-v-tablicu-2026'] }),
 
-  E({ slug: 'generaciya-dogovorov-i-schetov-iz-shablona-2026', heroIcon: 'ph-fill ph-file-text',
+  E({ slug: 'generaciya-dogovorov-i-schetov-iz-shablona-2026', published: false, heroIcon: 'ph-fill ph-file-text',
     title: 'Договоры, счета и КП из шаблона за минуту: генератор документов под ваш бизнес',
     metaTitle: 'Генератор договоров и счетов из шаблона на заказ',
     metaDescription: 'Менеджер собирает договор из старого и ошибается в реквизитах. Шаблон с полями, данные из таблицы или CRM, готовый документ или PDF и хранение в папке клиента.',
