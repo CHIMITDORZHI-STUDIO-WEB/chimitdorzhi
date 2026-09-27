@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1934**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1944**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -876,6 +876,8 @@
 - [Каждый второй ищет вас в 2ГИС, а там две звезды и старый телефон](./kartochka-2gis-otzyvy-lidy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kartochka-2gis-otzyvy-lidy-2026/)
 - [ИИ отвечает на отзывы за вас, но так, что не стыдно](./ii-otvety-na-otzyvy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-otvety-na-otzyvy-2026/)
 - [Автозагрузка на Авито: хватит копировать объявления руками](./avtozagruzka-obyavleniy-avito-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avtozagruzka-obyavleniy-avito-2026/)
+- [Некому вести соцсети? ИИ пишет посты за вас каждую неделю](./ii-vedet-socseti-kontent-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-vedet-socseti-kontent-2026/)
+- [ИИ ведёт клиента после покупки: напоминает, допродаёт, возвращает](./ii-vedet-klienta-posle-pokupki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-vedet-klienta-posle-pokupki-2026/)
 - [Сделайте как у конкурента: почему копия чужого решения обычно не работает](./sdelayte-kak-u-konkurenta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sdelayte-kak-u-konkurenta-2026/)
 - [Qwen-Image-2.1: генерация картинок в 2K с прозрачным фоном — что это даёт магазину](./qwen-image-2-1-kartochki-tovarov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/qwen-image-2-1-kartochki-tovarov-2026/)
 - [Подарочные сертификаты: как продавать онлайн и не запутаться в погашениях](./podarochnye-sertifikaty-onlayn-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/podarochnye-sertifikaty-onlayn-2026/)
@@ -1026,6 +1028,7 @@
 - [Клуб не знает, кто заморозил абонемент и не вернулся](./kabinet-klienta-fitnes-abonement-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kabinet-klienta-fitnes-abonement-2026/)
 - [Голосовой робот обзвона: напомнит про оплату вежливее человека](./golosovoy-robot-obzvon-dolzhnikov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/golosovoy-robot-obzvon-dolzhnikov-2026/)
 - [Оптовик уходит туда, где заказывать удобно: B2B-кабинет с 1С](./b2b-kabinet-zakazov-opt-1c-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/b2b-kabinet-zakazov-opt-1c-2026/)
+- [ИИ-кадровик отсеивает отклики, вам приходят только толковые](./ii-kadrovik-otsev-otklikov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-kadrovik-otsev-otklikov-2026/)
 - [Как нанимать продавцов, официантов и курьеров через бота](./nayom-cherez-bota-prodavcy-oficianty-kurery-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nayom-cherez-bota-prodavcy-oficianty-kurery-2026/)
 - [Почему кандидаты не приходят на собеседование и что с этим делать](./kandidaty-ne-prihodyat-na-sobesedovanie-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kandidaty-ne-prihodyat-na-sobesedovanie-2026/)
 - [YCLIENTS, Dikidi или свой бот для записи: что выбрать салону](./yclients-dikidi-ili-svoy-bot-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/yclients-dikidi-ili-svoy-bot-2026/)
@@ -1863,6 +1866,13 @@
 ## Экспертное
 
 - [ИИ читает входящие заявки и сам ставит задачи менеджерам](./ii-razbor-i-marshrutizaciya-zayavok-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-razbor-i-marshrutizaciya-zayavok-2026/)
+- [ИИ-администратор в переписке: отвечает клиентам, пока вы работаете](./ii-administrator-perepiski-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-administrator-perepiski-2026/)
+- [Голосовое на две минуты становится задачей и счётом в CRM](./ii-iz-golosovyh-v-crm-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-iz-golosovyh-v-crm-2026/)
+- [Прайс поставщика на 800 позиций ИИ занёс за 10 минут](./ii-zanosit-praysy-nakladnye-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-zanosit-praysy-nakladnye-2026/)
+- [ИИ слушает звонки менеджеров и показывает, где вы теряете продажи](./ii-slushaet-zvonki-prodazh-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-slushaet-zvonki-prodazh-2026/)
+- [ИИ-контролёр: каждый вечер пишет, что не сделано и кому не ответили](./ii-kontroler-vecherniy-otchet-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-kontroler-vecherniy-otchet-2026/)
+- [ИИ на первой линии поддержки: отвечает первым на вопрос и жалобу](./ii-pervaya-liniya-podderzhki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-pervaya-liniya-podderzhki-2026/)
+- [С чего начать с ИИ: три рутины, что он заберёт в первую неделю](./s-chego-nachat-vnedrenie-ii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/s-chego-nachat-vnedrenie-ii-2026/)
 - [Юань упал на 2%, и бот уже пишет: пора оплачивать поставку](./bot-kurs-yuanya-dlya-importera-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bot-kurs-yuanya-dlya-importera-2026/)
 - [Diablo II без Diablo II: модель мира Agora-2 для бизнеса и киберспорта](./agora-2-model-mira-diablo-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/agora-2-model-mira-diablo-2026/)
 - [ИИ-агенты сговорились в 94% прогонов: что это значит для ваших цен](./ii-agenty-sgovor-cen-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-agenty-sgovor-cen-2026/)
