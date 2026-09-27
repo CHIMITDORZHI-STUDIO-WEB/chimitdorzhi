@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1944**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1964**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -1029,6 +1029,17 @@
 - [Голосовой робот обзвона: напомнит про оплату вежливее человека](./golosovoy-robot-obzvon-dolzhnikov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/golosovoy-robot-obzvon-dolzhnikov-2026/)
 - [Оптовик уходит туда, где заказывать удобно: B2B-кабинет с 1С](./b2b-kabinet-zakazov-opt-1c-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/b2b-kabinet-zakazov-opt-1c-2026/)
 - [ИИ-кадровик отсеивает отклики, вам приходят только толковые](./ii-kadrovik-otsev-otklikov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-kadrovik-otsev-otklikov-2026/)
+- [Конфигуратор корпусной мебели: цена за партию без ручного расчёта](./konfigurator-korpusnoy-mebeli-b2b-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/konfigurator-korpusnoy-mebeli-b2b-2026/)
+- [Калькулятор шумоизоляции авто: клиент считает сам и записывается](./kalkulyator-shumoizolyacii-avto-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kalkulyator-shumoizolyacii-avto-2026/)
+- [Калькулятор оклейки авто: клиент считает цену и записывается сам](./kalkulyator-okleyki-avto-detailing-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kalkulyator-okleyki-avto-detailing-2026/)
+- [Клиент забронировал экскаватор сам, в субботу вечером](./kalkulyator-arendy-spectehniki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kalkulyator-arendy-spectehniki-2026/)
+- [Конфигуратор пошива формы и мерча: цена за партию до звонка](./konfigurator-poshiva-formy-mercha-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/konfigurator-poshiva-formy-mercha-2026/)
+- [Калькулятор печати на сайт: клиент считает тираж и шлёт макет](./kalkulyator-pechati-poligrafii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kalkulyator-pechati-poligrafii-2026/)
+- [Клиент собрал корпоративные подарки и увидел цену за партию](./konfigurator-suvenirov-s-logo-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/konfigurator-suvenirov-s-logo-2026/)
+- [Конфигуратор праздника: клиент видит смету, пока выбирает дату](./konfigurator-prazdnika-keyteringa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/konfigurator-prazdnika-keyteringa-2026/)
+- [Клиент сам собрал пакет съёмки и забронировал дату](./kalkulyator-fotosemki-videosemki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kalkulyator-fotosemki-videosemki-2026/)
+- [Калькулятор клининга: клиент считает уборку сам и бронирует время](./kalkulyator-klininga-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kalkulyator-klininga-2026/)
+- [Калькулятор переезда: клиент считает этажи и грузчиков сам](./kalkulyator-pereezda-gruzoperevozok-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kalkulyator-pereezda-gruzoperevozok-2026/)
 - [Как нанимать продавцов, официантов и курьеров через бота](./nayom-cherez-bota-prodavcy-oficianty-kurery-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nayom-cherez-bota-prodavcy-oficianty-kurery-2026/)
 - [Почему кандидаты не приходят на собеседование и что с этим делать](./kandidaty-ne-prihodyat-na-sobesedovanie-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kandidaty-ne-prihodyat-na-sobesedovanie-2026/)
 - [YCLIENTS, Dikidi или свой бот для записи: что выбрать салону](./yclients-dikidi-ili-svoy-bot-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/yclients-dikidi-ili-svoy-bot-2026/)
@@ -1507,6 +1518,15 @@
 - [Калькулятор окон: замерщик едет к тем, кто согласен на цену](./konfigurator-okon-balkona-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/konfigurator-okon-balkona-2026/)
 - [Конфигуратор бань и домов: клиент собрал проект и получил смету](./konfigurator-bani-doma-brusa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/konfigurator-bani-doma-brusa-2026/)
 - [Калькулятор забора, ворот и навеса: цена за минуту без мастера](./kalkulyator-zabora-vorot-navesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kalkulyator-zabora-vorot-navesa-2026/)
+- [Калькулятор ремонта квартиры: клиент видит цену за минуту](./kalkulyator-remonta-kvartiry-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kalkulyator-remonta-kvartiry-2026/)
+- [Калькулятор потолков: клиент посчитал сам, замерщик едет к заказу](./konfigurator-natyazhnyh-potolkov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/konfigurator-natyazhnyh-potolkov-2026/)
+- [Калькулятор тёплого пола: клиент прикинул сам, инженер получил заявку](./kalkulyator-teplogo-pola-otopleniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kalkulyator-teplogo-pola-otopleniya-2026/)
+- [Клиент узнал цену кровли за минуту, а не после выезда на объект](./kalkulyator-krovli-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kalkulyator-krovli-2026/)
+- [Калькулятор бассейна и септика: клиент видит цену до звонка](./kalkulyator-basseyna-septika-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kalkulyator-basseyna-septika-2026/)
+- [Конфигуратор дивана: клиент собрал, цех получил спецификацию](./konfigurator-myagkoy-mebeli-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/konfigurator-myagkoy-mebeli-2026/)
+- [Мебель для ванной и гардеробную собрал сам, цену увидел сразу](./konfigurator-mebeli-dlya-vannoy-garderobnoy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/konfigurator-mebeli-dlya-vannoy-garderobnoy-2026/)
+- [Конфигуратор лестниц: клиент видит цену до выезда замерщика](./konfigurator-lestnicy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/konfigurator-lestnicy-2026/)
+- [Перила, козырёк, каркас: клиент видит цену за минуту](./kalkulyator-metalloizdeliy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kalkulyator-metalloizdeliy-2026/)
 - [Сделать самому на конструкторе или заказать: честное сравнение для сайта и бота](./konstruktor-ili-zakazat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/konstruktor-ili-zakazat-2026/)
 - [Кому не нужна автоматизация: признаки, что рано](./komu-ne-nuzhna-avtomatizaciya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/komu-ne-nuzhna-avtomatizaciya-2026/)
 - [Как принять работу у подрядчика: чек-лист приёмки сайта, бота и интеграции](./priemka-raboty-podryadchika-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/priemka-raboty-podryadchika-2026/)
