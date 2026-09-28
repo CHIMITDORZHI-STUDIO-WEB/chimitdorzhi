@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1973**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1974**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -302,6 +302,7 @@
 
 ## Open-source и свой сервер
 
+- [DocuSeal: подписание договоров на своём сервере без бумаги](./docuseal-podpisanie-dogovorov-na-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/docuseal-podpisanie-dogovorov-na-servere-2026/)
 - [Спросите у планёрки, что вы обещали клиенту: Speakr на своём сервере](./speakr-sprosite-u-planerki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/speakr-sprosite-u-planerki-2026/)
 - [FLUX 3 Action: мозг для робота-манипулятора на игровой видеокарте](./flux-3-action-robot-na-igrovoy-videokarte-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/flux-3-action-robot-na-igrovoy-videokarte-2026/)
 - [Открытые ИИ-модели 2022–2026: полный путеводитель для бизнеса](./otkrytye-ii-modeli-2022-2026-putevoditel.md) · [читать на сайте](https://chimitdorzhi.tech/blog/otkrytye-ii-modeli-2022-2026-putevoditel/)
