@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1974**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **1976**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -37,6 +37,7 @@
 
 ## AI для разработчиков
 
+- [magpie: один локальный шлюз к моделям для всех ИИ-агентов](./magpie-shlyuz-k-ii-modelyam-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/magpie-shlyuz-k-ii-modelyam-2026/)
 - [Клиенты пишут ночью и в выходные: ИИ-консультант, который отвечает и записывает](./klienty-pishut-nochyu-ii-konsultant-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/klienty-pishut-nochyu-ii-konsultant-2026/)
 - [ИИ-помощник запущен: кто следит за ответами и обновляет базу знаний](./soprovozhdenie-ii-pomoshchnika-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/soprovozhdenie-ii-pomoshchnika-2026/)
 - [Расшифровка звонков и совещаний пачкой: аудио в текст и краткое резюме в таблицу](./rasshifrovka-zvonkov-i-soveshchaniy-pachkoy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/rasshifrovka-zvonkov-i-soveshchaniy-pachkoy-2026/)
@@ -1537,6 +1538,7 @@
 - [Мебель для ванной и гардеробную собрал сам, цену увидел сразу](./konfigurator-mebeli-dlya-vannoy-garderobnoy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/konfigurator-mebeli-dlya-vannoy-garderobnoy-2026/)
 - [Конфигуратор лестниц: клиент видит цену до выезда замерщика](./konfigurator-lestnicy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/konfigurator-lestnicy-2026/)
 - [Перила, козырёк, каркас: клиент видит цену за минуту](./kalkulyator-metalloizdeliy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kalkulyator-metalloizdeliy-2026/)
+- [GoLive: агент написал код, а вывести в прод помогает скилл](./golive-skill-zapusk-ii-prilozheniya-v-prod-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/golive-skill-zapusk-ii-prilozheniya-v-prod-2026/)
 - [Сделать самому на конструкторе или заказать: честное сравнение для сайта и бота](./konstruktor-ili-zakazat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/konstruktor-ili-zakazat-2026/)
 - [Кому не нужна автоматизация: признаки, что рано](./komu-ne-nuzhna-avtomatizaciya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/komu-ne-nuzhna-avtomatizaciya-2026/)
 - [Как принять работу у подрядчика: чек-лист приёмки сайта, бота и интеграции](./priemka-raboty-podryadchika-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/priemka-raboty-podryadchika-2026/)
