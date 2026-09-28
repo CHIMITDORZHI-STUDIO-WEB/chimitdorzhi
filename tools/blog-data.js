@@ -36,6 +36,7 @@ const blogBatchKonfig = require('./blog-batch-konfig-sep27-2026.js');
 const blogBatchGenDog = require('./blog-batch-generator-dogovorov-2026.js');
 const blogBatchBiznesBoli = require('./blog-batch-biznes-boli-sep28-2026.js');
 const blogBatchOssDocuseal = require('./blog-batch-oss-docuseal-2026.js');
+const blogBatchGithubTrend = require('./blog-batch-github-trend-sep28-2026.js');
 const blogBatchSeoCluster24 = require('./blog-batch-seo-cluster24-2026.js');
 const blogBatchSeoCluster25 = require('./blog-batch-seo-cluster25-2026.js');
 const blogBatchSeoCluster26 = require('./blog-batch-seo-cluster26-2026.js');
@@ -10874,7 +10875,7 @@ const ALL_ARTICLES = [
   blogBatchSeoCluster18, blogBatchSeoCluster19, blogBatchSeoCluster20,
   blogBatchSeoCluster21, blogBatchSeoCluster22, blogBatchSeoCluster23,
   blogBatchSeoCluster24, blogBatchSeoCluster25, blogBatchSeoCluster26, blogBatchSeoCluster27, blogBatchSeoCluster28, blogBatchSeoCluster29, blogBatchSeoCluster30, blogBatchSeoCluster31, blogBatchKeysySent, blogBatchIgry, blogBatchIgry2, blogBatchVllm, blogBatchIgry3, blogBatchCifrSledGpt, blogBatchKeysySent2, blogBatchIgry4, blogBatchIgry5, blogBatchIgry6, blogBatchAvtorskie, blogBatch1cSklad, blogBatch1cSklad2, blogBatch1c3, blogBatchRutina, blogBatchZakazchiku, blogBatchKrome1c, blogBatchRazovye, blogBatchRazovye2, blogBatchRazovye3, blogBatchRazovye4, blogBatchProgrammy, blogBatchQwenUnc, blogBatchImStart, blogBatchSkolko, blogBatchSkolko2, blogBatchSkolko3, blogBatchDoverie, blogBatchQwenSent, blogBatchPokupka, blogBatchProdazhiOtrasli, blogBatchNishiUslug, blogBatchKeysySent3, blogBatchOtkrytyeModeli,
-  blogBatchKeysySenA, blogBatchKeysySenB, blogBatchKeysySenC, blogBatchKeysySenD, blogBatchKeysySenE, blogBatchKeysySenF, blogBatchNewsSep23, blogBatchNewsSep25, blogBatchNewsSep25b, blogBatchNewsSep26, blogBatchTopicSep27, blogBatchTopicSep27b, blogBatchIiRutina, blogBatchKonfig, blogBatchGenDog, blogBatchBiznesBoli, blogBatchOssDocuseal);
+  blogBatchKeysySenA, blogBatchKeysySenB, blogBatchKeysySenC, blogBatchKeysySenD, blogBatchKeysySenE, blogBatchKeysySenF, blogBatchNewsSep23, blogBatchNewsSep25, blogBatchNewsSep25b, blogBatchNewsSep26, blogBatchTopicSep27, blogBatchTopicSep27b, blogBatchIiRutina, blogBatchKonfig, blogBatchGenDog, blogBatchBiznesBoli, blogBatchOssDocuseal, blogBatchGithubTrend);
 
 // --- Проход взаимной перелинковки ---------------------------------------
 // Гарантирует, что у каждой опубликованной статьи есть хотя бы одна входящая
