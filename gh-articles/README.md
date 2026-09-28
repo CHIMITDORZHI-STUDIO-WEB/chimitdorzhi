@@ -576,6 +576,7 @@
 ## Бизнес-кругозор
 
 - [Домен записан на бывшего разработчика: как вернуть его компании](./kak-vernut-domen-u-razrabotchika-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-vernut-domen-u-razrabotchika-2026/)
+- [Договор за минуту: клиент ввёл данные, документ готов](./generator-dogovorov-i-kp-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/generator-dogovorov-i-kp-2026/)
 - [CRM-таблица клиентов: как перейти от Excel к своей CRM](./crm-tablica-klientov-iz-excel-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/crm-tablica-klientov-iz-excel-2026/)
 - [Оплата поставщику в Китай: как проводят ВЭД-платежи в 2026](./oplata-postavshchiku-v-kitay-ved-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/oplata-postavshchiku-v-kitay-ved-2026/)
 - [Balanced Scorecard: сбалансированная система показателей простыми словами](./balanced-scorecard-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/balanced-scorecard-2027/)
@@ -1536,7 +1537,6 @@
 - [Выгрузка из CRM в таблицу: отчёт, который обновляется сам](./vygruzka-iz-crm-v-tablicu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vygruzka-iz-crm-v-tablicu-2026/)
 - [Переезд с одной CRM на другую: как перенести клиентов, сделки и историю](./perehod-s-crm-na-crm-perenos-dannyh-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/perehod-s-crm-na-crm-perenos-dannyh-2026/)
 - [Скрипт для Google- и Яндекс-таблиц: когда таблица начинает работать сама](./skript-dlya-google-tablic-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skript-dlya-google-tablic-2026/)
-- [Договоры, счета и КП из шаблона за минуту: генератор документов под ваш бизнес](./generaciya-dogovorov-i-schetov-iz-shablona-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/generaciya-dogovorov-i-schetov-iz-shablona-2026/)
 - [Массовая обработка фото товаров: переименовать, сжать, убрать фон, собрать карточки](./massovaya-obrabotka-foto-tovarov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/massovaya-obrabotka-foto-tovarov-2026/)
 - [Бумажные анкеты и бланки в таблицу: распознавание вместо ручного набора](./ocifrovka-bumazhnyh-anket-i-blankov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ocifrovka-bumazhnyh-anket-i-blankov-2026/)
 - [Импорт каталога из прайса поставщика на сайт или маркетплейс](./import-kataloga-iz-prajsa-postavshchika-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/import-kataloga-iz-prajsa-postavshchika-2026/)
