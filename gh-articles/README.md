@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **1998**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2008**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -888,6 +888,7 @@
 - [Лид написал ночью, ответили утром: он купил у другого](./mgnovennyy-avtootvet-lidu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/mgnovennyy-avtootvet-lidu-2026/)
 - [Скидка съедает прибыль. Бонусные баллы возвращают клиента](./bally-vmesto-skidok-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bally-vmesto-skidok-2026/)
 - [Рассылка в спам, а MAX доставляет: оживляем базу клиентов](./rassylki-bez-blokirovok-max-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/rassylki-bez-blokirovok-max-2026/)
+- [Отзывы на сайт пишет клиент, а не вы](./sbor-otzyvov-na-sayt-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sbor-otzyvov-na-sayt-2026/)
 - [Сделайте как у конкурента: почему копия чужого решения обычно не работает](./sdelayte-kak-u-konkurenta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sdelayte-kak-u-konkurenta-2026/)
 - [Qwen-Image-2.1: генерация картинок в 2K с прозрачным фоном — что это даёт магазину](./qwen-image-2-1-kartochki-tovarov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/qwen-image-2-1-kartochki-tovarov-2026/)
 - [Подарочные сертификаты: как продавать онлайн и не запутаться в погашениях](./podarochnye-sertifikaty-onlayn-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/podarochnye-sertifikaty-onlayn-2026/)
@@ -1064,6 +1065,12 @@
 - [Гостям базы негде посмотреть баню, квадроциклы и цены](./sayt-vitrina-bazy-otdyha-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-vitrina-bazy-otdyha-2026/)
 - [Учёт автопарка: где машина, кто за рулём, когда ТО](./uchet-avtoparka-putevye-listy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uchet-avtoparka-putevye-listy-2026/)
 - [ИИ разбирает 200 резюме и оставляет пятерых толковых](./ii-skrining-rezyume-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-skrining-rezyume-2026/)
+- [Автосписание за абонемент: клиент не бегает продлевать](./avtospisanie-abonementov-podpiska-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avtospisanie-abonementov-podpiska-2026/)
+- [Сотрудник сфоткал витрину, ИИ сказал, что не по стандарту](./proverka-vykladki-po-foto-ii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/proverka-vykladki-po-foto-ii-2026/)
+- [Гарантийные талоны теряются: электронная гарантия по QR](./elektronnaya-garantiya-po-qr-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/elektronnaya-garantiya-po-qr-2026/)
+- [Экскурсии и туры: группы, места, оплата в одном боте](./bronirovanie-ekskursiy-turov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bronirovanie-ekskursiy-turov-2026/)
+- [Врач диктует приём, а карта заполняется сама](./golos-v-kartu-priema-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/golos-v-kartu-priema-2026/)
+- [Бронь переговорки, зала, оборудования без диспетчера](./bronirovanie-resursov-kompanii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bronirovanie-resursov-kompanii-2026/)
 - [Как нанимать продавцов, официантов и курьеров через бота](./nayom-cherez-bota-prodavcy-oficianty-kurery-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nayom-cherez-bota-prodavcy-oficianty-kurery-2026/)
 - [Почему кандидаты не приходят на собеседование и что с этим делать](./kandidaty-ne-prihodyat-na-sobesedovanie-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kandidaty-ne-prihodyat-na-sobesedovanie-2026/)
 - [YCLIENTS, Dikidi или свой бот для записи: что выбрать салону](./yclients-dikidi-ili-svoy-bot-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/yclients-dikidi-ili-svoy-bot-2026/)
@@ -1406,6 +1413,7 @@
 
 - [Продавец ушёл и увёл базу клиентов: как этого не допустить](./klientskaya-baza-u-kompanii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/klientskaya-baza-u-kompanii-2026/)
 - [Заявки с Авито теряются между менеджерами? Соберём в воронку](./zayavki-so-vseh-ploshchadok-v-voronku-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zayavki-so-vseh-ploshchadok-v-voronku-2026/)
+- [Постоянник получает свою цену без звонка менеджеру](./personalnye-ceny-postoyannym-klientam-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/personalnye-ceny-postoyannym-klientam-2026/)
 - [Абонементы и пакеты услуг: как продавать и не запутаться в остатках визитов](./abonementy-i-pakety-uslug-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/abonementy-i-pakety-uslug-2026/)
 - [Автоматизация для ИП без сотрудников: что имеет смысл, а что нет](./avtomatizaciya-dlya-ip-bez-sotrudnikov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avtomatizaciya-dlya-ip-bez-sotrudnikov-2026/)
 - [Заявки есть, продаж нет: где теряются клиенты между заявкой и оплатой](./zayavki-est-prodazh-net-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zayavki-est-prodazh-net-2026/)
@@ -1927,6 +1935,8 @@
 - [ИИ пишет карточки товаров вместо копирайтера](./ii-kartochki-tovarov-marketpleys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-kartochki-tovarov-marketpleys-2026/)
 - [ИИ переводит переписку с китайским поставщиком в реальном времени](./ii-perevodchik-postavshchik-kitay-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-perevodchik-postavshchik-kitay-2026/)
 - [ИИ-юрист первой линии: проверка договора на риски до подписи](./ii-yurist-proverka-dogovorov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-yurist-proverka-dogovorov-2026/)
+- [ИИ находит тендеры и собирает заявку на закупку за вас](./ii-pomoshchnik-goszakupki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-pomoshchnik-goszakupki-2026/)
+- [Склад в подарок съедает прибыль: что и сколько заказать](./ii-prognoz-sprosa-zakupki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-prognoz-sprosa-zakupki-2026/)
 - [Юань упал на 2%, и бот уже пишет: пора оплачивать поставку](./bot-kurs-yuanya-dlya-importera-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bot-kurs-yuanya-dlya-importera-2026/)
 - [Diablo II без Diablo II: модель мира Agora-2 для бизнеса и киберспорта](./agora-2-model-mira-diablo-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/agora-2-model-mira-diablo-2026/)
 - [ИИ-агенты сговорились в 94% прогонов: что это значит для ваших цен](./ii-agenty-sgovor-cen-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-agenty-sgovor-cen-2026/)
