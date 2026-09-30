@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2038**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2053**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -1026,6 +1026,16 @@
 - [Новичок уходит через месяц: никто им не занимался](./onboarding-novichka-s-nastavnikom-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/onboarding-novichka-s-nastavnikom-2026/)
 - [Подрядчик пропал: как не потерять историю работ по объекту](./otchet-podryadchika-po-etapam-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/otchet-podryadchika-po-etapam-2026/)
 - [Недовоз обнаружили через неделю: приёмка товара по фото](./priemka-tovara-ot-postavshchika-po-foto-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/priemka-tovara-ot-postavshchika-po-foto-2026/)
+- [Страховой агент теряет клиентов в день окончания полиса](./strahovye-agenty-prodleniya-polisov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/strahovye-agenty-prodleniya-polisov-2026/)
+- [Нотариус и кадастровый инженер: запись без тетради](./notarius-kadastr-ochered-dokumenty-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/notarius-kadastr-ochered-dokumenty-2026/)
+- [Трейд-ин по фото: цена через день, лид уже ушёл](./avtosalon-trade-in-ocenka-po-foto-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avtosalon-trade-in-ocenka-po-foto-2026/)
+- [Газели без хаоса: заявки в боте, водитель и акты за рейс](./gruzoperevozki-gazel-zayavki-voditeli-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gruzoperevozki-gazel-zayavki-voditeli-2026/)
+- [Макет в трёх версиях, тираж вручную, «готово?»: как убрать](./tipografiya-zakazy-maketov-status-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/tipografiya-zakazy-maketov-status-2026/)
+- [Допработы, смета, оплата: как бригаде не спорить с заказчиком](./remontnye-brigady-smeta-etapy-oplata-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/remontnye-brigady-smeta-etapy-oplata-2026/)
+- [Плитки не хватило, а партия уже другая: как считать без ошибок](./stroymaterialy-podbor-po-proektu-rezerv-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/stroymaterialy-podbor-po-proektu-rezerv-2026/)
+- [Запись на смены в таблице и чате: как не утонуть в сезон](./detskie-lagerya-kruzhki-zapis-oplata-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/detskie-lagerya-kruzhki-zapis-oplata-2026/)
+- [Фотостудия: бронь залов с предоплатой без накладок и неявок](./fotostudiya-bron-zala-predoplata-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/fotostudiya-bron-zala-predoplata-2026/)
+- [Уборка после ремонта: цена, график и фото без споров](./klining-kalkulyator-grafik-fotootchet-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/klining-kalkulyator-grafik-fotootchet-2026/)
 - [Конфигуратор торта: клиент собирает как в игре и платит](./konfigurator-torta-onlayn-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/konfigurator-torta-onlayn-2026/)
 - [Букет по бюджету: клиент выбрал сам, флорист получил заказ с фото](./konfigurator-buketa-po-byudzhetu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/konfigurator-buketa-po-byudzhetu-2026/)
 - [Инструктор отметил 56 часов вождения. А сколько откатал?](./uchet-vozhdeniya-kontrol-instruktorov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uchet-vozhdeniya-kontrol-instruktorov-2026/)
@@ -1573,6 +1583,11 @@
 - [Передача смены в боте: журнал, чтобы утро не начиналось с хаоса](./peredacha-smeny-zhurnal-v-bote-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/peredacha-smeny-zhurnal-v-bote-2026/)
 - [Клиент шлёт документы кусками: бот собирает комплект сам](./sbor-dokumentov-ot-klienta-v-bote-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sbor-dokumentov-ot-klienta-v-bote-2026/)
 - [Пятый круг правок: как согласовывать макеты по ссылке](./soglasovanie-maketov-i-pravok-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/soglasovanie-maketov-i-pravok-2026/)
+- [Что подготовить, прежде чем писать разработчику: чек-лист](./chek-list-zakazchika-pered-razrabotkoy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chek-list-zakazchika-pered-razrabotkoy-2026/)
+- [8 ошибок при заказе бота, из-за которых деньги уходят впустую](./oshibki-pri-zakaze-bota-dlya-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/oshibki-pri-zakaze-bota-dlya-biznesa-2026/)
+- [Бот под ключ за 4 недели: что происходит каждую неделю](./etapy-razrabotki-bota-po-nedelyam-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/etapy-razrabotki-bota-po-nedelyam-2026/)
+- [Что вы получаете после сдачи проекта: доступы, код и инструкция](./chto-poluchaet-zakazchik-posle-sdachi-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chto-poluchaet-zakazchik-posle-sdachi-2026/)
+- [Договор на разработку: 10 пунктов и ловушки в каждом](./dogovor-na-razrabotku-chek-list-punktov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/dogovor-na-razrabotku-chek-list-punktov-2026/)
 - [Клиент сам собрал дверь и сразу увидел цену](./konfigurator-dverey-cena-srazu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/konfigurator-dverey-cena-srazu-2026/)
 - [Конфигуратор кухонь: клиент собрал, увидел цену, заявка в цех](./konfigurator-kuhni-shkafa-kupe-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/konfigurator-kuhni-shkafa-kupe-2026/)
 - [Калькулятор окон: замерщик едет к тем, кто согласен на цену](./konfigurator-okon-balkona-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/konfigurator-okon-balkona-2026/)
