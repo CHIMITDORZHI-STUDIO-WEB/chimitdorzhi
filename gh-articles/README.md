@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2053**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2063**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -1020,6 +1020,16 @@
 
 ## Отрасли
 
+- [Свадьба завтра, а пара правит программу в 22:00: как убрать хаос](./svadebnye-agentstva-zayavki-podryadchiki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/svadebnye-agentstva-zayavki-podryadchiki-2026/)
+- [Мебель на заказ: смета не сходится с расходом, клиент звонит](./mebel-na-zakaz-zamer-smeta-izgotovlenie-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/mebel-na-zakaz-zamer-smeta-izgotovlenie-2026/)
+- [Стиралка в коридоре, а клиент звонит: «готово?»](./remont-bytovoy-tehniki-priem-status-zapchasti-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/remont-bytovoy-tehniki-priem-status-zapchasti-2026/)
+- [Камера не пишет, а вы не знали: ТО охранных систем по напоминанию](./signalizaciya-videonablyudenie-montazh-obsluzhivanie-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/signalizaciya-videonablyudenie-montazh-obsluzhivanie-2026/)
+- [Кондиционеры: летом завал, зимой тишина. Как вернуть клиентов](./kondicionery-montazh-sezonnoe-obsluzhivanie-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kondicionery-montazh-sezonnoe-obsluzhivanie-2026/)
+- [Вывоз мусора и снега: заказы, маршруты и акты без споров](./vyvoz-musora-uborka-snega-zakazy-marshruty-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vyvoz-musora-uborka-snega-zakazy-marshruty-2026/)
+- [Клиент забрал авто и спорит: приёмка и смета по фото](./avtoelektrik-kuzovnoy-remont-smeta-po-foto-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avtoelektrik-kuzovnoy-remont-smeta-po-foto-2026/)
+- [Срок ФН у клиента истёк: как не терять продления по кассам](./kassovoe-obsluzhivanie-fn-napominaniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kassovoe-obsluzhivanie-fn-napominaniya-2026/)
+- [Ритуальное бюро: заявка, документы и этапы без потерянных деталей](./ritualnye-uslugi-zayavka-etapy-dokumenty-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ritualnye-uslugi-zayavka-etapy-dokumenty-2026/)
+- [Лодка ушла с гостем и не вернулась: порядок на рыбацкой базе](./rybalka-ohota-bazy-prokat-snaryazheniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/rybalka-ohota-bazy-prokat-snaryazheniya-2026/)
 - [Тетрадь с прививками: как ветклиника теряет визиты](./vet-klinika-kartochka-pitomca-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vet-klinika-kartochka-pitomca-2026/)
 - [Об опозданиях узнаёте от клиентов: отметка и автоотчёт](./otmetka-prihoda-opozdaniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/otmetka-prihoda-opozdaniya-2026/)
 - [Тайный покупатель через бота: как проверить точки без вас](./tainyy-pokupatel-cherez-bota-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/tainyy-pokupatel-cherez-bota-2026/)
