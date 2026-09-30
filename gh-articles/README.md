@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2008**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2018**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -1019,6 +1019,8 @@
 
 ## Отрасли
 
+- [Тетрадь с прививками: как ветклиника теряет визиты](./vet-klinika-kartochka-pitomca-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vet-klinika-kartochka-pitomca-2026/)
+- [Об опозданиях узнаёте от клиентов: отметка и автоотчёт](./otmetka-prihoda-opozdaniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/otmetka-prihoda-opozdaniya-2026/)
 - [Конфигуратор торта: клиент собирает как в игре и платит](./konfigurator-torta-onlayn-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/konfigurator-torta-onlayn-2026/)
 - [Букет по бюджету: клиент выбрал сам, флорист получил заказ с фото](./konfigurator-buketa-po-byudzhetu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/konfigurator-buketa-po-byudzhetu-2026/)
 - [Инструктор отметил 56 часов вождения. А сколько откатал?](./uchet-vozhdeniya-kontrol-instruktorov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uchet-vozhdeniya-kontrol-instruktorov-2026/)
@@ -1352,6 +1354,7 @@
 
 ## Право и 152-ФЗ
 
+- [Поверка и срок годности: бот напомнит за 30, 14 и 3 дня](./napominanie-o-srokah-poverki-godnosti-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/napominanie-o-srokah-poverki-godnosti-2026/)
 - [Клиент рассказал вам всё. А запись ушла на сервер в США](./zapisi-priemov-152-fz-bez-oblaka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zapisi-priemov-152-fz-bez-oblaka-2026/)
 - [Пакетная проверка контрагентов по ИНН: список из таблицы за один раз](./paketnaya-proverka-kontragentov-po-inn-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/paketnaya-proverka-kontragentov-po-inn-2026/)
 - [Сроки документов и оборудования под контролем: медкнижки, удостоверения, поверка, ТО](./napominaniya-o-srokah-dokumentov-i-oborudovaniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/napominaniya-o-srokah-dokumentov-i-oborudovaniya-2026/)
@@ -1411,6 +1414,10 @@
 
 ## Продажи
 
+- [Клиенты хотят купить, а товара нет: предзаказ без хаоса](./predzakaz-s-predoplatoy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/predzakaz-s-predoplatoy-2026/)
+- [Заявок 30, серьёзных 3: как бот отделяет горячих от остальных](./kvalifikaciya-lidov-bot-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kvalifikaciya-lidov-bot-2026/)
+- [Взял одно, а мог взять комплект: допродажи в боте и на сайте](./dopprodazhi-v-bote-i-na-sayte-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/dopprodazhi-v-bote-i-na-sayte-2026/)
+- [Клиент выбирает по первому КП: генератор за 5 минут](./generator-kp-za-5-minut-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/generator-kp-za-5-minut-2026/)
 - [Продавец ушёл и увёл базу клиентов: как этого не допустить](./klientskaya-baza-u-kompanii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/klientskaya-baza-u-kompanii-2026/)
 - [Заявки с Авито теряются между менеджерами? Соберём в воронку](./zayavki-so-vseh-ploshchadok-v-voronku-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zayavki-so-vseh-ploshchadok-v-voronku-2026/)
 - [Постоянник получает свою цену без звонка менеджеру](./personalnye-ceny-postoyannym-klientam-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/personalnye-ceny-postoyannym-klientam-2026/)
@@ -1547,6 +1554,8 @@
 
 ## Разработка
 
+- [Совещание кончилось, а что решили, никто не помнит](./protokol-soveshchaniya-ii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/protokol-soveshchaniya-ii-2026/)
+- [Гостя не заказывали? Электронный пропуск с QR на вход](./elektronnyy-propusk-gostyu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/elektronnyy-propusk-gostyu-2026/)
 - [Клиент сам собрал дверь и сразу увидел цену](./konfigurator-dverey-cena-srazu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/konfigurator-dverey-cena-srazu-2026/)
 - [Конфигуратор кухонь: клиент собрал, увидел цену, заявка в цех](./konfigurator-kuhni-shkafa-kupe-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/konfigurator-kuhni-shkafa-kupe-2026/)
 - [Калькулятор окон: замерщик едет к тем, кто согласен на цену](./konfigurator-okon-balkona-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/konfigurator-okon-balkona-2026/)
@@ -1921,6 +1930,7 @@
 
 ## Экспертное
 
+- [Акт сверки на три листа: как перестать считать его руками](./akt-sverki-avtomaticheski-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/akt-sverki-avtomaticheski-2026/)
 - [ИИ читает входящие заявки и сам ставит задачи менеджерам](./ii-razbor-i-marshrutizaciya-zayavok-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-razbor-i-marshrutizaciya-zayavok-2026/)
 - [ИИ-администратор в переписке: отвечает клиентам, пока вы работаете](./ii-administrator-perepiski-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-administrator-perepiski-2026/)
 - [Голосовое на две минуты становится задачей и счётом в CRM](./ii-iz-golosovyh-v-crm-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-iz-golosovyh-v-crm-2026/)
