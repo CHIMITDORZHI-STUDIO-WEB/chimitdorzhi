@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2028**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2038**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -1024,6 +1024,8 @@
 - [Об опозданиях узнаёте от клиентов: отметка и автоотчёт](./otmetka-prihoda-opozdaniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/otmetka-prihoda-opozdaniya-2026/)
 - [Тайный покупатель через бота: как проверить точки без вас](./tainyy-pokupatel-cherez-bota-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/tainyy-pokupatel-cherez-bota-2026/)
 - [Новичок уходит через месяц: никто им не занимался](./onboarding-novichka-s-nastavnikom-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/onboarding-novichka-s-nastavnikom-2026/)
+- [Подрядчик пропал: как не потерять историю работ по объекту](./otchet-podryadchika-po-etapam-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/otchet-podryadchika-po-etapam-2026/)
+- [Недовоз обнаружили через неделю: приёмка товара по фото](./priemka-tovara-ot-postavshchika-po-foto-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/priemka-tovara-ot-postavshchika-po-foto-2026/)
 - [Конфигуратор торта: клиент собирает как в игре и платит](./konfigurator-torta-onlayn-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/konfigurator-torta-onlayn-2026/)
 - [Букет по бюджету: клиент выбрал сам, флорист получил заказ с фото](./konfigurator-buketa-po-byudzhetu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/konfigurator-buketa-po-byudzhetu-2026/)
 - [Инструктор отметил 56 часов вождения. А сколько откатал?](./uchet-vozhdeniya-kontrol-instruktorov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uchet-vozhdeniya-kontrol-instruktorov-2026/)
@@ -1424,6 +1426,9 @@
 - [Клиент выбирает по первому КП: генератор за 5 минут](./generator-kp-za-5-minut-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/generator-kp-za-5-minut-2026/)
 - [Клиент ушёл, потому что за него никто не отвечал](./zakreplenie-klienta-za-menedzherom-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zakreplenie-klienta-za-menedzherom-2026/)
 - [В сезон не хватает рук: пул временных сотрудников в мессенджере](./vremennye-sotrudniki-sezon-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vremennye-sotrudniki-sezon-2026/)
+- [Жалобы клиентов теряются в чатах, звонках и почте. Что делать](./uchet-zhalob-klientov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uchet-zhalob-klientov-2026/)
+- [Менеджеры раздают скидки, а маржа тает: согласование в боте](./soglasovanie-skidok-menedzherov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/soglasovanie-skidok-menedzherov-2026/)
+- [Договорились в личке: как не забыть, что обещали клиенту](./fiksaciya-dogovorennostey-iz-perepiski-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/fiksaciya-dogovorennostey-iz-perepiski-2026/)
 - [Продавец ушёл и увёл базу клиентов: как этого не допустить](./klientskaya-baza-u-kompanii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/klientskaya-baza-u-kompanii-2026/)
 - [Заявки с Авито теряются между менеджерами? Соберём в воронку](./zayavki-so-vseh-ploshchadok-v-voronku-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zayavki-so-vseh-ploshchadok-v-voronku-2026/)
 - [Постоянник получает свою цену без звонка менеджеру](./personalnye-ceny-postoyannym-klientam-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/personalnye-ceny-postoyannym-klientam-2026/)
@@ -1565,6 +1570,9 @@
 - [Сотрудники молчат, а потом уходят: анонимный канал в мессенджере](./anonimnaya-obratnaya-svyaz-sotrudnikov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/anonimnaya-obratnaya-svyaz-sotrudnikov-2026/)
 - [Товар кончился, а узнали от покупателя: как это убрать](./minimalnyy-ostatok-uvedomlenie-zakupshchiku-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/minimalnyy-ostatok-uvedomlenie-zakupshchiku-2026/)
 - [Клиент звонит каждый день: страница статуса заказа](./status-zakaza-po-ssylke-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/status-zakaza-po-ssylke-2026/)
+- [Передача смены в боте: журнал, чтобы утро не начиналось с хаоса](./peredacha-smeny-zhurnal-v-bote-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/peredacha-smeny-zhurnal-v-bote-2026/)
+- [Клиент шлёт документы кусками: бот собирает комплект сам](./sbor-dokumentov-ot-klienta-v-bote-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sbor-dokumentov-ot-klienta-v-bote-2026/)
+- [Пятый круг правок: как согласовывать макеты по ссылке](./soglasovanie-maketov-i-pravok-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/soglasovanie-maketov-i-pravok-2026/)
 - [Клиент сам собрал дверь и сразу увидел цену](./konfigurator-dverey-cena-srazu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/konfigurator-dverey-cena-srazu-2026/)
 - [Конфигуратор кухонь: клиент собрал, увидел цену, заявка в цех](./konfigurator-kuhni-shkafa-kupe-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/konfigurator-kuhni-shkafa-kupe-2026/)
 - [Калькулятор окон: замерщик едет к тем, кто согласен на цену](./konfigurator-okon-balkona-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/konfigurator-okon-balkona-2026/)
@@ -1941,6 +1949,8 @@
 
 - [Акт сверки на три листа: как перестать считать его руками](./akt-sverki-avtomaticheski-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/akt-sverki-avtomaticheski-2026/)
 - [Регламент в виде бота: спросил и получил ответ с пунктом](./reglament-v-vide-bota-pomoshchnika-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/reglament-v-vide-bota-pomoshchnika-2026/)
+- [Команда загружена, а денег нет: на что уходят часы студии](./uchet-vremeni-po-proektam-studiya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uchet-vremeni-po-proektam-studiya-2026/)
+- [Сотрудник уволился, а доступы остались: что закрыть в день ухода](./offboarding-uvolnennogo-sotrudnika-dostupy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/offboarding-uvolnennogo-sotrudnika-dostupy-2026/)
 - [ИИ читает входящие заявки и сам ставит задачи менеджерам](./ii-razbor-i-marshrutizaciya-zayavok-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-razbor-i-marshrutizaciya-zayavok-2026/)
 - [ИИ-администратор в переписке: отвечает клиентам, пока вы работаете](./ii-administrator-perepiski-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-administrator-perepiski-2026/)
 - [Голосовое на две минуты становится задачей и счётом в CRM](./ii-iz-golosovyh-v-crm-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-iz-golosovyh-v-crm-2026/)
