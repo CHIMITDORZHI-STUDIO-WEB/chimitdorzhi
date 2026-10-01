@@ -3,6 +3,24 @@
 // intl: международный проект. metric: есть твёрдые цифры.
 // en / es — переводы полей task/solution/result (RU — база/фолбэк).
 module.exports = [
+  // Начало октября 2026: свои продукты, сданные проекты и отданные предложения.
+  require('./_case-kinly-semeynyy-assistent-telegram-max-keys-2026.js').flagship,
+  require('./_case-ferz-rabochee-mesto-rukovoditelya-saas-keys-2026.js').flagship,
+  require('./_case-space-platforma-gotovyh-resheniy-keys-2026.js').flagship,
+  require('./_case-svoi-mcp-servery-socseti-iz-dialoga-keys-2026.js').flagship,
+  require('./_case-tilda-assistant-upravlenie-adminkoy-keys-2026.js').flagship,
+  require('./_case-shagay-naadan-telegram-mini-app-keys-2026.js').flagship,
+  require('./_case-vitrina-resheniy-48-kartochek-gruppa-keys-2026.js').flagship,
+  require('./_case-sayt-kosmetologa-etap-1-keys-2026.js').flagship,
+  require('./_case-lending-massazhista-zapis-predoplata-keys-2026.js').flagship,
+  require('./_case-sovmestnye-zakupki-pwa-pvz-keys-2026.js').flagship,
+  require('./_case-self-storage-bronirovanie-boksov-keys-2026.js').flagship,
+  require('./_case-crm-logistiki-istochniki-zayavok-keys-2026.js').flagship,
+  require('./_case-taksi-rayona-bot-pwa-predlozhenie-keys-2026.js').flagship,
+  require('./_case-avtoshkola-pwa-uchet-vozhdeniya-predlozhenie-keys-2026.js').flagship,
+  require('./_case-vozvrat-domena-u-byvshego-razrabotchika-keys-2026.js').flagship,
+  require('./_case-kafe-pwa-gostya-prezentaciya-keys-2026.js').flagship,
+  require('./_case-gostinica-kp-dvuyazychnoe-predlozhenie-keys-2026.js').flagship,
   // Третья неделя сентября 2026 — карточки лежат в _case-<slug>.js рядом со статьями.
   require('./_case-katalog-kosmetiki-sinhronizaciya-kassy-keys-2026.js').flagship,
   require('./_case-amarsain-sayt-teatra-keys-2026.js').flagship,
