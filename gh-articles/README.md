@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2073**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2102**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -303,6 +303,14 @@
 
 ## Open-source и свой сервер
 
+- [ИИ-учёный, который сам ставит эксперименты: разбор OpenScience](./openscience-ii-uchenyy-agent-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/openscience-ii-uchenyy-agent-2026/)
+- [Три игровых ПК в офисе превращаются в один свой ИИ: NVIDIA PAIR](./nvidia-pair-svoy-ii-klaster-v-ofise-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nvidia-pair-svoy-ii-klaster-v-ofise-2026/)
+- [ИИ-помощники команды учатся друг у друга: Tencent TeamAI CLI](./tencent-teamai-cli-obshchiy-konfig-agentov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/tencent-teamai-cli-obshchiy-konfig-agentov-2026/)
+- [Свой офис на сервере: ONLYOFFICE или Univer с ИИ-агентами](./svoy-ofis-univer-onlyoffice-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/svoy-ofis-univer-onlyoffice-2026/)
+- [Mercur: свой маркетплейс на open source без комиссий](./mercur-svoy-marketplace-na-open-source-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/mercur-svoy-marketplace-na-open-source-2026/)
+- [Pipecat: свой голосовой ИИ-агент вместо платы за минуты](./pipecat-svoy-golosovoy-ii-agent-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pipecat-svoy-golosovoy-ii-agent-2026/)
+- [Пачка сканов одним файлом: как её разобрать без рук](./docjev-sortirovka-i-razrezanie-dokumentov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/docjev-sortirovka-i-razrezanie-dokumentov-2026/)
+- [Компания из ИИ-агентов: что умеет Paperclip и где нужен человек](./paperclip-kompaniya-iz-ii-agentov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/paperclip-kompaniya-iz-ii-agentov-2026/)
 - [DocuSeal: подписание договоров на своём сервере без бумаги](./docuseal-podpisanie-dogovorov-na-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/docuseal-podpisanie-dogovorov-na-servere-2026/)
 - [OpenHD: HD-видео с дрона на 50 км без 4G и вендоров](./openhd-dron-hd-video-dlya-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/openhd-dron-hd-video-dlya-biznesa-2026/)
 - [Rocket.Chat: корпоративный мессенджер на своём сервере под ключ](./rocketchat-korporativnyy-messendzher-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/rocketchat-korporativnyy-messendzher-2026/)
@@ -579,6 +587,8 @@
 
 ## Бизнес-кругозор
 
+- [ИИ-аудит процессов: три самые дорогие рутины за неделю](./ii-audit-processov-tri-dorogie-rutiny-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-audit-processov-tri-dorogie-rutiny-2026/)
+- [Кассовый разрыв: как увидеть дыру в деньгах за месяц вперёд](./kassovyy-razryv-prognoz-deneg-90-dney-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kassovyy-razryv-prognoz-deneg-90-dney-2026/)
 - [Проблему видно в цифрах за день, а узнаёте через месяц](./rannie-signaly-ii-sledit-za-ciframi-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/rannie-signaly-ii-sledit-za-ciframi-2026/)
 - [Домен записан на бывшего разработчика: как вернуть его компании](./kak-vernut-domen-u-razrabotchika-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-vernut-domen-u-razrabotchika-2026/)
 - [Договор за минуту: клиент ввёл данные, документ готов](./generator-dogovorov-i-kp-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/generator-dogovorov-i-kp-2026/)
@@ -875,6 +885,7 @@
 
 ## Маркетинг
 
+- [Telegram-канал бизнеса: как он приводит заявки, а не висит](./telegram-kanal-biznesa-zayavki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/telegram-kanal-biznesa-zayavki-2026/)
 - [QR-наклейка на авто: каждая машина приводит клиента, и видно кто](./qr-nakleyki-partnerka-arenda-avto-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/qr-nakleyki-partnerka-arenda-avto-2026/)
 - [Один кошелёк на кофейню, барбершоп и цветочный: лояльность города](./obshchaya-loyalnost-goroda-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/obshchaya-loyalnost-goroda-2026/)
 - [Клиент пропал после покупки. Бот вернёт его за 30 дней](./vozvrat-klientov-avtovoronka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vozvrat-klientov-avtovoronka-2026/)
@@ -1040,6 +1051,7 @@
 - [Кандидаты в кадровом агентстве не должны пропадать между этапами](./kadrovye-agentstva-voronka-kandidatov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kadrovye-agentstva-voronka-kandidatov-2026/)
 - [Парковка без тетради: абонементы, оплата и должники](./parkovki-abonementy-arenda-mest-oplata-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/parkovki-abonementy-arenda-mest-oplata-2026/)
 - [Цена в день переезда другая: смета, бригада, фото и акт](./gruzchiki-pereezd-smeta-brigada-akt-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gruzchiki-pereezd-smeta-brigada-akt-2026/)
+- [ЕГАИС для магазина и кафе: что нужно, чтобы касса не встала](./egais-magazin-kafe-alkogol-chto-nuzhno-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/egais-magazin-kafe-alkogol-chto-nuzhno-2026/)
 - [Тетрадь с прививками: как ветклиника теряет визиты](./vet-klinika-kartochka-pitomca-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vet-klinika-kartochka-pitomca-2026/)
 - [Об опозданиях узнаёте от клиентов: отметка и автоотчёт](./otmetka-prihoda-opozdaniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/otmetka-prihoda-opozdaniya-2026/)
 - [Тайный покупатель через бота: как проверить точки без вас](./tainyy-pokupatel-cherez-bota-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/tainyy-pokupatel-cherez-bota-2026/)
@@ -1595,6 +1607,11 @@
 
 ## Разработка
 
+- [Бот, сайт или приложение: что выбрать под вашу задачу](./bot-sayt-ili-prilozhenie-chto-vybrat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bot-sayt-ili-prilozhenie-chto-vybrat-2026/)
+- [Тест бота и сайта перед запуском: что проверить самому](./testirovanie-bota-i-sayta-pered-zapuskom-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/testirovanie-bota-i-sayta-pered-zapuskom-2026/)
+- [Заявка с сайта не пришла: письмо в спаме из-за SPF и DKIM](./pisma-v-spam-spf-dkim-dmarc-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pisma-v-spam-spf-dkim-dmarc-2026/)
+- [Сайт забивают боты: защита формы и Cloudflare в России](./zashchita-formy-ot-botov-cloudflare-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zashchita-formy-ot-botov-cloudflare-2026/)
+- [Сообщения клиентов теряются в чатах: единое окно и срок ответа](./sluzhba-podderzhki-v-messendzherah-sla-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sluzhba-podderzhki-v-messendzherah-sla-2026/)
 - [Совещание кончилось, а что решили, никто не помнит](./protokol-soveshchaniya-ii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/protokol-soveshchaniya-ii-2026/)
 - [Гостя не заказывали? Электронный пропуск с QR на вход](./elektronnyy-propusk-gostyu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/elektronnyy-propusk-gostyu-2026/)
 - [Сотрудники молчат, а потом уходят: анонимный канал в мессенджере](./anonimnaya-obratnaya-svyaz-sotrudnikov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/anonimnaya-obratnaya-svyaz-sotrudnikov-2026/)
@@ -1982,6 +1999,18 @@
 
 ## Экспертное
 
+- [Заменят ли агенты профессию? Для 419 из 923 нет ни одного инструмента](./cohere-700-tysyach-mcp-instrumentov-chto-avtomatizirovat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/cohere-700-tysyach-mcp-instrumentov-chto-avtomatizirovat-2026/)
+- [Сколько тратить на IT в год: бюджет без чужих процентов](./it-byudzhet-malogo-biznesa-skolko-tratit-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/it-byudzhet-malogo-biznesa-skolko-tratit-2026/)
+- [ChatGPT Dots: ИИ-агент как сотрудник и чему в нём не верить](./chatgpt-personalnye-agenty-dots-malyy-biznes-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chatgpt-personalnye-agenty-dots-malyy-biznes-2026/)
+- [ИИ-агент выложил в сеть 53 изображения: как защитить данные](./ii-agent-utechka-foto-kak-ne-dopustit-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-agent-utechka-foto-kak-ne-dopustit-2026/)
+- [Платформа безопасности агентов от Nvidia: нужна ли она бизнесу](./nvidia-open-agent-safety-platform-nuzhna-li-biznesu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nvidia-open-agent-safety-platform-nuzhna-li-biznesu-2026/)
+- [Gemini звонит за клиентов: что делать вашему колл-центру](./gemini-zvonit-za-cheloveka-ivr-vash-kollcentr-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gemini-zvonit-za-cheloveka-ivr-vash-kollcentr-2026/)
+- [Если код пишет ИИ, за что вы платите разработчику](./esli-kod-pishet-ii-za-chto-platit-razrabotchiku-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/esli-kod-pishet-ii-za-chto-platit-razrabotchiku-2026/)
+- [Bilibili открыла переводчики: что это даёт закупщикам из Китая](./otkrytye-modeli-perevoda-kitayskie-postavshchiki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/otkrytye-modeli-perevoda-kitayskie-postavshchiki-2026/)
+- [Рекомендации без истории покупок: что делать магазину](./rekomendacii-pri-malom-chisle-dannyh-magazin-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/rekomendacii-pri-malom-chisle-dannyh-magazin-2026/)
+- [Проект на компьютерном зрении застрял на фото: что готовить](./podgotovka-dannyh-dlya-kompyuternogo-zreniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/podgotovka-dannyh-dlya-kompyuternogo-zreniya-2026/)
+- [Какую модель ИИ выбрать для бота и не переплатить](./kakuyu-model-ii-vybrat-dlya-bota-ne-pereplachivat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kakuyu-model-ii-vybrat-dlya-bota-ne-pereplachivat-2026/)
+- [Gems в Gemini заменят на Skills: свой ассистент без разработчика](./gemini-skills-svoy-assistent-bez-razrabotchika-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gemini-skills-svoy-assistent-bez-razrabotchika-2026/)
 - [Акт сверки на три листа: как перестать считать его руками](./akt-sverki-avtomaticheski-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/akt-sverki-avtomaticheski-2026/)
 - [Регламент в виде бота: спросил и получил ответ с пунктом](./reglament-v-vide-bota-pomoshchnika-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/reglament-v-vide-bota-pomoshchnika-2026/)
 - [Команда загружена, а денег нет: на что уходят часы студии](./uchet-vremeni-po-proektam-studiya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uchet-vremeni-po-proektam-studiya-2026/)
