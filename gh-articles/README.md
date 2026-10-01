@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2063**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2073**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -1030,6 +1030,16 @@
 - [Срок ФН у клиента истёк: как не терять продления по кассам](./kassovoe-obsluzhivanie-fn-napominaniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kassovoe-obsluzhivanie-fn-napominaniya-2026/)
 - [Ритуальное бюро: заявка, документы и этапы без потерянных деталей](./ritualnye-uslugi-zayavka-etapy-dokumenty-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ritualnye-uslugi-zayavka-etapy-dokumenty-2026/)
 - [Лодка ушла с гостем и не вернулась: порядок на рыбацкой базе](./rybalka-ohota-bazy-prokat-snaryazheniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/rybalka-ohota-bazy-prokat-snaryazheniya-2026/)
+- [Два клиента на одно платье: как навести порядок в прокате](./prokat-platev-kostyumov-bron-zalog-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/prokat-platev-kostyumov-bron-zalog-2026/)
+- [Геодезисты: клиент звонит, когда будет схема](./geodezisty-vyezdy-chertezhi-akty-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/geodezisty-vyezdy-chertezhi-akty-2026/)
+- [Оценщик ищет документы вместо оценки: заявка, осмотр, статус](./ocenochnye-kompanii-osmotr-otchet-status-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ocenochnye-kompanii-osmotr-otchet-status-2026/)
+- [Заказы голосовыми в 23:40: как поставщику свежих продуктов не тонуть](./svezhie-produkty-dlya-kafe-zakaz-zameny-akty-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/svezhie-produkty-dlya-kafe-zakaz-zameny-akty-2026/)
+- [Суши и пицца: заказ на позицию, которой уже нет](./sushi-picceriya-dostavka-stop-list-povtor-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sushi-picceriya-dostavka-stop-list-povtor-2026/)
+- [Дни рождения в батутном парке: бронь без накладок](./detskie-razvlekatelnye-centry-bron-bilety-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/detskie-razvlekatelnye-centry-bron-bilety-2026/)
+- [Кольцо было тяжелее: как не спорить на выдаче в ювелирке](./yuvelirnye-masterskie-priem-remont-vydacha-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/yuvelirnye-masterskie-priem-remont-vydacha-2026/)
+- [Кандидаты в кадровом агентстве не должны пропадать между этапами](./kadrovye-agentstva-voronka-kandidatov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kadrovye-agentstva-voronka-kandidatov-2026/)
+- [Парковка без тетради: абонементы, оплата и должники](./parkovki-abonementy-arenda-mest-oplata-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/parkovki-abonementy-arenda-mest-oplata-2026/)
+- [Цена в день переезда другая: смета, бригада, фото и акт](./gruzchiki-pereezd-smeta-brigada-akt-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gruzchiki-pereezd-smeta-brigada-akt-2026/)
 - [Тетрадь с прививками: как ветклиника теряет визиты](./vet-klinika-kartochka-pitomca-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vet-klinika-kartochka-pitomca-2026/)
 - [Об опозданиях узнаёте от клиентов: отметка и автоотчёт](./otmetka-prihoda-opozdaniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/otmetka-prihoda-opozdaniya-2026/)
 - [Тайный покупатель через бота: как проверить точки без вас](./tainyy-pokupatel-cherez-bota-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/tainyy-pokupatel-cherez-bota-2026/)
