@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2102**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2119**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -148,6 +148,23 @@
 
 ## cases
 
+- [Kinly: семейный ИИ-ассистент в Telegram и MAX на одном коде](./kinly-semeynyy-assistent-telegram-max-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kinly-semeynyy-assistent-telegram-max-keys-2026/)
+- [Ферзь: рабочее место руководителя без штатных юриста и кадровика](./ferz-rabochee-mesto-rukovoditelya-saas-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ferz-rabochee-mesto-rukovoditelya-saas-keys-2026/)
+- [SPACE: моя платформа готовых решений для микробизнеса с входом через Telegram](./space-platforma-gotovyh-resheniy-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/space-platforma-gotovyh-resheniy-keys-2026/)
+- [Свои MCP-серверы: Одноклассники, ТенЧат, ВКонтакте и Postmypost из диалога с ИИ](./svoi-mcp-servery-socseti-iz-dialoga-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/svoi-mcp-servery-socseti-iz-dialoga-keys-2026/)
+- [Tilda Assistant: локальный помощник для админки Tilda через диалог с ИИ](./tilda-assistant-upravlenie-adminkoy-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/tilda-assistant-upravlenie-adminkoy-keys-2026/)
+- [Шагай Наадан: три игры на одном броске костей в Telegram Mini App](./shagay-naadan-telegram-mini-app-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/shagay-naadan-telegram-mini-app-keys-2026/)
+- [Витрина решений: 48 карточек для бизнеса в Telegram-группе по нишам](./vitrina-resheniy-48-kartochek-gruppa-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vitrina-resheniy-48-kartochek-gruppa-keys-2026/)
+- [Сайт врача-косметолога из Петербурга: первый этап сдан, второй ждёт материалов](./sayt-kosmetologa-etap-1-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-kosmetologa-etap-1-keys-2026/)
+- [Лендинг массажиста с онлайн-записью и предоплатой: разбор проекта](./lending-massazhista-zapis-predoplata-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/lending-massazhista-zapis-predoplata-keys-2026/)
+- [Совместные закупки в одном PWA: заказ, сборка и выдача в пункте](./sovmestnye-zakupki-pwa-pvz-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sovmestnye-zakupki-pwa-pvz-keys-2026/)
+- [Бронирование боксов для склада хранения в Красноярске: демо-система](./self-storage-bronirovanie-boksov-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/self-storage-bronirovanie-boksov-keys-2026/)
+- [CRM для логистической компании: откуда пришла каждая заявка](./crm-logistiki-istochniki-zayavok-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/crm-logistiki-istochniki-zayavok-keys-2026/)
+- [Заказ такси для таксопарка небольшого района: предложение и кликабельное демо](./taksi-rayona-bot-pwa-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/taksi-rayona-bot-pwa-predlozhenie-keys-2026/)
+- [Приложение для автошколы: учёт часов вождения и контроль инструкторов](./avtoshkola-pwa-uchet-vozhdeniya-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avtoshkola-pwa-uchet-vozhdeniya-predlozhenie-keys-2026/)
+- [Возврат домена у бывшего разработчика: пакет документов для организации](./vozvrat-domena-u-byvshego-razrabotchika-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vozvrat-domena-u-byvshego-razrabotchika-keys-2026/)
+- [Предложение для этно-кафе: три блока и презентация гостевого PWA](./kafe-pwa-gostya-prezentaciya-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kafe-pwa-gostya-prezentaciya-keys-2026/)
+- [КП для небольшой гостиницы на русском и китайском: что в него вошло](./gostinica-kp-dvuyazychnoe-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gostinica-kp-dvuyazychnoe-predlozhenie-keys-2026/)
 - [Каталог косметики: пустая витрина, 591 товар и связь с кассой](./katalog-kosmetiki-sinhronizaciya-kassy-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/katalog-kosmetiki-sinhronizaciya-kassy-keys-2026/)
 - [Паллетный учёт на ТСД для оптовика: приложение под 1С](./palletnyy-uchet-tsd-1c-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/palletnyy-uchet-tsd-1c-keys-2026/)
 - [Корпоративный сайт компании из ОАЭ: два языка и анимация без шаблонности](./korporativnyy-sayt-kompanii-oae-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/korporativnyy-sayt-kompanii-oae-keys-2026/)
