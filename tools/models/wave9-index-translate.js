@@ -1,0 +1,27 @@
+// Семейство машинного перевода Bilibili. Факты сверены по Hugging Face и GitHub на 01.10.2026.
+module.exports = [
+  {
+    id: 'index-translate',
+    name: 'Index-Translate',
+    developer: 'Bilibili (Index Team)', country: 'Китай',
+    modality: ['translate', 'omni'],
+    first: '2026-09', latest: '2026-09',
+    sizes: '2B, 9B (35B-A3B в превью)',
+    license: 'Apache 2.0',
+    commercial: 'yes',
+    hardware: ['min', 'gpu'],
+    ru: 'unknown',
+    industries: ['media', 'marketing', 'docs'],
+    ollama: false,
+    cpu: false,
+    summary: 'Открытые модели перевода на базе Qwen3.5: текст на 150 языков с глоссарием и инструкциями, субтитры, речь в речь, дубляж под число слогов и перевод целых книг за один проход.',
+    tasks: ['перевод текста с глоссарием и сохранением разметки', 'перевод речи в субтитры и в речь', 'дубляж видео с подгонкой под число слогов', 'перевод длинных документов и книг'],
+    where: ['локализация и экспорт', 'медиа и видеопродакшн', 'издательства и документооборот'],
+    versions: [['Index-Translate 2B / 9B', '2026-09'], ['Index-Echo S2TT и S2ST 2B / 9B', '2026-09'], ['Index-Homura 2B / 9B', '2026-09'], ['Index-NativeLong 2B / 9B', '2026-09'], ['Index-Translate 35B-A3B (превью)', '2026-09']],
+    hf: 'https://huggingface.co/collections/IndexTeam/index-translate',
+    github: 'https://github.com/bilibili/Index-Translate',
+    alternatives: ['hy-mt', 'nllb', 'madlad'],
+    source: 'https://huggingface.co/IndexTeam/Index-Translate-9B',
+    verified: true,
+  },
+];
