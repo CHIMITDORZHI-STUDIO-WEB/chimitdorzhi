@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2147**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2157**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -553,6 +553,7 @@
 ## Безопасность
 
 - [ИИ-ассистент ошибся при клиенте: первые сутки](./ii-assistent-oshibsya-pri-klientah-pervye-sutki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-assistent-oshibsya-pri-klientah-pervye-sutki-2026/)
+- [ИИ находит дыры быстрее людей: что делать владельцу сайта](./ii-nahodit-uyazvimosti-chto-delat-vladelcu-sayta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-nahodit-uyazvimosti-chto-delat-vladelcu-sayta-2026/)
 - [Вирус советуется с четырьмя нейросетями, прежде чем украсть ваши данные](./virus-sovetuetsya-s-neyrosetyami-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/virus-sovetuetsya-s-neyrosetyami-2026/)
 - [ИИ-агент OpenAI обошёл защиту Medicare, и это заметили через два месяца](./ii-agent-medicare-incident-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-agent-medicare-incident-2026/)
 - [Взломали Telegram или MAX компании: что делать в первый час](./vzlomali-telegram-ili-max-kompanii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vzlomali-telegram-ili-max-kompanii-2026/)
@@ -921,6 +922,7 @@
 - [Отчёт подрядчика по рекламе: 6 цифр вместо красивых графиков](./otchet-podryadchika-po-reklame-shest-cifr-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/otchet-podryadchika-po-reklame-shest-cifr-2026/)
 - [Заявки ночью и в выходные: что должен писать автоответ](./avtootvet-vne-rabochego-vremeni-zayavki-nochyu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avtootvet-vne-rabochego-vremeni-zayavki-nochyu-2026/)
 - [Telegram-канал бизнеса: как он приводит заявки, а не висит](./telegram-kanal-biznesa-zayavki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/telegram-kanal-biznesa-zayavki-2026/)
+- [VK Лента теперь оценивает намерение купить: что делать продавцу](./vk-namerenie-kupit-lenta-reklama-malyy-biznes-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vk-namerenie-kupit-lenta-reklama-malyy-biznes-2026/)
 - [QR-наклейка на авто: каждая машина приводит клиента, и видно кто](./qr-nakleyki-partnerka-arenda-avto-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/qr-nakleyki-partnerka-arenda-avto-2026/)
 - [Один кошелёк на кофейню, барбершоп и цветочный: лояльность города](./obshchaya-loyalnost-goroda-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/obshchaya-loyalnost-goroda-2026/)
 - [Клиент пропал после покупки. Бот вернёт его за 30 дней](./vozvrat-klientov-avtovoronka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vozvrat-klientov-avtovoronka-2026/)
@@ -1443,6 +1445,9 @@
 ## Право и 152-ФЗ
 
 - [Сколько хранить данные клиентов и когда их удалять по 152-ФЗ](./srok-hraneniya-dannyh-klientov-kogda-udalyat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/srok-hraneniya-dannyh-klientov-kogda-udalyat-2026/)
+- [Закон 289-ФЗ с 1 октября: что меняется для продавцов](./zakon-289-fz-platformennaya-ekonomika-prodavcam-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zakon-289-fz-platformennaya-ekonomika-prodavcam-2026/)
+- [Лимит 60 часов для самозанятых с 1 октября: что делать заказчику](./samozanyatye-limit-60-chasov-zakazchiku-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/samozanyatye-limit-60-chasov-zakazchiku-2026/)
+- [Что изменилось с 1 октября 2026 для малого бизнеса: дайджест](./chto-izmenilos-s-1-oktyabrya-2026-malyy-biznes.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chto-izmenilos-s-1-oktyabrya-2026-malyy-biznes/)
 - [Поверка и срок годности: бот напомнит за 30, 14 и 3 дня](./napominanie-o-srokah-poverki-godnosti-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/napominanie-o-srokah-poverki-godnosti-2026/)
 - [Исполнитель на слово: куда деваются чеки и споры об объёме](./samozanyatye-ispolniteli-akt-chek-oplata-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/samozanyatye-ispolniteli-akt-chek-oplata-2026/)
 - [Клиент рассказал вам всё. А запись ушла на сервер в США](./zapisi-priemov-152-fz-bez-oblaka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zapisi-priemov-152-fz-bez-oblaka-2026/)
@@ -2056,6 +2061,11 @@
 - [Проект на компьютерном зрении застрял на фото: что готовить](./podgotovka-dannyh-dlya-kompyuternogo-zreniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/podgotovka-dannyh-dlya-kompyuternogo-zreniya-2026/)
 - [Какую модель ИИ выбрать для бота и не переплатить](./kakuyu-model-ii-vybrat-dlya-bota-ne-pereplachivat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kakuyu-model-ii-vybrat-dlya-bota-ne-pereplachivat-2026/)
 - [Gems в Gemini заменят на Skills: свой ассистент без разработчика](./gemini-skills-svoy-assistent-bez-razrabotchika-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gemini-skills-svoy-assistent-bez-razrabotchika-2026/)
+- [Модели решений вместо чат-ботов: что это даёт бизнесу](./modeli-resheniy-vmesto-chat-botov-biznes-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/modeli-resheniy-vmesto-chat-botov-biznes-2026/)
+- [Конструктор ИИ-агента или разработка: где проходит граница](./konstruktor-ii-agenta-ili-razrabotka-pod-klyuch-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/konstruktor-ii-agenta-ili-razrabotka-pod-klyuch-2026/)
+- [План автоматизации и IT-бюджет на 2027: что заложить в октябре](./plan-avtomatizacii-i-it-byudzhet-na-2027-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/plan-avtomatizacii-i-it-byudzhet-na-2027-2026/)
+- [Китайские ИИ-модели в российской компании: можно ли?](./kitayskie-ii-modeli-v-rossiyskoy-kompanii-qwen-deepseek-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kitayskie-ii-modeli-v-rossiyskoy-kompanii-qwen-deepseek-2026/)
+- [Собрали сайт нейросетью сами: когда это превращается в долг](./vaybkoding-dolg-sobral-sam-neyrosetyu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vaybkoding-dolg-sobral-sam-neyrosetyu-2026/)
 - [Акт сверки на три листа: как перестать считать его руками](./akt-sverki-avtomaticheski-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/akt-sverki-avtomaticheski-2026/)
 - [Регламент в виде бота: спросил и получил ответ с пунктом](./reglament-v-vide-bota-pomoshchnika-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/reglament-v-vide-bota-pomoshchnika-2026/)
 - [Команда загружена, а денег нет: на что уходят часы студии](./uchet-vremeni-po-proektam-studiya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uchet-vremeni-po-proektam-studiya-2026/)
