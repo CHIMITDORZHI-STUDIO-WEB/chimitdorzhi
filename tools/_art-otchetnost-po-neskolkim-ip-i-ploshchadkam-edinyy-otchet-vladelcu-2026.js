@@ -1,0 +1,21 @@
+module.exports = {
+  slug: "otchetnost-po-neskolkim-ip-i-ploshchadkam-edinyy-otchet-vladelcu-2026",
+  category: "finance",
+  heroIcon: "ph-fill ph-stack",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/business-analytics-unit-economics/", label: "Сводка по кабинетам и юрлицам" },
+  title: "Единый отчёт владельцу по нескольким ИП, ООО и площадкам",
+  metaTitle: "Сводный отчёт по нескольким ИП и маркетплейсам: что в нём",
+  metaDescription: "Кабинеты на WB, Ozon и Маркете у нескольких ИП и ООО: из чего состоит недельная сводка по деньгам и остаткам, откуда данные и как не задвоить деньги.",
+  excerpt: "Кабинеты на Wildberries, Ozon и Яндекс Маркете у разных юрлиц, а общей цифры по деньгам и остаткам нет. Разбираем, чем сводка владельцу отличается от отчёта бухгалтера, из каких блоков она состоит, откуда брать данные и как не задвоить деньги между юрлицами.",
+  tags: ["сводный отчёт", "несколько юрлиц", "кабинеты маркетплейсов", "дашборд владельцу"],
+  toc: [
+    { id: "tri-kabineta", text: "Три кабинета и ни одной общей цифры" },
+    { id: "otlichie", text: "Сводка владельцу и отчёт бухгалтера" },
+    { id: "dannye", text: "Откуда брать данные по кабинетам" },
+    { id: "zadvoenie", text: "Как не задвоить деньги между юрлицами" },
+    { id: "vypusk", text: "Еженедельный выпуск и что сделать сейчас" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["razbor-finansovogo-otcheta-marketpleysa-2026","ostatki-na-wb-ozon-ym-iz-odnoy-1c-2026","integraciya-s-api-wb-ozon-2026","svodka-otchetov-filialov-v-odnu-tablicu-2026"],
+};
