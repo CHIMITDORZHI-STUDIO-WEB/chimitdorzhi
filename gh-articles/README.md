@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2137**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2147**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -552,6 +552,7 @@
 
 ## Безопасность
 
+- [ИИ-ассистент ошибся при клиенте: первые сутки](./ii-assistent-oshibsya-pri-klientah-pervye-sutki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-assistent-oshibsya-pri-klientah-pervye-sutki-2026/)
 - [Вирус советуется с четырьмя нейросетями, прежде чем украсть ваши данные](./virus-sovetuetsya-s-neyrosetyami-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/virus-sovetuetsya-s-neyrosetyami-2026/)
 - [ИИ-агент OpenAI обошёл защиту Medicare, и это заметили через два месяца](./ii-agent-medicare-incident-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-agent-medicare-incident-2026/)
 - [Взломали Telegram или MAX компании: что делать в первый час](./vzlomali-telegram-ili-max-kompanii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vzlomali-telegram-ili-max-kompanii-2026/)
@@ -613,6 +614,7 @@
 
 ## Бизнес-кругозор
 
+- [Сервис лёг, а клиенты идут: бумажный план Б для записи](./servis-leg-plan-b-zapis-zakazy-na-bumage-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/servis-leg-plan-b-zapis-zakazy-na-bumage-2026/)
 - [ИИ-аудит процессов: три самые дорогие рутины за неделю](./ii-audit-processov-tri-dorogie-rutiny-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-audit-processov-tri-dorogie-rutiny-2026/)
 - [Кассовый разрыв: как увидеть дыру в деньгах за месяц вперёд](./kassovyy-razryv-prognoz-deneg-90-dney-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kassovyy-razryv-prognoz-deneg-90-dney-2026/)
 - [Проблему видно в цифрах за день, а узнаёте через месяц](./rannie-signaly-ii-sledit-za-ciframi-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/rannie-signaly-ii-sledit-za-ciframi-2026/)
@@ -913,6 +915,11 @@
 
 - [ИИ-продавец подберёт товар и не уйдёт спать в 11 вечера](./ii-prodavec-podbor-tovara-po-katalogu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-prodavec-podbor-tovara-po-katalogu-2026/)
 - [Бот поздравит клиента с бонусом, а вы не помните ни одной даты](./avtopovody-pozdravleniya-bonusy-klientam-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avtopovody-pozdravleniya-bonusy-klientam-2026/)
+- [Напоминания клиентам: SMS или мессенджер и сколько это стоит](./sms-ili-messendzher-uvedomleniya-klientam-stoimost-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sms-ili-messendzher-uvedomleniya-klientam-stoimost-2026/)
+- [Яндекс Метрика для владельца: 5 целей, чтобы видеть заявки](./yandeks-metrika-dlya-vladeltsa-pyat-celey-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/yandeks-metrika-dlya-vladeltsa-pyat-celey-2026/)
+- [Запасной канал связи с клиентами: как собрать свою базу контактов](./zapasnoy-kanal-svyazi-s-klientami-blokirovka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zapasnoy-kanal-svyazi-s-klientami-blokirovka-2026/)
+- [Отчёт подрядчика по рекламе: 6 цифр вместо красивых графиков](./otchet-podryadchika-po-reklame-shest-cifr-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/otchet-podryadchika-po-reklame-shest-cifr-2026/)
+- [Заявки ночью и в выходные: что должен писать автоответ](./avtootvet-vne-rabochego-vremeni-zayavki-nochyu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avtootvet-vne-rabochego-vremeni-zayavki-nochyu-2026/)
 - [Telegram-канал бизнеса: как он приводит заявки, а не висит](./telegram-kanal-biznesa-zayavki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/telegram-kanal-biznesa-zayavki-2026/)
 - [QR-наклейка на авто: каждая машина приводит клиента, и видно кто](./qr-nakleyki-partnerka-arenda-avto-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/qr-nakleyki-partnerka-arenda-avto-2026/)
 - [Один кошелёк на кофейню, барбершоп и цветочный: лояльность города](./obshchaya-loyalnost-goroda-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/obshchaya-loyalnost-goroda-2026/)
@@ -1435,6 +1442,7 @@
 
 ## Право и 152-ФЗ
 
+- [Сколько хранить данные клиентов и когда их удалять по 152-ФЗ](./srok-hraneniya-dannyh-klientov-kogda-udalyat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/srok-hraneniya-dannyh-klientov-kogda-udalyat-2026/)
 - [Поверка и срок годности: бот напомнит за 30, 14 и 3 дня](./napominanie-o-srokah-poverki-godnosti-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/napominanie-o-srokah-poverki-godnosti-2026/)
 - [Исполнитель на слово: куда деваются чеки и споры об объёме](./samozanyatye-ispolniteli-akt-chek-oplata-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/samozanyatye-ispolniteli-akt-chek-oplata-2026/)
 - [Клиент рассказал вам всё. А запись ушла на сервер в США](./zapisi-priemov-152-fz-bez-oblaka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zapisi-priemov-152-fz-bez-oblaka-2026/)
@@ -1642,6 +1650,8 @@
 ## Разработка
 
 - [Модель решений d1 вместо LLM: разбор заявок за один вызов](./liquid-ai-d1-modeli-resheniy-dlya-zayavok-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/liquid-ai-d1-modeli-resheniy-dlya-zayavok-2026/)
+- [Бот перестал отвечать: диагностика за 15 минут](./bot-perestal-otvechat-diagnostika-15-minut-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bot-perestal-otvechat-diagnostika-15-minut-2026/)
+- [Рассылка в боте встала на половине: лимиты Telegram и MAX](./limity-telegram-i-max-rassylka-vstala-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/limity-telegram-i-max-rassylka-vstala-2026/)
 - [Бот, сайт или приложение: что выбрать под вашу задачу](./bot-sayt-ili-prilozhenie-chto-vybrat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bot-sayt-ili-prilozhenie-chto-vybrat-2026/)
 - [Тест бота и сайта перед запуском: что проверить самому](./testirovanie-bota-i-sayta-pered-zapuskom-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/testirovanie-bota-i-sayta-pered-zapuskom-2026/)
 - [Заявка с сайта не пришла: письмо в спаме из-за SPF и DKIM](./pisma-v-spam-spf-dkim-dmarc-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pisma-v-spam-spf-dkim-dmarc-2026/)
