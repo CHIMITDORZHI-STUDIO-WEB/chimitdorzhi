@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2177**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2182**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -916,6 +916,7 @@
 
 - [ИИ-продавец подберёт товар и не уйдёт спать в 11 вечера](./ii-prodavec-podbor-tovara-po-katalogu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-prodavec-podbor-tovara-po-katalogu-2026/)
 - [Бот поздравит клиента с бонусом, а вы не помните ни одной даты](./avtopovody-pozdravleniya-bonusy-klientam-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avtopovody-pozdravleniya-bonusy-klientam-2026/)
+- [«Сколько стоит?» без фото: как не терять клиентов на переспросах](./cena-po-foto-ii-ocenka-remonta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/cena-po-foto-ii-ocenka-remonta-2026/)
 - [Напоминания клиентам: SMS или мессенджер и сколько это стоит](./sms-ili-messendzher-uvedomleniya-klientam-stoimost-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sms-ili-messendzher-uvedomleniya-klientam-stoimost-2026/)
 - [Яндекс Метрика для владельца: 5 целей, чтобы видеть заявки](./yandeks-metrika-dlya-vladeltsa-pyat-celey-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/yandeks-metrika-dlya-vladeltsa-pyat-celey-2026/)
 - [Запасной канал связи с клиентами: как собрать свою базу контактов](./zapasnoy-kanal-svyazi-s-klientami-blokirovka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zapasnoy-kanal-svyazi-s-klientami-blokirovka-2026/)
@@ -1075,6 +1076,10 @@
 - [Бот наличия для сети магазинов: остатки по точкам без звонков](./bot-est-li-v-nalichii-ostatki-po-tochkam-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bot-est-li-v-nalichii-ostatki-po-tochkam-2026/)
 - [Клиент видит этап дела и не пишет вам каждый день](./kabinet-klienta-buhgalterskoy-i-yuridicheskoy-firmy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kabinet-klienta-buhgalterskoy-i-yuridicheskoy-firmy-2026/)
 - [Журнал температур заполняют задним числом. Проверка это видит](./elektronnyy-zhurnal-temperatur-chek-listy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/elektronnyy-zhurnal-temperatur-chek-listy-2026/)
+- [Пустое окно в 15:00, которое можно было продать](./listok-ozhidaniya-osvobodivsheesya-okno-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/listok-ozhidaniya-osvobodivsheesya-okno-2026/)
+- [Мука кончилась в субботу: автозаказ поставщику по минимуму](./avtozakaz-postavshchiku-po-minimalnomu-ostatku-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avtozakaz-postavshchiku-po-minimalnomu-ostatku-2026/)
+- [Клиент не помнит модель машины: заявка на сервис по QR](./zayavka-na-servis-po-qr-na-oborudovanii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zayavka-na-servis-po-qr-na-oborudovanii-2026/)
+- [Мастер списал 40 г краски, а ушло 80: учёт расхода](./raskhod-materialov-po-uslugam-tehkarta-salon-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/raskhod-materialov-po-uslugam-tehkarta-salon-2026/)
 - [Свадьба завтра, а пара правит программу в 22:00: как убрать хаос](./svadebnye-agentstva-zayavki-podryadchiki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/svadebnye-agentstva-zayavki-podryadchiki-2026/)
 - [Мебель на заказ: смета не сходится с расходом, клиент звонит](./mebel-na-zakaz-zamer-smeta-izgotovlenie-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/mebel-na-zakaz-zamer-smeta-izgotovlenie-2026/)
 - [Стиралка в коридоре, а клиент звонит: «готово?»](./remont-bytovoy-tehniki-priem-status-zapchasti-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/remont-bytovoy-tehniki-priem-status-zapchasti-2026/)
