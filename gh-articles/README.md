@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2182**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2187**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -1678,6 +1678,9 @@
 - [Клеверенс Склад 15 и Data Mobile под нетиповую 1С: что делать](./kleverens-sklad-15-data-mobile-netipovaya-konfiguraciya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kleverens-sklad-15-data-mobile-netipovaya-konfiguraciya-2026/)
 - [Принимаем чужую 1С: паспорт доработок и обновление без поломок](./prinimaem-chuzhuyu-1s-pasport-dorabotok-ishodniki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/prinimaem-chuzhuyu-1s-pasport-dorabotok-ishodniki-2026/)
 - [Приложение в каталог МойСклад: условия, комиссия 25% и хостинг](./prilozhenie-v-katalog-moysklad-ip-komissiya-hosting-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/prilozhenie-v-katalog-moysklad-ip-komissiya-hosting-2026/)
+- [Выгрузка из 1С в SQL и BI: сводная отчётность по нескольким базам](./vygruzka-iz-1s-v-sql-i-bi-konsolidaciya-neskolkih-baz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vygruzka-iz-1s-v-sql-i-bi-konsolidaciya-neskolkih-baz-2026/)
+- [МойСклад для сети точек: центральный склад и офлайн-касса](./moysklad-dlya-seti-tochek-sezonnoy-torgovli-offlayn-kassa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/moysklad-dlya-seti-tochek-sezonnoy-torgovli-offlayn-kassa-2026/)
+- [Какая 1С нужна электромонтажу, ремонту и мастерской](./kakaya-1s-nuzhna-elektromontazhu-remontu-masterskoy-obekty-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kakaya-1s-nuzhna-elektromontazhu-remontu-masterskoy-obekty-2026/)
 - [Бот, сайт или приложение: что выбрать под вашу задачу](./bot-sayt-ili-prilozhenie-chto-vybrat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bot-sayt-ili-prilozhenie-chto-vybrat-2026/)
 - [Тест бота и сайта перед запуском: что проверить самому](./testirovanie-bota-i-sayta-pered-zapuskom-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/testirovanie-bota-i-sayta-pered-zapuskom-2026/)
 - [Заявка с сайта не пришла: письмо в спаме из-за SPF и DKIM](./pisma-v-spam-spf-dkim-dmarc-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pisma-v-spam-spf-dkim-dmarc-2026/)
@@ -2020,6 +2023,8 @@
 - [Выплата Wildberries не сходится с отчётом: сверка за 15 минут](./vyplata-wildberries-ne-shoditsya-s-otchetom-sverka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vyplata-wildberries-ne-shoditsya-s-otchetom-sverka-2026/)
 - [Итог по отчёту сходится, а прибыль по артикулу нет](./marzha-po-artikulu-na-marketpleysah-realnaya-pribyl-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/marzha-po-artikulu-na-marketpleysah-realnaya-pribyl-2026/)
 - [НДС на УСН: порог 20 млн по всем маркетплейсам и база](./nds-na-usn-porog-20-mln-marketpleysy-baza-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nds-na-usn-porog-20-mln-marketpleysy-baza-2026/)
+- [Переходим с FBO на FBS: считаем возвраты до перехода](./perehod-s-fbo-na-fbs-vozvraty-pvz-schitaem-zaranee-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/perehod-s-fbo-na-fbs-vozvraty-pvz-schitaem-zaranee-2026/)
+- [Единый отчёт владельцу по нескольким ИП, ООО и площадкам](./otchetnost-po-neskolkim-ip-i-ploshchadkam-edinyy-otchet-vladelcu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/otchetnost-po-neskolkim-ip-i-ploshchadkam-edinyy-otchet-vladelcu-2026/)
 - [Сколько стоит делать это руками: калькулятор потерь на рутине](./cena-ruchnoy-raboty-kalkulyator-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/cena-ruchnoy-raboty-kalkulyator-2026/)
 - [Эвотор, АТОЛ или облачная касса: какую кассу брать малому бизнесу](./evotor-atol-ili-oblachnaya-kassa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/evotor-atol-ili-oblachnaya-kassa-2026/)
 - [Сколько зарабатывает эвакуатор: вызовы, пробег и простои](./skolko-zarabatyvaet-evakuator-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-zarabatyvaet-evakuator-2026/)
