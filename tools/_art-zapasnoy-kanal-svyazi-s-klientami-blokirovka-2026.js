@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "zapasnoy-kanal-svyazi-s-klientami-blokirovka-2026",
+  category: "marketing",
+  heroIcon: "ph-fill ph-address-book",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/business-automation/", label: "Собрать свою базу клиентов" },
+  title: "Запасной канал связи с клиентами: как собрать свою базу контактов",
+  metaTitle: "Запасной канал связи с клиентами и своя база контактов",
+  metaDescription: "Вся клиентская база в одном мессенджере? Как собрать свой список контактов по согласию, добавить второй канал и проверять их раз в квартал.",
+  excerpt: "Если клиенты живут в одном мессенджере или соцсети, связь с ними держится на чужом аккаунте. Разбираю, что значит своя база, как собирать контакты формой, QR, ботом и анкетой, что говорят ст. 9 152-ФЗ и ст. 18 закона о рекламе и что сделать за неделю.",
+  tags: ["своя база клиентов", "запасной канал связи", "сбор контактов", "согласие на рассылку"],
+  toc: [
+    { id: "vse-v-odnom-meste", text: "Вся база живёт в одном чате" },
+    { id: "svoya-baza", text: "Что значит «своя база»" },
+    { id: "kak-sobirat", text: "Как собирать контакты" },
+    { id: "vtoroy-kanal-i-proverka", text: "Второй канал и проверка раз в квартал" },
+    { id: "granitsy", text: "Что важно учесть и где границы" },
+    { id: "seychas", text: "Что можно сделать за неделю" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["klientskaya-baza-u-kompanii-2026", "lokalizaciya-baz-dannyh-rf-152-fz-2026", "zayavki-s-sayta-v-telegram-i-celi-metriki-2026", "rassylki-bez-blokirovok-max-2026"],
+};

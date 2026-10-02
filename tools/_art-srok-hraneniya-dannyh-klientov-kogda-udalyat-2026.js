@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "srok-hraneniya-dannyh-klientov-kogda-udalyat-2026",
+  category: "legal",
+  heroIcon: "ph-fill ph-clock-countdown",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/business-legal-compliance/", label: "Навести порядок с данными по 152-ФЗ" },
+  title: "Сколько хранить данные клиентов и когда их удалять по 152-ФЗ",
+  metaTitle: "Сроки хранения данных клиентов по 152-ФЗ: когда удалять",
+  metaDescription: "Сколько хранить заявки, переписку и согласия клиентов и когда удалять: сроки по 152-ФЗ, отличие от бухгалтерских сроков и таблица хранения для бизнеса.",
+  excerpt: "Клиент просит удалить данные, а они лежат в CRM, почте, чатах и копиях. Разбираем, что 152-ФЗ говорит о сроках хранения и удаления, чем это отличается от бухгалтерских норм и как составить таблицу «что храним, зачем, сколько, как удаляем».",
+  tags: ["152-ФЗ","сроки хранения данных","удаление персональных данных","согласие на обработку"],
+  toc: [
+    { id: "udalite-moi-dannye", text: "«Удалите мои данные», а вы не знаете, где они лежат" },
+    { id: "chto-govorit-zakon", text: "Что говорит закон простыми словами" },
+    { id: "dva-sloya", text: "Два слоя: данные клиента и документы бизнеса" },
+    { id: "tablica", text: "Как составить таблицу хранения за вечер" },
+    { id: "ogranicheniya", text: "Что важно учесть" },
+    { id: "seychas", text: "Что можно сделать уже сейчас" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["otzyv-soglasiya-i-soglasie-za-rebenka-pd-2026","politika-obrabotki-pd-obrazec-2026","rezervnye-kopii-vazhnee-chem-kazhetsya-2026","utechki-pd-24-chasa-2026"],
+};
