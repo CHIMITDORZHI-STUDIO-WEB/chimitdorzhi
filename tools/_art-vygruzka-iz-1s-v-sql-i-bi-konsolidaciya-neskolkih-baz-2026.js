@@ -1,0 +1,21 @@
+module.exports = {
+  slug: "vygruzka-iz-1s-v-sql-i-bi-konsolidaciya-neskolkih-baz-2026",
+  category: "development",
+  heroIcon: "ph-fill ph-database",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/big-data/", label: "Выгрузка 1С в SQL и BI" },
+  title: "Выгрузка из 1С в SQL и BI: сводная отчётность по нескольким базам",
+  metaTitle: "Выгрузка из 1С в SQL и Power BI: несколько баз без потерь",
+  metaDescription: "Выгрузка из 1С в SQL и BI ломается на удалённых строках и справочниках. Способы выгрузки, чек-лист обследования баз и сверка контрольных сумм.",
+  excerpt: "Выгрузка в хранилище работает, а цифры в BI не равны цифрам в 1С. Разбираем способы выгрузки и их риски, типичные ошибки, чек-лист обследования баз и сверку по периодам и базам.",
+  tags: ["выгрузка из 1С","SQL и BI","несколько баз 1С","OData 1С"],
+  toc: [
+    { id: "bol", text: "Цифры в отчёте не равны цифрам в 1С" },
+    { id: "sposoby", text: "Способы выгрузки и что о них говорит 1С" },
+    { id: "oshibki", text: "Где выгрузка теряет и портит данные" },
+    { id: "obsledovanie", text: "Обследование баз: 10 пунктов" },
+    { id: "proverka", text: "Как проверить, что данные сошлись" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["svodka-otchetov-filialov-v-odnu-tablicu-2026","ii-assistent-po-dannym-1c-2026","otchet-iz-1c-na-pochtu-i-v-messendzher-2026","http-servis-1c-dlya-prilozheniya-2026"],
+};
