@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Голосовой бот и паузы: что заявила ElevenLabs и как мерить</title>
+    <meta name="description" content="ElevenLabs заявила Eleven v4 Turbo с задержкой около 100 мс. Из чего складывается пауза голосового бота, что сократить и как мерить на 10 звонках.">
+    <meta name="keywords" content="голосовой ИИ, задержка ответа, ElevenLabs, приём звонков">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/golosovoy-bot-zaderzhka-otveta-kak-sokratit-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/golosovoy-bot-zaderzhka-otveta-kak-sokratit-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/golosovoy-bot-zaderzhka-otveta-kak-sokratit-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/golosovoy-bot-zaderzhka-otveta-kak-sokratit-2026/">
+    <meta property="og:title" content="Голосовой бот и паузы: что заявила ElevenLabs и как мерить">
+    <meta property="og:description" content="ElevenLabs заявила Eleven v4 Turbo с задержкой около 100 мс. Из чего складывается пауза голосового бота, что сократить и как мерить на 10 звонках.">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/golosovoy-bot-zaderzhka-otveta-kak-sokratit-2026/cover.jpg">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Голосовой бот и паузы: что заявила ElevenLabs и как мерить">
+    <meta name="twitter:description" content="ElevenLabs заявила Eleven v4 Turbo с задержкой около 100 мс. Из чего складывается пауза голосового бота, что сократить и как мерить на 10 звонках.">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/golosovoy-bot-zaderzhka-otveta-kak-sokratit-2026/cover.jpg">
+
+    <link rel="icon" href="/favicon.svg?v=5" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=5">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png?v=5">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=5">
+    <link rel="preload" href="/assets/fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=79">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Бот раздражает паузами: из чего они и как их сократить",
+  "description": "ElevenLabs заявила Eleven v4 Turbo с задержкой около 100 мс. Из чего складывается пауза голосового бота, что сократить и как мерить на 10 звонках.",
+  "image": "https://chimitdorzhi.tech/blog/golosovoy-bot-zaderzhka-otveta-kak-sokratit-2026/cover.jpg",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://t.me/chimitdorzhi_studio",
+      "https://max.ru/channel_chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio",
+      "https://github.com/chimitdorzhi",
+      "https://chimitdorzhi.tech/about/"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/golosovoy-bot-zaderzhka-otveta-kak-sokratit-2026/"
+  },
+  "datePublished": "2026-10-01",
+  "dateModified": "2026-10-02",
+  "keywords": "голосовой ИИ, задержка ответа, ElevenLabs, приём звонков",
+  "articleSection": "Экспертный блог",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Бот раздражает паузами: из чего они и как их сократить",
+      "item": "https://chimitdorzhi.tech/blog/golosovoy-bot-zaderzhka-otveta-kak-sokratit-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Значит ли заявленные 100 мс, что бот ответит через 100 мс?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет. Это медиана для синтеза в условиях производителя. К ней добавляются ожидание конца реплики, распознавание, модель, сеть и телефония, поэтому слышимая пауза всегда больше."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как сделать, чтобы бот не перебивал клиента?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Увеличить ожидание конца реплики: у ElevenLabs это режим Patient и таймаут молчания, у SaluteSpeech параметр eou_timeout. Цена в том, что бот отвечает медленнее, поэтому значения подбирают под сценарий: быстрые для «да» и «нет», медленные для диктовки."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужно ли предупреждать о записи и о том, что клиент говорит с ботом?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Стоит, и текст предупреждения лучше согласовать с юристом. Запись содержит персональные данные, а их хранение в базах за пределами РФ ограничено частью 5 статьи 18 закона 152-ФЗ."
+      }
+    }
+  ]
+}
+    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+var inject=function(){for (var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)};
+var run=function(){('requestIdleCallback' in window)?requestIdleCallback(inject,{timeout:5000}):setTimeout(inject,3000)};
+(e.readyState==='complete')?run():m.addEventListener('load',run);})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109281884" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<!-- Цели Метрики: клики по контактам и услугам -->
+<script type="text/javascript">
+(function(){
+  var GOALS = [
+    { re: /t\.me\//i,                     goal: 'tg_click' },
+    { re: /max\.ru\//i,                    goal: 'max_click' },
+    { re: /audit\.chimitdorzhi\.tech/i,    goal: 'audit_click' },
+    { re: /chimitdorzhi\.tech\/services\//i, goal: 'service_click' },
+    { re: /chimitdorzhi\.tech\/predlozheniya\//i, goal: 'offer_click' }
+  ];
+  document.addEventListener('click', function(e){
+    var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    for (var i = 0; i < GOALS.length; i++) {
+      if (GOALS[i].re.test(href)) {
+        try { if (window.ym) ym(109281884, 'reachGoal', GOALS[i].goal); } catch (err) {}
+        break;
+      }
+    }
+  }, true);
+})();
+</script>
+</head>
+<body class="wx-read">
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/" data-i18n="nav.home">Главная</a></li>
+            <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+            <li class="nav-dropdown">
+                <a href="/cases/" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+                <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему" aria-pressed="false">
+                <i class="ph ph-moon" aria-hidden="true"></i>
+            </button>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/" data-i18n="nav.home">Главная</a></li>
+        <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+        <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+        <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+        <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+        <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+        <li class="mobile-has-submenu">
+            <details>
+                <summary aria-label="Проекты — развернуть"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down" aria-hidden="true"></i></summary>
+                <ul class="mobile-submenu">
+                    <li>
+                        <a href="https://gerel.space" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">Gerel.space</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/universe_buryat/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/arey/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.arey">AREY</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/mwrlife/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">MWR Life</span>
+                                <span class="mobile-sub-desc">Travel-клуб и партнёрка</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </details>
+        </li>
+        <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+    </ul>
+    <div class="mobile-controls">
+        <div class="mobile-lang-switcher" role="group" aria-label="Выбор языка">
+            <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+            <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+            <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+        </div>
+        <button class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle" aria-label="Переключить тему" aria-pressed="false">
+            <i class="ph ph-moon" aria-hidden="true"></i>
+        </button>
+    </div>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Бот раздражает паузами: из чего они и как их сократить</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/expert/"><i class="ph ph-bookmark" aria-hidden="true"></i> Экспертный блог</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин чтения</span>
+                        <time datetime="2026-10-01"><i class="ph ph-calendar" aria-hidden="true"></i> 1 октября 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Бот раздражает паузами: из чего они и как их сократить</h1>
+
+                    <p class="blog-lead">28 сентября 2026 ElevenLabs выпустила Eleven v4 Turbo для голосовых агентов и заявила медианную задержку около 100 мс. Разбираю, из каких пяти звеньев складывается пауза в разговоре, что в ней можно сократить и как проверить свой бот на десяти звонках за вечер.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>голосовой ИИ</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>задержка ответа</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>ElevenLabs</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>приём звонков</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr">
+  <strong>Коротко.</strong> 28 сентября 2026 года ElevenLabs выпустила Eleven v4 Turbo, модель синтеза речи для голосовых агентов, и заявила медианную задержку около 100 мс и около 150 мс до начала речи. Это одно звено из пяти, из которых складывается пауза в разговоре с ботом. Чаще всего клиента раздражает ожидание конца его реплики, а не синтез голоса. Ниже разбор, что сократить и как проверить свой бот на десяти звонках.
+</div>
+
+<h2 id="chto-obyavila-elevenlabs">Что объявила ElevenLabs</h2>
+
+<p>28 сентября 2026 года ElevenLabs выпустила Eleven v4 и Eleven v4 Turbo. Turbo сделана для голосовых агентов. В <a href="https://elevenlabs.io/blog/eleven-v4-turbo-in-elevenagents" target="_blank" rel="noopener nofollow">блоге компании</a> и на <a href="https://elevenlabs.io/v4" target="_blank" rel="noopener nofollow">странице модели</a> заявлены медианная задержка вывода около 100 мс, время до первой речи около 150 мс, больше 90 языков, доступ через платформу ElevenAgents и через API.</p>
+
+<p>Как это измеряли, написано в сноске на <a href="https://elevenlabs.io/agents/v4-turbo" target="_blank" rel="noopener nofollow">странице для агентов</a>. Берётся медиана времени от запроса до слышимой речи. Замер сделан в сентябре 2026 на одинаковых текстах и настройках по умолчанию, в сравнении с четырьмя другими синтезаторами, Eleven v4 Turbo работала по WebSocket в потоковом режиме. Регион, длина текста и учёт сети в сноске не указаны.</p>
+
+<p>Это цифры производителя в его условиях. Для вашей линии они ничего не обещают, и измерено одно звено цепочки, синтез.</p>
+
+<h2 id="iz-chego-pauza">Из чего складывается пауза</h2>
+
+<p>Пауза длится от последнего слова клиента до первого звука бота. В неё входят пять частей.</p>
+
+<p>Первая, определение конца реплики: бот ждёт тишину, чтобы понять, что клиент договорил. В документации SaluteSpeech для этого есть параметр eou_timeout, от 0,5 до 5 секунд, по умолчанию 1 секунда. Оставите по умолчанию, и секунда тишины набежит ещё до того, как бот начнёт что-то делать.</p>
+
+<p>Вторая, распознавание речи: последние слова превращаются в финальный текст. Третья, языковая модель, которая думает и иногда идёт за данными в CRM или календарь. Четвёртая, синтез: первый звук ответа, вот здесь живут заявленные 150 мс. Пятая, сеть и телефония: путь звука до сервера и обратно через оператора.</p>
+
+<p>Пауза равна сумме. Условный пример, не замер: 150 мс синтеза, секунда ожидания конца реплики и секунда на модель с запросом в CRM дают больше двух секунд тишины.</p>
+
+<h2 id="chto-mozhno-sokratit">Что можно сократить</h2>
+
+<p>Потоковый режим на всех звеньях. Распознавание отдаёт промежуточные результаты по ходу речи, синтез стартует с первой фразы модели, а не с готового абзаца. В <a href="https://aistudio.yandex.ru/docs/ru/speechkit/stt/streaming" target="_blank" rel="noopener nofollow">документации Яндекс SpeechKit</a> описаны промежуточные и финальные результаты распознавания и событие конца реплики по тишине. Для синтеза там же описан потоковый режим API v3. У SaluteSpeech в потоковом распознавании есть параметр enable_partial_results для промежуточных гипотез.</p>
+
+<p>Короткая первая фраза. Если запрос в базу неизбежно долгий, пусть бот скажет «секунду, смотрю расписание», пока ждёт.</p>
+
+<p>Конец реплики настраивается под сценарий. В <a href="https://elevenlabs.io/docs/agents-platform/customization/conversation-flow" target="_blank" rel="noopener nofollow">документации ElevenLabs</a> есть три режима, Eager, Normal и Patient, и отдельный таймаут молчания от 1 до 30 секунд. Для ответов «да» и «нет» подходит быстрый режим. Пока клиент диктует номер телефона или адрес, бот должен ждать дольше, иначе он влезет посреди цифр.</p>
+
+<p>Данные подгружать заранее. Расписание и карточку клиента бот может получить до первого вопроса, а не после. Один запрос в CRM вместо трёх экономит секунды.</p>
+
+<p>Перебивание. Клиент должен уметь перебить бота. В ElevenLabs это отдельная настройка, и отключать её советуют там, где важна полная подача, например для юридических предупреждений.</p>
+
+<h2 id="moya-pozitsiya">Моя позиция</h2>
+
+<p>Гоняться за миллисекундами синтеза я начинаю в последнюю очередь. Сначала смотрю на конец реплики и на путь модели к данным, потому что там секунды. Быстрый голос не вылечит бота, который выжидает секунду тишины.</p>
+
+<p>Таблицы задержек от производителей для выбора я не использую, у каждого свои условия замера. Сервисы сравниваю по записям ваших звонков, с вашими именами, цифрами и шумом.</p>
+
+<h2 id="test-na-10-zvonkah">Как проверить свой бот за вечер</h2>
+
+<p>Нужны десять тестовых звонков на ваш бот, с мобильного и с городского номера. Сценарии разные: запись, вопрос о цене, диктовка номера, перебивание бота на полуслове, молчание.</p>
+
+<p>Включите запись и предупредите всех участников. Откройте каждую запись в аудиоредакторе, подойдёт бесплатный Audacity. На дорожке измерьте время от конца вашей фразы до первого звука бота и занесите десять чисел в таблицу.</p>
+
+<p>Отметьте отдельно, если бот заговорил, пока вы диктовали, не отреагировал на перебивание или вы сказали «алло?» второй раз. Посмотрите на медиану и на самую длинную паузу, клиенты запоминают худшие. Если платформа пишет время по звеньям, найдите самое большое. Порог, после которого люди начинают переспрашивать, виден в ваших записях.</p>
+
+<h2 id="ogranicheniya">Что важно учесть</h2>
+
+<p>Цифры ElevenLabs относятся к синтезу и приведены с неполным описанием условий. Доступность сервиса в России и качество русского языка на телефонной линии я не проверял, поэтому как вариант для вас не называю.</p>
+
+<p>По Яндексу и Сберу я подтвердил функции в документации: потоковое распознавание, промежуточные результаты, конец реплики, потоковый синтез у Яндекса. Скорость на вашем канале документация не даёт, её мерят на звонках.</p>
+
+<p>Записи разговоров содержат голос, имя и телефон, это персональные данные. По <a href="https://www.consultant.ru/document/cons_doc_LAW_61801/cbf4e15b7c330f9372e876cdf2bc928bad7950ef/" target="_blank" rel="noopener nofollow">части 5 статьи 18 закона 152-ФЗ</a> запись и хранение персональных данных граждан России в базах за пределами РФ не допускаются, с исключениями из закона. Клиента стоит предупреждать, что звонок записывается и что отвечает бот. Формулировку согласуйте с юристом.</p>
+
+<p>Голосовой бот не нужен, если звонков несколько в день и хватает администратора, если клиенты и так пишут в мессенджер, если разговор о документах и расчётах, которые удобнее видеть глазами. Эмоциональные и спорные обращения лучше отдавать человеку.</p>
+
+<h2 id="kak-ya-pomogayu">Как я с этим помогаю</h2>
+
+<p>Я делаю голосовых агентов под ключ, это услуга <a href="/services/voice-ai/">«Голосовой ИИ»</a>. Начинаю с замера ваших звонков, затем настраиваю потоковый режим, конец реплики, перебивание и перевод на живого сотрудника.</p>
+
+<p>Про приём заявок и обзвон я писал в статье <a href="/blog/golosovoy-ii-robot-obzvon-zayavki-2026/">голосовой ИИ-робот для заявок и обзвона</a>, про российские сервисы речи в статье <a href="/blog/golosovoy-ii-assistent-rossiyskiy-stek-2026/">голосовой ассистент на российском стеке</a>. Про свой конвейер без платы за минуты есть разбор <a href="/blog/pipecat-svoy-golosovoy-ii-agent-2026/">Pipecat</a>.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+
+<h3>Значит ли заявленные 100 мс, что бот ответит через 100 мс?</h3>
+<p>Нет. Это медиана для синтеза в условиях производителя. К ней добавляются ожидание конца реплики, распознавание, модель, сеть и телефония, поэтому слышимая пауза всегда больше.</p>
+
+<h3>Как сделать, чтобы бот не перебивал клиента?</h3>
+<p>Увеличить ожидание конца реплики: у ElevenLabs это режим Patient и таймаут молчания, у SaluteSpeech параметр eou_timeout. Цена в том, что бот отвечает медленнее, поэтому значения подбирают под сценарий: быстрые для «да» и «нет», медленные для диктовки.</p>
+
+<h3>Нужно ли предупреждать о записи и о том, что клиент говорит с ботом?</h3>
+<p>Стоит, и текст предупреждения лучше согласовать с юристом. Запись содержит персональные данные, а их хранение в базах за пределами РФ ограничено частью 5 статьи 18 закона 152-ФЗ.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+
+<p>Eleven v4 Turbo заявлена с медианой около 100 мс на обработку и около 150 мс до начала речи, в условиях, которые описал производитель. Самые большие потери в паузе чаще сидят в ожидании конца реплики и в запросах модели к данным.</p>
+
+<p>Если клиенты бросают трубку или переспрашивают «алло?», давайте посмотрим ваши записи. Напишите мне в Telegram слово «ПАУЗА». Разберу, на каком звене у вас теряются секунды и что с этим делать.</p>
+
+                    </div>
+                    
+
+                    
+                    
+                    
+                    
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Что я делаю для бизнеса</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-robot"></i> <span>Боты в Telegram, MAX, VK</span></li>
+    
+    <li><i class="ph-fill ph-gear"></i> <span>Автоматизация процессов и CRM</span></li>
+    
+    <li><i class="ph-fill ph-chart-bar"></i> <span>Аналитика и дашборды</span></li>
+    
+    <li><i class="ph-fill ph-globe"></i> <span>Сайты и лендинги под ключ</span></li>
+    
+  </ul>
+  <div class="blog-services-offer-ctas">
+    <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+      <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
+    </a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="blog-services-offer-cta blog-services-offer-cta-max">
+      <i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> Написать в MAX
+    </a>
+  </div>
+</div>
+                    <div class="blog-cta-card">
+                        <div class="blog-cta-card-body">
+                            <h3>Бесплатно: чек-лист «Готов ли ваш бизнес к 152-ФЗ»</h3>
+                            <p>12 пунктов, которые проверяют готовность за час: данные, согласия, уведомление в РКН, локализация, защита. Отметьте, что уже сделано, и увидите дыры, за которые сейчас штрафуют.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="/checklist-152-fz/" class="btn btn-accent"><i class="ph-fill ph-clipboard-text" aria-hidden="true"></i> Открыть чек-лист</a>
+                        </div>
+                    </div>
+                    
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/services/voice-ai/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Голосовой ИИ под ключ</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-subscribe">
+  <div class="blog-subscribe-body">
+    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
+    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
+  </div>
+  <div class="blog-subscribe-actions">
+    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
+  </div>
+</section>
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/golosovoy-ii-robot-obzvon-zayavki-2026/" data-category="ai-dev" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-phone-call"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>AI для разработчиков</span>
+  <h3>Голосовой ИИ-робот для приёма заявок и обзвона: как внедрить в России</h3>
+  <p>Голосовой ИИ-робот принимает звонки и заявки круглосуточно, записывает клиентов и напоминает о визите — понимает живую речь, а не «нажмите 1». Разбираю, как внедрить в России и из чего цена.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 23 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/golosovoy-ii-assistent-rossiyskiy-stek-2026/" data-category="ai-dev" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-microphone-stage"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>AI для разработчиков</span>
+  <h3>Голосовой ИИ-ассистент на российском стеке: как это работает</h3>
+  <p>Голосовой ассистент, который принимает звонки, отвечает голосом и записывает клиентов, — уже не фантастика. Разбираю, как собрать его на российском стеке и что учесть.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 1 сентября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/pipecat-svoy-golosovoy-ii-agent-2026/" data-category="opensource" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-microphone-stage"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>Pipecat: свой голосовой ИИ-агент вместо платы за минуты</h3>
+  <p>Готовые голосовые боты берут плату за каждую минуту и держат записи в чужом облаке. Pipecat это открытый фреймворк (BSD-2-Clause), на котором такого агента можно собрать самим. Разбираем, что он умеет, как запускается, что с русским языком и телефонией и где без разработчика не обойтись.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 1 октября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/avtootvetchik-na-propushchennye-zvonki-2026/" data-category="industries" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-phone-call"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Отрасли</span>
+  <h3>Автоответчик на пропущенные звонки: как не терять клиентов</h3>
+  <p>Каждый пропущенный звонок — ушедший к конкуренту клиент. Разбираю, как настроить, чтобы бот сам писал или перезванивал по пропущенным и доводил человека до записи.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 1 сентября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    
+                    
+                    
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow"><span class="b-l b-l-ru">Готовые решения под ключ</span><span class="b-l b-l-en" lang="en">Turnkey solutions</span><span class="b-l b-l-es" lang="es">Soluciones llave en mano</span><span class="b-l b-l-cn" lang="zh">交钥匙解决方案</span><span class="b-l b-l-mn" lang="mn">Түлхүүр гардуулах шийдэл</span></span>
+                            <span class="blog-offer-cta-title"><span class="b-l b-l-ru">451 готовых IT-решений для бизнеса</span><span class="b-l b-l-en" lang="en">451 ready-made IT solutions for business</span><span class="b-l b-l-es" lang="es">451 soluciones IT listas para empresas</span><span class="b-l b-l-cn" lang="zh">451 个面向企业的现成 IT 解决方案</span><span class="b-l b-l-mn" lang="mn">Бизнест зориулсан 451 бэлэн IT шийдэл</span></span>
+                            <span class="blog-offer-cta-price"><span class="b-l b-l-ru">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span><span class="b-l b-l-en" lang="en">Automation, bots, AI, data privacy and platforms · free consultation</span><span class="b-l b-l-es" lang="es">Automatización, bots, IA, privacidad de datos y plataformas · consulta gratis</span><span class="b-l b-l-cn" lang="zh">自动化、机器人、AI、数据合规与平台 · 免费咨询</span><span class="b-l b-l-mn" lang="mn">Автоматжуулалт, бот, AI, өгөгдлийн хамгаалалт ба платформ · үнэгүй зөвлөгөө</span></span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> <span class="b-l b-l-ru">Смотреть каталог</span><span class="b-l b-l-en" lang="en">View catalog</span><span class="b-l b-l-es" lang="es">Ver catálogo</span><span class="b-l b-l-cn" lang="zh">查看目录</span><span class="b-l b-l-mn" lang="mn">Каталог үзэх</span></span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#chto-obyavila-elevenlabs"><span class="blog-toc-num">01</span> Что объявила ElevenLabs</a></li>
+<li><a href="#iz-chego-pauza"><span class="blog-toc-num">02</span> Из чего складывается пауза</a></li>
+<li><a href="#chto-mozhno-sokratit"><span class="blog-toc-num">03</span> Что можно сократить</a></li>
+<li><a href="#moya-pozitsiya"><span class="blog-toc-num">04</span> Моя позиция</a></li>
+<li><a href="#test-na-10-zvonkah"><span class="blog-toc-num">05</span> Как проверить свой бот за вечер</a></li>
+<li><a href="#ogranicheniya"><span class="blog-toc-num">06</span> Что важно учесть</a></li>
+<li><a href="#kak-ya-pomogayu"><span class="blog-toc-num">07</span> Как я с этим помогаю</a></li>
+<li><a href="#faq"><span class="blog-toc-num">08</span> Частые вопросы</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">09</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+971563369591" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +971 56 336 9591</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">RA Standard - F.Z.E</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_licence">Лицензия 57033</span><span> · </span><span data-i18n="footer.legal_authority">Free Zones Authority of Ajman</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">Эмират Аджман, ОАЭ</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/cases/" class="footer-policy-link">Кейсы</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=44" defer></script>
+<script src="/services-i18n.js?v=44" defer></script>
+<script src="/script.js?v=41" defer></script>
+<script src="/search-widget.js?v=1" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>
