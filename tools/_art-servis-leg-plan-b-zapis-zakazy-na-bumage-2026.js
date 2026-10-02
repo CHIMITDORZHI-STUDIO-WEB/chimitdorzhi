@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "servis-leg-plan-b-zapis-zakazy-na-bumage-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-notepad",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/it-audit/", label: "Проверить, что будет при сбое" },
+  title: "Сервис лёг, а клиенты идут: бумажный план Б для записи",
+  metaTitle: "Сервис лёг: бумажный план Б для записи и заказов",
+  metaDescription: "Сайт, CRM или касса не работают, а клиенты уже пришли. Бумажный план Б: лист записи, выгрузка на завтра, главный на смену и сверка без дублей.",
+  excerpt: "Утром лёг сервис записи, а в зале уже люди. Разбираю бумажный план Б: лист записи, вечерняя выгрузка расписания, один главный на смену, правило внесения в систему и сверка без дублей. Плюс пять вопросов исполнителю и учебная тревога на 15 минут.",
+  tags: ["план Б при сбое", "запись клиентов", "резервные копии", "непрерывность бизнеса"],
+  toc: [
+    { id: "klienty-prishli", text: "Клиенты у двери, а система молчит" },
+    { id: "chto-na-bumage", text: "Что лежит на бумаге заранее" },
+    { id: "vo-vremya-i-posle", text: "Во время сбоя и после него" },
+    { id: "ispolnitel", text: "Что спросить у исполнителя" },
+    { id: "ogranicheniya", text: "Что важно учесть" },
+    { id: "seychas", text: "Что можно сделать уже сейчас" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["otkazoustoychivost-monitoring-bekapy-2026", "rezervnye-kopii-vazhnee-chem-kazhetsya-2026", "sayt-upal-monitoring-sayta-i-domena-2026", "bus-factor-vsyo-v-golove-odnogo-2026"],
+};

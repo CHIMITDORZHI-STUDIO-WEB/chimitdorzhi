@@ -1,0 +1,21 @@
+module.exports = {
+  slug: "limity-telegram-i-max-rassylka-vstala-2026",
+  category: "development",
+  heroIcon: "ph-fill ph-hourglass-medium",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/telegram-bots/", label: "Заказать бота с очередью рассылки" },
+  title: "Рассылка в боте встала на половине: лимиты Telegram и MAX",
+  metaTitle: "Лимиты Telegram и MAX: почему рассылка в боте встала",
+  metaDescription: "Рассылка в боте дошла до части базы и остановилась? Какие лимиты у Telegram и MAX, что такое 429 и retry_after, как построить очередь с паузой.",
+  excerpt: "Рассылка дошла до половины базы и встала, а исполнитель говорит «Telegram ограничил». Разбираем лимиты Telegram и MAX по документации, ошибку 429, расчёт времени рассылки и очередь с паузой, повторами и учётом блокировок.",
+  tags: ["лимиты Telegram", "рассылка в боте", "MAX бот", "ошибка 429"],
+  toc: [
+    { id: "rassylka-vstala", text: "Рассылка дошла до половины и встала" },
+    { id: "otkuda-limity", text: "Откуда лимиты и сколько займёт рассылка" },
+    { id: "ochered", text: "Как строить очередь с паузой и повторами" },
+    { id: "ogranicheniya", text: "Что важно учесть" },
+    { id: "seychas", text: "Что можно сделать уже сейчас" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["rassylki-bez-blokirovok-max-2026", "bot-plus-rassylka-max-povtornye-prodazhi-2027", "max-kanaly-rassylki-marketing-2026", "odin-bot-telegram-max-vk-2026"],
+};

@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "ii-assistent-oshibsya-pri-klientah-pervye-sutki-2026",
+  category: "security",
+  heroIcon: "ph-fill ph-warning-circle",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/ai-agents/", label: "Ассистент с журналом и запретными темами" },
+  title: "ИИ-ассистент ошибся при клиенте: первые сутки",
+  metaTitle: "ИИ-бот назвал клиенту не ту цену: что делать за сутки",
+  metaDescription: "Бот на ИИ назвал клиенту неверную цену или пообещал лишнее. Что сделать за сутки: зафиксировать, исправить, сузить бота, найти причину, добавить проверку.",
+  excerpt: "Ассистент на ИИ назвал клиенту не ту цену, срок или пообещал то, чего нет. Разбираю первые сутки по шагам: фиксация, разговор с клиентом, решение по обещанному, ограничение бота, причина и тестовые вопросы. Плюс что заложить заранее и о чём спросить исполнителя.",
+  tags: ["ошибка ИИ-ассистента", "ответ бота клиенту", "ответственность за бота", "журнал диалогов"],
+  toc: [
+    { id: "skrin-ot-klienta", text: "Клиент прислал скриншот" },
+    { id: "pochemu-oshibaetsya", text: "Почему ассистент ошибается" },
+    { id: "pervye-sutki", text: "Первые сутки по шагам" },
+    { id: "zalozhit-zaranee", text: "Что заложить заранее и что спросить у исполнителя" },
+    { id: "ogranicheniya", text: "Что важно учесть" },
+    { id: "seychas", text: "Что можно сделать уже сейчас" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["ii-galyucinacii-nelzya-slepo-doveryat-2026", "ii-agent-utechka-foto-kak-ne-dopustit-2026", "ii-administrator-perepiski-2026", "bezopasnyy-ii-v-kompanii-2026"],
+};

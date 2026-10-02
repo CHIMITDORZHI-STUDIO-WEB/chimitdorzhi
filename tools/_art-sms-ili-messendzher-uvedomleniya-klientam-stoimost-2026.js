@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "sms-ili-messendzher-uvedomleniya-klientam-stoimost-2026",
+  category: "marketing",
+  heroIcon: "ph-fill ph-bell-ringing",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/telegram-bots/", label: "Напоминания клиентам через бота" },
+  title: "Напоминания клиентам: SMS или мессенджер и сколько это стоит",
+  metaTitle: "SMS или мессенджер: чем уведомлять клиентов в 2026",
+  metaDescription: "Напоминания о записи и статусы заказа: SMS, бот в Telegram и MAX, WhatsApp, звонок. Цены на 2 октября 2026, согласие клиента и схема с запасным каналом.",
+  excerpt: "Что выбрать для напоминаний о записи и статусов заказа: SMS или бота в мессенджере. Сравниваю каналы по цене, охвату и согласию, считаю тысячу сообщений в месяц на открытых прайсах и показываю связку, где бот идёт первым, а SMS запасным.",
+  tags: ["SMS-рассылки", "уведомления клиентам", "бот в Telegram и MAX", "согласие на рассылку"],
+  toc: [
+    { id: "napominanie-ushlo", text: "Напоминание ушло, а счёт за SMS растёт" },
+    { id: "kanaly", text: "Пять каналов простыми словами" },
+    { id: "skolko-stoit", text: "Сколько стоит 1000 напоминаний в месяц" },
+    { id: "svyazka", text: "Бот первым, SMS запасным: как собрать" },
+    { id: "ogranicheniya", text: "Что важно учесть" },
+    { id: "seychas", text: "Что можно сделать уже сейчас" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["neyavki-na-zapis-predoplata-napominaniya-2026", "rassylki-bez-blokirovok-max-2026", "email-push-rassylki-rf-2026", "max-ili-telegram-dlya-biznesa-2027"],
+};

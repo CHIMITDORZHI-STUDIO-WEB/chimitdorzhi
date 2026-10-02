@@ -1,0 +1,21 @@
+module.exports = {
+  slug: "yandeks-metrika-dlya-vladeltsa-pyat-celey-2026",
+  category: "marketing",
+  heroIcon: "ph-fill ph-target",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/web-development/", label: "Настроить цели Метрики на сайте" },
+  title: "Яндекс Метрика для владельца: 5 целей, чтобы видеть заявки",
+  metaTitle: "Яндекс Метрика: 5 целей, чтобы видеть, откуда заявки",
+  metaDescription: "Какие пять целей в Яндекс Метрике нужны малому бизнесу, как проверить их в отчётах, не накрутить тестами и что Метрика не видит: звонки и мессенджеры.",
+  excerpt: "Реклама идёт, а откуда заявки, неясно. Разбираю пять целей Метрики для малого бизнеса: форма, телефон, мессенджер, запись, звонок. Как проверить их в отчётах, исключить тесты и чего Метрика не покажет без доп. настройки.",
+  tags: ["Яндекс Метрика","цели Метрики","источники заявок","аналитика сайта"],
+  toc: [
+    { id: "bol", text: "Реклама идёт, а откуда заявки, непонятно" },
+    { id: "pyat-celey", text: "Цель простыми словами и пять целей" },
+    { id: "proverka", text: "Как проверить и не накрутить себя тестами" },
+    { id: "granicy", text: "Что Метрика не видит и что с законом" },
+    { id: "seychas", text: "Что можно сделать уже сейчас" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["okupaemost-reklamy-metrika-celi-2026","zayavki-s-sayta-v-telegram-i-celi-metriki-2026","pochemu-reklama-ne-rabotaet-2026","kuda-utekayut-zayavki-7-mest-2026"],
+};
