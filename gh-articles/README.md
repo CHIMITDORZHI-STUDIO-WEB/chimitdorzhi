@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2157**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2177**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -921,6 +921,7 @@
 - [Запасной канал связи с клиентами: как собрать свою базу контактов](./zapasnoy-kanal-svyazi-s-klientami-blokirovka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zapasnoy-kanal-svyazi-s-klientami-blokirovka-2026/)
 - [Отчёт подрядчика по рекламе: 6 цифр вместо красивых графиков](./otchet-podryadchika-po-reklame-shest-cifr-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/otchet-podryadchika-po-reklame-shest-cifr-2026/)
 - [Заявки ночью и в выходные: что должен писать автоответ](./avtootvet-vne-rabochego-vremeni-zayavki-nochyu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avtootvet-vne-rabochego-vremeni-zayavki-nochyu-2026/)
+- [Страж цены: не продать ниже себестоимости, если цену снизила площадка](./strazh-ceny-marketpleys-snizil-cenu-sam-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/strazh-ceny-marketpleys-snizil-cenu-sam-2026/)
 - [Telegram-канал бизнеса: как он приводит заявки, а не висит](./telegram-kanal-biznesa-zayavki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/telegram-kanal-biznesa-zayavki-2026/)
 - [VK Лента теперь оценивает намерение купить: что делать продавцу](./vk-namerenie-kupit-lenta-reklama-malyy-biznes-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vk-namerenie-kupit-lenta-reklama-malyy-biznes-2026/)
 - [QR-наклейка на авто: каждая машина приводит клиента, и видно кто](./qr-nakleyki-partnerka-arenda-avto-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/qr-nakleyki-partnerka-arenda-avto-2026/)
@@ -1445,6 +1446,7 @@
 ## Право и 152-ФЗ
 
 - [Сколько хранить данные клиентов и когда их удалять по 152-ФЗ](./srok-hraneniya-dannyh-klientov-kogda-udalyat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/srok-hraneniya-dannyh-klientov-kogda-udalyat-2026/)
+- [Закон 289-ФЗ с 1 октября: сроки штрафов, жалоб и акта сверки](./zakon-289-fz-selleram-uvedomleniya-shtrafy-sroki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zakon-289-fz-selleram-uvedomleniya-shtrafy-sroki-2026/)
 - [Закон 289-ФЗ с 1 октября: что меняется для продавцов](./zakon-289-fz-platformennaya-ekonomika-prodavcam-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zakon-289-fz-platformennaya-ekonomika-prodavcam-2026/)
 - [Лимит 60 часов для самозанятых с 1 октября: что делать заказчику](./samozanyatye-limit-60-chasov-zakazchiku-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/samozanyatye-limit-60-chasov-zakazchiku-2026/)
 - [Что изменилось с 1 октября 2026 для малого бизнеса: дайджест](./chto-izmenilos-s-1-oktyabrya-2026-malyy-biznes.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chto-izmenilos-s-1-oktyabrya-2026-malyy-biznes/)
@@ -1657,6 +1659,20 @@
 - [Модель решений d1 вместо LLM: разбор заявок за один вызов](./liquid-ai-d1-modeli-resheniy-dlya-zayavok-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/liquid-ai-d1-modeli-resheniy-dlya-zayavok-2026/)
 - [Бот перестал отвечать: диагностика за 15 минут](./bot-perestal-otvechat-diagnostika-15-minut-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bot-perestal-otvechat-diagnostika-15-minut-2026/)
 - [Рассылка в боте встала на половине: лимиты Telegram и MAX](./limity-telegram-i-max-rassylka-vstala-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/limity-telegram-i-max-rassylka-vstala-2026/)
+- [Касса не пробивает маркированный товар: ТС ПИоТ с 1 октября](./tc-piot-kassa-ne-probivaet-markirovannyy-tovar-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/tc-piot-kassa-ne-probivaet-markirovannyy-tovar-2026/)
+- [Токен Честного знака: ошибка 400 и «нет UUID» в 1С](./token-chestnyy-znak-oshibka-400-uuid-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/token-chestnyy-znak-oshibka-400-uuid-2026/)
+- [Ozon выключил финансовый API: выгрузка встала, как проверить](./ozon-vyklyuchil-finansovyy-api-vygruzka-slomalas-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ozon-vyklyuchil-finansovyy-api-vygruzka-slomalas-2026/)
+- [ЭПД и МЧД: кто что подписывает, если ЭТрН висит в ожидании](./epd-i-mchd-kto-chto-podpisyvaet-etrn-zavis-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/epd-i-mchd-kto-chto-podpisyvaet-etrn-zavis-2026/)
+- [Сколько и что везти на склады WB и Ozon: расчёт поставки](./raschet-postavok-na-sklady-wb-ozon-skolko-vezti-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/raschet-postavok-na-sklady-wb-ozon-skolko-vezti-2026/)
+- [Заказ не попал в МойСклад: ошибки 429, 502, 503 в интеграции](./integraciya-molcha-teryaet-zakazy-moysklad-503-429-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/integraciya-molcha-teryaet-zakazy-moysklad-503-429-2026/)
+- [Интеграция испортила карточки в МойСклад: как откатить](./moysklad-integraciya-isportila-kartochki-otkat-bekap-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/moysklad-integraciya-isportila-kartochki-otkat-bekap-2026/)
+- [Заказы из Tilda и WordPress в МойСклад: трек, статусы, дубли](./zakazy-iz-tilda-i-wordpress-v-moysklad-trek-statusy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zakazy-iz-tilda-i-wordpress-v-moysklad-trek-statusy-2026/)
+- [МойСклад и Честный знак: код на упаковку, учёт в метрах](./moysklad-chestnyy-znak-tovar-na-metry-upakovka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/moysklad-chestnyy-znak-tovar-na-metry-upakovka-2026/)
+- [Производство в МойСклад: откуда брак и что докупить](./proizvodstvo-v-moysklad-brak-postavka-chto-dokupit-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/proizvodstvo-v-moysklad-brak-postavka-chto-dokupit-2026/)
+- [Старая 1С и маркировка: ставить рядом УТ 11.5 или переезжать](./staraya-1s-77-upp-i-markirovka-most-ili-pereezd-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/staraya-1s-77-upp-i-markirovka-most-ili-pereezd-2026/)
+- [Клеверенс Склад 15 и Data Mobile под нетиповую 1С: что делать](./kleverens-sklad-15-data-mobile-netipovaya-konfiguraciya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kleverens-sklad-15-data-mobile-netipovaya-konfiguraciya-2026/)
+- [Принимаем чужую 1С: паспорт доработок и обновление без поломок](./prinimaem-chuzhuyu-1s-pasport-dorabotok-ishodniki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/prinimaem-chuzhuyu-1s-pasport-dorabotok-ishodniki-2026/)
+- [Приложение в каталог МойСклад: условия, комиссия 25% и хостинг](./prilozhenie-v-katalog-moysklad-ip-komissiya-hosting-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/prilozhenie-v-katalog-moysklad-ip-komissiya-hosting-2026/)
 - [Бот, сайт или приложение: что выбрать под вашу задачу](./bot-sayt-ili-prilozhenie-chto-vybrat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bot-sayt-ili-prilozhenie-chto-vybrat-2026/)
 - [Тест бота и сайта перед запуском: что проверить самому](./testirovanie-bota-i-sayta-pered-zapuskom-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/testirovanie-bota-i-sayta-pered-zapuskom-2026/)
 - [Заявка с сайта не пришла: письмо в спаме из-за SPF и DKIM](./pisma-v-spam-spf-dkim-dmarc-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pisma-v-spam-spf-dkim-dmarc-2026/)
@@ -1995,6 +2011,10 @@
 
 ## Финансы
 
+- [Выписка Сбербанка в 1С не грузится: Sber API вместо УПШ](./vypiska-sberbanka-v-1s-ne-gruzitsya-sber-api-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vypiska-sberbanka-v-1s-ne-gruzitsya-sber-api-2026/)
+- [Выплата Wildberries не сходится с отчётом: сверка за 15 минут](./vyplata-wildberries-ne-shoditsya-s-otchetom-sverka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vyplata-wildberries-ne-shoditsya-s-otchetom-sverka-2026/)
+- [Итог по отчёту сходится, а прибыль по артикулу нет](./marzha-po-artikulu-na-marketpleysah-realnaya-pribyl-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/marzha-po-artikulu-na-marketpleysah-realnaya-pribyl-2026/)
+- [НДС на УСН: порог 20 млн по всем маркетплейсам и база](./nds-na-usn-porog-20-mln-marketpleysy-baza-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nds-na-usn-porog-20-mln-marketpleysy-baza-2026/)
 - [Сколько стоит делать это руками: калькулятор потерь на рутине](./cena-ruchnoy-raboty-kalkulyator-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/cena-ruchnoy-raboty-kalkulyator-2026/)
 - [Эвотор, АТОЛ или облачная касса: какую кассу брать малому бизнесу](./evotor-atol-ili-oblachnaya-kassa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/evotor-atol-ili-oblachnaya-kassa-2026/)
 - [Сколько зарабатывает эвакуатор: вызовы, пробег и простои](./skolko-zarabatyvaet-evakuator-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-zarabatyvaet-evakuator-2026/)
