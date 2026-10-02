@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2119**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2137**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -320,6 +320,15 @@
 
 ## Open-source и свой сервер
 
+- [Payload CMS: свой сайт с админкой без платы за место](./payload-cms-svoy-sayt-s-adminkoy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/payload-cms-svoy-sayt-s-adminkoy-2026/)
+- [call.md: подсказки менеджеру прямо во время звонка](./callmd-podskazki-menedzheru-vo-vremya-zvonka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/callmd-podskazki-menedzheru-vo-vremya-zvonka-2026/)
+- [ИИ в браузере без сервера: Transformers.js и 152-ФЗ](./transformers-js-ii-v-brauzere-bez-servera-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/transformers-js-ii-v-brauzere-bez-servera-2026/)
+- [Что подключено к сети офиса: карта устройств за 10 минут](./lan-orangutan-karta-ustroystv-ofisa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/lan-orangutan-karta-ustroystv-ofisa-2026/)
+- [Сайт иногда падает, а причину не найти? Ставим SigNoz](./signoz-oshibki-i-logi-prilozheniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/signoz-oshibki-i-logi-prilozheniya-2026/)
+- [OpenBot: ИИ-коллеги со своим компьютером и журналом](./openbot-ii-kollegi-so-svoim-kompyuterom-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/openbot-ii-kollegi-so-svoim-kompyuterom-2026/)
+- [Flint от Microsoft: ИИ рисует графики для отчётов сам](./flint-chart-avtootchety-s-grafikami-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/flint-chart-avtootchety-s-grafikami-2026/)
+- [КП и договоры без облака: md2pdf и EdenText](./md2pdf-edentext-dokumenty-bez-oblaka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/md2pdf-edentext-dokumenty-bez-oblaka-2026/)
+- [Отзывы и конкуренты в Google Play: ловим жалобы раньше рейтинга](./google-play-scraper-otzyvy-i-konkurenty-v-store-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/google-play-scraper-otzyvy-i-konkurenty-v-store-2026/)
 - [ИИ-учёный, который сам ставит эксперименты: разбор OpenScience](./openscience-ii-uchenyy-agent-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/openscience-ii-uchenyy-agent-2026/)
 - [Три игровых ПК в офисе превращаются в один свой ИИ: NVIDIA PAIR](./nvidia-pair-svoy-ii-klaster-v-ofise-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nvidia-pair-svoy-ii-klaster-v-ofise-2026/)
 - [ИИ-помощники команды учатся друг у друга: Tencent TeamAI CLI](./tencent-teamai-cli-obshchiy-konfig-agentov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/tencent-teamai-cli-obshchiy-konfig-agentov-2026/)
@@ -902,6 +911,8 @@
 
 ## Маркетинг
 
+- [ИИ-продавец подберёт товар и не уйдёт спать в 11 вечера](./ii-prodavec-podbor-tovara-po-katalogu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-prodavec-podbor-tovara-po-katalogu-2026/)
+- [Бот поздравит клиента с бонусом, а вы не помните ни одной даты](./avtopovody-pozdravleniya-bonusy-klientam-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avtopovody-pozdravleniya-bonusy-klientam-2026/)
 - [Telegram-канал бизнеса: как он приводит заявки, а не висит](./telegram-kanal-biznesa-zayavki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/telegram-kanal-biznesa-zayavki-2026/)
 - [QR-наклейка на авто: каждая машина приводит клиента, и видно кто](./qr-nakleyki-partnerka-arenda-avto-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/qr-nakleyki-partnerka-arenda-avto-2026/)
 - [Один кошелёк на кофейню, барбершоп и цветочный: лояльность города](./obshchaya-loyalnost-goroda-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/obshchaya-loyalnost-goroda-2026/)
@@ -1048,6 +1059,12 @@
 
 ## Отрасли
 
+- [Две заявки на одну колонку больше не случаются](./prokat-oborudovaniya-dlya-meropriyatiy-kalendar-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/prokat-oborudovaniya-dlya-meropriyatiy-kalendar-2026/)
+- [Кабинет арендатора: счёт, акт и заявка без звонков управляющему](./kabinet-arendatora-kommercheskoy-nedvizhimosti-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kabinet-arendatora-kommercheskoy-nedvizhimosti-2026/)
+- [Зарплата мастеров считается сама, и никто не спорит про проценты](./raschet-zarplaty-masterov-po-uslugam-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/raschet-zarplaty-masterov-po-uslugam-2026/)
+- [Бот наличия для сети магазинов: остатки по точкам без звонков](./bot-est-li-v-nalichii-ostatki-po-tochkam-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bot-est-li-v-nalichii-ostatki-po-tochkam-2026/)
+- [Клиент видит этап дела и не пишет вам каждый день](./kabinet-klienta-buhgalterskoy-i-yuridicheskoy-firmy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kabinet-klienta-buhgalterskoy-i-yuridicheskoy-firmy-2026/)
+- [Журнал температур заполняют задним числом. Проверка это видит](./elektronnyy-zhurnal-temperatur-chek-listy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/elektronnyy-zhurnal-temperatur-chek-listy-2026/)
 - [Свадьба завтра, а пара правит программу в 22:00: как убрать хаос](./svadebnye-agentstva-zayavki-podryadchiki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/svadebnye-agentstva-zayavki-podryadchiki-2026/)
 - [Мебель на заказ: смета не сходится с расходом, клиент звонит](./mebel-na-zakaz-zamer-smeta-izgotovlenie-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/mebel-na-zakaz-zamer-smeta-izgotovlenie-2026/)
 - [Стиралка в коридоре, а клиент звонит: «готово?»](./remont-bytovoy-tehniki-priem-status-zapchasti-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/remont-bytovoy-tehniki-priem-status-zapchasti-2026/)
@@ -1624,6 +1641,7 @@
 
 ## Разработка
 
+- [Модель решений d1 вместо LLM: разбор заявок за один вызов](./liquid-ai-d1-modeli-resheniy-dlya-zayavok-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/liquid-ai-d1-modeli-resheniy-dlya-zayavok-2026/)
 - [Бот, сайт или приложение: что выбрать под вашу задачу](./bot-sayt-ili-prilozhenie-chto-vybrat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bot-sayt-ili-prilozhenie-chto-vybrat-2026/)
 - [Тест бота и сайта перед запуском: что проверить самому](./testirovanie-bota-i-sayta-pered-zapuskom-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/testirovanie-bota-i-sayta-pered-zapuskom-2026/)
 - [Заявка с сайта не пришла: письмо в спаме из-за SPF и DKIM](./pisma-v-spam-spf-dkim-dmarc-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pisma-v-spam-spf-dkim-dmarc-2026/)
