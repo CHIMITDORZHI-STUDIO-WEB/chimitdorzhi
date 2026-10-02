@@ -1,0 +1,21 @@
+module.exports = {
+  slug: "ozon-vyklyuchil-finansovyy-api-vygruzka-slomalas-2026",
+  category: "development",
+  heroIcon: "ph-fill ph-clock-countdown",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/business-automation/", label: "Починить выгрузку Ozon и мониторинг" },
+  title: "Ozon выключил финансовый API: выгрузка встала, как проверить",
+  metaTitle: "Ozon выключил финансовый API: как проверить выгрузку",
+  metaDescription: "Ozon отключил /v3/finance/transaction/list 8 сентября 2026. Как за 10 минут понять, что выгрузка стоит, и чем 429 отличается от пустого ответа.",
+  excerpt: "Скрипт, Google Таблица или 1С тянут транзакции Ozon через старый метод, а статус синхронизации зелёный. Разбираем, что отключили, как проверить выгрузку за 10 минут, чем 429 отличается от пустого ответа и как поставить правило свежести данных.",
+  tags: ["Ozon Seller API","выгрузка транзакций Ozon","мониторинг данных","ошибка 429"],
+  toc: [
+    { id: "chto-slomalos", text: "Что сломалось и почему этого не видно" },
+    { id: "proverka", text: "Как проверить за 10 минут" },
+    { id: "429-i-pustota", text: "429 и пустой ответ: чем отличаются" },
+    { id: "svezhest", text: "Правило свежести данных" },
+    { id: "ogranicheniya", text: "Что важно учесть" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["integraciya-ozon-s-1c-2026","integraciya-s-api-wb-ozon-2026","sverka-dvuh-tablic-skriptom-2026","uptime-kuma-monitoring-dostupnosti-2026"],
+};

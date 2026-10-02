@@ -1,0 +1,21 @@
+module.exports = {
+  slug: "vypiska-sberbanka-v-1s-ne-gruzitsya-sber-api-2026",
+  category: "finance",
+  heroIcon: "ph-fill ph-bank",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/accounting-automation/", label: "Настроить обмен 1С с банком" },
+  title: "Выписка Сбербанка в 1С не грузится: Sber API вместо УПШ",
+  metaTitle: "Выписка Сбербанка в 1С не грузится: Sber API, чек-лист",
+  metaDescription: "Директ-банк Сбербанка в 1С не подключается? УПШ отключается, обмен идёт через Sber API. Что проверить главбуху, кто подаёт заявку, что делать без поддержки.",
+  excerpt: "С 15 мая 2026 Сбербанк поэтапно отключает старый канал УПШ, а 1С:ДиректБанк работает через Sber API. Разбираем, какие версии конфигураций поддерживают новый обмен, кто подаёт заявку и что делать, если в вашей конфигурации поддержки ещё нет.",
+  tags: ["1С:ДиректБанк", "Sber API", "выписка Сбербанка", "обмен с банком"],
+  toc: [
+    { id: "vypiska-ne-gruzitsya", text: "Вчера выписка грузилась, сегодня нет" },
+    { id: "chto-izmenilos", text: "Что изменилось простыми словами" },
+    { id: "chek-list", text: "Чек-лист главбуха" },
+    { id: "net-sber-api", text: "Если Sber API в вашей конфигурации ещё нет" },
+    { id: "seychas", text: "Что можно сделать уже сейчас" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["oplaty-sami-raznosyatsya-v-1c-2026", "dorabotki-1c-cherez-rasshireniya-2026", "dorabotka-integraciya-1c-2026", "rezervnoe-kopirovanie-1c-2026"],
+};

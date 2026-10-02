@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "integraciya-molcha-teryaet-zakazy-moysklad-503-429-2026",
+  category: "development",
+  heroIcon: "ph-fill ph-queue",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/business-automation/", label: "Настроить очередь заказов и сверку" },
+  title: "Заказ не попал в МойСклад: ошибки 429, 502, 503 в интеграции",
+  metaTitle: "Заказ не попал в МойСклад: ошибки 503, 502 и 429 в API",
+  metaDescription: "Заказ не передался в МойСклад из-за 503, 502, 429 или таймаута? Три способа потерять заказ, очередь с повторами, защита от дублей и ежедневная сверка.",
+  excerpt: "МойСклад ответил 503 или 429, а интеграция промолчала, и заказ остался только на сайте. Разбираем три способа потерять заказ, очередь с повторами и ключом syncId, ежедневную сверку и вопросы, которые стоит задать исполнителю.",
+  tags: ["МойСклад", "интеграция", "ошибки API 429 и 503", "потерянные заказы"],
+  toc: [
+    { id: "zakaz-ne-doshel", text: "Заказ оплачен, а в МойСклад его нет" },
+    { id: "tri-sposoba", text: "Три способа потерять заказ" },
+    { id: "ochered", text: "Очередь, повторы и защита от дублей" },
+    { id: "svezhest", text: "Свежесть и ночная сверка" },
+    { id: "ogranicheniya", text: "Что важно учесть" },
+    { id: "seychas", text: "Что можно сделать уже сейчас" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["obmen-1c-s-saytom-perestal-rabotat-2026", "integracii-lomayutsya-kto-vinovat-2026", "podderzhka-botov-i-integraciy-2026", "moysklad-vmesto-1c-integraciya-2026"],
+};
