@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "obyavlennaya-cennost-i-pretenziya-sdek-kak-vernut-dengi-za-poteryu-2026",
+  category: "development",
+  heroIcon: "ph-fill ph-package",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/logistics-automation/", label: "Автоматизировать отправки и претензии" },
+  title: "Объявленная ценность и претензия к СДЭК: вернуть деньги за потерю",
+  metaTitle: "Объявленная ценность СДЭК: как вернуть деньги за потерю",
+  metaDescription: "СДЭК потерял посылку: сколько вернут по регламенту, как заполнить объявленную стоимость, в какие сроки подать претензию и что автоматизировать магазину.",
+  excerpt: "Если объявленную стоимость не указали, за потерянную посылку вернут почти только доставку. Разбираем по регламенту СДЭК от 02.10.2026, как заполнить заказ, что сохранять при отправке и в какие сроки подавать претензию.",
+  tags: ["СДЭК","объявленная ценность","претензия","потеря посылки"],
+  toc: [
+    { id: "poteryali", text: "Посылка потеряна, а вернули копейки" },
+    { id: "kak-ustroeno", text: "Что такое объявленная ценность и сколько вернут" },
+    { id: "kak-zapolnit", text: "Как заполнить заказ, чтобы деньги вернули" },
+    { id: "pretenziya", text: "Претензия: куда, когда, с чем" },
+    { id: "ogranicheniya", text: "Что важно учесть" },
+    { id: "seychas", text: "Что можно сделать уже сейчас" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["vebhuki-sdek-otklyuchayutsya-sami-statusy-ne-prihodyat-2026","avtomaticheskaya-peredacha-zakazov-v-dostavku-2026","sdek-otklyuchil-v2-payment-nalozhennyy-platezh-sverka-2026","cena-dostavki-na-sayte-i-schet-sdek-gabarity-obyemnyy-ves-2026"],
+};
