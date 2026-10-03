@@ -1,0 +1,21 @@
+module.exports = {
+  slug: "skolko-stoit-1s-its-licenzii-chto-obyazatelno-2026",
+  category: "finance",
+  heroIcon: "ph-fill ph-coins",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/accounting-automation/", label: "Аудит лицензий и подписок 1С" },
+  title: "Сколько стоит 1С в 2026: ИТС, лицензии, облако, что обязательно",
+  metaTitle: "Сколько стоит 1С в 2026: цены ИТС, лицензий и Фреш",
+  metaDescription: "Цены ИТС ПРОФ и Техно, лицензий 1С и облака Фреш на 2026 год по прайсам 1С. Что обязательно, можно ли обновлять без ИТС и как сравнить с МойСклад.",
+  excerpt: "Пришёл счёт на продление ИТС, и непонятно, за что платить. Разбираем годовой бюджет 1С по прайсам на 2 октября 2026: лицензия, ИТС, облако Фреш, доработки. Что обязательно, что можно отложить, как сравнить с МойСклад и какие вопросы задать до продления.",
+  tags: ["цены ИТС 2026", "лицензии 1С", "1С Фреш", "МойСклад вместо 1С"],
+  toc: [
+    { id: "schet-na-prodlenie", text: "Пришёл счёт на продление, а за что он, непонятно" },
+    { id: "godovoy-byudzhet", text: "Из чего складывается годовой бюджет" },
+    { id: "chto-obyazatelno", text: "Что обязательно, а что можно отложить" },
+    { id: "oblako-moysklad", text: "Облако и МойСклад: как сравнить полную стоимость" },
+    { id: "seychas", text: "Вопросы перед продлением" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["skolko-stoit-vnedrenie-1c-2026", "1c-v-oblake-ili-na-svoem-servere-2026", "moysklad-vmesto-1c-integraciya-2026", "skolko-stoit-podderzhka-dorabotka-po-2026"],
+};

@@ -1,0 +1,21 @@
+module.exports = {
+  slug: "upravlenie-skladom-3-1-i-starye-wms-yacheyki-otbor-specialist-2026",
+  category: "development",
+  heroIcon: "ph-fill ph-warehouse",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/logistics-automation/", label: "Автоматизация склада и логистики" },
+  title: "«Управление складом 3.1» и старые WMS: ячейки, отбор, специалист",
+  metaTitle: "Управление складом 3.1 и WMS: ячейки, отбор, специалист",
+  metaDescription: "Склад на старой «1С-Логистике 3.1»: что пишет 1С о редакции, хватит ли УТ 11 для адресного хранения или нужна WMS и что проверить до начала работ.",
+  excerpt: "Склад на старой редакции «Управление складом 3.1» ищет, кто закрепит товары за ячейками и настроит размещение и отбор. Разбираю, что это за продукт по данным 1С, когда хватает УТ 11, когда нужна WMS и какой чек-лист пройти до начала работ.",
+  tags: ["1С склад", "WMS", "адресное хранение", "ТСД"],
+  toc: [
+    { id: "zapros", text: "Склад ищет специалиста по старой складской 1С" },
+    { id: "chto-eto", text: "Что такое «3.1» и WMS по описанию 1С" },
+    { id: "ut-ili-wms", text: "Хватит ли УТ 11 или нужна WMS" },
+    { id: "riski", text: "Чем рискует склад на старой редакции" },
+    { id: "chek-list", text: "Кого искать и что поручить до начала работ" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["palletnyy-uchet-1c-ut-11-5-2026", "skladskoy-uchet-wms-tsd", "kleverens-sklad-15-data-mobile-netipovaya-konfiguraciya-2026", "staraya-1s-77-upp-i-markirovka-most-ili-pereezd-2026"],
+};
