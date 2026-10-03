@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2237**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2247**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -37,6 +37,7 @@
 
 ## AI для разработчиков
 
+- [Точка открыла MCP для ИИ-агентов: что поручить и где поставить лимит](./tochka-otkryla-mcp-dlya-ii-agentov-chto-poruchit-i-limity-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/tochka-otkryla-mcp-dlya-ii-agentov-chto-poruchit-i-limity-2026/)
 - [ИИ-проверка договоров в 1С:Документооборот: что можно, чего нельзя](./ii-proverka-i-soglasovanie-dogovorov-v-1s-dokumentooborot-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-proverka-i-soglasovanie-dogovorov-v-1s-dokumentooborot-2026/)
 - [ИИ-проверка домашних заданий в онлайн-школе: рубрики и отчёт](./ii-proverka-domashnih-zadaniy-onlayn-shkola-rubriki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-proverka-domashnih-zadaniy-onlayn-shkola-rubriki-2026/)
 - [magpie: один локальный шлюз к моделям для всех ИИ-агентов](./magpie-shlyuz-k-ii-modelyam-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/magpie-shlyuz-k-ii-modelyam-2026/)
@@ -1471,6 +1472,7 @@
 
 ## Право и 152-ФЗ
 
+- [Банк запросил документы по 115-ФЗ: пакет и пояснение за час](./blokirovka-po-115-fz-paket-dokumentov-i-poyasnenie-banku-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/blokirovka-po-115-fz-paket-dokumentov-i-poyasnenie-banku-2026/)
 - [Бот ошибся в цене или сроке: кто отвечает перед клиентом](./otvetstvennost-za-oshibku-ii-bota-pered-klientom-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/otvetstvennost-za-oshibku-ii-bota-pered-klientom-2026/)
 - [Сколько хранить данные клиентов и когда их удалять по 152-ФЗ](./srok-hraneniya-dannyh-klientov-kogda-udalyat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/srok-hraneniya-dannyh-klientov-kogda-udalyat-2026/)
 - [Закон 289-ФЗ с 1 октября: сроки штрафов, жалоб и акта сверки](./zakon-289-fz-selleram-uvedomleniya-shtrafy-sroki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zakon-289-fz-selleram-uvedomleniya-shtrafy-sroki-2026/)
@@ -1686,6 +1688,13 @@
 
 ## Разработка
 
+- [Ozon FBS с 6 октября: индекс ошибок и платная приёмка](./ozon-fbs-s-6-oktyabrya-indeks-oshibok-platnaya-priemka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ozon-fbs-s-6-oktyabrya-indeks-oshibok-platnaya-priemka-2026/)
+- [Что лежит на складах маркетплейса: снимок остатков и акты](./ostatki-na-skladah-marketpleysa-ezhednevnyy-snimok-sverka-aktov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ostatki-na-skladah-marketpleysa-ezhednevnyy-snimok-sverka-aktov-2026/)
+- [Эвотор и сайт: остатки, чеки коррекции и карта лояльности](./evotor-i-sayt-ostatki-cheki-korrekcii-karta-loyalnosti-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/evotor-i-sayt-ostatki-cheki-korrekcii-karta-loyalnosti-2026/)
+- [Парсер перестал работать: почему ломается и как не чинить](./parser-perestal-rabotat-prichiny-i-podderzhka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/parser-perestal-rabotat-prichiny-i-podderzhka-2026/)
+- [Объявленная ценность и претензия к СДЭК: вернуть деньги за потерю](./obyavlennaya-cennost-i-pretenziya-sdek-kak-vernut-dengi-za-poteryu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/obyavlennaya-cennost-i-pretenziya-sdek-kak-vernut-dengi-za-poteryu-2026/)
+- [5Post и Магнит Пост на сайте Tilda: нативного виджета нет](./5post-i-magnit-post-na-sayte-tilda-proksi-vidzhet-pvz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/5post-i-magnit-post-na-sayte-tilda-proksi-vidzhet-pvz-2026/)
+- [Автовыдача цифрового товара после оплаты: Tilda и ЮKassa](./avtovydacha-cifrovogo-tovara-posle-oplaty-tilda-yukassa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avtovydacha-cifrovogo-tovara-posle-oplaty-tilda-yukassa-2026/)
 - [Меркурий, ФГИС «Зерно» и ЕИС из 1С: ошибки обмена и кто чинит](./merkuriy-fgis-zerno-eis-iz-1s-oshibki-obmena-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/merkuriy-fgis-zerno-eis-iz-1s-oshibki-obmena-2026/)
 - [Перенос из УТ 10.3 в Розницу 3.0 и из БП в УНФ: что переносится](./perenos-bp-v-unf-ut-10-3-v-roznicu-chto-perenositsya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/perenos-bp-v-unf-ut-10-3-v-roznicu-chto-perenositsya-2026/)
 - [Обмен ЗУП и Бухгалтерии сломался после обновления: КД 2 и РИБ](./obmen-zup-i-buhgalteriya-posle-obnovleniya-kd2-rib-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/obmen-zup-i-buhgalteriya-posle-obnovleniya-kd2-rib-2026/)
@@ -2057,6 +2066,7 @@
 
 ## Финансы
 
+- [ЕНС с 1 сентября 2026: уведомление на год и зачёт с УКЭП](./ens-s-1-sentyabrya-2026-zachet-za-tretih-lic-ukep-uvedomlenie-na-god-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ens-s-1-sentyabrya-2026-zachet-za-tretih-lic-ukep-uvedomlenie-na-god-2026/)
 - [Сколько стоит 1С в 2026: ИТС, лицензии, облако, что обязательно](./skolko-stoit-1s-its-licenzii-chto-obyazatelno-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-stoit-1s-its-licenzii-chto-obyazatelno-2026/)
 - [Реестр эквайринга не сходится с выпиской в 1С БП: как сверить](./sverka-reestrov-ekvayringa-sberbank-alfa-v-1s-bp-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sverka-reestrov-ekvayringa-sberbank-alfa-v-1s-bp-2026/)
 - [СДЭК отключил v2/payment: как сверять наложенный платёж](./sdek-otklyuchil-v2-payment-nalozhennyy-platezh-sverka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sdek-otklyuchil-v2-payment-nalozhennyy-platezh-sverka-2026/)
