@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2217**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2227**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -37,6 +37,7 @@
 
 ## AI для разработчиков
 
+- [ИИ-проверка договоров в 1С:Документооборот: что можно, чего нельзя](./ii-proverka-i-soglasovanie-dogovorov-v-1s-dokumentooborot-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-proverka-i-soglasovanie-dogovorov-v-1s-dokumentooborot-2026/)
 - [magpie: один локальный шлюз к моделям для всех ИИ-агентов](./magpie-shlyuz-k-ii-modelyam-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/magpie-shlyuz-k-ii-modelyam-2026/)
 - [Клиенты пишут ночью и в выходные: ИИ-консультант, который отвечает и записывает](./klienty-pishut-nochyu-ii-konsultant-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/klienty-pishut-nochyu-ii-konsultant-2026/)
 - [ИИ-помощник запущен: кто следит за ответами и обновляет базу знаний](./soprovozhdenie-ii-pomoshchnika-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/soprovozhdenie-ii-pomoshchnika-2026/)
@@ -1087,6 +1088,7 @@
 
 ## Отрасли
 
+- [Обмен с ЕГАИС встал: диагностика для магазина пива и сигарет](./egais-magazin-piva-i-sigaret-roznitsa-utm-oshibki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/egais-magazin-piva-i-sigaret-roznitsa-utm-oshibki-2026/)
 - [Две заявки на одну колонку больше не случаются](./prokat-oborudovaniya-dlya-meropriyatiy-kalendar-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/prokat-oborudovaniya-dlya-meropriyatiy-kalendar-2026/)
 - [Кабинет арендатора: счёт, акт и заявка без звонков управляющему](./kabinet-arendatora-kommercheskoy-nedvizhimosti-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kabinet-arendatora-kommercheskoy-nedvizhimosti-2026/)
 - [Зарплата мастеров считается сама, и никто не спорит про проценты](./raschet-zarplaty-masterov-po-uslugam-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/raschet-zarplaty-masterov-po-uslugam-2026/)
@@ -1682,6 +1684,12 @@
 
 ## Разработка
 
+- [Меркурий, ФГИС «Зерно» и ЕИС из 1С: ошибки обмена и кто чинит](./merkuriy-fgis-zerno-eis-iz-1s-oshibki-obmena-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/merkuriy-fgis-zerno-eis-iz-1s-oshibki-obmena-2026/)
+- [Перенос из УТ 10.3 в Розницу 3.0 и из БП в УНФ: что переносится](./perenos-bp-v-unf-ut-10-3-v-roznicu-chto-perenositsya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/perenos-bp-v-unf-ut-10-3-v-roznicu-chto-perenositsya-2026/)
+- [Обмен ЗУП и Бухгалтерии сломался после обновления: КД 2 и РИБ](./obmen-zup-i-buhgalteriya-posle-obnovleniya-kd2-rib-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/obmen-zup-i-buhgalteriya-posle-obnovleniya-kd2-rib-2026/)
+- [Сертификаты, рассрочка и аванс в кассе МойСклад: что можно](./nestandartnye-cheki-moysklad-sertifikaty-kredit-avans-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nestandartnye-cheki-moysklad-sertifikaty-kredit-avans-2026/)
+- [Заказ поставщику из Excel и приход по фото накладной в МойСклад](./zakaz-postavshchiku-iz-excel-i-foto-nakladnoy-v-moysklad-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zakaz-postavshchiku-iz-excel-i-foto-nakladnoy-v-moysklad-2026/)
+- [«Управление складом 3.1» и старые WMS: ячейки, отбор, специалист](./upravlenie-skladom-3-1-i-starye-wms-yacheyki-otbor-specialist-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/upravlenie-skladom-3-1-i-starye-wms-yacheyki-otbor-specialist-2026/)
 - [Модель решений d1 вместо LLM: разбор заявок за один вызов](./liquid-ai-d1-modeli-resheniy-dlya-zayavok-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/liquid-ai-d1-modeli-resheniy-dlya-zayavok-2026/)
 - [Бот перестал отвечать: диагностика за 15 минут](./bot-perestal-otvechat-diagnostika-15-minut-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bot-perestal-otvechat-diagnostika-15-minut-2026/)
 - [Рассылка в боте встала на половине: лимиты Telegram и MAX](./limity-telegram-i-max-rassylka-vstala-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/limity-telegram-i-max-rassylka-vstala-2026/)
@@ -2041,6 +2049,8 @@
 
 ## Финансы
 
+- [Сколько стоит 1С в 2026: ИТС, лицензии, облако, что обязательно](./skolko-stoit-1s-its-licenzii-chto-obyazatelno-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-stoit-1s-its-licenzii-chto-obyazatelno-2026/)
+- [Реестр эквайринга не сходится с выпиской в 1С БП: как сверить](./sverka-reestrov-ekvayringa-sberbank-alfa-v-1s-bp-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sverka-reestrov-ekvayringa-sberbank-alfa-v-1s-bp-2026/)
 - [Выписка Сбербанка в 1С не грузится: Sber API вместо УПШ](./vypiska-sberbanka-v-1s-ne-gruzitsya-sber-api-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vypiska-sberbanka-v-1s-ne-gruzitsya-sber-api-2026/)
 - [Выплата Wildberries не сходится с отчётом: сверка за 15 минут](./vyplata-wildberries-ne-shoditsya-s-otchetom-sverka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vyplata-wildberries-ne-shoditsya-s-otchetom-sverka-2026/)
 - [Итог по отчёту сходится, а прибыль по артикулу нет](./marzha-po-artikulu-na-marketpleysah-realnaya-pribyl-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/marzha-po-artikulu-na-marketpleysah-realnaya-pribyl-2026/)
