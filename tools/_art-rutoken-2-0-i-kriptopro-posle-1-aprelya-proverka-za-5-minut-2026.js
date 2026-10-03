@@ -1,0 +1,16 @@
+module.exports = { slug: "rutoken-2-0-i-kriptopro-posle-1-aprelya-proverka-za-5-minut-2026", category: "security", heroIcon: "ph-fill ph-key", ctaInternal: { url: "https://chimitdorzhi.tech/services/it-audit/", label: "Инвентаризация ЭЦП и ПК" },
+  title: "Рутокен 2.0 и КриптоПро после 1 апреля: проверка за 5 минут",
+  metaTitle: "Рутокен ЭЦП 2.0, КриптоПро 5.0 и ФНС: что проверить",
+  metaDescription: "С 1 апреля 2026 ФНС шифрует по ГОСТ 34.12-2018. Как за 5 минут проверить версию КриптоПро, модель токена и режим ключа, что менять и что нет.",
+  excerpt: "После 1 апреля 2026 у части бухгалтеров перестала уходить отчётность и расшифровываться почта ФНС. Разбираем по первоисточникам, что именно поменялось, как проверить КриптоПро, Рутокен и ESMART за пять минут и как пройти по всему парку ПК, чтобы не платить за лишнюю замену.",
+  tags: ["ЭЦП","КриптоПро","Рутокен","ФНС"],
+  toc: [
+    { id: "ne-ushla", text: "Отчётность не ушла, хотя вчера всё работало" },
+    { id: "chto-izmenilos", text: "Что именно изменилось" },
+    { id: "proverka", text: "Проверка за 5 минут на одном ПК" },
+    { id: "chto-menyat", text: "Что менять, а что нет" },
+    { id: "park", text: "Что можно сделать уже сейчас на парке ПК" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["elektronnaya-podpis-biznes-2026","napominaniya-o-srokah-dokumentov-i-oborudovaniya-2026","epd-i-mchd-kto-chto-podpisyvaet-etrn-zavis-2026","kedo-kadrovyy-edo-perehod-2026"] };
