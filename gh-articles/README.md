@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2197**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2207**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -334,6 +334,15 @@
 - [KrillinAI: один ролик на 100 языках, с озвучкой](./krillinai-perevod-i-ozvuchka-video-na-100-yazykov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/krillinai-perevod-i-ozvuchka-video-na-100-yazykov-2026/)
 - [Мёртвые адреса губят рассылку: чистим базу check-if-email-exists](./check-if-email-exists-chistka-bazy-rassylki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/check-if-email-exists-chistka-bazy-rassylki-2026/)
 - [Один экран для календарей всех мастеров и залов: Luna](./luna-edinyy-kalendar-dlya-vseh-masterov-i-zalov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/luna-edinyy-kalendar-dlya-vseh-masterov-i-zalov-2026/)
+- [Relaticle: CRM с ИИ-агентом на своём сервере для малого бизнеса](./relaticle-crm-s-ii-agentom-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/relaticle-crm-s-ii-agentom-na-svoem-servere-2026/)
+- [Huly вместо пяти сервисов: задачи, CRM и HR на своём сервере](./huly-edinaya-platforma-zadachi-crm-hr-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/huly-edinaya-platforma-zadachi-crm-hr-na-svoem-servere-2026/)
+- [PrestaShop: свой магазин без подписки и процента с продаж](./prestashop-svoy-internet-magazin-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/prestashop-svoy-internet-magazin-na-svoem-servere-2026/)
+- [Чеки и счета в таблицу за вечер: TaxHacker на своём сервере](./taxhacker-uchet-chekov-i-schetov-s-ii-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/taxhacker-uchet-chekov-i-schetov-s-ii-na-svoem-servere-2026/)
+- [OpenMed: ИИ для клиники, данные пациентов не уходят в облако](./openmed-lokalnyy-ii-dlya-kliniki-bez-oblaka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/openmed-lokalnyy-ii-dlya-kliniki-bez-oblaka-2026/)
+- [SEO Machine: конвейер SEO-статей на Claude Code](./seo-machine-konveyer-seo-statej-na-claude-code-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/seo-machine-konveyer-seo-statej-na-claude-code-2026/)
+- [ByteChef: интеграции и ИИ-агенты в одной платформе](./bytechef-integracii-i-ii-agenty-v-odnoy-low-code-platforme-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bytechef-integracii-i-ii-agenty-v-odnoy-low-code-platforme-2026/)
+- [Pascal Editor: 3D-планировка дома в браузере для клиента](./pascal-editor-3d-proektirovanie-zdaniy-v-brauzere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pascal-editor-3d-proektirovanie-zdaniy-v-brauzere-2026/)
+- [Meetily: протокол совещаний без облака, на вашем компьютере](./meetily-protokolist-soveshchaniy-na-vashem-kompyutere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/meetily-protokolist-soveshchaniy-na-vashem-kompyutere-2026/)
 - [ИИ-учёный, который сам ставит эксперименты: разбор OpenScience](./openscience-ii-uchenyy-agent-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/openscience-ii-uchenyy-agent-2026/)
 - [Три игровых ПК в офисе превращаются в один свой ИИ: NVIDIA PAIR](./nvidia-pair-svoy-ii-klaster-v-ofise-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nvidia-pair-svoy-ii-klaster-v-ofise-2026/)
 - [ИИ-помощники команды учатся друг у друга: Tencent TeamAI CLI](./tencent-teamai-cli-obshchiy-konfig-agentov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/tencent-teamai-cli-obshchiy-konfig-agentov-2026/)
@@ -1688,6 +1697,7 @@
 - [Выгрузка из 1С в SQL и BI: сводная отчётность по нескольким базам](./vygruzka-iz-1s-v-sql-i-bi-konsolidaciya-neskolkih-baz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vygruzka-iz-1s-v-sql-i-bi-konsolidaciya-neskolkih-baz-2026/)
 - [МойСклад для сети точек: центральный склад и офлайн-касса](./moysklad-dlya-seti-tochek-sezonnoy-torgovli-offlayn-kassa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/moysklad-dlya-seti-tochek-sezonnoy-torgovli-offlayn-kassa-2026/)
 - [Какая 1С нужна электромонтажу, ремонту и мастерской](./kakaya-1s-nuzhna-elektromontazhu-remontu-masterskoy-obekty-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kakaya-1s-nuzhna-elektromontazhu-remontu-masterskoy-obekty-2026/)
+- [Свой сервер для KVM: доступ к компьютеру на точке без выезда](./glkvm-cloud-udalennoe-upravlenie-kvm-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/glkvm-cloud-udalennoe-upravlenie-kvm-na-svoem-servere-2026/)
 - [Бот, сайт или приложение: что выбрать под вашу задачу](./bot-sayt-ili-prilozhenie-chto-vybrat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bot-sayt-ili-prilozhenie-chto-vybrat-2026/)
 - [Тест бота и сайта перед запуском: что проверить самому](./testirovanie-bota-i-sayta-pered-zapuskom-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/testirovanie-bota-i-sayta-pered-zapuskom-2026/)
 - [Заявка с сайта не пришла: письмо в спаме из-за SPF и DKIM](./pisma-v-spam-spf-dkim-dmarc-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pisma-v-spam-spf-dkim-dmarc-2026/)
