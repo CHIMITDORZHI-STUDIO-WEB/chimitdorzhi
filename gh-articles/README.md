@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2207**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2217**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -567,6 +567,7 @@
 
 ## Безопасность
 
+- [Вашего ИИ-бота можно выкачать вопросами: урок OpenAI](./kak-vykachat-ii-bota-distillyaciya-zashchita-bazy-znaniy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-vykachat-ii-bota-distillyaciya-zashchita-bazy-znaniy-2026/)
 - [ИИ-ассистент ошибся при клиенте: первые сутки](./ii-assistent-oshibsya-pri-klientah-pervye-sutki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-assistent-oshibsya-pri-klientah-pervye-sutki-2026/)
 - [ИИ находит дыры быстрее людей: что делать владельцу сайта](./ii-nahodit-uyazvimosti-chto-delat-vladelcu-sayta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-nahodit-uyazvimosti-chto-delat-vladelcu-sayta-2026/)
 - [Вирус советуется с четырьмя нейросетями, прежде чем украсть ваши данные](./virus-sovetuetsya-s-neyrosetyami-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/virus-sovetuetsya-s-neyrosetyami-2026/)
@@ -929,6 +930,7 @@
 
 ## Маркетинг
 
+- [Рекламный ролик из ИИ за 90 центов: что даёт HeyGen Video](./reklamnyy-rolik-iz-ii-za-90-centov-heygen-video-chto-poluchitsya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/reklamnyy-rolik-iz-ii-za-90-centov-heygen-video-chto-poluchitsya-2026/)
 - [ИИ-продавец подберёт товар и не уйдёт спать в 11 вечера](./ii-prodavec-podbor-tovara-po-katalogu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-prodavec-podbor-tovara-po-katalogu-2026/)
 - [Бот поздравит клиента с бонусом, а вы не помните ни одной даты](./avtopovody-pozdravleniya-bonusy-klientam-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avtopovody-pozdravleniya-bonusy-klientam-2026/)
 - [«Сколько стоит?» без фото: как не терять клиентов на переспросах](./cena-po-foto-ii-ocenka-remonta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/cena-po-foto-ii-ocenka-remonta-2026/)
@@ -1465,6 +1467,7 @@
 
 ## Право и 152-ФЗ
 
+- [Бот ошибся в цене или сроке: кто отвечает перед клиентом](./otvetstvennost-za-oshibku-ii-bota-pered-klientom-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/otvetstvennost-za-oshibku-ii-bota-pered-klientom-2026/)
 - [Сколько хранить данные клиентов и когда их удалять по 152-ФЗ](./srok-hraneniya-dannyh-klientov-kogda-udalyat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/srok-hraneniya-dannyh-klientov-kogda-udalyat-2026/)
 - [Закон 289-ФЗ с 1 октября: сроки штрафов, жалоб и акта сверки](./zakon-289-fz-selleram-uvedomleniya-shtrafy-sroki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zakon-289-fz-selleram-uvedomleniya-shtrafy-sroki-2026/)
 - [Закон 289-ФЗ с 1 октября: что меняется для продавцов](./zakon-289-fz-platformennaya-ekonomika-prodavcam-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zakon-289-fz-platformennaya-ekonomika-prodavcam-2026/)
@@ -1532,6 +1535,8 @@
 
 ## Продажи
 
+- [Чёрная пятница 27 ноября: чек-лист магазина на 8 недель](./chernaya-pyatnica-novyy-god-chek-list-na-8-nedel-dlya-magazina-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chernaya-pyatnica-novyy-god-chek-list-na-8-nedel-dlya-magazina-2026/)
+- [Распродажа 11.11 в Китае: как закупить, заплатить и довезти без потерь](./rasprodazha-11-11-zakupka-v-kitae-kak-zakazat-zaplatit-dovezti-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/rasprodazha-11-11-zakupka-v-kitae-kak-zakazat-zaplatit-dovezti-2026/)
 - [Клиенты хотят купить, а товара нет: предзаказ без хаоса](./predzakaz-s-predoplatoy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/predzakaz-s-predoplatoy-2026/)
 - [Заявок 30, серьёзных 3: как бот отделяет горячих от остальных](./kvalifikaciya-lidov-bot-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kvalifikaciya-lidov-bot-2026/)
 - [Взял одно, а мог взять комплект: допродажи в боте и на сайте](./dopprodazhi-v-bote-i-na-sayte-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/dopprodazhi-v-bote-i-na-sayte-2026/)
@@ -2096,6 +2101,11 @@
 
 ## Экспертное
 
+- [Звонки клиентам в WhatsApp и Telegram ограничены: чем заменить](./zvonki-klientam-posle-ogranicheniya-whatsapp-telegram-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zvonki-klientam-posle-ogranicheniya-whatsapp-telegram-2026/)
+- [Покупатель-ИИ: Алиса уже бронирует, готов ли ваш каталог](./pokupatel-ii-agent-zakazyvaet-za-cheloveka-gotov-li-katalog-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pokupatel-ii-agent-zakazyvaet-za-cheloveka-gotov-li-katalog-2026/)
+- [62% и 33% у одной модели: чужой бенчмарк не про ваш процесс](./benchmark-ne-pro-vash-process-obvyazka-ii-test-na-30-voprosah-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/benchmark-ne-pro-vash-process-obvyazka-ii-test-na-30-voprosah-2026/)
+- [Провайдер сменил модель, и бот поглупел: версии и откат](./provayder-smenil-model-bot-poglupel-versii-otkat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/provayder-smenil-model-bot-poglupel-versii-otkat-2026/)
+- [Иероглифы на упаковке: как перевести надпись прямо на фото](./perevod-nadpisey-na-upakovke-ideogram-index-translate-postavshchik-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/perevod-nadpisey-na-upakovke-ideogram-index-translate-postavshchik-2026/)
 - [Заменят ли агенты профессию? Для 419 из 923 нет ни одного инструмента](./cohere-700-tysyach-mcp-instrumentov-chto-avtomatizirovat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/cohere-700-tysyach-mcp-instrumentov-chto-avtomatizirovat-2026/)
 - [Сколько тратить на IT в год: бюджет без чужих процентов](./it-byudzhet-malogo-biznesa-skolko-tratit-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/it-byudzhet-malogo-biznesa-skolko-tratit-2026/)
 - [ChatGPT Dots: ИИ-агент как сотрудник и чему в нём не верить](./chatgpt-personalnye-agenty-dots-malyy-biznes-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chatgpt-personalnye-agenty-dots-malyy-biznes-2026/)
