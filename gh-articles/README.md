@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2227**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2237**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -38,6 +38,7 @@
 ## AI для разработчиков
 
 - [ИИ-проверка договоров в 1С:Документооборот: что можно, чего нельзя](./ii-proverka-i-soglasovanie-dogovorov-v-1s-dokumentooborot-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-proverka-i-soglasovanie-dogovorov-v-1s-dokumentooborot-2026/)
+- [ИИ-проверка домашних заданий в онлайн-школе: рубрики и отчёт](./ii-proverka-domashnih-zadaniy-onlayn-shkola-rubriki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-proverka-domashnih-zadaniy-onlayn-shkola-rubriki-2026/)
 - [magpie: один локальный шлюз к моделям для всех ИИ-агентов](./magpie-shlyuz-k-ii-modelyam-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/magpie-shlyuz-k-ii-modelyam-2026/)
 - [Клиенты пишут ночью и в выходные: ИИ-консультант, который отвечает и записывает](./klienty-pishut-nochyu-ii-konsultant-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/klienty-pishut-nochyu-ii-konsultant-2026/)
 - [ИИ-помощник запущен: кто следит за ответами и обновляет базу знаний](./soprovozhdenie-ii-pomoshchnika-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/soprovozhdenie-ii-pomoshchnika-2026/)
@@ -569,6 +570,7 @@
 ## Безопасность
 
 - [Вашего ИИ-бота можно выкачать вопросами: урок OpenAI](./kak-vykachat-ii-bota-distillyaciya-zashchita-bazy-znaniy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-vykachat-ii-bota-distillyaciya-zashchita-bazy-znaniy-2026/)
+- [Рутокен 2.0 и КриптоПро после 1 апреля: проверка за 5 минут](./rutoken-2-0-i-kriptopro-posle-1-aprelya-proverka-za-5-minut-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/rutoken-2-0-i-kriptopro-posle-1-aprelya-proverka-za-5-minut-2026/)
 - [ИИ-ассистент ошибся при клиенте: первые сутки](./ii-assistent-oshibsya-pri-klientah-pervye-sutki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-assistent-oshibsya-pri-klientah-pervye-sutki-2026/)
 - [ИИ находит дыры быстрее людей: что делать владельцу сайта](./ii-nahodit-uyazvimosti-chto-delat-vladelcu-sayta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-nahodit-uyazvimosti-chto-delat-vladelcu-sayta-2026/)
 - [Вирус советуется с четырьмя нейросетями, прежде чем украсть ваши данные](./virus-sovetuetsya-s-neyrosetyami-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/virus-sovetuetsya-s-neyrosetyami-2026/)
@@ -1690,6 +1692,12 @@
 - [Сертификаты, рассрочка и аванс в кассе МойСклад: что можно](./nestandartnye-cheki-moysklad-sertifikaty-kredit-avans-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nestandartnye-cheki-moysklad-sertifikaty-kredit-avans-2026/)
 - [Заказ поставщику из Excel и приход по фото накладной в МойСклад](./zakaz-postavshchiku-iz-excel-i-foto-nakladnoy-v-moysklad-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zakaz-postavshchiku-iz-excel-i-foto-nakladnoy-v-moysklad-2026/)
 - [«Управление складом 3.1» и старые WMS: ячейки, отбор, специалист](./upravlenie-skladom-3-1-i-starye-wms-yacheyki-otbor-specialist-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/upravlenie-skladom-3-1-i-starye-wms-yacheyki-otbor-specialist-2026/)
+- [Вебхуки СДЭК отключаются сами: статусы перестали приходить](./vebhuki-sdek-otklyuchayutsya-sami-statusy-ne-prihodyat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vebhuki-sdek-otklyuchayutsya-sami-statusy-ne-prihodyat-2026/)
+- [WB FBS с 1 октября: без способа отгрузки поставка не уйдёт (409)](./wb-fbs-s-1-oktyabrya-sposob-otgruzki-nakladnaya-oshibka-409-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/wb-fbs-s-1-oktyabrya-sposob-otgruzki-nakladnaya-oshibka-409-2026/)
+- [Почта России скрыла детальные статусы посылок: что показывать клиенту](./pochta-rossii-skryla-detalnye-statusy-chto-pokazyvat-klientu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pochta-rossii-skryla-detalnye-statusy-chto-pokazyvat-klientu-2026/)
+- [Реестр ЭЦП, МЧД и сроков для бухфирмы: бот-напоминалка](./reestr-ecp-mchd-i-srokov-dlya-buhfirmy-bot-napominalka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/reestr-ecp-mchd-i-srokov-dlya-buhfirmy-bot-napominalka-2026/)
+- [СДЭК и Почта России в amoCRM: трек и статус в сделке](./sdek-i-pochta-rossii-v-amocrm-trek-nomer-status-v-sdelke-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sdek-i-pochta-rossii-v-amocrm-trek-nomer-status-v-sdelke-2026/)
+- [Цена доставки на сайте и счёт СДЭК разошлись: объёмный вес](./cena-dostavki-na-sayte-i-schet-sdek-gabarity-obyemnyy-ves-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/cena-dostavki-na-sayte-i-schet-sdek-gabarity-obyemnyy-ves-2026/)
 - [Модель решений d1 вместо LLM: разбор заявок за один вызов](./liquid-ai-d1-modeli-resheniy-dlya-zayavok-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/liquid-ai-d1-modeli-resheniy-dlya-zayavok-2026/)
 - [Бот перестал отвечать: диагностика за 15 минут](./bot-perestal-otvechat-diagnostika-15-minut-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bot-perestal-otvechat-diagnostika-15-minut-2026/)
 - [Рассылка в боте встала на половине: лимиты Telegram и MAX](./limity-telegram-i-max-rassylka-vstala-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/limity-telegram-i-max-rassylka-vstala-2026/)
@@ -2051,6 +2059,8 @@
 
 - [Сколько стоит 1С в 2026: ИТС, лицензии, облако, что обязательно](./skolko-stoit-1s-its-licenzii-chto-obyazatelno-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-stoit-1s-its-licenzii-chto-obyazatelno-2026/)
 - [Реестр эквайринга не сходится с выпиской в 1С БП: как сверить](./sverka-reestrov-ekvayringa-sberbank-alfa-v-1s-bp-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sverka-reestrov-ekvayringa-sberbank-alfa-v-1s-bp-2026/)
+- [СДЭК отключил v2/payment: как сверять наложенный платёж](./sdek-otklyuchil-v2-payment-nalozhennyy-platezh-sverka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sdek-otklyuchil-v2-payment-nalozhennyy-platezh-sverka-2026/)
+- [СФР отклонил отчёт: проверяем «Согласование ключей» в КЭП](./sfr-otklonil-otchet-atribut-soglasovanie-klyuchey-sertifikat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sfr-otklonil-otchet-atribut-soglasovanie-klyuchey-sertifikat-2026/)
 - [Выписка Сбербанка в 1С не грузится: Sber API вместо УПШ](./vypiska-sberbanka-v-1s-ne-gruzitsya-sber-api-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vypiska-sberbanka-v-1s-ne-gruzitsya-sber-api-2026/)
 - [Выплата Wildberries не сходится с отчётом: сверка за 15 минут](./vyplata-wildberries-ne-shoditsya-s-otchetom-sverka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vyplata-wildberries-ne-shoditsya-s-otchetom-sverka-2026/)
 - [Итог по отчёту сходится, а прибыль по артикулу нет](./marzha-po-artikulu-na-marketpleysah-realnaya-pribyl-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/marzha-po-artikulu-na-marketpleysah-realnaya-pribyl-2026/)
