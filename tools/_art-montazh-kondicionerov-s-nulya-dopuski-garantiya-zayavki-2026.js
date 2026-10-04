@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "montazh-kondicionerov-s-nulya-dopuski-garantiya-zayavki-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-snowflake",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/business-automation/", label: "Заявки, сметы и акты для монтажа" },
+  title: "Монтаж кондиционеров с нуля: допуски, гарантия и заявки",
+  metaTitle: "Монтаж кондиционеров с нуля: допуски, гарантия, заявки",
+  metaDescription: "С чего начать монтаж кондиционеров: работа на высоте, согласие дома на наружный блок, договор и гарантия, смета по трассе, налоги и заявки в сезонный пик.",
+  excerpt: "Как начать устанавливать кондиционеры и сплит-системы как бизнес: 7 шагов, обучение работе на высоте, согласие дома, договор с отдельной гарантией, смета по комплекту и трассе. Только проверенные нормы и честные пометки, где я не подтвердил.",
+  tags: ["старт бизнеса", "монтаж кондиционеров", "допуски и гарантия", "заявки и слоты"],
+  toc: [
+    { id: "komu-podhodit", text: "Кому подходит и кому нет" },
+    { id: "sem-shagov", text: "С чего начать: 7 шагов" },
+    { id: "byudzhet", text: "Из чего складывается стартовый бюджет" },
+    { id: "dokumenty", text: "Регистрация, налоги, допуски и разрешения" },
+    { id: "poteri", text: "Где новички теряют деньги" },
+    { id: "avtomatizaciya", text: "Где здесь нужна автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["kondicionery-montazh-sezonnoe-obsluzhivanie-2026","klimat-biznes-konditsionery-2026","remont-kvartir-pod-klyuch-s-nulya-brigada-smeta-akty-2026","elektronnaya-garantiya-po-qr-2026"],
+};

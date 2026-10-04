@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "mini-pekarnya-s-tochkoy-prodazh-s-nulya-pomeshchenie-merkuriy-kassa-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-bread",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/business-automation/", label: "Учёт сырья и списаний для пекарни" },
+  title: "Мини-пекарня с точкой продаж с нуля: помещение, Меркурий, касса",
+  metaTitle: "Мини-пекарня с нуля: помещение, Меркурий, касса 2026",
+  metaDescription: "Как открыть мини-пекарню с точкой продаж: форма, помещение, СанПиН с 1 сентября 2026, маркировка, Меркурий, касса, списания и ошибки новичков.",
+  excerpt: "Производство и розница в одном помещении: что подтверждено по СанПиН, «Честному знаку», «Меркурию», кассе и патенту на 4 октября 2026. Где источники не отвечают, так и написано. Плюс как считать списания и что можно не автоматизировать на старте.",
+  tags: ["старт бизнеса", "мини-пекарня", "выпечка", "списания"],
+  toc: [
+    { id: "komu-podhodit", text: "Кому подходит и кому нет" },
+    { id: "7-shagov", text: "С чего начать: 7 шагов" },
+    { id: "byudzhet", text: "Из чего складывается стартовый бюджет" },
+    { id: "registraciya", text: "Регистрация, налоги и разрешения" },
+    { id: "oshibki", text: "Где новички теряют деньги" },
+    { id: "avtomatizaciya", text: "Где здесь нужна автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["skolko-zarabatyvaet-pekarnya-2026", "it-dlya-pekarni-konditerskoy-2026", "predzakaz-s-predoplatoy-2026", "uchet-ostatkov-bez-1c-2026"],
+};

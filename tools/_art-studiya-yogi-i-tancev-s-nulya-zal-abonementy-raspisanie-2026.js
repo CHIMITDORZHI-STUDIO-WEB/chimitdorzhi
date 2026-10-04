@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "studiya-yogi-i-tancev-s-nulya-zal-abonementy-raspisanie-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-person-simple-tai-chi",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/telegram-bots/", label: "Запись и абонементы для студии" },
+  title: "Студия йоги или танцев с нуля: зал, абонементы и расписание",
+  metaTitle: "Студия йоги или танцев с нуля: зал и абонементы 2026",
+  metaDescription: "Как открыть студию йоги, танцев или растяжки: зал, тренеры, абонементы и возвраты, налоги, музыка, расчёт посещаемости и ошибки новичков.",
+  excerpt: "Студия живёт на заполняемости групп, а зал и тренер стоят одинаково при любой посещаемости. Разбираю зал, тренера, абонементы и возвраты, кассу, налоги, музыку и расчёт на условных числах, и где здесь нужна запись и учёт.",
+  tags: ["старт бизнеса", "студия йоги и танцев", "абонементы", "расписание и запись"],
+  toc: [
+    { id: "komu-podhodit", text: "Кому подходит и кому нет" },
+    { id: "sem-shagov", text: "С чего начать: 7 шагов" },
+    { id: "byudzhet", text: "Из чего складывается стартовый бюджет" },
+    { id: "registraciya", text: "Регистрация, налоги и разрешения" },
+    { id: "oshibki", text: "Где новички теряют деньги" },
+    { id: "avtomatizaciya", text: "Где здесь нужна автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["skolko-zarabatyvaet-fitnes-studiya-2026", "abonementy-i-pakety-uslug-2026", "neyavki-na-zapis-predoplata-napominaniya-2026", "it-dlya-shkoly-tancev-vokala-2026"],
+};
