@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "grooming-salon-i-zoogostinica-s-nulya-dogovor-veterinarnye-pravila-zapis-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-paw-print",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/business-automation/", label: "Запись, карточка питомца и бронь мест" },
+  title: "Груминг-салон и зоогостиница с нуля: договор, правила, запись",
+  metaTitle: "Груминг-салон и зоогостиница с нуля: договор и запись",
+  metaDescription: "Как открыть груминг-салон или зоогостиницу: 7 шагов, договор и ответственность за питомца, ветеринарные правила, налоги, ошибки новичков и запись по датам.",
+  excerpt: "Груминг-салон и передержка животных кажутся простыми, пока не случится спор о здоровье питомца. Разбираем 7 шагов старта, что проверено в законах, а что нет, что вписать в договор и где помогает запись с предоплатой.",
+  tags: ["старт бизнеса", "груминг-салон", "зоогостиница", "договор передержки"],
+  toc: [
+    { id: "komu-podhodit", text: "Кому подходит и кому нет" },
+    { id: "7-shagov", text: "С чего начать: 7 шагов" },
+    { id: "byudzhet", text: "Из чего складывается стартовый бюджет" },
+    { id: "pravila-dogovor-nalogi", text: "Регистрация, налоги, ветеринарные правила и договор" },
+    { id: "oshibki", text: "Где новички теряют деньги" },
+    { id: "avtomatizaciya", text: "Где здесь нужна автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["skolko-zarabatyvaet-gruming-2026", "it-dlya-zoomagazina-gruminga-2027", "vet-klinika-kartochka-pitomca-2026", "onlayn-zapis-s-depozitom-2026"],
+};

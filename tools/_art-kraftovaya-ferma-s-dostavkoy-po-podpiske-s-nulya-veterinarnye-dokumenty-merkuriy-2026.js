@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "kraftovaya-ferma-s-dostavkoy-po-podpiske-s-nulya-veterinarnye-dokumenty-merkuriy-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-plant",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/business-automation/", label: "Подписка и учёт партий для фермы" },
+  title: "Ферма с доставкой по подписке: ветдокументы и Меркурий",
+  metaTitle: "Ферма с доставкой по подписке: ветдокументы, Меркурий",
+  metaDescription: "Как начать продавать продукцию хозяйства по подписке: статус, ветеринарные документы и Меркурий, маркировка, касса, расчёт набора и учёт партий.",
+  excerpt: "Разбираю, с чего начать продажи яиц, сыра, мяса или овощей по подписке: какой статус выбрать, что подтверждено по ветеринарным документам и «Меркурию», как считать набор и вести партии. Что не подтвердил по первоисточникам, так и помечаю.",
+  tags: ["старт бизнеса", "ферма по подписке", "Меркурий", "учёт партий"],
+  toc: [
+    { id: "komu-podhodit", text: "Кому подходит и кому нет" },
+    { id: "sem-shagov", text: "С чего начать: 7 шагов" },
+    { id: "byudzhet", text: "Из чего складывается стартовый бюджет" },
+    { id: "registraciya", text: "Регистрация, налоги и разрешения" },
+    { id: "poteri", text: "Где новички теряют деньги" },
+    { id: "avtomatizaciya", text: "Где здесь нужна автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["podpiska-na-produkty-ot-fermerov-2027", "sovmestnye-zakupki-pwa-pvz-keys-2026", "predzakaz-s-predoplatoy-2026", "domashnyaya-konditerskaya-s-nulya-zakonno-zakazy-predoplata-2026"],
+};

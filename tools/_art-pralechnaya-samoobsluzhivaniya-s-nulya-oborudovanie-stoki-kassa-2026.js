@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "pralechnaya-samoobsluzhivaniya-s-nulya-oborudovanie-stoki-kassa-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-washing-machine",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/business-automation/", label: "Оповещения и учёт для прачечной" },
+  title: "Прачечная самообслуживания с нуля: оборудование, стоки и касса",
+  metaTitle: "Прачечная самообслуживания с нуля: стоки, касса, налоги",
+  metaDescription: "Как открыть прачечную самообслуживания: помещение, вода и стоки, машины, касса в платёжном модуле по 54-ФЗ, патент, санитария и мониторинг простоя.",
+  excerpt: "Прачечная начинается с воды, слива и электрики, а машины идут после. Разбираем, что проверить в помещении, когда в платёжном модуле нужна касса, из чего складывается бюджет и как не узнавать о поломке по выручке.",
+  tags: ["старт бизнеса", "прачечная самообслуживания", "54-ФЗ", "стоки"],
+  toc: [
+    { id: "komu-podhodit", text: "Кому подходит и кому нет" },
+    { id: "s-chego-nachat", text: "С чего начать: 7 шагов" },
+    { id: "byudzhet", text: "Из чего складывается стартовый бюджет" },
+    { id: "nalogi", text: "Регистрация, налоги и разрешения" },
+    { id: "oshibki", text: "Где новички теряют деньги" },
+    { id: "avtomatizaciya", text: "Где здесь нужна автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["skolko-zarabatyvaet-prachechnaya-2026", "it-dlya-prachechnoy-2026", "avtomoyka-samoobsluzhivaniya-s-nulya-uchastok-oborudovanie-razresheniya-2026", "vending-avtomaty-kofe-i-snekov-s-nulya-tochki-kassa-uchet-2026"],
+};

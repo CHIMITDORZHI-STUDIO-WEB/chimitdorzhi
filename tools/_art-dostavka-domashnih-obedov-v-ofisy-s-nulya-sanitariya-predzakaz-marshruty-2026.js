@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "dostavka-domashnih-obedov-v-ofisy-s-nulya-sanitariya-predzakaz-marshruty-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-bowl-food",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/business-automation/", label: "Предзаказ и доставка обедов" },
+  title: "Доставка обедов в офисы с нуля: санитария и предзаказ",
+  metaTitle: "Доставка обедов в офисы с нуля: статус, санитария, заказы",
+  metaDescription: "Как начать готовить и возить обеды в офисы: статус, СанПиН с 1 сентября 2026, уведомление, касса, предзаказ, расчёт порции и ошибки новичков.",
+  excerpt: "Разбираю, как начать готовить и возить обеды в офисы: что подтверждено по статусу, санитарным правилам, уведомлению и кассе, а что нужно уточнять в Роспотребнадзоре. Показываю на условном примере, как перепроизводство съедает прибыль порции, и где пригодится автоматизация.",
+  tags: ["старт бизнеса", "доставка обедов", "бизнес-ланчи", "предзаказ"],
+  toc: [
+    { id: "komu-podhodit", text: "Кому подходит и кому нет" },
+    { id: "sem-shagov", text: "С чего начать: 7 шагов" },
+    { id: "byudzhet", text: "Из чего складывается стартовый бюджет" },
+    { id: "registraciya", text: "Регистрация, налоги и разрешения" },
+    { id: "poteri", text: "Где новички теряют деньги" },
+    { id: "avtomatizaciya", text: "Где здесь нужна автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["domashnyaya-konditerskaya-s-nulya-zakonno-zakazy-predoplata-2026", "vroom-optimizaciya-marshrutov-2026", "skolko-zarabatyvaet-dostavka-edy-2026", "onlayn-kassa-54-fz-2026"],
+};

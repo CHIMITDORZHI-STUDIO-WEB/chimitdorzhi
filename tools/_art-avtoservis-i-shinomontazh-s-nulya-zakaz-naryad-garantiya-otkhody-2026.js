@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "avtoservis-i-shinomontazh-s-nulya-zakaz-naryad-garantiya-otkhody-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-tire",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/telegram-bots/", label: "Запись и статусы заказов в боте" },
+  title: "Автосервис и шиномонтаж с нуля: заказ-наряд, гарантия, отходы",
+  metaTitle: "Автосервис и шиномонтаж с нуля: заказ-наряд и отходы",
+  metaDescription: "Как открыть автосервис или шиномонтаж: новые Правила услуг № 780, заказ-наряд и акт приёма, допработы, гарантия, касса, отходы и запись клиентов.",
+  excerpt: "Разбираю, с чего начать автосервис или шиномонтаж: что требуют Правила оказания услуг по ТО и ремонту (постановление № 780 вместо № 290), как оформить заказ-наряд и допработы, что с кассой, лицензией и отходами. Где я не проверил, так и пишу.",
+  tags: ["старт бизнеса", "автосервис и шиномонтаж", "заказ-наряд и гарантия", "отходы автосервиса"],
+  toc: [
+    { id: "komu-podhodit", text: "Кому подходит и кому нет" },
+    { id: "sem-shagov", text: "С чего начать: 7 шагов" },
+    { id: "byudzhet", text: "Из чего складывается стартовый бюджет" },
+    { id: "registraciya", text: "Регистрация, налоги, правила услуг и отходы" },
+    { id: "poteri", text: "Где новички теряют деньги" },
+    { id: "avtomatizaciya", text: "Где здесь нужна автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["avtoelektrik-kuzovnoy-remont-smeta-po-foto-2026", "status-zakaza-po-ssylke-2026", "it-dlya-shinomontazha-hraneniya-shin-2026", "napominaniya-to-avtoservis-2026"],
+};
