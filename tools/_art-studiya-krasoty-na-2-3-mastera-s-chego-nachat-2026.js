@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "studiya-krasoty-na-2-3-mastera-s-chego-nachat-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-scissors",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/telegram-bots/", label: "Бот записи и напоминаний для студии" },
+  title: "Студия красоты на 2-3 мастера: с чего начать и не потерять клиентов",
+  metaTitle: "Студия красоты на 2-3 мастера: с чего начать в 2026",
+  metaDescription: "Как открыть небольшую студию красоты: формат, договорённости с мастерами, санитарные правила, лицензия, касса и запись, чтобы не терять клиентов.",
+  excerpt: "Мастер уходит из салона и открывает студию на 2-3 места. Разбираем формат, работу с мастерами и риск переквалификации, санитарные правила, лицензию, кассу и запись, где обычно теряются клиенты.",
+  tags: ["старт бизнеса", "студия красоты", "мастера красоты", "онлайн-запись"],
+  toc: [
+    { id: "komu-podhodit", text: "Кому подходит и кому нет" },
+    { id: "sem-shagov", text: "С чего начать: 7 шагов" },
+    { id: "byudzhet", text: "Из чего складывается стартовый бюджет" },
+    { id: "registraciya", text: "Регистрация, налоги и разрешения" },
+    { id: "oshibki", text: "Где новички теряют клиентов и деньги" },
+    { id: "avtomatizaciya", text: "Где здесь нужна автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["neyavki-na-zapis-predoplata-napominaniya-2026", "onlayn-zapis-salon-krasoty-keys-2026", "sayt-kosmetologa-etap-1-keys-2026", "it-dlya-salona-krasoty-2026"],
+};

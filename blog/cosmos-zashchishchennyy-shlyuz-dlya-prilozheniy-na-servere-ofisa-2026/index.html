@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmos Cloud: единый защищённый вход в системы офиса</title>
+    <meta name="description" content="Cosmos Cloud ставит один защищённый вход перед CRM, облаком и вики офиса: HTTPS, 2FA, защита от ботов. Лицензия, один разработчик и риски.">
+    <meta name="keywords" content="Cosmos Cloud, reverse proxy, безопасность сервера, самостоятельный хостинг">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/cosmos-zashchishchennyy-shlyuz-dlya-prilozheniy-na-servere-ofisa-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/cosmos-zashchishchennyy-shlyuz-dlya-prilozheniy-na-servere-ofisa-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/cosmos-zashchishchennyy-shlyuz-dlya-prilozheniy-na-servere-ofisa-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/cosmos-zashchishchennyy-shlyuz-dlya-prilozheniy-na-servere-ofisa-2026/">
+    <meta property="og:title" content="Cosmos Cloud: единый защищённый вход в системы офиса">
+    <meta property="og:description" content="Cosmos Cloud ставит один защищённый вход перед CRM, облаком и вики офиса: HTTPS, 2FA, защита от ботов. Лицензия, один разработчик и риски.">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/cosmos-zashchishchennyy-shlyuz-dlya-prilozheniy-na-servere-ofisa-2026/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Cosmos Cloud: единый защищённый вход в системы офиса">
+    <meta name="twitter:description" content="Cosmos Cloud ставит один защищённый вход перед CRM, облаком и вики офиса: HTTPS, 2FA, защита от ботов. Лицензия, один разработчик и риски.">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/cosmos-zashchishchennyy-shlyuz-dlya-prilozheniy-na-servere-ofisa-2026/cover.png">
+
+    <link rel="icon" href="/favicon.svg?v=5" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=5">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png?v=5">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=5">
+    <link rel="preload" href="/assets/fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=79">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Одна защищённая дверь в сервер офиса вместо пяти паролей",
+  "description": "Cosmos Cloud ставит один защищённый вход перед CRM, облаком и вики офиса: HTTPS, 2FA, защита от ботов. Лицензия, один разработчик и риски.",
+  "image": "https://chimitdorzhi.tech/blog/cosmos-zashchishchennyy-shlyuz-dlya-prilozheniy-na-servere-ofisa-2026/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://t.me/chimitdorzhi_studio",
+      "https://max.ru/channel_chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio",
+      "https://github.com/chimitdorzhi",
+      "https://chimitdorzhi.tech/about/"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/cosmos-zashchishchennyy-shlyuz-dlya-prilozheniy-na-servere-ofisa-2026/"
+  },
+  "datePublished": "2026-10-04",
+  "dateModified": "2026-10-04",
+  "keywords": "Cosmos Cloud, reverse proxy, безопасность сервера, самостоятельный хостинг",
+  "articleSection": "Разработка",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Одна защищённая дверь в сервер офиса вместо пяти паролей",
+      "item": "https://chimitdorzhi.tech/blog/cosmos-zashchishchennyy-shlyuz-dlya-prilozheniy-na-servere-ofisa-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Можно ли ставить Cosmos клиентам за деньги?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Текст лицензии относит к запрещённой продаже плату за консультации и поддержку по программе. Для офиса, который ставит и использует её сам, это не мешает. Для платных внедрений нужны юрист и согласие автора, эту трактовку я не подтверждал."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cosmos заменяет Keycloak?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Для малого офиса с десятком приложений может заменить: пользователи, двухфакторная защита и OpenID в нём есть. Для компании с каталогом сотрудников и сложными ролями лучше Keycloak."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужны ли открытые порты?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Для сайтов, доступных из интернета, порты 80 и 443 на сервере открыты. Для доступа к внутренним сервисам из дома авторы предлагают встроенный VPN Constellation, он работает без проброса портов на роутере."
+      }
+    }
+  ]
+}
+    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+var inject=function(){for (var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)};
+var run=function(){('requestIdleCallback' in window)?requestIdleCallback(inject,{timeout:5000}):setTimeout(inject,3000)};
+(e.readyState==='complete')?run():m.addEventListener('load',run);})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109281884" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<!-- Цели Метрики: клики по контактам и услугам -->
+<script type="text/javascript">
+(function(){
+  var GOALS = [
+    { re: /t\.me\//i,                     goal: 'tg_click' },
+    { re: /max\.ru\//i,                    goal: 'max_click' },
+    { re: /audit\.chimitdorzhi\.tech/i,    goal: 'audit_click' },
+    { re: /chimitdorzhi\.tech\/services\//i, goal: 'service_click' },
+    { re: /chimitdorzhi\.tech\/predlozheniya\//i, goal: 'offer_click' }
+  ];
+  document.addEventListener('click', function(e){
+    var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    for (var i = 0; i < GOALS.length; i++) {
+      if (GOALS[i].re.test(href)) {
+        try { if (window.ym) ym(109281884, 'reachGoal', GOALS[i].goal); } catch (err) {}
+        break;
+      }
+    }
+  }, true);
+})();
+</script>
+</head>
+<body class="wx-read">
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/" data-i18n="nav.home">Главная</a></li>
+            <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+            <li class="nav-dropdown">
+                <a href="/cases/" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+                <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему" aria-pressed="false">
+                <i class="ph ph-moon" aria-hidden="true"></i>
+            </button>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/" data-i18n="nav.home">Главная</a></li>
+        <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+        <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+        <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+        <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+        <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+        <li class="mobile-has-submenu">
+            <details>
+                <summary aria-label="Проекты — развернуть"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down" aria-hidden="true"></i></summary>
+                <ul class="mobile-submenu">
+                    <li>
+                        <a href="https://gerel.space" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">Gerel.space</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/universe_buryat/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/arey/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.arey">AREY</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/mwrlife/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">MWR Life</span>
+                                <span class="mobile-sub-desc">Travel-клуб и партнёрка</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </details>
+        </li>
+        <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+    </ul>
+    <div class="mobile-controls">
+        <div class="mobile-lang-switcher" role="group" aria-label="Выбор языка">
+            <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+            <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+            <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+        </div>
+        <button class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle" aria-label="Переключить тему" aria-pressed="false">
+            <i class="ph ph-moon" aria-hidden="true"></i>
+        </button>
+    </div>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Одна защищённая дверь в сервер офиса вместо пяти паролей</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/development/"><i class="ph ph-bookmark" aria-hidden="true"></i> Разработка</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин чтения</span>
+                        <time datetime="2026-10-04"><i class="ph ph-calendar" aria-hidden="true"></i> 4 октября 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Одна защищённая дверь в сервер офиса вместо пяти паролей</h1>
+
+                    <p class="blog-lead">На одном сервере офиса крутятся CRM, облако, вики и трекер, и каждая система торчит в интернет со своим паролем. Разбираю Cosmos Cloud: единый вход, HTTPS и защиту от ботов, чем он отличается от Nginx Proxy Manager, Traefik, Coolify и Portainer, и почему у него нестандартная лицензия.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>Cosmos Cloud</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>reverse proxy</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>безопасность сервера</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>самостоятельный хостинг</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr">
+  <strong>Коротко.</strong> На одном сервере малого офиса живут CRM, облако, база знаний и трекер, и каждая система смотрит в интернет со своим логином. Cosmos Cloud ставит перед ними один защищённый вход: HTTPS, единый аккаунт с двухфакторной защитой, фильтр ботов и перегрузок. Исходный код открыт на GitHub, но лицензия нестандартная: Apache 2.0 с Commons Clause. Для своего офиса она подходит, перепродавать услуги вокруг программы по ней нельзя. Единая дверь удобна, и ломается она сразу для всех.
+</div>
+
+<h2 id="pyat-parolej">Пять систем, пять входов, пять паролей</h2>
+
+<p>Типичный офис на десять-пятнадцать человек. Один сервер, на нём CRM, файловое облако, вики для регламентов, трекер задач. Каждая система сидит на своём поддомене, у каждой свой логин, у части пароль общий на всех, потому что так проще. Двухфакторная защита есть где-то, а где-то её нет вовсе.</p>
+
+<p>Дальше всё предсказуемо. Сотрудник уходит, и его надо удалять в пяти местах. Одну из систем не обновляли с прошлой осени, потому что работает и трогать страшно. Такие забытые приложения и находят сканеры: им не нужно знать, кто вы, они перебирают адреса и пробуют известные дыры.</p>
+
+<p>Нужна одна входная точка: все запросы идут через неё, она проверяет, кто пришёл, и только потом пускает к приложению. Один из вариантов такой точки называется Cosmos.</p>
+
+<h2 id="chto-takoe-cosmos">Что такое Cosmos Cloud</h2>
+
+<p>Репозиторий: <a href="https://github.com/azukaar/Cosmos-Server" target="_blank" rel="noopener nofollow">github.com/azukaar/Cosmos-Server</a>, автор Yann Stepienik. Описание такое: безопасный шлюз к вашим приложениям и одновременно менеджер сервера.</p>
+
+<p>Цифры GitHub на 4 октября 2026 года: около 6,2 тысячи звёзд, репозиторий создан в феврале 2023 года, последний коммит 19 сентября 2026 года. Последняя стабильная версия 0.23.4 вышла 30 августа 2026 года. В сентябре появились сборки ветки 0.24 с пометкой «нестабильная», в офис их ставить не стоит.</p>
+
+<p>По readme внутри есть обратный прокси с автоматическим HTTPS от Let's Encrypt, сервер входа с двухфакторной защитой и OpenID, управление контейнерами Docker вместе с docker-compose, каталог приложений, резервные копии на Restic (инкрементальные, с шифрованием), мониторинг с уведомлениями и встроенная VPN-сеть Constellation. Это я сверил с описанием проекта, на живом сервере не гонял.</p>
+
+<h2 id="kak-eto-rabotaet">Как это выглядит в офисе</h2>
+
+<p>Ставится одной командой docker run на сервер, где уже есть Docker. Порты 80 и 443 занимает сам Cosmos, порт 4242 по UDP нужен для VPN. Дальше мастер в браузере: домен, первый администратор, сертификат.</p>
+
+<p>Каждое приложение добавляется как маршрут: куда проксировать и галочка «требовать вход». Сотрудников заводят в Cosmos, приглашают по почте, включают двухфакторную защиту. Приложениям, которые умеют входить через OpenID, Cosmos служит провайдером входа, остальные закрыты за общим экраном входа.</p>
+
+<p>Отдельно есть SmartShield: он считает лимиты запросов от каждого посетителя, замедляет и банит тех, кто ведёт себя как бот. Constellation даёт подключаться к внутренним приложениям из дома или командировки без проброса портов на роутере. Русский интерфейс в репозитории есть. Судя по скрипту, перевод машинный, качество я не оценивал.</p>
+
+<h2 id="chem-otlichaetsya">Чем отличается от Nginx Proxy Manager, Traefik, Coolify и Portainer</h2>
+
+<p>Nginx Proxy Manager даёт удобный экран для прокси и сертификатов. Единого входа с двухфакторной защитой в нём нет, самое близкое там списки доступа с паролем. Traefik гибок и настраивается метками контейнеров, но для общего входа к нему обычно подключают отдельный сервис авторизации. У Cosmos эти слои собраны в одном месте, и платить за это приходится жизнью по его правилам.</p>
+
+<p><a href="/blog/coolify-svoya-platforma-deploya-2026/">Coolify</a> разворачивает приложения из репозиториев, <a href="/blog/portainer-upravlenie-docker-2026/">Portainer</a> показывает и обслуживает контейнеры. Входную защиту с единым аккаунтом они сами не дают. Авторы Cosmos отдельно пишут, что ставить его через стеки Portainer нельзя, только прямой командой.</p>
+
+<p>Если нужен полноценный каталог пользователей с ролями и вход в десяток сервисов, смотрите <a href="/blog/keycloak-edinyy-vhod-sso-2026/">Keycloak</a>: система тяжелее, зато без ограничений лицензии.</p>
+
+<h2 id="chestnye-ogranicheniya">Что важно учесть</h2>
+
+<p>Лицензия. В файле LICENCE значится Apache 2.0 с Commons Clause и Anti Tampering Clause. Commons Clause запрещает продавать программу и услуги, ценность которых строится на ней, и прямо называет плату за хостинг, консультации и поддержку. Anti Tampering прекращает действие лицензии при обходе платных ограничений. Под определение открытого ПО от OSI такая лицензия не подпадает. Свой офис и бизнес на этом запускать можно, так сказано в readme. Интегратору, который ставит продукт клиентам за деньги, этот вопрос лучше согласовать с автором до установки.</p>
+
+<p>Один разработчик. По списку участников на GitHub у автора 966 коммитов, у следующего шесть. Проект живой, но если автор остановится, подхватить будет некому.</p>
+
+<p>Уязвимости. В разделе Security четыре отчёта. Два свежих от 28 июля 2026 года, средней тяжести, оба про Constellation: обход проверки через заголовки на туннеле и выдача метаданных устройств по произвольному токену. Закрыты в версии 0.22.19. Два старых, 2023 и 2025 годов, тоже исправлены. Версию надо держать свежей.</p>
+
+<p>Права. По умолчанию контейнеру отдают сокет Docker, а для VPN нужен режим privileged. Доступ к сокету по сути равен правам администратора сервера. Если взломают вход, под угрозой весь сервер. Полной безопасности не гарантирует ни одна единая дверь.</p>
+
+<p>Единая точка отказа. Упал Cosmos, и недоступны все пять систем. Нужны копия его настройки, запасной вход на сервер по SSH и план восстановления.</p>
+
+<h2 id="chto-sdelat">Что можно сделать уже сейчас</h2>
+
+<p>Первое: выпишите все системы офиса, откуда они доступны и у кого какие пароли. На этом шаге часто всплывает забытый сервис, который можно просто выключить.</p>
+
+<p>Второе: поднимите тестовый стенд на отдельной машине. Как собрать чистый сервер с Docker и HTTPS, описано в <a href="/blog/svoy-vps-s-nulya-docker-nginx-https-2026/">статье про свой VPS с нуля</a>. Поставьте Cosmos, подключите одно некритичное приложение и посмотрите, как выглядит вход у сотрудников.</p>
+
+<p>Третье: прочитайте лицензию. Если нужен продукт без ограничений, выбирайте Traefik с отдельным входом или Keycloak.</p>
+
+<p>Четвёртое: перед включением любой единой двери настройте резервную копию и проверьте, что умеете восстановить её на новом сервере с нуля.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+
+<h3>Можно ли ставить Cosmos клиентам за деньги?</h3>
+
+<p>Текст лицензии относит к запрещённой продаже плату за консультации и поддержку по программе. Для офиса, который ставит и использует её сам, это не мешает. Для платных внедрений нужны юрист и согласие автора, эту трактовку я не подтверждал.</p>
+
+<h3>Cosmos заменяет Keycloak?</h3>
+
+<p>Для малого офиса с десятком приложений может заменить: пользователи, двухфакторная защита и OpenID в нём есть. Для компании с каталогом сотрудников и сложными ролями лучше Keycloak.</p>
+
+<h3>Нужны ли открытые порты?</h3>
+
+<p>Для сайтов, доступных из интернета, порты 80 и 443 на сервере открыты. Для доступа к внутренним сервисам из дома авторы предлагают встроенный VPN Constellation, он работает без проброса портов на роутере.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+
+<p>Пять систем с пятью паролями легко превращаются в пять открытых дверей. Одна входная точка с общим аккаунтом, HTTPS и защитой от ботов закрывает большую часть повседневных рисков. Cosmos делает это в одном продукте, но с лицензией, которую надо прочитать, и с одним разработчиком за спиной.</p>
+
+<p>Мы разворачиваем и закрываем ваш сервер под ключ: входную точку, сертификаты, доступы сотрудников, резервные копии и план восстановления. Инструмент подбираем по лицензии и размеру офиса: Cosmos, Traefik с отдельным входом или Keycloak. Подробности на странице <a href="/services/it-infrastructure/">ИТ-инфраструктура</a>. Напишите мне в Telegram кодовое слово «СЕРВЕР», и я посмотрю, что у вас сейчас торчит в интернет.</p>
+
+                    </div>
+                    
+
+                    
+                    
+                    
+                    
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <h3 class="blog-services-offer-title">Что я делаю для бизнеса</h3>
+  <ul class="blog-services-offer-list">
+    
+    <li><i class="ph-fill ph-robot"></i> <span>Боты в Telegram, MAX, VK</span></li>
+    
+    <li><i class="ph-fill ph-gear"></i> <span>Автоматизация процессов и CRM</span></li>
+    
+    <li><i class="ph-fill ph-chart-bar"></i> <span>Аналитика и дашборды</span></li>
+    
+    <li><i class="ph-fill ph-globe"></i> <span>Сайты и лендинги под ключ</span></li>
+    
+  </ul>
+  <div class="blog-services-offer-ctas">
+    <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+      <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
+    </a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="blog-services-offer-cta blog-services-offer-cta-max">
+      <i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> Написать в MAX
+    </a>
+  </div>
+</div>
+                    <div class="blog-cta-card">
+                        <div class="blog-cta-card-body">
+                            <h3>Бесплатно: чек-лист «Готов ли ваш бизнес к 152-ФЗ»</h3>
+                            <p>12 пунктов, которые проверяют готовность за час: данные, согласия, уведомление в РКН, локализация, защита. Отметьте, что уже сделано, и увидите дыры, за которые сейчас штрафуют.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="/checklist-152-fz/" class="btn btn-accent"><i class="ph-fill ph-clipboard-text" aria-hidden="true"></i> Открыть чек-лист</a>
+                        </div>
+                    </div>
+                    
+
+                    <div class="blog-cta-card blog-cta-card-final">
+                        <div class="blog-cta-card-body">
+                            <h3>Готовы обсудить вашу задачу?</h3>
+                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="https://chimitdorzhi.tech/services/it-infrastructure/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Обсудить защиту и порядок на сервере офиса</a>
+                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
+                        </div>
+                    </div>
+
+                    <section class="blog-subscribe">
+  <div class="blog-subscribe-body">
+    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
+    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
+  </div>
+  <div class="blog-subscribe-actions">
+    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
+  </div>
+</section>
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/coolify-svoya-platforma-deploya-2026/" data-category="opensource" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-cloud-arrow-up"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>Coolify: своя платформа деплоя приложений на сервере</h3>
+  <p>Coolify превращает ваш сервер в платформу деплоя как Vercel/Heroku: запускаете сайты, приложения и сервисы в пару кликов, без растущих облачных счетов. Разбираю, кому подходит и что нужно.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 15 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/portainer-upravlenie-docker-2026/" data-category="opensource" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-stack"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>Portainer: панель управления Docker и своим сервером</h3>
+  <p>Свой сервер с несколькими сервисами в Docker — это удобно, пока всё работает. Когда надо обновить, перезапустить или посмотреть логи, командная строка пугает. Portainer даёт это через понятную веб-панель. Разбираю, кому пригодится.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 31 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/keycloak-edinyy-vhod-sso-2026/" data-category="opensource" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-key"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>Keycloak: единый вход (SSO) для сотрудников на своём сервере</h3>
+  <p>Keycloak даёт сотрудникам один безопасный логин ко всем корпоративным системам с двухфакторной аутентификацией — централизованный контроль доступа на своём сервере. Разбираю внедрение.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 15 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/pritunl-korporativnyy-vpn-2026/" data-category="opensource" data-clicks="1">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-shield-check"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>Pritunl: корпоративный VPN на своём сервере</h3>
+  <p>Pritunl поднимает корпоративный VPN с удобной админкой: сотрудники безопасно подключаются к внутренним ресурсам через ваш сервер. Импортозамещение и контроль. Разбираю, что нужно для запуска.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 15 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    
+                    
+                    
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow"><span class="b-l b-l-ru">Готовые решения под ключ</span><span class="b-l b-l-en" lang="en">Turnkey solutions</span><span class="b-l b-l-es" lang="es">Soluciones llave en mano</span><span class="b-l b-l-cn" lang="zh">交钥匙解决方案</span><span class="b-l b-l-mn" lang="mn">Түлхүүр гардуулах шийдэл</span></span>
+                            <span class="blog-offer-cta-title"><span class="b-l b-l-ru">451 готовых IT-решений для бизнеса</span><span class="b-l b-l-en" lang="en">451 ready-made IT solutions for business</span><span class="b-l b-l-es" lang="es">451 soluciones IT listas para empresas</span><span class="b-l b-l-cn" lang="zh">451 个面向企业的现成 IT 解决方案</span><span class="b-l b-l-mn" lang="mn">Бизнест зориулсан 451 бэлэн IT шийдэл</span></span>
+                            <span class="blog-offer-cta-price"><span class="b-l b-l-ru">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span><span class="b-l b-l-en" lang="en">Automation, bots, AI, data privacy and platforms · free consultation</span><span class="b-l b-l-es" lang="es">Automatización, bots, IA, privacidad de datos y plataformas · consulta gratis</span><span class="b-l b-l-cn" lang="zh">自动化、机器人、AI、数据合规与平台 · 免费咨询</span><span class="b-l b-l-mn" lang="mn">Автоматжуулалт, бот, AI, өгөгдлийн хамгаалалт ба платформ · үнэгүй зөвлөгөө</span></span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> <span class="b-l b-l-ru">Смотреть каталог</span><span class="b-l b-l-en" lang="en">View catalog</span><span class="b-l b-l-es" lang="es">Ver catálogo</span><span class="b-l b-l-cn" lang="zh">查看目录</span><span class="b-l b-l-mn" lang="mn">Каталог үзэх</span></span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#pyat-parolej"><span class="blog-toc-num">01</span> Пять систем, пять входов, пять паролей</a></li>
+<li><a href="#chto-takoe-cosmos"><span class="blog-toc-num">02</span> Что такое Cosmos Cloud</a></li>
+<li><a href="#kak-eto-rabotaet"><span class="blog-toc-num">03</span> Как это выглядит в офисе</a></li>
+<li><a href="#chem-otlichaetsya"><span class="blog-toc-num">04</span> Чем отличается от Nginx Proxy Manager, Traefik, Coolify и Portainer</a></li>
+<li><a href="#chestnye-ogranicheniya"><span class="blog-toc-num">05</span> Что важно учесть</a></li>
+<li><a href="#chto-sdelat"><span class="blog-toc-num">06</span> Что можно сделать уже сейчас</a></li>
+<li><a href="#faq"><span class="blog-toc-num">07</span> Частые вопросы</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">08</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+971563369591" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +971 56 336 9591</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">RA Standard - F.Z.E</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_licence">Лицензия 57033</span><span> · </span><span data-i18n="footer.legal_authority">Free Zones Authority of Ajman</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">Эмират Аджман, ОАЭ</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/cases/" class="footer-policy-link">Кейсы</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=44" defer></script>
+<script src="/services-i18n.js?v=44" defer></script>
+<script src="/script.js?v=41" defer></script>
+<script src="/search-widget.js?v=1" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>

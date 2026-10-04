@@ -1,0 +1,21 @@
+module.exports = {
+  slug: "ostatki-na-skladah-marketpleysa-ezhednevnyy-snimok-sverka-aktov-2026",
+  category: "development",
+  heroIcon: "ph-fill ph-warehouse",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/business-automation/", label: "Снимок остатков и сверка актов" },
+  title: "Что лежит на складах маркетплейса: снимок остатков и акты",
+  metaTitle: "Остатки на складах WB и Ozon: ежедневный снимок и акты",
+  metaDescription: "Какие данные об остатках отдают WB и Ozon, что хранить у себя каждый день и как собрать документы для обращения по акту приёмки или утрате товара.",
+  excerpt: "Остаток на складе маркетплейса показывает площадка, а своей записи у селлера может не быть. Разбираю, что отдают API Wildberries и Ozon, как вести ежедневный снимок по складам и как выстроить цепочку документов для спора по акту или утрате.",
+  tags: ["остатки на складах","акт приёмки","FBO","сверка с маркетплейсом"],
+  toc: [
+    { id: "nichego-svoego", text: "Количество в отчёте не совпадает с вашим" },
+    { id: "chto-otdayut", text: "Что площадки отдают сейчас" },
+    { id: "snimok", text: "Ежедневный снимок: что делать сегодня" },
+    { id: "cepochka", text: "Цепочка документов и пакет для обращения" },
+    { id: "granitsy", text: "Что важно учесть" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["integraciya-s-api-wb-ozon-2026","razbor-finansovogo-otcheta-marketpleysa-2026","raschet-postavok-na-sklady-wb-ozon-skolko-vezti-2026","perehod-s-fbo-na-fbs-vozvraty-pvz-schitaem-zaranee-2026"],
+};

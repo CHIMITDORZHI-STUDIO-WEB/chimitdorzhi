@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "klining-s-nulya-brigady-zakazy-akty-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-broom",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/business-automation/", label: "Заявки и график для клининга" },
+  title: "Клининг с нуля: бригады, заказы и акты, где теряют деньги",
+  metaTitle: "Клининг с нуля: исполнители, заказы, акты и касса",
+  metaDescription: "Как начать клининг с небольшим вложением: исполнители, договор-оферта, акт, касса, страховка, расчёт заказа и где новички теряют деньги и клиентов.",
+  excerpt: "Разбираю, с чего начать клининг квартир, офисов и уборки после ремонта: кого привлекать, как считать заказ, какие документы нужны и где ломаются новички. Честно: бизнес сервисный и держится на графике и качестве, а исполнителей нельзя оформлять в обход трудового права.",
+  tags: ["старт бизнеса", "клининг", "самозанятые исполнители", "акты и оферта"],
+  toc: [
+    { id: "komu-podhodit", text: "Кому подходит и кому нет" },
+    { id: "sem-shagov", text: "С чего начать: 7 шагов" },
+    { id: "byudzhet", text: "Из чего складывается стартовый бюджет" },
+    { id: "registraciya", text: "Регистрация, налоги, договор, касса и страховка" },
+    { id: "poteri", text: "Где новички теряют деньги" },
+    { id: "avtomatizaciya", text: "Где здесь нужна автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["klining-kalkulyator-grafik-fotootchet-2026", "samozanyatye-ispolniteli-akt-chek-oplata-2026", "dogovor-oferty-2026", "gruzchiki-pereezd-smeta-brigada-akt-2026"],
+};

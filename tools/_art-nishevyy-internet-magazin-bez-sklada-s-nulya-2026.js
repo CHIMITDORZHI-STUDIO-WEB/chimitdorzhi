@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "nishevyy-internet-magazin-bez-sklada-s-nulya-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-storefront",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/web-development/", label: "Собрать витрину магазина под категорию" },
+  title: "Нишевый интернет-магазин без склада: старт с одной категории",
+  metaTitle: "Интернет-магазин без склада: как начать с одной категории",
+  metaDescription: "Как запустить нишевый интернет-магазин без склада: модели, правила дистанционной продажи с 1 сентября 2026, чек, возврат, маркировка и ошибки новичков.",
+  excerpt: "Магазин без склада убирает затраты на хранение, но не ответственность перед покупателем. Разбираем четыре модели, семь шагов старта, правила дистанционной продажи, оплату с чеком, доставку, маркировку и места, где новички теряют деньги.",
+  tags: ["старт бизнеса", "интернет-магазин", "дропшиппинг", "правила дистанционной продажи"],
+  toc: [
+    { id: "komu-podhodit", text: "Кому подходит и какую модель выбрать" },
+    { id: "shagi", text: "С чего начать: 7 шагов" },
+    { id: "byudzhet", text: "Из чего складывается стартовый бюджет" },
+    { id: "pravila", text: "Регистрация, налоги и правила продажи" },
+    { id: "oshibki", text: "Где новички теряют деньги" },
+    { id: "avtomatizaciya", text: "Где здесь нужна автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["dropshipping-rossiya-2026", "svoy-magazin-vs-wildberries-ozon-2026", "zarabotok-na-internet-magazine-2026", "white-label-magazin-dlya-nishi-2026"],
+};

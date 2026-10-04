@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "kak-vybrat-nishu-i-proverit-ideyu-za-2-nedeli-do-vlozheniy-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-flask",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/telegram-bots/", label: "Бот для сбора заявок и предзаписи" },
+  title: "Как выбрать нишу и проверить идею за 2 недели до вложений",
+  metaTitle: "Как проверить бизнес-идею за 2 недели до вложений",
+  metaDescription: "Как записать гипотезу, поговорить с 10 людьми, проверить спрос в Вордстате и собрать заявки. План на 2 недели, порог успеха и решение по итогам.",
+  excerpt: "Идею можно проверить за две недели и почти бесплатно. Разбираем, как сформулировать гипотезу, быстро проверить спрос, заранее задать порог успеха и принять решение: делаем, меняем или бросаем. Без обещаний готовой ниши.",
+  tags: ["старт бизнеса", "проверка идеи", "тест спроса", "гипотеза"],
+  toc: [
+    { id: "gipoteza", text: "Гипотеза в одной фразе" },
+    { id: "dve-nedeli", text: "План на две недели" },
+    { id: "uspekh", text: "Как считать результат без магических цифр" },
+    { id: "chego-ne-delat", text: "Чего не делать" },
+    { id: "reshenie", text: "Решение: делаем, меняем или бросаем" },
+    { id: "avtomatizaciya", text: "Где здесь нужна автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["biznes-plan-za-vecher-kalkulyator-2026", "test-sprosa-do-zapuska-produkta-2026", "franshiza-ili-svoe-delo-2026", "s-chego-nachat-biznes-esli-deneg-malo-2026"],
+};

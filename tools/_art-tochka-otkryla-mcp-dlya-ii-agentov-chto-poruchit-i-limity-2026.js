@@ -1,0 +1,21 @@
+module.exports = {
+  slug: "tochka-otkryla-mcp-dlya-ii-agentov-chto-poruchit-i-limity-2026",
+  category: "ai-dev",
+  heroIcon: "ph-fill ph-bank",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/ai-agents/", label: "ИИ-ассистент по выпискам и сверке" },
+  title: "Точка открыла MCP для ИИ-агентов: что поручить и где поставить лимит",
+  metaTitle: "MCP Точки для ИИ-агентов: выписки, платежи и лимиты",
+  metaDescription: "Банк Точка подключил ИИ-агентов через MCP. Что открыто по документации, что поручить ИИ (выписки, сверка, платёжки на подпись) и как ограничить доступ.",
+  excerpt: "С 21 сентября 2026 к Точка.API можно подключить ИИ-агента через MCP. Разбираем по документации, какие инструменты открыты, что поручать ИИ, где подпись остаётся за человеком и как поставить лимиты.",
+  tags: ["MCP", "ИИ-агент и банк", "выписка и сверка", "платежи на подпись"],
+  toc: [
+    { id: "pyatnitsa", text: "Пятница, выписка и двадцать платёжек" },
+    { id: "chto-otkryl-bank", text: "Что такое MCP и что открыл банк" },
+    { id: "chto-poruchit", text: "Что поручать ИИ, а что оставить себе" },
+    { id: "kak-ogranichit", text: "Как ограничить агента" },
+    { id: "pilot", text: "Что можно сделать уже сейчас" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["bankovskaya-vypiska-v-tablicu-po-statyam-2026","svoi-mcp-servery-socseti-iz-dialoga-keys-2026","ii-assistent-po-dannym-1c-2026","mcp-model-context-protocol-2026"],
+};

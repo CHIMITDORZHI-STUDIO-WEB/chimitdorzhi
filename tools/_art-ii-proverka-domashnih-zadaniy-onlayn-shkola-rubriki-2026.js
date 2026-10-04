@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "ii-proverka-domashnih-zadaniy-onlayn-shkola-rubriki-2026",
+  category: "ai-dev",
+  heroIcon: "ph-fill ph-student",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/ai-for-education/", label: "ИИ-проверка работ для школы" },
+  title: "ИИ-проверка домашних заданий в онлайн-школе: рубрики и отчёт",
+  metaTitle: "ИИ-проверка домашних заданий: рубрики и контроль учителя",
+  metaDescription: "Как ИИ проверяет домашние работы по рубрике: критерии, комментарии, выборочная проверка преподавателем, жалоба ученика, 152-ФЗ и данные детей, пилот.",
+  excerpt: "Работ сотни, а проверяют двое: комментарии короче, сроки длиннее. Разбираю, как устроена проверка по рубрике, где ИИ ошибается, как не потерять доверие учеников, как встроить её в школу и что требует 152-ФЗ для данных детей.",
+  tags: ["ИИ-проверка домашних заданий", "онлайн-школа", "рубрики оценивания", "данные детей 152-ФЗ"],
+  toc: [
+    { id: "potok-rabot", text: "Работ сотни, а проверяет один методист" },
+    { id: "rubrika", text: "Как устроена проверка по рубрике" },
+    { id: "oshibki", text: "Где ИИ помогает, где ошибается и как не потерять доверие" },
+    { id: "vstroit", text: "Как встроить в школу" },
+    { id: "dannye-detey", text: "Данные детей и 152-ФЗ" },
+    { id: "pilot", text: "Этапы пилота и что сделать сейчас" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["avtomatizaciya-onlayn-shkoly-2026", "otzyv-soglasiya-i-soglasie-za-rebenka-pd-2026", "ii-assistent-oshibsya-pri-klientah-pervye-sutki-2026", "kak-ocenit-kachestvo-ii-bota-2027"],
+};
