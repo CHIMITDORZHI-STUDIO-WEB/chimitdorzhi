@@ -51,9 +51,14 @@ const blogBatchBiznesBoliOct02e = require('./blog-batch-biznes-boli-oct02e-2026.
 const blogBatchBiznesBoliOct02f = require('./blog-batch-biznes-boli-oct02f-2026.js');
 const blogBatchBiznesBoliOct02g = require('./blog-batch-biznes-boli-oct02g-2026.js');
 const blogBatchBiznesBoliOct02h = require('./blog-batch-biznes-boli-oct02h-2026.js');
+const blogBatchBiznesBoliOct03a = require('./blog-batch-biznes-boli-oct03a-2026.js');
+const blogBatchBiznesBoliOct03b = require('./blog-batch-biznes-boli-oct03b-2026.js');
+const blogBatchBiznesBoliOct04a = require('./blog-batch-biznes-boli-oct04a-2026.js');
+const blogBatchBiznesBoliOct04b = require('./blog-batch-biznes-boli-oct04b-2026.js');
 const blogBatchExpertOct02 = require('./blog-batch-expert-oct02-2026.js');
 const blogBatchExpertNews2Oct02 = require('./blog-batch-expertnews2-oct02-2026.js');
 const blogBatchExpertOct03b = require('./blog-batch-expert-oct03b-2026.js');
+const blogBatchExpertOct04 = require('./blog-batch-expert-oct04-2026.js');
 const blogBatchKeysyOct2026b = require('./blog-batch-keysy-oct2026-b.js');
 const blogBatchOssDocuseal = require('./blog-batch-oss-docuseal-2026.js');
 const blogBatchGithubTrend = require('./blog-batch-github-trend-sep28-2026.js');
@@ -10902,7 +10907,7 @@ const ALL_ARTICLES = [
   blogBatchSeoCluster18, blogBatchSeoCluster19, blogBatchSeoCluster20,
   blogBatchSeoCluster21, blogBatchSeoCluster22, blogBatchSeoCluster23,
   blogBatchSeoCluster24, blogBatchSeoCluster25, blogBatchSeoCluster26, blogBatchSeoCluster27, blogBatchSeoCluster28, blogBatchSeoCluster29, blogBatchSeoCluster30, blogBatchSeoCluster31, blogBatchKeysySent, blogBatchIgry, blogBatchIgry2, blogBatchVllm, blogBatchIgry3, blogBatchCifrSledGpt, blogBatchKeysySent2, blogBatchIgry4, blogBatchIgry5, blogBatchIgry6, blogBatchAvtorskie, blogBatch1cSklad, blogBatch1cSklad2, blogBatch1c3, blogBatchRutina, blogBatchZakazchiku, blogBatchKrome1c, blogBatchRazovye, blogBatchRazovye2, blogBatchRazovye3, blogBatchRazovye4, blogBatchProgrammy, blogBatchQwenUnc, blogBatchImStart, blogBatchSkolko, blogBatchSkolko2, blogBatchSkolko3, blogBatchDoverie, blogBatchQwenSent, blogBatchPokupka, blogBatchProdazhiOtrasli, blogBatchNishiUslug, blogBatchKeysySent3, blogBatchOtkrytyeModeli,
-  blogBatchKeysySenA, blogBatchKeysySenB, blogBatchKeysySenC, blogBatchKeysySenD, blogBatchKeysySenE, blogBatchKeysySenF, blogBatchNewsSep23, blogBatchNewsSep25, blogBatchNewsSep25b, blogBatchNewsSep26, blogBatchTopicSep27, blogBatchTopicSep27b, blogBatchIiRutina, blogBatchKonfig, blogBatchGenDog, blogBatchOssOct01, blogBatchTopicOct02, blogBatchTopicOct02b, blogBatchBiznesBoli, blogBatchOssDocuseal, blogBatchGithubTrend, blogBatchOssOpenhd, blogBatchOssRocket, blogBatchOssTgOct, blogBatchOssTgOct2, blogBatchBiznesBoli29, blogBatchBiznesBoli2Sep29, blogBatchBiznesBoliSep30, blogBatchBiznesBoliSep30b, blogBatchBiznesBoliSep30c, blogBatchBiznesBoliSep30d, blogBatchBiznesBoliOct01, blogBatchBiznesBoliOct01b, blogBatchBiznesBoliOct02, blogBatchBiznesBoliOct02e, blogBatchBiznesBoliOct02f, blogBatchExpertOct02, blogBatchKeysyOct2026b, blogBatchBiznesBoliOct02g, blogBatchBiznesBoliOct02h, blogBatchOssTgOct3, blogBatchOssTgOct4, blogBatchOssTgOct5, blogBatchExpertNews2Oct02, blogBatchExpertOct03b);
+  blogBatchKeysySenA, blogBatchKeysySenB, blogBatchKeysySenC, blogBatchKeysySenD, blogBatchKeysySenE, blogBatchKeysySenF, blogBatchNewsSep23, blogBatchNewsSep25, blogBatchNewsSep25b, blogBatchNewsSep26, blogBatchTopicSep27, blogBatchTopicSep27b, blogBatchIiRutina, blogBatchKonfig, blogBatchGenDog, blogBatchOssOct01, blogBatchTopicOct02, blogBatchTopicOct02b, blogBatchBiznesBoli, blogBatchOssDocuseal, blogBatchGithubTrend, blogBatchOssOpenhd, blogBatchOssRocket, blogBatchOssTgOct, blogBatchOssTgOct2, blogBatchBiznesBoli29, blogBatchBiznesBoli2Sep29, blogBatchBiznesBoliSep30, blogBatchBiznesBoliSep30b, blogBatchBiznesBoliSep30c, blogBatchBiznesBoliSep30d, blogBatchBiznesBoliOct01, blogBatchBiznesBoliOct01b, blogBatchBiznesBoliOct02, blogBatchBiznesBoliOct02e, blogBatchBiznesBoliOct02f, blogBatchExpertOct02, blogBatchKeysyOct2026b, blogBatchBiznesBoliOct02g, blogBatchBiznesBoliOct02h, blogBatchOssTgOct3, blogBatchOssTgOct4, blogBatchOssTgOct5, blogBatchExpertNews2Oct02, blogBatchExpertOct03b, blogBatchExpertOct04, blogBatchBiznesBoliOct03a, blogBatchBiznesBoliOct03b, blogBatchBiznesBoliOct04a, blogBatchBiznesBoliOct04b);
 
 // --- Проход взаимной перелинковки ---------------------------------------
 // Гарантирует, что у каждой опубликованной статьи есть хотя бы одна входящая

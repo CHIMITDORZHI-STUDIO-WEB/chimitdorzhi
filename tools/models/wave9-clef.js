@@ -1,0 +1,27 @@
+// Clef и Clef-flash (Cloudflare). Факты сверены по Hugging Face и библиотеке Ollama на 04.10.2026.
+module.exports = [
+  {
+    id: 'clef',
+    name: 'Clef',
+    developer: 'Cloudflare', country: 'США',
+    modality: ['nlp', 'vlm', 'agent'],
+    first: '2026-10', latest: '2026-10',
+    sizes: '27B и 9B (Clef-flash)',
+    license: 'Apache 2.0',
+    commercial: 'yes',
+    hardware: ['min', 'gpu'],
+    ru: 'unknown',
+    industries: ['support', 'docs', 'security', 'dev'],
+    ollama: true,
+    cpu: false,
+    summary: 'Модели решений: не пишут текст, а читают ситуацию (текст, JSON, картинку, кадры видео) и за один проход возвращают вероятность каждого варианта ответа на типизированные вопросы «да или нет», «выбери один» и «оцени по шкале». Вместо разбора свободного текста агент получает готовые числа.',
+    tasks: ['сортировка обращений и заявок по категориям с вероятностью', 'проверка документа или фото по списку вопросов (всё ли указано, есть ли нарушение)', 'выбор следующего шага агентом без разбора текстового ответа', 'оценка риска или срочности по шкале'],
+    where: ['поддержка клиентов и разбор тикетов', 'документооборот и проверка заявок', 'безопасность и модерация', 'ИИ-агенты и автоматизация процессов'],
+    versions: [['Clef 27B (на базе Qwen3.8-27B)', '2026-10'], ['Clef-flash 9B (на базе Qwen3.5-9B)', '2026-10']],
+    hf: 'https://huggingface.co/Cloudflare/clef',
+    github: null,
+    alternatives: ['qwen', 'gemma', 'nemotron-safety'],
+    source: 'https://huggingface.co/Cloudflare/clef',
+    verified: true,
+  },
+];

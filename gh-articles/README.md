@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2207**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2257**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -37,6 +37,9 @@
 
 ## AI для разработчиков
 
+- [Точка открыла MCP для ИИ-агентов: что поручить и где поставить лимит](./tochka-otkryla-mcp-dlya-ii-agentov-chto-poruchit-i-limity-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/tochka-otkryla-mcp-dlya-ii-agentov-chto-poruchit-i-limity-2026/)
+- [ИИ-проверка договоров в 1С:Документооборот: что можно, чего нельзя](./ii-proverka-i-soglasovanie-dogovorov-v-1s-dokumentooborot-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-proverka-i-soglasovanie-dogovorov-v-1s-dokumentooborot-2026/)
+- [ИИ-проверка домашних заданий в онлайн-школе: рубрики и отчёт](./ii-proverka-domashnih-zadaniy-onlayn-shkola-rubriki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-proverka-domashnih-zadaniy-onlayn-shkola-rubriki-2026/)
 - [magpie: один локальный шлюз к моделям для всех ИИ-агентов](./magpie-shlyuz-k-ii-modelyam-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/magpie-shlyuz-k-ii-modelyam-2026/)
 - [Клиенты пишут ночью и в выходные: ИИ-консультант, который отвечает и записывает](./klienty-pishut-nochyu-ii-konsultant-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/klienty-pishut-nochyu-ii-konsultant-2026/)
 - [ИИ-помощник запущен: кто следит за ответами и обновляет базу знаний](./soprovozhdenie-ii-pomoshchnika-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/soprovozhdenie-ii-pomoshchnika-2026/)
@@ -567,6 +570,8 @@
 
 ## Безопасность
 
+- [Вашего ИИ-бота можно выкачать вопросами: урок OpenAI](./kak-vykachat-ii-bota-distillyaciya-zashchita-bazy-znaniy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-vykachat-ii-bota-distillyaciya-zashchita-bazy-znaniy-2026/)
+- [Рутокен 2.0 и КриптоПро после 1 апреля: проверка за 5 минут](./rutoken-2-0-i-kriptopro-posle-1-aprelya-proverka-za-5-minut-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/rutoken-2-0-i-kriptopro-posle-1-aprelya-proverka-za-5-minut-2026/)
 - [ИИ-ассистент ошибся при клиенте: первые сутки](./ii-assistent-oshibsya-pri-klientah-pervye-sutki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-assistent-oshibsya-pri-klientah-pervye-sutki-2026/)
 - [ИИ находит дыры быстрее людей: что делать владельцу сайта](./ii-nahodit-uyazvimosti-chto-delat-vladelcu-sayta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-nahodit-uyazvimosti-chto-delat-vladelcu-sayta-2026/)
 - [Вирус советуется с четырьмя нейросетями, прежде чем украсть ваши данные](./virus-sovetuetsya-s-neyrosetyami-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/virus-sovetuetsya-s-neyrosetyami-2026/)
@@ -630,6 +635,16 @@
 
 ## Бизнес-кругозор
 
+- [Как выбрать нишу и проверить идею за 2 недели до вложений](./kak-vybrat-nishu-i-proverit-ideyu-za-2-nedeli-do-vlozheniy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-vybrat-nishu-i-proverit-ideyu-za-2-nedeli-do-vlozheniy-2026/)
+- [Что сделать до первой продажи: регистрация, счёт, касса, учёт](./chto-sdelat-do-pervoy-prodazhi-registraciya-schet-kassa-uchet-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chto-sdelat-do-pervoy-prodazhi-registraciya-schet-kassa-uchet-2026/)
+- [Как открыть пункт выдачи маркетплейса с нуля и где риски](./kak-otkryt-punkt-vydachi-zakazov-marketpleysa-s-nulya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-otkryt-punkt-vydachi-zakazov-marketpleysa-s-nulya-2026/)
+- [Студия красоты на 2-3 мастера: с чего начать и не потерять клиентов](./studiya-krasoty-na-2-3-mastera-s-chego-nachat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/studiya-krasoty-na-2-3-mastera-s-chego-nachat-2026/)
+- [Кофе с собой: как открыть мини-точку и не переплатить](./kofe-s-soboy-mini-tochka-s-nulya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kofe-s-soboy-mini-tochka-s-nulya-2026/)
+- [Посуточная аренда с нуля: как стартовать и не запутаться в бронях](./posutochnaya-arenda-kvartir-s-nulya-bronirovanie-uchet-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/posutochnaya-arenda-kvartir-s-nulya-bronirovanie-uchet-2026/)
+- [Прокат оборудования с нуля: залог, договор и учёт](./prokat-i-arenda-oborudovaniya-s-nulya-zalog-dogovory-uchet-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/prokat-i-arenda-oborudovaniya-s-nulya-zalog-dogovory-uchet-2026/)
+- [Клининг с нуля: бригады, заказы и акты, где теряют деньги](./klining-s-nulya-brigady-zakazy-akty-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/klining-s-nulya-brigady-zakazy-akty-2026/)
+- [Мини-производство на заказ с нуля: мебель, пошив, 3D-печать](./mini-proizvodstvo-na-zakaz-s-nulya-mebel-poshiv-3d-pechat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/mini-proizvodstvo-na-zakaz-s-nulya-mebel-poshiv-3d-pechat-2026/)
+- [Нишевый интернет-магазин без склада: старт с одной категории](./nishevyy-internet-magazin-bez-sklada-s-nulya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nishevyy-internet-magazin-bez-sklada-s-nulya-2026/)
 - [Сервис лёг, а клиенты идут: бумажный план Б для записи](./servis-leg-plan-b-zapis-zakazy-na-bumage-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/servis-leg-plan-b-zapis-zakazy-na-bumage-2026/)
 - [ИИ-аудит процессов: три самые дорогие рутины за неделю](./ii-audit-processov-tri-dorogie-rutiny-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-audit-processov-tri-dorogie-rutiny-2026/)
 - [Кассовый разрыв: как увидеть дыру в деньгах за месяц вперёд](./kassovyy-razryv-prognoz-deneg-90-dney-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kassovyy-razryv-prognoz-deneg-90-dney-2026/)
@@ -929,6 +944,7 @@
 
 ## Маркетинг
 
+- [Рекламный ролик из ИИ за 90 центов: что даёт HeyGen Video](./reklamnyy-rolik-iz-ii-za-90-centov-heygen-video-chto-poluchitsya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/reklamnyy-rolik-iz-ii-za-90-centov-heygen-video-chto-poluchitsya-2026/)
 - [ИИ-продавец подберёт товар и не уйдёт спать в 11 вечера](./ii-prodavec-podbor-tovara-po-katalogu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-prodavec-podbor-tovara-po-katalogu-2026/)
 - [Бот поздравит клиента с бонусом, а вы не помните ни одной даты](./avtopovody-pozdravleniya-bonusy-klientam-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avtopovody-pozdravleniya-bonusy-klientam-2026/)
 - [«Сколько стоит?» без фото: как не терять клиентов на переспросах](./cena-po-foto-ii-ocenka-remonta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/cena-po-foto-ii-ocenka-remonta-2026/)
@@ -1085,6 +1101,7 @@
 
 ## Отрасли
 
+- [Обмен с ЕГАИС встал: диагностика для магазина пива и сигарет](./egais-magazin-piva-i-sigaret-roznitsa-utm-oshibki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/egais-magazin-piva-i-sigaret-roznitsa-utm-oshibki-2026/)
 - [Две заявки на одну колонку больше не случаются](./prokat-oborudovaniya-dlya-meropriyatiy-kalendar-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/prokat-oborudovaniya-dlya-meropriyatiy-kalendar-2026/)
 - [Кабинет арендатора: счёт, акт и заявка без звонков управляющему](./kabinet-arendatora-kommercheskoy-nedvizhimosti-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kabinet-arendatora-kommercheskoy-nedvizhimosti-2026/)
 - [Зарплата мастеров считается сама, и никто не спорит про проценты](./raschet-zarplaty-masterov-po-uslugam-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/raschet-zarplaty-masterov-po-uslugam-2026/)
@@ -1465,6 +1482,8 @@
 
 ## Право и 152-ФЗ
 
+- [Банк запросил документы по 115-ФЗ: пакет и пояснение за час](./blokirovka-po-115-fz-paket-dokumentov-i-poyasnenie-banku-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/blokirovka-po-115-fz-paket-dokumentov-i-poyasnenie-banku-2026/)
+- [Бот ошибся в цене или сроке: кто отвечает перед клиентом](./otvetstvennost-za-oshibku-ii-bota-pered-klientom-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/otvetstvennost-za-oshibku-ii-bota-pered-klientom-2026/)
 - [Сколько хранить данные клиентов и когда их удалять по 152-ФЗ](./srok-hraneniya-dannyh-klientov-kogda-udalyat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/srok-hraneniya-dannyh-klientov-kogda-udalyat-2026/)
 - [Закон 289-ФЗ с 1 октября: сроки штрафов, жалоб и акта сверки](./zakon-289-fz-selleram-uvedomleniya-shtrafy-sroki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zakon-289-fz-selleram-uvedomleniya-shtrafy-sroki-2026/)
 - [Закон 289-ФЗ с 1 октября: что меняется для продавцов](./zakon-289-fz-platformennaya-ekonomika-prodavcam-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zakon-289-fz-platformennaya-ekonomika-prodavcam-2026/)
@@ -1532,6 +1551,8 @@
 
 ## Продажи
 
+- [Чёрная пятница 27 ноября: чек-лист магазина на 8 недель](./chernaya-pyatnica-novyy-god-chek-list-na-8-nedel-dlya-magazina-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chernaya-pyatnica-novyy-god-chek-list-na-8-nedel-dlya-magazina-2026/)
+- [Распродажа 11.11 в Китае: как закупить, заплатить и довезти без потерь](./rasprodazha-11-11-zakupka-v-kitae-kak-zakazat-zaplatit-dovezti-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/rasprodazha-11-11-zakupka-v-kitae-kak-zakazat-zaplatit-dovezti-2026/)
 - [Клиенты хотят купить, а товара нет: предзаказ без хаоса](./predzakaz-s-predoplatoy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/predzakaz-s-predoplatoy-2026/)
 - [Заявок 30, серьёзных 3: как бот отделяет горячих от остальных](./kvalifikaciya-lidov-bot-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kvalifikaciya-lidov-bot-2026/)
 - [Взял одно, а мог взять комплект: допродажи в боте и на сайте](./dopprodazhi-v-bote-i-na-sayte-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/dopprodazhi-v-bote-i-na-sayte-2026/)
@@ -1677,6 +1698,25 @@
 
 ## Разработка
 
+- [Ozon FBS с 6 октября: индекс ошибок и платная приёмка](./ozon-fbs-s-6-oktyabrya-indeks-oshibok-platnaya-priemka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ozon-fbs-s-6-oktyabrya-indeks-oshibok-platnaya-priemka-2026/)
+- [Что лежит на складах маркетплейса: снимок остатков и акты](./ostatki-na-skladah-marketpleysa-ezhednevnyy-snimok-sverka-aktov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ostatki-na-skladah-marketpleysa-ezhednevnyy-snimok-sverka-aktov-2026/)
+- [Эвотор и сайт: остатки, чеки коррекции и карта лояльности](./evotor-i-sayt-ostatki-cheki-korrekcii-karta-loyalnosti-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/evotor-i-sayt-ostatki-cheki-korrekcii-karta-loyalnosti-2026/)
+- [Парсер перестал работать: почему ломается и как не чинить](./parser-perestal-rabotat-prichiny-i-podderzhka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/parser-perestal-rabotat-prichiny-i-podderzhka-2026/)
+- [Объявленная ценность и претензия к СДЭК: вернуть деньги за потерю](./obyavlennaya-cennost-i-pretenziya-sdek-kak-vernut-dengi-za-poteryu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/obyavlennaya-cennost-i-pretenziya-sdek-kak-vernut-dengi-za-poteryu-2026/)
+- [5Post и Магнит Пост на сайте Tilda: нативного виджета нет](./5post-i-magnit-post-na-sayte-tilda-proksi-vidzhet-pvz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/5post-i-magnit-post-na-sayte-tilda-proksi-vidzhet-pvz-2026/)
+- [Автовыдача цифрового товара после оплаты: Tilda и ЮKassa](./avtovydacha-cifrovogo-tovara-posle-oplaty-tilda-yukassa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avtovydacha-cifrovogo-tovara-posle-oplaty-tilda-yukassa-2026/)
+- [Меркурий, ФГИС «Зерно» и ЕИС из 1С: ошибки обмена и кто чинит](./merkuriy-fgis-zerno-eis-iz-1s-oshibki-obmena-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/merkuriy-fgis-zerno-eis-iz-1s-oshibki-obmena-2026/)
+- [Перенос из УТ 10.3 в Розницу 3.0 и из БП в УНФ: что переносится](./perenos-bp-v-unf-ut-10-3-v-roznicu-chto-perenositsya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/perenos-bp-v-unf-ut-10-3-v-roznicu-chto-perenositsya-2026/)
+- [Обмен ЗУП и Бухгалтерии сломался после обновления: КД 2 и РИБ](./obmen-zup-i-buhgalteriya-posle-obnovleniya-kd2-rib-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/obmen-zup-i-buhgalteriya-posle-obnovleniya-kd2-rib-2026/)
+- [Сертификаты, рассрочка и аванс в кассе МойСклад: что можно](./nestandartnye-cheki-moysklad-sertifikaty-kredit-avans-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nestandartnye-cheki-moysklad-sertifikaty-kredit-avans-2026/)
+- [Заказ поставщику из Excel и приход по фото накладной в МойСклад](./zakaz-postavshchiku-iz-excel-i-foto-nakladnoy-v-moysklad-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zakaz-postavshchiku-iz-excel-i-foto-nakladnoy-v-moysklad-2026/)
+- [«Управление складом 3.1» и старые WMS: ячейки, отбор, специалист](./upravlenie-skladom-3-1-i-starye-wms-yacheyki-otbor-specialist-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/upravlenie-skladom-3-1-i-starye-wms-yacheyki-otbor-specialist-2026/)
+- [Вебхуки СДЭК отключаются сами: статусы перестали приходить](./vebhuki-sdek-otklyuchayutsya-sami-statusy-ne-prihodyat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vebhuki-sdek-otklyuchayutsya-sami-statusy-ne-prihodyat-2026/)
+- [WB FBS с 1 октября: без способа отгрузки поставка не уйдёт (409)](./wb-fbs-s-1-oktyabrya-sposob-otgruzki-nakladnaya-oshibka-409-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/wb-fbs-s-1-oktyabrya-sposob-otgruzki-nakladnaya-oshibka-409-2026/)
+- [Почта России скрыла детальные статусы посылок: что показывать клиенту](./pochta-rossii-skryla-detalnye-statusy-chto-pokazyvat-klientu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pochta-rossii-skryla-detalnye-statusy-chto-pokazyvat-klientu-2026/)
+- [Реестр ЭЦП, МЧД и сроков для бухфирмы: бот-напоминалка](./reestr-ecp-mchd-i-srokov-dlya-buhfirmy-bot-napominalka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/reestr-ecp-mchd-i-srokov-dlya-buhfirmy-bot-napominalka-2026/)
+- [СДЭК и Почта России в amoCRM: трек и статус в сделке](./sdek-i-pochta-rossii-v-amocrm-trek-nomer-status-v-sdelke-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sdek-i-pochta-rossii-v-amocrm-trek-nomer-status-v-sdelke-2026/)
+- [Цена доставки на сайте и счёт СДЭК разошлись: объёмный вес](./cena-dostavki-na-sayte-i-schet-sdek-gabarity-obyemnyy-ves-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/cena-dostavki-na-sayte-i-schet-sdek-gabarity-obyemnyy-ves-2026/)
 - [Модель решений d1 вместо LLM: разбор заявок за один вызов](./liquid-ai-d1-modeli-resheniy-dlya-zayavok-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/liquid-ai-d1-modeli-resheniy-dlya-zayavok-2026/)
 - [Бот перестал отвечать: диагностика за 15 минут](./bot-perestal-otvechat-diagnostika-15-minut-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bot-perestal-otvechat-diagnostika-15-minut-2026/)
 - [Рассылка в боте встала на половине: лимиты Telegram и MAX](./limity-telegram-i-max-rassylka-vstala-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/limity-telegram-i-max-rassylka-vstala-2026/)
@@ -2036,6 +2076,11 @@
 
 ## Финансы
 
+- [ЕНС с 1 сентября 2026: уведомление на год и зачёт с УКЭП](./ens-s-1-sentyabrya-2026-zachet-za-tretih-lic-ukep-uvedomlenie-na-god-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ens-s-1-sentyabrya-2026-zachet-za-tretih-lic-ukep-uvedomlenie-na-god-2026/)
+- [Сколько стоит 1С в 2026: ИТС, лицензии, облако, что обязательно](./skolko-stoit-1s-its-licenzii-chto-obyazatelno-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-stoit-1s-its-licenzii-chto-obyazatelno-2026/)
+- [Реестр эквайринга не сходится с выпиской в 1С БП: как сверить](./sverka-reestrov-ekvayringa-sberbank-alfa-v-1s-bp-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sverka-reestrov-ekvayringa-sberbank-alfa-v-1s-bp-2026/)
+- [СДЭК отключил v2/payment: как сверять наложенный платёж](./sdek-otklyuchil-v2-payment-nalozhennyy-platezh-sverka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sdek-otklyuchil-v2-payment-nalozhennyy-platezh-sverka-2026/)
+- [СФР отклонил отчёт: проверяем «Согласование ключей» в КЭП](./sfr-otklonil-otchet-atribut-soglasovanie-klyuchey-sertifikat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sfr-otklonil-otchet-atribut-soglasovanie-klyuchey-sertifikat-2026/)
 - [Выписка Сбербанка в 1С не грузится: Sber API вместо УПШ](./vypiska-sberbanka-v-1s-ne-gruzitsya-sber-api-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vypiska-sberbanka-v-1s-ne-gruzitsya-sber-api-2026/)
 - [Выплата Wildberries не сходится с отчётом: сверка за 15 минут](./vyplata-wildberries-ne-shoditsya-s-otchetom-sverka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vyplata-wildberries-ne-shoditsya-s-otchetom-sverka-2026/)
 - [Итог по отчёту сходится, а прибыль по артикулу нет](./marzha-po-artikulu-na-marketpleysah-realnaya-pribyl-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/marzha-po-artikulu-na-marketpleysah-realnaya-pribyl-2026/)
@@ -2096,6 +2141,11 @@
 
 ## Экспертное
 
+- [Звонки клиентам в WhatsApp и Telegram ограничены: чем заменить](./zvonki-klientam-posle-ogranicheniya-whatsapp-telegram-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zvonki-klientam-posle-ogranicheniya-whatsapp-telegram-2026/)
+- [Покупатель-ИИ: Алиса уже бронирует, готов ли ваш каталог](./pokupatel-ii-agent-zakazyvaet-za-cheloveka-gotov-li-katalog-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pokupatel-ii-agent-zakazyvaet-za-cheloveka-gotov-li-katalog-2026/)
+- [62% и 33% у одной модели: чужой бенчмарк не про ваш процесс](./benchmark-ne-pro-vash-process-obvyazka-ii-test-na-30-voprosah-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/benchmark-ne-pro-vash-process-obvyazka-ii-test-na-30-voprosah-2026/)
+- [Провайдер сменил модель, и бот поглупел: версии и откат](./provayder-smenil-model-bot-poglupel-versii-otkat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/provayder-smenil-model-bot-poglupel-versii-otkat-2026/)
+- [Иероглифы на упаковке: как перевести надпись прямо на фото](./perevod-nadpisey-na-upakovke-ideogram-index-translate-postavshchik-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/perevod-nadpisey-na-upakovke-ideogram-index-translate-postavshchik-2026/)
 - [Заменят ли агенты профессию? Для 419 из 923 нет ни одного инструмента](./cohere-700-tysyach-mcp-instrumentov-chto-avtomatizirovat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/cohere-700-tysyach-mcp-instrumentov-chto-avtomatizirovat-2026/)
 - [Сколько тратить на IT в год: бюджет без чужих процентов](./it-byudzhet-malogo-biznesa-skolko-tratit-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/it-byudzhet-malogo-biznesa-skolko-tratit-2026/)
 - [ChatGPT Dots: ИИ-агент как сотрудник и чему в нём не верить](./chatgpt-personalnye-agenty-dots-malyy-biznes-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chatgpt-personalnye-agenty-dots-malyy-biznes-2026/)
