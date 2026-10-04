@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2287**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2307**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -329,6 +329,15 @@
 - [Спам в формах: своя капча Cap вместо reCAPTCHA](./cap-kapcha-bez-google-dlya-formy-na-sayte-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/cap-kapcha-bez-google-dlya-formy-na-sayte-2026/)
 - [Docspell: архив сканов и писем на своём сервере](./docspell-arhiv-dokumentov-iz-skanov-i-pochty-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/docspell-arhiv-dokumentov-iz-skanov-i-pochty-na-svoem-servere-2026/)
 - [Презентация из текста за минуты: навык dashi-ppt для ИИ-агента](./dashi-ppt-skill-prezentacii-iz-teksta-ii-agentom-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/dashi-ppt-skill-prezentacii-iz-teksta-ii-agentom-2026/)
+- [Wagtail: CMS на Django для сайта компании без плагинов](./wagtail-cms-dlya-saytov-kompanii-na-django-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/wagtail-cms-dlya-saytov-kompanii-na-django-2026/)
+- [Сертификаты и Nginx-конфиги ломаются? Caddy делает HTTPS сам](./caddy-vebserver-s-avtomaticheskim-https-dlya-saytov-i-sistem-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/caddy-vebserver-s-avtomaticheskim-https-dlya-saytov-i-sistem-2026/)
+- [RustFS: своё S3-хранилище на сервере вместо MinIO](./rustfs-s3-hranilishche-na-svoem-servere-vzamen-minio-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/rustfs-s3-hranilishche-na-svoem-servere-vzamen-minio-2026/)
+- [Maxun: парсинг сайтов без кода в таблицу и API на своём сервере](./maxun-parsing-saytov-bez-koda-v-dannye-i-api-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/maxun-parsing-saytov-bez-koda-v-dannye-i-api-2026/)
+- [Забытые автопродления: учёт подписок на своём сервере](./wallos-uchet-podpisok-i-raskhodov-na-servisy-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/wallos-uchet-podpisok-i-raskhodov-na-servisy-na-svoem-servere-2026/)
+- [draw.io: схемы процессов без чужого облака](./drawio-shemy-biznes-processov-v-brauzere-bez-oblaka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/drawio-shemy-biznes-processov-v-brauzere-bez-oblaka-2026/)
+- [VoidAuth: один вход вместо пяти паролей в офисе](./voidauth-legkiy-edinyy-vhod-dlya-malogo-ofisa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/voidauth-legkiy-edinyy-vhod-dlya-malogo-ofisa-2026/)
+- [Логотип и бренд-гайд ИИ-агентом: что получится, а где нужен юрист](./logo-design-skill-logotip-i-brendbuk-ii-agentom-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/logo-design-skill-logotip-i-brendbuk-ii-agentom-2026/)
+- [Субтитры-перевод на созвоне: KaigiAI без переводчика](./kaigiai-perevod-soveshchaniy-na-neskolko-yazykov-v-realnom-vremeni-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kaigiai-perevod-soveshchaniy-na-neskolko-yazykov-v-realnom-vremeni-2026/)
 - [Payload CMS: свой сайт с админкой без платы за место](./payload-cms-svoy-sayt-s-adminkoy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/payload-cms-svoy-sayt-s-adminkoy-2026/)
 - [call.md: подсказки менеджеру прямо во время звонка](./callmd-podskazki-menedzheru-vo-vremya-zvonka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/callmd-podskazki-menedzheru-vo-vremya-zvonka-2026/)
 - [ИИ в браузере без сервера: Transformers.js и 152-ФЗ](./transformers-js-ii-v-brauzere-bez-servera-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/transformers-js-ii-v-brauzere-bez-servera-2026/)
@@ -662,6 +671,16 @@
 - [Фотостудия и аренда зала с нуля: бронь, предоплата, правила](./fotostudiya-i-arenda-zala-s-nulya-pochasovaya-bron-predoplata-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/fotostudiya-i-arenda-zala-s-nulya-pochasovaya-bron-predoplata-2026/)
 - [Вендинг с нуля: автоматы с кофе и снеками, точки, касса](./vending-avtomaty-kofe-i-snekov-s-nulya-tochki-kassa-uchet-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vending-avtomaty-kofe-i-snekov-s-nulya-tochki-kassa-uchet-2026/)
 - [Мастерская по ремонту с нуля: приёмка, гарантия, статусы заказа](./masterskaya-remonta-tehniki-odezhdy-obuvi-s-nulya-priem-garantii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/masterskaya-remonta-tehniki-odezhdy-obuvi-s-nulya-priem-garantii-2026/)
+- [Мини-пекарня с точкой продаж с нуля: помещение, Меркурий, касса](./mini-pekarnya-s-tochkoy-prodazh-s-nulya-pomeshchenie-merkuriy-kassa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/mini-pekarnya-s-tochkoy-prodazh-s-nulya-pomeshchenie-merkuriy-kassa-2026/)
+- [Автосервис и шиномонтаж с нуля: заказ-наряд, гарантия, отходы](./avtoservis-i-shinomontazh-s-nulya-zakaz-naryad-garantiya-otkhody-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avtoservis-i-shinomontazh-s-nulya-zakaz-naryad-garantiya-otkhody-2026/)
+- [Груминг-салон и зоогостиница с нуля: договор, правила, запись](./grooming-salon-i-zoogostinica-s-nulya-dogovor-veterinarnye-pravila-zapis-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/grooming-salon-i-zoogostinica-s-nulya-dogovor-veterinarnye-pravila-zapis-2026/)
+- [Студия йоги или танцев с нуля: зал, абонементы и расписание](./studiya-yogi-i-tancev-s-nulya-zal-abonementy-raspisanie-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/studiya-yogi-i-tancev-s-nulya-zal-abonementy-raspisanie-2026/)
+- [Доставка обедов в офисы с нуля: санитария и предзаказ](./dostavka-domashnih-obedov-v-ofisy-s-nulya-sanitariya-predzakaz-marshruty-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/dostavka-domashnih-obedov-v-ofisy-s-nulya-sanitariya-predzakaz-marshruty-2026/)
+- [Цветочный бутик и доставка букетов с нуля: закупка и предзаказ](./cvetochnyy-butik-i-dostavka-buketov-s-nulya-zakupka-spisaniya-predzakaz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/cvetochnyy-butik-i-dostavka-buketov-s-nulya-zakupka-spisaniya-predzakaz-2026/)
+- [Прачечная самообслуживания с нуля: оборудование, стоки и касса](./pralechnaya-samoobsluzhivaniya-s-nulya-oborudovanie-stoki-kassa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pralechnaya-samoobsluzhivaniya-s-nulya-oborudovanie-stoki-kassa-2026/)
+- [Организатор свадеб и мероприятий с нуля: договор, смета, предоплаты](./organizator-svadeb-i-meropriyatiy-s-nulya-dogovor-smeta-predoplaty-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/organizator-svadeb-i-meropriyatiy-s-nulya-dogovor-smeta-predoplaty-2026/)
+- [Монтаж кондиционеров с нуля: допуски, гарантия и заявки](./montazh-kondicionerov-s-nulya-dopuski-garantiya-zayavki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/montazh-kondicionerov-s-nulya-dopuski-garantiya-zayavki-2026/)
+- [Ферма с доставкой по подписке: ветдокументы и Меркурий](./kraftovaya-ferma-s-dostavkoy-po-podpiske-s-nulya-veterinarnye-dokumenty-merkuriy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kraftovaya-ferma-s-dostavkoy-po-podpiske-s-nulya-veterinarnye-dokumenty-merkuriy-2026/)
 - [Сервис лёг, а клиенты идут: бумажный план Б для записи](./servis-leg-plan-b-zapis-zakazy-na-bumage-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/servis-leg-plan-b-zapis-zakazy-na-bumage-2026/)
 - [ИИ-аудит процессов: три самые дорогие рутины за неделю](./ii-audit-processov-tri-dorogie-rutiny-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-audit-processov-tri-dorogie-rutiny-2026/)
 - [Кассовый разрыв: как увидеть дыру в деньгах за месяц вперёд](./kassovyy-razryv-prognoz-deneg-90-dney-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kassovyy-razryv-prognoz-deneg-90-dney-2026/)
@@ -1725,6 +1744,7 @@
 - [MicroRealEstate: учёт аренды на своём сервере, но с оговоркой](./microrealestate-uchet-arendy-nedvizhimosti-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/microrealestate-uchet-arendy-nedvizhimosti-na-svoem-servere-2026/)
 - [Duplicacy: копии с дедупликацией и лицензия, которую не читают](./duplicacy-rezervnye-kopii-s-deduplikaciey-i-licenziya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/duplicacy-rezervnye-kopii-s-deduplikaciey-i-licenziya-2026/)
 - [Одна защищённая дверь в сервер офиса вместо пяти паролей](./cosmos-zashchishchennyy-shlyuz-dlya-prilozheniy-na-servere-ofisa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/cosmos-zashchishchennyy-shlyuz-dlya-prilozheniy-na-servere-ofisa-2026/)
+- [Dub: короткие ссылки и партнёрки, но не на своём сервере](./dub-korotkie-ssylki-i-partnerskie-programmy-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/dub-korotkie-ssylki-i-partnerskie-programmy-na-svoem-servere-2026/)
 - [Telegram Bot API 10: что реально полезно для бизнес-ботов](./telegram-bot-api-10-novye-vozmozhnosti-dlya-biznes-botov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/telegram-bot-api-10-novye-vozmozhnosti-dlya-biznes-botov-2026/)
 - [Mini App в Telegram: что проверить после защиты 20 июля](./telegram-mini-app-obyazatelnaya-domennaya-zashchita-chto-proverit-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/telegram-mini-app-obyazatelnaya-domennaya-zashchita-chto-proverit-2026/)
 - [Ozon FBS с 6 октября: индекс ошибок и платная приёмка](./ozon-fbs-s-6-oktyabrya-indeks-oshibok-platnaya-priemka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ozon-fbs-s-6-oktyabrya-indeks-oshibok-platnaya-priemka-2026/)
