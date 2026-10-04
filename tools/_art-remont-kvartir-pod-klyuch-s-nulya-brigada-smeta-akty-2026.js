@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "remont-kvartir-pod-klyuch-s-nulya-brigada-smeta-akty-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-paint-roller",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/business-automation/", label: "Смета, этапы и акты для ремонтов" },
+  title: "Ремонт квартир под ключ с нуля: бригада, смета и акты",
+  metaTitle: "Ремонт квартир под ключ с нуля: бригада, смета, акты",
+  metaDescription: "С чего начать ремонты квартир под ключ: договор подряда, смета с резервом, этапы и акты, бригада из самозанятых, гарантия, страховка и налоги.",
+  excerpt: "Как начать вести ремонты квартир как бизнес: 7 шагов, договор подряда и смета как его приложение, оплата и акты по этапам, бригада без риска переквалификации, гарантия и перепланировка. Только проверенные нормы и честные пометки, где я не подтвердил.",
+  tags: ["старт бизнеса", "ремонт квартир", "смета и акты", "бригада и подряд"],
+  toc: [
+    { id: "komu-podhodit", text: "Кому подходит и кому нет" },
+    { id: "sem-shagov", text: "С чего начать: 7 шагов" },
+    { id: "byudzhet", text: "Из чего складывается стартовый бюджет" },
+    { id: "dogovor-nalogi", text: "Договор, бригада, налоги и разрешения" },
+    { id: "poteri", text: "Где новички теряют деньги" },
+    { id: "avtomatizaciya", text: "Где здесь нужна автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["remontnye-brigady-smeta-etapy-oplata-2026","remont-kvartir-zayavki-smety-fotootchety-2026","klining-s-nulya-brigady-zakazy-akty-2026","kalkulyator-remonta-kvartiry-2026"],
+};

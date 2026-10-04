@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "detskiy-razvivayushchiy-centr-s-nulya-pomeshchenie-zapis-abonementy-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-shapes",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/telegram-bots/", label: "Бот записи и абонементов для центра" },
+  title: "Детский развивающий центр с нуля: помещение, запись и абонементы",
+  metaTitle: "Детский развивающий центр с нуля: лицензия и абонементы",
+  metaDescription: "Как открыть детский центр: форма деятельности, нужна ли лицензия, помещение, педагоги, договор с родителями, абонементы и запись, где ломаются новички.",
+  excerpt: "Детский центр бывает образованием по программе, присмотром и уходом или площадкой под чужие занятия. Разбираем, от чего зависит лицензия, что проверить в помещении и у педагогов, как оформить абонементы и где теряются деньги.",
+  tags: ["старт бизнеса", "детский центр", "абонементы", "лицензия на образование"],
+  toc: [
+    { id: "komu-podhodit", text: "Кому подходит и кому нет" },
+    { id: "sem-shagov", text: "С чего начать: 7 шагов" },
+    { id: "byudzhet", text: "Из чего складывается стартовый бюджет" },
+    { id: "registraciya", text: "Регистрация, лицензия и разрешения" },
+    { id: "oshibki", text: "Где новички теряют деньги" },
+    { id: "avtomatizaciya", text: "Где здесь нужна автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["it-dlya-detskogo-centra-2026", "detskie-lagerya-kruzhki-zapis-oplata-2026", "neyavki-na-zapis-predoplata-napominaniya-2026", "chto-sdelat-do-pervoy-prodazhi-registraciya-schet-kassa-uchet-2026"],
+};

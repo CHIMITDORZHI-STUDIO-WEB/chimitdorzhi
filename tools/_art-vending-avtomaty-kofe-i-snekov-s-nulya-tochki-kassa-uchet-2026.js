@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "vending-avtomaty-kofe-i-snekov-s-nulya-tochki-kassa-uchet-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-cookie",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/business-automation/", label: "Учёт загрузок и отчёты по автоматам" },
+  title: "Вендинг с нуля: автоматы с кофе и снеками, точки, касса",
+  metaTitle: "Вендинг с нуля: точки, касса 54-ФЗ, СанПиН и учёт в 2026",
+  metaDescription: "Как начать вендинг: виды автоматов, оборудование, точки и договор, касса по 54-ФЗ, СанПиН с 1 сентября 2026, патент и учёт загрузок. Где ломаются новички.",
+  excerpt: "Кофе, снеки, напитки или свежая еда: чем отличаются форматы, как выбрать точку и оборудование и в каких случаях автомату нужна касса. Нормы сверены по текстам актов на 4 октября 2026, непроверенное помечено.",
+  tags: ["старт бизнеса", "вендинг", "торговые автоматы", "кофейные автоматы"],
+  toc: [
+    { id: "komu-podhodit", text: "Кому подходит и кому нет" },
+    { id: "7-shagov", text: "С чего начать: 7 шагов" },
+    { id: "byudzhet", text: "Из чего складывается стартовый бюджет" },
+    { id: "nalogi", text: "Регистрация, налоги и разрешения" },
+    { id: "oshibki", text: "Где новички теряют деньги" },
+    { id: "avtomatizaciya", text: "Где здесь нужна автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["skolko-zarabatyvaet-vending-2026", "kofe-s-soboy-mini-tochka-s-nulya-2026", "kontrol-srokov-godnosti-tovarov-2026", "edinyy-uchet-ostatkov-tochek-2026"],
+};

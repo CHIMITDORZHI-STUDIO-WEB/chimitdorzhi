@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "mini-sklad-hraneniya-s-nulya-boksy-dogovor-ohrana-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-warehouse",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/business-automation/", label: "Автоматизация брони и учёта боксов" },
+  title: "Мини-склад для хранения вещей с нуля: боксы, договор и охрана",
+  metaTitle: "Мини-склад для хранения вещей: боксы, договор, охрана",
+  metaDescription: "Как открыть мини-склад: помещение, боксы, договор хранения или аренды, видеонаблюдение, заполняемость и ошибки новичков. Пример расчёта на условных числах.",
+  excerpt: "Мини-склад кажется простым: помещение, перегородки, замки. Разбираем 7 шагов старта, из чего складывается бюджет, чем отличаются хранение и аренда бокса, как считать заполняемость и где новички теряют деньги.",
+  tags: ["старт бизнеса", "мини-склад", "self-storage", "договор хранения"],
+  toc: [
+    { id: "komu-podhodit", text: "Кому подходит и кому нет" },
+    { id: "7-shagov", text: "С чего начать: 7 шагов" },
+    { id: "byudzhet", text: "Из чего складывается стартовый бюджет" },
+    { id: "dogovor-nalogi", text: "Договор, налоги и правила склада" },
+    { id: "oshibki", text: "Где новички теряют деньги" },
+    { id: "avtomatizaciya", text: "Где здесь нужна автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["skolko-zarabatyvaet-self-storage-2026", "self-storage-bron-boksa-i-oplata-2026", "hranenie-veshchey-u-sosedey-2027", "prokat-i-arenda-oborudovaniya-s-nulya-zalog-dogovory-uchet-2026"],
+};

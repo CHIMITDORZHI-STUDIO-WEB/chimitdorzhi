@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "domashnyaya-konditerskaya-s-nulya-zakonno-zakazy-predoplata-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-cake",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/business-automation/", label: "Заказы и предоплата для кондитера" },
+  title: "Домашняя кондитерская с нуля: законно, заказы, предоплата",
+  metaTitle: "Домашняя кондитерская с нуля: статус, заказы, предоплата",
+  metaDescription: "Как начать домашнюю кондитерскую законно: самозанятый или ИП, санитарные требования, маркировка 2026, предоплата, расчёт цены торта и частые ошибки.",
+  excerpt: "Разбираю, как начать печь торты на заказ без нарушений: какой статус выбрать, что подтверждено по санитарным требованиям и маркировке, как оформить предоплату и посчитать себестоимость. Где источники не дают ответа, так и пишу и отправляю уточнять в Роспотребнадзор и ФНС.",
+  tags: ["старт бизнеса", "домашняя кондитерская", "торты на заказ", "предоплата"],
+  toc: [
+    { id: "komu-podhodit", text: "Кому подходит и кому нет" },
+    { id: "sem-shagov", text: "С чего начать: 7 шагов" },
+    { id: "byudzhet", text: "Из чего складывается стартовый бюджет" },
+    { id: "registraciya", text: "Регистрация, налоги и разрешения" },
+    { id: "poteri", text: "Где новички теряют деньги" },
+    { id: "avtomatizaciya", text: "Где здесь нужна автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["konfigurator-torta-onlayn-2026", "it-dlya-pekarni-konditerskoy-2026", "skolko-zarabatyvaet-pekarnya-2026", "dogovor-oferty-2026"],
+};

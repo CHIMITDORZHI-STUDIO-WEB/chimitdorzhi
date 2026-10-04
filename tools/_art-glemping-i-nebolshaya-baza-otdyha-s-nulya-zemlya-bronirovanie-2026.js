@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "glemping-i-nebolshaya-baza-otdyha-s-nulya-zemlya-bronirovanie-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-tent",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/business-automation/", label: "Календарь броней и бот для базы отдыха" },
+  title: "Глэмпинг и база отдыха с нуля: земля, правила и бронирование",
+  metaTitle: "Глэмпинг и база отдыха с нуля: земля, реестр, брони",
+  metaDescription: "Как открыть глэмпинг или небольшую базу отдыха: что проверить в земле, реестр средств размещения, налоги, учёт гостей и как не допустить двойных броней.",
+  excerpt: "Глэмпинг начинается с проверки земли и записи в реестре средств размещения. Разбираем, с чего начать, из чего складывается бюджет, что подтверждено первоисточниками и где новички теряют деньги на бронях и пустых буднях.",
+  tags: ["старт бизнеса","глэмпинг и база отдыха","бронирование домиков","классификация средств размещения"],
+  toc: [
+    { id: "komu-podhodit", text: "Кому подходит и кому нет" },
+    { id: "sem-shagov", text: "С чего начать: 7 шагов" },
+    { id: "byudzhet", text: "Из чего складывается стартовый бюджет" },
+    { id: "zemlya-pravila", text: "Земля, реестр, налоги и гости" },
+    { id: "gde-teryayut", text: "Где новички теряют деньги" },
+    { id: "avtomatizaciya", text: "Где здесь нужна автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["glamping-bazy-otdyha-2026","sayt-i-bronirovanie-dlya-turbazy-baykal-buryatiya-2026","sezonnyy-biznes-mezhsezone-2026","biznes-plan-za-vecher-kalkulyator-2026"],
+};

@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "masterskaya-remonta-tehniki-odezhdy-obuvi-s-nulya-priem-garantii-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-wrench",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/telegram-bots/", label: "Статусы заказов клиенту в боте" },
+  title: "Мастерская по ремонту с нуля: приёмка, гарантия, статусы заказа",
+  metaTitle: "Мастерская по ремонту с нуля: приём, гарантия, статусы",
+  metaDescription: "Как открыть мастерскую по ремонту техники, одежды или обуви: договор-квитанция, акт приёма, гарантия, невостребованные вещи, касса и статусы заказа.",
+  excerpt: "Разбираю, с чего начать мастерскую по ремонту техники, одежды или обуви: что требуют Правила бытового обслуживания и закон о защите прав потребителей, как оформить приём и гарантию, где ломаются новички. Честно: Правила действуют до 1 января 2027 года, а принятие новых я не подтвердил.",
+  tags: ["старт бизнеса", "мастерская по ремонту", "договор и гарантия", "статусы заказа"],
+  toc: [
+    { id: "komu-podhodit", text: "Кому подходит и кому нет" },
+    { id: "sem-shagov", text: "С чего начать: 7 шагов" },
+    { id: "byudzhet", text: "Из чего складывается стартовый бюджет" },
+    { id: "registraciya", text: "Регистрация, налоги, договор и касса" },
+    { id: "poteri", text: "Где новички теряют деньги" },
+    { id: "avtomatizaciya", text: "Где здесь нужна автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["remont-bytovoy-tehniki-priem-status-zapchasti-2026", "status-zakaza-po-ssylke-2026", "yuvelirnye-masterskie-priem-remont-vydacha-2026", "uchet-seriynyh-nomerov-i-garantii-2026"],
+};
