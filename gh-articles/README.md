@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2257**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2287**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -323,6 +323,12 @@
 
 ## Open-source и свой сервер
 
+- [Lago: биллинг по подписке и расходу на своём сервере](./lago-billing-podpisok-i-oplaty-po-potrebleniyu-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/lago-billing-podpisok-i-oplaty-po-potrebleniyu-na-svoem-servere-2026/)
+- [Сертификат истёк, сайт упал: один пульт на все домены](./certimate-avtomaticheskie-ssl-sertifikaty-dlya-domenov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/certimate-avtomaticheskie-ssl-sertifikaty-dlya-domenov-2026/)
+- [CosyVoice: своя озвучка и клонирование голоса без платы за символ](./cosyvoice-ozvuchka-i-klonirovanie-golosa-lokalno-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/cosyvoice-ozvuchka-i-klonirovanie-golosa-lokalno-2026/)
+- [Спам в формах: своя капча Cap вместо reCAPTCHA](./cap-kapcha-bez-google-dlya-formy-na-sayte-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/cap-kapcha-bez-google-dlya-formy-na-sayte-2026/)
+- [Docspell: архив сканов и писем на своём сервере](./docspell-arhiv-dokumentov-iz-skanov-i-pochty-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/docspell-arhiv-dokumentov-iz-skanov-i-pochty-na-svoem-servere-2026/)
+- [Презентация из текста за минуты: навык dashi-ppt для ИИ-агента](./dashi-ppt-skill-prezentacii-iz-teksta-ii-agentom-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/dashi-ppt-skill-prezentacii-iz-teksta-ii-agentom-2026/)
 - [Payload CMS: свой сайт с админкой без платы за место](./payload-cms-svoy-sayt-s-adminkoy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/payload-cms-svoy-sayt-s-adminkoy-2026/)
 - [call.md: подсказки менеджеру прямо во время звонка](./callmd-podskazki-menedzheru-vo-vremya-zvonka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/callmd-podskazki-menedzheru-vo-vremya-zvonka-2026/)
 - [ИИ в браузере без сервера: Transformers.js и 152-ФЗ](./transformers-js-ii-v-brauzere-bez-servera-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/transformers-js-ii-v-brauzere-bez-servera-2026/)
@@ -570,6 +576,7 @@
 
 ## Безопасность
 
+- [Голос директора за 5 секунд: как защитить бухгалтерию от клона](./golos-direktora-za-5-sekund-zashchita-buhgalterii-ot-klona-golosa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/golos-direktora-za-5-sekund-zashchita-buhgalterii-ot-klona-golosa-2026/)
 - [Вашего ИИ-бота можно выкачать вопросами: урок OpenAI](./kak-vykachat-ii-bota-distillyaciya-zashchita-bazy-znaniy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-vykachat-ii-bota-distillyaciya-zashchita-bazy-znaniy-2026/)
 - [Рутокен 2.0 и КриптоПро после 1 апреля: проверка за 5 минут](./rutoken-2-0-i-kriptopro-posle-1-aprelya-proverka-za-5-minut-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/rutoken-2-0-i-kriptopro-posle-1-aprelya-proverka-za-5-minut-2026/)
 - [ИИ-ассистент ошибся при клиенте: первые сутки](./ii-assistent-oshibsya-pri-klientah-pervye-sutki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-assistent-oshibsya-pri-klientah-pervye-sutki-2026/)
@@ -645,6 +652,16 @@
 - [Клининг с нуля: бригады, заказы и акты, где теряют деньги](./klining-s-nulya-brigady-zakazy-akty-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/klining-s-nulya-brigady-zakazy-akty-2026/)
 - [Мини-производство на заказ с нуля: мебель, пошив, 3D-печать](./mini-proizvodstvo-na-zakaz-s-nulya-mebel-poshiv-3d-pechat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/mini-proizvodstvo-na-zakaz-s-nulya-mebel-poshiv-3d-pechat-2026/)
 - [Нишевый интернет-магазин без склада: старт с одной категории](./nishevyy-internet-magazin-bez-sklada-s-nulya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nishevyy-internet-magazin-bez-sklada-s-nulya-2026/)
+- [Автомойка самообслуживания с нуля: участок, оборудование, разрешения](./avtomoyka-samoobsluzhivaniya-s-nulya-uchastok-oborudovanie-razresheniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avtomoyka-samoobsluzhivaniya-s-nulya-uchastok-oborudovanie-razresheniya-2026/)
+- [Мини-склад для хранения вещей с нуля: боксы, договор и охрана](./mini-sklad-hraneniya-s-nulya-boksy-dogovor-ohrana-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/mini-sklad-hraneniya-s-nulya-boksy-dogovor-ohrana-2026/)
+- [Грузоперевозки и переезды на газели с нуля: заявки и страхование](./gruzoperevozki-i-pereezdy-na-gazeli-s-nulya-zayavki-strahovanie-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gruzoperevozki-i-pereezdy-na-gazeli-s-nulya-zayavki-strahovanie-2026/)
+- [Ремонт квартир под ключ с нуля: бригада, смета и акты](./remont-kvartir-pod-klyuch-s-nulya-brigada-smeta-akty-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/remont-kvartir-pod-klyuch-s-nulya-brigada-smeta-akty-2026/)
+- [Домашняя кондитерская с нуля: законно, заказы, предоплата](./domashnyaya-konditerskaya-s-nulya-zakonno-zakazy-predoplata-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/domashnyaya-konditerskaya-s-nulya-zakonno-zakazy-predoplata-2026/)
+- [Детский развивающий центр с нуля: помещение, запись и абонементы](./detskiy-razvivayushchiy-centr-s-nulya-pomeshchenie-zapis-abonementy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/detskiy-razvivayushchiy-centr-s-nulya-pomeshchenie-zapis-abonementy-2026/)
+- [Глэмпинг и база отдыха с нуля: земля, правила и бронирование](./glemping-i-nebolshaya-baza-otdyha-s-nulya-zemlya-bronirovanie-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/glemping-i-nebolshaya-baza-otdyha-s-nulya-zemlya-bronirovanie-2026/)
+- [Фотостудия и аренда зала с нуля: бронь, предоплата, правила](./fotostudiya-i-arenda-zala-s-nulya-pochasovaya-bron-predoplata-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/fotostudiya-i-arenda-zala-s-nulya-pochasovaya-bron-predoplata-2026/)
+- [Вендинг с нуля: автоматы с кофе и снеками, точки, касса](./vending-avtomaty-kofe-i-snekov-s-nulya-tochki-kassa-uchet-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vending-avtomaty-kofe-i-snekov-s-nulya-tochki-kassa-uchet-2026/)
+- [Мастерская по ремонту с нуля: приёмка, гарантия, статусы заказа](./masterskaya-remonta-tehniki-odezhdy-obuvi-s-nulya-priem-garantii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/masterskaya-remonta-tehniki-odezhdy-obuvi-s-nulya-priem-garantii-2026/)
 - [Сервис лёг, а клиенты идут: бумажный план Б для записи](./servis-leg-plan-b-zapis-zakazy-na-bumage-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/servis-leg-plan-b-zapis-zakazy-na-bumage-2026/)
 - [ИИ-аудит процессов: три самые дорогие рутины за неделю](./ii-audit-processov-tri-dorogie-rutiny-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-audit-processov-tri-dorogie-rutiny-2026/)
 - [Кассовый разрыв: как увидеть дыру в деньгах за месяц вперёд](./kassovyy-razryv-prognoz-deneg-90-dney-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kassovyy-razryv-prognoz-deneg-90-dney-2026/)
@@ -944,6 +961,7 @@
 
 ## Маркетинг
 
+- [Фото товара в нужной сцене без студии: FLUX 3 Image и граница обмана](./flux-3-image-foto-tovara-v-nuzhnoy-scene-bez-studii-granica-obmana-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/flux-3-image-foto-tovara-v-nuzhnoy-scene-bez-studii-granica-obmana-2026/)
 - [Рекламный ролик из ИИ за 90 центов: что даёт HeyGen Video](./reklamnyy-rolik-iz-ii-za-90-centov-heygen-video-chto-poluchitsya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/reklamnyy-rolik-iz-ii-za-90-centov-heygen-video-chto-poluchitsya-2026/)
 - [ИИ-продавец подберёт товар и не уйдёт спать в 11 вечера](./ii-prodavec-podbor-tovara-po-katalogu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-prodavec-podbor-tovara-po-katalogu-2026/)
 - [Бот поздравит клиента с бонусом, а вы не помните ни одной даты](./avtopovody-pozdravleniya-bonusy-klientam-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avtopovody-pozdravleniya-bonusy-klientam-2026/)
@@ -1482,6 +1500,11 @@
 
 ## Право и 152-ФЗ
 
+- [168-ФЗ и ваш сайт: что проверить в интерфейсе, приложении и боте](./zakon-o-russkom-yazyke-168-fz-sayt-prilozhenie-bot-chto-proverit-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zakon-o-russkom-yazyke-168-fz-sayt-prilozhenie-bot-chto-proverit-2026/)
+- [Sale, coffee, open: что с меню, прайсом и карточками товаров](./zakon-o-russkom-yazyke-menyu-prays-kartochki-tovarov-vyveska-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zakon-o-russkom-yazyke-menyu-prays-kartochki-tovarov-vyveska-2026/)
+- [Бренд на латинице с 1 марта 2026: что оставить, не потеряв поиск](./brend-na-latinice-tovarnyy-znak-zakon-o-russkom-yazyke-poisk-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/brend-na-latinice-tovarnyy-znak-zakon-o-russkom-yazyke-poisk-2026/)
+- [Закон об ИИ № 243-ФЗ: что он требует от бизнеса с ботом](./zakon-ob-ii-243-fz-chto-znachit-dlya-malogo-biznesa-s-botom-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zakon-ob-ii-243-fz-chto-znachit-dlya-malogo-biznesa-s-botom-2026/)
+- [Маркировка ИИ-контента: что обязательно, что добровольно в 2026](./markirovka-ii-kontenta-chto-obyazatelno-i-dobrovolno-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/markirovka-ii-kontenta-chto-obyazatelno-i-dobrovolno-2026/)
 - [Банк запросил документы по 115-ФЗ: пакет и пояснение за час](./blokirovka-po-115-fz-paket-dokumentov-i-poyasnenie-banku-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/blokirovka-po-115-fz-paket-dokumentov-i-poyasnenie-banku-2026/)
 - [Бот ошибся в цене или сроке: кто отвечает перед клиентом](./otvetstvennost-za-oshibku-ii-bota-pered-klientom-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/otvetstvennost-za-oshibku-ii-bota-pered-klientom-2026/)
 - [Сколько хранить данные клиентов и когда их удалять по 152-ФЗ](./srok-hraneniya-dannyh-klientov-kogda-udalyat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/srok-hraneniya-dannyh-klientov-kogda-udalyat-2026/)
@@ -1698,6 +1721,12 @@
 
 ## Разработка
 
+- [Абонементы в таблице? GYM One для фитнес-клуба на своём сервере](./gym-one-upravlenie-fitnes-klubom-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gym-one-upravlenie-fitnes-klubom-na-svoem-servere-2026/)
+- [MicroRealEstate: учёт аренды на своём сервере, но с оговоркой](./microrealestate-uchet-arendy-nedvizhimosti-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/microrealestate-uchet-arendy-nedvizhimosti-na-svoem-servere-2026/)
+- [Duplicacy: копии с дедупликацией и лицензия, которую не читают](./duplicacy-rezervnye-kopii-s-deduplikaciey-i-licenziya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/duplicacy-rezervnye-kopii-s-deduplikaciey-i-licenziya-2026/)
+- [Одна защищённая дверь в сервер офиса вместо пяти паролей](./cosmos-zashchishchennyy-shlyuz-dlya-prilozheniy-na-servere-ofisa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/cosmos-zashchishchennyy-shlyuz-dlya-prilozheniy-na-servere-ofisa-2026/)
+- [Telegram Bot API 10: что реально полезно для бизнес-ботов](./telegram-bot-api-10-novye-vozmozhnosti-dlya-biznes-botov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/telegram-bot-api-10-novye-vozmozhnosti-dlya-biznes-botov-2026/)
+- [Mini App в Telegram: что проверить после защиты 20 июля](./telegram-mini-app-obyazatelnaya-domennaya-zashchita-chto-proverit-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/telegram-mini-app-obyazatelnaya-domennaya-zashchita-chto-proverit-2026/)
 - [Ozon FBS с 6 октября: индекс ошибок и платная приёмка](./ozon-fbs-s-6-oktyabrya-indeks-oshibok-platnaya-priemka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ozon-fbs-s-6-oktyabrya-indeks-oshibok-platnaya-priemka-2026/)
 - [Что лежит на складах маркетплейса: снимок остатков и акты](./ostatki-na-skladah-marketpleysa-ezhednevnyy-snimok-sverka-aktov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ostatki-na-skladah-marketpleysa-ezhednevnyy-snimok-sverka-aktov-2026/)
 - [Эвотор и сайт: остатки, чеки коррекции и карта лояльности](./evotor-i-sayt-ostatki-cheki-korrekcii-karta-loyalnosti-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/evotor-i-sayt-ostatki-cheki-korrekcii-karta-loyalnosti-2026/)
@@ -2141,6 +2170,7 @@
 
 ## Экспертное
 
+- [Живая расшифровка встреч от Microsoft: нужна ли бизнесу](./zhivaya-rasshifrovka-vstrech-mai-transcribe-2-streaming-nuzhna-li-biznesu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zhivaya-rasshifrovka-vstrech-mai-transcribe-2-streaming-nuzhna-li-biznesu-2026/)
 - [Звонки клиентам в WhatsApp и Telegram ограничены: чем заменить](./zvonki-klientam-posle-ogranicheniya-whatsapp-telegram-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zvonki-klientam-posle-ogranicheniya-whatsapp-telegram-2026/)
 - [Покупатель-ИИ: Алиса уже бронирует, готов ли ваш каталог](./pokupatel-ii-agent-zakazyvaet-za-cheloveka-gotov-li-katalog-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pokupatel-ii-agent-zakazyvaet-za-cheloveka-gotov-li-katalog-2026/)
 - [62% и 33% у одной модели: чужой бенчмарк не про ваш процесс](./benchmark-ne-pro-vash-process-obvyazka-ii-test-na-30-voprosah-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/benchmark-ne-pro-vash-process-obvyazka-ii-test-na-30-voprosah-2026/)
