@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "kofe-s-soboy-mini-tochka-s-nulya-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-coffee",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/business-automation/", label: "Касса, учёт и отчёты для точки" },
+  title: "Кофе с собой: как открыть мини-точку и не переплатить",
+  metaTitle: "Кофе с собой: как открыть мини-точку с нуля в 2026",
+  metaDescription: "Как открыть точку кофе с собой: форматы, место, СанПиН с 1 сентября 2026, касса, поставщики и бюджет по статьям. Где новички теряют деньги.",
+  excerpt: "Окно, киоск или островок в торговом центре: что от формата зависит, какие правила общепита действуют с 1 сентября 2026 и где ломаются новички. Нормы сверены по текстам актов на 4 октября 2026, что не проверено, помечено.",
+  tags: ["старт бизнеса", "кофе с собой", "общепит", "мини-кофейня"],
+  toc: [
+    { id: "komu-podhodit", text: "Кому подходит и кому нет" },
+    { id: "7-shagov", text: "С чего начать: 7 шагов" },
+    { id: "byudzhet", text: "Из чего складывается стартовый бюджет" },
+    { id: "nalogi", text: "Регистрация, налоги и разрешения" },
+    { id: "oshibki", text: "Где новички теряют деньги" },
+    { id: "avtomatizaciya", text: "Где здесь нужна автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["skolko-zarabatyvaet-kofeynya-s-soboy-2026", "keysy-cifrovizacii-kofeen-2026", "elektronnoe-qr-menyu-dlya-kafe-2026", "it-dlya-kofeyni-obshchepita-2026"],
+};

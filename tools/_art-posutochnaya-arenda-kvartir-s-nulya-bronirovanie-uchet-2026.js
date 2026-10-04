@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "posutochnaya-arenda-kvartir-s-nulya-bronirovanie-uchet-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-calendar-check",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/telegram-bots/", label: "Бот для гостей и календарь броней" },
+  title: "Посуточная аренда с нуля: как стартовать и не запутаться в бронях",
+  metaTitle: "Посуточная аренда квартир с нуля: правила, налоги, брони",
+  metaDescription: "Как начать сдавать квартиру посуточно: что говорит закон про соседей и гостей, какой налоговый статус выбрать и как не допустить двойных броней.",
+  excerpt: "Посуточная сдача квартиры остаётся наймом жилья, но у неё есть правила для многоквартирных домов, налоги и учёт иностранных гостей. Разбираем, с чего начать, что проверено по первоисточникам, где новички путают брони и теряют деньги.",
+  tags: ["старт бизнеса","посуточная аренда","учёт броней","налоги самозанятого"],
+  toc: [
+    { id: "komu-podhodit", text: "Кому подходит и кому нет" },
+    { id: "sem-shagov", text: "С чего начать: 7 шагов" },
+    { id: "byudzhet", text: "Из чего складывается стартовый бюджет" },
+    { id: "pravila-nalogi", text: "Правила, налоги и регистрация гостей" },
+    { id: "gde-teryayut", text: "Где новички теряют деньги" },
+    { id: "avtomatizaciya", text: "Где здесь нужна автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["posutochnaya-arenda-bez-komissii-2026","skolko-zarabatyvaet-posutochnaya-kvartira-2026","programma-dlya-upravleniya-arendoy-2026","biznes-plan-za-vecher-kalkulyator-2026"],
+};
