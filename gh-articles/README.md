@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2247**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2257**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -635,6 +635,16 @@
 
 ## Бизнес-кругозор
 
+- [Как выбрать нишу и проверить идею за 2 недели до вложений](./kak-vybrat-nishu-i-proverit-ideyu-za-2-nedeli-do-vlozheniy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-vybrat-nishu-i-proverit-ideyu-za-2-nedeli-do-vlozheniy-2026/)
+- [Что сделать до первой продажи: регистрация, счёт, касса, учёт](./chto-sdelat-do-pervoy-prodazhi-registraciya-schet-kassa-uchet-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chto-sdelat-do-pervoy-prodazhi-registraciya-schet-kassa-uchet-2026/)
+- [Как открыть пункт выдачи маркетплейса с нуля и где риски](./kak-otkryt-punkt-vydachi-zakazov-marketpleysa-s-nulya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-otkryt-punkt-vydachi-zakazov-marketpleysa-s-nulya-2026/)
+- [Студия красоты на 2-3 мастера: с чего начать и не потерять клиентов](./studiya-krasoty-na-2-3-mastera-s-chego-nachat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/studiya-krasoty-na-2-3-mastera-s-chego-nachat-2026/)
+- [Кофе с собой: как открыть мини-точку и не переплатить](./kofe-s-soboy-mini-tochka-s-nulya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kofe-s-soboy-mini-tochka-s-nulya-2026/)
+- [Посуточная аренда с нуля: как стартовать и не запутаться в бронях](./posutochnaya-arenda-kvartir-s-nulya-bronirovanie-uchet-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/posutochnaya-arenda-kvartir-s-nulya-bronirovanie-uchet-2026/)
+- [Прокат оборудования с нуля: залог, договор и учёт](./prokat-i-arenda-oborudovaniya-s-nulya-zalog-dogovory-uchet-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/prokat-i-arenda-oborudovaniya-s-nulya-zalog-dogovory-uchet-2026/)
+- [Клининг с нуля: бригады, заказы и акты, где теряют деньги](./klining-s-nulya-brigady-zakazy-akty-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/klining-s-nulya-brigady-zakazy-akty-2026/)
+- [Мини-производство на заказ с нуля: мебель, пошив, 3D-печать](./mini-proizvodstvo-na-zakaz-s-nulya-mebel-poshiv-3d-pechat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/mini-proizvodstvo-na-zakaz-s-nulya-mebel-poshiv-3d-pechat-2026/)
+- [Нишевый интернет-магазин без склада: старт с одной категории](./nishevyy-internet-magazin-bez-sklada-s-nulya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nishevyy-internet-magazin-bez-sklada-s-nulya-2026/)
 - [Сервис лёг, а клиенты идут: бумажный план Б для записи](./servis-leg-plan-b-zapis-zakazy-na-bumage-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/servis-leg-plan-b-zapis-zakazy-na-bumage-2026/)
 - [ИИ-аудит процессов: три самые дорогие рутины за неделю](./ii-audit-processov-tri-dorogie-rutiny-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-audit-processov-tri-dorogie-rutiny-2026/)
 - [Кассовый разрыв: как увидеть дыру в деньгах за месяц вперёд](./kassovyy-razryv-prognoz-deneg-90-dney-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kassovyy-razryv-prognoz-deneg-90-dney-2026/)
