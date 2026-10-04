@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2297**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2307**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -671,6 +671,16 @@
 - [Фотостудия и аренда зала с нуля: бронь, предоплата, правила](./fotostudiya-i-arenda-zala-s-nulya-pochasovaya-bron-predoplata-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/fotostudiya-i-arenda-zala-s-nulya-pochasovaya-bron-predoplata-2026/)
 - [Вендинг с нуля: автоматы с кофе и снеками, точки, касса](./vending-avtomaty-kofe-i-snekov-s-nulya-tochki-kassa-uchet-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vending-avtomaty-kofe-i-snekov-s-nulya-tochki-kassa-uchet-2026/)
 - [Мастерская по ремонту с нуля: приёмка, гарантия, статусы заказа](./masterskaya-remonta-tehniki-odezhdy-obuvi-s-nulya-priem-garantii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/masterskaya-remonta-tehniki-odezhdy-obuvi-s-nulya-priem-garantii-2026/)
+- [Мини-пекарня с точкой продаж с нуля: помещение, Меркурий, касса](./mini-pekarnya-s-tochkoy-prodazh-s-nulya-pomeshchenie-merkuriy-kassa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/mini-pekarnya-s-tochkoy-prodazh-s-nulya-pomeshchenie-merkuriy-kassa-2026/)
+- [Автосервис и шиномонтаж с нуля: заказ-наряд, гарантия, отходы](./avtoservis-i-shinomontazh-s-nulya-zakaz-naryad-garantiya-otkhody-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avtoservis-i-shinomontazh-s-nulya-zakaz-naryad-garantiya-otkhody-2026/)
+- [Груминг-салон и зоогостиница с нуля: договор, правила, запись](./grooming-salon-i-zoogostinica-s-nulya-dogovor-veterinarnye-pravila-zapis-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/grooming-salon-i-zoogostinica-s-nulya-dogovor-veterinarnye-pravila-zapis-2026/)
+- [Студия йоги или танцев с нуля: зал, абонементы и расписание](./studiya-yogi-i-tancev-s-nulya-zal-abonementy-raspisanie-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/studiya-yogi-i-tancev-s-nulya-zal-abonementy-raspisanie-2026/)
+- [Доставка обедов в офисы с нуля: санитария и предзаказ](./dostavka-domashnih-obedov-v-ofisy-s-nulya-sanitariya-predzakaz-marshruty-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/dostavka-domashnih-obedov-v-ofisy-s-nulya-sanitariya-predzakaz-marshruty-2026/)
+- [Цветочный бутик и доставка букетов с нуля: закупка и предзаказ](./cvetochnyy-butik-i-dostavka-buketov-s-nulya-zakupka-spisaniya-predzakaz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/cvetochnyy-butik-i-dostavka-buketov-s-nulya-zakupka-spisaniya-predzakaz-2026/)
+- [Прачечная самообслуживания с нуля: оборудование, стоки и касса](./pralechnaya-samoobsluzhivaniya-s-nulya-oborudovanie-stoki-kassa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pralechnaya-samoobsluzhivaniya-s-nulya-oborudovanie-stoki-kassa-2026/)
+- [Организатор свадеб и мероприятий с нуля: договор, смета, предоплаты](./organizator-svadeb-i-meropriyatiy-s-nulya-dogovor-smeta-predoplaty-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/organizator-svadeb-i-meropriyatiy-s-nulya-dogovor-smeta-predoplaty-2026/)
+- [Монтаж кондиционеров с нуля: допуски, гарантия и заявки](./montazh-kondicionerov-s-nulya-dopuski-garantiya-zayavki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/montazh-kondicionerov-s-nulya-dopuski-garantiya-zayavki-2026/)
+- [Ферма с доставкой по подписке: ветдокументы и Меркурий](./kraftovaya-ferma-s-dostavkoy-po-podpiske-s-nulya-veterinarnye-dokumenty-merkuriy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kraftovaya-ferma-s-dostavkoy-po-podpiske-s-nulya-veterinarnye-dokumenty-merkuriy-2026/)
 - [Сервис лёг, а клиенты идут: бумажный план Б для записи](./servis-leg-plan-b-zapis-zakazy-na-bumage-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/servis-leg-plan-b-zapis-zakazy-na-bumage-2026/)
 - [ИИ-аудит процессов: три самые дорогие рутины за неделю](./ii-audit-processov-tri-dorogie-rutiny-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-audit-processov-tri-dorogie-rutiny-2026/)
 - [Кассовый разрыв: как увидеть дыру в деньгах за месяц вперёд](./kassovyy-razryv-prognoz-deneg-90-dney-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kassovyy-razryv-prognoz-deneg-90-dney-2026/)
