@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "pervyy-sotrudnik-tk-gph-ili-samozanyatyy-stoimost-oshibki-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-user-plus",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/business-automation/", label: "Учёт задач и часов сотрудника" },
+  title: "Первый сотрудник: ТК, ГПХ или самозанятый, цена и ошибки",
+  metaTitle: "Первый сотрудник: ТК, ГПХ или самозанятый, стоимость",
+  metaDescription: "Как оформить первого сотрудника: трудовой договор, ГПХ или самозанятый, документы, полная стоимость человека с НДФЛ и взносами и типичные ошибки.",
+  excerpt: "Разбираю три способа оформить первого человека в команду: трудовой договор, ГПХ и самозанятого. Показываю, как посчитать полную стоимость сотрудника на условных числах, какие документы нужны и где ГПХ превращается в трудовые отношения. Что не проверял, помечено в тексте.",
+  tags: ["предпринимателям", "первый сотрудник", "ГПХ и трудовой договор", "стоимость сотрудника"],
+  toc: [
+    { id: "komu-nuzhno", text: "Кому и когда это нужно" },
+    { id: "shagi", text: "Как это делается: 6 шагов" },
+    { id: "stoimost", text: "Из чего складывается стоимость человека" },
+    { id: "zakony", text: "Законы и документы" },
+    { id: "oshibki", text: "Где ошибаются чаще всего" },
+    { id: "avtomatizaciya", text: "Где здесь поможет автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["chek-listy-dlya-sotrudnikov-v-bote-2026", "offboarding-uvolnennogo-sotrudnika-dostupy-2026", "vremennye-sotrudniki-sezon-2026", "samozanyatyy-ili-ip-2026"],
+};

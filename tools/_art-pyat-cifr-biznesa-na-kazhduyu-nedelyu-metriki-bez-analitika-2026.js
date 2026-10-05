@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "pyat-cifr-biznesa-na-kazhduyu-nedelyu-metriki-bez-analitika-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-chart-line-up",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/ai-analytics/", label: "Недельная сводка цифр в мессенджер" },
+  title: "Метрики малого бизнеса: 5 цифр, формулы и пороги тревоги",
+  metaTitle: "Метрики малого бизнеса: 5 цифр, формулы, пороги",
+  metaDescription: "Минимум из пяти цифр для владельца без аналитика: формулы, источники данных, пороги тревоги и ритуал на 15 минут по пятницам с записью решения.",
+  excerpt: "Предлагаю минимум из пяти цифр, которые можно собрать без аналитика: выручка и поступления, свободные деньги, заявки и оплаты, маржа и одна клиентская цифра. Для каждой даю формулу, источник и условный порог, а также ритуал на 15 минут в неделю.",
+  tags: ["предпринимателям", "метрики бизнеса", "недельная сводка", "управленческий учёт"],
+  toc: [
+    { id: "komu-nuzhno", text: "Кому и когда это нужно" },
+    { id: "kak-eto-delaetsya", text: "Как это делается: 6 шагов" },
+    { id: "pyat-cifr", text: "Пять цифр: формулы, источники, пороги" },
+    { id: "ritual", text: "Ритуал на 15 минут по пятницам и журнал" },
+    { id: "oshibki", text: "Где ошибаются чаще всего" },
+    { id: "avtomatizaciya", text: "Где здесь поможет автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["pyat-cifr-vladeltsu-kazhduyu-nedelyu-2026", "kpi-chto-eto-kak-stavit-2026", "upravlencheskiy-uchet-malyy-biznes-2026", "ltv-cac-2026"],
+};

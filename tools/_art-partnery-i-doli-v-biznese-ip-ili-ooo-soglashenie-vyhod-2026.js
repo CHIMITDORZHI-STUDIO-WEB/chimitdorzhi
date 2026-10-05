@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "partnery-i-doli-v-biznese-ip-ili-ooo-soglashenie-vyhod-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-handshake",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/business-automation/", label: "Учёт вкладов и отчёты партнёрам" },
+  title: "Партнёры и доли в бизнесе: ИП или ООО, соглашение, выход",
+  metaTitle: "Партнёры и доли: ИП или ООО, соглашение, выход",
+  metaDescription: "Как оформить партнёрство до первых денег: ИП с договором, простое товарищество или ООО, что записать в соглашении, как делить решения и выходить.",
+  excerpt: "Разбираю, как двоим-троим оформить совместный бизнес до первой выручки: форму, соглашение с вкладами, ролями, вестингом и правилами выхода. Сверено с текстом ГК РФ и закона об ООО. Налог на дивиденды на 2026 год не подтверждён, это помечено в тексте.",
+  tags: ["предпринимателям", "партнёры и доли", "ИП или ООО", "соглашение партнёров"],
+  toc: [
+    { id: "komu-nuzhno", text: "Кому и когда это нужно" },
+    { id: "shagi", text: "Как оформить партнёрство: 4 шага" },
+    { id: "formy", text: "Три формы: управление, выход, риски" },
+    { id: "zakony", text: "Законы и документы" },
+    { id: "oshibki", text: "Где ошибаются чаще всего" },
+    { id: "avtomatizaciya", text: "Где здесь поможет автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["samozanyatyy-ili-ip-2026", "patent-ili-usn-dlya-ip-2026", "kak-otkryt-svoyu-franshizu-2026", "chto-sdelat-do-pervoy-prodazhi-registraciya-schet-kassa-uchet-2026"],
+};

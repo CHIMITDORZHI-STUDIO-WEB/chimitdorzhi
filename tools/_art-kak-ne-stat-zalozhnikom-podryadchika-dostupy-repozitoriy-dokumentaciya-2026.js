@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "kak-ne-stat-zalozhnikom-podryadchika-dostupy-repozitoriy-dokumentaciya-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-key",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/it-audit/", label: "Аудит передачи доступов и кода" },
+  title: "Как не стать заложником подрядчика: доступы и документация",
+  metaTitle: "Как не стать заложником подрядчика: чек-лист доступов",
+  metaDescription: "Что должно лежать у владельца, чтобы смена подрядчика не остановила бизнес: домен, сервер, репозиторий, ключи, документация, копии и контрольный тест.",
+  excerpt: "Разбираю чек-лист «кому принадлежит»: домен, сервер, репозиторий, секреты, бот, копии и мониторинг. Даю девять шагов, контрольный тест «развернуть с нуля по README» и список на день ухода подрядчика. Пишу как подрядчик, который сам советует заказчику требовать этого.",
+  tags: ["предпринимателям", "подрядчик и доступы", "документация и бэкапы", "передача проекта"],
+  toc: [
+    { id: "komu", text: "Кому и когда это нужно" },
+    { id: "shagi", text: "Как это делается: 9 шагов" },
+    { id: "tablica", text: "Чек-лист «кому принадлежит»" },
+    { id: "zakony", text: "Законы и документы" },
+    { id: "oshibki", text: "Где ошибаются чаще всего" },
+    { id: "avtomatizaciya", text: "Где здесь поможет автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["bus-factor-vsyo-v-golove-odnogo-2026", "kak-prinyat-sayt-u-podryadchika-2026", "offboarding-uvolnennogo-sotrudnika-dostupy-2026", "otkazoustoychivost-monitoring-bekapy-2026"],
+};

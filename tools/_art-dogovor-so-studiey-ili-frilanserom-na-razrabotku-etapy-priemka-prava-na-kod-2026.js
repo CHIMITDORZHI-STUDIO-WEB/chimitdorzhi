@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "dogovor-so-studiey-ili-frilanserom-na-razrabotku-etapy-priemka-prava-na-kod-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-signature",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/web-development/", label: "Разработка по договору с этапами" },
+  title: "Кому принадлежит код: права по договору с разработчиком",
+  metaTitle: "Права на код: лицензия или отчуждение в договоре",
+  metaDescription: "Кому достанется код, если заказать разработку у студии или фрилансера: подряд или услуги, отчуждение или лицензия, акт приёмки, исходники, неустойка.",
+  excerpt: "Разбираю договор на разработку сайта, бота или системы: подряд или услуги, этапы и акты, права на код по ГК РФ, исходники и доступы, неустойка. Дан список пунктов с идеями формулировок, не готовый шаблон.",
+  tags: ["предпринимателям", "договор на разработку", "права на код", "приёмка работ"],
+  toc: [
+    { id: "komu-nuzhno", text: "Кому и когда это нужно" },
+    { id: "kak-delaetsya", text: "Как это делается: 7 шагов" },
+    { id: "tablica", text: "Из чего складывается договор: пункты и формулировки" },
+    { id: "zakony", text: "Законы и документы" },
+    { id: "oshibki", text: "Где ошибаются чаще всего" },
+    { id: "avtomatizaciya", text: "Где здесь поможет автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["dogovor-na-razrabotku-chek-list-punktov-2026", "priemka-raboty-podryadchika-2026", "oplata-etapami-chestnee-predoplaty-2026", "nanyat-programmista-ili-pod-klyuch-2026"],
+};

@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "intervyu-s-klientami-do-razrabotki-10-voprosov-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-chats-teardrop",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/telegram-bots/", label: "Прототип бота под проверку спроса" },
+  title: "Интервью с клиентами до разработки: 10 вопросов, которые не врут",
+  metaTitle: "Интервью с клиентами до разработки: 10 вопросов",
+  metaDescription: "Как поговорить с 5-10 людьми до заказа бота или сайта: кого звать, 10 вопросов о прошлом, таблица ответов, сигналы спроса и запись разговоров по 152-ФЗ.",
+  excerpt: "Разбираю, как до разработки поговорить с будущими клиентами и понять, платит ли кто-то за решение. Кого звать, какие десять вопросов задавать, чего не спрашивать, как вести таблицу и что делать дальше: лендинг, бот-прототип или ручной сервис.",
+  tags: ["стартапу", "интервью с клиентами", "проверка спроса", "прототип"],
+  toc: [
+    { id: "komu-i-kogda", text: "Кому и когда это нужно" },
+    { id: "shagi", text: "Как это делается: 7 шагов" },
+    { id: "tablica", text: "Что записывать и как читать ответы" },
+    { id: "instrumenty", text: "Инструменты и шаблоны" },
+    { id: "oshibki", text: "Где ошибаются чаще всего" },
+    { id: "avtomatizaciya", text: "Где здесь поможет автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["kak-vybrat-nishu-i-proverit-ideyu-za-2-nedeli-do-vlozheniy-2026", "mvp-luchshe-idealnogo-produkta-2026", "pilotnyy-proekt-2-nedeli-2026", "kak-sostavit-tz-na-sayt-bot-2026"],
+};
