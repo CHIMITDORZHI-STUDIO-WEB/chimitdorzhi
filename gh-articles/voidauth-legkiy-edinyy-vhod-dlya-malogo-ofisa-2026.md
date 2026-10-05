@@ -1,6 +1,6 @@
 ---
 title: "VoidAuth: один вход вместо пяти паролей в офисе"
-description: "VoidAuth: открытый сервер единого входа (SSO) для CRM, облака и вики. Docker, OIDC, Passkeys, приглашения. Что умеет, где слабее Keycloak и как не потерять доступ."
+description: "VoidAuth: открытый сервер единого входа (SSO) для CRM, облака и вики. Docker, OIDC, Passkeys. Что умеет, где слабее Keycloak и как не потерять доступ."
 date: 2026-10-04
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/voidauth-legkiy-edinyy-vhod-dlya-malogo-ofisa-2026/
