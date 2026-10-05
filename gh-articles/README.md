@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2326**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2336**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -665,6 +665,16 @@
 
 ## Бизнес-кругозор
 
+- [Первые 10 клиентов без рекламного бюджета: список, пилот](./pervye-10-klientov-bez-reklamnogo-byudzheta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pervye-10-klientov-bez-reklamnogo-byudzheta-2026/)
+- [Кому принадлежит код: права по договору с разработчиком](./dogovor-so-studiey-ili-frilanserom-na-razrabotku-etapy-priemka-prava-na-kod-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/dogovor-so-studiey-ili-frilanserom-na-razrabotku-etapy-priemka-prava-na-kod-2026/)
+- [Как не стать заложником подрядчика: доступы и документация](./kak-ne-stat-zalozhnikom-podryadchika-dostupy-repozitoriy-dokumentaciya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-ne-stat-zalozhnikom-podryadchika-dostupy-repozitoriy-dokumentaciya-2026/)
+- [Партнёры и доли в бизнесе: ИП или ООО, соглашение, выход](./partnery-i-doli-v-biznese-ip-ili-ooo-soglashenie-vyhod-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/partnery-i-doli-v-biznese-ip-ili-ooo-soglashenie-vyhod-2026/)
+- [Первый сотрудник: ТК, ГПХ или самозанятый, цена и ошибки](./pervyy-sotrudnik-tk-gph-ili-samozanyatyy-stoimost-oshibki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pervyy-sotrudnik-tk-gph-ili-samozanyatyy-stoimost-oshibki-2026/)
+- [Интервью с клиентами до разработки: 10 вопросов, которые не врут](./intervyu-s-klientami-do-razrabotki-10-voprosov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/intervyu-s-klientami-do-razrabotki-10-voprosov-2026/)
+- [Регламенты за неделю: бизнес, который идёт без владельца](./reglamenty-za-nedelyu-biznes-bez-vladeltsa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/reglamenty-za-nedelyu-biznes-bez-vladeltsa-2026/)
+- [Как назвать цену услуге: подписка или разовая оплата, пакеты](./kak-nazvat-cenu-produktu-ili-usluge-podpiska-ili-razovo-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-nazvat-cenu-produktu-ili-usluge-podpiska-ili-razovo-2026/)
+- [Продажа в переписке: от заявки до оплаты и возражения](./prodazha-v-perepiske-ot-zayavki-do-oplaty-vozrazheniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/prodazha-v-perepiske-ot-zayavki-do-oplaty-vozrazheniya-2026/)
+- [Метрики малого бизнеса: 5 цифр, формулы и пороги тревоги](./pyat-cifr-biznesa-na-kazhduyu-nedelyu-metriki-bez-analitika-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pyat-cifr-biznesa-na-kazhduyu-nedelyu-metriki-bez-analitika-2026/)
 - [Как выбрать нишу и проверить идею за 2 недели до вложений](./kak-vybrat-nishu-i-proverit-ideyu-za-2-nedeli-do-vlozheniy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-vybrat-nishu-i-proverit-ideyu-za-2-nedeli-do-vlozheniy-2026/)
 - [Что сделать до первой продажи: регистрация, счёт, касса, учёт](./chto-sdelat-do-pervoy-prodazhi-registraciya-schet-kassa-uchet-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chto-sdelat-do-pervoy-prodazhi-registraciya-schet-kassa-uchet-2026/)
 - [Как открыть пункт выдачи маркетплейса с нуля и где риски](./kak-otkryt-punkt-vydachi-zakazov-marketpleysa-s-nulya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-otkryt-punkt-vydachi-zakazov-marketpleysa-s-nulya-2026/)
