@@ -132,7 +132,7 @@ module.exports = [
   E({ slug: "voidauth-legkiy-edinyy-vhod-dlya-malogo-ofisa-2026", category: "opensource", heroIcon: "ph-fill ph-key", ctaInternal: { url: "https://chimitdorzhi.tech/services/it-infrastructure/", label: "ИТ-инфраструктура под ключ" },
     title: "VoidAuth: один вход вместо пяти паролей в офисе",
     metaTitle: "VoidAuth: единый вход для малого офиса без Keycloak",
-    metaDescription: "VoidAuth: открытый сервер единого входа (SSO) для CRM, облака и вики. Docker, OIDC, Passkeys, приглашения. Что умеет, где слабее Keycloak и как не потерять доступ.",
+    metaDescription: "VoidAuth: открытый сервер единого входа (SSO) для CRM, облака и вики. Docker, OIDC, Passkeys. Что умеет, где слабее Keycloak и как не потерять доступ.",
     excerpt: "VoidAuth дает один логин для CRM, облака, вики и трекера и позволяет отключать уволенного сотрудника в одном месте. Разбираем, как он ставится, какие приложения подключаются и почему он не заменяет Keycloak для крупной компании.",
     tags: ["SSO","VoidAuth","единый вход","самохостинг"],
     toc: [
