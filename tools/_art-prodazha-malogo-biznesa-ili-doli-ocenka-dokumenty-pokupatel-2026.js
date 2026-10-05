@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "prodazha-malogo-biznesa-ili-doli-ocenka-dokumenty-pokupatel-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-storefront",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/business-automation/", label: "Выгрузки и показатели для покупателя" },
+  title: "Как продать кафе, студию или долю: документы и взгляд покупателя",
+  metaTitle: "Продать кафе, студию или долю: что готовить к сделке",
+  metaDescription: "Что продаётся при продаже ИП и ООО, как прикинуть прибыль владельца, какие документы положить в папку покупателя и где продавцы теряют сделку.",
+  excerpt: "Разбираю, как подготовить обычный офлайн-бизнес или долю к продаже: что именно продаётся, как посчитать прибыль владельца без чужих коэффициентов, какие документы нужны покупателю. Нормы ГК и закона об ООО сверены, налоговую часть и текст ст. 21 я полностью не подтвердил, это помечено.",
+  tags: ["предпринимателям", "продажа бизнеса", "доля в ООО", "документы для покупателя"],
+  toc: [
+    { id: "komu-nuzhno", text: "Кому и когда это нужно" },
+    { id: "shagi", text: "Как подготовить дело к продаже: 7 шагов" },
+    { id: "dokumenty", text: "Что готовить и что смотрит покупатель" },
+    { id: "zakony", text: "Законы и документы" },
+    { id: "oshibki", text: "Где ошибаются чаще всего" },
+    { id: "avtomatizaciya", text: "Где здесь поможет автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["ocenka-i-prodazha-biznesa-cifrovye-aktivy-2026", "kupit-gotovyy-biznes-proverka-it-2026", "partnery-i-doli-v-biznese-ip-ili-ooo-soglashenie-vyhod-2026", "reglamenty-za-nedelyu-biznes-bez-vladeltsa-2026"],
+};

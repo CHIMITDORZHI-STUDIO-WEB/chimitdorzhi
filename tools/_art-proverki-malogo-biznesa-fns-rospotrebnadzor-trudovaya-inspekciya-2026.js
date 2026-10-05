@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "proverki-malogo-biznesa-fns-rospotrebnadzor-trudovaya-inspekciya-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-clipboard-text",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/business-automation/", label: "Цифровая папка и напоминания о сроках" },
+  title: "Кто может прийти с проверкой к ИП и что должно лежать на столе",
+  metaTitle: "Проверки ИП и малого бизнеса: кто придёт и что показать",
+  metaDescription: "Какие контролёры приходят к малому бизнесу, что меняет мораторий до 2030 года, какие документы держать под рукой и как вести себя при визите.",
+  excerpt: "Разбираю, кто проверяет ИП и малый бизнес: налоговая по кассе, Роспотребнадзор, трудовая инспекция, пожарный надзор. Что проверено по закону 248-ФЗ и постановлению № 336, какая папка и какие сроки нужны и как вести себя при визите. Не юридическая консультация.",
+  tags: ["предпринимателям", "проверки бизнеса", "документы и сроки", "малый бизнес"],
+  toc: [
+    { id: "komu-nuzhno", text: "Кому и когда это нужно" },
+    { id: "kto-prihodit", text: "Кто приходит и что смотрит" },
+    { id: "shagi", text: "Как это делается: 7 шагов" },
+    { id: "zakony", text: "Законы и документы" },
+    { id: "oshibki", text: "Где ошибаются чаще всего" },
+    { id: "avtomatizaciya", text: "Где здесь поможет автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["ohrana-truda-dokumenty-2026", "onlayn-kassa-54-fz-2026", "napominaniya-o-srokah-dokumentov-i-oborudovaniya-2026", "pervyy-sotrudnik-tk-gph-ili-samozanyatyy-stoimost-oshibki-2026"],
+};

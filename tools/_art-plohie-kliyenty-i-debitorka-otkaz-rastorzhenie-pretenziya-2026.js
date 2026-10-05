@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "plohie-kliyenty-i-debitorka-otkaz-rastorzhenie-pretenziya-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-scales",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/business-automation/", label: "Учёт оплат и статусы по договору" },
+  title: "Клиент не платит и срывает работу: напоминание, претензия, расторжение",
+  metaTitle: "Клиент не платит: что делать, претензия и расторжение",
+  metaDescription: "Клиент задерживает оплату или меняет требования: ранние признаки, этапы и акты, напоминание, претензия, приостановка, расторжение и суд как крайний шаг.",
+  excerpt: "Разбираю с позиции исполнителя, как работать с неплатящим и трудным клиентом: что заметить до договора, как этапы и акты ограничивают потери, в каком порядке напоминать, писать претензию и расторгать. Нормы читал по текстам кодексов, спорные места отдаю юристу.",
+  tags: ["предпринимателям", "дебиторка", "претензия", "расторжение договора"],
+  toc: [
+    { id: "komu-nuzhno", text: "Кому и когда это нужно" },
+    { id: "shagi", text: "Как это делается: 7 шагов" },
+    { id: "tablica", text: "Что делать в каждой ситуации" },
+    { id: "zakony", text: "Законы и документы" },
+    { id: "oshibki", text: "Где ошибаются чаще всего" },
+    { id: "avtomatizaciya", text: "Где здесь поможет автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["napominaniya-klientam-ob-oplate-2026", "debitorka-iz-1c-napominaniya-dolzhnikam-2026", "oplata-etapami-chestnee-predoplaty-2026", "fiksaciya-dogovorennostey-iz-perepiski-2026"],
+};

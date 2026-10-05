@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "oborudovanie-lizing-ili-svoi-dengi-kak-sravnit-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-scales",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/business-automation/", label: "Таблица расчёта и учёт оборудования" },
+  title: "Станок или машина: лизинг, кредит или свои деньги, как сравнить",
+  metaTitle: "Лизинг, кредит или свои деньги: таблица сравнения",
+  metaDescription: "Как сравнить лизинг, кредит и свои деньги при покупке оборудования: сумма всех платежей, остаток денег по месяцам, цена выхода и вопросы к договору.",
+  excerpt: "Разбираю метод сравнения трёх способов купить станок, печь или машину: сумма всех платежей за срок, переплата, остаток денег и цена выхода. Условия лизинга сверил с 164-ФЗ и ГК, налоги оставил вопросами к бухгалтеру. Цифры в примере условные.",
+  tags: ["предпринимателям", "лизинг оборудования", "покупка оборудования", "расчёт платежей"],
+  toc: [
+    { id: "komu", text: "Кому и когда это нужно" },
+    { id: "shagi", text: "Как сравнить: 6 шагов" },
+    { id: "varianty", text: "Что платите и что получаете" },
+    { id: "zakony", text: "Законы и документы" },
+    { id: "oshibki", text: "Где ошибаются чаще всего" },
+    { id: "avtomatizaciya", text: "Где здесь поможет автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["kredity-i-lgoty-dlya-biznesa-2026", "kassovyy-razryv-prognoz-deneg-90-dney-2026", "capex-opex-prostymi-slovami-2026", "biznes-plan-za-vecher-kalkulyator-2026"],
+};
