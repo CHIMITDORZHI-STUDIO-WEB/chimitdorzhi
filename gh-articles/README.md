@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2345**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2355**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -1010,6 +1010,7 @@
 
 ## Маркетинг
 
+- [Где теряются заявки: Rybbit покажет воронку и запишет сессии](./rybbit-veb-analitika-s-voronkami-i-zapisyu-sessiy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/rybbit-veb-analitika-s-voronkami-i-zapisyu-sessiy-2026/)
 - [Фото товара в нужной сцене без студии: FLUX 3 Image и граница обмана](./flux-3-image-foto-tovara-v-nuzhnoy-scene-bez-studii-granica-obmana-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/flux-3-image-foto-tovara-v-nuzhnoy-scene-bez-studii-granica-obmana-2026/)
 - [Рекламный ролик из ИИ за 90 центов: что даёт HeyGen Video](./reklamnyy-rolik-iz-ii-za-90-centov-heygen-video-chto-poluchitsya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/reklamnyy-rolik-iz-ii-za-90-centov-heygen-video-chto-poluchitsya-2026/)
 - [ИИ-продавец подберёт товар и не уйдёт спать в 11 вечера](./ii-prodavec-podbor-tovara-po-katalogu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-prodavec-podbor-tovara-po-katalogu-2026/)
@@ -1549,6 +1550,7 @@
 
 ## Право и 152-ФЗ
 
+- [Страницу конкурента удалят завтра: как сохранить её сегодня](./archivebox-arhiv-saytov-i-statey-kak-dokazatelstvo-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/archivebox-arhiv-saytov-i-statey-kak-dokazatelstvo-2026/)
 - [168-ФЗ и ваш сайт: что проверить в интерфейсе, приложении и боте](./zakon-o-russkom-yazyke-168-fz-sayt-prilozhenie-bot-chto-proverit-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zakon-o-russkom-yazyke-168-fz-sayt-prilozhenie-bot-chto-proverit-2026/)
 - [Sale, coffee, open: что с меню, прайсом и карточками товаров](./zakon-o-russkom-yazyke-menyu-prays-kartochki-tovarov-vyveska-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zakon-o-russkom-yazyke-menyu-prays-kartochki-tovarov-vyveska-2026/)
 - [Бренд на латинице с 1 марта 2026: что оставить, не потеряв поиск](./brend-na-latinice-tovarnyy-znak-zakon-o-russkom-yazyke-poisk-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/brend-na-latinice-tovarnyy-znak-zakon-o-russkom-yazyke-poisk-2026/)
@@ -1775,6 +1777,14 @@
 
 ## Разработка
 
+- [Свой ИИ-ассистент без облака: стенд на n8n, Ollama и Qdrant](./self-hosted-ai-starter-kit-n8n-ollama-qdrant-svoy-ii-stend-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/self-hosted-ai-starter-kit-n8n-ollama-qdrant-svoy-ii-stend-2026/)
+- [Свой Copilot на сервере: Tabby для студии, где код нельзя в облако](./tabby-svoy-ii-pomoshchnik-programmista-na-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/tabby-svoy-ii-pomoshchnik-programmista-na-servere-2026/)
+- [Забытые пароли в коде: ищем их сканером TruffleHog](./trufflehog-poisk-zabytyh-klyuchey-v-kode-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/trufflehog-poisk-zabytyh-klyuchey-v-kode-2026/)
+- [Пароли клиентам ссылкой на один просмотр: Yopass на вашем домене](./yopass-odnorazovye-ssylki-dlya-paroley-klientam-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/yopass-odnorazovye-ssylki-dlya-paroley-klientam-2026/)
+- [Docmost: вики, где у каждого отдела свой доступ, на своём сервере](./docmost-baza-znaniy-s-pravami-dostupa-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/docmost-baza-znaniy-s-pravami-dostupa-na-svoem-servere-2026/)
+- [Кто подключён к сети офиса: NetAlertX ловит чужие устройства](./netalertx-kto-podklyuchen-k-seti-ofisa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/netalertx-kto-podklyuchen-k-seti-ofisa-2026/)
+- [Конфиги nginx ломаются? Zoraxy заменяет их веб-панелью](./zoraxy-obratnyy-proksi-s-panelyu-dlya-neskolkih-saytov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zoraxy-obratnyy-proksi-s-panelyu-dlya-neskolkih-saytov-2026/)
+- [Sure: учёт счетов и капитала семьи и ИП на своём сервере](./sure-uchet-lichnyh-finansov-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sure-uchet-lichnyh-finansov-na-svoem-servere-2026/)
 - [AFFiNE: заметки, документы и доски на своём сервере](./affine-zametki-dokumenty-i-doski-v-odnom-prostranstve-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/affine-zametki-dokumenty-i-doski-v-odnom-prostranstve-na-svoem-servere-2026/)
 - [Абонементы в таблице? GYM One для фитнес-клуба на своём сервере](./gym-one-upravlenie-fitnes-klubom-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gym-one-upravlenie-fitnes-klubom-na-svoem-servere-2026/)
 - [MicroRealEstate: учёт аренды на своём сервере, но с оговоркой](./microrealestate-uchet-arendy-nedvizhimosti-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/microrealestate-uchet-arendy-nedvizhimosti-na-svoem-servere-2026/)
