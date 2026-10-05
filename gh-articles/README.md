@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2355**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2365**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -671,6 +671,16 @@
 
 ## Бизнес-кругозор
 
+- [Как зарегистрировать ИП или ООО самому: ОКВЭД и первый месяц](./registraciya-ip-ili-ooo-poshagovo-okved-schet-rezhim-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/registraciya-ip-ili-ooo-poshagovo-okved-schet-rezhim-2026/)
+- [Когда что платить ИП: даты по УСН, патенту и НПД и напоминания](./nalogovyy-kalendar-malogo-biznesa-ens-uvedomleniya-sroki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nalogovyy-kalendar-malogo-biznesa-ens-uvedomleniya-sroki-2026/)
+- [Типовой договор поставки: что покупателю поправить до подписи](./dogovor-postavki-otsrochka-priemka-brak-neustoyka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/dogovor-postavki-otsrochka-priemka-brak-neustoyka-2026/)
+- [Клиент не платит и срывает работу: напоминание, претензия, расторжение](./plohie-kliyenty-i-debitorka-otkaz-rastorzhenie-pretenziya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/plohie-kliyenty-i-debitorka-otkaz-rastorzhenie-pretenziya-2026/)
+- [Кто может прийти с проверкой к ИП и что должно лежать на столе](./proverki-malogo-biznesa-fns-rospotrebnadzor-trudovaya-inspekciya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/proverki-malogo-biznesa-fns-rospotrebnadzor-trudovaya-inspekciya-2026/)
+- [Станок или машина: лизинг, кредит или свои деньги, как сравнить](./oborudovanie-lizing-ili-svoi-dengi-kak-sravnit-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/oborudovanie-lizing-ili-svoi-dengi-kak-sravnit-2026/)
+- [Какие страховки нужны ИП и малому бизнесу, а какие можно не брать](./strahovanie-biznesa-chto-pokryvaet-i-chto-net-minimum-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/strahovanie-biznesa-chto-pokryvaet-i-chto-net-minimum-2026/)
+- [Как закрыть ИП или ООО без хвостов: долги, касса, данные](./zakrytie-ip-ili-ooo-poryadok-dolgi-kassa-arhiv-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zakrytie-ip-ili-ooo-poryadok-dolgi-kassa-arhiv-2026/)
+- [Зарплата себе из бизнеса: конверты, налоговый резерв, правило выплат](./lichnye-i-biznes-dengi-kak-razdelit-i-platit-sebe-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/lichnye-i-biznes-dengi-kak-razdelit-i-platit-sebe-2026/)
+- [Как продать кафе, студию или долю: документы и взгляд покупателя](./prodazha-malogo-biznesa-ili-doli-ocenka-dokumenty-pokupatel-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/prodazha-malogo-biznesa-ili-doli-ocenka-dokumenty-pokupatel-2026/)
 - [Первые 10 клиентов без рекламного бюджета: список, пилот](./pervye-10-klientov-bez-reklamnogo-byudzheta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pervye-10-klientov-bez-reklamnogo-byudzheta-2026/)
 - [Кому принадлежит код: права по договору с разработчиком](./dogovor-so-studiey-ili-frilanserom-na-razrabotku-etapy-priemka-prava-na-kod-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/dogovor-so-studiey-ili-frilanserom-na-razrabotku-etapy-priemka-prava-na-kod-2026/)
 - [Как не стать заложником подрядчика: доступы и документация](./kak-ne-stat-zalozhnikom-podryadchika-dostupy-repozitoriy-dokumentaciya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-ne-stat-zalozhnikom-podryadchika-dostupy-repozitoriy-dokumentaciya-2026/)
