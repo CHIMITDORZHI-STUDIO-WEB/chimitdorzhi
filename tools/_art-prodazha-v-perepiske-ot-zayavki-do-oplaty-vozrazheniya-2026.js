@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "prodazha-v-perepiske-ot-zayavki-do-oplaty-vozrazheniya-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-chats-circle",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/telegram-bots/", label: "Заявки и статусы в боте" },
+  title: "Продажа в переписке: от заявки до оплаты и возражения",
+  metaTitle: "Продажа в переписке: шаги диалога и ответы на возражения",
+  metaDescription: "Как вести клиента в мессенджере от заявки до оплаты: 6 шагов диалога, ответы на «дорого» и «подумаю», возвраты, статусы воронки и причины потерь.",
+  excerpt: "Разбираю, как продавать в Telegram и MAX без звонков и понять, на каком шаге вы теряете людей. Шесть шагов диалога, шаблоны ответов на возражения, возвраты с пользой, таблица статусов и причин потери. Законы по персональным данным и рассылкам названы с оговоркой, что дословный текст я не открывал.",
+  tags: ["предпринимателям", "продажи в переписке", "возражения клиентов", "воронка в мессенджере"],
+  toc: [
+    { id: "komu-i-kogda", text: "Кому и когда это нужно" },
+    { id: "shest-shagov", text: "Как это делается: 6 шагов диалога" },
+    { id: "vozrazheniya", text: "Ответы на возражения и возвраты" },
+    { id: "statusy", text: "Статусы, причины потери и персональные данные" },
+    { id: "oshibki", text: "Где ошибаются чаще всего" },
+    { id: "avtomatizaciya", text: "Где здесь поможет автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["ii-administrator-perepiski-2026", "fiksaciya-dogovorennostey-iz-perepiski-2026", "skripty-prodazh-v-crm-2026", "kakoy-zayavke-zvonit-pervoy-2026"],
+};

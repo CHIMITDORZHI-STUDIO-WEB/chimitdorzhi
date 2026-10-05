@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "pervye-10-klientov-bez-reklamnogo-byudzheta-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-handshake",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/business-automation/", label: "Учёт заявок и follow-up под ключ" },
+  title: "Первые 10 клиентов без рекламного бюджета: список, пилот",
+  metaTitle: "Первые 10 клиентов без рекламы: список, сообщение, пилот",
+  metaDescription: "Где взять первых клиентов без бюджета и имени: список контактов, первое сообщение, пилот с условиями, один follow-up и рекомендации после результата.",
+  excerpt: "Разбираю, как основателю, студии или фрилансеру получить первых клиентов без рекламы: собрать список из знакомых и профильных чатов, написать первое сообщение с конкретной болью, провести пилот на условиях и попросить рекомендацию. Отдельно про закон «О рекламе» и 152-ФЗ.",
+  tags: ["предпринимателям", "первые клиенты", "пилот", "учёт заявок"],
+  toc: [
+    { id: "komu-nuzhno", text: "Кому и когда это нужно" },
+    { id: "shagi", text: "Как это делается: 8 шагов" },
+    { id: "chto-schitat", text: "Что считать и как читать результат" },
+    { id: "zakony", text: "Законы и документы" },
+    { id: "oshibki", text: "Где ошибаются чаще всего" },
+    { id: "avtomatizaciya", text: "Где здесь поможет автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["pervye-100-klientov-dlya-tochki-2026", "sarafan-luchshe-reklamy-v-it-2026", "referalnaya-programma-novye-klienty-2026", "pilotnyy-proekt-2-nedeli-2026"],
+};

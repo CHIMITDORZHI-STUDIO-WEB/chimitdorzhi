@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "reglamenty-za-nedelyu-biznes-bez-vladeltsa-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-clipboard-text",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/ai-agents/", label: "ИИ-помощник по вашим регламентам" },
+  title: "Регламенты за неделю: бизнес, который идёт без владельца",
+  metaTitle: "Регламенты за неделю: как описать процессы бизнеса",
+  metaDescription: "Как за неделю описать 5-7 процессов на одной странице, проверить на новичке и хранить, чтобы сотрудники не звонили владельцу по мелочам.",
+  excerpt: "Разбираю, как за неделю записать 5-7 повторяющихся процессов: шаблон одной страницы, запись со слов лучшего сотрудника, проверка на новичке, хранение и обновление. Отдельно про границы решений без владельца, трудовое право в общих чертах и роль ИИ-помощника с оговорками.",
+  tags: ["предпринимателям", "регламенты", "делегирование", "ИИ-помощник"],
+  toc: [
+    { id: "komu-nuzhno", text: "Кому и когда это нужно" },
+    { id: "kak-delaetsya", text: "Как это делается за неделю: 7 шагов" },
+    { id: "skladyvaetsya", text: "Что записать: таблица процессов и границы решений" },
+    { id: "instrumenty", text: "Инструменты, хранение и законы" },
+    { id: "oshibki", text: "Где ошибаются чаще всего" },
+    { id: "avtomatizaciya", text: "Где здесь поможет автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["reglament-v-vide-bota-pomoshchnika-2026", "chek-listy-dlya-sotrudnikov-v-bote-2026", "ii-ne-zamenit-sotrudnikov-2026", "delegirovanie-kak-perestat-delat-vsyo-samomu-2026"],
+};

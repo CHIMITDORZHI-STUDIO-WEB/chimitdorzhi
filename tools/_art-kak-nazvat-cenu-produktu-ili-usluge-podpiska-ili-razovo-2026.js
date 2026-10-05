@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "kak-nazvat-cenu-produktu-ili-usluge-podpiska-ili-razovo-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-tag",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/business-automation/", label: "Учёт тарифов и подписок в боте" },
+  title: "Как назвать цену услуге: подписка или разовая оплата, пакеты",
+  metaTitle: "Как назвать цену: подписка, разовая оплата, пакеты",
+  metaDescription: "Как назвать цену клиенту в переписке, собрать три пакета, выбрать подписку или разовую оплату и поднять цену. Метод на условных числах, проверка по закону.",
+  excerpt: "Практический разбор для предпринимателя: от чего зависит цена, как назвать её в переписке, как собрать пакеты, когда нужна подписка, как давать скидки и поднимать цену. Законы проверены по первоисточникам, цифры в примерах условные.",
+  tags: ["предпринимателям", "цена и тарифы", "подписка", "пакеты услуг"],
+  toc: [
+    { id: "komu-nuzhno", text: "Кому и когда это нужно" },
+    { id: "kak-nazvat", text: "Как назвать цену: 7 шагов" },
+    { id: "podpiska-ili-razovo", text: "Подписка или разовая оплата" },
+    { id: "zakony", text: "Законы и документы" },
+    { id: "oshibki", text: "Где ошибаются чаще всего" },
+    { id: "avtomatizaciya", text: "Где здесь поможет автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["podpiska-mrr-arr-2026", "psihologiya-ceny-i-vybora-2026", "ltv-cac-2026", "onlayn-kassa-54-fz-2026"],
+};
