@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "kto-prinimaet-resheniya-so-storony-zakazchika-roli-pravki-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-users-three",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/business-automation/", label: "Ведение проекта: решения и статусы" },
+  title: "Проект встал на согласованиях: кто решает на стороне заказчика",
+  metaTitle: "Кто решает со стороны заказчика: роли, правки, сроки",
+  metaDescription: "Проект тянется из-за согласований: правки от разных людей, ответы неделями. Роли заказчика, раунды правок, срок ответа, протокол решений и учёт простоя.",
+  excerpt: "Проект часто буксует не у исполнителя, а на согласованиях: правки приходят от разных людей, ответа ждут неделями, приёмка висит на подпись. Разбираю роли на стороне заказчика, формат правок, срок ответа и учёт дней простоя. Цифры в тексте условные, юридические вопросы помечены.",
+  tags: ["предпринимателям", "согласование правок", "роли в проекте", "сроки проекта"],
+  toc: [
+    { id: "komu", text: "Кому и когда это нужно" },
+    { id: "shagi", text: "Как это делается: 6 шагов" },
+    { id: "roli", text: "Кто за что отвечает" },
+    { id: "instrumenty", text: "Инструменты и шаблоны" },
+    { id: "oshibki", text: "Где ошибаются чаще всего" },
+    { id: "avtomatizaciya", text: "Где здесь поможет автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["scope-creep-beskonechnye-pravki-2026", "priemka-raboty-podryadchika-2026", "kak-ya-vedu-proekt-2026", "dogovor-so-studiey-ili-frilanserom-na-razrabotku-etapy-priemka-prava-na-kod-2026"],
+};

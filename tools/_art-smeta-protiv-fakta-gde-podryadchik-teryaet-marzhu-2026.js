@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "smeta-protiv-fakta-gde-podryadchik-teryaet-marzhu-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-traffic-signal",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/business-automation/", label: "Свод план против факта по объектам" },
+  title: "Смета против факта: как подрядчику увидеть перерасход до сдачи",
+  metaTitle: "План против факта по объекту: контроль перерасхода сметы",
+  metaDescription: "Как подрядчику заметить перерасход до закрытия объекта: статьи сметы, недельные контрольные точки, светофор отклонений и письменное согласование допработ.",
+  excerpt: "Разбираю, как подрядчику увидеть потерю маржи до закрытия объекта: смета по статьям затрат, недельная сверка плана с фактом, светофор отклонений и согласование допработ. Нормы ГК РФ (ст. 709, 716, 743, 744) открывал на consultant.ru, что не проверил, помечено.",
+  tags: ["предпринимателям", "смета и маржа", "подрядчик", "план против факта"],
+  toc: [
+    { id: "komu-nuzhno", text: "Кому и когда это нужно" },
+    { id: "shagi", text: "Как это делается: 7 шагов" },
+    { id: "primer", text: "Из чего складывается маржа и где она уходит" },
+    { id: "dogovor", text: "Договор и закон: твёрдая смета и допработы" },
+    { id: "oshibki", text: "Где ошибаются чаще всего" },
+    { id: "avtomatizaciya", text: "Где здесь поможет автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["remontnye-brigady-smeta-etapy-oplata-2026", "uchet-sebestoimosti-i-marzhi-2026", "oplata-etapami-chestnee-predoplaty-2026", "remont-kvartir-pod-klyuch-s-nulya-brigada-smeta-akty-2026"],
+};

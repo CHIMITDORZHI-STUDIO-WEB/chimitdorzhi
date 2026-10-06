@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "limity-materialov-na-stroyke-plan-protiv-fakta-soglasovanie-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-package",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/business-automation/", label: "Согласование расхода материалов под ключ" },
+  title: "Перерасход материалов на объекте: лимит по смете и согласование",
+  metaTitle: "Перерасход материалов на стройке: лимиты и согласование",
+  metaDescription: "Как подрядчику держать расход материалов в лимите: план из сметы, факт по документам, согласование сверх плана и два статуса «в согласовании» и «списано».",
+  excerpt: "Материал уходит с объекта быстрее, чем по смете, а причину находят при закрытии этапа. Разбираю, как задать лимит по виду работ, считать факт по документам и согласовывать расход сверх плана. Показываю, что я делал в 1С-расширении для подрядной компании.",
+  tags: ["предпринимателям", "учёт материалов", "подрядчикам", "план против факта"],
+  toc: [
+    { id: "komu", text: "Кому и когда это нужно" },
+    { id: "shagi", text: "Как это делается: 7 шагов" },
+    { id: "soglasovanie", text: "Согласование сверх лимита и два статуса" },
+    { id: "dokumenty", text: "Договор и нормы" },
+    { id: "oshibki", text: "Где ошибаются чаще всего" },
+    { id: "avtomatizaciya", text: "Где здесь поможет автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["otchet-podryadchika-po-etapam-2026", "uslugi-dlya-stroitelya-smety-grafiki-avtomatizaciya-2026", "kakaya-1s-nuzhna-elektromontazhu-remontu-masterskoy-obekty-2026", "raskhod-materialov-po-uslugam-tehkarta-salon-2026"],
+};

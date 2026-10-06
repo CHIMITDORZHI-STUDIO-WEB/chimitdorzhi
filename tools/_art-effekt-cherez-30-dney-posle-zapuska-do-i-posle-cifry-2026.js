@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "effekt-cherez-30-dney-posle-zapuska-do-i-posle-cifry-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-chart-line-up",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/ai-analytics/", label: "Замер эффекта и сводка в мессенджере" },
+  title: "Замер эффекта через месяц: база, сезон, решение по итогам",
+  metaTitle: "Как понять, сработал ли бот или сайт: замер за 30 дней",
+  metaDescription: "Как через месяц после запуска бота, сайта или автоматизации честно сравнить до и после: база за 4 недели, метрики, сезонность, затраты и критерии решения.",
+  excerpt: "Заплатили за бота, сайт или автоматизацию и не можете сказать, помогло ли. Разбираю, как зафиксировать базу до запуска, выбрать три-четыре метрики, отделить эффект от сезона и рекламы, учесть затраты и решить заранее: продолжать, доработать или остановить.",
+  tags: ["предпринимателям", "эффект автоматизации", "метрики до и после", "решение по итогам"],
+  toc: [
+    { id: "komu-i-kogda", text: "Кому и когда это нужно" },
+    { id: "shagi", text: "Как это делается: 7 шагов" },
+    { id: "metriki", text: "Что мерить, что считать эффектом и как читать" },
+    { id: "instrumenty", text: "Инструменты, отчёт и решение" },
+    { id: "oshibki", text: "Где ошибаются чаще всего" },
+    { id: "avtomatizaciya", text: "Где здесь поможет автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["do-i-posle-avtomatizacii-keys-2026", "keys-6-mesyacev-cifry-2026", "kak-schitat-okupaemost-avtomatizacii-2026", "pilotnyy-proekt-2-nedeli-2026"],
+};

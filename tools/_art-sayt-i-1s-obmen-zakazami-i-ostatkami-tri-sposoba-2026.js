@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "sayt-i-1s-obmen-zakazami-i-ostatkami-tri-sposoba-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-plugs-connected",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/business-automation/", label: "Обмен сайта с 1С под вашу базу" },
+  title: "Заказы с сайта в 1С руками: какой способ обмена выбрать",
+  metaTitle: "Заказы и остатки между сайтом и 1С: как выбрать обмен",
+  metaDescription: "Заказы с сайта вводят в 1С руками, остатки не сходятся. Три способа обмена, риски, ключ товара, резерв, отмена, тест на копии и оповещения об ошибках.",
+  excerpt: "Разбираю, как связать сайт и 1С, когда заказы вводят руками, а остатки и цены расходятся. Три способа обмена, их риски и поддержка, вопросы про ключ товара, резерв и отмену, чек по 54-ФЗ и данные клиентов по 152-ФЗ.",
+  tags: ["предпринимателям", "обмен сайта с 1С", "остатки и заказы", "интернет-магазин"],
+  toc: [
+    { id: "komu-nuzhno", text: "Кому и когда это нужно" },
+    { id: "tri-sposoba", text: "Три способа и что у каждого с поддержкой" },
+    { id: "shagi", text: "Как выбрать и запустить: 6 шагов" },
+    { id: "voprosy", text: "Вопросы, которые решают до запуска" },
+    { id: "oshibki", text: "Где ошибаются чаще всего" },
+    { id: "avtomatizaciya", text: "Где здесь поможет автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["integraciya-sayta-s-1c-2026", "obmen-1c-s-saytom-perestal-rabotat-2026", "evotor-i-sayt-ostatki-cheki-korrekcii-karta-loyalnosti-2026", "bot-dlya-optovyh-zakazov-iz-1c-2026"],
+};
