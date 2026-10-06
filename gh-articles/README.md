@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2365**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2375**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -681,6 +681,16 @@
 - [Как закрыть ИП или ООО без хвостов: долги, касса, данные](./zakrytie-ip-ili-ooo-poryadok-dolgi-kassa-arhiv-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zakrytie-ip-ili-ooo-poryadok-dolgi-kassa-arhiv-2026/)
 - [Зарплата себе из бизнеса: конверты, налоговый резерв, правило выплат](./lichnye-i-biznes-dengi-kak-razdelit-i-platit-sebe-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/lichnye-i-biznes-dengi-kak-razdelit-i-platit-sebe-2026/)
 - [Как продать кафе, студию или долю: документы и взгляд покупателя](./prodazha-malogo-biznesa-ili-doli-ocenka-dokumenty-pokupatel-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/prodazha-malogo-biznesa-ili-doli-ocenka-dokumenty-pokupatel-2026/)
+- [Перерасход материалов на объекте: лимит по смете и согласование](./limity-materialov-na-stroyke-plan-protiv-fakta-soglasovanie-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/limity-materialov-na-stroyke-plan-protiv-fakta-soglasovanie-2026/)
+- [Исполнительная документация и акты на объекте: порядок без переделок](./akty-i-ispolnitelnaya-dokumentaciya-na-obekte-kak-ne-teryat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/akty-i-ispolnitelnaya-dokumentaciya-na-obekte-kak-ne-teryat-2026/)
+- [Смета против факта: как подрядчику увидеть перерасход до сдачи](./smeta-protiv-fakta-gde-podryadchik-teryaet-marzhu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/smeta-protiv-fakta-gde-podryadchik-teryaet-marzhu-2026/)
+- [Голосовые от прорабов вместо отчётов: шаблон, который читают](./ezhednevnyy-otchet-prorabov-v-messendzhere-format-foto-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ezhednevnyy-otchet-prorabov-v-messendzhere-format-foto-2026/)
+- [Субподрядчики: договор, объёмы, акты и удержание при оплате](./subpodryadchiki-dogovor-akty-oplata-po-faktu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/subpodryadchiki-dogovor-akty-oplata-po-faktu-2026/)
+- [Заказы с сайта в 1С руками: какой способ обмена выбрать](./sayt-i-1s-obmen-zakazami-i-ostatkami-tri-sposoba-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-i-1s-obmen-zakazami-i-ostatkami-tri-sposoba-2026/)
+- [Чужой бот или сайт: аудит за два часа до вложений в доработку](./chuzhoy-bot-ili-sayt-ne-rabotaet-audit-za-dva-chasa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chuzhoy-bot-ili-sayt-ne-rabotaet-audit-za-dva-chasa-2026/)
+- [Проект встал на согласованиях: кто решает на стороне заказчика](./kto-prinimaet-resheniya-so-storony-zakazchika-roli-pravki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kto-prinimaet-resheniya-so-storony-zakazchika-roli-pravki-2026/)
+- [Что отдать исполнителю в первый день: доступы, таблицы, образцы](./chto-sobrat-zakazchiku-do-starta-razrabotki-dannye-dostupy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chto-sobrat-zakazchiku-do-starta-razrabotki-dannye-dostupy-2026/)
+- [Замер эффекта через месяц: база, сезон, решение по итогам](./effekt-cherez-30-dney-posle-zapuska-do-i-posle-cifry-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/effekt-cherez-30-dney-posle-zapuska-do-i-posle-cifry-2026/)
 - [Первые 10 клиентов без рекламного бюджета: список, пилот](./pervye-10-klientov-bez-reklamnogo-byudzheta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pervye-10-klientov-bez-reklamnogo-byudzheta-2026/)
 - [Кому принадлежит код: права по договору с разработчиком](./dogovor-so-studiey-ili-frilanserom-na-razrabotku-etapy-priemka-prava-na-kod-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/dogovor-so-studiey-ili-frilanserom-na-razrabotku-etapy-priemka-prava-na-kod-2026/)
 - [Как не стать заложником подрядчика: доступы и документация](./kak-ne-stat-zalozhnikom-podryadchika-dostupy-repozitoriy-dokumentaciya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-ne-stat-zalozhnikom-podryadchika-dostupy-repozitoriy-dokumentaciya-2026/)
