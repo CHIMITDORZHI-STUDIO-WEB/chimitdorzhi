@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2375**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2385**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -1647,6 +1647,7 @@
 
 ## Продажи
 
+- [ИИ-агент изучает клиента вместо менеджера перед звонком](./trycompai-crm-ii-agent-issleduet-kontakty-pered-zvonkom-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/trycompai-crm-ii-agent-issleduet-kontakty-pered-zvonkom-2026/)
 - [Налоги ИП в 2027: что подтверждено по закону 228-ФЗ](./nalogi-ip-i-malogo-biznesa-v-2027-chto-podtverzhdeno-228-fz-patent-vznosy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nalogi-ip-i-malogo-biznesa-v-2027-chto-podtverzhdeno-228-fz-patent-vznosy-2026/)
 - [Лимит самозанятых 2,4 млн: что предлагают на 2027 и что принято](./limit-samozanyatyh-2-4-mln-chto-predlagayut-na-2027-i-chto-prinyato-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/limit-samozanyatyh-2-4-mln-chto-predlagayut-na-2027-i-chto-prinyato-2026/)
 - [Закрытие года за две недели: чек-лист для ИП и малого бизнеса](./zakrytie-goda-za-dve-nedeli-chek-list-ip-i-malogo-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zakrytie-goda-za-dve-nedeli-chek-list-ip-i-malogo-biznesa-2026/)
@@ -1797,6 +1798,15 @@
 
 ## Разработка
 
+- [1С и камеры склада без белого IP: проверил nps и нашёл риски](./nps-dostup-k-ustroystvam-i-servisam-bez-belogo-ip-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nps-dostup-k-ustroystvam-i-servisam-bez-belogo-ip-2026/)
+- [SmythOS Studio: ИИ-агентов можно собрать мышкой на своём сервере](./smythos-studio-vizualnyy-konstruktor-ii-agentov-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/smythos-studio-vizualnyy-konstruktor-ii-agentov-na-svoem-servere-2026/)
+- [Heym: ИИ отвечает клиентам, спорное уходит человеку на одобрение](./heym-ii-protsessy-s-odobreniem-cheloveka-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/heym-ii-protsessy-s-odobreniem-cheloveka-na-svoem-servere-2026/)
+- [ИИ-ревью кода на своём сервере: review_ducktective без облака](./review-ducktective-ii-revyu-koda-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/review-ducktective-ii-revyu-koda-na-svoem-servere-2026/)
+- [Интернет глючит: график скорости за недели для разговора с провайдером](./speedtest-tracker-zamer-skorosti-interneta-v-ofise-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/speedtest-tracker-zamer-skorosti-interneta-v-ofise-2026/)
+- [ИИ-агент запускает код: как не отдать ему весь сервер](./microsandbox-bezopasnyy-zapusk-koda-ot-ii-agenta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/microsandbox-bezopasnyy-zapusk-koda-ot-ii-agenta-2026/)
+- [Копия базы каждую ночь: дампы по расписанию в GoBackup](./gobackup-rezervnye-kopii-baz-dannyh-po-raspisaniyu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gobackup-rezervnye-kopii-baz-dannyh-po-raspisaniyu-2026/)
+- [Chibi: общий ИИ-ассистент в Telegram на вашем сервере](./chibi-svoy-ii-assistent-v-telegram-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chibi-svoy-ii-assistent-v-telegram-na-svoem-servere-2026/)
+- [Mailu: своя почта компании в Docker и что с доставляемостью](./mailu-pochtovyy-server-v-docker-dlya-kompanii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/mailu-pochtovyy-server-v-docker-dlya-kompanii-2026/)
 - [Свой ИИ-ассистент без облака: стенд на n8n, Ollama и Qdrant](./self-hosted-ai-starter-kit-n8n-ollama-qdrant-svoy-ii-stend-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/self-hosted-ai-starter-kit-n8n-ollama-qdrant-svoy-ii-stend-2026/)
 - [Свой Copilot на сервере: Tabby для студии, где код нельзя в облако](./tabby-svoy-ii-pomoshchnik-programmista-na-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/tabby-svoy-ii-pomoshchnik-programmista-na-servere-2026/)
 - [Забытые пароли в коде: ищем их сканером TruffleHog](./trufflehog-poisk-zabytyh-klyuchey-v-kode-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/trufflehog-poisk-zabytyh-klyuchey-v-kode-2026/)
