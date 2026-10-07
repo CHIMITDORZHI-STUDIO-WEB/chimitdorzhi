@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "nalogovyy-kalendar-malogo-biznesa-ens-uvedomleniya-sroki-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-calendar-check",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/accounting-automation/", label: "Напоминания о сроках и учёт взносов" },
+  title: "Когда что платить ИП: даты по УСН, патенту и НПД и напоминания",
+  metaTitle: "Налоговый календарь ИП 2026: УСН, патент, НПД, напоминания",
+  metaDescription: "Календарь налогов ИП по режимам: УСН, патент, НПД, взносы за себя. Что со сроком на выходной, когда не нужно уведомление и как не забывать даты.",
+  excerpt: "Собираю календарь налогов и взносов для ИП и малого бизнеса по режимам: УСН, патент, НПД. Что подтверждено на сайте ФНС, что со сроком на выходной и как настроить напоминания за 5 и за 1 день. Это не налоговая консультация.",
+  tags: ["предпринимателям", "налоговый календарь", "сроки платежей", "напоминания"],
+  toc: [
+    { id: "komu-nuzhno", text: "Кому и когда это нужно" },
+    { id: "kak-eto-delaetsya", text: "Как это делается: 6 шагов" },
+    { id: "tablica", text: "Что и когда: сроки по режимам" },
+    { id: "zakony", text: "Законы и документы" },
+    { id: "oshibki", text: "Где ошибаются чаще всего" },
+    { id: "avtomatizaciya", text: "Где здесь поможет автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["platezhnyy-kalendar-malyy-biznes-2026", "ens-s-1-sentyabrya-2026-zachet-za-tretih-lic-ukep-uvedomlenie-na-god-2026", "napominaniya-o-srokah-dokumentov-i-oborudovaniya-2026", "kassovyy-razryv-prognoz-deneg-90-dney-2026"],
+};

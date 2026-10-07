@@ -1,0 +1,23 @@
+module.exports = {
+  slug: "ezhednevnyy-otchet-prorabov-v-messendzhere-format-foto-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-clipboard-text",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/telegram-bots/", label: "Бот-отчёт для прорабов под ваш шаблон" },
+  title: "Голосовые от прорабов вместо отчётов: шаблон, который читают",
+  metaTitle: "Отчёт прораба в мессенджере: шаблон, фото и свод",
+  metaDescription: "Как организовать ежедневный отчёт прораба в чате или боте: шаблон из семи пунктов, подписи к фото, срок сдачи, срочное отдельно и свод по объектам.",
+  excerpt: "Руководитель получает от прорабов длинные голосовые и кучу фото без подписей, а про объекты узнаёт, только приехав. Разбираю шаблон отчёта, формат фото, канал, срок сдачи и свод, который заменяет десять чатов. Честно: готового продукта нет, могу собрать под ваш шаблон.",
+  tags: ["предпринимателям", "отчёт прораба", "строительный бизнес", "бот для объектов"],
+  toc: [
+    { id: "komu-nuzhno", text: "Кому и когда это нужно" },
+    { id: "kak-eto-delaetsya", text: "Как это делается: 7 шагов" },
+    { id: "shablon", text: "Что должно быть в отчёте" },
+    { id: "foto-i-hranenie", text: "Фото, каналы и хранение" },
+    { id: "dannye-i-pravila", text: "Персональные данные и охрана труда" },
+    { id: "oshibki", text: "Где ошибаются чаще всего" },
+    { id: "avtomatizaciya", text: "Где здесь поможет автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["otchet-so-smeny-cherez-bota-2026", "remont-kvartir-zayavki-smety-fotootchety-2026", "chek-listy-dlya-sotrudnikov-v-bote-2026", "remontnye-brigady-smeta-etapy-oplata-2026"],
+};

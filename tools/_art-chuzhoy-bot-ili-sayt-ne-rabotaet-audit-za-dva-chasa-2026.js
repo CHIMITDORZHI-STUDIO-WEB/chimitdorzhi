@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "chuzhoy-bot-ili-sayt-ne-rabotaet-audit-za-dva-chasa-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-list-checks",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/it-audit/", label: "Независимый аудит и план доработки" },
+  title: "Чужой бот или сайт: аудит за два часа до вложений в доработку",
+  metaTitle: "Чужой бот или сайт: аудит за 2 часа перед доработкой",
+  metaDescription: "Бот или сайт достался от прежнего исполнителя? Проверка за два часа: доступы, сценарии, код, затраты на поддержку и выбор из четырёх решений.",
+  excerpt: "Разбираю, как владельцу за два часа понять, что делать с ботом или сайтом, сделанным не им: проверить доступы, пройти сценарии руками, оценить код и стоимость владения. Итог: один из четырёх исходов и критерии выбора. Честно: переписывать всё нужно не всегда.",
+  tags: ["предпринимателям", "аудит бота и сайта", "доработка или переписать", "смена исполнителя"],
+  toc: [
+    { id: "komu", text: "Кому и когда это нужно" },
+    { id: "shagi", text: "Как это делается: два часа по шагам" },
+    { id: "resheniya", text: "Четыре исхода и как выбрать" },
+    { id: "dogovor", text: "Новый исполнитель, права на код и пропавший прежний" },
+    { id: "oshibki", text: "Где ошибаются чаще всего" },
+    { id: "avtomatizaciya", text: "Где здесь поможет автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["bot-perestal-otvechat-diagnostika-15-minut-2026", "dorabotka-sayta-2026", "tehnicheskiy-dolg-prostymi-slovami-2026", "nanyat-programmista-ili-pod-klyuch-2026"],
+};

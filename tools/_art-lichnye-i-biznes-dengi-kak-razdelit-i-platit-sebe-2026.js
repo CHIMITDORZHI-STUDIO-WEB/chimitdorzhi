@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "lichnye-i-biznes-dengi-kak-razdelit-i-platit-sebe-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-wallet",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/accounting-automation/", label: "Учёт денег и недельная сводка" },
+  title: "Зарплата себе из бизнеса: конверты, налоговый резерв, правило выплат",
+  metaTitle: "Как платить себе из бизнеса: конверты и налоговый резерв",
+  metaDescription: "Как отделить личные деньги от денег бизнеса и платить себе по правилу: конверты, налоговый резерв, фиксированная зарплата, вывод из ИП и ООО.",
+  excerpt: "Разбираю метод для ИП и владельца ООО, у которого деньги бизнеса и семьи смешаны: поступления делятся по конвертам, налоги откладываются сразу, а себе владелец платит фиксированную сумму по расписанию. Что по закону с выводом денег из ИП и ООО я проверил, а что оставил на уточнение, отмечено в тексте.",
+  tags: ["предпринимателям", "личные и бизнес-деньги", "зарплата себе", "налоговый резерв"],
+  toc: [
+    { id: "komu-nuzhno", text: "Кому и когда это нужно" },
+    { id: "shest-shagov", text: "Как это делается: 6 шагов" },
+    { id: "skolko-sebe", text: "Сколько платить себе" },
+    { id: "zakony", text: "Законы и документы" },
+    { id: "oshibki", text: "Где ошибаются чаще всего" },
+    { id: "avtomatizaciya", text: "Где здесь поможет автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["kassovyy-razryv-prognoz-deneg-90-dney-2026", "pyat-cifr-biznesa-na-kazhduyu-nedelyu-metriki-bez-analitika-2026", "upravlencheskiy-uchet-malyy-biznes-2026", "partnery-i-doli-v-biznese-ip-ili-ooo-soglashenie-vyhod-2026"],
+};

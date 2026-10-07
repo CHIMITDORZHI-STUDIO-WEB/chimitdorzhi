@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "subpodryadchiki-dogovor-akty-oplata-po-faktu-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-handshake",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/business-automation/", label: "Учёт субподрядчиков и актов" },
+  title: "Субподрядчики: договор, объёмы, акты и удержание при оплате",
+  metaTitle: "Договор с субподрядчиком: объёмы, акты, оплата по факту",
+  metaDescription: "Как генподрядчику работать с субподрядчиками: проверка, договор, ведомость объёмов, акты, оплата по факту и удержание на гарантию, что говорит ГК РФ.",
+  excerpt: "Разбираю, как генподрядчику платить субподрядчикам за принятые объёмы, а не вперёд: что прописать в договоре, как вести ведомость и акты, как считать удержание на гарантию. Статьи ГК РФ сверены по тексту, налоги и трудовой статус оставлены бухгалтеру и юристу.",
+  tags: ["предпринимателям", "субподрядчики", "договор и акты", "оплата по факту"],
+  toc: [
+    { id: "komu-nuzhno", text: "Кому и когда это нужно" },
+    { id: "shagi", text: "Как это делается: 6 шагов" },
+    { id: "dogovor", text: "Что прописать в договоре и как выглядят цифры" },
+    { id: "zakony", text: "Законы и документы" },
+    { id: "oshibki", text: "Где ошибаются чаще всего" },
+    { id: "avtomatizaciya", text: "Где здесь поможет автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["remontnye-brigady-smeta-etapy-oplata-2026", "samozanyatye-ispolniteli-akt-chek-oplata-2026", "oplata-etapami-chestnee-predoplaty-2026", "plohie-kliyenty-i-debitorka-otkaz-rastorzhenie-pretenziya-2026"],
+};

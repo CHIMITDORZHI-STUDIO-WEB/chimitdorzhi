@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "registraciya-ip-ili-ooo-poshagovo-okved-schet-rezhim-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-clipboard-text",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/business-automation/", label: "Учёт, счета и акты после регистрации" },
+  title: "Как зарегистрировать ИП или ООО самому: ОКВЭД и первый месяц",
+  metaTitle: "Регистрация ИП и ООО самому: порядок, ОКВЭД, первый месяц",
+  metaDescription: "Как зарегистрировать ИП или ООО самостоятельно в 2026: способы подачи, пошлина, срок, ОКВЭД, режим и что сделать в первый месяц: счёт, касса, учёт.",
+  excerpt: "Разбираю порядок регистрации ИП и ООО без посредника: куда подавать документы, когда нужна пошлина, как выбрать ОКВЭД и что сделать в первый месяц. Цифры по пошлинам, срокам и взносам сверены с nalog.gov.ru, непроверенное помечено в тексте.",
+  tags: ["предпринимателям", "регистрация ИП и ООО", "ОКВЭД", "первый месяц"],
+  toc: [
+    { id: "komu-nuzhno", text: "Кому и когда это нужно" },
+    { id: "poryadok", text: "Как зарегистрироваться: 7 шагов" },
+    { id: "byudzhet", text: "Из чего складывается бюджет первого месяца" },
+    { id: "zakony", text: "Законы и документы" },
+    { id: "oshibki", text: "Где ошибаются чаще всего" },
+    { id: "avtomatizaciya", text: "Где здесь поможет автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["chto-sdelat-do-pervoy-prodazhi-registraciya-schet-kassa-uchet-2026", "partnery-i-doli-v-biznese-ip-ili-ooo-soglashenie-vyhod-2026", "avtomatizaciya-schetov-aktov-2027", "elektronnaya-podpis-biznes-2026"],
+};

@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "akty-i-ispolnitelnaya-dokumentaciya-na-obekte-kak-ne-teryat-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-clipboard-text",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/business-automation/", label: "Акты со статусами и фото объекта" },
+  title: "Исполнительная документация и акты на объекте: порядок без переделок",
+  metaTitle: "Исполнительная документация и акты: порядок на объекте",
+  metaDescription: "Как подрядчику вести акты скрытых работ и исполнительную документацию: статусы, фото, журнал замечаний, пакет для сдачи. Что говорит приказ 344/пр.",
+  excerpt: "Разбираю, как не терять акты скрытых работ, схемы и фото, не подписывать задним числом и не переделывать документы после замечаний. Состав и порядок по приказу Минстроя № 344/пр, граница применимости и что я не подтвердил. Не юридическая консультация.",
+  tags: ["предпринимателям", "исполнительная документация", "акты скрытых работ", "подрядчикам"],
+  toc: [
+    { id: "komu-i-kogda", text: "Кому и когда это нужно" },
+    { id: "kak-eto-delaetsya", text: "Как это делается: 7 шагов" },
+    { id: "tablica", text: "Какие акты бывают и что приложить" },
+    { id: "zakony", text: "Законы и документы" },
+    { id: "oshibki", text: "Где ошибаются чаще всего" },
+    { id: "avtomatizaciya", text: "Где здесь поможет автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["elektromontazh-zayavki-smety-akty-2026", "remont-kvartir-pod-klyuch-s-nulya-brigada-smeta-akty-2026", "otchet-podryadchika-po-etapam-2026", "it-dlya-stroitelnyh-kompaniy-2026"],
+};

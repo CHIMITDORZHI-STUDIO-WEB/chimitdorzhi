@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "chto-sobrat-zakazchiku-do-starta-razrabotki-dannye-dostupy-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-folder-open",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/business-automation/", label: "Подготовка данных и старт проекта" },
+  title: "Что отдать исполнителю в первый день: доступы, таблицы, образцы",
+  metaTitle: "Материалы для старта проекта: доступы, таблицы, образцы",
+  metaDescription: "Какие доступы, таблицы и образцы отдать исполнителю до старта: четыре группы материалов, минимум для старта, проверка таблиц за час, безопасная передача.",
+  excerpt: "Исполнитель в первую неделю просит логины, каталог, переписки и макеты, а проект стоит. Разбираю, какие четыре группы материалов собрать заранее, что нужно в день старта, а что подождёт, как подготовить таблицу и за час проверить её качество.",
+  tags: ["предпринимателям", "старт проекта", "подготовка данных", "доступы"],
+  toc: [
+    { id: "komu-i-kogda", text: "Кому и когда это нужно" },
+    { id: "kak-delaetsya", text: "Как это делается: 6 шагов" },
+    { id: "iz-chego-skladyvaetsya", text: "Из чего это складывается: что, в каком виде, кто, к какому дню" },
+    { id: "instrumenty-i-shablony", text: "Инструменты и шаблоны: таблица, проверка за час, безопасность" },
+    { id: "oshibki", text: "Где ошибаются чаще всего" },
+    { id: "avtomatizaciya", text: "Где здесь поможет автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["chek-list-zakazchika-pered-razrabotkoy-2026", "etapy-razrabotki-bota-po-nedelyam-2026", "10-oshibok-pri-zakaze-sayta-bota-2026", "perenos-dannyh-iz-staroy-programmy-2026"],
+};

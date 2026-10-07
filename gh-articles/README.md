@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2345**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2375**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -671,6 +671,26 @@
 
 ## Бизнес-кругозор
 
+- [Как зарегистрировать ИП или ООО самому: ОКВЭД и первый месяц](./registraciya-ip-ili-ooo-poshagovo-okved-schet-rezhim-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/registraciya-ip-ili-ooo-poshagovo-okved-schet-rezhim-2026/)
+- [Когда что платить ИП: даты по УСН, патенту и НПД и напоминания](./nalogovyy-kalendar-malogo-biznesa-ens-uvedomleniya-sroki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nalogovyy-kalendar-malogo-biznesa-ens-uvedomleniya-sroki-2026/)
+- [Типовой договор поставки: что покупателю поправить до подписи](./dogovor-postavki-otsrochka-priemka-brak-neustoyka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/dogovor-postavki-otsrochka-priemka-brak-neustoyka-2026/)
+- [Клиент не платит и срывает работу: напоминание, претензия, расторжение](./plohie-kliyenty-i-debitorka-otkaz-rastorzhenie-pretenziya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/plohie-kliyenty-i-debitorka-otkaz-rastorzhenie-pretenziya-2026/)
+- [Кто может прийти с проверкой к ИП и что должно лежать на столе](./proverki-malogo-biznesa-fns-rospotrebnadzor-trudovaya-inspekciya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/proverki-malogo-biznesa-fns-rospotrebnadzor-trudovaya-inspekciya-2026/)
+- [Станок или машина: лизинг, кредит или свои деньги, как сравнить](./oborudovanie-lizing-ili-svoi-dengi-kak-sravnit-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/oborudovanie-lizing-ili-svoi-dengi-kak-sravnit-2026/)
+- [Какие страховки нужны ИП и малому бизнесу, а какие можно не брать](./strahovanie-biznesa-chto-pokryvaet-i-chto-net-minimum-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/strahovanie-biznesa-chto-pokryvaet-i-chto-net-minimum-2026/)
+- [Как закрыть ИП или ООО без хвостов: долги, касса, данные](./zakrytie-ip-ili-ooo-poryadok-dolgi-kassa-arhiv-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zakrytie-ip-ili-ooo-poryadok-dolgi-kassa-arhiv-2026/)
+- [Зарплата себе из бизнеса: конверты, налоговый резерв, правило выплат](./lichnye-i-biznes-dengi-kak-razdelit-i-platit-sebe-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/lichnye-i-biznes-dengi-kak-razdelit-i-platit-sebe-2026/)
+- [Как продать кафе, студию или долю: документы и взгляд покупателя](./prodazha-malogo-biznesa-ili-doli-ocenka-dokumenty-pokupatel-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/prodazha-malogo-biznesa-ili-doli-ocenka-dokumenty-pokupatel-2026/)
+- [Перерасход материалов на объекте: лимит по смете и согласование](./limity-materialov-na-stroyke-plan-protiv-fakta-soglasovanie-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/limity-materialov-na-stroyke-plan-protiv-fakta-soglasovanie-2026/)
+- [Исполнительная документация и акты на объекте: порядок без переделок](./akty-i-ispolnitelnaya-dokumentaciya-na-obekte-kak-ne-teryat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/akty-i-ispolnitelnaya-dokumentaciya-na-obekte-kak-ne-teryat-2026/)
+- [Смета против факта: как подрядчику увидеть перерасход до сдачи](./smeta-protiv-fakta-gde-podryadchik-teryaet-marzhu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/smeta-protiv-fakta-gde-podryadchik-teryaet-marzhu-2026/)
+- [Голосовые от прорабов вместо отчётов: шаблон, который читают](./ezhednevnyy-otchet-prorabov-v-messendzhere-format-foto-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ezhednevnyy-otchet-prorabov-v-messendzhere-format-foto-2026/)
+- [Субподрядчики: договор, объёмы, акты и удержание при оплате](./subpodryadchiki-dogovor-akty-oplata-po-faktu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/subpodryadchiki-dogovor-akty-oplata-po-faktu-2026/)
+- [Заказы с сайта в 1С руками: какой способ обмена выбрать](./sayt-i-1s-obmen-zakazami-i-ostatkami-tri-sposoba-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-i-1s-obmen-zakazami-i-ostatkami-tri-sposoba-2026/)
+- [Чужой бот или сайт: аудит за два часа до вложений в доработку](./chuzhoy-bot-ili-sayt-ne-rabotaet-audit-za-dva-chasa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chuzhoy-bot-ili-sayt-ne-rabotaet-audit-za-dva-chasa-2026/)
+- [Проект встал на согласованиях: кто решает на стороне заказчика](./kto-prinimaet-resheniya-so-storony-zakazchika-roli-pravki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kto-prinimaet-resheniya-so-storony-zakazchika-roli-pravki-2026/)
+- [Что отдать исполнителю в первый день: доступы, таблицы, образцы](./chto-sobrat-zakazchiku-do-starta-razrabotki-dannye-dostupy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chto-sobrat-zakazchiku-do-starta-razrabotki-dannye-dostupy-2026/)
+- [Замер эффекта через месяц: база, сезон, решение по итогам](./effekt-cherez-30-dney-posle-zapuska-do-i-posle-cifry-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/effekt-cherez-30-dney-posle-zapuska-do-i-posle-cifry-2026/)
 - [Первые 10 клиентов без рекламного бюджета: список, пилот](./pervye-10-klientov-bez-reklamnogo-byudzheta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pervye-10-klientov-bez-reklamnogo-byudzheta-2026/)
 - [Кому принадлежит код: права по договору с разработчиком](./dogovor-so-studiey-ili-frilanserom-na-razrabotku-etapy-priemka-prava-na-kod-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/dogovor-so-studiey-ili-frilanserom-na-razrabotku-etapy-priemka-prava-na-kod-2026/)
 - [Как не стать заложником подрядчика: доступы и документация](./kak-ne-stat-zalozhnikom-podryadchika-dostupy-repozitoriy-dokumentaciya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-ne-stat-zalozhnikom-podryadchika-dostupy-repozitoriy-dokumentaciya-2026/)
@@ -1010,6 +1030,7 @@
 
 ## Маркетинг
 
+- [Где теряются заявки: Rybbit покажет воронку и запишет сессии](./rybbit-veb-analitika-s-voronkami-i-zapisyu-sessiy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/rybbit-veb-analitika-s-voronkami-i-zapisyu-sessiy-2026/)
 - [Фото товара в нужной сцене без студии: FLUX 3 Image и граница обмана](./flux-3-image-foto-tovara-v-nuzhnoy-scene-bez-studii-granica-obmana-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/flux-3-image-foto-tovara-v-nuzhnoy-scene-bez-studii-granica-obmana-2026/)
 - [Рекламный ролик из ИИ за 90 центов: что даёт HeyGen Video](./reklamnyy-rolik-iz-ii-za-90-centov-heygen-video-chto-poluchitsya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/reklamnyy-rolik-iz-ii-za-90-centov-heygen-video-chto-poluchitsya-2026/)
 - [ИИ-продавец подберёт товар и не уйдёт спать в 11 вечера](./ii-prodavec-podbor-tovara-po-katalogu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-prodavec-podbor-tovara-po-katalogu-2026/)
@@ -1549,6 +1570,7 @@
 
 ## Право и 152-ФЗ
 
+- [Страницу конкурента удалят завтра: как сохранить её сегодня](./archivebox-arhiv-saytov-i-statey-kak-dokazatelstvo-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/archivebox-arhiv-saytov-i-statey-kak-dokazatelstvo-2026/)
 - [168-ФЗ и ваш сайт: что проверить в интерфейсе, приложении и боте](./zakon-o-russkom-yazyke-168-fz-sayt-prilozhenie-bot-chto-proverit-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zakon-o-russkom-yazyke-168-fz-sayt-prilozhenie-bot-chto-proverit-2026/)
 - [Sale, coffee, open: что с меню, прайсом и карточками товаров](./zakon-o-russkom-yazyke-menyu-prays-kartochki-tovarov-vyveska-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zakon-o-russkom-yazyke-menyu-prays-kartochki-tovarov-vyveska-2026/)
 - [Бренд на латинице с 1 марта 2026: что оставить, не потеряв поиск](./brend-na-latinice-tovarnyy-znak-zakon-o-russkom-yazyke-poisk-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/brend-na-latinice-tovarnyy-znak-zakon-o-russkom-yazyke-poisk-2026/)
@@ -1775,6 +1797,14 @@
 
 ## Разработка
 
+- [Свой ИИ-ассистент без облака: стенд на n8n, Ollama и Qdrant](./self-hosted-ai-starter-kit-n8n-ollama-qdrant-svoy-ii-stend-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/self-hosted-ai-starter-kit-n8n-ollama-qdrant-svoy-ii-stend-2026/)
+- [Свой Copilot на сервере: Tabby для студии, где код нельзя в облако](./tabby-svoy-ii-pomoshchnik-programmista-na-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/tabby-svoy-ii-pomoshchnik-programmista-na-servere-2026/)
+- [Забытые пароли в коде: ищем их сканером TruffleHog](./trufflehog-poisk-zabytyh-klyuchey-v-kode-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/trufflehog-poisk-zabytyh-klyuchey-v-kode-2026/)
+- [Пароли клиентам ссылкой на один просмотр: Yopass на вашем домене](./yopass-odnorazovye-ssylki-dlya-paroley-klientam-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/yopass-odnorazovye-ssylki-dlya-paroley-klientam-2026/)
+- [Docmost: вики, где у каждого отдела свой доступ, на своём сервере](./docmost-baza-znaniy-s-pravami-dostupa-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/docmost-baza-znaniy-s-pravami-dostupa-na-svoem-servere-2026/)
+- [Кто подключён к сети офиса: NetAlertX ловит чужие устройства](./netalertx-kto-podklyuchen-k-seti-ofisa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/netalertx-kto-podklyuchen-k-seti-ofisa-2026/)
+- [Конфиги nginx ломаются? Zoraxy заменяет их веб-панелью](./zoraxy-obratnyy-proksi-s-panelyu-dlya-neskolkih-saytov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zoraxy-obratnyy-proksi-s-panelyu-dlya-neskolkih-saytov-2026/)
+- [Sure: учёт счетов и капитала семьи и ИП на своём сервере](./sure-uchet-lichnyh-finansov-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sure-uchet-lichnyh-finansov-na-svoem-servere-2026/)
 - [AFFiNE: заметки, документы и доски на своём сервере](./affine-zametki-dokumenty-i-doski-v-odnom-prostranstve-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/affine-zametki-dokumenty-i-doski-v-odnom-prostranstve-na-svoem-servere-2026/)
 - [Абонементы в таблице? GYM One для фитнес-клуба на своём сервере](./gym-one-upravlenie-fitnes-klubom-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gym-one-upravlenie-fitnes-klubom-na-svoem-servere-2026/)
 - [MicroRealEstate: учёт аренды на своём сервере, но с оговоркой](./microrealestate-uchet-arendy-nedvizhimosti-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/microrealestate-uchet-arendy-nedvizhimosti-na-svoem-servere-2026/)

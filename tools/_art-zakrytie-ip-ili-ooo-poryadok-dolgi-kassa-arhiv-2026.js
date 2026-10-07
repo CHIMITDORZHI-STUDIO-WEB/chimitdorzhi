@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "zakrytie-ip-ili-ooo-poryadok-dolgi-kassa-arhiv-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-archive-box",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/business-automation/", label: "Архив данных и учёт обязательств" },
+  title: "Как закрыть ИП или ООО без хвостов: долги, касса, данные",
+  metaTitle: "Как закрыть ИП или ООО без хвостов: порядок и архив",
+  metaDescription: "Что сделать до закрытия ИП или ООО: опись долгов, касса, сотрудники, взносы и декларация, ликвидация, архив и данные клиентов. Сроки сверены с законом.",
+  excerpt: "Разбираю, в каком порядке закрывать ИП или ООО, чтобы не остаться с долгами и штрафами: опись обязательств, касса, сотрудники, взносы, декларация, ликвидация, архив и данные клиентов. Сверено с НК, ГК и 129-ФЗ. Срок в три дня из чужих текстов я не подтвердил, в законе пять рабочих дней.",
+  tags: ["предпринимателям", "закрытие ИП и ООО", "долги и касса", "архив и данные клиентов"],
+  toc: [
+    { id: "komu", text: "Кому и когда это нужно" },
+    { id: "shagi", text: "Как закрыть без хвостов: 7 шагов" },
+    { id: "tablica", text: "Этапы, действия, документы" },
+    { id: "zakony", text: "Законы и документы" },
+    { id: "oshibki", text: "Где ошибаются чаще всего" },
+    { id: "avtomatizaciya", text: "Где здесь поможет автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["ocenka-i-prodazha-biznesa-cifrovye-aktivy-2026", "pochemu-novyy-biznes-zakryvaetsya-2026", "offboarding-uvolnennogo-sotrudnika-dostupy-2026", "partnery-i-doli-v-biznese-ip-ili-ooo-soglashenie-vyhod-2026"],
+};

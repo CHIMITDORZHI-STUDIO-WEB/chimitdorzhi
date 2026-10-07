@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "dogovor-postavki-otsrochka-priemka-brak-neustoyka-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-handshake",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/business-automation/", label: "Учёт поставок и напоминания об оплате" },
+  title: "Типовой договор поставки: что покупателю поправить до подписи",
+  metaTitle: "Договор поставки для покупателя: чек-лист до подписания",
+  metaDescription: "Как читать типовой договор поставки, который прислал поставщик: срок претензий, брак, отсрочка, неустойка, подсудность. Таблица правок и условный пример.",
+  excerpt: "Разбираю договор поставки глазами покупателя: шесть мест, где типовой текст поставщика перекладывает риск на вас. Чек-лист в таблице, условный пример партии с браком и нормы ГК РФ, которые я сверил по текстам. Не юридическая консультация, итог покажите юристу.",
+  tags: ["предпринимателям", "договор поставки", "приёмка товара", "неустойка"],
+  toc: [
+    { id: "komu-nuzhno", text: "Кому и когда это нужно" },
+    { id: "kak-chitat", text: "Как читать договор: 6 шагов" },
+    { id: "chek-list", text: "Что проверить до подписания" },
+    { id: "zakony", text: "Законы и документы" },
+    { id: "oshibki", text: "Где ошибаются чаще всего" },
+    { id: "avtomatizaciya", text: "Где здесь поможет автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["priemka-tovara-ot-postavshchika-v-magazine-2026", "priemka-tovara-ot-postavshchika-po-foto-2026", "ii-yurist-proverka-dogovorov-2026", "uchet-dogovorov-sroki-prodleniya-2026"],
+};

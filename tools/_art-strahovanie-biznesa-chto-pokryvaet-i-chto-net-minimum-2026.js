@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "strahovanie-biznesa-chto-pokryvaet-i-chto-net-minimum-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-shield-check",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/business-automation/", label: "Учёт полисов и сроков продления" },
+  title: "Какие страховки нужны ИП и малому бизнесу, а какие можно не брать",
+  metaTitle: "Страховка для малого бизнеса: что обязательно, а что нет",
+  metaDescription: "Какие виды страхования обязательны для ИП и малого бизнеса, что покрывает добровольный полис, какие бывают исключения и как не пропустить срок уведомления.",
+  excerpt: "Разбираю, как малому бизнесу выбрать минимум страхования: сначала карта рисков, потом полис. По Гражданскому кодексу показываю, что страхуют, что не покрывают и о чём нужно уведомить в срок. Это не юридическая консультация, страховщиков и продукты не рекомендую.",
+  tags: ["предпринимателям", "страхование бизнеса", "риски и договоры", "учёт полисов"],
+  toc: [
+    { id: "komu-nuzhno", text: "Кому и когда это нужно" },
+    { id: "kak-vybrat", text: "Как выбрать минимум: 6 шагов" },
+    { id: "tablica", text: "Из чего это складывается: карта рисков" },
+    { id: "zakony", text: "Законы и документы" },
+    { id: "oshibki", text: "Где ошибаются чаще всего" },
+    { id: "avtomatizaciya", text: "Где здесь поможет автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["gruzoperevozki-i-pereezdy-na-gazeli-s-nulya-zayavki-strahovanie-2026", "uchet-dogovorov-sroki-prodleniya-2026", "napominaniya-o-srokah-dokumentov-i-oborudovaniya-2026", "dannye-klientov-aktiv-i-risk-2026"],
+};
