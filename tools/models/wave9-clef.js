@@ -23,5 +23,12 @@ module.exports = [
     alternatives: ['qwen', 'gemma', 'nemotron-safety'],
     source: 'https://huggingface.co/Cloudflare/clef',
     verified: true,
+    en: {
+      summary: "Decision models: they do not write text but read a situation (text, JSON, an image, video frames) and return in one pass the probability of each answer to typed questions: yes or no, pick one, rate on a scale. The agent gets ready numbers instead of parsing free text.",
+      tasks: ['sorting requests and tickets into categories with a probability', 'checking a document or photo against a list of questions (is everything stated, is there a violation)', 'choosing the next step of an agent without parsing a text answer', 'rating risk or urgency on a scale'],
+      where: ['customer support and ticket handling', 'document management and request checks', 'security and moderation', 'AI agents and process automation'],
+      sizes: '27B and 9B (Clef-flash)',
+      country: 'USA',
+    },
   },
 ];
