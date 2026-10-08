@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2425**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2422**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -94,8 +94,7 @@
 - [Внедрение ИИ для бизнеса в Бурятии: с чего начать](./vnedrenie-ii-buryatiya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vnedrenie-ii-buryatiya-2026/)
 - [Как мы автоматизируем разработку и контент с помощью LLM](./llm-avtomatizaciya-razrabotki-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/llm-avtomatizaciya-razrabotki-2027/)
 - [Иллюзия идеального ИИ: почему карты и логотипы всё ещё правит человек](./illuziya-idealnogo-ii-human-in-the-loop-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/illuziya-idealnogo-ii-human-in-the-loop-2027/)
-- [Сколько стоит внедрение ИИ в компанию: из чего складывается цена в 2027](./vnedrenie-ii-stoimost-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vnedrenie-ii-stoimost-2027/)
-- [Разработка ИИ-агентов под ключ: что это, применение и цена в 2027](./razrabotka-ai-agentov-pod-klyuch-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/razrabotka-ai-agentov-pod-klyuch-2027/)
+- [Разработка ИИ-агентов для бизнеса под ключ: задачи, этапы и цена](./razrabotka-ai-agentov-pod-klyuch-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/razrabotka-ai-agentov-pod-klyuch-2027/)
 - [Распознавание паспортов и документов (OCR) для бизнеса под ключ](./raspoznavanie-pasporta-ocr-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/raspoznavanie-pasporta-ocr-2027/)
 - [Компьютерное зрение на производстве: сколько стоит внедрить и как рассчитать окупаемость](./kompyuternoe-zrenie-proizvodstvo-stoimost-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kompyuternoe-zrenie-proizvodstvo-stoimost-2027/)
 - [Как установить Ollama для Windows: запуск локальных нейросетей за 10 минут](./ustanovit-ollama-windows-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ustanovit-ollama-windows-2027/)
@@ -126,7 +125,7 @@
 - [Окупаемость ИИ-агентов в месяцах: как собрать бизнес-кейс](./okupaemost-ii-agentov-biznes-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/okupaemost-ii-agentov-biznes-keys-2026/)
 - [Маленькие доменные модели (SLM): почему не один гигант, а узкие модели под задачу](./malenkie-domennye-modeli-slm-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/malenkie-domennye-modeli-slm-2026/)
 - [LocateAnything-3B от NVIDIA: открытая модель распознавания объектов и документов](./locateanything-nvidia-lokalnoe-raspoznavanie-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/locateanything-nvidia-lokalnoe-raspoznavanie-2026/)
-- [Сколько стоит внедрить ИИ в бизнес в 2026](./skolko-stoit-vnedrit-ii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-stoit-vnedrit-ii-2026/)
+- [Внедрение ИИ в бизнес под ключ: сколько стоит в 2026, этапы](./skolko-stoit-vnedrit-ii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-stoit-vnedrit-ii-2026/)
 - [GigaChat vs YandexGPT vs ChatGPT: что выбрать бизнесу в РФ в 2026](./gigachat-vs-yandexgpt-vs-chatgpt-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gigachat-vs-yandexgpt-vs-chatgpt-2026/)
 - [ИИ для отдела продаж: 10 задач, которые он закрывает](./ii-dlya-otdela-prodazh-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-dlya-otdela-prodazh-2026/)
 - [ИИ для бизнеса в Чите и Улан-Удэ: задачи, с чего начать и цена](./ii-dlya-biznesa-chita-ulan-ude-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-dlya-biznesa-chita-ulan-ude-2026/)
@@ -2103,7 +2102,6 @@
 - [Этно-авангард в веб-дизайне: национальные коды без китча](./etno-avangard-v-veb-dizayne-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/etno-avangard-v-veb-dizayne-2027/)
 - [Сколько стоит разработка ПО на заказ в 2027: из чего складывается смета](./skolko-stoit-razrabotka-po-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-stoit-razrabotka-po-2027/)
 - [Заказать разработку мобильной игры под ключ: этапы, сроки и из чего складывается цена](./razrabotka-mobilnoy-igry-pod-klyuch-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/razrabotka-mobilnoy-igry-pod-klyuch-2027/)
-- [Сколько стоит внедрение CRM и из чего складывается цена](./vnedrenie-crm-stoimost-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vnedrenie-crm-stoimost-2027/)
 - [Файл llms.txt: что это и зачем он нужен сайту в эпоху ИИ-поиска](./llms-txt-dlya-sayta-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/llms-txt-dlya-sayta-2027/)
 - [Что такое VPS простыми словами и как выбрать виртуальный сервер под задачу](./chto-takoe-vps-kak-vybrat-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chto-takoe-vps-kak-vybrat-2027/)
 - [Сайт-каталог для производителя оборудования: B2B-продажи вместо PDF-прайса](./sayt-katalog-proizvoditelya-oborudovaniya-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-katalog-proizvoditelya-oborudovaniya-2027/)
@@ -2132,14 +2130,13 @@
 - [Токенизация реальных активов: как «оцифровать» недвижимость, металл или дебиторку](./tokenizaciya-realnyh-aktivov-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/tokenizaciya-realnyh-aktivov-2027/)
 - [Заказать Telegram-бота для бизнеса: что входит, сроки и от чего зависит цена](./zakazat-telegram-bota-cena-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zakazat-telegram-bota-cena-2027/)
 - [Заказать автоматизацию бизнеса под ключ: с чего начать и сколько стоит](./zakazat-avtomatizaciyu-biznesa-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zakazat-avtomatizaciyu-biznesa-2027/)
-- [Внедрить ИИ в бизнес под ключ: что входит, сроки и стоимость](./vnedrit-ii-pod-klyuch-cena-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vnedrit-ii-pod-klyuch-cena-2027/)
 - [Настройка 152-ФЗ под ключ: что сделаю, чтобы не было штрафов](./nastroyka-152fz-pod-klyuch-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nastroyka-152fz-pod-klyuch-2027/)
 - [Заказать сайт для бизнеса в Чите и Забайкалье: этапы, сроки и на что смотреть](./zakazat-sayt-biznes-chita-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zakazat-sayt-biznes-chita-2027/)
 - [Как выбрать IT-подрядчика для бизнеса: чек-лист, чтобы не переплатить и не остаться с недоделкой](./kak-vybrat-it-podryadchika-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-vybrat-it-podryadchika-2027/)
 - [IT-сопровождение бизнеса: абонентка или разовые задачи — что выгоднее](./it-soprovozhdenie-biznesa-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/it-soprovozhdenie-biznesa-2027/)
 - [Заказать чат-бота для записи клиентов: цена и за сколько окупается](./zakazat-chat-bota-zapis-cena-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zakazat-chat-bota-zapis-cena-2027/)
 - [Оплата звёздами в Telegram (Stars): как работает и кому это нужно](./oplata-zvezdami-telegram-stars-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/oplata-zvezdami-telegram-stars-2026/)
-- [Telegram-бот приёма заявок и оплат под ключ: что умеет и за сколько собрать](./telegram-bot-priema-zayavok-i-oplat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/telegram-bot-priema-zayavok-i-oplat-2026/)
+- [Бот для приёма заявок в Telegram: что умеет, оплата и сроки](./telegram-bot-priema-zayavok-i-oplat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/telegram-bot-priema-zayavok-i-oplat-2026/)
 - [Mini App магазин в Telegram и MAX: интернет-магазин внутри мессенджера](./mini-app-magazin-telegram-max-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/mini-app-magazin-telegram-max-2026/)
 - [Чат-бот FAQ для поддержки в Telegram и MAX: снять до 70% типовых вопросов](./chat-bot-faq-podderzhka-telegram-max-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chat-bot-faq-podderzhka-telegram-max-2026/)
 - [Приём оплаты по СБП на сайте: как подключить дёшево и быстро](./priem-oplaty-sbp-na-sayte-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/priem-oplaty-sbp-na-sayte-2026/)
@@ -2150,10 +2147,10 @@
 - [Сколько стоит чат-бот для бизнеса в 2026](./skolko-stoit-chat-bot-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-stoit-chat-bot-2026/)
 - [Сколько стоит интернет-магазин в 2026](./skolko-stoit-internet-magazin-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-stoit-internet-magazin-2026/)
 - [Сколько стоит мобильное приложение в 2026: стоимость разработки от MVP до нативного](./skolko-stoit-mobilnoe-prilozhenie-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-stoit-mobilnoe-prilozhenie-2026/)
-- [Сколько стоит внедрение CRM и сопровождение в 2026](./skolko-stoit-crm-vnedrenie-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-stoit-crm-vnedrenie-2026/)
+- [Стоимость внедрения CRM в 2026: цены, этапы и сопровождение](./skolko-stoit-crm-vnedrenie-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-stoit-crm-vnedrenie-2026/)
 - [Сколько стоит автоматизация бизнеса в 2026](./skolko-stoit-avtomatizaciya-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-stoit-avtomatizaciya-biznesa-2026/)
 - [10 признаков, что бизнесу пора автоматизироваться](./priznaki-chto-pora-avtomatizirovatsya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/priznaki-chto-pora-avtomatizirovatsya-2026/)
-- [Сколько стоит разработать программу (ПО) на заказ в 2026](./skolko-stoit-po-na-zakaz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-stoit-po-na-zakaz-2026/)
+- [Стоимость разработки ПО на заказ в 2026: цены, этапы, от чего зависит](./skolko-stoit-po-na-zakaz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-stoit-po-na-zakaz-2026/)
 - [Сколько стоит веб-приложение (веб-сервис, SaaS) в 2026](./skolko-stoit-veb-prilozhenie-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-stoit-veb-prilozhenie-2026/)
 - [Сколько стоит лендинг в 2026](./skolko-stoit-lending-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-stoit-lending-2026/)
 - [Сколько стоит сделать MVP в 2026](./skolko-stoit-mvp-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-stoit-mvp-2026/)

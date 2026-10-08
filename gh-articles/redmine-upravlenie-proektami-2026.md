@@ -1,6 +1,6 @@
 ---
 title: "Redmine: управление проектами на своём сервере"
-description: "Redmine — бесплатная open-source система управления проектами: задачи, вики, диаграммы Ганта, роли. Что умеет, кому подходит и как развернуть на своём сервере."
+description: "Redmine бесплатен: это open-source система управления проектами с задачами, вики, диаграммами Ганта и ролями. Что умеет и как развернуть у себя."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/redmine-upravlenie-proektami-2026/
