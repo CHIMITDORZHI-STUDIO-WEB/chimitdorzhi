@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2415**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2425**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -687,6 +687,16 @@
 - [Продажа доменов из портфеля: витрина, заглушки, разбор заявок](./prodazha-domenov-kak-biznes-vitrina-zaglushki-vhodyashchie-zayavki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/prodazha-domenov-kak-biznes-vitrina-zaglushki-vhodyashchie-zayavki-2026/)
 - [Данные как платный продукт: свой API, ключи, лимиты и права](./dannye-kak-platnyy-produkt-svoy-api-klyuchi-limity-prava-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/dannye-kak-platnyy-produkt-svoy-api-klyuchi-limity-prava-2026/)
 - [Персональные разборы эксперта: как автоматизировать расчёт и слайды](./personalnye-razbory-eksperta-kak-avtomatizirovat-raschet-i-slaydy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/personalnye-razbory-eksperta-kak-avtomatizirovat-raschet-i-slaydy-2026/)
+- [Уходить ли с GetCourse: когда нужен свой кабинет обучения](./svoya-platforma-obucheniya-vmesto-getcourse-kogda-nuzhna-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/svoya-platforma-obucheniya-vmesto-getcourse-kogda-nuzhna-2026/)
+- [Второй язык на сайте: что переводить, где хранить, как с SEO](./sayt-i-prilozhenie-na-neskolkih-yazykah-chto-perevodit-seo-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-i-prilozhenie-na-neskolkih-yazykah-chto-perevodit-seo-2026/)
+- [Многоуровневая партнёрка: граница с пирамидой и расчёт выплат](./mnogourovnevaya-partnerskaya-programma-granica-s-piramidoy-vyplaty-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/mnogourovnevaya-partnerskaya-programma-granica-s-piramidoy-vyplaty-2026/)
+- [Доработка 1С без сюрпризов: сценарии вместо описаний, приёмка](./tehzadanie-na-dorabotku-1s-kak-opisat-scenarii-priemka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/tehzadanie-na-dorabotku-1s-kak-opisat-scenarii-priemka-2026/)
+- [Как провести розыгрыш в чате по правилам: положение, налог, чеки](./rozygrysh-prizov-v-messendzhere-pravila-nalog-cheki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/rozygrysh-prizov-v-messendzhere-pravila-nalog-cheki-2026/)
+- [Как передать клиента от бота человеку и не потерять переписку](./bot-peredaet-dialog-cheloveku-operator-istoriya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bot-peredaet-dialog-cheloveku-operator-istoriya-2026/)
+- [Где должна работать ваша система: у вас, в облаке или у подрядчика](./gde-zhit-rabochey-sisteme-svoy-server-oblako-ili-podryadchik-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gde-zhit-rabochey-sisteme-svoy-server-oblako-ili-podryadchik-2026/)
+- [Бот в Telegram и MAX на одном ядре: что общее и что разное](./odin-bot-v-telegram-i-max-chto-obshchee-i-chto-raznoe-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/odin-bot-v-telegram-i-max-chto-obshchee-i-chto-raznoe-2026/)
+- [Склад в таблице без хаоса: правила и признаки, что пора на систему](./skladskoy-uchet-v-tablice-poka-rano-dlya-1s-kogda-perehodit-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skladskoy-uchet-v-tablice-poka-rano-dlya-1s-kogda-perehodit-2026/)
+- [Как платить вознаграждение за клиентов: договор, чек, налог](./vyplaty-partneram-i-referalam-uchet-sroki-nalogi-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vyplaty-partneram-i-referalam-uchet-sroki-nalogi-2026/)
 - [Как зарегистрировать ИП или ООО самому: ОКВЭД и первый месяц](./registraciya-ip-ili-ooo-poshagovo-okved-schet-rezhim-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/registraciya-ip-ili-ooo-poshagovo-okved-schet-rezhim-2026/)
 - [Когда что платить ИП: даты по УСН, патенту и НПД и напоминания](./nalogovyy-kalendar-malogo-biznesa-ens-uvedomleniya-sroki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nalogovyy-kalendar-malogo-biznesa-ens-uvedomleniya-sroki-2026/)
 - [Типовой договор поставки: что покупателю поправить до подписи](./dogovor-postavki-otsrochka-priemka-brak-neustoyka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/dogovor-postavki-otsrochka-priemka-brak-neustoyka-2026/)
