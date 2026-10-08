@@ -526,7 +526,7 @@ module.exports = [
     "relatedSlugs": [
       "svoy-ai-server-dlya-biznesa-2027",
       "gpu-dlya-lokalnyh-llm-2027",
-      "vnedrenie-ii-stoimost-2027"
+      "skolko-stoit-vnedrit-ii-2026"
     ],
     "ctaInternal": {
       "url": "https://chimitdorzhi.tech/market/#checklist",

@@ -8576,7 +8576,7 @@ const ALL_ARTICLES = [
     metaKeywords: 'как создать ai агента, создание ai агентов, как сделать ai агента, n8n ai агент, ai агент claude, yandex ai агент, локальный ai агент',
     excerpt: 'Пошаговый гайд практика: что такое AI-агент, как выбрать инструмент, собрать агента без кода через n8n, на Claude API и YandexGPT, запустить локально, не наделать частых ошибок и сколько это стоит.',
     datePublished: '2026-06-13',
-    dateModified: '2026-06-13',
+    dateModified: '2026-10-08',
     readingMinutes: 14,
     heroIcon: 'ph-fill ph-robot',
     tags: ['AI-агенты', 'n8n', 'Claude', 'YandexGPT'],

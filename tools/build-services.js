@@ -289,6 +289,8 @@ function faqJsonLd(svc) {
 
 function commercialTitle(svc) {
   // Коммерческий title: «<услуга> — цена <pt>, заказать | автор»
+  // ct задаёт свой title под запрос из Вебмастера
+  if (svc.ct) return svc.ct;
   return `${svc.n} — цена ${svc.pt}, заказать | Чимитдоржи Дарижапов`;
 }
 
