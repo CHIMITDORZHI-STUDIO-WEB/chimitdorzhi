@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "odin-bot-v-telegram-i-max-chto-obshchee-i-chto-raznoe-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-plugs-connected",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/telegram-bots/", label: "Бот сразу в Telegram и MAX" },
+  title: "Бот в Telegram и MAX на одном ядре: что общее и что разное",
+  metaTitle: "Бот для Telegram и MAX: ядро, адаптеры и отличия",
+  metaDescription: "Как сделать одного бота в Telegram и в MAX: общее ядро сценария, адаптеры, таблица отличий по лимитам, кнопкам, разметке, мини-приложению, чек-лист.",
+  excerpt: "Разбираю, как собрать одного бота для двух мессенджеров: что живёт в общем ядре, что решает адаптер, чем различаются лимиты, кнопки, форматирование и запуск мини-приложения. Даю таблицу по документации на 8 октября 2026, правила связывания клиента и чек-лист проверки.",
+  tags: ["предпринимателям", "бот для бизнеса", "Telegram и MAX", "архитектура бота"],
+  toc: [
+    { id: "komu", text: "Кому и когда это нужно" },
+    { id: "shagi", text: "Как это делается: 6 шагов" },
+    { id: "razlichiya", text: "Что общее и что разное" },
+    { id: "proverka", text: "Чек-лист проверки и поддержка" },
+    { id: "oshibki", text: "Где ошибаются чаще всего" },
+    { id: "avtomatizaciya", text: "Где здесь поможет автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["odin-bot-telegram-max-vk-2026", "limity-telegram-i-max-rassylka-vstala-2026", "kinly-semeynyy-assistent-telegram-max-keys-2026", "testirovanie-bota-i-sayta-pered-zapuskom-2026"],
+};

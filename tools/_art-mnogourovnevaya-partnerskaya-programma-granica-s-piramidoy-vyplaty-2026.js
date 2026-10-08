@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "mnogourovnevaya-partnerskaya-programma-granica-s-piramidoy-vyplaty-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-tree-structure",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/business-automation/", label: "Расчёт уровней и кабинет партнёра" },
+  title: "Многоуровневая партнёрка: граница с пирамидой и расчёт выплат",
+  metaTitle: "Многоуровневая партнёрка: что проверить по закону",
+  metaDescription: "Партнёрская программа с несколькими уровнями выплат: что сказано в ст. 172.2 УК РФ, чем безопасная схема отличается от опасной и как считать возвраты.",
+  excerpt: "Разбираю, как устроить партнёрскую программу, где платят и за продажи привлечённых людей, и не оказаться с пирамидой. Что я подтвердил в ст. 172.2 УК РФ, что не нашёл, как считать два уровня с возвратами на условном примере и когда лучше оставить один уровень.",
+  tags: ["предпринимателям", "партнёрская программа", "выплаты партнёрам", "ст. 172.2 УК РФ"],
+  toc: [
+    { id: "komu-i-kogda", text: "Кому и когда это нужно" },
+    { id: "shagi", text: "Как это делается: 6 шагов" },
+    { id: "raschet", text: "Как считать выплаты: условный пример" },
+    { id: "zakony", text: "Законы, документы и граница с пирамидой" },
+    { id: "oshibki", text: "Где ошибаются чаще всего" },
+    { id: "avtomatizaciya", text: "Где здесь поможет автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["eto-piramida-vozrazheniya-travel-klub-2026", "partnyorskaya-sistema-qr-keys-2026", "uchet-partnerskih-vyplat-2026", "marketing-plany-mlm-kak-vybrat-2026"],
+};

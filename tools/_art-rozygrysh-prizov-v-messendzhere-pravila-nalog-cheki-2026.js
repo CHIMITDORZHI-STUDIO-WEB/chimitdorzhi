@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "rozygrysh-prizov-v-messendzhere-pravila-nalog-cheki-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-gift",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/telegram-bots/", label: "Бот розыгрышей в Telegram и MAX" },
+  title: "Как провести розыгрыш в чате по правилам: положение, налог, чеки",
+  metaTitle: "Розыгрыш в Telegram и MAX: положение, НДФЛ и чеки",
+  metaDescription: "Как провести розыгрыш призов в мессенджере: положение с образцом, отличие от лотереи, НДФЛ с призов, чеки, согласие победителя и типичные ошибки.",
+  excerpt: "Разбираю, как оформить розыгрыш в Telegram или MAX: что писать в положении, где проходит граница с лотереей, какой налог возникает с приза и нужен ли чек. Что я проверил по первоисточникам и что оставил вопросом юристу или бухгалтеру, помечено в тексте.",
+  tags: ["предпринимателям", "розыгрыш призов", "налог с призов", "бот в мессенджере"],
+  toc: [
+    { id: "komu", text: "Кому и когда это нужно" },
+    { id: "shagi", text: "Как провести розыгрыш: 8 шагов" },
+    { id: "etapy", text: "Этапы, документы и образец положения" },
+    { id: "zakony", text: "Законы и документы" },
+    { id: "oshibki", text: "Где ошибаются чаще всего" },
+    { id: "avtomatizaciya", text: "Где здесь поможет автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["rozygryshi-kafe-chestnost-commit-reveal-2027", "kafe-nacionalnoy-kuhni-bot-max-rozygryshi-keys-2026", "prizy-i-nalogi-v-igre-2026", "konkurs-priglasheniy-max-virusnyy-rost-2027"],
+};

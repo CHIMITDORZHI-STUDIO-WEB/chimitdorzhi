@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "skladskoy-uchet-v-tablice-poka-rano-dlya-1s-kogda-perehodit-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-table",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/logistics-automation/", label: "Перенос склада из таблицы в систему" },
+  title: "Склад в таблице без хаоса: правила и признаки, что пора на систему",
+  metaTitle: "Складской учёт в Excel: как вести и когда уходить с таблицы",
+  metaDescription: "Как вести склад в Excel или Google-таблице без хаоса: журнал движений, сторно, закрытие дня, инвентаризация. И 9 признаков, что пора на систему.",
+  excerpt: "Небольшому складу таблицы часто хватает, если остаток считает формула по журналу движений. Разбираю структуру листов, правила ввода, сторно и закрытие дня, а затем признаки, когда таблица уже мешает, и как перейти на систему без потери данных.",
+  tags: ["предпринимателям", "складской учёт", "Excel и Google-таблицы", "переход на систему"],
+  toc: [
+    { id: "komu-i-kogda", text: "Кому и когда это нужно" },
+    { id: "kak-vesti", text: "Как вести склад в таблице: 8 шагов" },
+    { id: "priznaki", text: "Признаки, что пора на систему" },
+    { id: "perehod", text: "На что переходить и как" },
+    { id: "oshibki", text: "Где ошибаются чаще всего" },
+    { id: "avtomatizaciya", text: "Где здесь поможет автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["sklad-bez-1c-uchet-na-telefone-2026", "uchet-ostatkov-bez-1c-2026", "excel-spasenie-i-tupik-2026", "programma-ucheta-na-zakaz-2026"],
+};

@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "sayt-i-prilozhenie-na-neskolkih-yazykah-chto-perevodit-seo-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-translate",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/web-development/", label: "Сайт на нескольких языках под ключ" },
+  title: "Второй язык на сайте: что переводить, где хранить, как с SEO",
+  metaTitle: "Сайт на нескольких языках: файлы переводов и hreflang",
+  metaDescription: "Как сделать сайт или приложение на нескольких языках: что переводить первым, где хранить тексты, адреса и hreflang, переключатель, арабский и китайский.",
+  excerpt: "Разбираю, как добавить второй язык на сайт или в приложение и не развалить перевод через полгода: кому он нужен, какие страницы идут первыми, как хранить тексты ключами, какие адреса и hreflang нужны поиску. Примеры из своих проектов, без обещаний роста трафика.",
+  tags: ["предпринимателям", "многоязычный сайт", "локализация", "hreflang"],
+  toc: [
+    { id: "komu", text: "Кому и когда это нужно" },
+    { id: "shagi", text: "Как это делается: 8 шагов" },
+    { id: "tablica", text: "Из чего это складывается: этапы" },
+    { id: "zakony", text: "Законы и документы" },
+    { id: "oshibki", text: "Где ошибаются чаще всего" },
+    { id: "avtomatizaciya", text: "Где здесь поможет автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["perevod-kataloga-i-sayta-pachkoy-2026", "korporativnyy-sayt-kompanii-oae-keys-2026", "zakon-o-russkom-yazyke-168-fz-sayt-prilozhenie-bot-chto-proverit-2026", "sayt-oteley-na-kitayskom-2026"],
+};
