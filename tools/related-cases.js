@@ -32,12 +32,12 @@ module.exports = {
   'services/business-automation': [
     { slug: 'crm-logistiki-istochniki-zayavok-keys-2026', why: 'CRM с источником каждой заявки, правами менеджеров и уведомлениями без персданных' },
     { slug: 'konveyer-rolikov-foto-infografika-keys-2026', why: 'Конвейер роликов с автоответами по кодовому слову в комментариях и директе' },
-    { slug: 'vitrina-avto-iz-pereslannyh-postov-keys-2026', why: 'Пересланный пост сам превращается в объявление, без ручного заполнения форм' },
+    { slug: 'crm-stroitelnoy-kompanii-almaznaya-rezka-keys-2026', why: 'CRM вокруг объекта: 4 кабинета, задачи, отчёты с фото и геометкой, учёт инструмента, офлайн-приложение' },
   ],
   'services/accounting-automation': [
     { slug: 'palletnyy-uchet-tsd-1c-keys-2026', why: 'Учёт паллет рядом с 1С УТ: приёмка, отгрузка, протокол обмена с защитой от дублей' },
     { slug: 'katalog-kosmetiki-sinhronizaciya-kassy-keys-2026', why: 'Связь кассы с сайтом без платного посредника, разметка 591 товара' },
-    { slug: 'soft-zapolnenie-ved-deklaraciy-keys-2026', why: 'Черновик декларации из инвойсов и спецификаций (обезличенный разбор по типу задачи)' },
+    { slug: 'kontrol-materialov-1c-rasshirenie-keys-2026', why: 'Расширение 1С: лимиты материалов по видам работ, согласование расхода сверх плана, ежедневная сводка' },
   ],
   'services/computer-vision': [
     { slug: 'raspoznavanie-staromongolskogo-teksta-keys-2026', why: 'Распознавание старописьменной монгольской вязи по фото открытой моделью, сверка с эталоном' },
@@ -46,7 +46,7 @@ module.exports = {
   'services/big-data': [
     { slug: 'razvedka-dannyh-avtoploshchadok-keys-2026', why: 'Разведка данных на четверть миллиона объявлений: архитектура и стоимость инфраструктуры до старта' },
     { slug: 'wetocar-katalog-avto-kitay-keys-2026', why: 'Каталог на 2000 авто с живой подгрузкой из Китая, обработка неполных данных' },
-    { slug: 'analizator-memkoinov-keys-2026', why: 'Сбор публичных рыночных данных и фильтрация шума формальными признаками' },
+    { slug: 'api-dannyh-avto-iz-kitaya-platforma-keys-2026', why: 'Платформа данных по авто: сбор с открытых площадок, нормализация, API с ключами' },
   ],
   'services/devops': [
     { slug: 'otkazoustoychivaya-infrastruktura-keys-2026', why: 'Мониторинг, автоперезапуск, проверяемые бэкапы в 14 поколениях, тёплый резерв у второго провайдера' },
@@ -85,7 +85,7 @@ module.exports = {
   'services/china-it': [
     { slug: 'ved-checker-proverka-tnved-keys-2026', why: 'Проверка кодов ТН ВЭД по фуре на 50 000 посылок: база подтверждённых кодов плюс ИИ-подсказка' },
     { slug: 'wetocar-katalog-avto-kitay-keys-2026', why: 'Каталог авто с подгрузкой с китайских площадок, логистика и таможня' },
-    { slug: 'rusifikaciya-golovnogo-ustroystva-avto-keys-2026', why: 'Русификация интерфейса китайского головного устройства (обезличенный разбор по типу задачи)' },
+    { slug: 'api-dannyh-avto-iz-kitaya-platforma-keys-2026', why: 'Своя платформа API данных по авто из Китая: новые и б/у, ключи с лимитом, журнал изменений' },
   ],
   'services/culture-digitalization': [
     { slug: 'amarsain-sayt-teatra-keys-2026', why: 'Сайт, боты MAX и Telegram и админка национального театра' },
@@ -157,9 +157,10 @@ module.exports = {
   'development/web-apps': [
     { slug: 'ferz-rabochee-mesto-rukovoditelya-saas-keys-2026', why: 'Свой SaaS: FastAPI, 14 таблиц, 55 маршрутов API, сайт работает' },
     { slug: 'space-platforma-gotovyh-resheniy-keys-2026', why: 'Своя платформа с входом через Telegram и подключением готовых решений' },
-    { slug: 'vitrina-nedvizhimosti-crm-keys-2026', why: 'Витрина с тремя уровнями доступа и своей CRM, вход по коду' },
+    { slug: 'crm-stroitelnoy-kompanii-almaznaya-rezka-keys-2026', why: 'CRM вокруг объекта: 4 кабинета, задачи, отчёты с фото и геометкой, учёт инструмента, офлайн-приложение' },
   ],
   'development/pwa': [
+    { slug: 'crm-stroitelnoy-kompanii-almaznaya-rezka-keys-2026', why: 'Приложение прораба и сотрудника с офлайн-очередью и push' },
     { slug: 'sovmestnye-zakupki-pwa-pvz-keys-2026', why: 'Одно PWA: город, пункт выдачи, заказ, роли закупщика, сборщика и франчайзи' },
     { slug: 'pwa-kofeyni-geymifikaciya-keys-2026', why: 'PWA лояльности кофейни: два входа, задания, розыгрыши, релиз по критериям' },
   ],

@@ -68,7 +68,7 @@ module.exports = [
     toc: T([{ id: 'kak-rabotaet', text: 'Как работает ранжирование' }, { id: 'sposoby', text: 'Способы поднять объявления' }, { id: 'oshibki', text: 'Частые ошибки' }, { id: 'biznesu', text: 'Связка с CRM' }]),
     relatedSlugs: ['avito-dlya-biznesa-2026', 'priem-zayavok-s-avito-v-crm-2027', 'seo-prodvizhenie-sayta-2026'] }),
 
-  E({ slug: 'avito-dlya-biznesa-2026', category: 'marketing', heroIcon: 'ph-fill ph-shopping-cart',
+  E({ slug: 'avito-dlya-biznesa-2026', dateModified: '2026-10-08', category: 'marketing', heroIcon: 'ph-fill ph-shopping-cart',
     servicesOffer: SVC_AUTO, ctaInternal: CTA_AUTO,
     title: 'Авито для бизнеса: магазин, доставка и автоответы',
     metaTitle: 'Авито для бизнеса: магазин, доставка, автоответы',

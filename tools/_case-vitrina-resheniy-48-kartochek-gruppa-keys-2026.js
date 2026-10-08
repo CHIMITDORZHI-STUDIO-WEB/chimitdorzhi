@@ -7,7 +7,7 @@ module.exports = {
     excerpt: 'Telegram-группа с темами как каталог готовых решений для малого бизнеса: 48 карточек по единому шаблону из пяти слайдов, 13 тем-ниш и 16 кейсов. Разбор шаблона, нумерации и публикации, с измеренными цифрами и без выдуманных охватов.',
     tags: ['кейс', 'Telegram', 'каталог решений', 'контент-система'],
     cta: 'auto',
-    relatedSlugs: ['telegram-chat-vk-soobshchestvo-2026', 'zarabotok-na-referalnoy-programme-2026', 'partnerskiy-marketing-affiliate-2026', 'zakazat-telegram-bota-cena-2027'],
+    relatedSlugs: ['telegram-chat-vk-soobshchestvo-2026', 'zarabotok-na-referalnoy-programme-2026', 'partnerskiy-marketing-affiliate-2026', 'skolko-stoit-chat-bot-2026'],
   },
   flagship: {
     name: 'Витрина решений: 48 карточек в Telegram-группе',

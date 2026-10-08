@@ -182,7 +182,7 @@ module.exports = [
     metaDescription: 'Разбираю модель зарубежного сервиса Gumroad: простая платформа, где автор за несколько минут выкладывает цифровой продукт (курс, шаблон.',
     excerpt: 'За рубежом выложить цифровой продукт на продажу — курс, шаблон, гайд — можно за пять минут без сайта и разработчика. У нас авторы чаще собирают это вручную. Разбираю модель Gumroad и её адаптацию.',
     tags: ['стартап-идея', 'SaaS', 'цифровые продукты', 'бизнес-модель'],
-    relatedSlugs: ['personalnye-videoobrashcheniya-ot-blogerov-2027', 'optovyy-marketplace-lokalnyh-brendov-2027', 'zakazat-telegram-bota-cena-2027'] }),
+    relatedSlugs: ['personalnye-videoobrashcheniya-ot-blogerov-2027', 'optovyy-marketplace-lokalnyh-brendov-2027', 'skolko-stoit-chat-bot-2026'] }),
 
   E({ slug: 'platforma-sbora-sredstv-na-lichnye-sobytiya-2027', heroIcon: 'ph-fill ph-hand-heart',
     title: 'GoFundMe по-русски: платформа сбора средств на личные события',

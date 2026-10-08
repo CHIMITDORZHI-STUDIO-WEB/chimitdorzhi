@@ -116,7 +116,7 @@ module.exports = `
   <li><strong>Скорость загрузки до 2 секунд.</strong> Каждая секунда задержки — минус 10-20% конверсии. Оптимизация картинок, lazy-loading, minify CSS/JS, CDN.</li>
   <li><strong>SEO-оптимизация под Яндекс.</strong> Уникальные title и description для каждой страницы, h1 в единственном экземпляре, ЧПУ-урлы, sitemap.xml, robots.txt, ping IndexNow.</li>
   <li><strong>Блог с RSS-фидом.</strong> Минимум один пост в неделю. Без блога SEO-трафик не растёт.</li>
-  <li><strong>Форма подписки на email-рассылку.</strong> Минимум одна заметная форма + всплывающая через 30 секунд / при прокрутке 50%.</li>
+  <li><strong>Форма подписки на email-рассылку.</strong> Минимум одна заметная форма + <a href="/blog/vsplyvayushchee-okno-na-sayte-2026/">всплывающая</a> через 30 секунд / при прокрутке 50%.</li>
   <li><strong>Аналитика — Яндекс.Метрика.</strong> Google Analytics в РФ не работает корректно с 2022 года, ставить его нет смысла. Метрика — стандарт.</li>
   <li><strong>Schema.org микроразметка.</strong> Organization, BreadcrumbList, Article, FAQPage, Product — в зависимости от типа контента. Это даёт rich-snippets в Яндексе.</li>
   <li><strong>Прямой контакт через мессенджер.</strong> Кнопка «Написать в Telegram» — самый эффективный канал прямого контакта в РФ 2026.</li>

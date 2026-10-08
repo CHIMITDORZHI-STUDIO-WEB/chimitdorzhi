@@ -226,7 +226,7 @@ module.exports = [
     relatedSlugs: ['kak-seteviku-avtomatizirovat-strukturu-2026', 'svoy-lending-dlya-setevika-2026', 'referalnyy-bot-konkurs-priglasheniy-keys-2026', 'onboarding-bot-setevoy-biznes-max-2027'] }),
 
   // ===== Новая: смета сайта/бота (денежный кластер) =====
-  E({ slug: 'skolko-stoit-sayt-bot-pod-klyuch-2026', category: 'expert', heroIcon: 'ph-fill ph-calculator', ctaInternal: WEB, servicesOffer: SVC_BIZ,
+  E({ slug: 'skolko-stoit-sayt-bot-pod-klyuch-2026', published: false, category: 'expert', heroIcon: 'ph-fill ph-calculator', ctaInternal: WEB, servicesOffer: SVC_BIZ,
     title: 'Сколько стоит сайт или бот под ключ в 2026: смета без сюрпризов',
     metaTitle: 'Сколько стоит сайт или бот под ключ в 2026',
     metaDescription: 'Из чего складывается цена сайта и бота под ключ в 2026: разработка, интеграции, хостинг, поддержка. Вилки по типам и как не переплатить.',

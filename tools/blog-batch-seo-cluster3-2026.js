@@ -100,5 +100,5 @@ module.exports = [
     excerpt: 'Хочешь принимать оплату на сайте, а термины пугают: эквайринг, СБП, ссылки. Разбираю простыми словами, что выбрать малому бизнесу и как встроить оплату без боли.',
     tags: ['эквайринг', 'оплата на сайте', 'СБП', 'платежи'],
     toc: [{ id: 'varianty', text: 'Способы принимать оплату' }, { id: 'ekvayring-sbp', text: 'Эквайринг vs СБП' }, { id: 'chto-vybrat', text: 'Что выбрать малому бизнесу' }, { id: 'kak-vstroit', text: 'Как встроить в сайт' }, ...FAQ_VYV],
-    relatedSlugs: ['ekvayring-ili-sbp-2026', 'priem-platezhey-sbp-sayt', 'skolko-stoit-sayt-bot-pod-klyuch-2026', 'skvoznaya-analitika-malyy-biznes-2026'] }),
+    relatedSlugs: ['ekvayring-ili-sbp-2026', 'priem-platezhey-sbp-sayt', 'skolko-stoit-razrabotka-gayd-ceny-2026', 'skvoznaya-analitika-malyy-biznes-2026'] }),
 ];

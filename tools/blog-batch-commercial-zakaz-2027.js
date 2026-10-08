@@ -34,7 +34,7 @@ const E = (o) => Object.assign({
 }, o, { contentHtml: C(o.slug) });
 
 module.exports = [
-  E({ slug: 'zakazat-telegram-bota-cena-2027', heroIcon: 'ph-fill ph-robot', ctaInternal: TG,
+  E({ slug: 'zakazat-telegram-bota-cena-2027', published: false, heroIcon: 'ph-fill ph-robot', ctaInternal: TG,
     title: 'Заказать Telegram-бота для бизнеса: что входит, сроки и от чего зависит цена',
     metaTitle: 'Заказать Telegram-бота: цена и сроки',
     metaDescription: 'Заказать Telegram-бота для бизнеса под ключ: что входит в работу (сценарии, приём заявок, оплата, интеграции, админка), от чего зависит цена.',
@@ -89,5 +89,5 @@ module.exports = [
     metaDescription: 'Заказать чат-бота для записи клиентов: что он умеет (запись 24/7, напоминания, перенос, оплата), от чего зависит цена.',
     excerpt: 'Администратор не успевает записывать, клиенты не приходят? Бот для записи берёт это на себя 24/7. Разбираю, что он умеет, сколько стоит и за сколько окупается.',
     tags: ['бот для записи', 'заказать', 'цена', 'окупаемость'],
-    relatedSlugs: ['max-bot-zapis-na-uslugi-2026', 'zakazat-telegram-bota-cena-2027', 'avtomatizaciya-salonov-krasoty-yclients'] }),
+    relatedSlugs: ['max-bot-zapis-na-uslugi-2026', 'skolko-stoit-chat-bot-2026', 'avtomatizaciya-salonov-krasoty-yclients'] }),
 ];

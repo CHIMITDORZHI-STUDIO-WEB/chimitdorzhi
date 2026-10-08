@@ -197,7 +197,7 @@ module.exports = [
       { id: "vyvody", text: "Коротко о главном" },
     ],
     relatedSlugs: ["kak-sostavit-tz-na-sayt-bot-2026","kak-ya-vedu-proekt-2026","kak-zakazat-razrabotku-ne-poteryat-dengi-2026","pilotnyy-proekt-2-nedeli-2026"] }),
-  E({ slug: "oshibki-pri-zakaze-bota-dlya-biznesa-2026", category: "development", heroIcon: "ph-fill ph-warning-circle", ctaInternal: { url: "https://chimitdorzhi.tech/development/telegram-bots/", label: "Заказать бота или ИИ-агента" },
+  E({ slug: "oshibki-pri-zakaze-bota-dlya-biznesa-2026", published: false, category: "development", heroIcon: "ph-fill ph-warning-circle", ctaInternal: { url: "https://chimitdorzhi.tech/development/telegram-bots/", label: "Заказать бота или ИИ-агента" },
     title: "8 ошибок при заказе бота, из-за которых деньги уходят впустую",
     metaTitle: "Ошибки при заказе бота для бизнеса: 8 ловушек и как их обойти",
     metaDescription: "Заказ бота без цели, по самой низкой цене, без пилота и данных: восемь ошибок, из-за которых деньги уходят впустую, и что делать по каждой.",

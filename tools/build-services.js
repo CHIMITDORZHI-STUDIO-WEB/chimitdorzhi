@@ -13,6 +13,10 @@ const { i18nServices, i18nUi } = require('./services-i18n-source');
 const OFFERS = require('./offers-data.js');
 const { METRIKA, GOALS, maxBtn } = require('./metrika-snippet.js');
 const { casesSection } = require('./related-cases-html.js');
+// Разделы «Как проходит работа», «Что входит в цену», «Сроки» (данные: services-extra.js)
+let EXTRA = {};
+try { EXTRA = require('./services-extra.js'); } catch (e) { EXTRA = {}; }
+const PRICE_IDS = new Set(require('./prices-data.js').map((p) => p.id));
 
 // Карта: услуга (slug) → готовое предложение (slug). Связывает каталог услуг с предложениями.
 const SERVICE_OFFER = {
@@ -297,6 +301,40 @@ function commercialTitle(svc) {
   return `${svc.n} — цена ${svc.pt}, заказать | Чимитдоржи Дарижапов`;
 }
 
+function serviceExtraSection(svc) {
+  const x = EXTRA[svc.s];
+  if (!x) return '';
+  const steps = (x.steps || []).map((t, i) => `<li><strong>${i + 1}.</strong> ${esc(t)}</li>`).join('\n            ');
+  const inc = (x.included || []).map((t) => `<li>${esc(t)}</li>`).join('\n            ');
+  const notInc = (x.notIncluded || []).length
+    ? `<p style="margin-top:16px;color:var(--text-secondary);">Оплачивается отдельно: ${(x.notIncluded || []).map((t) => esc(/^[А-ЯЁA-Z][а-яёa-z]/.test(t) ? t[0].toLowerCase() + t.slice(1) : t)).join('; ')}.</p>` : '';
+  const smeta = x.smeta && PRICE_IDS.has(x.smeta)
+    ? ` <a href="/ceny/#p-${esc(x.smeta)}">Посчитать в смете</a>.` : '';
+  return `${steps ? `<section class="section section-tight">
+    <div class="container">
+        <h2 class="service-h2">Как проходит работа</h2>
+        <ol class="service-factors">
+            ${steps}
+        </ol>
+    </div>
+</section>` : ''}
+${inc ? `<section class="section section-tight">
+    <div class="container">
+        <h2 class="service-h2">Что входит в цену ${esc(svc.pt)}</h2>
+        <ul class="service-factors">
+            ${inc}
+        </ul>
+        ${notInc}
+    </div>
+</section>` : ''}
+${x.timeline ? `<section class="section section-tight">
+    <div class="container">
+        <h2 class="service-h2">Сроки</h2>
+        <p style="max-width:820px;line-height:1.6;">${esc(x.timeline)}${smeta}</p>
+    </div>
+</section>` : ''}`;
+}
+
 function pricingFactorsSection(svc) {
   if (!svc.pf || !svc.pf.length) return '';
   return `<section class="section section-tight">
@@ -358,6 +396,8 @@ ${faqJsonLd(svc)}
                 </div>
             </div>
         </section>
+
+        ${serviceExtraSection(svc)}
 
         ${pricingFactorsSection(svc)}
 

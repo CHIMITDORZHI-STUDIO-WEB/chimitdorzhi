@@ -69,7 +69,7 @@ module.exports = [
       { id: 'faq', text: 'FAQ' },
       { id: 'vyvody', text: 'Коротко о главном' },
     ],
-    relatedSlugs: ['zakazat-telegram-bota-cena-2027', 'kuda-utekayut-zayavki-7-mest-2026', 'ekvayring-ili-sbp-2026', 'max-bot-zapis-na-uslugi-2026'] }, 'development'),
+    relatedSlugs: ['skolko-stoit-chat-bot-2026', 'kuda-utekayut-zayavki-7-mest-2026', 'ekvayring-ili-sbp-2026', 'max-bot-zapis-na-uslugi-2026'] }, 'development'),
   E({ slug: 'ne-teryat-zayavki-letom-avtomatizaciya-2026', heroIcon: 'ph-fill ph-sun', ctaInternal: AUTO, servicesOffer: SVC_AUTO,
     title: 'Как не терять заявки летом: автоматизация бизнеса на время отпусков',
     metaTitle: 'Не терять заявки летом: автоматизация',
