@@ -457,13 +457,21 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
                     <div class="blog-body">
                         <p>В условиях <a href="https://chimitdorzhi.tech/services/russian-stack-migration/" class="blog-inline-link">импортозамещения</a> многие компании переносят системы «1С:Предприятие» с Windows и MS SQL Server на стек Linux и PostgreSQL. Однако после миграции бизнес часто сталкивается с падением производительности: проведение документов зависает, отчеты формируются в разы дольше, возникают взаимные блокировки. Первая реакция руководства — покупка более мощного сервера. Но в 80% случаев проблема кроется не в нехватке физических ресурсов, а в неоптимальных стандартных настройках СУБД и ОС. По умолчанию PostgreSQL сконфигурирован под простые веб-приложения, а не под транзакционную нагрузку ERP-систем. Тонкая настройка имеющегося сервера позволяет увеличить производительность 1С в 2–3 раза без дополнительных затрат на оборудование.</p>
 <div class="blog-tldr"><h3>Коротко (TL;DR)</h3><p>Медленная работа 1С на Linux + PostgreSQL обычно вызвана нерациональным использованием оперативной памяти, задержками дисков при записи транзакционного лога (WAL) и неэффективными планами запросов СУБД. Для решения проблемы оптимизируются четыре уровня инфраструктуры. На уровне ядра Linux отключаются механизмы энергосбережения CPU и Transparent Huge Pages, снижается использование файла подкачки (swappiness) и настраивается сброс грязных страниц памяти. Дисковая система тестируется утилитой <code>fio</code> для выявления задержек (latency) и IOPS. Параметры <code>postgresql.conf</code> (shared_buffers, work_mem, temp_buffers, effective_cache_size) пересчитываются под ресурсы сервера, а также отключается синхронная запись транзакций (<code>synchronous_commit = off</code>). В СУБД настраивается агрессивный автовакуум и регламенты обслуживания для борьбы с раздуванием таблиц.</p></div>
+<div class="blog-cta-internal">
+  <i class="ph-fill ph-rocket-launch" aria-hidden="true"></i>
+  <div>
+    <strong>Хотите внедрить это у себя?</strong>
+    <p>Сделаю под ключ: разберу задачу, назову срок и цену. Чтобы начать, <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%A3%D1%81%D0%BA%D0%BE%D1%80%D0%B5%D0%BD%D0%B8%D0%B5%201%D0%A1%3A%20%D1%82%D0%BE%D0%BD%D0%BA%D0%B0%D1%8F%20%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0%20%D0%A1%D0%A3%D0%91%D0%94%20PostgreSQL%20%D0%BD%D0%B0%20Linux%20%D0%B1%D0%B5%D0%B7%20%D0%BF%D0%BE%D0%BA%D1%83%D0%BF%D0%BA%D0%B8%20%D0%BD%D0%BE%D0%B2%D0%BE%D0%B3%D0%BE%20%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B0%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener">напишите в Telegram</a> одной фразой.</p>
+    <a href="https://chimitdorzhi.tech/predlozheniya/importozameshchenie-infrastruktura/">Ускорить 1С на PostgreSQL <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</div>
 <h2 id="architecture-spec">Специфика работы 1С с базами данных и неэффективность настроек по умолчанию</h2>
 <p>Платформа «1С:Предприятие» создает транзакционную нагрузку типа OLTP (Online Transaction Processing). Она характеризуется миллионами мелких и быстрых запросов на чтение и запись от множества пользователей. Для таких систем критически важны минимальное время отклика (latency) памяти и дисков, а также быстрая обработка блокировок.</p>
 <p><strong>Коротко:</strong> Медленная работа 1С на Linux и PostgreSQL чаще всего вызвана стандартными настройками ОС и СУБД, а не нехваткой железа. Помогают отключение swap и THP, тестирование дисков утилитой fio, настройка shared_buffers, work_mem и synchronous_commit off в postgresql.conf, а также агрессивный автовакуум — это увеличивает производительность в 2–3 раза.</p>
 <p>Особенностью 1С является интенсивное использование временных таблиц. При проведении документов платформа генерирует сложные SQL-запросы с десятками соединений, записывая промежуточные результаты во временные таблицы. В неоптимизированной СУБД эти таблицы сбрасываются на диск во временные файлы, что перегружает дисковый ввод-вывод и замедляет работу всей системы.</p>
-<p>Стандартный PostgreSQL без оптимизации не подходит для 1С. Платформа требует специализированных сборок СУБД (например, от Postgres Pro или самой фирмы 1С), содержащих патчи для поддержки специфического упорядочивания символов (collation), оптимизации менеджера блокировок и планировщика запросов. Но даже специализированная сборка требует настройки под параметры конкретного сервера.</p>
+<p>Стандартный PostgreSQL без оптимизации не подходит для 1С. Платформа требует специализированных сборок СУБД (например, от Postgres Pro или самой фирмы 1С), содержащих патчи для поддержки специфического упорядочивания символов (collation), оптимизации менеджера блокировок и планировщика запросов. Но даже специализированная сборка требует настройки <a href="/blog/1c-v-oblake-ili-na-svoem-servere-2026/">под параметры конкретного сервера</a>.</p>
 <h2 id="linux-os-tuning">Подготовка и оптимизация Linux: тонкий тюнинг ядра</h2>
-<p>Перед настройкой PostgreSQL необходимо подготовить ОС. Оптимизация рассматривается на примере дистрибутивов Rocky Linux и Ubuntu Server.</p>
+<p>Перед настройкой PostgreSQL <a href="/blog/migraciya-na-astra-linux-2026/">необходимо подготовить ОС</a>. Оптимизация рассматривается на примере дистрибутивов Rocky Linux и Ubuntu Server.</p>
 <h3>Настройка профиля производительности CPU</h3>
 <p>Современные процессоры по умолчанию работают в режиме энергосбережения, динамически меняя тактовую частоту. При отправке запроса процессору требуется время на повышение частоты (режимы <code>powersave</code> или <code>ondemand</code>). В высоконагруженных системах эти микросекундные задержки накапливаются, снижая общую отзывчивость. Сервер СУБД должен работать на максимальной мощности. Для принудительного включения режима максимальной производительности выполните:</p>
 <pre><code>cpupower frequency-set -g performance</code></pre>
@@ -525,7 +533,7 @@ autovacuum_vacuum_cost_limit = 1000
 autovacuum_vacuum_cost_delay = 2</code></pre>
 <p>Параметр <code>autovacuum_vacuum_scale_factor = 0.05</code> запускает очистку при изменении 5% строк таблицы (вместо 20% по умолчанию), а снижение задержки <code>autovacuum_vacuum_cost_delay</code> до 2 мс и увеличение лимита стоимости <code>autovacuum_vacuum_cost_limit</code> до 1000 ускоряют работу автовакуума в несколько раз.</p>
 <h3>Регламентные операции СУБД</h3>
-<p>Необходимо настроить запуск ночных регламентных задач через системный планировщик <code>cron</code>:</p>
+<p>Необходимо настроить запуск <a href="/blog/rezervnoe-kopirovanie-1c-2026/">ночных регламентных задач</a> через системный планировщик <code>cron</code>:</p>
 <p>#### 1. Обновление статистики (ANALYZE) Статистика распределения данных в таблицах критически важна для правильного выбора индексов планировщиком. Запускайте сбор статистики для базы каждую ночь:</p>
 <pre><code>vacuumdb -U postgres -d your_database_name --analyze-only --verbose</code></pre>
 <p>#### 2. Переиндексация (REINDEX) Индексы 1С быстро фрагментируются. Команда <code>REINDEX</code> перестраивает их с нуля, повышая скорость поиска. Поскольку обычный <code>REINDEX</code> блокирует таблицы на запись, его запускают раз в неделю на выходных:</p>
@@ -536,9 +544,10 @@ autovacuum_vacuum_cost_delay = 2</code></pre>
 <pre><code>pg_repack -U postgres -d your_database_name -t named_table</code></pre>
 <h2 id="my-services">Что я делаю для этой сферы</h2>
 <ul><li>[ ] <strong>Аудит производительности 1С:</strong> Провожу детальный анализ технологического журнала 1С и логов СУБД для выявления причин медленной работы.</li><li>[ ] <strong>Оптимизация параметров ядра Linux:</strong> Конфигурирую виртуальную память, профили CPU, THP и планировщики очередей ввода-вывода.</li><li>[ ] <strong>Стресс-тестирование оборудования:</strong> Измеряю производительность накопителей (FIO) и процессора под максимальной нагрузкой.</li><li>[ ] <strong>Тюнинг файлов конфигурации СУБД:</strong> Настраиваю лимиты памяти, параметры WAL и параллелизма под ресурсы сервера.</li><li>[ ] <strong>Настройка планового обслуживания:</strong> Автоматизирую резервное копирование, агрессивный автовакуум и бесконфликтную переиндексацию баз данных.</li></ul>
+<div class="blog-callout blog-callout-info blog-read-next"><i class="ph-fill ph-book-open" aria-hidden="true"></i><div><strong>Читайте дальше по теме</strong><ul><li><a href="/blog/udalenniy-ofis-vpn-telefoniya/">Удаленный офис под ключ: организация безопасного удаленного доступа (VPN, телефония, таск-трекеры)</a></li><li><a href="/blog/korporativnaya-pochta-linux/">Безопасная корпоративная почта: как развернуть свой почтовый сервер на Linux и защититься от спама</a></li></ul></div></div>
 <h2 id="ready-solution">Готовое решение по теме</h2>
 <div class="blog-tldr"><h3>Коротко (TL;DR)</h3><p>Не спешите тратить ИТ-бюджет на покупку нового сервера. Закажите комплексную услугу по оптимизации работы ОС Linux и тонкой настройке PostgreSQL под нужды 1С с гарантией роста производительности по договору. Подробные условия предложения доступны по ссылке: <strong><a href="/predlozheniya/importozameshchenie-infrastruktura/">Оптимизация и ускорение PostgreSQL под 1С на Linux</a></strong> — стоимость работ составляет <strong>от 45 000 рублей</strong>.</p></div>
-<ul><li><strong><a href="https://t.me/chimitdorzhi">Связаться со мной в Telegram</a></strong> — оперативный технический разбор проблемы в чате.</li><li><strong><a href="https://vk.com/chimitdorzhi_tech">Группа ВКонтакте</a></strong> — кейсы администрирования баз данных, рекомендации и отзывы.</li><li><strong><a href="https://chimitdorzhi.tech/services/">Каталог услуг</a></strong> — <a href="https://chimitdorzhi.tech/services/web-development/" class="blog-inline-link">прайс-лист</a> на обслуживание серверов СУБД, 1С и систем на Linux.</li></ul>
+<ul><li><strong><a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%A3%D1%81%D0%BA%D0%BE%D1%80%D0%B5%D0%BD%D0%B8%D0%B5%201%D0%A1%3A%20%D1%82%D0%BE%D0%BD%D0%BA%D0%B0%D1%8F%20%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0%20%D0%A1%D0%A3%D0%91%D0%94%20PostgreSQL%20%D0%BD%D0%B0%20Linux%20%D0%B1%D0%B5%D0%B7%20%D0%BF%D0%BE%D0%BA%D1%83%D0%BF%D0%BA%D0%B8%20%D0%BD%D0%BE%D0%B2%D0%BE%D0%B3%D0%BE%20%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B0%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83.">Связаться со мной в Telegram</a></strong> — оперативный технический разбор проблемы в чате.</li><li><strong><a href="https://vk.com/chimitdorzhi_tech">Группа ВКонтакте</a></strong> — кейсы администрирования баз данных, рекомендации и отзывы.</li><li><strong><a href="https://chimitdorzhi.tech/services/">Каталог услуг</a></strong> — <a href="https://chimitdorzhi.tech/services/web-development/" class="blog-inline-link">прайс-лист</a> на обслуживание серверов СУБД, 1С и систем на Linux.</li></ul>
 <h2 id="reglament-obsluzhivaniya">Регламент обслуживания после тюнинга</h2>
 <p>Разовая настройка PostgreSQL даёт ускорение, но без регулярного обслуживания база со временем снова замедляется: накапливаются мёртвые строки, разрастаются индексы, меняется объём данных. Поэтому тюнинг закрепляется регламентом сопровождения.</p>
 <p>Минимальный регламент обслуживания сервера 1С на PostgreSQL:</p>
@@ -587,96 +596,24 @@ autovacuum_vacuum_cost_delay = 2</code></pre>
                     
                     
 <div class="blog-services-offer">
-  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <div class="blog-services-offer-eyebrow">Обсудим вашу задачу</div>
   <h3 class="blog-services-offer-title">Что я делаю с IT-инфраструктурой</h3>
-  <ul class="blog-services-offer-list">
-    
-    <li><i class="ph-fill ph-database"></i> <span>1С, PostgreSQL и тюнинг серверов</span></li>
-    
-    <li><i class="ph-fill ph-shield-check"></i> <span>Импортозамещение и безопасный периметр</span></li>
-    
-    <li><i class="ph-fill ph-package"></i> <span>Складской учёт и WMS</span></li>
-    
-    <li><i class="ph-fill ph-pulse"></i> <span>Мониторинг и поддержка</span></li>
-    
-  </ul>
+  <p class="blog-services-offer-lead">Напишите одной фразой, что нужно. Отвечу, что подойдёт, сколько займёт и сколько стоит. Сообщение уже подготовлено.</p>
+  <ul class="blog-services-offer-list"><li><i class="ph-fill ph-database"></i> <span>1С, PostgreSQL и тюнинг серверов</span></li><li><i class="ph-fill ph-shield-check"></i> <span>Импортозамещение и безопасный периметр</span></li><li><i class="ph-fill ph-package"></i> <span>Складской учёт и WMS</span></li><li><i class="ph-fill ph-pulse"></i> <span>Мониторинг и поддержка</span></li></ul>
   <div class="blog-services-offer-ctas">
-    <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%A3%D1%81%D0%BA%D0%BE%D1%80%D0%B5%D0%BD%D0%B8%D0%B5%201%D0%A1%3A%20%D1%82%D0%BE%D0%BD%D0%BA%D0%B0%D1%8F%20%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0%20%D0%A1%D0%A3%D0%91%D0%94%20PostgreSQL%20%D0%BD%D0%B0%20Linux%20%D0%B1%D0%B5%D0%B7%20%D0%BF%D0%BE%D0%BA%D1%83%D0%BF%D0%BA%D0%B8%20%D0%BD%D0%BE%D0%B2%D0%BE%D0%B3%D0%BE%20%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B0%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener" class="blog-services-offer-cta">
       <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
     </a>
     <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="blog-services-offer-cta blog-services-offer-cta-max">
       <i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> Написать в MAX
     </a>
+    <a href="https://chimitdorzhi.tech/predlozheniya/importozameshchenie-infrastruktura/" class="blog-services-offer-cta blog-services-offer-cta-max"><i class="ph ph-arrow-right" aria-hidden="true"></i> Ускорить 1С на PostgreSQL</a>
   </div>
 </div>
-                    <div class="blog-cta-card">
-                        <div class="blog-cta-card-body">
-                            <h3>Бесплатно: чек-лист «Готов ли ваш бизнес к 152-ФЗ»</h3>
-                            <p>12 пунктов, которые проверяют готовность за час: данные, согласия, уведомление в РКН, локализация, защита. Отметьте, что уже сделано, и увидите дыры, за которые сейчас штрафуют.</p>
-                        </div>
-                        <div class="blog-cta-card-actions">
-                            <a href="/checklist-152-fz/" class="btn btn-accent"><i class="ph-fill ph-clipboard-text" aria-hidden="true"></i> Открыть чек-лист</a>
-                        </div>
-                    </div>
                     
-                    <a class="blog-offer-cta" href="/predlozheniya/importozameshchenie-infrastruktura/">
-                        <span class="blog-offer-cta-body">
-                            <span class="blog-offer-cta-eyebrow">Готовое решение по теме</span>
-                            <span class="blog-offer-cta-title">Импортозамещение и переезд IT-инфраструктуры в РФ</span>
-                            <span class="blog-offer-cta-price">Бесплатная консультация · обсуждается</span>
-                        </span>
-                        <span class="btn btn-accent"><i class="ph ph-arrow-right" aria-hidden="true"></i> Смотреть предложение</span>
-                    </a>
-
-                    <div class="blog-cta-card blog-cta-card-final">
-                        <div class="blog-cta-card-body">
-                            <h3>Готовы обсудить вашу задачу?</h3>
-                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
-                        </div>
-                        <div class="blog-cta-card-actions">
-                            <a href="https://chimitdorzhi.tech/predlozheniya/importozameshchenie-infrastruktura/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Ускорить 1С на PostgreSQL</a>
-                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
-                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
-                        </div>
-                    </div>
-
-                    <section class="blog-subscribe">
-  <div class="blog-subscribe-body">
-    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
-    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
-  </div>
-  <div class="blog-subscribe-actions">
-    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
-    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
-  </div>
-</section>
                     <section class="blog-related">
   <h2>Читайте также</h2>
-  <div class="blog-grid"><a class="blog-card" href="/blog/udalenniy-ofis-vpn-telefoniya/" data-category="development" data-clicks="3">
-  
-  <div class="blog-card-icon"><i class="ph-fill ph-shield-check"></i></div>
-  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
-  <h3>Удаленный офис под ключ: организация безопасного удаленного доступа (VPN, телефония, таск-трекеры)</h3>
-  <p>Техническое руководство по организации безопасного удаленного офиса. Сравнение WireGuard/OpenVPN, интеграция с AD/LDAP, настройка Asterisk/FreePBX, выбор таск-трекеров и внедрение политик безопасности (2FA, DLP).</p>
-  <div class="blog-card-meta">
-    <span><i class="ph ph-calendar" aria-hidden="true"></i> 9 июня 2026</span>
-    <span><i class="ph ph-clock" aria-hidden="true"></i> 15 мин</span>
-  </div>
-  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
-</a>
-<a class="blog-card" href="/blog/korporativnaya-pochta-linux/" data-category="development" data-clicks="5">
-  
-  <div class="blog-card-icon"><i class="ph-fill ph-envelope"></i></div>
-  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
-  <h3>Безопасная корпоративная почта: как развернуть свой почтовый сервер на Linux и защититься от спама</h3>
-  <p>Пошаговое руководство по развертыванию собственного безопасного корпоративного почтового сервера на Linux. Настройка Postfix, Dovecot, Rspamd, SPF, DKIM, DMARC и современные стратегии фильтрации спама.</p>
-  <div class="blog-card-meta">
-    <span><i class="ph ph-calendar" aria-hidden="true"></i> 9 июня 2026</span>
-    <span><i class="ph ph-clock" aria-hidden="true"></i> 15 мин</span>
-  </div>
-  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
-</a>
-<a class="blog-card" href="/blog/skladskoy-uchet-wms-tsd/" data-category="development" data-clicks="0">
+  <div class="blog-grid"><a class="blog-card" href="/blog/skladskoy-uchet-wms-tsd/" data-category="development" data-clicks="0">
   
   <div class="blog-card-icon"><i class="ph-fill ph-package"></i></div>
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
@@ -688,42 +625,61 @@ autovacuum_vacuum_cost_delay = 2</code></pre>
   </div>
   <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
 </a>
-<a class="blog-card" href="/blog/anonimnaya-obratnaya-svyaz-sotrudnikov-2026/" data-category="development" data-clicks="0">
+<a class="blog-card" href="/blog/kalkulyator-krovli-2026/" data-category="development" data-clicks="0">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-eye-slash"></i></div>
+  <div class="blog-card-icon"><i class="ph-fill ph-calculator"></i></div>
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
-  <h3>Сотрудники молчат, а потом уходят: анонимный канал в мессенджере</h3>
-  <p>Сотрудники редко говорят руководителю о проблемах в лицо и приносят заявление, когда поздно. Анонимный бот в Telegram или MAX помогает услышать их раньше. Разбираю, что он реально скрывает, почему в малой команде автора вычисляют по стилю и почему без ответов руководителя канал умирает.</p>
+  <h3>Клиент узнал цену кровли за минуту, а не после выезда на объект</h3>
+  <p>Кровельщик считает каждую крышу вручную, а клиент хочет цифру сразу. Онлайн-калькулятор кровли даёт цену материалов и монтажа по типу покрытия, площади и опциям и собирает заявку. Разбираю, как он считает, где нужен замер и что подготовить.</p>
   <div class="blog-card-meta">
-    <span><i class="ph ph-calendar" aria-hidden="true"></i> 30 сентября 2026</span>
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 27 сентября 2026</span>
     <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
   </div>
   <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
 </a>
-<a class="blog-card" href="/blog/elektronnyy-propusk-gostyu-2026/" data-category="development" data-clicks="0">
+<a class="blog-card" href="/blog/konfigurator-bani-doma-brusa-2026/" data-category="development" data-clicks="0">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-identification-badge"></i></div>
+  <div class="blog-card-icon"><i class="ph-fill ph-blueprint"></i></div>
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
-  <h3>Гостя не заказывали? Электронный пропуск с QR на вход</h3>
-  <p>Гость приехал на склад или в офис, а пропуск заказывали по телефону. Разбираем электронный пропуск: заявка сотрудника, QR на входе, срок действия, журнал. Честно про паспортные данные по 152-ФЗ и про то, чего QR не заменяет.</p>
+  <h3>Конфигуратор бань и домов: клиент собрал проект и получил смету</h3>
+  <p>Клиент хочет прикинуть цену бани или дома, а в ответ слышит «приезжайте в офис» и уходит к конкуренту. Конфигуратор проектов даёт цену и смету сразу: человек выбирает проект, площадь, материал и комплектацию и оставляет заявку с готовой конфигурацией. Разбираю, как это устроено, где считать нельзя и с чего начать.</p>
   <div class="blog-card-meta">
-    <span><i class="ph ph-calendar" aria-hidden="true"></i> 30 сентября 2026</span>
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 27 сентября 2026</span>
     <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
   </div>
   <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
 </a>
-<a class="blog-card" href="/blog/golive-skill-zapusk-ii-prilozheniya-v-prod-2026/" data-category="development" data-clicks="0">
+<a class="blog-card" href="/blog/konfigurator-kuhni-shkafa-kupe-2026/" data-category="development" data-clicks="0">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-rocket-launch"></i></div>
+  <div class="blog-card-icon"><i class="ph-fill ph-ruler"></i></div>
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
-  <h3>GoLive: агент написал код, а вывести в прод помогает скилл</h3>
-  <p>На GitHub выложили GoLive: открытый Agent Skill и Node-CLI, который помогает вывести в прод приложение, собранное ИИ-агентом. Он определяет, что нужно приложению, планирует, спрашивает подтверждение, применяет на ваших аккаунтах и проверяет. Разбираю цикл, набор провайдеров, честные ограничения альфы и что делать с этим на российском стеке.</p>
+  <h3>Конфигуратор кухонь: клиент собрал, увидел цену, заявка в цех</h3>
+  <p>Замер и просчёт кухни тянутся днями, и клиент уходит к тому, кто ответил быстрее. Показываю, как конфигуратор даёт предварительную цену за минуты, захватывает лид и выгружает спецификацию для цеха.</p>
   <div class="blog-card-meta">
     <span><i class="ph ph-calendar" aria-hidden="true"></i> 27 сентября 2026</span>
     <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
   </div>
   <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
 </a></div>
+</section>
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/importozameshchenie-infrastruktura/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовое решение по теме</span>
+                            <span class="blog-offer-cta-title">Импортозамещение и переезд IT-инфраструктуры в РФ</span>
+                            <span class="blog-offer-cta-price">Бесплатная консультация · обсуждается</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-arrow-right" aria-hidden="true"></i> Смотреть предложение</span>
+                    </a>
+                    <section class="blog-subscribe">
+  <div class="blog-subscribe-body">
+    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
+    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
+  </div>
+  <div class="blog-subscribe-actions">
+    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
+  </div>
 </section>
                     
                     

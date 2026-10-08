@@ -92,7 +92,7 @@
     "@id": "https://chimitdorzhi.tech/blog/otkazoustoychivost-monitoring-bekapy-2026/"
   },
   "datePublished": "2026-08-31",
-  "dateModified": "2026-10-08",
+  "dateModified": "2026-08-31",
   "keywords": "отказоустойчивость, мониторинг, бэкапы, DevOps",
   "articleSection": "Open-source и свой сервер",
   "inLanguage": "ru",
@@ -447,6 +447,14 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 <li>Для критичных сервисов добавляют резерв (warm-standby) — запасной сервер, на который можно переключиться, если основной вышел из строя.</li>
 <li>Я выстраиваю всё это под ключ: мониторинг с оповещениями, авто-восстановление, валидируемые бэкапы и, где нужно, резерв — чтобы вы спали спокойно.</li>
 </ul></div>
+<div class="blog-cta-internal">
+  <i class="ph-fill ph-rocket-launch" aria-hidden="true"></i>
+  <div>
+    <strong>Хотите внедрить это у себя?</strong>
+    <p>Сделаю под ключ: разберу задачу, назову срок и цену. Чтобы начать, <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%9E%D1%82%D0%BA%D0%B0%D0%B7%D0%BE%D1%83%D1%81%D1%82%D0%BE%D0%B9%D1%87%D0%B8%D0%B2%D0%BE%D1%81%D1%82%D1%8C%20%D0%B4%D0%BB%D1%8F%20%D0%BC%D0%B0%D0%BB%D0%BE%D0%B3%D0%BE%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0%3A%20%D0%BC%D0%BE%D0%BD%D0%B8%D1%82%D0%BE%D1%80%D0%B8%D0%BD%D0%B3%20%D0%B8%20%D0%B1%D1%8D%D0%BA%D0%B0%D0%BF%D1%8B%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener">напишите в Telegram</a> одной фразой.</p>
+    <a href="https://chimitdorzhi.tech/services/it-infrastructure/">Развернуть инфраструктуру под ключ <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</div>
 
 <p>Знакомая история: сайт или бот падает ночью, а вы узнаёте об этом утром — от рассерженного клиента, который не смог оформить заказ. Или ещё хуже: ломается диск на сервере, и выясняется, что бэкапы последний раз делались полгода назад, да и те не восстанавливаются. Для малого бизнеса такие сбои бьют по деньгам и репутации не меньше, чем для крупного. Хорошая новость в том, что устойчивость к сбоям — это не роскошь для корпораций, а набор понятных мер, доступных и небольшому проекту. Ниже разберу, из чего складывается отказоустойчивость и как выстроить её без раздутого бюджета.</p>
 
@@ -464,6 +472,7 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 <p>Поэтому я исхожу из нескольких принципов. <strong>Бэкапы должны делаться автоматически и по расписанию</strong> — человек забудет, скрипт нет. <strong>Копии должны храниться отдельно от сервера</strong> — на другом хранилище, чтобы поломка основного сервера их не задела. <strong>И самое главное — бэкапы нужно регулярно проверять на восстановление.</strong> Копия, из которой ни разу не разворачивали данные, — это не защита, а надежда. Валидируемый бэкап — тот, для которого регулярно проводится тестовое восстановление и подтверждается, что данные целы и разворачиваются.</p>
 <p>Хорошее правило для ориентира — держать несколько копий на разных носителях, одна из которых вне основного сервера. Для бизнеса, который хранит клиентские данные, это ещё и вопрос 152-ФЗ и элементарной ответственности перед клиентами. Тем, кто присматривается к переезду со сторонних сервисов на своё, я собрал подборку <a href="/blog/open-source-analogi-saas-2026/">open-source аналогов SaaS</a> — там у каждого сервиса свои данные, и бэкапы для них обязательны.</p>
 
+<div class="blog-callout blog-callout-info blog-read-next"><i class="ph-fill ph-book-open" aria-hidden="true"></i><div><strong>Читайте дальше по теме</strong><ul><li><a href="/blog/svoy-oblachnyy-disk-2026/">Свой облачный диск вместо Google Drive 2026: Nextcloud и аналоги на своём сервере</a></li><li><a href="/blog/surrealdb-odna-baza-vmesto-neskolkih-dokumenty-grafy-vektory-licenziya-2026/">SurrealDB: одна база вместо трёх, но с лицензией BSL</a></li></ul></div></div>
 <h2 id="rezerv">Резерв и переключение</h2>
 <p>Мониторинг, самовосстановление и бэкапы закрывают большинство ситуаций малого бизнеса. Но есть сервисы, простой которых стоит слишком дорого: <a href="https://chimitdorzhi.tech/services/web-development/" class="blog-inline-link">интернет-магазин</a> в сезон, бот приёма заявок, платёжный сервис. Для них к базовой защите добавляют резерв.</p>
 <p>Самый практичный для малого бизнеса вариант — так называемый warm-standby, «тёплый резерв». Это второй сервер, на котором развёрнута та же система и куда регулярно синхронизируются данные. Он не обслуживает нагрузку в обычном режиме, но готов принять её, если основной сервер выйдет из строя. При сбое трафик переключается на резерв — вручную или автоматически — и сервис продолжает работать, пока чинится основной.</p>
@@ -496,61 +505,21 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
                     
                     
 <div class="blog-services-offer">
-  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <div class="blog-services-offer-eyebrow">Обсудим вашу задачу</div>
   <h3 class="blog-services-offer-title">Что я делаю с инфраструктурой</h3>
-  <ul class="blog-services-offer-list">
-    
-    <li><i class="ph-fill ph-hard-drives"></i> <span>Свой сервер: Docker, nginx, HTTPS</span></li>
-    
-    <li><i class="ph-fill ph-cloud"></i> <span>Self-host вместо SaaS (своё облако, BI)</span></li>
-    
-    <li><i class="ph-fill ph-shield-check"></i> <span>Мониторинг, бэкапы, харденинг</span></li>
-    
-    <li><i class="ph-fill ph-plugs"></i> <span>Импортозамещение ПО</span></li>
-    
-  </ul>
+  <p class="blog-services-offer-lead">Напишите одной фразой, что нужно. Отвечу, что подойдёт, сколько займёт и сколько стоит. Сообщение уже подготовлено.</p>
+  <ul class="blog-services-offer-list"><li><i class="ph-fill ph-hard-drives"></i> <span>Свой сервер: Docker, nginx, HTTPS</span></li><li><i class="ph-fill ph-cloud"></i> <span>Self-host вместо SaaS (своё облако, BI)</span></li><li><i class="ph-fill ph-shield-check"></i> <span>Мониторинг, бэкапы, харденинг</span></li><li><i class="ph-fill ph-plugs"></i> <span>Импортозамещение ПО</span></li></ul>
   <div class="blog-services-offer-ctas">
-    <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%9E%D1%82%D0%BA%D0%B0%D0%B7%D0%BE%D1%83%D1%81%D1%82%D0%BE%D0%B9%D1%87%D0%B8%D0%B2%D0%BE%D1%81%D1%82%D1%8C%20%D0%B4%D0%BB%D1%8F%20%D0%BC%D0%B0%D0%BB%D0%BE%D0%B3%D0%BE%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0%3A%20%D0%BC%D0%BE%D0%BD%D0%B8%D1%82%D0%BE%D1%80%D0%B8%D0%BD%D0%B3%20%D0%B8%20%D0%B1%D1%8D%D0%BA%D0%B0%D0%BF%D1%8B%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener" class="blog-services-offer-cta">
       <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
     </a>
     <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="blog-services-offer-cta blog-services-offer-cta-max">
       <i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> Написать в MAX
     </a>
+    <a href="https://chimitdorzhi.tech/services/it-infrastructure/" class="blog-services-offer-cta blog-services-offer-cta-max"><i class="ph ph-arrow-right" aria-hidden="true"></i> Развернуть инфраструктуру под ключ</a>
   </div>
 </div>
-                    <div class="blog-cta-card">
-                        <div class="blog-cta-card-body">
-                            <h3>Бесплатно: чек-лист «Готов ли ваш бизнес к 152-ФЗ»</h3>
-                            <p>12 пунктов, которые проверяют готовность за час: данные, согласия, уведомление в РКН, локализация, защита. Отметьте, что уже сделано, и увидите дыры, за которые сейчас штрафуют.</p>
-                        </div>
-                        <div class="blog-cta-card-actions">
-                            <a href="/checklist-152-fz/" class="btn btn-accent"><i class="ph-fill ph-clipboard-text" aria-hidden="true"></i> Открыть чек-лист</a>
-                        </div>
-                    </div>
                     
-
-                    <div class="blog-cta-card blog-cta-card-final">
-                        <div class="blog-cta-card-body">
-                            <h3>Готовы обсудить вашу задачу?</h3>
-                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
-                        </div>
-                        <div class="blog-cta-card-actions">
-                            <a href="https://chimitdorzhi.tech/services/it-infrastructure/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Развернуть инфраструктуру под ключ</a>
-                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
-                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
-                        </div>
-                    </div>
-
-                    <section class="blog-subscribe">
-  <div class="blog-subscribe-body">
-    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
-    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
-  </div>
-  <div class="blog-subscribe-actions">
-    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
-    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
-  </div>
-</section>
                     <section class="blog-related">
   <h2>Читайте также</h2>
   <div class="blog-grid"><a class="blog-card" href="/blog/svoy-vps-s-nulya-docker-nginx-https-2026/" data-category="opensource" data-clicks="0">
@@ -589,42 +558,29 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
   </div>
   <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
 </a>
-<a class="blog-card" href="/blog/svoy-oblachnyy-disk-2026/" data-category="development" data-clicks="27">
-  <span class="blog-card-popular"><i class="ph-fill ph-fire" aria-hidden="true"></i> Популярное</span>
-  <div class="blog-card-icon"><i class="ph-fill ph-cloud-arrow-up"></i></div>
-  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
-  <h3>Свой облачный диск вместо Google Drive 2026: Nextcloud и аналоги на своём сервере</h3>
-  <p>Google Drive дорожает и ненадёжен, данные не у вас. Разбираю, как поднять свой облачный диск: Nextcloud и альтернативы, где разместить (VPS, российские облака, домашний NAS), Docker, SSL, синхронизация всех устройств, онлайн-редактирование (OnlyOffice), бэкапы restic, безопасность. Данные в РФ (152-ФЗ). С docker-compose, nginx и restic.</p>
-  <div class="blog-card-meta">
-    <span><i class="ph ph-calendar" aria-hidden="true"></i> 30 мая 2026</span>
-    <span><i class="ph ph-clock" aria-hidden="true"></i> 24 мин</span>
-  </div>
-  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
-</a>
-<a class="blog-card" href="/blog/ytsaurus-flow-potokovaya-obrabotka-sobytiy-kogda-magazinu-nuzhny-dannye-srazu-2026/" data-category="opensource" data-clicks="0">
+<a class="blog-card" href="/blog/opendots-shablon-personalnyh-ii-agentov-tekst-golos-slack-na-svoem-servere-2026/" data-category="opensource" data-clicks="0">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-lightning"></i></div>
+  <div class="blog-card-icon"><i class="ph-fill ph-robot"></i></div>
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
-  <h3>YTsaurus Flow: когда магазину нужны данные сразу, а не по ночам</h3>
-  <p>6 октября 2026 Яндекс открыл движок потоковой обработки YTsaurus Flow с режимом exactly-once. Разбираю по первоисточникам, что в нём подтверждено, и честно сравниваю поток с ночным отчётом на примере интернет-магазина. Для малого бизнеса сначала простая схема, поток по необходимости.</p>
-  <div class="blog-card-meta">
-    <span><i class="ph ph-calendar" aria-hidden="true"></i> 7 октября 2026</span>
-    <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
-  </div>
-  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
-</a>
-<a class="blog-card" href="/blog/surrealdb-odna-baza-vmesto-neskolkih-dokumenty-grafy-vektory-licenziya-2026/" data-category="opensource" data-clicks="0">
-  
-  <div class="blog-card-icon"><i class="ph-fill ph-database"></i></div>
-  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
-  <h3>SurrealDB: одна база вместо трёх, но с лицензией BSL</h3>
-  <p>SurrealDB хранит документы, графы, таблицы и векторы в одном движке. Разбираю лицензию по файлу LICENSE (BSL 1.1, переход в Apache 2.0 не позже 2030 года), когда одна база упрощает проект и как я выбираю базу под заказчика.</p>
+  <h3>OpenDots: персональные ИИ-агенты в чате и по голосу на своём сервере</h3>
+  <p>OpenDots от CopilotKit это MIT-шаблон для персональных ИИ-агентов с чатом, голосом и Slack. Разбираю, что внутри, какие внешние сервисы нужны, что остаётся проблемой для России и где заканчивается шаблон.</p>
   <div class="blog-card-meta">
     <span><i class="ph ph-calendar" aria-hidden="true"></i> 5 октября 2026</span>
     <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
   </div>
   <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
 </a></div>
+</section>
+                    
+                    <section class="blog-subscribe">
+  <div class="blog-subscribe-body">
+    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
+    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
+  </div>
+  <div class="blog-subscribe-actions">
+    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
+  </div>
 </section>
                     
                     

@@ -92,7 +92,7 @@
     "@id": "https://chimitdorzhi.tech/blog/svoyo-oblako-nextcloud-2026/"
   },
   "datePublished": "2026-08-31",
-  "dateModified": "2026-10-08",
+  "dateModified": "2026-08-31",
   "keywords": "Nextcloud, своё облако, self-host, 152-ФЗ",
   "articleSection": "Open-source и свой сервер",
   "inLanguage": "ru",
@@ -454,6 +454,14 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 <li>Для бизнеса в России это ещё и про 152-ФЗ: персональные данные клиентов не уходят в зарубежное облако, а остаются в вашей инфраструктуре.</li>
 <li>Я разворачиваю Nextcloud под ключ: сервер, домен, HTTPS, бэкапы и перенос данных — вам остаётся только пользоваться.</li>
 </ul></div>
+<div class="blog-cta-internal">
+  <i class="ph-fill ph-rocket-launch" aria-hidden="true"></i>
+  <div>
+    <strong>Хотите внедрить это у себя?</strong>
+    <p>Сделаю под ключ: разберу задачу, назову срок и цену. Чтобы начать, <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%A1%D0%B2%D0%BE%D1%91%20%D0%BE%D0%B1%D0%BB%D0%B0%D0%BA%D0%BE%20%D0%B2%D0%BC%D0%B5%D1%81%D1%82%D0%BE%20Google%20Drive%3A%20Nextcloud%20%D0%BF%D0%BE%D0%B4%20%D0%BA%D0%BB%D1%8E%D1%87%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8E%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B3%D0%BE%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0." target="_blank" rel="noopener">напишите в Telegram</a> одной фразой.</p>
+    <a href="https://chimitdorzhi.tech/services/it-infrastructure/">Развернуть инфраструктуру под ключ <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</div>
 
 <p>Google Drive и Dropbox удобны ровно до того момента, пока не задумаешься, где на самом деле лежат ваши файлы и кто к ним имеет доступ. Договоры, база клиентов, внутренние документы — всё это хранится на чужих серверах, по чужим правилам и с риском, что доступ однажды закроют. Nextcloud решает эту проблему иначе: это своё облако, которое работает на вашем сервере и подчиняется только вам. Ниже разберу, что это за инструмент, что он реально умеет, кому он нужен и как выглядит внедрение на практике.</p>
 
@@ -485,6 +493,7 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 <p><strong>Командам, уставшим от подписок.</strong> Когда за облако, календарь и документы платят по подписке за каждого сотрудника, суммы набегают ощутимые. На своём сервере цена перестаёт расти с каждым новым человеком. Это одна из причин, почему бизнес всё чаще смотрит в сторону self-host — я собрал целую подборку в статье про <a href="/blog/open-source-analogi-saas-2026/">open-source аналоги популярных SaaS</a>.</p>
 <p><strong>Тем, кому важен контроль и устойчивость доступа.</strong> Свой сервер нельзя внезапно «отключить извне» по решению чужой компании. Для бизнеса, который не хочет зависеть от политики зарубежных сервисов, это весомый аргумент.</p>
 
+<div class="blog-callout blog-callout-info blog-read-next"><i class="ph-fill ph-book-open" aria-hidden="true"></i><div><strong>Читайте дальше по теме</strong><ul><li><a href="/blog/svoy-oblachnyy-disk-2026/">Свой облачный диск вместо Google Drive 2026: Nextcloud и аналоги на своём сервере</a></li><li><a href="/blog/seo-machine-konveyer-seo-statej-na-claude-code-2026/">SEO Machine: конвейер SEO-статей на Claude Code</a></li></ul></div></div>
 <h2 id="vnedrenie">Как внедрить</h2>
 <p>Внедрение Nextcloud — это не «скачал и поставил за пять минут», но и не ракетостроение. Логика примерно такая. Сначала нужен сервер: подойдёт обычный VPS, размер которого подбирается под объём данных и число пользователей. Дальше — установка самого Nextcloud (я это делаю в Docker, так проще обновлять и переносить), подключение домена и настройка HTTPS, чтобы всё работало по защищённому соединению.</p>
 <p>После этого настраиваются пользователи и права, подключаются нужные модули — календарь, контакты, онлайн-документы — и, что критически важно, бэкапы. Облако без резервных копий — это бомба замедленного действия: один сбой диска, и данные всей команды исчезнут. Поэтому бэкапы я закладываю сразу и обязательно проверяю, что они реально восстанавливаются, а не просто «делаются». Подробно про этот принцип — в материале про <a href="/blog/otkazoustoychivost-monitoring-bekapy-2026/">отказоустойчивость, мониторинг и бэкапы</a>.</p>
@@ -517,26 +526,18 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
                     
                     
 <div class="blog-services-offer">
-  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <div class="blog-services-offer-eyebrow">Обсудим вашу задачу</div>
   <h3 class="blog-services-offer-title">Что я делаю с инфраструктурой</h3>
-  <ul class="blog-services-offer-list">
-    
-    <li><i class="ph-fill ph-hard-drives"></i> <span>Свой сервер: Docker, nginx, HTTPS</span></li>
-    
-    <li><i class="ph-fill ph-cloud"></i> <span>Self-host вместо SaaS (своё облако, BI)</span></li>
-    
-    <li><i class="ph-fill ph-shield-check"></i> <span>Мониторинг, бэкапы, харденинг</span></li>
-    
-    <li><i class="ph-fill ph-plugs"></i> <span>Импортозамещение ПО</span></li>
-    
-  </ul>
+  <p class="blog-services-offer-lead">Напишите одной фразой, что нужно. Отвечу, что подойдёт, сколько займёт и сколько стоит. Сообщение уже подготовлено.</p>
+  <ul class="blog-services-offer-list"><li><i class="ph-fill ph-hard-drives"></i> <span>Свой сервер: Docker, nginx, HTTPS</span></li><li><i class="ph-fill ph-cloud"></i> <span>Self-host вместо SaaS (своё облако, BI)</span></li><li><i class="ph-fill ph-shield-check"></i> <span>Мониторинг, бэкапы, харденинг</span></li><li><i class="ph-fill ph-plugs"></i> <span>Импортозамещение ПО</span></li></ul>
   <div class="blog-services-offer-ctas">
-    <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%A1%D0%B2%D0%BE%D1%91%20%D0%BE%D0%B1%D0%BB%D0%B0%D0%BA%D0%BE%20%D0%B2%D0%BC%D0%B5%D1%81%D1%82%D0%BE%20Google%20Drive%3A%20Nextcloud%20%D0%BF%D0%BE%D0%B4%20%D0%BA%D0%BB%D1%8E%D1%87%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8E%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B3%D0%BE%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0." target="_blank" rel="noopener" class="blog-services-offer-cta">
       <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
     </a>
     <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="blog-services-offer-cta blog-services-offer-cta-max">
       <i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> Написать в MAX
     </a>
+    <a href="https://chimitdorzhi.tech/services/it-infrastructure/" class="blog-services-offer-cta blog-services-offer-cta-max"><i class="ph ph-arrow-right" aria-hidden="true"></i> Развернуть инфраструктуру под ключ</a>
   </div>
 </div>
                     <div class="blog-cta-card">
@@ -548,45 +549,9 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
                             <a href="/checklist-152-fz/" class="btn btn-accent"><i class="ph-fill ph-clipboard-text" aria-hidden="true"></i> Открыть чек-лист</a>
                         </div>
                     </div>
-                    
-
-                    <div class="blog-cta-card blog-cta-card-final">
-                        <div class="blog-cta-card-body">
-                            <h3>Готовы обсудить вашу задачу?</h3>
-                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
-                        </div>
-                        <div class="blog-cta-card-actions">
-                            <a href="https://chimitdorzhi.tech/services/it-infrastructure/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Развернуть инфраструктуру под ключ</a>
-                            <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%A1%D0%B2%D0%BE%D1%91%20%D0%BE%D0%B1%D0%BB%D0%B0%D0%BA%D0%BE%20%D0%B2%D0%BC%D0%B5%D1%81%D1%82%D0%BE%20Google%20Drive%3A%20Nextcloud%20%D0%BF%D0%BE%D0%B4%20%D0%BA%D0%BB%D1%8E%D1%87%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8E%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B3%D0%BE%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0." target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
-                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
-                        </div>
-                    </div>
-
-                    <section class="blog-subscribe">
-  <div class="blog-subscribe-body">
-    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
-    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
-  </div>
-  <div class="blog-subscribe-actions">
-    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
-    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
-  </div>
-</section>
                     <section class="blog-related">
   <h2>Читайте также</h2>
-  <div class="blog-grid"><a class="blog-card" href="/blog/svoy-oblachnyy-disk-2026/" data-category="development" data-clicks="27">
-  <span class="blog-card-popular"><i class="ph-fill ph-fire" aria-hidden="true"></i> Популярное</span>
-  <div class="blog-card-icon"><i class="ph-fill ph-cloud-arrow-up"></i></div>
-  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
-  <h3>Свой облачный диск вместо Google Drive 2026: Nextcloud и аналоги на своём сервере</h3>
-  <p>Google Drive дорожает и ненадёжен, данные не у вас. Разбираю, как поднять свой облачный диск: Nextcloud и альтернативы, где разместить (VPS, российские облака, домашний NAS), Docker, SSL, синхронизация всех устройств, онлайн-редактирование (OnlyOffice), бэкапы restic, безопасность. Данные в РФ (152-ФЗ). С docker-compose, nginx и restic.</p>
-  <div class="blog-card-meta">
-    <span><i class="ph ph-calendar" aria-hidden="true"></i> 30 мая 2026</span>
-    <span><i class="ph ph-clock" aria-hidden="true"></i> 24 мин</span>
-  </div>
-  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
-</a>
-<a class="blog-card" href="/blog/svoy-vps-s-nulya-docker-nginx-https-2026/" data-category="opensource" data-clicks="0">
+  <div class="blog-grid"><a class="blog-card" href="/blog/svoy-vps-s-nulya-docker-nginx-https-2026/" data-category="opensource" data-clicks="0">
   
   <div class="blog-card-icon"><i class="ph-fill ph-hard-drives"></i></div>
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
@@ -622,30 +587,29 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
   </div>
   <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
 </a>
-<a class="blog-card" href="/blog/cap-kapcha-bez-google-dlya-formy-na-sayte-2026/" data-category="opensource" data-clicks="0">
+<a class="blog-card" href="/blog/openmed-lokalnyy-ii-dlya-kliniki-bez-oblaka-2026/" data-category="opensource" data-clicks="0">
   
   <div class="blog-card-icon"><i class="ph-fill ph-shield-check"></i></div>
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
-  <h3>Спам в формах: своя капча Cap вместо reCAPTCHA</h3>
-  <p>Cap это открытая капча под Apache 2.0, которая работает на вашем сервере: браузер сам решает небольшую вычислительную задачу, картинок нет. Разбираем, как её подключают к форме заявок, что с 152-ФЗ и где она не защитит.</p>
+  <h3>OpenMed: ИИ для клиники, данные пациентов не уходят в облако</h3>
+  <p>OpenMed это открытая библиотека, которая находит в медицинском тексте болезни и препараты и убирает личные данные на вашем сервере. Разбираю, что она умеет на деле, чем полезна клинике и где подводит: русский язык, условия отдельных моделей, ответственность.</p>
   <div class="blog-card-meta">
-    <span><i class="ph ph-calendar" aria-hidden="true"></i> 4 октября 2026</span>
-    <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
-  </div>
-  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
-</a>
-<a class="blog-card" href="/blog/cosyvoice-ozvuchka-i-klonirovanie-golosa-lokalno-2026/" data-category="opensource" data-clicks="0">
-  
-  <div class="blog-card-icon"><i class="ph-fill ph-microphone-stage"></i></div>
-  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
-  <h3>CosyVoice: своя озвучка и клонирование голоса без платы за символ</h3>
-  <p>CosyVoice от Alibaba позволяет озвучивать ролики, IVR и напоминания на своём сервере, без платы за символ и отправки текстов в облако. Разбираем, что система умеет, как с русским и лицензиями и где юридические границы клонирования голоса.</p>
-  <div class="blog-card-meta">
-    <span><i class="ph ph-calendar" aria-hidden="true"></i> 4 октября 2026</span>
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 2 октября 2026</span>
     <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
   </div>
   <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
 </a></div>
+</section>
+                    
+                    <section class="blog-subscribe">
+  <div class="blog-subscribe-body">
+    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
+    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
+  </div>
+  <div class="blog-subscribe-actions">
+    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
+  </div>
 </section>
                     
                     

@@ -448,6 +448,14 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 
                     <div class="blog-body">
                         <div class="blog-tldr"><strong>TL;DR:</strong> Конструктор генерирует ради одной кнопки десятки вложенных <code>&lt;div&gt;</code> и тянет за собой библиотеки «на все случаи жизни», поэтому пустая страница весит мегабайты и грузится секунды. Google и Яндекс ранжируют по Core Web Vitals, а каждая лишняя секунда ожидания — минус конверсия. Плюс вы получаете vendor lock-in: сайт нельзя перенести на <a href="https://chimitdorzhi.tech/services/devops/" class="blog-inline-link">свой сервер</a> и нельзя нарастить сложную логику. Мы пишем чистый код, потому что это ваша собственность, ваша скорость и ваша SEO-позиция — а не арендованная витрина.</div>
+<div class="blog-cta-internal">
+  <i class="ph-fill ph-rocket-launch" aria-hidden="true"></i>
+  <div>
+    <strong>Хотите внедрить это у себя?</strong>
+    <p>Сделаю под ключ: разберу задачу, назову срок и цену. Чтобы начать, <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%9F%D0%BE%D1%87%D0%B5%D0%BC%D1%83%20%D0%BC%D1%8B%20%D0%BD%D0%B5%20%D0%B4%D0%B5%D0%BB%D0%B0%D0%B5%D0%BC%20%D1%81%D0%B0%D0%B9%D1%82%D1%8B%20%D0%BD%D0%B0%20%D0%BA%D0%BE%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D0%BE%D1%80%D0%B0%D1%85%3A%20%D1%87%D0%B5%D1%81%D1%82%D0%BD%D1%8B%D0%B9%20%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9%20%D1%80%D0%B0%D0%B7%D0%B1%D0%BE%D1%80%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener">напишите в Telegram</a> одной фразой.</p>
+    <a href="https://chimitdorzhi.tech/market/#checklist">Обсудить проект <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</div>
 
 <p>Почти каждый разговор о новом проекте начинается с одного и того же вопроса: «На Тильде обещают собрать за три дня и двадцать тысяч, а у вас дороже и дольше — почему?». Вопрос честный, и мы отвечаем на него честно и по-инженерному, без маркетинговой мишуры. Разница между конструктором и кастомным сайтом — это не разница в дизайне и не «у нас красивее». Это разница в том, что именно вы получаете на выходе: арендованную витрину, которую в любой момент можно потерять, или собственный актив, который годами работает на вас. Ниже — техническая аргументация, которую мы обычно проговариваем на первой встрече.</p>
 
@@ -463,16 +471,17 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 <p>Этот «мусор» — не эстетическая придирка перфекциониста. Каждый лишний килобайт нужно скачать через мобильную сеть, распарсить процессору телефона и отрисовать. Дешёвый смартфон в метро с неуверенным сигналом — это ваш реальный посетитель, а не абстракция. Он не будет ждать, пока прогрузится матрёшка из <code>&lt;div&gt;</code> и десяток ненужных библиотек. Он закроет вкладку.</p>
 
 <h2 id="skorost">Скорость, Core Web Vitals и SEO</h2>
-<p>Здесь техническая проблема превращается в деньги. И Google, и Яндекс давно ранжируют сайты не только по текстам и ссылкам, но и по реальному пользовательскому опыту, который измеряется метриками Core Web Vitals. Их три, и каждая напрямую страдает от избыточного кода конструктора.</p>
+<p>Здесь техническая проблема превращается в деньги. И Google, и Яндекс давно ранжируют сайты не только по текстам и ссылкам, но и по реальному пользовательскому опыту, который измеряется <a href="/blog/optimizaciya-skorosti-sayta/">метриками Core Web Vitals</a>. Их три, и каждая напрямую страдает от избыточного кода конструктора.</p>
 <p><strong>LCP (Largest Contentful Paint)</strong> — время отрисовки самого крупного видимого элемента, по сути «когда страница выглядит загруженной». Чистый сайт на оптимизированном коде отдаёт первый экран за 0,1–0,3 секунды. <a href="https://chimitdorzhi.tech/services/web-development/" class="blog-inline-link">Шаблонный сайт</a>, который сначала тянет мегабайты скриптов, а потом из них собирает страницу, показывает контент за 2–4 секунды и больше. Разница — на порядок. <strong>INP (Interaction to Next Paint)</strong>, пришедший на смену устаревшему FID, измеряет отзывчивость: как быстро страница реагирует на клик или ввод. Когда процессор телефона занят разбором тонны лишнего JavaScript, интерфейс «залипает», и INP проваливается. <strong>CLS (Cumulative Layout Shift)</strong> отвечает за визуальную стабильность — как сильно элементы «прыгают» во время загрузки. Тяжёлые шаблоны, которые дорисовывают блоки по мере подгрузки скриптов, славятся этими скачками, когда вы целитесь в одну кнопку, а нажимается другая.</p>
-<p>Все три метрики связаны с бизнес-результатом простым правилом, которое давно стало общим местом в индустрии: каждая дополнительная секунда ожидания стоит вам части конверсии. Оценки разнятся, но порядок величины стабилен — задержка в секунду-две ощутимо снижает долю тех, кто дошёл до заявки. Медленный сайт одновременно проигрывает дважды: он ниже в поисковой выдаче, потому что поисковик видит плохие метрики, и он хуже конвертирует тех немногих, кто всё-таки на него попал. Быстрый кастомный сайт — это не роскошь и не гонка за цифрами в отчёте, это прямой рычаг выручки.</p>
+<p>Все три метрики связаны с бизнес-результатом простым правилом, которое давно стало общим местом в индустрии: <a href="/blog/medlennyy-sayt-ubivaet-prodazhi-2026/">каждая дополнительная секунда ожидания стоит вам части конверсии</a>. Оценки разнятся, но порядок величины стабилен — задержка в секунду-две ощутимо снижает долю тех, кто дошёл до заявки. Медленный сайт одновременно проигрывает дважды: он ниже в поисковой выдаче, потому что поисковик видит плохие метрики, и он хуже конвертирует тех немногих, кто всё-таки на него попал. Быстрый кастомный сайт — это не роскошь и не гонка за цифрами в отчёте, это прямой рычаг выручки.</p>
 
 <h2 id="lock-in">Vendor lock-in: ловушка, из которой не выбраться</h2>
 <p>Предположим, скорость вас пока не пугает — сайт маленький, трафик небольшой. Есть вторая, более коварная проблема, и она проявляется именно тогда, когда бизнес начинает расти. Это vendor lock-in — привязка к платформе.</p>
-<p>Сайт, собранный в конструкторе, вам, строго говоря, не принадлежит. Вы арендуете место на чужом движке. Его нельзя просто взять и перенести на свой сервер: экспорт либо не предусмотрен вовсе, либо отдаёт нерабочую кашу из того самого мусорного кода, которую невозможно поддерживать. Пока вы платите ежемесячную подписку — сайт живёт. Меняются условия, вырастает тариф, платформа закрывает нужный функционал или вовсе уходит с рынка — и вы остаётесь ни с чем, потому что забрать «своё» нельзя.</p>
+<p>Сайт, собранный в конструкторе, вам, строго говоря, не принадлежит. Вы арендуете место на чужом движке. <a href="/blog/pereezd-s-konstruktora-na-svoy-server-keys-2026/">Его нельзя просто взять и перенести на свой сервер</a>: экспорт либо не предусмотрен вовсе, либо отдаёт нерабочую кашу из того самого мусорного кода, которую невозможно поддерживать. Пока вы платите ежемесячную подписку — сайт живёт. Меняются условия, вырастает тариф, платформа закрывает нужный функционал или вовсе уходит с рынка — и вы остаётесь ни с чем, потому что забрать «своё» нельзя.</p>
 <p>Ограничения бьют и по развитию. Как только бизнесу нужна нестандартная логика, конструктор упирается в потолок. Сложная система скоринга заявок, интеграция с собственной CRM по нетиповому протоколу, специфический платёжный шлюз локального банка, личный кабинет с ролями и правами, автоматизация на стороне сервера — всё это либо невозможно в принципе, либо реализуется через хрупкие костыли и сторонние виджеты, которые ломаются при каждом обновлении платформы. Вы хотите добавить фичу, которая принесёт деньги, а платформа отвечает: «так нельзя».</p>
 <p>Кастомный код устроен ровно наоборот. Он написан на открытых, стандартных технологиях — например, Node.js на сервере и PostgreSQL в качестве базы данных — и является вашей интеллектуальной собственностью. Исходники передаются вам. Сайт можно развернуть на любом сервере, у любого провайдера, переехать в любой момент без потерь. Его можно наращивать бесконечно: сегодня это лендинг, через год — портал с личными кабинетами и внутренней аналитикой, и всё это на том же фундаменте, без переписывания с нуля. Вы вкладываете деньги не в аренду, а в актив, который остаётся с вами и растёт в цене вместе с бизнесом.</p>
 
+<div class="blog-callout blog-callout-info blog-read-next"><i class="ph-fill ph-book-open" aria-hidden="true"></i><div><strong>Читайте дальше по теме</strong><ul><li><a href="/blog/turportal-regiona-bez-konstruktorov-2027/">Туристический портал региона с нуля: почему мы не собираем такие проекты на конструкторах</a></li><li><a href="/blog/svoy-server-privatnost-vless-reality-2027/">Свой сервер вместо публичного VPN: VLESS, Reality и Hysteria 2 глазами студии</a></li></ul></div></div>
 <h2 id="kogda-ok">Когда конструктор — нормальный выбор</h2>
 <p>Будем честны до конца: конструктор — не абсолютное зло, и мы не советуем никому переплачивать из принципа. Если вам нужно за выходные собрать страницу-визитку для разовой акции, протестировать гипотезу перед запуском продукта или сделать простой одностраничник, который проживёт месяц, — конструктор отлично справится, и звать студию для этого странно. Инструмент нужно выбирать под задачу.</p>
 <p>Наш подход оправдан там, где сайт — это не украшение, а рабочий инструмент бизнеса: где важны позиции в поиске, где идёт платный трафик и каждая десятая доля конверсии считается, где планируется рост и нестандартная логика, где сайт должен принадлежать вам, а не платформе. Если вы узнаёте в этом описании свой проект — разница в цене перестаёт быть переплатой и становится инвестицией. Именно поэтому мы принципиально не собираем такие проекты на конструкторах: мы отвечаем за результат, а на чужом движке за него отвечать невозможно.</p>
@@ -497,90 +506,24 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
                     
                     
 <div class="blog-services-offer">
-  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <div class="blog-services-offer-eyebrow">Обсудим вашу задачу</div>
   <h3 class="blog-services-offer-title">Что я делаю под ключ</h3>
-  <ul class="blog-services-offer-list">
-    
-    <li><i class="ph-fill ph-code"></i> <span>Сайты на чистом коде без конструкторов</span></li>
-    
-    <li><i class="ph-fill ph-gauge"></i> <span>Оптимизация скорости и Core Web Vitals</span></li>
-    
-    <li><i class="ph-fill ph-magnifying-glass"></i> <span>Техническое SEO и структура</span></li>
-    
-    <li><i class="ph-fill ph-arrows-out"></i> <span>Перенос сайта с конструктора на свой сервер</span></li>
-    
-    <li><i class="ph-fill ph-database"></i> <span>Кастомная логика, CRM и интеграции</span></li>
-    
-  </ul>
+  <p class="blog-services-offer-lead">Напишите одной фразой, что нужно. Отвечу, что подойдёт, сколько займёт и сколько стоит. Сообщение уже подготовлено.</p>
+  <ul class="blog-services-offer-list"><li><i class="ph-fill ph-code"></i> <span>Сайты на чистом коде без конструкторов</span></li><li><i class="ph-fill ph-gauge"></i> <span>Оптимизация скорости и Core Web Vitals</span></li><li><i class="ph-fill ph-magnifying-glass"></i> <span>Техническое SEO и структура</span></li><li><i class="ph-fill ph-arrows-out"></i> <span>Перенос сайта с конструктора на свой сервер</span></li><li><i class="ph-fill ph-database"></i> <span>Кастомная логика, CRM и интеграции</span></li></ul>
   <div class="blog-services-offer-ctas">
-    <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
-      <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Обсудить проект
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%9F%D0%BE%D1%87%D0%B5%D0%BC%D1%83%20%D0%BC%D1%8B%20%D0%BD%D0%B5%20%D0%B4%D0%B5%D0%BB%D0%B0%D0%B5%D0%BC%20%D1%81%D0%B0%D0%B9%D1%82%D1%8B%20%D0%BD%D0%B0%20%D0%BA%D0%BE%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D0%BE%D1%80%D0%B0%D1%85%3A%20%D1%87%D0%B5%D1%81%D1%82%D0%BD%D1%8B%D0%B9%20%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9%20%D1%80%D0%B0%D0%B7%D0%B1%D0%BE%D1%80%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener" class="blog-services-offer-cta">
+      <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
     </a>
     <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="blog-services-offer-cta blog-services-offer-cta-max">
       <i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> Написать в MAX
     </a>
+    <a href="https://chimitdorzhi.tech/market/#checklist" class="blog-services-offer-cta blog-services-offer-cta-max"><i class="ph ph-arrow-right" aria-hidden="true"></i> Обсудить проект</a>
   </div>
 </div>
-                    <div class="blog-cta-card">
-                        <div class="blog-cta-card-body">
-                            <h3>Бесплатно: чек-лист «Готов ли ваш бизнес к 152-ФЗ»</h3>
-                            <p>12 пунктов, которые проверяют готовность за час: данные, согласия, уведомление в РКН, локализация, защита. Отметьте, что уже сделано, и увидите дыры, за которые сейчас штрафуют.</p>
-                        </div>
-                        <div class="blog-cta-card-actions">
-                            <a href="/checklist-152-fz/" class="btn btn-accent"><i class="ph-fill ph-clipboard-text" aria-hidden="true"></i> Открыть чек-лист</a>
-                        </div>
-                    </div>
                     
-
-                    <div class="blog-cta-card blog-cta-card-final">
-                        <div class="blog-cta-card-body">
-                            <h3>Готовы обсудить вашу задачу?</h3>
-                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
-                        </div>
-                        <div class="blog-cta-card-actions">
-                            <a href="https://chimitdorzhi.tech/market/#checklist" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Обсудить проект</a>
-                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
-                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
-                        </div>
-                    </div>
-
-                    <section class="blog-subscribe">
-  <div class="blog-subscribe-body">
-    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
-    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
-  </div>
-  <div class="blog-subscribe-actions">
-    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
-    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
-  </div>
-</section>
                     <section class="blog-related">
   <h2>Читайте также</h2>
-  <div class="blog-grid"><a class="blog-card" href="/blog/turportal-regiona-bez-konstruktorov-2027/" data-category="cases" data-clicks="0">
-  
-  <div class="blog-card-icon"><i class="ph-fill ph-map-trifold"></i></div>
-  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Кейсы</span>
-  <h3>Туристический портал региона с нуля: почему мы не собираем такие проекты на конструкторах</h3>
-  <p>Региональные турсайты — это обычно унылые списки ссылок с неработающей картой, из которых пользователь уходит в соцсети. Рассказываем, как собрать портал, где маршрут — живой объект, а не абзац текста.</p>
-  <div class="blog-card-meta">
-    <span><i class="ph ph-calendar" aria-hidden="true"></i> 7 июля 2026</span>
-    <span><i class="ph ph-clock" aria-hidden="true"></i> 6 мин</span>
-  </div>
-  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
-</a>
-<a class="blog-card" href="/blog/svoy-server-privatnost-vless-reality-2027/" data-category="security" data-clicks="0">
-  
-  <div class="blog-card-icon"><i class="ph-fill ph-shield-check"></i></div>
-  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Безопасность</span>
-  <h3>Свой сервер вместо публичного VPN: VLESS, Reality и Hysteria 2 глазами студии</h3>
-  <p>Публичные VPN собирают логи, продают данные и блокируются по цифровому отпечатку. Рассказываем, почему студия держит собственный сервер и какой стек — VLESS + XTLS + Reality и Hysteria 2 на QUIC — обеспечивает стабильный доступ без потери скорости.</p>
-  <div class="blog-card-meta">
-    <span><i class="ph ph-calendar" aria-hidden="true"></i> 7 июля 2026</span>
-    <span><i class="ph ph-clock" aria-hidden="true"></i> 6 мин</span>
-  </div>
-  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
-</a>
-<a class="blog-card" href="/blog/etno-avangard-v-veb-dizayne-2027/" data-category="development" data-clicks="0">
+  <div class="blog-grid"><a class="blog-card" href="/blog/etno-avangard-v-veb-dizayne-2027/" data-category="development" data-clicks="0">
   
   <div class="blog-card-icon"><i class="ph-fill ph-compass-tool"></i></div>
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
@@ -604,30 +547,41 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
   </div>
   <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
 </a>
-<a class="blog-card" href="/blog/anonimnaya-obratnaya-svyaz-sotrudnikov-2026/" data-category="development" data-clicks="0">
+<a class="blog-card" href="/blog/liquid-ai-d1-modeli-resheniy-dlya-zayavok-2026/" data-category="development" data-clicks="0">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-eye-slash"></i></div>
+  <div class="blog-card-icon"><i class="ph-fill ph-git-fork"></i></div>
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
-  <h3>Сотрудники молчат, а потом уходят: анонимный канал в мессенджере</h3>
-  <p>Сотрудники редко говорят руководителю о проблемах в лицо и приносят заявление, когда поздно. Анонимный бот в Telegram или MAX помогает услышать их раньше. Разбираю, что он реально скрывает, почему в малой команде автора вычисляют по стилю и почему без ответов руководителя канал умирает.</p>
+  <h3>Модель решений d1 вместо LLM: разбор заявок за один вызов</h3>
+  <p>Liquid AI выпустила d1, модель решений: на вход текст или JSON, на выходе вероятности по заранее заданным вариантам и уверенность, без генерации текста. Весов нет, работает только через облачный API. Разбираем, как этот подход применить к скорингу и маршрутизации заявок и где его границы.</p>
   <div class="blog-card-meta">
-    <span><i class="ph ph-calendar" aria-hidden="true"></i> 30 сентября 2026</span>
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 2 октября 2026</span>
     <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
   </div>
   <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
 </a>
-<a class="blog-card" href="/blog/elektronnyy-propusk-gostyu-2026/" data-category="development" data-clicks="0">
+<a class="blog-card" href="/blog/sluzhba-podderzhki-v-messendzherah-sla-2026/" data-category="development" data-clicks="0">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-identification-badge"></i></div>
+  <div class="blog-card-icon"><i class="ph-fill ph-headset"></i></div>
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
-  <h3>Гостя не заказывали? Электронный пропуск с QR на вход</h3>
-  <p>Гость приехал на склад или в офис, а пропуск заказывали по телефону. Разбираем электронный пропуск: заявка сотрудника, QR на входе, срок действия, журнал. Честно про паспортные данные по 152-ФЗ и про то, чего QR не заменяет.</p>
+  <h3>Сообщения клиентов теряются в чатах: единое окно и срок ответа</h3>
+  <p>Клиенты пишут в Telegram, MAX, VK, на почту и по телефону, а отвечают с личных телефонов сотрудников. Разбираем, как собрать обращения в одну очередь, назначить ответственного и поставить срок первого ответа, который команда реально выдержит. Честно о том, чего единое окно не решает.</p>
   <div class="blog-card-meta">
-    <span><i class="ph ph-calendar" aria-hidden="true"></i> 30 сентября 2026</span>
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 1 октября 2026</span>
     <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
   </div>
   <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
 </a></div>
+</section>
+                    
+                    <section class="blog-subscribe">
+  <div class="blog-subscribe-body">
+    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
+    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
+  </div>
+  <div class="blog-subscribe-actions">
+    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
+  </div>
 </section>
                     
                     

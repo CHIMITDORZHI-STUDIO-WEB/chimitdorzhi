@@ -448,11 +448,19 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 
                     <div class="blog-body">
                         <div class="blog-tldr"><strong>TL;DR:</strong> Настройка VPS с нуля — это фиксированная последовательность шагов: подключение по SSH, обновление системы, создание отдельного пользователя, настройка файрвола, установка Docker, привязка домена и выпуск HTTPS-сертификата. После этого сервер готов принимать сайты, ботов и любые сервисы. Занимает пару часов при первом разе, дальше — рутина на 20–30 минут под новый проект.</div>
+<div class="blog-cta-internal">
+  <i class="ph-fill ph-rocket-launch" aria-hidden="true"></i>
+  <div>
+    <strong>Хотите внедрить это у себя?</strong>
+    <p>Сделаю под ключ: разберу задачу, назову срок и цену. Чтобы начать, <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%9A%D0%B0%D0%BA%20%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B8%D1%82%D1%8C%20VPS%20%D1%81%20%D0%BD%D1%83%D0%BB%D1%8F%3A%20%D0%BF%D0%BE%D1%88%D0%B0%D0%B3%D0%BE%D0%B2%D1%8B%D0%B9%20%D0%B3%D0%B0%D0%B9%D0%B4%20%D0%B4%D0%BB%D1%8F%20%D0%BD%D0%B5%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B3%D0%BE%20%D0%B2%D0%BB%D0%B0%D0%B4%D0%B5%D0%BB%D1%8C%D1%86%D0%B0%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener">напишите в Telegram</a> одной фразой.</p>
+    <a href="https://chimitdorzhi.tech/market/#checklist">Обсудить задачу <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</div>
 <p>За последние годы я настраивал серверы под самые разные задачи: сайты на Next.js, <a href="https://chimitdorzhi.tech/development/telegram-bots/" class="blog-inline-link">Telegram-боты</a>, админки, VPN-ноды, базы данных. И почти каждый раз слышу один и тот же вопрос от заказчика: «А это сложно? Мне придётся разбираться в командной строке?». Отвечаю честно: разбираться придётся, но сама настройка VPS с нуля — это не творческая задача, а понятная процедура из десятка шагов, которую один раз проходишь — и дальше просто повторяешь по шаблону для каждого нового проекта.</p>
 <p><strong>Коротко:</strong> порядок настройки VPS всегда один: подключение по SSH, обновление системы, создание отдельного пользователя без root-прав для повседневной работы, настройка файрвола (открыть только нужные порты), установка Docker для запуска сервисов, привязка домена через DNS-запись и выпуск бесплатного HTTPS-сертификата. Отдельно — базовая безопасность: смена портов, вход по SSH-ключу вместо пароля, регулярные обновления. Дальше сервер разворачивает сайт, бота или админку в контейнерах, и всё это можно поддерживать самостоятельно или доверить подрядчику, если не хочется держать это в голове.</p>
 
 <h2 id="zachem">Что нужно на старте</h2>
-<p>Прежде чем открывать терминал, нужно определиться с тремя вещами. Первое — провайдер VPS. Здесь работает простое правило: берите провайдера с дата-центром ближе к вашей аудитории (для российских проектов это обычно Россия или соседние страны), с адекватной панелью управления и понятной оплатой. Разница между провайдерами на старте некритична — гораздо важнее правильно настроить то, что вы уже арендовали.</p>
+<p>Прежде чем открывать терминал, нужно определиться с тремя вещами. Первое — <a href="/blog/svoy-vps-dlya-razrabotchika-2026/">провайдер VPS</a>. Здесь работает простое правило: берите провайдера с дата-центром ближе к вашей аудитории (для российских проектов это обычно Россия или соседние страны), с адекватной панелью управления и понятной оплатой. Разница между провайдерами на старте некритична — гораздо важнее правильно настроить то, что вы уже арендовали.</p>
 <p>Второе — характеристики сервера. Для сайта-визитки или небольшого бота хватает минимальной конфигурации: 1 ядро процессора, 1–2 ГБ оперативной памяти, 20–30 ГБ диска. Для проекта с базой данных, несколькими сервисами одновременно (сайт плюс бот плюс админка) стоит закладывать 2 ядра и 4 ГБ памяти — с запасом, чтобы не упереться в лимиты через месяц после запуска.</p>
 <p>Третье — операционная система. Практически весь мой опыт — Ubuntu (обычно последняя LTS-версия): стабильная, с огромным сообществом, под неё написана документация почти для любого софта, который может понадобиться. Для новичка это самый предсказуемый выбор — меньше шансов упереться в редкую проблему, для которой не найдётся готового решения.</p>
 
@@ -472,13 +480,14 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 <p>Смена стандартного порта SSH. По умолчанию SSH слушает порт 22 — именно туда прилетает основная масса автоматических попыток подбора паролей от ботов, которые сканируют весь интернет. Смена порта на нестандартный не заменяет остальную защиту, но резко снижает количество «шумных» попыток входа в логах.</p>
 <p>Регулярные обновления. Раз в несколько недель стоит обновлять систему и установленные сервисы — большинство серьёзных уязвимостей закрывается патчами в течение дней после обнаружения, и держать сервер на старой версии — сознательно копить риск.</p>
 <p>Резервные копии. Даже на аккуратно настроенном сервере может случиться сбой диска, ошибка при обновлении или человеческий фактор. Регулярный бэкап базы данных и конфигураций — это то, что превращает «сервер сломался» из катастрофы в получасовую задачу восстановления.</p>
-<p>Мониторинг. Не обязательно на старте, но по мере роста проекта полезно видеть загрузку процессора, памяти и диска, а также получать уведомление, если сайт перестал отвечать — иначе о проблеме узнаёшь от расстроенных пользователей, а не от системы.</p>
+<p>Мониторинг. Не обязательно на старте, но по мере роста проекта полезно <a href="/blog/beszel-legkiy-monitoring-serverov-i-diskov-2026/">видеть загрузку процессора, памяти и диска</a>, а также получать уведомление, если сайт перестал отвечать — иначе о проблеме узнаёшь от расстроенных пользователей, а не от системы.</p>
 
 <h2 id="razvernut">Как развернуть сайт/бот</h2>
-<p>Когда базовая настройка сервера завершена — пользователь создан, файрвол настроен, Docker установлен, домен привязан, HTTPS выпущен — сервер готов принимать сами проекты. Дальше процесс похож для сайта, Telegram-бота и админки одновременно: код проекта заливается на сервер (обычно через git), собирается в Docker-контейнер и запускается за обратным прокси-сервером (чаще всего это nginx), который направляет входящий трафик с нужного домена к нужному контейнеру.</p>
+<p>Когда базовая настройка сервера завершена — пользователь создан, файрвол настроен, Docker установлен, домен привязан, HTTPS выпущен — сервер готов принимать сами проекты. Дальше процесс похож для сайта, Telegram-бота и админки одновременно: код проекта заливается на сервер (обычно через git), собирается в Docker-контейнер и <a href="/blog/svoy-vps-s-nulya-docker-nginx-https-2026/">запускается за обратным прокси-сервером</a> (чаще всего это nginx), который направляет входящий трафик с нужного домена к нужному контейнеру.</p>
 <p>Такая схема удобна тем, что на одном сервере может спокойно уживаться несколько проектов: сайт на chimitdorzhi.tech, бот на другом поддомене, отдельная админка на третьем — каждый в своём контейнере, каждый со своими настройками, но все под общим управлением одного nginx и одного файрвола. Именно так я разворачиваю большинство проектов заказчиков: <a href="https://chimitdorzhi.tech/services/web-development/" class="blog-inline-link">разработка сайта</a>, бот и админка часто оказываются частями одной системы, и им проще жить на одном хорошо настроенном сервере, чем разбегаться по разным хостингам.</p>
 <p>Отдельный плюс <a href="https://chimitdorzhi.tech/services/devops/" class="blog-inline-link">self-hosted</a> подхода на своём VPS — контроль над обновлениями и интеграциями. Не нужно ждать, пока конструкторская платформа добавит нужную функцию: если сервер свой, можно подключить любую базу данных, любой внешний сервис, написать любую интеграцию — ограничения задаёт только сам стек технологий, а не чужая платформа.</p>
 
+<div class="blog-callout blog-callout-info blog-read-next"><i class="ph-fill ph-book-open" aria-hidden="true"></i><div><strong>Читайте дальше по теме</strong><ul><li><a href="/blog/vps-vs-hosting-2026/">VPS или обычный хостинг: что выбрать для сайта</a></li><li><a href="/blog/self-hosted-infrastruktura-2026/">Self-hosted всё 2026: своя инфраструктура вместо SaaS — Nextcloud, Gitea, n8n</a></li></ul></div></div>
 <h2 id="oshibki">Частые ошибки</h2>
 <p>Работа под root вместо отдельного пользователя — самая частая ошибка новичков. Кажется, что так проще, но одна неверная команда с правами root способна удалить или сломать что-то критичное без возможности отмены.</p>
 <p>Открытые «на всякий случай» порты. Иногда при настройке сервиса проще временно открыть широкий диапазон портов, чем разбираться, какой именно нужен — и забыть закрыть его потом. Каждый открытый порт — это дополнительная точка, которую могут просканировать и попытаться использовать.</p>
@@ -506,63 +515,21 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
                     
                     
 <div class="blog-services-offer">
-  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <div class="blog-services-offer-eyebrow">Обсудим вашу задачу</div>
   <h3 class="blog-services-offer-title">Что я делаю под ключ</h3>
-  <ul class="blog-services-offer-list">
-    
-    <li><i class="ph-fill ph-hard-drives"></i> <span>Настройка своего сервера (VPS)</span></li>
-    
-    <li><i class="ph-fill ph-gear"></i> <span>DevOps: Docker, CI/CD, мониторинг</span></li>
-    
-    <li><i class="ph-fill ph-lock-key"></i> <span>Безопасность, HTTPS, бэкапы</span></li>
-    
-    <li><i class="ph-fill ph-browser"></i> <span>Развёртывание сайтов и ботов</span></li>
-    
-    <li><i class="ph-fill ph-headset"></i> <span>Поддержка сервера</span></li>
-    
-  </ul>
+  <p class="blog-services-offer-lead">Напишите одной фразой, что нужно. Отвечу, что подойдёт, сколько займёт и сколько стоит. Сообщение уже подготовлено.</p>
+  <ul class="blog-services-offer-list"><li><i class="ph-fill ph-hard-drives"></i> <span>Настройка своего сервера (VPS)</span></li><li><i class="ph-fill ph-gear"></i> <span>DevOps: Docker, CI/CD, мониторинг</span></li><li><i class="ph-fill ph-lock-key"></i> <span>Безопасность, HTTPS, бэкапы</span></li><li><i class="ph-fill ph-browser"></i> <span>Развёртывание сайтов и ботов</span></li><li><i class="ph-fill ph-headset"></i> <span>Поддержка сервера</span></li></ul>
   <div class="blog-services-offer-ctas">
-    <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
-      <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Обсудить задачу
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%9A%D0%B0%D0%BA%20%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B8%D1%82%D1%8C%20VPS%20%D1%81%20%D0%BD%D1%83%D0%BB%D1%8F%3A%20%D0%BF%D0%BE%D1%88%D0%B0%D0%B3%D0%BE%D0%B2%D1%8B%D0%B9%20%D0%B3%D0%B0%D0%B9%D0%B4%20%D0%B4%D0%BB%D1%8F%20%D0%BD%D0%B5%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B3%D0%BE%20%D0%B2%D0%BB%D0%B0%D0%B4%D0%B5%D0%BB%D1%8C%D1%86%D0%B0%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener" class="blog-services-offer-cta">
+      <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
     </a>
     <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="blog-services-offer-cta blog-services-offer-cta-max">
       <i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> Написать в MAX
     </a>
+    <a href="https://chimitdorzhi.tech/market/#checklist" class="blog-services-offer-cta blog-services-offer-cta-max"><i class="ph ph-arrow-right" aria-hidden="true"></i> Обсудить задачу</a>
   </div>
 </div>
-                    <div class="blog-cta-card">
-                        <div class="blog-cta-card-body">
-                            <h3>Бесплатно: чек-лист «Готов ли ваш бизнес к 152-ФЗ»</h3>
-                            <p>12 пунктов, которые проверяют готовность за час: данные, согласия, уведомление в РКН, локализация, защита. Отметьте, что уже сделано, и увидите дыры, за которые сейчас штрафуют.</p>
-                        </div>
-                        <div class="blog-cta-card-actions">
-                            <a href="/checklist-152-fz/" class="btn btn-accent"><i class="ph-fill ph-clipboard-text" aria-hidden="true"></i> Открыть чек-лист</a>
-                        </div>
-                    </div>
                     
-
-                    <div class="blog-cta-card blog-cta-card-final">
-                        <div class="blog-cta-card-body">
-                            <h3>Готовы обсудить вашу задачу?</h3>
-                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
-                        </div>
-                        <div class="blog-cta-card-actions">
-                            <a href="https://chimitdorzhi.tech/market/#checklist" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Обсудить задачу</a>
-                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
-                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
-                        </div>
-                    </div>
-
-                    <section class="blog-subscribe">
-  <div class="blog-subscribe-body">
-    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
-    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
-  </div>
-  <div class="blog-subscribe-actions">
-    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
-    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
-  </div>
-</section>
                     <section class="blog-related">
   <h2>Читайте также</h2>
   <div class="blog-grid"><a class="blog-card" href="/blog/svoy-vps-dlya-razrabotchika-2026/" data-category="development" data-clicks="46">
@@ -574,30 +541,6 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
   <div class="blog-card-meta">
     <span><i class="ph ph-calendar" aria-hidden="true"></i> 21 мая 2026</span>
     <span><i class="ph ph-clock" aria-hidden="true"></i> 25 мин</span>
-  </div>
-  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
-</a>
-<a class="blog-card" href="/blog/vps-vs-hosting-2026/" data-category="development" data-clicks="0">
-  
-  <div class="blog-card-icon"><i class="ph-fill ph-scales"></i></div>
-  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
-  <h3>VPS или обычный хостинг: что выбрать для сайта</h3>
-  <p>Каждый второй заказчик на старте спрашивает: брать обычный хостинг или сразу VPS. Разбираю разницу без маркетинга — на своём опыте настройки серверов и переноса проектов с шаред-хостинга.</p>
-  <div class="blog-card-meta">
-    <span><i class="ph ph-calendar" aria-hidden="true"></i> 20 июля 2026</span>
-    <span><i class="ph ph-clock" aria-hidden="true"></i> 5 мин</span>
-  </div>
-  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
-</a>
-<a class="blog-card" href="/blog/self-hosted-infrastruktura-2026/" data-category="development" data-clicks="0">
-  
-  <div class="blog-card-icon"><i class="ph-fill ph-hard-drives"></i></div>
-  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
-  <h3>Self-hosted всё 2026: своя инфраструктура вместо SaaS — Nextcloud, Gitea, n8n</h3>
-  <p>Вендоры уходят, цены SaaS растут, данные хочется держать у себя. Я сам держу инфраструктуру на VPS и перевожу клиентов с зарубежных SaaS. Полный гайд: Nextcloud, Gitea, n8n, Plausible, Vaultwarden, Metabase на Docker. С docker-compose, nginx-конфигом, restic-бэкапами, безопасностью и экономикой. Российские VPS и соответствие 152-ФЗ.</p>
-  <div class="blog-card-meta">
-    <span><i class="ph ph-calendar" aria-hidden="true"></i> 28 мая 2026</span>
-    <span><i class="ph ph-clock" aria-hidden="true"></i> 26 мин</span>
   </div>
   <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
 </a>
@@ -613,6 +556,17 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
   </div>
   <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
 </a></div>
+</section>
+                    
+                    <section class="blog-subscribe">
+  <div class="blog-subscribe-body">
+    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
+    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
+  </div>
+  <div class="blog-subscribe-actions">
+    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
+  </div>
 </section>
                     
                     
