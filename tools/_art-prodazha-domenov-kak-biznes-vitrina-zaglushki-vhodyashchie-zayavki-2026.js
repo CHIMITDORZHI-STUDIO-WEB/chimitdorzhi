@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "prodazha-domenov-kak-biznes-vitrina-zaglushki-vhodyashchie-zayavki-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-storefront",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/business-automation/", label: "Витрина, учёт заявок и роли" },
+  title: "Продажа доменов из портфеля: витрина, заглушки, разбор заявок",
+  metaTitle: "Как продавать домены из портфеля: витрина и заглушки",
+  metaDescription: "Как организовать продажу доменов .ru и .рф: заглушка с формой на каждом домене, витрина, учёт заявок, риск товарного знака и передача через регистратора.",
+  excerpt: "Разбираю, как перестать продавать домены вручную: страница с ценой и формой на каждом домене, витрина, единый учёт заявок со сроком ответа. Отдельно про право администрирования, передачу через регистратора и риск чужого товарного знака. Честно: я делал демо платформы, а не работающий сервис.",
+  tags: ["предпринимателям", "продажа доменов", "витрина и заглушки", "учёт заявок"],
+  toc: [
+    { id: "komu-i-kogda", text: "Кому и когда это нужно" },
+    { id: "shagi", text: "Как это делается: 7 шагов" },
+    { id: "etapy", text: "Из чего складывается работа: этапы" },
+    { id: "zakony", text: "Законы и документы" },
+    { id: "oshibki", text: "Где ошибаются чаще всего" },
+    { id: "avtomatizaciya", text: "Где здесь поможет автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["hosting-domen-prostymi-slovami-2026", "perenesti-sayt-domen-bez-prostoya-2026", "onlayn-kassa-54-fz-2026", "kuda-utekayut-zayavki-7-mest-2026"],
+};

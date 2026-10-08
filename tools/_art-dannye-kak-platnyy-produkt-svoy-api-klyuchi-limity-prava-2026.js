@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "dannye-kak-platnyy-produkt-svoy-api-klyuchi-limity-prava-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-key",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/business-automation/", label: "Платный API для ваших данных" },
+  title: "Данные как платный продукт: свой API, ключи, лимиты и права",
+  metaTitle: "Платный API на своих данных: права, ключи, лимиты, тарифы",
+  metaDescription: "Как превратить базу в платный API для компаний: проверка прав на данные, ключи и лимиты, тарифы, оферта, документация и типичные ошибки продавцов данных.",
+  excerpt: "У вас есть каталог, справочник или собранные сведения, и вы думаете продавать к ним доступ. Разбираю восемь шагов от проверки прав и спроса до ключей, лимитов, тарифов и документации. Честно: что я подтвердил по ГК РФ, а что оставляю юристу.",
+  tags: ["предпринимателям", "платный API", "продажа данных", "ключи и лимиты"],
+  toc: [
+    { id: "komu-nuzhno", text: "Кому и когда это нужно" },
+    { id: "kak-eto-delaetsya", text: "Как это делается: 8 шагов" },
+    { id: "sloi", text: "Из чего это складывается: четыре слоя" },
+    { id: "prava", text: "Права и документы" },
+    { id: "oshibki", text: "Где ошибаются чаще всего" },
+    { id: "avtomatizaciya", text: "Где здесь поможет автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["razvedka-dannyh-avtoploshchadok-keys-2026", "integraciya-api-na-zakaz-2026", "parser-perestal-rabotat-prichiny-i-podderzhka-2026", "konkurentnaya-razvedka-legalno-2026"],
+};

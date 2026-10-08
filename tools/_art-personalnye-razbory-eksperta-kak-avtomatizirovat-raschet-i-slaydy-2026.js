@@ -1,0 +1,23 @@
+module.exports = {
+  slug: "personalnye-razbory-eksperta-kak-avtomatizirovat-raschet-i-slaydy-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-presentation-chart",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/business-automation/", label: "Конвейер разборов под вашу методику" },
+  title: "Персональные разборы эксперта: как автоматизировать расчёт и слайды",
+  metaTitle: "Автоматизация разборов: расчёт, PDF и слайды для эксперта",
+  metaDescription: "Как эксперту перестать считать и верстать разборы руками: конвейер от данных клиента до PDF и слайдов, проверка расчёта на эталонах, данные и реклама.",
+  excerpt: "Разбираю, из чего состоит персональный разбор по данным клиента и что в нём можно отдать конвейеру: расчёт, шаблонные тексты, PDF и слайды. Что должно остаться за экспертом, как проверять расчёт на эталонных случаях и где ошибаются с данными клиентов и обещаниями.",
+  tags: ["предпринимателям", "персональные разборы", "автоматизация эксперта", "PDF и слайды"],
+  toc: [
+    { id: "komu", text: "Кому и когда это нужно" },
+    { id: "shagi", text: "Как это делается: 7 шагов" },
+    { id: "sostav", text: "Из чего складывается разбор и что автоматизировать" },
+    { id: "moy-opyt", text: "Что у меня есть на практике" },
+    { id: "dannye-i-pravo", text: "Данные клиентов, реклама и права на тексты" },
+    { id: "oshibki", text: "Где ошибаются чаще всего" },
+    { id: "avtomatizaciya", text: "Где здесь поможет автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["konveyer-rolikov-foto-infografika-keys-2026", "sayt-avtora-metodiki-keys-2026", "mify-o-152-fz-2026", "srok-hraneniya-dannyh-klientov-kogda-udalyat-2026"],
+};

@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "geometka-v-otchete-sotrudnika-chto-mozhno-i-chego-nelzya-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-map-pin",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/business-automation/", label: "Отчёты с геометкой под вашу компанию" },
+  title: "Геометка в отчёте сотрудника: что можно и чего нельзя",
+  metaTitle: "Геометка в отчёте работника: согласие, акт, хранение",
+  metaDescription: "Законна ли геометка в отчёте сотрудника с фото с объекта: цель, локальный акт, согласие, срок хранения, ограничения GPS и шесть шагов внедрения.",
+  excerpt: "Руководитель хочет видеть, что фото в отчёте снято на объекте, и боится нарушить закон. Разбираю цель, локальный акт, согласие, хранение и технические пределы геометки. Честно: это сигнал для разговора, а не доказательство, а часть формулировок надо согласовать с юристом.",
+  tags: ["предпринимателям", "геометка в отчёте", "персональные данные работников", "контроль на объекте"],
+  toc: [
+    { id: "komu-nuzhno", text: "Кому и когда это нужно" },
+    { id: "kak-eto-delaetsya", text: "Как это делается: 6 шагов" },
+    { id: "zakony-i-dokumenty", text: "Законы и документы" },
+    { id: "tehnika", text: "Техника: что геометка умеет и чего нет" },
+    { id: "oshibki", text: "Где ошибаются чаще всего" },
+    { id: "avtomatizaciya", text: "Где здесь поможет автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["tabel-smen-qr-geolokaciya-2026", "programma-kontrolya-sotrudnikov-152fz-2026", "ezhednevnyy-otchet-prorabov-v-messendzhere-format-foto-2026", "chto-schitaetsya-personalnymi-dannymi-2026"],
+};

@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "internet-magazin-kosmetiki-chto-nelzya-pisat-na-sayte-i-cheki-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-drop",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/web-development/", label: "Сайт магазина с кассой и карточками" },
+  title: "Сайт косметики без слова «лечит»: описание, чеки, маркировка",
+  metaTitle: "Описание косметики на сайте: что нельзя обещать и про чеки",
+  metaDescription: "Что можно и нельзя писать в описании косметики на сайте, чем она отличается от лекарства, как быть с декларацией, двумя чеками и «Честным знаком».",
+  excerpt: "Разбираю, как описать косметическое средство на сайте, чтобы текст не читался как обещание лечения: что говорят регламент ТР ТС 009/2011 и закон о рекламе, как быть с декларацией, возвратом, чеками и маркировкой. Честно помечено, что я читал, а что не проверял.",
+  tags: ["предпринимателям", "косметика", "реклама и описание товара", "чеки и маркировка"],
+  toc: [
+    { id: "komu-i-kogda", text: "Кому и когда это нужно" },
+    { id: "shagi", text: "Как сформулировать сайт косметики: 6 шагов" },
+    { id: "tablica", text: "Нельзя и можно: пример для обсуждения с юристом" },
+    { id: "zakony", text: "Законы и документы" },
+    { id: "oshibki", text: "Где ошибаются чаще всего" },
+    { id: "avtomatizaciya", text: "Где здесь поможет автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["katalog-kosmetiki-sinhronizaciya-kassy-keys-2026", "nishevyy-internet-magazin-bez-sklada-s-nulya-2026", "vozvrat-tovara-internet-magazin-2026", "onlayn-kassa-54-fz-2026"],
+};

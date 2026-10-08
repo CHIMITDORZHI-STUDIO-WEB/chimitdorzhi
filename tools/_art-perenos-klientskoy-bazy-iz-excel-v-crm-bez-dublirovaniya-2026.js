@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "perenos-klientskoy-bazy-iz-excel-v-crm-bez-dublirovaniya-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-copy",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/business-automation/", label: "Подготовить базу и импорт в CRM" },
+  title: "Импорт клиентов из Excel в CRM: ключи, слияние, пробная загрузка",
+  metaTitle: "Импорт клиентов из Excel в CRM: ключи, слияние, проба",
+  metaDescription: "Как загрузить клиентов из таблицы в CRM без дублей: телефоны в единый вид, ключи поиска совпадений, правило слияния, проба на 20-50 строках и отчёт.",
+  excerpt: "Разбираю, как перенести клиентскую базу из Excel в CRM и не получить дубли: копия файла, нормализация телефонов, ключи сопоставления, правило слияния, пробный импорт и отчёт с причинами пропусков. Отдельно про кодировки, ИНН и 152-ФЗ.",
+  tags: ["предпринимателям", "CRM", "импорт клиентов", "дубли"],
+  toc: [
+    { id: "komu", text: "Кому и когда это нужно" },
+    { id: "shagi", text: "Как это делается: 8 шагов" },
+    { id: "tablica", text: "Что ломается в таблице и как это чинить" },
+    { id: "soglasiya", text: "Согласия, 152-ФЗ и что оставить за бортом" },
+    { id: "oshibki", text: "Где ошибаются чаще всего" },
+    { id: "avtomatizaciya", text: "Где здесь поможет автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["crm-tablica-klientov-iz-excel-2026", "chistka-bazy-klientov-dubli-telefony-2026", "migraciya-dannyh-slozhnee-chem-kazhetsya-2026", "mify-o-152-fz-2026"],
+};

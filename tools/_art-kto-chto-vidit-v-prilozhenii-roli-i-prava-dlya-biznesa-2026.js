@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "kto-chto-vidit-v-prilozhenii-roli-i-prava-dlya-biznesa-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-user-gear",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/business-automation/", label: "Спроектировать роли и права" },
+  title: "Роли и права в новой CRM: матрица доступа до разработки",
+  metaTitle: "Матрица прав доступа: роли сотрудников и клиентов в CRM",
+  metaDescription: "Как решить заранее, кто что видит в CRM или приложении: роли, матрица прав, особые права, проверка клиентского кабинета и отзыв доступа при увольнении.",
+  excerpt: "Разбираю, как до разработки решить, кто что видит в новой системе: три стартовые роли, матрица «роль x раздел x действие», отдельные права на финансы и выгрузку, проверка клиентского кабинета. Про 152-ФЗ и коммерческую тайну коротко, по тексту закона.",
+  tags: ["предпринимателям", "роли и права", "матрица доступа", "CRM"],
+  toc: [
+    { id: "komu-nuzhno", text: "Кому и когда это нужно" },
+    { id: "shagi", text: "Как это делается: 7 шагов" },
+    { id: "matrica", text: "Пример матрицы прав" },
+    { id: "zakon", text: "Законы и документы" },
+    { id: "oshibki", text: "Где ошибаются чаще всего" },
+    { id: "avtomatizaciya", text: "Где здесь поможет автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["prava-dostupa-v-1c-utechka-bazy-2026", "offboarding-uvolnennogo-sotrudnika-dostupy-2026", "lichnyy-kabinet-dlya-klientov-2026", "kto-prinimaet-resheniya-so-storony-zakazchika-roli-pravki-2026"],
+};
