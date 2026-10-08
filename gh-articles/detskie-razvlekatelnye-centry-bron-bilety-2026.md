@@ -63,7 +63,7 @@ canonical: https://chimitdorzhi.tech/blog/detskie-razvlekatelnye-centry-bron-bil
 
 - Попросите юриста обновить правила зала и оферту. Без них любая система бронирует на шатком основании.
 
-Если нужна готовая схема, у меня есть [предложение для батутного центра и детской игровой](/predlozheniya/batutnyy-centr-igrovaya/). Общий подход к ботам описан на странице [Telegram-боты и чат-боты](/services/telegram-bots/), ориентиры по бюджету на странице [цен](/ceny/). Для центра с кружками: [IT для детского центра](/blog/it-dlya-detskogo-centra-2026/).
+Если нужна готовая схема, у меня есть [предложение для батутного центра и детской игровой](/predlozheniya/batutnyy-centr-igrovaya/). Общий подход к ботам описан на странице [Telegram-боты и чат-боты](/development/telegram-bots/), ориентиры по бюджету на странице [цен](/ceny/). Для центра с кружками: [IT для детского центра](/blog/it-dlya-detskogo-centra-2026/).
 
 ## Частые вопросы
 
