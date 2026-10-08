@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2385**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2405**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -324,6 +324,11 @@
 
 ## Open-source и свой сервер
 
+- [YTsaurus Flow: когда магазину нужны данные сразу, а не по ночам](./ytsaurus-flow-potokovaya-obrabotka-sobytiy-kogda-magazinu-nuzhny-dannye-srazu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ytsaurus-flow-potokovaya-obrabotka-sobytiy-kogda-magazinu-nuzhny-dannye-srazu-2026/)
+- [nps: доступ к офису без белого IP, риски и чем заменить](./nps-dostup-k-ustroystvam-ofisa-bez-belogo-ip-riski-i-alternativy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nps-dostup-k-ustroystvam-ofisa-bez-belogo-ip-riski-i-alternativy-2026/)
+- [book-to-skill: регламенты и книги станут навыками ИИ-агента](./book-to-skill-reglamenty-i-knigi-v-navyki-ii-agenta-ekonomiya-tokenov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/book-to-skill-reglamenty-i-knigi-v-navyki-ii-agenta-ekonomiya-tokenov-2026/)
+- [AIPex: ИИ-агент в браузере возьмёт рутину и увидит все ваши входы](./aipex-rasshirenie-brauzera-delaet-rutinu-po-komandam-chto-porucit-i-gde-opasno-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/aipex-rasshirenie-brauzera-delaet-rutinu-po-komandam-chto-porucit-i-gde-opasno-2026/)
+- [Hoodik: своё зашифрованное облако для документов клиентов](./hoodik-svoe-zashifrovannoe-oblako-dlya-dokumentov-klientov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/hoodik-svoe-zashifrovannoe-oblako-dlya-dokumentov-klientov-2026/)
 - [ИИ-агент спрашивает базу данных компании: MCP Toolbox](./mcp-toolbox-ii-agent-zadaet-voprosy-baze-dannyh-kompanii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/mcp-toolbox-ii-agent-zadaet-voprosy-baze-dannyh-kompanii-2026/)
 - [Apprise: уведомления из любой системы в Telegram и другие каналы](./apprise-uvedomleniya-iz-lyuboy-sistemy-v-telegram-i-drugie-kanaly-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/apprise-uvedomleniya-iz-lyuboy-sistemy-v-telegram-i-drugie-kanaly-2026/)
 - [Сайт упадёт в день рекламы? Проверьте его JMeter заранее](./jmeter-nagruzochnoe-testirovanie-sayta-pered-reklamoy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/jmeter-nagruzochnoe-testirovanie-sayta-pered-reklamoy-2026/)
@@ -602,6 +607,7 @@
 
 ## Безопасность
 
+- [Краулеры и ИИ-агенты перегружают сайты: что у Wikimedia и у вас](./ii-agenty-i-krauleri-peregruzhayut-sayty-wikimedia-kak-zashchitit-svoy-sayt-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-agenty-i-krauleri-peregruzhayut-sayty-wikimedia-kak-zashchitit-svoy-sayt-2026/)
 - [Windows 10 без обновлений: что делать офису в 2026 году](./windows-10-bez-obnovleniy-chto-delat-ofisu-esu-windows-11-alternativy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/windows-10-bez-obnovleniy-chto-delat-ofisu-esu-windows-11-alternativy-2026/)
 - [SSL-сертификаты на 200 дней, с 2027 на 100: автопродление без падений](./srok-zhizni-ssl-sertifikatov-sokrashchaetsya-200-dney-avtoprodlenie-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/srok-zhizni-ssl-sertifikatov-sokrashchaetsya-200-dney-avtoprodlenie-2026/)
 - [Голос директора за 5 секунд: как защитить бухгалтерию от клона](./golos-direktora-za-5-sekund-zashchita-buhgalterii-ot-klona-golosa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/golos-direktora-za-5-sekund-zashchita-buhgalterii-ot-klona-golosa-2026/)
@@ -1189,6 +1195,7 @@
 
 ## Отрасли
 
+- [Связь без интернета и сети: Meshtastic для групп и объектов](./meshtastic-svyaz-bez-interneta-i-sotovoy-seti-dlya-grupp-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/meshtastic-svyaz-bez-interneta-i-sotovoy-seti-dlya-grupp-2026/)
 - [Обмен с ЕГАИС встал: диагностика для магазина пива и сигарет](./egais-magazin-piva-i-sigaret-roznitsa-utm-oshibki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/egais-magazin-piva-i-sigaret-roznitsa-utm-oshibki-2026/)
 - [Две заявки на одну колонку больше не случаются](./prokat-oborudovaniya-dlya-meropriyatiy-kalendar-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/prokat-oborudovaniya-dlya-meropriyatiy-kalendar-2026/)
 - [Кабинет арендатора: счёт, акт и заявка без звонков управляющему](./kabinet-arendatora-kommercheskoy-nedvizhimosti-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kabinet-arendatora-kommercheskoy-nedvizhimosti-2026/)
@@ -1570,6 +1577,9 @@
 
 ## Право и 152-ФЗ
 
+- [Вход на сайт по закону: 4 способа авторизации и штрафы с 7 июля](./avtorizaciya-na-sayte-i-v-prilozhenii-199-fz-kakie-sposoby-dopustimy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avtorizaciya-na-sayte-i-v-prilozhenii-199-fz-kakie-sposoby-dopustimy-2026/)
+- [Рекомендательные технологии на сайте: что раскрыть и штрафы](./rekomendatelnye-tehnologii-na-sayte-199-fz-pohozhie-tovary-podborki-lenta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/rekomendatelnye-tehnologii-na-sayte-199-fz-pohozhie-tovary-podborki-lenta-2026/)
+- [Платежи без ИП и в USDT: что законно и чем рискует владелец бота](./priem-platezhey-bez-ip-i-v-usdt-chto-zakonno-i-chem-riskuet-vladelec-bota-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/priem-platezhey-bez-ip-i-v-usdt-chto-zakonno-i-chem-riskuet-vladelec-bota-2026/)
 - [Страницу конкурента удалят завтра: как сохранить её сегодня](./archivebox-arhiv-saytov-i-statey-kak-dokazatelstvo-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/archivebox-arhiv-saytov-i-statey-kak-dokazatelstvo-2026/)
 - [168-ФЗ и ваш сайт: что проверить в интерфейсе, приложении и боте](./zakon-o-russkom-yazyke-168-fz-sayt-prilozhenie-bot-chto-proverit-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zakon-o-russkom-yazyke-168-fz-sayt-prilozhenie-bot-chto-proverit-2026/)
 - [Sale, coffee, open: что с меню, прайсом и карточками товаров](./zakon-o-russkom-yazyke-menyu-prays-kartochki-tovarov-vyveska-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zakon-o-russkom-yazyke-menyu-prays-kartochki-tovarov-vyveska-2026/)
@@ -1647,7 +1657,9 @@
 
 ## Продажи
 
+- [call.md: ИИ разбирает звонки отдела продаж по ходу разговора](./call-md-ii-razbor-vstrech-i-zvonkov-v-realnom-vremeni-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/call-md-ii-razbor-vstrech-i-zvonkov-v-realnom-vremeni-2026/)
 - [ИИ-агент изучает клиента вместо менеджера перед звонком](./trycompai-crm-ii-agent-issleduet-kontakty-pered-zvonkom-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/trycompai-crm-ii-agent-issleduet-kontakty-pered-zvonkom-2026/)
+- [Нагрузочный тест перед сезоном: сколько заказов выдержит сайт и бот](./nagruzochnyy-test-pered-sezonom-skolko-zakazov-vyderzhit-sayt-i-bot-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nagruzochnyy-test-pered-sezonom-skolko-zakazov-vyderzhit-sayt-i-bot-2026/)
 - [Налоги ИП в 2027: что подтверждено по закону 228-ФЗ](./nalogi-ip-i-malogo-biznesa-v-2027-chto-podtverzhdeno-228-fz-patent-vznosy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nalogi-ip-i-malogo-biznesa-v-2027-chto-podtverzhdeno-228-fz-patent-vznosy-2026/)
 - [Лимит самозанятых 2,4 млн: что предлагают на 2027 и что принято](./limit-samozanyatyh-2-4-mln-chto-predlagayut-na-2027-i-chto-prinyato-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/limit-samozanyatyh-2-4-mln-chto-predlagayut-na-2027-i-chto-prinyato-2026/)
 - [Закрытие года за две недели: чек-лист для ИП и малого бизнеса](./zakrytie-goda-za-dve-nedeli-chek-list-ip-i-malogo-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zakrytie-goda-za-dve-nedeli-chek-list-ip-i-malogo-biznesa-2026/)
@@ -1798,6 +1810,13 @@
 
 ## Разработка
 
+- [Strata: большой свой ИИ на игровой видеокарте, без облака](./strata-svoy-ii-na-igrovoy-videokarte-lokalnyy-api-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/strata-svoy-ii-na-igrovoy-videokarte-lokalnyy-api-2026/)
+- [Databasus: вернуть базу PostgreSQL на минуту до сбоя](./databasus-kopii-postgresql-s-vosstanovleniem-na-moment-vremeni-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/databasus-kopii-postgresql-s-vosstanovleniem-na-moment-vremeni-2026/)
+- [Пароли в чате? Как хранить секреты команды в git под замком](./git-secret-sekrety-v-repozitorii-v-zashifrovannom-vide-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/git-secret-sekrety-v-repozitorii-v-zashifrovannom-vide-2026/)
+- [Apache Camel: обмен данными между системами и когда он лишний](./apache-camel-obmen-dannymi-mezhdu-sistemami-kompanii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/apache-camel-obmen-dannymi-mezhdu-sistemami-kompanii-2026/)
+- [Kill Bill: свой биллинг подписок и когда лучше Lago](./kill-bill-billing-podpisok-i-platezhey-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kill-bill-billing-podpisok-i-platezhey-na-svoem-servere-2026/)
+- [PdfDing: договоры клиентам по ссылке с паролем и сроком](./pdfding-svoy-server-dlya-pdf-i-ssylok-klientam-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pdfding-svoy-server-dlya-pdf-i-ssylok-klientam-2026/)
+- [Sylius: магазин на PHP, где витрина, учёт и 1С живут отдельно](./sylius-headless-magazin-na-php-symfony-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sylius-headless-magazin-na-php-symfony-2026/)
 - [1С и камеры склада без белого IP: проверил nps и нашёл риски](./nps-dostup-k-ustroystvam-i-servisam-bez-belogo-ip-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nps-dostup-k-ustroystvam-i-servisam-bez-belogo-ip-2026/)
 - [SmythOS Studio: ИИ-агентов можно собрать мышкой на своём сервере](./smythos-studio-vizualnyy-konstruktor-ii-agentov-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/smythos-studio-vizualnyy-konstruktor-ii-agentov-na-svoem-servere-2026/)
 - [Heym: ИИ отвечает клиентам, спорное уходит человеку на одобрение](./heym-ii-protsessy-s-odobreniem-cheloveka-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/heym-ii-protsessy-s-odobreniem-cheloveka-na-svoem-servere-2026/)
@@ -2266,6 +2285,7 @@
 
 ## Экспертное
 
+- [Как ИИ-агента обманывают чужим письмом и чем от этого защищаться](./bezopasnost-ii-agentov-ataki-cherez-pismo-i-poisk-kiberimmunitet-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bezopasnost-ii-agentov-ataki-cherez-pismo-i-poisk-kiberimmunitet-2026/)
 - [Тарифы MAX для бизнеса: что известно и чего пока нет](./max-stanet-platnym-dlya-biznesa-chto-izvestno-pro-licenzii-i-tarify-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/max-stanet-platnym-dlya-biznesa-chto-izvestno-pro-licenzii-i-tarify-2026/)
 - [Живая расшифровка встреч от Microsoft: нужна ли бизнесу](./zhivaya-rasshifrovka-vstrech-mai-transcribe-2-streaming-nuzhna-li-biznesu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zhivaya-rasshifrovka-vstrech-mai-transcribe-2-streaming-nuzhna-li-biznesu-2026/)
 - [GPT-6.1 Sol: токен в пять раз дешевле Astra, что менять в боте](./gpt-6-1-sol-token-podeshevel-chto-menyat-v-byudzhete-i-nastroykakh-bota-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gpt-6-1-sol-token-podeshevel-chto-menyat-v-byudzhete-i-nastroykakh-bota-2026/)
