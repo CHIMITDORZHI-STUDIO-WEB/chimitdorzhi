@@ -144,7 +144,7 @@ module.exports = [
     "metaKeywords": "ИИ для HR, автоматизация подбора, парсинг резюме Python, скоринг кандидатов, Huntflow API, Talantix API, чат-бот рекрутер",
     "excerpt": "Техническое руководство по автоматизации подбора персонала с помощью ИИ: парсинг PDF/DOCX резюме, скоринг на базе LLM (GPT-4/Llama), интеграция с ATS (Huntflow, Talantix) и чат-ботами.",
     "datePublished": "2026-06-09",
-    "dateModified": "2026-06-09",
+    "dateModified": "2026-10-08",
     "readingMinutes": 15,
     "heroIcon": "ph-fill ph-users-three",
     "tags": [
@@ -830,7 +830,7 @@ module.exports = [
     "metaKeywords": "автоматизация отеля, турбаза Байкал, Bnovo, TravelLine, OtelMS, гостиничный бизнес, Ольхон, Листвянка, управление отелем, PMS для отеля",
     "excerpt": "Полное руководство по автоматизации гостиничного бизнеса на Байкале. Сравнение Bnovo, TravelLine и OtelMS, решение проблем со связью на Ольхоне и в Листвянке, стратегии заполняемости в высокий сезон.",
     "datePublished": "2026-06-09",
-    "dateModified": "2026-06-09",
+    "dateModified": "2026-10-08",
     "readingMinutes": 15,
     "heroIcon": "ph-fill ph-mountains",
     "tags": [
