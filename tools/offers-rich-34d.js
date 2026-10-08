@@ -104,7 +104,7 @@ module.exports = {
     ],
     relatedServices: [
       { url: '/services/business-automation/', label: 'Автоматизация бизнеса' },
-      { url: '/services/telegram-bots/', label: 'Чат-боты' }
+      { url: '/development/telegram-bots/', label: 'Чат-боты' }
     ],
     relatedBlog: [
       { url: '/blog/sistemy-loyalnosti-2027/', label: 'Системы лояльности' },
@@ -275,7 +275,7 @@ module.exports = {
     ],
     relatedServices: [
       { url: '/services/digital-marketing/', label: 'Цифровой маркетинг' },
-      { url: '/services/telegram-bots/', label: 'Чат-боты' }
+      { url: '/development/telegram-bots/', label: 'Чат-боты' }
     ],
     relatedBlog: [
       { url: '/blog/konkurs-priglasheniy-max-virusnyy-rost-2027/', label: 'Конкурс приглашений в MAX' },

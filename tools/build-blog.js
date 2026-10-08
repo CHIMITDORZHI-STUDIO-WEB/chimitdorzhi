@@ -1404,9 +1404,9 @@ const AUTOLINK_RULES = [
   { re: /интернет-магазин(?:а|ы|ов)?/i,         url: `${SVC}/web-development/` },
   { re: /лендинг(?:а|и|ов)?/i,                  url: `${SVC}/web-development/` },
   // Боты и ИИ
-  { re: /Telegram-бот(?:а|ы|ов|у)?/i,           url: `${SVC}/telegram-bots/` },
-  { re: /чат-бот(?:а|ы|ов|у)?/i,                url: `${SVC}/telegram-bots/` },
-  { re: /бот(?:а|ы|ов)? для бизнеса/i,          url: `${SVC}/telegram-bots/` },
+  { re: /Telegram-бот(?:а|ы|ов|у)?/i,           url: 'https://chimitdorzhi.tech/development/telegram-bots/' },
+  { re: /чат-бот(?:а|ы|ов|у)?/i,                url: 'https://chimitdorzhi.tech/development/telegram-bots/' },
+  { re: /бот(?:а|ы|ов)? для бизнеса/i,          url: 'https://chimitdorzhi.tech/development/telegram-bots/' },
   { re: /AI-агент(?:а|ы|ов|у)?/i,               url: `${SVC}/ai-agents/` },
   { re: /ИИ-агент(?:а|ы|ов|у)?/i,               url: `${SVC}/ai-agents/` },
   { re: /AI-ассистент(?:а|ы|ов|у)?/i,           url: `${SVC}/ai-agents/` },
@@ -1424,8 +1424,8 @@ const AUTOLINK_RULES = [
   { re: /автоматизаци(?:я|и|ю) (?:HR|найма)/i,   url: `${SVC}/hr-team-management/` },
   { re: /автоматизаци(?:я|и|ю) логистик/i,       url: `${SVC}/logistics-automation/` },
   // Коммерческие фразы-заказы (force — инлайн даже при совпадении с CTA статьи)
-  { re: /заказать бота|бота под ключ/i,          url: `${SVC}/telegram-bots/`, force: true },
-  { re: /бот(?:а)? в MAX/i,                       url: `${SVC}/telegram-bots/`, force: true },
+  { re: /заказать бота|бота под ключ/i,          url: 'https://chimitdorzhi.tech/development/telegram-bots/', force: true },
+  { re: /бот(?:а)? в MAX/i,                       url: 'https://chimitdorzhi.tech/development/max-bots/', force: true },
   { re: /написать скрипт|скрипт на заказ/i,       url: `${SVC}/business-automation/`, force: true },
   { re: /интеграци(?:я|и|ю) API/i,               url: `${SVC}/business-automation/`, force: true },
   { re: /парсер(?:а)?|парсинг(?:а)?/i,            url: `${SVC}/business-automation/`, force: true },
@@ -2922,7 +2922,7 @@ const LLMS_INTRO = `# Чимитдоржи Дарижапов — IT, AI и 152-
 const LLMS_TAIL = `## Услуги
 - [Все услуги](https://chimitdorzhi.tech/services/): разработка, AI, кибербезопасность, автоматизация, обучение.
 - [Разработка сайтов и веб-приложений](https://chimitdorzhi.tech/services/web-development/)
-- [Telegram-боты и чат-боты](https://chimitdorzhi.tech/services/telegram-bots/)
+- [Telegram-боты и чат-боты](https://chimitdorzhi.tech/development/telegram-bots/)
 - [AI-агенты и LLM-решения](https://chimitdorzhi.tech/services/ai-agents/)
 - [Автоматизация бизнес-процессов](https://chimitdorzhi.tech/services/business-automation/)
 - [Аудит 152-ФЗ](https://audit.chimitdorzhi.tech/): защита от оборотных штрафов.

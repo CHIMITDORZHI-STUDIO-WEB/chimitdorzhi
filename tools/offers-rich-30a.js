@@ -46,7 +46,7 @@ module.exports = {
       { q: 'Можно ли менять задания и награды после запуска?', a: 'Да, задания, шкала баллов и каталог наград настраиваются в любой момент без переделки бота' }
     ],
     relatedServices: [
-      { url: '/services/telegram-bots/', label: 'Чат-боты' },
+      { url: '/development/telegram-bots/', label: 'Чат-боты' },
       { url: '/services/digital-marketing/', label: 'Цифровой маркетинг' }
     ],
     relatedBlog: [
@@ -160,7 +160,7 @@ module.exports = {
       { q: 'В каких мессенджерах работает?', a: 'Основной канал MAX, та же механика разворачивается в Telegram и VK с общим прогрессом участника' }
     ],
     relatedServices: [
-      { url: '/services/telegram-bots/', label: 'Чат-боты' },
+      { url: '/development/telegram-bots/', label: 'Чат-боты' },
       { url: '/services/digital-marketing/', label: 'Цифровой маркетинг' }
     ],
     relatedBlog: [
@@ -217,7 +217,7 @@ module.exports = {
       { q: 'В каких мессенджерах идёт челлендж?', a: 'Основной канал MAX, та же механика работает в Telegram и VK с единым прогрессом и общим рейтингом участника' }
     ],
     relatedServices: [
-      { url: '/services/telegram-bots/', label: 'Чат-боты' },
+      { url: '/development/telegram-bots/', label: 'Чат-боты' },
       { url: '/services/digital-marketing/', label: 'Цифровой маркетинг' }
     ],
     relatedBlog: [

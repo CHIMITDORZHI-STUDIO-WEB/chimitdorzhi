@@ -17,7 +17,7 @@ const FAQ_VYV = [{ id: 'faq', text: 'Частые вопросы' }, { id: 'vyvo
 const E = (o) => Object.assign({ published: true, datePublished: D, dateModified: D, readingMinutes: 5, servicesOffer: SVC_BIZ }, o, { contentHtml: C(o.slug) });
 
 module.exports = [
-  E({ slug: 'uslugi-devops-stoimost-2026', category: 'development', heroIcon: 'ph-fill ph-arrows-clockwise', ctaInternal: DEVOPS,
+  E({ slug: 'uslugi-devops-stoimost-2026', dateModified: '2026-10-08', category: 'development', heroIcon: 'ph-fill ph-arrows-clockwise', ctaInternal: DEVOPS,
     title: 'Услуги DevOps: сколько стоят и что входит в 2026',
     metaTitle: 'Услуги DevOps: стоимость и что входит в 2026',
     metaDescription: 'Сколько стоят услуги DevOps в 2026: вилки цен за разовую настройку, абонемент и почасовку, что входит в работу и когда DevOps не нужен. Разбираю на практике.',

@@ -58,7 +58,7 @@ module.exports = [
       { id: "vyvody", text: "Коротко о главном" },
     ],
     relatedSlugs: ["uchet-seriynyh-nomerov-i-garantii-2026","uchet-imushchestva-i-garantiy-homebox-2026","vozvrat-tovara-internet-magazin-2026","onlayn-kassa-54-fz-2026"] }),
-  E({ slug: "bronirovanie-ekskursiy-turov-2026", category: "industries", heroIcon: "ph-fill ph-compass", ctaInternal: { url: "https://chimitdorzhi.tech/services/telegram-bots/", label: "Собрать бота бронирования" },
+  E({ slug: "bronirovanie-ekskursiy-turov-2026", category: "industries", heroIcon: "ph-fill ph-compass", ctaInternal: { url: "https://chimitdorzhi.tech/development/telegram-bots/", label: "Собрать бота бронирования" },
     title: "Экскурсии и туры: группы, места, оплата в одном боте",
     metaTitle: "Бронирование экскурсий и туров: места и оплата в боте",
     metaDescription: "Как принимать записи на экскурсии, туры и мастер-классы с лимитом мест и предоплатой в боте или на сайте, без перебора групп, неявок и ручных подтверждений.",

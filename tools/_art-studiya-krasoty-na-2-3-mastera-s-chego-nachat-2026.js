@@ -2,7 +2,7 @@ module.exports = {
   slug: "studiya-krasoty-na-2-3-mastera-s-chego-nachat-2026",
   category: "biznes-krugozor",
   heroIcon: "ph-fill ph-scissors",
-  ctaInternal: { url: "https://chimitdorzhi.tech/services/telegram-bots/", label: "Бот записи и напоминаний для студии" },
+  ctaInternal: { url: "https://chimitdorzhi.tech/development/telegram-bots/", label: "Бот записи и напоминаний для студии" },
   title: "Студия красоты на 2-3 мастера: с чего начать и не потерять клиентов",
   metaTitle: "Студия красоты на 2-3 мастера: с чего начать в 2026",
   metaDescription: "Как открыть небольшую студию красоты: формат, договорённости с мастерами, санитарные правила, лицензия, касса и запись, чтобы не терять клиентов.",

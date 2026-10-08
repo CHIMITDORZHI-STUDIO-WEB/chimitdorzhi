@@ -2,7 +2,7 @@ module.exports = {
   slug: "ezhednevnyy-otchet-prorabov-v-messendzhere-format-foto-2026",
   category: "biznes-krugozor",
   heroIcon: "ph-fill ph-clipboard-text",
-  ctaInternal: { url: "https://chimitdorzhi.tech/services/telegram-bots/", label: "Бот-отчёт для прорабов под ваш шаблон" },
+  ctaInternal: { url: "https://chimitdorzhi.tech/development/telegram-bots/", label: "Бот-отчёт для прорабов под ваш шаблон" },
   title: "Голосовые от прорабов вместо отчётов: шаблон, который читают",
   metaTitle: "Отчёт прораба в мессенджере: шаблон, фото и свод",
   metaDescription: "Как организовать ежедневный отчёт прораба в чате или боте: шаблон из семи пунктов, подписи к фото, срок сдачи, срочное отдельно и свод по объектам.",

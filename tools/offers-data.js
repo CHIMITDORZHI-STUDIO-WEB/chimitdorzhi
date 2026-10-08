@@ -109,7 +109,7 @@ const _ALL_OFFERS = [
     bodyHtml: kofeynyaBody,
     relatedServices: [
       { url: '/services/business-automation/', label: 'Автоматизация бизнеса' },
-      { url: '/services/telegram-bots/', label: 'Чат-боты' },
+      { url: '/development/telegram-bots/', label: 'Чат-боты' },
     ],
     relatedBlog: [
       { url: '/blog/it-dlya-horeca-2026/', label: 'IT для HoReCa' },
@@ -136,7 +136,7 @@ const _ALL_OFFERS = [
     timeline: 'от 2 недель',
     bodyHtml: cvetochnyyBody,
     relatedServices: [
-      { url: '/services/telegram-bots/', label: 'Чат-боты' },
+      { url: '/development/telegram-bots/', label: 'Чат-боты' },
       { url: '/services/business-automation/', label: 'Автоматизация бизнеса' },
     ],
     relatedBlog: [
@@ -165,7 +165,7 @@ const _ALL_OFFERS = [
     bodyHtml: avtoservisBody,
     relatedServices: [
       { url: '/services/business-automation/', label: 'Автоматизация бизнеса' },
-      { url: '/services/telegram-bots/', label: 'Чат-боты' },
+      { url: '/development/telegram-bots/', label: 'Чат-боты' },
     ],
     relatedBlog: [
       { url: '/blog/it-dlya-avtoservisa-2026/', label: 'IT для автосервиса' },
@@ -192,7 +192,7 @@ const _ALL_OFFERS = [
     bodyHtml: obshchepitBody,
     relatedServices: [
       { url: '/services/business-automation/', label: 'Автоматизация бизнеса' },
-      { url: '/services/telegram-bots/', label: 'Чат-боты' },
+      { url: '/development/telegram-bots/', label: 'Чат-боты' },
     ],
     relatedBlog: [
       { url: '/blog/it-dlya-horeca-2026/', label: 'IT для HoReCa' },
@@ -218,7 +218,7 @@ const _ALL_OFFERS = [
     timeline: 'от 1 недели',
     bodyHtml: botBody,
     relatedServices: [
-      { url: '/services/telegram-bots/', label: 'Чат-боты' },
+      { url: '/development/telegram-bots/', label: 'Чат-боты' },
       { url: '/services/ai-agents/', label: 'AI-агенты' },
     ],
     relatedBlog: [
@@ -245,7 +245,7 @@ const _ALL_OFFERS = [
     timeline: 'готовая система, запуск за дни',
     bodyHtml: konkursBody,
     relatedServices: [
-      { url: '/services/telegram-bots/', label: 'Чат-боты' },
+      { url: '/development/telegram-bots/', label: 'Чат-боты' },
       { url: '/services/business-automation/', label: 'Автоматизация бизнеса' },
     ],
     relatedBlog: [
@@ -295,7 +295,7 @@ const _ALL_OFFERS = [
     title: 'Онлайн-запись для салонов красоты и барбершопов',
     tagline: 'Бот записи, расписание мастеров, напоминания и лояльность — меньше неявок и звонков, мастера загружены.',
     priceFrom: 'Бесплатная консультация', timeline: 'от 10 дней', bodyHtml: salonBody,
-    relatedServices: [{ url: '/services/business-automation/', label: 'Автоматизация бизнеса' }, { url: '/services/telegram-bots/', label: 'Чат-боты' }],
+    relatedServices: [{ url: '/services/business-automation/', label: 'Автоматизация бизнеса' }, { url: '/development/telegram-bots/', label: 'Чат-боты' }],
     relatedBlog: [{ url: '/blog/it-dlya-salonov-krasoty-2026/', label: 'IT для салона красоты' }, { url: '/blog/crm-dlya-malogo-biznesa-2026/', label: 'CRM для малого бизнеса' }],
     faq: [
       { q: 'Через что клиенты записываются?', a: 'Через бот в Telegram или МАКС, либо виджет записи на сайте. Можно несколько каналов сразу.' },
@@ -359,7 +359,7 @@ const _ALL_OFFERS = [
     title: 'Программа лояльности для бизнеса (баллы и кэшбэк в боте)',
     tagline: 'Цифровая карта, баллы и кэшбэк, уровни и реферальная программа в боте — клиенты возвращаются чаще и приводят друзей.',
     priceFrom: 'Бесплатная консультация', timeline: 'от 2 недель', bodyHtml: loyalnostBody,
-    relatedServices: [{ url: '/services/business-automation/', label: 'Автоматизация бизнеса' }, { url: '/services/telegram-bots/', label: 'Чат-боты' }],
+    relatedServices: [{ url: '/services/business-automation/', label: 'Автоматизация бизнеса' }, { url: '/development/telegram-bots/', label: 'Чат-боты' }],
     relatedBlog: [{ url: '/blog/geymifikaciya-saas-2026/', label: 'Геймификация в бизнесе' }, { url: '/blog/email-push-rassylki-rf-2026/', label: 'Рассылки в РФ' }],
     faq: [
       { q: 'Нужны ли пластиковые карты?', a: 'Нет. Карта лояльности живёт в боте и привязана к телефону — ничего печатать не нужно.' },
@@ -391,7 +391,7 @@ const _ALL_OFFERS = [
     title: 'Автоматизация фитнес-клуба и студии',
     tagline: 'Абонементы со списанием занятий и заморозкой, запись на тренировки, расписание и напоминания — порядок в учёте и меньше оттока.',
     priceFrom: 'Бесплатная консультация', timeline: 'от 2 недель', bodyHtml: fitnesBody,
-    relatedServices: [{ url: '/services/business-automation/', label: 'Автоматизация бизнеса' }, { url: '/services/telegram-bots/', label: 'Чат-боты' }],
+    relatedServices: [{ url: '/services/business-automation/', label: 'Автоматизация бизнеса' }, { url: '/development/telegram-bots/', label: 'Чат-боты' }],
     relatedBlog: [{ url: '/blog/cifrovizaciya-fitnes-kluba-2026/', label: 'Цифровизация фитнес-клуба' }, { url: '/blog/crm-dlya-malogo-biznesa-2026/', label: 'CRM для малого бизнеса' }],
     faq: [
       { q: 'Как работают абонементы?', a: 'Система сама списывает занятия, поддерживает заморозку и напоминает об окончании абонемента — без тетрадей и Excel.' },
@@ -471,7 +471,7 @@ const _ALL_OFFERS = [
     title: 'Бот-магазин: заказы и оплата в мессенджере',
     tagline: 'Витрина с каталогом, корзиной и онлайн-оплатой прямо в Telegram/МАКС/VK — продажи без отдельного сайта.',
     priceFrom: 'Бесплатная консультация', timeline: 'от 10 дней', bodyHtml: botMagazinBody,
-    relatedServices: [{ url: '/services/telegram-bots/', label: 'Чат-боты' }, { url: '/services/business-automation/', label: 'Автоматизация бизнеса' }],
+    relatedServices: [{ url: '/development/telegram-bots/', label: 'Чат-боты' }, { url: '/services/business-automation/', label: 'Автоматизация бизнеса' }],
     relatedBlog: [{ url: '/blog/magazin-bot-max-2026/', label: 'Магазин-бот в МАКС' }, { url: '/blog/svoy-magazin-vs-wildberries-ozon-2026/', label: 'Свой магазин vs маркетплейсы' }],
     faq: [
       { q: 'Нужен ли отдельный сайт?', a: 'Нет. Каталог, корзина и оплата работают прямо в мессенджере. Если позже понадобится полноценный сайт-магазин — это отдельное решение.' },
@@ -487,7 +487,7 @@ const _ALL_OFFERS = [
     title: 'CRM и бот для агентства недвижимости',
     tagline: 'База объектов с подбором под клиента, бот-подбор, CRM сделок и напоминания о показах — заявки не теряются, подбор за секунды.',
     priceFrom: 'Бесплатная консультация', timeline: 'от 2 недель', bodyHtml: nedvizhimostBody,
-    relatedServices: [{ url: '/services/business-automation/', label: 'Автоматизация бизнеса' }, { url: '/services/telegram-bots/', label: 'Чат-боты' }],
+    relatedServices: [{ url: '/services/business-automation/', label: 'Автоматизация бизнеса' }, { url: '/development/telegram-bots/', label: 'Чат-боты' }],
     relatedBlog: [{ url: '/blog/max-bot-rieltor-2026/', label: 'МАКС-бот для риелтора' }, { url: '/blog/crm-dlya-malogo-biznesa-2026/', label: 'CRM для малого бизнеса' }],
     faq: [
       { q: 'Как работает подбор?', a: 'Клиент задаёт параметры боту, и тот мгновенно подбирает подходящие объекты из вашей базы — без ручного перебора менеджером.' },
@@ -503,7 +503,7 @@ const _ALL_OFFERS = [
     title: 'IT для автошколы: запись, теория, оплата',
     tagline: 'Запись на занятия и экзамены, расписание инструкторов и машин, бот-тренажёр ПДД и оплата с рассрочкой — порядок в потоке учеников.',
     priceFrom: 'Бесплатная консультация', timeline: 'от 2 недель', bodyHtml: avtoshkolaBody,
-    relatedServices: [{ url: '/services/business-automation/', label: 'Автоматизация бизнеса' }, { url: '/services/telegram-bots/', label: 'Чат-боты' }],
+    relatedServices: [{ url: '/services/business-automation/', label: 'Автоматизация бизнеса' }, { url: '/development/telegram-bots/', label: 'Чат-боты' }],
     relatedBlog: [{ url: '/blog/cifrovizaciya-avtoshkol-2026/', label: 'Цифровизация автошколы' }, { url: '/blog/avtomatizaciya-onlayn-shkoly-2026/', label: 'Автоматизация онлайн-школы' }],
     faq: [
       { q: 'Решает ли путаницу с расписанием?', a: 'Да. Запись на теорию, вождение и экзамены ведётся в единой системе — нет накладок по инструкторам и машинам.' },
@@ -535,7 +535,7 @@ const _ALL_OFFERS = [
     title: 'Заявки и расписание для клининга и выездных услуг',
     tagline: 'Приём заказов через бот/сайт, распределение по бригадам, маршруты и напоминания — ни одна заявка не теряется, бригады загружены ровно.',
     priceFrom: 'Бесплатная консультация', timeline: 'от 2 недель', bodyHtml: kliningBody,
-    relatedServices: [{ url: '/services/business-automation/', label: 'Автоматизация бизнеса' }, { url: '/services/telegram-bots/', label: 'Чат-боты' }],
+    relatedServices: [{ url: '/services/business-automation/', label: 'Автоматизация бизнеса' }, { url: '/development/telegram-bots/', label: 'Чат-боты' }],
     relatedBlog: [{ url: '/blog/it-dlya-kliningovoy-kompanii-2026/', label: 'IT для клининговой компании' }, { url: '/blog/crm-dlya-malogo-biznesa-2026/', label: 'CRM для малого бизнеса' }],
     faq: [
       { q: 'Как распределяются заявки?', a: 'Заявка с сайта или бота попадает в систему, вы назначаете бригаду — ей приходит уведомление с адресом, временем и составом работ.' },
@@ -567,7 +567,7 @@ const _ALL_OFFERS = [
     title: 'Доставка воды и продуктов: бот повторных заказов',
     tagline: 'Заказ в один тап, подписка и автоповтор, напоминания «пора заказать» и маршрут курьера — регулярность и удержание клиентов.',
     priceFrom: 'Бесплатная консультация', timeline: 'от 10 дней', bodyHtml: dostavkaBody,
-    relatedServices: [{ url: '/services/business-automation/', label: 'Автоматизация бизнеса' }, { url: '/services/telegram-bots/', label: 'Чат-боты' }],
+    relatedServices: [{ url: '/services/business-automation/', label: 'Автоматизация бизнеса' }, { url: '/development/telegram-bots/', label: 'Чат-боты' }],
     relatedBlog: [{ url: '/blog/dostavka-vody-produktov-2026/', label: 'IT для доставки воды и продуктов' }, { url: '/blog/crm-dlya-malogo-biznesa-2026/', label: 'CRM для малого бизнеса' }],
     faq: [
       { q: 'Чем полезен автоповтор?', a: 'Клиент один раз настраивает состав и график — дальше бот сам напоминает и оформляет повторный заказ. Это держит регулярную выручку.' },
@@ -615,7 +615,7 @@ const _ALL_OFFERS = [
     title: 'IT для ветеринарной клиники',
     tagline: 'Онлайн-запись, карта питомца и автонапоминания о вакцинации и приёме — меньше неявок, клиенты возвращаются вовремя.',
     priceFrom: 'Бесплатная консультация', timeline: 'от 2 недель', bodyHtml: vetklinikaBody,
-    relatedServices: [{ url: '/services/business-automation/', label: 'Автоматизация бизнеса' }, { url: '/services/telegram-bots/', label: 'Чат-боты' }],
+    relatedServices: [{ url: '/services/business-automation/', label: 'Автоматизация бизнеса' }, { url: '/development/telegram-bots/', label: 'Чат-боты' }],
     relatedBlog: [{ url: '/blog/cifrovizaciya-vetklinik-2026/', label: 'Цифровизация ветклиники' }, { url: '/blog/crm-dlya-malogo-biznesa-2026/', label: 'CRM для малого бизнеса' }],
     faq: [
       { q: 'Напоминания о прививках работают сами?', a: 'Да. Система хранит даты вакцинаций и обработок по каждому питомцу и сама напоминает владельцу — это возвращает клиентов вовремя.' },
@@ -663,7 +663,7 @@ const _ALL_OFFERS = [
     title: 'Химчистка и прачечная: заказы и статусы',
     tagline: 'Приём заказов, статус по номеру квитанции, уведомления «готово» и вызов доставки — без звонков «готово ли?» и потерянных клиентов.',
     priceFrom: 'Бесплатная консультация', timeline: 'от 2 недель', bodyHtml: himchistkaBody,
-    relatedServices: [{ url: '/services/business-automation/', label: 'Автоматизация бизнеса' }, { url: '/services/telegram-bots/', label: 'Чат-боты' }],
+    relatedServices: [{ url: '/services/business-automation/', label: 'Автоматизация бизнеса' }, { url: '/development/telegram-bots/', label: 'Чат-боты' }],
     relatedBlog: [{ url: '/blog/it-dlya-kliningovoy-kompanii-2026/', label: 'IT для клининга' }, { url: '/blog/crm-dlya-malogo-biznesa-2026/', label: 'CRM для малого бизнеса' }],
     faq: [
       { q: 'Как клиент узнаёт, что готово?', a: 'Статус виден по номеру квитанции, а при готовности приходит уведомление «готово к выдаче» — звонки «готово ли?» исчезают.' },
@@ -743,7 +743,7 @@ const _ALL_OFFERS = [
     title: 'CRM для турагентства',
     tagline: 'Заявки в одном месте, подбор и карточки туристов, напоминания о доплатах, документах и вылетах — клиенты возвращаются за повторными турами.',
     priceFrom: 'Бесплатная консультация', timeline: 'обсуждается', bodyHtml: turagentstvoBody,
-    relatedServices: [{ url: '/services/business-automation/', label: 'Автоматизация бизнеса' }, { url: '/services/telegram-bots/', label: 'Чат-боты' }],
+    relatedServices: [{ url: '/services/business-automation/', label: 'Автоматизация бизнеса' }, { url: '/development/telegram-bots/', label: 'Чат-боты' }],
     relatedBlog: [{ url: '/blog/it-dlya-turizma-otelei-2026/', label: 'IT для туризма и отелей' }, { url: '/blog/crm-dlya-malogo-biznesa-2026/', label: 'CRM для малого бизнеса' }],
     faq: [
       { q: 'Заявки из разных каналов соберутся?', a: 'Да, заявки с сайта и из мессенджеров попадают в единую CRM — ничего не теряется.' },
@@ -791,7 +791,7 @@ const _ALL_OFFERS = [
     title: 'Омниканальная платформа лояльности и удержания',
     tagline: 'PWA-карта, боты, кэшбэк и уровни, аналитика поведения и омниканальные рассылки — превращает разовых клиентов в постоянных.',
     priceFrom: 'Бесплатная консультация', timeline: 'обсуждается', bodyHtml: platformaLoyalnostiBody,
-    relatedServices: [{ url: '/services/business-automation/', label: 'Автоматизация бизнеса' }, { url: '/services/telegram-bots/', label: 'Чат-боты' }],
+    relatedServices: [{ url: '/services/business-automation/', label: 'Автоматизация бизнеса' }, { url: '/development/telegram-bots/', label: 'Чат-боты' }],
     relatedBlog: [{ url: '/blog/geymifikaciya-saas-2026/', label: 'Геймификация в бизнесе' }, { url: '/blog/email-push-rassylki-rf-2026/', label: 'Рассылки в РФ' }],
     faq: [
       { q: 'Чем отличается от обычной карты лояльности?', a: 'Это платформа удержания: не только баллы, но и аналитика поведения (частота, LTV, отток) и омниканальные коммуникации, которые сами возвращают клиента.' },

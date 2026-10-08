@@ -2,7 +2,7 @@ module.exports = {
   slug: "kak-vybrat-nishu-i-proverit-ideyu-za-2-nedeli-do-vlozheniy-2026",
   category: "biznes-krugozor",
   heroIcon: "ph-fill ph-flask",
-  ctaInternal: { url: "https://chimitdorzhi.tech/services/telegram-bots/", label: "Бот для сбора заявок и предзаписи" },
+  ctaInternal: { url: "https://chimitdorzhi.tech/development/telegram-bots/", label: "Бот для сбора заявок и предзаписи" },
   title: "Как выбрать нишу и проверить идею за 2 недели до вложений",
   metaTitle: "Как проверить бизнес-идею за 2 недели до вложений",
   metaDescription: "Как записать гипотезу, поговорить с 10 людьми, проверить спрос в Вордстате и собрать заявки. План на 2 недели, порог успеха и решение по итогам.",

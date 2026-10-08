@@ -41,7 +41,7 @@ module.exports = [
       ['vyvody', 'Коротко о главном'],
     ),
     relatedSlugs: ['chatbot-telegram-max-vk-2026', 'monitoring-goszakupok-44fz-2026', 'voronka-prodazh-b2b-2026', 'crm-dlya-malogo-biznesa-2026'],
-    ctaInternal: { url: 'https://chimitdorzhi.tech/services/telegram-bots/', label: 'Заказать бота-монитора' },
+    ctaInternal: { url: 'https://chimitdorzhi.tech/development/telegram-bots/', label: 'Заказать бота-монитора' },
     servicesOffer: SVC_MON,
     contentHtml: C('bot-monitor-chatov-zayavki-2026'),
   },

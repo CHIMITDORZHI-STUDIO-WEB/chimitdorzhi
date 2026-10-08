@@ -17,6 +17,7 @@ const esc = (s) => String(s == null ? '' : s)
 // Ссылка в Telegram с предзаполненным текстом (best-effort: где клиент поддерживает —
 // текст подставится, иначе просто откроется чат).
 const TG = 'https://t.me/chimitdorzhi';
+const { METRIKA, maxBtn } = require('./metrika-snippet.js');
 const tg = (text) => `${TG}?text=${encodeURIComponent(text)}`;
 
 // Этапы работы — одинаковы для всех предложений.
@@ -133,6 +134,7 @@ function footer() {
             <h2 class="text-gradient">ДАВАЙТЕ РЕШИМ.</h2>
             <div class="footer-actions">
                 <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                ${maxBtn()}
                 <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
                 <a href="tel:+971563369591" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +971 56 336 9591</a>
             </div>
@@ -163,6 +165,7 @@ function ctaBlock(o) {
         </div>
         <div class="offer-cta-actions">
             <a href="${tg(`Здравствуйте! Интересует решение «${o.title}» (${o.niche}).`)}" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram</a>
+            ${maxBtn()}
             <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
             <a href="tel:+971563369591" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> Позвонить</a>
         </div>
@@ -271,7 +274,7 @@ ${offerLd(o, url)}
     <script type="application/ld+json">
 ${breadcrumbLd(o, url)}
     </script>
-${faqLd(o)}</head>
+${faqLd(o)}${METRIKA}</head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
     <div class="noise-overlay"></div>
@@ -296,6 +299,7 @@ ${faqLd(o)}</head>
                     </div>
                     <div class="offer-hero-actions">
                         <a href="${tg(o.tgText || `Здравствуйте! Интересует «${o.title}» (${o.priceFrom}).`)}" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> ${esc(o.tgButton || 'Обсудить задачу')}</a>
+                        ${maxBtn()}
                         ${(o.packages || []).length ? '<a href="#packages" class="btn btn-ghost">Смотреть пакеты</a>' : '<a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>'}
                     </div>
                 </div>
@@ -411,7 +415,7 @@ ${JSON.stringify(ld, null, 2)}
     <script type="application/ld+json">
 ${JSON.stringify(breadcrumb, null, 2)}
     </script>
-</head>
+${METRIKA}</head>
 <body>
     <a href="#main" class="skip-link">Перейти к содержимому</a>
     <div class="noise-overlay"></div>

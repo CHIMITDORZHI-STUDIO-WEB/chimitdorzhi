@@ -148,7 +148,7 @@ module.exports = [
       { id: "vyvody", text: "Коротко о главном" },
     ],
     relatedSlugs: ["proverka-vykladki-po-foto-ii-2026","kompyuternoe-zrenie-proizvodstvo-stoimost-2027","kompyuternoe-zrenie-kak-mashiny-vidyat-2027","priemka-tovara-ot-postavshchika-po-foto-2026"] }),
-  E({ slug: "kakuyu-model-ii-vybrat-dlya-bota-ne-pereplachivat-2026", category: "expert", heroIcon: "ph-fill ph-scales", ctaInternal: { url: "https://chimitdorzhi.tech/services/telegram-bots/", label: "Telegram-боты и ИИ под ключ" },
+  E({ slug: "kakuyu-model-ii-vybrat-dlya-bota-ne-pereplachivat-2026", category: "expert", heroIcon: "ph-fill ph-scales", ctaInternal: { url: "https://chimitdorzhi.tech/development/telegram-bots/", label: "Telegram-боты и ИИ под ключ" },
     title: "Какую модель ИИ выбрать для бота и не переплатить",
     metaTitle: "Какую модель ИИ выбрать для бота и не переплатить в 2026",
     metaDescription: "Вышли Claude Sonnet 5.5 (Клод) и Gemini 4 Argon. Как выбрать модель для бота: тест на 20-30 ваших вопросах, переключение моделей, 152-ФЗ.",

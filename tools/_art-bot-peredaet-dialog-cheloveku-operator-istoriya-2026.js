@@ -2,7 +2,7 @@ module.exports = {
   slug: "bot-peredaet-dialog-cheloveku-operator-istoriya-2026",
   category: "biznes-krugozor",
   heroIcon: "ph-fill ph-user-switch",
-  ctaInternal: { url: "https://chimitdorzhi.tech/services/telegram-bots/", label: "Бот с передачей диалога администратору" },
+  ctaInternal: { url: "https://chimitdorzhi.tech/development/telegram-bots/", label: "Бот с передачей диалога администратору" },
   title: "Как передать клиента от бота человеку и не потерять переписку",
   metaTitle: "Передача диалога от бота оператору: триггеры и карточка",
   metaDescription: "Как настроить передачу диалога от бота человеку: когда звать оператора, кому передавать, что видит сотрудник, когда бот молчит и когда возвращается.",

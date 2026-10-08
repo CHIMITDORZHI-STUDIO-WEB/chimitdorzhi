@@ -94,7 +94,7 @@ module.exports = [
     toc: T([{ id: 'zachem', text: 'Зачем врачу свой сайт' }, { id: 'chto-dolzhno', text: 'Что должно быть' }, { id: 'zakon', text: 'Закон о рекламе и 152-ФЗ' }, { id: 'cena', text: 'Сроки и цена' }]),
     relatedSlugs: ['sayt-dlya-fotografa-2026', 'sayt-dlya-yurista-2026', 'polzovatelskoe-soglashenie-obrazec-2026'] }),
 
-  E({ slug: 'sayt-dlya-yurista-2026', category: 'development', heroIcon: 'ph-fill ph-gavel',
+  E({ slug: 'sayt-dlya-yurista-2026', dateModified: '2026-10-08', category: 'development', heroIcon: 'ph-fill ph-gavel',
     servicesOffer: SVC_SITE, ctaInternal: CTA_SITE,
     title: 'Сайт для юриста: как получать заявки, а не просто визитку',
     metaTitle: 'Сайт для юриста: заявки, а не визитка',
@@ -106,7 +106,7 @@ module.exports = [
     relatedSlugs: ['sayt-dlya-vracha-2026', 'sayt-dlya-fotografa-2026', 'kak-zakazat-razrabotku-ne-poteryat-dengi-2026'] }),
 
   // === Виджеты/конверсия ===
-  E({ slug: 'onlayn-prays-list-2026', category: 'development', heroIcon: 'ph-fill ph-list-numbers',
+  E({ slug: 'onlayn-prays-list-2026', dateModified: '2026-10-08', category: 'development', heroIcon: 'ph-fill ph-list-numbers',
     servicesOffer: SVC_CONV, ctaInternal: CTA_DEV,
     title: 'Онлайн-прайс-лист: как сделать удобно и с пользой',
     metaTitle: 'Онлайн-прайс-лист: как сделать удобно',

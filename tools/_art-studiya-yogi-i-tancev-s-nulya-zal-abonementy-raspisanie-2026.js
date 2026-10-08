@@ -2,7 +2,7 @@ module.exports = {
   slug: "studiya-yogi-i-tancev-s-nulya-zal-abonementy-raspisanie-2026",
   category: "biznes-krugozor",
   heroIcon: "ph-fill ph-person-simple-tai-chi",
-  ctaInternal: { url: "https://chimitdorzhi.tech/services/telegram-bots/", label: "Запись и абонементы для студии" },
+  ctaInternal: { url: "https://chimitdorzhi.tech/development/telegram-bots/", label: "Запись и абонементы для студии" },
   title: "Студия йоги или танцев с нуля: зал, абонементы и расписание",
   metaTitle: "Студия йоги или танцев с нуля: зал и абонементы 2026",
   metaDescription: "Как открыть студию йоги, танцев или растяжки: зал, тренеры, абонементы и возвраты, налоги, музыка, расчёт посещаемости и ошибки новичков.",

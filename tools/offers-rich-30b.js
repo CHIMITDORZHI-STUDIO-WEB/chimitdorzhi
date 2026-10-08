@@ -46,7 +46,7 @@ module.exports = {
       { q: 'Как понять, что механика работает?', a: 'По аналитике возвратов: видно среднюю длину серий, долю вернувшихся по дням и размер активного ядра аудитории' }
     ],
     relatedServices: [
-      { url: '/services/telegram-bots/', label: 'Чат-боты' },
+      { url: '/development/telegram-bots/', label: 'Чат-боты' },
       { url: '/services/digital-marketing/', label: 'Цифровой маркетинг' }
     ],
     relatedBlog: [
@@ -160,7 +160,7 @@ module.exports = {
       { q: 'Как понять, что воронка эффективна?', a: 'По аналитике прохождения шагов: видно, сколько новичков доходит до каждого этапа и где теряется интерес' }
     ],
     relatedServices: [
-      { url: '/services/telegram-bots/', label: 'Чат-боты' },
+      { url: '/development/telegram-bots/', label: 'Чат-боты' },
       { url: '/services/digital-marketing/', label: 'Цифровой маркетинг' }
     ],
     relatedBlog: [

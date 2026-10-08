@@ -46,7 +46,7 @@ module.exports = {
       { q: 'Можно ли менять анкету после запуска?', a: 'Да, поля регистрации и тексты можно корректировать. Крупные изменения лучше согласовать до старта приёма заявок.' }
     ],
     relatedServices: [
-      { url: '/services/telegram-bots/', label: 'Разработка Telegram-ботов' },
+      { url: '/development/telegram-bots/', label: 'Разработка Telegram-ботов' },
       { url: '/services/business-automation/', label: 'Автоматизация бизнеса' }
     ],
     relatedBlog: [
@@ -103,7 +103,7 @@ module.exports = {
       { q: 'В каком мессенджере будет бот?', a: 'Telegram, MAX или VK на выбор, в зависимости от того, где ваша аудитория.' }
     ],
     relatedServices: [
-      { url: '/services/telegram-bots/', label: 'Разработка Telegram-ботов' },
+      { url: '/development/telegram-bots/', label: 'Разработка Telegram-ботов' },
       { url: '/services/ai-agents/', label: 'AI-агенты для бизнеса' }
     ],
     relatedBlog: [
@@ -161,7 +161,7 @@ module.exports = {
     ],
     relatedServices: [
       { url: '/services/ai-agents/', label: 'AI-агенты для бизнеса' },
-      { url: '/services/telegram-bots/', label: 'Разработка Telegram-ботов' }
+      { url: '/development/telegram-bots/', label: 'Разработка Telegram-ботов' }
     ],
     relatedBlog: [
       { url: '/blog/ai-networking-na-konferencii-2026/', label: 'AI-нетворкинг на конференции' },
@@ -216,7 +216,7 @@ module.exports = {
       { q: 'В каком мессенджере работает геймификация?', a: 'Telegram, MAX или VK на выбор, в зависимости от вашей аудитории.' }
     ],
     relatedServices: [
-      { url: '/services/telegram-bots/', label: 'Разработка Telegram-ботов' },
+      { url: '/development/telegram-bots/', label: 'Разработка Telegram-ботов' },
       { url: '/services/business-automation/', label: 'Автоматизация бизнеса' }
     ],
     relatedBlog: [

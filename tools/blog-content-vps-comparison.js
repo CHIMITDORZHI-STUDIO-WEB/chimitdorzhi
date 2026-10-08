@@ -11,6 +11,15 @@ module.exports = `
   </ul>
 </div>
 
+<div class="blog-cta-internal">
+  <i class="ph-fill ph-hard-drives"></i>
+  <div>
+    <strong>Настрою VPS под ваш проект</strong>
+    <p>Подберу провайдера под нагрузку и бюджет, поставлю Docker, бэкапы и мониторинг, перенесу сайт или бота. Напишите в Telegram, что должно работать на сервере.</p>
+    <a href="https://chimitdorzhi.tech/services/it-infrastructure/">IT-инфраструктура под ключ <i class="ph ph-arrow-right"></i></a>
+  </div>
+</div>
+
 <h2 id="zachem-vps">Зачем разработчику свой VPS в 2026</h2>
 <p>Свой VPS — это не «потому что круто», это инструмент, без которого определённый класс задач просто не решается. За пять лет жизни на собственных серверах я выписал шесть конкретных сценариев, где VPS незаменим, и каждый из них — это причина, по которой я не уйду на серверлесс или managed-платформы.</p>
 <p><strong>Коротко:</strong> свой VPS нужен разработчику для 24/7 Telegram-ботов, self-hosted-сервисов вместо SaaS-подписок и локальных LLM. Главные площадки РФ 2026 года — Selectel (качество и AI), RuVDS (цена и pet-projects), Timeweb (лучший UI) и Yandex Cloud (enterprise). Один бот с блогом и n8n укладываются в 700-1500 ₽ в месяц.</p>
@@ -223,7 +232,7 @@ echo "Backup $DATE OK"
 
 <div class="blog-cta-card">
   <div class="blog-cta-card-body">
-    <h3>Настрою вам VPS под ключ — от 15 000 ₽</h3>
+    <h3>Настрою вам VPS под ключ — от 40 000 ₽</h3>
     <p>SSH-ключи, UFW, fail2ban, автообновления, Docker, Caddy с Let's Encrypt, бэкапы на резервный сервер, мониторинг через Uptime Kuma. Получаете готовый production-сервер за 1-2 дня. Сам живу на стеке Selectel + RuVDS пять лет, прошёл все грабли.</p>
   </div>
   <div class="blog-cta-card-actions">

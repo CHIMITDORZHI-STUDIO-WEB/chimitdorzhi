@@ -11,6 +11,8 @@ const path = require('path');
 const { categories, services } = require('./services-data');
 const { i18nServices, i18nUi } = require('./services-i18n-source');
 const OFFERS = require('./offers-data.js');
+const { METRIKA, GOALS, maxBtn } = require('./metrika-snippet.js');
+const { casesSection } = require('./related-cases-html.js');
 
 // Карта: услуга (slug) → готовое предложение (slug). Связывает каталог услуг с предложениями.
 const SERVICE_OFFER = {
@@ -128,6 +130,7 @@ function footer() {
             <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
             <div class="footer-actions">
                 <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent"><i class="ph ph-telegram-logo"></i> Telegram</a>
+                ${maxBtn()}
                 <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
                 <a href="tel:+971563369591" class="btn btn-ghost"><i class="ph ph-phone"></i> +971 56 336 9591</a>
             </div>
@@ -169,7 +172,7 @@ function tagsHtml(tags) {
 
 function homeCard(svc) {
   const k = `svc.${svc.s}`;
-  return `<a href="/services/${svc.s}/" class="svc-card svc-card-link" data-category="${svc.c}">
+  return `<a href="${svc.moved || `/services/${svc.s}/`}" class="svc-card svc-card-link" data-category="${svc.c}">
     <div class="svc-icon ${svc.ic}"><i class="ph ph-${svc.pi}"></i></div>
     <h3 data-i18n="${k}.n">${esc(svc.n)}</h3>
     <p data-i18n="${k}.d">${esc(svc.d)}</p>
@@ -348,6 +351,7 @@ ${faqJsonLd(svc)}
                     </a>` : ''}
                     <div class="service-actions">
                         <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent"><i class="ph ph-telegram-logo"></i> <span data-i18n="svc.cta.tg">Обсудить в Telegram</span></a>
+                        ${maxBtn()}
                         <a href="tel:+971563369591" class="btn btn-ghost"><i class="ph ph-phone"></i> <span data-i18n="svc.cta.call">Позвонить</span></a>
                     </div>
                     ${tagsHtml(svc.tg)}
@@ -356,6 +360,8 @@ ${faqJsonLd(svc)}
         </section>
 
         ${pricingFactorsSection(svc)}
+
+        ${casesSection('services/' + svc.s, { gridClass: 'services-grid', cardClass: 'svc-card svc-card-link', iconClass: 'svc-icon svc-icon-blue', headingClass: 'service-h2' })}
 
         ${faqSection(svc)}
 
@@ -385,7 +391,7 @@ ${faqJsonLd(svc)}
         ym(109281884, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
     </script>
     <noscript><div><img src="https://mc.yandex.ru/watch/109281884" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-</body>
+${GOALS}</body>
 </html>`;
 }
 
@@ -478,6 +484,7 @@ ${JSON.stringify(ld, null, 2)}
                         <p class="svc-hero-note" data-i18n="svc.hero.note">Не знаете, что выбрать? Опишите задачу — подберу решение и назову вилку по цене и срокам.</p>
                         <div class="svc-hero-cta">
                             <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> <span data-i18n="hero.cta1">Обсудить задачу</span></a>
+                            ${maxBtn()}
                             <a href="/cases/" class="btn btn-ghost"><i class="ph ph-briefcase" aria-hidden="true"></i> <span data-i18n="hero.cta2">Смотреть кейсы</span></a>
                         </div>
                     </aside>
@@ -499,7 +506,7 @@ ${JSON.stringify(ld, null, 2)}
     </main>
 
     ${footer()}
-</body>
+${METRIKA}</body>
 </html>`;
 }
 
@@ -552,6 +559,7 @@ function sitemap() {
     { loc: `${SITE}/services/`,  priority: '0.9', freq: 'weekly' },
   ];
   for (const svc of services) {
+    if (svc.moved) continue; // страница склеена с другой, в sitemap только адрес назначения
     entries.push({
       loc: `${SITE}/services/${svc.s}/`,
       priority: svc.priority === 'high' ? '0.9' : '0.8',
@@ -624,6 +632,45 @@ function buildI18nBundle() {
 `;
 }
 
+// ---------- склеенная услуга: страница-перенаправление ----------
+
+// Услуга с moved: '/путь/' переехала на другую страницу (два адреса делили один запрос).
+// Старый адрес отдаёт noindex, canonical и мгновенный переход на новый.
+function movedPage(svc) {
+  const to = svc.moved;
+  return `<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>${esc(svc.n)} | chimitdorzhi.tech</title>
+<link rel="canonical" href="${SITE}${to}">
+<meta name="robots" content="noindex, follow">
+<meta http-equiv="refresh" content="0; url=${to}">
+<style>
+:root{color-scheme:light}
+body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;
+ background:#faf9f7;color:#1a1a1a;font:16px/1.6 Manrope,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;padding:24px}
+.box{max-width:520px;text-align:center}
+h1{font-size:22px;line-height:1.3;margin:0 0 12px}
+p{margin:0 0 20px;color:#4a4a4a}
+a.btn{display:inline-block;background:#1E4FD6;color:#fff;text-decoration:none;
+ padding:12px 22px;border-radius:10px;font-weight:600}
+a.btn:hover{background:#1740b5}
+</style>
+</head>
+<body>
+<div class="box">
+<h1>Страница переехала</h1>
+<p>Всё о разработке ботов теперь на одной странице. Сейчас вы будете перенаправлены автоматически.</p>
+<p><a class="btn" href="${to}">${esc(svc.n)}</a></p>
+</div>
+<script>location.replace('${to}');</script>
+</body>
+</html>
+`;
+}
+
 // ---------- write everything ----------
 
 function ensureDir(p) {
@@ -640,6 +687,7 @@ function main() {
     // Услуга с custom:true имеет собственный лендинг, свёрстанный вручную.
     // Генератор её карточку в каталоге и в sitemap оставляет, но страницу не трогает.
     if (svc.custom) { customCount++; continue; }
+    if (svc.moved) { fs.writeFileSync(path.join(dir, 'index.html'), movedPage(svc), 'utf8'); continue; }
     fs.writeFileSync(path.join(dir, 'index.html'), servicePage(svc), 'utf8');
     pageCount++;
   }

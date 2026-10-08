@@ -453,6 +453,15 @@ const article2Content = `
   </ul>
 </div>
 
+<div class="blog-cta-internal">
+  <i class="ph-fill ph-cookie"></i>
+  <div>
+    <strong>Приведу сайт в порядок по 152-ФЗ</strong>
+    <p>Поставлю cookie-баннер, который блокирует счётчики до согласия, подготовлю политику, формы согласий и уведомление в РКН. Напишите в Telegram адрес сайта.</p>
+    <a href="https://chimitdorzhi.tech/predlozheniya/152-fz-pod-klyuch/">152-ФЗ под ключ <i class="ph ph-arrow-right"></i></a>
+  </div>
+</div>
+
 <h2 id="zachem-nuzhen">Зачем нужен cookie-баннер по закону РФ</h2>
 <p>Cookie — это маленький текстовый файл, который сайт сохраняет в браузере посетителя. Сам по себе он безобиден: туда часто пишут идентификатор сессии, чтобы пользователь оставался залогиненным. Проблема начинается, когда в cookie попадает уникальный идентификатор посетителя, по которому можно отслеживать его поведение на сайте и между сайтами. С точки зрения 152-ФЗ это уже персональные данные — и значит, для их сбора нужно согласие.</p>
 <p><strong>Коротко:</strong> по 152-ФЗ cookie_id и fingerprint считаются персональными данными, поэтому для их сбора нужен cookie-баннер с активным согласием — не pre-checked галочками и не молчаливым продолжением скролла. Баннер обязан содержать 7 элементов: информирование до сбора, активное согласие, категории cookie, ссылку на политику, равную по видимости кнопку отказа, запись согласия и возможность отозвать. Без этого — штраф от 300 тыс. ₽ по ст. 13.11 КоАП.</p>
@@ -545,7 +554,7 @@ const article2Content = `
 <div class="blog-cta-card">
   <div class="blog-cta-card-body">
     <h3>Не уверены, что ваш баннер соответствует закону?</h3>
-    <p>На аудите 152-ФЗ я проверяю каждый из 7 обязательных элементов и 5 запрещённых практик. По итогу — конкретный список того, что чинить, с примерами кода. Срок — 1–3 рабочих дня, цена — от 5 000 ₽ за лендинг.</p>
+    <p>На аудите 152-ФЗ я проверяю каждый из 7 обязательных элементов и 5 запрещённых практик. По итогу — конкретный список того, что чинить, с примерами кода. Срок — 1–3 рабочих дня, цена — от 15 000 ₽ за лендинг.</p>
   </div>
   <div class="blog-cta-card-actions">
     <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-shield-check"></i> Заказать аудит сайта</a>
@@ -790,7 +799,7 @@ const article2Content = `
   <li><strong>В этом месяце:</strong> снимите Google Analytics, если он ещё стоит. Опишите cookie в политике конфиденциальности (имя, назначение, срок).</li>
   <li><strong>Один раз и навсегда:</strong> заведите серверный лог согласий и регламент пересогласия при обновлении политики.</li>
 </ol>
-<p>Если на сайте больше одного нарушения сразу или вы не уверены, всё ли учли — закажите <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener">аудит 152-ФЗ</a>. По итогу получите письменное заключение с конкретным списком правок и приоритетами. Цена — от 5 000 ₽ за лендинг, срок — 1–3 рабочих дня.</p>
+<p>Если на сайте больше одного нарушения сразу или вы не уверены, всё ли учли — закажите <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener">аудит 152-ФЗ</a>. По итогу получите письменное заключение с конкретным списком правок и приоритетами. Цена — от 15 000 ₽ за лендинг, срок — 1–3 рабочих дня.</p>
 <p>Вопросы по конкретной реализации на вашем стеке — пишите в <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener">Telegram</a>. Я обычно отвечаю в течение часа, без формальностей.</p>
 `;
 
@@ -801,7 +810,7 @@ const article1Content = `
     <li>152-ФЗ касается любого сайта, который собирает хотя бы имя и телефон — от лендинга до интернет-магазина. ИП и самозанятые тоже под законом.</li>
     <li>С 30 мая 2025 года штрафы выросли в десятки раз. Повторное нарушение — до 500 000 ₽ для юрлиц, оборотные штрафы за утечки — до 500 млн ₽.</li>
     <li>Минимальный набор: политика конфиденциальности, согласие на обработку ПД (галочка с активным action), cookie-баннер, уведомление в РКН, хранение базы на серверах в РФ.</li>
-    <li>Самопроверка за час закроет 60% базовых нарушений. На остальное нужен <a href="https://audit.chimitdorzhi.tech/">профессиональный аудит</a> — 1–3 дня работы, цена от 5 000 ₽.</li>
+    <li>Самопроверка за час закроет 60% базовых нарушений. На остальное нужен <a href="https://audit.chimitdorzhi.tech/">профессиональный аудит</a> — 1–3 дня работы, цена от 15 000 ₽.</li>
   </ul>
 </div>
 
@@ -1026,7 +1035,7 @@ const article1Content = `
 <div class="blog-cta-card">
   <div class="blog-cta-card-body">
     <h3>Сколько стоит профессиональный аудит у меня</h3>
-    <p>От 5 000 ₽ за экспресс-аудит лендинга, от 25 000 ₽ — полный аудит сайта с документами и подачей в РКН. Срок — 1–3 рабочих дня. По итогу — письменный отчёт с приоритетами и пакет готовых документов под ваш бизнес.</p>
+    <p>От 15 000 ₽ за экспресс-аудит лендинга, от 30 000 ₽ — полный аудит сайта с документами и подачей в РКН. Срок — 1–3 рабочих дня. По итогу — письменный отчёт с приоритетами и пакет готовых документов под ваш бизнес.</p>
   </div>
   <div class="blog-cta-card-actions">
     <a href="https://audit.chimitdorzhi.tech/" class="btn btn-accent"><i class="ph ph-shield-check"></i> Заказать аудит</a>
@@ -2224,7 +2233,7 @@ const article6Content = `
 <p>Я занимаюсь веб-разработкой с 2009 года и помню времена, когда мобильный веб был набором костылей: media-запросы только появлялись, jQuery Mobile казался прорывом, а слово «оффлайн» в браузере вызывало нервный смех. PWA (Progressive Web Apps) — это технология, которая постепенно, без шума и хайпа, накрыла этот пробел и превратила обычный сайт в полноценное приложение.</p>
 <p><strong>Коротко:</strong> PWA — это обычный сайт, который устанавливается на телефон без магазина приложений, работает без интернета и присылает push-уведомления, а технически состоит из manifest.json, Service Worker и HTTPS. С iOS 16.4+ и 17.4+ это работает и на iPhone, стоит в 3–5 раз дешевле нативного приложения, а собрать её можно примерно за 13 часов чистого времени за выходные.</p>
 <p>Технически PWA — это три кита. Первый — файл <code>manifest.json</code>, который рассказывает браузеру «я приложение, вот моё имя, иконка, цвет, как меня запускать». Второй — Service Worker, фоновый JavaScript-скрипт, который перехватывает сетевые запросы и умеет кэшировать ресурсы, отдавать оффлайн-страницу и принимать push-уведомления. Третий — HTTPS, без которого Service Worker не зарегистрируется. Всё. Никакого фреймворка не нужно, никакого специального стека.</p>
-<p>Зачем это бизнесу. Я считал экономику для пары клиентов в 2025 году — выходит так: разработка нативного приложения под iOS и Android «под ключ» обходится в 1,5–4 млн ₽ и занимает 3–6 месяцев. PWA из существующего сайта — от 80 тыс до 400 тыс ₽ и 2–6 недель. После выхода в продакшен пользователь устанавливает приложение в один тап из браузера, получает иконку на рабочем столе, открывает её как обычное приложение (без браузерной обвязки, без адресной строки), получает push-уведомления, может пользоваться без интернета.</p>
+<p>Зачем это бизнесу. Я считал экономику для пары клиентов в 2025 году — выходит так: разработка нативного приложения под iOS и Android «под ключ» обходится в 1,5–4 млн ₽ и занимает 3–6 месяцев. PWA из существующего сайта — от 150 тыс до 400 тыс ₽ и 2–6 недель. После выхода в продакшен пользователь устанавливает приложение в один тап из браузера, получает иконку на рабочем столе, открывает её как обычное приложение (без браузерной обвязки, без адресной строки), получает push-уведомления, может пользоваться без интернета.</p>
 <p>Когда PWA НЕ подходит. Если вам нужен Bluetooth-low-energy для медицинских устройств (Web Bluetooth есть, но в iOS пока нет), NFC для платежей (Web NFC есть только на Android Chrome), глубокий доступ к файловой системе (есть File System Access API, но опять же только Chromium), фоновая геолокация без открытого таба (нет ни на одной платформе), AR/VR с тяжёлыми сценами (WebXR работает, но просадки по перформансу). Во всех остальных кейсах — интернет-магазин, корпоративный портал, медиа, доставка еды, такси, банкинг, образование, b2b-сервисы — PWA закрывает 95% задач.</p>
 <p>Что изменилось к 2026 году по сравнению с эпохой 2018–2020, когда я последний раз серьёзно писал про PWA. Главное: Apple перестал саботировать. С iOS 16.4 (март 2023) заработали Web Push для PWA, установленных на главный экран. С iOS 17.4 (март 2024) — нормальная установка через Safari, badging иконок, нормальная работа в standalone-режиме. До этого приходилось объяснять клиентам «на iPhone push не работает, извините, спасибо Тиму Куку». Теперь — работают, надо только корректно зарегистрировать подписку.</p>
 
@@ -2521,7 +2530,7 @@ if (window.matchMedia('(display-mode: standalone)').matches) {
 <div class="blog-cta-card">
   <div class="blog-cta-card-body">
     <h3>Не хочется возиться — закажу за вас</h3>
-    <p>Если на выходные нет настроения копаться в Service Workers и manifest.json — могу сделать вашу PWA под ключ от 80 000 ₽. С push-уведомлениями, оффлайн-режимом, установкой на iOS и Android.</p>
+    <p>Если на выходные нет настроения копаться в Service Workers и manifest.json — могу сделать вашу PWA под ключ от 150 000 ₽. С push-уведомлениями, оффлайн-режимом, установкой на iOS и Android.</p>
   </div>
   <div class="blog-cta-card-actions">
     <a href="https://chimitdorzhi.tech/development/pwa/" class="btn btn-accent">Заказать PWA</a>
@@ -2654,7 +2663,7 @@ async function sendToAll(subscriptions, payload) {
 <p>На Tilda — с трудом. Tilda не даёт положить файлы в корень и зарегистрировать свой Service Worker, скрипты в head ограничены. Минимальное — manifest можно прицепить через «свой код», но без SW это не полноценная PWA, только иконка на рабочем столе. Wix чуть лучше — у них есть встроенная PWA-функция в Wix Studio, активируется в настройках сайта. Если нужна настоящая PWA с push и оффлайном — переезжайте на свой хостинг.</p>
 
 <h3>Сколько стоит сделать PWA, если не делать самому?</h3>
-<p>Простая PWA из готового лендинга или сайта — 80–150 тыс ₽, 2–4 недели. PWA с push-уведомлениями и оффлайн-режимом — 200–400 тыс ₽, 4–8 недель. PWA с интеграцией оплаты, личным кабинетом, реал-тайм синхронизацией — 500 тыс — 1,5 млн ₽, 2–4 месяца. Это всё равно дешевле нативной разработки в 3–5 раз.</p>
+<p>Простая PWA из готового лендинга или сайта — 150–200 тыс ₽, 2–4 недели. PWA с push-уведомлениями и оффлайн-режимом — 200–400 тыс ₽, 4–8 недель. PWA с интеграцией оплаты, личным кабинетом, реал-тайм синхронизацией — 500 тыс — 1,5 млн ₽, 2–4 месяца. Это всё равно дешевле нативной разработки в 3–5 раз.</p>
 
 <h3>PWA реально работает на iPhone?</h3>
 <p>Да, с iOS 16.4+ работают push, с iOS 17.4+ — нормальная установка. Но есть нюансы: push приходит только в установленную через «На главный экран» PWA, не в Safari-вкладку; нет API для запроса установки (только текстовая подсказка); ограничение хранилища 50 МБ на сайт (на Android — гигабайты). Для 90% сценариев этих ограничений хватает.</p>
@@ -2701,7 +2710,7 @@ const article7Content = `
     <li>Субъектов ПД уведомлять обязательно в течение 72 часов, если есть риск ущерба. Это отдельное требование, не путать с уведомлением РКН.</li>
     <li>Штраф за неуведомление — оборотный, до 3% годовой выручки, потолок 500 млн ₽ (ч. 13.11 КоАП в редакции 30.05.2025).</li>
     <li>В первые 60 минут после обнаружения главное — остановить дальнейшую утечку, зафиксировать факт и сохранить логи. Уничтожение улик считается отягчающим обстоятельством.</li>
-    <li>Превентивный <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener">аудит по 152-ФЗ</a> стоит от 5 000 ₽ за лендинг и снижает риск утечки на порядок. Это в десятки раз дешевле штрафа.</li>
+    <li>Превентивный <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener">аудит по 152-ФЗ</a> стоит от 15 000 ₽ за лендинг и снижает риск утечки на порядок. Это в десятки раз дешевле штрафа.</li>
   </ul>
 </div>
 
@@ -2966,6 +2975,15 @@ const article8Content = `
     <li>Для генерации изображений — Kandinsky 4 от Сбера и YandexART 2. Для open-source self-hosting в РФ — Llama 3.3, Qwen 2.5, DeepSeek V3 на Yandex Cloud / VK Cloud / Selectel.</li>
     <li>Заказать <a href="https://chimitdorzhi.tech/development/site-chatbots/">AI-ассистента на сайт</a> на российском стеке — от 80 тыс ₽ под ключ, локализация ПД, 152-ФЗ соответствие.</li>
   </ul>
+</div>
+
+<div class="blog-cta-internal">
+  <i class="ph-fill ph-robot"></i>
+  <div>
+    <strong>Подключу GigaChat или YandexGPT к вашему бизнесу</strong>
+    <p>Выберу модель под задачу, соберу бота или ИИ-агента на российском стеке и учту требования 152-ФЗ. Напишите в Telegram, какую работу хотите передать нейросети.</p>
+    <a href="https://chimitdorzhi.tech/services/ai-agents/">AI-агенты и LLM-решения <i class="ph ph-arrow-right"></i></a>
+  </div>
 </div>
 
 <h2 id="pochemu-nelzya">Почему нельзя просто использовать OpenAI, Claude и Gemini</h2>
@@ -4130,7 +4148,7 @@ const ALL_ARTICLES = [
     metaKeywords: '152-ФЗ, аудит сайта, персональные данные, штрафы РКН 2026, политика конфиденциальности, cookie-баннер',
     excerpt: 'Новые штрафы по 152-ФЗ доходят до 500 млн ₽. Чек-лист из 32 пунктов, пошаговый план устранения нарушений и сравнение цен на аудит.',
     datePublished: '2026-05-19',
-    dateModified: '2026-05-19',
+    dateModified: '2026-10-08',
     readingMinutes: 12,
     heroIcon: 'ph-fill ph-shield-check',
     tags: ['152-ФЗ', 'аудит', 'персональные данные', 'РКН', 'штрафы 2026'],
@@ -4152,7 +4170,7 @@ const ALL_ARTICLES = [
     servicesOffer: {
       title: "Что я делаю по 152-ФЗ и compliance",
       services: [
-      { icon: 'ph-fill ph-shield-check', label: "Полный аудит сайта по 152-ФЗ — от 5 000 ₽" },
+      { icon: 'ph-fill ph-shield-check', label: "Полный аудит сайта по 152-ФЗ — от 15 000 ₽" },
       { icon: 'ph-fill ph-file-text', label: "Подача уведомления в РКН под ключ" },
       { icon: 'ph-fill ph-cookie', label: "Cookie-баннер и согласия по закону" },
       { icon: 'ph-fill ph-database', label: "Миграция данных на серверы РФ" },
@@ -4171,7 +4189,7 @@ const ALL_ARTICLES = [
     metaKeywords: 'cookie-баннер, 152-ФЗ, согласие на cookie, dark patterns, Яндекс.Метрика consent, штрафы РКН, GDPR в России',
     excerpt: 'Семь обязательных элементов правильного баннера, пять запрещённых dark patterns, готовый код на 60 строк JS и штрафы за нарушения по ст. 13.11 КоАП.',
     datePublished: '2026-05-19',
-    dateModified: '2026-05-19',
+    dateModified: '2026-10-08',
     readingMinutes: 13,
     heroIcon: 'ph-fill ph-cookie',
     tags: ['cookies', '152-ФЗ', 'РКН', 'Яндекс.Метрика', 'dark patterns'],
@@ -4194,7 +4212,7 @@ const ALL_ARTICLES = [
     servicesOffer: {
       title: "Что я делаю по 152-ФЗ и compliance",
       services: [
-      { icon: 'ph-fill ph-shield-check', label: "Полный аудит сайта по 152-ФЗ — от 5 000 ₽" },
+      { icon: 'ph-fill ph-shield-check', label: "Полный аудит сайта по 152-ФЗ — от 15 000 ₽" },
       { icon: 'ph-fill ph-file-text', label: "Подача уведомления в РКН под ключ" },
       { icon: 'ph-fill ph-cookie', label: "Cookie-баннер и согласия по закону" },
       { icon: 'ph-fill ph-database', label: "Миграция данных на серверы РФ" },
@@ -4212,7 +4230,7 @@ const ALL_ARTICLES = [
     metaKeywords: 'уведомление РКН, реестр операторов персональных данных, pd.rkn.gov.ru, 152-ФЗ, подача уведомления, ст. 22 152-ФЗ, штраф 19.7 КоАП',
     excerpt: 'Подача уведомления в реестр операторов ПД на pd.rkn.gov.ru шаг за шагом: что собрать, как заполнить каждое поле, частые ошибки, штрафы и ответы на 8 типичных вопросов.',
     datePublished: '2026-05-19',
-    dateModified: '2026-05-19',
+    dateModified: '2026-10-08',
     readingMinutes: 16,
     heroIcon: 'ph-fill ph-file-text',
     tags: ['РКН', '152-ФЗ', 'реестр операторов', 'персональные данные'],
@@ -4236,7 +4254,7 @@ const ALL_ARTICLES = [
     servicesOffer: {
       title: "Что я делаю по 152-ФЗ и compliance",
       services: [
-      { icon: 'ph-fill ph-shield-check', label: "Полный аудит сайта по 152-ФЗ — от 5 000 ₽" },
+      { icon: 'ph-fill ph-shield-check', label: "Полный аудит сайта по 152-ФЗ — от 15 000 ₽" },
       { icon: 'ph-fill ph-file-text', label: "Подача уведомления в РКН под ключ" },
       { icon: 'ph-fill ph-cookie', label: "Cookie-баннер и согласия по закону" },
       { icon: 'ph-fill ph-database', label: "Миграция данных на серверы РФ" },
@@ -4254,7 +4272,7 @@ const ALL_ARTICLES = [
     metaKeywords: '152-ФЗ, локализация персональных данных, Yandex Cloud, VK Cloud, Selectel, миграция с AWS, российский хостинг',
     excerpt: 'Сравнение Yandex Cloud, VK Cloud, Selectel и других. Пошаговый план переноса с AWS/GCP/Azure, гибридные схемы, штрафы по ст. 13.11 ч. 8 КоАП и самопроверка.',
     datePublished: '2026-05-19',
-    dateModified: '2026-05-19',
+    dateModified: '2026-10-08',
     readingMinutes: 17,
     heroIcon: 'ph-fill ph-database',
     tags: ['152-ФЗ', 'локализация', 'персональные данные', 'хостинг'],
@@ -4277,7 +4295,7 @@ const ALL_ARTICLES = [
     servicesOffer: {
       title: "Что я делаю по 152-ФЗ и compliance",
       services: [
-      { icon: 'ph-fill ph-shield-check', label: "Полный аудит сайта по 152-ФЗ — от 5 000 ₽" },
+      { icon: 'ph-fill ph-shield-check', label: "Полный аудит сайта по 152-ФЗ — от 15 000 ₽" },
       { icon: 'ph-fill ph-file-text', label: "Подача уведомления в РКН под ключ" },
       { icon: 'ph-fill ph-cookie', label: "Cookie-баннер и согласия по закону" },
       { icon: 'ph-fill ph-database', label: "Миграция данных на серверы РФ" },
@@ -4335,7 +4353,7 @@ const ALL_ARTICLES = [
     metaKeywords: 'как сделать PWA из сайта, PWA туториал, manifest.json, service worker, push уведомления PWA, установить сайт как приложение, PWA на iOS, RuStore PWA',
     excerpt: 'Туториал на выходные: manifest.json, Service Worker, install-button и push-уведомления для iOS и Android. Готовый код, чек-листы и публикация в RuStore.',
     datePublished: '2026-05-19',
-    dateModified: '2026-05-19',
+    dateModified: '2026-10-08',
     readingMinutes: 18,
     heroIcon: 'ph-fill ph-app-window',
     tags: ['PWA', 'разработка', 'frontend', 'мобильные приложения', 'туториал'],
@@ -4360,7 +4378,7 @@ const ALL_ARTICLES = [
     servicesOffer: {
       title: "Что я делаю по разработке",
       services: [
-      { icon: 'ph-fill ph-globe', label: "Сайт под ключ от 30 000 ₽" },
+      { icon: 'ph-fill ph-globe', label: "Сайт под ключ от 40 000 ₽" },
       { icon: 'ph-fill ph-app-window', label: "PWA — приложение из сайта" },
       { icon: 'ph-fill ph-device-mobile', label: "Мобильное приложение (iOS/Android/кросс)" },
       { icon: 'ph-fill ph-robot', label: "Telegram/MAX-бот с интеграциями" },
@@ -4378,7 +4396,7 @@ const ALL_ARTICLES = [
     metaKeywords: '152-ФЗ, утечка персональных данных, уведомление РКН, 266-ФЗ, инцидент-менеджмент, оборотный штраф, ст. 13.11 КоАП',
     excerpt: 'Что делать в первые 60 минут, 4 часа, 24 часа и 72 часа после обнаружения утечки ПД. Уведомление РКН, информирование клиентов, штрафы 2026 до 500 млн ₽.',
     datePublished: '2026-05-20',
-    dateModified: '2026-05-20',
+    dateModified: '2026-10-08',
     readingMinutes: 19,
     heroIcon: 'ph-fill ph-warning-octagon',
     tags: ['152-ФЗ', 'утечка данных', 'РКН', 'персональные данные', 'инцидент-менеджмент'],
@@ -4402,7 +4420,7 @@ const ALL_ARTICLES = [
     servicesOffer: {
       title: "Что я делаю по 152-ФЗ и compliance",
       services: [
-      { icon: 'ph-fill ph-shield-check', label: "Полный аудит сайта по 152-ФЗ — от 5 000 ₽" },
+      { icon: 'ph-fill ph-shield-check', label: "Полный аудит сайта по 152-ФЗ — от 15 000 ₽" },
       { icon: 'ph-fill ph-file-text', label: "Подача уведомления в РКН под ключ" },
       { icon: 'ph-fill ph-cookie', label: "Cookie-баннер и согласия по закону" },
       { icon: 'ph-fill ph-database', label: "Миграция данных на серверы РФ" },
@@ -4521,7 +4539,7 @@ const ALL_ARTICLES = [
     metaKeywords: 'AI-агенты, LangChain, AutoGen, CrewAI, Pydantic AI, n8n, RAG, AI-агент для бизнеса, AI-агент Россия, внедрение AI',
     excerpt: 'Сертифицированный AI-инженер о том, что такое настоящий AI-агент, какие use cases работают в 2026, сколько стоят и как не нарваться на маркетинговую обёртку.',
     datePublished: '2026-05-20',
-    dateModified: '2026-05-20',
+    dateModified: '2026-10-08',
     readingMinutes: 22,
     heroIcon: 'ph-fill ph-robot',
     tags: ['AI-агенты', 'LangChain', 'GPT', 'автоматизация', 'AutoGen', 'n8n'],
@@ -4565,7 +4583,7 @@ const ALL_ARTICLES = [
     metaKeywords: 'чек-лист безопасности сайта, аудит безопасности, OWASP Top 10, пентест, XSS, SQL-инъекции, безопасность веб-сайта',
     excerpt: '47 пунктов проверки безопасности за час без специального ПО. HTTPS, OWASP Top 10, утечки, инфраструктура. С командами и инструкциями. Закрывает 80% типовых брешей.',
     datePublished: '2026-05-20',
-    dateModified: '2026-05-20',
+    dateModified: '2026-10-08',
     readingMinutes: 20,
     heroIcon: 'ph-fill ph-shield-check',
     tags: ['безопасность', 'аудит', 'OWASP', 'пентест', 'XSS', 'SQL-инъекции'],
@@ -4605,7 +4623,7 @@ const ALL_ARTICLES = [
     metaKeywords: 'RAG, retrieval-augmented generation, векторный поиск, embeddings, MongoDB Atlas Vector Search, pgvector, Qdrant, Weaviate, RAG в России, AI база знаний',
     excerpt: 'Сертифицированный по RAG практик о том, как устроена связка «векторный поиск + LLM», какие vector DB и embeddings брать в РФ, сколько стоит и где ломается на реальной базе из 10 000+ документов.',
     datePublished: '2026-05-20',
-    dateModified: '2026-05-20',
+    dateModified: '2026-10-08',
     readingMinutes: 24,
     heroIcon: 'ph-fill ph-database',
     tags: ['RAG', 'AI', 'vector search', 'embeddings', 'базы знаний'],
@@ -4829,7 +4847,7 @@ const ALL_ARTICLES = [
     metaKeywords: 'свой сайт, контент-маркетинг, email-база, Telegram-канал, hub spoke, собственная аудитория, сайт под ключ, SEO Яндекс',
     excerpt: 'В 2026 алгоритмы душат охваты, аккаунты блокируют, платформы меняют правила. Свой сайт + email-база + Telegram = единственный актив, который вы реально контролируете. План перехода за 90 дней.',
     datePublished: '2026-05-21',
-    dateModified: '2026-05-21',
+    dateModified: '2026-10-08',
     readingMinutes: 23,
     heroIcon: 'ph-fill ph-globe-stand',
     tags: ['сайт под ключ', 'контент', 'маркетинг', 'аудитория'],
@@ -4874,7 +4892,7 @@ const ALL_ARTICLES = [
     metaKeywords: 'интернет-магазин, Wildberries, Ozon, маркетплейс, комиссия WB, свой магазин, e-commerce РФ, Tilda Store, 1С-Битрикс',
     excerpt: 'Комиссии WB и Ozon выросли до 25-45%. Когда выгодно выходить на свой магазин, когда оставаться. Реальная математика 3 сценариев оборота, технический стек, план перехода за 6 месяцев.',
     datePublished: '2026-05-21',
-    dateModified: '2026-05-21',
+    dateModified: '2026-10-08',
     readingMinutes: 24,
     heroIcon: 'ph-fill ph-storefront',
     tags: ['интернет-магазин', 'маркетплейс', 'Wildberries', 'Ozon', 'e-commerce'],
@@ -4962,7 +4980,7 @@ const ALL_ARTICLES = [
     metaKeywords: 'AI чат-бот, n8n, no-code, YandexGPT, Claude, чат-бот без программирования, виджет чата, AI-консультант сайта',
     excerpt: 'За выходные ставим AI-бота на сайт без программирования. n8n + LLM + Crisp/Tawk + Google Sheets/amoCRM + Telegram. Полный workflow, system prompt, лид-квалификация, тестирование. Бюджет 5-15 тыс ₽/месяц.',
     datePublished: '2026-05-21',
-    dateModified: '2026-05-21',
+    dateModified: '2026-10-08',
     readingMinutes: 22,
     heroIcon: 'ph-fill ph-chat-circle-dots',
     tags: ['no-code', 'n8n', 'Claude', 'AI', 'чат-бот', 'Bubble'],
@@ -5007,7 +5025,7 @@ const ALL_ARTICLES = [
     metaKeywords: 'SEO интернет-магазин, Яндекс SEO, e-commerce SEO, Schema.org Product, ЧПУ, Я.Вебмастер, 30 хаков SEO',
     excerpt: '30 конкретных SEO-хаков для интернет-магазина под Яндекс 2026: технический SEO, карточки товара, категории и навигация, блог, аналитика и Я.Вебмастер. Прирост органики 30-70% за 3 месяца.',
     datePublished: '2026-05-21',
-    dateModified: '2026-05-21',
+    dateModified: '2026-10-08',
     readingMinutes: 23,
     heroIcon: 'ph-fill ph-magnifying-glass-plus',
     tags: ['SEO', 'e-commerce', 'Яндекс', 'интернет-магазин', 'продвижение'],
@@ -5048,7 +5066,7 @@ const ALL_ARTICLES = [
     metaKeywords: 'VPS, VDS, хостинг, Selectel, RuVDS, Timeweb, Yandex Cloud, nova vps, nova хостинг, яндекс vps, яндекс vds, яндекс клауд vps, vps selectel, selectel vps, сравнение vds, self-hosted, Docker, Caddy, DevOps, выбор VPS, сравнение хостинга',
     excerpt: 'Реальный опыт инженера, пять лет живущего на Selectel + RuVDS + Yandex Cloud. Цены 2026, плюсы и минусы провайдеров, таблица сравнения 14 параметров, пошаговая настройка VPS за 30 минут с bash-скриптами, топ-15 self-hosted приложений и расчёт ROI.',
     datePublished: '2026-05-21',
-    dateModified: '2026-05-21',
+    dateModified: '2026-10-08',
     readingMinutes: 25,
     heroIcon: 'ph-fill ph-hard-drives',
     tags: ['VPS', 'хостинг', 'DevOps', 'Selectel', 'RuVDS', 'Timeweb', 'Yandex Cloud'],
@@ -6115,7 +6133,7 @@ const ALL_ARTICLES = [
     metaKeywords: 'МАХ Mini Apps, мини-приложения МАХ, разработка под МАХ, MAX SDK, VK мессенджер, российский мессенджер бот',
     excerpt: 'Telegram Mini Apps стали стандартом. МАХ — российский мессенджер от VK Group — идёт по тому же пути. В 2026 году Mini Apps в МАХ это новая ниша для бизнеса с низкой конкуренцией. Разбираю как разработать мини-приложение, какие возможности SDK даёт, технический стек, бюджеты и почему стоит зайти первым.',
     datePublished: '2026-05-25',
-    dateModified: '2026-05-25',
+    dateModified: '2026-10-08',
     readingMinutes: 22,
     heroIcon: 'ph-fill ph-app-window',
     tags: ['МАХ', 'Mini Apps', 'разработка', 'VK', 'мессенджер'],
@@ -6299,7 +6317,7 @@ const ALL_ARTICLES = [
     metaKeywords: 'Tilda vs кастом, цена сайта 2026, разработка сайтов, малый бизнес сайт, no-code vs код',
     excerpt: 'Tilda за 30 тыс. или кастом за миллион — что выбрать? Разбираю на пальцах: когда конструктор реально достаточен, когда нужен код, сколько стоит каждый вариант в 2026 году. Сравнение по 15 параметрам, кейс перехода с Tilda на Next.js со снижением CAC в 8 раз, гибридная стратегия для растущего бизнеса.',
     datePublished: '2026-05-26',
-    dateModified: '2026-05-26',
+    dateModified: '2026-10-08',
     readingMinutes: 22,
     heroIcon: 'ph-fill ph-scales',
     tags: ['Tilda', 'кастомная разработка', 'малый бизнес', 'сайт', 'no-code'],
@@ -6324,10 +6342,10 @@ const ALL_ARTICLES = [
     servicesOffer: {
       title: "Что я делаю по сайтам",
       services: [
-      { icon: 'ph-fill ph-globe', label: "Лендинг под ключ от 30 000 ₽" },
-      { icon: 'ph-fill ph-storefront', label: "Корпоративный сайт от 80 000 ₽" },
-      { icon: 'ph-fill ph-shopping-cart', label: "Интернет-магазин от 150 000 ₽" },
-      { icon: 'ph-fill ph-app-window', label: "Веб-приложение / SaaS от 300 000 ₽" },
+      { icon: 'ph-fill ph-globe', label: "Лендинг под ключ от 40 000 ₽" },
+      { icon: 'ph-fill ph-storefront', label: "Корпоративный сайт от 100 000 ₽" },
+      { icon: 'ph-fill ph-shopping-cart', label: "Интернет-магазин от 200 000 ₽" },
+      { icon: 'ph-fill ph-app-window', label: "Веб-приложение / SaaS от 400 000 ₽" },
       { icon: 'ph-fill ph-lightning', label: "Лендинг за 24 часа на AI" },
       ],
     },
@@ -6342,7 +6360,7 @@ const ALL_ARTICLES = [
     metaKeywords: 'цена сайта 2026, стоимость разработки, лендинг цена, интернет-магазин стоимость, SaaS бюджет',
     excerpt: 'Реальные расценки на разработку в РФ 2026 года от практика, который видит рынок изнутри. 5 категорий проектов с подробной разбивкой цен — лендинг, корпоратив, магазин, SaaS, мобильно-веб. Скрытые расходы, факторы цены, как сэкономить без потери качества и чек-лист выбора подрядчика.',
     datePublished: '2026-05-26',
-    dateModified: '2026-05-26',
+    dateModified: '2026-10-08',
     readingMinutes: 22,
     heroIcon: 'ph-fill ph-currency-circle-dollar',
     tags: ['цена сайта', 'разработка', 'лендинг', 'интернет-магазин', 'SaaS'],
@@ -6369,10 +6387,10 @@ const ALL_ARTICLES = [
     servicesOffer: {
       title: "Что я делаю по сайтам",
       services: [
-      { icon: 'ph-fill ph-globe', label: "Лендинг под ключ от 30 000 ₽" },
-      { icon: 'ph-fill ph-storefront', label: "Корпоративный сайт от 80 000 ₽" },
-      { icon: 'ph-fill ph-shopping-cart', label: "Интернет-магазин от 150 000 ₽" },
-      { icon: 'ph-fill ph-app-window', label: "Веб-приложение / SaaS от 300 000 ₽" },
+      { icon: 'ph-fill ph-globe', label: "Лендинг под ключ от 40 000 ₽" },
+      { icon: 'ph-fill ph-storefront', label: "Корпоративный сайт от 100 000 ₽" },
+      { icon: 'ph-fill ph-shopping-cart', label: "Интернет-магазин от 200 000 ₽" },
+      { icon: 'ph-fill ph-app-window', label: "Веб-приложение / SaaS от 400 000 ₽" },
       { icon: 'ph-fill ph-lightning', label: "Лендинг за 24 часа на AI" },
       ],
     },
@@ -6387,7 +6405,7 @@ const ALL_ARTICLES = [
     metaKeywords: 'vk mini app, vk mini apps, вк мини апп, вк мини приложения, VK мини приложения, разработка vk mini app цена, разработка для ВКонтакте, VK Pay, VK Bridge SDK',
     excerpt: 'VK Mini Apps в 2026 — это 70+ млн пользователей ВКонтакте, встроенный каталог приложений, моментальная авторизация и VK Pay с комиссией 2-3%. Разбираю весь цикл создания Mini App для бизнеса: технический стек, VK Bridge с реальным кодом, VKUI vs кастомный дизайн, регистрация, монетизация, продвижение в каталоге.',
     datePublished: '2026-05-26',
-    dateModified: '2026-05-26',
+    dateModified: '2026-10-08',
     readingMinutes: 22,
     heroIcon: 'ph-fill ph-app-window',
     tags: ['VK Mini Apps', 'VK', 'разработка', 'мини-приложения', 'мессенджер'],
@@ -10827,7 +10845,7 @@ const ALL_ARTICLES = [
       { id: 'faq', text: 'Частые вопросы' },
     ],
     relatedSlugs: ['avtomatizaciya-salonov-krasoty-yclients', 'max-bot-restoran-kafe-2026', 'max-bot-rieltor-2026', 'crm-dlya-malogo-biznesa-2026'],
-    ctaInternal: { url: 'https://chimitdorzhi.tech/services/telegram-bots/', label: 'Заказать бота записи в МАКС' },
+    ctaInternal: { url: 'https://chimitdorzhi.tech/development/telegram-bots/', label: 'Заказать бота записи в МАКС' },
     servicesOffer: {
       title: 'Боты записи и автоматизация услуг',
       services: [

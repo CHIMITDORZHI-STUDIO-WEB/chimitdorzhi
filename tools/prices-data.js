@@ -1842,11 +1842,11 @@ module.exports = [
     "what": "Под внутренние задачи или продукт",
     "price": {
       "kind": "price",
-      "value": 50000,
+      "value": 30000,
       "unit": "once",
       "prefix": ""
     },
-    "priceRaw": "от 50 000 ₽",
+    "priceRaw": "от 30 000 ₽",
     "term": {
       "days": 14,
       "label": "от 2 недель"

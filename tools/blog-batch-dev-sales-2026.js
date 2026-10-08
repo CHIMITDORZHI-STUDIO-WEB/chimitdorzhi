@@ -38,7 +38,7 @@ const SVC_DEV = {
   ctaLabel: 'Заказать разработку', ctaUrl: 'https://t.me/chimitdorzhi',
 };
 
-const CTA_BOT = { url: `${SVC}/telegram-bots/`, label: 'Бот под ключ' };
+const CTA_BOT = { url: 'https://chimitdorzhi.tech/development/telegram-bots/', label: 'Бот под ключ' };
 const CTA_AUTO = { url: `${SVC}/business-automation/`, label: 'Автоматизация под ключ' };
 const CTA_DEV = { url: `${SVC}/web-development/`, label: 'Разработка под ключ' };
 
@@ -61,7 +61,7 @@ module.exports = [
     toc: T([{ id: 'chto-nuzhno', text: 'Что нужно для старта' }, { id: 'shagi', text: 'Создание по шагам' }, { id: 'vozmozhnosti', text: 'Что умеет бот в MAX' }, { id: 'sam-ili-zakazat', text: 'Самому или заказать' }]),
     relatedSlugs: ['ai-bot-v-max-gigachat-yandexgpt-2026', 'max-mini-apps-2026', 'max-ili-telegram-dlya-biznesa-2027'] }),
 
-  E({ slug: 'chat-bot-v-max-zakazat-2026', heroIcon: 'ph-fill ph-chat-circle-dots',
+  E({ slug: 'chat-bot-v-max-zakazat-2026', dateModified: '2026-10-08', heroIcon: 'ph-fill ph-chat-circle-dots',
     servicesOffer: SVC_BOT, ctaInternal: CTA_BOT,
     title: 'Чат-бот в MAX: что умеет и сколько стоит заказать',
     metaTitle: 'Чат-бот в MAX: что умеет и цена заказа',

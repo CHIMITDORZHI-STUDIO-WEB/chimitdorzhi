@@ -2,7 +2,7 @@ module.exports = {
   slug: "sms-ili-messendzher-uvedomleniya-klientam-stoimost-2026",
   category: "marketing",
   heroIcon: "ph-fill ph-bell-ringing",
-  ctaInternal: { url: "https://chimitdorzhi.tech/services/telegram-bots/", label: "Напоминания клиентам через бота" },
+  ctaInternal: { url: "https://chimitdorzhi.tech/development/telegram-bots/", label: "Напоминания клиентам через бота" },
   title: "Напоминания клиентам: SMS или мессенджер и сколько это стоит",
   metaTitle: "SMS или мессенджер: чем уведомлять клиентов в 2026",
   metaDescription: "Напоминания о записи и статусы заказа: SMS, бот в Telegram и MAX, WhatsApp, звонок. Цены на 2 октября 2026, согласие клиента и схема с запасным каналом.",

@@ -2,7 +2,7 @@ module.exports = {
   slug: "bot-perestal-otvechat-diagnostika-15-minut-2026",
   category: "development",
   heroIcon: "ph-fill ph-heartbeat",
-  ctaInternal: { url: "https://chimitdorzhi.tech/services/telegram-bots/", label: "Диагностика и поддержка вашего бота" },
+  ctaInternal: { url: "https://chimitdorzhi.tech/development/telegram-bots/", label: "Диагностика и поддержка вашего бота" },
   title: "Бот перестал отвечать: диагностика за 15 минут",
   metaTitle: "Бот в Telegram и MAX молчит: диагностика за 15 минут",
   metaDescription: "Бот в Telegram или MAX не отвечает? Порядок проверки за 15 минут: сервер, токен, вебхук, лимиты, права в чате, зависимости и оповещение владельца.",

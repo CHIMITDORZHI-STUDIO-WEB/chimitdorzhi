@@ -163,7 +163,7 @@ module.exports = {
       { q: 'Где хранятся данные студентов?', a: 'На российском стеке у российского провайдера или в вашем контуре, с учётом 152-ФЗ. Данные не уходят в зарубежные сервисы.' }
     ],
     relatedServices: [
-      { url: '/services/telegram-bots/', label: 'Боты для Telegram и MAX' },
+      { url: '/development/telegram-bots/', label: 'Боты для Telegram и MAX' },
       { url: '/services/ai-agents/', label: 'AI-агенты и ассистенты' }
     ],
     relatedBlog: [
@@ -279,7 +279,7 @@ module.exports = {
       { q: 'Как понять, что воронка работает?', a: 'По метрикам этапов: сколько касаний доходит до прогрева, до квалификации и до живого разговора. Эти цифры и оптимизируем после запуска.' }
     ],
     relatedServices: [
-      { url: '/services/telegram-bots/', label: 'Боты для Telegram и MAX' },
+      { url: '/development/telegram-bots/', label: 'Боты для Telegram и MAX' },
       { url: '/services/ai-agents/', label: 'AI-агенты и ассистенты' }
     ],
     relatedBlog: [

@@ -28,7 +28,7 @@ const SVC_TRUST = {
   ctaLabel: 'Обсудить проект', ctaUrl: 'https://t.me/chimitdorzhi',
 };
 const CTA_DEV = { url: `${SVC}/web-development/`, label: 'Разработка под ключ' };
-const CTA_BOT = { url: `${SVC}/telegram-bots/`, label: 'Бот под ключ' };
+const CTA_BOT = { url: 'https://chimitdorzhi.tech/development/telegram-bots/', label: 'Бот под ключ' };
 
 const T = (items) => items.concat([{ id: 'faq', text: 'FAQ' }, { id: 'vyvody', text: 'Коротко о главном' }]);
 

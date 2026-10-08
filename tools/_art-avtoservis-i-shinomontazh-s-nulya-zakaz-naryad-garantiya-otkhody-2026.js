@@ -2,7 +2,7 @@ module.exports = {
   slug: "avtoservis-i-shinomontazh-s-nulya-zakaz-naryad-garantiya-otkhody-2026",
   category: "biznes-krugozor",
   heroIcon: "ph-fill ph-tire",
-  ctaInternal: { url: "https://chimitdorzhi.tech/services/telegram-bots/", label: "Запись и статусы заказов в боте" },
+  ctaInternal: { url: "https://chimitdorzhi.tech/development/telegram-bots/", label: "Запись и статусы заказов в боте" },
   title: "Автосервис и шиномонтаж с нуля: заказ-наряд, гарантия, отходы",
   metaTitle: "Автосервис и шиномонтаж с нуля: заказ-наряд и отходы",
   metaDescription: "Как открыть автосервис или шиномонтаж: новые Правила услуг № 780, заказ-наряд и акт приёма, допработы, гарантия, касса, отходы и запись клиентов.",

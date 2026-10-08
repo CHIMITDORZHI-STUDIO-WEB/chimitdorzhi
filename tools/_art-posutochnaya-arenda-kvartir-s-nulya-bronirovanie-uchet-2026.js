@@ -2,7 +2,7 @@ module.exports = {
   slug: "posutochnaya-arenda-kvartir-s-nulya-bronirovanie-uchet-2026",
   category: "biznes-krugozor",
   heroIcon: "ph-fill ph-calendar-check",
-  ctaInternal: { url: "https://chimitdorzhi.tech/services/telegram-bots/", label: "Бот для гостей и календарь броней" },
+  ctaInternal: { url: "https://chimitdorzhi.tech/development/telegram-bots/", label: "Бот для гостей и календарь броней" },
   title: "Посуточная аренда с нуля: как стартовать и не запутаться в бронях",
   metaTitle: "Посуточная аренда квартир с нуля: правила, налоги, брони",
   metaDescription: "Как начать сдавать квартиру посуточно: что говорит закон про соседей и гостей, какой налоговый статус выбрать и как не допустить двойных броней.",

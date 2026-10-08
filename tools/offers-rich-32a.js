@@ -104,7 +104,7 @@ module.exports = {
     ],
     relatedServices: [
       { url: '/services/ai-agents/', label: 'AI-агенты' },
-      { url: '/services/telegram-bots/', label: 'Чат-боты' }
+      { url: '/development/telegram-bots/', label: 'Чат-боты' }
     ],
     relatedBlog: [
       { url: '/blog/ai-bot-v-max-gigachat-yandexgpt-2026/', label: 'AI-бот в MAX' },
@@ -160,7 +160,7 @@ module.exports = {
       { q: 'Работает ли это в других мессенджерах?', a: 'Да, такую же запись можно сделать в Telegram и VK. MAX выбирают как российский мессенджер, но логика записи единая' }
     ],
     relatedServices: [
-      { url: '/services/telegram-bots/', label: 'Чат-боты' },
+      { url: '/development/telegram-bots/', label: 'Чат-боты' },
       { url: '/services/business-automation/', label: 'Автоматизация бизнеса' }
     ],
     relatedBlog: [
@@ -218,7 +218,7 @@ module.exports = {
     ],
     relatedServices: [
       { url: '/services/business-automation/', label: 'Автоматизация бизнеса' },
-      { url: '/services/telegram-bots/', label: 'Чат-боты' }
+      { url: '/development/telegram-bots/', label: 'Чат-боты' }
     ],
     relatedBlog: [
       { url: '/blog/magazin-bot-max-2026/', label: 'Магазин-бот в MAX' },
@@ -274,7 +274,7 @@ module.exports = {
       { q: 'Можно ли запустить квиз и в других мессенджерах?', a: 'Да, тот же квиз работает в Telegram и VK. MAX выбирают как российский мессенджер, но логика подбора и сбора заявок единая' }
     ],
     relatedServices: [
-      { url: '/services/telegram-bots/', label: 'Чат-боты' },
+      { url: '/development/telegram-bots/', label: 'Чат-боты' },
       { url: '/services/digital-marketing/', label: 'Цифровой маркетинг' }
     ],
     relatedBlog: [

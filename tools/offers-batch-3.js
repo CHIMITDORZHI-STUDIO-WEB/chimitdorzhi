@@ -19,7 +19,7 @@ module.exports = [
 <p>Рекомендация от знакомого конвертирует в разы лучше рекламы, а награда мотивирует делиться. Прозрачная статистика и антифрод делают программу честной и управляемой — вы платите только за реальный результат.</p>
 <h2>Для кого</h2>
 <p>Для бизнеса с повторными покупками и лояльной базой: услуги, общепит, онлайн-школы, подписки, розница.</p>`,
-    relatedServices: [{ url: '/services/business-automation/', label: 'Автоматизация бизнеса' }, { url: '/services/telegram-bots/', label: 'Чат-боты' }],
+    relatedServices: [{ url: '/services/business-automation/', label: 'Автоматизация бизнеса' }, { url: '/development/telegram-bots/', label: 'Чат-боты' }],
     relatedBlog: [{ url: '/blog/partnerskiy-marketing-affiliate-2026/', label: 'Партнёрский маркетинг' }, { url: '/blog/geymifikaciya-saas-2026/', label: 'Геймификация' }, { url: '/blog/crm-dlya-malogo-biznesa-2026/', label: 'CRM для малого бизнеса' }],
     faq: [
       { q: 'Как защититесь от накруток?', a: 'Антифрод: проверка самоприглашений, лимиты, подтверждение целевого действия (покупки), ручная модерация подозрительных кейсов.' },
@@ -77,7 +77,7 @@ module.exports = [
 <p>Квиз конвертирует лучше формы, потому что даёт ценность в обмен на ответы. А вы получаете не голый телефон, а заявку с контекстом: что человеку нужно, какой бюджет, какие предпочтения — менеджер сразу говорит по делу.</p>
 <h2>Для кого</h2>
 <p>Для ниш со сложным выбором: услуги, недвижимость, туры, оборудование, обучение, ремонт, всё, где «зависит от задачи».</p>`,
-    relatedServices: [{ url: '/services/telegram-bots/', label: 'Чат-боты' }, { url: '/services/ai-agents/', label: 'AI-агенты' }],
+    relatedServices: [{ url: '/development/telegram-bots/', label: 'Чат-боты' }, { url: '/services/ai-agents/', label: 'AI-агенты' }],
     relatedBlog: [{ url: '/blog/chatbot-telegram-max-vk-2026/', label: 'Чат-боты Telegram/MAX/VK' }, { url: '/blog/voronka-prodazh-b2b-2026/', label: 'Воронка продаж B2B' }, { url: '/blog/ai-chatbot-na-sayt-bez-programmirovaniya-2026/', label: 'AI-чатбот на сайт' }],
     faq: [
       { q: 'Чем квиз лучше формы заявки?', a: 'Он даёт клиенту пользу (подбор, расчёт) в обмен на ответы, поэтому его проходят чаще. И заявка приходит с контекстом, а не пустая.' },
@@ -193,7 +193,7 @@ module.exports = [
 <p>Напоминания снижают пропуски и невыходы, автопродление и удобная оплата повышают удержание, а прозрачное расписание и связь с родителями укрепляют доверие — главный актив детского центра.</p>
 <h2>Для кого</h2>
 <p>Для детских центров, школ развития, кружков, секций и студий с абонементами и расписанием.</p>`,
-    relatedServices: [{ url: '/services/business-automation/', label: 'Автоматизация бизнеса' }, { url: '/services/telegram-bots/', label: 'Чат-боты' }],
+    relatedServices: [{ url: '/services/business-automation/', label: 'Автоматизация бизнеса' }, { url: '/development/telegram-bots/', label: 'Чат-боты' }],
     relatedBlog: [{ url: '/blog/cifrovizaciya-detskogo-sada-2026/', label: 'Цифровизация детского сада' }, { url: '/blog/avtomatizaciya-onlayn-shkoly-2026/', label: 'Автоматизация онлайн-школы' }, { url: '/blog/max-dlya-shkol-detsadov-2026/', label: 'МАКС для школ и детсадов' }],
     faq: [
       { q: 'Данные детей в безопасности?', a: 'Да: российский стек, разграничение прав, согласия и защита персональных данных по 152-ФЗ — это критично для детского направления.' },
@@ -251,7 +251,7 @@ module.exports = [
 <p>Единая система убирает хаос из чатов и таблиц: видно, что на каком этапе, кто за что отвечает и где риск сорвать срок. Готовые шаблоны смет ускоряют ответ клиенту, а база подрядчиков экономит часы на каждом проекте.</p>
 <h2>Для кого</h2>
 <p>Для event- и свадебных агентств, организаторов праздников, корпоративов и мероприятий под ключ.</p>`,
-    relatedServices: [{ url: '/services/business-automation/', label: 'Автоматизация бизнеса' }, { url: '/services/telegram-bots/', label: 'Чат-боты' }],
+    relatedServices: [{ url: '/services/business-automation/', label: 'Автоматизация бизнеса' }, { url: '/development/telegram-bots/', label: 'Чат-боты' }],
     relatedBlog: [{ url: '/blog/it-dlya-svadebnyh-event-agentstv-2026/', label: 'IT для event-агентств' }, { url: '/blog/crm-dlya-malogo-biznesa-2026/', label: 'CRM для малого бизнеса' }, { url: '/blog/kibertirniry-organizaciya-2026/', label: 'Организация мероприятий' }],
     faq: [
       { q: 'Поможет с большим числом подрядчиков?', a: 'Да: база подрядчиков с историей, рейтингом и контактами под рукой — подбор на новый проект занимает минуты, а не часы обзвона.' },

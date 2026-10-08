@@ -161,7 +161,7 @@ module.exports = {
     ],
     relatedServices: [
       { url: '/services/business-automation/', label: 'Автоматизация бизнеса' },
-      { url: '/services/telegram-bots/', label: 'Чат-боты и Telegram-боты' }
+      { url: '/development/telegram-bots/', label: 'Чат-боты и Telegram-боты' }
     ],
     relatedBlog: [
       { url: '/blog/biznes-idei-dlya-malenkogo-goroda-sibir-2026/', label: 'Бизнес-идеи для небольшого города' },

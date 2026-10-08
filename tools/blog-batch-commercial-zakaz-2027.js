@@ -22,7 +22,7 @@ const SVC = {
   ctaLabel: 'Обсудить ваш проект',
   ctaUrl: 'https://t.me/chimitdorzhi',
 };
-const TG = { url: 'https://chimitdorzhi.tech/services/telegram-bots/', label: 'Заказать бота под ключ' };
+const TG = { url: 'https://chimitdorzhi.tech/development/telegram-bots/', label: 'Заказать бота под ключ' };
 const AUTO = { url: 'https://chimitdorzhi.tech/services/business-automation/', label: 'Заказать автоматизацию' };
 const AI = { url: 'https://chimitdorzhi.tech/services/ai-agents/', label: 'Внедрить ИИ под ключ' };
 const SEC = { url: 'https://chimitdorzhi.tech/services/cybersecurity/', label: 'Настроить 152-ФЗ и защиту' };

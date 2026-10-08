@@ -2,7 +2,7 @@ module.exports = {
   slug: "rozygrysh-prizov-v-messendzhere-pravila-nalog-cheki-2026",
   category: "biznes-krugozor",
   heroIcon: "ph-fill ph-gift",
-  ctaInternal: { url: "https://chimitdorzhi.tech/services/telegram-bots/", label: "Бот розыгрышей в Telegram и MAX" },
+  ctaInternal: { url: "https://chimitdorzhi.tech/development/telegram-bots/", label: "Бот розыгрышей в Telegram и MAX" },
   title: "Как провести розыгрыш в чате по правилам: положение, налог, чеки",
   metaTitle: "Розыгрыш в Telegram и MAX: положение, НДФЛ и чеки",
   metaDescription: "Как провести розыгрыш призов в мессенджере: положение с образцом, отличие от лотереи, НДФЛ с призов, чеки, согласие победителя и типичные ошибки.",

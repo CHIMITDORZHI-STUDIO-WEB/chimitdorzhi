@@ -286,5 +286,5 @@ ollama run llama3.3</code></pre>
   <li><a href="https://docs.anthropic.com/" target="_blank" rel="noopener">Anthropic Claude API docs</a> — если используете Claude через прокси</li>
   <li><a href="https://crisp.chat/" target="_blank" rel="noopener">Crisp</a> — бесплатный виджет чата с custom webhook</li>
 </ul>
-<p>Если вы предпочитаете сразу получить готовый результат — сделаю под ключ. Базовый вариант (n8n + YandexGPT + Crisp + Google Sheets + Telegram уведомления) — от 25 000 ₽, запуск за 5-7 дней. Расширенный (с RAG и интеграцией с amoCRM/Bitrix24) — от 60 000 ₽. Если у вас уже есть n8n или другая no-code платформа и нужно «доработать прежний бот» — пишите, разберусь и подскажу варианты в Telegram.</p>
+<p>Если вы предпочитаете сразу получить готовый результат — сделаю под ключ. Базовый вариант (n8n + YandexGPT + Crisp + Google Sheets + Telegram уведомления) — от 50 000 ₽, запуск за 5-7 дней. Расширенный (с RAG и интеграцией с amoCRM/Bitrix24) — от 150 000 ₽. Если у вас уже есть n8n или другая no-code платформа и нужно «доработать прежний бот» — пишите, разберусь и подскажу варианты в Telegram.</p>
 `;

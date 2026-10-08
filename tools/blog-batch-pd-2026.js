@@ -6,7 +6,7 @@ const D = '2026-07-22';
 const SVC_PD = {
   title: 'Что я делаю по 152-ФЗ и compliance',
   services: [
-    { icon: 'ph-fill ph-shield-check', label: 'Полный аудит сайта по 152-ФЗ — от 5 000 ₽' },
+    { icon: 'ph-fill ph-shield-check', label: 'Полный аудит сайта по 152-ФЗ — от 15 000 ₽' },
     { icon: 'ph-fill ph-file-text', label: 'Подача уведомления в РКН под ключ' },
     { icon: 'ph-fill ph-cookie', label: 'Cookie-баннер и согласия по закону' },
     { icon: 'ph-fill ph-database', label: 'Миграция данных на серверы РФ' },
@@ -36,7 +36,7 @@ const E = (o) => Object.assign({
 }, o, { contentHtml: C(o.slug) });
 
 module.exports = [
-  E({ slug: 'politika-obrabotki-pd-obrazec-2026', category: 'legal', heroIcon: 'ph-fill ph-file-text',
+  E({ slug: 'politika-obrabotki-pd-obrazec-2026', dateModified: '2026-10-08', category: 'legal', heroIcon: 'ph-fill ph-file-text',
     title: 'Политика обработки персональных данных: образец 2026 и что в ней должно быть',
     metaTitle: 'Политика обработки ПД: образец 2026 и структура',
     metaDescription: 'Политика обработки персональных данных: готовый образец 2026, обязательна ли она, что должно быть внутри по 152-ФЗ.',
@@ -53,7 +53,7 @@ module.exports = [
     ],
     relatedSlugs: ['soglasie-na-obrabotku-pd-2026', 'audit-152-fz-2026', 'cookie-banner-zakon'] }),
 
-  E({ slug: 'chto-schitaetsya-personalnymi-dannymi-2026', category: 'legal', heroIcon: 'ph-fill ph-identification-card',
+  E({ slug: 'chto-schitaetsya-personalnymi-dannymi-2026', dateModified: '2026-10-08', category: 'legal', heroIcon: 'ph-fill ph-identification-card',
     title: 'Что считается персональными данными: имя, телефон, cookie и IP — простыми словами',
     metaTitle: 'Что считается персональными данными: имя, cookie, IP',
     metaDescription: 'Персональные данные простыми словами: имя, телефон, email, cookie, IP — что закон относит к ПД, какие собирает ваш сайт и что делать по 152-ФЗ.',
@@ -70,7 +70,7 @@ module.exports = [
     ],
     relatedSlugs: ['soglasie-na-obrabotku-pd-2026', 'cookie-banner-zakon', 'audit-152-fz-2026'] }),
 
-  E({ slug: 'proverka-roskomnadzora-kak-prohodit-2026', category: 'legal', heroIcon: 'ph-fill ph-magnifying-glass',
+  E({ slug: 'proverka-roskomnadzora-kak-prohodit-2026', dateModified: '2026-10-08', category: 'legal', heroIcon: 'ph-fill ph-magnifying-glass',
     title: 'Как проходит проверка Роскомнадзора по персональным данным в 2026',
     metaTitle: 'Как проходит проверка Роскомнадзора по ПД 2026',
     metaDescription: 'Как проходит проверка Роскомнадзора по персональным данным: кого и когда проверяют, какие бывают проверки, что смотрят и как подготовиться.',
@@ -87,7 +87,7 @@ module.exports = [
     ],
     relatedSlugs: ['audit-152-fz-2026', 'uvedomlenie-rkn-2026', 'soglasie-na-obrabotku-pd-2026'] }),
 
-  E({ slug: 'shtrafy-za-pd-2026-tablica', category: 'legal', heroIcon: 'ph-fill ph-scales',
+  E({ slug: 'shtrafy-za-pd-2026-tablica', dateModified: '2026-10-08', category: 'legal', heroIcon: 'ph-fill ph-scales',
     title: 'Штрафы за персональные данные в 2026: таблица по статьям',
     metaTitle: 'Штрафы за персональные данные 2026: таблица',
     metaDescription: 'Штрафы за персональные данные: таблица по статьям КоАП, оборотные штрафы за утечки, суммы для ИП, ООО и должностных лиц и способы их не получить.',
@@ -104,7 +104,7 @@ module.exports = [
     ],
     relatedSlugs: ['oborotnye-shtrafy-utechki-pd-2026', 'audit-152-fz-2026', 'utechki-pd-24-chasa-2026'] }),
 
-  E({ slug: 'otzyv-soglasiya-i-soglasie-za-rebenka-pd-2026', category: 'legal', heroIcon: 'ph-fill ph-user-focus',
+  E({ slug: 'otzyv-soglasiya-i-soglasie-za-rebenka-pd-2026', dateModified: '2026-10-08', category: 'legal', heroIcon: 'ph-fill ph-user-focus',
     title: 'Согласие на обработку ПД: как отозвать и как оформить за несовершеннолетнего',
     metaTitle: 'Отзыв согласия на ПД и согласие за ребёнка',
     metaDescription: 'Как отозвать согласие на обработку персональных данных и как оформить согласие за несовершеннолетнего (школы, секции, детские центры): порядок.',
@@ -121,7 +121,7 @@ module.exports = [
     ],
     relatedSlugs: ['soglasie-na-obrabotku-pd-2026', 'audit-152-fz-2026', '152-fz-dlya-organizatora-meropriyatiy-2026'] }),
 
-  E({ slug: 'dogovor-porucheniya-obrabotka-pd-2026', category: 'legal', heroIcon: 'ph-fill ph-handshake',
+  E({ slug: 'dogovor-porucheniya-obrabotka-pd-2026', dateModified: '2026-10-08', category: 'legal', heroIcon: 'ph-fill ph-handshake',
     title: 'Договор поручения на обработку персональных данных: когда нужен и что включить',
     metaTitle: 'Договор поручения на обработку ПД: образец',
     metaDescription: 'Договор поручения на обработку персональных данных: когда он нужен для CRM, облаков и подрядчиков, что включить по 152-ФЗ, чек-лист и образец.',

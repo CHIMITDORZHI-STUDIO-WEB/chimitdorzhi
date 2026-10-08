@@ -47,7 +47,7 @@ module.exports = {
     ],
     relatedServices: [
       { url: '/services/business-automation/', label: 'Автоматизация бизнеса' },
-      { url: '/services/telegram-bots/', label: 'Боты для Telegram' },
+      { url: '/development/telegram-bots/', label: 'Боты для Telegram' },
     ],
     relatedBlog: [
       { url: '/blog/zakrytyy-klub-po-podpiske-2026/', label: 'Закрытый клуб по подписке' },

@@ -39,7 +39,7 @@ const E = (o) => Object.assign({
 
 module.exports = [
   E({ slug: 'skolko-stoit-chat-bot-2026', category: 'development', heroIcon: 'ph-fill ph-robot', toc: tocPrice(),
-    ctaInternal: { url: 'https://chimitdorzhi.tech/services/telegram-bots/', label: 'Рассчитать бота под задачу' },
+    ctaInternal: { url: 'https://chimitdorzhi.tech/development/telegram-bots/', label: 'Рассчитать бота под задачу' },
     title: 'Сколько стоит чат-бот для бизнеса в 2026',
     metaTitle: 'Сколько стоит чат-бот в 2026: вилки цен',
     metaDescription: 'Сколько стоит чат-бот для бизнеса в 2026: от чего зависит цена (платформа, интеграции, оплата, CRM, ИИ), вилки по типам ботов (автоответчик, магазин.',

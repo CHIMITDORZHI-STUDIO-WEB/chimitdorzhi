@@ -222,7 +222,7 @@ module.exports = {
     ],
     relatedServices: [
       { url: '/services/business-automation/', label: 'Автоматизация бизнес-процессов' },
-      { url: '/services/telegram-bots/', label: 'Боты для Telegram' }
+      { url: '/development/telegram-bots/', label: 'Боты для Telegram' }
     ],
     relatedBlog: [
       { url: '/blog/geymifikaciya-saas-2026/', label: 'Геймификация в продуктах' },

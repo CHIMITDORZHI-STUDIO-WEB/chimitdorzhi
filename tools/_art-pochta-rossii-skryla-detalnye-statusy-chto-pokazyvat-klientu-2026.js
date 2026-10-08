@@ -2,7 +2,7 @@ module.exports = {
   slug: "pochta-rossii-skryla-detalnye-statusy-chto-pokazyvat-klientu-2026",
   category: "development",
   heroIcon: "ph-fill ph-package",
-  ctaInternal: { url: "https://chimitdorzhi.tech/services/telegram-bots/", label: "Бот-уведомления о статусе заказа" },
+  ctaInternal: { url: "https://chimitdorzhi.tech/development/telegram-bots/", label: "Бот-уведомления о статусе заказа" },
   title: "Почта России скрыла детальные статусы посылок: что показывать клиенту",
   metaTitle: "Почта России убрала детальные статусы: что делать магазину",
   metaDescription: "Почта России оставила в отслеживании только ключевые этапы. Какие уведомления слать клиенту, где хранить трек и как собрать страницу статуса заказа.",

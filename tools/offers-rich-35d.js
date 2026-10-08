@@ -104,7 +104,7 @@ module.exports = {
     ],
     relatedServices: [
       { url: '/services/business-automation/', label: 'Автоматизация бизнеса' },
-      { url: '/services/telegram-bots/', label: 'Чат-боты' }
+      { url: '/development/telegram-bots/', label: 'Чат-боты' }
     ],
     relatedBlog: [
       { url: '/blog/sistemy-loyalnosti-2027/', label: 'Системы лояльности' },
@@ -161,7 +161,7 @@ module.exports = {
     ],
     relatedServices: [
       { url: '/services/business-automation/', label: 'Автоматизация бизнеса' },
-      { url: '/services/telegram-bots/', label: 'Чат-боты' }
+      { url: '/development/telegram-bots/', label: 'Чат-боты' }
     ],
     relatedBlog: [
       { url: '/blog/sistemy-loyalnosti-2027/', label: 'Системы лояльности' },
@@ -218,7 +218,7 @@ module.exports = {
     ],
     relatedServices: [
       { url: '/services/business-automation/', label: 'Автоматизация бизнеса' },
-      { url: '/services/telegram-bots/', label: 'Чат-боты' }
+      { url: '/development/telegram-bots/', label: 'Чат-боты' }
     ],
     relatedBlog: [
       { url: '/blog/biznes-na-arende-i-prokate-2027/', label: 'Бизнес на аренде и прокате' },

@@ -2,7 +2,7 @@ module.exports = {
   slug: "prodazha-v-perepiske-ot-zayavki-do-oplaty-vozrazheniya-2026",
   category: "biznes-krugozor",
   heroIcon: "ph-fill ph-chats-circle",
-  ctaInternal: { url: "https://chimitdorzhi.tech/services/telegram-bots/", label: "Заявки и статусы в боте" },
+  ctaInternal: { url: "https://chimitdorzhi.tech/development/telegram-bots/", label: "Заявки и статусы в боте" },
   title: "Продажа в переписке: от заявки до оплаты и возражения",
   metaTitle: "Продажа в переписке: шаги диалога и ответы на возражения",
   metaDescription: "Как вести клиента в мессенджере от заявки до оплаты: 6 шагов диалога, ответы на «дорого» и «подумаю», возвраты, статусы воронки и причины потерь.",

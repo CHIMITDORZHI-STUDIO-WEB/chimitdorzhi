@@ -2,7 +2,7 @@ module.exports = {
   slug: "avtootvet-vne-rabochego-vremeni-zayavki-nochyu-2026",
   category: "marketing",
   heroIcon: "ph-fill ph-moon-stars",
-  ctaInternal: { url: "https://chimitdorzhi.tech/services/telegram-bots/", label: "Бот для ночных заявок под ключ" },
+  ctaInternal: { url: "https://chimitdorzhi.tech/development/telegram-bots/", label: "Бот для ночных заявок под ключ" },
   title: "Заявки ночью и в выходные: что должен писать автоответ",
   metaTitle: "Автоответ вне рабочего времени: заявки ночью и в выходные",
   metaDescription: "Заявка пришла в 23:40, ответ только утром. Что написать в автоответе, где его включить в Telegram, MAX, VK и на сайте, три шаблона и проверка ночью.",

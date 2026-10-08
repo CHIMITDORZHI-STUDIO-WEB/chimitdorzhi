@@ -10,7 +10,7 @@ const SVC_BIZ = { title: 'Что я делаю для бизнеса', services:
   { icon: 'ph-fill ph-globe', label: 'Сайты и лендинги под ключ' },
 ]};
 
-const BOTS = { url: `${S}/services/telegram-bots/`, label: 'Заказать бота под ключ' };
+const BOTS = { url: `${S}/development/telegram-bots/`, label: 'Заказать бота под ключ' };
 const AUTO = { url: `${S}/services/business-automation/`, label: 'Автоматизировать процесс под ключ' };
 const WEB = { url: `${S}/services/web-development/`, label: 'Заказать сайт под ключ' };
 const VOICE = { url: `${S}/services/voice-ai/`, label: 'Заказать голосового робота' };

@@ -164,7 +164,7 @@ module.exports = [
       { id: "vyvody", text: "Коротко о главном" },
     ],
     relatedSlugs: ["caddy-vebserver-s-avtomaticheskim-https-dlya-saytov-i-sistem-2026","cosmos-zashchishchennyy-shlyuz-dlya-prilozheniy-na-servere-ofisa-2026","svoy-vps-s-nulya-docker-nginx-https-2026","beszel-legkiy-monitoring-serverov-i-diskov-2026"] }),
-  E({ slug: "sure-uchet-lichnyh-finansov-na-svoem-servere-2026", category: "development", heroIcon: "ph-fill ph-piggy-bank", ctaInternal: { url: "https://chimitdorzhi.tech/services/telegram-bots/", label: "Обсудить бота для ввода расходов" },
+  E({ slug: "sure-uchet-lichnyh-finansov-na-svoem-servere-2026", category: "development", heroIcon: "ph-fill ph-piggy-bank", ctaInternal: { url: "https://chimitdorzhi.tech/development/telegram-bots/", label: "Обсудить бота для ввода расходов" },
     title: "Sure: учёт счетов и капитала семьи и ИП на своём сервере",
     metaTitle: "Sure: учёт личных финансов на своём сервере для семьи и ИП",
     metaDescription: "Sure, форк Maybe Finance под AGPLv3: счета, бюджеты и капитал на своём сервере. Честно про российские банки: импорт CSV, ручной ввод и бот.",
