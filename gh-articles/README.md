@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2405**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2415**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -677,6 +677,16 @@
 
 ## Бизнес-кругозор
 
+- [Отчёты без связи: как приложению не терять данные на объекте](./prilozhenie-dlya-obekta-bez-interneta-oflayn-rezhim-pwa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/prilozhenie-dlya-obekta-bez-interneta-oflayn-rezhim-pwa-2026/)
+- [Роли и права в новой CRM: матрица доступа до разработки](./kto-chto-vidit-v-prilozhenii-roli-i-prava-dlya-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kto-chto-vidit-v-prilozhenii-roli-i-prava-dlya-biznesa-2026/)
+- [Импорт клиентов из Excel в CRM: ключи, слияние, пробная загрузка](./perenos-klientskoy-bazy-iz-excel-v-crm-bez-dublirovaniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/perenos-klientskoy-bazy-iz-excel-v-crm-bez-dublirovaniya-2026/)
+- [Демо показали, что дальше: что дорабатывают до боевого запуска](./ot-demo-k-rabochey-sisteme-chto-menyaetsya-pri-zapuske-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ot-demo-k-rabochey-sisteme-chto-menyaetsya-pri-zapuske-2026/)
+- [Как клиентам входить в кабинет: SMS, ссылка, Telegram или пароль](./vhod-klienta-bez-parolya-sms-ssylka-ili-telegram-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vhod-klienta-bez-parolya-sms-ssylka-ili-telegram-2026/)
+- [Геометка в отчёте сотрудника: что можно и чего нельзя](./geometka-v-otchete-sotrudnika-chto-mozhno-i-chego-nelzya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/geometka-v-otchete-sotrudnika-chto-mozhno-i-chego-nelzya-2026/)
+- [Сайт косметики без слова «лечит»: описание, чеки, маркировка](./internet-magazin-kosmetiki-chto-nelzya-pisat-na-sayte-i-cheki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/internet-magazin-kosmetiki-chto-nelzya-pisat-na-sayte-i-cheki-2026/)
+- [Продажа доменов из портфеля: витрина, заглушки, разбор заявок](./prodazha-domenov-kak-biznes-vitrina-zaglushki-vhodyashchie-zayavki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/prodazha-domenov-kak-biznes-vitrina-zaglushki-vhodyashchie-zayavki-2026/)
+- [Данные как платный продукт: свой API, ключи, лимиты и права](./dannye-kak-platnyy-produkt-svoy-api-klyuchi-limity-prava-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/dannye-kak-platnyy-produkt-svoy-api-klyuchi-limity-prava-2026/)
+- [Персональные разборы эксперта: как автоматизировать расчёт и слайды](./personalnye-razbory-eksperta-kak-avtomatizirovat-raschet-i-slaydy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/personalnye-razbory-eksperta-kak-avtomatizirovat-raschet-i-slaydy-2026/)
 - [Как зарегистрировать ИП или ООО самому: ОКВЭД и первый месяц](./registraciya-ip-ili-ooo-poshagovo-okved-schet-rezhim-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/registraciya-ip-ili-ooo-poshagovo-okved-schet-rezhim-2026/)
 - [Когда что платить ИП: даты по УСН, патенту и НПД и напоминания](./nalogovyy-kalendar-malogo-biznesa-ens-uvedomleniya-sroki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nalogovyy-kalendar-malogo-biznesa-ens-uvedomleniya-sroki-2026/)
 - [Типовой договор поставки: что покупателю поправить до подписи](./dogovor-postavki-otsrochka-priemka-brak-neustoyka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/dogovor-postavki-otsrochka-priemka-brak-neustoyka-2026/)
