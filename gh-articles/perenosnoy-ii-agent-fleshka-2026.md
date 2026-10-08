@@ -21,7 +21,7 @@ canonical: https://chimitdorzhi.tech/blog/perenosnoy-ii-agent-fleshka-2026/
 
 ## Что это за класс инструментов
 
-Живой пример — открытый проект [OpenClaude Portable](https://github.com/techjarves/OpenClaude-Portable) под лицензией MIT, около 1300 звёзд и 423 форка. Запускается с USB-накопителя на Windows 10 и новее, Linux и macOS (на двух последних нужен curl), Node.js весом порядка 25 МБ подтягивает сам при первом старте. Ключи, настройки и логи лежат в папке data, а переменная CLAUDE_CONFIG_DIR изолирует конфигурацию от системной; авторы формулируют это как «nothing touches the host system».
+Живой пример — открытый проект [OpenClaude Portable](https://github.com/techjarves/OpenClaude-Portable) под лицензией MIT, около 1300 звёзд и 423 форка. Запускается с [USB-накопителя](/blog/portativnyy-ii-na-fleshke-2026/) на Windows 10 и новее, Linux и macOS (на двух последних нужен curl), Node.js весом порядка 25 МБ подтягивает сам при первом старте. Ключи, настройки и логи лежат в папке data, а переменная CLAUDE_CONFIG_DIR изолирует конфигурацию от системной; авторы формулируют это как «nothing touches the host system».
 
 Важно понимать устройство: это обёртка над внешними API, а не самостоятельная модель. Поддерживается девять провайдеров — NVIDIA NIM, DeepSeek, OpenRouter, Google Gemini, Anthropic Claude, OpenAI, локальные Ollama и LM Studio, а также любой OpenAI-совместимый эндпоинт. Для облачных вариантов нужны интернет и ваш ключ. Полностью офлайн агент работает только на локальной модели через Ollama или LM Studio — и упирается в железо ноутбука, на котором вы оказались.
 
