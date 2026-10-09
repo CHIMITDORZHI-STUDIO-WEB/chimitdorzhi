@@ -72,6 +72,10 @@ const blogBatchExpertOct07 = require('./blog-batch-expert-oct07-2026.js');
 const blogBatchExpertOct09 = require('./blog-batch-expert-oct09-2026.js');
 const blogBatchKeysyOct2026b = require('./blog-batch-keysy-oct2026-b.js');
 const blogBatchKeysyOct2026c = require('./blog-batch-keysy-oct2026-c.js');
+const blogBatchNew5_1 = require('./blog-batch-new5-1.js');
+const blogBatchNew5_2 = require('./blog-batch-new5-2.js');
+const blogBatchNew5_3 = require('./blog-batch-new5-3.js');
+const blogBatchNew5_4 = require('./blog-batch-new5-4.js');
 const blogBatchOssDocuseal = require('./blog-batch-oss-docuseal-2026.js');
 const blogBatchGithubTrend = require('./blog-batch-github-trend-sep28-2026.js');
 const blogBatchOssOpenhd = require('./blog-batch-oss-openhd-2026.js');
@@ -4536,43 +4540,43 @@ const ALL_ARTICLES = [
     slug: 'ai-agenty-v-biznese-2026',
     category: 'ai-dev',
     published: true,
-    title: 'AI-агенты в бизнесе 2026: что реально работает, а что — маркетинг',
-    metaTitle: 'AI-агенты для бизнеса: что реально работает в 2026',
-    metaDescription: 'Сертифицированный практик с 10+ внедрениями: что такое настоящий AI-агент, какие use cases работают, фреймворки 2026 (LangChain, AutoGen, CrewAI.',
-    metaKeywords: 'AI-агенты, LangChain, AutoGen, CrewAI, Pydantic AI, n8n, RAG, AI-агент для бизнеса, AI-агент Россия, внедрение AI',
-    excerpt: 'Сертифицированный AI-инженер о том, что такое настоящий AI-агент, какие use cases работают в 2026, сколько стоят и как не нарваться на маркетинговую обёртку.',
+    title: 'ИИ-агенты для бизнеса: что это, примеры задач и цены в 2026',
+    metaTitle: 'ИИ-агенты для бизнеса: что это, 10 задач и цены 2026',
+    metaDescription: 'ИИ-агенты для бизнеса простыми словами: отличие от чат-бота, 10 задач малого бизнеса и цены: ИИ-консультант от 50 000 ₽, ИИ-агент от 150 000 ₽.',
+    metaKeywords: 'ИИ-агенты для бизнеса, ИИ-агент для бизнеса, что такое ИИ-агент, ИИ-агент цена, ИИ-агент и чат-бот, AI-агенты, LangChain, Pydantic AI, n8n, RAG',
+    excerpt: 'Что такое ИИ-агент для бизнеса и чем он отличается от чат-бота, 10 задач малого бизнеса, которые агент берёт на себя, цены по прайсу и ошибки внедрения.',
     datePublished: '2026-05-20',
-    dateModified: '2026-10-08',
+    dateModified: '2026-10-09',
     readingMinutes: 22,
     heroIcon: 'ph-fill ph-robot',
     tags: ['AI-агенты', 'LangChain', 'GPT', 'автоматизация', 'AutoGen', 'n8n'],
     toc: [
-      { id: 'chto-takoe-agent', text: 'Что такое AI-агент простыми словами' },
-      { id: 'marketingovaya-lovushka', text: 'Маркетинговая ловушка 2026' },
-      { id: 'chto-rabotaet', text: 'Что РЕАЛЬНО работает: 7 use cases' },
-      { id: 'chto-ne-rabotaet', text: 'Что НЕ работает: хайп без подложки' },
+      { id: 'chto-takoe-ii-agent', text: 'Что такое ИИ-агент для бизнеса' },
+      { id: '10-zadach', text: '10 задач малого бизнеса, которые берёт ИИ-агент' },
+      { id: 'marketingovaya-lovushka', text: 'Маркетинговая ловушка' },
+      { id: 'chto-ne-rabotaet', text: 'Что не работает' },
+      { id: 'skolko-stoit', text: 'Сколько стоит ИИ-агент для бизнеса' },
+      { id: 'agent-vs-avtomatizaciya', text: 'ИИ-агент или обычная автоматизация' },
+      { id: 'moi-proekty', text: 'Мои проекты с ИИ-агентами' },
       { id: 'frameworki', text: 'Фреймворки для разработки' },
       { id: 'primer-koda', text: 'Пример кода: минимальный агент' },
-      { id: 'skolko-stoit', text: 'Сколько стоит AI-агент в проде' },
-      { id: 'agent-vs-avtomatizaciya', text: 'AI-агенты vs автоматизация' },
-      { id: 'uridicheskie-nyuansy', text: 'Юридические нюансы в РФ' },
-      { id: 'oshibki-vnedreniya', text: 'Топ-5 ошибок при внедрении' },
-      { id: 'kejs-avtora', text: 'Кейс: RAG-агент для юр-компании' },
-      { id: 'buduschee', text: 'Будущее AI-агентов 2026-2027' },
+      { id: 'uridicheskie-nyuansy', text: 'Юридические нюансы в России' },
+      { id: 'oshibki-vnedreniya', text: '5 ошибок при внедрении' },
+      { id: 'buduschee', text: 'Куда движутся ИИ-агенты' },
       { id: 'faq', text: 'Частые вопросы' },
-      { id: 'vyvody', text: 'Выводы: что делать сейчас' },
+      { id: 'vyvody', text: 'Выводы: с чего начать' },
     ],
     contentHtml: aiAgentsContent,
-    relatedSlugs: ['besplatnye-ai-agenty-2026', 'rossiyskiy-ai-stack-2026', 'cfa-dlya-biznesa-2026', 'pwa-iz-sayta-za-vyhodnye-2026'],
-    ctaInternal: { url: 'https://chimitdorzhi.tech/services/ai-agents/', label: 'Заказать AI-агента' },
+    relatedSlugs: ['ai-agenty-vs-chatboty-2027', 'razrabotka-ai-agentov-pod-klyuch-2027', 'skolko-stoit-ai-agent-dlya-prodazh-2026', 'besplatnye-ai-agenty-2026'],
+    ctaInternal: { url: 'https://chimitdorzhi.tech/services/ai-agents/', label: 'Заказать ИИ-агента' },
     servicesOffer: {
-      title: "Что я делаю по AI для бизнеса",
+      title: "Что я делаю по ИИ для бизнеса",
       services: [
-      { icon: 'ph-fill ph-robot', label: "AI-агенты и LLM-решения под задачу" },
-      { icon: 'ph-fill ph-database', label: "RAG-системы (10 000+ документов в портфолио)" },
-      { icon: 'ph-fill ph-chat-circle-dots', label: "AI-чат-бот на сайт за 5-7 дней" },
-      { icon: 'ph-fill ph-cpu', label: "Локальный LLM на вашем сервере (приватно)" },
-      { icon: 'ph-fill ph-plugs-connected', label: "MCP-интеграции с CRM, БД, корпоративными системами" },
+      { icon: 'ph-fill ph-robot', label: "ИИ-агенты под задачу, от 150 000 ₽" },
+      { icon: 'ph-fill ph-database', label: "Поиск по документам (RAG), от 150 000 ₽" },
+      { icon: 'ph-fill ph-chat-circle-dots', label: "ИИ-консультант на сайт и в мессенджер, от 50 000 ₽" },
+      { icon: 'ph-fill ph-cpu', label: "Свой ИИ на сервере компании, от 100 000 ₽" },
+      { icon: 'ph-fill ph-plugs-connected', label: "Автоматизация процессов с ИИ, от 100 000 ₽" },
       ],
     },
   },
@@ -10943,7 +10947,7 @@ const ALL_ARTICLES = [
   blogBatchSeoCluster18, blogBatchSeoCluster19, blogBatchSeoCluster20,
   blogBatchSeoCluster21, blogBatchSeoCluster22, blogBatchSeoCluster23,
   blogBatchSeoCluster24, blogBatchSeoCluster25, blogBatchSeoCluster26, blogBatchSeoCluster27, blogBatchSeoCluster28, blogBatchSeoCluster29, blogBatchSeoCluster30, blogBatchSeoCluster31, blogBatchKeysySent, blogBatchIgry, blogBatchIgry2, blogBatchVllm, blogBatchIgry3, blogBatchCifrSledGpt, blogBatchKeysySent2, blogBatchIgry4, blogBatchIgry5, blogBatchIgry6, blogBatchAvtorskie, blogBatch1cSklad, blogBatch1cSklad2, blogBatch1c3, blogBatchRutina, blogBatchZakazchiku, blogBatchKrome1c, blogBatchRazovye, blogBatchRazovye2, blogBatchRazovye3, blogBatchRazovye4, blogBatchProgrammy, blogBatchQwenUnc, blogBatchImStart, blogBatchSkolko, blogBatchSkolko2, blogBatchSkolko3, blogBatchDoverie, blogBatchQwenSent, blogBatchPokupka, blogBatchProdazhiOtrasli, blogBatchNishiUslug, blogBatchKeysySent3, blogBatchOtkrytyeModeli,
-  blogBatchKeysySenA, blogBatchKeysySenB, blogBatchKeysySenC, blogBatchKeysySenD, blogBatchKeysySenE, blogBatchKeysySenF, blogBatchNewsSep23, blogBatchNewsSep25, blogBatchNewsSep25b, blogBatchNewsSep26, blogBatchTopicSep27, blogBatchTopicSep27b, blogBatchIiRutina, blogBatchKonfig, blogBatchGenDog, blogBatchOssOct01, blogBatchTopicOct02, blogBatchTopicOct02b, blogBatchBiznesBoli, blogBatchOssDocuseal, blogBatchGithubTrend, blogBatchOssOpenhd, blogBatchOssRocket, blogBatchOssTgOct, blogBatchOssTgOct2, blogBatchBiznesBoli29, blogBatchBiznesBoli2Sep29, blogBatchBiznesBoliSep30, blogBatchBiznesBoliSep30b, blogBatchBiznesBoliSep30c, blogBatchBiznesBoliSep30d, blogBatchBiznesBoliOct01, blogBatchBiznesBoliOct01b, blogBatchBiznesBoliOct02, blogBatchBiznesBoliOct02e, blogBatchBiznesBoliOct02f, blogBatchExpertOct02, blogBatchKeysyOct2026b, blogBatchKeysyOct2026c, blogBatchBiznesBoliOct02g, blogBatchBiznesBoliOct02h, blogBatchOssTgOct3, blogBatchOssTgOct4, blogBatchOssTgOct5, blogBatchOssTgOct6, blogBatchOssTgOct7, blogBatchOssTgOct8, blogBatchOssTgOct9, blogBatchOssTgOct10, blogBatchOssTgOct11, blogBatchExpertNews2Oct02, blogBatchExpertOct03b, blogBatchExpertOct04, blogBatchBiznesBoliOct03a, blogBatchBiznesBoliOct03b, blogBatchBiznesBoliOct04a, blogBatchBiznesBoliOct04b, blogBatchBiznesBoliOct04c, blogBatchBiznesBoliOct04d, blogBatchExpertOct05, blogBatchBiznesBoliOct04e, blogBatchExpertOct06, blogBatchExpertOct07, blogBatchExpertOct09, blogBatchBiznesBoliOct06a, blogBatchBiznesBoliOct06b, blogBatchBiznesBoliOct08a, blogBatchBiznesBoliOct08b);
+  blogBatchKeysySenA, blogBatchKeysySenB, blogBatchKeysySenC, blogBatchKeysySenD, blogBatchKeysySenE, blogBatchKeysySenF, blogBatchNewsSep23, blogBatchNewsSep25, blogBatchNewsSep25b, blogBatchNewsSep26, blogBatchTopicSep27, blogBatchTopicSep27b, blogBatchIiRutina, blogBatchKonfig, blogBatchGenDog, blogBatchOssOct01, blogBatchTopicOct02, blogBatchTopicOct02b, blogBatchBiznesBoli, blogBatchOssDocuseal, blogBatchGithubTrend, blogBatchOssOpenhd, blogBatchOssRocket, blogBatchOssTgOct, blogBatchOssTgOct2, blogBatchBiznesBoli29, blogBatchBiznesBoli2Sep29, blogBatchBiznesBoliSep30, blogBatchBiznesBoliSep30b, blogBatchBiznesBoliSep30c, blogBatchBiznesBoliSep30d, blogBatchBiznesBoliOct01, blogBatchBiznesBoliOct01b, blogBatchBiznesBoliOct02, blogBatchBiznesBoliOct02e, blogBatchBiznesBoliOct02f, blogBatchExpertOct02, blogBatchKeysyOct2026b, blogBatchKeysyOct2026c, blogBatchBiznesBoliOct02g, blogBatchBiznesBoliOct02h, blogBatchOssTgOct3, blogBatchOssTgOct4, blogBatchOssTgOct5, blogBatchOssTgOct6, blogBatchOssTgOct7, blogBatchOssTgOct8, blogBatchOssTgOct9, blogBatchOssTgOct10, blogBatchOssTgOct11, blogBatchExpertNews2Oct02, blogBatchExpertOct03b, blogBatchExpertOct04, blogBatchBiznesBoliOct03a, blogBatchBiznesBoliOct03b, blogBatchBiznesBoliOct04a, blogBatchBiznesBoliOct04b, blogBatchBiznesBoliOct04c, blogBatchBiznesBoliOct04d, blogBatchExpertOct05, blogBatchBiznesBoliOct04e, blogBatchExpertOct06, blogBatchExpertOct07, blogBatchExpertOct09, blogBatchBiznesBoliOct06a, blogBatchBiznesBoliOct06b, blogBatchBiznesBoliOct08a, blogBatchBiznesBoliOct08b, blogBatchNew5_1, blogBatchNew5_2, blogBatchNew5_3, blogBatchNew5_4);
 
 // --- Проход взаимной перелинковки ---------------------------------------
 // Гарантирует, что у каждой опубликованной статьи есть хотя бы одна входящая
