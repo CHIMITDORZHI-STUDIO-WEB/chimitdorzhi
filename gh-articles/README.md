@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2423**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2428**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -328,6 +328,8 @@
 
 ## Open-source и свой сервер
 
+- [Grist: таблицы с типами и формулами на Python вместо Excel-хаоса](./grist-tablicy-s-tipami-i-formulami-na-python-vmesto-excel-haosa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/grist-tablicy-s-tipami-i-formulami-na-python-vmesto-excel-haosa-2026/)
+- [OpenReel: видеоредактор в браузере без водяных знаков](./openreel-videoredaktor-v-brauzere-bez-vodyanyh-znakov-chto-montirovat-samim-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/openreel-videoredaktor-v-brauzere-bez-vodyanyh-znakov-chto-montirovat-samim-2026/)
 - [YTsaurus Flow: когда магазину нужны данные сразу, а не по ночам](./ytsaurus-flow-potokovaya-obrabotka-sobytiy-kogda-magazinu-nuzhny-dannye-srazu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ytsaurus-flow-potokovaya-obrabotka-sobytiy-kogda-magazinu-nuzhny-dannye-srazu-2026/)
 - [nps: доступ к офису без белого IP, риски и чем заменить](./nps-dostup-k-ustroystvam-ofisa-bez-belogo-ip-riski-i-alternativy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nps-dostup-k-ustroystvam-ofisa-bez-belogo-ip-riski-i-alternativy-2026/)
 - [book-to-skill: регламенты и книги станут навыками ИИ-агента](./book-to-skill-reglamenty-i-knigi-v-navyki-ii-agenta-ekonomiya-tokenov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/book-to-skill-reglamenty-i-knigi-v-navyki-ii-agenta-ekonomiya-tokenov-2026/)
@@ -2304,6 +2306,9 @@
 
 ## Экспертное
 
+- [Claude Haiku 5.5: самая дешёвая модель для массовых простых задач](./claude-haiku-5-5-samaya-deshevaya-model-dlya-massovyh-prostyh-zadach-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/claude-haiku-5-5-samaya-deshevaya-model-dlya-massovyh-prostyh-zadach-2026/)
+- [Сколько стоит выполненная задача агента: разбор Hermes Index](./skolko-stoit-vypolnennaya-zadacha-agenta-a-ne-token-hermes-index-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-stoit-vypolnennaya-zadacha-agenta-a-ne-token-hermes-index-2026/)
+- [Architect: как улучшать голосового бота по транскриптам звонков](./elevenlabs-architect-kak-uluchshat-golosovogo-bota-po-transkriptam-zvonkov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/elevenlabs-architect-kak-uluchshat-golosovogo-bota-po-transkriptam-zvonkov-2026/)
 - [Как ИИ-агента обманывают чужим письмом и чем от этого защищаться](./bezopasnost-ii-agentov-ataki-cherez-pismo-i-poisk-kiberimmunitet-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bezopasnost-ii-agentov-ataki-cherez-pismo-i-poisk-kiberimmunitet-2026/)
 - [Тарифы MAX для бизнеса: что известно и чего пока нет](./max-stanet-platnym-dlya-biznesa-chto-izvestno-pro-licenzii-i-tarify-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/max-stanet-platnym-dlya-biznesa-chto-izvestno-pro-licenzii-i-tarify-2026/)
 - [Живая расшифровка встреч от Microsoft: нужна ли бизнесу](./zhivaya-rasshifrovka-vstrech-mai-transcribe-2-streaming-nuzhna-li-biznesu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zhivaya-rasshifrovka-vstrech-mai-transcribe-2-streaming-nuzhna-li-biznesu-2026/)
