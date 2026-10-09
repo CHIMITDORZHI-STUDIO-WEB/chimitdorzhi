@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2432**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2436**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -37,6 +37,7 @@
 
 ## AI для разработчиков
 
+- [Камеры видеонаблюдения с ИИ для бизнеса: что работает и сколько стоит](./kamery-videonablyudeniya-s-ii-dlya-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kamery-videonablyudeniya-s-ii-dlya-biznesa-2026/)
 - [GraphRAG: граф знаний вместо базы знаний, когда окупается](./graphrag-graf-znaniy-vmesto-obychnoy-bazy-znaniy-kogda-okupaetsya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/graphrag-graf-znaniy-vmesto-obychnoy-bazy-znaniy-kogda-okupaetsya-2026/)
 - [Точка открыла MCP для ИИ-агентов: что поручить и где поставить лимит](./tochka-otkryla-mcp-dlya-ii-agentov-chto-poruchit-i-limity-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/tochka-otkryla-mcp-dlya-ii-agentov-chto-poruchit-i-limity-2026/)
 - [ИИ-проверка договоров в 1С:Документооборот: что можно, чего нельзя](./ii-proverka-i-soglasovanie-dogovorov-v-1s-dokumentooborot-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-proverka-i-soglasovanie-dogovorov-v-1s-dokumentooborot-2026/)
@@ -144,7 +145,7 @@
 - [AI-агенты как автономные сотрудники 2026: multi-agent системы и оркестрация](./ai-agenty-avtonomnye-sotrudniki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ai-agenty-avtonomnye-sotrudniki-2026/)
 - [AI-чат-бот на сайт за 2 дня без программирования 2026: n8n + Claude + Bubble](./ai-chatbot-na-sayt-bez-programmirovaniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ai-chatbot-na-sayt-bez-programmirovaniya-2026/)
 - [Российский AI-стек 2026: чем заменить OpenAI, Claude и Gemini](./rossiyskiy-ai-stack-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/rossiyskiy-ai-stack-2026/)
-- [AI-агенты в бизнесе 2026: что реально работает, а что — маркетинг](./ai-agenty-v-biznese-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ai-agenty-v-biznese-2026/)
+- [ИИ-агенты для бизнеса: что это, примеры задач и цены в 2026](./ai-agenty-v-biznese-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ai-agenty-v-biznese-2026/)
 - [RAG-системы для бизнеса 2026: AI, который отвечает по вашим документам](./rag-sistemy-dlya-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/rag-sistemy-dlya-biznesa-2026/)
 - [Локальный LLM на ноутбуке 2026: Ollama, LM Studio, vLLM — практическое руководство](./lokalnyy-llm-na-noutbuke-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/lokalnyy-llm-na-noutbuke-2026/)
 - [MCP — Model Context Protocol 2026: как Anthropic меняет интеграции с AI](./mcp-model-context-protocol-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/mcp-model-context-protocol-2026/)
@@ -1684,6 +1685,7 @@
 
 ## Продажи
 
+- [Как внедрить анализ звонков менеджеров нейросетью: план по шагам](./analiz-zvonkov-menedzherov-neyrosetyu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/analiz-zvonkov-menedzherov-neyrosetyu-2026/)
 - [call.md: ИИ разбирает звонки отдела продаж по ходу разговора](./call-md-ii-razbor-vstrech-i-zvonkov-v-realnom-vremeni-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/call-md-ii-razbor-vstrech-i-zvonkov-v-realnom-vremeni-2026/)
 - [ИИ-агент изучает клиента вместо менеджера перед звонком](./trycompai-crm-ii-agent-issleduet-kontakty-pered-zvonkom-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/trycompai-crm-ii-agent-issleduet-kontakty-pered-zvonkom-2026/)
 - [Нагрузочный тест перед сезоном: сколько заказов выдержит сайт и бот](./nagruzochnyy-test-pered-sezonom-skolko-zakazov-vyderzhit-sayt-i-bot-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nagruzochnyy-test-pered-sezonom-skolko-zakazov-vyderzhit-sayt-i-bot-2026/)
@@ -1840,6 +1842,8 @@
 - [Excel ломается при двух редакторах: Grist с формулами на Python](./grist-tablitsy-s-formulami-na-python-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/grist-tablitsy-s-formulami-na-python-na-svoem-servere-2026/)
 - [ClovaLink: файлы клиентов с антивирусом и журналом доступа](./clovalink-faylovaya-platforma-s-antivirusom-i-zhurnalom-audita-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/clovalink-faylovaya-platforma-s-antivirusom-i-zhurnalom-audita-2026/)
 - [Отработал ли ночной скрипт? Веб-панель для cron на сервере](./cronmaster-veb-interfeys-dlya-zadaniy-cron-na-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/cronmaster-veb-interfeys-dlya-zadaniy-cron-na-servere-2026/)
+- [Таблица в сообщении Telegram-бота: когда Mini App не нужен](./tablica-v-soobshchenii-telegram-bota-vmesto-mini-app-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/tablica-v-soobshchenii-telegram-bota-vmesto-mini-app-2026/)
+- [WhatsApp блокировка: что делать бизнесу и как перевести клиентов в MAX](./whatsapp-blokirovka-perevesti-klientov-v-max-i-telegram-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/whatsapp-blokirovka-perevesti-klientov-v-max-i-telegram-2026/)
 - [Strata: большой свой ИИ на игровой видеокарте, без облака](./strata-svoy-ii-na-igrovoy-videokarte-lokalnyy-api-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/strata-svoy-ii-na-igrovoy-videokarte-lokalnyy-api-2026/)
 - [Databasus: вернуть базу PostgreSQL на минуту до сбоя](./databasus-kopii-postgresql-s-vosstanovleniem-na-moment-vremeni-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/databasus-kopii-postgresql-s-vosstanovleniem-na-moment-vremeni-2026/)
 - [Пароли в чате? Как хранить секреты команды в git под замком](./git-secret-sekrety-v-repozitorii-v-zashifrovannom-vide-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/git-secret-sekrety-v-repozitorii-v-zashifrovannom-vide-2026/)
