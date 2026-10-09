@@ -161,7 +161,7 @@ module.exports = {
     ],
     relatedServices: [
       { url: '/services/digital-marketing/', label: 'Цифровой маркетинг' },
-      { url: '/services/telegram-bots/', label: 'Чат-боты' }
+      { url: '/development/telegram-bots/', label: 'Чат-боты' }
     ],
     relatedBlog: [
       { url: '/blog/konkurs-priglasheniy-max-virusnyy-rost-2027/', label: 'Конкурс приглашений в MAX' },
@@ -274,7 +274,7 @@ module.exports = {
       { q: 'Зачем нужен сбор контактов?', a: 'Чтобы связать офлайн-визит с онлайн-аудиторией: гость с согласия оставляет контакт и попадает в вашу базу для дальнейшего общения. Всё по 152-ФЗ' }
     ],
     relatedServices: [
-      { url: '/services/telegram-bots/', label: 'Чат-боты' },
+      { url: '/development/telegram-bots/', label: 'Чат-боты' },
       { url: '/services/digital-marketing/', label: 'Цифровой маркетинг' }
     ],
     relatedBlog: [

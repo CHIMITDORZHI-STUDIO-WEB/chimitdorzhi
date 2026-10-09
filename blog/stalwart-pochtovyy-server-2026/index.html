@@ -455,6 +455,14 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 <li>В отличие от уже описанного docker-mailserver, Stalwart новее, цельнее и проще в управлении: меньше разрозненных компонентов и удобная веб-панель.</li>
 <li>Честно: свой почтовый сервер требует грамотной настройки DNS (SPF, DKIM, DMARC, PTR) и работы над репутацией IP — иначе письма уходят в спам. Это ответственная задача.</li>
 </ul></div>
+<div class="blog-cta-internal">
+  <i class="ph-fill ph-rocket-launch" aria-hidden="true"></i>
+  <div>
+    <strong>Хотите внедрить это у себя?</strong>
+    <p>Сделаю под ключ: разберу задачу, назову срок и цену. Чтобы начать, <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%ABStalwart%20Mail%3A%20%D1%81%D0%B2%D0%BE%D0%B9%20%D1%81%D0%BE%D0%B2%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D0%BD%D1%8B%D0%B9%20%D0%BF%D0%BE%D1%87%D1%82%D0%BE%D0%B2%D1%8B%D0%B9%20%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%20%D0%BD%D0%B0%20%D1%81%D0%B2%D0%BE%D1%91%D0%BC%20%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B5%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener">напишите в Telegram</a> одной фразой.</p>
+    <a href="https://chimitdorzhi.tech/predlozheniya/open-source-pod-klyuch/">Развернуть open-source под ключ <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</div>
 
 <p>Электронная почта остаётся базовым инструментом деловой переписки: договоры, счета, уведомления, общение с клиентами и подрядчиками идут через e-mail. При этом большинство компаний пользуется чужими почтовыми сервисами — платят за каждый ящик, а вся переписка хранится и обрабатывается в чужой инфраструктуре, нередко за рубежом. Альтернатива — поднять собственный почтовый сервер на своём домене и своём сервере. Раньше это означало собирать почтовую систему из десятка отдельных программ, но сейчас есть более удобные решения. Одно из них — Stalwart Mail: современный open-source сервер, который объединяет всё необходимое в одном продукте. Ниже разберу, что это такое, что он умеет, кому подходит и что honestно нужно учесть перед запуском.</p>
 
@@ -485,6 +493,7 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 <p>Отдельная тема — репутация IP-адреса. Крупные почтовые системы оценивают не только корректность записей, но и историю поведения адреса, с которого приходит почта. Свежий или ранее «запачканный» IP может поначалу вызывать недоверие, и письма будут фильтроваться жёстче. Репутацию выстраивают аккуратно: корректной настройкой, постепенным наращиванием объёма отправки и отсутствием рассылочного спама. Это процесс, а не разовое действие.</p>
 <p>Поэтому важно понимать: поднять почтовый сервер технически — половина задачи. Чтобы письма стабильно доходили до адресатов и не оседали в спаме, нужно правильно настроить всю «обвязку» вокруг почты и осознанно работать над репутацией. Это вполне решаемо, но это ответственная задача, требующая внимания к деталям, а не установка «в один клик».</p>
 
+<div class="blog-callout blog-callout-info blog-read-next"><i class="ph-fill ph-book-open" aria-hidden="true"></i><div><strong>Читайте дальше по теме</strong><ul><li><a href="/blog/docker-mailserver-pochtovyy-server-2026/">docker-mailserver: корпоративная почта на своём сервере</a></li><li><a href="/blog/keycloak-edinyy-vhod-sso-2026/">Keycloak: единый вход (SSO) для сотрудников на своём сервере</a></li></ul></div></div>
 <h2 id="kak-vnedrit">Как внедрить под ключ</h2>
 <p>Самостоятельный запуск почтового сервера — это не только установить программу. Нужно подобрать сервер с подходящим IP и провайдером, развернуть Stalwart, привязать домен, выпустить и подключить TLS-сертификат, корректно настроить весь комплект DNS-записей (SPF, DKIM, DMARC, PTR), проверить доставляемость на реальные почтовые системы и убедиться, что письма не уходят в спам. Для человека без опыта администрирования почты это серьёзное погружение в документацию и типичные ошибки, цена которых — недоставленные письма.</p>
 <p>Я беру эту часть на себя. Подбираю сервер под ваши задачи и ожидаемый объём почты, разворачиваю Stalwart Mail, настраиваю домен, TLS, веб-админку, антиспам и резервное копирование, прописываю и проверяю все DNS-записи, тестирую реальную отправку и приём писем и передаю вам работающую корпоративную почту с понятной инструкцией. Дальше помогаю с заведением ящиков, сопровождением и обновлениями, а при необходимости — с аккуратным наращиванием репутации отправки.</p>
@@ -503,7 +512,7 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
                     </div>
                     
 
-                    <div class="blog-callout"><i class="ph-fill ph-git-branch" aria-hidden="true"></i><div><strong>Где взять</strong> — Официальный репозиторий на GitHub: <a href="https://github.com/stalwartlabs/mail-server" target="_blank" rel="noopener">github.com/stalwartlabs/mail-server</a>. Развернуть и настроить под ключ помогу — напишите в <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener">Telegram</a> или <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener">MAX</a>.</div></div>
+                    <div class="blog-callout"><i class="ph-fill ph-git-branch" aria-hidden="true"></i><div><strong>Где взять</strong> — Официальный репозиторий на GitHub: <a href="https://github.com/stalwartlabs/mail-server" target="_blank" rel="noopener">github.com/stalwartlabs/mail-server</a>. Развернуть и настроить под ключ помогу — напишите в <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%ABStalwart%20Mail%3A%20%D1%81%D0%B2%D0%BE%D0%B9%20%D1%81%D0%BE%D0%B2%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D0%BD%D1%8B%D0%B9%20%D0%BF%D0%BE%D1%87%D1%82%D0%BE%D0%B2%D1%8B%D0%B9%20%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%20%D0%BD%D0%B0%20%D1%81%D0%B2%D0%BE%D1%91%D0%BC%20%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B5%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener">Telegram</a> или <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener">MAX</a>.</div></div>
                     
                     <div class="blog-cta-card">
                         <div class="blog-cta-card-body">
@@ -518,98 +527,24 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
                     
                     
 <div class="blog-services-offer">
-  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <div class="blog-services-offer-eyebrow">Обсудим вашу задачу</div>
   <h3 class="blog-services-offer-title">Что я делаю с open-source</h3>
-  <ul class="blog-services-offer-list">
-    
-    <li><i class="ph-fill ph-hard-drives"></i> <span>Развёртывание на вашем сервере</span></li>
-    
-    <li><i class="ph-fill ph-arrows-left-right"></i> <span>Перенос данных из старого сервиса</span></li>
-    
-    <li><i class="ph-fill ph-shield-check"></i> <span>Безопасность и 152-ФЗ</span></li>
-    
-    <li><i class="ph-fill ph-wrench"></i> <span>Настройка под ваши процессы</span></li>
-    
-    <li><i class="ph-fill ph-lifebuoy"></i> <span>Поддержка и обновления</span></li>
-    
-  </ul>
+  <p class="blog-services-offer-lead">Напишите одной фразой, что нужно. Отвечу, что подойдёт, сколько займёт и сколько стоит. Сообщение уже подготовлено.</p>
+  <ul class="blog-services-offer-list"><li><i class="ph-fill ph-hard-drives"></i> <span>Развёртывание на вашем сервере</span></li><li><i class="ph-fill ph-arrows-left-right"></i> <span>Перенос данных из старого сервиса</span></li><li><i class="ph-fill ph-shield-check"></i> <span>Безопасность и 152-ФЗ</span></li><li><i class="ph-fill ph-wrench"></i> <span>Настройка под ваши процессы</span></li><li><i class="ph-fill ph-lifebuoy"></i> <span>Поддержка и обновления</span></li></ul>
   <div class="blog-services-offer-ctas">
-    <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%ABStalwart%20Mail%3A%20%D1%81%D0%B2%D0%BE%D0%B9%20%D1%81%D0%BE%D0%B2%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D0%BD%D1%8B%D0%B9%20%D0%BF%D0%BE%D1%87%D1%82%D0%BE%D0%B2%D1%8B%D0%B9%20%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%20%D0%BD%D0%B0%20%D1%81%D0%B2%D0%BE%D1%91%D0%BC%20%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B5%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener" class="blog-services-offer-cta">
       <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
     </a>
     <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="blog-services-offer-cta blog-services-offer-cta-max">
       <i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> Написать в MAX
     </a>
+    <a href="https://chimitdorzhi.tech/predlozheniya/open-source-pod-klyuch/" class="blog-services-offer-cta blog-services-offer-cta-max"><i class="ph ph-arrow-right" aria-hidden="true"></i> Развернуть open-source под ключ</a>
   </div>
 </div>
-                    <div class="blog-cta-card">
-                        <div class="blog-cta-card-body">
-                            <h3>Бесплатно: чек-лист «Готов ли ваш бизнес к 152-ФЗ»</h3>
-                            <p>12 пунктов, которые проверяют готовность за час: данные, согласия, уведомление в РКН, локализация, защита. Отметьте, что уже сделано, и увидите дыры, за которые сейчас штрафуют.</p>
-                        </div>
-                        <div class="blog-cta-card-actions">
-                            <a href="/checklist-152-fz/" class="btn btn-accent"><i class="ph-fill ph-clipboard-text" aria-hidden="true"></i> Открыть чек-лист</a>
-                        </div>
-                    </div>
                     
-                    <a class="blog-offer-cta" href="/predlozheniya/open-source-pod-klyuch/">
-                        <span class="blog-offer-cta-body">
-                            <span class="blog-offer-cta-eyebrow">Готовое решение по теме</span>
-                            <span class="blog-offer-cta-title">Open-source решение под ключ на ваш сервер</span>
-                            <span class="blog-offer-cta-price">Бесплатная консультация · Запуск за 1–3 недели</span>
-                        </span>
-                        <span class="btn btn-accent"><i class="ph ph-arrow-right" aria-hidden="true"></i> Смотреть предложение</span>
-                    </a>
-
-                    <div class="blog-cta-card blog-cta-card-final">
-                        <div class="blog-cta-card-body">
-                            <h3>Готовы обсудить вашу задачу?</h3>
-                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
-                        </div>
-                        <div class="blog-cta-card-actions">
-                            <a href="https://chimitdorzhi.tech/predlozheniya/open-source-pod-klyuch/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Развернуть open-source под ключ</a>
-                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
-                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
-                        </div>
-                    </div>
-
-                    <section class="blog-subscribe">
-  <div class="blog-subscribe-body">
-    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
-    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
-  </div>
-  <div class="blog-subscribe-actions">
-    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
-    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
-  </div>
-</section>
                     <section class="blog-related">
   <h2>Читайте также</h2>
-  <div class="blog-grid"><a class="blog-card" href="/blog/docker-mailserver-pochtovyy-server-2026/" data-category="opensource" data-clicks="0">
-  
-  <div class="blog-card-icon"><i class="ph-fill ph-envelope"></i></div>
-  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
-  <h3>docker-mailserver: корпоративная почта на своём сервере</h3>
-  <p>docker-mailserver поднимает полноценную корпоративную почту на вашем сервере: ящики на своём домене, спам-фильтры, шифрование — без подписок и с данными у себя. Разбираю, что нужно для запуска и доставляемости.</p>
-  <div class="blog-card-meta">
-    <span><i class="ph ph-calendar" aria-hidden="true"></i> 15 июня 2026</span>
-    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
-  </div>
-  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
-</a>
-<a class="blog-card" href="/blog/keycloak-edinyy-vhod-sso-2026/" data-category="opensource" data-clicks="0">
-  
-  <div class="blog-card-icon"><i class="ph-fill ph-key"></i></div>
-  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
-  <h3>Keycloak: единый вход (SSO) для сотрудников на своём сервере</h3>
-  <p>Keycloak даёт сотрудникам один безопасный логин ко всем корпоративным системам с двухфакторной аутентификацией — централизованный контроль доступа на своём сервере. Разбираю внедрение.</p>
-  <div class="blog-card-meta">
-    <span><i class="ph ph-calendar" aria-hidden="true"></i> 15 июня 2026</span>
-    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
-  </div>
-  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
-</a>
-<a class="blog-card" href="/blog/nextcloud-svoy-oblachnyy-disk-2026/" data-category="opensource" data-clicks="1">
+  <div class="blog-grid"><a class="blog-card" href="/blog/nextcloud-svoy-oblachnyy-disk-2026/" data-category="opensource" data-clicks="1">
   
   <div class="blog-card-icon"><i class="ph-fill ph-cloud"></i></div>
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
@@ -632,31 +567,26 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
     <span><i class="ph ph-clock" aria-hidden="true"></i> 11 мин</span>
   </div>
   <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
-</a>
-<a class="blog-card" href="/blog/xibo-cifrovye-vyveski-2026/" data-category="opensource" data-clicks="0">
-  
-  <div class="blog-card-icon"><i class="ph-fill ph-monitor-play"></i></div>
-  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
-  <h3>Xibo: цифровые вывески и экраны для заведения на своём сервере</h3>
-  <p>Xibo управляет экранами в заведении из одного места: меню, акции, объявления по расписанию — для магазинов, кафе, фитнеса и клиник, без облачных подписок. Разбираю, что нужно для запуска.</p>
-  <div class="blog-card-meta">
-    <span><i class="ph ph-calendar" aria-hidden="true"></i> 15 июня 2026</span>
-    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
-  </div>
-  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
-</a>
-<a class="blog-card" href="/blog/libretranslate-svoy-perevodchik-2026/" data-category="opensource" data-clicks="1">
-  
-  <div class="blog-card-icon"><i class="ph-fill ph-translate"></i></div>
-  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
-  <h3>LibreTranslate: свой переводчик на своём сервере вместо Google</h3>
-  <p>LibreTranslate переводит текст на вашем сервере — через веб и API, без отправки конфиденциальных текстов в чужие облака. Разбираю возможности, ограничения и что нужно для запуска.</p>
-  <div class="blog-card-meta">
-    <span><i class="ph ph-calendar" aria-hidden="true"></i> 15 июня 2026</span>
-    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
-  </div>
-  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
 </a></div>
+</section>
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/open-source-pod-klyuch/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовое решение по теме</span>
+                            <span class="blog-offer-cta-title">Open-source решение под ключ на ваш сервер</span>
+                            <span class="blog-offer-cta-price">Бесплатная консультация · Запуск за 1–3 недели</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-arrow-right" aria-hidden="true"></i> Смотреть предложение</span>
+                    </a>
+                    <section class="blog-subscribe">
+  <div class="blog-subscribe-body">
+    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
+    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
+  </div>
+  <div class="blog-subscribe-actions">
+    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
+  </div>
 </section>
                     
                     

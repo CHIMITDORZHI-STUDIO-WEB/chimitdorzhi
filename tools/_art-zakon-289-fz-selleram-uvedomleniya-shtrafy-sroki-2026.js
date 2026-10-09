@@ -2,7 +2,7 @@ module.exports = {
   slug: "zakon-289-fz-selleram-uvedomleniya-shtrafy-sroki-2026",
   category: "legal",
   heroIcon: "ph-fill ph-bell-ringing",
-  ctaInternal: { url: "https://chimitdorzhi.tech/services/telegram-bots/", label: "Бот-журнал уведомлений для селлера" },
+  ctaInternal: { url: "https://chimitdorzhi.tech/development/telegram-bots/", label: "Бот-журнал уведомлений для селлера" },
   title: "Закон 289-ФЗ с 1 октября: сроки штрафов, жалоб и акта сверки",
   metaTitle: "Закон 289-ФЗ для селлера: сроки уведомлений и штрафов",
   metaDescription: "Закон 289-ФЗ с 1 октября 2026: уведомление о штрафе за 3 дня, ответ на жалобу 15 дней, акт сверки 7 рабочих дней. Таблица сроков и что собирать.",

@@ -47,7 +47,7 @@ module.exports = {
     ],
     relatedServices: [
       { url: '/services/business-automation/', label: 'Автоматизация бизнес-процессов' },
-      { url: '/services/telegram-bots/', label: 'Боты для записи и напоминаний' }
+      { url: '/development/telegram-bots/', label: 'Боты для записи и напоминаний' }
     ],
     relatedBlog: [
       { url: '/blog/max-bot-zapis-na-uslugi-2026/', label: 'Запись на услуги через бота MAX в 2026' },

@@ -92,7 +92,7 @@
     "@id": "https://chimitdorzhi.tech/blog/lokalnyy-llm-na-noutbuke-2026/"
   },
   "datePublished": "2026-05-20",
-  "dateModified": "2026-05-20",
+  "dateModified": "2026-10-08",
   "keywords": "LLM, Ollama, LM Studio, vLLM, локальная нейросеть, self-hosted",
   "articleSection": "AI для разработчиков",
   "inLanguage": "ru",
@@ -487,6 +487,15 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
   </ul>
 </div>
 
+<div class="blog-cta-internal">
+  <i class="ph-fill ph-laptop"></i>
+  <div>
+    <strong>Разверну локальную модель под вашу задачу</strong>
+    <p>Выберу модель под ваше железо, настрою её на компьютере или сервере и подключу к рабочим документам и чатам. Напишите в Telegram, что за задача и на чём собираетесь запускать.</p>
+    <a href="https://chimitdorzhi.tech/services/ai-agents/">AI-агенты и LLM-решения <i class="ph ph-arrow-right"></i></a>
+  </div>
+</div>
+
 <h2 id="zachem-lokalnyy">Зачем локальный LLM в 2026 — 4 главные причины</h2>
 <p>Я последние два года поднимал локальные LLM на разном железе — от MacBook M2 до сервера с двумя H100. Сначала это была экзотика для энтузиастов: модели глупее, скорости меньше, инференс ломался при первой попытке загрузить большой контекст. К 2026 году ситуация перевернулась: open-source-модели в категории 30-70B параметров вплотную подошли к GPT-4 уровня 2023 года, а инструменты вокруг них стали тривиальными в установке. Мой студенческий MacBook Air M2 16 ГБ запускает <a href="/ii-modeli/llama/" class="blog-inline-link">Llama 3.3</a> 8B быстрее, чем я успеваю прочитать её ответ.</p>
 <p><strong>Коротко:</strong> Локальный LLM в 2026 году реален и выгоден: модели вроде Llama 3.3 70B и Qwen 2.5 32B в quantization Q4_K_M запускаются на MacBook M3 Max или RTX 4090 со скоростью 30-80 токенов/сек. Проще всего начать с Ollama. При нагрузке от 500 запросов в день локальная модель окупается за 12-24 месяца и решает вопрос приватности по 152-ФЗ.</p>
@@ -559,12 +568,12 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
   <li><strong>MacBook Pro M3 Max 36 ГБ / 64 ГБ.</strong> Unified memory означает, что вся RAM доступна модели как «VRAM». 36 ГБ хватит для 32B Q4_K_M, 64 ГБ — для 70B Q4_K_M. Сборка из коробки, нулевая возня с драйверами. Мой основной рабочий ноут.</li>
   <li><strong>Десктоп с RTX 4090 (24 ГБ VRAM).</strong> Идеален для 14-24B-моделей, для 70B — тесно. Скорость инференса выше, чем у MacBook, но шумнее, греется и нужно держать дома.</li>
   <li><strong>Десктоп с двумя RTX 4090 / одной RTX 5090.</strong> 48 ГБ VRAM позволяют комфортно гонять 70B-модели на хорошей скорости.</li>
-  <li><strong>Сервер с H100 / A100.</strong> Для бизнеса, где нужно обслуживать много пользователей одновременно. Тут уже стек vLLM или TGI.</li>
+  <li><strong>Сервер с H100 / A100.</strong> Для бизнеса, где нужно обслуживать много пользователей одновременно. Тут уже стек <a href="/blog/vllm-ili-ollama-server-pod-nagruzku-2026/">vLLM или TGI</a>.</li>
 </ul>
 <p>Покупать что-то слабее, чем M2 16 ГБ или RTX 3060 12 ГБ, для серьёзной работы не советую. Технически модели уровня 3B-7B на них запустятся, но качества от них на бизнес-задачах — мало.</p>
 
 <h2 id="ollama">Ollama — самый простой путь</h2>
-<p>Если вы первый раз ставите локальный LLM, ставьте Ollama. Это утилита командной строки, которая делает за вас всё: качает модели, выбирает правильный quantization, поднимает HTTP-сервер, кеширует контекст. Установка занимает 2 минуты, первый запуск — ещё 5.</p>
+<p>Если вы первый раз ставите локальный LLM, ставьте <a href="/blog/ustanovit-ollama-windows-2027/">Ollama</a>. Это утилита командной строки, которая делает за вас всё: качает модели, выбирает правильный quantization, поднимает HTTP-сервер, кеширует контекст. Установка занимает 2 минуты, первый запуск — ещё 5.</p>
 <p>Базовая последовательность для macOS/Linux:</p>
 
 <div class="blog-code"><pre><code># Установка (macOS/Linux)
@@ -668,12 +677,12 @@ curl http://localhost:8000/v1/chat/completions \
 
 <div class="blog-cta-card">
   <div class="blog-cta-card-body">
-    <h3>Подберу стек локального LLM под вашу задачу — от 60 000 ₽</h3>
+    <h3>Подберу стек локального LLM под вашу задачу: от 100 000 ₽</h3>
     <p>Запускал в проде локальные LLM на MacBook M2/M3 Max, RTX 4090, H100. Понимаю, какая модель и какой quantization подойдёт под ваше железо и бизнес-сценарий. Поставлю Ollama / LM Studio / vLLM под ключ, настрою OpenAI-совместимый API, интегрирую с вашими сервисами.</p>
   </div>
   <div class="blog-cta-card-actions">
     <a href="https://chimitdorzhi.tech/services/ai-agents/" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-cpu"></i> Заказать AI-решение под ключ</a>
-    <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo"></i> Написать в Telegram</a>
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%9B%D0%BE%D0%BA%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9%20LLM%20%D0%BD%D0%B0%20%D0%BD%D0%BE%D1%83%D1%82%D0%B1%D1%83%D0%BA%D0%B5%202026%3A%20Ollama%2C%20LM%20Studio%2C%20vLLM%20%E2%80%94%20%D0%BF%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B5%20%D1%80%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%BE%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo"></i> Написать в Telegram</a>
   </div>
 </div>
 
@@ -777,6 +786,7 @@ for doc in result["source_documents"]:
 <p>Это работает «из коробки» на MacBook M2/M3 16+ ГБ. Скорость: на базе из 1000 коротких документов первая индексация занимает 5-15 минут, потом ответ на вопрос — 5-15 секунд. Полностью локально, ни одного байта наружу.</p>
 <p>Более серьёзный setup — это связка с MongoDB Atlas Vector Search (локально через <a href="https://chimitdorzhi.tech/services/devops/" class="blog-inline-link">self-hosted</a>), pgvector в PostgreSQL или Qdrant. Подробнее про векторные БД — в <a href="/blog/rag-sistemy-dlya-biznesa-2026/">статье о RAG-системах</a>.</p>
 
+<div class="blog-callout blog-callout-info blog-read-next"><i class="ph-fill ph-book-open" aria-hidden="true"></i><div><strong>Читайте дальше по теме</strong><ul><li><a href="/blog/skolko-stoit-vnedrit-ii-2026/">Внедрение ИИ в бизнес под ключ: сколько стоит в 2026, этапы</a></li><li><a href="/blog/rossiyskiy-ai-stack-2026/">Российский AI-стек 2026: чем заменить OpenAI, Claude и Gemini</a></li></ul></div></div>
 <h2 id="stoimost-vladeniya">Стоимость владения — облако vs локальное</h2>
 <p>Главный экономический аргумент за локальный LLM — отсутствие затрат на токены. Но за это вы платите upfront — покупаете железо. Я свёл цифры в одну таблицу для разных профилей нагрузки.</p>
 <div class="blog-table">
@@ -881,7 +891,7 @@ for doc in result["source_documents"]:
     <p>Запускал локальные LLM в проде на MacBook M2/M3 Max, RTX 4090, серверах с H100. Подскажу, какая модель подойдёт под вашу задачу, какой инструмент выбрать, как интегрировать с вашими существующими сервисами. Первичная консультация бесплатна — пишите в Telegram.</p>
   </div>
   <div class="blog-cta-card-actions">
-    <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo"></i> Написать Чимитдоржи</a>
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%9B%D0%BE%D0%BA%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9%20LLM%20%D0%BD%D0%B0%20%D0%BD%D0%BE%D1%83%D1%82%D0%B1%D1%83%D0%BA%D0%B5%202026%3A%20Ollama%2C%20LM%20Studio%2C%20vLLM%20%E2%80%94%20%D0%BF%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B5%20%D1%80%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%BE%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo"></i> Написать Чимитдоржи</a>
   </div>
 </div>
 
@@ -895,90 +905,24 @@ for doc in result["source_documents"]:
                     
                     
 <div class="blog-services-offer">
-  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <div class="blog-services-offer-eyebrow">Обсудим вашу задачу</div>
   <h3 class="blog-services-offer-title">Что я делаю по AI для бизнеса</h3>
-  <ul class="blog-services-offer-list">
-    
-    <li><i class="ph-fill ph-robot"></i> <span>AI-агенты и LLM-решения под задачу</span></li>
-    
-    <li><i class="ph-fill ph-database"></i> <span>RAG-системы (10 000+ документов в портфолио)</span></li>
-    
-    <li><i class="ph-fill ph-chat-circle-dots"></i> <span>AI-чат-бот на сайт за 5-7 дней</span></li>
-    
-    <li><i class="ph-fill ph-cpu"></i> <span>Локальный LLM на вашем сервере (приватно)</span></li>
-    
-    <li><i class="ph-fill ph-plugs-connected"></i> <span>MCP-интеграции с CRM, БД, корпоративными системами</span></li>
-    
-  </ul>
+  <p class="blog-services-offer-lead">Напишите одной фразой, что нужно. Отвечу, что подойдёт, сколько займёт и сколько стоит. Сообщение уже подготовлено.</p>
+  <ul class="blog-services-offer-list"><li><i class="ph-fill ph-robot"></i> <span>AI-агенты и LLM-решения под задачу</span></li><li><i class="ph-fill ph-database"></i> <span>RAG-системы (10 000+ документов в портфолио)</span></li><li><i class="ph-fill ph-chat-circle-dots"></i> <span>AI-чат-бот на сайт за 5-7 дней</span></li><li><i class="ph-fill ph-cpu"></i> <span>Локальный LLM на вашем сервере (приватно)</span></li><li><i class="ph-fill ph-plugs-connected"></i> <span>MCP-интеграции с CRM, БД, корпоративными системами</span></li></ul>
   <div class="blog-services-offer-ctas">
-    <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%9B%D0%BE%D0%BA%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9%20LLM%20%D0%BD%D0%B0%20%D0%BD%D0%BE%D1%83%D1%82%D0%B1%D1%83%D0%BA%D0%B5%202026%3A%20Ollama%2C%20LM%20Studio%2C%20vLLM%20%E2%80%94%20%D0%BF%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B5%20%D1%80%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%BE%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener" class="blog-services-offer-cta">
       <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
     </a>
     <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="blog-services-offer-cta blog-services-offer-cta-max">
       <i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> Написать в MAX
     </a>
+    <a href="https://chimitdorzhi.tech/services/ai-agents/" class="blog-services-offer-cta blog-services-offer-cta-max"><i class="ph ph-arrow-right" aria-hidden="true"></i> Заказать AI-решение под ключ</a>
   </div>
 </div>
-                    <div class="blog-cta-card">
-                        <div class="blog-cta-card-body">
-                            <h3>Бесплатно: чек-лист «Готов ли ваш бизнес к 152-ФЗ»</h3>
-                            <p>12 пунктов, которые проверяют готовность за час: данные, согласия, уведомление в РКН, локализация, защита. Отметьте, что уже сделано, и увидите дыры, за которые сейчас штрафуют.</p>
-                        </div>
-                        <div class="blog-cta-card-actions">
-                            <a href="/checklist-152-fz/" class="btn btn-accent"><i class="ph-fill ph-clipboard-text" aria-hidden="true"></i> Открыть чек-лист</a>
-                        </div>
-                    </div>
                     
-
-                    <div class="blog-cta-card blog-cta-card-final">
-                        <div class="blog-cta-card-body">
-                            <h3>Готовы обсудить вашу задачу?</h3>
-                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
-                        </div>
-                        <div class="blog-cta-card-actions">
-                            <a href="https://chimitdorzhi.tech/services/ai-agents/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Заказать AI-решение под ключ</a>
-                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
-                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
-                        </div>
-                    </div>
-
-                    <section class="blog-subscribe">
-  <div class="blog-subscribe-body">
-    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
-    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
-  </div>
-  <div class="blog-subscribe-actions">
-    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
-    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
-  </div>
-</section>
                     <section class="blog-related">
   <h2>Читайте также</h2>
-  <div class="blog-grid"><a class="blog-card" href="/blog/skolko-stoit-vnedrit-ii-2026/" data-category="ai-dev" data-clicks="0">
-  
-  <div class="blog-card-icon"><i class="ph-fill ph-sparkle"></i></div>
-  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>AI для разработчиков</span>
-  <h3>Сколько стоит внедрить ИИ в бизнес в 2026</h3>
-  <p>Внедрение ИИ — это и недорогой пилот на готовом API, и серьёзный проект с локальной моделью. Разбираю, от чего зависит цена, и из чего складывается абонентка за API и инфраструктуру.</p>
-  <div class="blog-card-meta">
-    <span><i class="ph ph-calendar" aria-hidden="true"></i> 19 июня 2026</span>
-    <span><i class="ph ph-clock" aria-hidden="true"></i> 8 мин</span>
-  </div>
-  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
-</a>
-<a class="blog-card" href="/blog/rossiyskiy-ai-stack-2026/" data-category="ai-dev" data-clicks="3">
-  
-  <div class="blog-card-icon"><i class="ph-fill ph-brain"></i></div>
-  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>AI для разработчиков</span>
-  <h3>Российский AI-стек 2026: чем заменить OpenAI, Claude и Gemini</h3>
-  <p>Что есть в РФ вместо OpenAI и Claude: YandexGPT 5, GigaChat 3, T-Pro, Cotype, Kandinsky 4, open-source self-hosting. Цены, код подключения, кейсы.</p>
-  <div class="blog-card-meta">
-    <span><i class="ph ph-calendar" aria-hidden="true"></i> 20 мая 2026</span>
-    <span><i class="ph ph-clock" aria-hidden="true"></i> 21 мин</span>
-  </div>
-  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
-</a>
-<a class="blog-card" href="/blog/ai-agenty-v-biznese-2026/" data-category="ai-dev" data-clicks="0">
+  <div class="blog-grid"><a class="blog-card" href="/blog/ai-agenty-v-biznese-2026/" data-category="ai-dev" data-clicks="0">
   
   <div class="blog-card-icon"><i class="ph-fill ph-robot"></i></div>
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>AI для разработчиков</span>
@@ -1002,30 +946,41 @@ for doc in result["source_documents"]:
   </div>
   <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
 </a>
-<a class="blog-card" href="/blog/magpie-shlyuz-k-ii-modelyam-2026/" data-category="ai-dev" data-clicks="0">
+<a class="blog-card" href="/blog/agenty-kompiliruyut-bazu-znaniy-2026/" data-category="ai-dev" data-clicks="0">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-plugs-connected"></i></div>
+  <div class="blog-card-icon"><i class="ph-fill ph-tree-structure"></i></div>
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>AI для разработчиков</span>
-  <h3>magpie: один локальный шлюз к моделям для всех ИИ-агентов</h3>
-  <p>magpie это открытый инструмент из меню-бара: один локальный endpoint на трёх API-стандартах, куда смотрят Codex, Claude Code и OpenCode, и общий каталог моделей любого провайдера. Разбираю, как он переиспользует уже залогиненные подписки без переноса ключей и где у него границы.</p>
+  <h3>База знаний, которую собрали агенты: что это и когда ей можно верить</h3>
+  <p>Появился класс инструментов, который не ищет ответ в ваших документах, а собирает базу знаний с нуля силами нескольких агентов. Разбираю, чем это отличается от RAG и корпоративной вики, зачем нужен режим проверки тезиса и почему такому своду нельзя доверять как документу.</p>
   <div class="blog-card-meta">
-    <span><i class="ph ph-calendar" aria-hidden="true"></i> 27 сентября 2026</span>
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 8 сентября 2026</span>
     <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
   </div>
   <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
 </a>
-<a class="blog-card" href="/blog/vllm-ili-ollama-server-pod-nagruzku-2026/" data-category="ai-dev" data-clicks="0">
+<a class="blog-card" href="/blog/perenosnoy-ii-agent-fleshka-2026/" data-category="ai-dev" data-clicks="0">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-lightning"></i></div>
+  <div class="blog-card-icon"><i class="ph-fill ph-robot"></i></div>
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>AI для разработчиков</span>
-  <h3>vLLM или Ollama: когда бизнесу нужен сервер под нагрузку</h3>
-  <p>Ollama ставится за минуты, но при росте пользователей бот начинает тормозить. Показываю, в какой момент нужен vLLM, чем он отличается и когда он избыточен.</p>
+  <h3>Переносной ИИ-агент: работа на чужом компьютере без установки</h3>
+  <p>Появился класс инструментов, где ИИ-агент для кода живёт в папке на флешке: ключи и логи там же, в систему ничего не прописывается. Разбираю, кому это реально нужно, кому нет и где проходит граница безопасности.</p>
   <div class="blog-card-meta">
-    <span><i class="ph ph-calendar" aria-hidden="true"></i> 15 сентября 2026</span>
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 7 сентября 2026</span>
     <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
   </div>
   <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
 </a></div>
+</section>
+                    
+                    <section class="blog-subscribe">
+  <div class="blog-subscribe-body">
+    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
+    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
+  </div>
+  <div class="blog-subscribe-actions">
+    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
+  </div>
 </section>
                     
                     

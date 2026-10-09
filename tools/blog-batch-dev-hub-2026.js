@@ -28,7 +28,7 @@ const SVC_TRUST = {
   ctaLabel: 'Обсудить проект', ctaUrl: 'https://t.me/chimitdorzhi',
 };
 const CTA_DEV = { url: `${SVC}/web-development/`, label: 'Разработка под ключ' };
-const CTA_BOT = { url: `${SVC}/telegram-bots/`, label: 'Бот под ключ' };
+const CTA_BOT = { url: 'https://chimitdorzhi.tech/development/telegram-bots/', label: 'Бот под ключ' };
 
 const T = (items) => items.concat([{ id: 'faq', text: 'FAQ' }, { id: 'vyvody', text: 'Коротко о главном' }]);
 
@@ -131,5 +131,5 @@ module.exports = [
     excerpt: 'Из чего складывается час работы разработчика, почему «за 3 дня и 10к» оборачивается переделками и как отличить адекватную цену от опасно низкой.',
     tags: ['разработка', 'цена', 'заказчику', 'экономика'],
     toc: T([{ id: 'iz-chego', text: 'Из чего складывается час' }, { id: 'deshevo', text: 'Почему дёшево = дорого' }, { id: 'kak-ocenit', text: 'Как оценить адекватную цену' }, { id: 'ekonomiya', text: 'Где реально сэкономить' }]),
-    relatedSlugs: ['skolko-stoit-razrabotka-po-2027', 'kak-zakazat-razrabotku-ne-poteryat-dengi-2026', 'nanyat-programmista-ili-pod-klyuch-2026'] }),
+    relatedSlugs: ['skolko-stoit-po-na-zakaz-2026', 'kak-zakazat-razrabotku-ne-poteryat-dengi-2026', 'nanyat-programmista-ili-pod-klyuch-2026'] }),
 ];

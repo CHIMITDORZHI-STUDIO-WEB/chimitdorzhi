@@ -46,7 +46,7 @@ module.exports = {
       { q: 'Можно сделать витрину сразу в нескольких мессенджерах?', a: 'Да. Механика кросс-платформенная: одну витрину разворачиваем в MAX, Telegram и VK, начиная с MAX' }
     ],
     relatedServices: [
-      { url: '/services/telegram-bots/', label: 'Чат-боты' },
+      { url: '/development/telegram-bots/', label: 'Чат-боты' },
       { url: '/services/revenue-monetization/', label: 'Монетизация' }
     ],
     relatedBlog: [
@@ -160,7 +160,7 @@ module.exports = {
       { q: 'Как платформа борется с накрутками?', a: 'Есть проверка участников и антифрод: отсев фейковых и повторных аккаунтов и подозрительной активности, чтобы призы доставались реальным людям' }
     ],
     relatedServices: [
-      { url: '/services/telegram-bots/', label: 'Чат-боты' },
+      { url: '/development/telegram-bots/', label: 'Чат-боты' },
       { url: '/services/business-automation/', label: 'Автоматизация бизнеса' }
     ],
     relatedBlog: [

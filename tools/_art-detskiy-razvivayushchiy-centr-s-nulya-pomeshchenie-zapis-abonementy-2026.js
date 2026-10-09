@@ -2,7 +2,7 @@ module.exports = {
   slug: "detskiy-razvivayushchiy-centr-s-nulya-pomeshchenie-zapis-abonementy-2026",
   category: "biznes-krugozor",
   heroIcon: "ph-fill ph-shapes",
-  ctaInternal: { url: "https://chimitdorzhi.tech/services/telegram-bots/", label: "Бот записи и абонементов для центра" },
+  ctaInternal: { url: "https://chimitdorzhi.tech/development/telegram-bots/", label: "Бот записи и абонементов для центра" },
   title: "Детский развивающий центр с нуля: помещение, запись и абонементы",
   metaTitle: "Детский развивающий центр с нуля: лицензия и абонементы",
   metaDescription: "Как открыть детский центр: форма деятельности, нужна ли лицензия, помещение, педагоги, договор с родителями, абонементы и запись, где ломаются новички.",

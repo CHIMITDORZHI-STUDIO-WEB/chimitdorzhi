@@ -1008,6 +1008,99 @@ function clientTgUrl(a, topic) {
   const title = a.title.length > 90 ? a.title.slice(0, 87).replace(/\s+\S*$/, '') + '…' : a.title;
   return `${TG_URL}?text=${encodeURIComponent(`Здравствуйте! Пишу после статьи «${title}». Хочу обсудить ${topic} для своего бизнеса.`)}`;
 }
+// Ссылка на Telegram с готовым первым сообщением для любой статьи:
+// читателю не нужно придумывать, что написать, а я вижу, из какой статьи он пришёл.
+function articleTgUrl(a) {
+  const topic = clientTopicText(a);
+  if (topic) return clientTgUrl(a, topic);
+  const title = a.title.length > 90 ? a.title.slice(0, 87).replace(/\s+\S*$/, '') + '…' : a.title;
+  return `${TG_URL}?text=${encodeURIComponent(`Здравствуйте! Пишу после статьи «${title}». Хочу обсудить задачу.`)}`;
+}
+function prefillTgLinks(html, a) {
+  return html.replace(/href="https:\/\/t\.me\/chimitdorzhi"/g, `href="${esc(articleTgUrl(a))}"`);
+}
+
+// Блок заказа сразу после «Коротко»: большинство читателей до конца статьи не доходит.
+// Не ставим в личных темах и обзорах сетевых компаний (там свой блок) и там, где блок уже есть в тексте.
+function topCtaHtml(a) {
+  const u = a.ctaInternal && a.ctaInternal.url;
+  if (!u || /\/mwrlife\//.test(u)) return '';
+  if (CLIENT_SKIP_CATS.has(a.category) || isMlmReview(a)) return '';
+  const topic = clientTopicText(a);
+  const head = topic ? CLIENT_HEADLINES[topic] : CLIENT_HEADLINES['автоматизацию'];
+  return `<div class="blog-cta-internal">
+  <i class="ph-fill ph-rocket-launch" aria-hidden="true"></i>
+  <div>
+    <strong>${esc(head)}</strong>
+    <p>Сделаю под ключ: разберу задачу, назову срок и цену. Чтобы начать, <a href="${esc(articleTgUrl(a))}" target="_blank" rel="noopener">напишите в Telegram</a> одной фразой.</p>
+    <a href="${esc(u)}">${esc(a.ctaInternal.label || 'Подробнее об услуге')} <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</div>`;
+}
+function injectTopCta(html, a) {
+  if (html.includes('blog-cta-internal')) return html;
+  const block = topCtaHtml(a);
+  if (!block) return html;
+  const i = html.indexOf('<div class="blog-tldr"');
+  if (i < 0) return html;
+  const j = html.indexOf('</div>', i);
+  if (j < 0) return html;
+  return html.slice(0, j + 6) + '\n' + block + html.slice(j + 6);
+}
+
+// «Читайте дальше» в середине статьи: две близкие статьи, которых ещё нет в тексте.
+// Ставим ближе к 60% статьи, не в то место, где стоит блок Telegram (перед третьим h2).
+function readNextPick(a, published, html) {
+  const map = new Map(published.map((p) => [p.slug, p]));
+  const inBody = new Set((html.match(/\/blog\/([a-z0-9-]+)\//g) || []).map((m) => m.split('/')[2]));
+  return (a.relatedSlugs || []).filter((x) => x !== a.slug && !inBody.has(x)).map((x) => map.get(x)).filter(Boolean).slice(0, 2);
+}
+function injectReadNext(html, a, published) {
+  const h2s = [...html.matchAll(/<h2[\s>]/g)];
+  if (h2s.length < 5) return html;
+  const picks = readNextPick(a, published, html);
+  if (picks.length < 2) return html;
+  let k = Math.max(3, Math.round(h2s.length * 0.6));
+  if (k >= h2s.length) k = h2s.length - 1;
+  if (/^<h2 id="(faq|vyvody)"/.test(html.slice(h2s[k].index, h2s[k].index + 20)) && k - 1 >= 3) k -= 1;
+  a.__readNext = new Set(picks.map((p) => p.slug));
+  const block = `<div class="blog-callout blog-callout-info blog-read-next"><i class="ph-fill ph-book-open" aria-hidden="true"></i><div><strong>Читайте дальше по теме</strong><ul>${picks.map((p) => `<li><a href="/blog/${p.slug}/">${esc(p.title)}</a></li>`).join('')}</ul></div></div>\n`;
+  return html.slice(0, h2s[k].index) + block + html.slice(h2s[k].index);
+}
+
+// Чек-лист 152-ФЗ показываем только там, где читатель пришёл с темой персональных данных.
+function isPdArticle(a) {
+  const t = [a.title, a.metaTitle, a.slug, (a.tags || []).join(' ')].join(' ');
+  return /152|персональн|роскомнадзор|\bркн\b|cookie|куки|согласи[ея] на обработку|утечк|\bpd\b|-pd-|personal|rkn/i.test(t);
+}
+
+// Один призыв в конце статьи вместо четырёх подряд: услуги по теме + Telegram (с готовым текстом), MAX и страница услуги.
+function finalCtaHtml(a) {
+  const s = a.servicesOffer;
+  const topic = clientTopicText(a);
+  const head = s && s.title ? s.title : (topic ? CLIENT_HEADLINES[topic] : 'Готовы обсудить вашу задачу?');
+  const list = s && s.services && s.services.length
+    ? `<ul class="blog-services-offer-list">${s.services.map((item) => `<li><i class="${item.icon}"></i> <span>${esc(item.label)}</span></li>`).join('')}</ul>` : '';
+  const svc = a.ctaInternal && a.ctaInternal.url
+    ? `<a href="${esc(a.ctaInternal.url)}" class="blog-services-offer-cta blog-services-offer-cta-max"><i class="ph ph-arrow-right" aria-hidden="true"></i> ${esc(a.ctaInternal.label || 'Подробнее об услуге')}</a>` : '';
+  return `
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">${esc((s && s.eyebrow) || 'Обсудим вашу задачу')}</div>
+  <h3 class="blog-services-offer-title">${esc(head)}</h3>
+  <p class="blog-services-offer-lead">Напишите одной фразой, что нужно. Отвечу, что подойдёт, сколько займёт и сколько стоит. Сообщение уже подготовлено.</p>
+  ${list}
+  <div class="blog-services-offer-ctas">
+    <a href="${esc(articleTgUrl(a))}" target="_blank" rel="noopener" class="blog-services-offer-cta">
+      <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
+    </a>
+    <a href="${MAX_URL}" target="_blank" rel="noopener" class="blog-services-offer-cta blog-services-offer-cta-max">
+      <i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> Написать в MAX
+    </a>
+    ${svc}
+  </div>
+</div>`;
+}
+
 function inlineTgBlock(a, topic) {
   return `<aside class="blog-inline-tg" aria-label="Обсудить задачу">
   <div class="blog-inline-tg-body">
@@ -1181,7 +1274,8 @@ function subscribeHtml() {
 function relatedHtml(a, published) {
   // Resolve relatedSlugs to published articles. If none — fall back to service links.
   const map = new Map(published.map(p => [p.slug, p]));
-  const found = (a.relatedSlugs || []).map(s => map.get(s)).filter(Boolean).filter(r => r.slug !== a.slug);
+  let found = (a.relatedSlugs || []).map(s => map.get(s)).filter(Boolean).filter(r => r.slug !== a.slug);
+  if (a.__readNext) { const rest = found.filter(r => !a.__readNext.has(r.slug)); if (rest.length >= 2) found = rest; }
   if (found.length) {
     const cards = found.map(cardHtml).join('\n');
     return `<section class="blog-related">
@@ -1197,7 +1291,7 @@ function relatedHtml(a, published) {
       <div class="blog-card-icon"><i class="ph-fill ph-shield-check" aria-hidden="true"></i></div>
       <span class="blog-card-cat">Услуга</span>
       <h3>Аудит 152-ФЗ под ключ</h3>
-      <p>От 5 000 ₽. Отчёт с приоритетами + готовые документы. Срок 1–3 дня.</p>
+      <p>От 15 000 ₽. Отчёт с приоритетами и готовые документы. Срок 1–3 дня.</p>
       <span class="blog-card-link">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
     </a>
     <a class="blog-card blog-card-svc" href="/services/rkn-audit/">
@@ -1404,9 +1498,9 @@ const AUTOLINK_RULES = [
   { re: /интернет-магазин(?:а|ы|ов)?/i,         url: `${SVC}/web-development/` },
   { re: /лендинг(?:а|и|ов)?/i,                  url: `${SVC}/web-development/` },
   // Боты и ИИ
-  { re: /Telegram-бот(?:а|ы|ов|у)?/i,           url: `${SVC}/telegram-bots/` },
-  { re: /чат-бот(?:а|ы|ов|у)?/i,                url: `${SVC}/telegram-bots/` },
-  { re: /бот(?:а|ы|ов)? для бизнеса/i,          url: `${SVC}/telegram-bots/` },
+  { re: /Telegram-бот(?:а|ы|ов|у)?/i,           url: 'https://chimitdorzhi.tech/development/telegram-bots/' },
+  { re: /чат-бот(?:а|ы|ов|у)?/i,                url: 'https://chimitdorzhi.tech/development/telegram-bots/' },
+  { re: /бот(?:а|ы|ов)? для бизнеса/i,          url: 'https://chimitdorzhi.tech/development/telegram-bots/' },
   { re: /AI-агент(?:а|ы|ов|у)?/i,               url: `${SVC}/ai-agents/` },
   { re: /ИИ-агент(?:а|ы|ов|у)?/i,               url: `${SVC}/ai-agents/` },
   { re: /AI-ассистент(?:а|ы|ов|у)?/i,           url: `${SVC}/ai-agents/` },
@@ -1424,8 +1518,8 @@ const AUTOLINK_RULES = [
   { re: /автоматизаци(?:я|и|ю) (?:HR|найма)/i,   url: `${SVC}/hr-team-management/` },
   { re: /автоматизаци(?:я|и|ю) логистик/i,       url: `${SVC}/logistics-automation/` },
   // Коммерческие фразы-заказы (force — инлайн даже при совпадении с CTA статьи)
-  { re: /заказать бота|бота под ключ/i,          url: `${SVC}/telegram-bots/`, force: true },
-  { re: /бот(?:а)? в MAX/i,                       url: `${SVC}/telegram-bots/`, force: true },
+  { re: /заказать бота|бота под ключ/i,          url: 'https://chimitdorzhi.tech/development/telegram-bots/', force: true },
+  { re: /бот(?:а)? в MAX/i,                       url: 'https://chimitdorzhi.tech/development/max-bots/', force: true },
   { re: /написать скрипт|скрипт на заказ/i,       url: `${SVC}/business-automation/`, force: true },
   { re: /интеграци(?:я|и|ю) API/i,               url: `${SVC}/business-automation/`, force: true },
   { re: /парсер(?:а)?|парсинг(?:а)?/i,            url: `${SVC}/business-automation/`, force: true },
@@ -1686,7 +1780,7 @@ function metaDisclaimer(html) {
 function articlePage(a, published) {
   const url = `${SITE}/blog/${a.slug}/`;
   const cat = CATEGORY_LABELS[a.category] || 'Блог';
-  const bodyHtml = injectInlineTg(autolinkModels(autolinkServices(a.contentHtml, a.ctaInternal && a.ctaInternal.url), a.slug), a);
+  const bodyHtml = prefillTgLinks(injectReadNext(injectTopCta(injectInlineTg(autolinkModels(autolinkServices(a.contentHtml, a.ctaInternal && a.ctaInternal.url), a.slug), a), a), a, published), a);
   const clientTopic = clientTopicText(a);
   return `${head({ title: a.metaTitle || a.title, description: a.metaDescription, keywords: a.metaKeywords || a.tags.join(', '), canonical: url, ogImage: coverUrl(a) })}    <script type="application/ld+json">
 ${blogPostingLd(a, url)}
@@ -1733,33 +1827,20 @@ ${faqLd(a)}${howToLd(a)}${itemListLd(a)}${METRIKA}</head>
                     </div>
                     ${metaDisclaimer(a.contentHtml)}
 
-                    ${repoBlockHtml(a)}
+                    ${prefillTgLinks(repoBlockHtml(a), a)}
                     ${seriesHtml(a, published)}
                     ${catalogHtml(a)}
                     ${maxHubHtml(a)}
                     ${mlmFunnelHtml(a)}
-                    ${servicesOfferCard(a)}
-                    ${isMlmReview(a) ? '' : leadMagnetCard()}
-                    ${blogOfferCta(a)}
-
-                    <div class="blog-cta-card blog-cta-card-final">
-                        <div class="blog-cta-card-body">
-                            <h3>Готовы обсудить вашу задачу?</h3>
-                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
-                        </div>
-                        <div class="blog-cta-card-actions">
-                            <a href="${esc(a.ctaInternal ? a.ctaInternal.url : 'https://chimitdorzhi.tech/predlozheniya/')}" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> ${esc(a.ctaInternal ? a.ctaInternal.label : 'Подобрать решение')}</a>
-                            <a href="${esc(clientTopic ? clientTgUrl(a, clientTopic) : 'https://t.me/chimitdorzhi')}" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
-                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
-                        </div>
-                    </div>
-
-                    ${subscribeHtml()}
+                    ${finalCtaHtml(a)}
+                    ${isPdArticle(a) && !isMlmReview(a) ? leadMagnetCard() : ''}
                     ${relatedHtml(a, published)}
-                    ${mwrClusterHtml(a, published)}
-                    ${krugozorClusterHtml(a, published)}
-                    ${commercialClusterHtml(a, published)}
-                    ${osintClusterHtml(a, published)}
+                    ${blogOfferCta(a)}
+                    ${subscribeHtml()}
+                    ${prefillTgLinks(mwrClusterHtml(a, published), a)}
+                    ${prefillTgLinks(krugozorClusterHtml(a, published), a)}
+                    ${prefillTgLinks(commercialClusterHtml(a, published), a)}
+                    ${prefillTgLinks(osintClusterHtml(a, published), a)}
                     ${a.slug === 'gotovye-it-resheniya-dlya-biznesa-2026' ? '' : catalogBanner()}
                 </article>
 
@@ -2922,7 +3003,7 @@ const LLMS_INTRO = `# Чимитдоржи Дарижапов — IT, AI и 152-
 const LLMS_TAIL = `## Услуги
 - [Все услуги](https://chimitdorzhi.tech/services/): разработка, AI, кибербезопасность, автоматизация, обучение.
 - [Разработка сайтов и веб-приложений](https://chimitdorzhi.tech/services/web-development/)
-- [Telegram-боты и чат-боты](https://chimitdorzhi.tech/services/telegram-bots/)
+- [Telegram-боты и чат-боты](https://chimitdorzhi.tech/development/telegram-bots/)
 - [AI-агенты и LLM-решения](https://chimitdorzhi.tech/services/ai-agents/)
 - [Автоматизация бизнес-процессов](https://chimitdorzhi.tech/services/business-automation/)
 - [Аудит 152-ФЗ](https://audit.chimitdorzhi.tech/): защита от оборотных штрафов.

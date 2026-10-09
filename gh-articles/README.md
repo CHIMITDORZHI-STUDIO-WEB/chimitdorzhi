@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2385**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2423**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -94,8 +94,7 @@
 - [Внедрение ИИ для бизнеса в Бурятии: с чего начать](./vnedrenie-ii-buryatiya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vnedrenie-ii-buryatiya-2026/)
 - [Как мы автоматизируем разработку и контент с помощью LLM](./llm-avtomatizaciya-razrabotki-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/llm-avtomatizaciya-razrabotki-2027/)
 - [Иллюзия идеального ИИ: почему карты и логотипы всё ещё правит человек](./illuziya-idealnogo-ii-human-in-the-loop-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/illuziya-idealnogo-ii-human-in-the-loop-2027/)
-- [Сколько стоит внедрение ИИ в компанию: из чего складывается цена в 2027](./vnedrenie-ii-stoimost-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vnedrenie-ii-stoimost-2027/)
-- [Разработка ИИ-агентов под ключ: что это, применение и цена в 2027](./razrabotka-ai-agentov-pod-klyuch-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/razrabotka-ai-agentov-pod-klyuch-2027/)
+- [Разработка ИИ-агентов для бизнеса под ключ: задачи, этапы и цена](./razrabotka-ai-agentov-pod-klyuch-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/razrabotka-ai-agentov-pod-klyuch-2027/)
 - [Распознавание паспортов и документов (OCR) для бизнеса под ключ](./raspoznavanie-pasporta-ocr-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/raspoznavanie-pasporta-ocr-2027/)
 - [Компьютерное зрение на производстве: сколько стоит внедрить и как рассчитать окупаемость](./kompyuternoe-zrenie-proizvodstvo-stoimost-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kompyuternoe-zrenie-proizvodstvo-stoimost-2027/)
 - [Как установить Ollama для Windows: запуск локальных нейросетей за 10 минут](./ustanovit-ollama-windows-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ustanovit-ollama-windows-2027/)
@@ -126,7 +125,7 @@
 - [Окупаемость ИИ-агентов в месяцах: как собрать бизнес-кейс](./okupaemost-ii-agentov-biznes-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/okupaemost-ii-agentov-biznes-keys-2026/)
 - [Маленькие доменные модели (SLM): почему не один гигант, а узкие модели под задачу](./malenkie-domennye-modeli-slm-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/malenkie-domennye-modeli-slm-2026/)
 - [LocateAnything-3B от NVIDIA: открытая модель распознавания объектов и документов](./locateanything-nvidia-lokalnoe-raspoznavanie-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/locateanything-nvidia-lokalnoe-raspoznavanie-2026/)
-- [Сколько стоит внедрить ИИ в бизнес в 2026](./skolko-stoit-vnedrit-ii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-stoit-vnedrit-ii-2026/)
+- [Внедрение ИИ в бизнес под ключ: сколько стоит в 2026, этапы](./skolko-stoit-vnedrit-ii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-stoit-vnedrit-ii-2026/)
 - [GigaChat vs YandexGPT vs ChatGPT: что выбрать бизнесу в РФ в 2026](./gigachat-vs-yandexgpt-vs-chatgpt-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gigachat-vs-yandexgpt-vs-chatgpt-2026/)
 - [ИИ для отдела продаж: 10 задач, которые он закрывает](./ii-dlya-otdela-prodazh-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-dlya-otdela-prodazh-2026/)
 - [ИИ для бизнеса в Чите и Улан-Удэ: задачи, с чего начать и цена](./ii-dlya-biznesa-chita-ulan-ude-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-dlya-biznesa-chita-ulan-ude-2026/)
@@ -152,6 +151,11 @@
 
 ## cases
 
+- [CRM и приложение для строительной компании: объект, задачи, отчёты с фото](./crm-stroitelnoy-kompanii-almaznaya-rezka-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/crm-stroitelnoy-kompanii-almaznaya-rezka-keys-2026/)
+- [Контроль материалов в 1С: лимиты по видам работ и согласование расхода](./kontrol-materialov-1c-rasshirenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kontrol-materialov-1c-rasshirenie-keys-2026/)
+- [Платформа продажи доменов из портфеля: рабочее демо по ТЗ](./platforma-prodazhi-domenov-demo-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/platforma-prodazhi-domenov-demo-keys-2026/)
+- [Интернет-магазин косметического средства: демо по ТЗ за ночь](./internet-magazin-kosmetiki-demo-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/internet-magazin-kosmetiki-demo-keys-2026/)
+- [Своя платформа API данных по авто из Китая: новые и б/у](./api-dannyh-avto-iz-kitaya-platforma-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/api-dannyh-avto-iz-kitaya-platforma-keys-2026/)
 - [Kinly: семейный ИИ-ассистент в Telegram и MAX на одном коде](./kinly-semeynyy-assistent-telegram-max-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kinly-semeynyy-assistent-telegram-max-keys-2026/)
 - [Ферзь: рабочее место руководителя без штатных юриста и кадровика](./ferz-rabochee-mesto-rukovoditelya-saas-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ferz-rabochee-mesto-rukovoditelya-saas-keys-2026/)
 - [SPACE: моя платформа готовых решений для микробизнеса с входом через Telegram](./space-platforma-gotovyh-resheniy-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/space-platforma-gotovyh-resheniy-keys-2026/)
@@ -162,7 +166,7 @@
 - [Сайт врача-косметолога из Петербурга: первый этап сдан, второй ждёт материалов](./sayt-kosmetologa-etap-1-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-kosmetologa-etap-1-keys-2026/)
 - [Лендинг массажиста с онлайн-записью и предоплатой: разбор проекта](./lending-massazhista-zapis-predoplata-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/lending-massazhista-zapis-predoplata-keys-2026/)
 - [Совместные закупки в одном PWA: заказ, сборка и выдача в пункте](./sovmestnye-zakupki-pwa-pvz-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sovmestnye-zakupki-pwa-pvz-keys-2026/)
-- [Бронирование боксов для склада хранения в Красноярске: демо-система](./self-storage-bronirovanie-boksov-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/self-storage-bronirovanie-boksov-keys-2026/)
+- [Бронирование боксов для склада хранения: от демо к рабочей системе](./self-storage-bronirovanie-boksov-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/self-storage-bronirovanie-boksov-keys-2026/)
 - [CRM для логистической компании: откуда пришла каждая заявка](./crm-logistiki-istochniki-zayavok-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/crm-logistiki-istochniki-zayavok-keys-2026/)
 - [Заказ такси для таксопарка небольшого района: предложение и кликабельное демо](./taksi-rayona-bot-pwa-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/taksi-rayona-bot-pwa-predlozhenie-keys-2026/)
 - [Приложение для автошколы: учёт часов вождения и контроль инструкторов](./avtoshkola-pwa-uchet-vozhdeniya-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avtoshkola-pwa-uchet-vozhdeniya-predlozhenie-keys-2026/)
@@ -170,7 +174,7 @@
 - [Предложение для этно-кафе: три блока и презентация гостевого PWA](./kafe-pwa-gostya-prezentaciya-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kafe-pwa-gostya-prezentaciya-keys-2026/)
 - [КП для небольшой гостиницы на русском и китайском: что в него вошло](./gostinica-kp-dvuyazychnoe-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gostinica-kp-dvuyazychnoe-predlozhenie-keys-2026/)
 - [Каталог косметики: пустая витрина, 591 товар и связь с кассой](./katalog-kosmetiki-sinhronizaciya-kassy-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/katalog-kosmetiki-sinhronizaciya-kassy-keys-2026/)
-- [Паллетный учёт на ТСД для оптовика: приложение под 1С](./palletnyy-uchet-tsd-1c-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/palletnyy-uchet-tsd-1c-keys-2026/)
+- [Паллетный учёт на ТСД для оптовика: приложение и расширение 1С](./palletnyy-uchet-tsd-1c-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/palletnyy-uchet-tsd-1c-keys-2026/)
 - [Корпоративный сайт компании из ОАЭ: два языка и анимация без шаблонности](./korporativnyy-sayt-kompanii-oae-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/korporativnyy-sayt-kompanii-oae-keys-2026/)
 - [Бот спортивной аналитики: как я проверил модель и признал, что рынок точнее](./bot-sportivnoy-analitiki-backtest-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bot-sportivnoy-analitiki-backtest-keys-2026/)
 - [Инструменты для партнёров турклуба: повод заговорить вместо голой ссылки](./instrumenty-dlya-partnerov-turkluba-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/instrumenty-dlya-partnerov-turkluba-keys-2026/)
@@ -229,7 +233,7 @@
 - [Русификация головного устройства авто: кейс перевода интерфейса](./rusifikaciya-golovnogo-ustroystva-avto-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/rusifikaciya-golovnogo-ustroystva-avto-keys-2026/)
 - [Сайт и админка для сети кофеен самообслуживания «Горячий момент»](./goryachiy-moment-sayt-kofeen-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/goryachiy-moment-sayt-kofeen-keys-2026/)
 - [ИИ-проверка кодов ТН ВЭД: фура из 50 000 посылок за минуты](./ved-checker-proverka-tnved-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ved-checker-proverka-tnved-keys-2026/)
-- [X&X Dating: сервис знакомств с проверкой родства в Telegram](./xx-dating-znakomstva-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/xx-dating-znakomstva-keys-2026/)
+- [MDating (бывш. X&X Dating): сервис знакомств с проверкой родства в Telegram](./xx-dating-znakomstva-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/xx-dating-znakomstva-keys-2026/)
 - [X&X NEWS: новостная лента внутри супер-аппа в Telegram](./xx-news-lenta-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/xx-news-lenta-keys-2026/)
 - [X&X CINEMA: онлайн-кинотеатр внутри супер-аппа в Telegram](./xx-cinema-kino-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/xx-cinema-kino-keys-2026/)
 - [X&X Market: маркетплейс услуг и объявлений в Telegram](./xx-market-obyavleniya-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/xx-market-obyavleniya-keys-2026/)
@@ -324,6 +328,11 @@
 
 ## Open-source и свой сервер
 
+- [YTsaurus Flow: когда магазину нужны данные сразу, а не по ночам](./ytsaurus-flow-potokovaya-obrabotka-sobytiy-kogda-magazinu-nuzhny-dannye-srazu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ytsaurus-flow-potokovaya-obrabotka-sobytiy-kogda-magazinu-nuzhny-dannye-srazu-2026/)
+- [nps: доступ к офису без белого IP, риски и чем заменить](./nps-dostup-k-ustroystvam-ofisa-bez-belogo-ip-riski-i-alternativy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nps-dostup-k-ustroystvam-ofisa-bez-belogo-ip-riski-i-alternativy-2026/)
+- [book-to-skill: регламенты и книги станут навыками ИИ-агента](./book-to-skill-reglamenty-i-knigi-v-navyki-ii-agenta-ekonomiya-tokenov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/book-to-skill-reglamenty-i-knigi-v-navyki-ii-agenta-ekonomiya-tokenov-2026/)
+- [AIPex: ИИ-агент в браузере возьмёт рутину и увидит все ваши входы](./aipex-rasshirenie-brauzera-delaet-rutinu-po-komandam-chto-porucit-i-gde-opasno-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/aipex-rasshirenie-brauzera-delaet-rutinu-po-komandam-chto-porucit-i-gde-opasno-2026/)
+- [Hoodik: своё зашифрованное облако для документов клиентов](./hoodik-svoe-zashifrovannoe-oblako-dlya-dokumentov-klientov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/hoodik-svoe-zashifrovannoe-oblako-dlya-dokumentov-klientov-2026/)
 - [ИИ-агент спрашивает базу данных компании: MCP Toolbox](./mcp-toolbox-ii-agent-zadaet-voprosy-baze-dannyh-kompanii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/mcp-toolbox-ii-agent-zadaet-voprosy-baze-dannyh-kompanii-2026/)
 - [Apprise: уведомления из любой системы в Telegram и другие каналы](./apprise-uvedomleniya-iz-lyuboy-sistemy-v-telegram-i-drugie-kanaly-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/apprise-uvedomleniya-iz-lyuboy-sistemy-v-telegram-i-drugie-kanaly-2026/)
 - [Сайт упадёт в день рекламы? Проверьте его JMeter заранее](./jmeter-nagruzochnoe-testirovanie-sayta-pered-reklamoy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/jmeter-nagruzochnoe-testirovanie-sayta-pered-reklamoy-2026/)
@@ -602,6 +611,7 @@
 
 ## Безопасность
 
+- [Краулеры и ИИ-агенты перегружают сайты: что у Wikimedia и у вас](./ii-agenty-i-krauleri-peregruzhayut-sayty-wikimedia-kak-zashchitit-svoy-sayt-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-agenty-i-krauleri-peregruzhayut-sayty-wikimedia-kak-zashchitit-svoy-sayt-2026/)
 - [Windows 10 без обновлений: что делать офису в 2026 году](./windows-10-bez-obnovleniy-chto-delat-ofisu-esu-windows-11-alternativy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/windows-10-bez-obnovleniy-chto-delat-ofisu-esu-windows-11-alternativy-2026/)
 - [SSL-сертификаты на 200 дней, с 2027 на 100: автопродление без падений](./srok-zhizni-ssl-sertifikatov-sokrashchaetsya-200-dney-avtoprodlenie-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/srok-zhizni-ssl-sertifikatov-sokrashchaetsya-200-dney-avtoprodlenie-2026/)
 - [Голос директора за 5 секунд: как защитить бухгалтерию от клона](./golos-direktora-za-5-sekund-zashchita-buhgalterii-ot-klona-golosa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/golos-direktora-za-5-sekund-zashchita-buhgalterii-ot-klona-golosa-2026/)
@@ -671,6 +681,26 @@
 
 ## Бизнес-кругозор
 
+- [Отчёты без связи: как приложению не терять данные на объекте](./prilozhenie-dlya-obekta-bez-interneta-oflayn-rezhim-pwa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/prilozhenie-dlya-obekta-bez-interneta-oflayn-rezhim-pwa-2026/)
+- [Роли и права в новой CRM: матрица доступа до разработки](./kto-chto-vidit-v-prilozhenii-roli-i-prava-dlya-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kto-chto-vidit-v-prilozhenii-roli-i-prava-dlya-biznesa-2026/)
+- [Импорт клиентов из Excel в CRM: ключи, слияние, пробная загрузка](./perenos-klientskoy-bazy-iz-excel-v-crm-bez-dublirovaniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/perenos-klientskoy-bazy-iz-excel-v-crm-bez-dublirovaniya-2026/)
+- [Демо показали, что дальше: что дорабатывают до боевого запуска](./ot-demo-k-rabochey-sisteme-chto-menyaetsya-pri-zapuske-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ot-demo-k-rabochey-sisteme-chto-menyaetsya-pri-zapuske-2026/)
+- [Как клиентам входить в кабинет: SMS, ссылка, Telegram или пароль](./vhod-klienta-bez-parolya-sms-ssylka-ili-telegram-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vhod-klienta-bez-parolya-sms-ssylka-ili-telegram-2026/)
+- [Геометка в отчёте сотрудника: что можно и чего нельзя](./geometka-v-otchete-sotrudnika-chto-mozhno-i-chego-nelzya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/geometka-v-otchete-sotrudnika-chto-mozhno-i-chego-nelzya-2026/)
+- [Сайт косметики без слова «лечит»: описание, чеки, маркировка](./internet-magazin-kosmetiki-chto-nelzya-pisat-na-sayte-i-cheki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/internet-magazin-kosmetiki-chto-nelzya-pisat-na-sayte-i-cheki-2026/)
+- [Продажа доменов из портфеля: витрина, заглушки, разбор заявок](./prodazha-domenov-kak-biznes-vitrina-zaglushki-vhodyashchie-zayavki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/prodazha-domenov-kak-biznes-vitrina-zaglushki-vhodyashchie-zayavki-2026/)
+- [Данные как платный продукт: свой API, ключи, лимиты и права](./dannye-kak-platnyy-produkt-svoy-api-klyuchi-limity-prava-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/dannye-kak-platnyy-produkt-svoy-api-klyuchi-limity-prava-2026/)
+- [Персональные разборы эксперта: как автоматизировать расчёт и слайды](./personalnye-razbory-eksperta-kak-avtomatizirovat-raschet-i-slaydy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/personalnye-razbory-eksperta-kak-avtomatizirovat-raschet-i-slaydy-2026/)
+- [Уходить ли с GetCourse: когда нужен свой кабинет обучения](./svoya-platforma-obucheniya-vmesto-getcourse-kogda-nuzhna-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/svoya-platforma-obucheniya-vmesto-getcourse-kogda-nuzhna-2026/)
+- [Второй язык на сайте: что переводить, где хранить, как с SEO](./sayt-i-prilozhenie-na-neskolkih-yazykah-chto-perevodit-seo-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-i-prilozhenie-na-neskolkih-yazykah-chto-perevodit-seo-2026/)
+- [Многоуровневая партнёрка: граница с пирамидой и расчёт выплат](./mnogourovnevaya-partnerskaya-programma-granica-s-piramidoy-vyplaty-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/mnogourovnevaya-partnerskaya-programma-granica-s-piramidoy-vyplaty-2026/)
+- [Доработка 1С без сюрпризов: сценарии вместо описаний, приёмка](./tehzadanie-na-dorabotku-1s-kak-opisat-scenarii-priemka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/tehzadanie-na-dorabotku-1s-kak-opisat-scenarii-priemka-2026/)
+- [Как провести розыгрыш в чате по правилам: положение, налог, чеки](./rozygrysh-prizov-v-messendzhere-pravila-nalog-cheki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/rozygrysh-prizov-v-messendzhere-pravila-nalog-cheki-2026/)
+- [Как передать клиента от бота человеку и не потерять переписку](./bot-peredaet-dialog-cheloveku-operator-istoriya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bot-peredaet-dialog-cheloveku-operator-istoriya-2026/)
+- [Где должна работать ваша система: у вас, в облаке или у подрядчика](./gde-zhit-rabochey-sisteme-svoy-server-oblako-ili-podryadchik-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gde-zhit-rabochey-sisteme-svoy-server-oblako-ili-podryadchik-2026/)
+- [Бот в Telegram и MAX на одном ядре: что общее и что разное](./odin-bot-v-telegram-i-max-chto-obshchee-i-chto-raznoe-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/odin-bot-v-telegram-i-max-chto-obshchee-i-chto-raznoe-2026/)
+- [Склад в таблице без хаоса: правила и признаки, что пора на систему](./skladskoy-uchet-v-tablice-poka-rano-dlya-1s-kogda-perehodit-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skladskoy-uchet-v-tablice-poka-rano-dlya-1s-kogda-perehodit-2026/)
+- [Как платить вознаграждение за клиентов: договор, чек, налог](./vyplaty-partneram-i-referalam-uchet-sroki-nalogi-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vyplaty-partneram-i-referalam-uchet-sroki-nalogi-2026/)
 - [Как зарегистрировать ИП или ООО самому: ОКВЭД и первый месяц](./registraciya-ip-ili-ooo-poshagovo-okved-schet-rezhim-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/registraciya-ip-ili-ooo-poshagovo-okved-schet-rezhim-2026/)
 - [Когда что платить ИП: даты по УСН, патенту и НПД и напоминания](./nalogovyy-kalendar-malogo-biznesa-ens-uvedomleniya-sroki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nalogovyy-kalendar-malogo-biznesa-ens-uvedomleniya-sroki-2026/)
 - [Типовой договор поставки: что покупателю поправить до подписи](./dogovor-postavki-otsrochka-priemka-brak-neustoyka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/dogovor-postavki-otsrochka-priemka-brak-neustoyka-2026/)
@@ -1189,6 +1219,7 @@
 
 ## Отрасли
 
+- [Связь без интернета и сети: Meshtastic для групп и объектов](./meshtastic-svyaz-bez-interneta-i-sotovoy-seti-dlya-grupp-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/meshtastic-svyaz-bez-interneta-i-sotovoy-seti-dlya-grupp-2026/)
 - [Обмен с ЕГАИС встал: диагностика для магазина пива и сигарет](./egais-magazin-piva-i-sigaret-roznitsa-utm-oshibki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/egais-magazin-piva-i-sigaret-roznitsa-utm-oshibki-2026/)
 - [Две заявки на одну колонку больше не случаются](./prokat-oborudovaniya-dlya-meropriyatiy-kalendar-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/prokat-oborudovaniya-dlya-meropriyatiy-kalendar-2026/)
 - [Кабинет арендатора: счёт, акт и заявка без звонков управляющему](./kabinet-arendatora-kommercheskoy-nedvizhimosti-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kabinet-arendatora-kommercheskoy-nedvizhimosti-2026/)
@@ -1570,6 +1601,9 @@
 
 ## Право и 152-ФЗ
 
+- [Вход на сайт по закону: 4 способа авторизации и штрафы с 7 июля](./avtorizaciya-na-sayte-i-v-prilozhenii-199-fz-kakie-sposoby-dopustimy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avtorizaciya-na-sayte-i-v-prilozhenii-199-fz-kakie-sposoby-dopustimy-2026/)
+- [Рекомендательные технологии на сайте: что раскрыть и штрафы](./rekomendatelnye-tehnologii-na-sayte-199-fz-pohozhie-tovary-podborki-lenta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/rekomendatelnye-tehnologii-na-sayte-199-fz-pohozhie-tovary-podborki-lenta-2026/)
+- [Платежи без ИП и в USDT: что законно и чем рискует владелец бота](./priem-platezhey-bez-ip-i-v-usdt-chto-zakonno-i-chem-riskuet-vladelec-bota-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/priem-platezhey-bez-ip-i-v-usdt-chto-zakonno-i-chem-riskuet-vladelec-bota-2026/)
 - [Страницу конкурента удалят завтра: как сохранить её сегодня](./archivebox-arhiv-saytov-i-statey-kak-dokazatelstvo-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/archivebox-arhiv-saytov-i-statey-kak-dokazatelstvo-2026/)
 - [168-ФЗ и ваш сайт: что проверить в интерфейсе, приложении и боте](./zakon-o-russkom-yazyke-168-fz-sayt-prilozhenie-bot-chto-proverit-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zakon-o-russkom-yazyke-168-fz-sayt-prilozhenie-bot-chto-proverit-2026/)
 - [Sale, coffee, open: что с меню, прайсом и карточками товаров](./zakon-o-russkom-yazyke-menyu-prays-kartochki-tovarov-vyveska-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zakon-o-russkom-yazyke-menyu-prays-kartochki-tovarov-vyveska-2026/)
@@ -1647,7 +1681,9 @@
 
 ## Продажи
 
+- [call.md: ИИ разбирает звонки отдела продаж по ходу разговора](./call-md-ii-razbor-vstrech-i-zvonkov-v-realnom-vremeni-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/call-md-ii-razbor-vstrech-i-zvonkov-v-realnom-vremeni-2026/)
 - [ИИ-агент изучает клиента вместо менеджера перед звонком](./trycompai-crm-ii-agent-issleduet-kontakty-pered-zvonkom-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/trycompai-crm-ii-agent-issleduet-kontakty-pered-zvonkom-2026/)
+- [Нагрузочный тест перед сезоном: сколько заказов выдержит сайт и бот](./nagruzochnyy-test-pered-sezonom-skolko-zakazov-vyderzhit-sayt-i-bot-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nagruzochnyy-test-pered-sezonom-skolko-zakazov-vyderzhit-sayt-i-bot-2026/)
 - [Налоги ИП в 2027: что подтверждено по закону 228-ФЗ](./nalogi-ip-i-malogo-biznesa-v-2027-chto-podtverzhdeno-228-fz-patent-vznosy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nalogi-ip-i-malogo-biznesa-v-2027-chto-podtverzhdeno-228-fz-patent-vznosy-2026/)
 - [Лимит самозанятых 2,4 млн: что предлагают на 2027 и что принято](./limit-samozanyatyh-2-4-mln-chto-predlagayut-na-2027-i-chto-prinyato-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/limit-samozanyatyh-2-4-mln-chto-predlagayut-na-2027-i-chto-prinyato-2026/)
 - [Закрытие года за две недели: чек-лист для ИП и малого бизнеса](./zakrytie-goda-za-dve-nedeli-chek-list-ip-i-malogo-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zakrytie-goda-za-dve-nedeli-chek-list-ip-i-malogo-biznesa-2026/)
@@ -1798,6 +1834,13 @@
 
 ## Разработка
 
+- [Strata: большой свой ИИ на игровой видеокарте, без облака](./strata-svoy-ii-na-igrovoy-videokarte-lokalnyy-api-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/strata-svoy-ii-na-igrovoy-videokarte-lokalnyy-api-2026/)
+- [Databasus: вернуть базу PostgreSQL на минуту до сбоя](./databasus-kopii-postgresql-s-vosstanovleniem-na-moment-vremeni-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/databasus-kopii-postgresql-s-vosstanovleniem-na-moment-vremeni-2026/)
+- [Пароли в чате? Как хранить секреты команды в git под замком](./git-secret-sekrety-v-repozitorii-v-zashifrovannom-vide-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/git-secret-sekrety-v-repozitorii-v-zashifrovannom-vide-2026/)
+- [Apache Camel: обмен данными между системами и когда он лишний](./apache-camel-obmen-dannymi-mezhdu-sistemami-kompanii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/apache-camel-obmen-dannymi-mezhdu-sistemami-kompanii-2026/)
+- [Kill Bill: свой биллинг подписок и когда лучше Lago](./kill-bill-billing-podpisok-i-platezhey-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kill-bill-billing-podpisok-i-platezhey-na-svoem-servere-2026/)
+- [PdfDing: договоры клиентам по ссылке с паролем и сроком](./pdfding-svoy-server-dlya-pdf-i-ssylok-klientam-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pdfding-svoy-server-dlya-pdf-i-ssylok-klientam-2026/)
+- [Sylius: магазин на PHP, где витрина, учёт и 1С живут отдельно](./sylius-headless-magazin-na-php-symfony-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sylius-headless-magazin-na-php-symfony-2026/)
 - [1С и камеры склада без белого IP: проверил nps и нашёл риски](./nps-dostup-k-ustroystvam-i-servisam-bez-belogo-ip-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nps-dostup-k-ustroystvam-i-servisam-bez-belogo-ip-2026/)
 - [SmythOS Studio: ИИ-агентов можно собрать мышкой на своём сервере](./smythos-studio-vizualnyy-konstruktor-ii-agentov-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/smythos-studio-vizualnyy-konstruktor-ii-agentov-na-svoem-servere-2026/)
 - [Heym: ИИ отвечает клиентам, спорное уходит человеку на одобрение](./heym-ii-protsessy-s-odobreniem-cheloveka-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/heym-ii-protsessy-s-odobreniem-cheloveka-na-svoem-servere-2026/)
@@ -1877,7 +1920,6 @@
 - [Клиент шлёт документы кусками: бот собирает комплект сам](./sbor-dokumentov-ot-klienta-v-bote-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sbor-dokumentov-ot-klienta-v-bote-2026/)
 - [Пятый круг правок: как согласовывать макеты по ссылке](./soglasovanie-maketov-i-pravok-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/soglasovanie-maketov-i-pravok-2026/)
 - [Что подготовить, прежде чем писать разработчику: чек-лист](./chek-list-zakazchika-pered-razrabotkoy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chek-list-zakazchika-pered-razrabotkoy-2026/)
-- [8 ошибок при заказе бота, из-за которых деньги уходят впустую](./oshibki-pri-zakaze-bota-dlya-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/oshibki-pri-zakaze-bota-dlya-biznesa-2026/)
 - [Бот под ключ за 4 недели: что происходит каждую неделю](./etapy-razrabotki-bota-po-nedelyam-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/etapy-razrabotki-bota-po-nedelyam-2026/)
 - [Что вы получаете после сдачи проекта: доступы, код и инструкция](./chto-poluchaet-zakazchik-posle-sdachi-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chto-poluchaet-zakazchik-posle-sdachi-2026/)
 - [Договор на разработку: 10 пунктов и ловушки в каждом](./dogovor-na-razrabotku-chek-list-punktov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/dogovor-na-razrabotku-chek-list-punktov-2026/)
@@ -2062,9 +2104,7 @@
 - [Заказать Telegram-бота в Чите: цена и что входит](./zakazat-telegram-bota-chita-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zakazat-telegram-bota-chita-2026/)
 - [Почему мы не делаем сайты на конструкторах: честный технический разбор](./pochemu-ne-delaem-sayty-na-konstruktorah-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pochemu-ne-delaem-sayty-na-konstruktorah-2027/)
 - [Этно-авангард в веб-дизайне: национальные коды без китча](./etno-avangard-v-veb-dizayne-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/etno-avangard-v-veb-dizayne-2027/)
-- [Сколько стоит разработка ПО на заказ в 2027: из чего складывается смета](./skolko-stoit-razrabotka-po-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-stoit-razrabotka-po-2027/)
 - [Заказать разработку мобильной игры под ключ: этапы, сроки и из чего складывается цена](./razrabotka-mobilnoy-igry-pod-klyuch-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/razrabotka-mobilnoy-igry-pod-klyuch-2027/)
-- [Сколько стоит внедрение CRM и из чего складывается цена](./vnedrenie-crm-stoimost-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vnedrenie-crm-stoimost-2027/)
 - [Файл llms.txt: что это и зачем он нужен сайту в эпоху ИИ-поиска](./llms-txt-dlya-sayta-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/llms-txt-dlya-sayta-2027/)
 - [Что такое VPS простыми словами и как выбрать виртуальный сервер под задачу](./chto-takoe-vps-kak-vybrat-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chto-takoe-vps-kak-vybrat-2027/)
 - [Сайт-каталог для производителя оборудования: B2B-продажи вместо PDF-прайса](./sayt-katalog-proizvoditelya-oborudovaniya-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-katalog-proizvoditelya-oborudovaniya-2027/)
@@ -2091,16 +2131,14 @@
 - [Реферальная механика в MAX: deep links, проверка подписки и антифрод (разбор кейса)](./referalnaya-mehanika-v-max-keys-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/referalnaya-mehanika-v-max-keys-2027/)
 - [Как технически устроен выпуск ЦФА: блокчейн-платформа, смарт-контракты и учёт](./kak-ustroen-vypusk-cfa-tehnicheski-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-ustroen-vypusk-cfa-tehnicheski-2027/)
 - [Токенизация реальных активов: как «оцифровать» недвижимость, металл или дебиторку](./tokenizaciya-realnyh-aktivov-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/tokenizaciya-realnyh-aktivov-2027/)
-- [Заказать Telegram-бота для бизнеса: что входит, сроки и от чего зависит цена](./zakazat-telegram-bota-cena-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zakazat-telegram-bota-cena-2027/)
 - [Заказать автоматизацию бизнеса под ключ: с чего начать и сколько стоит](./zakazat-avtomatizaciyu-biznesa-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zakazat-avtomatizaciyu-biznesa-2027/)
-- [Внедрить ИИ в бизнес под ключ: что входит, сроки и стоимость](./vnedrit-ii-pod-klyuch-cena-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vnedrit-ii-pod-klyuch-cena-2027/)
 - [Настройка 152-ФЗ под ключ: что сделаю, чтобы не было штрафов](./nastroyka-152fz-pod-klyuch-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nastroyka-152fz-pod-klyuch-2027/)
 - [Заказать сайт для бизнеса в Чите и Забайкалье: этапы, сроки и на что смотреть](./zakazat-sayt-biznes-chita-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zakazat-sayt-biznes-chita-2027/)
 - [Как выбрать IT-подрядчика для бизнеса: чек-лист, чтобы не переплатить и не остаться с недоделкой](./kak-vybrat-it-podryadchika-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-vybrat-it-podryadchika-2027/)
 - [IT-сопровождение бизнеса: абонентка или разовые задачи — что выгоднее](./it-soprovozhdenie-biznesa-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/it-soprovozhdenie-biznesa-2027/)
 - [Заказать чат-бота для записи клиентов: цена и за сколько окупается](./zakazat-chat-bota-zapis-cena-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zakazat-chat-bota-zapis-cena-2027/)
 - [Оплата звёздами в Telegram (Stars): как работает и кому это нужно](./oplata-zvezdami-telegram-stars-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/oplata-zvezdami-telegram-stars-2026/)
-- [Telegram-бот приёма заявок и оплат под ключ: что умеет и за сколько собрать](./telegram-bot-priema-zayavok-i-oplat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/telegram-bot-priema-zayavok-i-oplat-2026/)
+- [Бот для приёма заявок в Telegram: что умеет, оплата и сроки](./telegram-bot-priema-zayavok-i-oplat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/telegram-bot-priema-zayavok-i-oplat-2026/)
 - [Mini App магазин в Telegram и MAX: интернет-магазин внутри мессенджера](./mini-app-magazin-telegram-max-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/mini-app-magazin-telegram-max-2026/)
 - [Чат-бот FAQ для поддержки в Telegram и MAX: снять до 70% типовых вопросов](./chat-bot-faq-podderzhka-telegram-max-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chat-bot-faq-podderzhka-telegram-max-2026/)
 - [Приём оплаты по СБП на сайте: как подключить дёшево и быстро](./priem-oplaty-sbp-na-sayte-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/priem-oplaty-sbp-na-sayte-2026/)
@@ -2108,19 +2146,19 @@
 - [Mini App и бот в MAX для бизнеса в Чите и Улан-Удэ: занять нишу первым](./mini-app-max-dlya-biznesa-chita-ulan-ude-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/mini-app-max-dlya-biznesa-chita-ulan-ude-2026/)
 - [Как выбрать IT-подрядчика в Чите и Улан-Удэ и не переплатить](./kak-vybrat-it-podryadchika-chita-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-vybrat-it-podryadchika-chita-2026/)
 - [Как запустить онлайн-курс: техническая часть под ключ](./zapusk-onlayn-kursa-tehchast-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zapusk-onlayn-kursa-tehchast-2026/)
-- [Сколько стоит чат-бот для бизнеса в 2026](./skolko-stoit-chat-bot-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-stoit-chat-bot-2026/)
+- [Сколько стоит чат-бот в 2026: цена Telegram-бота на заказ и для MAX](./skolko-stoit-chat-bot-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-stoit-chat-bot-2026/)
 - [Сколько стоит интернет-магазин в 2026](./skolko-stoit-internet-magazin-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-stoit-internet-magazin-2026/)
 - [Сколько стоит мобильное приложение в 2026: стоимость разработки от MVP до нативного](./skolko-stoit-mobilnoe-prilozhenie-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-stoit-mobilnoe-prilozhenie-2026/)
-- [Сколько стоит внедрение CRM и сопровождение в 2026](./skolko-stoit-crm-vnedrenie-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-stoit-crm-vnedrenie-2026/)
+- [Стоимость внедрения CRM в 2026: цены, этапы и сопровождение](./skolko-stoit-crm-vnedrenie-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-stoit-crm-vnedrenie-2026/)
 - [Сколько стоит автоматизация бизнеса в 2026](./skolko-stoit-avtomatizaciya-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-stoit-avtomatizaciya-biznesa-2026/)
 - [10 признаков, что бизнесу пора автоматизироваться](./priznaki-chto-pora-avtomatizirovatsya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/priznaki-chto-pora-avtomatizirovatsya-2026/)
-- [Сколько стоит разработать программу (ПО) на заказ в 2026](./skolko-stoit-po-na-zakaz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-stoit-po-na-zakaz-2026/)
+- [Стоимость разработки ПО на заказ в 2026: цены, этапы, от чего зависит](./skolko-stoit-po-na-zakaz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-stoit-po-na-zakaz-2026/)
 - [Сколько стоит веб-приложение (веб-сервис, SaaS) в 2026](./skolko-stoit-veb-prilozhenie-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-stoit-veb-prilozhenie-2026/)
 - [Сколько стоит лендинг в 2026](./skolko-stoit-lending-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-stoit-lending-2026/)
 - [Сколько стоит сделать MVP в 2026](./skolko-stoit-mvp-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-stoit-mvp-2026/)
 - [Сколько стоит интеграция систем и API в 2026](./skolko-stoit-integraciya-api-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-stoit-integraciya-api-2026/)
 - [Сколько стоит поддержка и доработка ПО в 2026](./skolko-stoit-podderzhka-dorabotka-po-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-stoit-podderzhka-dorabotka-po-2026/)
-- [Сколько стоит разработка под ключ: полный гайд по ценам 2026](./skolko-stoit-razrabotka-gayd-ceny-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-stoit-razrabotka-gayd-ceny-2026/)
+- [Сколько стоит разработка под ключ в 2026: сайт, бот, приложение](./skolko-stoit-razrabotka-gayd-ceny-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-stoit-razrabotka-gayd-ceny-2026/)
 - [Битрикс24 vs amoCRM: какую CRM выбрать в 2026](./bitrix24-vs-amocrm-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bitrix24-vs-amocrm-2026/)
 - [Tilda vs WordPress: на чём делать сайт в 2026](./tilda-vs-wordpress-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/tilda-vs-wordpress-2026/)
 - [Готовое решение vs своя разработка: что выгоднее в 2026](./gotovoe-vs-svoya-razrabotka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gotovoe-vs-svoya-razrabotka-2026/)
@@ -2266,6 +2304,7 @@
 
 ## Экспертное
 
+- [Как ИИ-агента обманывают чужим письмом и чем от этого защищаться](./bezopasnost-ii-agentov-ataki-cherez-pismo-i-poisk-kiberimmunitet-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bezopasnost-ii-agentov-ataki-cherez-pismo-i-poisk-kiberimmunitet-2026/)
 - [Тарифы MAX для бизнеса: что известно и чего пока нет](./max-stanet-platnym-dlya-biznesa-chto-izvestno-pro-licenzii-i-tarify-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/max-stanet-platnym-dlya-biznesa-chto-izvestno-pro-licenzii-i-tarify-2026/)
 - [Живая расшифровка встреч от Microsoft: нужна ли бизнесу](./zhivaya-rasshifrovka-vstrech-mai-transcribe-2-streaming-nuzhna-li-biznesu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zhivaya-rasshifrovka-vstrech-mai-transcribe-2-streaming-nuzhna-li-biznesu-2026/)
 - [GPT-6.1 Sol: токен в пять раз дешевле Astra, что менять в боте](./gpt-6-1-sol-token-podeshevel-chto-menyat-v-byudzhete-i-nastroykakh-bota-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gpt-6-1-sol-token-podeshevel-chto-menyat-v-byudzhete-i-nastroykakh-bota-2026/)
@@ -2335,7 +2374,6 @@
 - [Spark-X2.5-4B: агентная модель на 4B с контекстом 1 млн токенов — что это меняет для бизнеса](./spark-x25-4b-agentnaya-model-lokalno-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/spark-x25-4b-agentnaya-model-lokalno-2026/)
 - [TimesFM 3 от Google: прогноз продаж и спроса без своей модели — как применить в бизнесе](./timesfm-3-prognoz-prodazh-i-sprosa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/timesfm-3-prognoz-prodazh-i-sprosa-2026/)
 - [Как составить ТЗ на сайт или бота: чтобы получить то, что нужно](./kak-sostavit-tz-na-sayt-bot-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-sostavit-tz-na-sayt-bot-2026/)
-- [Сколько стоит сайт или бот под ключ в 2026: смета без сюрпризов](./skolko-stoit-sayt-bot-pod-klyuch-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-stoit-sayt-bot-pod-klyuch-2026/)
 - [Анимированные QR и фонтанные коды: как файл летит через экран](./animirovannye-qr-fontannye-kody-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/animirovannye-qr-fontannye-kody-2026/)
 - [Почему я не берусь за некоторые проекты](./pochemu-ne-berus-za-proekty-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pochemu-ne-berus-za-proekty-2026/)
 - [Сайт за 3 дня и 10 тысяч — почему это ловушка](./sayt-za-3-dnya-lovushka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-za-3-dnya-lovushka-2026/)
@@ -2422,7 +2460,7 @@
 - [Разбор провала: внедрение, которое не взлетело, и почему](./razbor-provala-vnedreniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/razbor-provala-vnedreniya-2026/)
 - [До и после автоматизации: как меняется работа бизнеса](./do-i-posle-avtomatizacii-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/do-i-posle-avtomatizacii-keys-2026/)
 - [7 мифов об ИИ для бизнеса, в которые верят зря](./7-mifov-ob-ii-dlya-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/7-mifov-ob-ii-dlya-biznesa-2026/)
-- [10 ошибок при заказе сайта или бота, которые я вижу постоянно](./10-oshibok-pri-zakaze-sayta-bota-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/10-oshibok-pri-zakaze-sayta-bota-2026/)
+- [10 ошибок при заказе сайта или бота и ещё 3 ловушки для ботов](./10-oshibok-pri-zakaze-sayta-bota-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/10-oshibok-pri-zakaze-sayta-bota-2026/)
 - [Мифы о 152-ФЗ: чего закон на самом деле требует, а чего нет](./mify-o-152-fz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/mify-o-152-fz-2026/)
 - [Что автоматизировать в бизнесе первым: моя методика выбора](./chto-avtomatizirovat-pervym-metodika-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chto-avtomatizirovat-pervym-metodika-2026/)
 - [Чек-лист готовности бизнеса к ИИ: внедрять или рано](./chek-list-gotovnosti-k-ii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chek-list-gotovnosti-k-ii-2026/)

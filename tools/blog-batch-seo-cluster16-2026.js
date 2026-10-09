@@ -10,7 +10,7 @@ const SVC_BIZ = { title: 'Что я делаю для бизнеса', services:
   { icon: 'ph-fill ph-globe', label: 'Сайты и лендинги под ключ' },
 ]};
 
-const BOTY = { url: `${S}/services/telegram-bots/`, label: 'Собрать бота под задачу' };
+const BOTY = { url: `${S}/development/telegram-bots/`, label: 'Собрать бота под задачу' };
 
 const FAQ_VYV = [{ id: 'faq', text: 'Частые вопросы' }, { id: 'vyvody', text: 'Коротко о главном' }];
 const E = (o) => Object.assign({ published: true, datePublished: D, dateModified: D, readingMinutes: 5, servicesOffer: SVC_BIZ }, o, { contentHtml: C(o.slug) });

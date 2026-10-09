@@ -47,7 +47,7 @@ module.exports = {
     ],
     relatedServices: [
       { url: '/services/digital-marketing/', label: 'Цифровой маркетинг' },
-      { url: '/services/telegram-bots/', label: 'Чат-боты' }
+      { url: '/development/telegram-bots/', label: 'Чат-боты' }
     ],
     relatedBlog: [
       { url: '/blog/max-kanaly-rassylki-marketing-2026/', label: 'MAX-каналы и рассылки' },
@@ -103,7 +103,7 @@ module.exports = {
       { q: 'Работает ли это вне MAX?', a: 'Да. Та же механика deeplink-ссылок и трекинга переносится в Telegram и VK с учётом особенностей каждой площадки' }
     ],
     relatedServices: [
-      { url: '/services/telegram-bots/', label: 'Чат-боты' },
+      { url: '/development/telegram-bots/', label: 'Чат-боты' },
       { url: '/services/business-automation/', label: 'Автоматизация бизнеса' }
     ],
     relatedBlog: [
@@ -160,7 +160,7 @@ module.exports = {
       { q: 'Можно ли провести такой розыгрыш в Telegram или VK?', a: 'Да. Механика проверки подписки, антифрода и протокола переносится в Telegram и VK с учётом их особенностей' }
     ],
     relatedServices: [
-      { url: '/services/telegram-bots/', label: 'Чат-боты' },
+      { url: '/development/telegram-bots/', label: 'Чат-боты' },
       { url: '/services/digital-marketing/', label: 'Цифровой маркетинг' }
     ],
     relatedBlog: [
@@ -218,7 +218,7 @@ module.exports = {
     ],
     relatedServices: [
       { url: '/services/digital-marketing/', label: 'Цифровой маркетинг' },
-      { url: '/services/telegram-bots/', label: 'Чат-боты' }
+      { url: '/development/telegram-bots/', label: 'Чат-боты' }
     ],
     relatedBlog: [
       { url: '/blog/konkurs-priglasheniy-max-virusnyy-rost-2027/', label: 'Конкурс приглашений в MAX' },

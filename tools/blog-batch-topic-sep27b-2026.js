@@ -229,7 +229,7 @@ module.exports = [
       { id: "vyvody", text: "Коротко о главном" },
     ],
     relatedSlugs: ["moodle-onlayn-obuchenie-2026","avtomatizaciya-onlayn-shkoly-2026","onlayn-kurs-kak-produkt-2026","zapusk-onlayn-kursa-tehchast-2026"] }),
-  E({ slug: "kabinet-klienta-fitnes-abonement-2026", category: "industries", heroIcon: "ph-fill ph-identification-card", ctaInternal: { url: "https://chimitdorzhi.tech/services/telegram-bots/", label: "Разработка ботов и кабинетов клиента" },
+  E({ slug: "kabinet-klienta-fitnes-abonement-2026", category: "industries", heroIcon: "ph-fill ph-identification-card", ctaInternal: { url: "https://chimitdorzhi.tech/development/telegram-bots/", label: "Разработка ботов и кабинетов клиента" },
     title: "Клуб не знает, кто заморозил абонемент и не вернулся",
     metaTitle: "Личный кабинет клиента для фитнес-клуба и студии",
     metaDescription: "Кабинет клиента для фитнес-клуба, студии и тренера: остаток занятий, заморозка, продление, запись на групповые и напоминания, чтобы не терять абонементы.",

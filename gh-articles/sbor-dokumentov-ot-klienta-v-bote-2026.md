@@ -75,7 +75,7 @@ canonical: https://chimitdorzhi.tech/blog/sbor-dokumentov-ot-klienta-v-bote-2026
 
 - Решите, где будут лежать файлы и сколько дней после закрытия заявки вы их храните. Это условие для любого бота.
 
-Дальше подключается бот на [Telegram и MAX](/services/telegram-bots/), и то же самое умеет распознавание из [предложения по ИИ-распознаванию документов](/predlozheniya/ai-ocr-dokumentov/).
+Дальше подключается бот на [Telegram и MAX](/development/telegram-bots/), и то же самое умеет распознавание из [предложения по ИИ-распознаванию документов](/predlozheniya/ai-ocr-dokumentov/).
 
 ## Частые вопросы
 

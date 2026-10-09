@@ -458,10 +458,18 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
                         <p>В эпоху мгновенного потребления контента и высоких требований к пользовательскому опыту (UX) скорость загрузки веб-страниц перестала быть просто техническим параметром. Сегодня это критически важный фактор успеха любого онлайн-проекта. Пользователи не готовы ждать более двух секунд: каждая лишняя секунда задержки экспоненциально снижает конверсию, увеличивает показатель отказов и негативно сказывается на ранжировании сайта в поисковых системах Google и Яндекс.</p>
 <p>В данном руководстве мы подробно разберем глубокие инженерные подходы к оптимизации производительности веб-ресурсов, работающих на двух наиболее популярных платформах в Рунете — WordPress и 1С-Битрикс. Мы заглянем под капот веб-серверов, разберем тонкую настройку баз данных, конфигурацию кэширования и тонкости рендеринга на стороне клиента.</p>
 <div class="blog-tldr"><h3>Коротко (TL;DR)</h3><p>Оптимизация скорости — это комплексный процесс, охватывающий бэкенд, серверную инфраструктуру и фронтенд. Основные шаги для достижения высоких результатов: 1. <strong>Сокращение TTFB</strong>: Снижение времени отклика сервера до &lt;200 мс с помощью тонкой настройки PHP-FPM, OPcache, MySQL и использования веб-сервера Nginx. 2. <strong>Внедрение кэширования</strong>: Использование Redis для объектного кэширования в WordPress и Memcached/Redis для кэширования данных в 1С-Битрикс. 3. <strong>Оптимизация рендеринга</strong>: Сокращение критического пути рендеринга (Critical Rendering Path) через отложенную загрузку JS (defer/async), инлайнинг критического CSS и оптимизацию веб-шрифтов. 4. <strong>Работа с медиа</strong>: Автоматическая конвертация изображений в форматы нового поколения (WebP/AVIF) и использование адаптивной разметки (srcset). 5. <strong>Учет специфики платформ</strong>: WordPress требует минимизации плагинов и очистки базы данных от оверхеда ревизий, тогда как 1С-Битрикс — настройки режима «Композитный сайт», оптимизации ORM и отладки медленных SQL-запросов.</p></div>
+<div class="blog-cta-internal">
+  <i class="ph-fill ph-rocket-launch" aria-hidden="true"></i>
+  <div>
+    <strong>Хотите внедрить это у себя?</strong>
+    <p>Сделаю под ключ: разберу задачу, назову срок и цену. Чтобы начать, <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%9E%D0%BF%D1%82%D0%B8%D0%BC%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F%20%D1%81%D0%BA%D0%BE%D1%80%D0%BE%D1%81%D1%82%D0%B8%20%D1%81%D0%B0%D0%B9%D1%82%D0%B0%3A%20%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9%20%D0%B3%D0%B0%D0%B9%D0%B4%20%D0%BF%D0%BE%20%D1%83%D1%81%D0%BA%D0%BE%D1%80%D0%B5%D0%BD%D0%B8%D1%8E%20%D0%B7%D0%B0%D0%B3%D1%80%D1%83%D0%B7%D0%BA%D0%B8%20%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%20%D0%BD%D0%B0%E2%80%A6%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener">напишите в Telegram</a> одной фразой.</p>
+    <a href="https://chimitdorzhi.tech/predlozheniya/audit-i-uskorenie-sayta/">Ускорить сайт <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</div>
 <h2 id="introduction">Введение: Почему скорость решает всё в 2026 году</h2>
 <p>Производительность сайта напрямую влияет на его коммерческий успех. С точки зрения бизнеса, медленный сайт — это упущенная прибыль. Поисковые системы оценивают пользовательский опыт с помощью метрик Core Web Vitals, ключевыми из которых являются:</p>
 <ul><li><strong>LCP (Largest Contentful Paint)</strong>: Скорость отрисовки самого крупного контентного элемента (картинки или блока текста) в видимой зоне. Идеальный показатель — до 2.5 секунд.</li><li><strong>INP (Interaction to Next Paint)</strong>: Метрика, пришедшая на смену FID (First Input Delay) в марте 2024 года. Она измеряет задержку взаимодействия пользователя со страницей. Идеальный показатель — менее 200 миллисекунд.</li><li><strong>CLS (Cumulative Layout Shift)</strong>: Совокупный сдвиг макета во время загрузки. Идеальный показатель — менее 0.1.</li></ul>
-<p>Медленная загрузка страниц увеличивает показатель отказов (Bounce Rate) на мобильных устройствах, доля которых сегодня превышает 70% от общего объема трафика. Google использует алгоритмы Mobile-First Indexing, что означает: если мобильная версия вашего сайта работает медленно, позиции всего сайта в поисковой выдаче будут пессимизированы. Кроме того, быстрая загрузка снижает нагрузку на процессор и оперативную память сервера, позволяя экономить на услугах хостинга.</p>
+<p><a href="/blog/medlennyy-sayt-ubivaet-prodazhi-2026/">Медленная загрузка страниц</a> увеличивает показатель отказов (Bounce Rate) на мобильных устройствах, доля которых сегодня превышает 70% от общего объема трафика. Google использует алгоритмы Mobile-First Indexing, что означает: если мобильная версия вашего сайта работает медленно, позиции всего сайта в поисковой выдаче будут пессимизированы. Кроме того, быстрая загрузка снижает нагрузку на процессор и оперативную память сервера, позволяя экономить на услугах хостинга.</p>
 <p><strong>Коротко:</strong> Ускорение сайта достигается на четырёх уровнях: снижение TTFB до 200 мс настройкой PHP-FPM, OPcache и MySQL; кэширование через Redis или Memcached; сокращение критического пути рендеринга (defer/async, критический CSS, font-display: swap); перевод изображений в WebP/AVIF. Для 1С-Битрикс дополнительно включают режим «Композитный сайт» и оптимизируют ORM-запросы.</p>
 <h2 id="ttfb-optimization">Что такое TTFB и как его минимизировать</h2>
 <p><strong>TTFB (Time to First Byte)</strong> — время до получения первого байта информации от сервера браузером пользователя. Эта метрика состоит из трех составляющих: времени отправки HTTP-запроса, времени обработки запроса сервером и времени передачи первого байта ответа по сети. В идеальных условиях TTFB динамических страниц должен находиться в пределах 100–300 мс.</p>
@@ -529,7 +537,7 @@ query_cache_size = 0</code></pre>
 <ol><li><strong>1С-Битрикс</strong>: Важно регулярно очищать таблицы логов веб-аналитики, поискового индекса и незавершенных сессий:</li><li><code>b_event</code> (системные события);</li><li><code>b_search_content</code> (поисковый индекс, если используется внешний Elastic/Sphinx);</li><li><code>b_user_stored_auth</code> (сохраненная авторизация).</li></ol>
 <p>После удаления мусора выполните команду дефрагментации таблиц <code>OPTIMIZE TABLE имя_таблицы;</code>.</p>
 <h2 id="hosting-vps-config">Конфигурация хостинга и VPS под высокие нагрузки</h2>
-<p>Использование дешевого виртуального хостинга (Shared Hosting) накладывает жесткие ограничения на ресурсы процессора и дисковую активность (IOPS). Для быстрой работы CMS требуется виртуальный (VPS/VDS) или выделенный сервер.</p>
+<p>Использование дешевого виртуального хостинга (Shared Hosting) накладывает жесткие ограничения на ресурсы процессора и дисковую активность (IOPS). Для быстрой работы CMS требуется <a href="/blog/chto-takoe-vps-kak-vybrat-2027/">виртуальный (VPS/VDS) или выделенный сервер</a>.</p>
 <p>Оптимальный стек ПО для современных проектов — <strong>LEMP</strong> (Linux, Nginx, MariaDB, PHP-FPM). В этой связке Nginx выступает в роли фронтенд-сервера, обрабатывая статические файлы (картинки, стили, шрифты) напрямую и передавая динамические запросы на обработку PHP-FPM.</p>
 <h3>Оптимизация PHP-FPM (в файле пула <code>www.conf</code>):</h3>
 <p>Вместо режима <code>dynamic</code>, который тратит ресурсы на создание и уничтожение процессов PHP, для высоконагруженных систем рекомендуется использовать режим <code>static</code>:</p>
@@ -541,11 +549,12 @@ pm.max_requests = 1000 # Перезапуск процесса после обр
 gzip_disable "msie6";
 gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript;
 gzip_comp_level 5;</code></pre>
+<div class="blog-callout blog-callout-info blog-read-next"><i class="ph-fill ph-book-open" aria-hidden="true"></i><div><strong>Читайте дальше по теме</strong><ul><li><a href="/blog/zaschita-sayta-ot-parsinga/">Защита сайтов от парсинга: как закрыть свои каталоги от воровства цен и контента конкурентами</a></li><li><a href="/blog/priem-platezhey-sbp-sayt/">Прием платежей на сайте: как подключить СБП (систему быстрых платежей) и рассрочки для снижения эквайринга</a></li></ul></div></div>
 <h2 id="wordpress-vs-bitrix">Сравнение процессов оптимизации: WordPress vs 1С-Битрикс</h2>
 <p>Несмотря на общие принципы веб-технологий, WordPress и 1С-Битрикс кардинально отличаются по своей архитектуре и внутреннему устройству.</p>
 <h3>WordPress: Архитектура плагинов и простота решений</h3>
 <p>WordPress по своей природе является легковесной блоговой системой, которая превращается в интернет-магазин или портал за счет установки сторонних плагинов (WooCommerce, Elementor, Advanced Custom Fields).</p>
-<ul><li><strong>Проблема</strong>: Каждый новый плагин добавляет свои JS и CSS файлы, отправляет запросы к базе данных и замедляет выполнение скриптов. Особо прожорливы визуальные конструкторы (Page Builders), генерирующие избыточный HTML-код.</li><li><strong>Решение</strong>: Минимизация количества плагинов (до 15-20 штук), ручное отключение неиспользуемых скриптов на конкретных страницах через хук <code>wp_dequeue_script()</code>. Использование специализированных плагинов оптимизации (WP Rocket, FlyingPress, LiteSpeed Cache) для настройки объединения ресурсов и отложенной загрузки JS.</li></ul>
+<ul><li><strong>Проблема</strong>: Каждый новый плагин добавляет свои JS и CSS файлы, отправляет запросы к базе данных и замедляет выполнение скриптов. Особо прожорливы <a href="/blog/pochemu-ne-delaem-sayty-na-konstruktorah-2027/">визуальные конструкторы (Page Builders)</a>, генерирующие избыточный HTML-код.</li><li><strong>Решение</strong>: Минимизация количества плагинов (до 15-20 штук), ручное отключение неиспользуемых скриптов на конкретных страницах через хук <code>wp_dequeue_script()</code>. Использование специализированных плагинов оптимизации (WP Rocket, FlyingPress, LiteSpeed Cache) для настройки объединения ресурсов и отложенной загрузки JS.</li></ul>
 <h3>1С-Битрикс: Тяжеловесный энтерпрайз</h3>
 <p>Битрикс — это мощная монолитная система со строгой архитектурой компонентов и инфоблоков.</p>
 <ul><li><strong>Проблема</strong>: Избыточность кода, сложные SQL-запросы при выборке данных из инфоблоков через стандартное API (особенно при неверном использовании <code>CIBlockElement::GetList</code>), высокая нагрузка на диск и процессор.</li><li><strong>Решение</strong>:</li><li>Внедрение технологии <strong>«Композитный сайт»</strong>. Это уникальная фича Битрикса, разделяющая страницу на статическую часть (кэшируется на уровне веб-сервера и отдается мгновенно) и динамическую (подгружается асинхронным фоновым AJAX-запросом).</li><li>Использование встроенного инструмента «Монитор производительности» для отслеживания времени генерации страниц, поиска «тяжелых» компонентов и медленных запросов к БД.</li><li>Переписывание неоптимальных выборок с использованием механизма ORM (D7) и обязательное кэширование результатов выборок с помощью параметров компонента <code>CACHE_TIME</code> и <code>CACHE_TYPE</code>.</li></ul>
@@ -596,96 +605,24 @@ gzip_comp_level 5;</code></pre>
                     
                     
 <div class="blog-services-offer">
-  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <div class="blog-services-offer-eyebrow">Обсудим вашу задачу</div>
   <h3 class="blog-services-offer-title">Что я делаю с сайтами</h3>
-  <ul class="blog-services-offer-list">
-    
-    <li><i class="ph-fill ph-gauge"></i> <span>Ускорение и Core Web Vitals</span></li>
-    
-    <li><i class="ph-fill ph-shield"></i> <span>Защита от ботов и парсинга</span></li>
-    
-    <li><i class="ph-fill ph-credit-card"></i> <span>Приём платежей по СБП</span></li>
-    
-    <li><i class="ph-fill ph-chart-bar"></i> <span>Аналитика и конверсия</span></li>
-    
-  </ul>
+  <p class="blog-services-offer-lead">Напишите одной фразой, что нужно. Отвечу, что подойдёт, сколько займёт и сколько стоит. Сообщение уже подготовлено.</p>
+  <ul class="blog-services-offer-list"><li><i class="ph-fill ph-gauge"></i> <span>Ускорение и Core Web Vitals</span></li><li><i class="ph-fill ph-shield"></i> <span>Защита от ботов и парсинга</span></li><li><i class="ph-fill ph-credit-card"></i> <span>Приём платежей по СБП</span></li><li><i class="ph-fill ph-chart-bar"></i> <span>Аналитика и конверсия</span></li></ul>
   <div class="blog-services-offer-ctas">
-    <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%9E%D0%BF%D1%82%D0%B8%D0%BC%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F%20%D1%81%D0%BA%D0%BE%D1%80%D0%BE%D1%81%D1%82%D0%B8%20%D1%81%D0%B0%D0%B9%D1%82%D0%B0%3A%20%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9%20%D0%B3%D0%B0%D0%B9%D0%B4%20%D0%BF%D0%BE%20%D1%83%D1%81%D0%BA%D0%BE%D1%80%D0%B5%D0%BD%D0%B8%D1%8E%20%D0%B7%D0%B0%D0%B3%D1%80%D1%83%D0%B7%D0%BA%D0%B8%20%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%20%D0%BD%D0%B0%E2%80%A6%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener" class="blog-services-offer-cta">
       <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
     </a>
     <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="blog-services-offer-cta blog-services-offer-cta-max">
       <i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> Написать в MAX
     </a>
+    <a href="https://chimitdorzhi.tech/predlozheniya/audit-i-uskorenie-sayta/" class="blog-services-offer-cta blog-services-offer-cta-max"><i class="ph ph-arrow-right" aria-hidden="true"></i> Ускорить сайт</a>
   </div>
 </div>
-                    <div class="blog-cta-card">
-                        <div class="blog-cta-card-body">
-                            <h3>Бесплатно: чек-лист «Готов ли ваш бизнес к 152-ФЗ»</h3>
-                            <p>12 пунктов, которые проверяют готовность за час: данные, согласия, уведомление в РКН, локализация, защита. Отметьте, что уже сделано, и увидите дыры, за которые сейчас штрафуют.</p>
-                        </div>
-                        <div class="blog-cta-card-actions">
-                            <a href="/checklist-152-fz/" class="btn btn-accent"><i class="ph-fill ph-clipboard-text" aria-hidden="true"></i> Открыть чек-лист</a>
-                        </div>
-                    </div>
                     
-                    <a class="blog-offer-cta" href="/predlozheniya/audit-i-uskorenie-sayta/">
-                        <span class="blog-offer-cta-body">
-                            <span class="blog-offer-cta-eyebrow">Готовое решение по теме</span>
-                            <span class="blog-offer-cta-title">Аудит и ускорение сайта</span>
-                            <span class="blog-offer-cta-price">Бесплатная консультация · Аудит за 3–5 дней</span>
-                        </span>
-                        <span class="btn btn-accent"><i class="ph ph-arrow-right" aria-hidden="true"></i> Смотреть предложение</span>
-                    </a>
-
-                    <div class="blog-cta-card blog-cta-card-final">
-                        <div class="blog-cta-card-body">
-                            <h3>Готовы обсудить вашу задачу?</h3>
-                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
-                        </div>
-                        <div class="blog-cta-card-actions">
-                            <a href="https://chimitdorzhi.tech/predlozheniya/audit-i-uskorenie-sayta/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Ускорить сайт</a>
-                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
-                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
-                        </div>
-                    </div>
-
-                    <section class="blog-subscribe">
-  <div class="blog-subscribe-body">
-    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
-    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
-  </div>
-  <div class="blog-subscribe-actions">
-    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
-    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
-  </div>
-</section>
                     <section class="blog-related">
   <h2>Читайте также</h2>
-  <div class="blog-grid"><a class="blog-card" href="/blog/zaschita-sayta-ot-parsinga/" data-category="development" data-clicks="2">
-  
-  <div class="blog-card-icon"><i class="ph-fill ph-shield"></i></div>
-  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
-  <h3>Защита сайтов от парсинга: как закрыть свои каталоги от воровства цен и контента конкурентами</h3>
-  <p>Детальное техническое руководство по защите интернет-магазинов и каталогов от автоматического парсинга. Разбираем, как парсеры обходят защиту, настройку Cloudflare WAF, Rate Limiting, Canvas Fingerprinting, подпись API-запросов, Shadow DOM, Honeypots и юридические аспекты.</p>
-  <div class="blog-card-meta">
-    <span><i class="ph ph-calendar" aria-hidden="true"></i> 9 июня 2026</span>
-    <span><i class="ph ph-clock" aria-hidden="true"></i> 15 мин</span>
-  </div>
-  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
-</a>
-<a class="blog-card" href="/blog/priem-platezhey-sbp-sayt/" data-category="development" data-clicks="0">
-  
-  <div class="blog-card-icon"><i class="ph-fill ph-credit-card"></i></div>
-  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
-  <h3>Прием платежей на сайте: как подключить СБП (систему быстрых платежей) и рассрочки для снижения эквайринга</h3>
-  <p>Детальное руководство по приему платежей на сайте. Сравнение классического эквайринга и СБП (тарифы, QR-коды, динамические ссылки), обзор BNPL-сервисов, онлайн-рассрочек (Т-Банк, Сбер) и интеграция через API.</p>
-  <div class="blog-card-meta">
-    <span><i class="ph ph-calendar" aria-hidden="true"></i> 9 июня 2026</span>
-    <span><i class="ph ph-clock" aria-hidden="true"></i> 15 мин</span>
-  </div>
-  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
-</a>
-<a class="blog-card" href="/blog/uskorenie-1c-postgresql/" data-category="development" data-clicks="3">
+  <div class="blog-grid"><a class="blog-card" href="/blog/uskorenie-1c-postgresql/" data-category="development" data-clicks="3">
   
   <div class="blog-card-icon"><i class="ph-fill ph-database"></i></div>
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
@@ -696,7 +633,62 @@ gzip_comp_level 5;</code></pre>
     <span><i class="ph ph-clock" aria-hidden="true"></i> 15 мин</span>
   </div>
   <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/elektronnaya-nfc-vizitka-2026/" data-category="development" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-identification-card"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
+  <h3>Электронная NFC-визитка: контакты по одному касанию</h3>
+  <p>Бумажные визитки теряются в тот же день, а контакт не сохраняется. NFC-визитка: поднёс телефон — открылся профиль со всеми контактами и кнопкой «сохранить». Разбираю, как это устроено и как сделать такой сервис.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 31 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/bot-monitor-chatov-zayavki-2026/" data-category="development" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-chats-circle"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
+  <h3>Бот-монитор чатов: ловим заявки «куплю/ищу» первыми</h3>
+  <p>В тематических чатах каждый день пишут «ищу того, кто сделает сайт», «посоветуйте разработчика», «куплю». Кто ответит первым — заберёт клиента. Разбираю, как бот ловит такие заявки за секунды, что при этом законно, и кому это окупается.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 31 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/pochemu-beru-deshevle-studiy-2026/" data-category="development" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-scales"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
+  <h3>Почему я беру заказы, за которые студии просят в разы дороже</h3>
+  <p>Один и тот же проект в студии может стоить в разы дороже, чем у частного разработчика. Разбираю честно: за что вы доплачиваете в агентстве, где это оправдано, а где вы платите за чужой офис и менеджеров.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 31 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 8 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
 </a></div>
+</section>
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/audit-i-uskorenie-sayta/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовое решение по теме</span>
+                            <span class="blog-offer-cta-title">Аудит и ускорение сайта</span>
+                            <span class="blog-offer-cta-price">Бесплатная консультация · Аудит за 3–5 дней</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-arrow-right" aria-hidden="true"></i> Смотреть предложение</span>
+                    </a>
+                    <section class="blog-subscribe">
+  <div class="blog-subscribe-body">
+    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
+    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
+  </div>
+  <div class="blog-subscribe-actions">
+    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
+  </div>
 </section>
                     
                     

@@ -2,7 +2,7 @@ module.exports = {
   slug: "limity-telegram-i-max-rassylka-vstala-2026",
   category: "development",
   heroIcon: "ph-fill ph-hourglass-medium",
-  ctaInternal: { url: "https://chimitdorzhi.tech/services/telegram-bots/", label: "Заказать бота с очередью рассылки" },
+  ctaInternal: { url: "https://chimitdorzhi.tech/development/telegram-bots/", label: "Заказать бота с очередью рассылки" },
   title: "Рассылка в боте встала на половине: лимиты Telegram и MAX",
   metaTitle: "Лимиты Telegram и MAX: почему рассылка в боте встала",
   metaDescription: "Рассылка в боте дошла до части базы и остановилась? Какие лимиты у Telegram и MAX, что такое 429 и retry_after, как построить очередь с паузой.",

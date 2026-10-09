@@ -60,13 +60,14 @@ module.exports = [
     slug: 'skolko-stoit-ai-agent-dlya-prodazh-2026',
     category: 'ai-dev', heroIcon: 'ph-fill ph-currency-rub',
     title: 'Сколько стоит ИИ-агент: цена для продаж и из чего она складывается',
-    metaTitle: 'Сколько стоит ИИ-агент в 2026: цена и из чего складывается',
-    metaDescription: 'Сколько стоит ИИ-агент для продаж и поддержки в 2026: разработка, интеграции, модель и поддержка — вилки цен, от чего зависит бюджет и как считать окупаемость.',
-    metaKeywords: 'сколько стоит ии агент, цена ии агента для продаж, стоимость ии бота, внедрение ии стоимость, ии для продаж цена, окупаемость ии агента',
+    metaTitle: 'Сколько стоит ИИ-агент: цена в 2026 и из чего складывается',
+    metaDescription: 'Сколько стоит ИИ-агент и сколько стоит создать агента: разработка, интеграции, модель, поддержка, разовые и ежемесячные расходы и как считать окупаемость.',
+    metaKeywords: 'сколько стоит ии агент, ии агент цена, сколько стоит создать ии агента, цена ии агента для продаж, стоимость ии агента в месяц, окупаемость ии агента',
+    dateModified: '2026-10-08',
     excerpt: 'ИИ-агент для продаж стоит по-разному: от простого квалификатора заявок до полноценного менеджера с интеграциями. Разбираю, из чего складывается цена, что влияет на бюджет и как прикинуть окупаемость до старта.',
     tags: ['ИИ', 'продажи', 'стоимость', 'агенты', '2026'],
-    toc: toc(['iz-chego','Из чего складывается цена'],['ot-chego','От чего зависит бюджет'],['okupaemost','Как прикинуть окупаемость'],['kak-sekonomit','Как не переплатить'],['faq','Частые вопросы'],['vyvody','Коротко о главном']),
-    relatedSlugs: ['skolko-stoit-vnedrit-ii-2026', 'ai-agenty-v-biznese-2026', 'okupaemost-ii-agentov-biznes-keys-2026', 'ii-agent-zayavki-s-sayta-crm-2027'],
+    toc: toc(['korotko','Сколько стоит: короткий ответ'],['iz-chego','Из чего складывается цена'],['ot-chego','От чего зависит бюджет'],['sozdat','Разовые и ежемесячные расходы'],['okupaemost','Как прикинуть окупаемость'],['kak-sekonomit','Как не переплатить'],['faq','Частые вопросы'],['vyvody','Коротко о главном']),
+    relatedSlugs: ['razrabotka-ai-agentov-pod-klyuch-2027', 'ai-agenty-v-biznese-2026', 'okupaemost-ii-agentov-biznes-keys-2026', 'ii-agent-zayavki-s-sayta-crm-2027'],
   }, SVC_AI, CTA_AI),
   mk({
     slug: 'skolko-stoit-razrabotka-po-na-zakaz-2026',
@@ -78,7 +79,7 @@ module.exports = [
     excerpt: 'Цена разработки ПО на заказ прыгает в разы, и заказчику непонятно, за что он платит. Разбираю, из чего реально складывается стоимость, почему оценки так различаются и как читать смету, чтобы не переплатить и не получить полуфабрикат.',
     tags: ['разработка', 'стоимость', 'ПО', 'заказ', '2026'],
     toc: toc(['iz-chego','Из чего складывается цена'],['pochemu-raznica','Почему оценки различаются в разы'],['kak-chitat-smetu','Как читать смету'],['kak-sekonomit','Как не переплатить'],['faq','Частые вопросы'],['vyvody','Коротко о главном']),
-    relatedSlugs: ['skolko-stoit-vnedrit-ii-2026', 'vnedrenie-ii-stoimost-2027', 'kak-schitat-okupaemost-avtomatizacii-2026', 'ai-agenty-v-biznese-2026'],
+    relatedSlugs: ['skolko-stoit-vnedrit-ii-2026', 'kak-schitat-okupaemost-avtomatizacii-2026', 'ai-agenty-v-biznese-2026'],
   }, SVC_AI, CTA_MARKET),
   mk({
     slug: 'ii-pod-klyuch-ili-abonement-2026',
@@ -90,7 +91,7 @@ module.exports = [
     excerpt: 'Одни хотят заплатить за ИИ-проект разом и забыть, другим удобнее абонемент с поддержкой и доработками. Разбираю, что значит «под ключ», чем отличается абонемент и когда какая модель оплаты реально выгоднее.',
     tags: ['ИИ', 'оплата', 'под ключ', 'абонемент', '2026'],
     toc: toc(['pod-klyuch','Что значит под ключ'],['abonement','Что такое абонемент'],['sravnenie','Когда что выгоднее'],['kak-vybrat','Как выбрать под себя'],['faq','Частые вопросы'],['vyvody','Коротко о главном']),
-    relatedSlugs: ['skolko-stoit-vnedrit-ii-2026', 'vnedrenie-ii-stoimost-2027', 'okupaemost-ii-agentov-biznes-keys-2026', 'ai-agenty-v-biznese-2026'],
+    relatedSlugs: ['skolko-stoit-vnedrit-ii-2026', 'okupaemost-ii-agentov-biznes-keys-2026', 'ai-agenty-v-biznese-2026'],
   }, SVC_AI, CTA_AI),
 
   // === Кластер 2: импортозамещение ===

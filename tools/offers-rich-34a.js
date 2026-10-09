@@ -46,7 +46,7 @@ module.exports = {
       { q: 'Можно ли делать акции в тихие часы?', a: 'Да. Настраиваем двойные бонусы в выбранные часы и дни, чтобы мягко переводить часть гостей с пиков на спокойное время' }
     ],
     relatedServices: [
-      { url: '/services/telegram-bots/', label: 'Чат-боты' },
+      { url: '/development/telegram-bots/', label: 'Чат-боты' },
       { url: '/services/business-automation/', label: 'Автоматизация бизнеса' }
     ],
     relatedBlog: [
@@ -103,7 +103,7 @@ module.exports = {
       { q: 'Что показывают рейтинги клиентам?', a: 'Личный прогресс, серию тренировок и место в лиге своего уровня. Жёсткого общего списка с отстающими внизу мы не делаем' }
     ],
     relatedServices: [
-      { url: '/services/telegram-bots/', label: 'Чат-боты' },
+      { url: '/development/telegram-bots/', label: 'Чат-боты' },
       { url: '/services/business-automation/', label: 'Автоматизация бизнеса' }
     ],
     relatedBlog: [
@@ -160,7 +160,7 @@ module.exports = {
       { q: 'Можно ли напоминать о повторной процедуре?', a: 'Да. Настраиваем напоминание через нужный интервал, чтобы вовремя пригласить клиентку на повторный визит' }
     ],
     relatedServices: [
-      { url: '/services/telegram-bots/', label: 'Чат-боты' },
+      { url: '/development/telegram-bots/', label: 'Чат-боты' },
       { url: '/services/digital-marketing/', label: 'Цифровой маркетинг' }
     ],
     relatedBlog: [
@@ -217,7 +217,7 @@ module.exports = {
       { q: 'Что получает преподаватель?', a: 'Кабинет с доходимостью, списком отстающих и точками, где ученики чаще всего застревают, чтобы вовремя вмешаться' }
     ],
     relatedServices: [
-      { url: '/services/telegram-bots/', label: 'Чат-боты' },
+      { url: '/development/telegram-bots/', label: 'Чат-боты' },
       { url: '/services/business-automation/', label: 'Автоматизация бизнеса' }
     ],
     relatedBlog: [
@@ -274,7 +274,7 @@ module.exports = {
       { q: 'Чем это выгоднее агрегатора?', a: 'Прямой заказ без комиссии агрегатора, своя база гостей и прямой канал для акций. Бонусы обходятся дешевле постоянных скидок и комиссий' }
     ],
     relatedServices: [
-      { url: '/services/telegram-bots/', label: 'Чат-боты' },
+      { url: '/development/telegram-bots/', label: 'Чат-боты' },
       { url: '/services/revenue-monetization/', label: 'Монетизация' }
     ],
     relatedBlog: [

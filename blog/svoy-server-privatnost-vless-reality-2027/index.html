@@ -448,6 +448,14 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 
                     <div class="blog-body">
                         <div class="blog-tldr"><strong>TL;DR:</strong> Публичные и «народные» VPN — это чужой сервер, который видит ваш трафик, пишет логи и торгует данными, а вдобавок регулярно блокируется и тормозит. Для IT-студии, у которой в руках доступы к серверам клиентов и репозиториям, это неприемлемый риск. Мы держим <a href="https://chimitdorzhi.tech/services/devops/" class="blog-inline-link">собственный сервер</a> и стек нового поколения: <code>VLESS + XTLS + Reality</code> маскирует трафик под обычную TLS 1.3-сессию к реальному сайту, поэтому DPI не отличает нас от легального веб-сёрфинга; <code>Hysteria 2</code> на базе <code>QUIC</code> (UDP) держит соединение там, где обычный TCP-VPN отваливается по таймауту — на нестабильных мобильных сетях.</div>
+<div class="blog-cta-internal">
+  <i class="ph-fill ph-rocket-launch" aria-hidden="true"></i>
+  <div>
+    <strong>Хотите внедрить это у себя?</strong>
+    <p>Сделаю под ключ: разберу задачу, назову срок и цену. Чтобы начать, <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%A1%D0%B2%D0%BE%D0%B9%20%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%20%D0%B2%D0%BC%D0%B5%D1%81%D1%82%D0%BE%20%D0%BF%D1%83%D0%B1%D0%BB%D0%B8%D1%87%D0%BD%D0%BE%D0%B3%D0%BE%20VPN%3A%20VLESS%2C%20Reality%20%D0%B8%20Hysteria%202%20%D0%B3%D0%BB%D0%B0%D0%B7%D0%B0%D0%BC%D0%B8%20%D1%81%D1%82%D1%83%D0%B4%D0%B8%D0%B8%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener">напишите в Telegram</a> одной фразой.</p>
+    <a href="https://chimitdorzhi.tech/market/#checklist">Обсудить проект <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</div>
 
 <p>Для нас доступ к внешним ресурсам — не удобство, а рабочий инструмент. Разработчику ежедневно нужны зарубежная документация, панели облачных провайдеров, API языковых моделей, GitHub, тестовые среды. Если этот доступ пропадает или начинает «плавать» по скорости, встаёт работа, а вместе с ней — сроки клиентских проектов. При этом мы работаем с чувствительными вещами: SSH-ключами к серверам заказчиков, доступами к их базам данных, приватными репозиториями. В такой ситуации вопрос «через что ходит наш трафик» перестаёт быть бытовым и становится вопросом безопасности бизнеса. Ниже — почему мы отказались от публичных VPN и как устроен наш собственный контур.</p>
 
@@ -455,7 +463,7 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 
 <h2 id="zachem-svoy-server">Зачем студии собственный сервер</h2>
 <p>Первая и главная причина — <strong>контроль над данными</strong>. Когда вы пользуетесь чужим VPN, весь ваш трафик выходит в интернет через инфраструктуру, которой вы не управляете. Владелец сервиса технически способен видеть, куда вы ходите, а при слабом шифровании прикладного уровня — и что вы передаёте. Для частного пользователя это неприятно, для студии — недопустимо: через тот же канал идут аутентификации к клиентским системам.</p>
-<p>Собственный сервер снимает эту проблему в корне. Мы сами арендуем VPS, сами его настраиваем, сами решаем, ведутся ли логи и как долго они хранятся. Никакой третьей стороны в цепочке нет. Ключи, конфиги и правила маршрутизации находятся под нашим контролем, и мы точно знаем, что за нашим трафиком не наблюдает чужой сервис с непрозрачной политикой.</p>
+<p>Собственный сервер снимает эту проблему в корне. Мы сами <a href="/blog/chto-takoe-vps-kak-vybrat-2027/">арендуем VPS</a>, сами его настраиваем, сами решаем, ведутся ли логи и как долго они хранятся. Никакой третьей стороны в цепочке нет. Ключи, конфиги и правила маршрутизации находятся под нашим контролем, и мы точно знаем, что за нашим трафиком не наблюдает чужой сервис с непрозрачной политикой.</p>
 <p>Вторая причина — <strong>предсказуемость и скорость</strong>. Публичные сервисы делят один сервер между тысячами пользователей, поэтому скорость «пляшет» в зависимости от нагрузки и времени суток. Свой сервер — это ваши ресурсы, ваш выбор дата-центра поближе к нужным ресурсам, стабильный канал без соседей, которые качают торренты на том же IP. Для работы с API и облаками, где важна и полоса, и низкие задержки, это критично.</p>
 <p>Третья причина — <strong>устойчивость к блокировкам</strong>. Массовые сервисы — это известные, публичные IP-адреса и узнаваемые протоколы. Их блокируют пачками. Собственный сервер с правильно подобранным протоколом гораздо менее заметен, потому что это одиночный адрес, не фигурирующий ни в каких публичных списках, а его трафик неотличим от обычного веба.</p>
 
@@ -469,11 +477,12 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 <p>На стороне провайдера работает <code>DPI</code> — Deep Packet Inspection, глубокий анализ пакетов. Эта система не обязана расшифровывать трафик, чтобы его заблокировать. Ей достаточно распознать характерный узор соединения. <code>WireGuard</code>, например, узнаётся по структуре начального handshake; <code>OpenVPN</code> — по своей сигнатуре, даже когда работает поверх TLS. Как только DPI видит знакомый отпечаток, соединение режется или деградирует до неработоспособного состояния. Именно поэтому протокол, который вчера работал, сегодня внезапно «умирает»: обновились не вы, а сигнатурные базы на стороне фильтрации.</p>
 <p>Ключевой вывод: в современных условиях недостаточно, чтобы трафик был зашифрован. Он должен быть <strong>неотличим от обычного, разрешённого трафика</strong>. Шифрование защищает содержимое, но не прячет сам факт использования VPN. А блокируют именно по факту, а не по содержимому. Это меняет требования к протоколу: нужна не просто защита, нужна маскировка.</p>
 
+<div class="blog-callout blog-callout-info blog-read-next"><i class="ph-fill ph-book-open" aria-hidden="true"></i><div><strong>Читайте дальше по теме</strong><ul><li><a href="/blog/llm-avtomatizaciya-razrabotki-2027/">Как мы автоматизируем разработку и контент с помощью LLM</a></li><li><a href="/blog/pochemu-ne-delaem-sayty-na-konstruktorah-2027/">Почему мы не делаем сайты на конструкторах: честный технический разбор</a></li></ul></div></div>
 <h2 id="stek-studii">Наш стек: VLESS + XTLS + Reality и Hysteria 2</h2>
 <p>Мы строим свой контур на протоколах нового поколения, которые проектировались именно под задачу незаметности.</p>
 <p><strong><code>VLESS + XTLS + Reality</code></strong> — основа нашего стека. Идея Reality элегантна: соединение маскируется под настоящую TLS 1.3-сессию к реальному, публично доступному и разрешённому сайту. Для системы фильтрации это выглядит как обычный пользователь, который открыл легальный веб-ресурс по HTTPS и листает страницы. Нет отдельного «VPN-сертификата», который можно вычислить, нет поддельного домена — используется TLS-рукопожатие, ведущее к реально существующему сайту-донору. <code>XTLS</code> при этом убирает лишний слой двойного шифрования, снижая накладные расходы и повышая скорость. В результате трафик и защищён, и <em>выглядит как легальный веб-сёрфинг по TLS 1.3</em> — DPI не за что зацепиться, потому что отпечатка VPN попросту нет.</p>
 <p><strong><code>Hysteria 2</code></strong> — наш второй протокол, для других условий. Он построен на базе <code>QUIC</code>, то есть работает поверх <code>UDP</code>, а не <code>TCP</code>. Это принципиально для нестабильных сетей. Классический TCP-VPN на мобильном интернете с потерей пакетов начинает лавинообразно деградировать: TCP воспринимает потерю как сигнал перегрузки, сбрасывает скорость и в плохих условиях просто отваливается по таймауту. <code>QUIC</code> устроен иначе — он умеет управлять потерями на уровне приложения, не роняя всё соединение, и заметно лучше держит канал там, где TCP сдаётся. Поэтому <code>Hysteria 2</code> мы используем на мобильных и «капризных» сетях: в дороге, на слабом сигнале, при переключениях между вышками, где стабильность важнее теоретического максимума скорости.</p>
-<p>Комбинация даёт нам гибкость: <code>Reality</code> — для тихого, незаметного, «домашнего» доступа по стабильному каналу; <code>Hysteria 2</code> — для мобильности и плохих сетей. Оба протокола живут на нашем собственном сервере, под нашим контролем, без третьих лиц в цепочке. Это и есть DevSecOps-подход в чистом виде: безопасность не прикручена сбоку, а заложена в саму архитектуру доступа.</p>
+<p>Комбинация даёт нам гибкость: <code>Reality</code> — для тихого, незаметного, «домашнего» доступа по стабильному каналу; <code>Hysteria 2</code> — для мобильности и плохих сетей. Оба протокола живут на нашем собственном сервере, под нашим контролем, без третьих лиц в цепочке. Это и есть DevSecOps-подход в чистом виде: безопасность не прикручена сбоку, а заложена в саму архитектуру доступа. Как такой доступ раздаётся всей команде одним скриптом, разобрано в статье про <a href="/blog/anticenzura-powershell-amnezia-2027/">PowerShell-скрипт и Amnezia</a>.</p>
 <p>Отдельно подчеркнём: мы говорим здесь о технологиях и протоколах, а не о способах нарушать закон. Собственный защищённый контур — это стандартная инженерная практика для команды, которая работает с зарубежными API, облаками и чувствительными доступами и обязана гарантировать их конфиденциальность и бесперебойность.</p>
 
 <h2 id="faq">Частые вопросы</h2>
@@ -496,63 +505,21 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
                     
                     
 <div class="blog-services-offer">
-  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <div class="blog-services-offer-eyebrow">Обсудим вашу задачу</div>
   <h3 class="blog-services-offer-title">Что я делаю под ключ</h3>
-  <ul class="blog-services-offer-list">
-    
-    <li><i class="ph-fill ph-shield-check"></i> <span>Приватный контур VLESS + Reality</span></li>
-    
-    <li><i class="ph-fill ph-hard-drives"></i> <span>Настройка и обслуживание VPS</span></li>
-    
-    <li><i class="ph-fill ph-lock-key"></i> <span>Защита доступов и SSH-ключей</span></li>
-    
-    <li><i class="ph-fill ph-gauge"></i> <span>Стабильный доступ к API и облакам</span></li>
-    
-    <li><i class="ph-fill ph-broadcast"></i> <span>Hysteria 2 для мобильных сетей</span></li>
-    
-  </ul>
+  <p class="blog-services-offer-lead">Напишите одной фразой, что нужно. Отвечу, что подойдёт, сколько займёт и сколько стоит. Сообщение уже подготовлено.</p>
+  <ul class="blog-services-offer-list"><li><i class="ph-fill ph-shield-check"></i> <span>Приватный контур VLESS + Reality</span></li><li><i class="ph-fill ph-hard-drives"></i> <span>Настройка и обслуживание VPS</span></li><li><i class="ph-fill ph-lock-key"></i> <span>Защита доступов и SSH-ключей</span></li><li><i class="ph-fill ph-gauge"></i> <span>Стабильный доступ к API и облакам</span></li><li><i class="ph-fill ph-broadcast"></i> <span>Hysteria 2 для мобильных сетей</span></li></ul>
   <div class="blog-services-offer-ctas">
-    <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
-      <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Обсудить проект
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%A1%D0%B2%D0%BE%D0%B9%20%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%20%D0%B2%D0%BC%D0%B5%D1%81%D1%82%D0%BE%20%D0%BF%D1%83%D0%B1%D0%BB%D0%B8%D1%87%D0%BD%D0%BE%D0%B3%D0%BE%20VPN%3A%20VLESS%2C%20Reality%20%D0%B8%20Hysteria%202%20%D0%B3%D0%BB%D0%B0%D0%B7%D0%B0%D0%BC%D0%B8%20%D1%81%D1%82%D1%83%D0%B4%D0%B8%D0%B8%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener" class="blog-services-offer-cta">
+      <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
     </a>
     <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="blog-services-offer-cta blog-services-offer-cta-max">
       <i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> Написать в MAX
     </a>
+    <a href="https://chimitdorzhi.tech/market/#checklist" class="blog-services-offer-cta blog-services-offer-cta-max"><i class="ph ph-arrow-right" aria-hidden="true"></i> Обсудить проект</a>
   </div>
 </div>
-                    <div class="blog-cta-card">
-                        <div class="blog-cta-card-body">
-                            <h3>Бесплатно: чек-лист «Готов ли ваш бизнес к 152-ФЗ»</h3>
-                            <p>12 пунктов, которые проверяют готовность за час: данные, согласия, уведомление в РКН, локализация, защита. Отметьте, что уже сделано, и увидите дыры, за которые сейчас штрафуют.</p>
-                        </div>
-                        <div class="blog-cta-card-actions">
-                            <a href="/checklist-152-fz/" class="btn btn-accent"><i class="ph-fill ph-clipboard-text" aria-hidden="true"></i> Открыть чек-лист</a>
-                        </div>
-                    </div>
                     
-
-                    <div class="blog-cta-card blog-cta-card-final">
-                        <div class="blog-cta-card-body">
-                            <h3>Готовы обсудить вашу задачу?</h3>
-                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
-                        </div>
-                        <div class="blog-cta-card-actions">
-                            <a href="https://chimitdorzhi.tech/market/#checklist" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Обсудить проект</a>
-                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
-                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
-                        </div>
-                    </div>
-
-                    <section class="blog-subscribe">
-  <div class="blog-subscribe-body">
-    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
-    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
-  </div>
-  <div class="blog-subscribe-actions">
-    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
-    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
-  </div>
-</section>
                     <section class="blog-related">
   <h2>Читайте также</h2>
   <div class="blog-grid"><a class="blog-card" href="/blog/anticenzura-powershell-amnezia-2027/" data-category="security" data-clicks="0">
@@ -591,6 +558,17 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
   </div>
   <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
 </a></div>
+</section>
+                    
+                    <section class="blog-subscribe">
+  <div class="blog-subscribe-body">
+    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
+    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
+  </div>
+  <div class="blog-subscribe-actions">
+    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
+  </div>
 </section>
                     
                     

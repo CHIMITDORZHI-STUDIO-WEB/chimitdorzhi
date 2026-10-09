@@ -475,7 +475,7 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 <p>Второе — работа с обратной связью. Отзывы и вопросы покупателей. Маркетплейсы прямо учитывают скорость и качество ответов в ранжировании, а отвечать на каждый отзыв вручную при ассортименте в сотни SKU физически тяжело. Нейросеть готовит ответ в тоне бренда за секунды, человек его правит и публикует.</p>
 <p>Третье — аналитика. Сведение данных из отчётов, поиск проблемных товаров, прогноз спроса, расчёт <a href="https://chimitdorzhi.tech/services/business-analytics-unit-economics/" class="blog-inline-link">юнит-экономики</a>. Здесь ИИ работает не как генератор текста, а как аналитик-помощник: переваривает таблицы и подсказывает, на что смотреть.</p>
 <p>Четвёртое — ценообразование. Автоматические репрайсеры с элементами машинного обучения, которые держат вашу цену в нужном коридоре относительно конкурентов и не убивают маржу.</p>
-<p>Пятое — поддержка покупателей. <a href="https://chimitdorzhi.tech/services/telegram-bots/" class="blog-inline-link">Чат-боты</a>, которые отвечают на типовые вопросы про доставку, размеры, наличие и совместимость, разгружая вас и снижая долю негативных отзывов из-за молчания.</p>
+<p>Пятое — поддержка покупателей. <a href="https://chimitdorzhi.tech/development/telegram-bots/" class="blog-inline-link">Чат-боты</a>, которые отвечают на типовые вопросы про доставку, размеры, наличие и совместимость, разгружая вас и снижая долю негативных отзывов из-за молчания.</p>
 <p>Дальше я разберу каждую зону подробно — с конкретными инструментами, формулировками запросов и границами применимости. Если вы пока выбираете между маркетплейсом и собственной площадкой, рекомендую сначала прочитать разбор <a href="/blog/svoy-magazin-vs-wildberries-ozon-2026/">свой магазин vs WB/Ozon</a> — там я объясняю, где маржа выше и почему многие в итоге держат оба канала.</p>
 
 <div class="blog-callout blog-callout-info">
@@ -565,7 +565,7 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 <p>Базовый слой — языковая модель. Для российского селлера разумно начинать с отечественных: GigaChat от Сбера и YandexGPT от Яндекса. Плюсы очевидны: оплата в рублях, доступ без VPN, хорошая работа с русским языком, есть API для автоматизации и встройки в таблицы или собственные скрипты. На них закрываются описания карточек, ответы на отзывы и вопросы, разбор отчётов. Этого слоя достаточно, чтобы получить основную экономию времени.</p>
 <p>Слой работы с изображениями — отдельные сервисы. Для обработки фото подойдут Photoroom и встроенные ИИ-инструменты самих площадок: Ozon, например, развивает собственные генеративные функции для карточек. Для генерации фоновых сцен — генеративные редакторы. Инфографику собирают в обычных дизайн-редакторах, а нейросеть используют только для черновика структуры и текста выносок.</p>
 <p>Слой аналитики — специализированные сервисы маркетплейсов: MPSTATS, MarketGuru, Moneyplace и встроенная аналитика площадок. Они закрывают семантику, анализ ниш, прогноз спроса и отслеживание конкурентов. Это отдельные продукты с собственными подписками, и их выбор зависит от вашего оборота — на старте часто хватает встроенной аналитики самой площадки.</p>
-<p>Слой ценообразования — репрайсеры. Это либо отдельные сервисы, либо модули внутри аналитических платформ. Подключать их имеет смысл, когда ассортимент перевалил за несколько десятков SKU и ручной мониторинг цен стал невозможен.</p>
+<p>Слой ценообразования — репрайсеры. Это либо отдельные сервисы, либо модули внутри аналитических платформ. Подключать их имеет смысл, когда ассортимент перевалил за несколько десятков SKU и ручной <a href="/blog/otslezhivanie-izmeneniy-na-saytah-2026/">мониторинг цен</a> стал невозможен.</p>
 <p>Слой коммуникации — чат-боты и автоответчики. Здесь подойдут конструкторы ботов с поддержкой LLM или собственная связка платформы с API российской модели. Для внешних каналов вроде Telegram это особенно оправдано.</p>
 <p>Порядок внедрения я рекомендую такой. Сначала — тексты и отзывы на базе LLM, потому что это самая быстрая и дешёвая экономия времени без риска. Потом — обработка фото и инфографика, это даёт прирост конверсии. Дальше — аналитика и прогноз спроса, когда накопилась история продаж. И только после этого — репрайсеры и чат-боты, как инструменты тонкой настройки. Если пытаться внедрить всё сразу, вы утонете в настройке и подписках и забросите половину. Эта же логика поэтапного внедрения хорошо описана в общем разборе <a href="/blog/ai-v-marketinge-2026/">AI в маркетинге</a> — принципы переносятся и на маркетплейсы.</p>
 <p>Про стоимость. Российские LLM по API стоят копейки за тысячу токенов — обработка сотни карточек обходится в десятки-сотни рублей, а не в тысячи. Основные расходы — на аналитические сервисы с месячной подпиской и на работу человека, который проверяет результат. Это нормально: экономия времени многократно перекрывает стоимость инструментов.</p>
@@ -615,63 +615,21 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
                     </div>
                     
 <div class="blog-services-offer">
-  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <div class="blog-services-offer-eyebrow">Обсудим вашу задачу</div>
   <h3 class="blog-services-offer-title">Что я делаю для селлеров и e-commerce</h3>
-  <ul class="blog-services-offer-list">
-    
-    <li><i class="ph-fill ph-image"></i> <span>AI-генерация карточек и SEO-описаний</span></li>
-    
-    <li><i class="ph-fill ph-chats-circle"></i> <span>Авто-ответы на отзывы и вопросы</span></li>
-    
-    <li><i class="ph-fill ph-chart-line-up"></i> <span>Аналитика продаж и репрайсинг</span></li>
-    
-    <li><i class="ph-fill ph-robot"></i> <span>Чат-боты поддержки покупателей</span></li>
-    
-    <li><i class="ph-fill ph-plugs"></i> <span>Интеграции с API маркетплейсов</span></li>
-    
-  </ul>
+  <p class="blog-services-offer-lead">Напишите одной фразой, что нужно. Отвечу, что подойдёт, сколько займёт и сколько стоит. Сообщение уже подготовлено.</p>
+  <ul class="blog-services-offer-list"><li><i class="ph-fill ph-image"></i> <span>AI-генерация карточек и SEO-описаний</span></li><li><i class="ph-fill ph-chats-circle"></i> <span>Авто-ответы на отзывы и вопросы</span></li><li><i class="ph-fill ph-chart-line-up"></i> <span>Аналитика продаж и репрайсинг</span></li><li><i class="ph-fill ph-robot"></i> <span>Чат-боты поддержки покупателей</span></li><li><i class="ph-fill ph-plugs"></i> <span>Интеграции с API маркетплейсов</span></li></ul>
   <div class="blog-services-offer-ctas">
-    <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%ABAI%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B5%D0%BB%D0%BB%D0%B5%D1%80%D0%BE%D0%B2%20%D0%BD%D0%B0%20Wildberries%20%D0%B8%20Ozon%3A%20%D0%BA%D0%B0%D1%80%D1%82%D0%BE%D1%87%D0%BA%D0%B8%2C%20%D0%BE%D1%82%D0%B7%D1%8B%D0%B2%D1%8B%2C%20%D0%B0%D0%BD%D0%B0%D0%BB%D0%B8%D1%82%D0%B8%D0%BA%D0%B0%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener" class="blog-services-offer-cta">
       <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
     </a>
     <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="blog-services-offer-cta blog-services-offer-cta-max">
       <i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> Написать в MAX
     </a>
+    <a href="https://chimitdorzhi.tech/services/business-automation/" class="blog-services-offer-cta blog-services-offer-cta-max"><i class="ph ph-arrow-right" aria-hidden="true"></i> Автоматизировать продажи на МП</a>
   </div>
 </div>
                     
-                    
-                    <a class="blog-offer-cta" href="/predlozheniya/avtomatizaciya-sellera-wb-ozon/">
-                        <span class="blog-offer-cta-body">
-                            <span class="blog-offer-cta-eyebrow">Готовое решение по теме</span>
-                            <span class="blog-offer-cta-title">Автоматизация селлера на Wildberries и Ozon</span>
-                            <span class="blog-offer-cta-price">Бесплатная консультация · обсуждается</span>
-                        </span>
-                        <span class="btn btn-accent"><i class="ph ph-arrow-right" aria-hidden="true"></i> Смотреть предложение</span>
-                    </a>
-
-                    <div class="blog-cta-card blog-cta-card-final">
-                        <div class="blog-cta-card-body">
-                            <h3>Готовы обсудить вашу задачу?</h3>
-                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
-                        </div>
-                        <div class="blog-cta-card-actions">
-                            <a href="https://chimitdorzhi.tech/services/business-automation/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Автоматизировать продажи на МП</a>
-                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
-                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
-                        </div>
-                    </div>
-
-                    <section class="blog-subscribe">
-  <div class="blog-subscribe-body">
-    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
-    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
-  </div>
-  <div class="blog-subscribe-actions">
-    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
-    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
-  </div>
-</section>
                     <section class="blog-related">
   <h2>Читайте также</h2>
   <div class="blog-grid"><a class="blog-card" href="/blog/svoy-magazin-vs-wildberries-ozon-2026/" data-category="development" data-clicks="1">
@@ -722,6 +680,25 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
   </div>
   <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
 </a></div>
+</section>
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/avtomatizaciya-sellera-wb-ozon/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовое решение по теме</span>
+                            <span class="blog-offer-cta-title">Автоматизация селлера на Wildberries и Ozon</span>
+                            <span class="blog-offer-cta-price">Бесплатная консультация · обсуждается</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-arrow-right" aria-hidden="true"></i> Смотреть предложение</span>
+                    </a>
+                    <section class="blog-subscribe">
+  <div class="blog-subscribe-body">
+    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
+    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
+  </div>
+  <div class="blog-subscribe-actions">
+    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
+  </div>
 </section>
                     
                     

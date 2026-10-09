@@ -15,6 +15,8 @@ const OUT_SITEMAP = path.join(ROOT, 'sitemap.xml');
 
 const TODAY = new Date().toISOString().slice(0, 10);
 const TG = 'https://t.me/chimitdorzhi';
+const { METRIKA, maxBtn } = require('./metrika-snippet.js');
+const { casesSection } = require('./related-cases-html.js');
 
 const esc = (s) => String(s)
   .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -88,6 +90,7 @@ function footer() {
             <h2 class="text-gradient">ДАВАЙТЕ РЕШИМ.</h2>
             <div class="footer-actions">
                 <a href="${TG}" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo"></i> Telegram</a>
+                ${maxBtn()}
             </div>
         </div>
         <div class="footer-bottom">
@@ -255,7 +258,7 @@ function hubPage() {
   })}    <script type="application/ld+json">
 ${breadcrumbJsonLd(breadcrumbs)}
     </script>
-</head>
+${METRIKA}</head>
 <body>
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
@@ -277,6 +280,7 @@ ${breadcrumbJsonLd(breadcrumbs)}
                     <p class="dev-hero-sub">Сайты, боты, мобильные приложения и всё, что вокруг. С прозрачными тарифами и без воды про «инновационные решения».</p>
                     <div class="dev-hero-actions">
                         <a href="${TG}" target="_blank" rel="noopener" class="btn btn-accent btn-big"><i class="ph ph-telegram-logo"></i> Написать в Telegram</a>
+                    ${maxBtn('btn btn-ghost btn-big')}
                         <a href="#web" class="btn btn-ghost btn-big">К продуктам ↓</a>
                     </div>
                 </div>
@@ -331,6 +335,7 @@ ${breadcrumbJsonLd(breadcrumbs)}
                     <h2>Не нашли свою задачу?</h2>
                     <p>18 продуктов — это типовые сценарии. Если у вас что-то нестандартное — напишите, разберёмся за 15 минут что подойдёт и сколько будет стоить.</p>
                     <a href="${TG}" target="_blank" rel="noopener" class="btn btn-accent btn-big"><i class="ph ph-telegram-logo"></i> Обсудить проект</a>
+                    ${maxBtn('btn btn-ghost btn-big')}
                     <p class="dev-cta-note">* Все цены — «от». Финальная стоимость зависит от объёма и сложности, обсуждается после брифа. Информация не является публичной офертой.</p>
                 </div>
             </div>
@@ -369,7 +374,7 @@ ${faqJsonLd(svc.faq)}
     <script type="application/ld+json">
 ${breadcrumbJsonLd(breadcrumbs)}
     </script>
-</head>
+${METRIKA}</head>
 <body>
     <div class="noise-overlay"></div>
     <div class="gradient-blob blob-1"></div>
@@ -393,6 +398,7 @@ ${breadcrumbJsonLd(breadcrumbs)}
                 <div class="dev-simple"><strong>Простыми словами.</strong> ${esc(svc.simpleExplainer)}</div>
                 <div class="dev-hero-actions">
                     <a href="${TG}" target="_blank" rel="noopener" class="btn btn-accent btn-big"><i class="ph ph-telegram-logo"></i> Написать в Telegram</a>
+                    ${maxBtn('btn btn-ghost btn-big')}
                     <a href="#pricing" class="btn btn-ghost btn-big">Тарифы</a>
                 </div>
             </div>
@@ -429,6 +435,8 @@ ${tiersHtml(svc.tiers)}
             </div>
         </section>
 
+        ${casesSection('development/' + svc.slug, { gridClass: 'dev-grid', cardClass: 'dev-card', iconClass: 'dev-card-icon' })}
+
         <section class="section section-tight">
             <div class="container">
                 <span class="section-label">FAQ</span>
@@ -445,6 +453,7 @@ ${faqHtml(svc.faq)}
                     <h2>Есть вопросы? Напишите в Telegram</h2>
                     <p>За 15 минут разберёмся в задаче, обозначу примерные сроки и стоимость. Без обязательств и продаж.</p>
                     <a href="${TG}" target="_blank" rel="noopener" class="btn btn-accent btn-big"><i class="ph ph-telegram-logo"></i> Написать в Telegram</a>
+                    ${maxBtn('btn btn-ghost btn-big')}
                     <p class="dev-cta-note">* Информация не является публичной офертой. Финальная стоимость определяется индивидуально.</p>
                 </div>
             </div>

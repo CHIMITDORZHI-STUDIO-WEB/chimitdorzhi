@@ -9,6 +9,15 @@ module.exports = `
   </ul>
 </div>
 
+<div class="blog-cta-internal">
+  <i class="ph-fill ph-device-mobile"></i>
+  <div>
+    <strong>Бизнесу в MAX: бот и мини-приложение</strong>
+    <p>Ваши клиенты уже ставят MAX. Соберу в нём бота или мини-приложение: витрина, запись, личный кабинет, оплата по СБП. Напишите в Telegram, что хотите дать клиентам внутри мессенджера.</p>
+    <a href="https://chimitdorzhi.tech/predlozheniya/max-mini-app-pod-klyuch/">MAX Mini App под ключ <i class="ph ph-arrow-right"></i></a>
+  </div>
+</div>
+
 <p>Если вы искали, <strong>как установить MAX без Google Play</strong>, и не нашли приложение в привычном магазине — это не сбой. С 1 августа 2026 года MAX пропал из Google Play, и теперь его ставят другими способами. Разберу по шагам, как скачать MAX на Android и iPhone, как обновлять и как не нарваться на поддельную версию вместо настоящей.</p>
 
 <h2 id="pochemu">Почему MAX пропал из Google Play</h2>

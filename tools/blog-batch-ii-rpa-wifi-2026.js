@@ -81,7 +81,7 @@ module.exports = [
     toc: T([{ id: 'problema', text: 'Что уходит вместе с промптом' }, { id: 'riski', text: 'Риски и 152-ФЗ' }, { id: 'reshenie', text: 'Безопасный ИИ-контур' }, { id: 'reglament', text: 'Регламент для сотрудников' }]),
     relatedSlugs: ['bot-s-bazoy-znaniy-rag-2026', 'audit-152-fz-2026', 'kibergigiena-sotrudnikov-2026'] }),
 
-  E({ slug: 'ii-prognoz-sprosa-prodazh-2026', category: 'ai-dev', heroIcon: 'ph-fill ph-chart-line-up',
+  E({ slug: 'ii-prognoz-sprosa-prodazh-2026', dateModified: '2026-10-08', category: 'ai-dev', heroIcon: 'ph-fill ph-chart-line-up',
     servicesOffer: SVC_FORECAST, ctaInternal: CTA_ANALYTICS,
     title: 'ИИ-прогноз спроса и продаж: не морозить деньги в товаре',
     metaTitle: 'ИИ-прогноз спроса и продаж для бизнеса',

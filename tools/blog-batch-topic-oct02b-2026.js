@@ -9,7 +9,7 @@ const SVC_BIZ = { title: 'Что я делаю для бизнеса', services:
 ]};
 const E = (o) => Object.assign({ published: true, datePublished: D, dateModified: D, readingMinutes: 4, servicesOffer: SVC_BIZ }, o, { contentHtml: C(o.slug) });
 module.exports = [
-  E({ slug: "listok-ozhidaniya-osvobodivsheesya-okno-2026", category: "industries", heroIcon: "ph-fill ph-hourglass-medium", ctaInternal: { url: "https://chimitdorzhi.tech/services/telegram-bots/", label: "Заказать бота с листом ожидания" },
+  E({ slug: "listok-ozhidaniya-osvobodivsheesya-okno-2026", category: "industries", heroIcon: "ph-fill ph-hourglass-medium", ctaInternal: { url: "https://chimitdorzhi.tech/development/telegram-bots/", label: "Заказать бота с листом ожидания" },
     title: "Пустое окно в 15:00, которое можно было продать",
     metaTitle: "Лист ожидания в боте: как продать освободившееся окно",
     metaDescription: "Клиент отменил запись за час, а трое хотели прийти. Как бот держит лист ожидания, пишет в Telegram и MAX с кнопкой «Беру» и закрывает окно.",
@@ -59,7 +59,7 @@ module.exports = [
       { id: "vyvody", text: "Коротко о главном" },
     ],
     relatedSlugs: ["bot-est-li-v-nalichii-ostatki-po-tochkam-2026","import-kataloga-iz-prajsa-postavshchika-2026","nakladnye-postavshchikov-v-1c-raspoznavanie-2026","abc-analiz-2026"] }),
-  E({ slug: "zayavka-na-servis-po-qr-na-oborudovanii-2026", category: "industries", heroIcon: "ph-fill ph-qr-code", ctaInternal: { url: "https://chimitdorzhi.tech/services/telegram-bots/", label: "Обсудить заявки по QR для вашего парка" },
+  E({ slug: "zayavka-na-servis-po-qr-na-oborudovanii-2026", category: "industries", heroIcon: "ph-fill ph-qr-code", ctaInternal: { url: "https://chimitdorzhi.tech/development/telegram-bots/", label: "Обсудить заявки по QR для вашего парка" },
     title: "Клиент не помнит модель машины: заявка на сервис по QR",
     metaTitle: "Заявка на сервис по QR на оборудовании: модель и серийник в форме",
     metaDescription: "QR-шильдик на оборудовании открывает форму заявки с моделью, серийником и гарантией. Клиент выбирает симптом и шлёт фото, заявка падает в чат мастеров.",

@@ -161,7 +161,7 @@ module.exports = {
     ],
     relatedServices: [
       { url: '/services/digital-marketing/', label: 'Цифровой маркетинг' },
-      { url: '/services/telegram-bots/', label: 'Чат-боты' }
+      { url: '/development/telegram-bots/', label: 'Чат-боты' }
     ],
     relatedBlog: [
       { url: '/blog/marketing-i-trafik-2027/', label: 'Маркетинг и трафик' },

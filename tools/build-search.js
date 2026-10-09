@@ -51,7 +51,7 @@ for (const s of servicesArr) {
   index.push({
     t: s.n,
     d: s.d || s.md || '',
-    u: `/services/${s.s}/`,
+    u: s.moved || `/services/${s.s}/`,
     k: 'Услуга',
     c: SVC_CAT[s.c] || s.c || '',
     g: (s.tg || []).join(' ') + ' ' + (s.mk || ''),

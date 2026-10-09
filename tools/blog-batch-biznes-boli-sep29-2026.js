@@ -9,7 +9,7 @@ const SVC_BIZ = { title: 'Что я делаю для бизнеса', services:
 ]};
 const E = (o) => Object.assign({ published: true, datePublished: D, dateModified: D, readingMinutes: 4, servicesOffer: SVC_BIZ }, o, { contentHtml: C(o.slug) });
 module.exports = [
-  E({ slug: "onlayn-oplata-uvedomleniya-2026", category: "development", heroIcon: "ph-fill ph-bell-ringing", ctaInternal: { url: "https://chimitdorzhi.tech/services/telegram-bots/", label: "Обсудить оплату и уведомления в боте" },
+  E({ slug: "onlayn-oplata-uvedomleniya-2026", category: "development", heroIcon: "ph-fill ph-bell-ringing", ctaInternal: { url: "https://chimitdorzhi.tech/development/telegram-bots/", label: "Обсудить оплату и уведомления в боте" },
     title: "Клиент оплатил, а узнали через два дня: приём оплаты и бот",
     metaTitle: "Приём онлайн-оплаты и уведомления о платеже в Telegram",
     metaDescription: "Клиент оплатил, а вы узнали из выписки только назавтра. Как связать приём оплаты, вебхук и мгновенное уведомление о платеже в Telegram.",
@@ -195,7 +195,7 @@ module.exports = [
       { id: "vyvody", text: "Коротко о главном" },
     ],
     relatedSlugs: ["elektronnoe-qr-menyu-dlya-kafe-2026","sinhronizaciya-menyu-agregatorov-2026","it-dlya-kofeyni-obshchepita-2026","max-bot-restoran-kafe-2026"] }),
-  E({ slug: "bot-povtornyh-zakazov-dostavka-2026", category: "industries", heroIcon: "ph-fill ph-repeat", ctaInternal: { url: "https://chimitdorzhi.tech/services/telegram-bots/", label: "Собрать бота повторных заказов" },
+  E({ slug: "bot-povtornyh-zakazov-dostavka-2026", category: "industries", heroIcon: "ph-fill ph-repeat", ctaInternal: { url: "https://chimitdorzhi.tech/development/telegram-bots/", label: "Собрать бота повторных заказов" },
     title: "Бот повторных заказов для доставки: клиенты звонят, заказы теряются",
     metaTitle: "Бот повторных заказов для доставки воды и продуктов",
     metaDescription: "Клиенты звонят и диктуют одно и то же, заказы теряются. Бот повторяет прошлый заказ в один тап и напоминает по циклу: вода, продукты, корма, зоотовары.",
@@ -314,7 +314,7 @@ module.exports = [
       { id: "vyvody", text: "Коротко о главном" },
     ],
     relatedSlugs: ["ii-kadrovik-otsev-otklikov-2026","sbor-vakansiy-i-rezyume-po-filtram-2026","ai-v-hr-naym-2026","neyroset-dlya-rezyume-2026"] }),
-  E({ slug: "odin-bot-telegram-max-vk-2026", category: "development", heroIcon: "ph-fill ph-share-network", ctaInternal: { url: "https://chimitdorzhi.tech/services/telegram-bots/", label: "Собрать один бот на три канала" },
+  E({ slug: "odin-bot-telegram-max-vk-2026", category: "development", heroIcon: "ph-fill ph-share-network", ctaInternal: { url: "https://chimitdorzhi.tech/development/telegram-bots/", label: "Собрать один бот на три канала" },
     title: "Клиенты в MAX, а вы в Telegram: один бот на три канала",
     metaTitle: "Один бот в Telegram, MAX и VK: общая база клиентов",
     metaDescription: "Один бот с общим мозгом и единой базой сразу в Telegram, MAX и VK. Клиент пишет где удобно, история и логика одна. Разбираю, как это собрать и что различается.",

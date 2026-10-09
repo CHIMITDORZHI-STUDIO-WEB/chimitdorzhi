@@ -67,7 +67,7 @@ canonical: https://chimitdorzhi.tech/blog/svezhie-produkty-dlya-kafe-zakaz-zamen
 
 Четвёртое. Две недели записывайте споры и списания: клиент, позиция, сумма. Эти цифры покажут, где бот окупится быстрее.
 
-Когда будете готовы к боту, ориентиры по стоимости есть на странице [цен](/ceny/). Услуга: [Telegram и MAX-боты](/services/telegram-bots/), похожее решение: [MAX-бот заказов с интеграцией 1С и CRM](/predlozheniya/max-bot-zakazy-1c/).
+Когда будете готовы к боту, ориентиры по стоимости есть на странице [цен](/ceny/). Услуга: [Telegram и MAX-боты](/development/telegram-bots/), похожее решение: [MAX-бот заказов с интеграцией 1С и CRM](/predlozheniya/max-bot-zakazy-1c/).
 
 ## Частые вопросы
 

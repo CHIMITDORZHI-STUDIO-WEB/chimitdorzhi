@@ -114,6 +114,6 @@ module.exports = [
     metaDescription: 'Про цену разработки спрашивают все, про ежемесячные платежи узнают после запуска. Домен, сервер, касса, рассылки, нейросети, копии, поддержка.',
     excerpt: 'После запуска сайта и бота приходят регулярные счета, о которых не предупредили. Разбираю, из чего складываются расходы, что растёт вместе с бизнесом и как избежать сюрпризов.',
     tags: ['стоимость', 'поддержка', 'сайт', 'боты'],
-    relatedSlugs: ['skolko-stoit-sayt-bot-pod-klyuch-2026', 'skolko-stoit-podderzhka-dorabotka-po-2026', 'pereezd-sayta-bez-poteri-poziciy-2026'] }),
+    relatedSlugs: ['skolko-stoit-razrabotka-gayd-ceny-2026', 'skolko-stoit-podderzhka-dorabotka-po-2026', 'pereezd-sayta-bez-poteri-poziciy-2026'] }),
 
 ];

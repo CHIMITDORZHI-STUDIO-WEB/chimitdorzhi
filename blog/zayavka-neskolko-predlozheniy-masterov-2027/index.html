@@ -455,6 +455,14 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 <li>Технически это бот или веб-платформа с категориями услуг, формой заявки, рассылкой подходящим мастерам и сравнением откликов — без фронтенда с нуля на дорогом движке.</li>
 <li>Ключевой риск не в технологиях, а в наборе критической массы мастеров и модерации качества откликов. <a href="https://chimitdorzhi.tech/predlozheniya/">Обсудить проект</a> можно, если модель кажется рабочей для вашего рынка.</li>
 </ul></div>
+<div class="blog-cta-internal">
+  <i class="ph-fill ph-rocket-launch" aria-hidden="true"></i>
+  <div>
+    <strong>Хотите внедрить это у себя?</strong>
+    <p>Сделаю под ключ: разберу задачу, назову срок и цену. Чтобы начать, <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%ABThumbtack%20%D0%BF%D0%BE-%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B8%3A%20%D0%BE%D0%B4%D0%BD%D0%B0%20%D0%B7%D0%B0%D1%8F%D0%B2%D0%BA%D0%B0%20%E2%80%94%20%D0%BD%D0%B5%D1%81%D0%BA%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE%20%D0%BF%D1%80%D0%B5%D0%B4%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B9%20%D0%BE%D1%82%20%D0%BC%D0%B0%D1%81%D1%82%D0%B5%D1%80%D0%BE%D0%B2%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener">напишите в Telegram</a> одной фразой.</p>
+    <a href="https://chimitdorzhi.tech/predlozheniya/">Обсудить ваш проект <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</div>
 <p>Если вам хоть раз нужно было найти электрика, фотографа на мероприятие или репетитора для ребёнка, вы знаете этот сценарий. Вы открываете какой-нибудь агрегатор объявлений или просто спрашиваете в чатах района, находите пять телефонов, звоните по очереди, каждому объясняете одно и то же — что нужно, когда, какой бюджет. Половина не берёт трубку, вторая половина перезванивает через два дня, когда вы уже договорились с кем-то другим.</p>
 <p><strong>Коротко:</strong> модель Thumbtack переворачивает поиск мастера — клиент один раз описывает задачу, а система сама рассылает её подходящим мастерам, которые присылают цену и сроки в ответ. У нас так почти никто не работает: площадки устроены как доски объявлений. Запустить такую модель можно ботом с категориями услуг и рассылкой заявок, начиная с одной-двух категорий в одном городе.</p>
 <p>За рубежом эта проблема решена иначе. Сервисы вроде Thumbtack устроены наоборот: не клиент ищет мастеров, а мастера откликаются на заявку клиента. Вы один раз описываете задачу, система сама находит подходящих исполнителей в вашем районе, и через несколько часов у вас на руках два-три предложения с ценой и сроками. Осталось сравнить и выбрать. В этой статье — как устроена такая модель, почему её почти нет на нашем рынке и что нужно, чтобы запустить нечто похожее здесь.</p>
@@ -473,9 +481,9 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 <p>Именно в этой узости и открывается ниша для тех, кто готов сделать не гигантскую платформу, а конкретный работающий инструмент под свой город или свою категорию услуг.</p>
 <h2 id="kak-mogla-by-vyglyadet">Как это могло бы выглядеть здесь</h2>
 <p>Реализация не обязана быть тяжёлым веб-приложением с <a href="https://chimitdorzhi.tech/services/web-development/" class="blog-inline-link">личным кабинет</a>ом для каждой стороны. Есть два разумных формата — выбор зависит от аудитории и её привычки к ботам.</p>
-<p>Первый формат — <a href="https://chimitdorzhi.tech/services/telegram-bots/" class="blog-inline-link">Telegram-бот</a>. Клиент открывает бота, выбирает категорию из меню (ремонт, фото, репетиторство, клининг, частные мастера — вплоть до нишевых вроде выездного мастера маникюра или сборщика мебели), отвечает на несколько вопросов через кнопки. Заявка автоматически уходит мастерам этой категории и района, которые тоже сидят в боте как исполнители. Каждый готовый взяться отвечает прямо в чате — бот собирает ответы и присылает клиенту сводку: три предложения, цена и срок у каждого, кнопка «связаться». Для запуска в одном городе и по нескольким категориям такой бот — самый быстрый и дешёвый вариант.</p>
+<p>Первый формат — <a href="https://chimitdorzhi.tech/development/telegram-bots/" class="blog-inline-link">Telegram-бот</a>. Клиент открывает бота, выбирает категорию из меню (ремонт, фото, репетиторство, клининг, частные мастера — вплоть до нишевых вроде <a href="/blog/vyezdnoy-byuti-master-na-dom-2027/">выездного мастера маникюра</a> или сборщика мебели), отвечает на несколько вопросов через кнопки. Заявка автоматически уходит мастерам этой категории и района, которые тоже сидят в боте как исполнители. Каждый готовый взяться отвечает прямо в чате — бот собирает ответы и присылает клиенту сводку: три предложения, цена и срок у каждого, кнопка «связаться». Для запуска в одном городе и по нескольким категориям такой бот — самый быстрый и дешёвый вариант.</p>
 <p>Второй формат — веб-платформа с личными кабинетами для клиентов и мастеров. Она уместна, когда объём заявок растёт и нужна более гибкая логика: фильтры по рейтингу, портфолио с фотографиями работ, история заказов, встроенный чат, а в перспективе — оплата через платформу. Это более капиталоёмкий вариант, но и более убедительный для мастеров, которые воспринимают сайт с профилями серьёзнее, чем бота.</p>
-<p>Разумный путь — начинать с бота как MVP, проверить, что модель вообще работает на конкретном рынке, и только потом переходить к веб-платформе с более богатым функционалом.</p>
+<p>Разумный путь — <a href="/blog/xx-market-obyavleniya-keys-2026/">начинать с бота как MVP</a>, проверить, что модель вообще работает на конкретном рынке, и только потом переходить к веб-платформе с более богатым функционалом.</p>
 <h2 id="chto-nuzhno-dlya-zapuska">Что нужно для запуска</h2>
 <p>Если вы решаете попробовать такую модель на своём рынке, набор задач укладывается в несколько понятных блоков.</p>
 <p>Первое — MVP на боте или простой веб-форме. Не нужно сразу строить полноценную платформу с десятком категорий услуг. Правильный старт — одна-две категории, где вы точно знаете, что спрос есть, и понятная форма заявки с уточняющими вопросами именно под эту категорию.</p>
@@ -483,6 +491,7 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 <p>Третье — система уведомлений, которая доставляет каждую новую заявку именно тем мастерам, которые подходят по категории и району, а не всем подряд. Это защищает мастеров от спама и повышает шанс, что на заявку вообще кто-то ответит.</p>
 <p>Четвёртое — модерация качества откликов. Кто-то должен следить, чтобы мастера не присылали формальные отписки, а клиенты видели реально сравнимые предложения с адекватной ценой и сроками, а не «напишите в личку, обсудим».</p>
 <p>Пятое — модель монетизации. Здесь два основных рабочих варианта: комиссия с суммы заказа при выборе мастера, либо платные лиды — мастер платит небольшую сумму за доступ к контакту клиента после отклика. Выбор зависит от готовности рынка платить и от того, насколько легко отслеживать факт сделки. Это вопрос стратегии, а не юридической консультации — конкретную схему стоит обсуждать отдельно под ваш случай.</p>
+<div class="blog-callout blog-callout-info blog-read-next"><i class="ph-fill ph-book-open" aria-hidden="true"></i><div><strong>Читайте дальше по теме</strong><ul><li><a href="/blog/marketplace-melkih-poruchenij-2027/">TaskRabbit по-русски: маркетплейс мелких поручений, которого у нас нет</a></li><li><a href="/blog/kak-vybrat-it-podryadchika-2027/">Как выбрать IT-подрядчика для бизнеса: чек-лист, чтобы не переплатить и не остаться с недоделкой</a></li></ul></div></div>
 <h2 id="riski-i-slozhnosti">Риски и сложности</h2>
 <p>Модель рабочая, но не автоматически успешная — есть три места, где такие проекты чаще всего спотыкаются.</p>
 <p>Первый риск — критическая масса мастеров. Если на заявку клиента отвечает один мастер вместо трёх, вся идея «сравните предложения» разваливается, и сервис превращается в обычную доску объявлений с лишним шагом. Пока база мастеров маленькая, нужно закладывать время на ручное привлечение и держать фокус на одной-двух категориях, а не распыляться сразу на десять.</p>
@@ -492,7 +501,7 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 <p><strong>Чем это отличается от обычной доски объявлений?</strong> На доске объявлений клиент публикует запрос и пассивно ждёт, кто откликнется, среди сотен чужих объявлений. Здесь заявка активно доставляется конкретным мастерам, которые подходят по категории и району, а клиент сразу видит несколько сравнимых предложений в одном месте, а не разрозненные сообщения в личке.</p>
 <p><strong>Как мастера узнают о новой заявке?</strong> Через уведомление — в Telegram-боте это push-сообщение в чат сразу после публикации заявки, на веб-платформе — уведомление в личном кабинете плюс дублирование на почту или в мессенджер. Важно, чтобы уведомление приходило только тем, кто реально подходит под категорию и район, иначе мастера начнут игнорировать бота.</p>
 <p><strong>Что если откликов слишком много?</strong> Клиенту показываются не все подряд, а ограниченное число лучших предложений — например, первые пять откликов или отсортированные по рейтингу мастера. Это защищает клиента от перегрузки и одновременно стимулирует мастеров отвечать быстрее.</p>
-<p><strong>Можно ли начать с одной категории услуг?</strong> Да, и это правильный путь. Лучше запустить модель на одной понятной категории — например, только ремонт квартир или только репетиторы — набрать там базу мастеров и отладить процесс, а расширяться на другие категории уже после того, как первая работает стабильно.</p>
+<p><strong>Можно ли начать с одной категории услуг?</strong> Да, и это правильный путь. Лучше запустить модель на одной понятной категории — например, <a href="/blog/remont-podryadchiki-marketplace-2027/">только ремонт квартир</a> или только репетиторы — набрать там базу мастеров и отладить процесс, а расширяться на другие категории уже после того, как первая работает стабильно.</p>
 <p><strong>Нужна ли отдельная мобильная разработка на старте?</strong> Нет. Telegram-бот покрывает и мобильный, и десктопный сценарий без отдельных приложений под iOS и Android. Полноценное приложение имеет смысл обсуждать уже на этапе, когда модель доказала себя и поток заявок оправдывает дополнительные вложения.</p>
 <h2 id="vyvody">Коротко о главном</h2>
 <p>Модель «одна заявка — несколько предложений от мастеров» решает реальную и знакомую всем проблему: не тратить часы на обзвон исполнителей одного за другим. За рубежом она давно работает и приносит доход платформам вроде Thumbtack, а на российском рынке свободного места пока хватает — особенно если начинать не с амбиции федерального масштаба, а с одного города и одной-двух категорий услуг. Технически это решаемо через бота или простую веб-платформу без миллионных бюджетов на разработку — если вам интересно, применима ли эта модель к вашему рынку или нише, <a href="https://chimitdorzhi.tech/predlozheniya/">обсудить проект</a> можно в любое время.</p>
@@ -507,78 +516,24 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
                     
                     
 <div class="blog-services-offer">
-  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <div class="blog-services-offer-eyebrow">Обсудим вашу задачу</div>
   <h3 class="blog-services-offer-title">Что я делаю под ключ</h3>
-  <ul class="blog-services-offer-list">
-    
-    <li><i class="ph-fill ph-code"></i> <span>Сайты и веб-приложения</span></li>
-    
-    <li><i class="ph-fill ph-robot"></i> <span>Боты в Telegram и MAX, ИИ-агенты</span></li>
-    
-    <li><i class="ph-fill ph-flow-arrow"></i> <span>Автоматизация и интеграции</span></li>
-    
-    <li><i class="ph-fill ph-storefront"></i> <span>Маркетплейсы и платформы</span></li>
-    
-    <li><i class="ph-fill ph-lifebuoy"></i> <span>Внедрение и поддержка</span></li>
-    
-  </ul>
+  <p class="blog-services-offer-lead">Напишите одной фразой, что нужно. Отвечу, что подойдёт, сколько займёт и сколько стоит. Сообщение уже подготовлено.</p>
+  <ul class="blog-services-offer-list"><li><i class="ph-fill ph-code"></i> <span>Сайты и веб-приложения</span></li><li><i class="ph-fill ph-robot"></i> <span>Боты в Telegram и MAX, ИИ-агенты</span></li><li><i class="ph-fill ph-flow-arrow"></i> <span>Автоматизация и интеграции</span></li><li><i class="ph-fill ph-storefront"></i> <span>Маркетплейсы и платформы</span></li><li><i class="ph-fill ph-lifebuoy"></i> <span>Внедрение и поддержка</span></li></ul>
   <div class="blog-services-offer-ctas">
-    <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
-      <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Обсудить ваш проект
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%ABThumbtack%20%D0%BF%D0%BE-%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B8%3A%20%D0%BE%D0%B4%D0%BD%D0%B0%20%D0%B7%D0%B0%D1%8F%D0%B2%D0%BA%D0%B0%20%E2%80%94%20%D0%BD%D0%B5%D1%81%D0%BA%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE%20%D0%BF%D1%80%D0%B5%D0%B4%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B9%20%D0%BE%D1%82%20%D0%BC%D0%B0%D1%81%D1%82%D0%B5%D1%80%D0%BE%D0%B2%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener" class="blog-services-offer-cta">
+      <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
     </a>
     <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="blog-services-offer-cta blog-services-offer-cta-max">
       <i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> Написать в MAX
     </a>
+    <a href="https://chimitdorzhi.tech/predlozheniya/" class="blog-services-offer-cta blog-services-offer-cta-max"><i class="ph ph-arrow-right" aria-hidden="true"></i> Обсудить ваш проект</a>
   </div>
 </div>
-                    <div class="blog-cta-card">
-                        <div class="blog-cta-card-body">
-                            <h3>Бесплатно: чек-лист «Готов ли ваш бизнес к 152-ФЗ»</h3>
-                            <p>12 пунктов, которые проверяют готовность за час: данные, согласия, уведомление в РКН, локализация, защита. Отметьте, что уже сделано, и увидите дыры, за которые сейчас штрафуют.</p>
-                        </div>
-                        <div class="blog-cta-card-actions">
-                            <a href="/checklist-152-fz/" class="btn btn-accent"><i class="ph-fill ph-clipboard-text" aria-hidden="true"></i> Открыть чек-лист</a>
-                        </div>
-                    </div>
                     
-
-                    <div class="blog-cta-card blog-cta-card-final">
-                        <div class="blog-cta-card-body">
-                            <h3>Готовы обсудить вашу задачу?</h3>
-                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
-                        </div>
-                        <div class="blog-cta-card-actions">
-                            <a href="https://chimitdorzhi.tech/predlozheniya/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Обсудить ваш проект</a>
-                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
-                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
-                        </div>
-                    </div>
-
-                    <section class="blog-subscribe">
-  <div class="blog-subscribe-body">
-    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
-    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
-  </div>
-  <div class="blog-subscribe-actions">
-    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
-    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
-  </div>
-</section>
                     <section class="blog-related">
   <h2>Читайте также</h2>
-  <div class="blog-grid"><a class="blog-card" href="/blog/marketplace-melkih-poruchenij-2027/" data-category="industries" data-clicks="0">
-  
-  <div class="blog-card-icon"><i class="ph-fill ph-hand-waving"></i></div>
-  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Отрасли</span>
-  <h3>TaskRabbit по-русски: маркетплейс мелких поручений, которого у нас нет</h3>
-  <p>За рубежом есть сервис, где любую мелкую задачу — от сборки шкафа до похода в магазин — берёт проверенный исполнитель по клику. У нас такого системно нет. Разбираю модель и что нужно для запуска.</p>
-  <div class="blog-card-meta">
-    <span><i class="ph ph-calendar" aria-hidden="true"></i> 2 июля 2026</span>
-    <span><i class="ph ph-clock" aria-hidden="true"></i> 5 мин</span>
-  </div>
-  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
-</a>
-<a class="blog-card" href="/blog/remont-podryadchiki-marketplace-2027/" data-category="industries" data-clicks="0">
+  <div class="blog-grid"><a class="blog-card" href="/blog/remont-podryadchiki-marketplace-2027/" data-category="industries" data-clicks="0">
   
   <div class="blog-card-icon"><i class="ph-fill ph-paint-roller"></i></div>
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Отрасли</span>
@@ -590,54 +545,53 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
   </div>
   <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
 </a>
-<a class="blog-card" href="/blog/kak-vybrat-it-podryadchika-2027/" data-category="development" data-clicks="0">
+<a class="blog-card" href="/blog/evakuator-priem-vyzova-za-minutu-2026/" data-category="industries" data-clicks="0">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-clipboard-text"></i></div>
-  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
-  <h3>Как выбрать IT-подрядчика для бизнеса: чек-лист, чтобы не переплатить и не остаться с недоделкой</h3>
-  <p>Боитесь нарваться на исполнителя, который возьмёт деньги и пропадёт? Чек-лист, как выбрать IT-подрядчика: на что смотреть, красные флаги и как составить ТЗ.</p>
+  <div class="blog-card-icon"><i class="ph-fill ph-truck"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Отрасли</span>
+  <h3>Эвакуатор и помощь на дороге: приём вызова за минуту, расчёт и отслеживание машины</h3>
+  <p>Человек на обочине звонит в несколько служб и едет с тем, кто первым назвал цену и время. Показываю, как принимать вызов за минуту.</p>
   <div class="blog-card-meta">
-    <span><i class="ph ph-calendar" aria-hidden="true"></i> 28 июня 2026</span>
-    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 21 сентября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 6 мин</span>
   </div>
   <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
 </a>
-<a class="blog-card" href="/blog/svadebnye-agentstva-zayavki-podryadchiki-2026/" data-category="industries" data-clicks="0">
+<a class="blog-card" href="/blog/landshaftnyy-dizayn-proekt-i-uhod-2026/" data-category="industries" data-clicks="0">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-heart"></i></div>
+  <div class="blog-card-icon"><i class="ph-fill ph-house-line"></i></div>
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Отрасли</span>
-  <h3>Свадьба завтра, а пара правит программу в 22:00: как убрать хаос</h3>
-  <p>Заявки на дату в личке, подрядчики в разных чатах, аванс потерялся в переписке, а пара правит программу накануне вечером. Разбираем, какую рутину организатора и ведущего можно отдать боту, а что остаётся за живым человеком и договором.</p>
+  <h3>Ландшафтный дизайн: проект, согласование с клиентом и сезонный уход по абонементу</h3>
+  <p>Правки в переписке, клиент теряется после сдачи, зимой нет денег. Разбираю, как провести проект без хаоса и превратить сдачу в абонемент на уход.</p>
   <div class="blog-card-meta">
-    <span><i class="ph ph-calendar" aria-hidden="true"></i> 1 октября 2026</span>
-    <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 21 сентября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 6 мин</span>
   </div>
   <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
 </a>
-<a class="blog-card" href="/blog/notarius-kadastr-ochered-dokumenty-2026/" data-category="industries" data-clicks="0">
+<a class="blog-card" href="/blog/iiko-r-keeper-otchety-vladelcu-2026/" data-category="industries" data-clicks="0">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-stamp"></i></div>
+  <div class="blog-card-icon"><i class="ph-fill ph-fork-knife"></i></div>
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Отрасли</span>
-  <h3>Нотариус и кадастровый инженер: запись без тетради</h3>
-  <p>Повторные визиты из-за одного недостающего документа, запись в тетради и звонки «что с моим делом» растут из одной причины. Разбираем, как онлайн-запись, список документов по делу, напоминания и статус по ссылке снимают её, и где границы бота: нотариальная тайна, 152-ФЗ и решения самого специалиста.</p>
+  <h3>iiko и r_keeper: как владельцу видеть выручку, себестоимость и списания без выгрузок руками</h3>
+  <p>Данные о ресторане уже лежат в кассовой системе, но до владельца доходят поздно. Разбираю, какие цифры забирать автоматически и как получать их каждое утро в мессенджер.</p>
   <div class="blog-card-meta">
-    <span><i class="ph ph-calendar" aria-hidden="true"></i> 30 сентября 2026</span>
-    <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
-  </div>
-  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
-</a>
-<a class="blog-card" href="/blog/vet-klinika-kartochka-pitomca-2026/" data-category="industries" data-clicks="0">
-  
-  <div class="blog-card-icon"><i class="ph-fill ph-syringe"></i></div>
-  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Отрасли</span>
-  <h3>Тетрадь с прививками: как ветклиника теряет визиты</h3>
-  <p>Ветклиника теряет повторные визиты из-за тетради и забывчивых хозяев. Разбираем, что должно быть в карточке питомца, как календарь сам считает срок ревакцинации и как напоминание в мессенджер возвращает клиента на приём.</p>
-  <div class="blog-card-meta">
-    <span><i class="ph ph-calendar" aria-hidden="true"></i> 30 сентября 2026</span>
-    <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 19 сентября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 5 мин</span>
   </div>
   <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
 </a></div>
+</section>
+                    
+                    <section class="blog-subscribe">
+  <div class="blog-subscribe-body">
+    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
+    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
+  </div>
+  <div class="blog-subscribe-actions">
+    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
+  </div>
 </section>
                     
                     

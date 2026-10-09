@@ -9,42 +9,42 @@
 const i18nServices = {
   // === РАЗРАБОТКА И ВЕБ ===
   'web-development': {
-    en: { n: 'Websites & web apps', d: 'Corporate sites, landings, web applications and portals turnkey. Responsive design, fast loading, SEO. 152-FZ compliance out of the box.', pt: 'from 30,000 ₽' },
-    cn: { n: '网站与网络应用', d: '企业网站、落地页、网络应用和门户的整体开发。响应式设计、快速加载、SEO 优化，开箱即用符合 152-FZ 法规。', pt: '起 30,000 ₽' },
+    en: { n: 'Websites & web apps', d: 'Corporate sites, landings, web applications and portals turnkey. Responsive design, fast loading, SEO. 152-FZ compliance out of the box.', pt: 'from 40,000 ₽' },
+    cn: { n: '网站与网络应用', d: '企业网站、落地页、网络应用和门户的整体开发。响应式设计、快速加载、SEO 优化，开箱即用符合 152-FZ 法规。', pt: '起 40,000 ₽' },
   },
   'mobile-apps': {
     en: { n: 'Mobile apps', d: 'Mobile apps from MVP to production. Native and cross-platform. AI integrations, backend, push, payments.', pt: 'from 150,000 ₽' },
     cn: { n: '移动应用', d: '从 MVP 到生产环境的移动应用。原生与跨平台开发。AI 集成、后端、推送通知、支付。', pt: '起 150,000 ₽' },
   },
   'telegram-bots': {
-    en: { n: 'Telegram & chat bots', d: 'Bots for Telegram, WhatsApp, VK. Sales funnels, lead capture, CRM integration, GPT/Claude AI replies. 24/7 automation.', pt: 'from 15,000 ₽' },
-    cn: { n: 'Telegram 和聊天机器人', d: '面向 Telegram、WhatsApp、VK 的机器人。销售漏斗、客户接入、CRM 集成，GPT/Claude AI 回复，24/7 自动化。', pt: '起 15,000 ₽' },
+    en: { n: 'Telegram & chat bots', d: 'Bots for Telegram, WhatsApp, VK. Sales funnels, lead capture, CRM integration, GPT/Claude AI replies. 24/7 automation.', pt: 'from 30,000 ₽' },
+    cn: { n: 'Telegram 和聊天机器人', d: '面向 Telegram、WhatsApp、VK 的机器人。销售漏斗、客户接入、CRM 集成，GPT/Claude AI 回复，24/7 自动化。', pt: '起 30,000 ₽' },
   },
   'white-label': {
-    en: { n: 'White-label development', d: 'Partner development for web studios and digital agencies. Sites, web apps, AI integrations under your brand. NDA, tight deadlines, quality guarantee.', pt: 'from 2,500 ₽/hour' },
-    cn: { n: '白标开发', d: '为网络工作室和数字代理商提供合作开发。以您的品牌交付网站、网络应用、AI 集成。签订保密协议，严格交付。', pt: '起 2,500 ₽/小时' },
+    en: { n: 'White-label development', d: 'Partner development for web studios and digital agencies. Sites, web apps, AI integrations under your brand. NDA, tight deadlines, quality guarantee.', pt: 'from 3,000 ₽/hour' },
+    cn: { n: '白标开发', d: '为网络工作室和数字代理商提供合作开发。以您的品牌交付网站、网络应用、AI 集成。签订保密协议，严格交付。', pt: '起 3,000 ₽/小时' },
   },
 
   // === AI И АВТОМАТИЗАЦИЯ ===
   'ai-agents': {
-    en: { n: 'AI agents & LLM solutions', d: 'Autonomous AI agents, RAG systems, GPT / Claude / Gemini / DeepSeek integration. Business process automation. Vanderbilt University and MongoDB Inc. certifications (2026).', pt: 'from 60,000 ₽' },
-    cn: { n: 'AI 智能体与 LLM 方案', d: '自主 AI 智能体、RAG 系统，集成 GPT / Claude / Gemini / DeepSeek。基于神经网络的业务流程自动化。范德比尔特大学与 MongoDB 公司 2026 年认证。', pt: '起 60,000 ₽' },
+    en: { n: 'AI agents & LLM solutions', d: 'Autonomous AI agents, RAG systems, GPT / Claude / Gemini / DeepSeek integration. Business process automation. Vanderbilt University and MongoDB Inc. certifications (2026).', pt: 'from 150,000 ₽' },
+    cn: { n: 'AI 智能体与 LLM 方案', d: '自主 AI 智能体、RAG 系统，集成 GPT / Claude / Gemini / DeepSeek。基于神经网络的业务流程自动化。范德比尔特大学与 MongoDB 公司 2026 年认证。', pt: '起 150,000 ₽' },
   },
   'rag-systems': {
-    en: { n: 'RAG document systems', d: 'Corporate AI assistants for large document sets: contracts, regulations, knowledge bases. Semantic vector search. Case study with 10,000+ documents.', pt: 'from 80,000 ₽' },
-    cn: { n: 'RAG 文档系统', d: '面向海量文档（合同、规章、知识库）的企业级 AI 助手。基于含义的向量搜索，回答问题。已实现 10,000+ 文档的案例。', pt: '起 80,000 ₽' },
+    en: { n: 'RAG document systems', d: 'Corporate AI assistants for large document sets: contracts, regulations, knowledge bases. Semantic vector search. Case study with 10,000+ documents.', pt: 'from 150,000 ₽' },
+    cn: { n: 'RAG 文档系统', d: '面向海量文档（合同、规章、知识库）的企业级 AI 助手。基于含义的向量搜索，回答问题。已实现 10,000+ 文档的案例。', pt: '起 150,000 ₽' },
   },
   'voice-ai': {
-    en: { n: 'Voice AI assistants', d: 'Voice AI bots with speech recognition, dialog systems, telephony integration. AI outbound calls, automated call center.', pt: 'from 50,000 ₽' },
-    cn: { n: '语音 AI 助手', d: '具备语音识别和对话系统的语音 AI 机器人，集成电话与企业服务。AI 外呼、自动呼叫中心。', pt: '起 50,000 ₽' },
+    en: { n: 'Voice AI assistants', d: 'Voice AI bots with speech recognition, dialog systems, telephony integration. AI outbound calls, automated call center.', pt: 'from 100,000 ₽' },
+    cn: { n: '语音 AI 助手', d: '具备语音识别和对话系统的语音 AI 机器人，集成电话与企业服务。AI 外呼、自动呼叫中心。', pt: '起 100,000 ₽' },
   },
   'ai-analytics': {
-    en: { n: 'AI analytics & reporting', d: 'BI dashboards, predictive models, AI sales and finance analysis. 1C / CRM / database integration. Auto-generated management reports.', pt: 'from 60,000 ₽' },
-    cn: { n: 'AI 分析与报告', d: 'BI 仪表板、预测模型、AI 销售与财务分析。集成 1C、CRM 和数据库，自动生成管理报告。', pt: '起 60,000 ₽' },
+    en: { n: 'AI analytics & reporting', d: 'BI dashboards, predictive models, AI sales and finance analysis. 1C / CRM / database integration. Auto-generated management reports.', pt: 'from 80,000 ₽' },
+    cn: { n: 'AI 分析与报告', d: 'BI 仪表板、预测模型、AI 销售与财务分析。集成 1C、CRM 和数据库，自动生成管理报告。', pt: '起 80,000 ₽' },
   },
   'business-automation': {
-    en: { n: 'Business process automation', d: 'Sales funnels, automated mailings, document generation, service-to-service integrations, data sync. Reduce manual work by up to 80%.', pt: 'from 40,000 ₽' },
-    cn: { n: '业务流程自动化', d: '销售漏斗、自动邮件、文档生成、服务间集成、数据同步。减少人工工作量最高 80%。', pt: '起 40,000 ₽' },
+    en: { n: 'Business process automation', d: 'Sales funnels, automated mailings, document generation, service-to-service integrations, data sync. Reduce manual work by up to 80%.', pt: 'from 50,000 ₽' },
+    cn: { n: '业务流程自动化', d: '销售漏斗、自动邮件、文档生成、服务间集成、数据同步。减少人工工作量最高 80%。', pt: '起 50,000 ₽' },
   },
   'accounting-automation': {
     en: { n: 'Accounting automation', d: 'AI processing of primary documents, OCR, integration with 1C, banks and marketplaces. EDI, automatic counterparty reconciliation.', pt: 'from 40,000 ₽' },
@@ -59,26 +59,26 @@ const i18nServices = {
     cn: { n: '大数据与数据工程', d: 'ETL 管道、大数据处理、数据库迁移、数据仓库 (DWH) 建设。PostgreSQL、MongoDB、ClickHouse。为 AI/ML 准备数据。', pt: '起 80,000 ₽' },
   },
   'devops': {
-    en: { n: 'DevOps as a service', d: 'CI/CD setup, Docker / Kubernetes containerisation, monitoring, auto-deploy, infrastructure optimisation. For teams without an in-house DevOps engineer.', pt: 'from 40,000 ₽/month' },
-    cn: { n: 'DevOps 服务', d: 'CI/CD 配置、Docker/Kubernetes 容器化、监控、自动部署、基础设施优化。面向没有专职 DevOps 工程师的团队。', pt: '起 40,000 ₽/月' },
+    en: { n: 'DevOps as a service', d: 'CI/CD setup, Docker / Kubernetes containerisation, monitoring, auto-deploy, infrastructure optimisation. For teams without an in-house DevOps engineer.', pt: 'from 30,000 ₽/month' },
+    cn: { n: 'DevOps 服务', d: 'CI/CD 配置、Docker/Kubernetes 容器化、监控、自动部署、基础设施优化。面向没有专职 DevOps 工程师的团队。', pt: '起 30,000 ₽/月' },
   },
   'russian-stack-migration': {
-    en: { n: 'Migration to Russian IT stack', d: 'Replace foreign software with Russian alternatives: Atlassian → Yandex Tracker, Google Workspace → VK WorkSpace, Slack → Pachca. Import substitution under regulator requirements.', pt: 'from 80,000 ₽' },
-    cn: { n: '迁移至俄罗斯 IT 栈', d: '将海外软件替换为俄罗斯本土替代方案：Atlassian → Yandex Tracker、Google Workspace → VK WorkSpace、Slack → Pachca。符合监管要求的进口替代。', pt: '起 80,000 ₽' },
+    en: { n: 'Migration to Russian IT stack', d: 'Replace foreign software with Russian alternatives: Atlassian → Yandex Tracker, Google Workspace → VK WorkSpace, Slack → Pachca. Import substitution under regulator requirements.', pt: 'from 150,000 ₽' },
+    cn: { n: '迁移至俄罗斯 IT 栈', d: '将海外软件替换为俄罗斯本土替代方案：Atlassian → Yandex Tracker、Google Workspace → VK WorkSpace、Slack → Pachca。符合监管要求的进口替代。', pt: '起 150,000 ₽' },
   },
 
   // === БЕЗОПАСНОСТЬ И COMPLIANCE ===
   'rkn-audit': {
-    en: { n: '152-FZ compliance audit', d: 'Audit of website compliance with the latest 152-FZ regulator (Roskomnadzor) requirements. Protection from fines up to 18M ₽. Privacy policy, consents, cookies, data localisation.', pt: 'from 5,000 ₽ (remediation — from 25,000 ₽)' },
-    cn: { n: '152-FZ 合规审计', d: '依据最新版 152-FZ 法规对网站进行 Roskomnadzor 合规审计。规避最高 1800 万卢布罚款。审查隐私政策、同意书、cookie、数据本地化。', pt: '起 5,000 ₽（整改起 25,000 ₽）' },
+    en: { n: '152-FZ compliance audit', d: 'Audit of website compliance with the latest 152-FZ regulator (Roskomnadzor) requirements. Lowers the risk of fines under Art. 13.11 of the Administrative Code. Privacy policy, consents, cookies, data localisation.', pt: 'from 15,000 ₽ (remediation — from 30,000 ₽)' },
+    cn: { n: '152-FZ 合规审计', d: '依据最新版 152-FZ 法规对网站进行 Roskomnadzor 合规审计。降低依据《行政违法法典》第 13.11 条被罚款的风险。审查隐私政策、同意书、cookie、数据本地化。', pt: '起 15,000 ₽（整改起 30,000 ₽）' },
   },
   'cybersecurity': {
-    en: { n: 'Cybersecurity for SMB', d: 'Infrastructure audit, data leak protection, 152-FZ compliance, employee security training. Protection from fines up to 18M ₽.', pt: 'from 30,000 ₽' },
-    cn: { n: '中小企业网络安全', d: '基础设施审计、防数据泄露、152-FZ 合规、员工安全培训。规避最高 1800 万卢布罚款。', pt: '起 30,000 ₽' },
+    en: { n: 'Cybersecurity for SMB', d: 'Infrastructure audit, data leak protection, 152-FZ compliance, employee security training. Lowers the risk of fines under Art. 13.11 of the Administrative Code.', pt: 'from 40,000 ₽' },
+    cn: { n: '中小企业网络安全', d: '基础设施审计、防数据泄露、152-FZ 合规、员工安全培训。降低依据《行政违法法典》第 13.11 条被罚款的风险。', pt: '起 40,000 ₽' },
   },
   'it-audit': {
-    en: { n: 'Technical IT audit', d: 'Independent assessment of company IT systems: networks, servers, security, licensing, leak risks. Detailed report with a remediation roadmap.', pt: 'from 20,000 ₽' },
-    cn: { n: '技术 IT 审计', d: '对公司 IT 系统的独立评估：网络、服务器、安全性、许可合规、泄露风险。详细报告与改进路线图。', pt: '起 20,000 ₽' },
+    en: { n: 'Technical IT audit', d: 'Independent assessment of company IT systems: networks, servers, security, licensing, leak risks. Detailed report with a remediation roadmap.', pt: 'from 50,000 ₽' },
+    cn: { n: '技术 IT 审计', d: '对公司 IT 系统的独立评估：网络、服务器、安全性、许可合规、泄露风险。详细报告与改进路线图。', pt: '起 50,000 ₽' },
   },
   'secure-remote-access': {
     en: { n: 'Secure remote access', d: 'Corporate secured network for safe employee access to internal resources, with traffic encryption and connection auditing.', pt: 'from 15,000 ₽' },
@@ -87,8 +87,8 @@ const i18nServices = {
 
   // === ИНФРАСТРУКТУРА ===
   'it-infrastructure': {
-    en: { n: 'Turnkey IT infrastructure', d: 'Hosting, SSL, CRM, cloud storage, monitoring, cybersecurity. A complete IT stack for business with setup and ongoing support.', pt: 'from 25,000 ₽' },
-    cn: { n: '一站式 IT 基础设施', d: '托管、SSL、CRM、云存储、监控、网络安全。面向企业的完整 IT 栈，含部署与持续支持。', pt: '起 25,000 ₽' },
+    en: { n: 'Turnkey IT infrastructure', d: 'Hosting, SSL, CRM, cloud storage, monitoring, cybersecurity. A complete IT stack for business with setup and ongoing support.', pt: 'from 40,000 ₽' },
+    cn: { n: '一站式 IT 基础设施', d: '托管、SSL、CRM、云存储、监控、网络安全。面向企业的完整 IT 栈，含部署与持续支持。', pt: '起 40,000 ₽' },
   },
   'remote-objects-support': {
     en: { n: 'Remote site IT support', d: 'IT for remote facilities in hard-to-reach regions: video surveillance, secured access, equipment monitoring, communications. Experience with sites in Zabaikalsky Krai.', pt: 'from 20,000 ₽' },
@@ -109,8 +109,8 @@ const i18nServices = {
     cn: { n: '中国 IT 与外贸支持', d: '将中国 IT 产品和设备本地化适配俄罗斯市场。1C 与中国服务的集成、外贸文档、软件适配。', pt: '起 40,000 ₽' },
   },
   'it-grants': {
-    en: { n: 'IT projects under grants', d: 'Applications for Bortnik Foundation, presidential grants, MinDigital subsidies. Feasibility study, project execution, reporting.', pt: 'from 50,000 ₽ or 10–20% of grant won' },
-    cn: { n: '政府资助下的 IT 项目', d: '为 Bortnik 基金、总统资助、数字发展部补贴提交申请。技术经济论证、项目执行、报告。', pt: '起 50,000 ₽ 或资助金的 10–20%' },
+    en: { n: 'IT projects under grants', d: 'Applications for Bortnik Foundation, presidential grants, MinDigital subsidies. Feasibility study, project execution, reporting.', pt: 'from 100,000 ₽ or 10–20% of grant won' },
+    cn: { n: '政府资助下的 IT 项目', d: '为 Bortnik 基金、总统资助、数字发展部补贴提交申请。技术经济论证、项目执行、报告。', pt: '起 100,000 ₽ 或资助金的 10–20%' },
   },
   'culture-digitalization': {
     en: { n: 'Cultural institution digitalisation', d: 'Virtual tours, AR/VR exhibits, metaverse for cultural projects. Unique case — concert in the metaverse with the Amar Sain theatre (2022). Aligned with federal Ministry of Culture programmes.', pt: 'from 80,000 ₽' },
@@ -119,12 +119,12 @@ const i18nServices = {
 
   // === ОБРАЗОВАНИЕ ===
   'it-mentoring': {
-    en: { n: 'Mentoring & training', d: 'Courses and one-on-one classes in Python, AI/ML, web development, DevOps. ZabSU teaching experience. Practice-driven, working on real projects.', pt: 'from 2,500 ₽/hour' },
-    cn: { n: '导师辅导与培训', d: 'Python、AI/ML、Web 开发、DevOps 课程与一对一辅导。具备外贝加尔国立大学教学经验，以真实项目驱动实践。', pt: '起 2,500 ₽/小时' },
+    en: { n: 'Mentoring & training', d: 'Courses and one-on-one classes in Python, AI/ML, web development, DevOps. ZabSU teaching experience. Practice-driven, working on real projects.', pt: 'from 3,000 ₽/hour' },
+    cn: { n: '导师辅导与培训', d: 'Python、AI/ML、Web 开发、DevOps 课程与一对一辅导。具备外贝加尔国立大学教学经验，以真实项目驱动实践。', pt: '起 3,000 ₽/小时' },
   },
   'corporate-ai-training': {
-    en: { n: 'Corporate AI training', d: 'Train your team to work with ChatGPT, Claude, neural networks. One-day workshops, corporate programmes, certificates. Customised to company tasks.', pt: 'from 50,000 ₽' },
-    cn: { n: '企业 AI 培训', d: '培训员工使用 ChatGPT、Claude 和神经网络。一日工作坊、企业项目、颁发证书。可根据公司任务定制。', pt: '起 50,000 ₽' },
+    en: { n: 'Corporate AI training', d: 'Train your team to work with ChatGPT, Claude, neural networks. One-day workshops, corporate programmes, certificates. Customised to company tasks.', pt: 'from 80,000 ₽' },
+    cn: { n: '企业 AI 培训', d: '培训员工使用 ChatGPT、Claude 和神经网络。一日工作坊、企业项目、颁发证书。可根据公司任务定制。', pt: '起 80,000 ₽' },
   },
   'ai-for-education': {
     en: { n: 'AI for educational institutions', d: 'AI assistants for schools and universities: automatic grading, lesson plan generation, AI mentor for students. Implemented case at ZabSU.', pt: 'from 100,000 ₽' },
@@ -145,8 +145,8 @@ const i18nServices = {
     cn: { n: '专家个人品牌', d: '个人品牌战略、视频内容、播客、社交媒体、YouTube 频道。从定位到触达受众的全周期。本人案例——YouTube 100 万+ 观看。', pt: '起 80,000 ₽/月' },
   },
   'content-repurposing': {
-    en: { n: 'AI content repurposing', d: 'Turn one hour of video into 30 short clips, 5 posts, 3 articles and a podcast. Fully AI-driven. Maximise reach without extra shooting.', pt: 'from 25,000 ₽/month' },
-    cn: { n: 'AI 内容再利用', d: '把一小时视频转化为 30 条短视频、5 篇帖子、3 篇文章和一档播客。完全由 AI 驱动，无需额外拍摄即可最大化覆盖。', pt: '起 25,000 ₽/月' },
+    en: { n: 'AI content repurposing', d: 'Turn one hour of video into 30 short clips, 5 posts, 3 articles and a podcast. Fully AI-driven. Maximise reach without extra shooting.', pt: 'from 50,000 ₽/month' },
+    cn: { n: 'AI 内容再利用', d: '把一小时视频转化为 30 条短视频、5 篇帖子、3 篇文章和一档播客。完全由 AI 驱动，无需额外拍摄即可最大化覆盖。', pt: '起 50,000 ₽/月' },
   },
 
   // === БЛОКЧЕЙН И ИННОВАЦИИ ===
@@ -167,8 +167,8 @@ const i18nServices = {
     cn: { n: '音乐制作与厂牌', d: '完整的音乐制作流程：录音、编曲、母带处理、封面设计、发行至 Spotify、Apple Music、Yandex Music。策划推介、同步授权、艺人推广。Beatport 厂牌 AREY 经验。', pt: '起 15,000 ₽' },
   },
   'design-branding': {
-    en: { n: 'Design & branding', d: 'Brand books and identity, UX/UI for websites and mobile apps, packaging design, motion design, investor decks, marketplace visuals (Wildberries, Ozon), merch design.', pt: 'from 25,000 ₽' },
-    cn: { n: '设计与品牌', d: '品牌手册与视觉识别、网站与移动应用 UX/UI、包装设计、动效设计、投资人演示文稿、电商平台视觉（Wildberries、Ozon）、周边设计。', pt: '起 25,000 ₽' },
+    en: { n: 'Design & branding', d: 'Brand books and identity, UX/UI for websites and mobile apps, packaging design, motion design, investor decks, marketplace visuals (Wildberries, Ozon), merch design.', pt: 'from 50,000 ₽' },
+    cn: { n: '设计与品牌', d: '品牌手册与视觉识别、网站与移动应用 UX/UI、包装设计、动效设计、投资人演示文稿、电商平台视觉（Wildberries、Ozon）、周边设计。', pt: '起 50,000 ₽' },
   },
   'business-legal-compliance': {
     en: { n: 'Legal protection for business', d: 'Comprehensive business protection: trademark registration, contract templates, NDAs, 152-FZ and 259-FZ compliance, business insurance, business continuity plan (BCP), compliance audit.', pt: 'from 25,000 ₽' },
@@ -187,8 +187,8 @@ const i18nServices = {
     cn: { n: '运营效率', d: '公司流程的精益分析、规章和工作标准制定、部门间内部 SLA、管理报告自动化。把人工业务转化为系统化机制。', pt: '起 40,000 ₽' },
   },
   'cfa-issuance': {
-    en: { n: 'CFA issuance under 259-FZ', d: 'Full Digital Financial Assets (CFA) issuance cycle under 259-FZ: tokenisation of real estate, equipment and receivables, operator selection (Sber, T-Bank, Atomyze), legal structuring, smart contracts, secondary-market monitoring. RACIB FEFD experience (2019–2022).', pt: 'from 150,000 ₽' },
-    cn: { n: '依据 259-FZ 发行 CFA', d: '依据俄罗斯 259-FZ 的完整数字金融资产（CFA）发行流程：房地产、设备及应收账款代币化，选择运营商（Sber、T-Bank、Atomyze），法律结构、智能合约、二级市场监控。RACIB 远东联邦区经验（2019–2022）。', pt: '起 150,000 ₽' },
+    en: { n: 'CFA issuance under 259-FZ', d: 'Full Digital Financial Assets (CFA) issuance cycle under 259-FZ: tokenisation of real estate, equipment and receivables, operator selection (Sber, T-Bank, Atomyze), legal structuring, smart contracts, secondary-market monitoring. RACIB FEFD experience (2019–2022).', pt: 'from 300,000 ₽' },
+    cn: { n: '依据 259-FZ 发行 CFA', d: '依据俄罗斯 259-FZ 的完整数字金融资产（CFA）发行流程：房地产、设备及应收账款代币化，选择运营商（Sber、T-Bank、Atomyze），法律结构、智能合约、二级市场监控。RACIB 远东联邦区经验（2019–2022）。', pt: '起 300,000 ₽' },
   },
   'revenue-monetization': {
     en: { n: 'Revenue & monetisation', d: 'Revenue-growth strategies: subscription model with autopay, up-sell and cross-sell flows, bundles and packaged offers, dynamic pricing, turnkey online courses, affiliate programmes. Turning existing customers into recurring cashflow.', pt: 'from 50,000 ₽' },
@@ -211,8 +211,8 @@ const i18nServices = {
     cn: { n: '二维码小费系统（整体交付）', d: '为咖啡馆、沙龙和酒店打造的二维码无现金小费系统：每位员工专属二维码、班组与后厨分账、无需现金、无平台佣金。整体交付。', pt: '起 15,000 ₽' },
   },
   'cifrovoy-sotrudnik': {
-    en: { n: 'Digital employee', d: 'One assistant covering the roles a small business rarely staffs: first-line replies, social media, document review, candidate screening and reporting. Runs on your own server, works around the clock and takes plain chat — text, voice or a photo. Built for the Russian market: ad labelling, counterparty checks by tax ID, tenders, marketplaces and map reviews.', pt: 'from 8,000 ₽/mo' },
-    cn: { n: '数字员工', d: '一个助手覆盖小企业通常无人负责的岗位：第一线回复、社交媒体、文件审阅、简历筛选与报表。部署在您自己的服务器上，全天候工作，通过普通聊天即可指挥——文字、语音或照片。针对俄罗斯市场：广告标注、按税号核查交易对手、招投标、电商平台与地图评价。', pt: '每月 8,000 卢布起' },
+    en: { n: 'Digital employee', d: 'One assistant covering the roles a small business rarely staffs: first-line replies, social media, document review, candidate screening and reporting. Runs on your own server, works around the clock and takes plain chat — text, voice or a photo. Built for the Russian market: ad labelling, counterparty checks by tax ID, tenders, marketplaces and map reviews.', pt: 'from 15,000 ₽/mo' },
+    cn: { n: '数字员工', d: '一个助手覆盖小企业通常无人负责的岗位：第一线回复、社交媒体、文件审阅、简历筛选与报表。部署在您自己的服务器上，全天候工作，通过普通聊天即可指挥——文字、语音或照片。针对俄罗斯市场：广告标注、按税号核查交易对手、招投标、电商平台与地图评价。', pt: '每月 15,000 卢布起' },
   },
 };
 

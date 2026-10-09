@@ -447,7 +447,17 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
                     <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>Ollama</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>LM Studio</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>локальный ИИ</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>сравнение</span></div>
 
                     <div class="blog-body">
-                        <div class="blog-tldr"><strong>TL;DR:</strong> Ollama — это консольный инструмент и локальный сервер: ставится за одну команду, легко встраивается в свой сайт или бота, но без графического интерфейса из коробки. LM Studio — это приложение с окном чата, где сразу видно каталог моделей, ползунки настроек и график загрузки видеопамяти, но для сервера без монитора оно неудобно. Для разработки и встраивания в продукт я беру Ollama, для быстрого теста моделей на своём компьютере — LM Studio.</p>
+                        <div class="blog-tldr"><strong>TL;DR:</strong> Ollama — это консольный инструмент и локальный сервер: ставится за одну команду, легко встраивается в свой сайт или бота, но без графического интерфейса из коробки. LM Studio — это приложение с окном чата, где сразу видно каталог моделей, ползунки настроек и график загрузки видеопамяти, но для сервера без монитора оно неудобно. Для разработки и встраивания в продукт я беру Ollama, для быстрого теста моделей на своём компьютере — LM Studio.</div>
+
+<div class="blog-cta-internal">
+  <i class="ph-fill ph-brain"></i>
+  <div>
+    <strong>Разверну локальную модель для вашей команды</strong>
+    <p>Поставлю Ollama на ваш сервер, подберу модель под задачу и подключу её к боту, CRM или внутреннему чату. Напишите в Telegram, где хотите использовать нейросеть.</p>
+    <a href="https://chimitdorzhi.tech/predlozheniya/privatnoe-ai-oblako/">Приватное AI-облако <i class="ph ph-arrow-right"></i></a>
+  </div>
+</div>
+
 <p>Ко мне регулярно приходит один и тот же вопрос: «Хочу запустить нейросеть у себя, без облака и утечки данных — что ставить, Ollama или LM Studio?» За вопросом обычно прячется другая задача: одному нужно один раз попробовать модель на ноутбуке, другому — встроить локальный ИИ в рабочее приложение, третьему — поднять сервер для команды. Под каждую задачу правильный ответ свой. Сравниваю оба инструмента так, как сравнивал бы себе — без рекламы, только то, с чем реально сталкиваешься на практике при внедрении ИИ.</p>
 <p><strong>Коротко:</strong> Ollama — это CLI-инструмент и локальный сервер с REST API, который запускается командой <code>ollama run llama3</code> и работает в фоне; удобно встраивать в приложение или бота, но графического интерфейса нет — только терминал. LM Studio — десктопное приложение с окном чата, каталогом моделей и наглядными настройками; удобно для новичка, который хочет за пять минут увидеть, как модель отвечает, но плохо подходит для headless-сервера. Новичку я советую начать с LM Studio; если задача — встроить модель в сервис или развернуть на сервере, берите Ollama.</p>
 
@@ -469,10 +479,10 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 </tbody></table></div>
 
 <h2 id="ollama">Ollama: плюсы и минусы</h2>
-<p>Ollama я обычно ставлю, когда задача — не «посмотреть на модель», а получить рабочий инструмент, который встроится в реальный проект: <a href="https://chimitdorzhi.tech/services/telegram-bots/" class="blog-inline-link">чат-бота</a>, внутренний сервис, RAG по базе знаний. Установка занимает одну команду, после чего сервис живёт в фоне и поднимается автоматически при старте системы — не нужно каждый раз что-то запускать вручную.</p>
+<p>Ollama я обычно ставлю, когда задача — не «посмотреть на модель», а получить рабочий инструмент, который встроится в реальный проект: <a href="https://chimitdorzhi.tech/development/telegram-bots/" class="blog-inline-link">чат-бота</a>, внутренний сервис, RAG по базе знаний. <a href="/blog/ustanovit-ollama-windows-2027/">Установка занимает одну команду</a>, после чего сервис живёт в фоне и поднимается автоматически при старте системы — не нужно каждый раз что-то запускать вручную.</p>
 <p>Главное преимущество — простой и предсказуемый API. Модель запускается командой вида <code>ollama run mistral</code>, а из кода к ней обращаются обычным HTTP-запросом, похожим по формату на запрос к OpenAI. Если у вас уже есть прототип на облачной нейросети, переключить его на локальную модель через Ollama — вопрос нескольких строк, а не переписывания архитектуры. Для меня как для разработчика, который делает чат-ботов и <a href="https://chimitdorzhi.tech/services/ai-agents/" class="blog-inline-link">AI-агентов</a> под ключ, это ключевой аргумент: инструмент должен встраиваться в проект, а не требовать отдельного слоя интеграции.</p>
 <p>Второй плюс — управление моделями через текстовые файлы Modelfile: можно зафиксировать системный промпт, температуру, шаблон общения — конфигурация хранится рядом с кодом, как обычный файл проекта. Это удобно, когда над проектом работает команда, и настройки модели должны воспроизводиться одинаково у всех.</p>
-<p>Из минусов — по умолчанию нет графического интерфейса. Чтобы увидеть чат с историей переписки, нужно либо работать в терминале, либо ставить сторонний веб-интерфейс поверх Ollama. Для человека, который никогда не открывал консоль, это реальный барьер на старте.</p>
+<p>Из минусов — по умолчанию нет графического интерфейса. Чтобы увидеть чат с историей переписки, нужно либо работать в терминале, либо ставить <a href="/blog/dreamserver-lokalnyy-ai-server-2026/">сторонний веб-интерфейс поверх Ollama</a>. Для человека, который никогда не открывал консоль, это реальный барьер на старте.</p>
 
 <h2 id="lm-studio">LM Studio: плюсы и минусы</h2>
 <p>LM Studio закрывает ровно ту проблему, которой не хватает Ollama, — низкий порог входа. Вы скачиваете установщик, открываете приложение, видите каталог моделей с понятными описаниями (сколько памяти нужно, какой размер, для чего подходит), нажимаете «Download» и через пару минут переписываетесь с моделью в привычном окне чата. Никакой консоли — это то, что нужно человеку, который просто хочет пощупать локальный ИИ и понять, тянет ли его компьютер вообще.</p>
@@ -485,8 +495,9 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 <p>Если задача — визуально сравнить несколько моделей по ответам и скорости, прежде чем что-то программировать, — снова LM Studio будет быстрее и нагляднее. А если нужно развернуть модель на сервере без монитора — однозначно Ollama: headless-запуск для него штатный сценарий, а не обходной путь.</p>
 <p>На практике многие используют оба: LM Studio — чтобы прикинуть, какая модель подходит по качеству и требованиям к памяти, а Ollama — чтобы ту же модель уже поставить в продакшен и встроить в код.</p>
 
+<div class="blog-callout blog-callout-info blog-read-next"><i class="ph-fill ph-book-open" aria-hidden="true"></i><div><strong>Читайте дальше по теме</strong><ul><li><a href="/blog/luchshie-lokalnye-neyroseti-2026/">Лучшие локальные нейросети 2026: какую выбрать и зачем</a></li><li><a href="/blog/lokalnyy-llm-na-noutbuke-2026/">Локальный LLM на ноутбуке 2026: Ollama, LM Studio, vLLM — практическое руководство</a></li></ul></div></div>
 <h2 id="dlya-biznesa">Для бизнеса и сервера</h2>
-<p>Когда я делаю внедрение локального ИИ для клиента — например, чат-бот для консультирования или <a href="https://chimitdorzhi.tech/services/rag-systems/" class="blog-inline-link">RAG-систему</a> по внутренним документам, где данные нельзя отправлять в облако из-за требований 152-ФЗ, — выбор почти всегда падает на Ollama. Причина простая: продакшен-сервис должен работать без графического интерфейса, переживать перезагрузку сервера и общаться с остальной инфраструктурой (ботом, сайтом, базой знаний) через API, а не через окно чата.</p>
+<p>Когда я делаю внедрение локального ИИ для клиента — например, чат-бот для консультирования или <a href="https://chimitdorzhi.tech/services/rag-systems/" class="blog-inline-link">RAG-систему</a> по внутренним документам, где <a href="/blog/lokalnyy-llm-vs-oblako-biznes-2027/">данные нельзя отправлять в облако</a> из-за требований 152-ФЗ, — выбор почти всегда падает на Ollama. Причина простая: продакшен-сервис должен работать без графического интерфейса, переживать перезагрузку сервера и общаться с остальной инфраструктурой (ботом, сайтом, базой знаний) через API, а не через окно чата.</p>
 <p>Дополнительный плюс для бизнеса — предсказуемость ресурсов: через Ollama проще зафиксировать, какая модель и с какими параметрами используется в конкретном окружении, и повторить эту конфигурацию на другом сервере один в один. Это важно, когда систему передают в поддержку или масштабируют на несколько серверов.</p>
 <p>LM Studio в бизнес-контексте я использую как инструмент для предварительного тестирования: показать заказчику вживую, как отвечает та или иная модель, до перехода к техническому внедрению. Удобно для демонстрации, но не как финальная продакшен-конфигурация. Если вы думаете о своём AI-сервере под задачи компании — от чат-бота до полноценного AI-агента с доступом к внутренним системам, — проектируйте инфраструктуру вокруг API-подхода Ollama, а не вокруг десктопного приложения.</p>
 
@@ -510,63 +521,21 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
                     
                     
 <div class="blog-services-offer">
-  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <div class="blog-services-offer-eyebrow">Обсудим вашу задачу</div>
   <h3 class="blog-services-offer-title">Что я делаю под ключ</h3>
-  <ul class="blog-services-offer-list">
-    
-    <li><i class="ph-fill ph-brain"></i> <span>Внедрение локальных LLM</span></li>
-    
-    <li><i class="ph-fill ph-hard-drives"></i> <span>Свой AI-сервер и DevOps</span></li>
-    
-    <li><i class="ph-fill ph-robot"></i> <span>Чат-боты с ИИ</span></li>
-    
-    <li><i class="ph-fill ph-books"></i> <span>RAG по базе знаний</span></li>
-    
-    <li><i class="ph-fill ph-plugs-connected"></i> <span>Встраивание ИИ в сайт/бота</span></li>
-    
-  </ul>
+  <p class="blog-services-offer-lead">Напишите одной фразой, что нужно. Отвечу, что подойдёт, сколько займёт и сколько стоит. Сообщение уже подготовлено.</p>
+  <ul class="blog-services-offer-list"><li><i class="ph-fill ph-brain"></i> <span>Внедрение локальных LLM</span></li><li><i class="ph-fill ph-hard-drives"></i> <span>Свой AI-сервер и DevOps</span></li><li><i class="ph-fill ph-robot"></i> <span>Чат-боты с ИИ</span></li><li><i class="ph-fill ph-books"></i> <span>RAG по базе знаний</span></li><li><i class="ph-fill ph-plugs-connected"></i> <span>Встраивание ИИ в сайт/бота</span></li></ul>
   <div class="blog-services-offer-ctas">
-    <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
-      <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Обсудить задачу
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%ABOllama%20vs%20LM%20Studio%3A%20%D1%87%D1%82%D0%BE%20%D0%B2%D1%8B%D0%B1%D1%80%D0%B0%D1%82%D1%8C%20%D0%B4%D0%BB%D1%8F%20%D0%BB%D0%BE%D0%BA%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%98%D0%98%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener" class="blog-services-offer-cta">
+      <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
     </a>
     <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="blog-services-offer-cta blog-services-offer-cta-max">
       <i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> Написать в MAX
     </a>
+    <a href="https://chimitdorzhi.tech/market/#checklist" class="blog-services-offer-cta blog-services-offer-cta-max"><i class="ph ph-arrow-right" aria-hidden="true"></i> Обсудить задачу</a>
   </div>
 </div>
-                    <div class="blog-cta-card">
-                        <div class="blog-cta-card-body">
-                            <h3>Бесплатно: чек-лист «Готов ли ваш бизнес к 152-ФЗ»</h3>
-                            <p>12 пунктов, которые проверяют готовность за час: данные, согласия, уведомление в РКН, локализация, защита. Отметьте, что уже сделано, и увидите дыры, за которые сейчас штрафуют.</p>
-                        </div>
-                        <div class="blog-cta-card-actions">
-                            <a href="/checklist-152-fz/" class="btn btn-accent"><i class="ph-fill ph-clipboard-text" aria-hidden="true"></i> Открыть чек-лист</a>
-                        </div>
-                    </div>
                     
-
-                    <div class="blog-cta-card blog-cta-card-final">
-                        <div class="blog-cta-card-body">
-                            <h3>Готовы обсудить вашу задачу?</h3>
-                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
-                        </div>
-                        <div class="blog-cta-card-actions">
-                            <a href="https://chimitdorzhi.tech/market/#checklist" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Обсудить задачу</a>
-                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
-                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
-                        </div>
-                    </div>
-
-                    <section class="blog-subscribe">
-  <div class="blog-subscribe-body">
-    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
-    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
-  </div>
-  <div class="blog-subscribe-actions">
-    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
-    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
-  </div>
-</section>
                     <section class="blog-related">
   <h2>Читайте также</h2>
   <div class="blog-grid"><a class="blog-card" href="/blog/luchshie-lokalnye-neyroseti-2026/" data-category="ai-dev" data-clicks="0">
@@ -605,6 +574,17 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
   </div>
   <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
 </a></div>
+</section>
+                    
+                    <section class="blog-subscribe">
+  <div class="blog-subscribe-body">
+    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
+    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
+  </div>
+  <div class="blog-subscribe-actions">
+    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
+  </div>
 </section>
                     
                     

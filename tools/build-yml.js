@@ -50,7 +50,7 @@ const offers = services.map(s => ({
   name: s.n,
   price: s.p || 0,
   categoryId: categoryIds[s.c] || 1,
-  url: `${SITE}/services/${s.s}/`,
+  url: s.moved ? `${SITE}${s.moved}` : `${SITE}/services/${s.s}/`,
   description: s.d
 }));
 

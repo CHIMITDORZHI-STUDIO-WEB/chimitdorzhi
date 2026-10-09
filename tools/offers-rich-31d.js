@@ -46,7 +46,7 @@ module.exports = {
       { q: 'Можно ли связать с нашей базой клиентов?', a: 'Да, бот связывается с CRM или таблицей клиентов, берёт оттуда даты и сегменты и возвращает данные об отклике' }
     ],
     relatedServices: [
-      { url: '/services/telegram-bots/', label: 'Чат-боты' },
+      { url: '/development/telegram-bots/', label: 'Чат-боты' },
       { url: '/services/digital-marketing/', label: 'Цифровой маркетинг' }
     ],
     relatedBlog: [
@@ -103,7 +103,7 @@ module.exports = {
       { q: 'Видно ли результаты в реальном времени?', a: 'Да, участник видит проценты сразу после ответа, а в дашборде вы наблюдаете динамику по ходу голосования' }
     ],
     relatedServices: [
-      { url: '/services/telegram-bots/', label: 'Чат-боты' },
+      { url: '/development/telegram-bots/', label: 'Чат-боты' },
       { url: '/services/ai-analytics/', label: 'AI-аналитика' }
     ],
     relatedBlog: [
@@ -217,7 +217,7 @@ module.exports = {
       { q: 'В каких мессенджерах работает отметка визита?', a: 'В первую очередь в MAX, а также в Telegram и VK, чтобы клиенту было удобно отметиться в привычном приложении' }
     ],
     relatedServices: [
-      { url: '/services/telegram-bots/', label: 'Чат-боты' },
+      { url: '/development/telegram-bots/', label: 'Чат-боты' },
       { url: '/services/ai-analytics/', label: 'AI-аналитика' }
     ],
     relatedBlog: [

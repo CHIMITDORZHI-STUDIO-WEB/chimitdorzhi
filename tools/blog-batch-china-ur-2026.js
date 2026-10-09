@@ -17,7 +17,7 @@ const SVC_CHINA = {
 const SVC_LEGAL = {
   title: 'Документы и 152-ФЗ для сайта',
   services: [
-    { icon: 'ph-fill ph-shield-check', label: 'Аудит сайта по 152-ФЗ — от 5 000 ₽' },
+    { icon: 'ph-fill ph-shield-check', label: 'Аудит сайта по 152-ФЗ — от 15 000 ₽' },
     { icon: 'ph-fill ph-file-text', label: 'Оферта, соглашение, политика ПД' },
     { icon: 'ph-fill ph-cookie', label: 'Cookie-баннер и согласия' },
     { icon: 'ph-fill ph-scales', label: 'Возвраты и правила магазина' },
@@ -104,7 +104,7 @@ module.exports = [
     relatedSlugs: ['zakaz-s-1688-napryamuyu-2026', 'kargo-dostavka-iz-kitaya-2026', 'tamozhennoe-oformlenie-importa-2026'] }),
 
   // === Юр-документы ===
-  E({ slug: 'vozvrat-tovara-internet-magazin-2026', category: 'legal', heroIcon: 'ph-fill ph-arrow-u-up-left',
+  E({ slug: 'vozvrat-tovara-internet-magazin-2026', dateModified: '2026-10-08', category: 'legal', heroIcon: 'ph-fill ph-arrow-u-up-left',
     servicesOffer: SVC_LEGAL, ctaInternal: CTA_DEV,
     title: 'Возврат товара в интернет-магазине: правила 2026',
     metaTitle: 'Возврат товара в интернет-магазине: правила',
@@ -115,7 +115,7 @@ module.exports = [
     toc: T([{ id: 'pravila', text: 'Что говорит закон' }, { id: 'sroki', text: 'Сроки: 7 и 14 дней' }, { id: 'kak-oformit', text: 'Как оформить на сайте' }, { id: 'magazinu', text: 'Что учесть продавцу' }]),
     relatedSlugs: ['polzovatelskoe-soglashenie-obrazec-2026', 'skolko-stoit-internet-magazin-2026', 'dogovor-oferty-2026'] }),
 
-  E({ slug: 'polzovatelskoe-soglashenie-obrazec-2026', category: 'legal', heroIcon: 'ph-fill ph-file-text',
+  E({ slug: 'polzovatelskoe-soglashenie-obrazec-2026', dateModified: '2026-10-08', category: 'legal', heroIcon: 'ph-fill ph-file-text',
     servicesOffer: SVC_LEGAL, ctaInternal: CTA_LEGAL,
     title: 'Пользовательское соглашение для сайта: образец 2026',
     metaTitle: 'Пользовательское соглашение: образец 2026',
@@ -161,7 +161,7 @@ module.exports = [
     relatedSlugs: ['neyroset-dlya-video-2026', 'whisperx-transkribaciya-rechi-2026', 'ai-pomoshchnik-buhgaltera-2026'] }),
 
   // === Магниты Тип B ===
-  E({ slug: 'vypiska-iz-egryul-besplatno-2026', category: 'legal', heroIcon: 'ph-fill ph-file-magnifying-glass',
+  E({ slug: 'vypiska-iz-egryul-besplatno-2026', dateModified: '2026-10-08', category: 'legal', heroIcon: 'ph-fill ph-file-magnifying-glass',
     servicesOffer: SVC_LEGAL, ctaInternal: CTA_DEV,
     title: 'Выписка из ЕГРЮЛ бесплатно: как получить за 5 минут',
     metaTitle: 'Выписка из ЕГРЮЛ бесплатно за 5 минут',

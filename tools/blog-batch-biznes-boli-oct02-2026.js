@@ -9,7 +9,7 @@ const SVC_BIZ = { title: 'Что я делаю для бизнеса', services:
 ]};
 const E = (o) => Object.assign({ published: true, datePublished: D, dateModified: D, readingMinutes: 4, servicesOffer: SVC_BIZ }, o, { contentHtml: C(o.slug) });
 module.exports = [
-  E({ slug: "bot-sayt-ili-prilozhenie-chto-vybrat-2026", category: "development", heroIcon: "ph-fill ph-signpost", ctaInternal: { url: "https://chimitdorzhi.tech/services/telegram-bots/", label: "Боты и сайты под вашу задачу" },
+  E({ slug: "bot-sayt-ili-prilozhenie-chto-vybrat-2026", category: "development", heroIcon: "ph-fill ph-signpost", ctaInternal: { url: "https://chimitdorzhi.tech/development/telegram-bots/", label: "Боты и сайты под вашу задачу" },
     title: "Бот, сайт или приложение: что выбрать под вашу задачу",
     metaTitle: "Бот, сайт или приложение: как выбрать под задачу",
     metaDescription: "Как выбрать между ботом, сайтом, PWA и приложением: простое правило по задаче, сравнение по срокам и охвату, связки и пилот.",
@@ -63,7 +63,7 @@ module.exports = [
       { id: "vyvody", text: "Коротко о главном" },
     ],
     relatedSlugs: ["podpiski-syedayut-byudzhet-saas-2026","kak-schitat-okupaemost-avtomatizacii-2026","rezervnye-kopii-vazhnee-chem-kazhetsya-2026","autsors-ili-svoy-it-shtat-2026"] }),
-  E({ slug: "testirovanie-bota-i-sayta-pered-zapuskom-2026", category: "development", heroIcon: "ph-fill ph-seal-check", ctaInternal: { url: "https://chimitdorzhi.tech/services/telegram-bots/", label: "Разработка Telegram-ботов" },
+  E({ slug: "testirovanie-bota-i-sayta-pered-zapuskom-2026", category: "development", heroIcon: "ph-fill ph-seal-check", ctaInternal: { url: "https://chimitdorzhi.tech/development/telegram-bots/", label: "Разработка Telegram-ботов" },
     title: "Тест бота и сайта перед запуском: что проверить самому",
     metaTitle: "Тест бота и сайта перед запуском: чек-лист приёмки",
     metaDescription: "Что проверить в боте или на сайте перед запуском на живых клиентах: роли, плохие входы, тест на своих, оплата в тестовом режиме, откат и первая неделя.",
@@ -155,7 +155,7 @@ module.exports = [
       { id: "vyvody", text: "Коротко о главном" },
     ],
     relatedSlugs: ["platezhnyy-kalendar-malyy-biznes-2026","yunit-ekonomika-prostymi-slovami-2026","bankovskaya-vypiska-v-tablicu-po-statyam-2026","debitorka-iz-1c-napominaniya-dolzhnikam-2026"] }),
-  E({ slug: "telegram-kanal-biznesa-zayavki-2026", category: "marketing", heroIcon: "ph-fill ph-megaphone", ctaInternal: { url: "https://chimitdorzhi.tech/services/telegram-bots/", label: "Telegram-бот для заявок из канала" },
+  E({ slug: "telegram-kanal-biznesa-zayavki-2026", category: "marketing", heroIcon: "ph-fill ph-megaphone", ctaInternal: { url: "https://chimitdorzhi.tech/development/telegram-bots/", label: "Telegram-бот для заявок из канала" },
     title: "Telegram-канал бизнеса: как он приводит заявки, а не висит",
     metaTitle: "Telegram-канал бизнеса: как получать заявки в 2026 году",
     metaDescription: "Как сделать канал бизнеса в Telegram рабочим: рубрики, план из 20-30 постов, кодовое слово боту, учёт источников заявок и автопостинг.",

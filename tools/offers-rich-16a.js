@@ -47,7 +47,7 @@ module.exports = {
     ],
     relatedServices: [
       { url: '/services/business-automation/', label: 'Автоматизация бизнес-процессов' },
-      { url: '/services/telegram-bots/', label: 'Боты для записи и напоминаний' }
+      { url: '/development/telegram-bots/', label: 'Боты для записи и напоминаний' }
     ],
     relatedBlog: [
       { url: '/blog/avtomatizaciya-saun-ban-spa-2026/', label: 'Автоматизация саун, бань и СПА в 2026' },
@@ -159,7 +159,7 @@ module.exports = {
     ],
     relatedServices: [
       { url: '/services/business-automation/', label: 'Автоматизация бизнес-процессов' },
-      { url: '/services/telegram-bots/', label: 'Боты для записи и напоминаний' }
+      { url: '/development/telegram-bots/', label: 'Боты для записи и напоминаний' }
     ],
     relatedBlog: [
       { url: '/blog/it-dlya-salonov-krasoty-2026/', label: 'IT для салонов красоты в 2026' },

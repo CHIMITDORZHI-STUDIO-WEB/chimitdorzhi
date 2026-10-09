@@ -12,7 +12,7 @@ const PW = 'C:/Users/Chimitdorzhi/projects/ux-ui-agent-skills/node_modules/playw
 const ROWS = require('./prices-data.js');
 const { GROUPS, SCENARIOS } = require('./prices-meta.js');
 
-const MONTH = 'сентябрь 2026';
+const MONTH = 'октябрь 2026';
 const CONTACTS = [
   ['telegram-logo', 'Telegram', 't.me/chimitdorzhi'],
   ['globe', 'Сайт', 'chimitdorzhi.tech/ceny'],

@@ -2,7 +2,7 @@ module.exports = {
   slug: "masterskaya-remonta-tehniki-odezhdy-obuvi-s-nulya-priem-garantii-2026",
   category: "biznes-krugozor",
   heroIcon: "ph-fill ph-wrench",
-  ctaInternal: { url: "https://chimitdorzhi.tech/services/telegram-bots/", label: "Статусы заказов клиенту в боте" },
+  ctaInternal: { url: "https://chimitdorzhi.tech/development/telegram-bots/", label: "Статусы заказов клиенту в боте" },
   title: "Мастерская по ремонту с нуля: приёмка, гарантия, статусы заказа",
   metaTitle: "Мастерская по ремонту с нуля: приём, гарантия, статусы",
   metaDescription: "Как открыть мастерскую по ремонту техники, одежды или обуви: договор-квитанция, акт приёма, гарантия, невостребованные вещи, касса и статусы заказа.",

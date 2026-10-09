@@ -159,7 +159,7 @@ module.exports = {
     ],
     relatedServices: [
       { url: '/services/business-automation/', label: 'Автоматизация бизнес-процессов' },
-      { url: '/services/telegram-bots/', label: 'Чат-боты для бизнеса' }
+      { url: '/development/telegram-bots/', label: 'Чат-боты для бизнеса' }
     ],
     relatedBlog: [
       { url: '/blog/it-dlya-horeca-2026/', label: 'IT для HoReCa в 2026' },

@@ -448,13 +448,21 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 
                     <div class="blog-body">
                         <div class="blog-tldr"><strong>TL;DR:</strong> Настройка современных протоколов обхода вручную требует Linux, SSH и правки JSON-конфигов. Когда в команде 15 разработчиков на Windows и macOS, ручная настройка каждого рабочего места превращается в ад для сисадмина. Мы решаем это двумя инструментами: один <code>.ps1</code>-скрипт скачивает ядро, прописывает переменные окружения, настраивает split tunneling и регистрирует фоновую службу — сотрудник запускает один файл и всё работает из коробки. А <code>Amnezia</code> (open-source) даёт централизованное управление: развернуть контейнеры на VPS в один клик, раздать зашифрованные QR-конфиги на телефоны и мгновенно отозвать доступ, когда человек уходит с проекта.</div>
+<div class="blog-cta-internal">
+  <i class="ph-fill ph-rocket-launch" aria-hidden="true"></i>
+  <div>
+    <strong>Хотите внедрить это у себя?</strong>
+    <p>Сделаю под ключ: разберу задачу, назову срок и цену. Чтобы начать, <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%90%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F%20%D0%BE%D0%B1%D1%85%D0%BE%D0%B4%D0%B0%20%D0%B1%D0%BB%D0%BE%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA%3A%20PowerShell-%D1%81%D0%BA%D1%80%D0%B8%D0%BF%D1%82%20%D0%B8%20Amnezia%20%D0%B4%D0%BB%D1%8F%20%D0%BA%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4%D1%8B%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8E%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B3%D0%BE%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0." target="_blank" rel="noopener">напишите в Telegram</a> одной фразой.</p>
+    <a href="https://chimitdorzhi.tech/market/#checklist">Обсудить проект <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</div>
 
 <p>В прошлом материале мы разобрали, почему студия держит собственный защищённый контур на протоколах нового поколения. Но у любой хорошей архитектуры есть оборотная сторона — эксплуатация. Настроить один конфиг для себя — задача на вечер. Настроить и поддерживать доступ для всей команды, где люди сидят на разных операционных системах, приходят и уходят с проектов, работают с ноутбуков и телефонов, — это уже инженерная задача, которую нельзя решать вручную. Эта статья — технический How-To о том, как мы автоматизируем развёртывание средств обхода блокировок и превращаем «ад сисадмина» в предсказуемый, воспроизводимый процесс.</p>
 
 <p><strong>Коротко:</strong> Ручная настройка протоколов обхода на каждой машине команды не масштабируется и требует Linux и SSH. Мы решаем это PowerShell-скриптом, который скачивает ядро, прописывает конфиг и split tunneling и регистрирует фоновую службу — сотрудник запускает один файл. А Amnezia развёртывает VPS в один клик, раздаёт зашифрованные QR-конфиги на телефоны и позволяет мгновенно отозвать доступ при уходе человека с проекта.</p>
 
 <h2 id="problema-ruchnoy-nastroyki">Проблема: ручная настройка на 15 машинах</h2>
-<p>Представим типичную ситуацию растущей команды. Протоколы вроде <code>VLESS + Reality</code> или <code>Hysteria 2</code> прекрасны технически, но их клиентские ядра изначально ориентированы на пользователей, знакомых с командной строкой. Чтобы поднять клиент вручную, нужно: скачать правильную сборку исполняемого файла под конкретную ОС и архитектуру, положить рядом JSON-конфиг с адресом сервера, ключами и параметрами, настроить, чтобы клиент стартовал в фоне и переживал перезагрузку, а затем ещё и объяснить системе, какой трафик пускать через прокси, а какой — напрямую.</p>
+<p>Представим типичную ситуацию растущей команды. Протоколы вроде <a href="/blog/svoy-server-privatnost-vless-reality-2027/"><code>VLESS + Reality</code> или <code>Hysteria 2</code></a> прекрасны технически, но их клиентские ядра изначально ориентированы на пользователей, знакомых с командной строкой. Чтобы поднять клиент вручную, нужно: скачать правильную сборку исполняемого файла под конкретную ОС и архитектуру, положить рядом JSON-конфиг с адресом сервера, ключами и параметрами, настроить, чтобы клиент стартовал в фоне и переживал перезагрузку, а затем ещё и объяснить системе, какой трафик пускать через прокси, а какой — напрямую.</p>
 <p>Для одного инженера это нормальная рутина. Но умножьте на 15 человек — и получите катастрофу. Дизайнер не должен править JSON. Проджект-менеджер не обязан знать, что такое переменная окружения. Разработчик на macOS и разработчик на Windows столкнутся с разными путями и разными способами регистрации фоновой службы. Каждая индивидуальная настройка — это полчаса-час работы сисадмина, а потом ещё бесконечный поток «у меня отвалилось», «после обновления не запускается», «а куда вставлять этот ключ». Ручной подход не масштабируется в принципе: он линейно жрёт время и порождает разнобой конфигураций, который невозможно поддерживать.</p>
 <p>Отсюда наш главный инженерный принцип: <strong>настройка рабочего места должна сводиться к запуску одного файла</strong>. Всё, что можно автоматизировать, должно быть автоматизировано. Сотрудник не должен принимать никаких технических решений — он запускает скрипт и работает.</p>
 
@@ -482,11 +490,12 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 <p>Правильный подход — <strong>split tunneling</strong>, раздельное туннелирование. Мы настраиваем правила так, чтобы трафик до локальных и отечественных серверов шёл <em>напрямую</em>, а через прокси уходило только то, что действительно этого требует — зарубежная документация, панели облаков, API языковых моделей, GitHub. Скрипт прописывает эти правила локально: списки маршрутов, доменные и IP-правила, которые ядро клиента использует для принятия решения «этот адрес — напрямую, тот — через прокси».</p>
 <p>Выгода двойная. Во-первых, скорость: локальные ресурсы работают на полной, без лишнего крюка через зарубежный сервер. Во-вторых, незаметность и разумная нагрузка: через прокси идёт только необходимое, что и снижает объём подозрительного трафика, и бережёт ресурсы выходного узла. Такое поведение невозможно настроить «на глаз» для 15 машин вручную — а в скрипте это просто ещё один блок правил, одинаковый и предсказуемый на каждой машине.</p>
 
+<div class="blog-callout blog-callout-info blog-read-next"><i class="ph-fill ph-book-open" aria-hidden="true"></i><div><strong>Читайте дальше по теме</strong><ul><li><a href="/blog/llm-avtomatizaciya-razrabotki-2027/">Как мы автоматизируем разработку и контент с помощью LLM</a></li><li><a href="/blog/pochemu-ne-delaem-sayty-na-konstruktorah-2027/">Почему мы не делаем сайты на конструкторах: честный технический разбор</a></li></ul></div></div>
 <h2 id="amnezia-upravlenie">Amnezia: централизованное управление командой</h2>
 <p>PowerShell-скрипт решает задачу «настроить рабочее место». Вторую половину задачи — «управлять доступом всей команды и её мобильными устройствами» — мы закрываем с помощью <code>Amnezia</code>, open-source решения, которое хорошо ложится на командные сценарии.</p>
-<p><strong>Развёртывание на VPS в один клик.</strong> Amnezia умеет самостоятельно подключаться к чистому арендованному VPS по SSH и разворачивать на нём контейнеры с нужными протоколами — фактически поднимать серверную часть без ручной возни с Docker и конфигами на стороне сервера. Это резко снижает порог: чтобы поднять новый выходной узел, не нужно вручную ставить и настраивать весь стек.</p>
+<p><strong>Развёртывание на VPS в один клик.</strong> Amnezia умеет самостоятельно подключаться к <a href="/blog/chto-takoe-vps-kak-vybrat-2027/">чистому арендованному VPS</a> по SSH и разворачивать на нём контейнеры с нужными протоколами — фактически поднимать серверную часть без ручной возни с Docker и конфигами на стороне сервера. Это резко снижает порог: чтобы поднять новый выходной узел, не нужно вручную ставить и настраивать весь стек.</p>
 <p><strong>Зашифрованные QR-конфиги для мобильных.</strong> Для телефонов ручная настройка вообще неуместна. Amnezia генерирует конфигурацию в виде QR-кода: сотрудник открывает <a href="https://chimitdorzhi.tech/services/mobile-apps/" class="blog-inline-link">мобильное приложение</a>, сканирует код — и подключение готово. Конфиг передаётся в зашифрованном виде, и на телефоне не оказывается голых ключей, которые можно случайно слить. Для команды это означает, что онбординг нового человека на мобильный доступ занимает секунды.</p>
-<p><strong>Централизованный отзыв доступа.</strong> Это, пожалуй, самое важное с точки зрения безопасности. Когда разработчик покидает проект, его доступ нужно немедленно и гарантированно отозвать. При ручной раздаче конфигов это кошмар: у кого какой ключ, где он сохранён, не остался ли он на личном устройстве. Централизованное управление позволяет отозвать конкретный доступ на стороне сервера — и старый конфиг просто перестаёт работать, независимо от того, где он хранился. Это тот самый принцип наименьших привилегий и управляемого жизненного цикла доступа, без которого командная безопасность превращается в решето.</p>
+<p><strong>Централизованный отзыв доступа.</strong> Это, пожалуй, самое важное с точки зрения безопасности. Когда разработчик покидает проект, <a href="/blog/offboarding-uvolnennogo-sotrudnika-dostupy-2026/">его доступ нужно немедленно и гарантированно отозвать</a>. При ручной раздаче конфигов это кошмар: у кого какой ключ, где он сохранён, не остался ли он на личном устройстве. Централизованное управление позволяет отозвать конкретный доступ на стороне сервера — и старый конфиг просто перестаёт работать, независимо от того, где он хранился. Это тот самый принцип наименьших привилегий и управляемого жизненного цикла доступа, без которого командная безопасность превращается в решето.</p>
 <p>В связке эти инструменты дают целостную картину: <code>Amnezia</code> отвечает за серверную сторону и мобильные устройства с централизованным контролем, а <code>PowerShell</code>-скрипт — за массовую, единообразную настройку рабочих станций Windows. Вместе это превращает эксплуатацию защищённого контура из ручного ада в управляемый DevOps-процесс, который масштабируется на любую численность команды.</p>
 <p>И снова важная оговорка: мы описываем инженерные инструменты и практики администрирования — автоматизацию, маршрутизацию, управление доступом. Это стандартный арсенал DevOps-команды, которая обязана обеспечить своим сотрудникам стабильный и безопасный доступ к рабочим ресурсам и корректно управлять его жизненным циклом.</p>
 
@@ -510,63 +519,21 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
                     
                     
 <div class="blog-services-offer">
-  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <div class="blog-services-offer-eyebrow">Обсудим вашу задачу</div>
   <h3 class="blog-services-offer-title">Что я делаю под ключ</h3>
-  <ul class="blog-services-offer-list">
-    
-    <li><i class="ph-fill ph-terminal"></i> <span>Автоматизация настройки на PowerShell</span></li>
-    
-    <li><i class="ph-fill ph-hard-drives"></i> <span>Развёртывание VPS и Amnezia</span></li>
-    
-    <li><i class="ph-fill ph-users-three"></i> <span>Управление доступом команды</span></li>
-    
-    <li><i class="ph-fill ph-git-branch"></i> <span>Split tunneling и маршрутизация</span></li>
-    
-    <li><i class="ph-fill ph-gear"></i> <span>DevOps под ключ</span></li>
-    
-  </ul>
+  <p class="blog-services-offer-lead">Напишите одной фразой, что нужно. Отвечу, что подойдёт, сколько займёт и сколько стоит. Сообщение уже подготовлено.</p>
+  <ul class="blog-services-offer-list"><li><i class="ph-fill ph-terminal"></i> <span>Автоматизация настройки на PowerShell</span></li><li><i class="ph-fill ph-hard-drives"></i> <span>Развёртывание VPS и Amnezia</span></li><li><i class="ph-fill ph-users-three"></i> <span>Управление доступом команды</span></li><li><i class="ph-fill ph-git-branch"></i> <span>Split tunneling и маршрутизация</span></li><li><i class="ph-fill ph-gear"></i> <span>DevOps под ключ</span></li></ul>
   <div class="blog-services-offer-ctas">
-    <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
-      <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Обсудить проект
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%90%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F%20%D0%BE%D0%B1%D1%85%D0%BE%D0%B4%D0%B0%20%D0%B1%D0%BB%D0%BE%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA%3A%20PowerShell-%D1%81%D0%BA%D1%80%D0%B8%D0%BF%D1%82%20%D0%B8%20Amnezia%20%D0%B4%D0%BB%D1%8F%20%D0%BA%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4%D1%8B%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8E%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B3%D0%BE%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0." target="_blank" rel="noopener" class="blog-services-offer-cta">
+      <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
     </a>
     <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="blog-services-offer-cta blog-services-offer-cta-max">
       <i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> Написать в MAX
     </a>
+    <a href="https://chimitdorzhi.tech/market/#checklist" class="blog-services-offer-cta blog-services-offer-cta-max"><i class="ph ph-arrow-right" aria-hidden="true"></i> Обсудить проект</a>
   </div>
 </div>
-                    <div class="blog-cta-card">
-                        <div class="blog-cta-card-body">
-                            <h3>Бесплатно: чек-лист «Готов ли ваш бизнес к 152-ФЗ»</h3>
-                            <p>12 пунктов, которые проверяют готовность за час: данные, согласия, уведомление в РКН, локализация, защита. Отметьте, что уже сделано, и увидите дыры, за которые сейчас штрафуют.</p>
-                        </div>
-                        <div class="blog-cta-card-actions">
-                            <a href="/checklist-152-fz/" class="btn btn-accent"><i class="ph-fill ph-clipboard-text" aria-hidden="true"></i> Открыть чек-лист</a>
-                        </div>
-                    </div>
                     
-
-                    <div class="blog-cta-card blog-cta-card-final">
-                        <div class="blog-cta-card-body">
-                            <h3>Готовы обсудить вашу задачу?</h3>
-                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
-                        </div>
-                        <div class="blog-cta-card-actions">
-                            <a href="https://chimitdorzhi.tech/market/#checklist" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Обсудить проект</a>
-                            <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%90%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F%20%D0%BE%D0%B1%D1%85%D0%BE%D0%B4%D0%B0%20%D0%B1%D0%BB%D0%BE%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA%3A%20PowerShell-%D1%81%D0%BA%D1%80%D0%B8%D0%BF%D1%82%20%D0%B8%20Amnezia%20%D0%B4%D0%BB%D1%8F%20%D0%BA%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4%D1%8B%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8E%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B3%D0%BE%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0." target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
-                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
-                        </div>
-                    </div>
-
-                    <section class="blog-subscribe">
-  <div class="blog-subscribe-body">
-    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
-    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
-  </div>
-  <div class="blog-subscribe-actions">
-    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
-    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
-  </div>
-</section>
                     <section class="blog-related">
   <h2>Читайте также</h2>
   <div class="blog-grid"><a class="blog-card" href="/blog/svoy-server-privatnost-vless-reality-2027/" data-category="security" data-clicks="0">
@@ -605,6 +572,17 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
   </div>
   <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
 </a></div>
+</section>
+                    
+                    <section class="blog-subscribe">
+  <div class="blog-subscribe-body">
+    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
+    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
+  </div>
+  <div class="blog-subscribe-actions">
+    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
+  </div>
 </section>
                     
                     

@@ -2,7 +2,7 @@ module.exports = {
   slug: "odin-bot-v-telegram-i-max-chto-obshchee-i-chto-raznoe-2026",
   category: "biznes-krugozor",
   heroIcon: "ph-fill ph-plugs-connected",
-  ctaInternal: { url: "https://chimitdorzhi.tech/services/telegram-bots/", label: "Бот сразу в Telegram и MAX" },
+  ctaInternal: { url: "https://chimitdorzhi.tech/development/telegram-bots/", label: "Бот сразу в Telegram и MAX" },
   title: "Бот в Telegram и MAX на одном ядре: что общее и что разное",
   metaTitle: "Бот для Telegram и MAX: ядро, адаптеры и отличия",
   metaDescription: "Как сделать одного бота в Telegram и в MAX: общее ядро сценария, адаптеры, таблица отличий по лимитам, кнопкам, разметке, мини-приложению, чек-лист.",

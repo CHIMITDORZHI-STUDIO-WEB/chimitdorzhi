@@ -144,7 +144,7 @@ module.exports = [
     "metaKeywords": "ИИ для HR, автоматизация подбора, парсинг резюме Python, скоринг кандидатов, Huntflow API, Talantix API, чат-бот рекрутер",
     "excerpt": "Техническое руководство по автоматизации подбора персонала с помощью ИИ: парсинг PDF/DOCX резюме, скоринг на базе LLM (GPT-4/Llama), интеграция с ATS (Huntflow, Talantix) и чат-ботами.",
     "datePublished": "2026-06-09",
-    "dateModified": "2026-06-09",
+    "dateModified": "2026-10-08",
     "readingMinutes": 15,
     "heroIcon": "ph-fill ph-users-three",
     "tags": [
@@ -422,7 +422,7 @@ module.exports = [
     "metaKeywords": "автоматизация салона красоты, Yclients, онлайн-запись, Яндекс Карты, 2ГИС, салон красоты Иркутск, салон красоты Улан-Удэ, салон красоты Чита, CRM для салона красоты",
     "excerpt": "Детальное руководство по автоматизации салонного бизнеса. Настройка Yclients (услуги, графики, лояльность, уведомления), интеграция виджета онлайн-записи и связка с картами Яндекс и 2ГИС в Иркутске, Улан-Удэ и Чите.",
     "datePublished": "2026-06-09",
-    "dateModified": "2026-06-09",
+    "dateModified": "2026-10-08",
     "readingMinutes": 15,
     "heroIcon": "ph-fill ph-scissors",
     "tags": [
@@ -618,7 +618,7 @@ module.exports = [
     "metaKeywords": "B2B-портал, оптовая торговля, автоматизация продаж, интеграция 1С, личный кабинет дилера, автоматический счет, API доставки",
     "excerpt": "Подробное руководство по автоматизации оптовых продаж: архитектура B2B-портала, интеграция с 1С для выгрузки цен и остатков, автоматическая выписка счетов, интеграция со службами доставки и проектирование UX для оптовых покупателей.",
     "datePublished": "2026-06-09",
-    "dateModified": "2026-06-09",
+    "dateModified": "2026-10-08",
     "readingMinutes": 15,
     "heroIcon": "ph-fill ph-handshake",
     "tags": [
@@ -830,7 +830,7 @@ module.exports = [
     "metaKeywords": "автоматизация отеля, турбаза Байкал, Bnovo, TravelLine, OtelMS, гостиничный бизнес, Ольхон, Листвянка, управление отелем, PMS для отеля",
     "excerpt": "Полное руководство по автоматизации гостиничного бизнеса на Байкале. Сравнение Bnovo, TravelLine и OtelMS, решение проблем со связью на Ольхоне и в Листвянке, стратегии заполняемости в высокий сезон.",
     "datePublished": "2026-06-09",
-    "dateModified": "2026-06-09",
+    "dateModified": "2026-10-08",
     "readingMinutes": 15,
     "heroIcon": "ph-fill ph-mountains",
     "tags": [
@@ -1010,7 +1010,7 @@ module.exports = [
     "metaKeywords": "доставка еды, автоматизация ресторанов, iiko Улан-Удэ, r-keeper Чита, как отключить агрегаторы, сайт для ресторана, CRM для общепита",
     "excerpt": "Пошаговое руководство по автоматизации службы доставки еды в Бурятии и Забайкальском крае. Сравнение iiko и r-keeper, настройка интеграции с сайтом, внедрение CRM и запуск собственной курьерской службы.",
     "datePublished": "2026-06-09",
-    "dateModified": "2026-06-09",
+    "dateModified": "2026-10-08",
     "readingMinutes": 15,
     "heroIcon": "ph-fill ph-moped",
     "tags": [
@@ -1210,7 +1210,7 @@ module.exports = [
     "metaKeywords": "ит-аутсорсинг, системный администратор, обслуживание 1С, настройка серверов, Бурятия, Улан-Удэ, Чита, Забайкальский край, оптимизация расходов",
     "excerpt": "Детальный разбор ИТ-расходов для бизнеса в Улан-Удэ и Чите. Сравниваем штатного системного администратора и ИТ-аутсорсинг: налоги, компетенции, риски человеческого фактора, SLA и 1С.",
     "datePublished": "2026-06-09",
-    "dateModified": "2026-06-09",
+    "dateModified": "2026-10-08",
     "readingMinutes": 15,
     "heroIcon": "ph-fill ph-gear",
     "tags": [
@@ -1316,7 +1316,7 @@ module.exports = [
     "metaKeywords": "корпоративная почта, почтовый сервер linux, настройка postfix, dovecot, rspamd, spf dkim dmarc, защита от спама, ssl tls почта",
     "excerpt": "Пошаговое руководство по развертыванию собственного безопасного корпоративного почтового сервера на Linux. Настройка Postfix, Dovecot, Rspamd, SPF, DKIM, DMARC и современные стратегии фильтрации спама.",
     "datePublished": "2026-06-09",
-    "dateModified": "2026-06-09",
+    "dateModified": "2026-10-08",
     "readingMinutes": 15,
     "heroIcon": "ph-fill ph-envelope",
     "tags": [
@@ -1932,7 +1932,7 @@ module.exports = [
     "metaKeywords": "удаленный офис, безопасный удаленный доступ, настройка vpn, wireguard config, openvpn setup, asterisk freepbx, ldap active directory, yougile, kaiten, bitrix24, двухфакторная аутентификация, dlp системы, ит инфраструктура",
     "excerpt": "Техническое руководство по организации безопасного удаленного офиса. Сравнение WireGuard/OpenVPN, интеграция с AD/LDAP, настройка Asterisk/FreePBX, выбор таск-трекеров и внедрение политик безопасности (2FA, DLP).",
     "datePublished": "2026-06-09",
-    "dateModified": "2026-06-09",
+    "dateModified": "2026-10-08",
     "readingMinutes": 15,
     "heroIcon": "ph-fill ph-shield-check",
     "tags": [

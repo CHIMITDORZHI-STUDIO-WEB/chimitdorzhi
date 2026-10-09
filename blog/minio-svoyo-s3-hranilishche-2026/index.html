@@ -471,6 +471,14 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 <li>Данные остаются на вашем сервере в РФ, что упрощает соблюдение требований 152-ФЗ, а отказоустойчивость обеспечивает erasure coding.</li>
 <li>Я разворачиваю MinIO под ключ: подбор сервера и дисков, настройка бакетов, доступа и шифрования, перенос данных из старого облака и сопровождение.</li>
 </ul></div>
+<div class="blog-cta-internal">
+  <i class="ph-fill ph-rocket-launch" aria-hidden="true"></i>
+  <div>
+    <strong>Хотите внедрить это у себя?</strong>
+    <p>Сделаю под ключ: разберу задачу, назову срок и цену. Чтобы начать, <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%ABMinIO%3A%20%D1%81%D0%B2%D0%BE%D1%91%20S3-%D1%81%D0%BE%D0%B2%D0%BC%D0%B5%D1%81%D1%82%D0%B8%D0%BC%D0%BE%D0%B5%20%D1%85%D1%80%D0%B0%D0%BD%D0%B8%D0%BB%D0%B8%D1%89%D0%B5%20%D1%84%D0%B0%D0%B9%D0%BB%D0%BE%D0%B2%20%D0%BD%D0%B0%20%D1%81%D0%B2%D0%BE%D1%91%D0%BC%20%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B5%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener">напишите в Telegram</a> одной фразой.</p>
+    <a href="https://chimitdorzhi.tech/predlozheniya/open-source-pod-klyuch/">Развернуть open-source под ключ <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</div>
 
 <p>Почти у любого современного приложения есть файлы, которые надо где-то хранить: загрузки пользователей, документы, фотографии, видео, резервные копии, логи. Чаще всего их складывают в облачное объектное хранилище — Amazon S3 или его аналоги. Это удобно, пока не приходит счёт за объём и трафик, а вместе с ним вопрос: а где, собственно, лежат данные и кто к ним имеет доступ. MinIO даёт другой путь: это объектное хранилище, которое работает по тому же стандарту, что и S3, но стоит на вашем сервере. Ниже разберу простыми словами, что это за инструмент, что он умеет, кому подходит и что нужно для запуска.</p>
 
@@ -513,6 +521,7 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 <p><strong>Настройка доступа, шифрования и бэкапов.</strong> Установить движок — это только начало. Нужно создать бакеты, настроить политики доступа и ключи для приложений, включить шифрование, при необходимости версионирование и репликацию, а также организовать резервное копирование самого хранилища. Это та часть, где обычно нужен специалист.</p>
 <p><strong>152-ФЗ и расположение данных.</strong> Главное преимущество собственного хранилища в том, что данные остаются на вашем сервере в России или прямо в вашей инфраструктуре, а не на зарубежных площадках. Это упрощает соблюдение требований к обработке персональных данных по 152-ФЗ. При этом важно понимать: само по себе локальное размещение не делает систему «автоматически соответствующей закону» — нужно правильно организовать доступ, шифрование, хранение и регламенты. Это решается на этапе внедрения, и я учитываю эти моменты при настройке.</p>
 
+<div class="blog-callout blog-callout-info blog-read-next"><i class="ph-fill ph-book-open" aria-hidden="true"></i><div><strong>Читайте дальше по теме</strong><ul><li><a href="/blog/svoy-oblachnyy-disk-2026/">Свой облачный диск вместо Google Drive 2026: Nextcloud и аналоги на своём сервере</a></li><li><a href="/blog/pangolin-bezopasnyy-dostup-k-servisam-2026/">Pangolin: безопасный доступ к внутренним сервисам без проброса портов</a></li></ul></div></div>
 <h2 id="kak-vnedrit">Как внедрить под ключ</h2>
 <p>Запуск собственного объектного хранилища — это проект, а не одна кнопка. Чтобы не утонуть в технических деталях, удобнее отдать его специалисту. Обычно я иду по такому маршруту:</p>
 <ul>
@@ -541,7 +550,7 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
                     </div>
                     
 
-                    <div class="blog-callout"><i class="ph-fill ph-git-branch" aria-hidden="true"></i><div><strong>Где взять</strong> — Официальный репозиторий на GitHub: <a href="https://github.com/minio/minio" target="_blank" rel="noopener">github.com/minio/minio</a>. Развернуть и настроить под ключ помогу — напишите в <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener">Telegram</a> или <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener">MAX</a>.</div></div>
+                    <div class="blog-callout"><i class="ph-fill ph-git-branch" aria-hidden="true"></i><div><strong>Где взять</strong> — Официальный репозиторий на GitHub: <a href="https://github.com/minio/minio" target="_blank" rel="noopener">github.com/minio/minio</a>. Развернуть и настроить под ключ помогу — напишите в <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%ABMinIO%3A%20%D1%81%D0%B2%D0%BE%D1%91%20S3-%D1%81%D0%BE%D0%B2%D0%BC%D0%B5%D1%81%D1%82%D0%B8%D0%BC%D0%BE%D0%B5%20%D1%85%D1%80%D0%B0%D0%BD%D0%B8%D0%BB%D0%B8%D1%89%D0%B5%20%D1%84%D0%B0%D0%B9%D0%BB%D0%BE%D0%B2%20%D0%BD%D0%B0%20%D1%81%D0%B2%D0%BE%D1%91%D0%BC%20%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B5%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener">Telegram</a> или <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener">MAX</a>.</div></div>
                     
                     <div class="blog-cta-card">
                         <div class="blog-cta-card-body">
@@ -556,90 +565,24 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
                     
                     
 <div class="blog-services-offer">
-  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <div class="blog-services-offer-eyebrow">Обсудим вашу задачу</div>
   <h3 class="blog-services-offer-title">Что я делаю с open-source</h3>
-  <ul class="blog-services-offer-list">
-    
-    <li><i class="ph-fill ph-hard-drives"></i> <span>Развёртывание на вашем сервере</span></li>
-    
-    <li><i class="ph-fill ph-arrows-left-right"></i> <span>Перенос данных из старого сервиса</span></li>
-    
-    <li><i class="ph-fill ph-shield-check"></i> <span>Безопасность и 152-ФЗ</span></li>
-    
-    <li><i class="ph-fill ph-wrench"></i> <span>Настройка под ваши процессы</span></li>
-    
-    <li><i class="ph-fill ph-lifebuoy"></i> <span>Поддержка и обновления</span></li>
-    
-  </ul>
+  <p class="blog-services-offer-lead">Напишите одной фразой, что нужно. Отвечу, что подойдёт, сколько займёт и сколько стоит. Сообщение уже подготовлено.</p>
+  <ul class="blog-services-offer-list"><li><i class="ph-fill ph-hard-drives"></i> <span>Развёртывание на вашем сервере</span></li><li><i class="ph-fill ph-arrows-left-right"></i> <span>Перенос данных из старого сервиса</span></li><li><i class="ph-fill ph-shield-check"></i> <span>Безопасность и 152-ФЗ</span></li><li><i class="ph-fill ph-wrench"></i> <span>Настройка под ваши процессы</span></li><li><i class="ph-fill ph-lifebuoy"></i> <span>Поддержка и обновления</span></li></ul>
   <div class="blog-services-offer-ctas">
-    <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%ABMinIO%3A%20%D1%81%D0%B2%D0%BE%D1%91%20S3-%D1%81%D0%BE%D0%B2%D0%BC%D0%B5%D1%81%D1%82%D0%B8%D0%BC%D0%BE%D0%B5%20%D1%85%D1%80%D0%B0%D0%BD%D0%B8%D0%BB%D0%B8%D1%89%D0%B5%20%D1%84%D0%B0%D0%B9%D0%BB%D0%BE%D0%B2%20%D0%BD%D0%B0%20%D1%81%D0%B2%D0%BE%D1%91%D0%BC%20%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B5%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener" class="blog-services-offer-cta">
       <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
     </a>
     <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="blog-services-offer-cta blog-services-offer-cta-max">
       <i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> Написать в MAX
     </a>
+    <a href="https://chimitdorzhi.tech/predlozheniya/open-source-pod-klyuch/" class="blog-services-offer-cta blog-services-offer-cta-max"><i class="ph ph-arrow-right" aria-hidden="true"></i> Развернуть open-source под ключ</a>
   </div>
 </div>
-                    <div class="blog-cta-card">
-                        <div class="blog-cta-card-body">
-                            <h3>Бесплатно: чек-лист «Готов ли ваш бизнес к 152-ФЗ»</h3>
-                            <p>12 пунктов, которые проверяют готовность за час: данные, согласия, уведомление в РКН, локализация, защита. Отметьте, что уже сделано, и увидите дыры, за которые сейчас штрафуют.</p>
-                        </div>
-                        <div class="blog-cta-card-actions">
-                            <a href="/checklist-152-fz/" class="btn btn-accent"><i class="ph-fill ph-clipboard-text" aria-hidden="true"></i> Открыть чек-лист</a>
-                        </div>
-                    </div>
                     
-
-                    <div class="blog-cta-card blog-cta-card-final">
-                        <div class="blog-cta-card-body">
-                            <h3>Готовы обсудить вашу задачу?</h3>
-                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
-                        </div>
-                        <div class="blog-cta-card-actions">
-                            <a href="https://chimitdorzhi.tech/predlozheniya/open-source-pod-klyuch/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Развернуть open-source под ключ</a>
-                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
-                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
-                        </div>
-                    </div>
-
-                    <section class="blog-subscribe">
-  <div class="blog-subscribe-body">
-    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
-    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
-  </div>
-  <div class="blog-subscribe-actions">
-    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
-    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
-  </div>
-</section>
                     <section class="blog-related">
   <h2>Читайте также</h2>
-  <div class="blog-grid"><a class="blog-card" href="/blog/svoy-oblachnyy-disk-2026/" data-category="development" data-clicks="27">
-  <span class="blog-card-popular"><i class="ph-fill ph-fire" aria-hidden="true"></i> Популярное</span>
-  <div class="blog-card-icon"><i class="ph-fill ph-cloud-arrow-up"></i></div>
-  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
-  <h3>Свой облачный диск вместо Google Drive 2026: Nextcloud и аналоги на своём сервере</h3>
-  <p>Google Drive дорожает и ненадёжен, данные не у вас. Разбираю, как поднять свой облачный диск: Nextcloud и альтернативы, где разместить (VPS, российские облака, домашний NAS), Docker, SSL, синхронизация всех устройств, онлайн-редактирование (OnlyOffice), бэкапы restic, безопасность. Данные в РФ (152-ФЗ). С docker-compose, nginx и restic.</p>
-  <div class="blog-card-meta">
-    <span><i class="ph ph-calendar" aria-hidden="true"></i> 30 мая 2026</span>
-    <span><i class="ph ph-clock" aria-hidden="true"></i> 24 мин</span>
-  </div>
-  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
-</a>
-<a class="blog-card" href="/blog/pangolin-bezopasnyy-dostup-k-servisam-2026/" data-category="opensource" data-clicks="0">
-  
-  <div class="blog-card-icon"><i class="ph-fill ph-shield-check"></i></div>
-  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
-  <h3>Pangolin: безопасный доступ к внутренним сервисам без проброса портов</h3>
-  <p>Pangolin открывает доступ к внутренним сервисам (админки, CRM, дашборды) через интернет без проброса портов и без передачи трафика в чужое облако. Своя альтернатива Cloudflare Tunnel. Разбираю, как работает и кому нужно.</p>
-  <div class="blog-card-meta">
-    <span><i class="ph ph-calendar" aria-hidden="true"></i> 14 июня 2026</span>
-    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
-  </div>
-  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
-</a>
-<a class="blog-card" href="/blog/svoy-vps-dlya-razrabotchika-2026/" data-category="development" data-clicks="46">
+  <div class="blog-grid"><a class="blog-card" href="/blog/svoy-vps-dlya-razrabotchika-2026/" data-category="development" data-clicks="46">
   <span class="blog-card-popular"><i class="ph-fill ph-fire" aria-hidden="true"></i> Популярное</span>
   <div class="blog-card-icon"><i class="ph-fill ph-hard-drives"></i></div>
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
@@ -663,6 +606,17 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
   </div>
   <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
 </a></div>
+</section>
+                    
+                    <section class="blog-subscribe">
+  <div class="blog-subscribe-body">
+    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
+    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
+  </div>
+  <div class="blog-subscribe-actions">
+    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
+  </div>
 </section>
                     
                     

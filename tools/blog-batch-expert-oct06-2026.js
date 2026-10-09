@@ -9,7 +9,7 @@ const SVC_BIZ = { title: 'Что я делаю для бизнеса', services:
 ]};
 const E = (o) => Object.assign({ published: true, datePublished: D, dateModified: D, readingMinutes: 4, servicesOffer: SVC_BIZ }, o, { contentHtml: C(o.slug) });
 module.exports = [
-  E({ slug: "max-stanet-platnym-dlya-biznesa-chto-izvestno-pro-licenzii-i-tarify-2026", category: "expert", heroIcon: "ph-fill ph-currency-circle-dollar", ctaInternal: { url: "https://chimitdorzhi.tech/services/telegram-bots/", label: "Боты в MAX и Telegram под ключ" },
+  E({ slug: "max-stanet-platnym-dlya-biznesa-chto-izvestno-pro-licenzii-i-tarify-2026", category: "expert", heroIcon: "ph-fill ph-currency-circle-dollar", ctaInternal: { url: "https://chimitdorzhi.tech/development/telegram-bots/", label: "Боты в MAX и Telegram под ключ" },
     title: "Тарифы MAX для бизнеса: что известно и чего пока нет",
     metaTitle: "Тарифы MAX для бизнеса: что известно и чего нет (2026)",
     metaDescription: "Что известно про платные лицензии и тарифы MAX для бизнеса: цифры из презентации, чего нет в официальных источниках и как не зависеть от одного канала.",

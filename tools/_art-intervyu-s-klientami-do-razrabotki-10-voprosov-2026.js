@@ -2,7 +2,7 @@ module.exports = {
   slug: "intervyu-s-klientami-do-razrabotki-10-voprosov-2026",
   category: "biznes-krugozor",
   heroIcon: "ph-fill ph-chats-teardrop",
-  ctaInternal: { url: "https://chimitdorzhi.tech/services/telegram-bots/", label: "Прототип бота под проверку спроса" },
+  ctaInternal: { url: "https://chimitdorzhi.tech/development/telegram-bots/", label: "Прототип бота под проверку спроса" },
   title: "Интервью с клиентами до разработки: 10 вопросов, которые не врут",
   metaTitle: "Интервью с клиентами до разработки: 10 вопросов",
   metaDescription: "Как поговорить с 5-10 людьми до заказа бота или сайта: кого звать, 10 вопросов о прошлом, таблица ответов, сигналы спроса и запись разговоров по 152-ФЗ.",

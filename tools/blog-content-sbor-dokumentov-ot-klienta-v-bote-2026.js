@@ -64,7 +64,7 @@ module.exports = `
   <li>Решите, где будут лежать файлы и сколько дней после закрытия заявки вы их храните. Это условие для любого бота.</li>
 </ol>
 
-<p>Дальше подключается бот на <a href="/services/telegram-bots/">Telegram и MAX</a>, и то же самое умеет распознавание из <a href="/predlozheniya/ai-ocr-dokumentov/">предложения по ИИ-распознаванию документов</a>.</p>
+<p>Дальше подключается бот на <a href="/development/telegram-bots/">Telegram и MAX</a>, и то же самое умеет распознавание из <a href="/predlozheniya/ai-ocr-dokumentov/">предложения по ИИ-распознаванию документов</a>.</p>
 
 <h2 id="faq">Частые вопросы</h2>
 

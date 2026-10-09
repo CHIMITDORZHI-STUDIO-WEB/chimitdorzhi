@@ -455,6 +455,14 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 
                     <div class="blog-body">
                         <div class="blog-tldr"><strong>TL;DR:</strong> Для локальных LLM главное — объём видеопамяти (VRAM), а не «крутость» карты. Ориентир: модели 7-8B помещаются в 8-12 ГБ VRAM (в квантизации), 13-14B — в 12-16 ГБ, 70B — требуют 40-48 ГБ или двух карт. Без GPU работать можно на CPU с большим объёмом ОЗУ, но медленно. Если задача разовая или нагрузка непостоянна — дешевле арендовать облачный GPU, чем покупать видеокарту.</div>
+<div class="blog-cta-internal">
+  <i class="ph-fill ph-rocket-launch" aria-hidden="true"></i>
+  <div>
+    <strong>Хотите внедрить это у себя?</strong>
+    <p>Сделаю под ключ: разберу задачу, назову срок и цену. Чтобы начать, <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%9A%D0%B0%D0%BA%D0%B0%D1%8F%20%D0%B2%D0%B8%D0%B4%D0%B5%D0%BE%D0%BA%D0%B0%D1%80%D1%82%D0%B0%20%D0%BD%D1%83%D0%B6%D0%BD%D0%B0%20%D0%B4%D0%BB%D1%8F%20%D0%BB%D0%BE%D0%BA%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D1%85%20LLM%3A%20%D0%B3%D0%B8%D0%B4%20%D0%BF%D0%BE%20GPU%20%D0%B8%20VRAM%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener">напишите в Telegram</a> одной фразой.</p>
+    <a href="https://chimitdorzhi.tech/market/#checklist">Обсудить проект <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</div>
 
 <p>«Какая видеокарта нужна для локальных нейросетей?» — самый частый вопрос при подборе железа под ИИ. И ответ почти всегда не тот, которого ждут: смотреть надо не на игровую производительность и не на число ядер, а на объём видеопамяти. Именно VRAM определяет, поместится ли модель в карту вообще. Ниже — практический разбор: сколько видеопамяти нужно под модели разного размера, как квантизация меняет расклад, можно ли обойтись без GPU и когда выгоднее арендовать видеокарту в облаке, а не покупать.</p>
 
@@ -466,7 +474,7 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 
 <h2 id="skolko-vram">Сколько VRAM под какую модель</h2>
 <p>Дам практические ориентиры для квантизованных моделей (4-битная квантизация, самый ходовой вариант) — именно так их чаще всего запускают локально:</p>
-<p><strong>Модели 7-8B</strong> (Llama 8B, <a href="/ii-modeli/qwen/" class="blog-inline-link">Qwen</a> 7B, Mistral 7B). В 4-битной квантизации занимают примерно 5-6 ГБ. Комфортно работают на картах с <strong>8-12 ГБ VRAM</strong>. Это уровень многих потребительских видеокарт и даже некоторых ноутбучных GPU. Отличный старт для чат-ассистента и несложного RAG.</p>
+<p><strong>Модели 7-8B</strong> (Llama 8B, <a href="/ii-modeli/qwen/" class="blog-inline-link">Qwen</a> 7B, Mistral 7B). В 4-битной квантизации занимают примерно 5-6 ГБ. Комфортно работают на картах с <strong>8-12 ГБ VRAM</strong>. Это уровень многих потребительских видеокарт и даже некоторых ноутбучных GPU. Отличный старт для чат-ассистента и <a href="/blog/rag-prostymi-slovami-2027/">несложного RAG</a>.</p>
 <p><strong>Модели 13-14B</strong> (Qwen 14B и аналоги). Требуют примерно 8-10 ГБ в квантизации. Нужна карта с <strong>12-16 ГБ VRAM</strong>. Заметно умнее «семёрок», хороший баланс качества и требований для бизнес-задач.</p>
 <p><strong>Модели 30-34B.</strong> Просят около 20 ГБ. Нужна карта с <strong>24 ГБ VRAM</strong> (уровень старших потребительских или младших профессиональных GPU).</p>
 <p><strong>Модели 70B</strong> (<a href="/ii-modeli/llama/" class="blog-inline-link">Llama</a> 70B, Qwen 72B). Даже в квантизации требуют примерно 40-48 ГБ. Это либо одна профессиональная/серверная карта на 48 ГБ, либо две карты по 24 ГБ, работающие вместе. Уровень качества близок к облачным решениям, но и требования соответствующие.</p>
@@ -476,7 +484,7 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 <p>Именно квантизация делает локальные LLM доступными: без неё модель 70B требовала бы 140 ГБ и была бы недостижима вне дата-центра, а в 4 битах она укладывается в 40-48 ГБ. Практический вывод: почти всегда локальные модели запускают в квантизации (форматы GGUF, AWQ, GPTQ), и все ориентиры по VRAM выше даны именно для этого случая. Если качество критично — можно взять 8-битную квантизацию (точнее, но памяти нужно больше), для экономии — 4-битную.</p>
 
 <h2 id="cpu-vs-gpu">CPU-инференс против GPU</h2>
-<p>Запускать LLM можно и без видеокарты — на обычном процессоре, используя оперативную память вместо VRAM. Инструменты вроде llama.cpp и Ollama это умеют. Разница — в скорости.</p>
+<p>Запускать LLM можно и без видеокарты — на обычном процессоре, используя оперативную память вместо VRAM. Инструменты вроде llama.cpp и <a href="/blog/ustanovit-ollama-windows-2027/">Ollama</a> это умеют. Разница — в скорости.</p>
 <p>На GPU модель 7B выдаёт десятки токенов в секунду — текст «печатается» быстрее, чем вы читаете. На CPU та же модель работает в разы, а крупные модели — в десятки раз медленнее: ответ может «набираться» болезненно долго. Для интерактивного чата это некомфортно, но для фоновых задач (ночная пакетная обработка документов, где скорость не критична) CPU-инференс вполне жизнеспособен и экономит на видеокарте.</p>
 <p>Практическое правило: если нужен отзывчивый ассистент в реальном времени — нужен GPU. Если задача фоновая и терпит ожидание — можно начать на мощном CPU с большим объёмом ОЗУ (32-64 ГБ и больше) и без видеокарты вовсе.</p>
 
@@ -485,6 +493,7 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 <p>Серверные и профессиональные ускорители (NVIDIA A100, H100, L40 и др.) стоят кратно дороже, но дают большой объём VRAM на одной карте (40-80 ГБ и выше), рассчитаны на непрерывную работу, эффективно объединяются в связки и лучше держат много параллельных запросов. Их берут, когда нужны крупные модели, высокая нагрузка и надёжность 24/7.</p>
 <p>Для большинства задач малого и среднего бизнеса потребительская карта с 16-24 ГБ VRAM закрывает потребности с большим запасом. Серверное железо оправдано на моделях 70B и при высоком потоке запросов.</p>
 
+<div class="blog-callout blog-callout-info blog-read-next"><i class="ph-fill ph-book-open" aria-hidden="true"></i><div><strong>Читайте дальше по теме</strong><ul><li><a href="/blog/svoy-ai-server-dlya-biznesa-2027/">Свой AI-сервер для бизнеса: зачем нужен и как его собрать</a></li><li><a href="/blog/lokalnyy-llm-na-noutbuke-2026/">Локальный LLM на ноутбуке 2026: Ollama, LM Studio, vLLM — практическое руководство</a></li></ul></div></div>
 <h2 id="byudzhet">Ориентиры по бюджету</h2>
 <p>Грубые ориентиры, чтобы понимать масштаб (цены сильно колеблются, поэтому говорим о порядке):</p>
 <p><strong>Начальный уровень.</strong> Потребительская карта с 8-12 ГБ VRAM — десятки тысяч рублей. Хватает на модели 7-8B, чат-ассистент, простой RAG. Хороший вход для теста гипотезы.</p>
@@ -494,7 +503,7 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 
 <h2 id="oblako">Облачный GPU как альтернатива</h2>
 <p>Прежде чем покупать видеокарту, стоит рассмотреть аренду GPU в облаке. Провайдеры дают выделенный сервер с нужной картой помесячно или почасово. Плюсы: нулевые капитальные затраты, старт за час, возможность взять мощную карту под конкретную задачу и отказаться, когда она не нужна. Это идеальный вариант для пилота и для непостоянной нагрузки.</p>
-<p>Когда аренда выгоднее покупки: нагрузка непостоянная, задача разовая или экспериментальная, нужно быстро проверить гипотезу, не хочется замораживать деньги в железе. Когда выгоднее покупка: нагрузка стабильная и высокая круглосуточно, есть жёсткое требование держать данные физически у себя, а горизонт использования — годы.</p>
+<p>Когда аренда выгоднее покупки: нагрузка непостоянная, задача разовая или экспериментальная, нужно быстро проверить гипотезу, не хочется замораживать деньги в железе. Когда выгоднее покупка: нагрузка стабильная и высокая круглосуточно, есть жёсткое требование <a href="/blog/lokalnyy-llm-vs-oblako-biznes-2027/">держать данные физически у себя</a>, а горизонт использования — годы.</p>
 <p>На практике оптимальная стратегия — начать с арендованного GPU, измерить реальную нагрузку и только потом решать, покупать ли своё железо. Мы помогаем подобрать конфигурацию под конкретную модель и бюджет и развернуть всё под ключ — чтобы вы не переплатили за видеопамять, которая вам не нужна, и не уперлись в нехватку VRAM на второй неделе.</p>
 
 <h2 id="faq">Частые вопросы</h2>
@@ -517,78 +526,24 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
                     
                     
 <div class="blog-services-offer">
-  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <div class="blog-services-offer-eyebrow">Обсудим вашу задачу</div>
   <h3 class="blog-services-offer-title">Что я делаю под ключ</h3>
-  <ul class="blog-services-offer-list">
-    
-    <li><i class="ph-fill ph-graphics-card"></i> <span>Подбор GPU под вашу модель</span></li>
-    
-    <li><i class="ph-fill ph-hard-drives"></i> <span>Сборка AI-сервера под ключ</span></li>
-    
-    <li><i class="ph-fill ph-gauge"></i> <span>Оптимизация инференса и VRAM</span></li>
-    
-    <li><i class="ph-fill ph-cloud"></i> <span>Аренда облачного GPU для пилота</span></li>
-    
-    <li><i class="ph-fill ph-plugs-connected"></i> <span>Интеграция ИИ в процессы</span></li>
-    
-  </ul>
+  <p class="blog-services-offer-lead">Напишите одной фразой, что нужно. Отвечу, что подойдёт, сколько займёт и сколько стоит. Сообщение уже подготовлено.</p>
+  <ul class="blog-services-offer-list"><li><i class="ph-fill ph-graphics-card"></i> <span>Подбор GPU под вашу модель</span></li><li><i class="ph-fill ph-hard-drives"></i> <span>Сборка AI-сервера под ключ</span></li><li><i class="ph-fill ph-gauge"></i> <span>Оптимизация инференса и VRAM</span></li><li><i class="ph-fill ph-cloud"></i> <span>Аренда облачного GPU для пилота</span></li><li><i class="ph-fill ph-plugs-connected"></i> <span>Интеграция ИИ в процессы</span></li></ul>
   <div class="blog-services-offer-ctas">
-    <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
-      <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Обсудить проект
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%9A%D0%B0%D0%BA%D0%B0%D1%8F%20%D0%B2%D0%B8%D0%B4%D0%B5%D0%BE%D0%BA%D0%B0%D1%80%D1%82%D0%B0%20%D0%BD%D1%83%D0%B6%D0%BD%D0%B0%20%D0%B4%D0%BB%D1%8F%20%D0%BB%D0%BE%D0%BA%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D1%85%20LLM%3A%20%D0%B3%D0%B8%D0%B4%20%D0%BF%D0%BE%20GPU%20%D0%B8%20VRAM%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener" class="blog-services-offer-cta">
+      <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
     </a>
     <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="blog-services-offer-cta blog-services-offer-cta-max">
       <i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> Написать в MAX
     </a>
+    <a href="https://chimitdorzhi.tech/market/#checklist" class="blog-services-offer-cta blog-services-offer-cta-max"><i class="ph ph-arrow-right" aria-hidden="true"></i> Обсудить проект</a>
   </div>
 </div>
-                    <div class="blog-cta-card">
-                        <div class="blog-cta-card-body">
-                            <h3>Бесплатно: чек-лист «Готов ли ваш бизнес к 152-ФЗ»</h3>
-                            <p>12 пунктов, которые проверяют готовность за час: данные, согласия, уведомление в РКН, локализация, защита. Отметьте, что уже сделано, и увидите дыры, за которые сейчас штрафуют.</p>
-                        </div>
-                        <div class="blog-cta-card-actions">
-                            <a href="/checklist-152-fz/" class="btn btn-accent"><i class="ph-fill ph-clipboard-text" aria-hidden="true"></i> Открыть чек-лист</a>
-                        </div>
-                    </div>
                     
-
-                    <div class="blog-cta-card blog-cta-card-final">
-                        <div class="blog-cta-card-body">
-                            <h3>Готовы обсудить вашу задачу?</h3>
-                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
-                        </div>
-                        <div class="blog-cta-card-actions">
-                            <a href="https://chimitdorzhi.tech/market/#checklist" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Обсудить проект</a>
-                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
-                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
-                        </div>
-                    </div>
-
-                    <section class="blog-subscribe">
-  <div class="blog-subscribe-body">
-    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
-    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
-  </div>
-  <div class="blog-subscribe-actions">
-    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
-    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
-  </div>
-</section>
                     <section class="blog-related">
   <h2>Читайте также</h2>
-  <div class="blog-grid"><a class="blog-card" href="/blog/svoy-ai-server-dlya-biznesa-2027/" data-category="ai-dev" data-clicks="0">
-  
-  <div class="blog-card-icon"><i class="ph-fill ph-hard-drives"></i></div>
-  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>AI для разработчиков</span>
-  <h3>Свой AI-сервер для бизнеса: зачем нужен и как его собрать</h3>
-  <p>Локальный AI-сервер даёт компании контроль над данными и предсказуемую стоимость при больших объёмах. Разбираем, какие задачи он закрывает, из чего собирается и когда он реально окупается, а когда дешевле остаться в облаке.</p>
-  <div class="blog-card-meta">
-    <span><i class="ph ph-calendar" aria-hidden="true"></i> 7 июля 2026</span>
-    <span><i class="ph ph-clock" aria-hidden="true"></i> 6 мин</span>
-  </div>
-  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
-</a>
-<a class="blog-card" href="/blog/lokalnyy-llm-vs-oblako-biznes-2027/" data-category="ai-dev" data-clicks="0">
+  <div class="blog-grid"><a class="blog-card" href="/blog/lokalnyy-llm-vs-oblako-biznes-2027/" data-category="ai-dev" data-clicks="0">
   
   <div class="blog-card-icon"><i class="ph-fill ph-scales"></i></div>
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>AI для разработчиков</span>
@@ -597,18 +552,6 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
   <div class="blog-card-meta">
     <span><i class="ph ph-calendar" aria-hidden="true"></i> 7 июля 2026</span>
     <span><i class="ph ph-clock" aria-hidden="true"></i> 6 мин</span>
-  </div>
-  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
-</a>
-<a class="blog-card" href="/blog/lokalnyy-llm-na-noutbuke-2026/" data-category="ai-dev" data-clicks="57">
-  <span class="blog-card-popular"><i class="ph-fill ph-fire" aria-hidden="true"></i> Популярное</span>
-  <div class="blog-card-icon"><i class="ph-fill ph-cpu"></i></div>
-  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>AI для разработчиков</span>
-  <h3>Локальный LLM на ноутбуке 2026: Ollama, LM Studio, vLLM — практическое руководство</h3>
-  <p>Как поднять локальный LLM за час: Ollama, LM Studio, vLLM. Какие модели выбрать в 2026, бенчмарки скорости на M3 Max / RTX 4090 / H100, локальный RAG за 40 строк, экономика владения.</p>
-  <div class="blog-card-meta">
-    <span><i class="ph ph-calendar" aria-hidden="true"></i> 20 мая 2026</span>
-    <span><i class="ph ph-clock" aria-hidden="true"></i> 22 мин</span>
   </div>
   <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
 </a>
@@ -624,6 +567,17 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
   </div>
   <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
 </a></div>
+</section>
+                    
+                    <section class="blog-subscribe">
+  <div class="blog-subscribe-body">
+    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
+    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
+  </div>
+  <div class="blog-subscribe-actions">
+    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
+  </div>
 </section>
                     
                     

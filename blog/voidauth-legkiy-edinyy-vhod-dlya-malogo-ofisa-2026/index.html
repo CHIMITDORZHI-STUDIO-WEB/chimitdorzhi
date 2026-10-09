@@ -433,6 +433,14 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
                     <div class="blog-body">
                         
 <div class="blog-tldr"><strong>Коротко.</strong> VoidAuth это открытый сервер единого входа для самохостинга: один логин для CRM, облака, вики и трекера, пользователи и группы в одном месте, пароли сбрасываются по почте. Ставится одним Docker-контейнером. Проект молодой, держится в основном на одном разработчике, поэтому для малого офиса он подходит, а для большого предприятия нет. Единый вход становится единой точкой отказа, так что резервная копия и аварийная учётка обязательны.</div>
+<div class="blog-cta-internal">
+  <i class="ph-fill ph-rocket-launch" aria-hidden="true"></i>
+  <div>
+    <strong>Хотите внедрить это у себя?</strong>
+    <p>Сделаю под ключ: разберу задачу, назову срок и цену. Чтобы начать, <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%ABVoidAuth%3A%20%D0%BE%D0%B4%D0%B8%D0%BD%20%D0%B2%D1%85%D0%BE%D0%B4%20%D0%B2%D0%BC%D0%B5%D1%81%D1%82%D0%BE%20%D0%BF%D1%8F%D1%82%D0%B8%20%D0%BF%D0%B0%D1%80%D0%BE%D0%BB%D0%B5%D0%B9%20%D0%B2%20%D0%BE%D1%84%D0%B8%D1%81%D0%B5%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener">напишите в Telegram</a> одной фразой.</p>
+    <a href="https://chimitdorzhi.tech/services/it-infrastructure/">ИТ-инфраструктура под ключ <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</div>
 
 <h2 id="problema">Пять систем, пять паролей и один уволенный сотрудник</h2>
 <p>Типичный офис на десять человек: CRM, облачный диск, вики с регламентами, трекер задач, пара внутренних сервисов. В каждом свои пароли. Менеджер заводит их сам, половину записывает в заметки, часть повторяет. Когда человек увольняется, кто-то должен пройти по всем системам и отключить его вручную. Обычно про одну из них забывают, и бывший сотрудник месяцами остаётся с доступом к базе клиентов.</p>
@@ -456,6 +464,7 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 <p>В документации мы не нашли описания журнала входов и отчёта по активности пользователей. Если вам нужен разбор «кто и когда заходил» для проверок, это придётся закрывать логами обратного прокси или другим инструментом. Версия 1.16.0 добавила поддержку Backchannel Logout для OIDC-приложений, но она работает только там, где её умеет приложение. Поэтому при увольнении проверяйте и сессии в самих системах.</p>
 <p>Главный риск у любого единого входа один: он становится единой точкой отказа. Лёг сервер или потерялся ключ шифрования, и в офис никто не войдёт. Нужны регулярная резервная копия базы и ключа (способы мы разбирали в статье <a href="/blog/duplicati-rezervnoe-kopirovanie-2026/">про Duplicati</a>), а ещё аварийная учётка администратора с длинным паролем, записанным офлайн. У VoidAuth есть команда, которая выдаёт ссылку на сброс пароля существующего пользователя, и есть команда, включающая или отключающая MFA. Проверьте её до того, как она понадобится.</p>
 
+<div class="blog-callout blog-callout-info blog-read-next"><i class="ph-fill ph-book-open" aria-hidden="true"></i><div><strong>Читайте дальше по теме</strong><ul><li><a href="/blog/pangolin-bezopasnyy-dostup-k-servisam-2026/">Pangolin: безопасный доступ к внутренним сервисам без проброса портов</a></li><li><a href="/blog/bitwarden-menedzher-paroley-2026/">Bitwarden и Vaultwarden: менеджер паролей для команды на своём сервере</a></li></ul></div></div>
 <h2 id="chto-sdelat">Что можно сделать уже сейчас</h2>
 <p>Первое: составьте список систем и людей. Для каждой системы выпишите, умеет ли она OIDC, и кто в ней сейчас имеет доступ. Часто это само по себе вскрывает забытые учётки.</p>
 <p>Второе: поднимите VoidAuth на тестовом поддомене с SQLite и подключите одну некритичную систему, например вики. Один день и один пользователь, чтобы понять, нравится ли вам вход.</p>
@@ -492,61 +501,21 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
                     
                     
 <div class="blog-services-offer">
-  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <div class="blog-services-offer-eyebrow">Обсудим вашу задачу</div>
   <h3 class="blog-services-offer-title">Что я делаю для бизнеса</h3>
-  <ul class="blog-services-offer-list">
-    
-    <li><i class="ph-fill ph-robot"></i> <span>Боты в Telegram, MAX, VK</span></li>
-    
-    <li><i class="ph-fill ph-gear"></i> <span>Автоматизация процессов и CRM</span></li>
-    
-    <li><i class="ph-fill ph-chart-bar"></i> <span>Аналитика и дашборды</span></li>
-    
-    <li><i class="ph-fill ph-globe"></i> <span>Сайты и лендинги под ключ</span></li>
-    
-  </ul>
+  <p class="blog-services-offer-lead">Напишите одной фразой, что нужно. Отвечу, что подойдёт, сколько займёт и сколько стоит. Сообщение уже подготовлено.</p>
+  <ul class="blog-services-offer-list"><li><i class="ph-fill ph-robot"></i> <span>Боты в Telegram, MAX, VK</span></li><li><i class="ph-fill ph-gear"></i> <span>Автоматизация процессов и CRM</span></li><li><i class="ph-fill ph-chart-bar"></i> <span>Аналитика и дашборды</span></li><li><i class="ph-fill ph-globe"></i> <span>Сайты и лендинги под ключ</span></li></ul>
   <div class="blog-services-offer-ctas">
-    <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%ABVoidAuth%3A%20%D0%BE%D0%B4%D0%B8%D0%BD%20%D0%B2%D1%85%D0%BE%D0%B4%20%D0%B2%D0%BC%D0%B5%D1%81%D1%82%D0%BE%20%D0%BF%D1%8F%D1%82%D0%B8%20%D0%BF%D0%B0%D1%80%D0%BE%D0%BB%D0%B5%D0%B9%20%D0%B2%20%D0%BE%D1%84%D0%B8%D1%81%D0%B5%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener" class="blog-services-offer-cta">
       <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
     </a>
     <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="blog-services-offer-cta blog-services-offer-cta-max">
       <i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> Написать в MAX
     </a>
+    <a href="https://chimitdorzhi.tech/services/it-infrastructure/" class="blog-services-offer-cta blog-services-offer-cta-max"><i class="ph ph-arrow-right" aria-hidden="true"></i> ИТ-инфраструктура под ключ</a>
   </div>
 </div>
-                    <div class="blog-cta-card">
-                        <div class="blog-cta-card-body">
-                            <h3>Бесплатно: чек-лист «Готов ли ваш бизнес к 152-ФЗ»</h3>
-                            <p>12 пунктов, которые проверяют готовность за час: данные, согласия, уведомление в РКН, локализация, защита. Отметьте, что уже сделано, и увидите дыры, за которые сейчас штрафуют.</p>
-                        </div>
-                        <div class="blog-cta-card-actions">
-                            <a href="/checklist-152-fz/" class="btn btn-accent"><i class="ph-fill ph-clipboard-text" aria-hidden="true"></i> Открыть чек-лист</a>
-                        </div>
-                    </div>
                     
-
-                    <div class="blog-cta-card blog-cta-card-final">
-                        <div class="blog-cta-card-body">
-                            <h3>Готовы обсудить вашу задачу?</h3>
-                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
-                        </div>
-                        <div class="blog-cta-card-actions">
-                            <a href="https://chimitdorzhi.tech/services/it-infrastructure/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> ИТ-инфраструктура под ключ</a>
-                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
-                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
-                        </div>
-                    </div>
-
-                    <section class="blog-subscribe">
-  <div class="blog-subscribe-body">
-    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
-    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
-  </div>
-  <div class="blog-subscribe-actions">
-    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
-    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
-  </div>
-</section>
                     <section class="blog-related">
   <h2>Читайте также</h2>
   <div class="blog-grid"><a class="blog-card" href="/blog/keycloak-edinyy-vhod-sso-2026/" data-category="opensource" data-clicks="0">
@@ -572,31 +541,18 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
     <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
   </div>
   <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
-</a>
-<a class="blog-card" href="/blog/pangolin-bezopasnyy-dostup-k-servisam-2026/" data-category="opensource" data-clicks="0">
-  
-  <div class="blog-card-icon"><i class="ph-fill ph-shield-check"></i></div>
-  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
-  <h3>Pangolin: безопасный доступ к внутренним сервисам без проброса портов</h3>
-  <p>Pangolin открывает доступ к внутренним сервисам (админки, CRM, дашборды) через интернет без проброса портов и без передачи трафика в чужое облако. Своя альтернатива Cloudflare Tunnel. Разбираю, как работает и кому нужно.</p>
-  <div class="blog-card-meta">
-    <span><i class="ph ph-calendar" aria-hidden="true"></i> 14 июня 2026</span>
-    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
-  </div>
-  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
-</a>
-<a class="blog-card" href="/blog/bitwarden-menedzher-paroley-2026/" data-category="opensource" data-clicks="4">
-  
-  <div class="blog-card-icon"><i class="ph-fill ph-key"></i></div>
-  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
-  <h3>Bitwarden и Vaultwarden: менеджер паролей для команды на своём сервере</h3>
-  <p>Bitwarden с self-hosted сервером Vaultwarden держит пароли компании под контролем на вашем сервере: общие хранилища, расширения, шифрование. Разбираю, кому нужно и что требуется для запуска.</p>
-  <div class="blog-card-meta">
-    <span><i class="ph ph-calendar" aria-hidden="true"></i> 15 июня 2026</span>
-    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
-  </div>
-  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
 </a></div>
+</section>
+                    
+                    <section class="blog-subscribe">
+  <div class="blog-subscribe-body">
+    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
+    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
+  </div>
+  <div class="blog-subscribe-actions">
+    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
+  </div>
 </section>
                     
                     

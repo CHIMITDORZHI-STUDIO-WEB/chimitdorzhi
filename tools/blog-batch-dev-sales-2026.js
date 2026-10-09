@@ -38,7 +38,7 @@ const SVC_DEV = {
   ctaLabel: 'Заказать разработку', ctaUrl: 'https://t.me/chimitdorzhi',
 };
 
-const CTA_BOT = { url: `${SVC}/telegram-bots/`, label: 'Бот под ключ' };
+const CTA_BOT = { url: 'https://chimitdorzhi.tech/development/telegram-bots/', label: 'Бот под ключ' };
 const CTA_AUTO = { url: `${SVC}/business-automation/`, label: 'Автоматизация под ключ' };
 const CTA_DEV = { url: `${SVC}/web-development/`, label: 'Разработка под ключ' };
 
@@ -61,7 +61,7 @@ module.exports = [
     toc: T([{ id: 'chto-nuzhno', text: 'Что нужно для старта' }, { id: 'shagi', text: 'Создание по шагам' }, { id: 'vozmozhnosti', text: 'Что умеет бот в MAX' }, { id: 'sam-ili-zakazat', text: 'Самому или заказать' }]),
     relatedSlugs: ['ai-bot-v-max-gigachat-yandexgpt-2026', 'max-mini-apps-2026', 'max-ili-telegram-dlya-biznesa-2027'] }),
 
-  E({ slug: 'chat-bot-v-max-zakazat-2026', heroIcon: 'ph-fill ph-chat-circle-dots',
+  E({ slug: 'chat-bot-v-max-zakazat-2026', dateModified: '2026-10-08', heroIcon: 'ph-fill ph-chat-circle-dots',
     servicesOffer: SVC_BOT, ctaInternal: CTA_BOT,
     title: 'Чат-бот в MAX: что умеет и сколько стоит заказать',
     metaTitle: 'Чат-бот в MAX: что умеет и цена заказа',
@@ -83,7 +83,7 @@ module.exports = [
     toc: T([{ id: 'chto-eto', text: 'Что такое скрипт-автоматизация' }, { id: 'primery', text: 'Что можно автоматизировать' }, { id: 'cena-sroki', text: 'Сроки и цена' }, { id: 'kak-zakazat', text: 'Как заказать' }]),
     relatedSlugs: ['integraciya-api-na-zakaz-2026', 'avtomatizaciya-excel-na-zakaz-2026', 'parser-dannyh-na-zakaz-2026'] }),
 
-  E({ slug: 'integraciya-api-na-zakaz-2026', heroIcon: 'ph-fill ph-plugs-connected',
+  E({ slug: 'integraciya-api-na-zakaz-2026', dateModified: '2026-10-08', heroIcon: 'ph-fill ph-plugs-connected',
     servicesOffer: SVC_AUTO, ctaInternal: CTA_AUTO,
     title: 'Интеграция API на заказ: связать сервисы, CRM и 1С',
     metaTitle: 'Интеграция API на заказ: связать сервисы',
@@ -127,7 +127,7 @@ module.exports = [
     toc: T([{ id: 'kogda-nuzhen', text: 'Когда нужен свой сервис' }, { id: 'mvp', text: 'С чего начать: MVP' }, { id: 'skolko', text: 'Сроки и бюджет' }, { id: 'kak-zakazat', text: 'Как заказать' }]),
     relatedSlugs: ['mvp-to-production-3-mesyatsa-2026', 'kak-prevratit-ideyu-v-produkt-2027', 'integraciya-api-na-zakaz-2026'] }),
 
-  E({ slug: 'avtomatizaciya-excel-na-zakaz-2026', heroIcon: 'ph-fill ph-table',
+  E({ slug: 'avtomatizaciya-excel-na-zakaz-2026', dateModified: '2026-10-08', heroIcon: 'ph-fill ph-table',
     servicesOffer: SVC_AUTO, ctaInternal: CTA_AUTO,
     title: 'Автоматизация Excel на заказ: от макросов до веб-таблиц',
     metaTitle: 'Автоматизация Excel на заказ: макросы и не только',

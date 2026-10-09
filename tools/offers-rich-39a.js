@@ -46,7 +46,7 @@ module.exports = {
       { q: 'Сколько времени занимает запуск?', a: 'Как правило, запуск занимает 2–4 недели в зависимости от объёма сценариев и форматов контента.' }
     ],
     relatedServices: [
-      { url: '/services/telegram-bots/', label: 'Разработка Telegram-ботов' },
+      { url: '/development/telegram-bots/', label: 'Разработка Telegram-ботов' },
       { url: '/services/ai-agents/', label: 'AI-агенты для бизнеса' }
     ],
     relatedBlog: [
@@ -102,7 +102,7 @@ module.exports = {
       { q: 'Сколько времени занимает запуск?', a: 'Как правило, запуск занимает 2–4 недели в зависимости от сложности расписания и сценариев.' }
     ],
     relatedServices: [
-      { url: '/services/telegram-bots/', label: 'Разработка Telegram-ботов' },
+      { url: '/development/telegram-bots/', label: 'Разработка Telegram-ботов' },
       { url: '/services/business-automation/', label: 'Автоматизация бизнеса' }
     ],
     relatedBlog: [

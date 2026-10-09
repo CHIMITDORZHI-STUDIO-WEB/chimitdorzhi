@@ -471,12 +471,12 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 <h2 id="chto-takoe-integracii">Что такое интеграции простыми словами</h2>
 <p>Представьте набор отдельных инструментов: сайт с заявками, CRM для сделок, платёжную систему, мессенджер для уведомлений и 1С для бухгалтерии. Каждый хорош сам по себе, но по отдельности они заставляют переносить данные руками. Интеграция — это мостик, который соединяет два таких инструмента, чтобы они обменивались данными автоматически.</p>
 <p>На практике это выглядит так. Клиент заполнил форму на сайте — заявка сама появилась в CRM. Прошла оплата — платёжная система сообщила об этом в CRM. Сделка закрылась — данные ушли в 1С, а вам прилетело уведомление в мессенджер. Никто ничего не копирует руками, ошибок меньше, скорость выше. Ради этого связки и строят.</p>
-<p>Технически такой обмен почти всегда идёт через API — набор правил, по которым один сервис обращается к другому. Можно представить API как розетку и вилку: пока их форма совпадает, ток идёт. Но стоит одной стороне поменять форму розетки — и вилка не подходит. Именно здесь кроется главная причина поломок.</p>
+<p>Технически такой обмен почти всегда идёт через API — <a href="/blog/chto-takoe-api-prostymi-slovami-2026/">набор правил, по которым один сервис обращается к другому</a>. Можно представить API как розетку и вилку: пока их форма совпадает, ток идёт. Но стоит одной стороне поменять форму розетки — и вилка не подходит. Именно здесь кроется главная причина поломок.</p>
 
 <h2 id="pochemu-lomayutsya">Почему интеграции ломаются</h2>
 <p>Главная и почти неустранимая причина в том, что любая связка зависит от чужих систем. Передавая заявки с сайта в CRM, я завишу от трёх сторон: платформы сайта, CRM и канала связи между ними. Свою часть я настрою идеально, но если хотя бы одна из чужих сторон поведёт себя не так, как вчера, связка встанет. А таких сторон обычно не три, а десяток.</p>
 <p>Вторая причина — изменения в API. Сервисы развиваются: добавляют функции, переделывают внутреннюю кухню, закрывают старые версии. Когда платёжная система или мессенджер обновляет API, та самая «розетка» меняет форму. Иногда об этом предупреждают, иногда молчат. Связка, работавшая год без сбоя, в одно утро перестаёт передавать данные, хотя в ней никто ничего не трогал.</p>
-<p>Третья причина — банальные сбои и недоступность. Чужой сервис может упасть на полчаса из-за аварии, перегрузки или работ на их стороне. Пока он лежит, связка не может ничего передать, и если нет механизма, который дождётся восстановления и повторит отправку, заявки и платежи теряются.</p>
+<p>Третья причина — банальные сбои и недоступность. Чужой сервис может упасть на полчаса из-за аварии, перегрузки или работ на их стороне. Пока он лежит, связка не может ничего передать, и если нет механизма, который дождётся восстановления и повторит отправку, <a href="/blog/integraciya-molcha-teryaet-zakazy-moysklad-503-429-2026/">заявки и платежи теряются</a>.</p>
 <p>Четвёртая причина, самая обидная, — отсутствие мониторинга. Связка может сломаться тихо: сайт работает, форма отправляется, клиент видит «заявка принята». А в CRM ничего не приходит, потому что мостик оборвался. Без наблюдения за потоком данных такую поломку обнаруживают через несколько дней — когда заявок подозрительно мало или когда звонит клиент, которому никто не перезвонил. К этому моменту потери уже накопились.</p>
 <p>Отдельно отмечу человеческий фактор на стороне бизнеса: сменили пароль от почты, через которую шли уведомления; перевыпустили токен доступа и забыли обновить его в связке; отключили старый тариф. Формально это не «поломка» в коде, но результат тот же — поток данных встал.</p>
 
@@ -486,9 +486,10 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 <p>Есть и обратные ситуации. Бывает, связку собрали наспех: без обработки ошибок, без повторных попыток отправки, без логов. Такая конструкция работает, пока всё идеально, и рассыпается при первом же чихе любого сервиса. Вот здесь ответственность действительно на исполнителе — не за то, что внешний мир изменился, а за то, что связку к этим изменениям не подготовили.</p>
 <p>Поэтому правильный вопрос не «кто виноват», а «была ли связка построена с расчётом на то, что внешний мир ненадёжен». Хорошая интеграция исходит из того, что чужие сервисы рано или поздно подведут, и заранее закладывает запас. Понять, насколько крепко устроены ваши связки и где тонкие места, помогает <a href="https://chimitdorzhi.tech/services/it-audit/">ИТ-аудит</a> — взгляд со стороны на всю инфраструктуру до того, как она подведёт в неподходящий момент.</p>
 
+<div class="blog-callout blog-callout-info blog-read-next"><i class="ph-fill ph-book-open" aria-hidden="true"></i><div><strong>Читайте дальше по теме</strong><ul><li><a href="/blog/migraciya-dannyh-slozhnee-chem-kazhetsya-2026/">Почему миграция данных сложнее, чем кажется</a></li><li><a href="/blog/edinaya-baza-vs-zoopark-servisov-2026/">Единая база против зоопарка сервисов: почему данные разбегаются</a></li></ul></div></div>
 <h2 id="kak-snizit-risk">Как снизить риск поломок</h2>
 <p>Полностью застраховаться от поломок нельзя — пока вы зависите от чужих сервисов, риск остаётся. Но его можно сделать управляемым, чтобы сбой превращался не в потерю клиентов, а в короткое уведомление. Вот приёмы, которые применяю сам.</p>
-<p>Первое и самое важное — мониторинг. У каждой значимой связки должен быть наблюдатель, который проверяет не просто «сайт открывается», а «заявка дошла до CRM». Когда поток прерывается, система замечает это сразу, а не через три дня. Мониторинг превращает тихую поломку в громкую — и это огромная разница для бизнеса.</p>
+<p>Первое и самое важное — мониторинг. У каждой значимой связки должен быть наблюдатель, который проверяет не просто «сайт открывается», а «заявка дошла до CRM». Когда поток прерывается, система замечает это сразу, а не через три дня. <a href="/blog/uptime-kuma-monitoring-dostupnosti-2026/">Мониторинг превращает тихую поломку в громкую</a> — и это огромная разница для бизнеса.</p>
 <p>Второе — уведомления о сбоях. Мало заметить поломку, о ней нужно сразу сообщить тому, кто может вмешаться. Я настраиваю так, чтобы при обрыве связки сообщение прилетало в мессенджер ответственному: что сломалось, когда, какой сервис подвёл. Тогда вы узнаёте о проблеме первым, а не от обиженного клиента, и часто успеваете починить до того, как заметят снаружи.</p>
 <p>Третье — запас прочности. Хорошая связка не сдаётся при первой неудаче. Если внешний сервис не ответил, она не выбрасывает данные, а откладывает их и повторяет попытку. Пока сервис восстанавливается, заявки копятся в очереди, а не теряются, и при возвращении связи всё досылается автоматически. Этот приём спасает больше всего данных при коротких авариях.</p>
 <p>Четвёртое — документация. Звучит скучно, но именно её отсутствие превращает мелкую поломку в долгий простой. Когда записано, какие сервисы как соединены, где ключи доступа и к кому обращаться при сбое, починка занимает минуты. Без документации даже хороший специалист тратит часы, чтобы понять, как всё устроено.</p>
@@ -517,90 +518,24 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
                     
                     
 <div class="blog-services-offer">
-  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <div class="blog-services-offer-eyebrow">Обсудим вашу задачу</div>
   <h3 class="blog-services-offer-title">Как я работаю с бизнесом</h3>
-  <ul class="blog-services-offer-list">
-    
-    <li><i class="ph-fill ph-stethoscope"></i> <span>IT-аудит и диагностика</span></li>
-    
-    <li><i class="ph-fill ph-database"></i> <span>Данные, миграции, единая база</span></li>
-    
-    <li><i class="ph-fill ph-robot"></i> <span>ИИ под задачу: локально и приватно</span></li>
-    
-    <li><i class="ph-fill ph-shield-check"></i> <span>Безопасность и 152-ФЗ</span></li>
-    
-    <li><i class="ph-fill ph-handshake"></i> <span>Прозрачно и по делу</span></li>
-    
-  </ul>
+  <p class="blog-services-offer-lead">Напишите одной фразой, что нужно. Отвечу, что подойдёт, сколько займёт и сколько стоит. Сообщение уже подготовлено.</p>
+  <ul class="blog-services-offer-list"><li><i class="ph-fill ph-stethoscope"></i> <span>IT-аудит и диагностика</span></li><li><i class="ph-fill ph-database"></i> <span>Данные, миграции, единая база</span></li><li><i class="ph-fill ph-robot"></i> <span>ИИ под задачу: локально и приватно</span></li><li><i class="ph-fill ph-shield-check"></i> <span>Безопасность и 152-ФЗ</span></li><li><i class="ph-fill ph-handshake"></i> <span>Прозрачно и по делу</span></li></ul>
   <div class="blog-services-offer-ctas">
-    <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%98%D0%BD%D1%82%D0%B5%D0%B3%D1%80%D0%B0%D1%86%D0%B8%D0%B8%20%D0%BB%D0%BE%D0%BC%D0%B0%D1%8E%D1%82%D1%81%D1%8F%3A%20%D0%BA%D1%82%D0%BE%20%D0%B2%D0%B8%D0%BD%D0%BE%D0%B2%D0%B0%D1%82%20%D0%B8%20%D1%87%D1%82%D0%BE%20%D0%B4%D0%B5%D0%BB%D0%B0%D1%82%D1%8C%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener" class="blog-services-offer-cta">
       <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
     </a>
     <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="blog-services-offer-cta blog-services-offer-cta-max">
       <i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> Написать в MAX
     </a>
+    <a href="https://chimitdorzhi.tech/services/business-automation/" class="blog-services-offer-cta blog-services-offer-cta-max"><i class="ph ph-arrow-right" aria-hidden="true"></i> Автоматизировать под ключ</a>
   </div>
 </div>
-                    <div class="blog-cta-card">
-                        <div class="blog-cta-card-body">
-                            <h3>Бесплатно: чек-лист «Готов ли ваш бизнес к 152-ФЗ»</h3>
-                            <p>12 пунктов, которые проверяют готовность за час: данные, согласия, уведомление в РКН, локализация, защита. Отметьте, что уже сделано, и увидите дыры, за которые сейчас штрафуют.</p>
-                        </div>
-                        <div class="blog-cta-card-actions">
-                            <a href="/checklist-152-fz/" class="btn btn-accent"><i class="ph-fill ph-clipboard-text" aria-hidden="true"></i> Открыть чек-лист</a>
-                        </div>
-                    </div>
                     
-
-                    <div class="blog-cta-card blog-cta-card-final">
-                        <div class="blog-cta-card-body">
-                            <h3>Готовы обсудить вашу задачу?</h3>
-                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
-                        </div>
-                        <div class="blog-cta-card-actions">
-                            <a href="https://chimitdorzhi.tech/services/business-automation/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Автоматизировать под ключ</a>
-                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
-                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
-                        </div>
-                    </div>
-
-                    <section class="blog-subscribe">
-  <div class="blog-subscribe-body">
-    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
-    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
-  </div>
-  <div class="blog-subscribe-actions">
-    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
-    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
-  </div>
-</section>
                     <section class="blog-related">
   <h2>Читайте также</h2>
-  <div class="blog-grid"><a class="blog-card" href="/blog/migraciya-dannyh-slozhnee-chem-kazhetsya-2026/" data-category="expert" data-clicks="0">
-  
-  <div class="blog-card-icon"><i class="ph-fill ph-database"></i></div>
-  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Экспертный блог</span>
-  <h3>Почему миграция данных сложнее, чем кажется</h3>
-  <p>Перенести данные на новую систему звучит как «выгрузить и загрузить», а на деле всплывают дубли, грязь, потери и простои. Разбираю по опыту, почему миграция всегда сложнее, чем кажется, и как сделать её без сюрпризов.</p>
-  <div class="blog-card-meta">
-    <span><i class="ph ph-calendar" aria-hidden="true"></i> 25 июня 2026</span>
-    <span><i class="ph ph-clock" aria-hidden="true"></i> 10 мин</span>
-  </div>
-  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
-</a>
-<a class="blog-card" href="/blog/edinaya-baza-vs-zoopark-servisov-2026/" data-category="expert" data-clicks="0">
-  
-  <div class="blog-card-icon"><i class="ph-fill ph-stack-overflow-logo"></i></div>
-  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Экспертный блог</span>
-  <h3>Единая база против зоопарка сервисов: почему данные разбегаются</h3>
-  <p>Клиент в CRM, переписка в мессенджере, оплаты в таблице, заметки в тетрадке — и единой картины нет. Разбираю, чем опасен такой зоопарк сервисов, зачем единая база данных и как навести порядок без революции.</p>
-  <div class="blog-card-meta">
-    <span><i class="ph ph-calendar" aria-hidden="true"></i> 25 июня 2026</span>
-    <span><i class="ph ph-clock" aria-hidden="true"></i> 10 мин</span>
-  </div>
-  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
-</a>
-<a class="blog-card" href="/blog/pochemu-sryvayutsya-dedlayny-2026/" data-category="expert" data-clicks="0">
+  <div class="blog-grid"><a class="blog-card" href="/blog/pochemu-sryvayutsya-dedlayny-2026/" data-category="expert" data-clicks="0">
   
   <div class="blog-card-icon"><i class="ph-fill ph-clock-countdown"></i></div>
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Экспертный блог</span>
@@ -613,7 +548,7 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
   <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
 </a>
 <a class="blog-card" href="/blog/apache-camel-obmen-dannymi-mezhdu-sistemami-kompanii-2026/" data-category="development" data-clicks="0">
-  <span class="blog-card-fresh">Свежее</span>
+  
   <div class="blog-card-icon"><i class="ph-fill ph-plugs-connected"></i></div>
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
   <h3>Apache Camel: обмен данными между системами и когда он лишний</h3>
@@ -624,30 +559,41 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
   </div>
   <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
 </a>
-<a class="blog-card" href="/blog/kitayskie-ii-modeli-v-rossiyskoy-kompanii-qwen-deepseek-2026/" data-category="expert" data-clicks="0">
+<a class="blog-card" href="/blog/gemini-live-avatar-lico-sayta-2026/" data-category="expert" data-clicks="0">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-globe-hemisphere-east"></i></div>
+  <div class="blog-card-icon"><i class="ph-fill ph-user-focus"></i></div>
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Экспертный блог</span>
-  <h3>Китайские ИИ-модели в российской компании: можно ли?</h3>
-  <p>Китайские модели Qwen, DeepSeek и GLM можно использовать двумя путями: открытые веса на своём сервере или облачный API. Разбираю лицензии из карточек моделей, нормы 152-ФЗ про данные граждан РФ, риски и когда лучше GigaChat и YandexGPT. В конце чек-лист перед внедрением.</p>
+  <h3>У вашего сайта появилось лицо. Минута его работы стоит 37 центов</h3>
+  <p>Google добавила в Gemini 3.8 Live говорящий видеоаватар: он слушает, видит клиента через камеру, отвечает голосом на 97 языках и во время разговора обращается к CRM. Считаю по прайсу минуту речи и 10-минутную консультацию, разбираю ограничения для России и четыре сценария для бизнеса.</p>
   <div class="blog-card-meta">
-    <span><i class="ph ph-calendar" aria-hidden="true"></i> 1 октября 2026</span>
-    <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 25 сентября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 5 мин</span>
   </div>
   <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
 </a>
-<a class="blog-card" href="/blog/plan-avtomatizacii-i-it-byudzhet-na-2027-2026/" data-category="expert" data-clicks="0">
+<a class="blog-card" href="/blog/agentcard-ii-agent-platit-kartoy-2026/" data-category="expert" data-clicks="0">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-calendar-check"></i></div>
+  <div class="blog-card-icon"><i class="ph-fill ph-shopping-cart-simple"></i></div>
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Экспертный блог</span>
-  <h3>План автоматизации и IT-бюджет на 2027: что заложить в октябре</h3>
-  <p>В октябре бизнес планирует бюджеты на следующий год. Показываю, как за один вечер собрать план автоматизации: список систем и сроков, боли по ролям, три пилота по кварталам, отдельный резерв. И как подписать каждую строку, чтобы её не срезали первой.</p>
+  <h3>Покупатель будет не человек: ИИ-агент платит картой Mastercard</h3>
+  <p>Alchemy подключила к AgentCard карты Mastercard через Agent Pay: ИИ-агент платит одноразовым токеном в пределах лимитов владельца, а Verifiable Intent фиксирует, что именно разрешил человек. Worldline выпустила платёжный модуль для Universal Commerce Protocol от Google. В России эти карты не работают, но каталог, фид, разметку и понятные условия доставки для покупателей-агентов готовят уже сейчас.</p>
   <div class="blog-card-meta">
-    <span><i class="ph ph-calendar" aria-hidden="true"></i> 1 октября 2026</span>
-    <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 25 сентября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 5 мин</span>
   </div>
   <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
 </a></div>
+</section>
+                    
+                    <section class="blog-subscribe">
+  <div class="blog-subscribe-body">
+    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
+    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
+  </div>
+  <div class="blog-subscribe-actions">
+    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
+  </div>
 </section>
                     
                     

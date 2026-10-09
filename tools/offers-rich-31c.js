@@ -46,7 +46,7 @@ module.exports = {
       { q: 'Какая награда за финиш бывает?', a: 'На ваш выбор: бонус, скидка, промокод, доступ к функции или к закрытому разделу. Настраиваем под вашу модель' }
     ],
     relatedServices: [
-      { url: '/services/telegram-bots/', label: 'Чат-боты' },
+      { url: '/development/telegram-bots/', label: 'Чат-боты' },
       { url: '/services/business-automation/', label: 'Автоматизация бизнеса' }
     ],
     relatedBlog: [
@@ -160,7 +160,7 @@ module.exports = {
       { q: 'В каких мессенджерах работает бинго?', a: 'В MAX, Telegram и VK. Прогресс по клеткам и рейтинг работают одинаково во всех каналах' }
     ],
     relatedServices: [
-      { url: '/services/telegram-bots/', label: 'Чат-боты' },
+      { url: '/development/telegram-bots/', label: 'Чат-боты' },
       { url: '/services/digital-marketing/', label: 'Цифровой маркетинг' }
     ],
     relatedBlog: [
@@ -217,7 +217,7 @@ module.exports = {
       { q: 'Как вы боретесь с накруткой?', a: 'Действия проверяются, есть лимиты и отсев самоприглашений и фрода. Спорные результаты не попадают в зачёт' }
     ],
     relatedServices: [
-      { url: '/services/telegram-bots/', label: 'Чат-боты' },
+      { url: '/development/telegram-bots/', label: 'Чат-боты' },
       { url: '/services/digital-marketing/', label: 'Цифровой маркетинг' }
     ],
     relatedBlog: [

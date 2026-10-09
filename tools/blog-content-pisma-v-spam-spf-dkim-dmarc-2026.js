@@ -59,7 +59,7 @@ module.exports = `
 
 <p>3. Включите SPF и DKIM по инструкции вашего почтового сервиса, затем DMARC с p=none и адресом для отчётов.</p>
 
-<p>4. Продублируйте каждую заявку в мессенджер. Telegram или MAX доставит уведомление за секунды независимо от почты. Как это устроено, описано <a href="/blog/zayavki-s-sayta-v-telegram-i-celi-metriki-2026/">в статье про заявки в Telegram и MAX</a>, а подключить такого бота можно в разделе <a href="/services/telegram-bots/">Telegram и MAX боты</a>.</p>
+<p>4. Продублируйте каждую заявку в мессенджер. Telegram или MAX доставит уведомление за секунды независимо от почты. Как это устроено, описано <a href="/blog/zayavki-s-sayta-v-telegram-i-celi-metriki-2026/">в статье про заявки в Telegram и MAX</a>, а подключить такого бота можно в разделе <a href="/development/telegram-bots/">Telegram и MAX боты</a>.</p>
 
 <h2 id="faq">Частые вопросы</h2>
 

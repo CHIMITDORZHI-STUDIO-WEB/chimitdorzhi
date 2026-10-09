@@ -9,7 +9,7 @@ const SVC_BIZ = { title: 'Что я делаю для бизнеса', services:
 ]};
 const E = (o) => Object.assign({ published: true, datePublished: D, dateModified: D, readingMinutes: 4, servicesOffer: SVC_BIZ }, o, { contentHtml: C(o.slug) });
 module.exports = [
-  E({ slug: "svadebnye-agentstva-zayavki-podryadchiki-2026", category: "industries", heroIcon: "ph-fill ph-heart", ctaInternal: { url: "https://chimitdorzhi.tech/services/telegram-bots/", label: "Бот для приёма дат, платежей и напоминаний подрядчикам" },
+  E({ slug: "svadebnye-agentstva-zayavki-podryadchiki-2026", category: "industries", heroIcon: "ph-fill ph-heart", ctaInternal: { url: "https://chimitdorzhi.tech/development/telegram-bots/", label: "Бот для приёма дат, платежей и напоминаний подрядчикам" },
     title: "Свадьба завтра, а пара правит программу в 22:00: как убрать хаос",
     metaTitle: "Свадебное агентство: заявки на дату, подрядчики, предоплата",
     metaDescription: "Как свадебному организатору убрать рутину: заявки на дату, график предоплат, план дня для подрядчиков и согласование программы по ссылке.",
@@ -78,7 +78,7 @@ module.exports = [
       { id: "vyvody", text: "Коротко о главном" },
     ],
     relatedSlugs: ["elektromontazh-zayavki-smety-akty-2026","prilozhenie-dlya-zamershchika-i-vyezdnogo-mastera-2026","napominaniya-o-srokah-dokumentov-i-oborudovaniya-2026","frigate-umnoe-videonablyudenie-2026"] }),
-  E({ slug: "kondicionery-montazh-sezonnoe-obsluzhivanie-2026", category: "industries", heroIcon: "ph-fill ph-wind", ctaInternal: { url: "https://chimitdorzhi.tech/services/telegram-bots/", label: "Бот записи и напоминаний для бригады" },
+  E({ slug: "kondicionery-montazh-sezonnoe-obsluzhivanie-2026", category: "industries", heroIcon: "ph-fill ph-wind", ctaInternal: { url: "https://chimitdorzhi.tech/development/telegram-bots/", label: "Бот записи и напоминаний для бригады" },
     title: "Кондиционеры: летом завал, зимой тишина. Как вернуть клиентов",
     metaTitle: "Кондиционеры: монтаж, чистка и напоминания клиентам",
     metaDescription: "Лето: заявок больше, чем рук. Зима: звонков нет. Как бригаде по кондиционерам вести реестр систем, записывать с окном и напоминать про чистку.",
@@ -127,7 +127,7 @@ module.exports = [
       { id: "vyvody", text: "Коротко о главном" },
     ],
     relatedSlugs: ["it-dlya-avtoservisa-2026","avtosalon-trade-in-ocenka-po-foto-2026","status-zakaza-po-ssylke-2026","restavraciya-mebeli-ocenka-po-foto-2026"] }),
-  E({ slug: "kassovoe-obsluzhivanie-fn-napominaniya-2026", category: "industries", heroIcon: "ph-fill ph-receipt", ctaInternal: { url: "https://chimitdorzhi.tech/services/telegram-bots/", label: "Заказать бота с реестром касс и напоминаниями" },
+  E({ slug: "kassovoe-obsluzhivanie-fn-napominaniya-2026", category: "industries", heroIcon: "ph-fill ph-receipt", ctaInternal: { url: "https://chimitdorzhi.tech/development/telegram-bots/", label: "Заказать бота с реестром касс и напоминаниями" },
     title: "Срок ФН у клиента истёк: как не терять продления по кассам",
     metaTitle: "Реестр касс, сроки ФН и ОФД: напоминания клиентам за 30/14/3",
     metaDescription: "Обслуживаете чужие кассы? Реестр сроков ФН и ОФД, напоминания клиенту за 30, 14 и 3 дня, заявка на замену кнопкой, учёт выездов и актов.",
@@ -160,7 +160,7 @@ module.exports = [
       { id: "vyvody", text: "Коротко о главном" },
     ],
     relatedSlugs: ["avtomatizaciya-lokalnyh-uslug-2027","iz-excel-v-crm-za-mesyac-2027","paperless-ngx-arhiv-dokumentov-2026","crm-dlya-chastnogo-praktika-2026"] }),
-  E({ slug: "rybalka-ohota-bazy-prokat-snaryazheniya-2026", category: "industries", heroIcon: "ph-fill ph-tent", ctaInternal: { url: "https://chimitdorzhi.tech/services/telegram-bots/", label: "Обсудить бота для базы и проката" },
+  E({ slug: "rybalka-ohota-bazy-prokat-snaryazheniya-2026", category: "industries", heroIcon: "ph-fill ph-tent", ctaInternal: { url: "https://chimitdorzhi.tech/development/telegram-bots/", label: "Обсудить бота для базы и проката" },
     title: "Лодка ушла с гостем и не вернулась: порядок на рыбацкой базе",
     metaTitle: "Рыболовная и охотничья база: бронь, прокат, QR-учёт",
     metaDescription: "Бот для рыболовной и охотничьей базы: бронь домиков и снаряжения, предоплата, выезды, учёт выдачи лодок и палаток по QR. Что бот не заменяет.",

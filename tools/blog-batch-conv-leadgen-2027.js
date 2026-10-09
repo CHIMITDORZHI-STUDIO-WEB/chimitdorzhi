@@ -17,7 +17,7 @@ const SVC = {
 };
 
 const PRED = { url: 'https://chimitdorzhi.tech/predlozheniya/', label: 'Обсудить ваш проект' };
-const TG = { url: 'https://chimitdorzhi.tech/services/telegram-bots/', label: 'Заказать бота под ключ' };
+const TG = { url: 'https://chimitdorzhi.tech/development/telegram-bots/', label: 'Заказать бота под ключ' };
 const SEC = { url: 'https://chimitdorzhi.tech/services/cybersecurity/', label: 'Закрыть риски по закону' };
 
 const E = (o) => Object.assign({

@@ -9,7 +9,7 @@ const SVC_BIZ = { title: 'Что я делаю для бизнеса', services:
 ]};
 const E = (o) => Object.assign({ published: true, datePublished: D, dateModified: D, readingMinutes: 4, servicesOffer: SVC_BIZ }, o, { contentHtml: C(o.slug) });
 module.exports = [
-  E({ slug: "onlayn-zapis-s-depozitom-2026", category: "industries", heroIcon: "ph-fill ph-wallet", ctaInternal: { url: "https://chimitdorzhi.tech/services/telegram-bots/", label: "Бот записи с депозитом" },
+  E({ slug: "onlayn-zapis-s-depozitom-2026", category: "industries", heroIcon: "ph-fill ph-wallet", ctaInternal: { url: "https://chimitdorzhi.tech/development/telegram-bots/", label: "Бот записи с депозитом" },
     title: "Бронь и депозит в один клик: салон перестал терять записи на неявках",
     metaTitle: "Онлайн-запись с депозитом для салона и барбершопа",
     metaDescription: "Онлайн-запись с депозитом: клиент бронирует и вносит предоплату, при неявке она сгорает. Как это убирает пустые окна и полдня обзвона у администратора.",
@@ -93,7 +93,7 @@ module.exports = [
       { id: "vyvody", text: "Коротко о главном" },
     ],
     relatedSlugs: ["zayavki-zhiltsov-dlya-upravlyayushchey-kompanii-2026","lichnyy-kabinet-dlya-klientov-2026","programma-dlya-upravleniya-arendoy-2026","lichnyy-kabinet-klienta-okupaemost-2027"] }),
-  E({ slug: "sbor-otzyvov-cherez-qr-2026", category: "marketing", heroIcon: "ph-fill ph-qr-code", ctaInternal: { url: "https://chimitdorzhi.tech/services/telegram-bots/", label: "Собрать бота сбора отзывов" },
+  E({ slug: "sbor-otzyvov-cherez-qr-2026", category: "marketing", heroIcon: "ph-fill ph-qr-code", ctaInternal: { url: "https://chimitdorzhi.tech/development/telegram-bots/", label: "Собрать бота сбора отзывов" },
     title: "QR на столе: доволен — отзыв на картах, недоволен — пишет вам",
     metaTitle: "Сбор отзывов через QR: доволен — на карты, недоволен — вам",
     metaDescription: "QR-код на столе, чеке и у кассы: довольный оставляет отзыв на картах, недовольный пишет вам в бот. Как собрать развилку и не нарушить правила площадок.",
@@ -109,7 +109,7 @@ module.exports = [
       { id: "vyvody", text: "Коротко о главном" },
     ],
     relatedSlugs: ["kartochka-2gis-otzyvy-lidy-2026","ii-otvety-na-otzyvy-2026","reputaciya-otzyvy-yandex-2gis-2026","nfc-tablichka-dlya-otzyvov-2026"] }),
-  E({ slug: "bot-priema-pokazaniy-schetchikov-2026", category: "industries", heroIcon: "ph-fill ph-gauge", ctaInternal: { url: "https://chimitdorzhi.tech/services/telegram-bots/", label: "Обсудить бота приёма показаний" },
+  E({ slug: "bot-priema-pokazaniy-schetchikov-2026", category: "industries", heroIcon: "ph-fill ph-gauge", ctaInternal: { url: "https://chimitdorzhi.tech/development/telegram-bots/", label: "Обсудить бота приёма показаний" },
     title: "Бот собирает показания счётчиков и напоминает жильцам сам",
     metaTitle: "Бот приёма показаний счётчиков для УК, ТСЖ и СНТ",
     metaDescription: "Бот сам напоминает жильцам, принимает фото или цифры счётчика, сводит показания в таблицу и повторно пишет тем, кто не сдал. Разбираю, как это работает и что учесть.",

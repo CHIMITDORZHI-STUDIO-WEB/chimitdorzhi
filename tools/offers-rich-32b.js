@@ -46,7 +46,7 @@ module.exports = {
       { q: 'Можно ли подключить оплату прямо в боте?', a: 'Да, можно добавить оформление заказа и оплату по СБП по 54-ФЗ, чтобы клиент проходил путь до покупки внутри MAX' }
     ],
     relatedServices: [
-      { url: '/services/telegram-bots/', label: 'Чат-боты' },
+      { url: '/development/telegram-bots/', label: 'Чат-боты' },
       { url: '/services/ai-agents/', label: 'AI-агенты' }
     ],
     relatedBlog: [

@@ -46,7 +46,7 @@ module.exports = {
       { q: 'Что с данными участников?', a: 'Данные обрабатываются по 152-ФЗ на российском стеке, с согласиями и понятными правилами акции, сбор минимально необходимый' }
     ],
     relatedServices: [
-      { url: '/services/telegram-bots/', label: 'Чат-боты' },
+      { url: '/development/telegram-bots/', label: 'Чат-боты' },
       { url: '/services/digital-marketing/', label: 'Цифровой маркетинг' }
     ],
     relatedBlog: [
@@ -103,7 +103,7 @@ module.exports = {
       { q: 'Как защищаете от накрутки уровней?', a: 'Засчитываются только подтверждённые приглашения, работают лимиты, защита от самоприглашений и блокировки, данные обрабатываются по 152-ФЗ' }
     ],
     relatedServices: [
-      { url: '/services/telegram-bots/', label: 'Чат-боты' },
+      { url: '/development/telegram-bots/', label: 'Чат-боты' },
       { url: '/services/business-automation/', label: 'Автоматизация бизнеса' }
     ],
     relatedBlog: [
@@ -161,7 +161,7 @@ module.exports = {
     ],
     relatedServices: [
       { url: '/services/business-automation/', label: 'Автоматизация бизнеса' },
-      { url: '/services/telegram-bots/', label: 'Чат-боты' }
+      { url: '/development/telegram-bots/', label: 'Чат-боты' }
     ],
     relatedBlog: [
       { url: '/blog/geymifikaciya-saas-2026/', label: 'Геймификация в SaaS' },
@@ -217,7 +217,7 @@ module.exports = {
       { q: 'Как защищаете от накрутки и что с данными?', a: 'Засчитываются только подтверждённые приглашения, есть лимиты и блокировки, данные обрабатываются по 152-ФЗ на российском стеке' }
     ],
     relatedServices: [
-      { url: '/services/telegram-bots/', label: 'Чат-боты' },
+      { url: '/development/telegram-bots/', label: 'Чат-боты' },
       { url: '/services/revenue-monetization/', label: 'Монетизация' }
     ],
     relatedBlog: [

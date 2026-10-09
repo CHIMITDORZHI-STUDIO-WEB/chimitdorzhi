@@ -161,6 +161,22 @@
     },
     {
       "@type": "Question",
+      "name": "Можно ли ограничить загрузку пункта выдачи?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да. С октября у пункта есть лимит заказов на одну закупку в килограммах. Набрал лимит, и новые заказы туда не принимаются, покупателю предлагают другой пункт."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как быть, если в разные города товар приезжает в разные дни?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "У города задаётся сдвиг дня выдачи. Покупатели, пункты и посты в каналы этого города показывают свою дату."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "Платёж проходит онлайн?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -433,7 +449,7 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 
                     <h1 class="blog-h1">Совместные закупки в одном PWA: заказ, сборка и выдача в пункте</h1>
 
-                    <p class="blog-lead">Организатор совместных закупок собирал заявки в трёх мессенджерах. Я собрал одно PWA: город, пункт выдачи, заказ и общий лимит позиции на всех, плюс закупщик, сборщик и франчайзи. Система работает, но MAX и онлайн-оплата не подключены.</p>
+                    <p class="blog-lead">Организатор совместных закупок собирал заявки в трёх мессенджерах. Я собрал одно PWA: город, пункт выдачи, заказ и общий лимит позиции на всех, плюс закупщик, сборщик и франчайзи. В октябре 2026 добавились лимит пункта в килограммах, день выдачи по городу и надбавка франчайзи. MAX и онлайн-оплата не подключены.</p>
 
                     <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>кейс</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>PWA</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>совместные закупки</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>платформа</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>Telegram и ВК</span></div>
 
@@ -442,9 +458,18 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 <div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
 <li>Организатор совместных закупок возил товар с рынка в несколько городов, а заказы собирал в трёх мессенджерах. Нужна была одна ссылка вместо трёх ботов: город, пункт выдачи, заказ и общий лимит позиции на всех.</li>
 <li>Я собрал PWA на Node.js и SQLite без сборки фронта. Пять ролей команды (закупщик, сборщик, владелец, франчайзи, продавец пункта), живые остатки, посты в каналы городов, взвешивание и расчёт долей.</li>
-<li>Код написан за девять дней, 65 коммитов, 14 проверочных скриптов плюс сквозной тест через интерфейс.</li>
-<li>Система в бою: на момент проверки 2 октября сайт отвечает 200 и отдаёт витрину с реальными товарами. Сколько живых покупателей, я с публичной стороны не вижу, это не проверено.</li>
+<li>Первая версия написана за девять дней, к 2 октября в ней было 65 коммитов, 14 проверочных скриптов плюс сквозной тест через интерфейс.</li>
+<li>В первую неделю октября 2026 добавились надбавка франчайзи в формуле цены, лимит пункта выдачи в килограммах, свой день выдачи для дальних городов и скрытие каталога закупки после выдачи. Проверочных скриптов стало 16.</li>
+<li>Система в бою: на момент проверки 2 октября сайт отвечал 200 и отдавал витрину с реальными товарами. Правки октября пришли от заказчика по ходу работы. Сколько живых покупателей, я с публичной стороны не вижу, это не проверено.</li>
 </ul></div>
+<div class="blog-cta-internal">
+  <i class="ph-fill ph-rocket-launch" aria-hidden="true"></i>
+  <div>
+    <strong>Хотите внедрить это у себя?</strong>
+    <p>Сделаю под ключ: разберу задачу, назову срок и цену. Чтобы начать, <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%A1%D0%BE%D0%B2%D0%BC%D0%B5%D1%81%D1%82%D0%BD%D1%8B%D0%B5%20%D0%B7%D0%B0%D0%BA%D1%83%D0%BF%D0%BA%D0%B8%20%D0%B2%20%D0%BE%D0%B4%D0%BD%D0%BE%D0%BC%20PWA%3A%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%2C%20%D1%81%D0%B1%D0%BE%D1%80%D0%BA%D0%B0%20%D0%B8%20%D0%B2%D1%8B%D0%B4%D0%B0%D1%87%D0%B0%20%D0%B2%20%D0%BF%D1%83%D0%BD%D0%BA%D1%82%D0%B5%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener">напишите в Telegram</a> одной фразой.</p>
+    <a href="https://chimitdorzhi.tech/services/web-development/">Обсудить сайт <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</div>
 
 <p>Совместная закупка выглядит просто: человек едет на оптовый рынок, берёт ящики ягод и фруктов, раздаёт по пунктам выдачи. Сложность прячется в учёте. Расскажу, как я собрал его в одно приложение и что до сих пор не доделано.</p>
 
@@ -470,13 +495,27 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 <p>Четвёртое, ручная кнопка отправки. Вечером после закрытия сбора кнопка «Посты сейчас» отправила тестовый список в боевые каналы трёх городов. Я переделал кнопку: теперь она шлёт только в тестовые каналы и скрыта, если их нет. Любую ручную отправку клиенту я теперь делаю тестовой по умолчанию.</p>
 <p>Пятое, ограничения среды. Тесты я гоняю только на локальном стенде, боевые данные клиента не трогаю. Рядом была отдельная работа, оформление чужого маркетплейса на общей кодовой базе. Она шла через два канала: файл стилей по SFTP и консоль темы с проверкой контраста. Ни бэкенда, ни базы мне там не открывали, и это ограничивало всё, что можно сделать.</p>
 
+<h2 id="oktyabr-2026">Что изменилось в октябре 2026</h2>
+<p>Со 2 по 8 октября правки шли от заказчика по ходу работы сети. Я ничего не придумывал сверху, только переводил его правила в код и в настройки, которые он меняет сам.</p>
+<h3 id="cena-franchayzi">Надбавка франчайзи</h3>
+<p>В формулу цены добавился ещё один параметр: процент франчайзи сверху от конечной цены. Считаю его так же, как в примере заказчика, где 230 рублей плюс 5% дают 241: от суммы, с округлением вниз до рубля. По умолчанию надбавка ноль, собственник включает её в настройках формулы, и цена на витрине пересчитывается кнопкой.</p>
+<h3 id="limit-punkta">Лимит пункта выдачи в килограммах</h3>
+<p>Чтобы в пункте не скапливалась очередь в день выдачи, у пункта теперь можно задать лимит заказов на одну закупку в килограммах. Товар, который продаётся штуками на вес, переводится в килограммы по среднему весу штуки. Когда пункт набрал лимит, новый заказ туда не примется, и покупатель увидит просьбу выбрать другой пункт. Пустое поле значит «без лимита».</p>
+<h3 id="den-vydachi">День выдачи по городу</h3>
+<p>В дальние города товар едет дольше, поэтому у города появился сдвиг в днях от даты выдачи закупки. Покупатели этого города, его пункты и посты в каналы города видят свою дату. Ноль значит выдачу в день закупки.</p>
+<h3 id="skrytie-kataloga">Каталог после выдачи</h3>
+<p>Со следующего дня после выдачи в пунктах работает раздел «В наличии сегодня» с тем, что осталось. Поэтому каталог прошлой закупки с этого дня, с учётом сдвига города, с витрины убирается, и покупатель не путает его с наличием.</p>
+<p>Ещё несколько правок 8 октября касаются сборщиков. Фото с телефонов Samsung и iPhone приходят в HEIC, такой снимок теперь переводится в JPG. Если фото всё равно не прикрепилось, взвешивание сохраняется, а сборщик видит, что снимка нет. И клавиатура Samsung ставит пробел после запятой, поэтому «20, 5» тоже читается как число.</p>
+<p>На новые правила написаны два проверочных скрипта, на лимит пункта и на день выдачи. Гоняю их только на локальном стенде: боевые данные заказчика тестами не трогаю.</p>
+
 <h2 id="rezultat">Что получилось</h2>
 <div class="blog-table"><table>
 <tr><th>Что</th><th>Состояние</th></tr>
 <tr><td>Публичный адрес</td><td>отвечает 200, отдаёт витрину</td></tr>
-<tr><td>Города и пункты выдачи</td><td>9 городов, 6 пунктов в 4 городах</td></tr>
+<tr><td>Города и пункты выдачи</td><td>9 городов, 6 пунктов в 4 городах на 2 октября</td></tr>
 <tr><td>Роли команды</td><td>5, плюс покупатель без регистрации</td></tr>
-<tr><td>Проверочные скрипты</td><td>14 плюс сквозной тест</td></tr>
+<tr><td>Проверочные скрипты</td><td>16 плюс сквозной тест, на 8 октября</td></tr>
+<tr><td>Лимит пункта и день выдачи по городу</td><td>с 2 и 4 октября</td></tr>
 <tr><td>Нагрузка на копии</td><td>2000 открытых витрин, замер 24.09</td></tr>
 <tr><td>Посты в MAX</td><td>не проверено</td></tr>
 <tr><td>Онлайн-оплата</td><td>нет, оплата при получении</td></tr>
@@ -492,11 +531,15 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 <p>Три бота дают три базы заказов. Одна ссылка складывает всё в одну базу, показывает общий остаток и ставится на экран телефона. Подробнее про формат в <a href="/blog/max-mini-apps-2026/">материале про мини-приложения MAX</a>.</p>
 <h3>Сколько стоит такая система?</h3>
 <p>Цену конкретного проекта я здесь не называю. Она зависит от числа ролей, формулы расчёта и каналов публикации. Типовые форматы описаны на странице <a href="/services/mobile-apps/">мобильных приложений и PWA</a>.</p>
+<h3>Можно ли ограничить загрузку пункта выдачи?</h3>
+<p>Да. С октября у пункта есть лимит заказов на одну закупку в килограммах. Набрал лимит, и новые заказы туда не принимаются, покупателю предлагают другой пункт.</p>
+<h3>Как быть, если в разные города товар приезжает в разные дни?</h3>
+<p>У города задаётся сдвиг дня выдачи. Покупатели, пункты и посты в каналы этого города показывают свою дату.</p>
 <h3>Платёж проходит онлайн?</h3>
 <p>Нет. В этом проекте оплата при получении в пункте, платёжный провайдер не подключён.</p>
 
 <h2 id="vyvody">Коротко о главном</h2>
-<p>Общий лимит на всех, транзакция при заказе и цепочка ролей от закупщика до пункта выдачи закрывают основную боль совместных закупок. Остальное решается настройками: формулой цены, квантом, каналами по городам.</p>
+<p>Общий лимит на всех, транзакция при заказе и цепочка ролей от закупщика до пункта выдачи закрывают основную боль совместных закупок. Остальное решается настройками: формулой цены, квантом, каналами по городам. Октябрь добавил к ним лимит пункта, день выдачи по городу и надбавку франчайзи, и всё это заказчик меняет сам, без меня.</p>
 <p>Приложение работает в бою, но часть интеграций не проверена: MAX остаётся на следующий этап, фото во ВКонтакте не доходят, онлайн-оплаты нет. Нужна своя система заказов с пунктами выдачи или платформа под вашу схему? Напишите в Telegram, MAX или ВК. Если считаете бюджет, начните со <a href="/blog/skolko-stoit-sayt-2026/">статьи о стоимости сайта</a>.</p>
 
                     </div>
@@ -509,61 +552,21 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
                     
                     
 <div class="blog-services-offer">
-  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <div class="blog-services-offer-eyebrow">Обсудим вашу задачу</div>
   <h3 class="blog-services-offer-title">Что я делаю для бизнеса</h3>
-  <ul class="blog-services-offer-list">
-    
-    <li><i class="ph-fill ph-robot"></i> <span>Боты в Telegram, MAX, VK</span></li>
-    
-    <li><i class="ph-fill ph-gear"></i> <span>Автоматизация процессов и CRM</span></li>
-    
-    <li><i class="ph-fill ph-chart-bar"></i> <span>Аналитика и дашборды</span></li>
-    
-    <li><i class="ph-fill ph-globe"></i> <span>Сайты и лендинги под ключ</span></li>
-    
-  </ul>
+  <p class="blog-services-offer-lead">Напишите одной фразой, что нужно. Отвечу, что подойдёт, сколько займёт и сколько стоит. Сообщение уже подготовлено.</p>
+  <ul class="blog-services-offer-list"><li><i class="ph-fill ph-robot"></i> <span>Боты в Telegram, MAX, VK</span></li><li><i class="ph-fill ph-gear"></i> <span>Автоматизация процессов и CRM</span></li><li><i class="ph-fill ph-chart-bar"></i> <span>Аналитика и дашборды</span></li><li><i class="ph-fill ph-globe"></i> <span>Сайты и лендинги под ключ</span></li></ul>
   <div class="blog-services-offer-ctas">
-    <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%A1%D0%BE%D0%B2%D0%BC%D0%B5%D1%81%D1%82%D0%BD%D1%8B%D0%B5%20%D0%B7%D0%B0%D0%BA%D1%83%D0%BF%D0%BA%D0%B8%20%D0%B2%20%D0%BE%D0%B4%D0%BD%D0%BE%D0%BC%20PWA%3A%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%2C%20%D1%81%D0%B1%D0%BE%D1%80%D0%BA%D0%B0%20%D0%B8%20%D0%B2%D1%8B%D0%B4%D0%B0%D1%87%D0%B0%20%D0%B2%20%D0%BF%D1%83%D0%BD%D0%BA%D1%82%D0%B5%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener" class="blog-services-offer-cta">
       <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
     </a>
     <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="blog-services-offer-cta blog-services-offer-cta-max">
       <i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> Написать в MAX
     </a>
+    <a href="https://chimitdorzhi.tech/services/web-development/" class="blog-services-offer-cta blog-services-offer-cta-max"><i class="ph ph-arrow-right" aria-hidden="true"></i> Обсудить сайт</a>
   </div>
 </div>
-                    <div class="blog-cta-card">
-                        <div class="blog-cta-card-body">
-                            <h3>Бесплатно: чек-лист «Готов ли ваш бизнес к 152-ФЗ»</h3>
-                            <p>12 пунктов, которые проверяют готовность за час: данные, согласия, уведомление в РКН, локализация, защита. Отметьте, что уже сделано, и увидите дыры, за которые сейчас штрафуют.</p>
-                        </div>
-                        <div class="blog-cta-card-actions">
-                            <a href="/checklist-152-fz/" class="btn btn-accent"><i class="ph-fill ph-clipboard-text" aria-hidden="true"></i> Открыть чек-лист</a>
-                        </div>
-                    </div>
                     
-
-                    <div class="blog-cta-card blog-cta-card-final">
-                        <div class="blog-cta-card-body">
-                            <h3>Готовы обсудить вашу задачу?</h3>
-                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
-                        </div>
-                        <div class="blog-cta-card-actions">
-                            <a href="https://chimitdorzhi.tech/services/web-development/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Обсудить сайт</a>
-                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
-                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
-                        </div>
-                    </div>
-
-                    <section class="blog-subscribe">
-  <div class="blog-subscribe-body">
-    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
-    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
-  </div>
-  <div class="blog-subscribe-actions">
-    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
-    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
-  </div>
-</section>
                     <section class="blog-related">
   <h2>Читайте также</h2>
   <div class="blog-grid"><a class="blog-card" href="/blog/pwa-iz-sayta-za-vyhodnye-2026/" data-category="development" data-clicks="2">
@@ -616,6 +619,17 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 </a></div>
 </section>
                     
+                    <section class="blog-subscribe">
+  <div class="blog-subscribe-body">
+    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
+    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
+  </div>
+  <div class="blog-subscribe-actions">
+    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
+  </div>
+</section>
+                    
                     
                     
                     
@@ -635,10 +649,11 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
   <ol><li><a href="#zadacha"><span class="blog-toc-num">01</span> Задача</a></li>
 <li><a href="#reshenie"><span class="blog-toc-num">02</span> Что я сделал</a></li>
 <li><a href="#slozhnosti"><span class="blog-toc-num">03</span> Что было сложно</a></li>
-<li><a href="#rezultat"><span class="blog-toc-num">04</span> Что получилось</a></li>
-<li><a href="#chto-dalshe"><span class="blog-toc-num">05</span> Что дальше</a></li>
-<li><a href="#faq"><span class="blog-toc-num">06</span> Частые вопросы</a></li>
-<li><a href="#vyvody"><span class="blog-toc-num">07</span> Коротко о главном</a></li></ol>
+<li><a href="#oktyabr-2026"><span class="blog-toc-num">04</span> Что изменилось в октябре 2026</a></li>
+<li><a href="#rezultat"><span class="blog-toc-num">05</span> Что получилось</a></li>
+<li><a href="#chto-dalshe"><span class="blog-toc-num">06</span> Что дальше</a></li>
+<li><a href="#faq"><span class="blog-toc-num">07</span> Частые вопросы</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">08</span> Коротко о главном</a></li></ol>
 </aside>
             </div>
         </div>

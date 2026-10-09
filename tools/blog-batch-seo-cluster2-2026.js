@@ -29,7 +29,7 @@ const VOICE = { url: `${S}/services/voice-ai/`, label: 'Заказать гол�
 const AUTO = { url: `${S}/services/business-automation/`, label: 'Автоматизировать процесс под ключ' };
 const SEC = { url: `${S}/services/cybersecurity/`, label: 'Заказать проверку безопасности' };
 const AUDIT = { url: `${S}/services/it-audit/`, label: 'Заказать аудит сайта' };
-const BOTS = { url: `${S}/services/telegram-bots/`, label: 'Заказать бота под ключ' };
+const BOTS = { url: `${S}/development/telegram-bots/`, label: 'Заказать бота под ключ' };
 const WEB = { url: `${S}/services/web-development/`, label: 'Обсудить проект по вашему ТЗ' };
 const ANALYTICS = { url: `${S}/services/ai-analytics/`, label: 'Настроить сквозную аналитику' };
 const MIGRATE = { url: `${S}/services/russian-stack-migration/`, label: 'Перейти на российский ИИ-стек' };
@@ -45,7 +45,7 @@ module.exports = [
     excerpt: 'Плохое ТЗ = переделки, срыв сроков и «мы вас не так поняли». Разбираю, что обязательно указать в техзадании на сайт или бота, каких ошибок избегать и как договориться на берегу.',
     tags: ['ТЗ', 'техзадание', 'заказ сайта', 'заказ бота'],
     toc: [{ id: 'zachem', text: 'Зачем вообще ТЗ' }, { id: 'chto-vklyuchit', text: 'Что обязательно включить' }, { id: 'oshibki', text: 'Частые ошибки в ТЗ' }, { id: 'shablon', text: 'Простой шаблон' }, ...FAQ_VYV],
-    relatedSlugs: ['chto-znachit-pod-klyuch-2026', 'skolko-stoit-sayt-bot-pod-klyuch-2026', '10-oshibok-pri-zakaze-sayta-bota-2026', 'skolko-stoit-vnedrit-ii-2026'] }),
+    relatedSlugs: ['chto-znachit-pod-klyuch-2026', 'skolko-stoit-razrabotka-gayd-ceny-2026', '10-oshibok-pri-zakaze-sayta-bota-2026', 'skolko-stoit-vnedrit-ii-2026'] }),
 
   E({ slug: 'yandexgpt-vs-gigachat-dlya-biznesa-2026', category: 'ai-dev', heroIcon: 'ph-fill ph-scales', ctaInternal: MIGRATE, servicesOffer: SVC_AI,
     title: 'YandexGPT vs GigaChat (ГигаЧат от Сбера): что выбрать бизнесу в 2026',

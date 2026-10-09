@@ -92,7 +92,7 @@
     "@id": "https://chimitdorzhi.tech/blog/korporativnaya-pochta-linux/"
   },
   "datePublished": "2026-06-09",
-  "dateModified": "2026-06-09",
+  "dateModified": "2026-10-08",
   "keywords": "почта, сервер, Linux, безопасность, спам",
   "articleSection": "Разработка",
   "inLanguage": "ru",
@@ -458,6 +458,14 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
                         <p>Электронная почта остается главным каналом деловых коммуникаций. Через нее проходят коммерческие предложения, счета, договоры и конфиденциальная переписка руководства. Однако в 2026 году доверять эти данные внешним облачным провайдерам становится все более рискованным и дорогостоящим решением. Постоянный рост стоимости подписок (особенно при расчете за каждого пользователя), риск внезапных блокировок из-за изменения политики платформ, а также сканирование содержимого писем алгоритмами для таргетирования рекламы вынуждают компании задумываться о цифровом суверенитете.</p>
 <p>Развертывание собственного корпоративного почтового сервера на базе Linux — это оптимальный способ вернуть контроль над корпоративными данными, обеспечить их конфиденциальность и гибко адаптировать систему под уникальные требования безопасности. В этом подробном руководстве мы шаг за шагом разберем, как построить отказоустойчивый, защищенный почтовый сервер, правильно настроить криптографические подписи и защитить входящий трафик от лавины спама и фишинга.</p>
 <div class="blog-tldr"><h3>Коротко (TL;DR)</h3><p>Собственный почтовый сервер на базе Linux (связка Postfix, Dovecot и Rspamd) обеспечивает полную независимость бизнеса от сторонних облачных провайдеров и снижает затраты на ИТ-инфраструктуру. Для стабильной работы и доставляемости писем критически важно настроить корректные DNS-записи (A, MX, PTR), внедрить политики аутентификации SPF, DKIM и DMARC, а также защитить трафик с помощью современных TLS-шифров и Let's Encrypt. Защита от спама реализуется на базе Rspamd, использующего байесовские фильтры, серые списки (greylisting) и нейросети. Решение окупается в течение нескольких месяцев, но требует квалифицированного внедрения и регулярного контроля.</p></div>
+<div class="blog-cta-internal">
+  <i class="ph-fill ph-rocket-launch" aria-hidden="true"></i>
+  <div>
+    <strong>Хотите внедрить это у себя?</strong>
+    <p>Сделаю под ключ: разберу задачу, назову срок и цену. Чтобы начать, <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%91%D0%B5%D0%B7%D0%BE%D0%BF%D0%B0%D1%81%D0%BD%D0%B0%D1%8F%20%D0%BA%D0%BE%D1%80%D0%BF%D0%BE%D1%80%D0%B0%D1%82%D0%B8%D0%B2%D0%BD%D0%B0%D1%8F%20%D0%BF%D0%BE%D1%87%D1%82%D0%B0%3A%20%D0%BA%D0%B0%D0%BA%20%D1%80%D0%B0%D0%B7%D0%B2%D0%B5%D1%80%D0%BD%D1%83%D1%82%D1%8C%20%D1%81%D0%B2%D0%BE%D0%B9%20%D0%BF%D0%BE%D1%87%D1%82%D0%BE%D0%B2%D1%8B%D0%B9%20%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%20%D0%BD%D0%B0%20Linux%20%D0%B8%E2%80%A6%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener">напишите в Telegram</a> одной фразой.</p>
+    <a href="https://chimitdorzhi.tech/predlozheniya/importozameshchenie-ofisa/">Развернуть корп. почту <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</div>
 <p><strong>Коротко:</strong> Собственный почтовый сервер на связке Postfix, Dovecot и Rspamd избавляет бизнес от подписок облачных провайдеров и рисков блокировки, но требует правильных DNS-записей (A, MX, PTR), настройки SPF, DKIM и DMARC и защиты трафика через TLS и Let's Encrypt. Защита от спама строится на Rspamd с байесовскими фильтрами и серыми списками, а решение окупается за несколько месяцев при квалифицированном внедрении.</p>
 <h2 id="why-own-mail-server">Зачем компании собственный почтовый сервер в 2026 году?</h2>
 <p>Переход на собственные почтовые серверы — это не просто дань безопасности, а прагматичный экономический расчет. Облачные сервисы, такие как Google Workspace, Microsoft 365 или отечественные альтернативы вроде Яндекс 360, работают по модели подписки. Для компании со штатом в 150 сотрудников ежемесячные платежи становятся ощутимой статьей расходов. При этом собственный почтовый сервер требует лишь оплаты аренды виртуального (VPS) или физического сервера и разовых затрат на настройку. В долгосрочной перспективе это экономит миллионы рублей.</p>
@@ -661,6 +669,7 @@ systemctl enable --now rspamd</code></pre>
 <pre><code>password = "$2y$05$xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";</code></pre>
 <p>Перезапустим Rspamd для применения всех настроек:</p>
 <pre><code>systemctl restart rspamd</code></pre>
+<div class="blog-callout blog-callout-info blog-read-next"><i class="ph-fill ph-book-open" aria-hidden="true"></i><div><strong>Читайте дальше по теме</strong><ul><li><a href="/blog/udalenniy-ofis-vpn-telefoniya/">Удаленный офис под ключ: организация безопасного удаленного доступа (VPN, телефония, таск-трекеры)</a></li><li><a href="/blog/skladskoy-uchet-wms-tsd/">Складской учет (WMS): внедрение адресного хранения и ТСД на оптовых базах Сибири</a></li></ul></div></div>
 <h2 id="mail-server-security">Безопасность и шифрование (SSL/TLS, Let's Encrypt и hardening)</h2>
 <p>Безопасность почтового сервера требует закрытия всех потенциальных векторов атак. Для защиты соединений мы используем бесплатные сертификаты Let's Encrypt.</p>
 <h3>Получение SSL/TLS сертификата</h3>
@@ -700,8 +709,8 @@ logpath = /var/log/mail.log</code></pre>
 <h2 id="my-services">Что я делаю для этой сферы</h2>
 <ul><li>[ ] <strong>Аудит безопасности и настройка DNS:</strong> Проверяю репутацию IP-адресов, настраиваю корректные SPF, DKIM и DMARC записи в DNS для максимальной доставляемости.</li><li>[ ] <strong>Развертывание почтового стека на Linux:</strong> Устанавливаю и настраиваю Postfix и Dovecot с хранением писем в быстром и надежном формате Maildir.</li><li>[ ] <strong>Интеграция интеллектуального антиспама:</strong> Внедряю и обучаю систему Rspamd с кэшированием в Redis для фильтрации нежелательного трафика без задержек.</li><li>[ ] <strong>Настройка TLS-шифрования и автопродления:</strong> Защищаю каналы связи с помощью современных шифров TLSv1.3 и автоматизирую получение SSL-сертификатов Let's Encrypt.</li><li>[ ] <strong>Внедрение систем защиты и бэкапов:</strong> Настраиваю Fail2ban для защиты от перебора паролей и организую автоматическое резервное копирование почтовых ящиков по схеме «3-2-1».</li></ul>
 <h2 id="ready-solution">Готовое решение по теме</h2>
-<div class="blog-tldr"><h3>Коротко (TL;DR)</h3><p>Забудьте о дорогостоящих облачных подписках и рисках блокировки корпоративной переписки. Разверну надежный, полностью контролируемый корпоративный почтовый сервер на вашем Linux-оборудовании с гарантией высокой доставляемости писем и защитой от спама под ключ. Подробное описание услуги и тарифы доступны по ссылке: <strong><a href="/predlozheniya/importozameshchenie-ofisa/">Собственный корпоративный почтовый сервер на Linux</a></strong> — стоимость внедрения <strong>от 35 000 рублей</strong>.</p></div>
-<ul><li><strong><a href="https://t.me/chimitdorzhi">Связаться со мной в Telegram</a></strong> — быстрое обсуждение деталей проекта и техническая консультация в мессенджере.</li><li><strong><a href="https://vk.com/chimitdorzhi_tech">Группа ВКонтакте</a></strong> — полезные обзоры, кейсы по системному администрированию и новости сферы ИТ.</li><li><strong><a href="https://chimitdorzhi.tech/services/">Каталог услуг</a></strong> — актуальный <a href="https://chimitdorzhi.tech/services/web-development/" class="blog-inline-link">прайс-лист</a>, шаблоны договоров и детальный перечень регламентных работ.</li></ul>
+<div class="blog-tldr"><h3>Коротко (TL;DR)</h3><p>Забудьте о дорогостоящих облачных подписках и рисках блокировки корпоративной переписки. Разверну надежный, полностью контролируемый корпоративный почтовый сервер на вашем Linux-оборудовании с гарантией высокой доставляемости писем и защитой от спама под ключ. Подробное описание услуги и тарифы доступны по ссылке: <strong><a href="/predlozheniya/importozameshchenie-ofisa/">Собственный корпоративный почтовый сервер на Linux</a></strong> — стоимость внедрения <strong>от 40 000 рублей</strong>.</p></div>
+<ul><li><strong><a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%91%D0%B5%D0%B7%D0%BE%D0%BF%D0%B0%D1%81%D0%BD%D0%B0%D1%8F%20%D0%BA%D0%BE%D1%80%D0%BF%D0%BE%D1%80%D0%B0%D1%82%D0%B8%D0%B2%D0%BD%D0%B0%D1%8F%20%D0%BF%D0%BE%D1%87%D1%82%D0%B0%3A%20%D0%BA%D0%B0%D0%BA%20%D1%80%D0%B0%D0%B7%D0%B2%D0%B5%D1%80%D0%BD%D1%83%D1%82%D1%8C%20%D1%81%D0%B2%D0%BE%D0%B9%20%D0%BF%D0%BE%D1%87%D1%82%D0%BE%D0%B2%D1%8B%D0%B9%20%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%20%D0%BD%D0%B0%20Linux%20%D0%B8%E2%80%A6%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83.">Связаться со мной в Telegram</a></strong> — быстрое обсуждение деталей проекта и техническая консультация в мессенджере.</li><li><strong><a href="https://vk.com/chimitdorzhi_tech">Группа ВКонтакте</a></strong> — полезные обзоры, кейсы по системному администрированию и новости сферы ИТ.</li><li><strong><a href="https://chimitdorzhi.tech/services/">Каталог услуг</a></strong> — актуальный <a href="https://chimitdorzhi.tech/services/web-development/" class="blog-inline-link">прайс-лист</a>, шаблоны договоров и детальный перечень регламентных работ.</li></ul>
 <h2 id="faq">Часто задаваемые вопросы (FAQ)</h2>
 <h3>Почему письма с нового сервера улетают в спам на Gmail или Mail.ru?</h3>
 <p>Это стандартное поведение крупных почтовых систем по отношению к новым IP-адресам, у которых отсутствует история (репутация). Чтобы исправить это:</p>
@@ -738,69 +747,21 @@ logpath = /var/log/mail.log</code></pre>
                     
                     
 <div class="blog-services-offer">
-  <div class="blog-services-offer-eyebrow">Услуги по теме</div>
+  <div class="blog-services-offer-eyebrow">Обсудим вашу задачу</div>
   <h3 class="blog-services-offer-title">Что я делаю с IT-инфраструктурой</h3>
-  <ul class="blog-services-offer-list">
-    
-    <li><i class="ph-fill ph-database"></i> <span>1С, PostgreSQL и тюнинг серверов</span></li>
-    
-    <li><i class="ph-fill ph-shield-check"></i> <span>Импортозамещение и безопасный периметр</span></li>
-    
-    <li><i class="ph-fill ph-package"></i> <span>Складской учёт и WMS</span></li>
-    
-    <li><i class="ph-fill ph-pulse"></i> <span>Мониторинг и поддержка</span></li>
-    
-  </ul>
+  <p class="blog-services-offer-lead">Напишите одной фразой, что нужно. Отвечу, что подойдёт, сколько займёт и сколько стоит. Сообщение уже подготовлено.</p>
+  <ul class="blog-services-offer-list"><li><i class="ph-fill ph-database"></i> <span>1С, PostgreSQL и тюнинг серверов</span></li><li><i class="ph-fill ph-shield-check"></i> <span>Импортозамещение и безопасный периметр</span></li><li><i class="ph-fill ph-package"></i> <span>Складской учёт и WMS</span></li><li><i class="ph-fill ph-pulse"></i> <span>Мониторинг и поддержка</span></li></ul>
   <div class="blog-services-offer-ctas">
-    <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="blog-services-offer-cta">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%91%D0%B5%D0%B7%D0%BE%D0%BF%D0%B0%D1%81%D0%BD%D0%B0%D1%8F%20%D0%BA%D0%BE%D1%80%D0%BF%D0%BE%D1%80%D0%B0%D1%82%D0%B8%D0%B2%D0%BD%D0%B0%D1%8F%20%D0%BF%D0%BE%D1%87%D1%82%D0%B0%3A%20%D0%BA%D0%B0%D0%BA%20%D1%80%D0%B0%D0%B7%D0%B2%D0%B5%D1%80%D0%BD%D1%83%D1%82%D1%8C%20%D1%81%D0%B2%D0%BE%D0%B9%20%D0%BF%D0%BE%D1%87%D1%82%D0%BE%D0%B2%D1%8B%D0%B9%20%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%20%D0%BD%D0%B0%20Linux%20%D0%B8%E2%80%A6%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener" class="blog-services-offer-cta">
       <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
     </a>
     <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="blog-services-offer-cta blog-services-offer-cta-max">
       <i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> Написать в MAX
     </a>
+    <a href="https://chimitdorzhi.tech/predlozheniya/importozameshchenie-ofisa/" class="blog-services-offer-cta blog-services-offer-cta-max"><i class="ph ph-arrow-right" aria-hidden="true"></i> Развернуть корп. почту</a>
   </div>
 </div>
-                    <div class="blog-cta-card">
-                        <div class="blog-cta-card-body">
-                            <h3>Бесплатно: чек-лист «Готов ли ваш бизнес к 152-ФЗ»</h3>
-                            <p>12 пунктов, которые проверяют готовность за час: данные, согласия, уведомление в РКН, локализация, защита. Отметьте, что уже сделано, и увидите дыры, за которые сейчас штрафуют.</p>
-                        </div>
-                        <div class="blog-cta-card-actions">
-                            <a href="/checklist-152-fz/" class="btn btn-accent"><i class="ph-fill ph-clipboard-text" aria-hidden="true"></i> Открыть чек-лист</a>
-                        </div>
-                    </div>
                     
-                    <a class="blog-offer-cta" href="/predlozheniya/importozameshchenie-ofisa/">
-                        <span class="blog-offer-cta-body">
-                            <span class="blog-offer-cta-eyebrow">Готовое решение по теме</span>
-                            <span class="blog-offer-cta-title">Импортозамещение офиса: почта, диск, документы</span>
-                            <span class="blog-offer-cta-price">Бесплатная консультация · Миграция за 2–4 недели</span>
-                        </span>
-                        <span class="btn btn-accent"><i class="ph ph-arrow-right" aria-hidden="true"></i> Смотреть предложение</span>
-                    </a>
-
-                    <div class="blog-cta-card blog-cta-card-final">
-                        <div class="blog-cta-card-body">
-                            <h3>Готовы обсудить вашу задачу?</h3>
-                            <p>Бесплатная консультация — разберём, как внедрить это в вашем бизнесе под ключ. Без форм, пишите напрямую.</p>
-                        </div>
-                        <div class="blog-cta-card-actions">
-                            <a href="https://chimitdorzhi.tech/predlozheniya/importozameshchenie-ofisa/" class="btn btn-accent"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Развернуть корп. почту</a>
-                            <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
-                            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
-                        </div>
-                    </div>
-
-                    <section class="blog-subscribe">
-  <div class="blog-subscribe-body">
-    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
-    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
-  </div>
-  <div class="blog-subscribe-actions">
-    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
-    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
-  </div>
-</section>
                     <section class="blog-related">
   <h2>Читайте также</h2>
   <div class="blog-grid"><a class="blog-card" href="/blog/uskorenie-1c-postgresql/" data-category="development" data-clicks="3">
@@ -839,6 +800,25 @@ logpath = /var/log/mail.log</code></pre>
   </div>
   <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
 </a></div>
+</section>
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/importozameshchenie-ofisa/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow">Готовое решение по теме</span>
+                            <span class="blog-offer-cta-title">Импортозамещение офиса: почта, диск, документы</span>
+                            <span class="blog-offer-cta-price">Бесплатная консультация · Миграция за 2–4 недели</span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-arrow-right" aria-hidden="true"></i> Смотреть предложение</span>
+                    </a>
+                    <section class="blog-subscribe">
+  <div class="blog-subscribe-body">
+    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
+    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
+  </div>
+  <div class="blog-subscribe-actions">
+    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
+  </div>
 </section>
                     
                     

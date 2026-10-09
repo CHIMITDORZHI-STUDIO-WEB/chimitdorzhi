@@ -67,7 +67,7 @@ canonical: https://chimitdorzhi.tech/blog/telegram-bot-api-10-novye-vozmozhnosti
 
 **ИИ-бот.** Добавьте can_stop в потоковые ответы. Остановка ответа экономит токены, а размер выгоды зависит от вашего трафика.
 
-Если нужно собрать это на вашем боте, посмотрите страницу [Telegram-боты под ключ](/services/telegram-bots/) и [прайс](/ceny/).
+Если нужно собрать это на вашем боте, посмотрите страницу [Telegram-боты под ключ](/development/telegram-bots/) и [прайс](/ceny/).
 
 ## Частые вопросы
 

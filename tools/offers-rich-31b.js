@@ -46,7 +46,7 @@ module.exports = {
       { q: 'Что с данными участников?', a: 'Данные обрабатываются по 152-ФЗ с согласием участника, хранятся на российском стеке, а правила розыгрыша оформляются с учётом требований к стимулирующим акциям' }
     ],
     relatedServices: [
-      { url: '/services/telegram-bots/', label: 'Чат-боты' },
+      { url: '/development/telegram-bots/', label: 'Чат-боты' },
       { url: '/services/digital-marketing/', label: 'Цифровой маркетинг' }
     ],
     relatedBlog: [
@@ -103,7 +103,7 @@ module.exports = {
       { q: 'Как защищены данные и права на контент?', a: 'Участник даёт согласие на публикацию и обработку данных по 152-ФЗ при отправке работы, данные хранятся на российском стеке' }
     ],
     relatedServices: [
-      { url: '/services/telegram-bots/', label: 'Чат-боты' },
+      { url: '/development/telegram-bots/', label: 'Чат-боты' },
       { url: '/services/digital-marketing/', label: 'Цифровой маркетинг' }
     ],
     relatedBlog: [
@@ -160,7 +160,7 @@ module.exports = {
       { q: 'Как защищены данные и права на работы?', a: 'Участник даёт согласие на публикацию и обработку данных по 152-ФЗ при загрузке, данные и контент хранятся на российском стеке' }
     ],
     relatedServices: [
-      { url: '/services/telegram-bots/', label: 'Чат-боты' },
+      { url: '/development/telegram-bots/', label: 'Чат-боты' },
       { url: '/services/digital-marketing/', label: 'Цифровой маркетинг' }
     ],
     relatedBlog: [
@@ -217,7 +217,7 @@ module.exports = {
       { q: 'Как защищены данные клиента?', a: 'Клиент даёт согласие на публикацию истории и обработку данных по 152-ФЗ при заполнении анкеты, данные хранятся на российском стеке' }
     ],
     relatedServices: [
-      { url: '/services/telegram-bots/', label: 'Чат-боты' },
+      { url: '/development/telegram-bots/', label: 'Чат-боты' },
       { url: '/services/business-automation/', label: 'Автоматизация бизнеса' }
     ],
     relatedBlog: [
@@ -275,7 +275,7 @@ module.exports = {
     ],
     relatedServices: [
       { url: '/services/business-automation/', label: 'Автоматизация бизнеса' },
-      { url: '/services/telegram-bots/', label: 'Чат-боты' }
+      { url: '/development/telegram-bots/', label: 'Чат-боты' }
     ],
     relatedBlog: [
       { url: '/blog/geymifikaciya-saas-2026/', label: 'Геймификация в SaaS' },

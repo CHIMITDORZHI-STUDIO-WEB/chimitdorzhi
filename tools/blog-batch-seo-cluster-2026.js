@@ -38,7 +38,7 @@ const MIGRATE = { url: `${S}/services/russian-stack-migration/`, label: 'Пер�
 const INFRA = { url: `${S}/services/it-infrastructure/`, label: 'Развернуть инфраструктуру под ключ' };
 const DEVOPS = { url: `${S}/services/devops/`, label: 'Настроить сервер и деплой' };
 const ANALYTICS = { url: `${S}/services/ai-analytics/`, label: 'Настроить аналитику и дашборды' };
-const BOTS = { url: `${S}/services/telegram-bots/`, label: 'Заказать бота под ключ' };
+const BOTS = { url: `${S}/development/telegram-bots/`, label: 'Заказать бота под ключ' };
 const AUTO = { url: `${S}/services/business-automation/`, label: 'Автоматизировать процесс под ключ' };
 const SEC = { url: `${S}/services/cybersecurity/`, label: 'Заказать проверку безопасности' };
 const WEB = { url: `${S}/services/web-development/`, label: 'Заказать сайт под ключ' };
@@ -226,7 +226,7 @@ module.exports = [
     relatedSlugs: ['kak-seteviku-avtomatizirovat-strukturu-2026', 'svoy-lending-dlya-setevika-2026', 'referalnyy-bot-konkurs-priglasheniy-keys-2026', 'onboarding-bot-setevoy-biznes-max-2027'] }),
 
   // ===== Новая: смета сайта/бота (денежный кластер) =====
-  E({ slug: 'skolko-stoit-sayt-bot-pod-klyuch-2026', category: 'expert', heroIcon: 'ph-fill ph-calculator', ctaInternal: WEB, servicesOffer: SVC_BIZ,
+  E({ slug: 'skolko-stoit-sayt-bot-pod-klyuch-2026', published: false, category: 'expert', heroIcon: 'ph-fill ph-calculator', ctaInternal: WEB, servicesOffer: SVC_BIZ,
     title: 'Сколько стоит сайт или бот под ключ в 2026: смета без сюрпризов',
     metaTitle: 'Сколько стоит сайт или бот под ключ в 2026',
     metaDescription: 'Из чего складывается цена сайта и бота под ключ в 2026: разработка, интеграции, хостинг, поддержка. Вилки по типам и как не переплатить.',
