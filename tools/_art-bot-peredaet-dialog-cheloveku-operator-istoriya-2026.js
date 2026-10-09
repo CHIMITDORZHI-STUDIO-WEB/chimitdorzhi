@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "bot-peredaet-dialog-cheloveku-operator-istoriya-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-user-switch",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/telegram-bots/", label: "Бот с передачей диалога администратору" },
+  title: "Как передать клиента от бота человеку и не потерять переписку",
+  metaTitle: "Передача диалога от бота оператору: триггеры и карточка",
+  metaDescription: "Как настроить передачу диалога от бота человеку: когда звать оператора, кому передавать, что видит сотрудник, когда бот молчит и когда возвращается.",
+  excerpt: "Клиент злится на «глупого бота», а сотрудник получает диалог без истории. Разбираю, как настроить передачу: триггеры, получатель, карточка обращения, статусы и таймеры, возврат бота. Что из этого уже есть в моих проектах, а что нет, пишу прямо.",
+  tags: ["предпринимателям", "бот и оператор", "передача диалога", "поддержка клиентов"],
+  toc: [
+    { id: "komu-nuzhno", text: "Кому и когда это нужно" },
+    { id: "shagi", text: "Как это делается: 6 шагов" },
+    { id: "tablica", text: "Триггеры, адресаты и пример передачи" },
+    { id: "metriki", text: "Статусы, срок ответа и метрики" },
+    { id: "oshibki", text: "Где ошибаются чаще всего" },
+    { id: "avtomatizaciya", text: "Где здесь поможет автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["ii-pervaya-liniya-podderzhki-2026", "chat-bot-faq-podderzhka-telegram-max-2026", "otvetstvennost-za-oshibku-ii-bota-pered-klientom-2026", "avtootvet-vne-rabochego-vremeni-zayavki-nochyu-2026"],
+};

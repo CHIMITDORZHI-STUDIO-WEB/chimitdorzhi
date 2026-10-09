@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "gde-zhit-rabochey-sisteme-svoy-server-oblako-ili-podryadchik-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-hard-drives",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/devops/", label: "Развернуть систему на вашем сервере" },
+  title: "Где должна работать ваша система: у вас, в облаке или у подрядчика",
+  metaTitle: "Где разместить сайт, бота и CRM: у себя или у подрядчика",
+  metaDescription: "Свой сервер, облачная платформа или сервер подрядчика: сравнение по контролю, данным и закону, 10 вопросов подрядчику и план переезда без потерь.",
+  excerpt: "Сайт, бот или CRM работают «у программиста на сервере», а вы не уверены, что так правильно. Сравниваю три варианта размещения, объясняю, что говорит 152-ФЗ о базах данных, и даю 10 вопросов подрядчику и план переезда.",
+  tags: ["предпринимателям", "размещение системы", "сервер и хостинг", "доступы и копии"],
+  toc: [
+    { id: "komu", text: "Кому и когда это нужно" },
+    { id: "varianty", text: "Три варианта и сравнение" },
+    { id: "reshaet", text: "Что решает выбор и что говорит закон" },
+    { id: "voprosy", text: "10 вопросов подрядчику о размещении" },
+    { id: "perenos", text: "Как переехать и где ошибаются" },
+    { id: "avtomatizaciya", text: "Где здесь поможет автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["cifrovaya-nezavisimost-biznesa-2026", "ot-demo-k-rabochey-sisteme-chto-menyaetsya-pri-zapuske-2026", "1c-v-oblake-ili-na-svoem-servere-2026", "lokalizaciya-baz-dannyh-rf-152-fz-2026"],
+};

@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "vhod-klienta-bez-parolya-sms-ssylka-ili-telegram-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-lock-key",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/web-development/", label: "Личный кабинет и вход под ваш бизнес" },
+  title: "Как клиентам входить в кабинет: SMS, ссылка, Telegram или пароль",
+  metaTitle: "Вход клиентов в кабинет: SMS, ссылка, Telegram или пароль",
+  metaDescription: "Как выбрать способ входа для клиентов: SMS-код, ссылка, Telegram или пароль. Лимиты попыток, срок кода и ссылки, 152-ФЗ и ручное восстановление доступа.",
+  excerpt: "Клиенты забывают пароли и не доходят до личного кабинета. Сравниваю четыре способа входа: пароль, код по SMS, ссылку и вход через мессенджер. Показываю, какие лимиты нужны, как отвечать на неизвестный номер и что я проверил по OWASP, NIST и документации Telegram и MAX.",
+  tags: ["предпринимателям", "личный кабинет", "вход клиента", "безопасность"],
+  toc: [
+    { id: "komu-nuzhno", text: "Кому и когда это нужно" },
+    { id: "shagi", text: "Как это делается: 6 шагов" },
+    { id: "sravnenie", text: "Сравнение четырёх способов" },
+    { id: "zakony", text: "Законы и документы" },
+    { id: "oshibki", text: "Где ошибаются чаще всего" },
+    { id: "avtomatizaciya", text: "Где здесь поможет автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["sms-ili-messendzher-uvedomleniya-klientam-stoimost-2026", "passkeys-vhod-bez-parolya-2026", "lichnyy-kabinet-klienta-okupaemost-2027", "menedzher-paroley-vazhnee-antivirusa-2026"],
+};

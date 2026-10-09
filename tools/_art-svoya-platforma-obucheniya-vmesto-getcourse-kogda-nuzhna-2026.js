@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "svoya-platforma-obucheniya-vmesto-getcourse-kogda-nuzhna-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-graduation-cap",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/web-development/", label: "Кабинет обучения под вашу механику" },
+  title: "Уходить ли с GetCourse: когда нужен свой кабинет обучения",
+  metaTitle: "Свой кабинет обучения или конструктор курсов: что выбрать",
+  metaDescription: "Когда конструктор курсов лучше, а когда нужен свой кабинет: сравнение, расчёт на три года, лицензия, 152-ФЗ, видео и перенос учеников.",
+  excerpt: "Разбираю, стоит ли эксперту или школе уходить с конструктора курсов. Честно: чаще лучше остаться, а свой кабинет оправдан при особой механике, выросшей плате и требованиях к данным. Внутри таблица сравнения, условный расчёт на три года, лицензия, персональные данные и перенос.",
+  tags: ["предпринимателям", "онлайн-школа", "платформа обучения", "конструктор курсов"],
+  toc: [
+    { id: "kogda-chto", text: "Когда конструктор лучше, а когда нужен свой кабинет" },
+    { id: "kak-reshit", text: "Как принять решение: 6 шагов" },
+    { id: "iz-chego", text: "Из чего состоит платформа и что считать" },
+    { id: "zakony", text: "Законы и документы" },
+    { id: "oshibki", text: "Где ошибаются чаще всего" },
+    { id: "avtomatizaciya", text: "Где здесь поможет автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["platforma-onlayn-shkoly-2026", "zapusk-onlayn-kursa-tehchast-2026", "igry-chtoby-uchenik-doshel-do-konca-kursa-2026", "personalnye-razbory-eksperta-kak-avtomatizirovat-raschet-i-slaydy-2026"],
+};

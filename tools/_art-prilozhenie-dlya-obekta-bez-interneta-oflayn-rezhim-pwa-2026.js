@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "prilozhenie-dlya-obekta-bez-interneta-oflayn-rezhim-pwa-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-wifi-slash",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/mobile-apps/", label: "Приложение для сотрудников в поле" },
+  title: "Отчёты без связи: как приложению не терять данные на объекте",
+  metaTitle: "Приложение без связи: очередь отчётов, фото, конфликты",
+  metaDescription: "Как сделать приложение для объекта, склада или поля, которое не теряет отчёты и фото без сети: очередь отправки, защита от дублей, конфликты, проверка.",
+  excerpt: "Разбираю офлайн-режим для сотрудников, которые работают без связи: три уровня, очередь отправки, фото, время события, конфликты и испытания в режиме «в самолёте». Показываю, что подтверждено документацией MDN и WebKit, а что нужно проверять на вашем телефоне.",
+  tags: ["предпринимателям", "PWA без связи", "офлайн-очередь", "приложение для объекта"],
+  toc: [
+    { id: "komu", text: "Кому и когда это нужно" },
+    { id: "kak-delaetsya", text: "Как это делается: 7 шагов" },
+    { id: "tablica", text: "Что работает без сети" },
+    { id: "proverka", text: "Испытания, платформы и безопасность" },
+    { id: "oshibki", text: "Где ошибаются чаще всего" },
+    { id: "avtomatizaciya", text: "Где здесь поможет автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["pwa-iz-sayta-za-vyhodnye-2026", "prilozhenie-dlya-zamershchika-i-vyezdnogo-mastera-2026", "peredacha-dannyh-bez-svyazi-v-pole-2026", "svoe-prilozhenie-tsd-ili-gotovoe-reshenie-2026"],
+};

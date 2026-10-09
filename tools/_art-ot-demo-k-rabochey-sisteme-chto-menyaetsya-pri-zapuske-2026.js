@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "ot-demo-k-rabochey-sisteme-chto-menyaetsya-pri-zapuske-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-rocket-launch",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/business-automation/", label: "Перевод демо в рабочий режим" },
+  title: "Демо показали, что дальше: что дорабатывают до боевого запуска",
+  metaTitle: "Демо или рабочая система: что дорабатывают перед запуском",
+  metaDescription: "Что в демо только нарисовано и что меняется при запуске: вход по SMS, платежи и чеки, очередь уведомлений, защита от дублей, копии, документы, данные.",
+  excerpt: "Разбираю, чем демо отличается от рабочей системы и что нужно доделать: вход, платежи, уведомления, защита от двойных броней, копии, документы и данные. Три этапа, три контрольные пробы и список того, что задерживает запуск не по вине исполнителя.",
+  tags: ["предпринимателям", "запуск системы", "демо и боевая версия", "чек-лист запуска"],
+  toc: [
+    { id: "komu-nuzhno", text: "Кому и когда это нужно" },
+    { id: "shagi", text: "Что меняется при запуске: 9 пунктов" },
+    { id: "etapy", text: "Как поделить работу и что проверить пробами" },
+    { id: "chek-list", text: "Чек-лист готовности к запуску" },
+    { id: "zaderzhki", text: "Что задерживает запуск и где ошибаются" },
+    { id: "avtomatizaciya", text: "Где здесь поможет автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["testirovanie-bota-i-sayta-pered-zapuskom-2026", "pilotnyy-proekt-2-nedeli-2026", "chto-sobrat-zakazchiku-do-starta-razrabotki-dannye-dostupy-2026", "effekt-cherez-30-dney-posle-zapuska-do-i-posle-cifry-2026"],
+};

@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "tehzadanie-na-dorabotku-1s-kak-opisat-scenarii-priemka-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-list-checks",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/business-automation/", label: "Доработка 1С с приёмкой по сценариям" },
+  title: "Доработка 1С без сюрпризов: сценарии вместо описаний, приёмка",
+  metaTitle: "Доработка 1С: ТЗ сценариями и приёмка на тестовой копии",
+  metaDescription: "Как заказать доработку 1С и не получить «не то»: сценарии по ролям, граничные случаи, тестовая копия, версии, пакет передачи и приёмка по чек-листу.",
+  excerpt: "Прошлую доработку 1С сделали не то, а в ТЗ было «как раньше». Показываю, как описать доработку сценариями по ролям, что отдать исполнителю, как принять работу на тестовой копии и что потребовать в пакете передачи. Пример сценария и таблица пунктов ТЗ внутри.",
+  tags: ["предпринимателям", "доработка 1С", "приёмка", "ТЗ"],
+  toc: [
+    { id: "komu", text: "Кому и когда это нужно" },
+    { id: "shagi", text: "Как это делается: 6 шагов" },
+    { id: "tablica", text: "Что записать в ТЗ" },
+    { id: "instrumenty", text: "Инструменты и шаблоны: копия, версии, пакет" },
+    { id: "oshibki", text: "Где ошибаются чаще всего" },
+    { id: "avtomatizaciya", text: "Где здесь поможет автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["dorabotki-1c-cherez-rasshireniya-2026", "prinimaem-chuzhuyu-1s-pasport-dorabotok-ishodniki-2026", "priemka-raboty-podryadchika-2026", "franchayzi-1c-i-vneshniy-razrabotchik-2026"],
+};

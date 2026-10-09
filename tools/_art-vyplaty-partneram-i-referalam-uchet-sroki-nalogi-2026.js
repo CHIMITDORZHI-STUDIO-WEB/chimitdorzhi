@@ -1,0 +1,22 @@
+module.exports = {
+  slug: "vyplaty-partneram-i-referalam-uchet-sroki-nalogi-2026",
+  category: "biznes-krugozor",
+  heroIcon: "ph-fill ph-hand-coins",
+  ctaInternal: { url: "https://chimitdorzhi.tech/services/business-automation/", label: "Журнал выплат партнёрам под вашу схему" },
+  title: "Как платить вознаграждение за клиентов: договор, чек, налог",
+  metaTitle: "Вознаграждение партнёрам за клиентов: договор и налог",
+  metaDescription: "Как платить партнёрам и рефералам за клиентов: договор, статус получателя, чек самозанятого, НДФЛ, срок выплаты и журнал начислений. С таблицей.",
+  excerpt: "Разбираю, как оформлять вознаграждение за приведённых клиентов: какой договор, какой документ просить у самозанятого, ИП и физлица, кто платит налог, как прописать срок и возврат. Налоговые детали, которые я не проверил, помечены в тексте.",
+  tags: ["предпринимателям", "партнёрские выплаты", "самозанятые", "реферальная программа"],
+  toc: [
+    { id: "komu-nuzhno", text: "Кому и когда это нужно" },
+    { id: "shagi", text: "Как это делается: 7 шагов" },
+    { id: "zhurnal", text: "Что вести в журнале начислений" },
+    { id: "zakony", text: "Законы и документы: кто что присылает" },
+    { id: "oshibki", text: "Где ошибаются чаще всего" },
+    { id: "avtomatizaciya", text: "Где здесь поможет автоматизация" },
+    { id: "faq", text: "Частые вопросы" },
+    { id: "vyvody", text: "Коротко о главном" },
+  ],
+  relatedSlugs: ["uchet-partnerskih-vyplat-2026", "samozanyatye-ispolniteli-akt-chek-oplata-2026", "partnyorskaya-sistema-qr-keys-2026", "referalnaya-programma-novye-klienty-2026"],
+};
