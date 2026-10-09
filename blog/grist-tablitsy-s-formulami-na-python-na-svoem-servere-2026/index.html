@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grist: таблицы с формулами на Python на своём сервере</title>
+    <meta name="description" content="Grist под Apache 2.0: формулы на Python, права на строки, файл SQLite. Что входит в бесплатное ядро, что по ключу и чем он отличается от NocoDB и Baserow.">
+    <meta name="keywords" content="Grist, таблицы, open-source, учёт на своём сервере">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/grist-tablitsy-s-formulami-na-python-na-svoem-servere-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/grist-tablitsy-s-formulami-na-python-na-svoem-servere-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/grist-tablitsy-s-formulami-na-python-na-svoem-servere-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/grist-tablitsy-s-formulami-na-python-na-svoem-servere-2026/">
+    <meta property="og:title" content="Grist: таблицы с формулами на Python на своём сервере">
+    <meta property="og:description" content="Grist под Apache 2.0: формулы на Python, права на строки, файл SQLite. Что входит в бесплатное ядро, что по ключу и чем он отличается от NocoDB и Baserow.">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/grist-tablitsy-s-formulami-na-python-na-svoem-servere-2026/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Grist: таблицы с формулами на Python на своём сервере">
+    <meta name="twitter:description" content="Grist под Apache 2.0: формулы на Python, права на строки, файл SQLite. Что входит в бесплатное ядро, что по ключу и чем он отличается от NocoDB и Baserow.">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/grist-tablitsy-s-formulami-na-python-na-svoem-servere-2026/cover.png">
+
+    <link rel="icon" href="/favicon.svg?v=5" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=5">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png?v=5">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=5">
+    <link rel="preload" href="/assets/fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=79">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Excel ломается при двух редакторах: Grist с формулами на Python",
+  "description": "Grist под Apache 2.0: формулы на Python, права на строки, файл SQLite. Что входит в бесплатное ядро, что по ключу и чем он отличается от NocoDB и Baserow.",
+  "image": "https://chimitdorzhi.tech/blog/grist-tablitsy-s-formulami-na-python-na-svoem-servere-2026/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://t.me/chimitdorzhi_studio",
+      "https://max.ru/channel_chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio",
+      "https://github.com/chimitdorzhi",
+      "https://chimitdorzhi.tech/about/"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/grist-tablitsy-s-formulami-na-python-na-svoem-servere-2026/"
+  },
+  "datePublished": "2026-10-09",
+  "dateModified": "2026-10-09",
+  "keywords": "Grist, таблицы, open-source, учёт на своём сервере",
+  "articleSection": "Разработка",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Excel ломается при двух редакторах: Grist с формулами на Python",
+      "item": "https://chimitdorzhi.tech/blog/grist-tablitsy-s-formulami-na-python-na-svoem-servere-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Grist на своём сервере бесплатный?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ядро да, лицензия Apache 2.0. Вы платите за сервер и настройку. SSO, журнал аудита и ассистент по таблицам требуют ключ, бесплатный при финансах организации меньше миллиона долларов."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Куда уходят данные при включённом ИИ-помощнике?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Модели отправляются ваш вопрос и схема таблицы. С облачным API они уйдут туда, с моделью на вашем сервере останутся у вас."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно перенести то, что уже есть в Excel или Airtable?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да. Grist импортирует Excel и CSV, из Airtable есть прямой импорт. Типы столбцов проверяйте руками."
+      }
+    }
+  ]
+}
+    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+var inject=function(){for (var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)};
+var run=function(){('requestIdleCallback' in window)?requestIdleCallback(inject,{timeout:5000}):setTimeout(inject,3000)};
+(e.readyState==='complete')?run():m.addEventListener('load',run);})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109281884" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<!-- Цели Метрики: клики по контактам и услугам -->
+<script type="text/javascript">
+(function(){
+  var GOALS = [
+    { re: /t\.me\//i,                     goal: 'tg_click' },
+    { re: /max\.ru\//i,                    goal: 'max_click' },
+    { re: /audit\.chimitdorzhi\.tech/i,    goal: 'audit_click' },
+    { re: /chimitdorzhi\.tech\/services\//i, goal: 'service_click' },
+    { re: /chimitdorzhi\.tech\/predlozheniya\//i, goal: 'offer_click' }
+  ];
+  document.addEventListener('click', function(e){
+    var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    for (var i = 0; i < GOALS.length; i++) {
+      if (GOALS[i].re.test(href)) {
+        try { if (window.ym) ym(109281884, 'reachGoal', GOALS[i].goal); } catch (err) {}
+        break;
+      }
+    }
+  }, true);
+})();
+</script>
+</head>
+<body class="wx-read">
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/" data-i18n="nav.home">Главная</a></li>
+            <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+            <li class="nav-dropdown">
+                <a href="/cases/" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+                <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему" aria-pressed="false">
+                <i class="ph ph-moon" aria-hidden="true"></i>
+            </button>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/" data-i18n="nav.home">Главная</a></li>
+        <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+        <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+        <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+        <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+        <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+        <li class="mobile-has-submenu">
+            <details>
+                <summary aria-label="Проекты — развернуть"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down" aria-hidden="true"></i></summary>
+                <ul class="mobile-submenu">
+                    <li>
+                        <a href="https://gerel.space" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">Gerel.space</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/universe_buryat/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/arey/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.arey">AREY</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/mwrlife/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">MWR Life</span>
+                                <span class="mobile-sub-desc">Travel-клуб и партнёрка</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </details>
+        </li>
+        <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+    </ul>
+    <div class="mobile-controls">
+        <div class="mobile-lang-switcher" role="group" aria-label="Выбор языка">
+            <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+            <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+            <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+        </div>
+        <button class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle" aria-label="Переключить тему" aria-pressed="false">
+            <i class="ph ph-moon" aria-hidden="true"></i>
+        </button>
+    </div>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Excel ломается при двух редакторах: Grist с формулами на Python</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/development/"><i class="ph ph-bookmark" aria-hidden="true"></i> Разработка</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин чтения</span>
+                        <time datetime="2026-10-09"><i class="ph ph-calendar" aria-hidden="true"></i> 9 октября 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Excel ломается при двух редакторах: Grist с формулами на Python</h1>
+
+                    <p class="blog-lead">Grist совмещает таблицу и базу данных: у столбцов свой тип, формулы на Python пересчитываются сами, документ лежит в файле SQLite. Разбираю лицензию, что в бесплатном ядре и что только по активационному ключу, как поставить в Docker, чем он отличается от NocoDB и Baserow и где упирается в размер таблиц.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>Grist</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>таблицы</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>open-source</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>учёт на своём сервере</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr">
+  <strong>Коротко.</strong> Grist это табличный редактор, где у каждого столбца свой тип данных, формулы пишутся на Python и пересчитываются сами. Ядро открыто по лицензии Apache 2.0 и запускается в Docker. Права на уровне строк и столбцов входят в бесплатное ядро. Вход через SSO (OIDC, SAML) включается активационным ключом. Он подходит для бухгалтерии, склада и отчётов на одном файле Excel. С очень большими таблицами у него есть предел.
+</div>
+<div class="blog-cta-internal">
+  <i class="ph-fill ph-rocket-launch" aria-hidden="true"></i>
+  <div>
+    <strong>Хотите внедрить это у себя?</strong>
+    <p>Сделаю под ключ: разберу задачу, назову срок и цену. Чтобы начать, <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%ABExcel%20%D0%BB%D0%BE%D0%BC%D0%B0%D0%B5%D1%82%D1%81%D1%8F%20%D0%BF%D1%80%D0%B8%20%D0%B4%D0%B2%D1%83%D1%85%20%D1%80%D0%B5%D0%B4%D0%B0%D0%BA%D1%82%D0%BE%D1%80%D0%B0%D1%85%3A%20Grist%20%D1%81%20%D1%84%D0%BE%D1%80%D0%BC%D1%83%D0%BB%D0%B0%D0%BC%D0%B8%20%D0%BD%D0%B0%20Python%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener">напишите в Telegram</a> одной фразой.</p>
+    <a href="https://chimitdorzhi.tech/services/accounting-automation/">Перенести таблицы бухгалтерии и склада в Grist <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</div>
+
+<h2 id="excel-lomaetsya">Файл, который открыли двое</h2>
+
+<p>Бухгалтер ведёт реестр в Excel, кладовщик остатки в Google Таблицах, а руководитель раз в неделю просит сводку. Её собирают руками из двух мест. Один файл открыли сразу двое, и в папке появился «реестр_финал_2». Вставили строку, формула в соседней ячейке съехала, итог за месяц разошёлся с банком.</p>
+
+<p>Прикидка, не замер: если двое раз в неделю тратят по часу на сверку версий, выходит около ста часов в год. Неверная цифра в отчёте собственнику стоит дороже.</p>
+
+<p>Таблица ломается там, где ей приходится изображать базу данных. Для этого и сделан Grist.</p>
+
+<h2 id="chto-eto">Что такое Grist</h2>
+
+<p>Разработчики называют Grist реляционной таблицей: гибрид электронной таблицы и базы данных. Столбец в нём устроен как в базе: у него есть имя и один тип данных. Впишите слово «позвонить» в числовой столбец, и ячейка подсветится ошибкой, а формулы, которые на неё ссылаются, покажут ошибку тоже. Значения при этом можно считать формулой, как в Excel, и при изменении исходных ячеек зависимые пересчитываются автоматически.</p>
+
+<p>Формулы пишутся на Python, поддерживается полный синтаксис и стандартная библиотека. Одна формула действует на весь столбец, номера строк не нужны. Остаток по товару на складе выглядит так: <code>SUM(Receipts.lookupRecords(Item=$id).Qty) - SUM(Issues.lookupRecords(Item=$id).Qty)</code>, где Receipts это таблица прихода, а Issues таблица расхода. Поправили число в приходе, и остаток обновился сам.</p>
+
+<p>Если формула не получается, есть ИИ-помощник: вы описываете задачу словами, он предлагает формулу, вы смотрите результат и сохраняете. В самохостинге его подключают сами, через ключ OpenAI или любой адрес, совместимый с OpenAI. В README названы llama-cpp-python и LM Studio.</p>
+
+<p>Документ Grist это файл на SQLite. Его открывает обычный sqlite3, его просто копировать и переносить на другой сервер.</p>
+
+<h2 id="yadro">Что в бесплатном ядре, а что по ключу</h2>
+
+<p>Лицензия ядра Apache 2.0. Я проверил её по файлу LICENSE.txt в репозитории grist-core, правообладатель Grist Labs Inc. Компания из Нью-Йорка работает по модели open core: дополнительные функции продаются по закрытой лицензии. Репозиторий создан в мае 2020, у него около 11,9 тысячи звёзд на GitHub, последний релиз 1.7.20 вышел 28 сентября 2026.</p>
+
+<p>В ядре есть Python-формулы, ИИ-помощник для формул, формы, REST API, вебхуки, комментарии, сводные таблицы, графики, импорт из Airtable и правила доступа к отдельным строкам, столбцам и таблицам. Чтобы правила работали, нужен настроенный вход.</p>
+
+<p>Только в полной версии, которую включают ключом: вход через OIDC и SAML, потоковая выгрузка журнала аудита, расширенные админ-настройки, новый ассистент, который строит таблицы и <a href="https://chimitdorzhi.tech/services/ai-analytics/" class="blog-inline-link">дашборды</a>, письма-уведомления, автоматизации, встроенный MCP-сервер. Пробный период 30 дней. Бесплатный ключ дают организациям, у которых общие финансы меньше миллиона долларов в год. Для подрядчика смотрят на выручку клиента. Если ключ кончился, платные функции выключаются, документы остаются.</p>
+
+<p>Образ gristlabs/grist содержит и закрытые расширения, они спят до включения полной версии. Образ gristlabs/grist-oss собран только из открытого кода.</p>
+
+<h2 id="ustanovka">Как ставится и как входят люди</h2>
+
+<p>Запуск: <code>docker run -p 8484:8484 -v ~/grist:/persist -e GRIST_SESSION_SECRET=секрет -e GRIST_DEFAULT_EMAIL=вы@пример.рф -it gristlabs/grist</code>. При первом старте в логах печатается boot key, с ним вы попадаете в мастер быстрой настройки: адрес, песочница, вход, резервные копии. Для доступа по сети нужен обратный прокси с HTTPS и websocket. Для средней нагрузки в документации названы 8 ГБ памяти, 2 ядра, 20 ГБ диска.</p>
+
+<p>Формулы это исполняемый Python-код. Без песочницы они читают и пишут всё, что доступно процессу Grist. Включаем gVisor: <code>GRIST_SANDBOX_FLAVOR=gvisor</code>.</p>
+
+<p>Пока вход не настроен, установка открыта всем, кто до неё дотянется. Без ключа есть три способа входа: аккаунт на getgrist.com (регистрацией занимается Grist Labs, документы остаются у вас), заголовок от вашего прокси с авторизацией и режим одного пользователя через <code>GRIST_DEFAULT_EMAIL</code>. Первый быстрее, второй не привязывает людей к чужому сервису.</p>
+
+<p>Документы лежат файлами на диске, и если диск умрёт, они пропадут. Поэтому сразу настраиваем копии: Grist складывает снимки в S3-совместимое хранилище.</p>
+
+<h2 id="sravnenie">Grist, NocoDB или Baserow</h2>
+
+<p>В блоге есть разборы <a href="/blog/nocodb-airtable-svoy-server-2026/">NocoDB</a> и <a href="/blog/baserow-baza-dannyh-bez-koda-2026/">Baserow</a>. Все три живут на вашем сервере. Центр тяжести у них разный. Grist ближе к таблице с формулами: Python, сводные таблицы, графики и карточки лежат на одной странице. Есть формы и календарь. NocoDB и Baserow, как я описывал в тех статьях, ближе к базе-конструктору: таблицы, поля, связи, представления, формы.</p>
+
+<p>Если ваш рабочий файл целиком про расчёты, итоги и отчёты, начните с Grist. Если важнее заявки, статусы и много людей с разными представлениями, начните с NocoDB или Baserow. Лучшего среди них нет. Кусок вашей таблицы можно собрать в двух и сравнить.</p>
+
+<h2 id="ogranicheniya">Где это не сработает</h2>
+
+<p>Большие таблицы. Документация рекомендует держать данные документа в пределах 20 МБ, документ крупнее может тормозить или упереться в память. Пример оттуда: 100 000 строк на 24 числовых столбца. Для миллионов строк нужна обычная база данных.</p>
+
+<p>Лимиты по строкам (5 000, 100 000, 150 000) в документации привязаны к тарифам облака. Как они действуют у вас на сервере, я не проверял.</p>
+
+<p>Русский язык. Перевод интерфейса есть, на день проверки на Weblate переведено около 68 процентов строк интерфейса. Справка на сайте поддержки на английском и французском.</p>
+
+<p>Привычка. Авторы сами пишут, что людей из Excel схема «одна формула на столбец» поначалу путает.</p>
+
+<h2 id="chto-sdelat">Что можно сделать уже сейчас</h2>
+
+<p>Первое. Запустите команду выше на ноутбуке и возьмите шаблоны с templates.getgrist.com: там есть учёт склада и счета.</p>
+
+<p>Второе. Возьмите самый ломкий файл, импортируйте его из Excel или CSV и задайте типы столбцов.</p>
+
+<p>Третье. Выпишите, кто что должен видеть: бухгалтер, кладовщик, руководитель. Это основа правил доступа. Если склад у вас в МойСклад, а Excel остался для заказов, посмотрите <a href="/blog/zakaz-postavshchiku-iz-excel-i-foto-nakladnoy-v-moysklad-2026/">разбор заказа поставщику из Excel</a>.</p>
+
+<p>Четвёртое. Отдайте перенос нам: <a href="/services/accounting-automation/">автоматизация бухгалтерии</a> или <a href="/predlozheniya/open-source-pod-klyuch/">open-source под ключ</a>. Цены на работы есть в <a href="/ceny/">прайсе</a>.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+
+<h3>Grist на своём сервере бесплатный?</h3>
+<p>Ядро да, лицензия Apache 2.0. Вы платите за сервер и настройку. SSO, журнал аудита и ассистент по таблицам требуют ключ, бесплатный при финансах организации меньше миллиона долларов.</p>
+
+<h3>Куда уходят данные при включённом ИИ-помощнике?</h3>
+<p>Модели отправляются ваш вопрос и схема таблицы. С облачным API они уйдут туда, с моделью на вашем сервере останутся у вас.</p>
+
+<h3>Можно перенести то, что уже есть в Excel или Airtable?</h3>
+<p>Да. Grist импортирует Excel и CSV, из Airtable есть прямой импорт. Типы столбцов проверяйте руками.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+
+<p>Мы переносим таблицы в один документ, ставим Grist на ваш сервер, включаем песочницу и копии, настраиваем вход и права для бухгалтера, склада и руководителя. Если ваш случай ближе к NocoDB или Baserow, скажем сразу.</p>
+
+<p>Хотите понять, потянет ли ваш файл такой переезд? Напишите мне в Telegram слово «ФОРМУЛЫ». Посмотрю таблицы и скажу, что переносить и что оставить как есть.</p>
+
+                    </div>
+                    
+
+                    
+                    
+                    
+                    
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Обсудим вашу задачу</div>
+  <h3 class="blog-services-offer-title">Что я делаю для бизнеса</h3>
+  <p class="blog-services-offer-lead">Напишите одной фразой, что нужно. Отвечу, что подойдёт, сколько займёт и сколько стоит. Сообщение уже подготовлено.</p>
+  <ul class="blog-services-offer-list"><li><i class="ph-fill ph-robot"></i> <span>Боты в Telegram, MAX, VK</span></li><li><i class="ph-fill ph-gear"></i> <span>Автоматизация процессов и CRM</span></li><li><i class="ph-fill ph-chart-bar"></i> <span>Аналитика и дашборды</span></li><li><i class="ph-fill ph-globe"></i> <span>Сайты и лендинги под ключ</span></li></ul>
+  <div class="blog-services-offer-ctas">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%ABExcel%20%D0%BB%D0%BE%D0%BC%D0%B0%D0%B5%D1%82%D1%81%D1%8F%20%D0%BF%D1%80%D0%B8%20%D0%B4%D0%B2%D1%83%D1%85%20%D1%80%D0%B5%D0%B4%D0%B0%D0%BA%D1%82%D0%BE%D1%80%D0%B0%D1%85%3A%20Grist%20%D1%81%20%D1%84%D0%BE%D1%80%D0%BC%D1%83%D0%BB%D0%B0%D0%BC%D0%B8%20%D0%BD%D0%B0%20Python%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener" class="blog-services-offer-cta">
+      <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
+    </a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="blog-services-offer-cta blog-services-offer-cta-max">
+      <i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> Написать в MAX
+    </a>
+    <a href="https://chimitdorzhi.tech/services/accounting-automation/" class="blog-services-offer-cta blog-services-offer-cta-max"><i class="ph ph-arrow-right" aria-hidden="true"></i> Перенести таблицы бухгалтерии и склада в Grist</a>
+  </div>
+</div>
+                    
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/nocodb-airtable-svoy-server-2026/" data-category="opensource" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-table"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>NocoDB: Airtable на своём сервере под ключ</h3>
+  <p>NocoDB — это гибкие умные таблицы для учёта чего угодно, как Airtable, но на своём сервере. Разбираю, кому подходит, что умеет и что нужно для запуска.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 14 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/baserow-baza-dannyh-bez-koda-2026/" data-category="opensource" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-table"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>Baserow: база данных без кода на своём сервере</h3>
+  <p>Baserow — это гибкие умные таблицы и базы без кода на вашем сервере: CRM, трекеры задач, базы клиентов без платы за каждого пользователя. Разбираю, что умеет и что нужно для запуска.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 15 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/zakaz-postavshchiku-iz-excel-i-foto-nakladnoy-v-moysklad-2026/" data-category="development" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-file-arrow-up"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
+  <h3>Заказ поставщику из Excel и приход по фото накладной в МойСклад</h3>
+  <p>Поставщик шлёт файл Excel или фото накладной, а закупщик перепечатывает строки. Разбираем, что МойСклад умеет сам, какие приложения есть в каталоге и когда нужен свой скрипт. Отдельно про новые товары, дубли и проверку человеком.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 3 октября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/databasus-kopii-postgresql-s-vosstanovleniem-na-moment-vremeni-2026/" data-category="development" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-clock-counter-clockwise"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
+  <h3>Databasus: вернуть базу PostgreSQL на минуту до сбоя</h3>
+  <p>Ночной дамп вернёт базу на вчера, а нужна минута до ошибки. Разбираю Databasus: что такое восстановление на момент времени в PostgreSQL, что проект обещает и что подтверждается, лицензия, установка и ограничения.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 8 октября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    <section class="blog-subscribe">
+  <div class="blog-subscribe-body">
+    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
+    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
+  </div>
+  <div class="blog-subscribe-actions">
+    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
+  </div>
+</section>
+                    
+                    
+                    
+                    
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow"><span class="b-l b-l-ru">Готовые решения под ключ</span><span class="b-l b-l-en" lang="en">Turnkey solutions</span><span class="b-l b-l-es" lang="es">Soluciones llave en mano</span><span class="b-l b-l-cn" lang="zh">交钥匙解决方案</span><span class="b-l b-l-mn" lang="mn">Түлхүүр гардуулах шийдэл</span></span>
+                            <span class="blog-offer-cta-title"><span class="b-l b-l-ru">451 готовых IT-решений для бизнеса</span><span class="b-l b-l-en" lang="en">451 ready-made IT solutions for business</span><span class="b-l b-l-es" lang="es">451 soluciones IT listas para empresas</span><span class="b-l b-l-cn" lang="zh">451 个面向企业的现成 IT 解决方案</span><span class="b-l b-l-mn" lang="mn">Бизнест зориулсан 451 бэлэн IT шийдэл</span></span>
+                            <span class="blog-offer-cta-price"><span class="b-l b-l-ru">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span><span class="b-l b-l-en" lang="en">Automation, bots, AI, data privacy and platforms · free consultation</span><span class="b-l b-l-es" lang="es">Automatización, bots, IA, privacidad de datos y plataformas · consulta gratis</span><span class="b-l b-l-cn" lang="zh">自动化、机器人、AI、数据合规与平台 · 免费咨询</span><span class="b-l b-l-mn" lang="mn">Автоматжуулалт, бот, AI, өгөгдлийн хамгаалалт ба платформ · үнэгүй зөвлөгөө</span></span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> <span class="b-l b-l-ru">Смотреть каталог</span><span class="b-l b-l-en" lang="en">View catalog</span><span class="b-l b-l-es" lang="es">Ver catálogo</span><span class="b-l b-l-cn" lang="zh">查看目录</span><span class="b-l b-l-mn" lang="mn">Каталог үзэх</span></span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#excel-lomaetsya"><span class="blog-toc-num">01</span> Файл, который открыли двое</a></li>
+<li><a href="#chto-eto"><span class="blog-toc-num">02</span> Что такое Grist</a></li>
+<li><a href="#yadro"><span class="blog-toc-num">03</span> Что в бесплатном ядре, а что по ключу</a></li>
+<li><a href="#ustanovka"><span class="blog-toc-num">04</span> Как ставится и как входят люди</a></li>
+<li><a href="#sravnenie"><span class="blog-toc-num">05</span> Grist, NocoDB или Baserow</a></li>
+<li><a href="#ogranicheniya"><span class="blog-toc-num">06</span> Где это не сработает</a></li>
+<li><a href="#chto-sdelat"><span class="blog-toc-num">07</span> Что можно сделать уже сейчас</a></li>
+<li><a href="#faq"><span class="blog-toc-num">08</span> Частые вопросы</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">09</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+971563369591" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +971 56 336 9591</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">RA Standard - F.Z.E</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_licence">Лицензия 57033</span><span> · </span><span data-i18n="footer.legal_authority">Free Zones Authority of Ajman</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">Эмират Аджман, ОАЭ</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/cases/" class="footer-policy-link">Кейсы</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=44" defer></script>
+<script src="/services-i18n.js?v=44" defer></script>
+<script src="/script.js?v=41" defer></script>
+<script src="/search-widget.js?v=1" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>
