@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2428**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2432**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -1221,6 +1221,7 @@
 
 ## Отрасли
 
+- [OpenCADStudio: бесплатный CAD, который открывает DWG и DXF](./opencadstudio-cherchenie-dwg-i-dxf-besplatno-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/opencadstudio-cherchenie-dwg-i-dxf-besplatno-2026/)
 - [Связь без интернета и сети: Meshtastic для групп и объектов](./meshtastic-svyaz-bez-interneta-i-sotovoy-seti-dlya-grupp-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/meshtastic-svyaz-bez-interneta-i-sotovoy-seti-dlya-grupp-2026/)
 - [Обмен с ЕГАИС встал: диагностика для магазина пива и сигарет](./egais-magazin-piva-i-sigaret-roznitsa-utm-oshibki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/egais-magazin-piva-i-sigaret-roznitsa-utm-oshibki-2026/)
 - [Две заявки на одну колонку больше не случаются](./prokat-oborudovaniya-dlya-meropriyatiy-kalendar-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/prokat-oborudovaniya-dlya-meropriyatiy-kalendar-2026/)
@@ -1836,6 +1837,9 @@
 
 ## Разработка
 
+- [Excel ломается при двух редакторах: Grist с формулами на Python](./grist-tablitsy-s-formulami-na-python-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/grist-tablitsy-s-formulami-na-python-na-svoem-servere-2026/)
+- [ClovaLink: файлы клиентов с антивирусом и журналом доступа](./clovalink-faylovaya-platforma-s-antivirusom-i-zhurnalom-audita-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/clovalink-faylovaya-platforma-s-antivirusom-i-zhurnalom-audita-2026/)
+- [Отработал ли ночной скрипт? Веб-панель для cron на сервере](./cronmaster-veb-interfeys-dlya-zadaniy-cron-na-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/cronmaster-veb-interfeys-dlya-zadaniy-cron-na-servere-2026/)
 - [Strata: большой свой ИИ на игровой видеокарте, без облака](./strata-svoy-ii-na-igrovoy-videokarte-lokalnyy-api-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/strata-svoy-ii-na-igrovoy-videokarte-lokalnyy-api-2026/)
 - [Databasus: вернуть базу PostgreSQL на минуту до сбоя](./databasus-kopii-postgresql-s-vosstanovleniem-na-moment-vremeni-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/databasus-kopii-postgresql-s-vosstanovleniem-na-moment-vremeni-2026/)
 - [Пароли в чате? Как хранить секреты команды в git под замком](./git-secret-sekrety-v-repozitorii-v-zashifrovannom-vide-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/git-secret-sekrety-v-repozitorii-v-zashifrovannom-vide-2026/)
