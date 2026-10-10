@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2436**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2440**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -1839,6 +1839,10 @@
 
 ## Разработка
 
+- [NLLB: переводчик на 200 языков, но бизнесу лицензия запрещает](./nllb-lokalnyy-perevodchik-na-200-yazykov-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nllb-lokalnyy-perevodchik-na-200-yazykov-na-svoem-servere-2026/)
+- [Макрос вместо ручного ввода: CrossMacro для старых программ](./crossmacro-zapis-i-povtor-deystviy-mishi-i-klaviatury-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/crossmacro-zapis-i-povtor-deystviy-mishi-i-klaviatury-2026/)
+- [Код есть, схемы нет: ИИ рисует архитектуру проекта](./oh-my-mermaid-shemy-arhitektury-po-kodu-proekta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/oh-my-mermaid-shemy-arhitektury-po-kodu-proekta-2026/)
+- [Посмотреть базу бота без программиста: DB Browser for SQLite](./db-browser-for-sqlite-posmotret-bazu-bota-bez-programmista-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/db-browser-for-sqlite-posmotret-bazu-bota-bez-programmista-2026/)
 - [Excel ломается при двух редакторах: Grist с формулами на Python](./grist-tablitsy-s-formulami-na-python-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/grist-tablitsy-s-formulami-na-python-na-svoem-servere-2026/)
 - [ClovaLink: файлы клиентов с антивирусом и журналом доступа](./clovalink-faylovaya-platforma-s-antivirusom-i-zhurnalom-audita-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/clovalink-faylovaya-platforma-s-antivirusom-i-zhurnalom-audita-2026/)
 - [Отработал ли ночной скрипт? Веб-панель для cron на сервере](./cronmaster-veb-interfeys-dlya-zadaniy-cron-na-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/cronmaster-veb-interfeys-dlya-zadaniy-cron-na-servere-2026/)
