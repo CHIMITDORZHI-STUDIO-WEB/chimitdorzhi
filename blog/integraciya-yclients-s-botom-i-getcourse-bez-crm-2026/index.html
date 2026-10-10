@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Интеграция YCLIENTS с ботом и GetCourse без своей CRM</title>
+    <meta name="description" content="Как бот в Telegram и MAX записывает в YCLIENTS, продаёт курс через GetCourse и ведёт розыгрыш без своей CRM: что открыто в API, лимиты, тарифы, цены.">
+    <meta name="keywords" content="интеграция yclients с ботом, getcourse бот telegram, бот для записи yclients max, api yclients, api getcourse, розыгрыш в боте, бот без crm">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/integraciya-yclients-s-botom-i-getcourse-bez-crm-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/integraciya-yclients-s-botom-i-getcourse-bez-crm-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/integraciya-yclients-s-botom-i-getcourse-bez-crm-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/integraciya-yclients-s-botom-i-getcourse-bez-crm-2026/">
+    <meta property="og:title" content="Интеграция YCLIENTS с ботом и GetCourse без своей CRM">
+    <meta property="og:description" content="Как бот в Telegram и MAX записывает в YCLIENTS, продаёт курс через GetCourse и ведёт розыгрыш без своей CRM: что открыто в API, лимиты, тарифы, цены.">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/integraciya-yclients-s-botom-i-getcourse-bez-crm-2026/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Интеграция YCLIENTS с ботом и GetCourse без своей CRM">
+    <meta name="twitter:description" content="Как бот в Telegram и MAX записывает в YCLIENTS, продаёт курс через GetCourse и ведёт розыгрыш без своей CRM: что открыто в API, лимиты, тарифы, цены.">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/integraciya-yclients-s-botom-i-getcourse-bez-crm-2026/cover.png">
+
+    <link rel="icon" href="/favicon.svg?v=5" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=5">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png?v=5">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=5">
+    <link rel="preload" href="/assets/fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=79">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Интеграция YCLIENTS с ботом и GetCourse: запись, курсы, розыгрыш",
+  "description": "Как бот в Telegram и MAX записывает в YCLIENTS, продаёт курс через GetCourse и ведёт розыгрыш без своей CRM: что открыто в API, лимиты, тарифы, цены.",
+  "image": "https://chimitdorzhi.tech/blog/integraciya-yclients-s-botom-i-getcourse-bez-crm-2026/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://t.me/chimitdorzhi_studio",
+      "https://max.ru/channel_chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio",
+      "https://github.com/chimitdorzhi",
+      "https://chimitdorzhi.tech/about/"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/integraciya-yclients-s-botom-i-getcourse-bez-crm-2026/"
+  },
+  "datePublished": "2026-10-10",
+  "dateModified": "2026-10-10",
+  "keywords": "YCLIENTS, GetCourse, бот в MAX, Telegram-бот, интеграции",
+  "articleSection": "Разработка",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Интеграция YCLIENTS с ботом и GetCourse: запись, курсы, розыгрыш",
+      "item": "https://chimitdorzhi.tech/blog/integraciya-yclients-s-botom-i-getcourse-bez-crm-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Как сделать интеграцию YCLIENTS с ботом?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Зарегистрироваться в маркетплейсе интеграций YCLIENTS и получить ключ партнёра, выдать боту ключ пользователя с правами на записи, дальше бот берёт свободное время и создаёт записи через API."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли сделать бота GetCourse в Telegram?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да. Бот создаёт пользователя и заказ через API GetCourse, отдаёт ссылку на оплату, а доступ к тренингу открывает сам GetCourse после оплаты. Нужен платный тариф."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Бот для записи YCLIENTS в MAX: что нужно для запуска?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Профиль юрлица, ИП или самозанятого в MAX для партнёров, модерация бота и доступ к API YCLIENTS. Логика записи та же, что в Telegram."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли провести розыгрыш среди учеников без своей CRM?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Можно. Приглашения и билеты считает бот, визиты и оплаты подтверждают YCLIENTS и GetCourse, сводка лежит в таблице."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Бот может сам написать всей старой базе?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "В Telegram нет, бот не начинает диалог первым. Старую базу зовут рассылкой GetCourse со ссылкой на бота."
+      }
+    }
+  ]
+}
+    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+var inject=function(){for (var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)};
+var run=function(){('requestIdleCallback' in window)?requestIdleCallback(inject,{timeout:5000}):setTimeout(inject,3000)};
+(e.readyState==='complete')?run():m.addEventListener('load',run);})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109281884" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<!-- Цели Метрики: клики по контактам и услугам -->
+<script type="text/javascript">
+(function(){
+  var GOALS = [
+    { re: /t\.me\//i,                     goal: 'tg_click' },
+    { re: /max\.ru\//i,                    goal: 'max_click' },
+    { re: /audit\.chimitdorzhi\.tech/i,    goal: 'audit_click' },
+    { re: /chimitdorzhi\.tech\/services\//i, goal: 'service_click' },
+    { re: /chimitdorzhi\.tech\/predlozheniya\//i, goal: 'offer_click' }
+  ];
+  document.addEventListener('click', function(e){
+    var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    for (var i = 0; i < GOALS.length; i++) {
+      if (GOALS[i].re.test(href)) {
+        try { if (window.ym) ym(109281884, 'reachGoal', GOALS[i].goal); } catch (err) {}
+        break;
+      }
+    }
+  }, true);
+})();
+</script>
+</head>
+<body class="wx-read">
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/" data-i18n="nav.home">Главная</a></li>
+            <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+            <li class="nav-dropdown">
+                <a href="/cases/" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+                <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему" aria-pressed="false">
+                <i class="ph ph-moon" aria-hidden="true"></i>
+            </button>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/" data-i18n="nav.home">Главная</a></li>
+        <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+        <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+        <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+        <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+        <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+        <li class="mobile-has-submenu">
+            <details>
+                <summary aria-label="Проекты — развернуть"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down" aria-hidden="true"></i></summary>
+                <ul class="mobile-submenu">
+                    <li>
+                        <a href="https://gerel.space" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">Gerel.space</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/universe_buryat/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/arey/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.arey">AREY</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/mwrlife/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">MWR Life</span>
+                                <span class="mobile-sub-desc">Travel-клуб и партнёрка</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </details>
+        </li>
+        <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+    </ul>
+    <div class="mobile-controls">
+        <div class="mobile-lang-switcher" role="group" aria-label="Выбор языка">
+            <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+            <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+            <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+        </div>
+        <button class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle" aria-label="Переключить тему" aria-pressed="false">
+            <i class="ph ph-moon" aria-hidden="true"></i>
+        </button>
+    </div>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Интеграция YCLIENTS с ботом и GetCourse: запись, курсы, розыгрыш</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/development/"><i class="ph ph-bookmark" aria-hidden="true"></i> Разработка</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 8 мин чтения</span>
+                        <time datetime="2026-10-10"><i class="ph ph-calendar" aria-hidden="true"></i> 10 октября 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Интеграция YCLIENTS с ботом и GetCourse: запись, курсы, розыгрыш</h1>
+
+                    <p class="blog-lead">Офлайн живёт в YCLIENTS, онлайн в GetCourse, а клиенты пишут в мессенджер. Разбираю, как собрать над ними бота в Telegram или MAX: запись, оплата курса, розыгрыш и приглашения, сводка в таблице. Что открыто в API, какие лимиты и где связка ломается.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>YCLIENTS</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>GetCourse</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>бот в MAX</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>Telegram-бот</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>интеграции</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
+<li>Бот в Telegram или MAX работает поверх YCLIENTS и GetCourse. Расписание и клиенты остаются в YCLIENTS, курсы и оплата в GetCourse, бот добавляет вход из мессенджера, розыгрыш и приглашения.</li>
+<li>API YCLIENTS открывает услуги, свободное время, записи, клиентов и групповые события. Ключ партнёра выдают после регистрации в маркетплейсе интеграций, лимит 200 запросов в минуту на IP.</li>
+<li>API GetCourse создаёт пользователей и заказы и умеет вернуть ссылку на оплату. Работает только на платных тарифах, на создание новых объектов есть месячный лимит.</li>
+<li>Сводная картина по ученикам, приглашениям и билетам копится в таблице, своя CRM для этого не нужна.</li>
+<li><a href="https://chimitdorzhi.tech/development/telegram-bots/" class="blog-inline-link">Бот для бизнеса</a> с оплатой, записью и розыгрышем у меня стоит от 80 000 ₽.</li>
+</ul></div>
+<div class="blog-cta-internal">
+  <i class="ph-fill ph-rocket-launch" aria-hidden="true"></i>
+  <div>
+    <strong>Нужна CRM под ваш бизнес?</strong>
+    <p>Сделаю под ключ: разберу задачу, назову срок и цену. Чтобы начать, <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%98%D0%BD%D1%82%D0%B5%D0%B3%D1%80%D0%B0%D1%86%D0%B8%D1%8F%20YCLIENTS%20%D1%81%20%D0%B1%D0%BE%D1%82%D0%BE%D0%BC%20%D0%B8%20GetCourse%3A%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D1%8C%2C%20%D0%BA%D1%83%D1%80%D1%81%D1%8B%2C%20%D1%80%D0%BE%D0%B7%D1%8B%D0%B3%D1%80%D1%8B%D1%88%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20CRM%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B3%D0%BE%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0." target="_blank" rel="noopener">напишите в Telegram</a> одной фразой.</p>
+    <a href="https://chimitdorzhi.tech/development/max-bots/">Бот в MAX поверх YCLIENTS и GetCourse <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</div>
+
+<p>Интеграция YCLIENTS с ботом и GetCourse устроена так: бот в Telegram или MAX записывает клиента в расписание YCLIENTS, продаёт курс через заказ в GetCourse и ведёт розыгрыш или реферальную механику, а свои отметки складывает в таблицу. Расписание, карточки клиентов, оплаты и доступы к урокам остаются там, где команда уже работает. Переезжать на новую систему не нужно.</p>
+
+<p>С такой задачей ко мне приходят студии, школы, детские центры и салоны, у которых офлайн живёт в YCLIENTS, а онлайн в GetCourse. Две системы, две базы, клиенты пишут в мессенджер, администратор переносит всё руками. Ниже разбираю, что открыто в API обоих сервисов, как собрать связку и где у неё слабые места.</p>
+
+<h2 id="chto-takoe-svyazka">Что такое интеграция YCLIENTS с ботом и GetCourse</h2>
+
+<p>Это три сервиса с разными ролями. YCLIENTS отвечает за офлайн: расписание мастеров и педагогов, услуги, групповые занятия, визиты. GetCourse отвечает за онлайн: тренинги, заказы, оплаты, доступы, рассылки по базе. Бот становится общим входом. Человек пишет в привычный мессенджер, а бот уже сам решает, в какую систему отправить его запрос.</p>
+
+<p>У бота нет своего расписания и своей кассы. Он спрашивает у YCLIENTS свободное время и создаёт запись там же. Он создаёт заказ в GetCourse и отдаёт ссылку на оплату оттуда же. Своё он хранит только то, чего нет ни в одной из систем: кто кого пригласил, сколько билетов в розыгрыше, из какого канала пришёл человек.</p>
+
+<h2 id="chto-otkryto-v-api">Что открыто в API YCLIENTS и GetCourse</h2>
+
+<p>Я сверял документацию 10 октября 2026 года. В официальной <a href="https://developers.yclients.com/ru/" target="_blank" rel="noopener nofollow">документации API YCLIENTS</a> описаны компании, услуги, сотрудники, графики, свободное время для онлайн-записи, записи, визиты, клиенты, групповые события, абонементы и сертификаты. Каждый запрос подписывается ключом партнёра. Его получают после регистрации в маркетплейсе интеграций YCLIENTS. Для закрытых данных филиала добавляется ключ пользователя с нужными правами. Лимит в документации прямой: 200 запросов в минуту или 5 запросов в секунду на один IP-адрес. В правах пользователя есть отдельный доступ к настройкам WebHook, так что о событиях сервис может сообщать сам. Какие методы открыты именно вам, проверьте тариф до старта.</p>
+
+<p>В <a href="https://getcourse.ru/help/api" target="_blank" rel="noopener nofollow">справке по API GetCourse</a> три блока: импорт пользователей с добавлением в группы, импорт заказов, экспорт пользователей, групп, заказов и платежей. При создании заказа можно попросить в ответе ссылку на страницу оплаты. Ограничения там же. API доступно только на платных тарифах. На создание новых объектов действует месячный лимит, он зависит от тарифа, изменение уже созданных объектов в лимит не входит. Экспорт ограничен 100 запросами за 2 часа, и для постоянной выгрузки новых данных GetCourse советует процессы с операцией «Вызвать URL».</p>
+
+<p>С мессенджерами тоже есть условия. В MAX бота подключают юрлица, ИП и самозанятые резиденты РФ после проверки профиля, и бот проходит модерацию, это написано на dev.max.ru. В Telegram бот создаётся через @BotFather за пару минут. И одно правило, о котором забывают чаще всего: в документации Telegram прямо сказано, что бот не может начать диалог первым, человек должен написать ему сам.</p>
+
+<aside class="blog-inline-tg" aria-label="Обсудить задачу">
+  <div class="blog-inline-tg-body">
+    <p class="blog-inline-tg-title">Нужна CRM под ваш бизнес?</p>
+    <p>Опишите задачу в двух словах — отвечу в Telegram, что подойдёт, сколько займёт и сколько стоит. Сообщение уже подготовлено.</p>
+  </div>
+  <div class="blog-inline-tg-actions">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%98%D0%BD%D1%82%D0%B5%D0%B3%D1%80%D0%B0%D1%86%D0%B8%D1%8F%20YCLIENTS%20%D1%81%20%D0%B1%D0%BE%D1%82%D0%BE%D0%BC%20%D0%B8%20GetCourse%3A%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D1%8C%2C%20%D0%BA%D1%83%D1%80%D1%81%D1%8B%2C%20%D1%80%D0%BE%D0%B7%D1%8B%D0%B3%D1%80%D1%8B%D1%88%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20CRM%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B3%D0%BE%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0." target="_blank" rel="noopener" class="btn btn-accent"><i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram</a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+  </div>
+</aside>
+<h2 id="zapis-v-yclients">Запись из бота в YCLIENTS</h2>
+
+<p>Бот берёт из YCLIENTS услуги, педагогов и свободное время в момент запроса. Клиент выбирает окно, подтверждает телефон, запись появляется в журнале рядом с записями с ресепшена. Для мастер-классов и групповых занятий в YCLIENTS есть групповые события с числом мест, и бот записывает на них так же, пока места не кончились.</p>
+
+<p>Напоминания с кнопками «приду», «перенести», «отменить» и возврат клиентов на повторный визит я подробно разбирал в статье <a href="/blog/yclients-bot-max-napominaniya-2026/">про YCLIENTS и бот в MAX</a>. В этой связке они работают так же, добавляются только курсы и механики для учеников.</p>
+
+<h2 id="oplata-kursa">Оплата курса и доступ в GetCourse</h2>
+
+<p>Ученик выбирает курс в боте. Бот создаёт пользователя и заказ в GetCourse и получает ссылку на оплату. Человек платит на странице GetCourse, деньги идут туда же, куда шли раньше. По справке GetCourse о настройке доступа к тренингу, после оплаты заказ получает статус «Завершён», и формируется покупка, которая открывает доступ к тренингу. Процесс с операцией «Вызвать URL» сообщает боту об оплате, бот пишет ученику, что уроки открыты, и ставит отметку в таблицу.</p>
+
+<p>Своя касса и свой кабинет обучения в этой схеме не нужны. Если же GetCourse уже тесен и вы думаете о своей платформе, сначала прочитайте разбор <a href="/blog/svoya-platforma-obucheniya-vmesto-getcourse-kogda-nuzhna-2026/">когда стоит уходить с GetCourse</a>. Чаще выгоднее остаться и достроить вокруг него бота.</p>
+
+<p>Если у вас похожая пара сервисов, я соберу бота под вашу схему: <a href="/development/telegram-bots/">разработка ботов для Telegram</a> и <a href="/development/max-bots/">ботов для MAX</a>.</p>
+
+<h2 id="rozygrysh-i-priglasheniya">Розыгрыш и «приведи подругу» для учеников</h2>
+
+<p>У каждого ученика в боте своя ссылка-приглашение. Подруга переходит по ней, бот запоминает, кто её привёл. Билет в розыгрыш или бонус я засчитываю после того, как визит подруги отмечен в YCLIENTS или её заказ оплачен в GetCourse. Так в зачёт не попадают пустые переходы и вторые аккаунты.</p>
+
+<p>Правила розыгрыша лучше открыть заранее: кто участвует, сколько билетов за что, когда и как выбирают победителя. Про положение, налог с приза и чеки я писал в статье <a href="/blog/rozygrysh-prizov-v-messendzhere-pravila-nalog-cheki-2026/">как провести розыгрыш в чате по правилам</a>, юридическую часть всё равно сверьте с юристом. Как выглядит розыгрыш с проверяемым выбором победителя в живом проекте, видно в <a href="/blog/kafe-nacionalnoy-kuhni-bot-max-rozygryshi-keys-2026/">кейсе кафе с ботом в MAX</a>.</p>
+
+<h2 id="tablica-vmesto-crm">Таблица вместо своей CRM</h2>
+
+<p>Клиенты и визиты лежат в YCLIENTS, заказы и оплаты в GetCourse. Бот дописывает в таблицу то, чего нет ни там, ни там: источник, кто пригласил, билеты, статус участия. Владелец открывает таблицу и видит картину целиком без отдельной CRM.</p>
+
+<p>У Google-таблиц свои лимиты: по документации Google Sheets API это 300 запросов на чтение и 300 на запись в минуту на проект и по 60 в минуту на пользователя, при превышении приходит ошибка 429. Бот пишет в таблицу через очередь, пачками. Есть и правовой вопрос. Часть 5 статьи 18 152-ФЗ требует первичную запись и хранение персональных данных граждан РФ в базах на территории России, а где физически лежат данные Google-таблицы, вы не выбираете. Поэтому телефоны и имена я в таблицу не кладу, только внутренние номера, источник и статусы. Как это применить к вашей схеме, сверьте с юристом.</p>
+
+<h2 id="kak-ya-delayu">Как я собираю такую связку</h2>
+
+<p>Недавно я разбирал такую задачу для детской студии: занятия записывались в YCLIENTS, онлайн-курсы и оплата шли через GetCourse, а владелец хотел бота с витриной и розыгрышем без своей CRM. Проект пока на стадии ТЗ, до запуска не дошёл, но на нём хорошо видна методика.</p>
+
+<ol>
+<li>Рисую карту данных: где живут записи, визиты, заказы, теги и группы. Для каждого поля один источник правды.</li>
+<li>Проверяю доступы: тариф GetCourse с API, ключ партнёра YCLIENTS, права пользователя филиала. Без этого оценка ничего не стоит.</li>
+<li>Планирую первую волну по старой базе. В Telegram бот не пишет первым, поэтому спящих клиентов зовём рассылкой GetCourse по своей базе со ссылкой в бот, без массовых сообщений с личных номеров.</li>
+<li>Описываю механики с подсчётом по факту: билет за подругу с выбранной возрастной группой, награда за каждую приглашённую, засчёт по визиту или оплате.</li>
+<li>Связываю сервисы напрямую через API. Готовые коннекторы удобны на старте, но в длинной цепочке сбой труднее заметить. Прямые вызовы с очередью, повтором и журналом проще отследить.</li>
+<li>Выкладываю правила розыгрыша в бот и веду журнал всех начислений, чтобы спор решался за минуту.</li>
+</ol>
+
+<h2 id="ogranicheniya">Ограничения и риски</h2>
+
+<p>Лимиты. 200 запросов в минуту у YCLIENTS хватает с запасом, если бот спрашивает свободное время по требованию и не опрашивает расписание каждую секунду. Месячный лимит GetCourse на новые объекты стоит посчитать заранее, если вы планируете большой розыгрыш. Как интеграция тихо теряет данные на ошибках 429 и 503, я разбирал в статье <a href="/blog/integraciya-molcha-teryaet-zakazy-moysklad-503-429-2026/">про потерянные заказы в МойСклад</a>, там те же приёмы.</p>
+
+<p>Тарифы. API GetCourse закрыто на ознакомительном тарифе, доступ к API YCLIENTS и вебхукам тоже зависит от тарифа и прав, проверьте тариф до оценки. Сроки. Регистрация в маркетплейсе YCLIENTS, проверка профиля и модерация <a href="https://chimitdorzhi.tech/development/max-bots/" class="blog-inline-link">бота в MAX</a> занимают дни, их я закладываю в план с первой недели.</p>
+
+<h2 id="skolko-stoit">Сколько стоит</h2>
+
+<p>По <a href="/ceny/">моему прайсу</a> бот для бизнеса с оплатой, записью, розыгрышами и партнёрской программой стоит от 80 000 ₽, срок от 2 недель. Обмен данными между системами, CRM и ботом считается от 40 000 ₽. Полноценная программа лояльности с баллами и «приведи друга» начинается от 150 000 ₽ и от 3 недель. Точную цену называю после карты данных и проверки тарифов.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+
+<h3>Как сделать интеграцию YCLIENTS с ботом?</h3>
+<p>Зарегистрироваться в маркетплейсе интеграций YCLIENTS и получить ключ партнёра, выдать боту ключ пользователя с правами на записи, дальше бот берёт свободное время и создаёт записи через API.</p>
+
+<h3>Можно ли сделать бота GetCourse в Telegram?</h3>
+<p>Да. Бот создаёт пользователя и заказ через API GetCourse, отдаёт ссылку на оплату, а доступ к тренингу открывает сам GetCourse после оплаты. Нужен платный тариф.</p>
+
+<h3>Бот для записи YCLIENTS в MAX: что нужно для запуска?</h3>
+<p>Профиль юрлица, ИП или самозанятого в MAX для партнёров, модерация бота и доступ к API YCLIENTS. Логика записи та же, что в Telegram.</p>
+
+<h3>Можно ли провести розыгрыш среди учеников без своей CRM?</h3>
+<p>Можно. Приглашения и билеты считает бот, визиты и оплаты подтверждают YCLIENTS и GetCourse, сводка лежит в таблице.</p>
+
+<h3>Бот может сам написать всей старой базе?</h3>
+<p>В Telegram нет, бот не начинает диалог первым. Старую базу зовут рассылкой GetCourse со ссылкой на бота.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+
+<p>Если YCLIENTS и GetCourse уже работают, менять их ради мессенджера незачем. Бот поверх них берёт на себя вход, запись, продажу курса и механики для учеников, таблица собирает сводку. Слабые места известны заранее: тарифы, лимиты API, модерация в MAX и правило Telegram, что бот не пишет первым.</p>
+
+<p>Напишите мне в Telegram кодовое слово «СВЯЗКА», и я посмотрю ваши тарифы YCLIENTS и GetCourse и скажу, что из записи, оплаты курса и розыгрыша соберётся без своей CRM.</p>
+
+                    </div>
+                    
+
+                    
+                    
+                    
+                    <div class="blog-cta-card">
+                        <div class="blog-cta-card-body">
+                            <h3>Всё о мессенджере MAX в одном месте</h3>
+                            <p>Эта статья — часть кластера материалов о MAX: разработка ботов и мини-аппов, продвижение канала, воронки, отраслевые сценарии и кейсы с реальными результатами.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="/blog/max-messendzher-dlya-biznesa-2026/" class="btn btn-accent"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> Опорная страница по MAX</a>
+                        </div>
+                    </div>
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Обсудим вашу задачу</div>
+  <h3 class="blog-services-offer-title">Бот поверх YCLIENTS и GetCourse</h3>
+  <p class="blog-services-offer-lead">Напишите одной фразой, что нужно. Отвечу, что подойдёт, сколько займёт и сколько стоит. Сообщение уже подготовлено.</p>
+  <ul class="blog-services-offer-list"><li><i class="ph-fill ph-calendar-check"></i> <span>Запись из бота в расписание YCLIENTS</span></li><li><i class="ph-fill ph-graduation-cap"></i> <span>Оплата курса и доступ в GetCourse</span></li><li><i class="ph-fill ph-gift"></i> <span>Розыгрыш и приглашения для учеников</span></li><li><i class="ph-fill ph-table"></i> <span>Сводная таблица без своей CRM</span></li></ul>
+  <div class="blog-services-offer-ctas">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%98%D0%BD%D1%82%D0%B5%D0%B3%D1%80%D0%B0%D1%86%D0%B8%D1%8F%20YCLIENTS%20%D1%81%20%D0%B1%D0%BE%D1%82%D0%BE%D0%BC%20%D0%B8%20GetCourse%3A%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D1%8C%2C%20%D0%BA%D1%83%D1%80%D1%81%D1%8B%2C%20%D1%80%D0%BE%D0%B7%D1%8B%D0%B3%D1%80%D1%8B%D1%88%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20CRM%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B3%D0%BE%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0." target="_blank" rel="noopener" class="blog-services-offer-cta">
+      <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
+    </a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="blog-services-offer-cta blog-services-offer-cta-max">
+      <i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> Написать в MAX
+    </a>
+    <a href="https://chimitdorzhi.tech/development/max-bots/" class="blog-services-offer-cta blog-services-offer-cta-max"><i class="ph ph-arrow-right" aria-hidden="true"></i> Бот в MAX поверх YCLIENTS и GetCourse</a>
+  </div>
+</div>
+                    
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/yclients-bot-max-napominaniya-2026/" data-category="industries" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-calendar-check"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Отрасли</span>
+  <h3>YCLIENTS и бот в MAX: запись, напоминания и возврат клиентов в одной связке</h3>
+  <p>Менять сервис записи не нужно — нужно подключить к нему мессенджер. Показываю, как бот в MAX записывает в то же расписание, напоминает о визите и зовёт клиентов вернуться.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 19 сентября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 5 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/svoya-platforma-obucheniya-vmesto-getcourse-kogda-nuzhna-2026/" data-category="biznes-krugozor" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-graduation-cap"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Бизнес-кругозор</span>
+  <h3>Уходить ли с GetCourse: когда нужен свой кабинет обучения</h3>
+  <p>Разбираю, стоит ли эксперту или школе уходить с конструктора курсов. Честно: чаще лучше остаться, а свой кабинет оправдан при особой механике, выросшей плате и требованиях к данным. Внутри таблица сравнения, условный расчёт на три года, лицензия, персональные данные и перенос.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 8 октября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/rozygrysh-prizov-v-messendzhere-pravila-nalog-cheki-2026/" data-category="biznes-krugozor" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-gift"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Бизнес-кругозор</span>
+  <h3>Как провести розыгрыш в чате по правилам: положение, налог, чеки</h3>
+  <p>Разбираю, как оформить розыгрыш в Telegram или MAX: что писать в положении, где проходит граница с лотереей, какой налог возникает с приза и нужен ли чек. Что я проверил по первоисточникам и что оставил вопросом юристу или бухгалтеру, помечено в тексте.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 8 октября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/kafe-nacionalnoy-kuhni-bot-max-rozygryshi-keys-2026/" data-category="cases" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-bowl-food"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Кейсы</span>
+  <h3>Кафе, сайт и розыгрыши в мессенджере: как это работает вместе</h3>
+  <p>Розыгрыши среди гостей вели вручную: номерки записывали, оплату сверяли в переписке. Собрал связку «сайт плюс бот плюс админка», где номерок покупают в чате, а победителя можно перепроверить.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 17 сентября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 5 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    <section class="blog-subscribe">
+  <div class="blog-subscribe-body">
+    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
+    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
+  </div>
+  <div class="blog-subscribe-actions">
+    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
+  </div>
+</section>
+                    
+                    
+                    
+                    
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow"><span class="b-l b-l-ru">Готовые решения под ключ</span><span class="b-l b-l-en" lang="en">Turnkey solutions</span><span class="b-l b-l-es" lang="es">Soluciones llave en mano</span><span class="b-l b-l-cn" lang="zh">交钥匙解决方案</span><span class="b-l b-l-mn" lang="mn">Түлхүүр гардуулах шийдэл</span></span>
+                            <span class="blog-offer-cta-title"><span class="b-l b-l-ru">451 готовых IT-решений для бизнеса</span><span class="b-l b-l-en" lang="en">451 ready-made IT solutions for business</span><span class="b-l b-l-es" lang="es">451 soluciones IT listas para empresas</span><span class="b-l b-l-cn" lang="zh">451 个面向企业的现成 IT 解决方案</span><span class="b-l b-l-mn" lang="mn">Бизнест зориулсан 451 бэлэн IT шийдэл</span></span>
+                            <span class="blog-offer-cta-price"><span class="b-l b-l-ru">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span><span class="b-l b-l-en" lang="en">Automation, bots, AI, data privacy and platforms · free consultation</span><span class="b-l b-l-es" lang="es">Automatización, bots, IA, privacidad de datos y plataformas · consulta gratis</span><span class="b-l b-l-cn" lang="zh">自动化、机器人、AI、数据合规与平台 · 免费咨询</span><span class="b-l b-l-mn" lang="mn">Автоматжуулалт, бот, AI, өгөгдлийн хамгаалалт ба платформ · үнэгүй зөвлөгөө</span></span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> <span class="b-l b-l-ru">Смотреть каталог</span><span class="b-l b-l-en" lang="en">View catalog</span><span class="b-l b-l-es" lang="es">Ver catálogo</span><span class="b-l b-l-cn" lang="zh">查看目录</span><span class="b-l b-l-mn" lang="mn">Каталог үзэх</span></span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#chto-takoe-svyazka"><span class="blog-toc-num">01</span> Что такое интеграция YCLIENTS с ботом и GetCourse</a></li>
+<li><a href="#chto-otkryto-v-api"><span class="blog-toc-num">02</span> Что открыто в API YCLIENTS и GetCourse</a></li>
+<li><a href="#zapis-v-yclients"><span class="blog-toc-num">03</span> Запись из бота в YCLIENTS</a></li>
+<li><a href="#oplata-kursa"><span class="blog-toc-num">04</span> Оплата курса и доступ в GetCourse</a></li>
+<li><a href="#rozygrysh-i-priglasheniya"><span class="blog-toc-num">05</span> Розыгрыш и «приведи подругу» для учеников</a></li>
+<li><a href="#tablica-vmesto-crm"><span class="blog-toc-num">06</span> Таблица вместо своей CRM</a></li>
+<li><a href="#kak-ya-delayu"><span class="blog-toc-num">07</span> Как я собираю такую связку</a></li>
+<li><a href="#ogranicheniya"><span class="blog-toc-num">08</span> Ограничения и риски</a></li>
+<li><a href="#skolko-stoit"><span class="blog-toc-num">09</span> Сколько стоит</a></li>
+<li><a href="#faq"><span class="blog-toc-num">10</span> Частые вопросы</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">11</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+971563369591" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +971 56 336 9591</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">RA Standard - F.Z.E</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_licence">Лицензия 57033</span><span> · </span><span data-i18n="footer.legal_authority">Free Zones Authority of Ajman</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">Эмират Аджман, ОАЭ</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/cases/" class="footer-policy-link">Кейсы</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=44" defer></script>
+<script src="/services-i18n.js?v=44" defer></script>
+<script src="/script.js?v=41" defer></script>
+<script src="/search-widget.js?v=1" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>
