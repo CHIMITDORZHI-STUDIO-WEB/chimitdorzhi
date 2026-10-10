@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2456**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2461**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -1067,6 +1067,8 @@
 ## Маркетинг
 
 - [geo-seo-claude: видит ли ИИ-поиск ваш сайт и чего набор не умеет](./geo-seo-claude-proverka-vidimosti-sayta-v-otvetah-ii-poiska-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/geo-seo-claude-proverka-vidimosti-sayta-v-otvetah-ii-poiska-2026/)
+- [Как получать заявки из Telegram-канала: кнопка под постом и бот](./telegram-kanal-zayavki-knopka-pod-postom-bot-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/telegram-kanal-zayavki-knopka-pod-postom-bot-2026/)
+- [Сбор отзывов после визита: бот просит оценку, жалобу видит управляющий](./bot-ocenka-posle-vizita-negativ-upravlyayushchemu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bot-ocenka-posle-vizita-negativ-upravlyayushchemu-2026/)
 - [Где теряются заявки: Rybbit покажет воронку и запишет сессии](./rybbit-veb-analitika-s-voronkami-i-zapisyu-sessiy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/rybbit-veb-analitika-s-voronkami-i-zapisyu-sessiy-2026/)
 - [Фото товара в нужной сцене без студии: FLUX 3 Image и граница обмана](./flux-3-image-foto-tovara-v-nuzhnoy-scene-bez-studii-granica-obmana-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/flux-3-image-foto-tovara-v-nuzhnoy-scene-bez-studii-granica-obmana-2026/)
 - [Рекламный ролик из ИИ за 90 центов: что даёт HeyGen Video](./reklamnyy-rolik-iz-ii-za-90-centov-heygen-video-chto-poluchitsya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/reklamnyy-rolik-iz-ii-za-90-centov-heygen-video-chto-poluchitsya-2026/)
@@ -1090,7 +1092,7 @@
 - [Автозагрузка на Авито: хватит копировать объявления руками](./avtozagruzka-obyavleniy-avito-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avtozagruzka-obyavleniy-avito-2026/)
 - [Некому вести соцсети? ИИ пишет посты за вас каждую неделю](./ii-vedet-socseti-kontent-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-vedet-socseti-kontent-2026/)
 - [ИИ ведёт клиента после покупки: напоминает, допродаёт, возвращает](./ii-vedet-klienta-posle-pokupki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-vedet-klienta-posle-pokupki-2026/)
-- [QR на столе: доволен — отзыв на картах, недоволен — пишет вам](./sbor-otzyvov-cherez-qr-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sbor-otzyvov-cherez-qr-2026/)
+- [QR на столе: ссылка на отзыв для всех, жалобы сразу вам](./sbor-otzyvov-cherez-qr-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sbor-otzyvov-cherez-qr-2026/)
 - [Отчёт по рекламе руками из пяти кабинетов: собираем дашборд](./svodka-po-reklame-dashboard-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/svodka-po-reklame-dashboard-2026/)
 - [Лид написал ночью, ответили утром: он купил у другого](./mgnovennyy-avtootvet-lidu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/mgnovennyy-avtootvet-lidu-2026/)
 - [Скидка съедает прибыль. Бонусные баллы возвращают клиента](./bally-vmesto-skidok-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bally-vmesto-skidok-2026/)
@@ -1230,6 +1232,8 @@
 - [Проверка авто из Китая по VIN: что покажет отчёт и как встроить в сайт](./proverka-avto-iz-kitaya-po-vin-istoriya-probeg-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/proverka-avto-iz-kitaya-po-vin-istoriya-probeg-2026/)
 - [Сайт агентства недвижимости в Дубае для покупателей из России](./sayt-agentstva-nedvizhimosti-v-dubae-dlya-pokupateley-iz-rossii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-agentstva-nedvizhimosti-v-dubae-dlya-pokupateley-iz-rossii-2026/)
 - [3D-тур для гостиницы, базы отдыха и салона: зачем и сколько стоит](./3d-tur-dlya-gostinicy-bazy-otdyha-salona-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/3d-tur-dlya-gostinicy-bazy-otdyha-salona-2026/)
+- [Подписка на кофе: как кофейне продавать абонемент на напитки](./podpiska-na-kofe-abonement-kofeyni-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/podpiska-na-kofe-abonement-kofeyni-2026/)
+- [Организация корпоративов в ресторане: онлайн-бронь банкета и депозит](./novogodnie-korporativy-banket-bron-depozit-restoran-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/novogodnie-korporativy-banket-bron-depozit-restoran-2026/)
 - [OpenCADStudio: бесплатный CAD, который открывает DWG и DXF](./opencadstudio-cherchenie-dwg-i-dxf-besplatno-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/opencadstudio-cherchenie-dwg-i-dxf-besplatno-2026/)
 - [Связь без интернета и сети: Meshtastic для групп и объектов](./meshtastic-svyaz-bez-interneta-i-sotovoy-seti-dlya-grupp-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/meshtastic-svyaz-bez-interneta-i-sotovoy-seti-dlya-grupp-2026/)
 - [Обмен с ЕГАИС встал: диагностика для магазина пива и сигарет](./egais-magazin-piva-i-sigaret-roznitsa-utm-oshibki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/egais-magazin-piva-i-sigaret-roznitsa-utm-oshibki-2026/)
@@ -1615,6 +1619,7 @@
 
 - [Техсбор с 1 декабря 2026: что платит импортёр ноутбуков и смартфонов](./tehnologicheskiy-sbor-s-1-dekabrya-2026-chto-platit-importer-noutbukov-i-smartfonov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/tehnologicheskiy-sbor-s-1-dekabrya-2026-chto-platit-importer-noutbukov-i-smartfonov-2026/)
 - [Молочка с 1 ноября 2026: партионный учёт вместо поэкземплярного](./molochnaya-produkciya-s-1-noyabrya-2026-partionnyy-uchet-ostatki-kassa-upd-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/molochnaya-produkciya-s-1-noyabrya-2026-partionnyy-uchet-ostatki-kassa-upd-2026/)
+- [Требования к сайту медицинской организации в 2026: что разместить](./sayt-medicinskoy-kliniki-trebovaniya-zakona-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-medicinskoy-kliniki-trebovaniya-zakona-2026/)
 - [Вход на сайт по закону: 4 способа авторизации и штрафы с 7 июля](./avtorizaciya-na-sayte-i-v-prilozhenii-199-fz-kakie-sposoby-dopustimy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avtorizaciya-na-sayte-i-v-prilozhenii-199-fz-kakie-sposoby-dopustimy-2026/)
 - [Рекомендательные технологии на сайте: что раскрыть и штрафы](./rekomendatelnye-tehnologii-na-sayte-199-fz-pohozhie-tovary-podborki-lenta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/rekomendatelnye-tehnologii-na-sayte-199-fz-pohozhie-tovary-podborki-lenta-2026/)
 - [Платежи без ИП и в USDT: что законно и чем рискует владелец бота](./priem-platezhey-bez-ip-i-v-usdt-chto-zakonno-i-chem-riskuet-vladelec-bota-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/priem-platezhey-bez-ip-i-v-usdt-chto-zakonno-i-chem-riskuet-vladelec-bota-2026/)
