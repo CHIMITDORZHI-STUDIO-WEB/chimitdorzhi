@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2461**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2466**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -329,6 +329,8 @@
 
 ## Open-source и свой сервер
 
+- [OpenScreen: видео-инструкции с экрана для команды и клиентов](./openscreen-zapis-ekrana-video-instrukciya-dlya-sotrudnikov-i-klientov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/openscreen-zapis-ekrana-video-instrukciya-dlya-sotrudnikov-i-klientov-2026/)
+- [VERT: конвертер файлов без загрузки на чужие серверы](./vert-konverter-faylov-bez-zagruzki-na-chuzhie-servery-250-formatov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vert-konverter-faylov-bez-zagruzki-na-chuzhie-servery-250-formatov-2026/)
 - [Фото поставщика 600 пикселей: Final2x увеличит без облака](./final2x-uluchshit-razreshenie-foto-postavshchika-lokalno-bez-oblaka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/final2x-uluchshit-razreshenie-foto-postavshchika-lokalno-bez-oblaka-2026/)
 - [Grist: таблицы с типами и формулами на Python вместо Excel-хаоса](./grist-tablicy-s-tipami-i-formulami-na-python-vmesto-excel-haosa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/grist-tablicy-s-tipami-i-formulami-na-python-vmesto-excel-haosa-2026/)
 - [OpenReel: видеоредактор в браузере без водяных знаков](./openreel-videoredaktor-v-brauzere-bez-vodyanyh-znakov-chto-montirovat-samim-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/openreel-videoredaktor-v-brauzere-bez-vodyanyh-znakov-chto-montirovat-samim-2026/)
@@ -615,6 +617,7 @@
 
 ## Безопасность
 
+- [Сбой дата-центра у облачного провайдера: что делать сайту, боту и CRM](./sboy-dc-oblachnogo-provaydera-yandex-cloud-chto-delat-saytu-botu-crm-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sboy-dc-oblachnogo-provaydera-yandex-cloud-chto-delat-saytu-botu-crm-2026/)
 - [Песочница для ИИ-агента на ПК: Windows 11 MXC и Copilot](./pesochnica-dlya-ii-agenta-na-kompyutere-windows-11-mxc-i-github-copilot-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pesochnica-dlya-ii-agenta-na-kompyutere-windows-11-mxc-i-github-copilot-2026/)
 - [API ChatGPT в России для бизнеса: риски посредников и альтернативы](./api-chatgpt-v-rossii-dlya-biznesa-riski-posrednikov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/api-chatgpt-v-rossii-dlya-biznesa-riski-posrednikov-2026/)
 - [Краулеры и ИИ-агенты перегружают сайты: что у Wikimedia и у вас](./ii-agenty-i-krauleri-peregruzhayut-sayty-wikimedia-kak-zashchitit-svoy-sayt-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-agenty-i-krauleri-peregruzhayut-sayty-wikimedia-kak-zashchitit-svoy-sayt-2026/)
@@ -1617,6 +1620,7 @@
 
 ## Право и 152-ФЗ
 
+- [Домен через Госуслуги: кого касается и что будет с сайтом](./identifikaciya-vladeltsa-domena-cherez-gosuslugi-149-fz-kogo-kasaetsya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/identifikaciya-vladeltsa-domena-cherez-gosuslugi-149-fz-kogo-kasaetsya-2026/)
 - [Техсбор с 1 декабря 2026: что платит импортёр ноутбуков и смартфонов](./tehnologicheskiy-sbor-s-1-dekabrya-2026-chto-platit-importer-noutbukov-i-smartfonov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/tehnologicheskiy-sbor-s-1-dekabrya-2026-chto-platit-importer-noutbukov-i-smartfonov-2026/)
 - [Молочка с 1 ноября 2026: партионный учёт вместо поэкземплярного](./molochnaya-produkciya-s-1-noyabrya-2026-partionnyy-uchet-ostatki-kassa-upd-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/molochnaya-produkciya-s-1-noyabrya-2026-partionnyy-uchet-ostatki-kassa-upd-2026/)
 - [Требования к сайту медицинской организации в 2026: что разместить](./sayt-medicinskoy-kliniki-trebovaniya-zakona-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-medicinskoy-kliniki-trebovaniya-zakona-2026/)
@@ -2338,6 +2342,7 @@
 
 ## Экспертное
 
+- [ИИ плохо видит: что показал Humanity's Sixth Sense в проверке по фото](./ii-ploho-vidit-humanitys-sixth-sense-chto-eto-znachit-dlya-proverki-po-foto-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-ploho-vidit-humanitys-sixth-sense-chto-eto-znachit-dlya-proverki-po-foto-2026/)
 - [GPT-6 Intelligent UI: ответ как интерфейс, что взять в свой бот](./gpt-6-intelligent-ui-otvet-kak-interfeys-chto-povtorit-v-svoem-bote-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gpt-6-intelligent-ui-otvet-kak-interfeys-chto-povtorit-v-svoem-bote-2026/)
 - [Claude Haiku 5.5: самая дешёвая модель для массовых простых задач](./claude-haiku-5-5-samaya-deshevaya-model-dlya-massovyh-prostyh-zadach-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/claude-haiku-5-5-samaya-deshevaya-model-dlya-massovyh-prostyh-zadach-2026/)
 - [Сколько стоит выполненная задача агента: разбор Hermes Index](./skolko-stoit-vypolnennaya-zadacha-agenta-a-ne-token-hermes-index-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-stoit-vypolnennaya-zadacha-agenta-a-ne-token-hermes-index-2026/)
