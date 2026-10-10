@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2453**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2456**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -1066,6 +1066,7 @@
 
 ## Маркетинг
 
+- [geo-seo-claude: видит ли ИИ-поиск ваш сайт и чего набор не умеет](./geo-seo-claude-proverka-vidimosti-sayta-v-otvetah-ii-poiska-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/geo-seo-claude-proverka-vidimosti-sayta-v-otvetah-ii-poiska-2026/)
 - [Где теряются заявки: Rybbit покажет воронку и запишет сессии](./rybbit-veb-analitika-s-voronkami-i-zapisyu-sessiy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/rybbit-veb-analitika-s-voronkami-i-zapisyu-sessiy-2026/)
 - [Фото товара в нужной сцене без студии: FLUX 3 Image и граница обмана](./flux-3-image-foto-tovara-v-nuzhnoy-scene-bez-studii-granica-obmana-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/flux-3-image-foto-tovara-v-nuzhnoy-scene-bez-studii-granica-obmana-2026/)
 - [Рекламный ролик из ИИ за 90 центов: что даёт HeyGen Video](./reklamnyy-rolik-iz-ii-za-90-centov-heygen-video-chto-poluchitsya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/reklamnyy-rolik-iz-ii-za-90-centov-heygen-video-chto-poluchitsya-2026/)
@@ -1852,6 +1853,8 @@
 - [Макрос вместо ручного ввода: CrossMacro для старых программ](./crossmacro-zapis-i-povtor-deystviy-mishi-i-klaviatury-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/crossmacro-zapis-i-povtor-deystviy-mishi-i-klaviatury-2026/)
 - [Код есть, схемы нет: ИИ рисует архитектуру проекта](./oh-my-mermaid-shemy-arhitektury-po-kodu-proekta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/oh-my-mermaid-shemy-arhitektury-po-kodu-proekta-2026/)
 - [Посмотреть базу бота без программиста: DB Browser for SQLite](./db-browser-for-sqlite-posmotret-bazu-bota-bez-programmista-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/db-browser-for-sqlite-posmotret-bazu-bota-bez-programmista-2026/)
+- [Принять интеграцию без Postman: бесплатный клиент Tetiva](./client-besplatnyy-klient-http-grpc-graphql-dlya-proverki-integraciy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/client-besplatnyy-klient-http-grpc-graphql-dlya-proverki-integraciy-2026/)
+- [Проверить обновление 1С на копии: Quickemu вместо рабочего ПК](./quickemu-virtualnaya-mashina-s-windows-odnoy-komandoy-dlya-starogo-po-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/quickemu-virtualnaya-mashina-s-windows-odnoy-komandoy-dlya-starogo-po-2026/)
 - [Сайт для бизнеса в ОАЭ: два языка, оплата, домен .ae и закон](./sayt-dlya-biznesa-v-oae-yazyki-oplata-domen-zakon-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-dlya-biznesa-v-oae-yazyki-oplata-domen-zakon-2026/)
 - [robots.txt для ИИ-краулеров в Тильде: как открыть сайт нейросетям](./robots-txt-dlya-ii-kraulerov-tilda-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/robots-txt-dlya-ii-kraulerov-tilda-2026/)
 - [Интеграция YCLIENTS с ботом и GetCourse: запись, курсы, розыгрыш](./integraciya-yclients-s-botom-i-getcourse-bez-crm-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/integraciya-yclients-s-botom-i-getcourse-bez-crm-2026/)
