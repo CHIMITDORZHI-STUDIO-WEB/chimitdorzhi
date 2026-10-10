@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2443**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2448**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -329,6 +329,7 @@
 
 ## Open-source и свой сервер
 
+- [Фото поставщика 600 пикселей: Final2x увеличит без облака](./final2x-uluchshit-razreshenie-foto-postavshchika-lokalno-bez-oblaka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/final2x-uluchshit-razreshenie-foto-postavshchika-lokalno-bez-oblaka-2026/)
 - [Grist: таблицы с типами и формулами на Python вместо Excel-хаоса](./grist-tablicy-s-tipami-i-formulami-na-python-vmesto-excel-haosa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/grist-tablicy-s-tipami-i-formulami-na-python-vmesto-excel-haosa-2026/)
 - [OpenReel: видеоредактор в браузере без водяных знаков](./openreel-videoredaktor-v-brauzere-bez-vodyanyh-znakov-chto-montirovat-samim-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/openreel-videoredaktor-v-brauzere-bez-vodyanyh-znakov-chto-montirovat-samim-2026/)
 - [YTsaurus Flow: когда магазину нужны данные сразу, а не по ночам](./ytsaurus-flow-potokovaya-obrabotka-sobytiy-kogda-magazinu-nuzhny-dannye-srazu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ytsaurus-flow-potokovaya-obrabotka-sobytiy-kogda-magazinu-nuzhny-dannye-srazu-2026/)
@@ -614,6 +615,7 @@
 
 ## Безопасность
 
+- [Песочница для ИИ-агента на ПК: Windows 11 MXC и Copilot](./pesochnica-dlya-ii-agenta-na-kompyutere-windows-11-mxc-i-github-copilot-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pesochnica-dlya-ii-agenta-na-kompyutere-windows-11-mxc-i-github-copilot-2026/)
 - [Краулеры и ИИ-агенты перегружают сайты: что у Wikimedia и у вас](./ii-agenty-i-krauleri-peregruzhayut-sayty-wikimedia-kak-zashchitit-svoy-sayt-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-agenty-i-krauleri-peregruzhayut-sayty-wikimedia-kak-zashchitit-svoy-sayt-2026/)
 - [Windows 10 без обновлений: что делать офису в 2026 году](./windows-10-bez-obnovleniy-chto-delat-ofisu-esu-windows-11-alternativy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/windows-10-bez-obnovleniy-chto-delat-ofisu-esu-windows-11-alternativy-2026/)
 - [SSL-сертификаты на 200 дней, с 2027 на 100: автопродление без падений](./srok-zhizni-ssl-sertifikatov-sokrashchaetsya-200-dney-avtoprodlenie-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/srok-zhizni-ssl-sertifikatov-sokrashchaetsya-200-dney-avtoprodlenie-2026/)
@@ -1607,6 +1609,8 @@
 
 ## Право и 152-ФЗ
 
+- [Техсбор с 1 декабря 2026: что платит импортёр ноутбуков и смартфонов](./tehnologicheskiy-sbor-s-1-dekabrya-2026-chto-platit-importer-noutbukov-i-smartfonov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/tehnologicheskiy-sbor-s-1-dekabrya-2026-chto-platit-importer-noutbukov-i-smartfonov-2026/)
+- [Молочка с 1 ноября 2026: партионный учёт вместо поэкземплярного](./molochnaya-produkciya-s-1-noyabrya-2026-partionnyy-uchet-ostatki-kassa-upd-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/molochnaya-produkciya-s-1-noyabrya-2026-partionnyy-uchet-ostatki-kassa-upd-2026/)
 - [Вход на сайт по закону: 4 способа авторизации и штрафы с 7 июля](./avtorizaciya-na-sayte-i-v-prilozhenii-199-fz-kakie-sposoby-dopustimy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avtorizaciya-na-sayte-i-v-prilozhenii-199-fz-kakie-sposoby-dopustimy-2026/)
 - [Рекомендательные технологии на сайте: что раскрыть и штрафы](./rekomendatelnye-tehnologii-na-sayte-199-fz-pohozhie-tovary-podborki-lenta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/rekomendatelnye-tehnologii-na-sayte-199-fz-pohozhie-tovary-podborki-lenta-2026/)
 - [Платежи без ИП и в USDT: что законно и чем рискует владелец бота](./priem-platezhey-bez-ip-i-v-usdt-chto-zakonno-i-chem-riskuet-vladelec-bota-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/priem-platezhey-bez-ip-i-v-usdt-chto-zakonno-i-chem-riskuet-vladelec-bota-2026/)
@@ -2321,6 +2325,7 @@
 
 ## Экспертное
 
+- [GPT-6 Intelligent UI: ответ как интерфейс, что взять в свой бот](./gpt-6-intelligent-ui-otvet-kak-interfeys-chto-povtorit-v-svoem-bote-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gpt-6-intelligent-ui-otvet-kak-interfeys-chto-povtorit-v-svoem-bote-2026/)
 - [Claude Haiku 5.5: самая дешёвая модель для массовых простых задач](./claude-haiku-5-5-samaya-deshevaya-model-dlya-massovyh-prostyh-zadach-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/claude-haiku-5-5-samaya-deshevaya-model-dlya-massovyh-prostyh-zadach-2026/)
 - [Сколько стоит выполненная задача агента: разбор Hermes Index](./skolko-stoit-vypolnennaya-zadacha-agenta-a-ne-token-hermes-index-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-stoit-vypolnennaya-zadacha-agenta-a-ne-token-hermes-index-2026/)
 - [Architect: как улучшать голосового бота по транскриптам звонков](./elevenlabs-architect-kak-uluchshat-golosovogo-bota-po-transkriptam-zvonkov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/elevenlabs-architect-kak-uluchshat-golosovogo-bota-po-transkriptam-zvonkov-2026/)
