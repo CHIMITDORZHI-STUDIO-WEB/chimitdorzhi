@@ -104,10 +104,10 @@ module.exports = [
   E({ slug: 'ii-bot-otzyvy-reputaciya-2026', category: 'marketing', heroIcon: 'ph-fill ph-star', ctaInternal: AGENTS, servicesOffer: SVC_BIZ,
     title: 'ИИ-бот для отзывов и репутации: собирает, отвечает, предупреждает',
     metaTitle: 'ИИ-бот для отзывов и репутации бизнеса',
-    metaDescription: 'Как ИИ-бот собирает отзывы, отвечает на них и ловит негатив раньше, чем он попадёт на карты и площадки. Управление репутацией на автомате. Разбираю на практике.',
-    excerpt: 'Один негативный отзыв на картах бьёт по выручке. Разбираю, как ИИ-бот сам собирает отзывы у довольных клиентов, отвечает на них и перехватывает негатив до публикации.',
+    metaDescription: 'Как ИИ-бот собирает отзывы у всех клиентов, отвечает на них и сразу сообщает о негативе, чтобы вы успели решить проблему. Без накрутки и фильтра по оценке.',
+    excerpt: 'Один негативный отзыв на картах бьёт по выручке. Разбираю, как ИИ-бот просит отзыв у каждого клиента, отвечает на опубликованные и сразу сообщает вам о низкой оценке, чтобы проблему решили по существу.',
     tags: ['отзывы', 'репутация', 'ИИ-бот', 'SERM'],
-    toc: [{ id: 'pochemu-vazhno', text: 'Почему отзывы решают' }, { id: 'chto-umeet', text: 'Что умеет ИИ-бот' }, { id: 'perehvat-negativa', text: 'Перехват негатива' }, { id: 'kak-vnedrit', text: 'Как внедрить' }, ...FAQ_VYV],
+    toc: [{ id: 'pochemu-vazhno', text: 'Почему отзывы решают' }, { id: 'chto-umeet', text: 'Что умеет ИИ-бот' }, { id: 'perehvat-negativa', text: 'Быстрая реакция на негатив' }, { id: 'kak-vnedrit', text: 'Как внедрить' }, ...FAQ_VYV],
     relatedSlugs: ['cifrovoy-sled-reputaciya-2026', 'ii-moderaciya-kontenta-2026', 'chat-bot-faq-podderzhka-telegram-max-2026', 'skvoznaya-analitika-malyy-biznes-2026'] }),
 
   E({ slug: 'zaschita-bota-ot-spama-atak-2026', category: 'security', heroIcon: 'ph-fill ph-shield-warning', ctaInternal: SEC, servicesOffer: SVC_SEC,
