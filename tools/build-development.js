@@ -17,6 +17,8 @@ const TODAY = new Date().toISOString().slice(0, 10);
 const TG = 'https://t.me/chimitdorzhi';
 const { METRIKA, maxBtn } = require('./metrika-snippet.js');
 const { casesSection } = require('./related-cases-html.js');
+// Маркировка запрещённых/заблокированных в РФ площадок: метки «*»/«**» в видимом тексте <main> и сноска внизу
+const RP = require('./restricted-platforms.js');
 
 const esc = (s) => String(s)
   .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -147,7 +149,7 @@ function tiersHtml(tiers) {
     ${idx === 1 ? '<div class="dev-tier-badge">Популярный</div>' : ''}
     <div class="dev-tier-name">${esc(t.name)}</div>
     <div class="dev-tier-price">${priceFrom(t.priceFrom)}</div>
-    <div class="dev-tier-note">*итоговая цена обсуждается</div>
+    <div class="dev-tier-note">Итоговая цена обсуждается</div>
     <ul class="dev-tier-features">
             ${features}
     </ul>
@@ -336,7 +338,7 @@ ${METRIKA}</head>
                     <p>18 продуктов — это типовые сценарии. Если у вас что-то нестандартное — напишите, разберёмся за 15 минут что подойдёт и сколько будет стоить.</p>
                     <a href="${TG}" target="_blank" rel="noopener" class="btn btn-accent btn-big"><i class="ph ph-telegram-logo"></i> Обсудить проект</a>
                     ${maxBtn('btn btn-ghost btn-big')}
-                    <p class="dev-cta-note">* Все цены — «от». Финальная стоимость зависит от объёма и сложности, обсуждается после брифа. Информация не является публичной офертой.</p>
+                    <p class="dev-cta-note">Все цены — «от». Финальная стоимость зависит от объёма и сложности, обсуждается после брифа. Информация не является публичной офертой.</p>
                 </div>
             </div>
         </section>
@@ -454,7 +456,7 @@ ${faqHtml(svc.faq)}
                     <p>За 15 минут разберёмся в задаче, обозначу примерные сроки и стоимость. Без обязательств и продаж.</p>
                     <a href="${TG}" target="_blank" rel="noopener" class="btn btn-accent btn-big"><i class="ph ph-telegram-logo"></i> Написать в Telegram</a>
                     ${maxBtn('btn btn-ghost btn-big')}
-                    <p class="dev-cta-note">* Информация не является публичной офертой. Финальная стоимость определяется индивидуально.</p>
+                    <p class="dev-cta-note">Информация не является публичной офертой. Финальная стоимость определяется индивидуально.</p>
                 </div>
             </div>
         </section>
@@ -504,13 +506,13 @@ function ensureDir(p) { fs.mkdirSync(p, { recursive: true }); }
 
 function main() {
   ensureDir(OUT_DIR);
-  fs.writeFileSync(path.join(OUT_DIR, 'index.html'), hubPage(), 'utf8');
+  fs.writeFileSync(path.join(OUT_DIR, 'index.html'), RP.applyToPage(hubPage()), 'utf8');
   console.log('✓ /development/index.html');
 
   for (const svc of services) {
     const dir = path.join(OUT_DIR, svc.slug);
     ensureDir(dir);
-    fs.writeFileSync(path.join(dir, 'index.html'), servicePage(svc), 'utf8');
+    fs.writeFileSync(path.join(dir, 'index.html'), RP.applyToPage(servicePage(svc)), 'utf8');
     console.log(`  ✓ /development/${svc.slug}/index.html`);
   }
 
