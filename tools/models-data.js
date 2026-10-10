@@ -150,12 +150,12 @@ const BASE = [
   },
   {
     id: 'qwen-image', name: 'Qwen-Image', developer: 'Alibaba', country: 'Китай',
-    modality: ['image'], first: '2025-08', latest: '2026-09', sizes: '7B – 20B',
+    modality: ['image'], first: '2025-08', latest: '2026-10', sizes: '7B – 20B',
     license: 'До Qwen-Image-2512 — Apache 2.0; Qwen-Image-2.1 — исследовательская, некоммерческая', commercial: 'conditional', hardware: ['gpu'], ru: 'na', industries: ['retail', 'marketing', 'media'], ollama: false, cpu: false,
     summary: 'Генерация и редактирование картинок, в том числе с текстом на изображении. Ранние версии можно в коммерцию, свежая 2.1 — только некоммерческая.',
     tasks: ['Инфографика для карточек товаров', 'Правка фото по текстовой команде', 'Рекламные креативы'],
     where: ['Маркетплейсы', 'Интернет-магазины', 'Реклама'],
-    versions: [['Qwen-Image', '2025-08'], ['Qwen-Image-Edit', '2025-08'], ['Qwen-Image-2512', '2025-12'], ['Qwen-Image-2.1', '2026-09']],
+    versions: [['Qwen-Image', '2025-08'], ['Qwen-Image-Edit', '2025-08'], ['Qwen-Image-2512', '2025-12'], ['Qwen-Image-2.1', '2026-09'], ['Qwen-Image-2.1-Turbo (8 шагов вместо обычных)', '2026-10']],
     hf: 'https://huggingface.co/Qwen/Qwen-Image', github: 'https://github.com/QwenLM/Qwen-Image',
     alternatives: ['flux'],
     en: {
