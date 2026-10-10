@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrossMacro: запись и повтор действий мыши и клавиатуры</title>
+    <meta name="description" content="CrossMacro записывает клики и нажатия и повторяет их. Когда такой макрос годится для 1С и склада, чем рискует и где нужна интеграция по API.">
+    <meta name="keywords" content="автоматизация, макросы, RPA, 1С">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/crossmacro-zapis-i-povtor-deystviy-mishi-i-klaviatury-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/crossmacro-zapis-i-povtor-deystviy-mishi-i-klaviatury-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/crossmacro-zapis-i-povtor-deystviy-mishi-i-klaviatury-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/crossmacro-zapis-i-povtor-deystviy-mishi-i-klaviatury-2026/">
+    <meta property="og:title" content="CrossMacro: запись и повтор действий мыши и клавиатуры">
+    <meta property="og:description" content="CrossMacro записывает клики и нажатия и повторяет их. Когда такой макрос годится для 1С и склада, чем рискует и где нужна интеграция по API.">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/crossmacro-zapis-i-povtor-deystviy-mishi-i-klaviatury-2026/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CrossMacro: запись и повтор действий мыши и клавиатуры">
+    <meta name="twitter:description" content="CrossMacro записывает клики и нажатия и повторяет их. Когда такой макрос годится для 1С и склада, чем рискует и где нужна интеграция по API.">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/crossmacro-zapis-i-povtor-deystviy-mishi-i-klaviatury-2026/cover.png">
+
+    <link rel="icon" href="/favicon.svg?v=5" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=5">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png?v=5">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=5">
+    <link rel="preload" href="/assets/fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=79">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Макрос вместо ручного ввода: CrossMacro для старых программ",
+  "description": "CrossMacro записывает клики и нажатия и повторяет их. Когда такой макрос годится для 1С и склада, чем рискует и где нужна интеграция по API.",
+  "image": "https://chimitdorzhi.tech/blog/crossmacro-zapis-i-povtor-deystviy-mishi-i-klaviatury-2026/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://t.me/chimitdorzhi_studio",
+      "https://max.ru/channel_chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio",
+      "https://github.com/chimitdorzhi",
+      "https://chimitdorzhi.tech/about/"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/crossmacro-zapis-i-povtor-deystviy-mishi-i-klaviatury-2026/"
+  },
+  "datePublished": "2026-10-10",
+  "dateModified": "2026-10-10",
+  "keywords": "автоматизация, макросы, RPA, 1С",
+  "articleSection": "Разработка",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Макрос вместо ручного ввода: CrossMacro для старых программ",
+      "item": "https://chimitdorzhi.tech/blog/crossmacro-zapis-i-povtor-deystviy-mishi-i-klaviatury-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Можно ли оставить макрос на ночь на сервере?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нужен компьютер с включённой сессией рабочего стола. Работа на сервере без экрана не заявлена."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Чем это лучше, чем скрипт на AutoHotkey?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ничем, если у вас есть человек, который пишет такие скрипты. CrossMacro выигрывает записью без кода и тремя системами. Окна с повышенными правами проверяйте заранее."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Когда вместо макроса нужен разработчик?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Когда данные ходят между системами каждый день, когда ошибка дорого стоит или когда у программы есть API. Этим занимается автоматизация бухгалтерии, а ориентиры по цене есть в прайсе."
+      }
+    }
+  ]
+}
+    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+var inject=function(){for (var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)};
+var run=function(){('requestIdleCallback' in window)?requestIdleCallback(inject,{timeout:5000}):setTimeout(inject,3000)};
+(e.readyState==='complete')?run():m.addEventListener('load',run);})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109281884" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<!-- Цели Метрики: клики по контактам и услугам -->
+<script type="text/javascript">
+(function(){
+  var GOALS = [
+    { re: /t\.me\//i,                     goal: 'tg_click' },
+    { re: /max\.ru\//i,                    goal: 'max_click' },
+    { re: /audit\.chimitdorzhi\.tech/i,    goal: 'audit_click' },
+    { re: /chimitdorzhi\.tech\/services\//i, goal: 'service_click' },
+    { re: /chimitdorzhi\.tech\/predlozheniya\//i, goal: 'offer_click' }
+  ];
+  document.addEventListener('click', function(e){
+    var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    for (var i = 0; i < GOALS.length; i++) {
+      if (GOALS[i].re.test(href)) {
+        try { if (window.ym) ym(109281884, 'reachGoal', GOALS[i].goal); } catch (err) {}
+        break;
+      }
+    }
+  }, true);
+})();
+</script>
+</head>
+<body class="wx-read">
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/" data-i18n="nav.home">Главная</a></li>
+            <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+            <li class="nav-dropdown">
+                <a href="/cases/" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+                <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему" aria-pressed="false">
+                <i class="ph ph-moon" aria-hidden="true"></i>
+            </button>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/" data-i18n="nav.home">Главная</a></li>
+        <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+        <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+        <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+        <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+        <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+        <li class="mobile-has-submenu">
+            <details>
+                <summary aria-label="Проекты — развернуть"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down" aria-hidden="true"></i></summary>
+                <ul class="mobile-submenu">
+                    <li>
+                        <a href="https://gerel.space" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">Gerel.space</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/universe_buryat/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/arey/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.arey">AREY</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/mwrlife/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">MWR Life</span>
+                                <span class="mobile-sub-desc">Travel-клуб и партнёрка</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </details>
+        </li>
+        <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+    </ul>
+    <div class="mobile-controls">
+        <div class="mobile-lang-switcher" role="group" aria-label="Выбор языка">
+            <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+            <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+            <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+        </div>
+        <button class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle" aria-label="Переключить тему" aria-pressed="false">
+            <i class="ph ph-moon" aria-hidden="true"></i>
+        </button>
+    </div>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Макрос вместо ручного ввода: CrossMacro для старых программ</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/development/"><i class="ph ph-bookmark" aria-hidden="true"></i> Разработка</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин чтения</span>
+                        <time datetime="2026-10-10"><i class="ph ph-calendar" aria-hidden="true"></i> 10 октября 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Макрос вместо ручного ввода: CrossMacro для старых программ</h1>
+
+                    <p class="blog-lead">CrossMacro записывает действия мыши и клавиатуры и повторяет их по кнопке или расписанию. Разбираю по репозиторию, что программа умеет, когда макрос годится для старого учётного софта, чем он похож на кейлоггер и где без интеграции не обойтись.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>автоматизация</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>макросы</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>RPA</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>1С</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr">
+  <strong>Коротко.</strong> CrossMacro бесплатная программа с открытым кодом (лицензия GPL-3.0): записывает ваши клики и нажатия клавиш и повторяет их по кнопке, по горячей клавише или по расписанию. Есть версии под Windows, macOS и Linux. Для старой программы без API это самый дешёвый способ снять однообразный ввод. Но макрос только повторяет движения и программу не понимает: сменилось разрешение экрана, окно или версия, и он промахивается. Интеграцию он не заменяет, а паролям и платежам в нём не место.
+</div>
+<div class="blog-cta-internal">
+  <i class="ph-fill ph-rocket-launch" aria-hidden="true"></i>
+  <div>
+    <strong>Хотите внедрить это у себя?</strong>
+    <p>Сделаю под ключ: разберу задачу, назову срок и цену. Чтобы начать, <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%9C%D0%B0%D0%BA%D1%80%D0%BE%D1%81%20%D0%B2%D0%BC%D0%B5%D1%81%D1%82%D0%BE%20%D1%80%D1%83%D1%87%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%B2%D0%B2%D0%BE%D0%B4%D0%B0%3A%20CrossMacro%20%D0%B4%D0%BB%D1%8F%20%D1%81%D1%82%D0%B0%D1%80%D1%8B%D1%85%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8E%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B3%D0%BE%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0." target="_blank" rel="noopener">напишите в Telegram</a> одной фразой.</p>
+    <a href="https://chimitdorzhi.tech/services/accounting-automation/">Обсудить автоматизацию рутины в учётной программе <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</div>
+
+<h2 id="rutina">Рутина в программе, к которой не подключиться</h2>
+
+<p>Бухгалтер каждое утро выгружает выписку из банк-клиента и переносит платежи в 1С. Кладовщик в старой складской программе вносит десять одинаковых полей на каждую накладную. Кассир в конце смены жмёт одну и ту же цепочку кнопок.</p>
+
+<p>Правильное решение здесь такое: обмен данными по API или <a href="/blog/oplaty-sami-raznosyatsya-v-1c-2026/">прямая связь 1С с банком</a>. Но у многих программ API нет, а переделывать чужую систему никто не будет. Остаётся посадить за кнопки робота. Для браузера такие роботы описаны в <a href="/blog/rpa-robot-v-brauzere-2026/">статье про RPA</a>, для программ на рабочем столе есть CrossMacro.</p>
+
+<p>Прикидка по деньгам, замеров за ней нет: 40 минут ручного ввода в день дают около 15 часов в месяц. Если макрос забирает половину, он окупается за первую неделю: сама программа бесплатна.</p>
+
+<h2 id="chto-eto">Что это за программа</h2>
+
+<p>Я смотрел репозиторий alper-han/CrossMacro на GitHub 10 октября 2026. Лицензия GNU GPL версии 3, файл LICENSE лежит в корне. Проект создан 30 ноября 2025, у него 426 звёзд, 20 форков, 6 открытых задач. Последнее обновление кода 2 октября 2026, свежая версия 1.5.1 вышла 1 октября, до неё 1.5.0 в сентябре и 1.4.0 в августе. Написан на C#, окно сделано на Avalonia. Автор по сути один: из 1046 коммитов 1032 принадлежат владельцу репозитория. Проект могут бросить, поддержки по договору нет, зато ваши макросы останутся.</p>
+
+<p>Как работает. Вы нажимаете F8 и делаете работу руками: мышь, клики, прокрутка, клавиатура. Ещё раз F8 останавливает запись. F9 запускает повтор, F10 ставит на паузу. Скорость повтора от 0,1x до 10x, есть число повторов и паузы. Запись сохраняется в файл .macro, шаги правятся в редакторе: убрать лишнее движение мыши, вставить задержку, добавить текст.</p>
+
+<p>Умеет он больше, чем простой повтор. В нём есть ожидание цвета пикселя, поиск картинки на экране (шаблон в формате PNG, 8 бит), ожидание нужного окна, переменные, циклы и условия if и while. Так макрос дожидается открытия окна и не жмёт вслепую через две секунды. Чтения текста с экрана (<a href="https://chimitdorzhi.tech/services/business-automation/" class="blog-inline-link">OCR</a>) в перечне возможностей я не нашёл.</p>
+
+<aside class="blog-inline-tg" aria-label="Обсудить задачу">
+  <div class="blog-inline-tg-body">
+    <p class="blog-inline-tg-title">Хотите внедрить это у себя?</p>
+    <p>Опишите задачу в двух словах — отвечу в Telegram, что подойдёт, сколько займёт и сколько стоит. Сообщение уже подготовлено.</p>
+  </div>
+  <div class="blog-inline-tg-actions">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%9C%D0%B0%D0%BA%D1%80%D0%BE%D1%81%20%D0%B2%D0%BC%D0%B5%D1%81%D1%82%D0%BE%20%D1%80%D1%83%D1%87%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%B2%D0%B2%D0%BE%D0%B4%D0%B0%3A%20CrossMacro%20%D0%B4%D0%BB%D1%8F%20%D1%81%D1%82%D0%B0%D1%80%D1%8B%D1%85%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8E%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B3%D0%BE%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0." target="_blank" rel="noopener" class="btn btn-accent"><i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram</a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+  </div>
+</aside>
+<h2 id="kogda-godyatsya">Когда макрос годится, а когда нет</h2>
+
+<p>Годится, если сходятся четыре признака.</p>
+
+<ul>
+<li>Действие повторяется десятки раз, и каждый раз одинаково.</li>
+<li>Программа у вас одна, на одном компьютере, с одним разрешением экрана и одним расположением окна.</li>
+<li>Ошибка видна сразу и стоит дёшево: не туда вставилось поле, человек поправил.</li>
+<li>Версия программы меняется редко.</li>
+</ul>
+
+<p>Хорошие примеры: перенос строк из таблицы в форму, закрытие смены кассы, выгрузка одного и того же отчёта.</p>
+
+<p>Не годится, если решение зависит от содержимого: этот платёж проводим, тот нет. Не годится, когда данные идут между системами постоянно и в большом объёме: тут нужна <a href="/blog/integraciya-sayta-s-1c-2026/">нормальная интеграция</a>. Не годится там, где ошибка стоит денег: оплата, отгрузка, списание. И там, где программа каждый месяц обновляется.</p>
+
+<h2 id="bezopasnost">Безопасность: пароли, платежи и вопрос про кейлоггер</h2>
+
+<p>Запись нажатий клавиш по способу работы похожа на кейлоггер: программа читает события клавиатуры на уровне системы. Разница в том, кто и когда её включает. Здесь запись стартует вашей клавишей, останавливается ей же, результат лежит в файле на вашем диске. При запуске программа проверяет обновления. Другие сетевые обращения я не искал, поэтому «ничего не уходит наружу» утверждать не буду. Как отнесётся ваш антивирус, я не проверял: ложное срабатывание возможно. Проверьте на тестовом компьютере, ставьте из Microsoft Store, через winget или с релизов GitHub и сверяйте суммы из файла SHA256SUMS.</p>
+
+<p>Теперь риски самого макроса.</p>
+
+<ul>
+<li>Пароль, набранный при записи, окажется в файле макроса. Шифрования в коде работы с файлами я не нашёл. Входите в программу заранее, записывайте только то, что идёт после входа.</li>
+<li>В макрос можно вставить шаг с командой оболочки. Чужие файлы .macro запускать нельзя.</li>
+<li>Ошибку в платёжном действии макрос повторит со скоростью робота. Подтверждение платежа оставьте человеку.</li>
+<li>На Linux для записи нужен доступ на чтение к устройствам ввода. Документация сама предупреждает: такой доступ может открыть клавиатурные события всем процессам вашего пользователя.</li>
+</ul>
+
+<h2 id="ogranicheniya">Где макрос сломается и что нужно по системе</h2>
+
+<p>Макрос привязан к координатам. Сменили монитор, масштаб Windows или положение окна, и клик пришёл в соседнюю кнопку. В README сказано: перед повтором верните раскладку окон и положение указателя, а сохранённый макрос сначала испытайте, потом ставьте на расписание. Режим проверки без нажатий не докажет, что программа примет ввод.</p>
+
+<p>Для работы нужна живая сессия рабочего стола. Режим без окна CrossMacro оставляет автоматизацию активной, но, как сказано в документации, это не серверный режим без экрана. Заблокированный экран я не проверял.</p>
+
+<p>Windows: отдельных разрешений не нужно, ставится через Microsoft Store, winget (пакет AlperHan.CrossMacro) или портативный EXE. Пакеты MSIX на GitHub не подписаны, их не берите. Про окна с повышенными правами в документации CrossMacro ничего нет. По общему правилу Windows (UIPI) обычная программа не может управлять окном, запущенным от администратора, так что проверьте свою программу заранее. macOS: версия 14 и новее, образ DMG не подписан и не нотариально заверен, нужны разрешения «Мониторинг ввода», «Универсальный доступ» и, для поиска по экрану, «Запись экрана». Linux: Wayland и X11; в пакетах работает служба-демон и нужна группа crossmacro, у Flatpak и AppImage доступ к устройствам подтверждается вручную.</p>
+
+<h2 id="seychas">Что можно сделать уже сейчас</h2>
+
+<ul>
+<li><strong>Выберите одно действие.</strong> Короткое, от 10 до 20 шагов, без денег и паролей.</li>
+<li><strong>Проверьте на копии.</strong> Тестовая база, тестовая карточка, тот же монитор. Прогоните десять раз, из них хотя бы два при другом положении окна.</li>
+<li><strong>Добавьте ожидания.</strong> Вместо пауз по секундам поставьте ожидание нужного окна или кнопки по картинке.</li>
+<li><strong>Включите журнал и человека рядом.</strong> Первые недели кто-то смотрит на результат и ведёт простую таблицу сбоев: дата, что пошло не так.</li>
+</ul>
+
+<h2 id="faq">Частые вопросы</h2>
+
+<h3>Можно ли оставить макрос на ночь на сервере?</h3>
+<p>Нужен компьютер с включённой сессией рабочего стола. Работа на сервере без экрана не заявлена.</p>
+
+<h3>Чем это лучше, чем скрипт на AutoHotkey?</h3>
+<p>Ничем, если у вас есть человек, который пишет такие скрипты. CrossMacro выигрывает записью без кода и тремя системами. Окна с повышенными правами проверяйте заранее.</p>
+
+<h3>Когда вместо макроса нужен разработчик?</h3>
+<p>Когда данные ходят между системами каждый день, когда ошибка дорого стоит или когда у программы есть API. Этим занимается <a href="/services/accounting-automation/">автоматизация бухгалтерии</a>, а ориентиры по цене есть в <a href="/ceny/">прайсе</a>.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+
+<p>Макрос годится для коротких однообразных действий в одной программе на одном компьютере. Для всего, что связано с деньгами, паролями и обменом данными между системами, нужна настоящая интеграция. Макрос оставьте для мелочей.</p>
+
+<p>Если есть рутина в старой программе и непонятно, хватит ли макроса, напишите мне в Telegram слово «МАКРОС» и коротко опишите, в какой программе что делаете руками.</p>
+
+                    </div>
+                    
+
+                    
+                    
+                    
+                    
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Обсудим вашу задачу</div>
+  <h3 class="blog-services-offer-title">Что я делаю для бизнеса</h3>
+  <p class="blog-services-offer-lead">Напишите одной фразой, что нужно. Отвечу, что подойдёт, сколько займёт и сколько стоит. Сообщение уже подготовлено.</p>
+  <ul class="blog-services-offer-list"><li><i class="ph-fill ph-robot"></i> <span>Боты в Telegram, MAX, VK</span></li><li><i class="ph-fill ph-gear"></i> <span>Автоматизация процессов и CRM</span></li><li><i class="ph-fill ph-chart-bar"></i> <span>Аналитика и дашборды</span></li><li><i class="ph-fill ph-globe"></i> <span>Сайты и лендинги под ключ</span></li></ul>
+  <div class="blog-services-offer-ctas">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%9C%D0%B0%D0%BA%D1%80%D0%BE%D1%81%20%D0%B2%D0%BC%D0%B5%D1%81%D1%82%D0%BE%20%D1%80%D1%83%D1%87%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%B2%D0%B2%D0%BE%D0%B4%D0%B0%3A%20CrossMacro%20%D0%B4%D0%BB%D1%8F%20%D1%81%D1%82%D0%B0%D1%80%D1%8B%D1%85%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8E%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B3%D0%BE%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0." target="_blank" rel="noopener" class="blog-services-offer-cta">
+      <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
+    </a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="blog-services-offer-cta blog-services-offer-cta-max">
+      <i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> Написать в MAX
+    </a>
+    <a href="https://chimitdorzhi.tech/services/accounting-automation/" class="blog-services-offer-cta blog-services-offer-cta-max"><i class="ph ph-arrow-right" aria-hidden="true"></i> Обсудить автоматизацию рутины в учётной программе</a>
+  </div>
+</div>
+                    
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/rpa-robot-v-brauzere-2026/" data-category="development" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-robot"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
+  <h3>RPA: робот делает рутину в браузере вместо сотрудника</h3>
+  <p>Как программный робот сам работает в личных кабинетах: выгружает отчёты, заполняет формы, сверяет данные — там, где нет API. Что роботизировать и сколько стоит.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 22 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/oplaty-sami-raznosyatsya-v-1c-2026/" data-category="development" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-bank"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
+  <h3>Оплаты сами разносятся в 1С: выписка из банка, СБП и счёт со ссылкой на оплату</h3>
+  <p>Бухгалтер каждое утро сопоставляет платежи со счетами вручную. Показываю, как выписка приходит сама, а ссылка на оплату избавляет от неправильных назначений платежа.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 18 сентября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 5 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/integraciya-sayta-s-1c-2026/" data-category="development" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-plugs-connected"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
+  <h3>Интеграция сайта с 1С: обмен товарами, остатками и заказами</h3>
+  <p>Сайт показывает товар, которого нет на складе, а заказы менеджер вбивает в 1С руками. Разбираю, как устроен обмен между сайтом и 1С, где он обычно ломается и сколько стоит настроить.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 22 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/http-servis-1c-dlya-prilozheniya-2026/" data-category="development" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-plugs-connected"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
+  <h3>HTTP-сервис в 1С: как подключить мобильное приложение или сайт без обмена файлами</h3>
+  <p>Многие связывают 1С с сайтом и приложениями через файлы по расписанию. Разбираю, как HTTP-сервис отвечает на запросы сразу и что продумать до первой строчки кода.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 18 сентября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 5 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    <section class="blog-subscribe">
+  <div class="blog-subscribe-body">
+    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
+    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
+  </div>
+  <div class="blog-subscribe-actions">
+    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
+  </div>
+</section>
+                    
+                    
+                    
+                    
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow"><span class="b-l b-l-ru">Готовые решения под ключ</span><span class="b-l b-l-en" lang="en">Turnkey solutions</span><span class="b-l b-l-es" lang="es">Soluciones llave en mano</span><span class="b-l b-l-cn" lang="zh">交钥匙解决方案</span><span class="b-l b-l-mn" lang="mn">Түлхүүр гардуулах шийдэл</span></span>
+                            <span class="blog-offer-cta-title"><span class="b-l b-l-ru">451 готовых IT-решений для бизнеса</span><span class="b-l b-l-en" lang="en">451 ready-made IT solutions for business</span><span class="b-l b-l-es" lang="es">451 soluciones IT listas para empresas</span><span class="b-l b-l-cn" lang="zh">451 个面向企业的现成 IT 解决方案</span><span class="b-l b-l-mn" lang="mn">Бизнест зориулсан 451 бэлэн IT шийдэл</span></span>
+                            <span class="blog-offer-cta-price"><span class="b-l b-l-ru">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span><span class="b-l b-l-en" lang="en">Automation, bots, AI, data privacy and platforms · free consultation</span><span class="b-l b-l-es" lang="es">Automatización, bots, IA, privacidad de datos y plataformas · consulta gratis</span><span class="b-l b-l-cn" lang="zh">自动化、机器人、AI、数据合规与平台 · 免费咨询</span><span class="b-l b-l-mn" lang="mn">Автоматжуулалт, бот, AI, өгөгдлийн хамгаалалт ба платформ · үнэгүй зөвлөгөө</span></span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> <span class="b-l b-l-ru">Смотреть каталог</span><span class="b-l b-l-en" lang="en">View catalog</span><span class="b-l b-l-es" lang="es">Ver catálogo</span><span class="b-l b-l-cn" lang="zh">查看目录</span><span class="b-l b-l-mn" lang="mn">Каталог үзэх</span></span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#rutina"><span class="blog-toc-num">01</span> Рутина в программе, к которой не подключиться</a></li>
+<li><a href="#chto-eto"><span class="blog-toc-num">02</span> Что это за программа</a></li>
+<li><a href="#kogda-godyatsya"><span class="blog-toc-num">03</span> Когда макрос годится, а когда нет</a></li>
+<li><a href="#bezopasnost"><span class="blog-toc-num">04</span> Безопасность: пароли, платежи и вопрос про кейлоггер</a></li>
+<li><a href="#ogranicheniya"><span class="blog-toc-num">05</span> Где макрос сломается и что нужно по системе</a></li>
+<li><a href="#seychas"><span class="blog-toc-num">06</span> Что можно сделать уже сейчас</a></li>
+<li><a href="#faq"><span class="blog-toc-num">07</span> Частые вопросы</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">08</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+971563369591" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +971 56 336 9591</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">RA Standard - F.Z.E</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_licence">Лицензия 57033</span><span> · </span><span data-i18n="footer.legal_authority">Free Zones Authority of Ajman</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">Эмират Аджман, ОАЭ</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/cases/" class="footer-policy-link">Кейсы</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=44" defer></script>
+<script src="/services-i18n.js?v=44" defer></script>
+<script src="/script.js?v=41" defer></script>
+<script src="/search-widget.js?v=1" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>
