@@ -1,12 +1,12 @@
 ---
-title: "TensorFlow.js: AI прямо в браузере без сервера"
+title: "TensorFlow.js: ИИ прямо в браузере без сервера"
 description: "TensorFlow.js — open-source машинное обучение прямо в браузере: детекция объектов на фото, классификация изображений, оценка качества снимка."
 date: 2026-06-16
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/tensorflow-js-ai-v-brauzere-2026/
 ---
 
-# TensorFlow.js: AI прямо в браузере без сервера
+# TensorFlow.js: ИИ прямо в браузере без сервера
 
 >
 ### Коротко (TL;DR)

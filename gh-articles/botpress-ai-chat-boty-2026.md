@@ -1,12 +1,12 @@
 ---
-title: "Botpress: платформа AI-чат-ботов на своём сервере под ключ"
+title: "Botpress: платформа ИИ-чат-ботов на своём сервере под ключ"
 description: "Botpress — что это: open-source платформа AI-чат-ботов на LLM на своём сервере — сценарии, база знаний, интеграции с Telegram, MAX и сайтом. Разбираю запуск."
 date: 2026-06-15
 category: opensource
 canonical: https://chimitdorzhi.tech/blog/botpress-ai-chat-boty-2026/
 ---
 
-# Botpress: платформа AI-чат-ботов на своём сервере под ключ
+# Botpress: платформа ИИ-чат-ботов на своём сервере под ключ
 
 >
 ### Коротко (TL;DR)
