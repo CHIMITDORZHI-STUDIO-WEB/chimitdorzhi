@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2448**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2453**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -616,6 +616,7 @@
 ## Безопасность
 
 - [Песочница для ИИ-агента на ПК: Windows 11 MXC и Copilot](./pesochnica-dlya-ii-agenta-na-kompyutere-windows-11-mxc-i-github-copilot-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pesochnica-dlya-ii-agenta-na-kompyutere-windows-11-mxc-i-github-copilot-2026/)
+- [API ChatGPT в России для бизнеса: риски посредников и альтернативы](./api-chatgpt-v-rossii-dlya-biznesa-riski-posrednikov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/api-chatgpt-v-rossii-dlya-biznesa-riski-posrednikov-2026/)
 - [Краулеры и ИИ-агенты перегружают сайты: что у Wikimedia и у вас](./ii-agenty-i-krauleri-peregruzhayut-sayty-wikimedia-kak-zashchitit-svoy-sayt-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-agenty-i-krauleri-peregruzhayut-sayty-wikimedia-kak-zashchitit-svoy-sayt-2026/)
 - [Windows 10 без обновлений: что делать офису в 2026 году](./windows-10-bez-obnovleniy-chto-delat-ofisu-esu-windows-11-alternativy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/windows-10-bez-obnovleniy-chto-delat-ofisu-esu-windows-11-alternativy-2026/)
 - [SSL-сертификаты на 200 дней, с 2027 на 100: автопродление без падений](./srok-zhizni-ssl-sertifikatov-sokrashchaetsya-200-dney-avtoprodlenie-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/srok-zhizni-ssl-sertifikatov-sokrashchaetsya-200-dney-avtoprodlenie-2026/)
@@ -1226,6 +1227,8 @@
 
 - [Как принимать Alipay в России в 2026: оплата от туристов из Китая](./kak-prinimat-alipay-i-wechat-pay-v-rossii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-prinimat-alipay-i-wechat-pay-v-rossii-2026/)
 - [Проверка авто из Китая по VIN: что покажет отчёт и как встроить в сайт](./proverka-avto-iz-kitaya-po-vin-istoriya-probeg-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/proverka-avto-iz-kitaya-po-vin-istoriya-probeg-2026/)
+- [Сайт агентства недвижимости в Дубае для покупателей из России](./sayt-agentstva-nedvizhimosti-v-dubae-dlya-pokupateley-iz-rossii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-agentstva-nedvizhimosti-v-dubae-dlya-pokupateley-iz-rossii-2026/)
+- [3D-тур для гостиницы, базы отдыха и салона: зачем и сколько стоит](./3d-tur-dlya-gostinicy-bazy-otdyha-salona-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/3d-tur-dlya-gostinicy-bazy-otdyha-salona-2026/)
 - [OpenCADStudio: бесплатный CAD, который открывает DWG и DXF](./opencadstudio-cherchenie-dwg-i-dxf-besplatno-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/opencadstudio-cherchenie-dwg-i-dxf-besplatno-2026/)
 - [Связь без интернета и сети: Meshtastic для групп и объектов](./meshtastic-svyaz-bez-interneta-i-sotovoy-seti-dlya-grupp-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/meshtastic-svyaz-bez-interneta-i-sotovoy-seti-dlya-grupp-2026/)
 - [Обмен с ЕГАИС встал: диагностика для магазина пива и сигарет](./egais-magazin-piva-i-sigaret-roznitsa-utm-oshibki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/egais-magazin-piva-i-sigaret-roznitsa-utm-oshibki-2026/)
@@ -1850,6 +1853,8 @@
 - [Код есть, схемы нет: ИИ рисует архитектуру проекта](./oh-my-mermaid-shemy-arhitektury-po-kodu-proekta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/oh-my-mermaid-shemy-arhitektury-po-kodu-proekta-2026/)
 - [Посмотреть базу бота без программиста: DB Browser for SQLite](./db-browser-for-sqlite-posmotret-bazu-bota-bez-programmista-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/db-browser-for-sqlite-posmotret-bazu-bota-bez-programmista-2026/)
 - [Сайт для бизнеса в ОАЭ: два языка, оплата, домен .ae и закон](./sayt-dlya-biznesa-v-oae-yazyki-oplata-domen-zakon-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-dlya-biznesa-v-oae-yazyki-oplata-domen-zakon-2026/)
+- [robots.txt для ИИ-краулеров в Тильде: как открыть сайт нейросетям](./robots-txt-dlya-ii-kraulerov-tilda-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/robots-txt-dlya-ii-kraulerov-tilda-2026/)
+- [Интеграция YCLIENTS с ботом и GetCourse: запись, курсы, розыгрыш](./integraciya-yclients-s-botom-i-getcourse-bez-crm-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/integraciya-yclients-s-botom-i-getcourse-bez-crm-2026/)
 - [Excel ломается при двух редакторах: Grist с формулами на Python](./grist-tablitsy-s-formulami-na-python-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/grist-tablitsy-s-formulami-na-python-na-svoem-servere-2026/)
 - [ClovaLink: файлы клиентов с антивирусом и журналом доступа](./clovalink-faylovaya-platforma-s-antivirusom-i-zhurnalom-audita-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/clovalink-faylovaya-platforma-s-antivirusom-i-zhurnalom-audita-2026/)
 - [Отработал ли ночной скрипт? Веб-панель для cron на сервере](./cronmaster-veb-interfeys-dlya-zadaniy-cron-na-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/cronmaster-veb-interfeys-dlya-zadaniy-cron-na-servere-2026/)
