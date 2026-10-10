@@ -1,12 +1,12 @@
 ---
-title: "AI-агент с вызовом инструментов на GigaChat и YandexGPT: практика"
+title: "ИИ-агент с вызовом инструментов на GigaChat и YandexGPT: практика"
 description: "Как собрать ИИ-агента с вызовом инструментов (tool calling) на российском стеке GigaChat и YandexGPT: как устроено и что учесть."
 date: 2026-08-31
 category: ai-dev
 canonical: https://chimitdorzhi.tech/blog/ai-agent-vyzov-instrumentov-gigachat-2026/
 ---
 
-# AI-агент с вызовом инструментов на GigaChat и YandexGPT: практика
+# ИИ-агент с вызовом инструментов на GigaChat и YandexGPT: практика
 
 >
 ### Коротко (TL;DR)

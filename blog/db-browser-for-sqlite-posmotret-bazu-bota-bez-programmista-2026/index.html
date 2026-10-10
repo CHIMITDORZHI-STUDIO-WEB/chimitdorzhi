@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DB Browser for SQLite: посмотреть базу бота без программиста</title>
+    <meta name="description" content="Как владельцу бота открыть базу SQLite, найти клиента и выгрузить CSV без программиста: копия, режим только чтение, риски и 152-ФЗ.">
+    <meta name="keywords" content="SQLite, базы данных, боты, open source">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/db-browser-for-sqlite-posmotret-bazu-bota-bez-programmista-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/db-browser-for-sqlite-posmotret-bazu-bota-bez-programmista-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/db-browser-for-sqlite-posmotret-bazu-bota-bez-programmista-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/db-browser-for-sqlite-posmotret-bazu-bota-bez-programmista-2026/">
+    <meta property="og:title" content="DB Browser for SQLite: посмотреть базу бота без программиста">
+    <meta property="og:description" content="Как владельцу бота открыть базу SQLite, найти клиента и выгрузить CSV без программиста: копия, режим только чтение, риски и 152-ФЗ.">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/db-browser-for-sqlite-posmotret-bazu-bota-bez-programmista-2026/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="DB Browser for SQLite: посмотреть базу бота без программиста">
+    <meta name="twitter:description" content="Как владельцу бота открыть базу SQLite, найти клиента и выгрузить CSV без программиста: копия, режим только чтение, риски и 152-ФЗ.">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/db-browser-for-sqlite-posmotret-bazu-bota-bez-programmista-2026/cover.png">
+
+    <link rel="icon" href="/favicon.svg?v=5" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=5">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png?v=5">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=5">
+    <link rel="preload" href="/assets/fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=79">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Посмотреть базу бота без программиста: DB Browser for SQLite",
+  "description": "Как владельцу бота открыть базу SQLite, найти клиента и выгрузить CSV без программиста: копия, режим только чтение, риски и 152-ФЗ.",
+  "image": "https://chimitdorzhi.tech/blog/db-browser-for-sqlite-posmotret-bazu-bota-bez-programmista-2026/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://t.me/chimitdorzhi_studio",
+      "https://max.ru/channel_chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio",
+      "https://github.com/chimitdorzhi",
+      "https://chimitdorzhi.tech/about/"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/db-browser-for-sqlite-posmotret-bazu-bota-bez-programmista-2026/"
+  },
+  "datePublished": "2026-10-10",
+  "dateModified": "2026-10-10",
+  "keywords": "SQLite, базы данных, боты, open source",
+  "articleSection": "Разработка",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Посмотреть базу бота без программиста: DB Browser for SQLite",
+      "item": "https://chimitdorzhi.tech/blog/db-browser-for-sqlite-posmotret-bazu-bota-bez-programmista-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Можно ли в DB Browser for SQLite что-то сломать, просто глядя в таблицу?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "В режиме «только чтение» нельзя: редактирование отключено. Обычное открытие позволяет править, поэтому начинайте с копии и с этого режима."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужны ли знания SQL?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Для просмотра, фильтров, сортировки и экспорта нет. SQL пригодится для групповых запросов вроде поиска дублей, но запрос из одной строки легко скопировать из готового примера."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "А что у нас в этом деле?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Сама программа бесплатная, и продавать тут нечего. Моя часть другая: настроить безопасный порядок (регулярная копия на сервере, выгрузка, доступы), проверить, что бот пишет в базу правильно, и при необходимости сделать вам отчёт или дашборд. Условия и цены обсуждаются после разбора задачи, ориентиры есть на странице цен."
+      }
+    }
+  ]
+}
+    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+var inject=function(){for (var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)};
+var run=function(){('requestIdleCallback' in window)?requestIdleCallback(inject,{timeout:5000}):setTimeout(inject,3000)};
+(e.readyState==='complete')?run():m.addEventListener('load',run);})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109281884" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<!-- Цели Метрики: клики по контактам и услугам -->
+<script type="text/javascript">
+(function(){
+  var GOALS = [
+    { re: /t\.me\//i,                     goal: 'tg_click' },
+    { re: /max\.ru\//i,                    goal: 'max_click' },
+    { re: /audit\.chimitdorzhi\.tech/i,    goal: 'audit_click' },
+    { re: /chimitdorzhi\.tech\/services\//i, goal: 'service_click' },
+    { re: /chimitdorzhi\.tech\/predlozheniya\//i, goal: 'offer_click' }
+  ];
+  document.addEventListener('click', function(e){
+    var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    for (var i = 0; i < GOALS.length; i++) {
+      if (GOALS[i].re.test(href)) {
+        try { if (window.ym) ym(109281884, 'reachGoal', GOALS[i].goal); } catch (err) {}
+        break;
+      }
+    }
+  }, true);
+})();
+</script>
+</head>
+<body class="wx-read">
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/" data-i18n="nav.home">Главная</a></li>
+            <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+            <li class="nav-dropdown">
+                <a href="/cases/" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+                <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему" aria-pressed="false">
+                <i class="ph ph-moon" aria-hidden="true"></i>
+            </button>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/" data-i18n="nav.home">Главная</a></li>
+        <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+        <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+        <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+        <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+        <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+        <li class="mobile-has-submenu">
+            <details>
+                <summary aria-label="Проекты — развернуть"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down" aria-hidden="true"></i></summary>
+                <ul class="mobile-submenu">
+                    <li>
+                        <a href="https://gerel.space" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">Gerel.space</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/universe_buryat/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/arey/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.arey">AREY</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/mwrlife/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">MWR Life</span>
+                                <span class="mobile-sub-desc">Travel-клуб и партнёрка</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </details>
+        </li>
+        <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+    </ul>
+    <div class="mobile-controls">
+        <div class="mobile-lang-switcher" role="group" aria-label="Выбор языка">
+            <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+            <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+            <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+        </div>
+        <button class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle" aria-label="Переключить тему" aria-pressed="false">
+            <i class="ph ph-moon" aria-hidden="true"></i>
+        </button>
+    </div>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Посмотреть базу бота без программиста: DB Browser for SQLite</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/development/"><i class="ph ph-bookmark" aria-hidden="true"></i> Разработка</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин чтения</span>
+                        <time datetime="2026-10-10"><i class="ph ph-calendar" aria-hidden="true"></i> 10 октября 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Посмотреть базу бота без программиста: DB Browser for SQLite</h1>
+
+                    <p class="blog-lead">Бот записи или учёта хранит данные в одном файле SQLite, и посмотреть заявки не получается без звонка программисту. Разбираю бесплатную программу DB Browser for SQLite: безопасный порядок (копия, только чтение), четыре сценария и честные риски, включая персональные данные.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>SQLite</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>базы данных</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>боты</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>open source</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr">
+  <strong>Коротко.</strong> Если бот, мини-сервис или сайт хранят данные в SQLite, это один файл на сервере. Посмотреть заявки, выгрузить клиентов в CSV или найти дубль можно в бесплатной программе DB Browser for SQLite: она показывает базу как таблицу, SQL знать не нужно. Главное правило: живую базу не трогать, работать с копией файла и открывать её в режиме «только чтение». Ниже порядок, сценарии и риски, в том числе по персональным данным.
+</div>
+<div class="blog-cta-internal">
+  <i class="ph-fill ph-rocket-launch" aria-hidden="true"></i>
+  <div>
+    <strong>Хотите внедрить это у себя?</strong>
+    <p>Сделаю под ключ: разберу задачу, назову срок и цену. Чтобы начать, <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%9F%D0%BE%D1%81%D0%BC%D0%BE%D1%82%D1%80%D0%B5%D1%82%D1%8C%20%D0%B1%D0%B0%D0%B7%D1%83%20%D0%B1%D0%BE%D1%82%D0%B0%20%D0%B1%D0%B5%D0%B7%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82%D0%B0%3A%20DB%20Browser%20for%20SQLite%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener">напишите в Telegram</a> одной фразой.</p>
+    <a href="https://chimitdorzhi.tech/services/telegram-bots/">Обсудить отчёт по вашему боту <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</div>
+
+<h2 id="boli">Бот пишет в файл, а вы этот файл не видите</h2>
+
+<p>Типичная история. Бот записи или учёта работает полгода, клиенты в нём оформляют заявки. Владельцу нужно узнать, сколько записей было на прошлой неделе, или найти, на какое время записался конкретный человек. Единственный путь к данным лежит через программиста. Он занят, отвечает через два дня, и вопрос на пять минут растягивается на неделю.</p>
+
+<p>Во многих небольших системах база устроена просто: один файл с расширением .db или .sqlite рядом с кодом бота. Открыть его можно обычной программой с окошками.</p>
+
+<h2 id="chto-eto">Что это за программа</h2>
+
+<p><a href="https://github.com/sqlitebrowser/sqlitebrowser" target="_blank" rel="noopener nofollow">DB Browser for SQLite</a> (сокращённо DB4S) открывает файл базы и показывает таблицы в виде привычной сетки. По описанию проекта она умеет создавать и менять таблицы, добавлять, править и удалять записи, искать, импортировать и экспортировать данные в CSV и SQL, а также строить простые графики по таблице или запросу.</p>
+
+<p>Что я проверил по репозиторию. Лицензия двойная: файл LICENSE называет Mozilla Public License 2.0 и GNU GPL версии 3 или новее. Программа работает на Windows, macOS и Linux, для FreeBSD есть порт. Проект живёт с 2003 года, это видно по списку релизов в README. Последний стабильный релиз 3.13.1 вышел 16 октября 2024 года, то есть почти два года назад. При этом разработка идёт: ночные сборки обновлялись 9 октября 2026 года, их можно взять отдельно.</p>
+
+<h2 id="poryadok">Как достать базу с сервера и не сломать бота</h2>
+
+<p>Здесь главная ловушка. Базу хочется открыть прямо на сервере через сетевую папку, ведь так быстрее. Не надо. Документация SQLite прямо описывает, что файловые блокировки в сетевых файловых системах работают ненадёжно, и это может закончиться повреждением базы. Режим WAL по сети не работает вообще.</p>
+
+<p>Безопасный порядок такой:</p>
+
+<ol>
+<li>Сделать копию на сервере. Документация SQLite называет безопасными способы, которые работают даже на живой базе: команда VACUUM INTO, программный интерфейс backup и утилита sqlite3_rsync. Простое копирование файла безопасно, только если в этот момент нет незавершённой записи. Если рядом лежат файлы -wal или -journal, копировать нужно их вместе с базой.</li>
+<li>Скачать копию по SFTP на свой компьютер.</li>
+<li>Открыть её через пункт Open Database Read Only (в русском интерфейсе он переведён, формулировка может отличаться). В строке состояния появится метка Read only, и редактирование отключится.</li>
+</ol>
+
+<p>Если открыть живую базу и начать править, возможны блокировки. В SQLite писать одновременно может только один процесс, поэтому пока в программе висят несохранённые правки, бот способен получить ошибку «database is locked». DB4S копит изменения до нажатия «Write Changes», и до этого момента другие программы их не видят.</p>
+
+<h2 id="ogranicheniya">Что важно учесть</h2>
+
+<p><strong>Правка рабочей базы руками.</strong> Удалили строку, и бот, который на неё ссылался, начал падать. Переименовали столбец, и запись перестала работать. Если правка всё же нужна, сначала копия, потом изменение, и лучше с разработчиком на связи. Откат до нажатия «Write Changes» возможен, после него нет.</p>
+
+<p><strong>Персональные данные.</strong> Скачанная база клиентов с именами и телефонами на ноутбуке остаётся персональными данными. Потеряли ноутбук, и это утечка. Закон «О персональных данных» требует от оператора принимать меры защиты (статья 19, <a href="https://www.consultant.ru/document/cons_doc_LAW_61801/" target="_blank" rel="noopener nofollow">текст на КонсультантПлюс</a>). Это не юридическая консультация, по своему случаю уточните у юриста. Практически: шифровать диск, не пересылать выгрузки в мессенджерах, удалять копию после работы. Про бота и закон я писал отдельно в статье <a href="/blog/152-fz-dlya-chat-botov-i-messendzherov-2026/">152-ФЗ для чат-ботов</a>.</p>
+
+<p><strong>Шифрованные базы.</strong> Если база защищена паролем через SQLCipher, нужна сборка с его поддержкой. По документации проекта такие сборки есть для Windows и macOS, на Linux придётся собирать самому. Базу, зашифрованную другим способом, программа может не открыть и покажет «Invalid file format». Пароль в файле .db4s.env рядом с базой хранить не стоит: он лежит открытым текстом.</p>
+
+<p><strong>Чужая база.</strong> Если систему делал подрядчик и база лежит на его сервере, доступ нужен письменно. Самостоятельно «подсмотреть» чужие данные нельзя, согласуйте это с тем, кто за них отвечает.</p>
+
+<p><strong>Большие базы и JSON.</strong> Предельный размер базы в документации я не нашёл, поэтому не обещаю, как программа поведёт себя на десятках гигабайт. JSON в ячейке можно открыть в редакторе с форматированием, но разбирать вложенные данные как таблицу программа не станет.</p>
+
+<h2 id="chto-sdelat">Что можно сделать уже сейчас</h2>
+
+<p><strong>Посмотреть заявки за неделю.</strong> Откройте таблицу заявок. Под названиями столбцов есть строка фильтра: введите в столбце с датой, например, «&gt;=2026-10-03». Это работает, если бот пишет дату в формате год-месяц-день. Нужные записи останутся на экране.</p>
+
+<p><strong>Выгрузить клиентов.</strong> В меню «Файл», пункт «Экспорт», выберите таблицу в CSV. Файл открывается в Excel или Google Таблицах. Перед выгрузкой подумайте, какие столбцы нужны: телефоны отдавать всем подряд не стоит.</p>
+
+<p><strong>Найти дубль.</strong> Отсортируйте таблицу по телефону и посмотрите на соседние строки. Для большой таблицы удобнее вкладка «Выполнить SQL» с запросом из одной строки: SELECT phone, COUNT(*) FROM clients GROUP BY phone HAVING COUNT(*) &gt; 1. Названия замените на свои.</p>
+
+<p><strong>Проверить, не залип ли бот.</strong> Отсортируйте таблицу заявок по дате по убыванию. Если последняя запись трёхдневной давности, а клиенты пишут каждый день, бот не записывает. Тогда пригодится <a href="/blog/bot-perestal-otvechat-diagnostika-15-minut-2026/">диагностика за 15 минут</a>: процесс, токен, вебхук.</p>
+
+<p>Если смотреть данные нужно регулярно, программа на ноутбуке станет неудобной. Тогда логичнее собрать для вас отчёт или <a href="/predlozheniya/dashboard-rukovoditelya/">дашборд руководителя</a>, а полноценный вариант на своей базе описан в статье про <a href="/blog/bi-dashbordy-metabase-2026/">BI-дашборды на Metabase</a>.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+
+<h3>Можно ли в DB Browser for SQLite что-то сломать, просто глядя в таблицу?</h3>
+<p>В режиме «только чтение» нельзя: редактирование отключено. Обычное открытие позволяет править, поэтому начинайте с копии и с этого режима.</p>
+
+<h3>Нужны ли знания SQL?</h3>
+<p>Для просмотра, фильтров, сортировки и экспорта нет. SQL пригодится для групповых запросов вроде поиска дублей, но запрос из одной строки легко скопировать из готового примера.</p>
+
+<h3>А что у нас в этом деле?</h3>
+<p>Сама программа бесплатная, и продавать тут нечего. Моя часть другая: настроить безопасный порядок (регулярная копия на сервере, выгрузка, доступы), проверить, что бот пишет в базу правильно, и при необходимости сделать вам отчёт или <a href="https://chimitdorzhi.tech/services/ai-analytics/" class="blog-inline-link">дашборд</a>. Условия и цены обсуждаются после разбора задачи, ориентиры есть на странице <a href="/ceny/">цен</a>.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+
+<p>База бота на SQLite это обычный файл, и посмотреть его может сам владелец: скопировать на сервере, скачать по SFTP, открыть в DB Browser for SQLite только для чтения. Править рабочую базу вручную, открывать её по сетевой папке и держать на ноутбуке выгрузку с телефонами клиентов без защиты стоит с осторожностью.</p>
+
+<p>Хотите видеть данные своего бота без звонков программисту, а заодно настроить копии и доступы по уму? Напишите мне в Telegram слово «ЗАГЛЯНУТЬ». Разберём, где лежит ваша база и как безопасно её открывать. Если нужно, соберу и <a href="/services/telegram-bots/">отчёт по вашему боту</a>.</p>
+
+                    </div>
+                    
+
+                    
+                    
+                    
+                    
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Обсудим вашу задачу</div>
+  <h3 class="blog-services-offer-title">Что я делаю для бизнеса</h3>
+  <p class="blog-services-offer-lead">Напишите одной фразой, что нужно. Отвечу, что подойдёт, сколько займёт и сколько стоит. Сообщение уже подготовлено.</p>
+  <ul class="blog-services-offer-list"><li><i class="ph-fill ph-robot"></i> <span>Боты в Telegram, MAX, VK</span></li><li><i class="ph-fill ph-gear"></i> <span>Автоматизация процессов и CRM</span></li><li><i class="ph-fill ph-chart-bar"></i> <span>Аналитика и дашборды</span></li><li><i class="ph-fill ph-globe"></i> <span>Сайты и лендинги под ключ</span></li></ul>
+  <div class="blog-services-offer-ctas">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%9F%D0%BE%D1%81%D0%BC%D0%BE%D1%82%D1%80%D0%B5%D1%82%D1%8C%20%D0%B1%D0%B0%D0%B7%D1%83%20%D0%B1%D0%BE%D1%82%D0%B0%20%D0%B1%D0%B5%D0%B7%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82%D0%B0%3A%20DB%20Browser%20for%20SQLite%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener" class="blog-services-offer-cta">
+      <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
+    </a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="blog-services-offer-cta blog-services-offer-cta-max">
+      <i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> Написать в MAX
+    </a>
+    <a href="https://chimitdorzhi.tech/services/telegram-bots/" class="blog-services-offer-cta blog-services-offer-cta-max"><i class="ph ph-arrow-right" aria-hidden="true"></i> Обсудить отчёт по вашему боту</a>
+  </div>
+</div>
+                    
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/bot-perestal-otvechat-diagnostika-15-minut-2026/" data-category="development" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-heartbeat"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
+  <h3>Бот перестал отвечать: диагностика за 15 минут</h3>
+  <p>Клиенты пишут, а бот молчит. Разбираем, как за 15 минут найти причину: процесс, токен (getMe), вебхук (getWebhookInfo), лимиты и блокировки, права в чате, база и внешние сервисы. И как настроить проверку, чтобы узнавать о поломке раньше клиентов.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 2 октября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/bi-dashbordy-metabase-2026/" data-category="opensource" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-chart-bar"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>BI-дашборды на Metabase: подключаем свою базу</h3>
+  <p>Данные есть у всех, а понятных отчётов нет. Metabase — бесплатный BI на своём сервере: подключаете базу и собираете дашборды сами, без дорогого аналитика.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 31 августа 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/152-fz-dlya-chat-botov-i-messendzherov-2026/" data-category="legal" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-chat-centered-text"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Право и compliance</span>
+  <h3>152-ФЗ для чат-ботов и мессенджеров: как собирать заявки и не нарушить закон</h3>
+  <p>Если бот собирает имя и телефон — это персональные данные, и 152-ФЗ работает так же, как для сайта. Разбираю, как получить согласие в боте, где хранить данные и как сделать бота по закону.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 23 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/podderzhka-botov-i-integraciy-2026/" data-category="development" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-lifebuoy"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
+  <h3>Бот работал и перестал: зачем нужна поддержка ботов и интеграций</h3>
+  <p>Бот и интеграции не ломаются громко — они тихо перестают работать. Разбираю, почему так бывает и что делает поддержка, чтобы вы узнали о проблеме раньше клиентов.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 19 сентября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    <section class="blog-subscribe">
+  <div class="blog-subscribe-body">
+    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
+    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
+  </div>
+  <div class="blog-subscribe-actions">
+    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
+  </div>
+</section>
+                    
+                    
+                    
+                    
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow"><span class="b-l b-l-ru">Готовые решения под ключ</span><span class="b-l b-l-en" lang="en">Turnkey solutions</span><span class="b-l b-l-es" lang="es">Soluciones llave en mano</span><span class="b-l b-l-cn" lang="zh">交钥匙解决方案</span><span class="b-l b-l-mn" lang="mn">Түлхүүр гардуулах шийдэл</span></span>
+                            <span class="blog-offer-cta-title"><span class="b-l b-l-ru">451 готовых IT-решений для бизнеса</span><span class="b-l b-l-en" lang="en">451 ready-made IT solutions for business</span><span class="b-l b-l-es" lang="es">451 soluciones IT listas para empresas</span><span class="b-l b-l-cn" lang="zh">451 个面向企业的现成 IT 解决方案</span><span class="b-l b-l-mn" lang="mn">Бизнест зориулсан 451 бэлэн IT шийдэл</span></span>
+                            <span class="blog-offer-cta-price"><span class="b-l b-l-ru">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span><span class="b-l b-l-en" lang="en">Automation, bots, AI, data privacy and platforms · free consultation</span><span class="b-l b-l-es" lang="es">Automatización, bots, IA, privacidad de datos y plataformas · consulta gratis</span><span class="b-l b-l-cn" lang="zh">自动化、机器人、AI、数据合规与平台 · 免费咨询</span><span class="b-l b-l-mn" lang="mn">Автоматжуулалт, бот, AI, өгөгдлийн хамгаалалт ба платформ · үнэгүй зөвлөгөө</span></span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> <span class="b-l b-l-ru">Смотреть каталог</span><span class="b-l b-l-en" lang="en">View catalog</span><span class="b-l b-l-es" lang="es">Ver catálogo</span><span class="b-l b-l-cn" lang="zh">查看目录</span><span class="b-l b-l-mn" lang="mn">Каталог үзэх</span></span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#boli"><span class="blog-toc-num">01</span> Бот пишет в файл, а вы этот файл не видите</a></li>
+<li><a href="#chto-eto"><span class="blog-toc-num">02</span> Что это за программа</a></li>
+<li><a href="#poryadok"><span class="blog-toc-num">03</span> Как достать базу с сервера и не сломать бота</a></li>
+<li><a href="#ogranicheniya"><span class="blog-toc-num">04</span> Что важно учесть</a></li>
+<li><a href="#chto-sdelat"><span class="blog-toc-num">05</span> Что можно сделать уже сейчас</a></li>
+<li><a href="#faq"><span class="blog-toc-num">06</span> Частые вопросы</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">07</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+971563369591" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +971 56 336 9591</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">RA Standard - F.Z.E</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_licence">Лицензия 57033</span><span> · </span><span data-i18n="footer.legal_authority">Free Zones Authority of Ajman</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">Эмират Аджман, ОАЭ</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/cases/" class="footer-policy-link">Кейсы</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=44" defer></script>
+<script src="/services-i18n.js?v=44" defer></script>
+<script src="/script.js?v=41" defer></script>
+<script src="/search-widget.js?v=1" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>
