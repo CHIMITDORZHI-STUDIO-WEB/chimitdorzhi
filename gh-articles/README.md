@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2486**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2491**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -1628,6 +1628,10 @@
 
 ## Право и 152-ФЗ
 
+- [Туристический налог на сайте гостиницы: как рассчитать и показать](./turisticheskiy-nalog-na-sayte-bronirovaniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/turisticheskiy-nalog-na-sayte-bronirovaniya-2026/)
+- [Сбор 3 процента с рекламы в интернете: кто платит и как считать](./sbor-3-procenta-s-internet-reklamy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sbor-3-procenta-s-internet-reklamy-2026/)
+- [Закон 41-ФЗ и иностранные мессенджеры: кому запрещено писать клиентам](./zakon-ob-antifrode-41-fz-inostrannye-messendzhery-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zakon-ob-antifrode-41-fz-inostrannye-messendzhery-2026/)
+- [Что изменится с 1 января 2027 для бизнеса с сайтом: чек-лист](./chto-izmenitsya-dlya-saytov-s-1-yanvarya-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chto-izmenitsya-dlya-saytov-s-1-yanvarya-2027/)
 - [Домен через Госуслуги: кого касается и что будет с сайтом](./identifikaciya-vladeltsa-domena-cherez-gosuslugi-149-fz-kogo-kasaetsya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/identifikaciya-vladeltsa-domena-cherez-gosuslugi-149-fz-kogo-kasaetsya-2026/)
 - [Реклама со ссылкой вместо мелкого шрифта: что готовить на сайте](./reklama-svedeniya-o-prodavce-i-usloviya-akcii-ssylka-ili-qr-vmesto-melkogo-shrifta-zakonoproekt-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/reklama-svedeniya-o-prodavce-i-usloviya-akcii-ssylka-ili-qr-vmesto-melkogo-shrifta-zakonoproekt-2026/)
 - [Как указывать Инстаграм, WhatsApp и Meta на сайте компании в 2026](./kak-pomechat-instagram-whatsapp-meta-na-sayte-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-pomechat-instagram-whatsapp-meta-na-sayte-2026/)
@@ -1873,6 +1877,7 @@
 - [Пароли клиентов в чатах и таблицах: Passbolt на своём сервере](./passbolt-menedzher-paroley-dlya-komandy-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/passbolt-menedzher-paroley-dlya-komandy-na-svoem-servere-2026/)
 - [Код в чат-бота без ключей и паролей: что чистит DevProjex](./devprojex-bezopasnyy-kontekst-koda-dlya-ii-bez-sekretov-i-pd-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/devprojex-bezopasnyy-kontekst-koda-dlya-ii-bez-sekretov-i-pd-2026/)
 - [SSH к кассам и мини-ПК без белого IP: разобрал mssh](./mssh-ssh-k-mashinam-za-nat-bez-vpn-cherez-svoy-server-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/mssh-ssh-k-mashinam-za-nat-bez-vpn-cherez-svoy-server-2026/)
+- [Как опубликовать приложение в RuStore: шаги, модерация, сроки](./kak-vylozhit-prilozhenie-v-rustore-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-vylozhit-prilozhenie-v-rustore-2026/)
 - [GramFuzz: как проверить Telegram-бота на дыры до клиентов](./gramfuzz-proverka-bezopasnosti-telegram-botov-i-mini-prilozheniy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gramfuzz-proverka-bezopasnosti-telegram-botov-i-mini-prilozheniy-2026/)
 - [PocketPaw: ИИ-агент в чате, журнал есть, защиты от правки нет](./pocketpaw-svoy-ii-agent-v-messendzhere-s-zhurnalom-deystviy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pocketpaw-svoy-ii-agent-v-messendzhere-s-zhurnalom-deystviy-2026/)
 - [Scanopy: карта сети офиса, которая не устаревает](./scanopy-avtomaticheskaya-shema-seti-ofisa-i-prilozheniy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/scanopy-avtomaticheskaya-shema-seti-ofisa-i-prilozheniy-2026/)
