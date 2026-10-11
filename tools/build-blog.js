@@ -10,6 +10,8 @@ const { execSync } = require('child_process');
 const { clampTitle, clampDesc } = require("./meta-clamp.js");
 const path = require('path');
 const articles = require('./blog-data');
+// Маркировка запрещённых/заблокированных в РФ площадок (Meta и её продукты, LinkedIn, X, Discord…)
+const RP = require('./restricted-platforms.js');
 
 // --- Честная дата изменения из git -------------------------------------------
 // dateModified берётся из последнего коммита, который реально менял контент-файл
@@ -1759,23 +1761,10 @@ function autolinkModels(html, selfSlug) {
   return parts.join('');
 }
 
-// Юридическая пометка: Meta признана экстремистской и запрещена в РФ.
-// Штрафы по ст. 13.15 КоАП за упоминание без пометки. Добавляется
-// автоматически в конце статьи, если упомянута компания Meta или её
-// соцсети Facebook / Instagram.
-function metaDisclaimer(html) {
-  const s = html || '';
-  const mentionsMeta = /(^|[^0-9A-Za-zА-Яа-я])Meta([^0-9A-Za-zА-Яа-я]|$)/.test(s);
-  const mentionsNet = /instagram|инстаграм|facebook|фейсбук/i.test(s);
-  if (!mentionsMeta && !mentionsNet) return '';
-  const what = mentionsNet
-    ? 'Instagram и Facebook принадлежат компании Meta, которая'
-    : 'Meta —';
-  return `
-                    <aside class="blog-legal-note" role="note">
-                        <p><strong>Важно.</strong> ${what} признана в России экстремистской организацией, её деятельность на территории Российской Федерации запрещена.</p>
-                    </aside>`;
-}
+// Юридическая пометка о запрещённых и заблокированных в РФ площадках.
+// Метки «*» / «**» и сноска ставятся автоматически модулем restricted-platforms.js
+// по всему видимому содержимому <main> (H1, лид, тело, карточки, оглавление).
+// Сноска выводится на месте NOTE_PLACEHOLDER, только для реально упомянутых площадок.
 
 function articlePage(a, published) {
   const url = `${SITE}/blog/${a.slug}/`;
@@ -1825,7 +1814,7 @@ ${faqLd(a)}${howToLd(a)}${itemListLd(a)}${METRIKA}</head>
                     <div class="blog-body">
                         ${bodyHtml}
                     </div>
-                    ${metaDisclaimer(a.contentHtml)}
+                    ${RP.NOTE_PLACEHOLDER}
 
                     ${prefillTgLinks(repoBlockHtml(a), a)}
                     ${seriesHtml(a, published)}
@@ -2045,7 +2034,7 @@ ${METRIKA}</head>
                       return `<a href="/blog/category/${k}/" class="blog-section-link">${esc(CATEGORY_META[k].h1)} <span>${cnt}</span></a>`;
                     }).join('\n                    ')}
                     </div>
-                </nav>
+                </nav>${RP.NOTE_PLACEHOLDER}
             </div>
         </section>
     </main>
@@ -2561,7 +2550,7 @@ ${METRIKA}</head>
 
                 <div class="cs-all-head"><span class="section-label">${L('ВСЕ ПРОЕКТЫ', 'ALL PROJECTS', 'TODOS LOS PROYECTOS')}</span></div>
                 <div class="svc-filter" id="pfFilter" role="group" aria-label="Фильтр кейсов">${chips}</div>
-                <div class="pf-grid">${cases.map(portfolioCard).join('\n')}</div>
+                <div class="pf-grid">${cases.map(portfolioCard).join('\n')}</div>${RP.NOTE_PLACEHOLDER}
                 <div class="pf-cta">
                     <div>
                         <h2>Нужен похожий проект?</h2>
@@ -2651,7 +2640,7 @@ ${METRIKA}</head>
 
                 <div class="blog-grid">
                     ${cards}
-                </div>
+                </div>${RP.NOTE_PLACEHOLDER}
             </div>
         </section>
     </main>
@@ -3160,11 +3149,11 @@ async function main() {
   for (const a of published) {
     const dir = path.join(OUT_BLOG, a.slug);
     ensureDir(dir);
-    fs.writeFileSync(path.join(dir, 'index.html'), subOffersCount(articlePage(a, published)), 'utf8');
+    fs.writeFileSync(path.join(dir, 'index.html'), RP.applyToPage(subOffersCount(articlePage(a, published))), 'utf8');
     pages++;
   }
 
-  fs.writeFileSync(path.join(OUT_BLOG, 'index.html'), subOffersCount(hubPage(published)), 'utf8');
+  fs.writeFileSync(path.join(OUT_BLOG, 'index.html'), RP.applyToPage(subOffersCount(hubPage(published))), 'utf8');
 
   // Авто-витрина «Полезное» на главной (между маркерами USEFUL_HOME_*)
   generateHomeUseful(published);
@@ -3172,13 +3161,13 @@ async function main() {
   // Глоссарий /slovar/
   const slovarDir = path.join(ROOT, 'slovar');
   ensureDir(slovarDir);
-  fs.writeFileSync(path.join(slovarDir, 'index.html'), glossaryPage(), 'utf8');
+  fs.writeFileSync(path.join(slovarDir, 'index.html'), RP.applyToPage(glossaryPage()), 'utf8');
   console.log(`  Glossary: ${slovarDir}/index.html (${GLOSSARY.length} терминов)`);
 
   // Портфолио /cases/
   const casesDir = path.join(ROOT, 'cases');
   ensureDir(casesDir);
-  fs.writeFileSync(path.join(casesDir, 'index.html'), subOffersCount(portfolioPage(published)), 'utf8');
+  fs.writeFileSync(path.join(casesDir, 'index.html'), RP.applyToPage(subOffersCount(portfolioPage(published))), 'utf8');
   const casesCount = published.filter(a => a.category === 'cases').length;
   console.log(`  Portfolio: ${casesDir}/index.html (${casesCount} кейсов)`);
 
@@ -3189,7 +3178,7 @@ async function main() {
     const catArticles = published.filter(p => p.category === k);
     const dir = path.join(OUT_BLOG, 'category', k);
     ensureDir(dir);
-    fs.writeFileSync(path.join(dir, 'index.html'), subOffersCount(categoryPage(k, catArticles)), 'utf8');
+    fs.writeFileSync(path.join(dir, 'index.html'), RP.applyToPage(subOffersCount(categoryPage(k, catArticles))), 'utf8');
     catPages++;
   }
   console.log(`  Generated ${catPages} category pillar page(s)`);

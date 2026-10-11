@@ -4,7 +4,7 @@
  *
  * Проверяет, что каждая опубликованная статья в blog-data.js соответствует
  * общим требованиям проекта (длина, TL;DR, FAQ, отсутствие эмодзи, маркировка
- * Meta, обязательные поля и т.д.). Технические SEO/GEO-вещи (schema, Speakable,
+ * запрещённых/заблокированных площадок, обязательные поля и т.д.). Технические SEO/GEO-вещи (schema, Speakable,
  * обложки, внутренние ссылки) генерятся в build-blog автоматически — здесь
  * проверяется именно КОНТЕНТ, который пишется руками/ИИ.
  *
@@ -16,6 +16,22 @@
  */
 
 const path = require('path');
+const fs = require('fs');
+
+// Маркировка Meta/Instagram/Facebook/Threads/WhatsApp («*») и LinkedIn/X/Discord/
+// Signal/Viber/Snapchat/FaceTime («**») ставится при сборке автоматически модулем
+// restricted-platforms.js. Линтер проверяет, что модуль на месте и подключён в build-blog.
+let RP = null;
+let RP_ERROR = '';
+try {
+  RP = require('./restricted-platforms.js');
+  const buildSrc = fs.readFileSync(path.join(__dirname, 'build-blog.js'), 'utf8');
+  if (!/require\(['"]\.\/restricted-platforms(?:\.js)?['"]\)/.test(buildSrc) || !/RP\.applyToPage\(/.test(buildSrc)) {
+    RP_ERROR = 'build-blog.js не подключает restricted-platforms.js (applyToPage) — пометки не будут поставлены';
+  }
+} catch (e) {
+  RP_ERROR = 'нет модуля tools/restricted-platforms.js: ' + e.message;
+}
 
 // Требования (откалиброваны по текущим 123 статьям)
 // 02.09.2026: порог снижен 1300 → 1000 — короткие SEO-статьи «до 4 минут чтения» (1090-1300 слов) — штатный формат.
@@ -106,11 +122,18 @@ function checkArticle(a, allSlugs) {
     errors.push(`найдены эмодзи (только Phosphor-иконки!): «${found[0]}»`);
   }
 
-  // маркировка Meta (152-ФЗ / штрафы)
-  const mentionsMeta = /instagram|инстаграм|facebook|фейсбук/i.test(html);
-  const hasMark = /Meta|экстремист/i.test(html);
-  if (mentionsMeta && !hasMark) {
-    errors.push('упоминается Instagram/Facebook без пометки «Meta признана экстремистской и запрещена в РФ»');
+  // маркировка запрещённых/заблокированных площадок (ст. 13.15 КоАП и т.п.):
+  // если в тексте есть такие упоминания, сборка обязана поставить метки и сноску.
+  const visibleHay = `<h1>${a.title || ''}</h1><p>${a.excerpt || ''}</p>${html}`;
+  if (RP_ERROR) {
+    if (/instagram|инстаграм|facebook|фейсбук|whatsapp|linkedin|discord|twitter|viber|\bMeta\b/i.test(visibleHay)) {
+      errors.push(`упоминаются запрещённые/заблокированные площадки, но ${RP_ERROR}`);
+    }
+  } else {
+    const marked = RP.markHtmlWithInfo(visibleHay);
+    const left = RP.scanHtml(marked.html).filter(x => !x.exempt && !x.marked);
+    if (left.length) errors.push(`после автомаркировки осталось без метки: ${left.slice(0, 3).map(x => x.text).join(', ')}`);
+    if (marked.found.size && !RP.noteHtml(marked.found)) errors.push('найдены площадки, но сноска не формируется');
   }
 
   // WARN: длины мета-тегов

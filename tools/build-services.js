@@ -13,6 +13,8 @@ const { i18nServices, i18nUi } = require('./services-i18n-source');
 const OFFERS = require('./offers-data.js');
 const { METRIKA, GOALS, maxBtn } = require('./metrika-snippet.js');
 const { casesSection } = require('./related-cases-html.js');
+// Маркировка запрещённых/заблокированных в РФ площадок: метки «*»/«**» в видимом тексте <main> и сноска внизу
+const RP = require('./restricted-platforms.js');
 // Разделы «Как проходит работа», «Что входит в цену», «Сроки» (данные: services-extra.js)
 let EXTRA = {};
 try { EXTRA = require('./services-extra.js'); } catch (e) { EXTRA = {}; }
@@ -656,6 +658,9 @@ function buildI18nBundle() {
   }
 
   for (const lang of langs) {
+    for (const k of Object.keys(out[lang])) {
+      if (typeof out[lang][k] === 'string') out[lang][k] = RP.markHtml(out[lang][k]);
+    }
     Object.assign(out[lang], i18nUi[lang] || {});
   }
 
@@ -728,12 +733,12 @@ function main() {
     // Генератор её карточку в каталоге и в sitemap оставляет, но страницу не трогает.
     if (svc.custom) { customCount++; continue; }
     if (svc.moved) { fs.writeFileSync(path.join(dir, 'index.html'), movedPage(svc), 'utf8'); continue; }
-    fs.writeFileSync(path.join(dir, 'index.html'), servicePage(svc), 'utf8');
+    fs.writeFileSync(path.join(dir, 'index.html'), RP.applyToPage(servicePage(svc)), 'utf8');
     pageCount++;
   }
   if (customCount) console.log('  пропущено кастомных страниц: ' + customCount);
 
-  fs.writeFileSync(path.join(OUT_SERVICES, 'index.html'), catalogPage(), 'utf8');
+  fs.writeFileSync(path.join(OUT_SERVICES, 'index.html'), RP.applyToPage(catalogPage()), 'utf8');
   fs.writeFileSync(OUT_SITEMAP, sitemap(), 'utf8');
   fs.writeFileSync(OUT_SNIPPET, homeSnippet(), 'utf8');
   fs.writeFileSync(OUT_I18N, buildI18nBundle(), 'utf8');

@@ -1,0 +1,62 @@
+// OSS-статьи 02.10.2026 по каналам Telegram: тройка 10.10: Client (Tetiva), geo-seo-claude, Quickemu.
+const C = (s) => require('./blog-content-' + s + '.js');
+const D = '2026-10-10';
+const SVC_BIZ = { title: 'Что я делаю для бизнеса', services: [
+  { icon: 'ph-fill ph-robot', label: 'Боты в Telegram, MAX, VK' },
+  { icon: 'ph-fill ph-gear', label: 'Автоматизация процессов и CRM' },
+  { icon: 'ph-fill ph-chart-bar', label: 'Аналитика и дашборды' },
+  { icon: 'ph-fill ph-globe', label: 'Сайты и лендинги под ключ' },
+]};
+const E = (o) => Object.assign({ published: true, datePublished: D, dateModified: D, readingMinutes: 4, servicesOffer: SVC_BIZ }, o, { contentHtml: C(o.slug) });
+module.exports = [
+  E({ slug: "client-besplatnyy-klient-http-grpc-graphql-dlya-proverki-integraciy-2026", category: "development", heroIcon: "ph-fill ph-paper-plane-tilt", ctaInternal: { url: "https://chimitdorzhi.tech/predlozheniya/integraciya-sistem/", label: "Обсудить приёмку интеграции" },
+    title: "Принять интеграцию без Postman: бесплатный клиент Tetiva",
+    metaTitle: "Tetiva: бесплатный клиент API для проверки интеграций подрядчика",
+    metaDescription: "Tetiva (репозиторий client) шлёт запросы HTTP, gRPC, GraphQL без аккаунта. Как заказчику принять интеграцию и что с ключами в базе.",
+    excerpt: "Client, он же Tetiva: бесплатная программа с лицензией MIT для запросов HTTP, gRPC, GraphQL и WebSocket без аккаунта. Разбираю, как заказчик проверяет с её помощью фразу подрядчика «интеграция готова», что лежит в базе на диске открытым текстом и чем она отличается от Postman, Bruno и Hoppscotch.",
+    tags: ["API","интеграции","приёмка работ","open source"],
+    toc: [
+      { id: "gotovo-ili-net", text: "Подрядчик пишет «интеграция готова». Как это увидеть самому" },
+      { id: "chto-eto-za-proekt", text: "Что это за проект и что он умеет" },
+      { id: "gde-klyuchi", text: "Где лежат ключи и тела запросов" },
+      { id: "sravnenie", text: "Чем отличается от Postman, Insomnia, Bruno и Hoppscotch" },
+      { id: "chto-vazhno-uchest", text: "Что важно учесть" },
+      { id: "chto-sdelat", text: "Что можно сделать уже сейчас" },
+      { id: "faq", text: "Частые вопросы" },
+      { id: "vyvody", text: "Коротко о главном" },
+    ],
+    relatedSlugs: ["integraciya-molcha-teryaet-zakazy-moysklad-503-429-2026","http-servis-1c-dlya-prilozheniya-2026","kak-ne-stat-zalozhnikom-podryadchika-dostupy-repozitoriy-dokumentaciya-2026","tehzadanie-na-dorabotku-1s-kak-opisat-scenarii-priemka-2026"] }),
+  E({ slug: "geo-seo-claude-proverka-vidimosti-sayta-v-otvetah-ii-poiska-2026", category: "marketing", heroIcon: "ph-fill ph-magnifying-glass", ctaInternal: { url: "https://chimitdorzhi.tech/services/digital-marketing/", label: "GEO-аудит и правки сайта под ИИ-поиск" },
+    title: "geo-seo-claude: видит ли ИИ-поиск ваш сайт и чего набор не умеет",
+    metaTitle: "geo-seo-claude: проверка сайта на видимость в ответах ИИ",
+    metaDescription: "Разбор geo-seo-claude для Claude Code: что проверяет, как ставится, лицензия MIT. Почему для Яндекса и GigaChat он не годится и что делать вместо.",
+    excerpt: "geo-seo-claude это бесплатный набор навыков для Claude Code, который проверяет сайт на видимость в ответах ИИ-поисков. Разбираю по репозиторию, что он проверяет, как ставится и где ошибается на русском сайте. Для Яндекса с Алисой и GigaChat его оценка ничего не говорит.",
+    tags: ["GEO","Claude Code","Open Source","ИИ-поиск"],
+    toc: [
+      { id: "otkuda-vzyalsya", text: "Откуда взялся и кто за ним стоит" },
+      { id: "chto-vhodit", text: "Что проверяет набор" },
+      { id: "kak-stavitsya", text: "Как ставится и что нужно" },
+      { id: "chego-net", text: "Что важно учесть: где набор не сработает" },
+      { id: "chto-sdelat", text: "Что можно сделать уже сейчас" },
+      { id: "faq", text: "Частые вопросы" },
+      { id: "vyvody", text: "Коротко о главном" },
+    ],
+    relatedSlugs: ["geo-chek-list-30-punktov-2026","geo-2027-alisa-gigachat-neyropoisk","geo-optimizer-skill-besplatnyy-audit-citiruyut-li-ii-vash-sayt-2026","kak-izmerit-geo-2026"] }),
+  E({ slug: "quickemu-virtualnaya-mashina-s-windows-odnoy-komandoy-dlya-starogo-po-2026", category: "development", heroIcon: "ph-fill ph-hard-drives", ctaInternal: { url: "https://chimitdorzhi.tech/services/it-infrastructure/", label: "Собрать безопасный стенд для 1С и старого ПО" },
+    title: "Проверить обновление 1С на копии: Quickemu вместо рабочего ПК",
+    metaTitle: "Quickemu: виртуальная Windows для проверки обновления 1С",
+    metaDescription: "Quickemu ставит виртуальную Windows двумя командами. Как проверить обновление 1С и запустить старый клиент на копии, и чем ограничен инструмент.",
+    excerpt: "Quickemu, бесплатная оболочка над QEMU, создаёт виртуальную машину с Windows двумя командами. Разбираю, как бухгалтерии проверить обновление 1С на копии базы и запустить старый клиент в изоляции, и где инструмент не подойдёт: хост только Linux и macOS, лицензия на Windows остаётся на вас.",
+    tags: ["виртуальные машины","1С","Windows","Quickemu"],
+    toc: [
+      { id: "boyatsya-obnovlyat", text: "Обновление страшно делать на рабочей машине" },
+      { id: "chto-takoe-quickemu", text: "Что такое Quickemu" },
+      { id: "chto-umeet", text: "Что умеет по документации" },
+      { id: "chto-vazhno-uchest", text: "Что важно учесть" },
+      { id: "sravnenie", text: "Чем это отличается от VirtualBox, Hyper-V и Proxmox" },
+      { id: "chto-sdelat-seychas", text: "Что можно сделать уже сейчас" },
+      { id: "faq", text: "Частые вопросы" },
+      { id: "vyvody", text: "Коротко о главном" },
+    ],
+    relatedSlugs: ["rezervnoe-kopirovanie-1c-2026","1c-v-oblake-ili-na-svoem-servere-2026","windows-10-bez-obnovleniy-chto-delat-ofisu-esu-windows-11-alternativy-2026","obmen-zup-i-buhgalteriya-posle-obnovleniya-kd2-rib-2026"] }),
+];

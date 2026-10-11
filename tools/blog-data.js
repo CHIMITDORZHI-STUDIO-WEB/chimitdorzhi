@@ -78,6 +78,11 @@ const blogBatchNew15_2 = require('./blog-batch-new15-2.js');
 const blogBatchNew15_3 = require('./blog-batch-new15-3.js');
 const blogBatchNew15_4 = require('./blog-batch-new15-4.js');
 const blogBatchNew15_5 = require('./blog-batch-new15-5.js');
+const blogBatchNew16_1 = require('./blog-batch-new16-1.js');
+const blogBatchNew16_2 = require('./blog-batch-new16-2.js');
+const blogBatchNew16_3 = require('./blog-batch-new16-3.js');
+const blogBatchNew16_4 = require('./blog-batch-new16-4.js');
+const blogBatchNew16_5 = require('./blog-batch-new16-5.js');
 const blogBatchNew10_1 = require('./blog-batch-new10-1.js');
 const blogBatchNew10_2 = require('./blog-batch-new10-2.js');
 const blogBatchNew10_3 = require('./blog-batch-new10-3.js');
@@ -101,6 +106,7 @@ const blogBatchOssTgOct9 = require('./blog-batch-oss-telegram-oct9-2026.js');
 const blogBatchOssTgOct10 = require('./blog-batch-oss-telegram-oct10-2026.js');
 const blogBatchOssTgOct11 = require('./blog-batch-oss-telegram-oct11-2026.js');
 const blogBatchOssTgOct12 = require('./blog-batch-oss-telegram-oct12-2026.js');
+const blogBatchOssTgOct13 = require('./blog-batch-oss-telegram-oct13-2026.js');
 const blogBatchSeoCluster24 = require('./blog-batch-seo-cluster24-2026.js');
 const blogBatchSeoCluster25 = require('./blog-batch-seo-cluster25-2026.js');
 const blogBatchSeoCluster26 = require('./blog-batch-seo-cluster26-2026.js');
@@ -293,6 +299,7 @@ const blogBatchKlasterySeo = require('./blog-batch-klastery-seo-2026.js');
 const blogBatchIiAgentN8n = require('./blog-batch-ii-agent-n8n-2026.js');
 const blogBatchTihieSboi = require('./blog-batch-tihie-sboi-2026.js');
 const blogBatchMaxNovosti = require('./blog-batch-max-novosti-2026.js');
+const blogBatchExpertOct11 = require('./blog-batch-expert-oct11-2026.js');
 const konkursPriglasheniyMaxContent = require('./blog-content-konkurs-priglasheniy-max.js');
 const aiAgentsContent = require('./blog-content-ai-agents.js');
 const securityChecklistContent = require('./blog-content-security-checklist.js');
@@ -10957,7 +10964,7 @@ const ALL_ARTICLES = [
   blogBatchSeoCluster18, blogBatchSeoCluster19, blogBatchSeoCluster20,
   blogBatchSeoCluster21, blogBatchSeoCluster22, blogBatchSeoCluster23,
   blogBatchSeoCluster24, blogBatchSeoCluster25, blogBatchSeoCluster26, blogBatchSeoCluster27, blogBatchSeoCluster28, blogBatchSeoCluster29, blogBatchSeoCluster30, blogBatchSeoCluster31, blogBatchKeysySent, blogBatchIgry, blogBatchIgry2, blogBatchVllm, blogBatchIgry3, blogBatchCifrSledGpt, blogBatchKeysySent2, blogBatchIgry4, blogBatchIgry5, blogBatchIgry6, blogBatchAvtorskie, blogBatch1cSklad, blogBatch1cSklad2, blogBatch1c3, blogBatchRutina, blogBatchZakazchiku, blogBatchKrome1c, blogBatchRazovye, blogBatchRazovye2, blogBatchRazovye3, blogBatchRazovye4, blogBatchProgrammy, blogBatchQwenUnc, blogBatchImStart, blogBatchSkolko, blogBatchSkolko2, blogBatchSkolko3, blogBatchDoverie, blogBatchQwenSent, blogBatchPokupka, blogBatchProdazhiOtrasli, blogBatchNishiUslug, blogBatchKeysySent3, blogBatchOtkrytyeModeli,
-  blogBatchKeysySenA, blogBatchKeysySenB, blogBatchKeysySenC, blogBatchKeysySenD, blogBatchKeysySenE, blogBatchKeysySenF, blogBatchNewsSep23, blogBatchNewsSep25, blogBatchNewsSep25b, blogBatchNewsSep26, blogBatchTopicSep27, blogBatchTopicSep27b, blogBatchIiRutina, blogBatchKonfig, blogBatchGenDog, blogBatchOssOct01, blogBatchTopicOct02, blogBatchTopicOct02b, blogBatchBiznesBoli, blogBatchOssDocuseal, blogBatchGithubTrend, blogBatchOssOpenhd, blogBatchOssRocket, blogBatchOssTgOct, blogBatchOssTgOct2, blogBatchBiznesBoli29, blogBatchBiznesBoli2Sep29, blogBatchBiznesBoliSep30, blogBatchBiznesBoliSep30b, blogBatchBiznesBoliSep30c, blogBatchBiznesBoliSep30d, blogBatchBiznesBoliOct01, blogBatchBiznesBoliOct01b, blogBatchBiznesBoliOct02, blogBatchBiznesBoliOct02e, blogBatchBiznesBoliOct02f, blogBatchExpertOct02, blogBatchKeysyOct2026b, blogBatchKeysyOct2026c, blogBatchBiznesBoliOct02g, blogBatchBiznesBoliOct02h, blogBatchOssTgOct3, blogBatchOssTgOct4, blogBatchOssTgOct5, blogBatchOssTgOct6, blogBatchOssTgOct7, blogBatchOssTgOct8, blogBatchOssTgOct9, blogBatchOssTgOct10, blogBatchOssTgOct11, blogBatchOssTgOct12, blogBatchExpertNews2Oct02, blogBatchExpertOct03b, blogBatchExpertOct04, blogBatchBiznesBoliOct03a, blogBatchBiznesBoliOct03b, blogBatchBiznesBoliOct04a, blogBatchBiznesBoliOct04b, blogBatchBiznesBoliOct04c, blogBatchBiznesBoliOct04d, blogBatchExpertOct05, blogBatchBiznesBoliOct04e, blogBatchExpertOct06, blogBatchExpertOct07, blogBatchExpertOct09, blogBatchBiznesBoliOct06a, blogBatchBiznesBoliOct06b, blogBatchBiznesBoliOct08a, blogBatchBiznesBoliOct08b, blogBatchNew5_1, blogBatchNew5_2, blogBatchNew5_3, blogBatchNew5_4, blogBatchNew10_1, blogBatchNew10_2, blogBatchNew10_3, blogBatchExpertOct10, blogBatchNew15_1, blogBatchNew15_2, blogBatchNew15_3, blogBatchNew15_4, blogBatchNew15_5);
+  blogBatchKeysySenA, blogBatchKeysySenB, blogBatchKeysySenC, blogBatchKeysySenD, blogBatchKeysySenE, blogBatchKeysySenF, blogBatchNewsSep23, blogBatchNewsSep25, blogBatchNewsSep25b, blogBatchNewsSep26, blogBatchTopicSep27, blogBatchTopicSep27b, blogBatchIiRutina, blogBatchKonfig, blogBatchGenDog, blogBatchOssOct01, blogBatchTopicOct02, blogBatchTopicOct02b, blogBatchBiznesBoli, blogBatchOssDocuseal, blogBatchGithubTrend, blogBatchOssOpenhd, blogBatchOssRocket, blogBatchOssTgOct, blogBatchOssTgOct2, blogBatchBiznesBoli29, blogBatchBiznesBoli2Sep29, blogBatchBiznesBoliSep30, blogBatchBiznesBoliSep30b, blogBatchBiznesBoliSep30c, blogBatchBiznesBoliSep30d, blogBatchBiznesBoliOct01, blogBatchBiznesBoliOct01b, blogBatchBiznesBoliOct02, blogBatchBiznesBoliOct02e, blogBatchBiznesBoliOct02f, blogBatchExpertOct02, blogBatchKeysyOct2026b, blogBatchKeysyOct2026c, blogBatchBiznesBoliOct02g, blogBatchBiznesBoliOct02h, blogBatchOssTgOct3, blogBatchOssTgOct4, blogBatchOssTgOct5, blogBatchOssTgOct6, blogBatchOssTgOct7, blogBatchOssTgOct8, blogBatchOssTgOct9, blogBatchOssTgOct10, blogBatchOssTgOct11, blogBatchOssTgOct12, blogBatchOssTgOct13, blogBatchExpertNews2Oct02, blogBatchExpertOct03b, blogBatchExpertOct04, blogBatchBiznesBoliOct03a, blogBatchBiznesBoliOct03b, blogBatchBiznesBoliOct04a, blogBatchBiznesBoliOct04b, blogBatchBiznesBoliOct04c, blogBatchBiznesBoliOct04d, blogBatchExpertOct05, blogBatchBiznesBoliOct04e, blogBatchExpertOct06, blogBatchExpertOct07, blogBatchExpertOct09, blogBatchBiznesBoliOct06a, blogBatchBiznesBoliOct06b, blogBatchBiznesBoliOct08a, blogBatchBiznesBoliOct08b, blogBatchNew5_1, blogBatchNew5_2, blogBatchNew5_3, blogBatchNew5_4, blogBatchNew10_1, blogBatchNew10_2, blogBatchNew10_3, blogBatchExpertOct10, blogBatchNew15_1, blogBatchNew15_2, blogBatchNew15_3, blogBatchNew15_4, blogBatchNew15_5, blogBatchNew16_1, blogBatchNew16_2, blogBatchNew16_3, blogBatchNew16_4, blogBatchNew16_5, blogBatchExpertOct11);
 
 // --- Проход взаимной перелинковки ---------------------------------------
 // Гарантирует, что у каждой опубликованной статьи есть хотя бы одна входящая

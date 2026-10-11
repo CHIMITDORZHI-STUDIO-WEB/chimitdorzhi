@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VERT (Верт): конвертер файлов без загрузки на сервер</title>
+    <meta name="description" content="Паспорта и договоры нельзя грузить в первый конвертер из выдачи. Правило для компании, локальные инструменты и VERT (AGPL-3.0) с проверкой.">
+    <meta name="keywords" content="VERT, конвертер файлов, конфиденциальность, open source">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/vert-konverter-faylov-bez-zagruzki-na-chuzhie-servery-250-formatov-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/vert-konverter-faylov-bez-zagruzki-na-chuzhie-servery-250-formatov-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/vert-konverter-faylov-bez-zagruzki-na-chuzhie-servery-250-formatov-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/vert-konverter-faylov-bez-zagruzki-na-chuzhie-servery-250-formatov-2026/">
+    <meta property="og:title" content="VERT (Верт): конвертер файлов без загрузки на сервер">
+    <meta property="og:description" content="Паспорта и договоры нельзя грузить в первый конвертер из выдачи. Правило для компании, локальные инструменты и VERT (AGPL-3.0) с проверкой.">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/vert-konverter-faylov-bez-zagruzki-na-chuzhie-servery-250-formatov-2026/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="VERT (Верт): конвертер файлов без загрузки на сервер">
+    <meta name="twitter:description" content="Паспорта и договоры нельзя грузить в первый конвертер из выдачи. Правило для компании, локальные инструменты и VERT (AGPL-3.0) с проверкой.">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/vert-konverter-faylov-bez-zagruzki-na-chuzhie-servery-250-formatov-2026/cover.png">
+
+    <link rel="icon" href="/favicon.svg?v=5" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=5">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png?v=5">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=5">
+    <link rel="preload" href="/assets/fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=79">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "VERT: конвертер файлов без загрузки на чужие серверы",
+  "description": "Паспорта и договоры нельзя грузить в первый конвертер из выдачи. Правило для компании, локальные инструменты и VERT (AGPL-3.0) с проверкой.",
+  "image": "https://chimitdorzhi.tech/blog/vert-konverter-faylov-bez-zagruzki-na-chuzhie-servery-250-formatov-2026/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://t.me/chimitdorzhi_studio",
+      "https://max.ru/channel_chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio",
+      "https://github.com/chimitdorzhi",
+      "https://chimitdorzhi.tech/about/"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/vert-konverter-faylov-bez-zagruzki-na-chuzhie-servery-250-formatov-2026/"
+  },
+  "datePublished": "2026-10-11",
+  "dateModified": "2026-10-11",
+  "keywords": "VERT, конвертер файлов, конфиденциальность, open source",
+  "articleSection": "Open-source и свой сервер",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "VERT: конвертер файлов без загрузки на чужие серверы",
+      "item": "https://chimitdorzhi.tech/blog/vert-konverter-faylov-bez-zagruzki-na-chuzhie-servery-250-formatov-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Можно ли пользоваться vert.sh для рабочих документов?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Для документов с персональными данными я бы не стал. Публичный сайт принадлежит стороннему проекту. Для рабочих файлов ставьте свой экземпляр или используйте локальные программы."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужно ли публиковать исходный код, если я поставлю VERT у себя?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "По тексту лицензии это требование относится к изменённой версии, которую пользователи получают по сети. Если код не менять, повода что-то публиковать я в лицензии не вижу, но решайте это вместе с юристом."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Заменит ли VERT онлайн-конвертеры целиком?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Для картинок, аудио и части документов да. Для PDF нет. Для видео иногда нужен vertd."
+      }
+    }
+  ]
+}
+    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+var inject=function(){for (var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)};
+var run=function(){('requestIdleCallback' in window)?requestIdleCallback(inject,{timeout:5000}):setTimeout(inject,3000)};
+(e.readyState==='complete')?run():m.addEventListener('load',run);})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109281884" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<!-- Цели Метрики: клики по контактам и услугам -->
+<script type="text/javascript">
+(function(){
+  var GOALS = [
+    { re: /t\.me\//i,                     goal: 'tg_click' },
+    { re: /max\.ru\//i,                    goal: 'max_click' },
+    { re: /audit\.chimitdorzhi\.tech/i,    goal: 'audit_click' },
+    { re: /chimitdorzhi\.tech\/services\//i, goal: 'service_click' },
+    { re: /chimitdorzhi\.tech\/predlozheniya\//i, goal: 'offer_click' }
+  ];
+  document.addEventListener('click', function(e){
+    var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    for (var i = 0; i < GOALS.length; i++) {
+      if (GOALS[i].re.test(href)) {
+        try { if (window.ym) ym(109281884, 'reachGoal', GOALS[i].goal); } catch (err) {}
+        break;
+      }
+    }
+  }, true);
+})();
+</script>
+</head>
+<body class="wx-read">
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/" data-i18n="nav.home">Главная</a></li>
+            <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+            <li class="nav-dropdown">
+                <a href="/cases/" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+                <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему" aria-pressed="false">
+                <i class="ph ph-moon" aria-hidden="true"></i>
+            </button>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/" data-i18n="nav.home">Главная</a></li>
+        <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+        <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+        <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+        <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+        <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+        <li class="mobile-has-submenu">
+            <details>
+                <summary aria-label="Проекты — развернуть"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down" aria-hidden="true"></i></summary>
+                <ul class="mobile-submenu">
+                    <li>
+                        <a href="https://gerel.space" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">Gerel.space</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/universe_buryat/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/arey/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.arey">AREY</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/mwrlife/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">MWR Life</span>
+                                <span class="mobile-sub-desc">Travel-клуб и партнёрка</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </details>
+        </li>
+        <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+    </ul>
+    <div class="mobile-controls">
+        <div class="mobile-lang-switcher" role="group" aria-label="Выбор языка">
+            <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+            <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+            <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+        </div>
+        <button class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle" aria-label="Переключить тему" aria-pressed="false">
+            <i class="ph ph-moon" aria-hidden="true"></i>
+        </button>
+    </div>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">VERT: конвертер файлов без загрузки на чужие серверы</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/opensource/"><i class="ph ph-bookmark" aria-hidden="true"></i> Open-source и свой сервер</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин чтения</span>
+                        <time datetime="2026-10-11"><i class="ph ph-calendar" aria-hidden="true"></i> 11 октября 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">VERT: конвертер файлов без загрузки на чужие серверы</h1>
+
+                    <p class="blog-lead">Сотрудники конвертируют паспорта, договоры и выписки через первый сайт из выдачи, и файл уходит на чужой сервер. Разбираю правило для компании, локальные инструменты и VERT: лицензия AGPL-3.0, что он делает в браузере, чего в нём нет (PDF) и как поставить свой экземпляр.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>VERT</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>конвертер файлов</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>конфиденциальность</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>open source</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr">
+  <strong>Коротко.</strong> VERT (репозиторий VERT-sh/VERT) это <a href="https://chimitdorzhi.tech/services/it-infrastructure/" class="blog-inline-link">конвертер файлов</a>, который по описанию проекта работает в браузере через WebAssembly. Лицензия AGPL-3.0, репозиторий не в архиве, последний коммит 9 октября 2026 года. Изображения, аудио и документы обрабатываются на устройстве, видео иногда уходит на сервер. PDF в списках форматов исходников я не нашёл. Но инструмент вторичен: сначала нужно правило, какие файлы нельзя загружать в онлайн-сервисы вообще.
+</div>
+<div class="blog-cta-internal">
+  <i class="ph-fill ph-rocket-launch" aria-hidden="true"></i>
+  <div>
+    <strong>Хотите внедрить это у себя?</strong>
+    <p>Сделаю под ключ: разберу задачу, назову срок и цену. Чтобы начать, <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%ABVERT%3A%20%D0%BA%D0%BE%D0%BD%D0%B2%D0%B5%D1%80%D1%82%D0%B5%D1%80%20%D1%84%D0%B0%D0%B9%D0%BB%D0%BE%D0%B2%20%D0%B1%D0%B5%D0%B7%20%D0%B7%D0%B0%D0%B3%D1%80%D1%83%D0%B7%D0%BA%D0%B8%20%D0%BD%D0%B0%20%D1%87%D1%83%D0%B6%D0%B8%D0%B5%20%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D1%8B%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener">напишите в Telegram</a> одной фразой.</p>
+    <a href="https://chimitdorzhi.tech/services/cybersecurity/">Кибербезопасность и внутренние инструменты команды <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</div>
+
+<h2 id="kak-fayl-uhodit">Как договор оказывается на чужом сервере</h2>
+
+<p>Бухгалтеру пришёл скан паспорта в формате HEIC, который не открывается на рабочем компьютере. Менеджеру нужен PDF из Word. Юристу надо сжать выписку. Каждый берёт первый сайт из выдачи по слову «конвертер».</p>
+
+<p>У большинства таких сайтов конвертация идёт на стороне сервиса, файл физически уезжает наружу. Что с копиями потом, в каждом случае написано в политике хранения этого сервиса. Читать её никто не будет, хотя сделать это стоит заранее, до загрузки. Конкретные сервисы я не разбираю и ничего про их практику не утверждаю.</p>
+
+<p>Есть и вторая проблема. Среди результатов бывают сайты с агрессивной рекламой и подделки, подсовывающие установщик вместо файла. Заранее это не видно. Об общем подходе к защите команды я писал в материалах про <a href="/blog/kiberbezopasnost-udalennoy-komandy-2026/">кибербезопасность удалённой команды</a> и про <a href="/blog/menedzher-paroley-vazhnee-antivirusa-2026/">менеджер паролей</a>.</p>
+
+<h2 id="pravilo">Правило в компании: что нельзя загружать</h2>
+
+<p>В онлайн-сервисы, где конвертация идёт на чужом сервере, не загружаем:</p>
+
+<ul>
+  <li>сканы и фото паспортов, СНИЛС, ИНН, водительских удостоверений;</li>
+  <li>договоры, акты и счета с реквизитами и подписями;</li>
+  <li>банковские выписки и платёжные документы;</li>
+  <li>кадровые документы: трудовые договоры, анкеты, справки;</li>
+  <li>медицинские документы;</li>
+  <li>внутренние отчёты, прайсы, базы клиентов.</li>
+</ul>
+
+<p>Юридическая сторона в общих словах: закон о персональных данных 152-ФЗ требует основания для передачи данных третьему лицу, а если сервис зарубежный, речь идёт о трансграничной передаче. Закон о коммерческой тайне 98-ФЗ строится на мерах охраны конфиденциальности, а файл на сайте случайного сервиса к ним отнести трудно. Нормы я заново не сверял, оценку даст юрист.</p>
+
+<p>Правилу нужна альтернатива, иначе его не станут соблюдать.</p>
+
+<h2 id="lokalnye-instrumenty">Локальные инструменты: готовый список</h2>
+
+<p>Для начала хватает программ, которые работают на компьютере без сети.</p>
+
+<ul>
+  <li>Документы Word, Excel, презентации в PDF: офисный пакет LibreOffice, экспорт в PDF есть в самой программе.</li>
+  <li>Операции с PDF (склейка, разбивка, сжатие, распознавание): набор в браузере на своём сервере, как в <a href="/blog/stirling-pdf-instrumenty-2026/">материале про Stirling-PDF</a>, или скрипты, о которых я писал в статье про <a href="/blog/konvertaciya-i-skleyka-pdf-pachkoy-2026/">пакетную склейку и сжатие PDF</a>.</li>
+  <li>Картинки, аудио, видео, тексты: ImageMagick, FFmpeg и Pandoc. Эти же библиотеки, по FAQ проекта, использует VERT.</li>
+</ul>
+
+<p>Командную строку любят не все. Для остальных нужен интерфейс в браузере, и здесь появляется VERT.</p>
+
+<h2 id="chto-takoe-vert">Что такое VERT и что я проверил</h2>
+
+<p>Сверил по <a href="https://github.com/VERT-sh/VERT" target="_blank" rel="noopener nofollow">репозиторию</a>, документации в нём и <a href="https://vert.sh/privacy/" target="_blank" rel="noopener nofollow">странице приватности</a> официального сайта.</p>
+
+<ul>
+  <li>Проект создан в ноябре 2024 года, не архивирован, последний коммит 9 октября 2026 года. Релизов и тегов в репозитории нет, версии фиксируются коммитами.</li>
+  <li>README заявляет конвертацию на устройстве через WebAssembly, отсутствие лимитов на файлы и более 250 форматов. Сам я форматы не пересчитывал.</li>
+  <li>Чем конвертирует: изображения через ImageMagick, документы через Pandoc, аудио через FFmpeg, видео через браузерную библиотеку Mediabunny.</li>
+  <li>Документы по коду: docx, md, html, rtf (только чтение), csv, tsv, json, rst, epub, odt, docbook. Старый doc в коде помечен как неподдерживаемый. PDF и xlsx в списках форматов я не нашёл.</li>
+  <li>Видео: если браузер не справляется, нужна серверная часть vertd (Rust и FFmpeg, лицензия GPL-3.0).</li>
+</ul>
+
+<p>По странице приватности публичного сайта vert.sh, видео на их сервере хранится до часа или до скачивания, а для остальных файлов сервер не участвует. Там же сказано, что политика может относиться только к официальному экземпляру. Это слова самого проекта, проверять их нужно самому.</p>
+
+<h2 id="proverka">Как проверить, что файл не уходит</h2>
+
+<p>Откройте консоль браузера (F12), вкладку Network. Загрузите страницу, дождитесь готовности конвертеров, затем добавьте картинку и запустите конвертацию. Не должно быть исходящего запроса размером с ваш файл. Надёжнее второй способ: после загрузки страницы переключите Network в режим Offline и сконвертируйте небольшой файл. Если получилось, на сервер он попасть не мог.</p>
+
+<p>Я эту проверку на vert.sh не прогонял, описываю порядок действий. На своём экземпляре выполните её один раз и приложите результат к инструкции.</p>
+
+<h2 id="svoy-ekzemplyar">Свой экземпляр для команды</h2>
+
+<p>VERT можно поставить на <a href="https://chimitdorzhi.tech/services/devops/" class="blog-inline-link">свой сервер</a>: документация описывает образ для Docker и файл docker-compose. Что понадобится:</p>
+
+<ul>
+  <li>небольшой Linux-сервер или машина в офисе с Docker;</li>
+  <li>сборка образа из репозитория: настройки вроде адреса vertd вшиваются при сборке, готовый образ с GitHub Container Registry их менять не даёт;</li>
+  <li>HTTPS и закрытый доступ: только из офисной сети или через VPN. Подход разобран в статье про <a href="/blog/peredacha-faylov-v-izolirovannyy-kontur-2026/">передачу файлов в изолированный контур</a>;</li>
+  <li>для видео отдельный контейнер vertd на порту 24153. В документации есть режим без видеокарты и настройка лимита размера файла;</li>
+  <li>сборка с PUB_DISABLE_ALL_EXTERNAL_REQUESTS=true отключает внешние обращения, кроме запроса к cdn.jsdelivr.net за сборкой FFmpeg. Для полностью закрытого контура это надо проверять отдельно.</li>
+</ul>
+
+<p>Образ с тегом latest меняется со временем, поэтому я собираю образ из зафиксированного коммита.</p>
+
+<h2 id="ogranicheniya">Что важно учесть</h2>
+
+<p><strong>Лицензия.</strong> У VERT AGPL-3.0, это копилефт. По тексту лицензии, пункт 13, если вы изменяете программу и даёте пользователям доступ к ней по сети, им нужно предложить исходный код вашей версии. Запустить образ внутри компании без правок и встроить код в свой закрытый продукт или платный сервис это разные случаи, во втором нужен юрист.</p>
+
+<p><strong>Нет PDF.</strong> Ходовой запрос «Word в PDF» в списках форматов VERT я не нашёл. Для него остаются LibreOffice и PDF-набор.</p>
+
+<p><strong>Качество документов.</strong> Pandoc переносит структуру текста и не гарантирует точную вёрстку. Сложные таблицы, колонки, штампы и сноски могут разъехаться. Результат проверяйте глазами.</p>
+
+<h2 id="chto-sdelat">Что можно сделать уже сейчас</h2>
+
+<p><strong>Напишите правило.</strong> Возьмите список выше, добавьте свои категории и повесьте в общем чате.</p>
+
+<p><strong>Поставьте локальные программы.</strong> LibreOffice на рабочие компьютеры, плюс показать экспорт в PDF.</p>
+
+<p><strong>Протестируйте VERT на тестовых файлах.</strong> Возьмите картинку без персональных данных и проверьте в панели Network. Настоящие документы только на своём экземпляре.</p>
+
+<p><strong>Поручите развёртывание.</strong> Внутренний набор инструментов под ключ (экземпляр конвертера, PDF-набор, доступы, инструкция и регламент) я делаю в рамках услуги по <a href="/services/cybersecurity/">кибербезопасности</a>. Базовый вариант с серверным конвертером описан в статье про <a href="/blog/svoy-konverter-dokumentov-2026/">свой конвертер документов</a>.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+
+<h3>Можно ли пользоваться vert.sh для рабочих документов?</h3>
+
+<p>Для документов с персональными данными я бы не стал. Публичный сайт принадлежит стороннему проекту. Для рабочих файлов ставьте свой экземпляр или используйте локальные программы.</p>
+
+<h3>Нужно ли публиковать исходный код, если я поставлю VERT у себя?</h3>
+
+<p>По тексту лицензии это требование относится к изменённой версии, которую пользователи получают по сети. Если код не менять, повода что-то публиковать я в лицензии не вижу, но решайте это вместе с юристом.</p>
+
+<h3>Заменит ли VERT онлайн-конвертеры целиком?</h3>
+
+<p>Для картинок, аудио и части документов да. Для PDF нет. Для видео иногда нужен vertd.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+
+<p>Опасность онлайн-конвертеров в том, что файл с паспортными данными или договором уходит на чужой сервер. Помогает правило о запрещённых файлах и готовая замена: локальные программы и, при желании, VERT с проверкой в панели Network.</p>
+
+<p>Если хотите получить внутренний набор инструментов для команды и регламент к нему, напишите мне в Telegram кодовое слово «КОНВЕРТЕР», обсудим, какие файлы у вас ходят чаще всего.</p>
+
+                    </div>
+                    
+
+                    
+                    
+                    <div class="blog-cta-card">
+                        <div class="blog-cta-card-body">
+                            <h3>Ещё open-source для бизнеса</h3>
+                            <p>Эта статья — часть каталога бесплатных решений, которые я разворачиваю на вашем сервере под ключ: CRM, аналитика, документы, почта, безопасность, магазины, AI.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="/blog/katalog-open-source-resheniy-dlya-biznesa-2026/" class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Каталог open-source решений</a>
+                        </div>
+                    </div>
+                    
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Обсудим вашу задачу</div>
+  <h3 class="blog-services-offer-title">Что я делаю для бизнеса</h3>
+  <p class="blog-services-offer-lead">Напишите одной фразой, что нужно. Отвечу, что подойдёт, сколько займёт и сколько стоит. Сообщение уже подготовлено.</p>
+  <ul class="blog-services-offer-list"><li><i class="ph-fill ph-robot"></i> <span>Боты в Telegram, MAX, VK</span></li><li><i class="ph-fill ph-gear"></i> <span>Автоматизация процессов и CRM</span></li><li><i class="ph-fill ph-chart-bar"></i> <span>Аналитика и дашборды</span></li><li><i class="ph-fill ph-globe"></i> <span>Сайты и лендинги под ключ</span></li></ul>
+  <div class="blog-services-offer-ctas">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%ABVERT%3A%20%D0%BA%D0%BE%D0%BD%D0%B2%D0%B5%D1%80%D1%82%D0%B5%D1%80%20%D1%84%D0%B0%D0%B9%D0%BB%D0%BE%D0%B2%20%D0%B1%D0%B5%D0%B7%20%D0%B7%D0%B0%D0%B3%D1%80%D1%83%D0%B7%D0%BA%D0%B8%20%D0%BD%D0%B0%20%D1%87%D1%83%D0%B6%D0%B8%D0%B5%20%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D1%8B%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener" class="blog-services-offer-cta">
+      <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
+    </a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="blog-services-offer-cta blog-services-offer-cta-max">
+      <i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> Написать в MAX
+    </a>
+    <a href="https://chimitdorzhi.tech/services/cybersecurity/" class="blog-services-offer-cta blog-services-offer-cta-max"><i class="ph ph-arrow-right" aria-hidden="true"></i> Кибербезопасность и внутренние инструменты команды</a>
+  </div>
+</div>
+                    
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/svoy-konverter-dokumentov-2026/" data-category="development" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-files"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
+  <h3>Свой конвертер документов: файлы не уходят в чужое облако</h3>
+  <p>Почему конвертировать договоры и документы в бесплатных онлайн-сервисах опасно и как поднять свой конвертер на сервере компании — файлы никуда не уходят.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 22 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/stirling-pdf-instrumenty-2026/" data-category="opensource" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-file-pdf"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>Stirling-PDF: 50+ инструментов для PDF на своём сервере</h3>
+  <p>Stirling-PDF заменяет онлайн-сервисы для PDF своим: объединение, сжатие, OCR, конвертация, подпись — всё на вашем сервере, документы не уходят наружу. Разбираю, кому нужно и что требуется.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 15 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/kiberbezopasnost-udalennoy-komandy-2026/" data-category="security" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-shield-check"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Безопасность</span>
+  <h3>Кибербезопасность удалённой команды: доступы, устройства и утечки</h3>
+  <p>Сотрудники работают из дома, с личных ноутбуков и домашнего Wi-Fi — и каждый становится точкой входа. Разбираю правила кибербезопасности удалённой команды: доступы, устройства, утечки и что делать при увольнении.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 25 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 8 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/peredacha-faylov-v-izolirovannyy-kontur-2026/" data-category="security" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-shield-checkered"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Безопасность</span>
+  <h3>Передача файлов в изолированный контур: без флешки, без сети</h3>
+  <p>На закрытых объектах флешки запрещены, а сети между контурами нет — но иногда файл легально нужно перенести. Разбираю, как это делает передача через экран и камеру, почему она безопаснее флешки и что нужно для внедрения такого канала.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 2 августа 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 7 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    <section class="blog-subscribe">
+  <div class="blog-subscribe-body">
+    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
+    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
+  </div>
+  <div class="blog-subscribe-actions">
+    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
+  </div>
+</section>
+                    
+                    
+                    
+                    
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow"><span class="b-l b-l-ru">Готовые решения под ключ</span><span class="b-l b-l-en" lang="en">Turnkey solutions</span><span class="b-l b-l-es" lang="es">Soluciones llave en mano</span><span class="b-l b-l-cn" lang="zh">交钥匙解决方案</span><span class="b-l b-l-mn" lang="mn">Түлхүүр гардуулах шийдэл</span></span>
+                            <span class="blog-offer-cta-title"><span class="b-l b-l-ru">451 готовых IT-решений для бизнеса</span><span class="b-l b-l-en" lang="en">451 ready-made IT solutions for business</span><span class="b-l b-l-es" lang="es">451 soluciones IT listas para empresas</span><span class="b-l b-l-cn" lang="zh">451 个面向企业的现成 IT 解决方案</span><span class="b-l b-l-mn" lang="mn">Бизнест зориулсан 451 бэлэн IT шийдэл</span></span>
+                            <span class="blog-offer-cta-price"><span class="b-l b-l-ru">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span><span class="b-l b-l-en" lang="en">Automation, bots, AI, data privacy and platforms · free consultation</span><span class="b-l b-l-es" lang="es">Automatización, bots, IA, privacidad de datos y plataformas · consulta gratis</span><span class="b-l b-l-cn" lang="zh">自动化、机器人、AI、数据合规与平台 · 免费咨询</span><span class="b-l b-l-mn" lang="mn">Автоматжуулалт, бот, AI, өгөгдлийн хамгаалалт ба платформ · үнэгүй зөвлөгөө</span></span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> <span class="b-l b-l-ru">Смотреть каталог</span><span class="b-l b-l-en" lang="en">View catalog</span><span class="b-l b-l-es" lang="es">Ver catálogo</span><span class="b-l b-l-cn" lang="zh">查看目录</span><span class="b-l b-l-mn" lang="mn">Каталог үзэх</span></span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#kak-fayl-uhodit"><span class="blog-toc-num">01</span> Как договор оказывается на чужом сервере</a></li>
+<li><a href="#pravilo"><span class="blog-toc-num">02</span> Правило в компании: что нельзя загружать</a></li>
+<li><a href="#lokalnye-instrumenty"><span class="blog-toc-num">03</span> Локальные инструменты: готовый список</a></li>
+<li><a href="#chto-takoe-vert"><span class="blog-toc-num">04</span> Что такое VERT и что я проверил</a></li>
+<li><a href="#proverka"><span class="blog-toc-num">05</span> Как проверить, что файл не уходит</a></li>
+<li><a href="#svoy-ekzemplyar"><span class="blog-toc-num">06</span> Свой экземпляр для команды</a></li>
+<li><a href="#ogranicheniya"><span class="blog-toc-num">07</span> Что важно учесть</a></li>
+<li><a href="#chto-sdelat"><span class="blog-toc-num">08</span> Что можно сделать уже сейчас</a></li>
+<li><a href="#faq"><span class="blog-toc-num">09</span> Частые вопросы</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">10</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+971563369591" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +971 56 336 9591</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">RA Standard - F.Z.E</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_licence">Лицензия 57033</span><span> · </span><span data-i18n="footer.legal_authority">Free Zones Authority of Ajman</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">Эмират Аджман, ОАЭ</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/cases/" class="footer-policy-link">Кейсы</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=44" defer></script>
+<script src="/services-i18n.js?v=44" defer></script>
+<script src="/script.js?v=41" defer></script>
+<script src="/search-widget.js?v=1" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>
