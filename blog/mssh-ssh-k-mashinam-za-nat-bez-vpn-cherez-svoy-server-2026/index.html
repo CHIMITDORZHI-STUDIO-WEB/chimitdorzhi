@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mssh: SSH к машинам за NAT через свой сервер, без VPN</title>
+    <meta name="description" content="Разобрал mssh: SSH к кассам и мини-ПК без белого IP через свой VPS. Что видит сервер, где риски токена, лицензия и чем заменить: frp, WireGuard.">
+    <meta name="keywords" content="mssh, SSH, удалённая поддержка, доступ без белого IP">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/mssh-ssh-k-mashinam-za-nat-bez-vpn-cherez-svoy-server-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/mssh-ssh-k-mashinam-za-nat-bez-vpn-cherez-svoy-server-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/mssh-ssh-k-mashinam-za-nat-bez-vpn-cherez-svoy-server-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/mssh-ssh-k-mashinam-za-nat-bez-vpn-cherez-svoy-server-2026/">
+    <meta property="og:title" content="mssh: SSH к машинам за NAT через свой сервер, без VPN">
+    <meta property="og:description" content="Разобрал mssh: SSH к кассам и мини-ПК без белого IP через свой VPS. Что видит сервер, где риски токена, лицензия и чем заменить: frp, WireGuard.">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/mssh-ssh-k-mashinam-za-nat-bez-vpn-cherez-svoy-server-2026/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="mssh: SSH к машинам за NAT через свой сервер, без VPN">
+    <meta name="twitter:description" content="Разобрал mssh: SSH к кассам и мини-ПК без белого IP через свой VPS. Что видит сервер, где риски токена, лицензия и чем заменить: frp, WireGuard.">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/mssh-ssh-k-mashinam-za-nat-bez-vpn-cherez-svoy-server-2026/cover.png">
+
+    <link rel="icon" href="/favicon.svg?v=5" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=5">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png?v=5">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=5">
+    <link rel="preload" href="/assets/fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=79">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "SSH к кассам и мини-ПК без белого IP: разобрал mssh",
+  "description": "Разобрал mssh: SSH к кассам и мини-ПК без белого IP через свой VPS. Что видит сервер, где риски токена, лицензия и чем заменить: frp, WireGuard.",
+  "image": "https://chimitdorzhi.tech/blog/mssh-ssh-k-mashinam-za-nat-bez-vpn-cherez-svoy-server-2026/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://t.me/chimitdorzhi_studio",
+      "https://max.ru/channel_chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio",
+      "https://github.com/chimitdorzhi",
+      "https://chimitdorzhi.tech/about/"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/mssh-ssh-k-mashinam-za-nat-bez-vpn-cherez-svoy-server-2026/"
+  },
+  "datePublished": "2026-10-12",
+  "dateModified": "2026-10-12",
+  "keywords": "mssh, SSH, удалённая поддержка, доступ без белого IP",
+  "articleSection": "Разработка",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "SSH к кассам и мини-ПК без белого IP: разобрал mssh",
+      "item": "https://chimitdorzhi.tech/blog/mssh-ssh-k-mashinam-za-nat-bez-vpn-cherez-svoy-server-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Нужен ли белый IP на объекте?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет. Агент сам подключается к серверу, поэтому хватит обычного интернета. Белый адрес нужен только VPS."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли дать подрядчику доступ к одному узлу?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "В mssh нет. Токен общий, и его обладатель может подключаться к любому узлу сервера. Для изоляции нужен отдельный сервер и токен, а на самой машине подрядчику выдаётся свой ключ SSH с ограниченным пользователем."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Годится ли mssh для боевых систем?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "С оговорками. Версия 0.2.0, автор один, файла лицензии нет. Для критичных систем я бы взял frp или WireGuard, а mssh проверил на тестовых машинах."
+      }
+    }
+  ]
+}
+    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+var inject=function(){for (var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)};
+var run=function(){('requestIdleCallback' in window)?requestIdleCallback(inject,{timeout:5000}):setTimeout(inject,3000)};
+(e.readyState==='complete')?run():m.addEventListener('load',run);})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109281884" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<!-- Цели Метрики: клики по контактам и услугам -->
+<script type="text/javascript">
+(function(){
+  var GOALS = [
+    { re: /t\.me\//i,                     goal: 'tg_click' },
+    { re: /max\.ru\//i,                    goal: 'max_click' },
+    { re: /audit\.chimitdorzhi\.tech/i,    goal: 'audit_click' },
+    { re: /chimitdorzhi\.tech\/services\//i, goal: 'service_click' },
+    { re: /chimitdorzhi\.tech\/predlozheniya\//i, goal: 'offer_click' }
+  ];
+  document.addEventListener('click', function(e){
+    var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    for (var i = 0; i < GOALS.length; i++) {
+      if (GOALS[i].re.test(href)) {
+        try { if (window.ym) ym(109281884, 'reachGoal', GOALS[i].goal); } catch (err) {}
+        break;
+      }
+    }
+  }, true);
+})();
+</script>
+</head>
+<body class="wx-read">
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/" data-i18n="nav.home">Главная</a></li>
+            <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+            <li class="nav-dropdown">
+                <a href="/cases/" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+                <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему" aria-pressed="false">
+                <i class="ph ph-moon" aria-hidden="true"></i>
+            </button>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/" data-i18n="nav.home">Главная</a></li>
+        <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+        <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+        <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+        <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+        <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+        <li class="mobile-has-submenu">
+            <details>
+                <summary aria-label="Проекты — развернуть"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down" aria-hidden="true"></i></summary>
+                <ul class="mobile-submenu">
+                    <li>
+                        <a href="https://gerel.space" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">Gerel.space</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/universe_buryat/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/arey/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.arey">AREY</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/mwrlife/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">MWR Life</span>
+                                <span class="mobile-sub-desc">Travel-клуб и партнёрка</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </details>
+        </li>
+        <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+    </ul>
+    <div class="mobile-controls">
+        <div class="mobile-lang-switcher" role="group" aria-label="Выбор языка">
+            <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+            <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+            <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+        </div>
+        <button class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle" aria-label="Переключить тему" aria-pressed="false">
+            <i class="ph ph-moon" aria-hidden="true"></i>
+        </button>
+    </div>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">SSH к кассам и мини-ПК без белого IP: разобрал mssh</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/development/"><i class="ph ph-bookmark" aria-hidden="true"></i> Разработка</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин чтения</span>
+                        <time datetime="2026-10-12"><i class="ph ph-calendar" aria-hidden="true"></i> 12 октября 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">SSH к кассам и мини-ПК без белого IP: разобрал mssh</h1>
+
+                    <p class="blog-lead">mssh соединяет вас по обычному ssh с машиной за NAT через ваш VPS. Проверил репозиторий и код: лицензию, возраст, авторов, схему токена, что видит сервер и где проект не подойдёт. Сравнил с nps, frp, WireGuard и autossh.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>mssh</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>SSH</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>удалённая поддержка</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>доступ без белого IP</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr">
+  <strong>Коротко.</strong> mssh пускает по обычному ssh на машины за NAT через ваш VPS: машина сама звонит на сервер, вы приходите на тот же сервер, и он вас соединяет. Я проверил репозиторий и код на 12 октября 2026 года. Проект молодой: версия 0.2.0 вышла 6 октября, автор один, звёзд 116. Файла LICENSE нет, в README указана MIT. Сервер не расшифровывает SSH, но токен общий на все узлы. Для небольшого парка Linux-машин годится после теста, для критичных систем надёжнее frp или WireGuard.
+</div>
+<div class="blog-cta-internal">
+  <i class="ph-fill ph-rocket-launch" aria-hidden="true"></i>
+  <div>
+    <strong>Хотите внедрить это у себя?</strong>
+    <p>Сделаю под ключ: разберу задачу, назову срок и цену. Чтобы начать, <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%ABSSH%20%D0%BA%20%D0%BA%D0%B0%D1%81%D1%81%D0%B0%D0%BC%20%D0%B8%20%D0%BC%D0%B8%D0%BD%D0%B8-%D0%9F%D0%9A%20%D0%B1%D0%B5%D0%B7%20%D0%B1%D0%B5%D0%BB%D0%BE%D0%B3%D0%BE%20IP%3A%20%D1%80%D0%B0%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%BB%20mssh%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener">напишите в Telegram</a> одной фразой.</p>
+    <a href="https://chimitdorzhi.tech/services/remote-objects-support/">Техподдержка удалённых объектов <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</div>
+
+<h2 id="bol">Мини-ПК у клиента завис, а белого IP там нет</h2>
+
+<p>Касса в магазине в другом городе перестала печатать чеки. Мини-ПК стоит под прилавком, интернет от местного провайдера, роутер за провайдерским NAT. Раньше вы просили продавца поставить AnyDesk и продиктовать код. Теперь точек двадцать, на половине Linux без экрана: серверы, регистраторы, мини-ПК.</p>
+
+<p>Нужно что-то без белого IP и без VPN на каждой машине. Схему с сервером-посредником и веб-панелью я разбирал в статье про <a href="/blog/nps-dostup-k-ustroystvam-i-servisam-bez-belogo-ip-2026/">nps</a>. Сегодня проект поменьше и с другим характером: <a href="https://github.com/eznix86/mssh" target="_blank" rel="noopener nofollow">mssh</a>.</p>
+
+<h2 id="kak-rabotaet">Как работает mssh</h2>
+
+<p>На вашем VPS запускается сервер. На каждой удалённой машине работает агент: он сам открывает исходящее соединение и ждёт. Открывать порты на объекте не нужно. У вас на компьютере вы пишете <code>mssh user@имя-узла</code> или обычный <code>ssh имя-узла</code> с настройкой ProxyCommand. Сервер соединяет вас с агентом, агент открывает локальный SSH на своей машине, и вы в консоли.</p>
+
+<p>Имя узла вы задаёте сами при запуске агента: буквы, цифры, точка, подчёркивание, дефис, до 128 знаков. Программа на Go, серверная часть занимает один файл около 5 КБ. Ставится бинарником: скрипт для Linux amd64 и arm64 сверяет контрольную сумму и создаёт сервис systemd, для macOS бинарники лежат в релизах. Docker-файла в репозитории нет, сборок под Windows в релизах нет.</p>
+
+<h2 id="proverka">Что показал репозиторий</h2>
+
+<p>Создан 31 декабря 2025 года. В день создания автор сделал первые коммиты, потом пауза до 6 октября 2026, когда вышла версия 0.2.0 с тремя правками про безопасность. Автор один: в списке участников он же, 14 коммитов. 116 звёзд, 4 форка, единственное открытое обращение касается бота обновлений зависимостей. Тесты в репозитории есть.</p>
+
+<p>Лицензия. Файла LICENSE в репозитории нет, GitHub лицензию не определил, в конце README написано «MIT». Для коммерческого внедрения я бы сначала попросил автора добавить файл. Версия 0.2 несовместима с 0.1: сервер, агенты и клиенты обновляются вместе.</p>
+
+<h2 id="bezopasnost">Кто что видит: токен, ключи и трафик</h2>
+
+<p>Слоёв два. Первый, сам mssh. Сервер принимает только соединения с общим токеном длиной от 32 символов, на публичном адресе обязателен TLS. Токен один на всех: кто его знает, может занять любое свободное имя узла и подключиться к любому узлу. Для разных клиентов нужны отдельные серверы и токены, это прямо написано в документации.</p>
+
+<p>Второй слой, обычный SSH. Вход на машину проверяет sshd на ней: ваши ключи, ваши пользователи. mssh ключей не хранит и учётных записей не заводит.</p>
+
+<p>Видит ли сервер ваш трафик? По коду нет. Он копирует байты между двумя соединениями и SSH не разбирает. Рукопожатие SSH идёт между вашим клиентом и sshd на узле, поэтому содержимое зашифровано до самой машины. Сервер знает имена узлов, время и объём. От подмены узла встроенный клиент защищает требованием: ключ узла заранее лежит в known_hosts, незнакомый ключ отвергается. Если ходите через OpenSSH и соглашаетесь на любой новый ключ, эта защита пропадает.</p>
+
+<p>Взлом сервера или кража токена даёт возможность стучаться в SSH-порт каждого узла. Дальше всё упирается в ваши ключи и в то, отключены ли пароли в sshd. Это моё прочтение кода, на практике я не проверял.</p>
+
+<h2 id="ogranicheniya">Где это не сработает</h2>
+
+<ul>
+  <li>Только SSH. Агент по коду ходит лишь на 127.0.0.1 своей машины, поэтому ставится на каждую. На регистратор, куда ничего не поставить, напрямую не выйти: нужна машина-шлюз в той же сети и прыжок через <code>ssh -J</code>.</li>
+  <li>Один узел принимает одно подключение за раз, второй получит «agent busy».</li>
+  <li>Нет интерфейса, нет прав по людям, журнала по пользователям я не нашёл: сервер пишет служебные строки.</li>
+  <li>Скрипт ставит сервисы от root. Агенту root, судя по коду, не нужен, он лишь открывает соединение на localhost, но это моя оценка.</li>
+  <li>После обрыва агент возвращается через 2 секунды, мёртвая запись исчезает не позже чем через 40. Открытый сеанс, судя по коду, при обрыве закрывается.</li>
+</ul>
+
+<h2 id="sravnenie">Чем отличается от nps, frp и WireGuard</h2>
+
+<p>nps даёт панель и много протоколов, но релизов с 2021 года нет, и для него есть запись об уязвимости. mssh узкий: только SSH, мало кода, который можно прочитать за вечер, но ни панели, ни прав по людям.</p>
+
+<p><a href="https://github.com/fatedier/frp" target="_blank" rel="noopener nofollow">frp</a> умеет больше: TCP, UDP, HTTP, есть панель, лицензия Apache-2.0, релиз v0.71.0 от 14 августа 2026. WireGuard, <a href="https://github.com/tailscale/tailscale" target="_blank" rel="noopener nofollow">Tailscale</a> (BSD-3-Clause, релиз 1.104.1 от 7 октября 2026) и <a href="https://github.com/juanfont/headscale" target="_blank" rel="noopener nofollow">Headscale</a> (BSD-3-Clause, 0.29.4 от 23 сентября 2026) строят общую сеть: заходите куда угодно, включая 1С, RDP и веб-интерфейсы. Вариант с панелью и пользователями описан в статьях про <a href="/blog/pritunl-korporativnyy-vpn-2026/">Pritunl</a> и <a href="/blog/pangolin-bezopasnyy-dostup-k-servisam-2026/">Pangolin</a>.</p>
+
+<p>autossh по описанию на странице проекта запускает ssh и перезапускает при падении. Это обратный туннель вручную: ничего лишнего, но порт на каждое устройство вы ведёте сами в таблице.</p>
+
+<h2 id="chto-sdelat">Что можно сделать уже сейчас</h2>
+
+<p>Первое. Выпишите машины и задачи. Если нужна только консоль на Linux, mssh подходит. Если нужны 1С, RDP или веб-интерфейсы, смотрите VPN.</p>
+
+<p>Второе. Соберите тестовую пару: сервер на VPS с доменом и сертификатом, один агент на запасном мини-ПК. Проверьте обрыв интернета, перезагрузку и занятый узел. В sshd отключите вход по паролю.</p>
+
+<p>Третье. Договоритесь с владельцами. В договоре на поддержку пропишите, что на машине стоит агент и кто имеет доступ. К чужим устройствам подключаться можно только с ведома владельца.</p>
+
+<p>Четвёртое. Прикиньте выгоду. По моей оценке, если выезд занимает полдня, а сбои бывают раз в месяц, постоянный канал окупается за пару выездов. Ваши цифры могут отличаться. Если машин больше десятка или нужны права по людям, смотрите услуги <a href="/services/remote-objects-support/">«Техподдержка удалённых объектов»</a> и <a href="/services/secure-remote-access/">«Защищённый удалённый доступ»</a>, ориентиры по цене в <a href="/ceny/">прайсе</a>.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+
+<h3>Нужен ли белый IP на объекте?</h3>
+<p>Нет. Агент сам подключается к серверу, поэтому хватит обычного интернета. Белый адрес нужен только VPS.</p>
+
+<h3>Можно ли дать подрядчику доступ к одному узлу?</h3>
+<p>В mssh нет. Токен общий, и его обладатель может подключаться к любому узлу сервера. Для изоляции нужен отдельный сервер и токен, а на самой машине подрядчику выдаётся свой ключ SSH с ограниченным пользователем.</p>
+
+<h3>Годится ли mssh для боевых систем?</h3>
+<p>С оговорками. Версия 0.2.0, автор один, файла лицензии нет. Для критичных систем я бы взял frp или WireGuard, а mssh проверил на тестовых машинах.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+
+<p>mssh решает узкую задачу: консоль на машины за NAT через ваш сервер, без белого IP и без VPN. Код короткий, SSH шифруется до самого узла, но токен общий, проект молодой, а лицензионного файла в репозитории нет.</p>
+
+<p>Ездите на каждый сбой к кассам, серверам или мини-ПК клиентов? Напишите мне в Telegram слово «УДАЛЁНКА». Посмотрим, что у вас стоит, и соберём схему доступа под ваши задачи.</p>
+
+                    </div>
+                    
+
+                    
+                    
+                    
+                    
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Обсудим вашу задачу</div>
+  <h3 class="blog-services-offer-title">Что я делаю для бизнеса</h3>
+  <p class="blog-services-offer-lead">Напишите одной фразой, что нужно. Отвечу, что подойдёт, сколько займёт и сколько стоит. Сообщение уже подготовлено.</p>
+  <ul class="blog-services-offer-list"><li><i class="ph-fill ph-robot"></i> <span>Боты в Telegram, MAX, VK</span></li><li><i class="ph-fill ph-gear"></i> <span>Автоматизация процессов и CRM</span></li><li><i class="ph-fill ph-chart-bar"></i> <span>Аналитика и дашборды</span></li><li><i class="ph-fill ph-globe"></i> <span>Сайты и лендинги под ключ</span></li></ul>
+  <div class="blog-services-offer-ctas">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%ABSSH%20%D0%BA%20%D0%BA%D0%B0%D1%81%D1%81%D0%B0%D0%BC%20%D0%B8%20%D0%BC%D0%B8%D0%BD%D0%B8-%D0%9F%D0%9A%20%D0%B1%D0%B5%D0%B7%20%D0%B1%D0%B5%D0%BB%D0%BE%D0%B3%D0%BE%20IP%3A%20%D1%80%D0%B0%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%BB%20mssh%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener" class="blog-services-offer-cta">
+      <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
+    </a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="blog-services-offer-cta blog-services-offer-cta-max">
+      <i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> Написать в MAX
+    </a>
+    <a href="https://chimitdorzhi.tech/services/remote-objects-support/" class="blog-services-offer-cta blog-services-offer-cta-max"><i class="ph ph-arrow-right" aria-hidden="true"></i> Техподдержка удалённых объектов</a>
+  </div>
+</div>
+                    
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/nps-dostup-k-ustroystvam-i-servisam-bez-belogo-ip-2026/" data-category="development" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-plugs-connected"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
+  <h3>1С и камеры склада без белого IP: проверил nps и нашёл риски</h3>
+  <p>Проект nps пробрасывает 1С, камеры, кассу и принтер из локальной сети через VPS без белого IP. Я проверил репозиторий: лицензия GPL-3.0, последний релиз вышел в апреле 2021 года, есть запись об уязвимости. Разбираю риски открытого туннеля и живые замены: frp, WireGuard, Tailscale и Headscale.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 7 октября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/pritunl-korporativnyy-vpn-2026/" data-category="opensource" data-clicks="1">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-shield-check"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>Pritunl: корпоративный VPN на своём сервере</h3>
+  <p>Pritunl поднимает корпоративный VPN с удобной админкой: сотрудники безопасно подключаются к внутренним ресурсам через ваш сервер. Импортозамещение и контроль. Разбираю, что нужно для запуска.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 15 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/pangolin-bezopasnyy-dostup-k-servisam-2026/" data-category="opensource" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-shield-check"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>Pangolin: безопасный доступ к внутренним сервисам без проброса портов</h3>
+  <p>Pangolin открывает доступ к внутренним сервисам (админки, CRM, дашборды) через интернет без проброса портов и без передачи трафика в чужое облако. Своя альтернатива Cloudflare Tunnel. Разбираю, как работает и кому нужно.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 14 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/rustdesk-udalennyy-dostup-2026/" data-category="opensource" data-clicks="1">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-desktop"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>RustDesk: удалённый доступ на своём сервере вместо TeamViewer</h3>
+  <p>RustDesk даёт удалённый доступ к компьютерам, как TeamViewer, но с собственным сервером — без зависимости от чужой инфраструктуры. Актуально для импортозамещения. Разбираю, кому подходит и что нужно.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 15 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    <section class="blog-subscribe">
+  <div class="blog-subscribe-body">
+    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
+    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
+  </div>
+  <div class="blog-subscribe-actions">
+    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
+  </div>
+</section>
+                    
+                    
+                    
+                    
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow"><span class="b-l b-l-ru">Готовые решения под ключ</span><span class="b-l b-l-en" lang="en">Turnkey solutions</span><span class="b-l b-l-es" lang="es">Soluciones llave en mano</span><span class="b-l b-l-cn" lang="zh">交钥匙解决方案</span><span class="b-l b-l-mn" lang="mn">Түлхүүр гардуулах шийдэл</span></span>
+                            <span class="blog-offer-cta-title"><span class="b-l b-l-ru">451 готовых IT-решений для бизнеса</span><span class="b-l b-l-en" lang="en">451 ready-made IT solutions for business</span><span class="b-l b-l-es" lang="es">451 soluciones IT listas para empresas</span><span class="b-l b-l-cn" lang="zh">451 个面向企业的现成 IT 解决方案</span><span class="b-l b-l-mn" lang="mn">Бизнест зориулсан 451 бэлэн IT шийдэл</span></span>
+                            <span class="blog-offer-cta-price"><span class="b-l b-l-ru">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span><span class="b-l b-l-en" lang="en">Automation, bots, AI, data privacy and platforms · free consultation</span><span class="b-l b-l-es" lang="es">Automatización, bots, IA, privacidad de datos y plataformas · consulta gratis</span><span class="b-l b-l-cn" lang="zh">自动化、机器人、AI、数据合规与平台 · 免费咨询</span><span class="b-l b-l-mn" lang="mn">Автоматжуулалт, бот, AI, өгөгдлийн хамгаалалт ба платформ · үнэгүй зөвлөгөө</span></span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> <span class="b-l b-l-ru">Смотреть каталог</span><span class="b-l b-l-en" lang="en">View catalog</span><span class="b-l b-l-es" lang="es">Ver catálogo</span><span class="b-l b-l-cn" lang="zh">查看目录</span><span class="b-l b-l-mn" lang="mn">Каталог үзэх</span></span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#bol"><span class="blog-toc-num">01</span> Мини-ПК у клиента завис, а белого IP там нет</a></li>
+<li><a href="#kak-rabotaet"><span class="blog-toc-num">02</span> Как работает mssh</a></li>
+<li><a href="#proverka"><span class="blog-toc-num">03</span> Что показал репозиторий</a></li>
+<li><a href="#bezopasnost"><span class="blog-toc-num">04</span> Кто что видит: токен, ключи и трафик</a></li>
+<li><a href="#ogranicheniya"><span class="blog-toc-num">05</span> Где это не сработает</a></li>
+<li><a href="#sravnenie"><span class="blog-toc-num">06</span> Чем отличается от nps, frp и WireGuard</a></li>
+<li><a href="#chto-sdelat"><span class="blog-toc-num">07</span> Что можно сделать уже сейчас</a></li>
+<li><a href="#faq"><span class="blog-toc-num">08</span> Частые вопросы</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">09</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+971563369591" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +971 56 336 9591</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">RA Standard - F.Z.E</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_licence">Лицензия 57033</span><span> · </span><span data-i18n="footer.legal_authority">Free Zones Authority of Ajman</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">Эмират Аджман, ОАЭ</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/cases/" class="footer-policy-link">Кейсы</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=44" defer></script>
+<script src="/services-i18n.js?v=44" defer></script>
+<script src="/script.js?v=41" defer></script>
+<script src="/search-widget.js?v=1" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>

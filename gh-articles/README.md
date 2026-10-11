@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2478**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2482**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -1071,6 +1071,7 @@
 
 ## Маркетинг
 
+- [Animator: пояснительное видео по одной фразе без студии](./animator-poyasnyayushchie-video-po-tekstovomu-zaprosu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/animator-poyasnyayushchie-video-po-tekstovomu-zaprosu-2026/)
 - [geo-seo-claude: видит ли ИИ-поиск ваш сайт и чего набор не умеет](./geo-seo-claude-proverka-vidimosti-sayta-v-otvetah-ii-poiska-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/geo-seo-claude-proverka-vidimosti-sayta-v-otvetah-ii-poiska-2026/)
 - [Как получать заявки из Telegram-канала: кнопка под постом и бот](./telegram-kanal-zayavki-knopka-pod-postom-bot-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/telegram-kanal-zayavki-knopka-pod-postom-bot-2026/)
 - [Сбор отзывов после визита: бот просит оценку, жалобу видит управляющий](./bot-ocenka-posle-vizita-negativ-upravlyayushchemu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bot-ocenka-posle-vizita-negativ-upravlyayushchemu-2026/)
@@ -1865,6 +1866,9 @@
 
 ## Разработка
 
+- [Пароли клиентов в чатах и таблицах: Passbolt на своём сервере](./passbolt-menedzher-paroley-dlya-komandy-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/passbolt-menedzher-paroley-dlya-komandy-na-svoem-servere-2026/)
+- [Код в чат-бота без ключей и паролей: что чистит DevProjex](./devprojex-bezopasnyy-kontekst-koda-dlya-ii-bez-sekretov-i-pd-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/devprojex-bezopasnyy-kontekst-koda-dlya-ii-bez-sekretov-i-pd-2026/)
+- [SSH к кассам и мини-ПК без белого IP: разобрал mssh](./mssh-ssh-k-mashinam-za-nat-bez-vpn-cherez-svoy-server-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/mssh-ssh-k-mashinam-za-nat-bez-vpn-cherez-svoy-server-2026/)
 - [GramFuzz: как проверить Telegram-бота на дыры до клиентов](./gramfuzz-proverka-bezopasnosti-telegram-botov-i-mini-prilozheniy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gramfuzz-proverka-bezopasnosti-telegram-botov-i-mini-prilozheniy-2026/)
 - [PocketPaw: ИИ-агент в чате, журнал есть, защиты от правки нет](./pocketpaw-svoy-ii-agent-v-messendzhere-s-zhurnalom-deystviy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pocketpaw-svoy-ii-agent-v-messendzhere-s-zhurnalom-deystviy-2026/)
 - [Scanopy: карта сети офиса, которая не устаревает](./scanopy-avtomaticheskaya-shema-seti-ofisa-i-prilozheniy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/scanopy-avtomaticheskaya-shema-seti-ofisa-i-prilozheniy-2026/)
