@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2482**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2486**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -329,6 +329,8 @@
 
 ## Open-source и свой сервер
 
+- [Passbolt: общие пароли команды и доступы подрядчикам на своём сервере](./passbolt-obshchie-paroli-komandy-na-svoem-servere-dostupy-podryadchikam-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/passbolt-obshchie-paroli-komandy-na-svoem-servere-dostupy-podryadchikam-2026/)
+- [Что нельзя отдавать ИИ-агенту и подрядчику из кода: ключи и ПДн](./devprojex-chto-nelzya-otdavat-ii-agentu-i-podryadchiku-iz-koda-klyuchi-i-personalnye-dannye-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/devprojex-chto-nelzya-otdavat-ii-agentu-i-podryadchiku-iz-koda-klyuchi-i-personalnye-dannye-2026/)
 - [OpenScreen: видео-инструкции с экрана для команды и клиентов](./openscreen-zapis-ekrana-video-instrukciya-dlya-sotrudnikov-i-klientov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/openscreen-zapis-ekrana-video-instrukciya-dlya-sotrudnikov-i-klientov-2026/)
 - [VERT: конвертер файлов без загрузки на чужие серверы](./vert-konverter-faylov-bez-zagruzki-na-chuzhie-servery-250-formatov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vert-konverter-faylov-bez-zagruzki-na-chuzhie-servery-250-formatov-2026/)
 - [Mensarium: агент ждёт вашего «да», но лицензии в репозитории нет](./mensarium-svoy-ii-agent-s-podtverzhdeniem-izmeneniy-self-hosted-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/mensarium-svoy-ii-agent-s-podtverzhdeniem-izmeneniy-self-hosted-2026/)
@@ -618,6 +620,8 @@
 
 ## Безопасность
 
+- [SynthID Detector: как проверять фото клиента на метки ИИ](./synthid-detector-proverka-foto-i-video-na-metki-ii-chego-ne-dokazyvaet-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/synthid-detector-proverka-foto-i-video-na-metki-ii-chego-ne-dokazyvaet-2026/)
+- [ИИ ищет дыры в curl и OpenSSL: что делать владельцу сайта](./oss-scanner-anthropic-besplatnyy-ii-audit-otkrytogo-koda-chto-delat-vladelcu-sayta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/oss-scanner-anthropic-besplatnyy-ii-audit-otkrytogo-koda-chto-delat-vladelcu-sayta-2026/)
 - [Сбой дата-центра у облачного провайдера: что делать сайту, боту и CRM](./sboy-dc-oblachnogo-provaydera-yandex-cloud-chto-delat-saytu-botu-crm-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sboy-dc-oblachnogo-provaydera-yandex-cloud-chto-delat-saytu-botu-crm-2026/)
 - [Чужие файлы на телефоне сотрудника: просмотрщик Gander без разрешений](./gander-prosmotr-faylov-na-android-bez-razreshenij-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gander-prosmotr-faylov-na-android-bez-razreshenij-2026/)
 - [Песочница для ИИ-агента на ПК: Windows 11 MXC и Copilot](./pesochnica-dlya-ii-agenta-na-kompyutere-windows-11-mxc-i-github-copilot-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pesochnica-dlya-ii-agenta-na-kompyutere-windows-11-mxc-i-github-copilot-2026/)
