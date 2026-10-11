@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2469**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2473**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -1861,6 +1861,10 @@
 
 ## Разработка
 
+- [GramFuzz: как проверить Telegram-бота на дыры до клиентов](./gramfuzz-proverka-bezopasnosti-telegram-botov-i-mini-prilozheniy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gramfuzz-proverka-bezopasnosti-telegram-botov-i-mini-prilozheniy-2026/)
+- [PocketPaw: ИИ-агент в чате, журнал есть, защиты от правки нет](./pocketpaw-svoy-ii-agent-v-messendzhere-s-zhurnalom-deystviy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pocketpaw-svoy-ii-agent-v-messendzhere-s-zhurnalom-deystviy-2026/)
+- [Scanopy: карта сети офиса, которая не устаревает](./scanopy-avtomaticheskaya-shema-seti-ofisa-i-prilozheniy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/scanopy-avtomaticheskaya-shema-seti-ofisa-i-prilozheniy-2026/)
+- [Файлы с телефона на компьютер без мессенджера и почты](./localsend-peredacha-faylov-mezhdu-ustroystvami-v-ofise-bez-interneta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/localsend-peredacha-faylov-mezhdu-ustroystvami-v-ofise-bez-interneta-2026/)
 - [NLLB: переводчик на 200 языков, но бизнесу лицензия запрещает](./nllb-lokalnyy-perevodchik-na-200-yazykov-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nllb-lokalnyy-perevodchik-na-200-yazykov-na-svoem-servere-2026/)
 - [Макрос вместо ручного ввода: CrossMacro для старых программ](./crossmacro-zapis-i-povtor-deystviy-mishi-i-klaviatury-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/crossmacro-zapis-i-povtor-deystviy-mishi-i-klaviatury-2026/)
 - [Код есть, схемы нет: ИИ рисует архитектуру проекта](./oh-my-mermaid-shemy-arhitektury-po-kodu-proekta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/oh-my-mermaid-shemy-arhitektury-po-kodu-proekta-2026/)
