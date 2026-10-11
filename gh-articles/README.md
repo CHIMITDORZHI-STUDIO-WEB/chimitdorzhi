@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2473**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2478**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -1233,6 +1233,7 @@
 
 ## Отрасли
 
+- [Бесконтактное заселение в гостиницу и посуточную квартиру в 2026](./beskontaktnoe-zaselenie-mini-otel-apartamenty-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/beskontaktnoe-zaselenie-mini-otel-apartamenty-2026/)
 - [Как принимать Alipay в России в 2026: оплата от туристов из Китая](./kak-prinimat-alipay-i-wechat-pay-v-rossii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-prinimat-alipay-i-wechat-pay-v-rossii-2026/)
 - [Проверка авто из Китая по VIN: что покажет отчёт и как встроить в сайт](./proverka-avto-iz-kitaya-po-vin-istoriya-probeg-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/proverka-avto-iz-kitaya-po-vin-istoriya-probeg-2026/)
 - [Сайт агентства недвижимости в Дубае для покупателей из России](./sayt-agentstva-nedvizhimosti-v-dubae-dlya-pokupateley-iz-rossii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-agentstva-nedvizhimosti-v-dubae-dlya-pokupateley-iz-rossii-2026/)
@@ -1624,6 +1625,9 @@
 
 - [Домен через Госуслуги: кого касается и что будет с сайтом](./identifikaciya-vladeltsa-domena-cherez-gosuslugi-149-fz-kogo-kasaetsya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/identifikaciya-vladeltsa-domena-cherez-gosuslugi-149-fz-kogo-kasaetsya-2026/)
 - [Реклама со ссылкой вместо мелкого шрифта: что готовить на сайте](./reklama-svedeniya-o-prodavce-i-usloviya-akcii-ssylka-ili-qr-vmesto-melkogo-shrifta-zakonoproekt-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/reklama-svedeniya-o-prodavce-i-usloviya-akcii-ssylka-ili-qr-vmesto-melkogo-shrifta-zakonoproekt-2026/)
+- [Как указывать Инстаграм, WhatsApp и Meta на сайте компании в 2026](./kak-pomechat-instagram-whatsapp-meta-na-sayte-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-pomechat-instagram-whatsapp-meta-na-sayte-2026/)
+- [Новые правила продажи товаров с 1 сентября 2026: что поменять на сайте](./novye-pravila-prodazhi-tovarov-2026-internet-magazin.md) · [читать на сайте](https://chimitdorzhi.tech/blog/novye-pravila-prodazhi-tovarov-2026-internet-magazin/)
+- [Трансграничная передача данных на сайте: Google Fonts, YouTube, капча](./google-fonts-recaptcha-youtube-transgranichnaya-peredacha-pd-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/google-fonts-recaptcha-youtube-transgranichnaya-peredacha-pd-2026/)
 - [Техсбор с 1 декабря 2026: что платит импортёр ноутбуков и смартфонов](./tehnologicheskiy-sbor-s-1-dekabrya-2026-chto-platit-importer-noutbukov-i-smartfonov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/tehnologicheskiy-sbor-s-1-dekabrya-2026-chto-platit-importer-noutbukov-i-smartfonov-2026/)
 - [Молочка с 1 ноября 2026: партионный учёт вместо поэкземплярного](./molochnaya-produkciya-s-1-noyabrya-2026-partionnyy-uchet-ostatki-kassa-upd-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/molochnaya-produkciya-s-1-noyabrya-2026-partionnyy-uchet-ostatki-kassa-upd-2026/)
 - [Требования к сайту медицинской организации в 2026: что разместить](./sayt-medicinskoy-kliniki-trebovaniya-zakona-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-medicinskoy-kliniki-trebovaniya-zakona-2026/)
@@ -1865,6 +1869,7 @@
 - [PocketPaw: ИИ-агент в чате, журнал есть, защиты от правки нет](./pocketpaw-svoy-ii-agent-v-messendzhere-s-zhurnalom-deystviy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pocketpaw-svoy-ii-agent-v-messendzhere-s-zhurnalom-deystviy-2026/)
 - [Scanopy: карта сети офиса, которая не устаревает](./scanopy-avtomaticheskaya-shema-seti-ofisa-i-prilozheniy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/scanopy-avtomaticheskaya-shema-seti-ofisa-i-prilozheniy-2026/)
 - [Файлы с телефона на компьютер без мессенджера и почты](./localsend-peredacha-faylov-mezhdu-ustroystvami-v-ofise-bez-interneta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/localsend-peredacha-faylov-mezhdu-ustroystvami-v-ofise-bez-interneta-2026/)
+- [Кредитный калькулятор на сайт: рассрочка и закон о рекламе](./kreditnyy-kalkulyator-na-sayte-rassrochka-reklama-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kreditnyy-kalkulyator-na-sayte-rassrochka-reklama-2026/)
 - [NLLB: переводчик на 200 языков, но бизнесу лицензия запрещает](./nllb-lokalnyy-perevodchik-na-200-yazykov-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nllb-lokalnyy-perevodchik-na-200-yazykov-na-svoem-servere-2026/)
 - [Макрос вместо ручного ввода: CrossMacro для старых программ](./crossmacro-zapis-i-povtor-deystviy-mishi-i-klaviatury-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/crossmacro-zapis-i-povtor-deystviy-mishi-i-klaviatury-2026/)
 - [Код есть, схемы нет: ИИ рисует архитектуру проекта](./oh-my-mermaid-shemy-arhitektury-po-kodu-proekta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/oh-my-mermaid-shemy-arhitektury-po-kodu-proekta-2026/)
