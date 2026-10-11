@@ -1,0 +1,62 @@
+// Статьи 11-12.10.2026: реклама со ссылкой вместо дисклеймеров, Mensarium, Gander.
+const C = (s) => require('./blog-content-' + s + '.js');
+const D = '2026-10-11';
+const SVC_BIZ = { title: 'Что я делаю для бизнеса', services: [
+  { icon: 'ph-fill ph-robot', label: 'Боты в Telegram, MAX, VK' },
+  { icon: 'ph-fill ph-gear', label: 'Автоматизация процессов и CRM' },
+  { icon: 'ph-fill ph-chart-bar', label: 'Аналитика и дашборды' },
+  { icon: 'ph-fill ph-globe', label: 'Сайты и лендинги под ключ' },
+]};
+const E = (o) => Object.assign({ published: true, datePublished: D, dateModified: D, readingMinutes: 4, servicesOffer: SVC_BIZ }, o, { contentHtml: C(o.slug) });
+module.exports = [
+  E({ slug: "reklama-svedeniya-o-prodavce-i-usloviya-akcii-ssylka-ili-qr-vmesto-melkogo-shrifta-zakonoproekt-2026", category: "legal", heroIcon: "ph-fill ph-qr-code", ctaInternal: { url: "https://chimitdorzhi.tech/services/web-development/", label: "Сайты и веб-приложения: постоянные страницы условий и реквизитов" },
+    title: "Реклама со ссылкой вместо мелкого шрифта: что готовить на сайте",
+    metaTitle: "Дисклеймеры в рекламе по ссылке или QR: законопроект",
+    metaDescription: "Законопроект № 1261475-8: сведения о продавце и условия акций вынесут на сайт, в рекламе ссылка или QR. Что подготовить и где риск неработающей страницы.",
+    excerpt: "В Госдуме лежит законопроект № 1261475-8: сведения о продавце и условия акций, конкурсов, игр и пари предлагают выносить на сайт, а в рекламе указывать ресурс. Правительство его поддерживает. Разбираю, что в нём есть и чего нет, и что владельцу малого бизнеса подготовить на сайте уже сейчас.",
+    tags: ["закон о рекламе","дисклеймеры","условия акций","QR-код"],
+    toc: [
+      { id: "chto-vneseno", text: "Что внесено и на какой стадии" },
+      { id: "chto-menyaetsya", text: "Что меняется в статьях 8, 9 и 27" },
+      { id: "gde-riski", text: "Где риск: реклама ведёт на пустую страницу" },
+      { id: "chego-net", text: "Чего пока нет и что не подтверждено" },
+      { id: "chto-sdelat", text: "Что можно сделать уже сейчас" },
+      { id: "faq", text: "Частые вопросы" },
+      { id: "vyvody", text: "Коротко о главном" },
+    ],
+    relatedSlugs: ["fas-dannye-o-tovare-kak-reklama-chto-predlagayut-i-chto-prinyato-2026","markirovka-reklamy-ord-2026","shlink-korotkie-ssylki-analitika-2026","sayt-upal-monitoring-sayta-i-domena-2026"] }),
+  E({ slug: "mensarium-svoy-ii-agent-s-podtverzhdeniem-izmeneniy-self-hosted-2026", category: "opensource", heroIcon: "ph-fill ph-shield-check", ctaInternal: { url: "https://chimitdorzhi.tech/services/ai-agents/", label: "Разработка ИИ-агентов под ключ" },
+    title: "Mensarium: агент ждёт вашего «да», но лицензии в репозитории нет",
+    metaTitle: "Mensarium (Менсариум): агент с подтверждением и без лицензии",
+    metaDescription: "Mensarium делает ИИ-агента, который меняет файлы только после вашего «да». Что я проверил в репозитории, как устроены риски и откат и чего там нет.",
+    excerpt: "Mensarium это self-hosted обвязка для ИИ-агента: чтение свободно, правка файлов, запуск программ и сеть ждут подтверждения человека. Разбираю по репозиторию, как работают классы риска, откат и журнал, какие бизнес-границы он не знает и почему без файла LICENSE ставить его клиентам нельзя.",
+    tags: ["Mensarium","ИИ-агенты","подтверждение действий","self-hosted"],
+    toc: [
+      { id: "chto-eto", text: "Что это за проект и что я проверил" },
+      { id: "litsenziya", text: "Лицензии нет" },
+      { id: "kak-podtverzhdenie", text: "Как устроено подтверждение" },
+      { id: "chto-nelzya", text: "Что агенту нельзя без «да»" },
+      { id: "zhurnal-i-otkat", text: "Журнал, откат и чек-лист границ" },
+      { id: "ogranicheniya", text: "Где это не сработает" },
+      { id: "chto-sdelat", text: "Что можно сделать уже сейчас" },
+      { id: "faq", text: "Частые вопросы" },
+      { id: "vyvody", text: "Коротко о главном" },
+    ],
+    relatedSlugs: ["granica-avtonomnosti-ii-agenta-2026","heym-ii-protsessy-s-odobreniem-cheloveka-na-svoem-servere-2026","ii-agent-na-svoem-pk-2026","microsandbox-bezopasnyy-zapusk-koda-ot-ii-agenta-2026"] }),
+  E({ slug: "gander-prosmotr-faylov-na-android-bez-razreshenij-2026", category: "security", heroIcon: "ph-fill ph-file-search", ctaInternal: { url: "https://chimitdorzhi.tech/services/cybersecurity/", label: "Кибербезопасность: правила и защита телефонов команды" },
+    title: "Чужие файлы на телефоне сотрудника: просмотрщик Gander без разрешений",
+    metaTitle: "Gander (Гандер): просмотр чужих файлов на Android без разрешений",
+    metaDescription: "Gander открывает PDF, Word, Excel и ZIP на Android офлайн, без разрешений, лицензия MIT. Проверил репозиторий и манифест, правило и чек-лист для команды.",
+    excerpt: "Сотрудники открывают на телефонах файлы от клиентов и подрядчиков. Я проверил по репозиторию Gander, офлайн-просмотрщик для Android без разрешений под лицензией MIT: что он открывает, чего не умеет и как оформить правило для команды.",
+    tags: ["кибербезопасность","Android","open source","безопасность файлов"],
+    toc: [
+      { id: "problema", text: "Чужой файл на рабочем телефоне" },
+      { id: "chto-takoe-gander", text: "Что такое Gander и что я проверил" },
+      { id: "chto-ne-umeet", text: "Чего Gander не умеет и что не подтверждено" },
+      { id: "pravilo", text: "Правило для команды и установка" },
+      { id: "chto-sdelat", text: "Что можно сделать уже сейчас" },
+      { id: "faq", text: "Частые вопросы" },
+      { id: "vyvody", text: "Коротко о главном" },
+    ],
+    relatedSlugs: ["kibergigiena-sotrudnikov-2026","kak-obnaruzhit-fishing-2026","send-bezopasnaya-peredacha-faylov-2026","clovalink-faylovaya-platforma-s-antivirusom-i-zhurnalom-audita-2026"] }),
+];
