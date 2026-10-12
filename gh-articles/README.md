@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2496**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2501**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -331,6 +331,9 @@
 
 - [Passbolt: общие пароли команды и доступы подрядчикам на своём сервере](./passbolt-obshchie-paroli-komandy-na-svoem-servere-dostupy-podryadchikam-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/passbolt-obshchie-paroli-komandy-na-svoem-servere-dostupy-podryadchikam-2026/)
 - [Что нельзя отдавать ИИ-агенту и подрядчику из кода: ключи и ПДн](./devprojex-chto-nelzya-otdavat-ii-agentu-i-podryadchiku-iz-koda-klyuchi-i-personalnye-dannye-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/devprojex-chto-nelzya-otdavat-ii-agentu-i-podryadchiku-iz-koda-klyuchi-i-personalnye-dannye-2026/)
+- [Shellfirm: как остановить ИИ-агента до удаления базы на сервере](./shellfirm-zashchita-ot-opasnyh-komand-ii-agenta-v-terminale-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/shellfirm-zashchita-ot-opasnyh-komand-ii-agenta-v-terminale-2026/)
+- [Mellum 2.1 от JetBrains: своя модель для кода или облачный API](./mellum-2-1-otkrytaya-model-jetbrains-dlya-kodinga-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/mellum-2-1-otkrytaya-model-jetbrains-dlya-kodinga-na-svoem-servere-2026/)
+- [Homepage: одна стартовая страница команды со всеми сервисами](./homepage-obshchaya-startovaya-stranica-komandy-so-vsemi-servisami-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/homepage-obshchaya-startovaya-stranica-komandy-so-vsemi-servisami-na-svoem-servere-2026/)
 - [OpenScreen: видео-инструкции с экрана для команды и клиентов](./openscreen-zapis-ekrana-video-instrukciya-dlya-sotrudnikov-i-klientov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/openscreen-zapis-ekrana-video-instrukciya-dlya-sotrudnikov-i-klientov-2026/)
 - [VERT: конвертер файлов без загрузки на чужие серверы](./vert-konverter-faylov-bez-zagruzki-na-chuzhie-servery-250-formatov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vert-konverter-faylov-bez-zagruzki-na-chuzhie-servery-250-formatov-2026/)
 - [Mensarium: агент ждёт вашего «да», но лицензии в репозитории нет](./mensarium-svoy-ii-agent-s-podtverzhdeniem-izmeneniy-self-hosted-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/mensarium-svoy-ii-agent-s-podtverzhdeniem-izmeneniy-self-hosted-2026/)
@@ -1632,6 +1635,8 @@
 - [Сбор 3 процента с рекламы в интернете: кто платит и как считать](./sbor-3-procenta-s-internet-reklamy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sbor-3-procenta-s-internet-reklamy-2026/)
 - [Закон 41-ФЗ и иностранные мессенджеры: кому запрещено писать клиентам](./zakon-ob-antifrode-41-fz-inostrannye-messendzhery-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zakon-ob-antifrode-41-fz-inostrannye-messendzhery-2026/)
 - [Что изменится с 1 января 2027 для бизнеса с сайтом: чек-лист](./chto-izmenitsya-dlya-saytov-s-1-yanvarya-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chto-izmenitsya-dlya-saytov-s-1-yanvarya-2027/)
+- [Журнал входов на три года: что проект Минцифры значит для сайта](./minczifry-hranit-svedeniya-ob-akkauntah-3-goda-proekt-sayty-prilozheniya-boty-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/minczifry-hranit-svedeniya-ob-akkauntah-3-goda-proekt-sayty-prilozheniya-boty-2026/)
+- [Виртуальные АТС и SMS-рассылки: что в проекте Минцифры до 2028](./minczifry-virtualnye-ats-reestr-i-massovye-sms-tolko-cherez-operatorov-proekt-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/minczifry-virtualnye-ats-reestr-i-massovye-sms-tolko-cherez-operatorov-proekt-2026/)
 - [Домен через Госуслуги: кого касается и что будет с сайтом](./identifikaciya-vladeltsa-domena-cherez-gosuslugi-149-fz-kogo-kasaetsya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/identifikaciya-vladeltsa-domena-cherez-gosuslugi-149-fz-kogo-kasaetsya-2026/)
 - [Реклама со ссылкой вместо мелкого шрифта: что готовить на сайте](./reklama-svedeniya-o-prodavce-i-usloviya-akcii-ssylka-ili-qr-vmesto-melkogo-shrifta-zakonoproekt-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/reklama-svedeniya-o-prodavce-i-usloviya-akcii-ssylka-ili-qr-vmesto-melkogo-shrifta-zakonoproekt-2026/)
 - [Как указывать Инстаграм, WhatsApp и Meta на сайте компании в 2026](./kak-pomechat-instagram-whatsapp-meta-na-sayte-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-pomechat-instagram-whatsapp-meta-na-sayte-2026/)
