@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2491**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2496**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -1877,6 +1877,11 @@
 - [Пароли клиентов в чатах и таблицах: Passbolt на своём сервере](./passbolt-menedzher-paroley-dlya-komandy-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/passbolt-menedzher-paroley-dlya-komandy-na-svoem-servere-2026/)
 - [Код в чат-бота без ключей и паролей: что чистит DevProjex](./devprojex-bezopasnyy-kontekst-koda-dlya-ii-bez-sekretov-i-pd-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/devprojex-bezopasnyy-kontekst-koda-dlya-ii-bez-sekretov-i-pd-2026/)
 - [SSH к кассам и мини-ПК без белого IP: разобрал mssh](./mssh-ssh-k-mashinam-za-nat-bez-vpn-cherez-svoy-server-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/mssh-ssh-k-mashinam-za-nat-bez-vpn-cherez-svoy-server-2026/)
+- [Shellfirm: стоп-кран для rm -rf и других команд ИИ-агента](./shellfirm-strakhovka-ot-razrushitelnyh-komand-dlya-ii-agentov-i-admina-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/shellfirm-strakhovka-ot-razrushitelnyh-komand-dlya-ii-agentov-i-admina-2026/)
+- [Где ссылка на вики: единая панель сервисов команды на Homepage](./homepage-edinaya-panel-vnutrennih-servisov-komandy-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/homepage-edinaya-panel-vnutrennih-servisov-komandy-na-svoem-servere-2026/)
+- [Офис на Linux, но нужен Word или Photoshop: что даёт WinApps](./winapps-windows-programmy-na-linux-v-oknah-bez-perehoda-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/winapps-windows-programmy-na-linux-v-oknah-bez-perehoda-2026/)
+- [QR на Wi-Fi для гостей: карточка без вопроса про пароль](./wifi-card-qr-kod-wifi-dlya-gostey-kafe-gostinicy-salona-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/wifi-card-qr-kod-wifi-dlya-gostey-kafe-gostinicy-salona-2026/)
+- [Standard Notes: заметки, которые не прочтёт даже админ сервера](./standard-notes-zashifrovannye-zametki-s-serverom-na-svoem-vps-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/standard-notes-zashifrovannye-zametki-s-serverom-na-svoem-vps-2026/)
 - [Как опубликовать приложение в RuStore: шаги, модерация, сроки](./kak-vylozhit-prilozhenie-v-rustore-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-vylozhit-prilozhenie-v-rustore-2026/)
 - [GramFuzz: как проверить Telegram-бота на дыры до клиентов](./gramfuzz-proverka-bezopasnosti-telegram-botov-i-mini-prilozheniy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gramfuzz-proverka-bezopasnosti-telegram-botov-i-mini-prilozheniy-2026/)
 - [PocketPaw: ИИ-агент в чате, журнал есть, защиты от правки нет](./pocketpaw-svoy-ii-agent-v-messendzhere-s-zhurnalom-deystviy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pocketpaw-svoy-ii-agent-v-messendzhere-s-zhurnalom-deystviy-2026/)
