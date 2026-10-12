@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2501**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2506**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -1637,6 +1637,9 @@
 - [Что изменится с 1 января 2027 для бизнеса с сайтом: чек-лист](./chto-izmenitsya-dlya-saytov-s-1-yanvarya-2027.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chto-izmenitsya-dlya-saytov-s-1-yanvarya-2027/)
 - [Журнал входов на три года: что проект Минцифры значит для сайта](./minczifry-hranit-svedeniya-ob-akkauntah-3-goda-proekt-sayty-prilozheniya-boty-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/minczifry-hranit-svedeniya-ob-akkauntah-3-goda-proekt-sayty-prilozheniya-boty-2026/)
 - [Виртуальные АТС и SMS-рассылки: что в проекте Минцифры до 2028](./minczifry-virtualnye-ats-reestr-i-massovye-sms-tolko-cherez-operatorov-proekt-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/minczifry-virtualnye-ats-reestr-i-massovye-sms-tolko-cherez-operatorov-proekt-2026/)
+- [Согласие на публикацию фото на сайте: сотрудники, клиенты, дети](./foto-lyudey-na-sayte-soglasie-na-publikaciyu-izobrazheniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/foto-lyudey-na-sayte-soglasie-na-publikaciyu-izobrazheniya-2026/)
+- [Отзывы на сайте по закону: как публиковать и не нарушить его](./otzyvy-klientov-na-sayte-kak-publikovat-po-zakonu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/otzyvy-klientov-na-sayte-kak-publikovat-po-zakonu-2026/)
+- [Обязательные страницы на сайте компании: чек-лист для ИП и ООО](./obyazatelnye-stranicy-na-sayte-kompanii-chek-list-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/obyazatelnye-stranicy-na-sayte-kompanii-chek-list-2026/)
 - [Домен через Госуслуги: кого касается и что будет с сайтом](./identifikaciya-vladeltsa-domena-cherez-gosuslugi-149-fz-kogo-kasaetsya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/identifikaciya-vladeltsa-domena-cherez-gosuslugi-149-fz-kogo-kasaetsya-2026/)
 - [Реклама со ссылкой вместо мелкого шрифта: что готовить на сайте](./reklama-svedeniya-o-prodavce-i-usloviya-akcii-ssylka-ili-qr-vmesto-melkogo-shrifta-zakonoproekt-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/reklama-svedeniya-o-prodavce-i-usloviya-akcii-ssylka-ili-qr-vmesto-melkogo-shrifta-zakonoproekt-2026/)
 - [Как указывать Инстаграм, WhatsApp и Meta на сайте компании в 2026](./kak-pomechat-instagram-whatsapp-meta-na-sayte-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-pomechat-instagram-whatsapp-meta-na-sayte-2026/)
@@ -1888,6 +1891,8 @@
 - [QR на Wi-Fi для гостей: карточка без вопроса про пароль](./wifi-card-qr-kod-wifi-dlya-gostey-kafe-gostinicy-salona-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/wifi-card-qr-kod-wifi-dlya-gostey-kafe-gostinicy-salona-2026/)
 - [Standard Notes: заметки, которые не прочтёт даже админ сервера](./standard-notes-zashifrovannye-zametki-s-serverom-na-svoem-vps-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/standard-notes-zashifrovannye-zametki-s-serverom-na-svoem-vps-2026/)
 - [Как опубликовать приложение в RuStore: шаги, модерация, сроки](./kak-vylozhit-prilozhenie-v-rustore-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-vylozhit-prilozhenie-v-rustore-2026/)
+- [Видео на сайт вместо YouTube: VK Видео, Rutube или свой хостинг](./video-na-sayte-vk-video-rutube-svoy-hosting-vmesto-youtube-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/video-na-sayte-vk-video-rutube-svoy-hosting-vmesto-youtube-2026/)
+- [Официальный канал компании в MAX: как подтвердить организацию](./oficialnyy-kanal-kompanii-v-max-kak-podtverdit-organizaciyu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/oficialnyy-kanal-kompanii-v-max-kak-podtverdit-organizaciyu-2026/)
 - [GramFuzz: как проверить Telegram-бота на дыры до клиентов](./gramfuzz-proverka-bezopasnosti-telegram-botov-i-mini-prilozheniy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gramfuzz-proverka-bezopasnosti-telegram-botov-i-mini-prilozheniy-2026/)
 - [PocketPaw: ИИ-агент в чате, журнал есть, защиты от правки нет](./pocketpaw-svoy-ii-agent-v-messendzhere-s-zhurnalom-deystviy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pocketpaw-svoy-ii-agent-v-messendzhere-s-zhurnalom-deystviy-2026/)
 - [Scanopy: карта сети офиса, которая не устаревает](./scanopy-avtomaticheskaya-shema-seti-ofisa-i-prilozheniy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/scanopy-avtomaticheskaya-shema-seti-ofisa-i-prilozheniy-2026/)
