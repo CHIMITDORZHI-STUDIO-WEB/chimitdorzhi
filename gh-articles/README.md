@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2511**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2516**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -329,6 +329,9 @@
 
 ## Open-source и свой сервер
 
+- [Образец Anthropic: ИИ-консультант для магазина и помощник владельца](./anthropic-commerce-agents-obrazec-ii-konsultanta-dlya-magazina-i-pomoshchnika-vladelca-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/anthropic-commerce-agents-obrazec-ii-konsultanta-dlya-magazina-i-pomoshchnika-vladelca-2026/)
+- [Paperweight: кто хранит ваши данные, список сервисов по почте](./paperweight-kto-hranit-vashi-dannye-inventarizatsiya-servisov-po-pochte-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/paperweight-kto-hranit-vashi-dannye-inventarizatsiya-servisov-po-pochte-2026/)
+- [Photoview: галерея на своём сервере, альбомы по клиентам и объектам](./photoview-fotogalereya-na-svoem-servere-albomy-po-klientam-i-obektam-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/photoview-fotogalereya-na-svoem-servere-albomy-po-klientam-i-obektam-2026/)
 - [Passbolt: общие пароли команды и доступы подрядчикам на своём сервере](./passbolt-obshchie-paroli-komandy-na-svoem-servere-dostupy-podryadchikam-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/passbolt-obshchie-paroli-komandy-na-svoem-servere-dostupy-podryadchikam-2026/)
 - [Что нельзя отдавать ИИ-агенту и подрядчику из кода: ключи и ПДн](./devprojex-chto-nelzya-otdavat-ii-agentu-i-podryadchiku-iz-koda-klyuchi-i-personalnye-dannye-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/devprojex-chto-nelzya-otdavat-ii-agentu-i-podryadchiku-iz-koda-klyuchi-i-personalnye-dannye-2026/)
 - [Shellfirm: как остановить ИИ-агента до удаления базы на сервере](./shellfirm-zashchita-ot-opasnyh-komand-ii-agenta-v-terminale-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/shellfirm-zashchita-ot-opasnyh-komand-ii-agenta-v-terminale-2026/)
@@ -1632,6 +1635,7 @@
 
 ## Право и 152-ФЗ
 
+- [QR для жалоб и сайт на вывеске: что с правилами общепита и услуг](./pravila-obshchepita-i-bytovyh-uslug-qr-dlya-zhalob-v-max-sayt-na-vyveske-rospotrebnadzor-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pravila-obshchepita-i-bytovyh-uslug-qr-dlya-zhalob-v-max-sayt-na-vyveske-rospotrebnadzor-2026/)
 - [Туристический налог на сайте гостиницы: как рассчитать и показать](./turisticheskiy-nalog-na-sayte-bronirovaniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/turisticheskiy-nalog-na-sayte-bronirovaniya-2026/)
 - [Сбор 3 процента с рекламы в интернете: кто платит и как считать](./sbor-3-procenta-s-internet-reklamy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sbor-3-procenta-s-internet-reklamy-2026/)
 - [Закон 41-ФЗ и иностранные мессенджеры: кому запрещено писать клиентам](./zakon-ob-antifrode-41-fz-inostrannye-messendzhery-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zakon-ob-antifrode-41-fz-inostrannye-messendzhery-2026/)
@@ -2387,6 +2391,7 @@
 
 ## Экспертное
 
+- [Gemini 4 Argon: цена вдвое вырастет 1 декабря. Что менять в боте](./gemini-4-argon-chto-menyat-v-byudzhete-i-nastroykakh-bota-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gemini-4-argon-chto-menyat-v-byudzhete-i-nastroykakh-bota-2026/)
 - [ИИ плохо видит: что показал Humanity's Sixth Sense в проверке по фото](./ii-ploho-vidit-humanitys-sixth-sense-chto-eto-znachit-dlya-proverki-po-foto-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-ploho-vidit-humanitys-sixth-sense-chto-eto-znachit-dlya-proverki-po-foto-2026/)
 - [GPT-6 Intelligent UI: ответ как интерфейс, что взять в свой бот](./gpt-6-intelligent-ui-otvet-kak-interfeys-chto-povtorit-v-svoem-bote-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gpt-6-intelligent-ui-otvet-kak-interfeys-chto-povtorit-v-svoem-bote-2026/)
 - [Claude Haiku 5.5: самая дешёвая модель для массовых простых задач](./claude-haiku-5-5-samaya-deshevaya-model-dlya-massovyh-prostyh-zadach-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/claude-haiku-5-5-samaya-deshevaya-model-dlya-massovyh-prostyh-zadach-2026/)
