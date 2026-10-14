@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Push уведомления на сайте: как работают и нужны ли</title>
+    <meta name="description" content="Web push что это: как работает подписка, где поддерживается (Chrome, Safari, iPhone), ограничения, FCM, согласие по 38-ФЗ и когда push окупается.">
+    <meta name="keywords" content="push уведомления на сайте, web push что это, как работают push уведомления, push уведомления iPhone, VAPID, service worker, согласие на push рассылку, push или email или sms">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/push-uvedomleniya-sayta-kak-rabotayut-ogranicheniya-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/push-uvedomleniya-sayta-kak-rabotayut-ogranicheniya-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/push-uvedomleniya-sayta-kak-rabotayut-ogranicheniya-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/push-uvedomleniya-sayta-kak-rabotayut-ogranicheniya-2026/">
+    <meta property="og:title" content="Push уведомления на сайте: как работают и нужны ли">
+    <meta property="og:description" content="Web push что это: как работает подписка, где поддерживается (Chrome, Safari, iPhone), ограничения, FCM, согласие по 38-ФЗ и когда push окупается.">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/push-uvedomleniya-sayta-kak-rabotayut-ogranicheniya-2026/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Push уведомления на сайте: как работают и нужны ли">
+    <meta name="twitter:description" content="Web push что это: как работает подписка, где поддерживается (Chrome, Safari, iPhone), ограничения, FCM, согласие по 38-ФЗ и когда push окупается.">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/push-uvedomleniya-sayta-kak-rabotayut-ogranicheniya-2026/cover.png">
+
+    <link rel="icon" href="/favicon.svg?v=5" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=5">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png?v=5">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=5">
+    <link rel="preload" href="/assets/fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=79">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Push-уведомления на сайте: как работают и нужны ли бизнесу",
+  "description": "Web push что это: как работает подписка, где поддерживается (Chrome, Safari, iPhone), ограничения, FCM, согласие по 38-ФЗ и когда push окупается.",
+  "image": "https://chimitdorzhi.tech/blog/push-uvedomleniya-sayta-kak-rabotayut-ogranicheniya-2026/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://t.me/chimitdorzhi_studio",
+      "https://max.ru/channel_chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio",
+      "https://github.com/chimitdorzhi",
+      "https://chimitdorzhi.tech/about/"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/push-uvedomleniya-sayta-kak-rabotayut-ogranicheniya-2026/"
+  },
+  "datePublished": "2026-10-14",
+  "dateModified": "2026-10-14",
+  "keywords": "push-уведомления, web push, сайт, PWA, рассылки",
+  "articleSection": "Разработка",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  },
+  "about": [
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://chimitdorzhi.tech/slovar/#pwa",
+      "name": "PWA (Progressive Web App)"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Push-уведомления на сайте: как работают и нужны ли бизнесу",
+      "item": "https://chimitdorzhi.tech/blog/push-uvedomleniya-sayta-kak-rabotayut-ogranicheniya-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Push уведомления на сайте: что это простыми словами?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Короткие сообщения от сайта, которые появляются на экране устройства. Работают, только если человек сам нажал «Разрешить», и приходят даже при закрытой вкладке."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как подключить push уведомления на сайте?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Два пути. Готовый сервис (например Sendsay или Altcraft) даёт интерфейс рассылок и сегменты. Свой сервер на VAPID даёт контроль над подписками, но требует разработки. Нужны HTTPS и service worker."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Работают ли push уведомления на iPhone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, но по данным WebKit для сайта, добавленного на экран «Домой», с iOS 16.4, и запрос должен идти по прямому нажатию. Для посетителей, которые не ставят сайт на экран, заранее предусмотрите запасной канал."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужно ли согласие на push уведомления на сайте?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Системное «Разрешить» нужно технически. Для рекламы статья 18 закона «О рекламе» требует предварительного согласия, и доказывать его вам. Применимость к браузерным пушам спорная, поэтому веду журнал и показываю свой экран с объяснением. Проверьте с юристом."
+      }
+    }
+  ]
+}
+    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+var inject=function(){for (var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)};
+var run=function(){('requestIdleCallback' in window)?requestIdleCallback(inject,{timeout:5000}):setTimeout(inject,3000)};
+(e.readyState==='complete')?run():m.addEventListener('load',run);})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109281884" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<!-- Цели Метрики: клики по контактам и услугам -->
+<script type="text/javascript">
+(function(){
+  var GOALS = [
+    { re: /t\.me\//i,                     goal: 'tg_click' },
+    { re: /max\.ru\//i,                    goal: 'max_click' },
+    { re: /audit\.chimitdorzhi\.tech/i,    goal: 'audit_click' },
+    { re: /chimitdorzhi\.tech\/services\//i, goal: 'service_click' },
+    { re: /chimitdorzhi\.tech\/predlozheniya\//i, goal: 'offer_click' }
+  ];
+  document.addEventListener('click', function(e){
+    var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    for (var i = 0; i < GOALS.length; i++) {
+      if (GOALS[i].re.test(href)) {
+        try { if (window.ym) ym(109281884, 'reachGoal', GOALS[i].goal); } catch (err) {}
+        break;
+      }
+    }
+  }, true);
+})();
+</script>
+</head>
+<body class="wx-read">
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/" data-i18n="nav.home">Главная</a></li>
+            <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+            <li class="nav-dropdown">
+                <a href="/cases/" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+                <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему" aria-pressed="false">
+                <i class="ph ph-moon" aria-hidden="true"></i>
+            </button>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/" data-i18n="nav.home">Главная</a></li>
+        <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+        <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+        <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+        <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+        <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+        <li class="mobile-has-submenu">
+            <details>
+                <summary aria-label="Проекты — развернуть"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down" aria-hidden="true"></i></summary>
+                <ul class="mobile-submenu">
+                    <li>
+                        <a href="https://gerel.space" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">Gerel.space</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/universe_buryat/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/arey/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.arey">AREY</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/mwrlife/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">MWR Life</span>
+                                <span class="mobile-sub-desc">Travel-клуб и партнёрка</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </details>
+        </li>
+        <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+    </ul>
+    <div class="mobile-controls">
+        <div class="mobile-lang-switcher" role="group" aria-label="Выбор языка">
+            <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+            <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+            <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+        </div>
+        <button class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle" aria-label="Переключить тему" aria-pressed="false">
+            <i class="ph ph-moon" aria-hidden="true"></i>
+        </button>
+    </div>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Push-уведомления на сайте: как работают и нужны ли бизнесу</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/development/"><i class="ph ph-bookmark" aria-hidden="true"></i> Разработка</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин чтения</span>
+                        <time datetime="2026-10-14"><i class="ph ph-calendar" aria-hidden="true"></i> 14 октября 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Push-уведомления на сайте: как работают и нужны ли бизнесу</h1>
+
+                    <p class="blog-lead">Разбираю web push по первоисточникам: как устроена подписка, где работает (на iPhone только для сайта на экране «Домой»), как Chrome блокирует навязчивые запросы, что с FCM и законом, когда push окупается и чем его дублировать.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>push-уведомления</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>web push</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>сайт</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>PWA</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>рассылки</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
+<li>Web push показывает уведомление в браузере, даже когда сайт закрыт. Нужны HTTPS, service worker, разрешение человека и ключи VAPID на вашем сервере.</li>
+<li>Работает в Chrome, Edge, Firefox и Safari на macOS. На iPhone, по данным WebKit, только у сайта, добавленного на экран «Домой», начиная с iOS 16.4.</li>
+<li>Разрешение просите после клика, не при загрузке страницы. Chrome блокирует навязчивые сайты и переводит запросы в тихий режим, а после отказа человек включит уведомления только сам в настройках.</li>
+<li>В Chrome доставка идёт через инфраструктуру Google, RuStore Push SDK для сайтов не подходит. Критичное дублируйте другим каналом.</li>
+<li>Для рекламных пушей берите явное согласие по статье 18 закона «О рекламе». Применимость к браузерным пушам спорная, проверьте с юристом.</li>
+<li>Окупаются статус заказа, брошенная корзина, срочные новости и напоминания. Рассылка «всем и каждый день» кончается отписками.</li>
+</ul></div>
+<div class="blog-cta-internal">
+  <i class="ph-fill ph-rocket-launch" aria-hidden="true"></i>
+  <div>
+    <strong>Хотите внедрить это у себя?</strong>
+    <p>Сделаю под ключ: разберу задачу, назову срок и цену. Чтобы начать, <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%ABPush-%D1%83%D0%B2%D0%B5%D0%B4%D0%BE%D0%BC%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%20%D0%BD%D0%B0%20%D1%81%D0%B0%D0%B9%D1%82%D0%B5%3A%20%D0%BA%D0%B0%D0%BA%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%D1%8E%D1%82%20%D0%B8%20%D0%BD%D1%83%D0%B6%D0%BD%D1%8B%20%D0%BB%D0%B8%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D1%83%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener">напишите в Telegram</a> одной фразой.</p>
+    <a href="https://chimitdorzhi.tech/services/web-development/">Подключить push к сайту или PWA <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</div>
+
+<p>Push-уведомления на сайте (web push) это сообщения, которые браузер показывает человеку, даже если страница закрыта, при условии что он заранее разрешил их этому сайту. Работают service worker, Push API для подписки и Notification API для показа, а сервер сайта шлёт сообщение через push-службу браузера, подписывая запрос ключами VAPID.</p>
+
+<h2 id="kak-rabotaet">Web push: что это и как работает уведомление на сайте</h2>
+
+<p>Схему сверил с MDN и web.dev на 14.10.2026.</p>
+
+<ol>
+<li>Сайт регистрирует service worker, небольшой скрипт, который живёт в браузере отдельно от страницы.</li>
+<li>После клика сайт вызывает Notification.requestPermission(), и браузер показывает свой запрос.</li>
+<li>Если человек согласился, сайт подписывает его через Push API с открытым ключом VAPID. Браузер обращается к push-службе и возвращает подписку: адрес (endpoint) и ключи шифрования. Её сохраняете в базе.</li>
+<li>Когда нужно написать, ваш сервер шлёт запрос на этот адрес. Сообщение шифруется ключами подписки и подписывается вашим закрытым ключом VAPID.</li>
+<li>Браузер будит service worker, тот получает событие push и показывает уведомление.</li>
+</ol>
+
+<pre class="blog-code"><code>self.addEventListener('push', (event) =&gt; {
+  const data = event.data ? event.data.json() : {};
+  event.waitUntil(
+    self.registration.showNotification(data.title || 'Новое сообщение', { body: data.body, data: { url: data.url } })
+  );
+});</code></pre>
+
+<p>По MDN, адрес подписки это секретная ссылка: кто её знает, может слать сообщения.</p>
+
+<h2 id="brauzery">Где работает: Chrome, Edge, Firefox, Safari, Яндекс Браузер</h2>
+
+<table>
+<thead><tr><th>Браузер</th><th>Что подтвердил</th></tr></thead>
+<tbody>
+<tr><td>Chrome</td><td>Push API с версии 50 (caniuse)</td></tr>
+<tr><td>Edge</td><td>с версии 79 (caniuse)</td></tr>
+<tr><td>Firefox</td><td>с версии 44 (caniuse)</td></tr>
+<tr><td>Safari на macOS</td><td>стандартный Web Push с Safari 16.1 на macOS Ventura (блог WebKit)</td></tr>
+<tr><td>iPhone и iPad</td><td>с iOS и iPadOS 16.4, только для сайта на экране «Домой», запрос по прямому действию (блог WebKit)</td></tr>
+<tr><td>Яндекс Браузер</td><td>спрашивает разрешение у сайтов, запросы можно отключить в настройках (справка Яндекса)</td></tr>
+</tbody>
+</table>
+
+<p>Для Safari caniuse помечает поддержку как частичную, тестируйте на живых устройствах. По WebKit, в iOS 26 сайт с экрана «Домой» по умолчанию открывается как веб-приложение, а отмены требования установки для пушей я не нашёл. Значит, iPhone-посетителей этим каналом достанете, только если научите ставить сайт на экран. Как это сделать, я разбирал в статье <a href="/blog/pwa-iz-sayta-za-vyhodnye-2026/">про PWA из обычного сайта</a>.</p>
+
+<h2 id="ogranicheniya">Ограничения: запрос разрешения, автоблокировка, тихий режим</h2>
+
+<p><strong>Только по действию.</strong> MDN прямо указывает, что запрос разрешения нужно делать в ответ на действие пользователя, а WebKit требует этого для iOS. Из iframe чужого домена Chrome и Firefox запрашивать разрешение не дают (MDN).</p>
+
+<p><strong>Отказ почти окончателен.</strong> Статус denied значит, что человек явно заблокировал сайт. Программно спросить ещё раз нельзя, включить уведомления он сможет только сам в настройках сайта.</p>
+
+<p><strong>Автоблокировка в Chrome.</strong> По справке Google, Chrome блокирует уведомления от сайтов с навязчивыми или вводящими в заблуждение сообщениями и может снимать разрешение с сайтов, которые давно не открывали. Есть и тихий режим: вместо всплывающего окна в адресной строке появляется колокольчик. По анонсу блога Chromium от января 2020 года, сайты с очень низкой долей согласий переводятся в тихий режим автоматически, как и пользователи, которые часто отказывают. Актуальность деталей 2020 года не проверял, ориентируйтесь на справку Chrome.</p>
+
+<h2 id="rossiya">Российский контекст: FCM, RuStore и российские сервисы</h2>
+
+<p>Каждый вендор браузера выбирает свою push-службу, и владелец сайта на этот выбор не влияет (web.dev). В примере из документации web.dev адрес подписки указывает на сервер fcm.googleapis.com, то есть на Firebase Cloud Messaging от Google. В своём проекте я это проверял: до воркера сообщение доходило через FCM. Safari использует APNs, Firefox службу Mozilla.</p>
+
+<p>Отсюда два следствия. Первое: доставка зависит от чужой инфраструктуры, поэтому важное сообщение в один push не кладите. Второе, юридическое: по описанию web.dev сообщение шифруется ключами подписки, но адрес подписки и факт отправки проходят через серверы вендора браузера. Считать ли это трансграничной передачей персональных данных, однозначной позиции я не нашёл. Тему я разбирал в статье <a href="/blog/google-fonts-recaptcha-youtube-transgranichnaya-peredacha-pd-2026/">про трансграничную передачу на сайте</a>, свой случай покажите юристу. Я держусь такого правила: в тексте уведомления никаких ФИО, телефонов и сумм, только нейтральная фраза и ссылка.</p>
+
+<p><strong>RuStore Push SDK</strong> создан для Android-приложений и описан в документации RuStore как альтернатива FCM, про сайты и браузеры там ничего нет. Для приложения нужен (публикацию разбирал в <a href="/blog/kak-vylozhit-prilozhenie-v-rustore-2026/">статье про RuStore</a>), для web push не подходит.</p>
+
+<p><strong>Российские сервисы.</strong> Sendsay и Altcraft на своих официальных сайтах указывают web push среди каналов (проверено 14.10.2026). Sendsay называет себя полностью российским сервисом с серверами в России, Altcraft заявляет о включении в реестр российского ПО. Важный нюанс: такой сервис заменит вам админку, сегменты и сценарии, но push-службу браузера он не заменит. Доставка в Chrome всё равно пойдёт тем путём, что описан выше. Тарифы я не проверял. Другие платформы разобраны в статье <a href="/blog/email-push-rassylki-rf-2026/">про рассылки в РФ</a>.</p>
+
+<h2 id="pravo">Право: подписка на push и согласие на рекламу</h2>
+
+<p>Часть 1 статьи 18 закона «О рекламе» разрешает рекламу по сетям электросвязи, включая телефонную, факсимильную и подвижную радиотелефонную связь, только с предварительного согласия адресата. Если рекламораспространитель не докажет, что согласие было, считается, что его не было. По требованию человека рассылку нужно прекратить немедленно (текст закона в редакции от 04.08.2026, проверено 14.10.2026).</p>
+
+<p>Спорно, относится ли показ уведомления в браузере к «сетям электросвязи». Прямой позиции ФАС по web push я не нашёл. Нажатие «Разрешить» не говорит, на что человек согласился: на новости, акции или только на статусы заказа. Осторожный путь такой.</p>
+
+<ul>
+<li>Перед системным запросом показать свой экран: что именно будете присылать.</li>
+<li>Хранить дату, страницу и текст, который видел человек. Доказывать согласие придётся вам.</li>
+<li>Дать простой способ отключиться.</li>
+<li>Не смешивать сервисное и рекламное: статус заказа остаётся сервисным сообщением, а акция внутри него уже реклама (это общий подход, спорные случаи обсуждайте с юристом).</li>
+</ul>
+
+<p>По 152-ФЗ: подписка это адрес браузера и ключи, имени в ней нет. Но если вы привязали её к аккаунту, почте или заказу, это данные клиента, и они должны попасть в политику и согласие. Запрос разрешения на уведомления и баннер cookie, по моему пониманию, друг друга не заменяют. Это не юридическая консультация, сверьте с юристом.</p>
+
+<h2 id="okupaetsya">Когда push окупается, а когда нет</h2>
+
+<p>Цифры конверсии не называю: проверяемых общих данных не нашёл. Считайте на своём сайте показы, клики и отписки.</p>
+
+<p><strong>Подходит.</strong> Статус заказа и доставки, человеку это нужно здесь и сейчас (страница статуса заказа закрывает ту же боль без звонков). Брошенная корзина как часть <a href="/blog/triggernye-cepochki-soobshcheniy-2026/">триггерной цепочки</a>. «Товар появился в наличии», если человек сам нажал «сообщить». Срочные новости для медиа. Напоминание о записи. Рабочие уведомления в кабинете.</p>
+
+<p><strong>Не подходит.</strong> Просить подписку у каждого, кто зашёл в первый раз по поиску. Писать «всем сразу» без повода. Делать push единственным каналом для важного. И там, где аудитория на iPhone и не ставит сайт на экран.</p>
+
+<h2 id="chastota">Частота, сегменты и как не раздражать</h2>
+
+<p>Мои правила. Подписку делю по темам: заказ, новости раздела, акции. Рекламу начинаю с одного сообщения в неделю и добавляю, пока растёт доля кликов и не растут отписки. У акций короткий срок жизни сообщения, чтобы вчерашняя не приходила завтра.</p>
+
+<h2 id="alternativy">Чем заменить или дополнить: бот, email, SMS</h2>
+
+<p>Бот в Telegram или MAX работает на любом телефоне, подписка идёт по кнопке. Что боту по силам вместо приложения, я разобрал в статье <a href="/blog/bot-vmesto-mobilnogo-prilozheniya-2026/">про бот вместо приложения</a>. Email подходит для длинного содержания. SMS платный, зато достаёт без интернета, стоимость сравнивал в статье <a href="/blog/sms-ili-messendzher-uvedomleniya-klientam-stoimost-2026/">про SMS и мессенджеры</a>. Моя схема: push быстрый слой, критичное дублируется ботом или SMS.</p>
+
+<h2 id="kak-ya-delayu">Как я это делаю</h2>
+
+<p>Web push по VAPID я подключал в нескольких проектах, в том числе в <a href="/blog/crm-stroitelnoy-kompanii-almaznaya-rezka-keys-2026/">CRM для строительной компании</a>. Вот что вынес.</p>
+
+<ol>
+<li><strong>Сначала сценарий.</strong> Список событий, о которых нужно знать сразу, остальное показываю внутри страницы.</li>
+<li><strong>Двухшаговый запрос.</strong> Свой экран с объяснением, потом клик, потом системное окно.</li>
+<li><strong>Ключи VAPID храню и бэкаплю отдельно.</strong> С новым ключом все подписки перестают работать, и людям придётся разрешать заново.</li>
+<li><strong>Срок жизни и приоритет.</strong> Библиотека для Python по умолчанию ставила время жизни сообщения ноль секунд: если телефон спал, уведомление пропадало. Я выставил сутки и высокий приоритет.</li>
+<li><strong>Диагностика.</strong> В базе храню устройство и ответ push-службы, а в списке сотрудников есть колонка, у кого уведомления включены.</li>
+<li><strong>Привязка.</strong> При выходе из аккаунта отвязываю устройство, при входе привязываю снова.</li>
+<li><strong>Запасной канал.</strong> На iPhone пуш работает только в установленном приложении, и если человек открыл ссылку из мессенджера, уведомлений не будет, причём молча. Поэтому в одном проекте основной канал бот, а web push вторичный.</li>
+</ol>
+
+<p>Звук и <a href="https://chimitdorzhi.tech/services/web-development/" class="blog-inline-link">всплывающее окн</a>о решают настройки телефона. Если канал нужен вам, смотрите страницу <a href="/services/web-development/">разработки сайтов и приложений</a>. Отдельной строки «web push» в <a href="/ceny/">прайсе</a> нет, пуши входят в описание PWA-приложения от 150 000 ₽. Для магазина (от 200 000 ₽) и корпоративного сайта (от 100 000 ₽) подключение оцениваю в рамках проекта, для готового сайта считаю отдельно.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+
+<h3>Push уведомления на сайте: что это простыми словами?</h3>
+<p>Короткие сообщения от сайта, которые появляются на экране устройства. Работают, только если человек сам нажал «Разрешить», и приходят даже при закрытой вкладке.</p>
+
+<h3>Как подключить push уведомления на сайте?</h3>
+<p>Два пути. Готовый сервис (например Sendsay или Altcraft) даёт интерфейс рассылок и сегменты. <a href="https://chimitdorzhi.tech/services/devops/" class="blog-inline-link">Свой сервер</a> на VAPID даёт контроль над подписками, но требует разработки. Нужны HTTPS и service worker.</p>
+
+<h3>Работают ли push уведомления на iPhone?</h3>
+<p>Да, но по данным WebKit для сайта, добавленного на экран «Домой», с iOS 16.4, и запрос должен идти по прямому нажатию. Для посетителей, которые не ставят сайт на экран, заранее предусмотрите запасной канал.</p>
+
+<h3>Нужно ли согласие на push уведомления на сайте?</h3>
+<p>Системное «Разрешить» нужно технически. Для рекламы статья 18 закона «О рекламе» требует предварительного согласия, и доказывать его вам. Применимость к браузерным пушам спорная, поэтому веду журнал и показываю свой экран с объяснением. Проверьте с юристом.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+
+<p>Web push полезен, когда человеку нужно быстро узнать о событии, которого он сам ждёт. Единственным каналом он быть не может: iPhone требует установки сайта, Chrome блокирует навязчивых, доставка идёт через чужую инфраструктуру, а границы для рекламных пушей спорные. Начните со статусов и напоминаний, спрашивайте разрешение после клика и дублируйте важное ботом, email или SMS.</p>
+
+<p>Подключу push к вашему сайту, магазину или PWA и настрою запасные каналы. Напишите мне в Telegram кодовое слово «ПУШ», и мы разберём, какие события стоит отправлять и какой канал подойдёт вашей аудитории.</p>
+
+                    </div>
+                    
+
+                    
+                    
+                    
+                    
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Обсудим вашу задачу</div>
+  <h3 class="blog-services-offer-title">Push-уведомления и связанные каналы</h3>
+  <p class="blog-services-offer-lead">Напишите одной фразой, что нужно. Отвечу, что подойдёт, сколько займёт и сколько стоит. Сообщение уже подготовлено.</p>
+  <ul class="blog-services-offer-list"><li><i class="ph-fill ph-bell-ringing"></i> <span>Web push на сайт, в магазин и в PWA</span></li><li><i class="ph-fill ph-browser"></i> <span>Экран запроса разрешения и сегменты подписки</span></li><li><i class="ph-fill ph-chat-circle-dots"></i> <span>Запасной канал: бот в Telegram или MAX</span></li><li><i class="ph-fill ph-envelope-simple"></i> <span>Цепочки: корзина, статус заказа, напоминания</span></li></ul>
+  <div class="blog-services-offer-ctas">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%ABPush-%D1%83%D0%B2%D0%B5%D0%B4%D0%BE%D0%BC%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%20%D0%BD%D0%B0%20%D1%81%D0%B0%D0%B9%D1%82%D0%B5%3A%20%D0%BA%D0%B0%D0%BA%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%D1%8E%D1%82%20%D0%B8%20%D0%BD%D1%83%D0%B6%D0%BD%D1%8B%20%D0%BB%D0%B8%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D1%83%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener" class="blog-services-offer-cta">
+      <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
+    </a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="blog-services-offer-cta blog-services-offer-cta-max">
+      <i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> Написать в MAX
+    </a>
+    <a href="https://chimitdorzhi.tech/services/web-development/" class="blog-services-offer-cta blog-services-offer-cta-max"><i class="ph ph-arrow-right" aria-hidden="true"></i> Подключить push к сайту или PWA</a>
+  </div>
+</div>
+                    
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/email-push-rassylki-rf-2026/" data-category="marketing" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-envelope-simple"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Маркетинг и контент</span>
+  <h3>Email и push-рассылки в РФ 2026 без зарубежных сервисов</h3>
+  <p>Mailchimp и SendGrid ушли — разбираю, как делать рассылки в РФ 2026: российские сервисы (Unisender, DashaMail, Sendsay, Mindbox), свой SMTP, доставляемость (SPF/DKIM/DMARC), прогрев домена, web-push и mobile-push, согласие на рекламную рассылку и закон. С кодом SMTP-отправки и DNS-записями.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 30 мая 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 22 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/pwa-iz-sayta-za-vyhodnye-2026/" data-category="development" data-clicks="2">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-app-window"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
+  <h3>Как превратить обычный сайт в PWA за выходные: пошаговый туториал с кодом</h3>
+  <p>Туториал на выходные: manifest.json, Service Worker, install-button и push-уведомления для iOS и Android. Готовый код, чек-листы и публикация в RuStore.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 19 мая 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 18 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/triggernye-cepochki-soobshcheniy-2026/" data-category="sales" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-flow-arrow"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Продажи и стартап</span>
+  <h3>Триггерные цепочки сообщений: welcome, брошенная корзина, возврат клиента</h3>
+  <p>Триггерные цепочки работают за вас 24/7: welcome, брошенная корзина, возврат уснувших. Разбираю главные сценарии, каналы (e-mail, Telegram, MAX) и как настроить без спама.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 23 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/sms-ili-messendzher-uvedomleniya-klientam-stoimost-2026/" data-category="marketing" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-bell-ringing"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Маркетинг и контент</span>
+  <h3>Напоминания клиентам: SMS или мессенджер и сколько это стоит</h3>
+  <p>Что выбрать для напоминаний о записи и статусов заказа: SMS или бота в мессенджере. Сравниваю каналы по цене, охвату и согласию, считаю тысячу сообщений в месяц на открытых прайсах и показываю связку, где бот идёт первым, а SMS запасным.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 2 октября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    <section class="blog-subscribe">
+  <div class="blog-subscribe-body">
+    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
+    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
+  </div>
+  <div class="blog-subscribe-actions">
+    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
+  </div>
+</section>
+                    
+                    
+                    
+                    
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow"><span class="b-l b-l-ru">Готовые решения под ключ</span><span class="b-l b-l-en" lang="en">Turnkey solutions</span><span class="b-l b-l-es" lang="es">Soluciones llave en mano</span><span class="b-l b-l-cn" lang="zh">交钥匙解决方案</span><span class="b-l b-l-mn" lang="mn">Түлхүүр гардуулах шийдэл</span></span>
+                            <span class="blog-offer-cta-title"><span class="b-l b-l-ru">451 готовых IT-решений для бизнеса</span><span class="b-l b-l-en" lang="en">451 ready-made IT solutions for business</span><span class="b-l b-l-es" lang="es">451 soluciones IT listas para empresas</span><span class="b-l b-l-cn" lang="zh">451 个面向企业的现成 IT 解决方案</span><span class="b-l b-l-mn" lang="mn">Бизнест зориулсан 451 бэлэн IT шийдэл</span></span>
+                            <span class="blog-offer-cta-price"><span class="b-l b-l-ru">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span><span class="b-l b-l-en" lang="en">Automation, bots, AI, data privacy and platforms · free consultation</span><span class="b-l b-l-es" lang="es">Automatización, bots, IA, privacidad de datos y plataformas · consulta gratis</span><span class="b-l b-l-cn" lang="zh">自动化、机器人、AI、数据合规与平台 · 免费咨询</span><span class="b-l b-l-mn" lang="mn">Автоматжуулалт, бот, AI, өгөгдлийн хамгаалалт ба платформ · үнэгүй зөвлөгөө</span></span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> <span class="b-l b-l-ru">Смотреть каталог</span><span class="b-l b-l-en" lang="en">View catalog</span><span class="b-l b-l-es" lang="es">Ver catálogo</span><span class="b-l b-l-cn" lang="zh">查看目录</span><span class="b-l b-l-mn" lang="mn">Каталог үзэх</span></span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#kak-rabotaet"><span class="blog-toc-num">01</span> Как работает web push</a></li>
+<li><a href="#brauzery"><span class="blog-toc-num">02</span> Где работает</a></li>
+<li><a href="#ogranicheniya"><span class="blog-toc-num">03</span> Ограничения</a></li>
+<li><a href="#rossiya"><span class="blog-toc-num">04</span> Российский контекст</a></li>
+<li><a href="#pravo"><span class="blog-toc-num">05</span> Право и согласие</a></li>
+<li><a href="#okupaetsya"><span class="blog-toc-num">06</span> Когда окупается</a></li>
+<li><a href="#chastota"><span class="blog-toc-num">07</span> Частота и сегменты</a></li>
+<li><a href="#alternativy"><span class="blog-toc-num">08</span> Бот, email, SMS</a></li>
+<li><a href="#kak-ya-delayu"><span class="blog-toc-num">09</span> Как я это делаю</a></li>
+<li><a href="#faq"><span class="blog-toc-num">10</span> Частые вопросы</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">11</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+971563369591" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +971 56 336 9591</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">RA Standard - F.Z.E</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_licence">Лицензия 57033</span><span> · </span><span data-i18n="footer.legal_authority">Free Zones Authority of Ajman</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">Эмират Аджман, ОАЭ</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/cases/" class="footer-policy-link">Кейсы</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=44" defer></script>
+<script src="/services-i18n.js?v=44" defer></script>
+<script src="/script.js?v=41" defer></script>
+<script src="/search-widget.js?v=1" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>
