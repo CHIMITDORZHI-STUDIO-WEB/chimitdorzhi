@@ -389,15 +389,47 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 })();
 
-/* ===== Кейсы: фильтр карточек по направлению ===== */
+/* ===== Кейсы: рубрикатор в две оси (что сделано × отрасль), состояние в адресе ===== */
 (function(){
-  var bar=document.getElementById('pfFilter'); if(!bar) return;
-  var cards=[].slice.call(document.querySelectorAll('.pf-card'));
-  bar.addEventListener('click', function(e){ var b=e.target.closest('.svc-chip'); if(!b) return;
-    bar.querySelectorAll('.svc-chip').forEach(function(x){ x.classList.toggle('on', x===b); });
-    var k=b.dataset.pf;
-    cards.forEach(function(c){ c.hidden=(k!=='all' && c.dataset.type!==k); });
+  var box=document.getElementById('pfFilter'); if(!box || !box.querySelector('[data-axis]')) return;
+  var grid=document.getElementById('pfGrid');
+  var cards=[].slice.call(document.querySelectorAll('#pfGrid .pf-card'));
+  var feat=document.getElementById('pfFeatured');
+  var shown=document.getElementById('pfShown'), reset=document.getElementById('pfReset'), empty=document.getElementById('pfEmpty');
+  var st={type:'all', ind:'all'};
+  function has(axis,v){ return !!box.querySelector('.svc-chip[data-axis="'+axis+'"][data-v="'+v+'"]'); }
+  try{ var q=new URLSearchParams(location.search);
+    ['type','ind'].forEach(function(a){ var v=q.get(a); if(v && has(a,v)) st[a]=v; }); }catch(e){}
+  function match(c,t,i){ return (t==='all'||c.getAttribute('data-type')===t) && (i==='all'||c.getAttribute('data-ind')===i); }
+  function render(save){
+    var filtered = st.type!=='all' || st.ind!=='all', n=0;
+    cards.forEach(function(c){ var ok=match(c,st.type,st.ind); c.hidden=!ok; if(ok) n++; });
+    if(grid) grid.classList.toggle('is-filtered', filtered);
+    if(feat) feat.hidden = filtered;
+    if(shown) shown.textContent = n;
+    if(reset) reset.hidden = !filtered;
+    if(empty) empty.hidden = n>0;
+    [].forEach.call(box.querySelectorAll('.svc-chip'), function(b){
+      var a=b.getAttribute('data-axis'), v=b.getAttribute('data-v'), on=st[a]===v;
+      b.classList.toggle('on', on); b.setAttribute('aria-pressed', on?'true':'false');
+      var cnt=0; cards.forEach(function(c){ if(match(c, a==='type'?v:st.type, a==='ind'?v:st.ind)) cnt++; });
+      var s=b.querySelector('.svc-cnt'); if(s) s.textContent=cnt;
+      var off = cnt===0 && !on; b.disabled=off; b.classList.toggle('is-empty', off);
+    });
+    if(save!==false){ try{ var u=new URL(location.href);
+      ['type','ind'].forEach(function(a){ if(st[a]==='all') u.searchParams.delete(a); else u.searchParams.set(a, st[a]); });
+      history.replaceState(null,'',u.pathname+u.search+u.hash); }catch(e){} }
+  }
+  box.addEventListener('click', function(e){
+    var b=e.target.closest('.svc-chip'); if(!b || b.disabled) return;
+    var a=b.getAttribute('data-axis'), v=b.getAttribute('data-v');
+    st[a] = (st[a]===v && v!=='all') ? 'all' : v;
+    render();
   });
+  function clear(){ st.type='all'; st.ind='all'; render(); }
+  if(reset) reset.addEventListener('click', clear);
+  var er=document.getElementById('pfEmptyReset'); if(er) er.addEventListener('click', clear);
+  render(false);
 })();
 
 /* WX: кнопка темы в сайдбаре проксирует топбарный переключатель */
