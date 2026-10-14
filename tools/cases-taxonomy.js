@@ -150,6 +150,20 @@ const MAP = {
   'platforma-prodazhi-domenov-demo-keys-2026': ['platform', 'it'],
   'internet-magazin-kosmetiki-demo-keys-2026': ['site', 'beauty'],
   'api-dannyh-avto-iz-kitaya-platforma-keys-2026': ['platform', 'auto'],
+  // Кейсы 14.10.2026
+  'servis-desk-1c-telegram-max-keys-2026': ['crm', 'it'],
+  'vizovyy-bot-telegram-crm-keys-2026': ['bot', 'travel'],
+  'proverka-istorii-avto-iz-kitaya-po-vin-keys-2026': ['platform', 'auto'],
+  'personalnye-razbory-po-date-rozhdeniya-keys-2026': ['platform', 'services'],
+  'klub-lichnyh-celey-po-podpiske-demo-keys-2026': ['platform', 'health'],
+  'vizualizatory-trekov-muzykalnogo-leybla-keys-2026': ['ai', 'culture'],
+  'avtomarkirovka-zapreshchennyh-ploshchadok-na-sayte-keys-2026': ['site', 'it'],
+  'rubrikator-keysov-dve-osi-filtra-keys-2026': ['site', 'it'],
+  'onlayn-akademiya-investiciy-partnerka-dve-linii-keys-2026': ['platform', 'services'],
+  'set-magazinov-belya-max-poverh-1c-keys-2026': ['crm', 'retail'],
+  'kp-ii-administrator-zapis-keys-2026': ['ai', 'services'],
+  'travel-portal-po-podpiske-koncepciya-tz-keys-2026': ['doc', 'travel'],
+  'art-studiya-bot-vitrina-rozygrysh-keys-2026': ['bot', 'culture'],
   // Флагманский кейс без статьи в блоге: ключ по названию карточки.
   'SpyGambl': ['platform', 'it'],
 };
