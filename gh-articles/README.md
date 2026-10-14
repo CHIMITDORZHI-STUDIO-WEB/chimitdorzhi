@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2516**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2521**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -1636,6 +1636,8 @@
 ## Право и 152-ФЗ
 
 - [QR для жалоб и сайт на вывеске: что с правилами общепита и услуг](./pravila-obshchepita-i-bytovyh-uslug-qr-dlya-zhalob-v-max-sayt-na-vyveske-rospotrebnadzor-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pravila-obshchepita-i-bytovyh-uslug-qr-dlya-zhalob-v-max-sayt-na-vyveske-rospotrebnadzor-2026/)
+- [Вебвизор и персональные данные: что можно записывать по закону](./vebvizor-yandeks-metrika-chto-zapisyvat-po-zakonu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vebvizor-yandeks-metrika-chto-zapisyvat-po-zakonu-2026/)
+- [Ретаргетинг и пиксели на сайте: что можно собирать по закону](./retargeting-i-pikseli-na-sayte-chto-mozhno-sobirat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/retargeting-i-pikseli-na-sayte-chto-mozhno-sobirat-2026/)
 - [Туристический налог на сайте гостиницы: как рассчитать и показать](./turisticheskiy-nalog-na-sayte-bronirovaniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/turisticheskiy-nalog-na-sayte-bronirovaniya-2026/)
 - [Сбор 3 процента с рекламы в интернете: кто платит и как считать](./sbor-3-procenta-s-internet-reklamy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sbor-3-procenta-s-internet-reklamy-2026/)
 - [Закон 41-ФЗ и иностранные мессенджеры: кому запрещено писать клиентам](./zakon-ob-antifrode-41-fz-inostrannye-messendzhery-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zakon-ob-antifrode-41-fz-inostrannye-messendzhery-2026/)
@@ -1891,6 +1893,9 @@
 - [privacy.sexy: проверяемые скрипты настройки Windows для офиса](./privacy-sexy-proveryaemye-skripty-dlya-zaschity-rabochih-mest-windows-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/privacy-sexy-proveryaemye-skripty-dlya-zaschity-rabochih-mest-windows-2026/)
 - [WebLLM: ИИ в браузере сотрудника, тексты не уходят в облако](./web-llm-yazykovaya-model-v-brauzere-sotrudnika-bez-oblaka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/web-llm-yazykovaya-model-v-brauzere-sotrudnika-bez-oblaka-2026/)
 - [Zeroshot: код пишет один ИИ-агент, проверяют другие](./zeroshot-agenty-kodirovaniya-s-nezavisimoy-proverkoy-kazhdogo-izmeneniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zeroshot-agenty-kodirovaniya-s-nezavisimoy-proverkoy-kazhdogo-izmeneniya-2026/)
+- [Какой домен выбрать для сайта: .ru, .рф или .su для малого бизнеса](./kakuyu-domennuyu-zonu-vybrat-dlya-biznesa-ru-rf-su-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kakuyu-domennuyu-zonu-vybrat-dlya-biznesa-ru-rf-su-2026/)
+- [Push-уведомления на сайте: как работают и нужны ли бизнесу](./push-uvedomleniya-sayta-kak-rabotayut-ogranicheniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/push-uvedomleniya-sayta-kak-rabotayut-ogranicheniya-2026/)
+- [Онлайн запись на сайт: виджет YCLIENTS или своя форма записи](./onlayn-zapis-na-sayte-vidzhet-yclients-ili-svoya-forma-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/onlayn-zapis-na-sayte-vidzhet-yclients-ili-svoya-forma-2026/)
 - [Пароли клиентов в чатах и таблицах: Passbolt на своём сервере](./passbolt-menedzher-paroley-dlya-komandy-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/passbolt-menedzher-paroley-dlya-komandy-na-svoem-servere-2026/)
 - [Код в чат-бота без ключей и паролей: что чистит DevProjex](./devprojex-bezopasnyy-kontekst-koda-dlya-ii-bez-sekretov-i-pd-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/devprojex-bezopasnyy-kontekst-koda-dlya-ii-bez-sekretov-i-pd-2026/)
 - [SSH к кассам и мини-ПК без белого IP: разобрал mssh](./mssh-ssh-k-mashinam-za-nat-bez-vpn-cherez-svoy-server-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/mssh-ssh-k-mashinam-za-nat-bez-vpn-cherez-svoy-server-2026/)
