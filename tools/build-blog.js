@@ -2399,7 +2399,8 @@ function caseTypeGuess(a) {
 function caseIndGuess(a) {
   const s = `${a.title || a.name || ''} ${(a.tags || []).join(' ')} ${a.slug || ''}`.toLowerCase();
   if (/кафе|кофе|ресторан|общепит|доставк\S* ед/.test(s)) return 'food';
-  if (/салон|космет|массаж|клиник|врач|красот|бьюти/.test(s)) return 'beauty';
+  if (/клиник|врач|медиц|массаж|велнес|здоров|стоматолог/.test(s)) return 'health';
+  if (/салон|космет|красот|бьюти|маникюр|барбер/.test(s)) return 'beauty';
   if (/авто|логист|таможн|вэд|такси|груз/.test(s)) return 'auto';
   if (/строит|недвиж|ремонт|риелт/.test(s)) return 'realty';
   if (/тур|гостиниц|отел|путешеств/.test(s)) return 'travel';
