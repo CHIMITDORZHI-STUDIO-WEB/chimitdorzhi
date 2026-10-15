@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2543**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2548**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -1097,6 +1097,7 @@
 
 ## Маркетинг
 
+- [Реклама в Telegram Ads для малого бизнеса в 2026: запуск и цены](./reklama-v-telegram-ads-dlya-malogo-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/reklama-v-telegram-ads-dlya-malogo-biznesa-2026/)
 - [Animator: пояснительное видео по одной фразе без студии](./animator-poyasnyayushchie-video-po-tekstovomu-zaprosu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/animator-poyasnyayushchie-video-po-tekstovomu-zaprosu-2026/)
 - [geo-seo-claude: видит ли ИИ-поиск ваш сайт и чего набор не умеет](./geo-seo-claude-proverka-vidimosti-sayta-v-otvetah-ii-poiska-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/geo-seo-claude-proverka-vidimosti-sayta-v-otvetah-ii-poiska-2026/)
 - [Как получать заявки из Telegram-канала: кнопка под постом и бот](./telegram-kanal-zayavki-knopka-pod-postom-bot-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/telegram-kanal-zayavki-knopka-pod-postom-bot-2026/)
@@ -1652,6 +1653,9 @@
 ## Право и 152-ФЗ
 
 - [Белые списки Минцифры: попадёт ли сайт и как сохранить доступность](./belye-spiski-minczifry-popadet-li-sayt-i-kak-sohranit-dostupnost-pri-ogranicheniyah-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/belye-spiski-minczifry-popadet-li-sayt-i-kak-sohranit-dostupnost-pri-ogranicheniyah-2026/)
+- [Простая электронная подпись договора: код из SMS и кнопка в боте](./podpisanie-dogovora-po-kodu-iz-sms-prostaya-elektronnaya-podpis-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/podpisanie-dogovora-po-kodu-iz-sms-prostaya-elektronnaya-podpis-2026/)
+- [Запись телефонных разговоров с клиентами: что можно по закону](./zapis-telefonnyh-razgovorov-s-klientami-po-zakonu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zapis-telefonnyh-razgovorov-s-klientami-po-zakonu-2026/)
+- [Гарантия на разработку сайта и бота: что прописать в договоре](./garantiya-na-razrabotku-sayta-i-bota-dogovor-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/garantiya-na-razrabotku-sayta-i-bota-dogovor-2026/)
 - [QR для жалоб и сайт на вывеске: что с правилами общепита и услуг](./pravila-obshchepita-i-bytovyh-uslug-qr-dlya-zhalob-v-max-sayt-na-vyveske-rospotrebnadzor-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pravila-obshchepita-i-bytovyh-uslug-qr-dlya-zhalob-v-max-sayt-na-vyveske-rospotrebnadzor-2026/)
 - [Вебвизор и персональные данные: что можно записывать по закону](./vebvizor-yandeks-metrika-chto-zapisyvat-po-zakonu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vebvizor-yandeks-metrika-chto-zapisyvat-po-zakonu-2026/)
 - [Ретаргетинг и пиксели на сайте: что можно собирать по закону](./retargeting-i-pikseli-na-sayte-chto-mozhno-sobirat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/retargeting-i-pikseli-na-sayte-chto-mozhno-sobirat-2026/)
@@ -1910,6 +1914,7 @@
 - [PocketBase: свой бэкенд в одном файле для бота и мини-приложения](./pocketbase-svoy-bekend-v-odnom-fayle-dlya-botov-i-mini-prilozheniy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pocketbase-svoy-bekend-v-odnom-fayle-dlya-botov-i-mini-prilozheniy-2026/)
 - [Clearcam: «человек в зоне» на любых IP-камерах, видео у вас](./clearcam-raspoznavanie-lyudey-i-uvedomleniya-dlya-lyuboy-sistemy-videonablyudeniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/clearcam-raspoznavanie-lyudey-i-uvedomleniya-dlya-lyuboy-sistemy-videonablyudeniya-2026/)
 - [croc: тяжёлые файлы клиентам без облака и без аккаунтов](./croc-peredacha-bolshih-faylov-klientam-bez-oblaka-i-akkauntov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/croc-peredacha-bolshih-faylov-klientam-bez-oblaka-i-akkauntov-2026/)
+- [Чек-лист запуска сайта: что проверить перед открытием](./chek-list-zapuska-sayta-pered-otkrytiem-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chek-list-zapuska-sayta-pered-otkrytiem-2026/)
 - [Фото товаров по 3 МБ тормозят каталог: Thumbor на своём сервере](./thumbor-svoy-servis-kadrirovaniya-i-szhatiya-foto-tovarov-dlya-magazina-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/thumbor-svoy-servis-kadrirovaniya-i-szhatiya-foto-tovarov-dlya-magazina-2026/)
 - [privacy.sexy: проверяемые скрипты настройки Windows для офиса](./privacy-sexy-proveryaemye-skripty-dlya-zaschity-rabochih-mest-windows-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/privacy-sexy-proveryaemye-skripty-dlya-zaschity-rabochih-mest-windows-2026/)
 - [WebLLM: ИИ в браузере сотрудника, тексты не уходят в облако](./web-llm-yazykovaya-model-v-brauzere-sotrudnika-bez-oblaka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/web-llm-yazykovaya-model-v-brauzere-sotrudnika-bez-oblaka-2026/)
