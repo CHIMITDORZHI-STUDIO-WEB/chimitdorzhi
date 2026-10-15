@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2534**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2554**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -152,6 +152,7 @@
 
 ## cases
 
+- [Четыре демо-сайта агентства недвижимости в Дубае: каталог и объявления](./chetyre-demo-sayta-agentstva-nedvizhimosti-dubay-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chetyre-demo-sayta-agentstva-nedvizhimosti-dubay-keys-2026/)
 - [Сервис Деск на 1С: задачи, учёт времени и боты в Telegram и MAX](./servis-desk-1c-telegram-max-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/servis-desk-1c-telegram-max-keys-2026/)
 - [Визовый бот: от рилса до CRM, концепт для визового консультанта](./vizovyy-bot-telegram-crm-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vizovyy-bot-telegram-crm-keys-2026/)
 - [История авто из Китая по VIN для маркетплейса: тестовый прогон](./proverka-istorii-avto-iz-kitaya-po-vin-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/proverka-istorii-avto-iz-kitaya-po-vin-keys-2026/)
@@ -163,7 +164,7 @@
 - [Платформа академии инвестиций: 15 языков и партнёрка на две линии](./onlayn-akademiya-investiciy-partnerka-dve-linii-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/onlayn-akademiya-investiciy-partnerka-dve-linii-keys-2026/)
 - [Сеть магазинов белья: MAX, лояльность и сертификаты поверх 1С](./set-magazinov-belya-max-poverh-1c-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/set-magazinov-belya-max-poverh-1c-keys-2026/)
 - [КП «ИИ-администратор»: что обещано и что можно проверить в демо](./kp-ii-administrator-zapis-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kp-ii-administrator-zapis-keys-2026/)
-- [Портал путешествий по подписке: концепция и ТЗ на 20 слайдах](./travel-portal-po-podpiske-koncepciya-tz-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/travel-portal-po-podpiske-koncepciya-tz-keys-2026/)
+- [Портал путешествий по подписке: концепция, ТЗ и рабочее демо](./travel-portal-po-podpiske-koncepciya-tz-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/travel-portal-po-podpiske-koncepciya-tz-keys-2026/)
 - [Бот, витрина и розыгрыш для детской арт-студии поверх YCLIENTS](./art-studiya-bot-vitrina-rozygrysh-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/art-studiya-bot-vitrina-rozygrysh-keys-2026/)
 - [CRM и приложение для строительной компании: объект, задачи, отчёты с фото](./crm-stroitelnoy-kompanii-almaznaya-rezka-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/crm-stroitelnoy-kompanii-almaznaya-rezka-keys-2026/)
 - [Контроль материалов в 1С: лимиты по видам работ и согласование расхода](./kontrol-materialov-1c-rasshirenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kontrol-materialov-1c-rasshirenie-keys-2026/)
@@ -342,6 +343,9 @@
 
 ## Open-source и свой сервер
 
+- [PocketBase: бэкенд в одном файле для MVP и PWA и его подвохи](./pocketbase-bekend-v-odnom-fayle-dlya-mvp-i-pwa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pocketbase-bekend-v-odnom-fayle-dlya-mvp-i-pwa-2026/)
+- [PDF по шаблону: pdfme собирает КП, счета и акты из данных CRM](./pdfme-avtomaticheskaya-generaciya-pdf-kp-scheta-akty-po-shablonam-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pdfme-avtomaticheskaya-generaciya-pdf-kp-scheta-akty-po-shablonam-2026/)
+- [clearcam: детекция людей на любых камерах и что с 152-ФЗ](./clearcam-obnaruzhenie-lyudey-i-obektov-dlya-lyubyh-kamer-videonablyudeniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/clearcam-obnaruzhenie-lyudey-i-obektov-dlya-lyubyh-kamer-videonablyudeniya-2026/)
 - [Образец Anthropic: ИИ-консультант для магазина и помощник владельца](./anthropic-commerce-agents-obrazec-ii-konsultanta-dlya-magazina-i-pomoshchnika-vladelca-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/anthropic-commerce-agents-obrazec-ii-konsultanta-dlya-magazina-i-pomoshchnika-vladelca-2026/)
 - [Paperweight: кто хранит ваши данные, список сервисов по почте](./paperweight-kto-hranit-vashi-dannye-inventarizatsiya-servisov-po-pochte-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/paperweight-kto-hranit-vashi-dannye-inventarizatsiya-servisov-po-pochte-2026/)
 - [Photoview: галерея на своём сервере, альбомы по клиентам и объектам](./photoview-fotogalereya-na-svoem-servere-albomy-po-klientam-i-obektam-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/photoview-fotogalereya-na-svoem-servere-albomy-po-klientam-i-obektam-2026/)
@@ -1094,6 +1098,7 @@
 
 ## Маркетинг
 
+- [Реклама в Telegram Ads для малого бизнеса в 2026: запуск и цены](./reklama-v-telegram-ads-dlya-malogo-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/reklama-v-telegram-ads-dlya-malogo-biznesa-2026/)
 - [Animator: пояснительное видео по одной фразе без студии](./animator-poyasnyayushchie-video-po-tekstovomu-zaprosu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/animator-poyasnyayushchie-video-po-tekstovomu-zaprosu-2026/)
 - [geo-seo-claude: видит ли ИИ-поиск ваш сайт и чего набор не умеет](./geo-seo-claude-proverka-vidimosti-sayta-v-otvetah-ii-poiska-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/geo-seo-claude-proverka-vidimosti-sayta-v-otvetah-ii-poiska-2026/)
 - [Как получать заявки из Telegram-канала: кнопка под постом и бот](./telegram-kanal-zayavki-knopka-pod-postom-bot-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/telegram-kanal-zayavki-knopka-pod-postom-bot-2026/)
@@ -1257,6 +1262,8 @@
 
 ## Отрасли
 
+- [CRM для строительной компании: что внутри и сколько стоит](./crm-dlya-stroitelnoy-kompanii-chto-vnutri-i-cena-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/crm-dlya-stroitelnoy-kompanii-chto-vnutri-i-cena-2026/)
+- [Бот и CRM для визового агентства под ключ: заявки, документы, статусы](./bot-i-crm-dlya-vizovogo-agentstva-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bot-i-crm-dlya-vizovogo-agentstva-2026/)
 - [FlyAI: ИИ-агент ищет рейсы и отели для турагентства](./flyai-poisk-aviabiletov-i-otelej-dlya-ii-agenta-turagentstva-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/flyai-poisk-aviabiletov-i-otelej-dlya-ii-agenta-turagentstva-2026/)
 - [Бесконтактное заселение в гостиницу и посуточную квартиру в 2026](./beskontaktnoe-zaselenie-mini-otel-apartamenty-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/beskontaktnoe-zaselenie-mini-otel-apartamenty-2026/)
 - [Как принимать Alipay в России в 2026: оплата от туристов из Китая](./kak-prinimat-alipay-i-wechat-pay-v-rossii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-prinimat-alipay-i-wechat-pay-v-rossii-2026/)
@@ -1648,6 +1655,10 @@
 
 ## Право и 152-ФЗ
 
+- [Белые списки Минцифры: попадёт ли сайт и как сохранить доступность](./belye-spiski-minczifry-popadet-li-sayt-i-kak-sohranit-dostupnost-pri-ogranicheniyah-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/belye-spiski-minczifry-popadet-li-sayt-i-kak-sohranit-dostupnost-pri-ogranicheniyah-2026/)
+- [Простая электронная подпись договора: код из SMS и кнопка в боте](./podpisanie-dogovora-po-kodu-iz-sms-prostaya-elektronnaya-podpis-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/podpisanie-dogovora-po-kodu-iz-sms-prostaya-elektronnaya-podpis-2026/)
+- [Запись телефонных разговоров с клиентами: что можно по закону](./zapis-telefonnyh-razgovorov-s-klientami-po-zakonu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zapis-telefonnyh-razgovorov-s-klientami-po-zakonu-2026/)
+- [Гарантия на разработку сайта и бота: что прописать в договоре](./garantiya-na-razrabotku-sayta-i-bota-dogovor-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/garantiya-na-razrabotku-sayta-i-bota-dogovor-2026/)
 - [QR для жалоб и сайт на вывеске: что с правилами общепита и услуг](./pravila-obshchepita-i-bytovyh-uslug-qr-dlya-zhalob-v-max-sayt-na-vyveske-rospotrebnadzor-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pravila-obshchepita-i-bytovyh-uslug-qr-dlya-zhalob-v-max-sayt-na-vyveske-rospotrebnadzor-2026/)
 - [Вебвизор и персональные данные: что можно записывать по закону](./vebvizor-yandeks-metrika-chto-zapisyvat-po-zakonu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vebvizor-yandeks-metrika-chto-zapisyvat-po-zakonu-2026/)
 - [Ретаргетинг и пиксели на сайте: что можно собирать по закону](./retargeting-i-pikseli-na-sayte-chto-mozhno-sobirat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/retargeting-i-pikseli-na-sayte-chto-mozhno-sobirat-2026/)
@@ -1902,6 +1913,14 @@
 
 ## Разработка
 
+- [pdfme: счета и акты в PDF из JSON-шаблона, без Word](./pdfme-pdf-iz-json-shablonov-scheta-akty-sertifikaty-iz-vashey-sistemy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pdfme-pdf-iz-json-shablonov-scheta-akty-sertifikaty-iz-vashey-sistemy-2026/)
+- [PocketBase: свой бэкенд в одном файле для бота и мини-приложения](./pocketbase-svoy-bekend-v-odnom-fayle-dlya-botov-i-mini-prilozheniy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pocketbase-svoy-bekend-v-odnom-fayle-dlya-botov-i-mini-prilozheniy-2026/)
+- [Clearcam: «человек в зоне» на любых IP-камерах, видео у вас](./clearcam-raspoznavanie-lyudey-i-uvedomleniya-dlya-lyuboy-sistemy-videonablyudeniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/clearcam-raspoznavanie-lyudey-i-uvedomleniya-dlya-lyuboy-sistemy-videonablyudeniya-2026/)
+- [croc: тяжёлые файлы клиентам без облака и без аккаунтов](./croc-peredacha-bolshih-faylov-klientam-bez-oblaka-i-akkauntov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/croc-peredacha-bolshih-faylov-klientam-bez-oblaka-i-akkauntov-2026/)
+- [Чек-лист запуска сайта: что проверить перед открытием](./chek-list-zapuska-sayta-pered-otkrytiem-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chek-list-zapuska-sayta-pered-otkrytiem-2026/)
+- [Service Desk на 1С: заказать систему заявок для IT-отдела под ключ](./service-desk-na-1s-zakazat-sistemu-zayavok-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/service-desk-na-1s-zakazat-sistemu-zayavok-2026/)
+- [Создать доску объявлений под нишу или город: сколько стоит в 2026](./svoya-doska-obyavleniy-dlya-nishi-ili-goroda-cena-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/svoya-doska-obyavleniy-dlya-nishi-ili-goroda-cena-2026/)
+- [Сайт для агентства недвижимости: цена, каталог и умный фильтр](./sayt-agentstva-nedvizhimosti-s-katalogom-i-filtrom-cena-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-agentstva-nedvizhimosti-s-katalogom-i-filtrom-cena-2026/)
 - [Фото товаров по 3 МБ тормозят каталог: Thumbor на своём сервере](./thumbor-svoy-servis-kadrirovaniya-i-szhatiya-foto-tovarov-dlya-magazina-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/thumbor-svoy-servis-kadrirovaniya-i-szhatiya-foto-tovarov-dlya-magazina-2026/)
 - [privacy.sexy: проверяемые скрипты настройки Windows для офиса](./privacy-sexy-proveryaemye-skripty-dlya-zaschity-rabochih-mest-windows-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/privacy-sexy-proveryaemye-skripty-dlya-zaschity-rabochih-mest-windows-2026/)
 - [WebLLM: ИИ в браузере сотрудника, тексты не уходят в облако](./web-llm-yazykovaya-model-v-brauzere-sotrudnika-bez-oblaka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/web-llm-yazykovaya-model-v-brauzere-sotrudnika-bez-oblaka-2026/)
@@ -2409,6 +2428,7 @@
 
 ## Экспертное
 
+- [Sora API закрыт 24 сентября: что делать, если процесс на нём](./sora-api-zakryt-24-sentyabrya-2026-chto-delat-esli-process-derzhalsya-na-nem.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sora-api-zakryt-24-sentyabrya-2026-chto-delat-esli-process-derzhalsya-na-nem/)
 - [Gemini 4 Argon: цена вдвое вырастет 1 декабря. Что менять в боте](./gemini-4-argon-chto-menyat-v-byudzhete-i-nastroykakh-bota-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gemini-4-argon-chto-menyat-v-byudzhete-i-nastroykakh-bota-2026/)
 - [ИИ плохо видит: что показал Humanity's Sixth Sense в проверке по фото](./ii-ploho-vidit-humanitys-sixth-sense-chto-eto-znachit-dlya-proverki-po-foto-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-ploho-vidit-humanitys-sixth-sense-chto-eto-znachit-dlya-proverki-po-foto-2026/)
 - [GPT-6 Intelligent UI: ответ как интерфейс, что взять в свой бот](./gpt-6-intelligent-ui-otvet-kak-interfeys-chto-povtorit-v-svoem-bote-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gpt-6-intelligent-ui-otvet-kak-interfeys-chto-povtorit-v-svoem-bote-2026/)
