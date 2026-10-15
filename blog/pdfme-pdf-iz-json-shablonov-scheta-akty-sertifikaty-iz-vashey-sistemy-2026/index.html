@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pdfme: PDF из JSON-шаблонов для счетов и актов</title>
+    <meta name="description" content="pdfme: открытая библиотека (MIT) собирает счета, акты, сертификаты и КП в PDF по шаблону из вашей системы. Что умеет, кириллица, ограничения, внедрение.">
+    <meta name="keywords" content="pdfme, генерация PDF, счета и акты, шаблоны документов">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/pdfme-pdf-iz-json-shablonov-scheta-akty-sertifikaty-iz-vashey-sistemy-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/pdfme-pdf-iz-json-shablonov-scheta-akty-sertifikaty-iz-vashey-sistemy-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/pdfme-pdf-iz-json-shablonov-scheta-akty-sertifikaty-iz-vashey-sistemy-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/pdfme-pdf-iz-json-shablonov-scheta-akty-sertifikaty-iz-vashey-sistemy-2026/">
+    <meta property="og:title" content="pdfme: PDF из JSON-шаблонов для счетов и актов">
+    <meta property="og:description" content="pdfme: открытая библиотека (MIT) собирает счета, акты, сертификаты и КП в PDF по шаблону из вашей системы. Что умеет, кириллица, ограничения, внедрение.">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/pdfme-pdf-iz-json-shablonov-scheta-akty-sertifikaty-iz-vashey-sistemy-2026/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="pdfme: PDF из JSON-шаблонов для счетов и актов">
+    <meta name="twitter:description" content="pdfme: открытая библиотека (MIT) собирает счета, акты, сертификаты и КП в PDF по шаблону из вашей системы. Что умеет, кириллица, ограничения, внедрение.">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/pdfme-pdf-iz-json-shablonov-scheta-akty-sertifikaty-iz-vashey-sistemy-2026/cover.png">
+
+    <link rel="icon" href="/favicon.svg?v=5" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=5">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png?v=5">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=5">
+    <link rel="preload" href="/assets/fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=79">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "pdfme: счета и акты в PDF из JSON-шаблона, без Word",
+  "description": "pdfme: открытая библиотека (MIT) собирает счета, акты, сертификаты и КП в PDF по шаблону из вашей системы. Что умеет, кириллица, ограничения, внедрение.",
+  "image": "https://chimitdorzhi.tech/blog/pdfme-pdf-iz-json-shablonov-scheta-akty-sertifikaty-iz-vashey-sistemy-2026/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://t.me/chimitdorzhi_studio",
+      "https://max.ru/channel_chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio",
+      "https://github.com/chimitdorzhi",
+      "https://chimitdorzhi.tech/about/"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/pdfme-pdf-iz-json-shablonov-scheta-akty-sertifikaty-iz-vashey-sistemy-2026/"
+  },
+  "datePublished": "2026-10-15",
+  "dateModified": "2026-10-15",
+  "keywords": "pdfme, генерация PDF, счета и акты, шаблоны документов",
+  "articleSection": "Разработка",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "pdfme: счета и акты в PDF из JSON-шаблона, без Word",
+      "item": "https://chimitdorzhi.tech/blog/pdfme-pdf-iz-json-shablonov-scheta-akty-sertifikaty-iz-vashey-sistemy-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Можно ли взять наш нынешний бланк из Word?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Можно сохранить его в PDF и использовать как фон, поля встанут поверх. Минус тот, что тогда не работает автоматический перенос таблицы на следующий лист. Если в счетах много позиций, лучше собрать бланк заново на странице заданного размера."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужен ли отдельный сервер?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Для генерации нужен только Node.js там, где живёт ваша система, либо браузер сотрудника. Где именно запускать, решаем под вашу ситуацию. Если нужен ещё и общий набор операций с готовыми PDF, смотрите Stirling-PDF."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Если 1С уже печатает счёт, нужен ли pdfme?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Если печатная форма устраивает, трогать её не стоит. Смысл появляется, когда бланк собирают вручную, когда файл нужно отправлять из бота или с сайта, или когда оформление хочется менять без программиста."
+      }
+    }
+  ]
+}
+    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+var inject=function(){for (var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)};
+var run=function(){('requestIdleCallback' in window)?requestIdleCallback(inject,{timeout:5000}):setTimeout(inject,3000)};
+(e.readyState==='complete')?run():m.addEventListener('load',run);})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109281884" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<!-- Цели Метрики: клики по контактам и услугам -->
+<script type="text/javascript">
+(function(){
+  var GOALS = [
+    { re: /t\.me\//i,                     goal: 'tg_click' },
+    { re: /max\.ru\//i,                    goal: 'max_click' },
+    { re: /audit\.chimitdorzhi\.tech/i,    goal: 'audit_click' },
+    { re: /chimitdorzhi\.tech\/services\//i, goal: 'service_click' },
+    { re: /chimitdorzhi\.tech\/predlozheniya\//i, goal: 'offer_click' }
+  ];
+  document.addEventListener('click', function(e){
+    var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    for (var i = 0; i < GOALS.length; i++) {
+      if (GOALS[i].re.test(href)) {
+        try { if (window.ym) ym(109281884, 'reachGoal', GOALS[i].goal); } catch (err) {}
+        break;
+      }
+    }
+  }, true);
+})();
+</script>
+</head>
+<body class="wx-read">
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/" data-i18n="nav.home">Главная</a></li>
+            <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+            <li class="nav-dropdown">
+                <a href="/cases/" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+                <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему" aria-pressed="false">
+                <i class="ph ph-moon" aria-hidden="true"></i>
+            </button>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/" data-i18n="nav.home">Главная</a></li>
+        <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+        <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+        <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+        <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+        <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+        <li class="mobile-has-submenu">
+            <details>
+                <summary aria-label="Проекты — развернуть"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down" aria-hidden="true"></i></summary>
+                <ul class="mobile-submenu">
+                    <li>
+                        <a href="https://gerel.space" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">Gerel.space</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/universe_buryat/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/arey/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.arey">AREY</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/mwrlife/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">MWR Life</span>
+                                <span class="mobile-sub-desc">Travel-клуб и партнёрка</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </details>
+        </li>
+        <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+    </ul>
+    <div class="mobile-controls">
+        <div class="mobile-lang-switcher" role="group" aria-label="Выбор языка">
+            <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+            <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+            <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+        </div>
+        <button class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle" aria-label="Переключить тему" aria-pressed="false">
+            <i class="ph ph-moon" aria-hidden="true"></i>
+        </button>
+    </div>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">pdfme: счета и акты в PDF из JSON-шаблона, без Word</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/development/"><i class="ph ph-bookmark" aria-hidden="true"></i> Разработка</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин чтения</span>
+                        <time datetime="2026-10-15"><i class="ph ph-calendar" aria-hidden="true"></i> 15 октября 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">pdfme: счета и акты в PDF из JSON-шаблона, без Word</h1>
+
+                    <p class="blog-lead">pdfme собирает PDF по шаблону из JSON прямо в браузере или на Node.js и имеет визуальный редактор бланка. Разбираю, что она умеет, как с кириллицей и таблицами, где ограничения и как подключить её к 1С, боту, CRM или сайту, чтобы менеджеры перестали собирать счета и акты руками.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>pdfme</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>генерация PDF</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>счета и акты</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>шаблоны документов</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr">
+  <strong>Коротко.</strong> pdfme это открытая библиотека под лицензией MIT, которая собирает PDF по шаблону. Бланк описан в JSON, данные подставляются из вашей системы, файл рождается за доли секунды в браузере или на Node.js. Есть встроенный визуальный редактор бланка, поэтому оформление можно менять без программиста. Готовой программой для офиса она не является: к 1С, боту, CRM или сайту её подключает разработчик.
+</div>
+<div class="blog-cta-internal">
+  <i class="ph-fill ph-rocket-launch" aria-hidden="true"></i>
+  <div>
+    <strong>Хотите внедрить это у себя?</strong>
+    <p>Сделаю под ключ: разберу задачу, назову срок и цену. Чтобы начать, <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%ABpdfme%3A%20%D1%81%D1%87%D0%B5%D1%82%D0%B0%20%D0%B8%20%D0%B0%D0%BA%D1%82%D1%8B%20%D0%B2%20PDF%20%D0%B8%D0%B7%20JSON-%D1%88%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD%D0%B0%2C%20%D0%B1%D0%B5%D0%B7%20Word%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener">напишите в Telegram</a> одной фразой.</p>
+    <a href="https://chimitdorzhi.tech/predlozheniya/integraciya-sistem/">Подключим генерацию PDF к 1С, CRM, боту или сайту <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</div>
+
+<h2 id="otkuda-oshibki">Откуда берутся ошибки в счетах и актах</h2>
+
+<p>Менеджер открывает прошлый счёт в Word или Excel, меняет клиента, ИНН, позиции, сумму и сохраняет под новым именем. Рано или поздно в документе остаётся то, что относилось к прежнему клиенту: дата, расчётный счёт, строка в таблице. Ещё и вёрстка ползёт, когда в таблицу добавляют позицию.</p>
+
+<p>Оценочно, замеров у меня нет: если на счёт, акт или коммерческое предложение уходит по 5 минут, а таких документов 20 в день, это почти два часа работы ежедневно. Плюс время на исправление, когда клиент вернул документ с ошибкой.</p>
+
+<p>Повод разобраться дал пост в канале GitHub Radar от 14.10.2026 про проект <a href="https://github.com/pdfme/pdfme" target="_blank" rel="noopener nofollow">pdfme</a>. Я прочитал документацию и репозиторий, а потом собрал тестовый счёт на Node.js.</p>
+
+<h2 id="chto-takoe-pdfme">Что такое pdfme и насколько проект живой</h2>
+
+<p>Лицензия MIT, по файлу LICENSE.md в репозитории, так что использовать в коммерческих проектах можно. Репозиторий создан 22.08.2021, около 4900 звёзд. Последний релиз 6.2.5 вышел 14.10.2026, до него 6.2.4 от 06.10 и 6.2.3 от 05.10, то есть релизы выходят чаще раза в неделю. Пакет генератора на npm скачивают порядка 790 тысяч раз в месяц.</p>
+
+<p>В истории 53 участника, считая ботов, но проект держится на одном человеке: у основного автора около 1100 коммитов, у следующего живого участника 27. Среди последней сотни коммитов 54 сделаны ботом cursoragent, то есть <a href="https://chimitdorzhi.tech/services/ai-agents/" class="blog-inline-link">ИИ-агент</a>ом, и 39 самим автором. Для нас это значит, что код нужно закреплять на конкретной версии и не обновляться вслепую.</p>
+
+<h2 id="kak-zadaetsya-shablon">Как задаётся шаблон</h2>
+
+<p>Шаблон это JSON из двух частей. Первая, basePdf, задаёт страницу: размер и поля, либо готовый PDF как фон. Вторая, schemas, описывает поля: имя, тип, положение и размер. При генерации вы передаёте значения по именам полей, и получаете PDF.</p>
+
+<p>По документации поддерживаются текст с несколькими переменными внутри одной строки, картинки JPEG и PNG, SVG, линии и рамки, таблицы, списки, даты, галочки. Для талонов и билетов есть QR-код и штрихкоды: qrcode, ean13, ean8, code39, code128, itf14, upca, upce, gs1datamatrix, pdf417. Всё, кроме обычного текста, подключается явно пакетом @pdfme/schemas. В моём тесте пришлось передать плагин text вместе с остальными, иначе генератор отказался работать.</p>
+
+<p>Про кириллицу. Встроенный шрифт Roboto в моём тесте на версии 6.2.5 вывел русский текст без ошибок. Для фирменного шрифта подключается свой файл TTF или OTF, он встраивается в PDF. Китайские и японские символы без своего шрифта превращаются в квадратики, это прямо написано в документации.</p>
+
+<h2 id="redaktor-i-dannye">Редактор бланка и где живут данные</h2>
+
+<p>Кроме генератора есть пакет @pdfme/ui с тремя компонентами. Designer это визуальный редактор: поля перетаскиваются мышью, настраиваются шрифт, цвет, границы. Form даёт заполнить поля руками, Viewer показывает готовый документ. Попробовать можно на <a href="https://playground.pdfme.com/" target="_blank" rel="noopener nofollow">playground.pdfme.com</a>. Сам Designer я у себя не запускал, пишу по документации и по песочнице.</p>
+
+<p>Для заказчика это значит, что бухгалтер или владелец сам двигает реквизиты, меняет логотип и добавляет строку в бланк, а разработчик занят интеграцией.</p>
+
+<p>По документации библиотека работает в браузере и на Node.js, облачного сервиса у неё нет. Зависимостей у генератора две: fontkit и форк pdf-lib. Внешний запрос возможен, только если вы сами указали шрифт или картинку ссылкой. Сетевой трафик я не снимал, так что полная гарантия «ничего не уходит наружу» остаётся на проверке при внедрении. Данные клиентов остаются на вашем сервере или в браузере сотрудника.</p>
+
+<h2 id="chto-vazhno-uchest">Что важно учесть</h2>
+
+<p>Без разработчика у вас в руках будет песочница. Нужны код, который берёт данные из 1С или CRM, хранение шаблонов и кнопка у менеджера.</p>
+
+<p>Автоматический перенос на следующие страницы работает, только если страница задана размерами. Если взять готовый PDF-бланк как фон, страницы остаются неизменными, и длинная таблица не перетечёт на следующий лист. Я проверил на таблице из 70 строк: она разошлась на три страницы, но шапка на продолжении не повторилась.</p>
+
+<p>Электронную подпись в документации я не нашёл. Есть поле для подписи, но это картинка. Если вам нужна ЭЦП, это отдельная система, и нужна ли она в ваших документах, лучше уточнить у юриста. Ссылки внутри PDF в списке планируемых возможностей, то есть пока их нет.</p>
+
+<p>Чем это отличается от HTML в PDF. Puppeteer запускает настоящий Chrome и печатает страницу, wkhtmltopdf печатает страницу через WebKit. Это удобно, когда документ проще всего описать как сайт, но на сервере придётся держать браузер. pdfme рисует документ напрямую, без браузера внутри, а бланк правится в визуальном редакторе. Скорость я не сравнивал.</p>
+
+<h2 id="chto-sdelat-seychas">Что можно сделать уже сейчас</h2>
+
+<p>Выберите один документ, который ваши люди собирают чаще всего. Скиньте мне его образец и два-три заполненных примера.</p>
+
+<p>Решите, откуда брать данные. Если это 1С, посмотрите, как строится <a href="/blog/amocrm-i-1c-integraciya-2026/">связка CRM и 1С</a>. Если это бот или форма на сайте, данные уже лежат в нужном виде.</p>
+
+<p>Подумайте, кому нужен редактор. Если бланк меняется чаще раза в квартал, Designer окупается быстро. Если раз в три года, достаточно правки шаблона разработчиком.</p>
+
+<p>О том, как выглядит цепочка от заявки до закрывающих документов, я писал в статьях <a href="/blog/avtomatizaciya-schetov-aktov-2027/">про счета и акты</a> и <a href="/blog/generator-dogovorov-i-kp-2026/">про генератор договоров и КП</a>. Подключение pdfme к вашим системам делается в рамках <a href="/predlozheniya/integraciya-sistem/">интеграции сайта, CRM, 1С и мессенджеров</a>. Стоимость смотрите на странице <a href="/ceny/">цен</a> или обсудим под вашу задачу.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+
+<h3>Можно ли взять наш нынешний бланк из Word?</h3>
+<p>Можно сохранить его в PDF и использовать как фон, поля встанут поверх. Минус тот, что тогда не работает автоматический перенос таблицы на следующий лист. Если в счетах много позиций, лучше собрать бланк заново на странице заданного размера.</p>
+
+<h3>Нужен ли отдельный сервер?</h3>
+<p>Для генерации нужен только Node.js там, где живёт ваша система, либо браузер сотрудника. Где именно запускать, решаем под вашу ситуацию. Если нужен ещё и общий набор операций с готовыми PDF, смотрите <a href="/blog/stirling-pdf-instrumenty-2026/">Stirling-PDF</a>.</p>
+
+<h3>Если 1С уже печатает счёт, нужен ли pdfme?</h3>
+<p>Если печатная форма устраивает, трогать её не стоит. Смысл появляется, когда бланк собирают вручную, когда файл нужно отправлять из бота или с сайта, или когда оформление хочется менять без программиста.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+
+<p>pdfme стоит рассматривать как деталь для сборки документов: лицензия свободная, проект живой, русский текст в тесте вывелся, таблицы и QR-коды есть. Пока вы не знаете, откуда брать данные и кто будет поддерживать связку, до результата далеко. Риск один: проект держит основной автор, поэтому версию надо закреплять.</p>
+
+<p>Если у вас счета, акты, сертификаты или талоны до сих пор собираются руками, напишите мне в Telegram кодовое слово «БЛАНК» и пришлите образец документа. Скажу, подойдёт ли pdfme, откуда брать данные и что подключать.</p>
+
+                    </div>
+                    
+
+                    
+                    
+                    
+                    
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Обсудим вашу задачу</div>
+  <h3 class="blog-services-offer-title">Что я делаю для бизнеса</h3>
+  <p class="blog-services-offer-lead">Напишите одной фразой, что нужно. Отвечу, что подойдёт, сколько займёт и сколько стоит. Сообщение уже подготовлено.</p>
+  <ul class="blog-services-offer-list"><li><i class="ph-fill ph-robot"></i> <span>Боты в Telegram, MAX, VK</span></li><li><i class="ph-fill ph-gear"></i> <span>Автоматизация процессов и CRM</span></li><li><i class="ph-fill ph-chart-bar"></i> <span>Аналитика и дашборды</span></li><li><i class="ph-fill ph-globe"></i> <span>Сайты и лендинги под ключ</span></li></ul>
+  <div class="blog-services-offer-ctas">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%ABpdfme%3A%20%D1%81%D1%87%D0%B5%D1%82%D0%B0%20%D0%B8%20%D0%B0%D0%BA%D1%82%D1%8B%20%D0%B2%20PDF%20%D0%B8%D0%B7%20JSON-%D1%88%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD%D0%B0%2C%20%D0%B1%D0%B5%D0%B7%20Word%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener" class="blog-services-offer-cta">
+      <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
+    </a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="blog-services-offer-cta blog-services-offer-cta-max">
+      <i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> Написать в MAX
+    </a>
+    <a href="https://chimitdorzhi.tech/predlozheniya/integraciya-sistem/" class="blog-services-offer-cta blog-services-offer-cta-max"><i class="ph ph-arrow-right" aria-hidden="true"></i> Подключим генерацию PDF к 1С, CRM, боту или сайту</a>
+  </div>
+</div>
+                    
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/generator-dogovorov-i-kp-2026/" data-category="biznes-krugozor" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-file-text"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Бизнес-кругозор</span>
+  <h3>Договор за минуту: клиент ввёл данные, документ готов</h3>
+  <p>Менеджер вручную правит вордовский шаблон под каждого клиента, ошибается в реквизитах и суммах, тратит время. Генератор документов делает иначе: человек вводит данные в форму, система собирает готовый договор, счёт или КП в PDF с автоматической нумерацией и историей. Разбираю, как это устроено, сколько экономит и что остаётся за юристом.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 27 сентября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/avtomatizaciya-schetov-aktov-2027/" data-category="development" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-receipt"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
+  <h3>Автоматизация счетов и актов: от заявки до закрывающих документов</h3>
+  <p>Бухгалтер или менеджер вручную набивает счета и акты, ошибается в реквизитах и теряет время. Система формирует документы из заявки сама. Разбираю, как автоматизировать документооборот.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 4 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 6 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/avtogeneraciya-aktov-zakryvayushchih-2026/" data-category="expert" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-receipt"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Экспертный блог</span>
+  <h3>Акты уходят через месяц, деньги зависают: автогенерация закрывающих</h3>
+  <p>Деньги пришли, отгрузка была, а акты и накладные лежат в черновиках до конца месяца и деньги по постоплате зависают. Разбираю, как событие «оплачено» или «отгружено» само собирает пакет закрывающих из сделки и 1С и отправляет клиенту, что при этом остаётся за бухгалтером и сколько это экономит.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 27 сентября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/stirling-pdf-instrumenty-2026/" data-category="opensource" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-file-pdf"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>Stirling-PDF: 50+ инструментов для PDF на своём сервере</h3>
+  <p>Stirling-PDF заменяет онлайн-сервисы для PDF своим: объединение, сжатие, OCR, конвертация, подпись — всё на вашем сервере, документы не уходят наружу. Разбираю, кому нужно и что требуется.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 15 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    <section class="blog-subscribe">
+  <div class="blog-subscribe-body">
+    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
+    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
+  </div>
+  <div class="blog-subscribe-actions">
+    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
+  </div>
+</section>
+                    
+                    
+                    
+                    
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow"><span class="b-l b-l-ru">Готовые решения под ключ</span><span class="b-l b-l-en" lang="en">Turnkey solutions</span><span class="b-l b-l-es" lang="es">Soluciones llave en mano</span><span class="b-l b-l-cn" lang="zh">交钥匙解决方案</span><span class="b-l b-l-mn" lang="mn">Түлхүүр гардуулах шийдэл</span></span>
+                            <span class="blog-offer-cta-title"><span class="b-l b-l-ru">451 готовых IT-решений для бизнеса</span><span class="b-l b-l-en" lang="en">451 ready-made IT solutions for business</span><span class="b-l b-l-es" lang="es">451 soluciones IT listas para empresas</span><span class="b-l b-l-cn" lang="zh">451 个面向企业的现成 IT 解决方案</span><span class="b-l b-l-mn" lang="mn">Бизнест зориулсан 451 бэлэн IT шийдэл</span></span>
+                            <span class="blog-offer-cta-price"><span class="b-l b-l-ru">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span><span class="b-l b-l-en" lang="en">Automation, bots, AI, data privacy and platforms · free consultation</span><span class="b-l b-l-es" lang="es">Automatización, bots, IA, privacidad de datos y plataformas · consulta gratis</span><span class="b-l b-l-cn" lang="zh">自动化、机器人、AI、数据合规与平台 · 免费咨询</span><span class="b-l b-l-mn" lang="mn">Автоматжуулалт, бот, AI, өгөгдлийн хамгаалалт ба платформ · үнэгүй зөвлөгөө</span></span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> <span class="b-l b-l-ru">Смотреть каталог</span><span class="b-l b-l-en" lang="en">View catalog</span><span class="b-l b-l-es" lang="es">Ver catálogo</span><span class="b-l b-l-cn" lang="zh">查看目录</span><span class="b-l b-l-mn" lang="mn">Каталог үзэх</span></span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#otkuda-oshibki"><span class="blog-toc-num">01</span> Откуда берутся ошибки в счетах и актах</a></li>
+<li><a href="#chto-takoe-pdfme"><span class="blog-toc-num">02</span> Что такое pdfme и насколько проект живой</a></li>
+<li><a href="#kak-zadaetsya-shablon"><span class="blog-toc-num">03</span> Как задаётся шаблон</a></li>
+<li><a href="#redaktor-i-dannye"><span class="blog-toc-num">04</span> Редактор бланка и где живут данные</a></li>
+<li><a href="#chto-vazhno-uchest"><span class="blog-toc-num">05</span> Что важно учесть</a></li>
+<li><a href="#chto-sdelat-seychas"><span class="blog-toc-num">06</span> Что можно сделать уже сейчас</a></li>
+<li><a href="#faq"><span class="blog-toc-num">07</span> Частые вопросы</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">08</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+971563369591" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +971 56 336 9591</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">RA Standard - F.Z.E</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_licence">Лицензия 57033</span><span> · </span><span data-i18n="footer.legal_authority">Free Zones Authority of Ajman</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">Эмират Аджман, ОАЭ</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/cases/" class="footer-policy-link">Кейсы</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=44" defer></script>
+<script src="/services-i18n.js?v=44" defer></script>
+<script src="/script.js?v=41" defer></script>
+<script src="/search-widget.js?v=1" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>
