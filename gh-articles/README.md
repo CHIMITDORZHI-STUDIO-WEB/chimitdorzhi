@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2559**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2564**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -1917,6 +1917,11 @@
 
 ## Разработка
 
+- [SilverBullet: вики из файлов, которая отвечает на запросы](./silverbullet-vika-iz-markdown-faylov-s-zaprosami-i-lua-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/silverbullet-vika-iz-markdown-faylov-s-zaprosami-i-lua-na-svoem-servere-2026/)
+- [WifiWatch: журнал обрывов Wi-Fi, когда сеть то пропадает](./wifiwatch-zhurnal-obryvov-wi-fi-v-ofise-kogda-set-to-propadaet-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/wifiwatch-zhurnal-obryvov-wi-fi-v-ofise-kogda-set-to-propadaet-2026/)
+- [OpenAPI Generator: клиент API площадки без ручного кода](./openapi-generator-klient-api-marketpleysa-iz-specifikacii-bez-ruchnogo-koda-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/openapi-generator-klient-api-marketpleysa-iz-specifikacii-bez-ruchnogo-koda-2026/)
+- [anti-slop: правила, чтобы ИИ не делал шаблонные сайты и тексты](./anti-slop-pravila-dlya-ii-agentov-chtoby-sayt-i-tekst-ne-vyglyadeli-shablonno-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/anti-slop-pravila-dlya-ii-agentov-chtoby-sayt-i-tekst-ne-vyglyadeli-shablonno-2026/)
+- [HAPI: ИИ-агент пишет код, а вы подтверждаете с телефона](./hapi-upravlenie-ii-agentom-kodirovaniya-s-telefona-i-cherez-telegram-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/hapi-upravlenie-ii-agentom-kodirovaniya-s-telefona-i-cherez-telegram-2026/)
 - [Приложение для клуба по подписке: сколько стоит бот и мини-приложение](./prilozhenie-dlya-kluba-po-podpiske-cena-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/prilozhenie-dlya-kluba-po-podpiske-cena-2026/)
 - [pdfme: счета и акты в PDF из JSON-шаблона, без Word](./pdfme-pdf-iz-json-shablonov-scheta-akty-sertifikaty-iz-vashey-sistemy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pdfme-pdf-iz-json-shablonov-scheta-akty-sertifikaty-iz-vashey-sistemy-2026/)
 - [PocketBase: свой бэкенд в одном файле для бота и мини-приложения](./pocketbase-svoy-bekend-v-odnom-fayle-dlya-botov-i-mini-prilozheniy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pocketbase-svoy-bekend-v-odnom-fayle-dlya-botov-i-mini-prilozheniy-2026/)
