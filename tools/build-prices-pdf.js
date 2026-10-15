@@ -1,12 +1,16 @@
 // PDF-прайс в фирменных цветах: обложка + разделы с ценами.
-// Запуск: node tools/build-prices-pdf.js [папка-вывода]
+// Запуск: node tools/build-prices-pdf.js [папка-вывода] [--no-prices]
+// --no-prices: каталог услуг без сумм (без колонок цены и расходов после запуска, без сумм в наборах).
 // Печатает через Chromium из движка ux-ui-agent-skills (там стоит Playwright).
 const fs = require('fs');
 const path = require('path');
 const { pathToFileURL } = require('url');
 
 const ROOT = path.resolve(__dirname, '..');
-const OUT_DIR = path.resolve(process.argv[2] || path.join(ROOT, 'ceny'));
+const ARGS = process.argv.slice(2);
+const NO_PRICES = ARGS.includes('--no-prices');
+const OUT_DIR = path.resolve(ARGS.find((a) => !a.startsWith('--')) || path.join(ROOT, 'ceny'));
+const DOC = NO_PRICES ? 'Каталог услуг' : 'Цены';
 const PW = 'C:/Users/Chimitdorzhi/projects/ux-ui-agent-skills/node_modules/playwright';
 
 const ROWS = require('./prices-data.js');
@@ -15,7 +19,7 @@ const { GROUPS, SCENARIOS } = require('./prices-meta.js');
 const MONTH = 'октябрь 2026';
 const CONTACTS = [
   ['telegram-logo', 'Telegram', 't.me/chimitdorzhi'],
-  ['globe', 'Сайт', 'chimitdorzhi.tech/ceny'],
+  ['globe', 'Сайт', NO_PRICES ? 'chimitdorzhi.tech' : 'chimitdorzhi.tech/ceny'],
   ['envelope-simple', 'Почта', 'chimitdorzhi26@gmail.com'],
   ['phone', 'Телефон', '+971 56 336 9591'],
 ];
@@ -54,9 +58,9 @@ function groupRows(rows) {
     const [p, ps] = price(r);
     html += `<div class="row">
       <div class="c-main"><div class="name">${esc(r.name)}</div><div class="what">${esc(nb(r.what))}</div></div>
-      <div class="c-price${r.price.kind === 'project' ? ' is-proj' : ''}"><b>${p}</b><span>${esc(ps)}</span></div>
+      ${NO_PRICES ? '' : `<div class="c-price${r.price.kind === 'project' ? ' is-proj' : ''}"><b>${p}</b><span>${esc(ps)}</span></div>`}
       <div class="c-term">${esc(nb(r.term.label))}</div>
-      <div class="c-after">${after(r)}</div>
+      ${NO_PRICES ? '' : `<div class="c-after">${after(r)}</div>`}
     </div>`;
   }
   return html;
@@ -72,11 +76,14 @@ function employee(rows) {
 }
 
 const directions = ROWS.filter((r) => r.price.kind !== 'included').length;
-const head = `<div class="thead"><span>Направление</span><span>Цена</span><span>Срок</span><span>После запуска, в месяц</span></div>`;
+const head = NO_PRICES
+  ? `<div class="thead"><span>Направление</span><span>Срок</span></div>`
+  : `<div class="thead"><span>Направление</span><span>Цена</span><span>Срок</span><span>После запуска, в месяц</span></div>`;
 
 const sections = GROUPS.map((g) => {
   const rows = ROWS.filter((r) => r.group === g.key);
-  return `<section class="group">
+  // Короткие разделы не начинают новую страницу, а идут следом за предыдущим.
+  return `<section class="group${rows.length <= 5 ? ' is-small' : ''}">
     <header class="g-head">
       <div class="g-icon"><i class="ph ph-${g.icon}"></i></div>
       <div><h2>${esc(g.label)}</h2><p>${esc(g.lead)}</p></div>
@@ -92,12 +99,12 @@ const scenarios = SCENARIOS.map((s) => {
   const month = items.filter((r) => priced(r) && r.price.unit === 'month').reduce((a, r) => a + r.price.value, 0);
   return `<div class="scen"><h3>${esc(s.title)}</h3><p>${esc(s.note)}</p>
     <ul>${items.map((r) => `<li>${esc(r.name)}</li>`).join('')}</ul>
-    <div class="scen-sum"><b>от\u00a0${rub(once)}</b>${month ? `<span>+ от\u00a0${rub(month)} в месяц</span>` : '<span>разово</span>'}</div></div>`;
+    ${NO_PRICES ? '' : `<div class="scen-sum"><b>от\u00a0${rub(once)}</b>${month ? `<span>+ от\u00a0${rub(month)} в месяц</span>` : '<span>разово</span>'}</div>`}</div>`;
 }).join('');
 
 const html = `<!doctype html>
 <html lang="ru"><head><meta charset="utf-8">
-<title>Цены 2026 — Chimitdorzhi Studio</title>
+<title>${DOC} 2026 — Chimitdorzhi Studio</title>
 <link rel="stylesheet" href="${file('assets/phosphor/regular.css')}">
 <style>
 @font-face { font-family: Manrope; src: url('${file('assets/fonts/manrope-cyrillic.woff2')}') format('woff2'); font-weight: 200 800; unicode-range: U+0400-04FF, U+0500-052F; }
@@ -110,7 +117,7 @@ const html = `<!doctype html>
   --lav: #ECEFFA; --line: rgba(18, 34, 78, .10); --card: rgba(255, 255, 255, .86);
 }
 @page { size: A4; margin: 15mm 14mm 16mm;
-  @bottom-left { content: "Chimitdorzhi Studio · Цены, ${MONTH}"; font: 500 7.5pt Manrope, sans-serif; color: #6b7590; }
+  @bottom-left { content: "Chimitdorzhi Studio · ${DOC}, ${MONTH}"; font: 500 7.5pt Manrope, sans-serif; color: #6b7590; }
   @bottom-right { content: counter(page); font: 700 8pt Manrope, sans-serif; color: #1e4fd6; } }
 @page :first { margin: 0; @bottom-left { content: none; } @bottom-right { content: none; } }
 * { box-sizing: border-box; }
@@ -154,6 +161,7 @@ body { margin: 0; font-family: Manrope, 'Segoe UI', Arial, sans-serif; color: va
 /* ---------- Разделы ---------- */
 .group { break-before: page; }
 .group:first-of-type { break-before: auto; }
+.group.is-small { break-before: auto; break-inside: avoid; margin-top: 10mm; }
 .g-head { display: flex; gap: 4mm; align-items: flex-start; margin-bottom: 5mm; }
 .g-icon { flex: none; width: 11mm; height: 11mm; border-radius: 3mm; display: grid; place-items: center;
   background: linear-gradient(150deg, var(--blue), var(--blue-2)); color: #fff; font-size: 15pt; }
@@ -165,6 +173,7 @@ body { margin: 0; font-family: Manrope, 'Segoe UI', Arial, sans-serif; color: va
 .sub { margin: 3.5mm 0 0; padding: 1mm 0; font-size: 7.2pt; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--blue); break-after: avoid; }
 .row { padding: 2.4mm 0; border-bottom: 1px solid var(--line); break-inside: avoid; align-items: start; }
 .row:last-child { border-bottom: 0; }
+.no-prices .thead, .no-prices .row { grid-template-columns: minmax(0, 1fr) 26mm; }
 .name { font-size: 9.6pt; font-weight: 800; line-height: 1.25; }
 .what { margin-top: .8mm; font-size: 8pt; line-height: 1.4; color: var(--ink-2); }
 .c-price b { display: block; font-size: 9.8pt; font-weight: 800; color: var(--navy); white-space: nowrap; font-variant-numeric: tabular-nums; }
@@ -197,38 +206,41 @@ body { margin: 0; font-family: Manrope, 'Segoe UI', Arial, sans-serif; color: va
 .cta p { margin: 1.5mm 0 0; font-size: 8.5pt; color: rgba(255, 255, 255, .82); max-width: 110mm; }
 .cta a { color: #fff; font-weight: 800; font-size: 10pt; text-decoration: none; white-space: nowrap; border: 1px solid rgba(255, 255, 255, .5); border-radius: 3mm; padding: 3mm 5mm; }
 </style></head>
-<body>
+<body${NO_PRICES ? ' class="no-prices"' : ''}>
 <section class="cover">
   <div class="logo"><img src="${file('logo-wordmark.png')}" alt="Chimitdorzhi Studio"></div>
-  <div class="eyebrow">Прайс-лист · ${MONTH}</div>
+  <div class="eyebrow">${NO_PRICES ? 'Каталог услуг' : 'Прайс-лист'} · ${MONTH}</div>
   <h1>Разработка и внедрение <span>ИИ для бизнеса</span></h1>
-  <p class="lead">${esc(nb('Искусственный интеллект, 1С, сайты, боты, маркетинг и безопасность. У каждой позиции цена от нижней границы, срок и то, что вы платите после запуска.'))}</p>
+  <p class="lead">${esc(nb('ИИ, 1С, сайты, боты, видео, маркетинг и безопасность. Работаю по России и за рубежом. ' + (NO_PRICES ? 'У каждого направления состав работ и срок, стоимость считаю под вашу задачу.' : 'У каждой позиции цена от нижней границы, срок и то, что вы платите после запуска.')))}</p>
   <div class="stats">
     <div class="stat"><b>${directions}</b><span>направлений</span></div>
     <div class="stat"><b>${GROUPS.length}</b><span>групп услуг</span></div>
     <div class="stat"><b>${SCENARIOS.length}</b><span>готовых наборов</span></div>
   </div>
   <div class="toc"><div class="toc-h">Что внутри</div><div class="toc-list">${GROUPS.map((g) => `<div class="toc-i"><i class="ph ph-${g.icon}"></i><span>${esc(g.label)}</span><em>${ROWS.filter((r) => r.group === g.key && r.price.kind !== 'included').length || 'пакет'}</em></div>`).join('')}</div></div>
-  <div class="legend">
+  <div class="legend">${NO_PRICES ? `
+    <div class="leg"><b>Срок</b><span>Считается с момента, когда согласованы состав работ и доступы.</span></div>
+    <div class="leg"><b>Смета</b><span>Считаю под вашу задачу и объём после короткого разговора.</span></div>
+    <div class="leg"><b>После запуска</b><span>Заранее называю, что придётся платить за сервер и сервисы.</span></div>` : `
     <div class="leg"><b>от 40 000 ₽</b><span>Нижняя граница. Точная сумма после разговора о задаче и объёме.</span></div>
     <div class="leg"><b>По проекту</b><span>Крупные задачи от 500 000 ₽ считаются отдельно под ваши вводные.</span></div>
-    <div class="leg"><b>После запуска</b><span>Что вы платите не мне: сервер, модули, подписки. Указано у каждой позиции.</span></div>
+    <div class="leg"><b>После запуска</b><span>Что вы платите не мне: сервер, модули, подписки. Указано у каждой позиции.</span></div>`}
   </div>
   <div class="contacts">${CONTACTS.map(([ic, l, v]) => `<div class="ct"><i class="ph ph-${ic}"></i><div><small>${l}</small><span>${esc(v)}</span></div></div>`).join('')}</div>
-  <div class="fine">Цены действительны на ${MONTH} и не являются публичной офертой. Чимитдоржи Дарижапов · Chimitdorzhi Studio</div>
+  <div class="fine">${NO_PRICES ? 'Каталог не является публичной офертой.' : `Цены действительны на ${MONTH} и не являются публичной офертой.`} Чимитдоржи Дарижапов · Chimitdorzhi Studio</div>
 </section>
 ${sections}
 <section class="final">
   <h2>С чего обычно начинают</h2>
-  <p>Готовые наборы под частые ситуации. Суммы сложены из позиций этого прайса.</p>
+  <p>Готовые наборы под частые ситуации${NO_PRICES ? ' из позиций этого каталога.' : '. Суммы сложены из позиций этого прайса.'}</p>
   <div class="scens">${scenarios}</div>
-  <div class="cta"><div><b>Не нашли свою задачу?</b><p>Опишите её в Telegram: скажу, как решить, сколько займёт и во что обойдётся после запуска.</p></div><a href="https://t.me/chimitdorzhi">t.me/chimitdorzhi</a></div>
+  <div class="cta"><div><b>Не нашли свою задачу?</b><p>Опишите её в Telegram: скажу, как решить, сколько займёт и сколько будет стоить.</p></div><a href="https://t.me/chimitdorzhi">t.me/chimitdorzhi</a></div>
 </section>
 </body></html>`;
 
 (async () => {
   fs.mkdirSync(OUT_DIR, { recursive: true });
-  const htmlPath = path.join(OUT_DIR, 'ceny-2026.html');
+  const htmlPath = path.join(OUT_DIR, NO_PRICES ? 'katalog-2026.html' : 'ceny-2026.html');
   fs.writeFileSync(htmlPath, html);
   const { chromium } = require(PW);
   // Встроенная оболочка Playwright на этой машине падает на ICU, берём установленный Chrome, как гейты движка.
@@ -236,7 +248,7 @@ ${sections}
   const page = await browser.newPage();
   await page.goto(pathToFileURL(htmlPath).href, { waitUntil: 'networkidle' });
   await page.evaluate(() => document.fonts.ready);
-  const pdfPath = path.join(OUT_DIR, 'chimitdorzhi-ceny-2026.pdf');
+  const pdfPath = path.join(OUT_DIR, NO_PRICES ? 'chimitdorzhi-katalog-2026.pdf' : 'chimitdorzhi-ceny-2026.pdf');
   await page.pdf({ path: pdfPath, format: 'A4', printBackground: true, preferCSSPageSize: true });
   const fonts = await page.evaluate(() => [...document.fonts].filter((f) => f.status === 'loaded').map((f) => f.family + ' ' + f.weight));
   await browser.close();
