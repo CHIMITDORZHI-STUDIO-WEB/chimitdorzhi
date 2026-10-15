@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2538**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2543**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -342,6 +342,9 @@
 
 ## Open-source и свой сервер
 
+- [PocketBase: бэкенд в одном файле для MVP и PWA и его подвохи](./pocketbase-bekend-v-odnom-fayle-dlya-mvp-i-pwa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pocketbase-bekend-v-odnom-fayle-dlya-mvp-i-pwa-2026/)
+- [PDF по шаблону: pdfme собирает КП, счета и акты из данных CRM](./pdfme-avtomaticheskaya-generaciya-pdf-kp-scheta-akty-po-shablonam-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pdfme-avtomaticheskaya-generaciya-pdf-kp-scheta-akty-po-shablonam-2026/)
+- [clearcam: детекция людей на любых камерах и что с 152-ФЗ](./clearcam-obnaruzhenie-lyudey-i-obektov-dlya-lyubyh-kamer-videonablyudeniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/clearcam-obnaruzhenie-lyudey-i-obektov-dlya-lyubyh-kamer-videonablyudeniya-2026/)
 - [Образец Anthropic: ИИ-консультант для магазина и помощник владельца](./anthropic-commerce-agents-obrazec-ii-konsultanta-dlya-magazina-i-pomoshchnika-vladelca-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/anthropic-commerce-agents-obrazec-ii-konsultanta-dlya-magazina-i-pomoshchnika-vladelca-2026/)
 - [Paperweight: кто хранит ваши данные, список сервисов по почте](./paperweight-kto-hranit-vashi-dannye-inventarizatsiya-servisov-po-pochte-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/paperweight-kto-hranit-vashi-dannye-inventarizatsiya-servisov-po-pochte-2026/)
 - [Photoview: галерея на своём сервере, альбомы по клиентам и объектам](./photoview-fotogalereya-na-svoem-servere-albomy-po-klientam-i-obektam-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/photoview-fotogalereya-na-svoem-servere-albomy-po-klientam-i-obektam-2026/)
@@ -1648,6 +1651,7 @@
 
 ## Право и 152-ФЗ
 
+- [Белые списки Минцифры: попадёт ли сайт и как сохранить доступность](./belye-spiski-minczifry-popadet-li-sayt-i-kak-sohranit-dostupnost-pri-ogranicheniyah-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/belye-spiski-minczifry-popadet-li-sayt-i-kak-sohranit-dostupnost-pri-ogranicheniyah-2026/)
 - [QR для жалоб и сайт на вывеске: что с правилами общепита и услуг](./pravila-obshchepita-i-bytovyh-uslug-qr-dlya-zhalob-v-max-sayt-na-vyveske-rospotrebnadzor-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pravila-obshchepita-i-bytovyh-uslug-qr-dlya-zhalob-v-max-sayt-na-vyveske-rospotrebnadzor-2026/)
 - [Вебвизор и персональные данные: что можно записывать по закону](./vebvizor-yandeks-metrika-chto-zapisyvat-po-zakonu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vebvizor-yandeks-metrika-chto-zapisyvat-po-zakonu-2026/)
 - [Ретаргетинг и пиксели на сайте: что можно собирать по закону](./retargeting-i-pikseli-na-sayte-chto-mozhno-sobirat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/retargeting-i-pikseli-na-sayte-chto-mozhno-sobirat-2026/)
@@ -2413,6 +2417,7 @@
 
 ## Экспертное
 
+- [Sora API закрыт 24 сентября: что делать, если процесс на нём](./sora-api-zakryt-24-sentyabrya-2026-chto-delat-esli-process-derzhalsya-na-nem.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sora-api-zakryt-24-sentyabrya-2026-chto-delat-esli-process-derzhalsya-na-nem/)
 - [Gemini 4 Argon: цена вдвое вырастет 1 декабря. Что менять в боте](./gemini-4-argon-chto-menyat-v-byudzhete-i-nastroykakh-bota-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gemini-4-argon-chto-menyat-v-byudzhete-i-nastroykakh-bota-2026/)
 - [ИИ плохо видит: что показал Humanity's Sixth Sense в проверке по фото](./ii-ploho-vidit-humanitys-sixth-sense-chto-eto-znachit-dlya-proverki-po-foto-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-ploho-vidit-humanitys-sixth-sense-chto-eto-znachit-dlya-proverki-po-foto-2026/)
 - [GPT-6 Intelligent UI: ответ как интерфейс, что взять в свой бот](./gpt-6-intelligent-ui-otvet-kak-interfeys-chto-povtorit-v-svoem-bote-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gpt-6-intelligent-ui-otvet-kak-interfeys-chto-povtorit-v-svoem-bote-2026/)
