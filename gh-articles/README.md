@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2564**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2568**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -343,6 +343,9 @@
 
 ## Open-source и свой сервер
 
+- [Drama 3 для озвучки: бесплатно до 500 тысяч долларов выручки](./fish-audio-drama-3-otkrytaya-model-ozvuchki-licenziya-po-vyruchke-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/fish-audio-drama-3-otkrytaya-model-ozvuchki-licenziya-po-vyruchke-2026/)
+- [Fileverse dSheets: зашифрованные таблицы вместо Google Sheets](./fileverse-dsheets-zashifrovannye-sovmestnye-tablicy-vmesto-google-sheets-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/fileverse-dsheets-zashifrovannye-sovmestnye-tablicy-vmesto-google-sheets-2026/)
+- [Muse Spark Open: 816 млрд параметров, лицензия и железо](./muse-spark-open-otkrytaya-model-816-mlrd-parametrov-licenziya-i-zhelezo-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/muse-spark-open-otkrytaya-model-816-mlrd-parametrov-licenziya-i-zhelezo-2026/)
 - [PocketBase: бэкенд в одном файле для MVP и PWA и его подвохи](./pocketbase-bekend-v-odnom-fayle-dlya-mvp-i-pwa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pocketbase-bekend-v-odnom-fayle-dlya-mvp-i-pwa-2026/)
 - [PDF по шаблону: pdfme собирает КП, счета и акты из данных CRM](./pdfme-avtomaticheskaya-generaciya-pdf-kp-scheta-akty-po-shablonam-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pdfme-avtomaticheskaya-generaciya-pdf-kp-scheta-akty-po-shablonam-2026/)
 - [clearcam: детекция людей на любых камерах и что с 152-ФЗ](./clearcam-obnaruzhenie-lyudey-i-obektov-dlya-lyubyh-kamer-videonablyudeniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/clearcam-obnaruzhenie-lyudey-i-obektov-dlya-lyubyh-kamer-videonablyudeniya-2026/)
@@ -1659,6 +1662,7 @@
 
 ## Право и 152-ФЗ
 
+- [Маркировка масла с 1 ноября 2026: коды в УПД для магазинов и кафе](./markirovka-rastitelnyh-masel-s-1-noyabrya-2026-poekzemplyarnyy-uchet-magazinam-i-kafe.md) · [читать на сайте](https://chimitdorzhi.tech/blog/markirovka-rastitelnyh-masel-s-1-noyabrya-2026-poekzemplyarnyy-uchet-magazinam-i-kafe/)
 - [Белые списки Минцифры: попадёт ли сайт и как сохранить доступность](./belye-spiski-minczifry-popadet-li-sayt-i-kak-sohranit-dostupnost-pri-ogranicheniyah-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/belye-spiski-minczifry-popadet-li-sayt-i-kak-sohranit-dostupnost-pri-ogranicheniyah-2026/)
 - [Простая электронная подпись договора: код из SMS и кнопка в боте](./podpisanie-dogovora-po-kodu-iz-sms-prostaya-elektronnaya-podpis-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/podpisanie-dogovora-po-kodu-iz-sms-prostaya-elektronnaya-podpis-2026/)
 - [Запись телефонных разговоров с клиентами: что можно по закону](./zapis-telefonnyh-razgovorov-s-klientami-po-zakonu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zapis-telefonnyh-razgovorov-s-klientami-po-zakonu-2026/)
