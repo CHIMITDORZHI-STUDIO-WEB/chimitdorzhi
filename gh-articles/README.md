@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2548**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2549**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -152,6 +152,7 @@
 
 ## cases
 
+- [Четыре демо-сайта агентства недвижимости в Дубае: каталог и объявления](./chetyre-demo-sayta-agentstva-nedvizhimosti-dubay-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chetyre-demo-sayta-agentstva-nedvizhimosti-dubay-keys-2026/)
 - [Сервис Деск на 1С: задачи, учёт времени и боты в Telegram и MAX](./servis-desk-1c-telegram-max-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/servis-desk-1c-telegram-max-keys-2026/)
 - [Визовый бот: от рилса до CRM, концепт для визового консультанта](./vizovyy-bot-telegram-crm-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vizovyy-bot-telegram-crm-keys-2026/)
 - [История авто из Китая по VIN для маркетплейса: тестовый прогон](./proverka-istorii-avto-iz-kitaya-po-vin-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/proverka-istorii-avto-iz-kitaya-po-vin-keys-2026/)
@@ -163,7 +164,7 @@
 - [Платформа академии инвестиций: 15 языков и партнёрка на две линии](./onlayn-akademiya-investiciy-partnerka-dve-linii-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/onlayn-akademiya-investiciy-partnerka-dve-linii-keys-2026/)
 - [Сеть магазинов белья: MAX, лояльность и сертификаты поверх 1С](./set-magazinov-belya-max-poverh-1c-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/set-magazinov-belya-max-poverh-1c-keys-2026/)
 - [КП «ИИ-администратор»: что обещано и что можно проверить в демо](./kp-ii-administrator-zapis-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kp-ii-administrator-zapis-keys-2026/)
-- [Портал путешествий по подписке: концепция и ТЗ на 20 слайдах](./travel-portal-po-podpiske-koncepciya-tz-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/travel-portal-po-podpiske-koncepciya-tz-keys-2026/)
+- [Портал путешествий по подписке: концепция, ТЗ и рабочее демо](./travel-portal-po-podpiske-koncepciya-tz-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/travel-portal-po-podpiske-koncepciya-tz-keys-2026/)
 - [Бот, витрина и розыгрыш для детской арт-студии поверх YCLIENTS](./art-studiya-bot-vitrina-rozygrysh-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/art-studiya-bot-vitrina-rozygrysh-keys-2026/)
 - [CRM и приложение для строительной компании: объект, задачи, отчёты с фото](./crm-stroitelnoy-kompanii-almaznaya-rezka-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/crm-stroitelnoy-kompanii-almaznaya-rezka-keys-2026/)
 - [Контроль материалов в 1С: лимиты по видам работ и согласование расхода](./kontrol-materialov-1c-rasshirenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kontrol-materialov-1c-rasshirenie-keys-2026/)
