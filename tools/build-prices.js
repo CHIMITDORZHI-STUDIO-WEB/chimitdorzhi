@@ -8,8 +8,8 @@ const ROOT = path.resolve(__dirname, '..');
 const SITE = 'https://chimitdorzhi.tech';
 const REL = '/ceny/';
 const URL_ = SITE + REL;
-const UPDATED = '25.09.2026';
-const LASTMOD = '2026-09-25';
+const UPDATED = '15.10.2026';
+const LASTMOD = '2026-10-15';
 const MODELS_CSS_V = (fs.readFileSync(path.join(__dirname, 'build-models.js'), 'utf8').match(/const CSS_V = (\d+);/) || [])[1] || '1';
 const CSS_V = 2;
 
@@ -269,7 +269,7 @@ const footer = shellSrc.slice(shellSrc.indexOf('<footer'), shellSrc.indexOf('</f
 const scripts = (shellSrc.match(/<script src="\/i18n\.js[^"]*" defer><\/script>\s*<script src="\/script\.js[^"]*" defer><\/script>/) || [''])[0];
 
 const TITLE = 'Цены на разработку и внедрение ИИ: сайты, боты, 1С, автоматизация';
-const DESC = `${directions} направлений с ценами от: ИИ, 1С, сайты, боты, маркетинг. Сроки, расходы после запуска и смета в Telegram.`;
+const DESC = `${directions} направлений с ценами от: ИИ, 1С, сайты, боты, видео, маркетинг, работа за рубежом. Сроки, расходы после запуска и смета в Telegram.`;
 
 let head = headTpl
   .replace(/<title>[^<]*<\/title>/, `<title>${esc(TITLE)}</title>`)
