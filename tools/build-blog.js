@@ -2381,25 +2381,70 @@ const CATEGORY_META = {
 };
 
 // ---------- Портфолио /cases/ ----------
-function caseType(a) {
-  const s = `${a.title} ${(a.tags || []).join(' ')} ${a.slug}`.toLowerCase();
-  if (/маркетплейс|платформ|супер-?апп|экосистем|hub|портал/.test(s)) return { k: 'platform', l: 'Платформы' };
-  if (/\bai\b|\bии\b|нейросет|rag|ии-агент|gpt|распознав|ocr/.test(s)) return { k: 'ai', l: 'ИИ' };
-  if (/бот|мини-?апп|\bmax\b|макс|telegram|телеграм|вконтакте|\bvk\b/.test(s)) return { k: 'bot', l: 'Боты и мини-аппы' };
-  if (/сайт|лендинг|витрин|каталог|магазин|запис|карт/.test(s)) return { k: 'site', l: 'Сайты' };
-  return { k: 'other', l: 'Другое' };
+// Рубрикатор в две оси (что сделано × отрасль) лежит в tools/cases-taxonomy.js.
+const CASE_TAX = (function () { try { return require('./cases-taxonomy.js'); } catch (e) { return { TYPES: [], INDUSTRIES: [], MAP: {}, FEATURED: [] }; } })();
+const CASE_TYPE_BY_K = Object.fromEntries(CASE_TAX.TYPES.map(t => [t.k, t]));
+const CASE_IND_BY_K = Object.fromEntries(CASE_TAX.INDUSTRIES.map(t => [t.k, t]));
+// Запасной вариант для кейса, которого ещё нет в MAP: грубая эвристика по заголовку и тегам.
+function caseTypeGuess(a) {
+  const s = `${a.title || a.name || ''} ${(a.tags || []).join(' ')} ${a.slug || ''}`.toLowerCase();
+  if (/аудит|разбор|предложен|\bкп\b|презентац/.test(s)) return 'doc';
+  if (/crm|1с|учёт|учет|тсд|кабинет|бронирован/.test(s)) return 'crm';
+  if (/маркетплейс|платформ|супер-?апп|экосистем|портал|saas/.test(s)) return 'platform';
+  if (/\bai\b|\bии\b|нейросет|rag|ии-агент|gpt|распознав|ocr/.test(s)) return 'ai';
+  if (/игр|квест|интерактив/.test(s)) return 'game';
+  if (/бот|мини-?апп|\bmax\b|telegram|телеграм|pwa|приложен/.test(s)) return 'bot';
+  return 'site';
 }
-function portfolioCard(a) {
-  const t = caseType(a);
-  const ex = (a.excerpt || '').replace(/\s+/g, ' ').trim();
-  return `<a href="/blog/${a.slug}/" class="pf-card" data-type="${t.k}">
-    <div class="pf-ic pf-${t.k}"><i class="${a.heroIcon || 'ph-fill ph-briefcase'}" aria-hidden="true"></i></div>
-    <span class="pf-type">${esc(t.l)}</span>
-    <h3>${esc(a.title)}</h3>
-    <p>${esc(ex.length > 130 ? ex.slice(0, 130) + '…' : ex)}</p>
-    <div class="pf-tags">${(a.tags || []).slice(0, 3).map(x => `<span>${esc(x)}</span>`).join('')}</div>
-    <span class="pf-link">Смотреть кейс <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
-  </a>`;
+function caseIndGuess(a) {
+  const s = `${a.title || a.name || ''} ${(a.tags || []).join(' ')} ${a.slug || ''}`.toLowerCase();
+  if (/кафе|кофе|ресторан|общепит|доставк\S* ед/.test(s)) return 'food';
+  if (/клиник|врач|медиц|массаж|велнес|здоров|стоматолог/.test(s)) return 'health';
+  if (/салон|космет|красот|бьюти|маникюр|барбер/.test(s)) return 'beauty';
+  if (/авто|логист|таможн|вэд|такси|груз/.test(s)) return 'auto';
+  if (/строит|недвиж|ремонт|риелт/.test(s)) return 'realty';
+  if (/тур|гостиниц|отел|путешеств/.test(s)) return 'travel';
+  if (/магазин|опт|ритейл|маркетплейс|торгов/.test(s)) return 'retail';
+  if (/театр|культур|медиа|мероприят|концерт|кино/.test(s)) return 'culture';
+  return 'services';
+}
+function caseTax(a) {
+  const m = CASE_TAX.MAP[a.slug || a.name] || null;
+  return { type: m ? m[0] : caseTypeGuess(a), ind: m ? m[1] : caseIndGuess(a) };
+}
+function cut(s, n) {
+  s = String(s || '').replace(/\s+/g, ' ').trim();
+  if (s.length <= n) return s;
+  const c = s.slice(0, n);
+  const sp = c.lastIndexOf(' ');
+  return (sp > n * 0.6 ? c.slice(0, sp) : c).replace(/[,.;:]$/, '') + '…';
+}
+function portfolioCard(a, f, featured) {
+  const tx = caseTax(a);
+  const t = CASE_TYPE_BY_K[tx.type] || { k: tx.type, ru: tx.type, icon: 'ph-briefcase' };
+  const ind = CASE_IND_BY_K[tx.ind] || { ru: tx.ind };
+  const en = (f && f.en) || {}, es = (f && f.es) || {};
+  const status = !f ? '' : f.delivered
+    ? `<span class="cs-badge cs-done"><i class="ph-fill ph-check-circle" aria-hidden="true"></i> ${L('сдано', 'delivered', 'entregado')}</span>`
+    : f.done
+      ? `<span class="cs-badge cs-done"><i class="ph-fill ph-check-circle" aria-hidden="true"></i> ${L('в проде', 'live', 'en producción')}</span>`
+      : `<span class="cs-badge cs-wip"><i class="ph-fill ph-check-circle" aria-hidden="true"></i> ${L('разработано', 'developed', 'desarrollado')}</span>`;
+  const desc = f && f.result
+    ? L(cut(f.result, 150), en.result ? cut(en.result, 150) : null, es.result ? cut(es.result, 150) : null)
+    : esc(cut(a.excerpt, 140));
+  const title = f && f.name ? f.name : a.title;
+  const icon = a.heroIcon || `ph-fill ${t.icon || 'ph-briefcase'}`;
+  const inner = `
+    <div class="pf-head"><div class="pf-ic pf-${esc(t.k)}"><i class="${esc(icon)}" aria-hidden="true"></i></div>${status}</div>
+    <div class="pf-meta"><span class="pf-type">${L(t.ru, t.en, t.es)}</span><span class="pf-ind">${L(ind.ru, ind.en, ind.es)}</span></div>
+    <h3>${esc(title)}</h3>
+    <p>${desc}</p>
+    ${a.slug ? `<span class="pf-link">${L('Смотреть кейс', 'View case', 'Ver caso')} <i class="ph ph-arrow-right" aria-hidden="true"></i></span>` : ''}`;
+  const cls = `pf-card${featured ? ' pf-feat' : ''}`;
+  const data = `data-type="${esc(t.k)}" data-ind="${esc(tx.ind)}"`;
+  return a.slug
+    ? `<a href="/blog/${a.slug}/" class="${cls}" ${data}>${inner}\n  </a>`
+    : `<div class="${cls}" ${data}>${inner}\n  </div>`;
 }
 const FLAGSHIP = (function () { try { return require('./cases-flagship.js'); } catch (e) { return []; } })();
 const CASE_TYPE_LABEL = {
@@ -2444,33 +2489,52 @@ function flagshipCard(c) {
       </article>`;
 }
 function flagshipBlock() {
-  if (!FLAGSHIP.length) return '';
-  return `<div class="cs-flagship">
+  const feat = CASE_TAX.FEATURED.map(sl => FLAGSHIP.find(c => c.slug === sl)).filter(Boolean);
+  const list = feat.length ? feat : FLAGSHIP.slice(0, 6);
+  if (!list.length) return '';
+  return `<div class="cs-flagship" id="pfFeatured">
                 <div class="cs-flagship-head">
-                    <span class="section-label">${L('ФЛАГМАНСКИЕ КЕЙСЫ', 'FLAGSHIP CASES', 'CASOS DESTACADOS')}</span>
+                    <span class="section-label">${L('ИЗБРАННЫЕ КЕЙСЫ', 'FEATURED CASES', 'CASOS DESTACADOS')}</span>
                     <h2 class="section-heading">${L('Задача', 'Task', 'Tarea')} → ${L('решение', 'solution', 'solución')} → <span class="text-gradient">${L('результат', 'result', 'resultado')}</span></h2>
-                    <p class="section-sub">${L('Отобранные работы с конкретикой — от идеи до боевого запуска и от аудита до сданного документа. Данные клиентов обобщены.', 'Curated work with specifics — from idea to production launch and from audit to delivered document. Client data is generalized.', 'Trabajos seleccionados con concreción — de la idea al lanzamiento y de la auditoría al documento entregado. Los datos de clientes están generalizados.')}</p>
+                    <p class="section-sub">${L('Шесть работ с конкретикой: от идеи до боевого запуска и от аудита до сданного документа. Остальные кейсы ниже, их можно отфильтровать по типу работ и отрасли. Данные клиентов обобщены.', 'Six projects with specifics: from idea to production launch and from audit to delivered document. The rest are below and can be filtered by type of work and industry. Client data is generalized.', 'Seis proyectos con detalle: de la idea al lanzamiento y de la auditoría al documento entregado. El resto está abajo y se puede filtrar por tipo de trabajo y sector. Los datos de clientes están generalizados.')}</p>
                 </div>
-                <div class="cs-grid">${FLAGSHIP.map(flagshipCard).join('\n')}</div>
+                <div class="cs-grid">${list.map(flagshipCard).join('\n')}</div>
             </div>`;
 }
 
 function portfolioPage(published) {
-  const order = ['platform', 'site', 'bot', 'ai', 'other'];
+  const flagBySlug = new Map(FLAGSHIP.filter(c => c.slug).map(c => [c.slug, c]));
+  const flagOrder = new Map(FLAGSHIP.map((c, i) => [c.slug || c.name, i]));
+  const featured = new Set(CASE_TAX.FEATURED);
+  // Сначала курируемые флагманские (в их порядке), затем остальные кейсы, новые выше.
   const cases = published.filter(a => a.category === 'cases')
     .sort((x, y) => {
-      const dx = order.indexOf(caseType(x).k), dy = order.indexOf(caseType(y).k);
-      if (dx !== dy) return dx - dy;
+      const fx = flagOrder.has(x.slug) ? flagOrder.get(x.slug) : 1e6;
+      const fy = flagOrder.has(y.slug) ? flagOrder.get(y.slug) : 1e6;
+      if (fx !== fy) return fx - fy;
       return (y.datePublished || '').localeCompare(x.datePublished || '');
     });
+  // Флагманские без статьи в блоге тоже попадают в сетку (карточкой без ссылки).
+  const orphans = FLAGSHIP.filter(c => !c.slug).map(c => ({ name: c.name, title: c.name, tags: c.stack || [], _f: c }));
+  const items = cases.map(a => ({ a, f: flagBySlug.get(a.slug) || null }))
+    .concat(orphans.map(o => ({ a: o, f: o._f })));
+  const total = items.length;
+  const taxOf = items.map(it => caseTax(it.a));
+  const chipRow = (axis, list, labelRu, labelEn, labelEs) => {
+    const cnt = (k) => taxOf.filter(t => t[axis] === k).length;
+    const chips = [`<button type="button" class="svc-chip on" data-axis="${axis}" data-v="all" aria-pressed="true">${L('Все', 'All', 'Todo')} <span class="svc-cnt">${total}</span></button>`]
+      .concat(list.filter(t => cnt(t.k) > 0).map(t => `<button type="button" class="svc-chip" data-axis="${axis}" data-v="${t.k}" aria-pressed="false">${t.icon ? `<i class="ph ${t.icon}" aria-hidden="true"></i>` : ''}${L(t.ru, t.en, t.es)} <span class="svc-cnt">${cnt(t.k)}</span></button>`));
+    return `<div class="cs-frow" role="group" aria-label="${esc(labelRu)}">
+                        <span class="cs-flabel">${L(labelRu, labelEn, labelEs)}</span>
+                        <div class="cs-fchips">${chips.join('')}</div>
+                    </div>`;
+  };
+  const filterHtml = `<div class="cs-filter" id="pfFilter">
+                    ${chipRow('type', CASE_TAX.TYPES, 'Что сделано', 'What was built', 'Qué se hizo')}
+                    ${chipRow('ind', CASE_TAX.INDUSTRIES, 'Отрасль', 'Industry', 'Sector')}
+                    <div class="cs-fstat"><span class="cs-fres" aria-live="polite">${L('Показано', 'Showing', 'Mostrando')} <b id="pfShown">${total}</b> ${L('из', 'of', 'de')} ${total}</span><button type="button" class="cs-freset" id="pfReset" hidden>${L('Сбросить фильтр', 'Reset filter', 'Quitar filtro')}</button></div>
+                </div>`;
   const url = `${SITE}/cases/`;
-  const types = [];
-  const seen = new Set();
-  cases.forEach(a => { const t = caseType(a); if (!seen.has(t.k)) { seen.add(t.k); types.push(t); } });
-  types.sort((a, b) => order.indexOf(a.k) - order.indexOf(b.k));
-  const cnt = (k) => cases.filter(a => caseType(a).k === k).length;
-  const chips = `<button class="svc-chip on" data-pf="all"><i class="ph ph-squares-four" aria-hidden="true"></i> Все <span class="svc-cnt">${cases.length}</span></button>`
-    + types.map(t => `<button class="svc-chip" data-pf="${t.k}">${esc(t.l)} <span class="svc-cnt">${cnt(t.k)}</span></button>`).join('');
   const ld = {
     '@context': 'https://schema.org', '@type': 'CollectionPage',
     name: 'Кейсы и проекты Чимитдоржи Дарижапова', url,
@@ -2546,11 +2610,13 @@ ${METRIKA}</head>
                     <p class="section-sub">${L('Реальные проекты: сайты, боты и мини-аппы, ИИ-решения и платформы. У каждого — задача, решение и результат. Выберите направление или смотрите все.', 'Real projects: websites, bots and mini-apps, AI solutions and platforms. Each with a task, a solution and a result. Pick a direction or browse all.', 'Proyectos reales: sitios web, bots y mini-apps, soluciones de IA y plataformas. Cada uno con una tarea, una solución y un resultado. Elige una dirección o míralos todos.')}</p>
                 </div>
 
+                ${filterHtml}
+
                 ${flagshipBlock()}
 
-                <div class="cs-all-head"><span class="section-label">${L('ВСЕ ПРОЕКТЫ', 'ALL PROJECTS', 'TODOS LOS PROYECTOS')}</span></div>
-                <div class="svc-filter" id="pfFilter" role="group" aria-label="Фильтр кейсов">${chips}</div>
-                <div class="pf-grid">${cases.map(portfolioCard).join('\n')}</div>${RP.NOTE_PLACEHOLDER}
+                <div class="cs-all-head"><span class="section-label">${L('ВСЕ КЕЙСЫ', 'ALL CASES', 'TODOS LOS CASOS')}</span></div>
+                <div class="pf-grid" id="pfGrid">${items.map(it => portfolioCard(it.a, it.f, featured.has(it.a.slug))).join('\n')}</div>
+                <div class="cs-empty" id="pfEmpty" hidden><p>${L('По этому сочетанию кейсов пока нет. Напишите, какая у вас задача, расскажу про похожие проекты.', 'No cases for this combination yet. Tell me about your task and I will share similar projects.', 'Aún no hay casos para esta combinación. Cuéntame tu tarea y te mostraré proyectos similares.')}</p><button type="button" class="btn btn-ghost" id="pfEmptyReset">${L('Сбросить фильтр', 'Reset filter', 'Quitar filtro')}</button></div>${RP.NOTE_PLACEHOLDER}
                 <div class="pf-cta">
                     <div>
                         <h2>Нужен похожий проект?</h2>
