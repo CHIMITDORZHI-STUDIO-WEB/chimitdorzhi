@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2534**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2538**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -1902,6 +1902,10 @@
 
 ## Разработка
 
+- [pdfme: счета и акты в PDF из JSON-шаблона, без Word](./pdfme-pdf-iz-json-shablonov-scheta-akty-sertifikaty-iz-vashey-sistemy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pdfme-pdf-iz-json-shablonov-scheta-akty-sertifikaty-iz-vashey-sistemy-2026/)
+- [PocketBase: свой бэкенд в одном файле для бота и мини-приложения](./pocketbase-svoy-bekend-v-odnom-fayle-dlya-botov-i-mini-prilozheniy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pocketbase-svoy-bekend-v-odnom-fayle-dlya-botov-i-mini-prilozheniy-2026/)
+- [Clearcam: «человек в зоне» на любых IP-камерах, видео у вас](./clearcam-raspoznavanie-lyudey-i-uvedomleniya-dlya-lyuboy-sistemy-videonablyudeniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/clearcam-raspoznavanie-lyudey-i-uvedomleniya-dlya-lyuboy-sistemy-videonablyudeniya-2026/)
+- [croc: тяжёлые файлы клиентам без облака и без аккаунтов](./croc-peredacha-bolshih-faylov-klientam-bez-oblaka-i-akkauntov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/croc-peredacha-bolshih-faylov-klientam-bez-oblaka-i-akkauntov-2026/)
 - [Фото товаров по 3 МБ тормозят каталог: Thumbor на своём сервере](./thumbor-svoy-servis-kadrirovaniya-i-szhatiya-foto-tovarov-dlya-magazina-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/thumbor-svoy-servis-kadrirovaniya-i-szhatiya-foto-tovarov-dlya-magazina-2026/)
 - [privacy.sexy: проверяемые скрипты настройки Windows для офиса](./privacy-sexy-proveryaemye-skripty-dlya-zaschity-rabochih-mest-windows-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/privacy-sexy-proveryaemye-skripty-dlya-zaschity-rabochih-mest-windows-2026/)
 - [WebLLM: ИИ в браузере сотрудника, тексты не уходят в облако](./web-llm-yazykovaya-model-v-brauzere-sotrudnika-bez-oblaka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/web-llm-yazykovaya-model-v-brauzere-sotrudnika-bez-oblaka-2026/)
