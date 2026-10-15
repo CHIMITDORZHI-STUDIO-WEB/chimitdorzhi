@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2554**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2559**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -1098,6 +1098,7 @@
 
 ## Маркетинг
 
+- [Визуализатор трека: заказать видео под релиз для артиста и лейбла](./vizualizator-treka-dlya-muzykanta-zakazat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vizualizator-treka-dlya-muzykanta-zakazat-2026/)
 - [Реклама в Telegram Ads для малого бизнеса в 2026: запуск и цены](./reklama-v-telegram-ads-dlya-malogo-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/reklama-v-telegram-ads-dlya-malogo-biznesa-2026/)
 - [Animator: пояснительное видео по одной фразе без студии](./animator-poyasnyayushchie-video-po-tekstovomu-zaprosu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/animator-poyasnyayushchie-video-po-tekstovomu-zaprosu-2026/)
 - [geo-seo-claude: видит ли ИИ-поиск ваш сайт и чего набор не умеет](./geo-seo-claude-proverka-vidimosti-sayta-v-otvetah-ii-poiska-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/geo-seo-claude-proverka-vidimosti-sayta-v-otvetah-ii-poiska-2026/)
@@ -1262,6 +1263,9 @@
 
 ## Отрасли
 
+- [Сайт для театра, филармонии и дома культуры: афиша, билеты, боты](./sayt-dlya-teatra-filarmonii-doma-kultury-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-dlya-teatra-filarmonii-doma-kultury-2026/)
+- [Система управления общежитием и хостелом: места, договоры, оплата](./sistema-upravleniya-obshchezhitiem-i-hostelom-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sistema-upravleniya-obshchezhitiem-i-hostelom-2026/)
+- [Программа для астролога под ключ: сервис разборов с PDF и слайдами](./servis-personalnyh-razborov-dlya-astrologa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/servis-personalnyh-razborov-dlya-astrologa-2026/)
 - [CRM для строительной компании: что внутри и сколько стоит](./crm-dlya-stroitelnoy-kompanii-chto-vnutri-i-cena-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/crm-dlya-stroitelnoy-kompanii-chto-vnutri-i-cena-2026/)
 - [Бот и CRM для визового агентства под ключ: заявки, документы, статусы](./bot-i-crm-dlya-vizovogo-agentstva-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bot-i-crm-dlya-vizovogo-agentstva-2026/)
 - [FlyAI: ИИ-агент ищет рейсы и отели для турагентства](./flyai-poisk-aviabiletov-i-otelej-dlya-ii-agenta-turagentstva-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/flyai-poisk-aviabiletov-i-otelej-dlya-ii-agenta-turagentstva-2026/)
@@ -1913,6 +1917,7 @@
 
 ## Разработка
 
+- [Приложение для клуба по подписке: сколько стоит бот и мини-приложение](./prilozhenie-dlya-kluba-po-podpiske-cena-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/prilozhenie-dlya-kluba-po-podpiske-cena-2026/)
 - [pdfme: счета и акты в PDF из JSON-шаблона, без Word](./pdfme-pdf-iz-json-shablonov-scheta-akty-sertifikaty-iz-vashey-sistemy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pdfme-pdf-iz-json-shablonov-scheta-akty-sertifikaty-iz-vashey-sistemy-2026/)
 - [PocketBase: свой бэкенд в одном файле для бота и мини-приложения](./pocketbase-svoy-bekend-v-odnom-fayle-dlya-botov-i-mini-prilozheniy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pocketbase-svoy-bekend-v-odnom-fayle-dlya-botov-i-mini-prilozheniy-2026/)
 - [Clearcam: «человек в зоне» на любых IP-камерах, видео у вас](./clearcam-raspoznavanie-lyudey-i-uvedomleniya-dlya-lyuboy-sistemy-videonablyudeniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/clearcam-raspoznavanie-lyudey-i-uvedomleniya-dlya-lyuboy-sistemy-videonablyudeniya-2026/)
