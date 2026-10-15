@@ -31,10 +31,11 @@ module.exports = [
     title: 'Кафе, сайт и розыгрыши в мессенджере: как это работает вместе',
     metaTitle: 'Кейс: сайт кафе, бот в MAX и розыгрыши для гостей',
     metaDescription: 'Сайт кафе, бот в мессенджере с покупкой номерка в переписке и админка розыгрышей: как связка работает вместе и почему страница похудела в пять раз.',
-    excerpt: 'Розыгрыши среди гостей вели вручную: номерки записывали, оплату сверяли в переписке. Собрал связку «сайт плюс бот плюс админка», где номерок покупают в чате, а победителя можно перепроверить.',
+    excerpt: 'Розыгрыши среди гостей вели вручную: номерки записывали, оплату сверяли в переписке. Собрал связку «сайт плюс бот плюс админка», где номерок покупают в чате, а победителя можно перепроверить. С 14 октября заказы на сайте принимаются только с онлайн-оплатой.',
     tags: ['кейс', 'общепит', 'бот в MAX', 'розыгрыши'],
     ctaInternal: CTA_BOTS,
-    relatedSlugs: ['goryachiy-moment-sayt-kofeen-keys-2026', 'pwa-kofeyni-geymifikaciya-keys-2026', 'pereezd-s-konstruktora-na-svoy-server-keys-2026'] }),
+    relatedSlugs: ['goryachiy-moment-sayt-kofeen-keys-2026', 'pwa-kofeyni-geymifikaciya-keys-2026', 'pereezd-s-konstruktora-na-svoy-server-keys-2026'],
+    dateModified: '2026-10-15' }),
 
   E({ slug: 'pereezd-s-konstruktora-na-svoy-server-keys-2026', heroIcon: 'ph-fill ph-hard-drives',
     title: 'Переезд с конструктора на свой сервер: что получает бизнес взамен',

@@ -162,7 +162,8 @@ const MAP = {
   'onlayn-akademiya-investiciy-partnerka-dve-linii-keys-2026': ['platform', 'services'],
   'set-magazinov-belya-max-poverh-1c-keys-2026': ['crm', 'retail'],
   'kp-ii-administrator-zapis-keys-2026': ['ai', 'services'],
-  'travel-portal-po-podpiske-koncepciya-tz-keys-2026': ['doc', 'travel'],
+  'travel-portal-po-podpiske-koncepciya-tz-keys-2026': ['site', 'travel'],
+  'chetyre-demo-sayta-agentstva-nedvizhimosti-dubay-keys-2026': ['site', 'realty'],
   'art-studiya-bot-vitrina-rozygrysh-keys-2026': ['bot', 'culture'],
   // Флагманский кейс без статьи в блоге: ключ по названию карточки.
   'SpyGambl': ['platform', 'it'],
