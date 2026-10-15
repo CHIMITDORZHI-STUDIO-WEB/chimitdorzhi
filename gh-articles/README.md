@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2549**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2554**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -1262,6 +1262,8 @@
 
 ## Отрасли
 
+- [CRM для строительной компании: что внутри и сколько стоит](./crm-dlya-stroitelnoy-kompanii-chto-vnutri-i-cena-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/crm-dlya-stroitelnoy-kompanii-chto-vnutri-i-cena-2026/)
+- [Бот и CRM для визового агентства под ключ: заявки, документы, статусы](./bot-i-crm-dlya-vizovogo-agentstva-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bot-i-crm-dlya-vizovogo-agentstva-2026/)
 - [FlyAI: ИИ-агент ищет рейсы и отели для турагентства](./flyai-poisk-aviabiletov-i-otelej-dlya-ii-agenta-turagentstva-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/flyai-poisk-aviabiletov-i-otelej-dlya-ii-agenta-turagentstva-2026/)
 - [Бесконтактное заселение в гостиницу и посуточную квартиру в 2026](./beskontaktnoe-zaselenie-mini-otel-apartamenty-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/beskontaktnoe-zaselenie-mini-otel-apartamenty-2026/)
 - [Как принимать Alipay в России в 2026: оплата от туристов из Китая](./kak-prinimat-alipay-i-wechat-pay-v-rossii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-prinimat-alipay-i-wechat-pay-v-rossii-2026/)
@@ -1916,6 +1918,9 @@
 - [Clearcam: «человек в зоне» на любых IP-камерах, видео у вас](./clearcam-raspoznavanie-lyudey-i-uvedomleniya-dlya-lyuboy-sistemy-videonablyudeniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/clearcam-raspoznavanie-lyudey-i-uvedomleniya-dlya-lyuboy-sistemy-videonablyudeniya-2026/)
 - [croc: тяжёлые файлы клиентам без облака и без аккаунтов](./croc-peredacha-bolshih-faylov-klientam-bez-oblaka-i-akkauntov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/croc-peredacha-bolshih-faylov-klientam-bez-oblaka-i-akkauntov-2026/)
 - [Чек-лист запуска сайта: что проверить перед открытием](./chek-list-zapuska-sayta-pered-otkrytiem-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chek-list-zapuska-sayta-pered-otkrytiem-2026/)
+- [Service Desk на 1С: заказать систему заявок для IT-отдела под ключ](./service-desk-na-1s-zakazat-sistemu-zayavok-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/service-desk-na-1s-zakazat-sistemu-zayavok-2026/)
+- [Создать доску объявлений под нишу или город: сколько стоит в 2026](./svoya-doska-obyavleniy-dlya-nishi-ili-goroda-cena-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/svoya-doska-obyavleniy-dlya-nishi-ili-goroda-cena-2026/)
+- [Сайт для агентства недвижимости: цена, каталог и умный фильтр](./sayt-agentstva-nedvizhimosti-s-katalogom-i-filtrom-cena-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-agentstva-nedvizhimosti-s-katalogom-i-filtrom-cena-2026/)
 - [Фото товаров по 3 МБ тормозят каталог: Thumbor на своём сервере](./thumbor-svoy-servis-kadrirovaniya-i-szhatiya-foto-tovarov-dlya-magazina-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/thumbor-svoy-servis-kadrirovaniya-i-szhatiya-foto-tovarov-dlya-magazina-2026/)
 - [privacy.sexy: проверяемые скрипты настройки Windows для офиса](./privacy-sexy-proveryaemye-skripty-dlya-zaschity-rabochih-mest-windows-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/privacy-sexy-proveryaemye-skripty-dlya-zaschity-rabochih-mest-windows-2026/)
 - [WebLLM: ИИ в браузере сотрудника, тексты не уходят в облако](./web-llm-yazykovaya-model-v-brauzere-sotrudnika-bez-oblaka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/web-llm-yazykovaya-model-v-brauzere-sotrudnika-bez-oblaka-2026/)
