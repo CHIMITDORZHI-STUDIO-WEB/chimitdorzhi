@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2568**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2573**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -1921,6 +1921,11 @@
 
 ## Разработка
 
+- [nginxconfig.io: конфиг nginx для VPS и что проверить после](./nginxconfig-io-generator-konfiga-nginx-dlya-svoego-vps-chto-proverit-posle-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nginxconfig-io-generator-konfiga-nginx-dlya-svoego-vps-chto-proverit-posle-2026/)
+- [Self-Hosting-Guide: что с подписок реально переносить бизнесу](./self-hosting-guide-spravochnik-po-perehodu-na-svoi-servisy-chto-pereezzhat-biznesu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/self-hosting-guide-spravochnik-po-perehodu-na-svoi-servisy-chto-pereezzhat-biznesu-2026/)
+- [Understand Anything: граф чужого кода, по которому можно спрашивать](./understand-anything-graf-znaniy-po-chuzhomu-kodu-i-dokumentacii-peredacha-proekta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/understand-anything-graf-znaniy-po-chuzhomu-kodu-i-dokumentacii-peredacha-proekta-2026/)
+- [Android-приложения на Linux без эмулятора: что даёт Waydroid](./waydroid-android-prilozheniya-na-linux-kompyutere-bez-emulyatora-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/waydroid-android-prilozheniya-na-linux-kompyutere-bez-emulyatora-2026/)
+- [Janus Gateway: видеосвязь в своём приложении на своём сервере](./janus-gateway-videosvyaz-v-svoem-prilozhenii-na-svoem-servere-webrtc-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/janus-gateway-videosvyaz-v-svoem-prilozhenii-na-svoem-servere-webrtc-2026/)
 - [SilverBullet: вики из файлов, которая отвечает на запросы](./silverbullet-vika-iz-markdown-faylov-s-zaprosami-i-lua-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/silverbullet-vika-iz-markdown-faylov-s-zaprosami-i-lua-na-svoem-servere-2026/)
 - [WifiWatch: журнал обрывов Wi-Fi, когда сеть то пропадает](./wifiwatch-zhurnal-obryvov-wi-fi-v-ofise-kogda-set-to-propadaet-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/wifiwatch-zhurnal-obryvov-wi-fi-v-ofise-kogda-set-to-propadaet-2026/)
 - [OpenAPI Generator: клиент API площадки без ручного кода](./openapi-generator-klient-api-marketpleysa-iz-specifikacii-bez-ruchnogo-koda-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/openapi-generator-klient-api-marketpleysa-iz-specifikacii-bez-ruchnogo-koda-2026/)
