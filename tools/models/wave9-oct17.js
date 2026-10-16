@@ -1,0 +1,33 @@
+// Hy-Memory (Tencent Hunyuan). Факты сверены по Hugging Face на 17.10.2026.
+module.exports = [
+  {
+    id: 'hy-memory',
+    name: 'Hy-Memory',
+    developer: 'Tencent Hunyuan', country: 'Китай',
+    modality: ['nlp', 'agent'],
+    first: '2026-10', latest: '2026-10',
+    sizes: '30B-A3B',
+    license: 'Apache 2.0',
+    commercial: 'yes',
+    hardware: ['gpu'],
+    ru: 'no',
+    industries: ['support', 'dev', 'retail'],
+    ollama: false,
+    cpu: false,
+    summary: 'Модель, которая ведёт долгую память ИИ-агента: решает, что из переписки, рабочих задач или кода стоит запомнить, в каком виде, и как новые сведения меняют уже сохранённое. Заменяет универсальную модель внутри систем памяти Mem0, MemOS и собственной Hy-Memory. Языки в карточке: английский и китайский. Цифры по тестам приведены самой Tencent.',
+    tasks: ['память ассистента о клиенте между разговорами', 'запоминание хода работы над проектом и кода', 'обновление сохранённых сведений при новых данных вместо дублей'],
+    where: ['поддержка клиентов и персональные ассистенты', 'разработка ПО', 'интернет-магазины'],
+    versions: [['Hy-Memory-30B-A3B', '2026-10']],
+    hf: 'https://huggingface.co/tencent/Hy-Memory-30B-A3B',
+    github: 'https://github.com/Tencent-Hunyuan/Hy-Memory',
+    alternatives: ['qwen', 'glm', 'deepseek'],
+    source: 'https://huggingface.co/tencent/Hy-Memory-30B-A3B',
+    verified: true,
+    en: {
+      summary: "A model that runs the long-term memory of an AI agent: it decides what from a chat, work tasks or code is worth remembering, in what form, and how new information changes what is already stored. It replaces the general-purpose model inside the memory systems Mem0, MemOS and Tencent's own Hy-Memory. Languages on the card: English and Chinese. The benchmark figures are Tencent's own.",
+      tasks: ["an assistant's memory about a customer between conversations", 'remembering the course of work on a project and code', 'updating stored facts when new data arrives instead of duplicates'],
+      where: ['customer support and personal assistants', 'software development', 'online stores'],
+      country: 'China',
+    },
+  },
+];
