@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nginxconfig.io: генератор конфига nginx и проверка после</title>
+    <meta name="description" content="nginxconfig.io собирает конфиг nginx с HTTPS, сжатием и заголовками. Лицензия MIT, но выдача отстаёт от nginx: что проверить на своём VPS.">
+    <meta name="keywords" content="nginx, VPS, HTTPS, open source">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/nginxconfig-io-generator-konfiga-nginx-dlya-svoego-vps-chto-proverit-posle-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/nginxconfig-io-generator-konfiga-nginx-dlya-svoego-vps-chto-proverit-posle-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/nginxconfig-io-generator-konfiga-nginx-dlya-svoego-vps-chto-proverit-posle-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/nginxconfig-io-generator-konfiga-nginx-dlya-svoego-vps-chto-proverit-posle-2026/">
+    <meta property="og:title" content="nginxconfig.io: генератор конфига nginx и проверка после">
+    <meta property="og:description" content="nginxconfig.io собирает конфиг nginx с HTTPS, сжатием и заголовками. Лицензия MIT, но выдача отстаёт от nginx: что проверить на своём VPS.">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/nginxconfig-io-generator-konfiga-nginx-dlya-svoego-vps-chto-proverit-posle-2026/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="nginxconfig.io: генератор конфига nginx и проверка после">
+    <meta name="twitter:description" content="nginxconfig.io собирает конфиг nginx с HTTPS, сжатием и заголовками. Лицензия MIT, но выдача отстаёт от nginx: что проверить на своём VPS.">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/nginxconfig-io-generator-konfiga-nginx-dlya-svoego-vps-chto-proverit-posle-2026/cover.png">
+
+    <link rel="icon" href="/favicon.svg?v=5" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=5">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png?v=5">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=5">
+    <link rel="preload" href="/assets/fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=79">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "nginxconfig.io: конфиг nginx для VPS и что проверить после",
+  "description": "nginxconfig.io собирает конфиг nginx с HTTPS, сжатием и заголовками. Лицензия MIT, но выдача отстаёт от nginx: что проверить на своём VPS.",
+  "image": "https://chimitdorzhi.tech/blog/nginxconfig-io-generator-konfiga-nginx-dlya-svoego-vps-chto-proverit-posle-2026/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://t.me/chimitdorzhi_studio",
+      "https://max.ru/channel_chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio",
+      "https://github.com/chimitdorzhi",
+      "https://chimitdorzhi.tech/about/"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/nginxconfig-io-generator-konfiga-nginx-dlya-svoego-vps-chto-proverit-posle-2026/"
+  },
+  "datePublished": "2026-10-17",
+  "dateModified": "2026-10-17",
+  "keywords": "nginx, VPS, HTTPS, open source",
+  "articleSection": "Разработка",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "nginxconfig.io: конфиг nginx для VPS и что проверить после",
+      "item": "https://chimitdorzhi.tech/blog/nginxconfig-io-generator-konfiga-nginx-dlya-svoego-vps-chto-proverit-posle-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Можно ли залить сгенерированный конфиг сразу на рабочий сервер?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Лучше нет. Сначала резервная копия, потом тестовая площадка и nginx -t. Особенно если на сервере живут несколько сайтов: основной nginx.conf генератор пишет целиком и заменит ваши настройки."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Подойдёт ли он для Docker?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "В выдаче можно включить Dockerfile и docker-compose.yaml. Что именно они содержат, я не запускал, поэтому считайте их заготовкой."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что проверять при каждом обновлении nginx?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "nginx -t, предупреждения об устаревших параметрах и внешнюю проверку HTTPS."
+      }
+    }
+  ]
+}
+    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+var inject=function(){for (var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)};
+var run=function(){('requestIdleCallback' in window)?requestIdleCallback(inject,{timeout:5000}):setTimeout(inject,3000)};
+(e.readyState==='complete')?run():m.addEventListener('load',run);})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109281884" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<!-- Цели Метрики: клики по контактам и услугам -->
+<script type="text/javascript">
+(function(){
+  var GOALS = [
+    { re: /t\.me\//i,                     goal: 'tg_click' },
+    { re: /max\.ru\//i,                    goal: 'max_click' },
+    { re: /audit\.chimitdorzhi\.tech/i,    goal: 'audit_click' },
+    { re: /chimitdorzhi\.tech\/services\//i, goal: 'service_click' },
+    { re: /chimitdorzhi\.tech\/predlozheniya\//i, goal: 'offer_click' }
+  ];
+  document.addEventListener('click', function(e){
+    var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    for (var i = 0; i < GOALS.length; i++) {
+      if (GOALS[i].re.test(href)) {
+        try { if (window.ym) ym(109281884, 'reachGoal', GOALS[i].goal); } catch (err) {}
+        break;
+      }
+    }
+  }, true);
+})();
+</script>
+</head>
+<body class="wx-read">
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/" data-i18n="nav.home">Главная</a></li>
+            <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+            <li class="nav-dropdown">
+                <a href="/cases/" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+                <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему" aria-pressed="false">
+                <i class="ph ph-moon" aria-hidden="true"></i>
+            </button>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/" data-i18n="nav.home">Главная</a></li>
+        <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+        <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+        <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+        <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+        <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+        <li class="mobile-has-submenu">
+            <details>
+                <summary aria-label="Проекты — развернуть"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down" aria-hidden="true"></i></summary>
+                <ul class="mobile-submenu">
+                    <li>
+                        <a href="https://gerel.space" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">Gerel.space</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/universe_buryat/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/arey/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.arey">AREY</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/mwrlife/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">MWR Life</span>
+                                <span class="mobile-sub-desc">Travel-клуб и партнёрка</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </details>
+        </li>
+        <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+    </ul>
+    <div class="mobile-controls">
+        <div class="mobile-lang-switcher" role="group" aria-label="Выбор языка">
+            <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+            <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+            <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+        </div>
+        <button class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle" aria-label="Переключить тему" aria-pressed="false">
+            <i class="ph ph-moon" aria-hidden="true"></i>
+        </button>
+    </div>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">nginxconfig.io: конфиг nginx для VPS и что проверить после</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/development/"><i class="ph ph-bookmark" aria-hidden="true"></i> Разработка</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин чтения</span>
+                        <time datetime="2026-10-17"><i class="ph ph-calendar" aria-hidden="true"></i> 17 октября 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">nginxconfig.io: конфиг nginx для VPS и что проверить после</h1>
+
+                    <p class="blog-lead">nginxconfig.io от DigitalOcean собирает конфиг nginx из галочек: HTTPS, сжатие, прокси, заголовки. Разобрал лицензию, живость проекта и выдачу: что в ней уже устарело и что проверить после генерации.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>nginx</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>VPS</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>HTTPS</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>open source</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr">
+  <strong>Коротко.</strong> nginxconfig.io (репозиторий digitalocean/nginxconfig.io, лицензия MIT) собирает конфиг nginx из галочек: HTTPS, сжатие, кеш, обратный прокси, заголовки безопасности, PHP и Python, Node.js через прокси. Запускается в браузере, можно поднять у себя. По умолчанию берёт TLS-профиль Mozilla Intermediate и выдаёт сразу набор файлов. Проект не архивирован, но последний коммит в master датирован 4 октября 2024 года, и это видно по выдаче: параметр http2 в listen устарел, для HTTP/3 генератор пишет http3 вместо quic, а OCSP stapling после отключения OCSP у Let's Encrypt потерял смысл. Это хорошая заготовка, но не готовый конфиг: приложения он не знает. После него нужны проверка <code>nginx -t</code>, проверка снаружи и ручная доводка. Я читал код проекта, на живом сервере выдачу не запускал.
+</div>
+<div class="blog-cta-internal">
+  <i class="ph-fill ph-rocket-launch" aria-hidden="true"></i>
+  <div>
+    <strong>Хотите внедрить это у себя?</strong>
+    <p>Сделаю под ключ: разберу задачу, назову срок и цену. Чтобы начать, <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%ABnginxconfig.io%3A%20%D0%BA%D0%BE%D0%BD%D1%84%D0%B8%D0%B3%20nginx%20%D0%B4%D0%BB%D1%8F%20VPS%20%D0%B8%20%D1%87%D1%82%D0%BE%20%D0%BF%D1%80%D0%BE%D0%B2%D0%B5%D1%80%D0%B8%D1%82%D1%8C%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener">напишите в Telegram</a> одной фразой.</p>
+    <a href="https://chimitdorzhi.tech/services/devops/">Настройка и проверка сервера под ключ <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</div>
+
+<h2 id="kopipasta">Конфиг, собранный из десяти туториалов</h2>
+
+<p>Типичная картина на VPS небольшого сайта. Кусок конфига из туториала 2019 года, кусок из ответа на форуме. Порт 80 отвечает без редиректа на HTTPS. В ssl_protocols остался TLSv1, шифры вставлены списком из чьего-то блога. Сжатия нет. Скрытые файлы вроде .git открываются по прямой ссылке. Каждый кусок работал по отдельности, вместе они дают слабо защищённый сервер.</p>
+
+<p>С нуля такой сервер я разбирал в статье <a href="/blog/svoy-vps-s-nulya-docker-nginx-https-2026/">про VPS с Docker, nginx и HTTPS</a>. Здесь про инструмент, который помогает собрать конфиг осознанно, и про проверку после него.</p>
+
+<h2 id="chto-eto">Что за проект и что я проверил</h2>
+
+<p>Проверял 17.10.2026. Репозиторий <a href="https://github.com/digitalocean/nginxconfig.io" target="_blank" rel="noopener nofollow">digitalocean/nginxconfig.io</a> принадлежит организации DigitalOcean, описан как генератор конфигов NGINX. Файл LICENSE содержит текст лицензии MIT, авторство DigitalOcean. Репозиторий создан 5 января 2018 года, по данным GitHub около 28,3 тысячи звёзд, 2 тысячи форков, 71 открытая задача. Он не архивирован.</p>
+
+<p>Теперь про живость. Последний коммит в ветке master от 4 октября 2024 года: обновление зависимостей. Релизов и тегов у проекта нет. То есть он стоит на месте больше двух лет. Для генератора, который описывает меняющиеся nginx и TLS, это важно. Размещённую версию README предлагает открывать по короткой ссылке do.co/nginxconfig. Локально по README: клонировать репозиторий, выполнить <code>npm ci</code>, затем <code>npm run dev</code> и открыть localhost:8080. Сборка кладёт файлы в папку dist.</p>
+
+<h2 id="chto-vydaet">Что генератор выдаёт</h2>
+
+<p>Я прочитал исходники. Выдача состоит из нескольких файлов: основной nginx.conf, по файлу на каждый домен в sites-available и набор общих кусочков в папке nginxconfig.io: security.conf, general.conf, letsencrypt.conf, а при выборе нужных опций ещё proxy.conf, php_fastcgi.conf, python_uwsgi.conf. Есть и заготовки Dockerfile и docker-compose.yaml. Скачать можно архивом или скопировать строку base64 и выполнить её в консоли сервера. Инструкция в самом инструменте советует сначала сделать резервную копию текущей конфигурации, потом распаковать архив через tar.</p>
+
+<p>Что внутри по умолчанию. TLS-профиль Mozilla Intermediate: TLSv1.2 и TLSv1.3. Профиль Modern оставляет только TLSv1.3, профиль Old включает TLSv1 и TLSv1.1. Кеш сессий shared:SSL:10m, ssl_session_tickets выключен. Стоит HSTS с max-age на год. Закрыты точечные файлы: по шаблону <code>location ~ /\.(?!well-known)</code> доступ запрещён, кроме каталога well-known. Есть опции gzip и brotli, срок кеширования статики, ограничение запросов к логину, server_tokens off. Заголовки безопасности: X-Content-Type-Options, Referrer-Policy, по желанию Content-Security-Policy и Permissions-Policy.</p>
+
+<h2 id="ustarelo">Что в выдаче уже отстаёт от nginx</h2>
+
+<p>Сверял с первоисточниками, на живом nginx не запускал, поэтому формулирую осторожно.</p>
+
+<p><strong>HTTP/2.</strong> Генератор пишет <code>listen 443 ssl http2</code>. В <a href="https://nginx.org/en/docs/http/ngx_http_core_module.html" target="_blank" rel="noopener nofollow">документации nginx</a> параметр http2 у listen помечен устаревшим, вместо него директива http2 (она появилась в версии 1.25.1). Предупреждение возможно, зависит от вашей версии nginx.</p>
+
+<p><strong>HTTP/3.</strong> Генератор пишет <code>listen 443 http3</code>. По <a href="https://nginx.org/en/docs/quic.html" target="_blank" rel="noopener nofollow">странице про QUIC</a> в nginx с версии 1.25.0 для этого служит параметр quic, а параметра http3 в этом описании нет. Сам инструмент предупреждает, что HTTP/3 нестандартный модуль. Эту галочку не включайте вслепую.</p>
+
+<p><strong>OCSP stapling.</strong> Генератор включает ssl_stapling. Let's Encrypt, по <a href="https://letsencrypt.org/2024/12/05/ending-ocsp" target="_blank" rel="noopener nofollow">их объявлению</a>, убрал OCSP из сертификатов 7 мая 2025 года и выключил респондеры 6 августа 2025 года. Подшивать нечего, опцию логично отключить. Как поведёт себя ваш nginx, покажут <code>nginx -t</code> и журнал ошибок.</p>
+
+<p><strong>Заголовок X-XSS-Protection.</strong> Он есть в выдаче, а <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/X-XSS-Protection" target="_blank" rel="noopener nofollow">MDN</a> называет его устаревшим и нестандартным и советует вместо него Content-Security-Policy.</p>
+
+<p><strong>Профили TLS.</strong> В коде комментарий отсылает к рекомендациям Mozilla версии 5.0. Страница Mozilla сейчас сообщает, что публичная версия рекомендаций ведётся сообществом на docs.tlsref.org. Нынешние списки шифров с зашитыми я не сравнивал.</p>
+
+<p>Журнал доступа в выдаче выключен (access_log off), включите, если нужны логи. А ssl_session_tickets off по умолчанию на мой взгляд для небольшого сайта нормален.</p>
+
+
+<h2 id="chto-uchest">Данные и чего генератор не заменяет</h2>
+
+<p>Про данные. Конфиг генерирует JavaScript в браузере: серверной части с API в репозитории нет. Но в коде есть модуль аналитики. Он отправляет события в Google Tag Manager и Segment, если эти скрипты подключены на странице. При удалении сайта в событие попадает имя домена. Подключены ли они на размещённой странице, я не проверял. Для рабочих доменов проще запустить инструмент локально или подставить условное имя и заменить его в файлах.</p>
+
+<p>Он не знает ваше приложение. Порт бэкенда, таймауты для долгих запросов, размер загружаемых файлов, пути админки, нужные скрипты для заголовка Content-Security-Policy: всё это вы вводите руками, и всё это ломается тихо. Включённый без проверки CSP останавливает чужие скрипты на сайте. Пути к сертификатам он пишет, а сами сертификаты не выпускает: есть шаблон для проверки ACME и подсказки по certbot, но если файлов нет, nginx не пройдёт проверку. Продление сертификатов отдельная тема, я разбирал её в статье <a href="/blog/srok-zhizni-ssl-sertifikatov-sokrashchaetsya-200-dney-avtoprodlenie-2026/">про сертификаты на 200 дней</a>.</p>
+
+<p>Если конфиг вам тяжело сопровождать вообще, посмотрите на <a href="/blog/caddy-vebserver-s-avtomaticheskim-https-dlya-saytov-i-sistem-2026/">Caddy с автоматическим HTTPS</a>.</p>
+
+<h2 id="chto-sdelat">Что можно сделать уже сейчас</h2>
+
+<p>Первое. Откройте инструмент или запустите локально и соберите конфиг на условном домене. Сравните его с тем, что стоит на сервере: редирект с 80 на 443, протоколы, сжатие, закрытые точечные файлы. Разница уже покажет, чего не хватает.</p>
+
+<p>Второе. Скопируйте текущую конфигурацию, положите новую на тестовый поддомен, выполните <code>nginx -t</code> и перезагрузите конфигурацию только после чистой проверки.</p>
+
+<p>Третье. Проверьте снаружи. <code>curl -I http://ваш-домен</code> должен вернуть редирект. Адреса вида /.git/config должны отдавать отказ. Откройте сайт в SSL Labs и на securityheaders.com и посмотрите, на что они ругаются.</p>
+
+<p>Четвёртое. Если не хочется собирать это самому, мне можно передать <a href="/services/devops/">настройку сервера под ключ</a>, а проверку существующего конфига вместе со всем окружением, как <a href="/services/it-audit/">ИТ-аудит</a>.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+
+<h3>Можно ли залить сгенерированный конфиг сразу на рабочий сервер?</h3>
+
+<p>Лучше нет. Сначала резервная копия, потом тестовая площадка и <code>nginx -t</code>. Особенно если на сервере живут несколько сайтов: основной nginx.conf генератор пишет целиком и заменит ваши настройки.</p>
+
+<h3>Подойдёт ли он для Docker?</h3>
+
+<p>В выдаче можно включить Dockerfile и docker-compose.yaml. Что именно они содержат, я не запускал, поэтому считайте их заготовкой.</p>
+
+<h3>Что проверять при каждом обновлении nginx?</h3>
+
+<p><code>nginx -t</code>, предупреждения об устаревших параметрах и внешнюю проверку HTTPS.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+
+<p>nginxconfig.io под MIT даёт быстрый старт для конфига: HTTPS, сжатие, прокси и заголовки собираются галочками. Проект не архивирован, но стоит с октября 2024 года, и часть вывода устарела. Конфиг из него надо проверять и дорабатывать под своё приложение.</p>
+
+<p>Если хотите, чтобы я проверил ваш nginx, собрал заготовку и довёл конфиг до рабочего состояния, напишите мне в Telegram кодовое слово «КОНФИГ».</p>
+
+                    </div>
+                    
+
+                    
+                    
+                    
+                    
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Обсудим вашу задачу</div>
+  <h3 class="blog-services-offer-title">Что я делаю для бизнеса</h3>
+  <p class="blog-services-offer-lead">Напишите одной фразой, что нужно. Отвечу, что подойдёт, сколько займёт и сколько стоит. Сообщение уже подготовлено.</p>
+  <ul class="blog-services-offer-list"><li><i class="ph-fill ph-robot"></i> <span>Боты в Telegram, MAX, VK</span></li><li><i class="ph-fill ph-gear"></i> <span>Автоматизация процессов и CRM</span></li><li><i class="ph-fill ph-chart-bar"></i> <span>Аналитика и дашборды</span></li><li><i class="ph-fill ph-globe"></i> <span>Сайты и лендинги под ключ</span></li></ul>
+  <div class="blog-services-offer-ctas">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%ABnginxconfig.io%3A%20%D0%BA%D0%BE%D0%BD%D1%84%D0%B8%D0%B3%20nginx%20%D0%B4%D0%BB%D1%8F%20VPS%20%D0%B8%20%D1%87%D1%82%D0%BE%20%D0%BF%D1%80%D0%BE%D0%B2%D0%B5%D1%80%D0%B8%D1%82%D1%8C%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener" class="blog-services-offer-cta">
+      <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
+    </a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="blog-services-offer-cta blog-services-offer-cta-max">
+      <i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> Написать в MAX
+    </a>
+    <a href="https://chimitdorzhi.tech/services/devops/" class="blog-services-offer-cta blog-services-offer-cta-max"><i class="ph ph-arrow-right" aria-hidden="true"></i> Настройка и проверка сервера под ключ</a>
+  </div>
+</div>
+                    
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/svoy-vps-s-nulya-docker-nginx-https-2026/" data-category="opensource" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-hard-drives"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>Свой VPS с нуля: Docker, nginx и HTTPS за вечер</h3>
+  <p>Свой сервер — это не страшно и не дорого. Разбираю логику от пустой Ubuntu до сайта на HTTPS: Docker, nginx, сертификат — и где обычно спотыкаются.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 31 августа 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/srok-zhizni-ssl-sertifikatov-sokrashchaetsya-200-dney-avtoprodlenie-2026/" data-category="security" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-certificate"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Безопасность</span>
+  <h3>SSL-сертификаты на 200 дней, с 2027 на 100: автопродление без падений</h3>
+  <p>Максимальный срок публичных TLS-сертификатов падает по расписанию форума CA/Browser: 200 дней с 15 марта 2026, 100 с 15 марта 2027, 47 с 15 марта 2029. Разбираю, что это значит для владельца сайта, как перейти на автопродление и где сертификаты чаще всего забывают: почта, API, поддомены, оборудование.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 5 октября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/caddy-vebserver-s-avtomaticheskim-https-dlya-saytov-i-sistem-2026/" data-category="opensource" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-lock-key"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>Сертификаты и Nginx-конфиги ломаются? Caddy делает HTTPS сам</h3>
+  <p>Caddy это веб-сервер с открытым кодом, который сам выпускает и продлевает HTTPS-сертификаты. Разбираем, как он заменяет Nginx и certbot перед сайтом, CRM и ботами, чем отличается от Certimate и Cosmos и какие у него ограничения.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 4 октября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/kak-nastroit-vps-s-nulya-2026/" data-category="development" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-terminal-window"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
+  <h3>Как настроить VPS с нуля: пошаговый гайд для нетехнического владельца</h3>
+  <p>Свой сервер пугает многих: кажется, что там сплошные чёрные консоли и риск всё сломать одной командой. На деле настройка VPS с нуля укладывается в понятную последовательность шагов, которую можно пройти один раз и потом просто поддерживать.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 20 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 5 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    <section class="blog-subscribe">
+  <div class="blog-subscribe-body">
+    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
+    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
+  </div>
+  <div class="blog-subscribe-actions">
+    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
+  </div>
+</section>
+                    
+                    
+                    
+                    
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow"><span class="b-l b-l-ru">Готовые решения под ключ</span><span class="b-l b-l-en" lang="en">Turnkey solutions</span><span class="b-l b-l-es" lang="es">Soluciones llave en mano</span><span class="b-l b-l-cn" lang="zh">交钥匙解决方案</span><span class="b-l b-l-mn" lang="mn">Түлхүүр гардуулах шийдэл</span></span>
+                            <span class="blog-offer-cta-title"><span class="b-l b-l-ru">451 готовых IT-решений для бизнеса</span><span class="b-l b-l-en" lang="en">451 ready-made IT solutions for business</span><span class="b-l b-l-es" lang="es">451 soluciones IT listas para empresas</span><span class="b-l b-l-cn" lang="zh">451 个面向企业的现成 IT 解决方案</span><span class="b-l b-l-mn" lang="mn">Бизнест зориулсан 451 бэлэн IT шийдэл</span></span>
+                            <span class="blog-offer-cta-price"><span class="b-l b-l-ru">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span><span class="b-l b-l-en" lang="en">Automation, bots, AI, data privacy and platforms · free consultation</span><span class="b-l b-l-es" lang="es">Automatización, bots, IA, privacidad de datos y plataformas · consulta gratis</span><span class="b-l b-l-cn" lang="zh">自动化、机器人、AI、数据合规与平台 · 免费咨询</span><span class="b-l b-l-mn" lang="mn">Автоматжуулалт, бот, AI, өгөгдлийн хамгаалалт ба платформ · үнэгүй зөвлөгөө</span></span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> <span class="b-l b-l-ru">Смотреть каталог</span><span class="b-l b-l-en" lang="en">View catalog</span><span class="b-l b-l-es" lang="es">Ver catálogo</span><span class="b-l b-l-cn" lang="zh">查看目录</span><span class="b-l b-l-mn" lang="mn">Каталог үзэх</span></span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#kopipasta"><span class="blog-toc-num">01</span> Конфиг, собранный из десяти туториалов</a></li>
+<li><a href="#chto-eto"><span class="blog-toc-num">02</span> Что за проект и что я проверил</a></li>
+<li><a href="#chto-vydaet"><span class="blog-toc-num">03</span> Что генератор выдаёт</a></li>
+<li><a href="#ustarelo"><span class="blog-toc-num">04</span> Что в выдаче уже отстаёт от nginx</a></li>
+<li><a href="#chto-uchest"><span class="blog-toc-num">05</span> Данные и чего генератор не заменяет</a></li>
+<li><a href="#chto-sdelat"><span class="blog-toc-num">06</span> Что можно сделать уже сейчас</a></li>
+<li><a href="#faq"><span class="blog-toc-num">07</span> Частые вопросы</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">08</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+971563369591" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +971 56 336 9591</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">RA Standard - F.Z.E</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_licence">Лицензия 57033</span><span> · </span><span data-i18n="footer.legal_authority">Free Zones Authority of Ajman</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">Эмират Аджман, ОАЭ</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/cases/" class="footer-policy-link">Кейсы</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=44" defer></script>
+<script src="/services-i18n.js?v=44" defer></script>
+<script src="/script.js?v=41" defer></script>
+<script src="/search-widget.js?v=1" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>
