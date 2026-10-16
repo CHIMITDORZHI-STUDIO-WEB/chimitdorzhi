@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2573**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2578**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -1101,6 +1101,7 @@
 
 ## Маркетинг
 
+- [Яндекс Вебмастер для владельца бизнеса: что смотреть раз в неделю](./yandeks-vebmaster-dlya-vladelca-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/yandeks-vebmaster-dlya-vladelca-biznesa-2026/)
 - [Визуализатор трека: заказать видео под релиз для артиста и лейбла](./vizualizator-treka-dlya-muzykanta-zakazat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vizualizator-treka-dlya-muzykanta-zakazat-2026/)
 - [Реклама в Telegram Ads для малого бизнеса в 2026: запуск и цены](./reklama-v-telegram-ads-dlya-malogo-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/reklama-v-telegram-ads-dlya-malogo-biznesa-2026/)
 - [Animator: пояснительное видео по одной фразе без студии](./animator-poyasnyayushchie-video-po-tekstovomu-zaprosu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/animator-poyasnyayushchie-video-po-tekstovomu-zaprosu-2026/)
@@ -1266,6 +1267,7 @@
 
 ## Отрасли
 
+- [Сайт для музея: онлайн-билеты, аудиогид в браузере и доступность](./sayt-dlya-muzeya-bilety-audiogid-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-dlya-muzeya-bilety-audiogid-2026/)
 - [Сайт для театра, филармонии и дома культуры: афиша, билеты, боты](./sayt-dlya-teatra-filarmonii-doma-kultury-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-dlya-teatra-filarmonii-doma-kultury-2026/)
 - [Система управления общежитием и хостелом: места, договоры, оплата](./sistema-upravleniya-obshchezhitiem-i-hostelom-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sistema-upravleniya-obshchezhitiem-i-hostelom-2026/)
 - [Программа для астролога под ключ: сервис разборов с PDF и слайдами](./servis-personalnyh-razborov-dlya-astrologa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/servis-personalnyh-razborov-dlya-astrologa-2026/)
@@ -1662,6 +1664,9 @@
 
 ## Право и 152-ФЗ
 
+- [Сайт для слабовидящих по постановлению № 102: чек-лист 2026](./sayt-dlya-slabovidyashchih-postanovlenie-102-chek-list-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-dlya-slabovidyashchih-postanovlenie-102-chek-list-2026/)
+- [Как заказать сайт по 44-ФЗ: ТЗ, обоснование цены и приёмка](./zakazat-sayt-po-44-fz-byudzhetnomu-uchrezhdeniyu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zakazat-sayt-po-44-fz-byudzhetnomu-uchrezhdeniyu-2026/)
+- [Доступные PDF на сайте: документы, которые прочитает экранный диктор](./dostupnye-pdf-na-sayte-ekrannyy-diktor-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/dostupnye-pdf-na-sayte-ekrannyy-diktor-2026/)
 - [Маркировка масла с 1 ноября 2026: коды в УПД для магазинов и кафе](./markirovka-rastitelnyh-masel-s-1-noyabrya-2026-poekzemplyarnyy-uchet-magazinam-i-kafe.md) · [читать на сайте](https://chimitdorzhi.tech/blog/markirovka-rastitelnyh-masel-s-1-noyabrya-2026-poekzemplyarnyy-uchet-magazinam-i-kafe/)
 - [Белые списки Минцифры: попадёт ли сайт и как сохранить доступность](./belye-spiski-minczifry-popadet-li-sayt-i-kak-sohranit-dostupnost-pri-ogranicheniyah-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/belye-spiski-minczifry-popadet-li-sayt-i-kak-sohranit-dostupnost-pri-ogranicheniyah-2026/)
 - [Простая электронная подпись договора: код из SMS и кнопка в боте](./podpisanie-dogovora-po-kodu-iz-sms-prostaya-elektronnaya-podpis-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/podpisanie-dogovora-po-kodu-iz-sms-prostaya-elektronnaya-podpis-2026/)
