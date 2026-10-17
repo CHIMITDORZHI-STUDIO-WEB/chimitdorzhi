@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waydroid (Вайдроид): Android-приложения на Linux в офисе</title>
+    <meta name="description" content="Waydroid запускает Android 13 в контейнере на Linux. Что проверено по документации: ядро, Wayland, ARM, Google-сервисы и почему банки могут отказать.">
+    <meta name="keywords" content="Waydroid, Android на Linux, Переход с Windows, Open source">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/waydroid-android-prilozheniya-na-linux-kompyutere-bez-emulyatora-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/waydroid-android-prilozheniya-na-linux-kompyutere-bez-emulyatora-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/waydroid-android-prilozheniya-na-linux-kompyutere-bez-emulyatora-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/waydroid-android-prilozheniya-na-linux-kompyutere-bez-emulyatora-2026/">
+    <meta property="og:title" content="Waydroid (Вайдроид): Android-приложения на Linux в офисе">
+    <meta property="og:description" content="Waydroid запускает Android 13 в контейнере на Linux. Что проверено по документации: ядро, Wayland, ARM, Google-сервисы и почему банки могут отказать.">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/waydroid-android-prilozheniya-na-linux-kompyutere-bez-emulyatora-2026/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Waydroid (Вайдроид): Android-приложения на Linux в офисе">
+    <meta name="twitter:description" content="Waydroid запускает Android 13 в контейнере на Linux. Что проверено по документации: ядро, Wayland, ARM, Google-сервисы и почему банки могут отказать.">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/waydroid-android-prilozheniya-na-linux-kompyutere-bez-emulyatora-2026/cover.png">
+
+    <link rel="icon" href="/favicon.svg?v=5" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=5">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png?v=5">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=5">
+    <link rel="preload" href="/assets/fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=79">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Android-приложения на Linux без эмулятора: что даёт Waydroid",
+  "description": "Waydroid запускает Android 13 в контейнере на Linux. Что проверено по документации: ядро, Wayland, ARM, Google-сервисы и почему банки могут отказать.",
+  "image": "https://chimitdorzhi.tech/blog/waydroid-android-prilozheniya-na-linux-kompyutere-bez-emulyatora-2026/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://t.me/chimitdorzhi_studio",
+      "https://max.ru/channel_chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio",
+      "https://github.com/chimitdorzhi",
+      "https://chimitdorzhi.tech/about/"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/waydroid-android-prilozheniya-na-linux-kompyutere-bez-emulyatora-2026/"
+  },
+  "datePublished": "2026-10-17",
+  "dateModified": "2026-10-17",
+  "keywords": "Waydroid, Android на Linux, Переход с Windows, Open source",
+  "articleSection": "Разработка",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Android-приложения на Linux без эмулятора: что даёт Waydroid",
+      "item": "https://chimitdorzhi.tech/blog/waydroid-android-prilozheniya-na-linux-kompyutere-bez-emulyatora-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Заработает ли мой банковский клиент?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Не знаю, и документация не отвечает. Банк сам решает, пускать ли приложение на устройство без сертификации. Ответ даёт запуск этого приложения на вашем компьютере."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужен ли аккаунт Google?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Для образа GAPPS и магазина Play нужен. Образ без Google ставит APK и приложения из F-Droid без аккаунта."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что с NVIDIA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Документация относит nVidia к неподдерживаемым видеокартам и предлагает программную отрисовку без ускорения. Скорость на вашей модели проверяйте на месте."
+      }
+    }
+  ]
+}
+    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+var inject=function(){for (var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)};
+var run=function(){('requestIdleCallback' in window)?requestIdleCallback(inject,{timeout:5000}):setTimeout(inject,3000)};
+(e.readyState==='complete')?run():m.addEventListener('load',run);})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109281884" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<!-- Цели Метрики: клики по контактам и услугам -->
+<script type="text/javascript">
+(function(){
+  var GOALS = [
+    { re: /t\.me\//i,                     goal: 'tg_click' },
+    { re: /max\.ru\//i,                    goal: 'max_click' },
+    { re: /audit\.chimitdorzhi\.tech/i,    goal: 'audit_click' },
+    { re: /chimitdorzhi\.tech\/services\//i, goal: 'service_click' },
+    { re: /chimitdorzhi\.tech\/predlozheniya\//i, goal: 'offer_click' }
+  ];
+  document.addEventListener('click', function(e){
+    var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    for (var i = 0; i < GOALS.length; i++) {
+      if (GOALS[i].re.test(href)) {
+        try { if (window.ym) ym(109281884, 'reachGoal', GOALS[i].goal); } catch (err) {}
+        break;
+      }
+    }
+  }, true);
+})();
+</script>
+</head>
+<body class="wx-read">
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/" data-i18n="nav.home">Главная</a></li>
+            <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+            <li class="nav-dropdown">
+                <a href="/cases/" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+                <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему" aria-pressed="false">
+                <i class="ph ph-moon" aria-hidden="true"></i>
+            </button>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/" data-i18n="nav.home">Главная</a></li>
+        <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+        <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+        <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+        <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+        <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+        <li class="mobile-has-submenu">
+            <details>
+                <summary aria-label="Проекты — развернуть"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down" aria-hidden="true"></i></summary>
+                <ul class="mobile-submenu">
+                    <li>
+                        <a href="https://gerel.space" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">Gerel.space</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/universe_buryat/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/arey/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.arey">AREY</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/mwrlife/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">MWR Life</span>
+                                <span class="mobile-sub-desc">Travel-клуб и партнёрка</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </details>
+        </li>
+        <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+    </ul>
+    <div class="mobile-controls">
+        <div class="mobile-lang-switcher" role="group" aria-label="Выбор языка">
+            <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+            <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+            <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+        </div>
+        <button class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle" aria-label="Переключить тему" aria-pressed="false">
+            <i class="ph ph-moon" aria-hidden="true"></i>
+        </button>
+    </div>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Android-приложения на Linux без эмулятора: что даёт Waydroid</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/development/"><i class="ph ph-bookmark" aria-hidden="true"></i> Разработка</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин чтения</span>
+                        <time datetime="2026-10-17"><i class="ph ph-calendar" aria-hidden="true"></i> 17 октября 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Android-приложения на Linux без эмулятора: что даёт Waydroid</h1>
+
+                    <p class="blog-lead">Waydroid запускает полноценный Android в контейнере на обычном Linux, и часть нужных офису программ может заработать после ухода с Windows. Разбираю по документации, что нужно ядру, графике и сессии, и честно пишу, где банки и маркетплейсы упрутся.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>Waydroid</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>Android на Linux</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>Переход с Windows</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>Open source</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr">
+  <strong>Коротко.</strong> Waydroid (репозиторий waydroid/waydroid, лицензия GPL-3.0) запускает полноценную систему Android в контейнере на обычном Linux, например на Ubuntu. Образ на основе LineageOS и Android 13, доступ к оборудованию прямой. Для офиса, который уходит с Windows, это шанс сохранить программы, существующие только как Android-приложения. Нужны сессия Wayland и ядро с поддержкой binder, а банки и маркетплейсы часто определяют, что запуск идёт не на настоящем устройстве. Что заработает, показывает только проверка на конкретных приложениях.
+</div>
+<div class="blog-cta-internal">
+  <i class="ph-fill ph-rocket-launch" aria-hidden="true"></i>
+  <div>
+    <strong>Хотите внедрить это у себя?</strong>
+    <p>Сделаю под ключ: разберу задачу, назову срок и цену. Чтобы начать, <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%ABAndroid-%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F%20%D0%BD%D0%B0%20Linux%20%D0%B1%D0%B5%D0%B7%20%D1%8D%D0%BC%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80%D0%B0%3A%20%D1%87%D1%82%D0%BE%20%D0%B4%D0%B0%D1%91%D1%82%20Waydroid%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener">напишите в Telegram</a> одной фразой.</p>
+    <a href="https://chimitdorzhi.tech/services/russian-stack-migration/">Проверю ваши Android-приложения на Linux и настрою <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</div>
+
+<h2 id="hvost-na-android">Нужная программа есть только на телефоне</h2>
+
+<p>Офис почти готов уйти с Windows: браузер, почта, офисный пакет, 1С через веб. Остаётся хвост. Приложение кассы, которое ставится только на Android. Программа доставки или кабинет маркетплейса, который удобнее с телефона. Банк, у которого мобильный клиент богаче сайта. Телефон лежит рядом, но это отдельное устройство, и рабочие данные на нём живут сами по себе.</p>
+
+<p>Для программ Windows у меня есть разбор про <a href="/blog/winapps-windows-programmy-na-linux-v-oknah-bez-perehoda-2026/">WinApps</a> и про <a href="/blog/quickemu-virtualnaya-mashina-s-windows-odnoy-komandoy-dlya-starogo-po-2026/">виртуальную машину Quickemu</a>. Общий порядок после конца поддержки старой системы я описывал в статье про <a href="/blog/windows-10-bez-obnovleniy-chto-delat-ofisu-esu-windows-11-alternativy-2026/">Windows 10 без обновлений</a>. Android-хвост закрывает другой инструмент.</p>
+
+<h2 id="chto-eto">Что такое Waydroid и что я проверил</h2>
+
+<p>Проверял 17.10.2026 по репозиторию и документации. На своём стенде проект в этой статье не запускал, поэтому всё ниже взято из открытых страниц.</p>
+
+<p>Репозиторий <a href="https://github.com/waydroid/waydroid" target="_blank" rel="noopener nofollow">waydroid/waydroid</a> описывает контейнерный подход: полная система Android запускается на обычном GNU/Linux. Изоляция строится на пространствах имён Linux (user, pid, uts, net, mount, ipc), а Android внутри, по README, имеет прямой доступ к нужному оборудованию. Образ минимальный, на основе LineageOS, сейчас это Android 13.</p>
+
+<p>Файл LICENSE содержит GPL версии 3. На странице около 12,4 тысячи звёзд, 551 форк, пометки об архивации нет. Последний коммит в ветке main от 16 октября 2026, до него были 26 и 6 сентября. Последний релиз 1.6.3 вышел 28 мая, год страница не показывает. Число авторов страница вкладов не показала, так что цифру не называю.</p>
+
+<h2 id="yadro-i-grafika">Ядро, Wayland и видеокарта</h2>
+
+<p>Wayland. В <a href="https://docs.waydro.id/usage/install-on-desktops" target="_blank" rel="noopener nofollow">инструкции по установке</a> для Debian и Ubuntu стоит напоминание: включите сессию Wayland (Ubuntu 22.04 и новее). Если у вас X11, участники сообщества запускают Waydroid во вложенном композиторе cage или weston. В официальных страницах, которые я открыл, этого нет, источники там форумные. Пробовать стоит на копии.</p>
+
+<p>Ядро. В коде Waydroid есть поиск устройств binder, hwbinder и vndbinder. Если их нет, он загружает модуль binder_linux и монтирует binderfs в /dev/binderfs. Быстрая проверка перед установкой: команда ls /dev/binderfs и поиск слова binder в /proc/filesystems. Про ashmem: код пытается загрузить модуль ashmem_linux, если нет /dev/ashmem. По описанию сборки в Gentoo (источник вторичный) в ядрах новее 5.18 его заменил memfd. Нужно ли это вашему ядру, уточняйте на месте.</p>
+
+<p>Видеокарта. Требований по Intel и AMD на открытых страницах я не нашёл. По <a href="https://docs.waydro.id/faq/get-waydroid-to-work-through-a-vm" target="_blank" rel="noopener nofollow">странице про запуск в виртуальной машине</a>, для неподдерживаемых видеокарт (в примере nVidia) есть программная отрисовка: две строки ro.hardware.gralloc=default и ro.hardware.egl=swiftshader в файле /var/lib/waydroid/waydroid.cfg, затем команда sudo waydroid upgrade -o. Нагрузка уходит на процессор.</p>
+
+<h2 id="apk-i-arm">Установка программ и процессоры ARM</h2>
+
+<p>По <a href="https://docs.waydro.id/usage/install-and-run-android-applications" target="_blank" rel="noopener nofollow">странице про установку приложений</a>, APK ставится командой waydroid app install xyz.apk. Запуск идёт из меню рабочего стола или командой waydroid app launch с именем пакета. Свойство persist.waydroid.multi_windows включает интеграцию окон Android с рабочим столом, и приложение стоит в панели задач как обычное окно.</p>
+
+<p>При первичной настройке командой waydroid init тип образа задаёт ключ -s: VANILLA по умолчанию, FOSS или GAPPS. Образ без Google ставит приложения из F-Droid или из APK. Магазин Google Play появляется только с образом GAPPS.</p>
+
+<p>Главная оговорка из документации: найденные в интернете APK часто собраны только под ARM, на процессоре x86_64 они не запустятся. Слой перевода ARM в основной документации не описан. На <a href="https://docs.waydro.id/faq/community-projects-we-like" target="_blank" rel="noopener nofollow">странице проектов сообщества</a> названы два: Waydroid Script ставит OpenGapps и библиотеки libndk-translation, Droid-NDK-Extractor достаёт эти библиотеки из образов Android Studio. Про libhoudini на открытых страницах ничего нет.</p>
+
+<h2 id="banki">Банки и маркетплейсы: где упрётся</h2>
+
+<p>С образом GAPPS при первом запуске Waydroid сообщает, что <a href="https://docs.waydro.id/faq/google-play-certification" target="_blank" rel="noopener nofollow">устройство не сертифицировано для Google Play Protect</a>. Дальше инструкция: прочитать android_id и зарегистрировать его в аккаунте Google на странице несертифицированных устройств. Это касается Play Store.</p>
+
+<p>Банковские приложения смотрят на другое. По <a href="https://developer.android.com/google/play/integrity/verdicts" target="_blank" rel="noopener nofollow">документации Google</a>, вердикт MEETS_DEVICE_INTEGRITY означает настоящее сертифицированное устройство, а на Android 13 и новее ещё и аппаратное подтверждение заблокированного загрузчика. Пустой вердикт получает всё, что не является физическим устройством. Приложение само решает, что делать с таким ответом.</p>
+
+<p>Документация Waydroid не говорит, какой вердикт получит контейнер на обычном компьютере. Проверки по конкретным банкам и маркетплейсам у меня нет, обещать работу не буду. Исходя из определения Google, часть приложений откажется запускаться, и это нормальное поведение их защиты. Для денежных операций держите запасной путь: сайт банка, отдельный смартфон.</p>
+
+<p>Камера и звук. На открытых страницах документации, которые я прочитал, про камеру и звук ничего нет, это не подтверждено. Если приложению нужен сканер штрихкодов через камеру, проверяйте его первым.</p>
+
+<h2 id="chto-sdelat">Что можно сделать уже сейчас</h2>
+
+<p>Составьте список Android-приложений, без которых сотрудники не работают. Рядом пометьте, есть ли веб-версия или версия для компьютера. Часто хватает сайта, и тогда Waydroid не нужен.</p>
+
+<p>Проверьте дистрибутив. По странице установки, пакет есть в официальном репозитории Debian 14 и новее и Ubuntu 26.10 и новее. На Debian 13 он идёт через backports, на старых Debian и Ubuntu нужен сторонний репозиторий. Отдельные инструкции есть для Arch Linux, Fedora, openSUSE Tumbleweed, Void Linux, NixOS и Zorin OS. Astra Linux в списке я не нашёл, поэтому для российской ОС из реестра всё нужно проверять отдельно. Если вы выбираете систему для перехода, начните со статьи про <a href="/blog/migraciya-na-astra-linux-2026/">миграцию на Astra Linux</a>.</p>
+
+<p>Возьмите одно рабочее место и поставьте образ без Google. Установите APK и пройдите рабочий сценарий от входа до печати чека. Потом повторите на GAPPS. Условный пример: 15 компьютеров и 4 Android-приложения, значит 4 проверки на копии. Результат записывайте в таблицу: работает, работает с оговоркой, не работает.</p>
+
+<p>Для программ из третьей колонки нужен запасной путь: веб-версия, отдельное устройство или виртуальная машина. Такую проверку и настройку я делаю в рамках <a href="/services/russian-stack-migration/">миграции на российский стек</a>.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+
+<h3>Заработает ли мой банковский клиент?</h3>
+
+<p>Не знаю, и документация не отвечает. Банк сам решает, пускать ли приложение на устройство без сертификации. Ответ даёт запуск этого приложения на вашем компьютере.</p>
+
+<h3>Нужен ли аккаунт Google?</h3>
+
+<p>Для образа GAPPS и магазина Play нужен. Образ без Google ставит APK и приложения из F-Droid без аккаунта.</p>
+
+<h3>Что с NVIDIA?</h3>
+
+<p>Документация относит nVidia к неподдерживаемым видеокартам и предлагает программную отрисовку без ускорения. Скорость на вашей модели проверяйте на месте.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+
+<p>Waydroid под GPL-3.0 запускает Android 13 в контейнере на Linux, а APK ставится одной командой. Нужны сессия Wayland, binder в ядре и подходящая графика. Приложения только под ARM и приложения с проверкой устройства придётся проверять по одному.</p>
+
+<p>Если в вашем списке для ухода с Windows есть Android-приложения, напишите мне в Telegram кодовое слово «АНДРОИД». Я проверю их на копии и настрою то, что заработает.</p>
+
+                    </div>
+                    
+
+                    
+                    
+                    
+                    
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Обсудим вашу задачу</div>
+  <h3 class="blog-services-offer-title">Что я делаю для бизнеса</h3>
+  <p class="blog-services-offer-lead">Напишите одной фразой, что нужно. Отвечу, что подойдёт, сколько займёт и сколько стоит. Сообщение уже подготовлено.</p>
+  <ul class="blog-services-offer-list"><li><i class="ph-fill ph-robot"></i> <span>Боты в Telegram, MAX, VK</span></li><li><i class="ph-fill ph-gear"></i> <span>Автоматизация процессов и CRM</span></li><li><i class="ph-fill ph-chart-bar"></i> <span>Аналитика и дашборды</span></li><li><i class="ph-fill ph-globe"></i> <span>Сайты и лендинги под ключ</span></li></ul>
+  <div class="blog-services-offer-ctas">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%ABAndroid-%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F%20%D0%BD%D0%B0%20Linux%20%D0%B1%D0%B5%D0%B7%20%D1%8D%D0%BC%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80%D0%B0%3A%20%D1%87%D1%82%D0%BE%20%D0%B4%D0%B0%D1%91%D1%82%20Waydroid%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener" class="blog-services-offer-cta">
+      <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
+    </a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="blog-services-offer-cta blog-services-offer-cta-max">
+      <i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> Написать в MAX
+    </a>
+    <a href="https://chimitdorzhi.tech/services/russian-stack-migration/" class="blog-services-offer-cta blog-services-offer-cta-max"><i class="ph ph-arrow-right" aria-hidden="true"></i> Проверю ваши Android-приложения на Linux и настрою</a>
+  </div>
+</div>
+                    
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/migraciya-na-astra-linux-2026/" data-category="development" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-linux-logo"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
+  <h3>Миграция на Astra Linux: как уйти с Windows без боли</h3>
+  <p>Госсектор, КИИ и госкомпании обязаны импортозамещаться, но переход пугает. Разбираю миграцию на Astra Linux по шагам, чем заменить Windows и офис и как не потерять данные и процессы.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 17 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 10 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/winapps-windows-programmy-na-linux-v-oknah-bez-perehoda-2026/" data-category="development" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-app-window"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
+  <h3>Офис на Linux, но нужен Word или Photoshop: что даёт WinApps</h3>
+  <p>WinApps запускает Windows в виртуальной машине и выводит отдельные программы, например Word или Photoshop, в окнах рядом с обычными приложениями Linux. Разбираю, что проект требует по лицензиям и железу, где могут не заработать токены и ключи и как проверить всё на копии.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 12 октября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/quickemu-virtualnaya-mashina-s-windows-odnoy-komandoy-dlya-starogo-po-2026/" data-category="development" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-hard-drives"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
+  <h3>Проверить обновление 1С на копии: Quickemu вместо рабочего ПК</h3>
+  <p>Quickemu, бесплатная оболочка над QEMU, создаёт виртуальную машину с Windows двумя командами. Разбираю, как бухгалтерии проверить обновление 1С на копии базы и запустить старый клиент в изоляции, и где инструмент не подойдёт: хост только Linux и macOS, лицензия на Windows остаётся на вас.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 10 октября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/windows-10-bez-obnovleniy-chto-delat-ofisu-esu-windows-11-alternativy-2026/" data-category="security" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-shield-warning"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Безопасность</span>
+  <h3>Windows 10 без обновлений: что делать офису в 2026 году</h3>
+  <p>Поддержка Windows 10 закончилась 14 октября 2025 года. Разбираю, что это значит для офиса, кассы и 1С, как за вечер проверить, какие ПК потянут Windows 11, и когда нужны ESU, замена железа или Linux.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 5 октября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    <section class="blog-subscribe">
+  <div class="blog-subscribe-body">
+    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
+    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
+  </div>
+  <div class="blog-subscribe-actions">
+    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
+  </div>
+</section>
+                    
+                    
+                    
+                    
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow"><span class="b-l b-l-ru">Готовые решения под ключ</span><span class="b-l b-l-en" lang="en">Turnkey solutions</span><span class="b-l b-l-es" lang="es">Soluciones llave en mano</span><span class="b-l b-l-cn" lang="zh">交钥匙解决方案</span><span class="b-l b-l-mn" lang="mn">Түлхүүр гардуулах шийдэл</span></span>
+                            <span class="blog-offer-cta-title"><span class="b-l b-l-ru">451 готовых IT-решений для бизнеса</span><span class="b-l b-l-en" lang="en">451 ready-made IT solutions for business</span><span class="b-l b-l-es" lang="es">451 soluciones IT listas para empresas</span><span class="b-l b-l-cn" lang="zh">451 个面向企业的现成 IT 解决方案</span><span class="b-l b-l-mn" lang="mn">Бизнест зориулсан 451 бэлэн IT шийдэл</span></span>
+                            <span class="blog-offer-cta-price"><span class="b-l b-l-ru">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span><span class="b-l b-l-en" lang="en">Automation, bots, AI, data privacy and platforms · free consultation</span><span class="b-l b-l-es" lang="es">Automatización, bots, IA, privacidad de datos y plataformas · consulta gratis</span><span class="b-l b-l-cn" lang="zh">自动化、机器人、AI、数据合规与平台 · 免费咨询</span><span class="b-l b-l-mn" lang="mn">Автоматжуулалт, бот, AI, өгөгдлийн хамгаалалт ба платформ · үнэгүй зөвлөгөө</span></span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> <span class="b-l b-l-ru">Смотреть каталог</span><span class="b-l b-l-en" lang="en">View catalog</span><span class="b-l b-l-es" lang="es">Ver catálogo</span><span class="b-l b-l-cn" lang="zh">查看目录</span><span class="b-l b-l-mn" lang="mn">Каталог үзэх</span></span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#hvost-na-android"><span class="blog-toc-num">01</span> Нужная программа есть только на телефоне</a></li>
+<li><a href="#chto-eto"><span class="blog-toc-num">02</span> Что такое Waydroid и что я проверил</a></li>
+<li><a href="#yadro-i-grafika"><span class="blog-toc-num">03</span> Ядро, Wayland и видеокарта</a></li>
+<li><a href="#apk-i-arm"><span class="blog-toc-num">04</span> Установка программ и процессоры ARM</a></li>
+<li><a href="#banki"><span class="blog-toc-num">05</span> Банки и маркетплейсы: где упрётся</a></li>
+<li><a href="#chto-sdelat"><span class="blog-toc-num">06</span> Что можно сделать уже сейчас</a></li>
+<li><a href="#faq"><span class="blog-toc-num">07</span> Частые вопросы</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">08</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+971563369591" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +971 56 336 9591</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">RA Standard - F.Z.E</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_licence">Лицензия 57033</span><span> · </span><span data-i18n="footer.legal_authority">Free Zones Authority of Ajman</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">Эмират Аджман, ОАЭ</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/cases/" class="footer-policy-link">Кейсы</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=44" defer></script>
+<script src="/services-i18n.js?v=44" defer></script>
+<script src="/script.js?v=41" defer></script>
+<script src="/search-widget.js?v=1" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>

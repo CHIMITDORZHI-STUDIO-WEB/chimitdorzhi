@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2568**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2583**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -343,6 +343,10 @@
 
 ## Open-source и свой сервер
 
+- [Midday для ИП и фрилансеров: сервис закрывают, код открыт](./midday-dlya-ip-i-frilanserov-servis-zakryvayut-chto-s-kodom-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/midday-dlya-ip-i-frilanserov-servis-zakryvayut-chto-s-kodom-2026/)
+- [Nemotron 3.5 Super VL для документов: лицензия и железо](./nemotron-3-5-super-vl-otkrytaya-model-dlya-dokumentov-licenziya-i-zhelezo-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nemotron-3-5-super-vl-otkrytaya-model-dlya-dokumentov-licenziya-i-zhelezo-2026/)
+- [Hy-Memory 2.0: долгая память ИИ-агентов и что в неё нельзя класть](./hy-memory-2-0-dolgaya-pamyat-ii-agentov-chto-nelzya-zapominat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/hy-memory-2-0-dolgaya-pamyat-ii-agentov-chto-nelzya-zapominat-2026/)
+- [Omnara: пульт для ИИ-агентов, права и секреты на своём сервере](./omnara-zapusk-ii-agentov-u-sebya-prava-dostupa-i-sekrety-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/omnara-zapusk-ii-agentov-u-sebya-prava-dostupa-i-sekrety-2026/)
 - [Drama 3 для озвучки: бесплатно до 500 тысяч долларов выручки](./fish-audio-drama-3-otkrytaya-model-ozvuchki-licenziya-po-vyruchke-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/fish-audio-drama-3-otkrytaya-model-ozvuchki-licenziya-po-vyruchke-2026/)
 - [Fileverse dSheets: зашифрованные таблицы вместо Google Sheets](./fileverse-dsheets-zashifrovannye-sovmestnye-tablicy-vmesto-google-sheets-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/fileverse-dsheets-zashifrovannye-sovmestnye-tablicy-vmesto-google-sheets-2026/)
 - [Muse Spark Open: 816 млрд параметров, лицензия и железо](./muse-spark-open-otkrytaya-model-816-mlrd-parametrov-licenziya-i-zhelezo-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/muse-spark-open-otkrytaya-model-816-mlrd-parametrov-licenziya-i-zhelezo-2026/)
@@ -1101,6 +1105,7 @@
 
 ## Маркетинг
 
+- [Яндекс Вебмастер для владельца бизнеса: что смотреть раз в неделю](./yandeks-vebmaster-dlya-vladelca-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/yandeks-vebmaster-dlya-vladelca-biznesa-2026/)
 - [Визуализатор трека: заказать видео под релиз для артиста и лейбла](./vizualizator-treka-dlya-muzykanta-zakazat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vizualizator-treka-dlya-muzykanta-zakazat-2026/)
 - [Реклама в Telegram Ads для малого бизнеса в 2026: запуск и цены](./reklama-v-telegram-ads-dlya-malogo-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/reklama-v-telegram-ads-dlya-malogo-biznesa-2026/)
 - [Animator: пояснительное видео по одной фразе без студии](./animator-poyasnyayushchie-video-po-tekstovomu-zaprosu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/animator-poyasnyayushchie-video-po-tekstovomu-zaprosu-2026/)
@@ -1266,6 +1271,7 @@
 
 ## Отрасли
 
+- [Сайт для музея: онлайн-билеты, аудиогид в браузере и доступность](./sayt-dlya-muzeya-bilety-audiogid-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-dlya-muzeya-bilety-audiogid-2026/)
 - [Сайт для театра, филармонии и дома культуры: афиша, билеты, боты](./sayt-dlya-teatra-filarmonii-doma-kultury-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-dlya-teatra-filarmonii-doma-kultury-2026/)
 - [Система управления общежитием и хостелом: места, договоры, оплата](./sistema-upravleniya-obshchezhitiem-i-hostelom-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sistema-upravleniya-obshchezhitiem-i-hostelom-2026/)
 - [Программа для астролога под ключ: сервис разборов с PDF и слайдами](./servis-personalnyh-razborov-dlya-astrologa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/servis-personalnyh-razborov-dlya-astrologa-2026/)
@@ -1662,6 +1668,10 @@
 
 ## Право и 152-ФЗ
 
+- [Сайт для слабовидящих по постановлению № 102: чек-лист 2026](./sayt-dlya-slabovidyashchih-postanovlenie-102-chek-list-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-dlya-slabovidyashchih-postanovlenie-102-chek-list-2026/)
+- [Как заказать сайт по 44-ФЗ: ТЗ, обоснование цены и приёмка](./zakazat-sayt-po-44-fz-byudzhetnomu-uchrezhdeniyu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zakazat-sayt-po-44-fz-byudzhetnomu-uchrezhdeniyu-2026/)
+- [Доступные PDF на сайте: документы, которые прочитает экранный диктор](./dostupnye-pdf-na-sayte-ekrannyy-diktor-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/dostupnye-pdf-na-sayte-ekrannyy-diktor-2026/)
+- [Маркировка в салоне красоты 2026: что продаёте, что расходуете](./markirovka-v-salone-krasoty-2026-rashodniki-i-tovary-na-prodazhu.md) · [читать на сайте](https://chimitdorzhi.tech/blog/markirovka-v-salone-krasoty-2026-rashodniki-i-tovary-na-prodazhu/)
 - [Маркировка масла с 1 ноября 2026: коды в УПД для магазинов и кафе](./markirovka-rastitelnyh-masel-s-1-noyabrya-2026-poekzemplyarnyy-uchet-magazinam-i-kafe.md) · [читать на сайте](https://chimitdorzhi.tech/blog/markirovka-rastitelnyh-masel-s-1-noyabrya-2026-poekzemplyarnyy-uchet-magazinam-i-kafe/)
 - [Белые списки Минцифры: попадёт ли сайт и как сохранить доступность](./belye-spiski-minczifry-popadet-li-sayt-i-kak-sohranit-dostupnost-pri-ogranicheniyah-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/belye-spiski-minczifry-popadet-li-sayt-i-kak-sohranit-dostupnost-pri-ogranicheniyah-2026/)
 - [Простая электронная подпись договора: код из SMS и кнопка в боте](./podpisanie-dogovora-po-kodu-iz-sms-prostaya-elektronnaya-podpis-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/podpisanie-dogovora-po-kodu-iz-sms-prostaya-elektronnaya-podpis-2026/)
@@ -1921,6 +1931,11 @@
 
 ## Разработка
 
+- [nginxconfig.io: конфиг nginx для VPS и что проверить после](./nginxconfig-io-generator-konfiga-nginx-dlya-svoego-vps-chto-proverit-posle-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nginxconfig-io-generator-konfiga-nginx-dlya-svoego-vps-chto-proverit-posle-2026/)
+- [Self-Hosting-Guide: что с подписок реально переносить бизнесу](./self-hosting-guide-spravochnik-po-perehodu-na-svoi-servisy-chto-pereezzhat-biznesu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/self-hosting-guide-spravochnik-po-perehodu-na-svoi-servisy-chto-pereezzhat-biznesu-2026/)
+- [Understand Anything: граф чужого кода, по которому можно спрашивать](./understand-anything-graf-znaniy-po-chuzhomu-kodu-i-dokumentacii-peredacha-proekta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/understand-anything-graf-znaniy-po-chuzhomu-kodu-i-dokumentacii-peredacha-proekta-2026/)
+- [Android-приложения на Linux без эмулятора: что даёт Waydroid](./waydroid-android-prilozheniya-na-linux-kompyutere-bez-emulyatora-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/waydroid-android-prilozheniya-na-linux-kompyutere-bez-emulyatora-2026/)
+- [Janus Gateway: видеосвязь в своём приложении на своём сервере](./janus-gateway-videosvyaz-v-svoem-prilozhenii-na-svoem-servere-webrtc-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/janus-gateway-videosvyaz-v-svoem-prilozhenii-na-svoem-servere-webrtc-2026/)
 - [SilverBullet: вики из файлов, которая отвечает на запросы](./silverbullet-vika-iz-markdown-faylov-s-zaprosami-i-lua-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/silverbullet-vika-iz-markdown-faylov-s-zaprosami-i-lua-na-svoem-servere-2026/)
 - [WifiWatch: журнал обрывов Wi-Fi, когда сеть то пропадает](./wifiwatch-zhurnal-obryvov-wi-fi-v-ofise-kogda-set-to-propadaet-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/wifiwatch-zhurnal-obryvov-wi-fi-v-ofise-kogda-set-to-propadaet-2026/)
 - [OpenAPI Generator: клиент API площадки без ручного кода](./openapi-generator-klient-api-marketpleysa-iz-specifikacii-bez-ruchnogo-koda-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/openapi-generator-klient-api-marketpleysa-iz-specifikacii-bez-ruchnogo-koda-2026/)
