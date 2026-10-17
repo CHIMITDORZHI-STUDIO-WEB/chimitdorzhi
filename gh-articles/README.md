@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2583**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2588**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -1931,6 +1931,11 @@
 
 ## Разработка
 
+- [Maltrail: тревога, если офисный компьютер звонит на вредоносный адрес](./maltrail-obnaruzhenie-vredonosnogo-trafika-v-seti-ofisa-svoy-datchik-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/maltrail-obnaruzhenie-vredonosnogo-trafika-v-seti-ofisa-svoy-datchik-2026/)
+- [Fail2Ban UI: одна панель для банов на нескольких серверах и её риски](./fail2ban-ui-odna-panel-dlya-banov-na-neskolkih-linux-serverah-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/fail2ban-ui-odna-panel-dlya-banov-na-neskolkih-linux-serverah-2026/)
+- [Pulse: мониторинг Proxmox и TrueNAS без Zabbix, с учётом бэкапов](./pulse-monitoring-proxmox-docker-truenas-bez-korporativnogo-steka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pulse-monitoring-proxmox-docker-truenas-bez-korporativnogo-steka-2026/)
+- [Contrack: личная база контактов на своём сервере со склейкой дублей](./contrack-lichnaya-baza-kontaktov-na-svoem-servere-sklejka-dublej-i-svyazi-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/contrack-lichnaya-baza-kontaktov-na-svoem-servere-sklejka-dublej-i-svyazi-2026/)
+- [CryptoClipGuard: защита от подмены крипто-адреса в буфере](./cryptoclipguard-zashchita-ot-podmeny-kriptoadresa-v-bufere-obmena-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/cryptoclipguard-zashchita-ot-podmeny-kriptoadresa-v-bufere-obmena-2026/)
 - [nginxconfig.io: конфиг nginx для VPS и что проверить после](./nginxconfig-io-generator-konfiga-nginx-dlya-svoego-vps-chto-proverit-posle-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nginxconfig-io-generator-konfiga-nginx-dlya-svoego-vps-chto-proverit-posle-2026/)
 - [Self-Hosting-Guide: что с подписок реально переносить бизнесу](./self-hosting-guide-spravochnik-po-perehodu-na-svoi-servisy-chto-pereezzhat-biznesu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/self-hosting-guide-spravochnik-po-perehodu-na-svoi-servisy-chto-pereezzhat-biznesu-2026/)
 - [Understand Anything: граф чужого кода, по которому можно спрашивать](./understand-anything-graf-znaniy-po-chuzhomu-kodu-i-dokumentacii-peredacha-proekta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/understand-anything-graf-znaniy-po-chuzhomu-kodu-i-dokumentacii-peredacha-proekta-2026/)

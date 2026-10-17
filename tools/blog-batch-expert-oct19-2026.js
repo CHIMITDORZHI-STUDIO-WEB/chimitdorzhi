@@ -9,23 +9,6 @@ const SVC_BIZ = { title: 'Что я делаю для бизнеса', services:
 ]};
 const E = (o) => Object.assign({ published: true, datePublished: D, dateModified: D, readingMinutes: 4, servicesOffer: SVC_BIZ }, o, { contentHtml: C(o.slug) });
 module.exports = [
-  E({ slug: "fail2ban-ui-edinaya-panel-banov-dlya-servera-sayta-i-bota-2026", category: "opensource", heroIcon: "ph-fill ph-prohibit", ctaInternal: { url: "https://chimitdorzhi.tech/services/cybersecurity/", label: "Кибербезопасность: защита сервера, панелей и доступов" },
-    title: "Fail2Ban UI: одна панель банов для сервера, сайта и бота",
-    metaTitle: "Fail2Ban UI (Фейл-ту-бэн ЮАй): панель банов для сервера",
-    metaDescription: "Fail2Ban UI: общая панель банов для VPS с сайтом, ботом и CRM. Как подключается, чем закрыть вход, что с IP-адресами, чек-лист на вечер.",
-    excerpt: "Fail2Ban UI собирает управление банами нескольких серверов в одну панель: поиск IP, разблокировка без SSH, правка jail, уведомления. Разобрал по репозиторию и документации, как панель связывается с серверами, чем закрыть вход (без OIDC входа нет вообще) и что уходит наружу. В конце чек-лист на вечер и пилот на одном сервере.",
-    tags: ["Fail2Ban","безопасность сервера","VPS","open source"],
-    toc: [
-      { id: "kto-lomitsya", text: "Кто стучится на ваш сервер" },
-      { id: "chto-takoe", text: "Что делает Fail2Ban и что за панель" },
-      { id: "svyaz", text: "Как панель добирается до серверов" },
-      { id: "dver", text: "Панель как новая дверь" },
-      { id: "chto-uchest", text: "Чего панель не умеет и как не забанить себя" },
-      { id: "chto-sdelat", text: "Что сделать за вечер" },
-      { id: "faq", text: "Частые вопросы" },
-      { id: "vyvody", text: "Коротко о главном" },
-    ],
-    relatedSlugs: ["kak-nastroit-vps-s-nulya-2026","cosmos-zashchishchennyy-shlyuz-dlya-prilozheniy-na-servere-ofisa-2026","beszel-legkiy-monitoring-serverov-i-diskov-2026","svoy-vps-dlya-razrabotchika-2026"] }),
   E({ slug: "maltrail-kak-zametit-chto-set-ofisa-ili-servera-govorit-s-vredonosnoy-infrastrukturoy-2026", category: "opensource", heroIcon: "ph-fill ph-shield-warning", ctaInternal: { url: "https://chimitdorzhi.tech/services/cybersecurity/", label: "Кибербезопасность: аудит сети офиса и сервера" },
     title: "Maltrail: как заметить, что сеть или сервер говорит с вредоносным IP",
     metaTitle: "Maltrail (Малтрейл): трафик офиса и VPS к вредоносным адресам",
