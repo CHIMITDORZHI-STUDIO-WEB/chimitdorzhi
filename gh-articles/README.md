@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2592**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2597**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -729,6 +729,7 @@
 
 ## Бизнес-кругозор
 
+- [НДС и электронные счета в ОАЭ: что изменится для малого бизнеса](./nds-i-elektronnye-scheta-v-oae-e-invoicing-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nds-i-elektronnye-scheta-v-oae-e-invoicing-2026/)
 - [Отчёты без связи: как приложению не терять данные на объекте](./prilozhenie-dlya-obekta-bez-interneta-oflayn-rezhim-pwa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/prilozhenie-dlya-obekta-bez-interneta-oflayn-rezhim-pwa-2026/)
 - [Роли и права в новой CRM: матрица доступа до разработки](./kto-chto-vidit-v-prilozhenii-roli-i-prava-dlya-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kto-chto-vidit-v-prilozhenii-roli-i-prava-dlya-biznesa-2026/)
 - [Импорт клиентов из Excel в CRM: ключи, слияние, пробная загрузка](./perenos-klientskoy-bazy-iz-excel-v-crm-bez-dublirovaniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/perenos-klientskoy-bazy-iz-excel-v-crm-bez-dublirovaniya-2026/)
@@ -1671,6 +1672,9 @@
 
 ## Право и 152-ФЗ
 
+- [Сайт администрации поселения: что разместить по 8-ФЗ и ПП № 102](./sayt-administracii-poseleniya-8-fz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-administracii-poseleniya-8-fz-2026/)
+- [НОК и сайт учреждения: за что снимают баллы и как их вернуть](./nezavisimaya-ocenka-kachestva-nok-sayt-uchrezhdeniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nezavisimaya-ocenka-kachestva-nok-sayt-uchrezhdeniya-2026/)
+- [Электронная приёмная на сайте учреждения: 59-ФЗ и виджет Госуслуг](./elektronnaya-priemnaya-obrashcheniya-grazhdan-59-fz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/elektronnaya-priemnaya-obrashcheniya-grazhdan-59-fz-2026/)
 - [Сайт для слабовидящих по постановлению № 102: чек-лист 2026](./sayt-dlya-slabovidyashchih-postanovlenie-102-chek-list-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-dlya-slabovidyashchih-postanovlenie-102-chek-list-2026/)
 - [Как заказать сайт по 44-ФЗ: ТЗ, обоснование цены и приёмка](./zakazat-sayt-po-44-fz-byudzhetnomu-uchrezhdeniyu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zakazat-sayt-po-44-fz-byudzhetnomu-uchrezhdeniyu-2026/)
 - [Доступные PDF на сайте: документы, которые прочитает экранный диктор](./dostupnye-pdf-na-sayte-ekrannyy-diktor-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/dostupnye-pdf-na-sayte-ekrannyy-diktor-2026/)
@@ -1939,6 +1943,7 @@
 - [Pulse: мониторинг Proxmox и TrueNAS без Zabbix, с учётом бэкапов](./pulse-monitoring-proxmox-docker-truenas-bez-korporativnogo-steka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pulse-monitoring-proxmox-docker-truenas-bez-korporativnogo-steka-2026/)
 - [Contrack: личная база контактов на своём сервере со склейкой дублей](./contrack-lichnaya-baza-kontaktov-na-svoem-servere-sklejka-dublej-i-svyazi-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/contrack-lichnaya-baza-kontaktov-na-svoem-servere-sklejka-dublej-i-svyazi-2026/)
 - [CryptoClipGuard: защита от подмены крипто-адреса в буфере](./cryptoclipguard-zashchita-ot-podmeny-kriptoadresa-v-bufere-obmena-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/cryptoclipguard-zashchita-ot-podmeny-kriptoadresa-v-bufere-obmena-2026/)
+- [Скорость сайта: как читать PageSpeed и что чинить в первую очередь](./skorost-sayta-pagespeed-chto-chinit-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skorost-sayta-pagespeed-chto-chinit-2026/)
 - [nginxconfig.io: конфиг nginx для VPS и что проверить после](./nginxconfig-io-generator-konfiga-nginx-dlya-svoego-vps-chto-proverit-posle-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nginxconfig-io-generator-konfiga-nginx-dlya-svoego-vps-chto-proverit-posle-2026/)
 - [Self-Hosting-Guide: что с подписок реально переносить бизнесу](./self-hosting-guide-spravochnik-po-perehodu-na-svoi-servisy-chto-pereezzhat-biznesu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/self-hosting-guide-spravochnik-po-perehodu-na-svoi-servisy-chto-pereezzhat-biznesu-2026/)
 - [Understand Anything: граф чужого кода, по которому можно спрашивать](./understand-anything-graf-znaniy-po-chuzhomu-kodu-i-dokumentacii-peredacha-proekta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/understand-anything-graf-znaniy-po-chuzhomu-kodu-i-dokumentacii-peredacha-proekta-2026/)
