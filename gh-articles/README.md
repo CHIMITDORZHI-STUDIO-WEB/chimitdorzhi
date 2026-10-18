@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2583**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2597**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -343,6 +343,8 @@
 
 ## Open-source и свой сервер
 
+- [Maltrail: как заметить, что сеть или сервер говорит с вредоносным IP](./maltrail-kak-zametit-chto-set-ofisa-ili-servera-govorit-s-vredonosnoy-infrastrukturoy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/maltrail-kak-zametit-chto-set-ofisa-ili-servera-govorit-s-vredonosnoy-infrastrukturoy-2026/)
+- [Contrack: одна книга контактов вместо четырёх, но не CRM](./contrack-svoya-sistema-kontaktov-s-obedineniem-dublikatov-i-avtosborom-konteksta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/contrack-svoya-sistema-kontaktov-s-obedineniem-dublikatov-i-avtosborom-konteksta-2026/)
 - [Midday для ИП и фрилансеров: сервис закрывают, код открыт](./midday-dlya-ip-i-frilanserov-servis-zakryvayut-chto-s-kodom-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/midday-dlya-ip-i-frilanserov-servis-zakryvayut-chto-s-kodom-2026/)
 - [Nemotron 3.5 Super VL для документов: лицензия и железо](./nemotron-3-5-super-vl-otkrytaya-model-dlya-dokumentov-licenziya-i-zhelezo-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nemotron-3-5-super-vl-otkrytaya-model-dlya-dokumentov-licenziya-i-zhelezo-2026/)
 - [Hy-Memory 2.0: долгая память ИИ-агентов и что в неё нельзя класть](./hy-memory-2-0-dolgaya-pamyat-ii-agentov-chto-nelzya-zapominat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/hy-memory-2-0-dolgaya-pamyat-ii-agentov-chto-nelzya-zapominat-2026/)
@@ -650,6 +652,7 @@
 
 ## Безопасность
 
+- [ChatGPT в Chrome читает вкладки: что защитить у сотрудников](./chatgpt-dlya-chrome-chitaet-vkladki-i-upravlyaet-brauzerom-chto-zashchitit-u-sotrudnikov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chatgpt-dlya-chrome-chitaet-vkladki-i-upravlyaet-brauzerom-chto-zashchitit-u-sotrudnikov-2026/)
 - [SynthID Detector: как проверять фото клиента на метки ИИ](./synthid-detector-proverka-foto-i-video-na-metki-ii-chego-ne-dokazyvaet-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/synthid-detector-proverka-foto-i-video-na-metki-ii-chego-ne-dokazyvaet-2026/)
 - [ИИ ищет дыры в curl и OpenSSL: что делать владельцу сайта](./oss-scanner-anthropic-besplatnyy-ii-audit-otkrytogo-koda-chto-delat-vladelcu-sayta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/oss-scanner-anthropic-besplatnyy-ii-audit-otkrytogo-koda-chto-delat-vladelcu-sayta-2026/)
 - [Сбой дата-центра у облачного провайдера: что делать сайту, боту и CRM](./sboy-dc-oblachnogo-provaydera-yandex-cloud-chto-delat-saytu-botu-crm-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sboy-dc-oblachnogo-provaydera-yandex-cloud-chto-delat-saytu-botu-crm-2026/)
@@ -726,6 +729,7 @@
 
 ## Бизнес-кругозор
 
+- [НДС и электронные счета в ОАЭ: что изменится для малого бизнеса](./nds-i-elektronnye-scheta-v-oae-e-invoicing-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nds-i-elektronnye-scheta-v-oae-e-invoicing-2026/)
 - [Отчёты без связи: как приложению не терять данные на объекте](./prilozhenie-dlya-obekta-bez-interneta-oflayn-rezhim-pwa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/prilozhenie-dlya-obekta-bez-interneta-oflayn-rezhim-pwa-2026/)
 - [Роли и права в новой CRM: матрица доступа до разработки](./kto-chto-vidit-v-prilozhenii-roli-i-prava-dlya-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kto-chto-vidit-v-prilozhenii-roli-i-prava-dlya-biznesa-2026/)
 - [Импорт клиентов из Excel в CRM: ключи, слияние, пробная загрузка](./perenos-klientskoy-bazy-iz-excel-v-crm-bez-dublirovaniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/perenos-klientskoy-bazy-iz-excel-v-crm-bez-dublirovaniya-2026/)
@@ -1668,6 +1672,9 @@
 
 ## Право и 152-ФЗ
 
+- [Сайт администрации поселения: что разместить по 8-ФЗ и ПП № 102](./sayt-administracii-poseleniya-8-fz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-administracii-poseleniya-8-fz-2026/)
+- [НОК и сайт учреждения: за что снимают баллы и как их вернуть](./nezavisimaya-ocenka-kachestva-nok-sayt-uchrezhdeniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nezavisimaya-ocenka-kachestva-nok-sayt-uchrezhdeniya-2026/)
+- [Электронная приёмная на сайте учреждения: 59-ФЗ и виджет Госуслуг](./elektronnaya-priemnaya-obrashcheniya-grazhdan-59-fz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/elektronnaya-priemnaya-obrashcheniya-grazhdan-59-fz-2026/)
 - [Сайт для слабовидящих по постановлению № 102: чек-лист 2026](./sayt-dlya-slabovidyashchih-postanovlenie-102-chek-list-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-dlya-slabovidyashchih-postanovlenie-102-chek-list-2026/)
 - [Как заказать сайт по 44-ФЗ: ТЗ, обоснование цены и приёмка](./zakazat-sayt-po-44-fz-byudzhetnomu-uchrezhdeniyu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zakazat-sayt-po-44-fz-byudzhetnomu-uchrezhdeniyu-2026/)
 - [Доступные PDF на сайте: документы, которые прочитает экранный диктор](./dostupnye-pdf-na-sayte-ekrannyy-diktor-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/dostupnye-pdf-na-sayte-ekrannyy-diktor-2026/)
@@ -1931,6 +1938,12 @@
 
 ## Разработка
 
+- [Maltrail: тревога, если офисный компьютер звонит на вредоносный адрес](./maltrail-obnaruzhenie-vredonosnogo-trafika-v-seti-ofisa-svoy-datchik-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/maltrail-obnaruzhenie-vredonosnogo-trafika-v-seti-ofisa-svoy-datchik-2026/)
+- [Fail2Ban UI: одна панель для банов на нескольких серверах и её риски](./fail2ban-ui-odna-panel-dlya-banov-na-neskolkih-linux-serverah-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/fail2ban-ui-odna-panel-dlya-banov-na-neskolkih-linux-serverah-2026/)
+- [Pulse: мониторинг Proxmox и TrueNAS без Zabbix, с учётом бэкапов](./pulse-monitoring-proxmox-docker-truenas-bez-korporativnogo-steka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pulse-monitoring-proxmox-docker-truenas-bez-korporativnogo-steka-2026/)
+- [Contrack: личная база контактов на своём сервере со склейкой дублей](./contrack-lichnaya-baza-kontaktov-na-svoem-servere-sklejka-dublej-i-svyazi-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/contrack-lichnaya-baza-kontaktov-na-svoem-servere-sklejka-dublej-i-svyazi-2026/)
+- [CryptoClipGuard: защита от подмены крипто-адреса в буфере](./cryptoclipguard-zashchita-ot-podmeny-kriptoadresa-v-bufere-obmena-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/cryptoclipguard-zashchita-ot-podmeny-kriptoadresa-v-bufere-obmena-2026/)
+- [Скорость сайта: как читать PageSpeed и что чинить в первую очередь](./skorost-sayta-pagespeed-chto-chinit-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skorost-sayta-pagespeed-chto-chinit-2026/)
 - [nginxconfig.io: конфиг nginx для VPS и что проверить после](./nginxconfig-io-generator-konfiga-nginx-dlya-svoego-vps-chto-proverit-posle-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nginxconfig-io-generator-konfiga-nginx-dlya-svoego-vps-chto-proverit-posle-2026/)
 - [Self-Hosting-Guide: что с подписок реально переносить бизнесу](./self-hosting-guide-spravochnik-po-perehodu-na-svoi-servisy-chto-pereezzhat-biznesu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/self-hosting-guide-spravochnik-po-perehodu-na-svoi-servisy-chto-pereezzhat-biznesu-2026/)
 - [Understand Anything: граф чужого кода, по которому можно спрашивать](./understand-anything-graf-znaniy-po-chuzhomu-kodu-i-dokumentacii-peredacha-proekta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/understand-anything-graf-znaniy-po-chuzhomu-kodu-i-dokumentacii-peredacha-proekta-2026/)
@@ -2457,6 +2470,7 @@
 
 ## Экспертное
 
+- [DeepSeek V4.1-Flash-1017: что менять в бюджете и настройках бота](./deepseek-v4-1-flash-1017-chto-menyat-v-byudzhete-i-nastroykakh-bota-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/deepseek-v4-1-flash-1017-chto-menyat-v-byudzhete-i-nastroykakh-bota-2026/)
 - [Sora API закрыт 24 сентября: что делать, если процесс на нём](./sora-api-zakryt-24-sentyabrya-2026-chto-delat-esli-process-derzhalsya-na-nem.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sora-api-zakryt-24-sentyabrya-2026-chto-delat-esli-process-derzhalsya-na-nem/)
 - [Gemini 4 Argon: цена вдвое вырастет 1 декабря. Что менять в боте](./gemini-4-argon-chto-menyat-v-byudzhete-i-nastroykakh-bota-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gemini-4-argon-chto-menyat-v-byudzhete-i-nastroykakh-bota-2026/)
 - [ИИ плохо видит: что показал Humanity's Sixth Sense в проверке по фото](./ii-ploho-vidit-humanitys-sixth-sense-chto-eto-znachit-dlya-proverki-po-foto-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-ploho-vidit-humanitys-sixth-sense-chto-eto-znachit-dlya-proverki-po-foto-2026/)

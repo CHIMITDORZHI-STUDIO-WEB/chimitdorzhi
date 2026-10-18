@@ -215,7 +215,7 @@ module.exports = {
       'Оплата модели ИИ, если в процессе нужен разбор текстов',
     ],
     timeline: 'Обычно от 2 до 6 недель в зависимости от числа сервисов и логики процесса.',
-    smeta: null,
+    smeta: 'avtomatizaciya-processov-i-dokumentov',
   },
 
   'accounting-automation': {
@@ -241,7 +241,7 @@ module.exports = {
       'Доработки конфигурации 1С',
     ],
     timeline: 'Обычно от 2 до 6 недель, срок зависит от числа типов документов и интеграций.',
-    smeta: null,
+    smeta: 'raspoznavanie-dokumentov',
   },
 
   'computer-vision': {

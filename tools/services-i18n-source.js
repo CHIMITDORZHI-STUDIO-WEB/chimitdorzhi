@@ -43,12 +43,12 @@ const i18nServices = {
     cn: { n: 'AI 分析与报告', d: 'BI 仪表板、预测模型、AI 销售与财务分析。集成 1C、CRM 和数据库，自动生成管理报告。', pt: '起 80,000 ₽' },
   },
   'business-automation': {
-    en: { n: 'Business process automation', d: 'Sales funnels, automated mailings, document generation, service-to-service integrations, data sync. Reduce manual work by up to 80%.', pt: 'from 50,000 ₽' },
-    cn: { n: '业务流程自动化', d: '销售漏斗、自动邮件、文档生成、服务间集成、数据同步。减少人工工作量最高 80%。', pt: '起 50,000 ₽' },
+    en: { n: 'Business process automation', d: 'Sales funnels, automated mailings, document generation, service-to-service integrations, data sync. Reduce manual work by up to 80%.', pt: 'from 60,000 ₽' },
+    cn: { n: '业务流程自动化', d: '销售漏斗、自动邮件、文档生成、服务间集成、数据同步。减少人工工作量最高 80%。', pt: '起 60,000 ₽' },
   },
   'accounting-automation': {
-    en: { n: 'Accounting automation', d: 'AI processing of primary documents, OCR, integration with 1C, banks and marketplaces. EDI, automatic counterparty reconciliation.', pt: 'from 40,000 ₽' },
-    cn: { n: '会计自动化', d: 'AI 处理原始凭证、OCR，集成 1C、网银和电商平台。电子文档流转、对账自动化。', pt: '起 40,000 ₽' },
+    en: { n: 'Accounting automation', d: 'AI processing of primary documents, OCR, integration with 1C, banks and marketplaces. EDI, automatic counterparty reconciliation.', pt: 'from 100,000 ₽' },
+    cn: { n: '会计自动化', d: 'AI 处理原始凭证、OCR，集成 1C、网银和电商平台。电子文档流转、对账自动化。', pt: '起 100,000 ₽' },
   },
   'computer-vision': {
     en: { n: 'Computer vision systems', d: 'Object recognition, manufacturing quality control, biometrics, medical imaging diagnostics. Real production systems, not lab demos.', pt: 'from 150,000 ₽' },
@@ -133,8 +133,8 @@ const i18nServices = {
 
   // === МЕДИА И КОНТЕНТ ===
   'digital-marketing': {
-    en: { n: 'Digital marketing', d: 'SMM, content planning, AI video/photo/music generation, content repurposing, traffic analytics. Full digital promotion cycle for brands and experts.', pt: 'from 25,000 ₽/month' },
-    cn: { n: '数字营销', d: '社交媒体运营、内容规划、AI 视频/图片/音乐生成、内容再利用、流量分析。面向品牌与专家的完整数字推广周期。', pt: '起 25,000 ₽/月' },
+    en: { n: 'Digital marketing', d: 'SMM, content planning, AI video/photo/music generation, content repurposing, traffic analytics. Full digital promotion cycle for brands and experts.', pt: 'from 40,000 ₽/month' },
+    cn: { n: '数字营销', d: '社交媒体运营、内容规划、AI 视频/图片/音乐生成、内容再利用、流量分析。面向品牌与专家的完整数字推广周期。', pt: '起 40,000 ₽/月' },
   },
   'podcast-production': {
     en: { n: 'Turnkey podcast production', d: 'Recording, editing, post-production, distribution to all platforms (Apple Podcasts, Yandex Music, VK, YouTube). AI audio enhancement. 100+ podcasts and 1M+ views experience.', pt: 'from 30,000 ₽ per episode' },
@@ -179,12 +179,12 @@ const i18nServices = {
     cn: { n: 'IT 招聘与人力', d: '完整团队管理：IT 招聘（开发者、AI/ML 工程师）、员工入职、企业文化设计、内部调研、接班人规划。16+ 年 IT 团队搭建经验。', pt: '起 30,000 ₽' },
   },
   'business-analytics-unit-economics': {
-    en: { n: 'Unit economics & BI analytics', d: 'Unit economics calculation, LTV (Customer Lifetime Value), CAC (Customer Acquisition Cost), cohort analysis, predictive analytics — sales and customer behaviour forecasts. A single business dashboard with all key metrics.', pt: 'from 50,000 ₽' },
-    cn: { n: 'Unit 经济学与 BI', d: '计算 Unit 经济学、LTV（客户生命周期价值）、CAC（客户获取成本）、客户队列分析、预测性分析——销售与客户行为预测。一个统一的业务仪表板，呈现所有关键指标。', pt: '起 50,000 ₽' },
+    en: { n: 'Unit economics & BI analytics', d: 'Unit economics calculation, LTV (Customer Lifetime Value), CAC (Customer Acquisition Cost), cohort analysis, predictive analytics — sales and customer behaviour forecasts. A single business dashboard with all key metrics.', pt: 'from 80,000 ₽' },
+    cn: { n: 'Unit 经济学与 BI', d: '计算 Unit 经济学、LTV（客户生命周期价值）、CAC（客户获取成本）、客户队列分析、预测性分析——销售与客户行为预测。一个统一的业务仪表板，呈现所有关键指标。', pt: '起 80,000 ₽' },
   },
   'operations-efficiency': {
-    en: { n: 'Operational efficiency', d: 'Lean process analysis, drafting regulations and work standards, internal SLAs between departments, management reporting automation. Turning a manual business into a systematic mechanism.', pt: 'from 40,000 ₽' },
-    cn: { n: '运营效率', d: '公司流程的精益分析、规章和工作标准制定、部门间内部 SLA、管理报告自动化。把人工业务转化为系统化机制。', pt: '起 40,000 ₽' },
+    en: { n: 'Operational efficiency', d: 'Lean process analysis, drafting regulations and work standards, internal SLAs between departments, management reporting automation. Turning a manual business into a systematic mechanism.', pt: 'from 50,000 ₽' },
+    cn: { n: '运营效率', d: '公司流程的精益分析、规章和工作标准制定、部门间内部 SLA、管理报告自动化。把人工业务转化为系统化机制。', pt: '起 50,000 ₽' },
   },
   'cfa-issuance': {
     en: { n: 'CFA issuance under 259-FZ', d: 'Full Digital Financial Assets (CFA) issuance cycle under 259-FZ: tokenisation of real estate, equipment and receivables, operator selection (Sber, T-Bank, Atomyze), legal structuring, smart contracts, secondary-market monitoring. RACIB FEFD experience (2019–2022).', pt: 'from 300,000 ₽' },
