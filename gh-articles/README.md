@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2607**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2612**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -343,6 +343,9 @@
 
 ## Open-source и свой сервер
 
+- [Perplexity открыла SPACE: что спросить у подрядчика про изоляцию ИИ](./perplexity-space-platforma-izolyacii-ii-agentov-chto-vzyat-i-chto-sprosit-u-podryadchika-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/perplexity-space-platforma-izolyacii-ii-agentov-chto-vzyat-i-chto-sprosit-u-podryadchika-2026/)
+- [Howdy: вход в Linux по лицу и 152-ФЗ на рабочем ноутбуке](./howdy-vhod-v-linux-po-licu-biometriya-i-152-fz-na-rabochem-noutbuke-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/howdy-vhod-v-linux-po-licu-biometriya-i-152-fz-na-rabochem-noutbuke-2026/)
+- [Spacedrive: единый каталог файлов, но пока только в альфе](./spacedrive-edinyy-katalog-faylov-poverh-diskov-serverov-i-oblakov-bez-pereezda-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/spacedrive-edinyy-katalog-faylov-poverh-diskov-serverov-i-oblakov-bez-pereezda-2026/)
 - [Maltrail: как заметить, что сеть или сервер говорит с вредоносным IP](./maltrail-kak-zametit-chto-set-ofisa-ili-servera-govorit-s-vredonosnoy-infrastrukturoy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/maltrail-kak-zametit-chto-set-ofisa-ili-servera-govorit-s-vredonosnoy-infrastrukturoy-2026/)
 - [Contrack: одна книга контактов вместо четырёх, но не CRM](./contrack-svoya-sistema-kontaktov-s-obedineniem-dublikatov-i-avtosborom-konteksta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/contrack-svoya-sistema-kontaktov-s-obedineniem-dublikatov-i-avtosborom-konteksta-2026/)
 - [Midday для ИП и фрилансеров: сервис закрывают, код открыт](./midday-dlya-ip-i-frilanserov-servis-zakryvayut-chto-s-kodom-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/midday-dlya-ip-i-frilanserov-servis-zakryvayut-chto-s-kodom-2026/)
@@ -1677,6 +1680,7 @@
 
 - [Сайт учреждения соцобслуживания по 442-ФЗ: требования и баллы НОК](./sayt-uchrezhdeniya-socialnogo-obsluzhivaniya-442-fz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-uchrezhdeniya-socialnogo-obsluzhivaniya-442-fz-2026/)
 - [Госпаблик учреждения в ВК, ОК и MAX: что обязательно и как вести](./gospabliki-uchrezhdeniya-vk-ok-max-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gospabliki-uchrezhdeniya-vk-ok-max-2026/)
+- [Amazon Bee на встрече: правила записи разговоров для команды](./amazon-bee-nosimye-ii-diktofony-pravila-zapisi-razgovorov-dlya-komandy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/amazon-bee-nosimye-ii-diktofony-pravila-zapisi-razgovorov-dlya-komandy-2026/)
 - [Сайт администрации поселения: что разместить по 8-ФЗ и ПП № 102](./sayt-administracii-poseleniya-8-fz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-administracii-poseleniya-8-fz-2026/)
 - [НОК и сайт учреждения: за что снимают баллы и как их вернуть](./nezavisimaya-ocenka-kachestva-nok-sayt-uchrezhdeniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nezavisimaya-ocenka-kachestva-nok-sayt-uchrezhdeniya-2026/)
 - [Электронная приёмная на сайте учреждения: 59-ФЗ и виджет Госуслуг](./elektronnaya-priemnaya-obrashcheniya-grazhdan-59-fz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/elektronnaya-priemnaya-obrashcheniya-grazhdan-59-fz-2026/)
@@ -2480,6 +2484,7 @@
 
 ## Экспертное
 
+- [Harness² от Google: агент сам правит инструкции, а вы держите откат](./google-harness2-ii-agent-sam-uluchshaet-svoi-instrukcii-versii-konfiguracii-i-otkat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/google-harness2-ii-agent-sam-uluchshaet-svoi-instrukcii-versii-konfiguracii-i-otkat-2026/)
 - [DeepSeek V4.1-Flash-1017: что менять в бюджете и настройках бота](./deepseek-v4-1-flash-1017-chto-menyat-v-byudzhete-i-nastroykakh-bota-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/deepseek-v4-1-flash-1017-chto-menyat-v-byudzhete-i-nastroykakh-bota-2026/)
 - [Sora API закрыт 24 сентября: что делать, если процесс на нём](./sora-api-zakryt-24-sentyabrya-2026-chto-delat-esli-process-derzhalsya-na-nem.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sora-api-zakryt-24-sentyabrya-2026-chto-delat-esli-process-derzhalsya-na-nem/)
 - [Gemini 4 Argon: цена вдвое вырастет 1 декабря. Что менять в боте](./gemini-4-argon-chto-menyat-v-byudzhete-i-nastroykakh-bota-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gemini-4-argon-chto-menyat-v-byudzhete-i-nastroykakh-bota-2026/)
