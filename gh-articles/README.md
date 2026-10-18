@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2597**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2602**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -1938,6 +1938,11 @@
 
 ## Разработка
 
+- [Skill Recorder: задачу записали один раз, ИИ-агент повторяет рутину](./skill-recorder-zapis-zadachi-odin-raz-ii-agent-povtoryaet-rutinu-sotrudnika-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skill-recorder-zapis-zadachi-odin-raz-ii-agent-povtoryaet-rutinu-sotrudnika-2026/)
+- [Scroll-world: 3D-лендинг как у Apple и цена за эффект](./scroll-world-3d-lending-po-skrollu-v-stile-apple-kogda-opravdan-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/scroll-world-3d-lending-po-skrollu-v-stile-apple-kogda-opravdan-2026/)
+- [PageTrace: все запросы 200 OK, а часть данных потеряна](./pagetrace-proverka-paginacii-api-po-har-kogda-vse-200-ok-a-dannye-poteryany-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pagetrace-proverka-paginacii-api-po-har-kogda-vse-200-ok-a-dannye-poteryany-2026/)
+- [Stitch Skills от Google Labs: навыки агента несут макет в код](./stitch-skills-google-labs-navyki-agenta-maket-v-kod-cherez-mcp-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/stitch-skills-google-labs-navyki-agenta-maket-v-kod-cherez-mcp-2026/)
+- [SimpleX: чат без номера и логина и свои серверы для команды](./simplex-chat-messendzher-bez-identifikatorov-i-svoi-servery-dlya-komandy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/simplex-chat-messendzher-bez-identifikatorov-i-svoi-servery-dlya-komandy-2026/)
 - [Maltrail: тревога, если офисный компьютер звонит на вредоносный адрес](./maltrail-obnaruzhenie-vredonosnogo-trafika-v-seti-ofisa-svoy-datchik-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/maltrail-obnaruzhenie-vredonosnogo-trafika-v-seti-ofisa-svoy-datchik-2026/)
 - [Fail2Ban UI: одна панель для банов на нескольких серверах и её риски](./fail2ban-ui-odna-panel-dlya-banov-na-neskolkih-linux-serverah-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/fail2ban-ui-odna-panel-dlya-banov-na-neskolkih-linux-serverah-2026/)
 - [Pulse: мониторинг Proxmox и TrueNAS без Zabbix, с учётом бэкапов](./pulse-monitoring-proxmox-docker-truenas-bez-korporativnogo-steka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pulse-monitoring-proxmox-docker-truenas-bez-korporativnogo-steka-2026/)
