@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2602**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2607**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -1275,6 +1275,9 @@
 
 ## Отрасли
 
+- [Приёмная кампания колледжа онлайн: сайт, Госуслуги, рейтинг](./priemnaya-kampaniya-kolledzha-onlayn-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/priemnaya-kampaniya-kolledzha-onlayn-2026/)
+- [Кружки и секции: запись на сайте и в боте, Навигатор и сертификат ПФДО](./kruzhki-i-sekcii-zapis-navigator-pfdo-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kruzhki-i-sekcii-zapis-navigator-pfdo-2026/)
+- [Сайт бассейна и спорткомплекса: запись на сеансы и загрузка дорожек](./sayt-basseyna-sportkompleksa-zapis-na-seansy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-basseyna-sportkompleksa-zapis-na-seansy-2026/)
 - [Сайт для музея: онлайн-билеты, аудиогид в браузере и доступность](./sayt-dlya-muzeya-bilety-audiogid-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-dlya-muzeya-bilety-audiogid-2026/)
 - [Сайт для театра, филармонии и дома культуры: афиша, билеты, боты](./sayt-dlya-teatra-filarmonii-doma-kultury-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-dlya-teatra-filarmonii-doma-kultury-2026/)
 - [Система управления общежитием и хостелом: места, договоры, оплата](./sistema-upravleniya-obshchezhitiem-i-hostelom-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sistema-upravleniya-obshchezhitiem-i-hostelom-2026/)
@@ -1672,6 +1675,8 @@
 
 ## Право и 152-ФЗ
 
+- [Сайт учреждения соцобслуживания по 442-ФЗ: требования и баллы НОК](./sayt-uchrezhdeniya-socialnogo-obsluzhivaniya-442-fz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-uchrezhdeniya-socialnogo-obsluzhivaniya-442-fz-2026/)
+- [Госпаблик учреждения в ВК, ОК и MAX: что обязательно и как вести](./gospabliki-uchrezhdeniya-vk-ok-max-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gospabliki-uchrezhdeniya-vk-ok-max-2026/)
 - [Сайт администрации поселения: что разместить по 8-ФЗ и ПП № 102](./sayt-administracii-poseleniya-8-fz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-administracii-poseleniya-8-fz-2026/)
 - [НОК и сайт учреждения: за что снимают баллы и как их вернуть](./nezavisimaya-ocenka-kachestva-nok-sayt-uchrezhdeniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nezavisimaya-ocenka-kachestva-nok-sayt-uchrezhdeniya-2026/)
 - [Электронная приёмная на сайте учреждения: 59-ФЗ и виджет Госуслуг](./elektronnaya-priemnaya-obrashcheniya-grazhdan-59-fz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/elektronnaya-priemnaya-obrashcheniya-grazhdan-59-fz-2026/)
