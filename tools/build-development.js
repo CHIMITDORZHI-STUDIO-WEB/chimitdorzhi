@@ -254,7 +254,7 @@ function hubPage() {
 
   return `${head({
     title: 'Разработка сайтов, ботов и приложений — 18 продуктов | Чимитдоржи',
-    description: 'Сайты, боты, мобильные приложения, расширения и виджеты под ключ. 18 продуктов с прозрачными ценами от 15 000 ₽. Связаться в Telegram.',
+    description: `Сайты, боты, мобильные приложения, расширения и виджеты под ключ. 18 продуктов с прозрачными ценами от ${fmt(Math.min(...services.map(x => x.priceFrom)))} ₽. Связаться в Telegram.`,
     keywords: 'разработка под ключ, заказать сайт, заказать бота, разработка мобильного приложения, веб-разработка, разработка приложений Чита',
     canonical: url,
   })}    <script type="application/ld+json">
@@ -306,21 +306,21 @@ ${METRIKA}</head>
                             <i class="ph-fill ph-lightning"></i>
                             <div class="dev-floating-card-body">
                                 <div class="dev-floating-card-title">TG-бот</div>
-                                <div class="dev-floating-card-price">от 15 000 ₽</div>
+                                <div class="dev-floating-card-price">${priceFrom(services.find(x => x.slug === 'telegram-bots').priceFrom)}</div>
                             </div>
                         </a>
                         <a href="/development/sites/" class="dev-floating-card">
                             <i class="ph ph-globe"></i>
                             <div class="dev-floating-card-body">
                                 <div class="dev-floating-card-title">Лендинг</div>
-                                <div class="dev-floating-card-price">от 30 000 ₽</div>
+                                <div class="dev-floating-card-price">${priceFrom(services.find(x => x.slug === 'sites').priceFrom)}</div>
                             </div>
                         </a>
                         <a href="/development/max-bots/" class="dev-floating-card">
                             <i class="ph ph-robot"></i>
                             <div class="dev-floating-card-body">
                                 <div class="dev-floating-card-title">MAX-бот</div>
-                                <div class="dev-floating-card-price">от 20 000 ₽</div>
+                                <div class="dev-floating-card-price">${priceFrom(services.find(x => x.slug === 'max-bots').priceFrom)}</div>
                             </div>
                         </a>
                     </div>
