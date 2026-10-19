@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2612**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2617**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -1952,6 +1952,11 @@
 - [PageTrace: все запросы 200 OK, а часть данных потеряна](./pagetrace-proverka-paginacii-api-po-har-kogda-vse-200-ok-a-dannye-poteryany-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pagetrace-proverka-paginacii-api-po-har-kogda-vse-200-ok-a-dannye-poteryany-2026/)
 - [Stitch Skills от Google Labs: навыки агента несут макет в код](./stitch-skills-google-labs-navyki-agenta-maket-v-kod-cherez-mcp-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/stitch-skills-google-labs-navyki-agenta-maket-v-kod-cherez-mcp-2026/)
 - [SimpleX: чат без номера и логина и свои серверы для команды](./simplex-chat-messendzher-bez-identifikatorov-i-svoi-servery-dlya-komandy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/simplex-chat-messendzher-bez-identifikatorov-i-svoi-servery-dlya-komandy-2026/)
+- [Сеть между филиалами без сервера: EasyTier для 1С и камер](./easytier-mesh-set-mezhdu-filialami-bez-centralnogo-servera-1s-kamery-printery-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/easytier-mesh-set-mezhdu-filialami-bez-centralnogo-servera-1s-kamery-printery-2026/)
+- [LibreDB Studio: веб-клиент к базам с SSO и без открытого порта](./libredb-studio-veb-klient-k-bazam-dannyh-s-sso-bez-otkrytogo-porta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/libredb-studio-veb-klient-k-bazam-dannyh-s-sso-bez-otkrytogo-porta-2026/)
+- [ИИ-агент в браузере без скриншотов: 7 секунд и цена ошибки](./browser-use-ultrafast-ii-agent-v-brauzere-po-strukture-stranicy-bystro-i-bez-skrinshotov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/browser-use-ultrafast-ii-agent-v-brauzere-po-strukture-stranicy-bystro-i-bez-skrinshotov-2026/)
+- [Drawflow: редактор блоков и связей для сценариев в своём продукте](./drawflow-redaktor-potokov-iz-blokov-i-svyazey-dlya-konstruktora-scenariev-v-svoem-produkte-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/drawflow-redaktor-potokov-iz-blokov-i-svyazey-dlya-konstruktora-scenariev-v-svoem-produkte-2026/)
+- [Настоящие ли звёзды у open-source проекта: проверка до внедрения](./starsift-kak-proverit-chto-u-open-source-proekta-nastoyaschie-zvezdy-pered-vnedreniem-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/starsift-kak-proverit-chto-u-open-source-proekta-nastoyaschie-zvezdy-pered-vnedreniem-2026/)
 - [Maltrail: тревога, если офисный компьютер звонит на вредоносный адрес](./maltrail-obnaruzhenie-vredonosnogo-trafika-v-seti-ofisa-svoy-datchik-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/maltrail-obnaruzhenie-vredonosnogo-trafika-v-seti-ofisa-svoy-datchik-2026/)
 - [Fail2Ban UI: одна панель для банов на нескольких серверах и её риски](./fail2ban-ui-odna-panel-dlya-banov-na-neskolkih-linux-serverah-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/fail2ban-ui-odna-panel-dlya-banov-na-neskolkih-linux-serverah-2026/)
 - [Pulse: мониторинг Proxmox и TrueNAS без Zabbix, с учётом бэкапов](./pulse-monitoring-proxmox-docker-truenas-bez-korporativnogo-steka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pulse-monitoring-proxmox-docker-truenas-bez-korporativnogo-steka-2026/)
