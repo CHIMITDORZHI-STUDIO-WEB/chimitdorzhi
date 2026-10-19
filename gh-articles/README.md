@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2617**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2622**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -1281,6 +1281,8 @@
 - [Приёмная кампания колледжа онлайн: сайт, Госуслуги, рейтинг](./priemnaya-kampaniya-kolledzha-onlayn-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/priemnaya-kampaniya-kolledzha-onlayn-2026/)
 - [Кружки и секции: запись на сайте и в боте, Навигатор и сертификат ПФДО](./kruzhki-i-sekcii-zapis-navigator-pfdo-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kruzhki-i-sekcii-zapis-navigator-pfdo-2026/)
 - [Сайт бассейна и спорткомплекса: запись на сеансы и загрузка дорожек](./sayt-basseyna-sportkompleksa-zapis-na-seansy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-basseyna-sportkompleksa-zapis-na-seansy-2026/)
+- [Сайт библиотеки: афиша, электронный каталог, доступность и НОК](./sayt-biblioteki-afisha-katalog-dostupnost-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-biblioteki-afisha-katalog-dostupnost-2026/)
+- [Сайт детской школы искусств: приём, расписание и концерты](./sayt-detskoy-shkoly-iskusstv-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-detskoy-shkoly-iskusstv-2026/)
 - [Сайт для музея: онлайн-билеты, аудиогид в браузере и доступность](./sayt-dlya-muzeya-bilety-audiogid-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-dlya-muzeya-bilety-audiogid-2026/)
 - [Сайт для театра, филармонии и дома культуры: афиша, билеты, боты](./sayt-dlya-teatra-filarmonii-doma-kultury-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-dlya-teatra-filarmonii-doma-kultury-2026/)
 - [Система управления общежитием и хостелом: места, договоры, оплата](./sistema-upravleniya-obshchezhitiem-i-hostelom-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sistema-upravleniya-obshchezhitiem-i-hostelom-2026/)
@@ -1681,6 +1683,7 @@
 - [Сайт учреждения соцобслуживания по 442-ФЗ: требования и баллы НОК](./sayt-uchrezhdeniya-socialnogo-obsluzhivaniya-442-fz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-uchrezhdeniya-socialnogo-obsluzhivaniya-442-fz-2026/)
 - [Госпаблик учреждения в ВК, ОК и MAX: что обязательно и как вести](./gospabliki-uchrezhdeniya-vk-ok-max-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gospabliki-uchrezhdeniya-vk-ok-max-2026/)
 - [Amazon Bee на встрече: правила записи разговоров для команды](./amazon-bee-nosimye-ii-diktofony-pravila-zapisi-razgovorov-dlya-komandy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/amazon-bee-nosimye-ii-diktofony-pravila-zapisi-razgovorov-dlya-komandy-2026/)
+- [Вход через Госуслуги на сайте: кто может подключить ЕСИА и как](./vhod-cherez-gosuslugi-esia-na-sayte-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vhod-cherez-gosuslugi-esia-na-sayte-2026/)
 - [Сайт администрации поселения: что разместить по 8-ФЗ и ПП № 102](./sayt-administracii-poseleniya-8-fz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-administracii-poseleniya-8-fz-2026/)
 - [НОК и сайт учреждения: за что снимают баллы и как их вернуть](./nezavisimaya-ocenka-kachestva-nok-sayt-uchrezhdeniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nezavisimaya-ocenka-kachestva-nok-sayt-uchrezhdeniya-2026/)
 - [Электронная приёмная на сайте учреждения: 59-ФЗ и виджет Госуслуг](./elektronnaya-priemnaya-obrashcheniya-grazhdan-59-fz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/elektronnaya-priemnaya-obrashcheniya-grazhdan-59-fz-2026/)
@@ -1957,6 +1960,8 @@
 - [ИИ-агент в браузере без скриншотов: 7 секунд и цена ошибки](./browser-use-ultrafast-ii-agent-v-brauzere-po-strukture-stranicy-bystro-i-bez-skrinshotov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/browser-use-ultrafast-ii-agent-v-brauzere-po-strukture-stranicy-bystro-i-bez-skrinshotov-2026/)
 - [Drawflow: редактор блоков и связей для сценариев в своём продукте](./drawflow-redaktor-potokov-iz-blokov-i-svyazey-dlya-konstruktora-scenariev-v-svoem-produkte-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/drawflow-redaktor-potokov-iz-blokov-i-svyazey-dlya-konstruktora-scenariev-v-svoem-produkte-2026/)
 - [Настоящие ли звёзды у open-source проекта: проверка до внедрения](./starsift-kak-proverit-chto-u-open-source-proekta-nastoyaschie-zvezdy-pered-vnedreniem-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/starsift-kak-proverit-chto-u-open-source-proekta-nastoyaschie-zvezdy-pered-vnedreniem-2026/)
+- [Сайт на арабском и английском для компании в ОАЭ: RTL и поиск](./sayt-na-arabskom-i-angliyskom-rtl-oae-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-na-arabskom-i-angliyskom-rtl-oae-2026/)
+- [Онлайн-оплата на сайте в ОАЭ: платёжные шлюзы и подключение](./onlayn-oplata-na-sayte-v-oae-platezhnye-shlyuzy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/onlayn-oplata-na-sayte-v-oae-platezhnye-shlyuzy-2026/)
 - [Maltrail: тревога, если офисный компьютер звонит на вредоносный адрес](./maltrail-obnaruzhenie-vredonosnogo-trafika-v-seti-ofisa-svoy-datchik-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/maltrail-obnaruzhenie-vredonosnogo-trafika-v-seti-ofisa-svoy-datchik-2026/)
 - [Fail2Ban UI: одна панель для банов на нескольких серверах и её риски](./fail2ban-ui-odna-panel-dlya-banov-na-neskolkih-linux-serverah-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/fail2ban-ui-odna-panel-dlya-banov-na-neskolkih-linux-serverah-2026/)
 - [Pulse: мониторинг Proxmox и TrueNAS без Zabbix, с учётом бэкапов](./pulse-monitoring-proxmox-docker-truenas-bez-korporativnogo-steka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pulse-monitoring-proxmox-docker-truenas-bez-korporativnogo-steka-2026/)
