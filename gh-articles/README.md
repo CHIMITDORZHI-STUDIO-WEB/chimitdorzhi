@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2627**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2640**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -343,6 +343,8 @@
 
 ## Open-source и свой сервер
 
+- [Anytype: шифрованная база знаний и лицензия не как у open source](./anytype-lokalnaya-shifrovannaya-baza-znaniy-i-licenziya-ne-svobodnogo-open-source-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/anytype-lokalnaya-shifrovannaya-baza-znaniy-i-licenziya-ne-svobodnogo-open-source-2026/)
+- [Parallax: ИИ-сервер из офисных ноутбуков и ПК, что выйдет](./parallax-ii-klaster-iz-neskolkih-svoih-kompyuterov-chto-realno-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/parallax-ii-klaster-iz-neskolkih-svoih-kompyuterov-chto-realno-2026/)
 - [Perplexity открыла SPACE: что спросить у подрядчика про изоляцию ИИ](./perplexity-space-platforma-izolyacii-ii-agentov-chto-vzyat-i-chto-sprosit-u-podryadchika-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/perplexity-space-platforma-izolyacii-ii-agentov-chto-vzyat-i-chto-sprosit-u-podryadchika-2026/)
 - [Howdy: вход в Linux по лицу и 152-ФЗ на рабочем ноутбуке](./howdy-vhod-v-linux-po-licu-biometriya-i-152-fz-na-rabochem-noutbuke-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/howdy-vhod-v-linux-po-licu-biometriya-i-152-fz-na-rabochem-noutbuke-2026/)
 - [Spacedrive: единый каталог файлов, но пока только в альфе](./spacedrive-edinyy-katalog-faylov-poverh-diskov-serverov-i-oblakov-bez-pereezda-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/spacedrive-edinyy-katalog-faylov-poverh-diskov-serverov-i-oblakov-bez-pereezda-2026/)
@@ -1115,6 +1117,8 @@
 
 ## Маркетинг
 
+- [open-news: упоминания и новостной дайджест компании на Python](./open-news-monitoring-upominaniy-i-novostnoy-dayjest-dlya-kompanii-na-python-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/open-news-monitoring-upominaniy-i-novostnoy-dayjest-dlya-kompanii-na-python-2026/)
+- [no-ai-slop: редактор вычищает ИИ-штампы из готового текста](./no-ai-slop-redaktor-ubiraet-20-shablonov-ii-iz-gotovogo-teksta-i-ishchet-ih-v-proverke-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/no-ai-slop-redaktor-ubiraet-20-shablonov-ii-iz-gotovogo-teksta-i-ishchet-ih-v-proverke-2026/)
 - [Яндекс Вебмастер для владельца бизнеса: что смотреть раз в неделю](./yandeks-vebmaster-dlya-vladelca-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/yandeks-vebmaster-dlya-vladelca-biznesa-2026/)
 - [Визуализатор трека: заказать видео под релиз для артиста и лейбла](./vizualizator-treka-dlya-muzykanta-zakazat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vizualizator-treka-dlya-muzykanta-zakazat-2026/)
 - [Реклама в Telegram Ads для малого бизнеса в 2026: запуск и цены](./reklama-v-telegram-ads-dlya-malogo-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/reklama-v-telegram-ads-dlya-malogo-biznesa-2026/)
@@ -1281,6 +1285,9 @@
 
 ## Отрасли
 
+- [Приём конкурсных заявок онлайн: форма, экспертиза и протокол](./priem-konkursnyh-zayavok-onlayn-ekspertiza-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/priem-konkursnyh-zayavok-onlayn-ekspertiza-2026/)
+- [Волонтёры для мероприятия и НКО: набор, смены, часы и Добро.рф](./volontery-nabor-smeny-uchet-chasov-dobro-rf-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/volontery-nabor-smeny-uchet-chasov-dobro-rf-2026/)
+- [Сайт клиники в Дубае: лицензия DHA и правила медицинской рекламы](./sayt-kliniki-v-dubae-dha-medicinskaya-reklama-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-kliniki-v-dubae-dha-medicinskaya-reklama-2026/)
 - [Приёмная кампания колледжа онлайн: сайт, Госуслуги, рейтинг](./priemnaya-kampaniya-kolledzha-onlayn-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/priemnaya-kampaniya-kolledzha-onlayn-2026/)
 - [Кружки и секции: запись на сайте и в боте, Навигатор и сертификат ПФДО](./kruzhki-i-sekcii-zapis-navigator-pfdo-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kruzhki-i-sekcii-zapis-navigator-pfdo-2026/)
 - [Сайт бассейна и спорткомплекса: запись на сеансы и загрузка дорожек](./sayt-basseyna-sportkompleksa-zapis-na-seansy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-basseyna-sportkompleksa-zapis-na-seansy-2026/)
@@ -1683,6 +1690,8 @@
 
 ## Право и 152-ФЗ
 
+- [Инициативное бюджетирование на сайте: приём проектов и голосование](./iniciativnoe-byudzhetirovanie-golosovanie-na-sayte-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/iniciativnoe-byudzhetirovanie-golosovanie-na-sayte-2026/)
+- [Платные услуги бюджетного учреждения онлайн: оплата, касса и ГИС ГМП](./platnye-uslugi-byudzhetnogo-uchrezhdeniya-oplata-onlayn-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/platnye-uslugi-byudzhetnogo-uchrezhdeniya-oplata-onlayn-2026/)
 - [Сайт учреждения соцобслуживания по 442-ФЗ: требования и баллы НОК](./sayt-uchrezhdeniya-socialnogo-obsluzhivaniya-442-fz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-uchrezhdeniya-socialnogo-obsluzhivaniya-442-fz-2026/)
 - [Госпаблик учреждения в ВК, ОК и MAX: что обязательно и как вести](./gospabliki-uchrezhdeniya-vk-ok-max-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gospabliki-uchrezhdeniya-vk-ok-max-2026/)
 - [Amazon Bee на встрече: правила записи разговоров для команды](./amazon-bee-nosimye-ii-diktofony-pravila-zapisi-razgovorov-dlya-komandy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/amazon-bee-nosimye-ii-diktofony-pravila-zapisi-razgovorov-dlya-komandy-2026/)
@@ -1953,6 +1962,9 @@
 
 ## Разработка
 
+- [rga: поиск внутри PDF, Word и архивов в папке без сервера](./ripgrep-all-poisk-po-soderzhimomu-pdf-word-arhivov-i-baz-v-papke-kompanii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ripgrep-all-poisk-po-soderzhimomu-pdf-word-arhivov-i-baz-v-papke-kompanii-2026/)
+- [portracker: карта открытых портов на серверах, в Docker и TrueNAS](./portracker-karta-otkrytyh-portov-i-servisov-na-serverah-docker-i-truenas-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/portracker-karta-otkrytyh-portov-i-servisov-na-serverah-docker-i-truenas-2026/)
+- [Общая видеокарта в команде через P2P и Docker: GPU-Share](./gpu-share-obshchaya-videokarta-v-komande-cherez-p2p-i-docker-kontejnery-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gpu-share-obshchaya-videokarta-v-komande-cherez-p2p-i-docker-kontejnery-2026/)
 - [Skill Recorder: задачу записали один раз, ИИ-агент повторяет рутину](./skill-recorder-zapis-zadachi-odin-raz-ii-agent-povtoryaet-rutinu-sotrudnika-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skill-recorder-zapis-zadachi-odin-raz-ii-agent-povtoryaet-rutinu-sotrudnika-2026/)
 - [Scroll-world: 3D-лендинг как у Apple и цена за эффект](./scroll-world-3d-lending-po-skrollu-v-stile-apple-kogda-opravdan-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/scroll-world-3d-lending-po-skrollu-v-stile-apple-kogda-opravdan-2026/)
 - [PageTrace: все запросы 200 OK, а часть данных потеряна](./pagetrace-proverka-paginacii-api-po-har-kogda-vse-200-ok-a-dannye-poteryany-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pagetrace-proverka-paginacii-api-po-har-kogda-vse-200-ok-a-dannye-poteryany-2026/)
@@ -2497,6 +2509,7 @@
 
 ## Экспертное
 
+- [Voxtral 3: русский в списке, весов нет. Что с локальным запуском](./voxtral-3-golosovye-modeli-mistral-russkiy-yazyk-licenziya-i-lokalnyy-zapusk-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/voxtral-3-golosovye-modeli-mistral-russkiy-yazyk-licenziya-i-lokalnyy-zapusk-2026/)
 - [Harness² от Google: агент сам правит инструкции, а вы держите откат](./google-harness2-ii-agent-sam-uluchshaet-svoi-instrukcii-versii-konfiguracii-i-otkat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/google-harness2-ii-agent-sam-uluchshaet-svoi-instrukcii-versii-konfiguracii-i-otkat-2026/)
 - [MiniMax M3.1 Flash: что менять в бюджете бота, пока веса не вышли](./minimax-m3-1-flash-chto-menyat-v-byudzhete-bota-poka-vesa-ne-vyshli-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/minimax-m3-1-flash-chto-menyat-v-byudzhete-bota-poka-vesa-ne-vyshli-2026/)
 - [Grok Voice 3.0: русский в списке языков, но проверьте на 20 звонках](./grok-voice-3-0-russkiy-v-spiske-kak-proverit-golosovogo-agenta-na-20-zvonkah-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/grok-voice-3-0-russkiy-v-spiske-kak-proverit-golosovogo-agenta-na-20-zvonkah-2026/)

@@ -9,15 +9,16 @@ const SVC_BIZ = { title: 'Что я делаю для бизнеса', services:
 ]};
 const E = (o) => Object.assign({ published: true, datePublished: D, dateModified: D, readingMinutes: 4, servicesOffer: SVC_BIZ }, o, { contentHtml: C(o.slug) });
 module.exports = [
-  E({ slug: "tehnologicheskiy-sbor-s-1-dekabrya-2026-chto-platit-importer-noutbukov-i-smartfonov-2026", category: "legal", heroIcon: "ph-fill ph-laptop", ctaInternal: { url: "https://chimitdorzhi.tech/services/china-it/", label: "ИТ-решения для работы с Китаем" },
+  E({ slug: "tehnologicheskiy-sbor-s-1-dekabrya-2026-chto-platit-importer-noutbukov-i-smartfonov-2026", dateModified: "2026-10-21", category: "legal", heroIcon: "ph-fill ph-laptop", ctaInternal: { url: "https://chimitdorzhi.tech/services/china-it/", label: "ИТ-решения для работы с Китаем" },
     title: "Техсбор с 1 декабря 2026: что платит импортёр ноутбуков и смартфонов",
     metaTitle: "Техсбор с 1 декабря 2026: ноутбуки и смартфоны из Китая",
-    metaDescription: "Что платит импортёр ноутбуков и смартфонов с 1 декабря 2026: что в законе, ставки проекта приказа, расчёт на партию 50 штук и что подготовить заранее.",
-    excerpt: "Закон о технологическом сборе начинает действовать с 1 декабря 2026 года, но приказ со ставками на 10 октября остаётся проектом. Разбираю по тексту закона и карточке на regulation.gov.ru, кто платит, как считать на партию из 50 ноутбуков и при чём здесь Справочник товарных знаков и моделей.",
+    metaDescription: "Приказ № 5366 утвердил ставки техсбора с 1 декабря 2026: ноутбук 746, 500 или 992 рубля, смартфон 373, 250 или 496. Расчёт на партию и что подготовить.",
+    excerpt: "Ставки технологического сбора больше не проект: приказ Минпромторга от 13.10.2026 № 5366 зарегистрирован Минюстом 15.10.2026 и действует с 1 декабря. Разбираю по тексту приказа, чем отличается база 746 рублей от 500 и 992 для ноутбука, кто платит, как считать партию из 50 штук и чего пока нет: срока и порядка уплаты.",
     tags: ["технологический сбор","импорт из Китая","маркировка","ВЭД"],
     toc: [
       { id: "chto-v-zakone", text: "Что подтверждено по тексту закона" },
-      { id: "prikaz-ili-proekt", text: "Приказ со ставками: утверждён или проект" },
+      { id: "prikaz-5366", text: "Приказ со ставками: утверждён" },
+      { id: "chto-izmenilos", text: "Что изменилось с проекта" },
       { id: "kto-platit", text: "Кто платит и кого это не касается" },
       { id: "raschet", text: "Условный пример: партия 50 ноутбуков" },
       { id: "markirovka", text: "При чём здесь маркировка" },
