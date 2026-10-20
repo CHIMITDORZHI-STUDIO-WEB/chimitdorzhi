@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2597**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2627**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -343,6 +343,11 @@
 
 ## Open-source и свой сервер
 
+- [Perplexity открыла SPACE: что спросить у подрядчика про изоляцию ИИ](./perplexity-space-platforma-izolyacii-ii-agentov-chto-vzyat-i-chto-sprosit-u-podryadchika-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/perplexity-space-platforma-izolyacii-ii-agentov-chto-vzyat-i-chto-sprosit-u-podryadchika-2026/)
+- [Howdy: вход в Linux по лицу и 152-ФЗ на рабочем ноутбуке](./howdy-vhod-v-linux-po-licu-biometriya-i-152-fz-na-rabochem-noutbuke-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/howdy-vhod-v-linux-po-licu-biometriya-i-152-fz-na-rabochem-noutbuke-2026/)
+- [Spacedrive: единый каталог файлов, но пока только в альфе](./spacedrive-edinyy-katalog-faylov-poverh-diskov-serverov-i-oblakov-bez-pereezda-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/spacedrive-edinyy-katalog-faylov-poverh-diskov-serverov-i-oblakov-bez-pereezda-2026/)
+- [Накрутка звёзд на GitHub: как проверить open source до внедрения](./kak-proverit-populyarnost-open-source-pered-vnedreniem-nakrutka-zvezd-github-i-starsift-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-proverit-populyarnost-open-source-pered-vnedreniem-nakrutka-zvezd-github-i-starsift-2026/)
+- [Alexandrie: база знаний с офлайном и SSO для выездной команды](./alexandrie-baza-znaniy-dlya-maloy-komandy-s-oidc-i-offlayn-rezhimom-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/alexandrie-baza-znaniy-dlya-maloy-komandy-s-oidc-i-offlayn-rezhimom-2026/)
 - [Maltrail: как заметить, что сеть или сервер говорит с вредоносным IP](./maltrail-kak-zametit-chto-set-ofisa-ili-servera-govorit-s-vredonosnoy-infrastrukturoy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/maltrail-kak-zametit-chto-set-ofisa-ili-servera-govorit-s-vredonosnoy-infrastrukturoy-2026/)
 - [Contrack: одна книга контактов вместо четырёх, но не CRM](./contrack-svoya-sistema-kontaktov-s-obedineniem-dublikatov-i-avtosborom-konteksta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/contrack-svoya-sistema-kontaktov-s-obedineniem-dublikatov-i-avtosborom-konteksta-2026/)
 - [Midday для ИП и фрилансеров: сервис закрывают, код открыт](./midday-dlya-ip-i-frilanserov-servis-zakryvayut-chto-s-kodom-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/midday-dlya-ip-i-frilanserov-servis-zakryvayut-chto-s-kodom-2026/)
@@ -652,6 +657,7 @@
 
 ## Безопасность
 
+- [Gemma от DeepMind и Сингапура: каскад против мошеннических диалогов](./gemma-ot-deepmind-i-singapura-kaskad-dlya-raspoznavaniya-moshennicheskih-razgovorov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gemma-ot-deepmind-i-singapura-kaskad-dlya-raspoznavaniya-moshennicheskih-razgovorov-2026/)
 - [ChatGPT в Chrome читает вкладки: что защитить у сотрудников](./chatgpt-dlya-chrome-chitaet-vkladki-i-upravlyaet-brauzerom-chto-zashchitit-u-sotrudnikov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chatgpt-dlya-chrome-chitaet-vkladki-i-upravlyaet-brauzerom-chto-zashchitit-u-sotrudnikov-2026/)
 - [SynthID Detector: как проверять фото клиента на метки ИИ](./synthid-detector-proverka-foto-i-video-na-metki-ii-chego-ne-dokazyvaet-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/synthid-detector-proverka-foto-i-video-na-metki-ii-chego-ne-dokazyvaet-2026/)
 - [ИИ ищет дыры в curl и OpenSSL: что делать владельцу сайта](./oss-scanner-anthropic-besplatnyy-ii-audit-otkrytogo-koda-chto-delat-vladelcu-sayta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/oss-scanner-anthropic-besplatnyy-ii-audit-otkrytogo-koda-chto-delat-vladelcu-sayta-2026/)
@@ -1275,6 +1281,11 @@
 
 ## Отрасли
 
+- [Приёмная кампания колледжа онлайн: сайт, Госуслуги, рейтинг](./priemnaya-kampaniya-kolledzha-onlayn-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/priemnaya-kampaniya-kolledzha-onlayn-2026/)
+- [Кружки и секции: запись на сайте и в боте, Навигатор и сертификат ПФДО](./kruzhki-i-sekcii-zapis-navigator-pfdo-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kruzhki-i-sekcii-zapis-navigator-pfdo-2026/)
+- [Сайт бассейна и спорткомплекса: запись на сеансы и загрузка дорожек](./sayt-basseyna-sportkompleksa-zapis-na-seansy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-basseyna-sportkompleksa-zapis-na-seansy-2026/)
+- [Сайт библиотеки: афиша, электронный каталог, доступность и НОК](./sayt-biblioteki-afisha-katalog-dostupnost-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-biblioteki-afisha-katalog-dostupnost-2026/)
+- [Сайт детской школы искусств: приём, расписание и концерты](./sayt-detskoy-shkoly-iskusstv-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-detskoy-shkoly-iskusstv-2026/)
 - [Сайт для музея: онлайн-билеты, аудиогид в браузере и доступность](./sayt-dlya-muzeya-bilety-audiogid-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-dlya-muzeya-bilety-audiogid-2026/)
 - [Сайт для театра, филармонии и дома культуры: афиша, билеты, боты](./sayt-dlya-teatra-filarmonii-doma-kultury-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-dlya-teatra-filarmonii-doma-kultury-2026/)
 - [Система управления общежитием и хостелом: места, договоры, оплата](./sistema-upravleniya-obshchezhitiem-i-hostelom-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sistema-upravleniya-obshchezhitiem-i-hostelom-2026/)
@@ -1672,6 +1683,10 @@
 
 ## Право и 152-ФЗ
 
+- [Сайт учреждения соцобслуживания по 442-ФЗ: требования и баллы НОК](./sayt-uchrezhdeniya-socialnogo-obsluzhivaniya-442-fz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-uchrezhdeniya-socialnogo-obsluzhivaniya-442-fz-2026/)
+- [Госпаблик учреждения в ВК, ОК и MAX: что обязательно и как вести](./gospabliki-uchrezhdeniya-vk-ok-max-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gospabliki-uchrezhdeniya-vk-ok-max-2026/)
+- [Amazon Bee на встрече: правила записи разговоров для команды](./amazon-bee-nosimye-ii-diktofony-pravila-zapisi-razgovorov-dlya-komandy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/amazon-bee-nosimye-ii-diktofony-pravila-zapisi-razgovorov-dlya-komandy-2026/)
+- [Вход через Госуслуги на сайте: кто может подключить ЕСИА и как](./vhod-cherez-gosuslugi-esia-na-sayte-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vhod-cherez-gosuslugi-esia-na-sayte-2026/)
 - [Сайт администрации поселения: что разместить по 8-ФЗ и ПП № 102](./sayt-administracii-poseleniya-8-fz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-administracii-poseleniya-8-fz-2026/)
 - [НОК и сайт учреждения: за что снимают баллы и как их вернуть](./nezavisimaya-ocenka-kachestva-nok-sayt-uchrezhdeniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nezavisimaya-ocenka-kachestva-nok-sayt-uchrezhdeniya-2026/)
 - [Электронная приёмная на сайте учреждения: 59-ФЗ и виджет Госуслуг](./elektronnaya-priemnaya-obrashcheniya-grazhdan-59-fz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/elektronnaya-priemnaya-obrashcheniya-grazhdan-59-fz-2026/)
@@ -1938,6 +1953,18 @@
 
 ## Разработка
 
+- [Skill Recorder: задачу записали один раз, ИИ-агент повторяет рутину](./skill-recorder-zapis-zadachi-odin-raz-ii-agent-povtoryaet-rutinu-sotrudnika-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skill-recorder-zapis-zadachi-odin-raz-ii-agent-povtoryaet-rutinu-sotrudnika-2026/)
+- [Scroll-world: 3D-лендинг как у Apple и цена за эффект](./scroll-world-3d-lending-po-skrollu-v-stile-apple-kogda-opravdan-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/scroll-world-3d-lending-po-skrollu-v-stile-apple-kogda-opravdan-2026/)
+- [PageTrace: все запросы 200 OK, а часть данных потеряна](./pagetrace-proverka-paginacii-api-po-har-kogda-vse-200-ok-a-dannye-poteryany-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pagetrace-proverka-paginacii-api-po-har-kogda-vse-200-ok-a-dannye-poteryany-2026/)
+- [Stitch Skills от Google Labs: навыки агента несут макет в код](./stitch-skills-google-labs-navyki-agenta-maket-v-kod-cherez-mcp-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/stitch-skills-google-labs-navyki-agenta-maket-v-kod-cherez-mcp-2026/)
+- [SimpleX: чат без номера и логина и свои серверы для команды](./simplex-chat-messendzher-bez-identifikatorov-i-svoi-servery-dlya-komandy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/simplex-chat-messendzher-bez-identifikatorov-i-svoi-servery-dlya-komandy-2026/)
+- [Сеть между филиалами без сервера: EasyTier для 1С и камер](./easytier-mesh-set-mezhdu-filialami-bez-centralnogo-servera-1s-kamery-printery-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/easytier-mesh-set-mezhdu-filialami-bez-centralnogo-servera-1s-kamery-printery-2026/)
+- [LibreDB Studio: веб-клиент к базам с SSO и без открытого порта](./libredb-studio-veb-klient-k-bazam-dannyh-s-sso-bez-otkrytogo-porta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/libredb-studio-veb-klient-k-bazam-dannyh-s-sso-bez-otkrytogo-porta-2026/)
+- [ИИ-агент в браузере без скриншотов: 7 секунд и цена ошибки](./browser-use-ultrafast-ii-agent-v-brauzere-po-strukture-stranicy-bystro-i-bez-skrinshotov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/browser-use-ultrafast-ii-agent-v-brauzere-po-strukture-stranicy-bystro-i-bez-skrinshotov-2026/)
+- [Drawflow: редактор блоков и связей для сценариев в своём продукте](./drawflow-redaktor-potokov-iz-blokov-i-svyazey-dlya-konstruktora-scenariev-v-svoem-produkte-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/drawflow-redaktor-potokov-iz-blokov-i-svyazey-dlya-konstruktora-scenariev-v-svoem-produkte-2026/)
+- [Настоящие ли звёзды у open-source проекта: проверка до внедрения](./starsift-kak-proverit-chto-u-open-source-proekta-nastoyaschie-zvezdy-pered-vnedreniem-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/starsift-kak-proverit-chto-u-open-source-proekta-nastoyaschie-zvezdy-pered-vnedreniem-2026/)
+- [Сайт на арабском и английском для компании в ОАЭ: RTL и поиск](./sayt-na-arabskom-i-angliyskom-rtl-oae-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-na-arabskom-i-angliyskom-rtl-oae-2026/)
+- [Онлайн-оплата на сайте в ОАЭ: платёжные шлюзы и подключение](./onlayn-oplata-na-sayte-v-oae-platezhnye-shlyuzy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/onlayn-oplata-na-sayte-v-oae-platezhnye-shlyuzy-2026/)
 - [Maltrail: тревога, если офисный компьютер звонит на вредоносный адрес](./maltrail-obnaruzhenie-vredonosnogo-trafika-v-seti-ofisa-svoy-datchik-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/maltrail-obnaruzhenie-vredonosnogo-trafika-v-seti-ofisa-svoy-datchik-2026/)
 - [Fail2Ban UI: одна панель для банов на нескольких серверах и её риски](./fail2ban-ui-odna-panel-dlya-banov-na-neskolkih-linux-serverah-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/fail2ban-ui-odna-panel-dlya-banov-na-neskolkih-linux-serverah-2026/)
 - [Pulse: мониторинг Proxmox и TrueNAS без Zabbix, с учётом бэкапов](./pulse-monitoring-proxmox-docker-truenas-bez-korporativnogo-steka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pulse-monitoring-proxmox-docker-truenas-bez-korporativnogo-steka-2026/)
@@ -2470,6 +2497,9 @@
 
 ## Экспертное
 
+- [Harness² от Google: агент сам правит инструкции, а вы держите откат](./google-harness2-ii-agent-sam-uluchshaet-svoi-instrukcii-versii-konfiguracii-i-otkat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/google-harness2-ii-agent-sam-uluchshaet-svoi-instrukcii-versii-konfiguracii-i-otkat-2026/)
+- [MiniMax M3.1 Flash: что менять в бюджете бота, пока веса не вышли](./minimax-m3-1-flash-chto-menyat-v-byudzhete-bota-poka-vesa-ne-vyshli-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/minimax-m3-1-flash-chto-menyat-v-byudzhete-bota-poka-vesa-ne-vyshli-2026/)
+- [Grok Voice 3.0: русский в списке языков, но проверьте на 20 звонках](./grok-voice-3-0-russkiy-v-spiske-kak-proverit-golosovogo-agenta-na-20-zvonkah-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/grok-voice-3-0-russkiy-v-spiske-kak-proverit-golosovogo-agenta-na-20-zvonkah-2026/)
 - [DeepSeek V4.1-Flash-1017: что менять в бюджете и настройках бота](./deepseek-v4-1-flash-1017-chto-menyat-v-byudzhete-i-nastroykakh-bota-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/deepseek-v4-1-flash-1017-chto-menyat-v-byudzhete-i-nastroykakh-bota-2026/)
 - [Sora API закрыт 24 сентября: что делать, если процесс на нём](./sora-api-zakryt-24-sentyabrya-2026-chto-delat-esli-process-derzhalsya-na-nem.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sora-api-zakryt-24-sentyabrya-2026-chto-delat-esli-process-derzhalsya-na-nem/)
 - [Gemini 4 Argon: цена вдвое вырастет 1 декабря. Что менять в боте](./gemini-4-argon-chto-menyat-v-byudzhete-i-nastroykakh-bota-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gemini-4-argon-chto-menyat-v-byudzhete-i-nastroykakh-bota-2026/)
