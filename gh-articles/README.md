@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2632**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2637**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -1283,6 +1283,9 @@
 
 ## Отрасли
 
+- [Приём конкурсных заявок онлайн: форма, экспертиза и протокол](./priem-konkursnyh-zayavok-onlayn-ekspertiza-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/priem-konkursnyh-zayavok-onlayn-ekspertiza-2026/)
+- [Волонтёры для мероприятия и НКО: набор, смены, часы и Добро.рф](./volontery-nabor-smeny-uchet-chasov-dobro-rf-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/volontery-nabor-smeny-uchet-chasov-dobro-rf-2026/)
+- [Сайт клиники в Дубае: лицензия DHA и правила медицинской рекламы](./sayt-kliniki-v-dubae-dha-medicinskaya-reklama-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-kliniki-v-dubae-dha-medicinskaya-reklama-2026/)
 - [Приёмная кампания колледжа онлайн: сайт, Госуслуги, рейтинг](./priemnaya-kampaniya-kolledzha-onlayn-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/priemnaya-kampaniya-kolledzha-onlayn-2026/)
 - [Кружки и секции: запись на сайте и в боте, Навигатор и сертификат ПФДО](./kruzhki-i-sekcii-zapis-navigator-pfdo-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kruzhki-i-sekcii-zapis-navigator-pfdo-2026/)
 - [Сайт бассейна и спорткомплекса: запись на сеансы и загрузка дорожек](./sayt-basseyna-sportkompleksa-zapis-na-seansy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-basseyna-sportkompleksa-zapis-na-seansy-2026/)
@@ -1685,6 +1688,8 @@
 
 ## Право и 152-ФЗ
 
+- [Инициативное бюджетирование на сайте: приём проектов и голосование](./iniciativnoe-byudzhetirovanie-golosovanie-na-sayte-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/iniciativnoe-byudzhetirovanie-golosovanie-na-sayte-2026/)
+- [Платные услуги бюджетного учреждения онлайн: оплата, касса и ГИС ГМП](./platnye-uslugi-byudzhetnogo-uchrezhdeniya-oplata-onlayn-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/platnye-uslugi-byudzhetnogo-uchrezhdeniya-oplata-onlayn-2026/)
 - [Сайт учреждения соцобслуживания по 442-ФЗ: требования и баллы НОК](./sayt-uchrezhdeniya-socialnogo-obsluzhivaniya-442-fz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-uchrezhdeniya-socialnogo-obsluzhivaniya-442-fz-2026/)
 - [Госпаблик учреждения в ВК, ОК и MAX: что обязательно и как вести](./gospabliki-uchrezhdeniya-vk-ok-max-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gospabliki-uchrezhdeniya-vk-ok-max-2026/)
 - [Amazon Bee на встрече: правила записи разговоров для команды](./amazon-bee-nosimye-ii-diktofony-pravila-zapisi-razgovorov-dlya-komandy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/amazon-bee-nosimye-ii-diktofony-pravila-zapisi-razgovorov-dlya-komandy-2026/)
