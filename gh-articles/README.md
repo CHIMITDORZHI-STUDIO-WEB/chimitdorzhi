@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2637**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2640**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -343,6 +343,8 @@
 
 ## Open-source и свой сервер
 
+- [Anytype: шифрованная база знаний и лицензия не как у open source](./anytype-lokalnaya-shifrovannaya-baza-znaniy-i-licenziya-ne-svobodnogo-open-source-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/anytype-lokalnaya-shifrovannaya-baza-znaniy-i-licenziya-ne-svobodnogo-open-source-2026/)
+- [Parallax: ИИ-сервер из офисных ноутбуков и ПК, что выйдет](./parallax-ii-klaster-iz-neskolkih-svoih-kompyuterov-chto-realno-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/parallax-ii-klaster-iz-neskolkih-svoih-kompyuterov-chto-realno-2026/)
 - [Perplexity открыла SPACE: что спросить у подрядчика про изоляцию ИИ](./perplexity-space-platforma-izolyacii-ii-agentov-chto-vzyat-i-chto-sprosit-u-podryadchika-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/perplexity-space-platforma-izolyacii-ii-agentov-chto-vzyat-i-chto-sprosit-u-podryadchika-2026/)
 - [Howdy: вход в Linux по лицу и 152-ФЗ на рабочем ноутбуке](./howdy-vhod-v-linux-po-licu-biometriya-i-152-fz-na-rabochem-noutbuke-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/howdy-vhod-v-linux-po-licu-biometriya-i-152-fz-na-rabochem-noutbuke-2026/)
 - [Spacedrive: единый каталог файлов, но пока только в альфе](./spacedrive-edinyy-katalog-faylov-poverh-diskov-serverov-i-oblakov-bez-pereezda-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/spacedrive-edinyy-katalog-faylov-poverh-diskov-serverov-i-oblakov-bez-pereezda-2026/)
@@ -2507,6 +2509,7 @@
 
 ## Экспертное
 
+- [Voxtral 3: русский в списке, весов нет. Что с локальным запуском](./voxtral-3-golosovye-modeli-mistral-russkiy-yazyk-licenziya-i-lokalnyy-zapusk-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/voxtral-3-golosovye-modeli-mistral-russkiy-yazyk-licenziya-i-lokalnyy-zapusk-2026/)
 - [Harness² от Google: агент сам правит инструкции, а вы держите откат](./google-harness2-ii-agent-sam-uluchshaet-svoi-instrukcii-versii-konfiguracii-i-otkat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/google-harness2-ii-agent-sam-uluchshaet-svoi-instrukcii-versii-konfiguracii-i-otkat-2026/)
 - [MiniMax M3.1 Flash: что менять в бюджете бота, пока веса не вышли](./minimax-m3-1-flash-chto-menyat-v-byudzhete-bota-poka-vesa-ne-vyshli-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/minimax-m3-1-flash-chto-menyat-v-byudzhete-bota-poka-vesa-ne-vyshli-2026/)
 - [Grok Voice 3.0: русский в списке языков, но проверьте на 20 звонках](./grok-voice-3-0-russkiy-v-spiske-kak-proverit-golosovogo-agenta-na-20-zvonkah-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/grok-voice-3-0-russkiy-v-spiske-kak-proverit-golosovogo-agenta-na-20-zvonkah-2026/)
