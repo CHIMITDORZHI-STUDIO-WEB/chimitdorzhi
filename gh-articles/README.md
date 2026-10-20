@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2627**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2632**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -1115,6 +1115,8 @@
 
 ## Маркетинг
 
+- [open-news: упоминания и новостной дайджест компании на Python](./open-news-monitoring-upominaniy-i-novostnoy-dayjest-dlya-kompanii-na-python-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/open-news-monitoring-upominaniy-i-novostnoy-dayjest-dlya-kompanii-na-python-2026/)
+- [no-ai-slop: редактор вычищает ИИ-штампы из готового текста](./no-ai-slop-redaktor-ubiraet-20-shablonov-ii-iz-gotovogo-teksta-i-ishchet-ih-v-proverke-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/no-ai-slop-redaktor-ubiraet-20-shablonov-ii-iz-gotovogo-teksta-i-ishchet-ih-v-proverke-2026/)
 - [Яндекс Вебмастер для владельца бизнеса: что смотреть раз в неделю](./yandeks-vebmaster-dlya-vladelca-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/yandeks-vebmaster-dlya-vladelca-biznesa-2026/)
 - [Визуализатор трека: заказать видео под релиз для артиста и лейбла](./vizualizator-treka-dlya-muzykanta-zakazat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vizualizator-treka-dlya-muzykanta-zakazat-2026/)
 - [Реклама в Telegram Ads для малого бизнеса в 2026: запуск и цены](./reklama-v-telegram-ads-dlya-malogo-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/reklama-v-telegram-ads-dlya-malogo-biznesa-2026/)
@@ -1953,6 +1955,9 @@
 
 ## Разработка
 
+- [rga: поиск внутри PDF, Word и архивов в папке без сервера](./ripgrep-all-poisk-po-soderzhimomu-pdf-word-arhivov-i-baz-v-papke-kompanii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ripgrep-all-poisk-po-soderzhimomu-pdf-word-arhivov-i-baz-v-papke-kompanii-2026/)
+- [portracker: карта открытых портов на серверах, в Docker и TrueNAS](./portracker-karta-otkrytyh-portov-i-servisov-na-serverah-docker-i-truenas-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/portracker-karta-otkrytyh-portov-i-servisov-na-serverah-docker-i-truenas-2026/)
+- [Общая видеокарта в команде через P2P и Docker: GPU-Share](./gpu-share-obshchaya-videokarta-v-komande-cherez-p2p-i-docker-kontejnery-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gpu-share-obshchaya-videokarta-v-komande-cherez-p2p-i-docker-kontejnery-2026/)
 - [Skill Recorder: задачу записали один раз, ИИ-агент повторяет рутину](./skill-recorder-zapis-zadachi-odin-raz-ii-agent-povtoryaet-rutinu-sotrudnika-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skill-recorder-zapis-zadachi-odin-raz-ii-agent-povtoryaet-rutinu-sotrudnika-2026/)
 - [Scroll-world: 3D-лендинг как у Apple и цена за эффект](./scroll-world-3d-lending-po-skrollu-v-stile-apple-kogda-opravdan-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/scroll-world-3d-lending-po-skrollu-v-stile-apple-kogda-opravdan-2026/)
 - [PageTrace: все запросы 200 OK, а часть данных потеряна](./pagetrace-proverka-paginacii-api-po-har-kogda-vse-200-ok-a-dannye-poteryany-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pagetrace-proverka-paginacii-api-po-har-kogda-vse-200-ok-a-dannye-poteryany-2026/)
