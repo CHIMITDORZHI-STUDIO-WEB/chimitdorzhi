@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2649**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2651**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -343,6 +343,7 @@
 
 ## Open-source и свой сервер
 
+- [Yahont CE: ИИ по документам и почте на своём сервере](./yahont-ce-otkrytaya-platforma-ii-pomoshchnika-po-dokumentam-pochte-i-servisam-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/yahont-ce-otkrytaya-platforma-ii-pomoshchnika-po-dokumentam-pochte-i-servisam-2026/)
 - [Anytype: шифрованная база знаний и лицензия не как у open source](./anytype-lokalnaya-shifrovannaya-baza-znaniy-i-licenziya-ne-svobodnogo-open-source-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/anytype-lokalnaya-shifrovannaya-baza-znaniy-i-licenziya-ne-svobodnogo-open-source-2026/)
 - [Parallax: ИИ-сервер из офисных ноутбуков и ПК, что выйдет](./parallax-ii-klaster-iz-neskolkih-svoih-kompyuterov-chto-realno-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/parallax-ii-klaster-iz-neskolkih-svoih-kompyuterov-chto-realno-2026/)
 - [Perplexity открыла SPACE: что спросить у подрядчика про изоляцию ИИ](./perplexity-space-platforma-izolyacii-ii-agentov-chto-vzyat-i-chto-sprosit-u-podryadchika-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/perplexity-space-platforma-izolyacii-ii-agentov-chto-vzyat-i-chto-sprosit-u-podryadchika-2026/)
@@ -659,6 +660,7 @@
 
 ## Безопасность
 
+- [Claude Duet: агент, который пишет первым, и что взять бизнесу](./claude-duet-lichnyy-agent-kotoryy-pishet-pervym-chto-eto-dlya-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/claude-duet-lichnyy-agent-kotoryy-pishet-pervym-chto-eto-dlya-biznesa-2026/)
 - [Gemma от DeepMind и Сингапура: каскад против мошеннических диалогов](./gemma-ot-deepmind-i-singapura-kaskad-dlya-raspoznavaniya-moshennicheskih-razgovorov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gemma-ot-deepmind-i-singapura-kaskad-dlya-raspoznavaniya-moshennicheskih-razgovorov-2026/)
 - [ChatGPT в Chrome читает вкладки: что защитить у сотрудников](./chatgpt-dlya-chrome-chitaet-vkladki-i-upravlyaet-brauzerom-chto-zashchitit-u-sotrudnikov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chatgpt-dlya-chrome-chitaet-vkladki-i-upravlyaet-brauzerom-chto-zashchitit-u-sotrudnikov-2026/)
 - [SynthID Detector: как проверять фото клиента на метки ИИ](./synthid-detector-proverka-foto-i-video-na-metki-ii-chego-ne-dokazyvaet-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/synthid-detector-proverka-foto-i-video-na-metki-ii-chego-ne-dokazyvaet-2026/)
