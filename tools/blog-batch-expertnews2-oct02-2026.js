@@ -9,11 +9,11 @@ const SVC_BIZ = { title: 'Что я делаю для бизнеса', services:
 ]};
 const E = (o) => Object.assign({ published: true, datePublished: D, dateModified: D, readingMinutes: 4, servicesOffer: SVC_BIZ }, o, { contentHtml: C(o.slug) });
 module.exports = [
-  E({ slug: "markirovka-1-noyabrya-1-dekabrya-2026-magazinam-kafe", category: "legal", heroIcon: "ph-fill ph-clipboard-text", ctaInternal: { url: "https://chimitdorzhi.tech/services/business-automation/", label: "Автоматизация бизнеса" },
+  E({ slug: "markirovka-1-noyabrya-1-dekabrya-2026-magazinam-kafe", dateModified: "2026-10-22", category: "legal", heroIcon: "ph-fill ph-clipboard-text", ctaInternal: { url: "https://chimitdorzhi.tech/services/business-automation/", label: "Автоматизация бизнеса" },
     title: "Маркировка: что изменится 1 ноября и 1 декабря 2026 для магазинов",
     metaTitle: "Маркировка с 1 ноября и 1 декабря 2026: что делать магазину",
-    metaDescription: "С 1 ноября 2026 масла уходят на поэкземплярный учёт, с 1 декабря запрет немаркированной электроники. Даты, кого касается, чек-лист для магазина.",
-    excerpt: "С 1 ноября 2026 растительные масла переходят на поэкземплярный учёт, с 1 декабря для радиоэлектроники заканчивается оборот без кодов. Разобрал, что подтверждено по постановлениям, кого касается и что проверить в кассе, учётной системе и ЭДО.",
+    metaDescription: "С 1 ноября 2026 у масла, произведённого с этой даты, в УПД идут коды упаковок, с 1 декабря запрет немаркированной электроники. Что проверить магазину.",
+    excerpt: "С 1 ноября 2026 для масла, произведённого с этой даты, в УПД идут коды каждой упаковки, с 1 декабря для радиоэлектроники заканчивается оборот без кодов. Разобрал, что подтверждено по постановлениям, кого касается и что проверить в кассе, учётной системе и ЭДО.",
     tags: ["маркировка","Честный знак","ЭДО","поэкземплярный учёт"],
     toc: [
       { id: "dve-daty", text: "Две даты, которые легко перепутать" },
