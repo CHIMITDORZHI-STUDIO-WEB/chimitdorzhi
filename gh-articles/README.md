@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2644**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2649**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -1285,6 +1285,8 @@
 
 ## Отрасли
 
+- [Сайт коттеджного посёлка: генплан, продажа участков и заявки](./sayt-kottedzhnogo-poselka-genplan-uchastki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-kottedzhnogo-poselka-genplan-uchastki-2026/)
+- [Сайт ресторана в Дубае: меню на арабском, доставка и муниципалитет](./sayt-restorana-v-dubae-menyu-dostavka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-restorana-v-dubae-menyu-dostavka-2026/)
 - [Приём конкурсных заявок онлайн: форма, экспертиза и протокол](./priem-konkursnyh-zayavok-onlayn-ekspertiza-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/priem-konkursnyh-zayavok-onlayn-ekspertiza-2026/)
 - [Волонтёры для мероприятия и НКО: набор, смены, часы и Добро.рф](./volontery-nabor-smeny-uchet-chasov-dobro-rf-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/volontery-nabor-smeny-uchet-chasov-dobro-rf-2026/)
 - [Сайт клиники в Дубае: лицензия DHA и правила медицинской рекламы](./sayt-kliniki-v-dubae-dha-medicinskaya-reklama-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-kliniki-v-dubae-dha-medicinskaya-reklama-2026/)
@@ -1690,6 +1692,9 @@
 
 ## Право и 152-ФЗ
 
+- [Раздел «Противодействие коррупции» на сайте: что разместить](./razdel-protivodeystvie-korrupcii-na-sayte-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/razdel-protivodeystvie-korrupcii-na-sayte-2026/)
+- [Результаты СОУТ на сайте компании: кто обязан и как разместить](./rezultaty-sout-na-sayte-kompanii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/rezultaty-sout-na-sayte-kompanii-2026/)
+- [Раскрытие информации управляющей компанией: сайт и ГИС ЖКХ](./raskrytie-informacii-upravlyayushchey-kompaniey-gis-zhkh-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/raskrytie-informacii-upravlyayushchey-kompaniey-gis-zhkh-2026/)
 - [Инициативное бюджетирование на сайте: приём проектов и голосование](./iniciativnoe-byudzhetirovanie-golosovanie-na-sayte-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/iniciativnoe-byudzhetirovanie-golosovanie-na-sayte-2026/)
 - [Платные услуги бюджетного учреждения онлайн: оплата, касса и ГИС ГМП](./platnye-uslugi-byudzhetnogo-uchrezhdeniya-oplata-onlayn-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/platnye-uslugi-byudzhetnogo-uchrezhdeniya-oplata-onlayn-2026/)
 - [Сайт учреждения соцобслуживания по 442-ФЗ: требования и баллы НОК](./sayt-uchrezhdeniya-socialnogo-obsluzhivaniya-442-fz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-uchrezhdeniya-socialnogo-obsluzhivaniya-442-fz-2026/)
