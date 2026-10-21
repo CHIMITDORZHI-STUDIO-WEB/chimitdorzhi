@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2640**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2644**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -1962,6 +1962,10 @@
 
 ## Разработка
 
+- [AImori: расширение остановит секреты в запросе к ИИ до отправки](./aimori-rasshirenie-proveryaet-zapros-k-ii-na-konfidencialnye-dannye-do-otpravki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/aimori-rasshirenie-proveryaet-zapros-k-ii-na-konfidencialnye-dannye-do-otpravki-2026/)
+- [Свой SMS-шлюз на Android: где разумен, где опасен](./android-sms-gateway-svoy-sms-shlyuz-na-telefone-s-api-dlya-uvedomleniy-klientam-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/android-sms-gateway-svoy-sms-shlyuz-na-telefone-s-api-dlya-uvedomleniy-klientam-2026/)
+- [RuView: присутствие по Wi-Fi без камер, что подтверждено](./ruview-obnaruzhenie-prisutstviya-po-signalam-wifi-bez-kamer-chto-podtverzhdeno-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ruview-obnaruzhenie-prisutstviya-po-signalam-wifi-bez-kamer-chto-podtverzhdeno-2026/)
+- [Сайт или PWA в APK на телефоне: WebView, TWA и RuStore](./web-to-app-upakovka-saytov-i-pwa-v-android-apk-na-telefone-webview-twa-rustore-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/web-to-app-upakovka-saytov-i-pwa-v-android-apk-na-telefone-webview-twa-rustore-2026/)
 - [rga: поиск внутри PDF, Word и архивов в папке без сервера](./ripgrep-all-poisk-po-soderzhimomu-pdf-word-arhivov-i-baz-v-papke-kompanii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ripgrep-all-poisk-po-soderzhimomu-pdf-word-arhivov-i-baz-v-papke-kompanii-2026/)
 - [portracker: карта открытых портов на серверах, в Docker и TrueNAS](./portracker-karta-otkrytyh-portov-i-servisov-na-serverah-docker-i-truenas-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/portracker-karta-otkrytyh-portov-i-servisov-na-serverah-docker-i-truenas-2026/)
 - [Общая видеокарта в команде через P2P и Docker: GPU-Share](./gpu-share-obshchaya-videokarta-v-komande-cherez-p2p-i-docker-kontejnery-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gpu-share-obshchaya-videokarta-v-komande-cherez-p2p-i-docker-kontejnery-2026/)
