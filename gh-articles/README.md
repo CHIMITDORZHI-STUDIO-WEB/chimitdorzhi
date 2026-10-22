@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2651**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2656**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -1287,6 +1287,7 @@
 
 ## Отрасли
 
+- [Сайт салона красоты в Дубае: онлайн-запись, депозит, VAT и реклама](./sayt-salona-krasoty-v-dubae-zapis-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-salona-krasoty-v-dubae-zapis-2026/)
 - [Сайт коттеджного посёлка: генплан, продажа участков и заявки](./sayt-kottedzhnogo-poselka-genplan-uchastki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-kottedzhnogo-poselka-genplan-uchastki-2026/)
 - [Сайт ресторана в Дубае: меню на арабском, доставка и муниципалитет](./sayt-restorana-v-dubae-menyu-dostavka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-restorana-v-dubae-menyu-dostavka-2026/)
 - [Приём конкурсных заявок онлайн: форма, экспертиза и протокол](./priem-konkursnyh-zayavok-onlayn-ekspertiza-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/priem-konkursnyh-zayavok-onlayn-ekspertiza-2026/)
@@ -1694,6 +1695,10 @@
 
 ## Право и 152-ФЗ
 
+- [Сайт застройщика и 214-ФЗ: что в ЕИСЖС, а что на своём сайте](./sayt-zastroyshchika-raskrytie-informacii-214-fz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-zastroyshchika-raskrytie-informacii-214-fz-2026/)
+- [Что должно быть на сайте гостиницы по закону в 2026 году](./sayt-gostinicy-obyazatelnaya-informaciya-reestr-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-gostinicy-obyazatelnaya-informaciya-reestr-2026/)
+- [Сайт турагентства и туроператора: что обязательно разместить](./sayt-turagentstva-obyazatelnaya-informaciya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-turagentstva-obyazatelnaya-informaciya-2026/)
+- [Сайт аптеки: дистанционная продажа лекарств, требования 2026](./sayt-apteki-distancionnaya-prodazha-lekarstv-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-apteki-distancionnaya-prodazha-lekarstv-2026/)
 - [Раздел «Противодействие коррупции» на сайте: что разместить](./razdel-protivodeystvie-korrupcii-na-sayte-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/razdel-protivodeystvie-korrupcii-na-sayte-2026/)
 - [Результаты СОУТ на сайте компании: кто обязан и как разместить](./rezultaty-sout-na-sayte-kompanii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/rezultaty-sout-na-sayte-kompanii-2026/)
 - [Раскрытие информации управляющей компанией: сайт и ГИС ЖКХ](./raskrytie-informacii-upravlyayushchey-kompaniey-gis-zhkh-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/raskrytie-informacii-upravlyayushchey-kompaniey-gis-zhkh-2026/)
