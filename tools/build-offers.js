@@ -18,11 +18,12 @@ const esc = (s) => String(s == null ? '' : s)
 // текст подставится, иначе просто откроется чат).
 const TG = 'https://t.me/chimitdorzhi';
 const { METRIKA, maxBtn } = require('./metrika-snippet.js');
+const { leadForm, leadFormHead, leadFormScript } = require('./lead-form.js');
 const tg = (text) => `${TG}?text=${encodeURIComponent(text)}`;
 
 // Этапы работы — одинаковы для всех предложений.
 const PROCESS = [
-  { icon: 'ph-chat-circle-text', t: 'Заявка и разговор', d: 'Пишете мне — обсуждаем задачу, цели и бюджет. Без форм и спама.' },
+  { icon: 'ph-chat-circle-text', t: 'Заявка и разговор', d: 'Пишете мне или оставляете заявку на сайте, обсуждаем задачу, цели и бюджет.' },
   { icon: 'ph-clipboard-text', t: 'Бриф и смета', d: 'Уточняю детали, фиксирую состав и называю точную цену и срок.' },
   { icon: 'ph-code', t: 'Разработка', d: 'Делаю решение, показываю промежуточные результаты, вношу правки.' },
   { icon: 'ph-rocket-launch', t: 'Запуск', d: 'Внедряю, тестируем на реальных задачах, обучаю вашу команду.' },
@@ -120,7 +121,7 @@ function head({ title, description, canonical, ogImage = `${SITE}/hero-photo.web
     <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="/assets/phosphor/regular.css"><link rel="stylesheet" href="/assets/phosphor/fill.css"></noscript>
     <link rel="stylesheet" href="/style.css?v=79">
-`;
+    ${leadFormHead()}`;
 }
 
 const navbar = require('./navbar.js');
@@ -154,22 +155,21 @@ function footer() {
     </div>
 </footer>
 <script src="/i18n.js?v=44" defer></script>
-<script src="/script.js?v=41" defer></script>`;
+<script src="/script.js?v=41" defer></script>
+${leadFormScript()}`;
 }
 
 function ctaBlock(o) {
-  return `<div class="offer-cta-card">
-        <div class="offer-cta-body">
-            <h3>Обсудим задачу в нише «${esc(o.niche)}»?</h3>
-            <p>Бесплатная консультация — это 20–30 минут разговора: разберём вашу ситуацию, я скажу, что реально стоит делать (иногда — что делать пока не нужно), назову срок и точную цену под вас. Ни к чему не обязывает. Без форм — пишите или звоните напрямую.</p>
-        </div>
-        <div class="offer-cta-actions">
-            <a href="${tg(`Здравствуйте! Интересует решение «${o.title}» (${o.niche}).`)}" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram</a>
+  return leadForm({
+    source: `Предложение: ${o.title}`,
+    title: `Обсудим задачу в нише «${o.niche}»?`,
+    sub: 'Оставьте заявку: она сразу придёт мне. Я свяжусь с вами, разберу ситуацию, скажу, что реально стоит делать (иногда что делать пока не нужно), назову срок и точную цену. Ни к чему не обязывает.',
+    task: `Интересует «${o.title}».`,
+    tgText: o.tgText || `Здравствуйте! Интересует решение «${o.title}» (${o.niche}).`,
+    alt: `<a href="${tg(`Здравствуйте! Интересует решение «${o.title}» (${o.niche}).`)}" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
             ${maxBtn()}
-            <a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>
-            <a href="tel:+971563369591" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> Позвонить</a>
-        </div>
-    </div>`;
+            <a href="tel:+971563369591" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> Позвонить</a>`,
+  });
 }
 
 function offerLd(o, url) {
@@ -300,7 +300,7 @@ ${faqLd(o)}${METRIKA}</head>
                     <div class="offer-hero-actions">
                         <a href="${tg(o.tgText || `Здравствуйте! Интересует «${o.title}» (${o.priceFrom}).`)}" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> ${esc(o.tgButton || 'Обсудить задачу')}</a>
                         ${maxBtn()}
-                        ${(o.packages || []).length ? '<a href="#packages" class="btn btn-ghost">Смотреть пакеты</a>' : '<a href="https://vk.com/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> ВКонтакте</a>'}
+                        ${(o.packages || []).length ? '<a href="#packages" class="btn btn-ghost">Смотреть пакеты</a>' : '<a href="#zayavka" class="btn btn-ghost">Оставить заявку</a>'}
                     </div>
                 </div>
 
@@ -432,7 +432,7 @@ ${METRIKA}</head>
                 <div class="section-header">
                     <span class="section-label">ПРЕДЛОЖЕНИЯ</span>
                     <h1 class="section-heading">Готовые решения для <span class="text-gradient">бизнеса</span></h1>
-                    <p class="section-sub">Упакованные IT-решения под вашу нишу: онлайн-запись, боты, CRM, автоматизация и AI. С понятным составом, ценой «от» и сроком. Точную смету называю после короткого разговора — без форм и спама.</p>
+                    <p class="section-sub">Упакованные IT-решения под вашу нишу: онлайн-запись, боты, CRM, автоматизация и AI. С понятным составом, ценой «от» и сроком. Точную смету называю после короткого разговора: напишите в Telegram или оставьте заявку внизу страницы.</p>
                 </div>
                 ${searchBox()}
                 ${segments.length > 1 ? `<div class="offer-filter" role="group" aria-label="Фильтр по рубрикам">
@@ -449,6 +449,13 @@ ${METRIKA}</head>
                 <div class="offer-grid" id="offerGrid">
 ${cards}
                 </div>
+                ${leadForm({
+                  source: 'Предложения (общая витрина)',
+                  title: 'Не нашли решение под свою нишу?',
+                  sub: 'Опишите задачу: заявка сразу придёт мне. Свяжусь с вами, подскажу, какое решение подойдёт, и назову срок и цену.',
+                  tgText: 'Здравствуйте! Ищу решение под свою задачу.',
+                  alt: `<a href="${tg('Здравствуйте! Ищу решение под свою задачу: ')}" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>`,
+                })}
             </div>
         </section>
     </main>
@@ -581,7 +588,7 @@ module.exports = \`
     <li>Вместо долгой разработки с нуля — готовые проверенные решения под вашу нишу, собранные под бренд и ключ.</li>
     <li>В каталоге уже ${count} предложений: автоматизация по отраслям, чат-боты и AI, геймификация, 152-ФЗ и флагманские платформы.</li>
     <li>Решения модульные: начинаем с малого, расширяемся по мере роста бизнеса.</li>
-    <li>Цена обсуждается под задачу и начинается с бесплатной консультации — без форм и спама.</li>
+    <li>Цена обсуждается под задачу и начинается с бесплатной консультации: напишите в Telegram или оставьте заявку на странице предложения.</li>
     <li>Российский стек, соответствие 152-ФЗ, поддержка после запуска.</li>
   </ul>
 </div>

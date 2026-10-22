@@ -26,6 +26,7 @@ for (const r of ROWS) if (!GROUPS.some((g) => g.key === r.group)) throw new Erro
 // --- Утилиты ---
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const rub = (n) => n.toLocaleString('ru-RU').replace(/\u202f|\u00a0/g, '\u00a0') + '\u00a0₽';
+const { leadForm, leadFormHead, leadFormScript } = require('./lead-form.js');
 const tg = (text) => 'https://t.me/chimitdorzhi?text=' + encodeURIComponent(text);
 const priced = (r) => r.price.kind === 'price';
 
@@ -158,10 +159,13 @@ const main = `<section class="section md-page pr-page"><div class="container">
   </div>
   <p class="md-empty" id="prEmpty" hidden>Под такие условия ничего не нашлось. <a href="${tg('Здравствуйте! Ищу решение под задачу: ')}" target="_blank" rel="noopener">Напишите задачу</a>, подберу.</p>
 
-  <section class="md-offer pr-cta">
-    <div><h2>Не нашли свою задачу?</h2><p>Здесь самые частые. Если вашей нет, опишите её в Telegram: скажу, как решить, сколько займёт и во что обойдётся после запуска.</p></div>
-    <a class="btn btn-accent md-offer-btn" href="${tg('Здравствуйте! Хочу обсудить задачу: ')}" target="_blank" rel="noopener"><i class="ph ph-telegram-logo" aria-hidden="true"></i>Описать задачу</a>
-  </section>
+  ${leadForm({
+    source: 'Цены',
+    title: 'Не нашли свою задачу? Оставьте заявку',
+    sub: 'Здесь самые частые задачи. Опишите свою: заявка сразу придёт мне, я свяжусь с вами, скажу, как решить, сколько займёт и во что обойдётся после запуска. Если собрали смету выше, нажмите в ней «Заявкой», и состав подставится сам.',
+    tgText: 'Здравствуйте! Хочу обсудить задачу.',
+    alt: `<a class="btn btn-ghost" href="${tg('Здравствуйте! Хочу обсудить задачу: ')}" target="_blank" rel="noopener"><i class="ph ph-telegram-logo" aria-hidden="true"></i>Telegram</a>`,
+  })}
 
   <div class="pr-tray" id="prTray" hidden role="region" aria-label="Смета">
     <div class="pr-tray-info" aria-live="polite">
@@ -172,6 +176,7 @@ const main = `<section class="section md-page pr-page"><div class="container">
     </div>
     <div class="pr-tray-actions">
       <a class="btn btn-accent" id="prTraySend" href="#" target="_blank" rel="noopener"><i class="ph ph-telegram-logo" aria-hidden="true"></i>Отправить смету</a>
+      <a class="btn btn-ghost pr-tray-lead" href="#zayavka" data-lead-fill="@smeta">Заявкой</a>
       <button type="button" class="pr-tray-clear" id="prTrayClear"><i class="ph ph-trash" aria-hidden="true"></i>Очистить</button>
     </div>
   </div>
@@ -247,7 +252,10 @@ const js = `<script type="application/json" id="prData">${JSON.stringify({ rows:
     var msg='Здравствуйте! Хочу обсудить смету:\\n'+picked.map(function(id){var r=D.rows[id];return '- '+r.n;}).join('\\n')
       +(once?'\\nРазово от '+fmt(once):'')+(month?'\\nЕжемесячно от '+fmt(month):'')+(proj?'\\nПо проекту: '+proj:'');
     $('prTraySend').href='https://t.me/chimitdorzhi?text='+encodeURIComponent(msg);
+    lastMsg=msg;
   }
+  var lastMsg='';
+  window.__leadSmeta=function(){ return lastMsg.replace(/^Здравствуйте! /,''); };
   document.addEventListener('click',function(e){
     var b=e.target.closest('.pr-add'); if(!b) return;
     var id=b.dataset.add, i=picked.indexOf(id); if(i>-1) picked.splice(i,1); else picked.push(id); sync();
@@ -278,7 +286,7 @@ let head = headTpl
   .replace(/(<meta property="og:url" content=")[^"]*/, `$1${URL_}`)
   .replace(/(<meta property="og:title" content=")[^"]*/, `$1${esc(TITLE)}`)
   .replace(/(<meta property="og:description" content=")[^"]*/, `$1${esc(DESC)}`);
-head += `<link rel="stylesheet" href="/assets/models.css?v=${MODELS_CSS_V}">\n<link rel="stylesheet" href="/assets/prices.css?v=${CSS_V}">\n`;
+head += `<link rel="stylesheet" href="/assets/models.css?v=${MODELS_CSS_V}">\n<link rel="stylesheet" href="/assets/prices.css?v=${CSS_V}">\n` + leadFormHead();
 
 const ld = [
   { '@context': 'https://schema.org', '@type': 'OfferCatalog', name: 'Цены на разработку и внедрение ИИ', url: URL_,
@@ -294,7 +302,7 @@ const ld = [
 ];
 for (const obj of ld) head += `<script type="application/ld+json">${JSON.stringify(obj)}</script>\n`;
 
-const html = head + bodyStart + `<main id="main">\n${main}\n</main>\n` + footer + '\n' + scripts + '\n' + js + '\n</body>\n</html>\n';
+const html = head + bodyStart + `<main id="main">\n${main}\n</main>\n` + footer + '\n' + scripts + '\n' + leadFormScript() + '\n' + js + '\n</body>\n</html>\n';
 fs.mkdirSync(path.join(ROOT, 'ceny'), { recursive: true });
 fs.writeFileSync(path.join(ROOT, 'ceny', 'index.html'), html);
 

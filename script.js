@@ -447,3 +447,67 @@ document.addEventListener('click', function(e){
   a.innerHTML='<span class="contact-fab-pulse" aria-hidden="true"></span><i class="ph-fill ph-telegram-logo" aria-hidden="true"></i>';
   document.body.appendChild(a);
 })();
+
+/* Cookie-согласие на всех страницах. Главная (/, /en/, /cn/, /mn/) держит свой баннер в разметке
+   и свой обработчик; здесь баннер вставляется на остальных страницах. Ключ и версия общие
+   (localStorage.cookieConsent, version 2), поэтому выбор, сделанный в одном месте, действует везде.
+   Счётчик Метрики на страницах ждёт события cookieConsent с analytics: true. */
+(function(){
+  var KEY='cookieConsent', VERSION=2;
+  if (document.getElementById('cookieBanner')) {
+    // Главная: баннер и window.openCookieSettings задаёт её собственный скрипт.
+    document.addEventListener('click',function(e){ var t=e.target.closest ? e.target.closest('[data-cookie-settings]') : null; if(t && window.openCookieSettings){ e.preventDefault(); window.openCookieSettings(); } });
+    return;
+  }
+  function stored(){ try { var c=JSON.parse(localStorage.getItem(KEY)); return c && c.version===VERSION ? c : null; } catch(_) { return null; } }
+  function build(){
+    var b=document.createElement('div');
+    b.className='cookie-banner'; b.id='cookieBanner';
+    b.setAttribute('role','dialog'); b.setAttribute('aria-live','polite'); b.setAttribute('aria-label','Согласие на использование cookie');
+    b.innerHTML=
+      '<div class="cookie-inner">'+
+        '<div class="cookie-header"><span class="cookie-icon"><i class="ph-fill ph-cookie" aria-hidden="true"></i></span><h3>Мы используем cookie</h3></div>'+
+        '<p class="cookie-text">Необходимые cookie нужны для работы сайта и включены всегда. Статистику посещений (Яндекс Метрика) включаем только с вашего согласия. Подробнее в <a href="/privacy_policy.html">политике конфиденциальности</a>.</p>'+
+        '<div class="cookie-options" id="cookieOptions" hidden>'+
+          '<label class="cookie-option cookie-option-locked"><input type="checkbox" checked disabled><span class="cookie-option-info"><strong>Необходимые</strong><small>Язык, тема оформления, ваш выбор по cookie. Не отключаются.</small></span></label>'+
+          '<label class="cookie-option"><input type="checkbox" id="cookieAnalytics"><span class="cookie-option-info"><strong>Аналитика</strong><small>Яндекс Метрика: статистика посещений, карта кликов и запись действий на странице (Вебвизор). Помогает улучшать сайт.</small></span></label>'+
+        '</div>'+
+        '<div class="cookie-actions">'+
+          '<button type="button" class="cookie-btn cookie-btn-primary" id="cookieAcceptAll">Разрешить аналитику</button>'+
+          '<button type="button" class="cookie-btn cookie-btn-ghost" id="cookieEssentialOnly">Только необходимые</button>'+
+          '<button type="button" class="cookie-btn cookie-btn-link" id="cookieCustomize">Настроить</button>'+
+          '<button type="button" class="cookie-btn cookie-btn-primary" id="cookieSave" hidden>Сохранить выбор</button>'+
+        '</div>'+
+      '</div>';
+    document.body.appendChild(b);
+    var $=function(id){return document.getElementById(id);};
+    function save(c){
+      c.version=VERSION; c.timestamp=new Date().toISOString();
+      try { localStorage.setItem(KEY, JSON.stringify(c)); } catch(_) {}
+      window.dispatchEvent(new CustomEvent('cookieConsent',{detail:c}));
+      b.classList.remove('active');
+    }
+    $('cookieAcceptAll').addEventListener('click',function(){ save({essential:true,analytics:true,marketing:false}); });
+    $('cookieEssentialOnly').addEventListener('click',function(){ save({essential:true,analytics:false,marketing:false}); });
+    $('cookieCustomize').addEventListener('click',function(){
+      var cur=stored(); $('cookieAnalytics').checked=!!(cur&&cur.analytics);
+      $('cookieOptions').hidden=false; $('cookieCustomize').hidden=true; $('cookieAcceptAll').hidden=true; $('cookieEssentialOnly').hidden=true; $('cookieSave').hidden=false;
+      $('cookieAnalytics').focus();
+    });
+    $('cookieSave').addEventListener('click',function(){ save({essential:true,analytics:$('cookieAnalytics').checked,marketing:false}); });
+    return b;
+  }
+  function open(customize){
+    var b=document.getElementById('cookieBanner')||build();
+    setTimeout(function(){ b.classList.add('active'); if(customize){ var c=document.getElementById('cookieCustomize'); if(c && !c.hidden) c.click(); } }, customize?0:600);
+  }
+  // Ссылка или кнопка с data-cookie-settings на любой странице открывает настройки заново.
+  window.openCookieSettings=function(){ open(true); };
+  document.addEventListener('click',function(e){
+    var t=e.target.closest ? e.target.closest('[data-cookie-settings]') : null;
+    if(t){ e.preventDefault(); open(true); }
+  });
+  if(!stored()){
+    if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',function(){ open(false); }); else open(false);
+  }
+})();
