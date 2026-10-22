@@ -206,7 +206,7 @@
                         <td><strong>Статистика посещений</strong> (Яндекс Метрика)</td>
                         <td><strong>Данные:</strong> идентификатор в cookie, IP-адрес, тип устройства и браузера, просмотренные страницы, источник перехода, клики и прокрутка на странице (включены карта кликов и Вебвизор).<br>
                             <strong>Зачем:</strong> понимать, какие страницы полезны, и исправлять неудобные места сайта.<br>
-                            <strong>Основание:</strong> ваше согласие на аналитические cookie (раздел 7).<br>
+                            <strong>Основание:</strong> ваше согласие на аналитические cookie в баннере (раздел 7).<br>
                             <strong>Срок:</strong> данные хранит ООО «Яндекс» по своим правилам, Оператор видит их в виде отчётов.</td>
                     </tr>
                     <tr>
@@ -242,8 +242,19 @@
 
                 <h2>7. Файлы cookie и локальное хранилище</h2>
                 <p>7.1. <strong>Необходимые.</strong> Сайт сохраняет в браузере выбранный язык, тему оформления и ваш выбор в баннере о cookie (localStorage). Эти данные не уходят Оператору и нужны только для работы интерфейса.</p>
-                <p>7.2. <strong>Аналитические.</strong> Яндекс Метрика ставит свои cookie и собирает статистику, описанную в разделе 3. Сейчас счётчик загружается на страницах сайта при их открытии. Если вы не хотите участвовать в статистике, запретите cookie для сайта в настройках браузера или используйте блокировщик счётчиков. Сайт продолжит работать.</p>
-                <p>7.3. <strong>Маркетинговые</strong> cookie и ремаркетинг на сайте не используются.</p>
+                <p>7.2. <strong>Аналитические.</strong> Яндекс Метрика ставит свои cookie и собирает статистику, описанную в разделе 3. Счётчик загружается только после того, как вы разрешите аналитику в баннере о cookie. Пока согласия нет, или если вы выбрали «Только необходимые», Метрика на страницах не запускается. Сайт работает одинаково в обоих случаях.</p>
+                <p>7.3. Изменить выбор можно в любой момент прямо здесь. Сейчас: <strong id="ccState">не выбрано</strong>.</p>
+                <p><button type="button" class="cookie-btn cookie-btn-primary" id="ccAllow">Разрешить аналитику</button> <button type="button" class="cookie-btn cookie-btn-ghost" id="ccDeny">Только необходимые</button></p>
+                <p>После отказа от аналитики Метрика перестанет запускаться со следующей открытой страницы.</p>
+                <script>
+                (function(){var K="cookieConsent",st=document.getElementById("ccState");
+                  function get(){try{var c=JSON.parse(localStorage.getItem(K));return c&&c.version===2?c:null}catch(_){return null}}
+                  function show(){var c=get();st.textContent=!c?"не выбрано":(c.analytics?"аналитика разрешена":"только необходимые")}
+                  function set(on){var c={essential:true,analytics:on,marketing:false,version:2,timestamp:new Date().toISOString()};try{localStorage.setItem(K,JSON.stringify(c))}catch(_){}window.dispatchEvent(new CustomEvent(K,{detail:c}));show()}
+                  document.getElementById("ccAllow").addEventListener("click",function(){set(true)});
+                  document.getElementById("ccDeny").addEventListener("click",function(){set(false)});show();})();
+                </script>
+                <p>7.4. <strong>Маркетинговые</strong> cookie и ремаркетинг на сайте не используются.</p>
 
                 <h2>8. Как защищены данные</h2>
                 <ul class="policy-list">
