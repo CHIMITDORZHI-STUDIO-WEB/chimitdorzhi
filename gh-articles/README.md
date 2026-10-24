@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2666**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2671**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -1293,6 +1293,7 @@
 
 ## Отрасли
 
+- [Сайт учебного центра в Дубае: KHDA, запись на пробное, VAT и дети](./sayt-uchebnogo-centra-v-dubae-khda-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-uchebnogo-centra-v-dubae-khda-2026/)
 - [Сайт салона красоты в Дубае: онлайн-запись, депозит, VAT и реклама](./sayt-salona-krasoty-v-dubae-zapis-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-salona-krasoty-v-dubae-zapis-2026/)
 - [Сайт коттеджного посёлка: генплан, продажа участков и заявки](./sayt-kottedzhnogo-poselka-genplan-uchastki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-kottedzhnogo-poselka-genplan-uchastki-2026/)
 - [Сайт ресторана в Дубае: меню на арабском, доставка и муниципалитет](./sayt-restorana-v-dubae-menyu-dostavka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-restorana-v-dubae-menyu-dostavka-2026/)
@@ -1701,6 +1702,10 @@
 
 ## Право и 152-ФЗ
 
+- [Сайт таксопарка и служба заказа такси по 580-ФЗ: что обязательно](./sayt-taksoparka-sluzhba-zakaza-taksi-580-fz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-taksoparka-sluzhba-zakaza-taksi-580-fz-2026/)
+- [Что должно быть на сайте автосервиса по Правилам № 780 в 2026 году](./sayt-avtoservisa-obyazatelnaya-informaciya-pravila-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-avtoservisa-obyazatelnaya-informaciya-pravila-2026/)
+- [Что должно быть на сайте ветклиники в 2026 году](./sayt-vetkliniki-obyazatelnaya-informaciya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-vetkliniki-obyazatelnaya-informaciya-2026/)
+- [Сайт детского лагеря: реестр, приказ № 201 и онлайн-запись](./sayt-detskogo-lagerya-reestr-trebovaniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-detskogo-lagerya-reestr-trebovaniya-2026/)
 - [Сайт застройщика и 214-ФЗ: что в ЕИСЖС, а что на своём сайте](./sayt-zastroyshchika-raskrytie-informacii-214-fz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-zastroyshchika-raskrytie-informacii-214-fz-2026/)
 - [Что должно быть на сайте гостиницы по закону в 2026 году](./sayt-gostinicy-obyazatelnaya-informaciya-reestr-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-gostinicy-obyazatelnaya-informaciya-reestr-2026/)
 - [Сайт турагентства и туроператора: что обязательно разместить](./sayt-turagentstva-obyazatelnaya-informaciya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-turagentstva-obyazatelnaya-informaciya-2026/)
