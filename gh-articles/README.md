@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2651**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2666**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -343,6 +343,8 @@
 
 ## Open-source и свой сервер
 
+- [Infection Monkey: имитация атаки на свою сеть до злоумышленника](./infection-monkey-imitatsiya-ataki-na-svoyu-set-do-zloumyshlennika-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/infection-monkey-imitatsiya-ataki-na-svoyu-set-do-zloumyshlennika-2026/)
+- [Клиент согласует пост по ссылке: свой SMM-планировщик BrightBean](./brightbean-studio-svoy-smm-planirovshchik-s-soglasovaniem-postov-klientom-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/brightbean-studio-svoy-smm-planirovshchik-s-soglasovaniem-postov-klientom-2026/)
 - [Yahont CE: ИИ по документам и почте на своём сервере](./yahont-ce-otkrytaya-platforma-ii-pomoshchnika-po-dokumentam-pochte-i-servisam-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/yahont-ce-otkrytaya-platforma-ii-pomoshchnika-po-dokumentam-pochte-i-servisam-2026/)
 - [Anytype: шифрованная база знаний и лицензия не как у open source](./anytype-lokalnaya-shifrovannaya-baza-znaniy-i-licenziya-ne-svobodnogo-open-source-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/anytype-lokalnaya-shifrovannaya-baza-znaniy-i-licenziya-ne-svobodnogo-open-source-2026/)
 - [Parallax: ИИ-сервер из офисных ноутбуков и ПК, что выйдет](./parallax-ii-klaster-iz-neskolkih-svoih-kompyuterov-chto-realno-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/parallax-ii-klaster-iz-neskolkih-svoih-kompyuterov-chto-realno-2026/)
@@ -660,6 +662,8 @@
 
 ## Безопасность
 
+- [PHP: критическая дыра CVE-2026-109618, что проверить владельцу сайта](./php-kriticheskaya-uyazvimost-naydena-ii-chto-proverit-vladeltsu-sayta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/php-kriticheskaya-uyazvimost-naydena-ii-chto-proverit-vladeltsu-sayta-2026/)
+- [LemonSees: SOC по SSH без агентов на 3-10 серверах](./lemonsees-soc-bez-agentov-po-ssh-kontrol-faylov-i-mitre-attck-dlya-malogo-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/lemonsees-soc-bez-agentov-po-ssh-kontrol-faylov-i-mitre-attck-dlya-malogo-biznesa-2026/)
 - [Claude Duet: агент, который пишет первым, и что взять бизнесу](./claude-duet-lichnyy-agent-kotoryy-pishet-pervym-chto-eto-dlya-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/claude-duet-lichnyy-agent-kotoryy-pishet-pervym-chto-eto-dlya-biznesa-2026/)
 - [Gemma от DeepMind и Сингапура: каскад против мошеннических диалогов](./gemma-ot-deepmind-i-singapura-kaskad-dlya-raspoznavaniya-moshennicheskih-razgovorov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gemma-ot-deepmind-i-singapura-kaskad-dlya-raspoznavaniya-moshennicheskih-razgovorov-2026/)
 - [ChatGPT в Chrome читает вкладки: что защитить у сотрудников](./chatgpt-dlya-chrome-chitaet-vkladki-i-upravlyaet-brauzerom-chto-zashchitit-u-sotrudnikov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chatgpt-dlya-chrome-chitaet-vkladki-i-upravlyaet-brauzerom-chto-zashchitit-u-sotrudnikov-2026/)
@@ -1119,6 +1123,8 @@
 
 ## Маркетинг
 
+- [claude-seo: 26 навыков и 19 агентов для SEO-аудита, что умеют](./claude-seo-25-navykov-i-18-agentov-dlya-seo-audita-sayta-chto-realno-umeet-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/claude-seo-25-navykov-i-18-agentov-dlya-seo-audita-sayta-chto-realno-umeet-2026/)
+- [claude-ads: аудит рекламы по 250 проверкам и судьба оценки 0-100](./claude-ads-audit-reklamnyh-kampaniy-250-proverok-i-ocenka-0-100-chto-realno-umeet-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/claude-ads-audit-reklamnyh-kampaniy-250-proverok-i-ocenka-0-100-chto-realno-umeet-2026/)
 - [open-news: упоминания и новостной дайджест компании на Python](./open-news-monitoring-upominaniy-i-novostnoy-dayjest-dlya-kompanii-na-python-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/open-news-monitoring-upominaniy-i-novostnoy-dayjest-dlya-kompanii-na-python-2026/)
 - [no-ai-slop: редактор вычищает ИИ-штампы из готового текста](./no-ai-slop-redaktor-ubiraet-20-shablonov-ii-iz-gotovogo-teksta-i-ishchet-ih-v-proverke-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/no-ai-slop-redaktor-ubiraet-20-shablonov-ii-iz-gotovogo-teksta-i-ishchet-ih-v-proverke-2026/)
 - [Яндекс Вебмастер для владельца бизнеса: что смотреть раз в неделю](./yandeks-vebmaster-dlya-vladelca-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/yandeks-vebmaster-dlya-vladelca-biznesa-2026/)
@@ -1287,6 +1293,7 @@
 
 ## Отрасли
 
+- [Сайт салона красоты в Дубае: онлайн-запись, депозит, VAT и реклама](./sayt-salona-krasoty-v-dubae-zapis-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-salona-krasoty-v-dubae-zapis-2026/)
 - [Сайт коттеджного посёлка: генплан, продажа участков и заявки](./sayt-kottedzhnogo-poselka-genplan-uchastki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-kottedzhnogo-poselka-genplan-uchastki-2026/)
 - [Сайт ресторана в Дубае: меню на арабском, доставка и муниципалитет](./sayt-restorana-v-dubae-menyu-dostavka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-restorana-v-dubae-menyu-dostavka-2026/)
 - [Приём конкурсных заявок онлайн: форма, экспертиза и протокол](./priem-konkursnyh-zayavok-onlayn-ekspertiza-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/priem-konkursnyh-zayavok-onlayn-ekspertiza-2026/)
@@ -1694,6 +1701,10 @@
 
 ## Право и 152-ФЗ
 
+- [Сайт застройщика и 214-ФЗ: что в ЕИСЖС, а что на своём сайте](./sayt-zastroyshchika-raskrytie-informacii-214-fz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-zastroyshchika-raskrytie-informacii-214-fz-2026/)
+- [Что должно быть на сайте гостиницы по закону в 2026 году](./sayt-gostinicy-obyazatelnaya-informaciya-reestr-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-gostinicy-obyazatelnaya-informaciya-reestr-2026/)
+- [Сайт турагентства и туроператора: что обязательно разместить](./sayt-turagentstva-obyazatelnaya-informaciya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-turagentstva-obyazatelnaya-informaciya-2026/)
+- [Сайт аптеки: дистанционная продажа лекарств, требования 2026](./sayt-apteki-distancionnaya-prodazha-lekarstv-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-apteki-distancionnaya-prodazha-lekarstv-2026/)
 - [Раздел «Противодействие коррупции» на сайте: что разместить](./razdel-protivodeystvie-korrupcii-na-sayte-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/razdel-protivodeystvie-korrupcii-na-sayte-2026/)
 - [Результаты СОУТ на сайте компании: кто обязан и как разместить](./rezultaty-sout-na-sayte-kompanii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/rezultaty-sout-na-sayte-kompanii-2026/)
 - [Раскрытие информации управляющей компанией: сайт и ГИС ЖКХ](./raskrytie-informacii-upravlyayushchey-kompaniey-gis-zhkh-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/raskrytie-informacii-upravlyayushchey-kompaniey-gis-zhkh-2026/)
@@ -1969,6 +1980,9 @@
 
 ## Разработка
 
+- [AI File Sorter: локальный ИИ наводит порядок в папках без облака](./ai-file-sorter-lokalnyy-ii-navodit-poryadok-v-papkah-i-pereimenovyvaet-fayly-bez-oblaka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ai-file-sorter-lokalnyy-ii-navodit-poryadok-v-papkah-i-pereimenovyvaet-fayly-bez-oblaka-2026/)
+- [LemonSees: мониторинг серверов по SSH без агентов и его риск](./lemonsees-soc-i-grc-bez-agentov-cherez-ssh-siem-kontrol-celostnosti-i-sootvetstvie-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/lemonsees-soc-i-grc-bez-agentov-cherez-ssh-siem-kontrol-celostnosti-i-sootvetstvie-2026/)
+- [Дизайн-система своего сайта в файл перед редизайном: npxskillui](./npxskillui-sistema-dizayna-svoego-sayta-v-fayl-tokeny-komponenty-i-skrinshoty-pered-redizaynom-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/npxskillui-sistema-dizayna-svoego-sayta-v-fayl-tokeny-komponenty-i-skrinshoty-pered-redizaynom-2026/)
 - [AImori: расширение остановит секреты в запросе к ИИ до отправки](./aimori-rasshirenie-proveryaet-zapros-k-ii-na-konfidencialnye-dannye-do-otpravki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/aimori-rasshirenie-proveryaet-zapros-k-ii-na-konfidencialnye-dannye-do-otpravki-2026/)
 - [Свой SMS-шлюз на Android: где разумен, где опасен](./android-sms-gateway-svoy-sms-shlyuz-na-telefone-s-api-dlya-uvedomleniy-klientam-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/android-sms-gateway-svoy-sms-shlyuz-na-telefone-s-api-dlya-uvedomleniy-klientam-2026/)
 - [RuView: присутствие по Wi-Fi без камер, что подтверждено](./ruview-obnaruzhenie-prisutstviya-po-signalam-wifi-bez-kamer-chto-podtverzhdeno-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ruview-obnaruzhenie-prisutstviya-po-signalam-wifi-bez-kamer-chto-podtverzhdeno-2026/)
@@ -2520,6 +2534,7 @@
 
 ## Экспертное
 
+- [Cloudflare Clairic: счета и накладные в поля за один проход](./cloudflare-clairic-izvlechenie-poley-iz-schetov-i-nakladnykh-za-odin-prokhod-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/cloudflare-clairic-izvlechenie-poley-iz-schetov-i-nakladnykh-za-odin-prokhod-2026/)
 - [Voxtral 3: русский в списке, весов нет. Что с локальным запуском](./voxtral-3-golosovye-modeli-mistral-russkiy-yazyk-licenziya-i-lokalnyy-zapusk-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/voxtral-3-golosovye-modeli-mistral-russkiy-yazyk-licenziya-i-lokalnyy-zapusk-2026/)
 - [Harness² от Google: агент сам правит инструкции, а вы держите откат](./google-harness2-ii-agent-sam-uluchshaet-svoi-instrukcii-versii-konfiguracii-i-otkat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/google-harness2-ii-agent-sam-uluchshaet-svoi-instrukcii-versii-konfiguracii-i-otkat-2026/)
 - [MiniMax M3.1 Flash: что менять в бюджете бота, пока веса не вышли](./minimax-m3-1-flash-chto-menyat-v-byudzhete-bota-poka-vesa-ne-vyshli-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/minimax-m3-1-flash-chto-menyat-v-byudzhete-bota-poka-vesa-ne-vyshli-2026/)
