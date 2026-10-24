@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2671**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2674**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -1985,6 +1985,9 @@
 
 ## Разработка
 
+- [Weblate: своя платформа переводов интерфейса с синхронизацией в Git](./weblate-svoya-platforma-perevodov-interfeysa-s-sinhronizaciey-v-git-dlya-komandy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/weblate-svoya-platforma-perevodov-interfeysa-s-sinhronizaciey-v-git-dlya-komandy-2026/)
+- [Как убрать ИИ и телеметрию из браузеров офиса через политики](./just-the-browser-otklyuchit-ii-telemetriyu-i-reklamu-v-chrome-edge-firefox-brave-cherez-politiki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/just-the-browser-otklyuchit-ii-telemetriyu-i-reklamu-v-chrome-edge-firefox-brave-cherez-politiki-2026/)
+- [YOLOv5 в магазине и на складе: лицензия AGPL и когда платить](./yolov5-raspoznavanie-obektov-v-magazine-i-na-sklade-licenziya-agpl-i-kogda-nuzhna-platnaya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/yolov5-raspoznavanie-obektov-v-magazine-i-na-sklade-licenziya-agpl-i-kogda-nuzhna-platnaya-2026/)
 - [AI File Sorter: локальный ИИ наводит порядок в папках без облака](./ai-file-sorter-lokalnyy-ii-navodit-poryadok-v-papkah-i-pereimenovyvaet-fayly-bez-oblaka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ai-file-sorter-lokalnyy-ii-navodit-poryadok-v-papkah-i-pereimenovyvaet-fayly-bez-oblaka-2026/)
 - [LemonSees: мониторинг серверов по SSH без агентов и его риск](./lemonsees-soc-i-grc-bez-agentov-cherez-ssh-siem-kontrol-celostnosti-i-sootvetstvie-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/lemonsees-soc-i-grc-bez-agentov-cherez-ssh-siem-kontrol-celostnosti-i-sootvetstvie-2026/)
 - [Дизайн-система своего сайта в файл перед редизайном: npxskillui](./npxskillui-sistema-dizayna-svoego-sayta-v-fayl-tokeny-komponenty-i-skrinshoty-pered-redizaynom-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/npxskillui-sistema-dizayna-svoego-sayta-v-fayl-tokeny-komponenty-i-skrinshoty-pered-redizaynom-2026/)
