@@ -9,18 +9,18 @@ const SVC_BIZ = { title: 'Что я делаю для бизнеса', services:
 ]};
 const E = (o) => Object.assign({ published: true, datePublished: D, dateModified: D, readingMinutes: 4, servicesOffer: SVC_BIZ }, o, { contentHtml: C(o.slug) });
 module.exports = [
-  E({ slug: "minimax-m3-1-flash-chto-menyat-v-byudzhete-bota-poka-vesa-ne-vyshli-2026", category: "expert", heroIcon: "ph-fill ph-lightning", ctaInternal: { url: "https://chimitdorzhi.tech/services/ai-agents/", label: "ИИ-агенты под ключ" },
-    title: "MiniMax M3.1 Flash: что менять в бюджете бота, пока веса не вышли",
-    metaTitle: "MiniMax M3.1 Flash (МиниМакс): бюджет бота, пока нет весов",
-    metaDescription: "MiniMax M3.1 Flash в API с 19.10: токен 0,15 и 0,60 доллара. Считаем бюджет бота на 1000 диалогов и что проверить в лицензии весов.",
-    excerpt: "MiniMax M3.1 Flash вышла в API 19 октября 2026: по прайсу токен 0,15 и 0,60 доллара за миллион, рассуждение отключить нельзя. Считаю условный бюджет бота на 1000 диалогов, разбираю, что в пересказе не подтвердилось, и даю список пунктов лицензии, которые нужно проверить, когда выйдут веса.",
+  E({ slug: "minimax-m3-1-flash-chto-menyat-v-byudzhete-bota-poka-vesa-ne-vyshli-2026", dateModified: "2026-10-24", category: "expert", heroIcon: "ph-fill ph-lightning", ctaInternal: { url: "https://chimitdorzhi.tech/services/ai-agents/", label: "ИИ-агенты под ключ" },
+    title: "MiniMax M3.1 Flash: веса открыты, что менять в бюджете бота",
+    metaTitle: "MiniMax M3.1 Flash (МиниМакс): веса открыты, бюджет бота",
+    metaDescription: "Веса MiniMax M3.1 Flash вышли 23.10: 428 млрд параметров, около 250 ГБ, лицензия с условиями. Что выбрать для бота: API по 0,15 доллара или свой сервер.",
+    excerpt: "MiniMax M3.1 Flash вышла в API 19 октября 2026 года, веса открыты на Hugging Face 23 октября под MiniMax Community License. Разбираю лицензию по файлу LICENSE, размер весов около 250 ГБ, условный бюджет бота на 1000 диалогов и чек-лист перед внедрением. Метрики заявлены разработчиком.",
     tags: ["MiniMax","бюджет ИИ-бота","открытые веса","лицензия модели"],
     toc: [
       { id: "chto-obyavili", text: "Что объявили и что я проверил" },
       { id: "tseny-i-podpiska", text: "Цены, контекст и подписка" },
       { id: "raschet-na-1000-dialogov", text: "Пересчёт бюджета на 1000 диалогов" },
       { id: "kogda-perehodit", text: "Когда переходить, а когда нет" },
-      { id: "vesa-23-oktyabrya", text: "Веса 23 октября: что проверить в лицензии" },
+      { id: "vesa-23-oktyabrya", text: "Веса вышли 23 октября: лицензия и железо" },
       { id: "chto-sdelat", text: "Что можно сделать уже сейчас" },
       { id: "faq", text: "Частые вопросы" },
       { id: "vyvody", text: "Коротко о главном" },

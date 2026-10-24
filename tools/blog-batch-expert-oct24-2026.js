@@ -27,7 +27,7 @@ module.exports = [
       { id: "vyvody", text: "Коротко о главном" },
     ],
     relatedSlugs: ["ii-nahodit-uyazvimosti-chto-delat-vladelcu-sayta-2026","vzlomali-sayt-chto-delat-2026","proverka-vosstanovleniya-iz-kopii-2026","ezhemesyachnyy-it-obkhod-malogo-ofisa-2026"] }),
-  E({ slug: "lemonsees-soc-bez-agentov-po-ssh-kontrol-faylov-i-mitre-attck-dlya-malogo-biznesa-2026", category: "security", heroIcon: "ph-fill ph-eye", ctaInternal: { url: "https://chimitdorzhi.tech/services/cybersecurity/", label: "Безопасно подключить мониторинг серверов по SSH" },
+  E({ published: false, slug: "lemonsees-soc-bez-agentov-po-ssh-kontrol-faylov-i-mitre-attck-dlya-malogo-biznesa-2026", category: "security", heroIcon: "ph-fill ph-eye", ctaInternal: { url: "https://chimitdorzhi.tech/services/cybersecurity/", label: "Безопасно подключить мониторинг серверов по SSH" },
     title: "LemonSees: SOC по SSH без агентов на 3-10 серверах",
     metaTitle: "LemonSees (ЛемонСиз): SOC без агентов по SSH для малого бизнеса",
     metaDescription: "Мониторинг серверов по SSH без агента: что умеет LemonSees, чем отличается от Wazuh и как не отдать один ключ ко всем VPS.",
