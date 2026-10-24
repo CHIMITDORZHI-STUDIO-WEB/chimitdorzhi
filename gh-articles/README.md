@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2674**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2677**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -343,6 +343,8 @@
 
 ## Open-source и свой сервер
 
+- [PDF2MD: сканы и архивы в текст и отчёт, где OCR мог ошибиться](./pdf2md-skany-i-arhivy-dokumentov-v-tekst-s-otchetom-gde-ocr-oshibsya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pdf2md-skany-i-arhivy-dokumentov-v-tekst-s-otchetom-gde-ocr-oshibsya-2026/)
+- [ClamAV: проверка файлов с сайта и почты и чего он не заменит](./clamav-proverka-faylov-ot-klientov-na-sayte-i-v-pochte-chego-antivirus-ne-zamenit-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/clamav-proverka-faylov-ot-klientov-na-sayte-i-v-pochte-chego-antivirus-ne-zamenit-2026/)
 - [Infection Monkey: имитация атаки на свою сеть до злоумышленника](./infection-monkey-imitatsiya-ataki-na-svoyu-set-do-zloumyshlennika-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/infection-monkey-imitatsiya-ataki-na-svoyu-set-do-zloumyshlennika-2026/)
 - [Клиент согласует пост по ссылке: свой SMM-планировщик BrightBean](./brightbean-studio-svoy-smm-planirovshchik-s-soglasovaniem-postov-klientom-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/brightbean-studio-svoy-smm-planirovshchik-s-soglasovaniem-postov-klientom-2026/)
 - [Yahont CE: ИИ по документам и почте на своём сервере](./yahont-ce-otkrytaya-platforma-ii-pomoshchnika-po-dokumentam-pochte-i-servisam-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/yahont-ce-otkrytaya-platforma-ii-pomoshchnika-po-dokumentam-pochte-i-servisam-2026/)
@@ -662,8 +664,8 @@
 
 ## Безопасность
 
+- [Банки США блокируют ИИ-агентов с логином клиента: что делать вместо](./banki-ssha-blokiruyut-ii-agentov-s-loginom-klienta-chto-delat-vmesto-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/banki-ssha-blokiruyut-ii-agentov-s-loginom-klienta-chto-delat-vmesto-2026/)
 - [PHP: критическая дыра CVE-2026-109618, что проверить владельцу сайта](./php-kriticheskaya-uyazvimost-naydena-ii-chto-proverit-vladeltsu-sayta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/php-kriticheskaya-uyazvimost-naydena-ii-chto-proverit-vladeltsu-sayta-2026/)
-- [LemonSees: SOC по SSH без агентов на 3-10 серверах](./lemonsees-soc-bez-agentov-po-ssh-kontrol-faylov-i-mitre-attck-dlya-malogo-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/lemonsees-soc-bez-agentov-po-ssh-kontrol-faylov-i-mitre-attck-dlya-malogo-biznesa-2026/)
 - [Claude Duet: агент, который пишет первым, и что взять бизнесу](./claude-duet-lichnyy-agent-kotoryy-pishet-pervym-chto-eto-dlya-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/claude-duet-lichnyy-agent-kotoryy-pishet-pervym-chto-eto-dlya-biznesa-2026/)
 - [Gemma от DeepMind и Сингапура: каскад против мошеннических диалогов](./gemma-ot-deepmind-i-singapura-kaskad-dlya-raspoznavaniya-moshennicheskih-razgovorov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gemma-ot-deepmind-i-singapura-kaskad-dlya-raspoznavaniya-moshennicheskih-razgovorov-2026/)
 - [ChatGPT в Chrome читает вкладки: что защитить у сотрудников](./chatgpt-dlya-chrome-chitaet-vkladki-i-upravlyaet-brauzerom-chto-zashchitit-u-sotrudnikov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chatgpt-dlya-chrome-chitaet-vkladki-i-upravlyaet-brauzerom-chto-zashchitit-u-sotrudnikov-2026/)
@@ -2542,10 +2544,11 @@
 
 ## Экспертное
 
+- [Claude API убрал temperature: что проверить в коде бота](./claude-api-ubrali-temperature-top-p-top-k-chto-proverit-v-kode-bota-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/claude-api-ubrali-temperature-top-p-top-k-chto-proverit-v-kode-bota-2026/)
 - [Cloudflare Clairic: счета и накладные в поля за один проход](./cloudflare-clairic-izvlechenie-poley-iz-schetov-i-nakladnykh-za-odin-prokhod-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/cloudflare-clairic-izvlechenie-poley-iz-schetov-i-nakladnykh-za-odin-prokhod-2026/)
 - [Voxtral 3: русский в списке, весов нет. Что с локальным запуском](./voxtral-3-golosovye-modeli-mistral-russkiy-yazyk-licenziya-i-lokalnyy-zapusk-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/voxtral-3-golosovye-modeli-mistral-russkiy-yazyk-licenziya-i-lokalnyy-zapusk-2026/)
 - [Harness² от Google: агент сам правит инструкции, а вы держите откат](./google-harness2-ii-agent-sam-uluchshaet-svoi-instrukcii-versii-konfiguracii-i-otkat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/google-harness2-ii-agent-sam-uluchshaet-svoi-instrukcii-versii-konfiguracii-i-otkat-2026/)
-- [MiniMax M3.1 Flash: что менять в бюджете бота, пока веса не вышли](./minimax-m3-1-flash-chto-menyat-v-byudzhete-bota-poka-vesa-ne-vyshli-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/minimax-m3-1-flash-chto-menyat-v-byudzhete-bota-poka-vesa-ne-vyshli-2026/)
+- [MiniMax M3.1 Flash: веса открыты, что менять в бюджете бота](./minimax-m3-1-flash-chto-menyat-v-byudzhete-bota-poka-vesa-ne-vyshli-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/minimax-m3-1-flash-chto-menyat-v-byudzhete-bota-poka-vesa-ne-vyshli-2026/)
 - [Grok Voice 3.0: русский в списке языков, но проверьте на 20 звонках](./grok-voice-3-0-russkiy-v-spiske-kak-proverit-golosovogo-agenta-na-20-zvonkah-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/grok-voice-3-0-russkiy-v-spiske-kak-proverit-golosovogo-agenta-na-20-zvonkah-2026/)
 - [DeepSeek V4.1-Flash-1017: что менять в бюджете и настройках бота](./deepseek-v4-1-flash-1017-chto-menyat-v-byudzhete-i-nastroykakh-bota-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/deepseek-v4-1-flash-1017-chto-menyat-v-byudzhete-i-nastroykakh-bota-2026/)
 - [Sora API закрыт 24 сентября: что делать, если процесс на нём](./sora-api-zakryt-24-sentyabrya-2026-chto-delat-esli-process-derzhalsya-na-nem.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sora-api-zakryt-24-sentyabrya-2026-chto-delat-esli-process-derzhalsya-na-nem/)
