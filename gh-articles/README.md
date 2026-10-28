@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2702**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2703**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -368,6 +368,7 @@
 
 ## Open-source и свой сервер
 
+- [Open source для бизнеса: карта разборов по задачам](./open-source-dlya-biznesa-karta-razborov-po-zadacham-oktyabr-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/open-source-dlya-biznesa-karta-razborov-po-zadacham-oktyabr-2026/)
 - [PDF2MD: сканы и архивы в текст и отчёт, где OCR мог ошибиться](./pdf2md-skany-i-arhivy-dokumentov-v-tekst-s-otchetom-gde-ocr-oshibsya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pdf2md-skany-i-arhivy-dokumentov-v-tekst-s-otchetom-gde-ocr-oshibsya-2026/)
 - [ClamAV: проверка файлов с сайта и почты и чего он не заменит](./clamav-proverka-faylov-ot-klientov-na-sayte-i-v-pochte-chego-antivirus-ne-zamenit-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/clamav-proverka-faylov-ot-klientov-na-sayte-i-v-pochte-chego-antivirus-ne-zamenit-2026/)
 - [Infection Monkey: имитация атаки на свою сеть до злоумышленника](./infection-monkey-imitatsiya-ataki-na-svoyu-set-do-zloumyshlennika-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/infection-monkey-imitatsiya-ataki-na-svoyu-set-do-zloumyshlennika-2026/)
