@@ -227,11 +227,13 @@ const BASE = [
 const fs = require('fs');
 const path = require('path');
 const byId = new Map(BASE.map((m) => [m.id, m]));
+const srcFile = new Map(); // id -> имя файла партии, из него берём дату добавления
 const dir = path.join(__dirname, 'models');
 for (const f of fs.existsSync(dir) ? fs.readdirSync(dir).filter((x) => x.endsWith('.js') && !x.startsWith('_')).sort() : []) {
   for (const m of require(path.join(dir, f))) {
     if (m.verified === false) continue; // непроверенное не публикуем
     byId.set(m.id, m);
+    srcFile.set(m.id, f);
   }
 }
 // Два патча поверх данных, оба лежат отдельными файлами, чтобы их можно было пересобрать:
@@ -242,12 +244,18 @@ const QUANT = readJson('_quant.json');
 // _ru2.json — второй проход по официальным отчётам, он уточняет первый.
 const RU = { ...readJson('_ru.json'), ...readJson('_ru2.json') };
 const RU_OK = ['yes', 'no', 'na', 'unknown'];
+// _updated.json — даты обновления старых карточек. Для новых дата идёт из имени файла партии: wave9-oct28.js = 28 октября.
+const UPDATED = readJson('_updated.json');
+const MON = { jan: '01', feb: '02', mar: '03', apr: '04', may: '05', jun: '06', jul: '07', aug: '08', sep: '09', oct: '10', nov: '11', dec: '12' };
+const fileDate = (f, year) => { const x = /(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)(\d{2})/.exec(f || ''); return x ? `${year}-${MON[x[1]]}-${x[2]}` : ''; };
 
 module.exports = [...byId.values()].map((m) => {
   const out = { ...m };
   if (out.quant === undefined) out.quant = QUANT[m.id] || [];
   // Модель из библиотеки Ollama по определению раздаётся в формате GGUF.
   if (out.ollama && !out.quant.includes('gguf')) out.quant = ['gguf', ...out.quant];
+  // sortKey: точная дата для ленты «новее выше». Берём самую позднюю из: месяц обновления, дата файла партии, запись в _updated.json.
+  out.sortKey = [`${m.latest || ''}-01`, fileDate(srcFile.get(m.id), (m.latest || '2026').slice(0, 4)), UPDATED[m.id] || ''].sort().pop();
   const r = RU[m.id];
   if (out.ru === 'unknown' && r && RU_OK.includes(r.ru)) out.ru = r.ru;
   return out;

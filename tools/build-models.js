@@ -65,6 +65,7 @@ const CMP = (readOpt('./models/_compare.js') || []).filter((c) => ALL.some((m) =
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const tg = (text) => 'https://t.me/chimitdorzhi?text=' + encodeURIComponent(text);
 const fmtMonth = (ym, lang) => { const [y, m] = ym.split('-'); return MONTHS[lang][+m - 1] + ' ' + y; };
+const cmpNew = (a, b) => (b.sortKey || b.latest).localeCompare(a.sortKey || a.latest) || b.latest.localeCompare(a.latest) || a.name.localeCompare(b.name);
 const years = (m) => { const a = m.first.slice(0, 4), b = m.latest.slice(0, 4); return a === b ? a : `${a}–${b}`; };
 const modLabel = (k, lang) => MOD[k][lang];
 const modChip = (k, lang) => `<span class="md-mod"><i class="ph ph-${MOD[k].icon}" aria-hidden="true"></i>${modLabel(k, lang)}</span>`;
@@ -165,7 +166,7 @@ function card(m0, lang, { compare = true } = {}) {
     + (m.ollama ? `<span class="md-badge" title="${t.ollamaBadge}">Ollama</span>` : '')
     + (!m.ollama && hasGguf(m) ? `<span class="md-badge" title="${t.ggufBadge}">GGUF</span>` : '')
     + (isStale(m) ? `<span class="md-badge md-badge-old" title="${esc(t.staleTitle(fmtMonth(m.latest, lang)))}">${t.staleBadge}</span>` : '');
-  return `<article class="md-card" data-id="${m.id}" data-mod="${m.modality.join(' ')}" data-hw="${m.hardware.join(' ')}" data-com="${m.commercial}" data-latest="${m.latest}" data-first="${m.first}" data-name="${esc(m.name.toLowerCase())}" data-country="${countryKeys(m0).join(' ')}" data-dev="${brandKeys(m0).join(' ')}" data-ru="${m.ru || ''}" data-ind="${(m.industries || []).join(' ')}" data-ollama="${m.ollama ? 1 : 0}" data-cpu="${m.cpu ? 1 : 0}" data-stale="${isStale(m) ? 1 : 0}" data-gguf="${hasGguf(m) ? 1 : 0}" data-q="${esc(q)}">
+  return `<article class="md-card" data-id="${m.id}" data-mod="${m.modality.join(' ')}" data-hw="${m.hardware.join(' ')}" data-com="${m.commercial}" data-latest="${m.latest}" data-key="${m.sortKey || m.latest}" data-first="${m.first}" data-name="${esc(m.name.toLowerCase())}" data-country="${countryKeys(m0).join(' ')}" data-dev="${brandKeys(m0).join(' ')}" data-ru="${m.ru || ''}" data-ind="${(m.industries || []).join(' ')}" data-ollama="${m.ollama ? 1 : 0}" data-cpu="${m.cpu ? 1 : 0}" data-stale="${isStale(m) ? 1 : 0}" data-gguf="${hasGguf(m) ? 1 : 0}" data-q="${esc(q)}">
   <div class="md-card-top">${modChip(m.modality[0], lang)}<span class="md-card-meta">${badges}<span class="md-year">${years(m)}</span></span></div>
   <h2 class="md-name"><a href="${BASE[lang]}${m.id}/">${esc(m.name)}</a></h2>
   <div class="md-dev">${esc(m.developer)} · ${esc(m.country)}</div>
@@ -242,7 +243,7 @@ function catalog(lang, colls) {
     const inner = g.keys.filter((k) => counts[k]).map(chip).join('');
     return inner ? `<div class="md-chip-group"><span class="md-chip-label">${g[lang]}</span><div class="md-chip-row">${inner}</div></div>` : '';
   }).join('');
-  const sorted = [...models].sort((a, b) => b.latest.localeCompare(a.latest));
+  const sorted = [...models].sort(cmpNew);
   const fresh = sorted.slice(0, 5);
   const sel = (id, label, anyLabel, opts) => `<label class="md-select"><span>${label}</span><select id="md-${id}" data-f="${id}">${anyLabel !== null ? `<option value="">${anyLabel}</option>` : ''}${opts.map(([v, x]) => `<option value="${v}">${esc(x)}</option>`).join('')}</select></label>`;
   const countryOpts = [...COUNTRY.map(([k, l]) => [k, l[lang]]), ['other', OTHER_COUNTRY[lang]]].filter(([k]) => models.some((m) => countryKeys(m).includes(k))).map(([k, l]) => [k, `${l} (${models.filter((m) => countryKeys(m).includes(k)).length})`]);
@@ -300,7 +301,7 @@ function catalog(lang, colls) {
   <script type="application/json" id="mdAll">${JSON.stringify(sorted.map((m0) => { const m = loc(m0, lang); return {
     i: m.id, n: m.name, de: `${m.developer} · ${m.country}`, su: m.summary, ta: m.tasks.slice(0, 3), si: m.sizes,
     mk: m.modality[0], hk: m.hardware[0], co: m.commercial, yr: years(m),
-    dm: m.modality.join(' '), dh: m.hardware.join(' '), dl: m.latest, df: m.first, dn: m.name.toLowerCase(),
+    dm: m.modality.join(' '), dh: m.hardware.join(' '), dl: m.latest, dk: m.sortKey || m.latest, df: m.first, dn: m.name.toLowerCase(),
     dc: countryKeys(m0).join(' '), dd: brandKeys(m0).join(' '), dr: m.ru || '', di: (m.industries || []).join(' '),
     do: m.ollama ? 1 : 0, dp: m.cpu ? 1 : 0, ds: isStale(m) ? 1 : 0, dg: hasGguf(m) ? 1 : 0,
     st: isStale(m) ? t.staleTitle(fmtMonth(m.latest, lang)) : '',
@@ -332,7 +333,7 @@ function catalog(lang, colls) {
   function e_(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
   function cardHtml(m){
     var mo=LB.mod[m.mk], co=LB.com[m.co];
-    return '<article class="md-card" data-id="'+m.i+'" data-mod="'+m.dm+'" data-hw="'+m.dh+'" data-com="'+m.co+'" data-latest="'+m.dl+'" data-first="'+m.df+'" data-name="'+e_(m.dn)+'" data-country="'+m.dc+'" data-dev="'+m.dd+'" data-ru="'+m.dr+'" data-ind="'+m.di+'" data-ollama="'+m.do+'" data-cpu="'+m.dp+'" data-stale="'+m.ds+'" data-gguf="'+m.dg+'" data-q="'+e_(m.dq)+'">'
+    return '<article class="md-card" data-id="'+m.i+'" data-mod="'+m.dm+'" data-hw="'+m.dh+'" data-com="'+m.co+'" data-latest="'+m.dl+'" data-key="'+m.dk+'" data-first="'+m.df+'" data-name="'+e_(m.dn)+'" data-country="'+m.dc+'" data-dev="'+m.dd+'" data-ru="'+m.dr+'" data-ind="'+m.di+'" data-ollama="'+m.do+'" data-cpu="'+m.dp+'" data-stale="'+m.ds+'" data-gguf="'+m.dg+'" data-q="'+e_(m.dq)+'">'
       +'<div class="md-card-top"><span class="md-mod"><i class="ph ph-'+mo.i+'" aria-hidden="true"></i>'+mo.l+'</span><span class="md-card-meta">'
       +(m.dr==='yes'?'<span class="md-badge md-badge-ru" title="'+LB.ruBadge+'">RU</span>':'')+(m.do?'<span class="md-badge" title="'+LB.ollamaBadge+'">Ollama</span>':'')
       +(!m.do&&m.dg?'<span class="md-badge" title="'+LB.ggufBadge+'">GGUF</span>':'')+(m.ds?'<span class="md-badge md-badge-old" title="'+e_(m.st)+'">'+LB.staleBadge+'</span>':'')
@@ -374,7 +375,7 @@ function catalog(lang, colls) {
   }
   function order(){
     var s=sort.value;
-    cards.sort(function(a,b){ return s==='az' ? a.dataset.name.localeCompare(b.dataset.name,UI.locale) : s==='old' ? a.dataset.first.localeCompare(b.dataset.first) : b.dataset.latest.localeCompare(a.dataset.latest); })
+    cards.sort(function(a,b){ return s==='az' ? a.dataset.name.localeCompare(b.dataset.name,UI.locale) : s==='old' ? a.dataset.first.localeCompare(b.dataset.first) : (b.dataset.key||b.dataset.latest).localeCompare(a.dataset.key||a.dataset.latest); })
       .forEach(function(c){ grid.appendChild(c); });
   }
   function setChip(ch){
@@ -525,7 +526,7 @@ function detail(m0, lang) {
 function collectionPage(x, lang, colls) {
   const t = T[lang];
   const h1 = ctext(x.c, 'h1', lang), intro = ctext(x.c, 'intro', lang);
-  const sorted = [...x.items].sort((a, b) => b.latest.localeCompare(a.latest));
+  const sorted = [...x.items].sort(cmpNew);
   const altExists = colls.alt && colls.alt.has(x.rel);
   const main = `<section class="section md-page"><div class="container">
   ${crumbs(lang, [[BASE[lang], t.section], [null, h1]])}
@@ -933,7 +934,7 @@ function hardwarePage(x, lang) {
   </header>
   <section class="md-colls"><h2>${t.hwExamplesH}</h2><div class="md-hw">${f2('examples').map(([h, d]) => `<div class="md-hw-row is-on"><i class="ph ph-${HW[x.key].icon}" aria-hidden="true"></i><div><b>${esc(h)}</b><span>${esc(d)}</span></div></div>`).join('')}</div></section>
   <h2 class="md-colls-h2">${t.hwWhatFits}</h2>
-  ${order.map((k) => `<section class="md-hw-mod"><h3>${modLabel(k, lang)} <small>${byMod[k].length}</small></h3><div class="md-grid">${byMod[k].sort((a, b) => b.latest.localeCompare(a.latest)).slice(0, 12).map((m) => card(m, lang, { compare: false })).join('')}</div></section>`).join('')}
+  ${order.map((k) => `<section class="md-hw-mod"><h3>${modLabel(k, lang)} <small>${byMod[k].length}</small></h3><div class="md-grid">${byMod[k].sort(cmpNew).slice(0, 12).map((m) => card(m, lang, { compare: false })).join('')}</div></section>`).join('')}
   <section class="md-colls"><h2>${t.hwNoteH}</h2><p class="md-stack-note">${esc(f2('note'))}</p></section>
   ${HWPAGES.filter((o) => o.slug !== x.slug).length ? `<section class="md-colls"><h2>${t.hwGroupH}</h2><ul class="md-links md-links-cols">${HWPAGES.filter((o) => o.slug !== x.slug).map((o) => `<li><a href="${BASE[lang]}zhelezo/${o.slug}/">${esc(lang === 'en' ? (o.h1_en || o.h1) : o.h1)}</a></li>`).join('')}</ul></section>` : ''}
   ${offer(lang)}
