@@ -1,6 +1,7 @@
 // Кейсы-предложения 14.10.2026 (рубрика «Аудиты и предложения»): концепция и ТЗ портала путешествий по подписке,
 // визуализация ТЗ бота, витрины и розыгрыша для детской арт-студии поверх YCLIENTS и GetCourse.
 // Без имён клиентов, названий проектов, брендов, доменов и цен; статус: предложение передано, решение за заказчиком.
+// 28.10.2026: кейс арт-студии обновлён, бот запущен 24.10, MAX и ВКонтакте написаны 26.10.
 const C = (s) => require('./blog-content-' + s + '.js');
 const D = '2026-10-14';
 const S = 'https://chimitdorzhi.tech';
@@ -37,11 +38,12 @@ module.exports = [
   {
     slug: 'art-studiya-bot-vitrina-rozygrysh-keys-2026',
     heroIcon: 'ph-fill ph-palette',
-    title: 'Бот, витрина и розыгрыш для детской арт-студии поверх YCLIENTS',
+    title: 'Бот для детской арт-студии поверх YCLIENTS: от ТЗ до запуска',
     metaTitle: 'Кейс: бот для детской арт-студии поверх YCLIENTS и GetCourse',
-    metaDescription: 'Кейс: визуализация ТЗ детской арт-студии. Бот в Telegram и MAX, витрина наборов и розыгрыш поверх YCLIENTS и GetCourse, 11 слайдов и 13 экранов.',
-    excerpt: 'Детская арт-студия держит запись в YCLIENTS, а онлайн-клуб и базу в GetCourse. Первая версия с единой платформой устарела, когда пришло ТЗ без своей CRM. По ТЗ я собрал 13 экранов и 11 слайдов: бот, витрина, розыгрыш и шесть поправок к механике. Предложение передано, бота пока нет.',
-    tags: ['кейс', 'YCLIENTS', 'GetCourse', 'розыгрыш', 'бот в MAX'],
+    metaDescription: 'Кейс: бот детской арт-студии поверх YCLIENTS и GetCourse. От ТЗ и 13 экранов до запуска в Telegram 24.10, бот в MAX и заявки во ВКонтакте.',
+    excerpt: 'Детская арт-студия держит запись в YCLIENTS, а курсы в GetCourse. По её ТЗ я собрал 13 экранов и 11 слайдов с шестью поправками к механике, а 24.10 запустил бота в Telegram на сервере студии. 26.10 написаны бот в MAX и заявки в чат ВКонтакте, оплата и запись через API ждут ключей.',
+    tags: ['кейс', 'YCLIENTS', 'GetCourse', 'розыгрыш', 'бот в MAX', 'Telegram-бот'],
+    dateModified: '2026-10-28',
     relatedSlugs: ['integraciya-yclients-s-botom-i-getcourse-bez-crm-2026', 'rozygrysh-prizov-v-messendzhere-pravila-nalog-cheki-2026', 'yclients-dikidi-ili-svoy-bot-2026', 'it-dlya-detskogo-centra-2026'],
     ctaInternal: { url: `${S}/predlozheniya/it-detskiy-centr/`, label: 'Обсудить бота для студии' },
   },

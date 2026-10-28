@@ -3,6 +3,33 @@
 // intl: международный проект. metric: есть твёрдые цифры.
 // en / es — переводы полей task/solution/result (RU — база/фолбэк).
 module.exports = [
+  // Конец октября 2026: запуски, рабочие демо и сданные работы.
+  require('./_case-pulty-sobstvennika-sayt-probnyy-kabinet-keys-2026.js').flagship,
+  require('./_case-uchet-dlya-buhfirmy-v-dubae-bot-pwa-keys-2026.js').flagship,
+  require('./_case-minio-dlya-servera-vzaimodeystviya-1c-keys-2026.js').flagship,
+  require('./_case-nyutag-simulyator-zhizni-sela-keys-2026.js').flagship,
+  require('./_case-crowdy-ii-instrumenty-dlya-max-keys-2026.js').flagship,
+  require('./_case-ii-buhgalter-1s-stend-foruma-keys-2026.js').flagship,
+  require('./_case-prilozhenie-rukovoditelya-komandy-telegram-max-keys-2026.js').flagship,
+  require('./_case-internet-magazin-ukrasheniy-iz-kamnya-chita-keys-2026.js').flagship,
+  require('./_case-ii-servis-upravleniya-zhiznyu-mvp-keys-2026.js').flagship,
+  require('./_case-platforma-meropriyatiy-bilety-qr-usdt-keys-2026.js').flagship,
+  require('./_case-audity-i-analitika-dlya-agentstva-oae-keys-2026.js').flagship,
+  // Конец октября 2026: предложения в стадии обсуждения.
+  require('./_case-logistika-svoya-sistema-vmesto-bitrix24-predlozhenie-keys-2026.js').flagship,
+  require('./_case-dostavka-edy-chita-avtomatizaciya-predlozhenie-keys-2026.js').flagship,
+  require('./_case-predzakaz-kofe-pwa-kofeyni-v-klinikah-predlozhenie-keys-2026.js').flagship,
+  require('./_case-crm-studii-trenirovok-makety-predlozhenie-keys-2026.js').flagship,
+  require('./_case-odno-okno-kliniki-ii-protokol-predlozhenie-keys-2026.js').flagship,
+  require('./_case-remkontrol-bot-zayavka-zamer-smeta-predlozhenie-keys-2026.js').flagship,
+  require('./_case-lichnyy-kalendar-po-date-rozhdeniya-predlozhenie-keys-2026.js').flagship,
+  require('./_case-ii-stilist-po-selfi-telegram-max-predlozhenie-keys-2026.js').flagship,
+  require('./_case-artel-posutochnikov-servis-predlozhenie-keys-2026.js').flagship,
+  require('./_case-zadachi-sotrudnikam-iz-1s-android-predlozhenie-keys-2026.js').flagship,
+  require('./_case-prostye-resheniya-saas-iz-blokov-predlozhenie-keys-2026.js').flagship,
+  require('./_case-bot-i-rassylki-hudozhnicy-perenos-predlozhenie-keys-2026.js').flagship,
+  require('./_case-rozygryshi-s-partnerkoy-v-max-riski-predlozhenie-keys-2026.js').flagship,
+  require('./_case-deteyling-dubay-klienty-partnerka-predlozhenie-keys-2026.js').flagship,
   // Начало октября 2026: свои продукты, сданные проекты и отданные предложения.
   require('./_case-kinly-semeynyy-assistent-telegram-max-keys-2026.js').flagship,
   require('./_case-ferz-rabochee-mesto-rukovoditelya-saas-keys-2026.js').flagship,
@@ -229,17 +256,17 @@ module.exports = [
     name: 'SpyGambl', type: 'platform', metric: true, done: true,
     task: 'Бесплатная библиотека рекламных креативов с фильтрами по гео и формату — узкая вертикаль, ручное пополнение.',
     solution: 'Каталог креативов + браузерное расширение для импорта объявления «в один клик» с нужным гео; медиа через CDN, тяжёлые гифки автоматически в видео.',
-    result: 'В проде: 140+ гео, вес страницы с баннерами снижен в 8 раз (6,3 → 0,8 МБ), отклик ~60 мс. Седьмой этап (сентябрь 2026) — автопостинг свежих креативов в Telegram-сообщество на ~4 200 участников с темами по странам и планировщиком «день/ночь» — выкачен в бой.',
+    result: 'В проде: 140+ гео, вес страницы с баннерами снижен в 8 раз (6,3 → 0,8 МБ), отклик ~60 мс. В сентябре 2026 выкачены автопостинг свежих креативов в Telegram-сообщество на ~4 200 участников с темами по странам и планировщиком «день/ночь» и раздел ИИ-генерации картинок и видео с балансом и пополнением в криптовалюте. 28 октября 2026 к генерации подключён второй провайдер, каталог моделей вынесен в админку: заказчик сам включает модели и задаёт закупочную цену и наценку по каждой. Добавлены черновой режим видео, приём USDT и USDC в пяти сетях и понятные причины отказа вместо общей ошибки; проверено на боевом сервере.',
     stack: ['Next.js', 'React', 'PostgreSQL', 'браузерное расширение', 'CDN', 'Telegram Bot API'],
     en: {
       task: 'A free ad-creatives library with filters by geo and format — a narrow vertical, manually curated.',
       solution: 'Creatives catalog + a browser extension to import an ad "in one click" with the right geo; media via CDN, heavy GIFs auto-converted to video.',
-      result: 'Live: 140+ geos, banner-page weight cut 8× (6.3 → 0.8 MB), response ~60 ms. Stage seven (September 2026) — auto-posting fresh creatives to a ~4,200-member Telegram community with per-country topics and a day/night scheduler — shipped to production.',
+      result: 'Live: 140+ geos, banner-page weight cut 8× (6.3 → 0.8 MB), response ~60 ms. In September 2026 two features shipped: auto-posting fresh creatives to a ~4,200-member Telegram community with per-country topics and a day/night scheduler, and an AI image and video generation section with a balance topped up in crypto. On 28 October 2026 a second generation provider was connected and the model catalog moved into the admin panel: the client enables models and sets the purchase price and markup for each one. Also added: a draft mode for video, USDT and USDC payments on five networks, and clear failure reasons instead of a generic error; verified on the production server.',
     },
     es: {
       task: 'Una biblioteca gratuita de creatividades publicitarias con filtros por geo y formato — un vertical concreto, con curación manual.',
       solution: 'Catálogo de creatividades + una extensión de navegador para importar un anuncio "en un clic" con el geo correcto; medios por CDN, GIFs pesados convertidos a vídeo automáticamente.',
-      result: 'En producción: 140+ geos, peso de la página con banners reducido 8× (6,3 → 0,8 MB), respuesta ~60 ms. La séptima etapa (septiembre de 2026) — publicación automática de creatividades nuevas en una comunidad de Telegram de ~4.200 miembros con temas por país y un planificador día/noche — ya está en producción.',
+      result: 'En producción: 140+ geos, peso de la página con banners reducido 8× (6,3 → 0,8 MB), respuesta ~60 ms. En septiembre de 2026 salieron la publicación automática de creatividades nuevas en una comunidad de Telegram de ~4.200 miembros con temas por país y un planificador día/noche, y una sección de generación de imágenes y vídeos con IA con saldo recargable en criptomonedas. El 28 de octubre de 2026 se conectó un segundo proveedor de generación y el catálogo de modelos pasó al panel de administración: el cliente activa los modelos y fija el precio de compra y el margen de cada uno. También se añadieron un modo borrador para vídeo, pagos en USDT y USDC en cinco redes y motivos de fallo claros en lugar de un error genérico; verificado en el servidor de producción.',
     },
   },
   {

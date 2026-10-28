@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2666**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2703**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -152,6 +152,31 @@
 
 ## cases
 
+- [Сайт и шесть пультов собственника с закрытым пробным кабинетом](./pulty-sobstvennika-sayt-probnyy-kabinet-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pulty-sobstvennika-sayt-probnyy-kabinet-keys-2026/)
+- [Учёт для бухфирмы в Дубае: бот, мини-приложение, НДС и баланс](./uchet-dlya-buhfirmy-v-dubae-bot-pwa-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uchet-dlya-buhfirmy-v-dubae-bot-pwa-keys-2026/)
+- [MinIO, SSL и сайт для внешних участников у сервера взаимодействия 1С](./minio-dlya-servera-vzaimodeystviya-1c-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/minio-dlya-servera-vzaimodeystviya-1c-keys-2026/)
+- [НЮТАГ: онлайн-симулятор жизни села на 3D-карте с входом через MAX](./nyutag-simulyator-zhizni-sela-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nyutag-simulyator-zhizni-sela-keys-2026/)
+- [Crowdy: SaaS с ИИ-инструментами для каналов и чатов в MAX](./crowdy-ii-instrumenty-dlya-max-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/crowdy-ii-instrumenty-dlya-max-keys-2026/)
+- [ИИ-бухгалтер над 1С для стенда на ДВЭФ: беспорядок в базе и откат](./ii-buhgalter-1s-stend-foruma-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-buhgalter-1s-stend-foruma-keys-2026/)
+- [Приложение руководителя большой команды в Telegram, MAX и на сайте](./prilozhenie-rukovoditelya-komandy-telegram-max-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/prilozhenie-rukovoditelya-komandy-telegram-max-keys-2026/)
+- [Сайт-магазин украшений из камня для мастерской из Читы: СДЭК и ЮKassa](./internet-magazin-ukrasheniy-iz-kamnya-chita-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/internet-magazin-ukrasheniy-iz-kamnya-chita-keys-2026/)
+- [MVP ИИ-сервиса для управления личной жизнью и делами](./ii-servis-upravleniya-zhiznyu-mvp-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-servis-upravleniya-zhiznyu-mvp-keys-2026/)
+- [Платформа мероприятий в Telegram: билеты с QR, оплата в USDT и нетворкинг](./platforma-meropriyatiy-bilety-qr-usdt-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/platforma-meropriyatiy-bilety-qr-usdt-keys-2026/)
+- [Аудиты, исследования и ролик для маркетингового агентства в ОАЭ](./audity-i-analitika-dlya-agentstva-oae-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/audity-i-analitika-dlya-agentstva-oae-keys-2026/)
+- [Своя система вместо Битрикс24 для транспортной компании: КП и рейсы](./logistika-svoya-sistema-vmesto-bitrix24-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/logistika-svoya-sistema-vmesto-bitrix24-predlozhenie-keys-2026/)
+- [Автоматизация доставки еды в Чите: заказы в MAX и Telegram, кухня, этапы](./dostavka-edy-chita-avtomatizaciya-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/dostavka-edy-chita-avtomatizaciya-predlozhenie-keys-2026/)
+- [Предзаказ кофе для двух кофеен при медклиниках в Кыргызстане: PWA](./predzakaz-kofe-pwa-kofeyni-v-klinikah-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/predzakaz-kofe-pwa-kofeyni-v-klinikah-predlozhenie-keys-2026/)
+- [CRM для студии тренировок с одним тренером: КП с макетами экранов](./crm-studii-trenirovok-makety-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/crm-studii-trenirovok-makety-predlozhenie-keys-2026/)
+- [Одно окно для частной клиники и ИИ-черновик протокола: типовое КП](./odno-okno-kliniki-ii-protokol-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/odno-okno-kliniki-ii-protokol-predlozhenie-keys-2026/)
+- [РемКонтроль: бот для ремонтной компании от заявки до сметы](./remkontrol-bot-zayavka-zamer-smeta-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/remkontrol-bot-zayavka-zamer-smeta-predlozhenie-keys-2026/)
+- [Личный календарь по дате рождения: бот, мини-приложение и PDF вместо Excel](./lichnyy-kalendar-po-date-rozhdeniya-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/lichnyy-kalendar-po-date-rozhdeniya-predlozhenie-keys-2026/)
+- [ИИ-стилист по селфи в Telegram и MAX: концепция, макеты и экономика](./ii-stilist-po-selfi-telegram-max-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-stilist-po-selfi-telegram-max-predlozhenie-keys-2026/)
+- [Артель посуточников: общая витрина, обмен гостями и партнёрка](./artel-posutochnikov-servis-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/artel-posutochnikov-servis-predlozhenie-keys-2026/)
+- [Задачи сотрудникам из 1С в телефоне: прототип на Android и план тиража](./zadachi-sotrudnikam-iz-1s-android-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zadachi-sotrudnikam-iz-1s-android-predlozhenie-keys-2026/)
+- [Простые решения: подписка на блоки готовой платформы для малой торговли](./prostye-resheniya-saas-iz-blokov-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/prostye-resheniya-saas-iz-blokov-predlozhenie-keys-2026/)
+- [Бот и рассылки для художницы: как забрать проект у прошлого подрядчика](./bot-i-rassylki-hudozhnicy-perenos-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bot-i-rassylki-hudozhnicy-perenos-predlozhenie-keys-2026/)
+- [Розыгрыши с партнёркой в MAX: какие юридические риски я нашёл в идее](./rozygryshi-s-partnerkoy-v-max-riski-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/rozygryshi-s-partnerkoy-v-max-riski-predlozhenie-keys-2026/)
+- [Клиенты для детейлинг-студии в Дубае: разбор, план и партнёрка с QR](./deteyling-dubay-klienty-partnerka-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/deteyling-dubay-klienty-partnerka-predlozhenie-keys-2026/)
 - [Четыре демо-сайта агентства недвижимости в Дубае: каталог и объявления](./chetyre-demo-sayta-agentstva-nedvizhimosti-dubay-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chetyre-demo-sayta-agentstva-nedvizhimosti-dubay-keys-2026/)
 - [Сервис Деск на 1С: задачи, учёт времени и боты в Telegram и MAX](./servis-desk-1c-telegram-max-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/servis-desk-1c-telegram-max-keys-2026/)
 - [Визовый бот: от рилса до CRM, концепт для визового консультанта](./vizovyy-bot-telegram-crm-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vizovyy-bot-telegram-crm-keys-2026/)
@@ -161,11 +186,11 @@
 - [Визуализаторы треков для музыкального лейбла: 13 вертикальных роликов](./vizualizatory-trekov-muzykalnogo-leybla-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vizualizatory-trekov-muzykalnogo-leybla-keys-2026/)
 - [Пометки запрещённых площадок на сайте: автоматически при сборке](./avtomarkirovka-zapreshchennyh-ploshchadok-na-sayte-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avtomarkirovka-zapreshchennyh-ploshchadok-na-sayte-keys-2026/)
 - [Рубрикатор страницы кейсов: фильтр по типу работы и отрасли](./rubrikator-keysov-dve-osi-filtra-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/rubrikator-keysov-dve-osi-filtra-keys-2026/)
-- [Платформа академии инвестиций: 15 языков и партнёрка на две линии](./onlayn-akademiya-investiciy-partnerka-dve-linii-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/onlayn-akademiya-investiciy-partnerka-dve-linii-keys-2026/)
-- [Сеть магазинов белья: MAX, лояльность и сертификаты поверх 1С](./set-magazinov-belya-max-poverh-1c-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/set-magazinov-belya-max-poverh-1c-keys-2026/)
+- [Платформа академии инвестиций: партнёрка на две линии и оплата USDT](./onlayn-akademiya-investiciy-partnerka-dve-linii-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/onlayn-akademiya-investiciy-partnerka-dve-linii-keys-2026/)
+- [Магазин женской одежды из Читы: MAX, бонусы и сертификаты поверх 1С](./set-magazinov-zhenskoy-odezhdy-chita-max-1c-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/set-magazinov-zhenskoy-odezhdy-chita-max-1c-keys-2026/)
 - [КП «ИИ-администратор»: что обещано и что можно проверить в демо](./kp-ii-administrator-zapis-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kp-ii-administrator-zapis-keys-2026/)
 - [Портал путешествий по подписке: концепция, ТЗ и рабочее демо](./travel-portal-po-podpiske-koncepciya-tz-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/travel-portal-po-podpiske-koncepciya-tz-keys-2026/)
-- [Бот, витрина и розыгрыш для детской арт-студии поверх YCLIENTS](./art-studiya-bot-vitrina-rozygrysh-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/art-studiya-bot-vitrina-rozygrysh-keys-2026/)
+- [Бот для детской арт-студии поверх YCLIENTS: от ТЗ до запуска](./art-studiya-bot-vitrina-rozygrysh-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/art-studiya-bot-vitrina-rozygrysh-keys-2026/)
 - [CRM и приложение для строительной компании: объект, задачи, отчёты с фото](./crm-stroitelnoy-kompanii-almaznaya-rezka-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/crm-stroitelnoy-kompanii-almaznaya-rezka-keys-2026/)
 - [Контроль материалов в 1С: лимиты по видам работ и согласование расхода](./kontrol-materialov-1c-rasshirenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kontrol-materialov-1c-rasshirenie-keys-2026/)
 - [Платформа продажи доменов из портфеля: рабочее демо по ТЗ](./platforma-prodazhi-domenov-demo-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/platforma-prodazhi-domenov-demo-keys-2026/)
@@ -178,12 +203,12 @@
 - [Tilda Assistant: локальный помощник для админки Tilda через диалог с ИИ](./tilda-assistant-upravlenie-adminkoy-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/tilda-assistant-upravlenie-adminkoy-keys-2026/)
 - [Шагай Наадан: три игры на одном броске костей в Telegram Mini App](./shagay-naadan-telegram-mini-app-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/shagay-naadan-telegram-mini-app-keys-2026/)
 - [Витрина решений: 48 карточек для бизнеса в Telegram-группе по нишам](./vitrina-resheniy-48-kartochek-gruppa-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vitrina-resheniy-48-kartochek-gruppa-keys-2026/)
-- [Сайт врача-косметолога из Петербурга: первый этап сдан, второй ждёт материалов](./sayt-kosmetologa-etap-1-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-kosmetologa-etap-1-keys-2026/)
+- [Сайт и ИИ-администратор для врача-косметолога из Петербурга](./sayt-kosmetologa-etap-1-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-kosmetologa-etap-1-keys-2026/)
 - [Лендинг массажиста с онлайн-записью и предоплатой: разбор проекта](./lending-massazhista-zapis-predoplata-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/lending-massazhista-zapis-predoplata-keys-2026/)
-- [Совместные закупки в одном PWA: заказ, сборка и выдача в пункте](./sovmestnye-zakupki-pwa-pvz-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sovmestnye-zakupki-pwa-pvz-keys-2026/)
-- [Бронирование боксов для склада хранения: от демо к рабочей системе](./self-storage-bronirovanie-boksov-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/self-storage-bronirovanie-boksov-keys-2026/)
+- [Совместные закупки в одном PWA: заказ, выдача и блогеры по городам](./sovmestnye-zakupki-pwa-pvz-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sovmestnye-zakupki-pwa-pvz-keys-2026/)
+- [Бронирование боксов для склада хранения: система, лендинги и сервер](./self-storage-bronirovanie-boksov-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/self-storage-bronirovanie-boksov-keys-2026/)
 - [CRM для логистической компании: откуда пришла каждая заявка](./crm-logistiki-istochniki-zayavok-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/crm-logistiki-istochniki-zayavok-keys-2026/)
-- [Заказ такси для таксопарка небольшого района: предложение и кликабельное демо](./taksi-rayona-bot-pwa-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/taksi-rayona-bot-pwa-predlozhenie-keys-2026/)
+- [Своя система такси для таксопарка района: боты, диспетчерская, водитель](./taksi-rayona-bot-pwa-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/taksi-rayona-bot-pwa-predlozhenie-keys-2026/)
 - [Приложение для автошколы: учёт часов вождения и контроль инструкторов](./avtoshkola-pwa-uchet-vozhdeniya-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avtoshkola-pwa-uchet-vozhdeniya-predlozhenie-keys-2026/)
 - [Возврат домена у бывшего разработчика: пакет документов для организации](./vozvrat-domena-u-byvshego-razrabotchika-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vozvrat-domena-u-byvshego-razrabotchika-keys-2026/)
 - [Предложение для этно-кафе: три блока и презентация гостевого PWA](./kafe-pwa-gostya-prezentaciya-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kafe-pwa-gostya-prezentaciya-keys-2026/)
@@ -343,6 +368,9 @@
 
 ## Open-source и свой сервер
 
+- [Open source для бизнеса: карта разборов по задачам](./open-source-dlya-biznesa-karta-razborov-po-zadacham-oktyabr-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/open-source-dlya-biznesa-karta-razborov-po-zadacham-oktyabr-2026/)
+- [PDF2MD: сканы и архивы в текст и отчёт, где OCR мог ошибиться](./pdf2md-skany-i-arhivy-dokumentov-v-tekst-s-otchetom-gde-ocr-oshibsya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pdf2md-skany-i-arhivy-dokumentov-v-tekst-s-otchetom-gde-ocr-oshibsya-2026/)
+- [ClamAV: проверка файлов с сайта и почты и чего он не заменит](./clamav-proverka-faylov-ot-klientov-na-sayte-i-v-pochte-chego-antivirus-ne-zamenit-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/clamav-proverka-faylov-ot-klientov-na-sayte-i-v-pochte-chego-antivirus-ne-zamenit-2026/)
 - [Infection Monkey: имитация атаки на свою сеть до злоумышленника](./infection-monkey-imitatsiya-ataki-na-svoyu-set-do-zloumyshlennika-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/infection-monkey-imitatsiya-ataki-na-svoyu-set-do-zloumyshlennika-2026/)
 - [Клиент согласует пост по ссылке: свой SMM-планировщик BrightBean](./brightbean-studio-svoy-smm-planirovshchik-s-soglasovaniem-postov-klientom-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/brightbean-studio-svoy-smm-planirovshchik-s-soglasovaniem-postov-klientom-2026/)
 - [Yahont CE: ИИ по документам и почте на своём сервере](./yahont-ce-otkrytaya-platforma-ii-pomoshchnika-po-dokumentam-pochte-i-servisam-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/yahont-ce-otkrytaya-platforma-ii-pomoshchnika-po-dokumentam-pochte-i-servisam-2026/)
@@ -662,8 +690,8 @@
 
 ## Безопасность
 
+- [Банки США блокируют ИИ-агентов с логином клиента: что делать вместо](./banki-ssha-blokiruyut-ii-agentov-s-loginom-klienta-chto-delat-vmesto-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/banki-ssha-blokiruyut-ii-agentov-s-loginom-klienta-chto-delat-vmesto-2026/)
 - [PHP: критическая дыра CVE-2026-109618, что проверить владельцу сайта](./php-kriticheskaya-uyazvimost-naydena-ii-chto-proverit-vladeltsu-sayta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/php-kriticheskaya-uyazvimost-naydena-ii-chto-proverit-vladeltsu-sayta-2026/)
-- [LemonSees: SOC по SSH без агентов на 3-10 серверах](./lemonsees-soc-bez-agentov-po-ssh-kontrol-faylov-i-mitre-attck-dlya-malogo-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/lemonsees-soc-bez-agentov-po-ssh-kontrol-faylov-i-mitre-attck-dlya-malogo-biznesa-2026/)
 - [Claude Duet: агент, который пишет первым, и что взять бизнесу](./claude-duet-lichnyy-agent-kotoryy-pishet-pervym-chto-eto-dlya-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/claude-duet-lichnyy-agent-kotoryy-pishet-pervym-chto-eto-dlya-biznesa-2026/)
 - [Gemma от DeepMind и Сингапура: каскад против мошеннических диалогов](./gemma-ot-deepmind-i-singapura-kaskad-dlya-raspoznavaniya-moshennicheskih-razgovorov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/gemma-ot-deepmind-i-singapura-kaskad-dlya-raspoznavaniya-moshennicheskih-razgovorov-2026/)
 - [ChatGPT в Chrome читает вкладки: что защитить у сотрудников](./chatgpt-dlya-chrome-chitaet-vkladki-i-upravlyaet-brauzerom-chto-zashchitit-u-sotrudnikov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chatgpt-dlya-chrome-chitaet-vkladki-i-upravlyaet-brauzerom-chto-zashchitit-u-sotrudnikov-2026/)
@@ -1293,6 +1321,7 @@
 
 ## Отрасли
 
+- [Сайт учебного центра в Дубае: KHDA, запись на пробное, VAT и дети](./sayt-uchebnogo-centra-v-dubae-khda-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-uchebnogo-centra-v-dubae-khda-2026/)
 - [Сайт салона красоты в Дубае: онлайн-запись, депозит, VAT и реклама](./sayt-salona-krasoty-v-dubae-zapis-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-salona-krasoty-v-dubae-zapis-2026/)
 - [Сайт коттеджного посёлка: генплан, продажа участков и заявки](./sayt-kottedzhnogo-poselka-genplan-uchastki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-kottedzhnogo-poselka-genplan-uchastki-2026/)
 - [Сайт ресторана в Дубае: меню на арабском, доставка и муниципалитет](./sayt-restorana-v-dubae-menyu-dostavka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-restorana-v-dubae-menyu-dostavka-2026/)
@@ -1701,6 +1730,10 @@
 
 ## Право и 152-ФЗ
 
+- [Сайт таксопарка и служба заказа такси по 580-ФЗ: что обязательно](./sayt-taksoparka-sluzhba-zakaza-taksi-580-fz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-taksoparka-sluzhba-zakaza-taksi-580-fz-2026/)
+- [Что должно быть на сайте автосервиса по Правилам № 780 в 2026 году](./sayt-avtoservisa-obyazatelnaya-informaciya-pravila-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-avtoservisa-obyazatelnaya-informaciya-pravila-2026/)
+- [Что должно быть на сайте ветклиники в 2026 году](./sayt-vetkliniki-obyazatelnaya-informaciya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-vetkliniki-obyazatelnaya-informaciya-2026/)
+- [Сайт детского лагеря: реестр, приказ № 201 и онлайн-запись](./sayt-detskogo-lagerya-reestr-trebovaniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-detskogo-lagerya-reestr-trebovaniya-2026/)
 - [Сайт застройщика и 214-ФЗ: что в ЕИСЖС, а что на своём сайте](./sayt-zastroyshchika-raskrytie-informacii-214-fz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-zastroyshchika-raskrytie-informacii-214-fz-2026/)
 - [Что должно быть на сайте гостиницы по закону в 2026 году](./sayt-gostinicy-obyazatelnaya-informaciya-reestr-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-gostinicy-obyazatelnaya-informaciya-reestr-2026/)
 - [Сайт турагентства и туроператора: что обязательно разместить](./sayt-turagentstva-obyazatelnaya-informaciya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-turagentstva-obyazatelnaya-informaciya-2026/)
@@ -1980,6 +2013,9 @@
 
 ## Разработка
 
+- [Weblate: своя платформа переводов интерфейса с синхронизацией в Git](./weblate-svoya-platforma-perevodov-interfeysa-s-sinhronizaciey-v-git-dlya-komandy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/weblate-svoya-platforma-perevodov-interfeysa-s-sinhronizaciey-v-git-dlya-komandy-2026/)
+- [Как убрать ИИ и телеметрию из браузеров офиса через политики](./just-the-browser-otklyuchit-ii-telemetriyu-i-reklamu-v-chrome-edge-firefox-brave-cherez-politiki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/just-the-browser-otklyuchit-ii-telemetriyu-i-reklamu-v-chrome-edge-firefox-brave-cherez-politiki-2026/)
+- [YOLOv5 в магазине и на складе: лицензия AGPL и когда платить](./yolov5-raspoznavanie-obektov-v-magazine-i-na-sklade-licenziya-agpl-i-kogda-nuzhna-platnaya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/yolov5-raspoznavanie-obektov-v-magazine-i-na-sklade-licenziya-agpl-i-kogda-nuzhna-platnaya-2026/)
 - [AI File Sorter: локальный ИИ наводит порядок в папках без облака](./ai-file-sorter-lokalnyy-ii-navodit-poryadok-v-papkah-i-pereimenovyvaet-fayly-bez-oblaka-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ai-file-sorter-lokalnyy-ii-navodit-poryadok-v-papkah-i-pereimenovyvaet-fayly-bez-oblaka-2026/)
 - [LemonSees: мониторинг серверов по SSH без агентов и его риск](./lemonsees-soc-i-grc-bez-agentov-cherez-ssh-siem-kontrol-celostnosti-i-sootvetstvie-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/lemonsees-soc-i-grc-bez-agentov-cherez-ssh-siem-kontrol-celostnosti-i-sootvetstvie-2026/)
 - [Дизайн-система своего сайта в файл перед редизайном: npxskillui](./npxskillui-sistema-dizayna-svoego-sayta-v-fayl-tokeny-komponenty-i-skrinshoty-pered-redizaynom-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/npxskillui-sistema-dizayna-svoego-sayta-v-fayl-tokeny-komponenty-i-skrinshoty-pered-redizaynom-2026/)
@@ -2534,10 +2570,11 @@
 
 ## Экспертное
 
+- [Claude API убрал temperature: что проверить в коде бота](./claude-api-ubrali-temperature-top-p-top-k-chto-proverit-v-kode-bota-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/claude-api-ubrali-temperature-top-p-top-k-chto-proverit-v-kode-bota-2026/)
 - [Cloudflare Clairic: счета и накладные в поля за один проход](./cloudflare-clairic-izvlechenie-poley-iz-schetov-i-nakladnykh-za-odin-prokhod-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/cloudflare-clairic-izvlechenie-poley-iz-schetov-i-nakladnykh-za-odin-prokhod-2026/)
 - [Voxtral 3: русский в списке, весов нет. Что с локальным запуском](./voxtral-3-golosovye-modeli-mistral-russkiy-yazyk-licenziya-i-lokalnyy-zapusk-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/voxtral-3-golosovye-modeli-mistral-russkiy-yazyk-licenziya-i-lokalnyy-zapusk-2026/)
 - [Harness² от Google: агент сам правит инструкции, а вы держите откат](./google-harness2-ii-agent-sam-uluchshaet-svoi-instrukcii-versii-konfiguracii-i-otkat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/google-harness2-ii-agent-sam-uluchshaet-svoi-instrukcii-versii-konfiguracii-i-otkat-2026/)
-- [MiniMax M3.1 Flash: что менять в бюджете бота, пока веса не вышли](./minimax-m3-1-flash-chto-menyat-v-byudzhete-bota-poka-vesa-ne-vyshli-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/minimax-m3-1-flash-chto-menyat-v-byudzhete-bota-poka-vesa-ne-vyshli-2026/)
+- [MiniMax M3.1 Flash: веса открыты, что менять в бюджете бота](./minimax-m3-1-flash-chto-menyat-v-byudzhete-bota-poka-vesa-ne-vyshli-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/minimax-m3-1-flash-chto-menyat-v-byudzhete-bota-poka-vesa-ne-vyshli-2026/)
 - [Grok Voice 3.0: русский в списке языков, но проверьте на 20 звонках](./grok-voice-3-0-russkiy-v-spiske-kak-proverit-golosovogo-agenta-na-20-zvonkah-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/grok-voice-3-0-russkiy-v-spiske-kak-proverit-golosovogo-agenta-na-20-zvonkah-2026/)
 - [DeepSeek V4.1-Flash-1017: что менять в бюджете и настройках бота](./deepseek-v4-1-flash-1017-chto-menyat-v-byudzhete-i-nastroykakh-bota-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/deepseek-v4-1-flash-1017-chto-menyat-v-byudzhete-i-nastroykakh-bota-2026/)
 - [Sora API закрыт 24 сентября: что делать, если процесс на нём](./sora-api-zakryt-24-sentyabrya-2026-chto-delat-esli-process-derzhalsya-na-nem.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sora-api-zakryt-24-sentyabrya-2026-chto-delat-esli-process-derzhalsya-na-nem/)
