@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2703**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2713**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -37,6 +37,9 @@
 
 ## AI для разработчиков
 
+- [Бот отправляет данные клиентов в нейросеть: как их обезличить](./obezlichivanie-dannyh-pered-otpravkoy-v-neyroset-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/obezlichivanie-dannyh-pered-otpravkoy-v-neyroset-2026/)
+- [Сколько стоит одна генерация ИИ в продукте и какую цену ставить](./sebestoimost-generacii-ii-v-produkte-i-cena-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sebestoimost-generacii-ii-v-produkte-i-cena-2026/)
+- [ИИ-демо для выставки или форума, которое не упадёт на стенде](./ii-demo-dlya-vystavki-stend-bez-sboev-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-demo-dlya-vystavki-stend-bez-sboev-2026/)
 - [Камеры видеонаблюдения с ИИ для бизнеса: что работает и сколько стоит](./kamery-videonablyudeniya-s-ii-dlya-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kamery-videonablyudeniya-s-ii-dlya-biznesa-2026/)
 - [GraphRAG: граф знаний вместо базы знаний, когда окупается](./graphrag-graf-znaniy-vmesto-obychnoy-bazy-znaniy-kogda-okupaetsya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/graphrag-graf-znaniy-vmesto-obychnoy-bazy-znaniy-kogda-okupaetsya-2026/)
 - [Точка открыла MCP для ИИ-агентов: что поручить и где поставить лимит](./tochka-otkryla-mcp-dlya-ii-agentov-chto-poruchit-i-limity-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/tochka-otkryla-mcp-dlya-ii-agentov-chto-poruchit-i-limity-2026/)
@@ -1066,6 +1069,7 @@
 
 ## Игры для бизнеса
 
+- [Игра на настоящей карте города или района: как сделать в 2026 году](./igra-na-realnoy-karte-goroda-ili-rayona-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/igra-na-realnoy-karte-goroda-ili-rayona-2026/)
 - [Античит в бренд-игре: как защитить призы от накрутки](./antichit-v-brend-igre-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/antichit-v-brend-igre-2026/)
 - [Игра вместо анкеты: отбор кандидатов через короткое задание](./igra-vmesto-ankety-podbor-personala-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/igra-vmesto-ankety-podbor-personala-2026/)
 - [Конфигуратор как игра: «соберите свой» вместо длинного каталога](./konfigurator-kak-igra-soberi-svoy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/konfigurator-kak-igra-soberi-svoy-2026/)
@@ -1321,6 +1325,8 @@
 
 ## Отрасли
 
+- [Как своя система такси раздаёт заказы: очередь, зоны, час пик](./raspredelenie-zakazov-taksi-ochered-stoyanok-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/raspredelenie-zakazov-taksi-ochered-stoyanok-2026/)
+- [Клиент согласовал не ту смету: версии и подтверждение в боте](./versii-smety-i-soglasovanie-klientom-v-bote-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/versii-smety-i-soglasovanie-klientom-v-bote-2026/)
 - [Сайт учебного центра в Дубае: KHDA, запись на пробное, VAT и дети](./sayt-uchebnogo-centra-v-dubae-khda-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-uchebnogo-centra-v-dubae-khda-2026/)
 - [Сайт салона красоты в Дубае: онлайн-запись, депозит, VAT и реклама](./sayt-salona-krasoty-v-dubae-zapis-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-salona-krasoty-v-dubae-zapis-2026/)
 - [Сайт коттеджного посёлка: генплан, продажа участков и заявки](./sayt-kottedzhnogo-poselka-genplan-uchastki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-kottedzhnogo-poselka-genplan-uchastki-2026/)
@@ -2013,6 +2019,10 @@
 
 ## Разработка
 
+- [OData в 1С: как подключить приложение, бота или ИИ без расширения](./odata-1s-podklyuchit-prilozhenie-bez-rasshireniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/odata-1s-podklyuchit-prilozhenie-bez-rasshireniya-2026/)
+- [Пробный доступ к B2B-продукту: как давать демо и не слить продукт](./probnyy-dostup-b2b-demo-bez-utechki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/probnyy-dostup-b2b-demo-bez-utechki-2026/)
+- [Как уйти с Битрикс24 на свою систему и не остановить работу](./uyti-s-bitrix24-na-svoyu-sistemu-bez-ostanovki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uyti-s-bitrix24-na-svoyu-sistemu-bez-ostanovki-2026/)
+- [Вход в мини-приложение Telegram и MAX без пароля: как это работает](./vhod-v-mini-prilozhenie-telegram-max-bez-parolya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vhod-v-mini-prilozhenie-telegram-max-bez-parolya-2026/)
 - [Weblate: своя платформа переводов интерфейса с синхронизацией в Git](./weblate-svoya-platforma-perevodov-interfeysa-s-sinhronizaciey-v-git-dlya-komandy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/weblate-svoya-platforma-perevodov-interfeysa-s-sinhronizaciey-v-git-dlya-komandy-2026/)
 - [Как убрать ИИ и телеметрию из браузеров офиса через политики](./just-the-browser-otklyuchit-ii-telemetriyu-i-reklamu-v-chrome-edge-firefox-brave-cherez-politiki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/just-the-browser-otklyuchit-ii-telemetriyu-i-reklamu-v-chrome-edge-firefox-brave-cherez-politiki-2026/)
 - [YOLOv5 в магазине и на складе: лицензия AGPL и когда платить](./yolov5-raspoznavanie-obektov-v-magazine-i-na-sklade-licenziya-agpl-i-kogda-nuzhna-platnaya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/yolov5-raspoznavanie-obektov-v-magazine-i-na-sklade-licenziya-agpl-i-kogda-nuzhna-platnaya-2026/)
