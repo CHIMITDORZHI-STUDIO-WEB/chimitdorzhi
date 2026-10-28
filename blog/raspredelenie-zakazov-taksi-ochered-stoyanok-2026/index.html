@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Распределение заказов такси: очередь, зоны, час пик</title>
+    <meta name="description" content="Как своя система такси раздаёт заказы: очередь на стоянках, соседние зоны, режим часа пик, принятие без двойных назначений, контроль отмен и диспетчер.">
+    <meta name="keywords" content="распределение заказов такси, алгоритм распределения заказов такси, очередь на стоянке такси, автоматическая раздача заказов, диспетчерская такси, своя система такси, двойное назначение заказа">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/raspredelenie-zakazov-taksi-ochered-stoyanok-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/raspredelenie-zakazov-taksi-ochered-stoyanok-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/raspredelenie-zakazov-taksi-ochered-stoyanok-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/raspredelenie-zakazov-taksi-ochered-stoyanok-2026/">
+    <meta property="og:title" content="Распределение заказов такси: очередь, зоны, час пик">
+    <meta property="og:description" content="Как своя система такси раздаёт заказы: очередь на стоянках, соседние зоны, режим часа пик, принятие без двойных назначений, контроль отмен и диспетчер.">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/raspredelenie-zakazov-taksi-ochered-stoyanok-2026/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Распределение заказов такси: очередь, зоны, час пик">
+    <meta name="twitter:description" content="Как своя система такси раздаёт заказы: очередь на стоянках, соседние зоны, режим часа пик, принятие без двойных назначений, контроль отмен и диспетчер.">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/raspredelenie-zakazov-taksi-ochered-stoyanok-2026/cover.png">
+
+    <link rel="icon" href="/favicon.svg?v=5" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=5">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png?v=5">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=5">
+    <link rel="preload" href="/assets/fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=79">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Как своя система такси раздаёт заказы: очередь, зоны, час пик",
+  "description": "Как своя система такси раздаёт заказы: очередь на стоянках, соседние зоны, режим часа пик, принятие без двойных назначений, контроль отмен и диспетчер.",
+  "image": "https://chimitdorzhi.tech/blog/raspredelenie-zakazov-taksi-ochered-stoyanok-2026/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://t.me/chimitdorzhi_studio",
+      "https://max.ru/channel_chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio",
+      "https://github.com/chimitdorzhi",
+      "https://chimitdorzhi.tech/about/"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/raspredelenie-zakazov-taksi-ochered-stoyanok-2026/"
+  },
+  "datePublished": "2026-10-29",
+  "dateModified": "2026-10-29",
+  "keywords": "такси, таксопарк, диспетчерская, распределение заказов, 2026",
+  "articleSection": "Отрасли",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Как своя система такси раздаёт заказы: очередь, зоны, час пик",
+      "item": "https://chimitdorzhi.tech/blog/raspredelenie-zakazov-taksi-ochered-stoyanok-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Водители не взбунтуются против автоматической раздачи?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Если правила те же, к которым они привыкли (очередь на стоянке, соседние зоны), переход проходит спокойнее. Больше всего недовольства вызывают непрозрачные правила, поэтому правила стоит показать водителям заранее, вплоть до места каждого в очереди."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Зачем атомарность, если машин всего пара десятков?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Гонка зависит от одновременных нажатий, размер парка тут не спасает. В час пик, когда заказ уходит нескольким водителям сразу, двое почти наверняка нажмут в одну секунду."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли оставить диспетчеру ручную раздачу?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да. Ручное назначение остаётся всегда, автоматика работает по умолчанию, и диспетчер может перехватить любой заказ."
+      }
+    }
+  ]
+}
+    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+var inject=function(){for (var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)};
+var go=function(){('requestIdleCallback' in window)?requestIdleCallback(inject,{timeout:5000}):setTimeout(inject,3000)};var run=function(){var c=null;try{c=JSON.parse(localStorage.getItem('cookieConsent'))}catch(_){}if(c&&c.analytics){go()}else{m.addEventListener('cookieConsent',function(ev){if(ev.detail&&ev.detail.analytics)go()})}};
+(e.readyState==='complete')?run():m.addEventListener('load',run);})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<!-- /Yandex.Metrika counter -->
+<!-- Цели Метрики: клики по контактам и услугам -->
+<script type="text/javascript">
+(function(){
+  var GOALS = [
+    { re: /t\.me\//i,                     goal: 'tg_click' },
+    { re: /max\.ru\//i,                    goal: 'max_click' },
+    { re: /audit\.chimitdorzhi\.tech/i,    goal: 'audit_click' },
+    { re: /chimitdorzhi\.tech\/services\//i, goal: 'service_click' },
+    { re: /chimitdorzhi\.tech\/predlozheniya\//i, goal: 'offer_click' }
+  ];
+  document.addEventListener('click', function(e){
+    var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    for (var i = 0; i < GOALS.length; i++) {
+      if (GOALS[i].re.test(href)) {
+        try { if (window.ym) ym(109281884, 'reachGoal', GOALS[i].goal); } catch (err) {}
+        break;
+      }
+    }
+  }, true);
+})();
+</script>
+</head>
+<body class="wx-read">
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/" data-i18n="nav.home">Главная</a></li>
+            <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+            <li class="nav-dropdown">
+                <a href="/cases/" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+                <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему" aria-pressed="false">
+                <i class="ph ph-moon" aria-hidden="true"></i>
+            </button>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/" data-i18n="nav.home">Главная</a></li>
+        <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+        <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+        <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+        <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+        <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+        <li class="mobile-has-submenu">
+            <details>
+                <summary aria-label="Проекты — развернуть"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down" aria-hidden="true"></i></summary>
+                <ul class="mobile-submenu">
+                    <li>
+                        <a href="https://gerel.space" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">Gerel.space</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/universe_buryat/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/arey/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.arey">AREY</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/mwrlife/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">MWR Life</span>
+                                <span class="mobile-sub-desc">Travel-клуб и партнёрка</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </details>
+        </li>
+        <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+    </ul>
+    <div class="mobile-controls">
+        <div class="mobile-lang-switcher" role="group" aria-label="Выбор языка">
+            <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+            <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+            <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+        </div>
+        <button class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle" aria-label="Переключить тему" aria-pressed="false">
+            <i class="ph ph-moon" aria-hidden="true"></i>
+        </button>
+    </div>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Как своя система такси раздаёт заказы: очередь, зоны, час пик</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/industries/"><i class="ph ph-bookmark" aria-hidden="true"></i> Отрасли</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 8 мин чтения</span>
+                        <time datetime="2026-10-29"><i class="ph ph-calendar" aria-hidden="true"></i> 29 октября 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Как своя система такси раздаёт заказы: очередь, зоны, час пик</h1>
+
+                    <p class="blog-lead">Простым языком для владельца таксопарка: как своя система решает, кому отдать заказ. Очередь на стоянке зоны подачи, соседние зоны и ближайшие машины кругами, рассылка нескольким водителям в час пик, атомарное принятие без двойных назначений, снятие заказа только через диспетчера и что остаётся диспетчерской.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>такси</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>таксопарк</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>диспетчерская</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>распределение заказов</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>2026</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
+<li>Своя система такси раздаёт заказ по понятным водителям правилам: сначала первый в очереди на стоянке зоны подачи, потом следующий, потом соседние зоны и ближайшие машины, в несколько кругов.</li>
+<li>В час пик заказ уходит сразу нескольким ближайшим водителям, забирает тот, кто нажал первым.</li>
+<li>Принятие заказа должно быть атомарным: двое нажали одновременно, заказ получил один. Без этого парк ловит двойные назначения.</li>
+<li>Снимать заказ водитель сам не может, только просить диспетчера с причиной. Диспетчер разбирает зависшие заказы и исключения, рутину делает система.</li>
+<li>Цены по прайсу: бот для бизнеса от 80 000 ₽, PWA-приложение от 150 000 ₽, поддержка от 20 000 ₽/мес. Полную систему считаю по объёму.</li>
+</ul></div>
+<div class="blog-cta-internal">
+  <i class="ph-fill ph-rocket-launch" aria-hidden="true"></i>
+  <div>
+    <strong>Хотите внедрить это у себя?</strong>
+    <p>Сделаю под ключ: разберу задачу, назову срок и цену. Чтобы начать, <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%9A%D0%B0%D0%BA%20%D1%81%D0%B2%D0%BE%D1%8F%20%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0%20%D1%82%D0%B0%D0%BA%D1%81%D0%B8%20%D1%80%D0%B0%D0%B7%D0%B4%D0%B0%D1%91%D1%82%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D1%8B%3A%20%D0%BE%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D1%8C%2C%20%D0%B7%D0%BE%D0%BD%D1%8B%2C%20%D1%87%D0%B0%D1%81%20%D0%BF%D0%B8%D0%BA%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener">напишите в Telegram</a> одной фразой.</p>
+    <a href="https://chimitdorzhi.tech/development/telegram-bots/">Разработка ботов <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</div>
+
+<p>Распределение заказов в такси это набор правил, по которым система решает, какому водителю предложить поездку. В своей системе парка правила обычно такие: очередь на стоянке зоны, где ждёт пассажир, затем соседние зоны и ближайшие машины, а в час пик рассылка нескольким водителям сразу. Поверх правил стоят две защиты: заказ не может достаться двоим, и водитель не может молча его бросить. Ниже разбираю каждое правило простым языком, как для владельца таксопарка.</p>
+
+<h2 id="ochered-stoyanok">Очередь на стоянке: кто первым встал, тот первым получил</h2>
+<p>Город делится на зоны, обычно по районам. В каждой зоне есть стоянка, виртуальная очередь водителей, которые свободны и находятся в этой зоне. Водитель встал в очередь, система запомнила время. Пришёл заказ с адресом подачи в этой зоне, система предлагает его первому в очереди.</p>
+<p>Если первый не ответил за отведённые секунды или отказался, заказ уходит второму. Отказавшийся при этом может уйти в конец очереди: так водители не перебирают заказы, ожидая выгодный. Сколько секунд давать на ответ и наказывать ли за отказ, решает парк, это настройки.</p>
+<p>Водители к такой схеме привыкли, поэтому в проекте <a href="/blog/taksi-rayona-bot-pwa-predlozhenie-keys-2026/">своей системы такси для таксопарка района</a> я сделал раздачу именно так. Контуры 17 районов там выгрузили из прежней системы, поэтому зоны у водителей остались те же.</p>
+
+<h2 id="sosednie-zony">Соседние зоны и круги поиска</h2>
+<p>Очередь в зоне может быть пустой. Тогда система ищет дальше, кругами:</p>
+<ol>
+<li>очередь стоянки зоны подачи;</li>
+<li>очереди соседних зон;</li>
+<li>ближайшие свободные машины по координатам, даже если они не стоят в очереди;</li>
+<li>повтор кругов, если никто не взял.</li>
+</ol>
+<p>Соседство зон задаётся таблицей: какие районы граничат и в каком порядке их смотреть. Расстояние по прямой здесь обманывает: через реку или железную дорогу машина из «близкой» зоны может ехать дольше, чем из дальней. Поэтому порядок соседей лучше настраивать руками вместе с диспетчером, который знает город.</p>
+<p>Если после всех кругов заказ так и не взяли, он не должен тихо висеть. Он попадает к диспетчеру в отдельный список, об этом ниже.</p>
+
+<h2 id="chas-pik">Режим часа пик</h2>
+<p>Утром, вечером и в непогоду заказов больше, чем машин в очередях. Поочерёдное предложение тогда тормозит: пока заказ ждёт ответа первого водителя, второй и третий простаивают, а пассажир смотрит на таймер.</p>
+<p>В режиме часа пик заказ уходит сразу нескольким ближайшим водителям. Кто нажал «Принять» первым, тот и забрал, у остальных заказ исчезает с экрана. Включать режим можно по расписанию, вручную из диспетчерской или по правилу «заказов без машины больше N».</p>
+<p>В час пик всплывают ошибки, которых не видно в спокойное время. В кейсе парка однажды у одного водителя оказалось три заказа сразу, а предзаказ висел на нём невидимым. После этого правило стало жёстким: у водителя один текущий заказ, следующий встаёт в очередь и запускается сам, когда текущий закрыт.</p>
+
+<h2 id="dvoynye-naznacheniya">Атомарное принятие: как не дать заказ двоим</h2>
+<p>Самая неприятная ошибка раздачи выглядит так: два водителя нажали «Принять» в одну и ту же долю секунды, оба получили подтверждение и оба едут к пассажиру. Один зря потратил время и бензин, и в следующий раз он не поверит системе.</p>
+<p>Защита строится на уровне базы данных. Принятие заказа идёт одной транзакцией: сервер блокирует строку заказа, проверяет, что заказ ещё свободен, назначает водителя и только потом снимает блокировку. Второй запрос ждёт и видит, что заказ уже занят. В PostgreSQL для этого есть блокировка строк SELECT FOR UPDATE: по <a href="https://www.postgresql.org/docs/current/explicit-locking.html" rel="noopener nofollow" target="_blank">документации</a> другие транзакции, которые пытаются изменить или заблокировать эти строки, ждут окончания текущей.</p>
+<p>Важен порядок блокировок. Та же документация советует брать блокировки на несколько объектов всегда в одном порядке, иначе возможна взаимная блокировка. В системе парка я столкнулся именно с этим: при порядке «сначала водитель, потом заказ» две транзакции ловили взаимную блокировку. Теперь сервер всегда блокирует сначала заказ, потом водителя.</p>
+<p>Проверять это нужно нагрузкой, ручной тест одним телефоном гонку не поймает. Последний прогон на копии базы в том проекте: 30 водителей и 20 заказов розданы за 14 секунд, двойных назначений нет.</p>
+
+<h2 id="kontrol-otmen">Контроль отмен</h2>
+<p>Отмена заказа водителем без контроля превращается в лазейку: водитель берёт заказ, видит, что поездка невыгодная, и уговаривает пассажира отменить. В системе парка заказчик поставил правило: снять заказ водитель сам не может, он отправляет диспетчеру запрос с причиной. Диспетчер видит запрос и решает, переназначить заказ или отменить.</p>
+<p>Что ещё я записываю по отменам:</p>
+<ul>
+<li>кто отменил: пассажир, водитель через диспетчера, диспетчер, система по таймауту;</li>
+<li>причину из списка плюс комментарий;</li>
+<li>на каком этапе: до подачи, на месте, в пути.</li>
+</ul>
+<p>Из этого руководитель видит отчёт по каждому водителю. Отметку «На месте» в той системе водитель может поставить только в радиусе 500 метров от адреса подачи, так что «приехал» без приезда не пройдёт.</p>
+
+<h2 id="dispetcher">Что остаётся диспетчеру</h2>
+<p>Автоматическая раздача не убирает диспетчера, она снимает с него рутину. Остаются исключения:</p>
+<ul>
+<li><strong>Зависшие заказы.</strong> Сторож раз в минуту складывает их в раздел «Требуют внимания». Зависшим можно считать, например, заказ, который никто не взял после всех кругов, или машину, которая слишком долго едет к подаче.</li>
+<li><strong>Запросы на снятие</strong> от водителей с причиной.</li>
+<li><strong>Ручное назначение</strong> конкретной машины, когда клиент постоянный или нужен особый автомобиль.</li>
+<li><strong>Заморозка заказа</strong>, когда клиент попросил подождать.</li>
+<li><strong>Заказы по телефону</strong> от тех, кто не пользуется мессенджерами.</li>
+</ul>
+<p>Если хотите посмотреть, как выглядит вход пассажира и водителя в мини-приложении и боте, загляните на страницу <a href="/development/telegram-bots/">разработки ботов</a>: там описано, из чего я собираю такие системы.</p>
+
+<h2 id="zakon">Что про это говорит закон</h2>
+<p>Правила раздачи закон не задаёт, это внутреннее дело парка. Но сама система приёма заказов попадает под 580-ФЗ: журнал заказов, сведения для пассажира, требования к службе заказа, если вы передаёте заказы другим перевозчикам. Пересказывать здесь не буду, всё разобрано в статье про <a href="/blog/sayt-taksoparka-sluzhba-zakaza-taksi-580-fz-2026/">сайт таксопарка и службу заказа по 580-ФЗ</a>. Какие ещё системы нужны парку, смотрите в обзоре <a href="/blog/it-dlya-taksoparka-2026/">IT для таксопарка</a>.</p>
+
+<h2 id="kak-ya-delayu">Как я это делаю</h2>
+<ol>
+<li><strong>Записываю правила, к которым привыкли водители.</strong> Зоны, стоянки, порядок соседей, сколько секунд на ответ, что считается отказом. Ломать привычки водителей на старте опасно: они просто перестанут брать заказы.</li>
+<li><strong>Переношу зоны из прежней системы</strong>, если это возможно, и даю руководителю править тарифную сетку и соседей в кабинете самому.</li>
+<li><strong>Делаю принятие заказа одной транзакцией</strong> с фиксированным порядком блокировок.</li>
+<li><strong>Гоняю нагрузочный прогон на копии базы</strong> без ботов и звонков. В том проекте копия однажды всё-таки позвонила клиентам через телефонию, с тех пор у копии нет учётки АТС.</li>
+<li><strong>Слушаю диспетчеров и водителей после запуска.</strong> Живая линия показывает то, чего не ловит ни одна проверка: в кейсе парка с 16 по 28 октября в репозитории 111 коммитов, правки шли каждый день по замечаниям заказчика.</li>
+</ol>
+<p>Если вы платите подписку за коробочную диспетчерскую и думаете о своей, почитайте, <a href="/blog/svoe-taksi-bez-agregatora-max-2026/">как запустить своё такси без агрегатора</a>, и посмотрите <a href="/blog/taksi-rayona-bot-pwa-predlozhenie-keys-2026/">кейс таксопарка района</a> целиком: там видно, что сделано и что ещё не закрыто.</p>
+
+<h2 id="ceny">Сколько стоит своя система раздачи заказов</h2>
+<p>Полная система такси (пассажир, водитель, диспетчер, руководитель) собирается из нескольких частей, и итог я считаю по объёму. Ориентиры из прайса:</p>
+<div class="blog-table"><table>
+<tr><th>Что</th><th>Цена</th><th>Срок</th></tr>
+<tr><td>Бот для бизнеса: заказ, оплата, CRM</td><td>от 80 000 ₽</td><td>от 2 недель</td></tr>
+<tr><td>PWA-приложение: кабинет диспетчера или водителя</td><td>от 150 000 ₽</td><td>от 1 месяца</td></tr>
+<tr><td>Простой бот в мессенджере</td><td>от 30 000 ₽</td><td>от 1 недели</td></tr>
+<tr><td>Технический аудит текущей системы</td><td>от 50 000 ₽</td><td>от 1 недели</td></tr>
+<tr><td>Поддержка после запуска</td><td>от 20 000 ₽/мес</td><td></td></tr>
+</table></div>
+<p>Все цены собраны на странице <a href="/ceny/">цен</a>. Безналичная оплата через <a href="https://chimitdorzhi.tech/services/web-development/" class="blog-inline-link">эквайринг</a> парка обычно идёт отдельным этапом.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+<h3>Водители не взбунтуются против автоматической раздачи?</h3>
+<p>Если правила те же, к которым они привыкли (очередь на стоянке, соседние зоны), переход проходит спокойнее. Больше всего недовольства вызывают непрозрачные правила, поэтому правила стоит показать водителям заранее, вплоть до места каждого в очереди.</p>
+<h3>Зачем атомарность, если машин всего пара десятков?</h3>
+<p>Гонка зависит от одновременных нажатий, размер парка тут не спасает. В час пик, когда заказ уходит нескольким водителям сразу, двое почти наверняка нажмут в одну секунду.</p>
+<h3>Можно ли оставить диспетчеру ручную раздачу?</h3>
+<p>Да. Ручное назначение остаётся всегда, автоматика работает по умолчанию, и диспетчер может перехватить любой заказ.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+<ul>
+<li>Основа раздачи: очередь стоянки зоны подачи, затем соседние зоны и ближайшие машины, кругами.</li>
+<li>Час пик: рассылка нескольким ближайшим, забирает первый нажавший.</li>
+<li>Принятие заказа одной транзакцией с фиксированным порядком блокировок, проверка нагрузочным прогоном.</li>
+<li>Водитель не снимает заказ сам, только через диспетчера с причиной.</li>
+<li>Диспетчер занимается исключениями: зависшие заказы, телефон, ручные назначения.</li>
+</ul>
+<p>Если хотите свою раздачу заказов вместо арендованной диспетчерской, напишите мне в Telegram <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%9A%D0%B0%D0%BA%20%D1%81%D0%B2%D0%BE%D1%8F%20%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0%20%D1%82%D0%B0%D0%BA%D1%81%D0%B8%20%D1%80%D0%B0%D0%B7%D0%B4%D0%B0%D1%91%D1%82%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D1%8B%3A%20%D0%BE%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D1%8C%2C%20%D0%B7%D0%BE%D0%BD%D1%8B%2C%20%D1%87%D0%B0%D1%81%20%D0%BF%D0%B8%D0%BA%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83.">@chimitdorzhi</a> с кодовым словом «СТОЯНКА». Разберём ваши зоны и правила для водителей.</p>
+
+                    </div>
+                    
+
+                    
+                    
+                    
+                    
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Обсудим вашу задачу</div>
+  <h3 class="blog-services-offer-title">Своя раздача заказов для таксопарка</h3>
+  <p class="blog-services-offer-lead">Напишите одной фразой, что нужно. Отвечу, что подойдёт, сколько займёт и сколько стоит. Сообщение уже подготовлено.</p>
+  <ul class="blog-services-offer-list"><li><i class="ph-fill ph-map-pin"></i> <span>Очередь на стоянках, зоны и соседи из вашей прежней системы</span></li><li><i class="ph-fill ph-car"></i> <span>Режим часа пик и один текущий заказ у водителя</span></li><li><i class="ph-fill ph-shield-check"></i> <span>Атомарное принятие заказа без двойных назначений</span></li><li><i class="ph-fill ph-users-three"></i> <span>Кабинет диспетчера: зависшие заказы, запросы на снятие</span></li></ul>
+  <div class="blog-services-offer-ctas">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%9A%D0%B0%D0%BA%20%D1%81%D0%B2%D0%BE%D1%8F%20%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0%20%D1%82%D0%B0%D0%BA%D1%81%D0%B8%20%D1%80%D0%B0%D0%B7%D0%B4%D0%B0%D1%91%D1%82%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D1%8B%3A%20%D0%BE%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D1%8C%2C%20%D0%B7%D0%BE%D0%BD%D1%8B%2C%20%D1%87%D0%B0%D1%81%20%D0%BF%D0%B8%D0%BA%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener" class="blog-services-offer-cta">
+      <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
+    </a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="blog-services-offer-cta blog-services-offer-cta-max">
+      <i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> Написать в MAX
+    </a>
+    <a href="https://chimitdorzhi.tech/development/telegram-bots/" class="blog-services-offer-cta blog-services-offer-cta-max"><i class="ph ph-arrow-right" aria-hidden="true"></i> Разработка ботов</a>
+  </div>
+</div>
+                    
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/taksi-rayona-bot-pwa-predlozhenie-keys-2026/" data-category="cases" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-taxi"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Кейсы</span>
+  <h3>Своя система такси для таксопарка района: боты, диспетчерская, водитель</h3>
+  <p>Таксопарк небольшого района платил подписку за коробочную диспетчерскую. Сначала я показал предложение и демо, в октябре собрал свою систему на сервере заказчика: заказ в мини-приложениях Telegram и MAX и в PWA, автоматическая раздача, кабинет диспетчера и руководителя, приложение водителя для Android. С 19 октября она работает на домене парка, с 21 октября на линии живые водители.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 2 октября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 6 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/svoe-taksi-bez-agregatora-max-2026/" data-category="industries" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-taxi"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Отрасли</span>
+  <h3>Своё такси в районе без комиссии агрегатора: заказ в боте</h3>
+  <p>В посёлке или на окраине агрегатор либо не работает, либо забирает четверть с поездки, а заказы держатся на телефоне и тетради. Разбираю, как собрать свою службу такси на боте в MAX и Telegram и простом приложении для водителей и диспетчера: заказ, распределение по свободным, цена по зонам, история. Карта и оплата добавляются позже.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 27 сентября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/it-dlya-taksoparka-2026/" data-category="industries" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-taxi"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Отрасли</span>
+  <h3>IT для таксопарка: заявки, водители, GPS, расчёты, телематика</h3>
+  <p>Учёт смен и расчётов с водителями вручную, нет контроля местоположения и пробега, простои — боль таксопарка. Разбираю, что автоматизировать: заявки, GPS, расчёты, телематику, и как внедрить под ключ.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 16 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/sayt-taksoparka-sluzhba-zakaza-taksi-580-fz-2026/" data-category="legal" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-taxi"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Право и compliance</span>
+  <h3>Сайт таксопарка и служба заказа такси по 580-ФЗ: что обязательно</h3>
+  <p>Что 580-ФЗ требует от таксопарка и службы заказа легкового такси: три региональных реестра и ГИС, когда парку не нужно право службы заказа (ст. 21), обязательные сведения на сайте (ст. 19), что сообщить пассажиру при заказе и по прибытии, журнал заказов, новые Правила перевозок по приказу Минтранса № 161, касса и 152-ФЗ.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 24 октября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 8 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    <section class="blog-subscribe">
+  <div class="blog-subscribe-body">
+    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
+    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
+  </div>
+  <div class="blog-subscribe-actions">
+    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
+  </div>
+</section>
+                    
+                    
+                    
+                    
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow"><span class="b-l b-l-ru">Готовые решения под ключ</span><span class="b-l b-l-en" lang="en">Turnkey solutions</span><span class="b-l b-l-es" lang="es">Soluciones llave en mano</span><span class="b-l b-l-cn" lang="zh">交钥匙解决方案</span><span class="b-l b-l-mn" lang="mn">Түлхүүр гардуулах шийдэл</span></span>
+                            <span class="blog-offer-cta-title"><span class="b-l b-l-ru">451 готовых IT-решений для бизнеса</span><span class="b-l b-l-en" lang="en">451 ready-made IT solutions for business</span><span class="b-l b-l-es" lang="es">451 soluciones IT listas para empresas</span><span class="b-l b-l-cn" lang="zh">451 个面向企业的现成 IT 解决方案</span><span class="b-l b-l-mn" lang="mn">Бизнест зориулсан 451 бэлэн IT шийдэл</span></span>
+                            <span class="blog-offer-cta-price"><span class="b-l b-l-ru">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span><span class="b-l b-l-en" lang="en">Automation, bots, AI, data privacy and platforms · free consultation</span><span class="b-l b-l-es" lang="es">Automatización, bots, IA, privacidad de datos y plataformas · consulta gratis</span><span class="b-l b-l-cn" lang="zh">自动化、机器人、AI、数据合规与平台 · 免费咨询</span><span class="b-l b-l-mn" lang="mn">Автоматжуулалт, бот, AI, өгөгдлийн хамгаалалт ба платформ · үнэгүй зөвлөгөө</span></span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> <span class="b-l b-l-ru">Смотреть каталог</span><span class="b-l b-l-en" lang="en">View catalog</span><span class="b-l b-l-es" lang="es">Ver catálogo</span><span class="b-l b-l-cn" lang="zh">查看目录</span><span class="b-l b-l-mn" lang="mn">Каталог үзэх</span></span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#ochered-stoyanok"><span class="blog-toc-num">01</span> Очередь на стоянке: кто первым встал, тот первым получил</a></li>
+<li><a href="#sosednie-zony"><span class="blog-toc-num">02</span> Соседние зоны и круги поиска</a></li>
+<li><a href="#chas-pik"><span class="blog-toc-num">03</span> Режим часа пик</a></li>
+<li><a href="#dvoynye-naznacheniya"><span class="blog-toc-num">04</span> Атомарное принятие: как не дать заказ двоим</a></li>
+<li><a href="#kontrol-otmen"><span class="blog-toc-num">05</span> Контроль отмен</a></li>
+<li><a href="#dispetcher"><span class="blog-toc-num">06</span> Что остаётся диспетчеру</a></li>
+<li><a href="#zakon"><span class="blog-toc-num">07</span> Что про это говорит закон</a></li>
+<li><a href="#kak-ya-delayu"><span class="blog-toc-num">08</span> Как я это делаю</a></li>
+<li><a href="#ceny"><span class="blog-toc-num">09</span> Сколько стоит своя система раздачи заказов</a></li>
+<li><a href="#faq"><span class="blog-toc-num">10</span> Частые вопросы</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">11</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+971563369591" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +971 56 336 9591</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">RA Standard - F.Z.E</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_licence">Лицензия 57033</span><span> · </span><span data-i18n="footer.legal_authority">Free Zones Authority of Ajman</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">Эмират Аджман, ОАЭ</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/cases/" class="footer-policy-link">Кейсы</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=44" defer></script>
+<script src="/services-i18n.js?v=44" defer></script>
+<script src="/script.js?v=41" defer></script>
+<script src="/search-widget.js?v=1" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>
