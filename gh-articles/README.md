@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2688**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2702**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -163,6 +163,20 @@
 - [MVP ИИ-сервиса для управления личной жизнью и делами](./ii-servis-upravleniya-zhiznyu-mvp-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-servis-upravleniya-zhiznyu-mvp-keys-2026/)
 - [Платформа мероприятий в Telegram: билеты с QR, оплата в USDT и нетворкинг](./platforma-meropriyatiy-bilety-qr-usdt-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/platforma-meropriyatiy-bilety-qr-usdt-keys-2026/)
 - [Аудиты, исследования и ролик для маркетингового агентства в ОАЭ](./audity-i-analitika-dlya-agentstva-oae-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/audity-i-analitika-dlya-agentstva-oae-keys-2026/)
+- [Своя система вместо Битрикс24 для транспортной компании: КП и рейсы](./logistika-svoya-sistema-vmesto-bitrix24-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/logistika-svoya-sistema-vmesto-bitrix24-predlozhenie-keys-2026/)
+- [Автоматизация доставки еды в Чите: заказы в MAX и Telegram, кухня, этапы](./dostavka-edy-chita-avtomatizaciya-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/dostavka-edy-chita-avtomatizaciya-predlozhenie-keys-2026/)
+- [Предзаказ кофе для двух кофеен при медклиниках в Кыргызстане: PWA](./predzakaz-kofe-pwa-kofeyni-v-klinikah-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/predzakaz-kofe-pwa-kofeyni-v-klinikah-predlozhenie-keys-2026/)
+- [CRM для студии тренировок с одним тренером: КП с макетами экранов](./crm-studii-trenirovok-makety-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/crm-studii-trenirovok-makety-predlozhenie-keys-2026/)
+- [Одно окно для частной клиники и ИИ-черновик протокола: типовое КП](./odno-okno-kliniki-ii-protokol-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/odno-okno-kliniki-ii-protokol-predlozhenie-keys-2026/)
+- [РемКонтроль: бот для ремонтной компании от заявки до сметы](./remkontrol-bot-zayavka-zamer-smeta-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/remkontrol-bot-zayavka-zamer-smeta-predlozhenie-keys-2026/)
+- [Личный календарь по дате рождения: бот, мини-приложение и PDF вместо Excel](./lichnyy-kalendar-po-date-rozhdeniya-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/lichnyy-kalendar-po-date-rozhdeniya-predlozhenie-keys-2026/)
+- [ИИ-стилист по селфи в Telegram и MAX: концепция, макеты и экономика](./ii-stilist-po-selfi-telegram-max-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-stilist-po-selfi-telegram-max-predlozhenie-keys-2026/)
+- [Артель посуточников: общая витрина, обмен гостями и партнёрка](./artel-posutochnikov-servis-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/artel-posutochnikov-servis-predlozhenie-keys-2026/)
+- [Задачи сотрудникам из 1С в телефоне: прототип на Android и план тиража](./zadachi-sotrudnikam-iz-1s-android-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zadachi-sotrudnikam-iz-1s-android-predlozhenie-keys-2026/)
+- [Простые решения: подписка на блоки готовой платформы для малой торговли](./prostye-resheniya-saas-iz-blokov-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/prostye-resheniya-saas-iz-blokov-predlozhenie-keys-2026/)
+- [Бот и рассылки для художницы: как забрать проект у прошлого подрядчика](./bot-i-rassylki-hudozhnicy-perenos-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bot-i-rassylki-hudozhnicy-perenos-predlozhenie-keys-2026/)
+- [Розыгрыши с партнёркой в MAX: какие юридические риски я нашёл в идее](./rozygryshi-s-partnerkoy-v-max-riski-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/rozygryshi-s-partnerkoy-v-max-riski-predlozhenie-keys-2026/)
+- [Клиенты для детейлинг-студии в Дубае: разбор, план и партнёрка с QR](./deteyling-dubay-klienty-partnerka-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/deteyling-dubay-klienty-partnerka-predlozhenie-keys-2026/)
 - [Четыре демо-сайта агентства недвижимости в Дубае: каталог и объявления](./chetyre-demo-sayta-agentstva-nedvizhimosti-dubay-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chetyre-demo-sayta-agentstva-nedvizhimosti-dubay-keys-2026/)
 - [Сервис Деск на 1С: задачи, учёт времени и боты в Telegram и MAX](./servis-desk-1c-telegram-max-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/servis-desk-1c-telegram-max-keys-2026/)
 - [Визовый бот: от рилса до CRM, концепт для визового консультанта](./vizovyy-bot-telegram-crm-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vizovyy-bot-telegram-crm-keys-2026/)
