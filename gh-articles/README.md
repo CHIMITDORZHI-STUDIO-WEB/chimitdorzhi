@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2677**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2688**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -152,6 +152,17 @@
 
 ## cases
 
+- [Сайт и шесть пультов собственника с закрытым пробным кабинетом](./pulty-sobstvennika-sayt-probnyy-kabinet-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pulty-sobstvennika-sayt-probnyy-kabinet-keys-2026/)
+- [Учёт для бухфирмы в Дубае: бот, мини-приложение, НДС и баланс](./uchet-dlya-buhfirmy-v-dubae-bot-pwa-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uchet-dlya-buhfirmy-v-dubae-bot-pwa-keys-2026/)
+- [MinIO, SSL и сайт для внешних участников у сервера взаимодействия 1С](./minio-dlya-servera-vzaimodeystviya-1c-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/minio-dlya-servera-vzaimodeystviya-1c-keys-2026/)
+- [НЮТАГ: онлайн-симулятор жизни села на 3D-карте с входом через MAX](./nyutag-simulyator-zhizni-sela-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nyutag-simulyator-zhizni-sela-keys-2026/)
+- [Crowdy: SaaS с ИИ-инструментами для каналов и чатов в MAX](./crowdy-ii-instrumenty-dlya-max-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/crowdy-ii-instrumenty-dlya-max-keys-2026/)
+- [ИИ-бухгалтер над 1С для стенда на ДВЭФ: беспорядок в базе и откат](./ii-buhgalter-1s-stend-foruma-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-buhgalter-1s-stend-foruma-keys-2026/)
+- [Приложение руководителя большой команды в Telegram, MAX и на сайте](./prilozhenie-rukovoditelya-komandy-telegram-max-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/prilozhenie-rukovoditelya-komandy-telegram-max-keys-2026/)
+- [Сайт-магазин украшений из камня для мастерской из Читы: СДЭК и ЮKassa](./internet-magazin-ukrasheniy-iz-kamnya-chita-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/internet-magazin-ukrasheniy-iz-kamnya-chita-keys-2026/)
+- [MVP ИИ-сервиса для управления личной жизнью и делами](./ii-servis-upravleniya-zhiznyu-mvp-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-servis-upravleniya-zhiznyu-mvp-keys-2026/)
+- [Платформа мероприятий в Telegram: билеты с QR, оплата в USDT и нетворкинг](./platforma-meropriyatiy-bilety-qr-usdt-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/platforma-meropriyatiy-bilety-qr-usdt-keys-2026/)
+- [Аудиты, исследования и ролик для маркетингового агентства в ОАЭ](./audity-i-analitika-dlya-agentstva-oae-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/audity-i-analitika-dlya-agentstva-oae-keys-2026/)
 - [Четыре демо-сайта агентства недвижимости в Дубае: каталог и объявления](./chetyre-demo-sayta-agentstva-nedvizhimosti-dubay-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/chetyre-demo-sayta-agentstva-nedvizhimosti-dubay-keys-2026/)
 - [Сервис Деск на 1С: задачи, учёт времени и боты в Telegram и MAX](./servis-desk-1c-telegram-max-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/servis-desk-1c-telegram-max-keys-2026/)
 - [Визовый бот: от рилса до CRM, концепт для визового консультанта](./vizovyy-bot-telegram-crm-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vizovyy-bot-telegram-crm-keys-2026/)
@@ -161,11 +172,11 @@
 - [Визуализаторы треков для музыкального лейбла: 13 вертикальных роликов](./vizualizatory-trekov-muzykalnogo-leybla-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vizualizatory-trekov-muzykalnogo-leybla-keys-2026/)
 - [Пометки запрещённых площадок на сайте: автоматически при сборке](./avtomarkirovka-zapreshchennyh-ploshchadok-na-sayte-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avtomarkirovka-zapreshchennyh-ploshchadok-na-sayte-keys-2026/)
 - [Рубрикатор страницы кейсов: фильтр по типу работы и отрасли](./rubrikator-keysov-dve-osi-filtra-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/rubrikator-keysov-dve-osi-filtra-keys-2026/)
-- [Платформа академии инвестиций: 15 языков и партнёрка на две линии](./onlayn-akademiya-investiciy-partnerka-dve-linii-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/onlayn-akademiya-investiciy-partnerka-dve-linii-keys-2026/)
-- [Сеть магазинов белья: MAX, лояльность и сертификаты поверх 1С](./set-magazinov-belya-max-poverh-1c-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/set-magazinov-belya-max-poverh-1c-keys-2026/)
+- [Платформа академии инвестиций: партнёрка на две линии и оплата USDT](./onlayn-akademiya-investiciy-partnerka-dve-linii-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/onlayn-akademiya-investiciy-partnerka-dve-linii-keys-2026/)
+- [Магазин женской одежды из Читы: MAX, бонусы и сертификаты поверх 1С](./set-magazinov-zhenskoy-odezhdy-chita-max-1c-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/set-magazinov-zhenskoy-odezhdy-chita-max-1c-keys-2026/)
 - [КП «ИИ-администратор»: что обещано и что можно проверить в демо](./kp-ii-administrator-zapis-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kp-ii-administrator-zapis-keys-2026/)
 - [Портал путешествий по подписке: концепция, ТЗ и рабочее демо](./travel-portal-po-podpiske-koncepciya-tz-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/travel-portal-po-podpiske-koncepciya-tz-keys-2026/)
-- [Бот, витрина и розыгрыш для детской арт-студии поверх YCLIENTS](./art-studiya-bot-vitrina-rozygrysh-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/art-studiya-bot-vitrina-rozygrysh-keys-2026/)
+- [Бот для детской арт-студии поверх YCLIENTS: от ТЗ до запуска](./art-studiya-bot-vitrina-rozygrysh-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/art-studiya-bot-vitrina-rozygrysh-keys-2026/)
 - [CRM и приложение для строительной компании: объект, задачи, отчёты с фото](./crm-stroitelnoy-kompanii-almaznaya-rezka-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/crm-stroitelnoy-kompanii-almaznaya-rezka-keys-2026/)
 - [Контроль материалов в 1С: лимиты по видам работ и согласование расхода](./kontrol-materialov-1c-rasshirenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kontrol-materialov-1c-rasshirenie-keys-2026/)
 - [Платформа продажи доменов из портфеля: рабочее демо по ТЗ](./platforma-prodazhi-domenov-demo-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/platforma-prodazhi-domenov-demo-keys-2026/)
@@ -178,12 +189,12 @@
 - [Tilda Assistant: локальный помощник для админки Tilda через диалог с ИИ](./tilda-assistant-upravlenie-adminkoy-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/tilda-assistant-upravlenie-adminkoy-keys-2026/)
 - [Шагай Наадан: три игры на одном броске костей в Telegram Mini App](./shagay-naadan-telegram-mini-app-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/shagay-naadan-telegram-mini-app-keys-2026/)
 - [Витрина решений: 48 карточек для бизнеса в Telegram-группе по нишам](./vitrina-resheniy-48-kartochek-gruppa-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vitrina-resheniy-48-kartochek-gruppa-keys-2026/)
-- [Сайт врача-косметолога из Петербурга: первый этап сдан, второй ждёт материалов](./sayt-kosmetologa-etap-1-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-kosmetologa-etap-1-keys-2026/)
+- [Сайт и ИИ-администратор для врача-косметолога из Петербурга](./sayt-kosmetologa-etap-1-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-kosmetologa-etap-1-keys-2026/)
 - [Лендинг массажиста с онлайн-записью и предоплатой: разбор проекта](./lending-massazhista-zapis-predoplata-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/lending-massazhista-zapis-predoplata-keys-2026/)
-- [Совместные закупки в одном PWA: заказ, сборка и выдача в пункте](./sovmestnye-zakupki-pwa-pvz-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sovmestnye-zakupki-pwa-pvz-keys-2026/)
-- [Бронирование боксов для склада хранения: от демо к рабочей системе](./self-storage-bronirovanie-boksov-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/self-storage-bronirovanie-boksov-keys-2026/)
+- [Совместные закупки в одном PWA: заказ, выдача и блогеры по городам](./sovmestnye-zakupki-pwa-pvz-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sovmestnye-zakupki-pwa-pvz-keys-2026/)
+- [Бронирование боксов для склада хранения: система, лендинги и сервер](./self-storage-bronirovanie-boksov-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/self-storage-bronirovanie-boksov-keys-2026/)
 - [CRM для логистической компании: откуда пришла каждая заявка](./crm-logistiki-istochniki-zayavok-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/crm-logistiki-istochniki-zayavok-keys-2026/)
-- [Заказ такси для таксопарка небольшого района: предложение и кликабельное демо](./taksi-rayona-bot-pwa-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/taksi-rayona-bot-pwa-predlozhenie-keys-2026/)
+- [Своя система такси для таксопарка района: боты, диспетчерская, водитель](./taksi-rayona-bot-pwa-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/taksi-rayona-bot-pwa-predlozhenie-keys-2026/)
 - [Приложение для автошколы: учёт часов вождения и контроль инструкторов](./avtoshkola-pwa-uchet-vozhdeniya-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avtoshkola-pwa-uchet-vozhdeniya-predlozhenie-keys-2026/)
 - [Возврат домена у бывшего разработчика: пакет документов для организации](./vozvrat-domena-u-byvshego-razrabotchika-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vozvrat-domena-u-byvshego-razrabotchika-keys-2026/)
 - [Предложение для этно-кафе: три блока и презентация гостевого PWA](./kafe-pwa-gostya-prezentaciya-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kafe-pwa-gostya-prezentaciya-keys-2026/)
