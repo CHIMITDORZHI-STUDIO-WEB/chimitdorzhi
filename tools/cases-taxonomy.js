@@ -177,6 +177,21 @@ const MAP = {
   'ii-servis-upravleniya-zhiznyu-mvp-keys-2026': ['ai', 'it'],
   'platforma-meropriyatiy-bilety-qr-usdt-keys-2026': ['platform', 'culture'],
   'audity-i-analitika-dlya-agentstva-oae-keys-2026': ['doc', 'services'],
+  // Предложения 28.10.2026.
+  'logistika-svoya-sistema-vmesto-bitrix24-predlozhenie-keys-2026': ['doc', 'auto'],
+  'dostavka-edy-chita-avtomatizaciya-predlozhenie-keys-2026': ['doc', 'food'],
+  'predzakaz-kofe-pwa-kofeyni-v-klinikah-predlozhenie-keys-2026': ['doc', 'food'],
+  'crm-studii-trenirovok-makety-predlozhenie-keys-2026': ['doc', 'health'],
+  'odno-okno-kliniki-ii-protokol-predlozhenie-keys-2026': ['doc', 'health'],
+  'remkontrol-bot-zayavka-zamer-smeta-predlozhenie-keys-2026': ['doc', 'services'],
+  'lichnyy-kalendar-po-date-rozhdeniya-predlozhenie-keys-2026': ['doc', 'services'],
+  'ii-stilist-po-selfi-telegram-max-predlozhenie-keys-2026': ['doc', 'beauty'],
+  'artel-posutochnikov-servis-predlozhenie-keys-2026': ['doc', 'travel'],
+  'zadachi-sotrudnikam-iz-1s-android-predlozhenie-keys-2026': ['bot', 'it'],
+  'prostye-resheniya-saas-iz-blokov-predlozhenie-keys-2026': ['doc', 'retail'],
+  'bot-i-rassylki-hudozhnicy-perenos-predlozhenie-keys-2026': ['doc', 'culture'],
+  'rozygryshi-s-partnerkoy-v-max-riski-predlozhenie-keys-2026': ['doc', 'services'],
+  'deteyling-dubay-klienty-partnerka-predlozhenie-keys-2026': ['doc', 'auto'],
   // Флагманский кейс без статьи в блоге: ключ по названию карточки.
   'SpyGambl': ['platform', 'it'],
 };
