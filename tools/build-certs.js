@@ -125,22 +125,35 @@ function faqAnswer() {
   return `${summaryRu(list)} подтверждены в ${N.ISSUER_IN} (оператор: ${N.OPERATOR}): ${list.map(c => c.name).join(', ')}. Сертификаты по теории действуют до ${N.fmtDate(N.latestUntil(list))}, оригиналы выложены в разделе «Квалификация».`;
 }
 
-// Правит ProfilePage и FAQPage в JSON-LD страницы /about/.
-function patchLd(html) {
+// Профиль автора (@id …/#person) где угодно в JSON-LD: те же сертификаты НСОК и навыки,
+// чтобы главные и /about/ описывали человека одинаково.
+function patchPerson(node) {
+  let hit = false;
+  (function walk(o) {
+    if (!o || typeof o !== 'object') return;
+    if (o['@type'] === 'Person' && String(o['@id'] || '').endsWith('/#person')) {
+      o.hasCredential = (o.hasCredential || []).filter(c => !c['x-nsok'] && !(c.recognizedBy && c.recognizedBy.alternateName === N.OPERATOR)).concat(credentialsLd());
+      const knows = new Set(o.knowsAbout || []);
+      N.active().forEach(c => knows.add(c.name));
+      o.knowsAbout = [...knows];
+      hit = true;
+    }
+    for (const k of Object.keys(o)) walk(o[k]);
+  })(node);
+  return hit;
+}
+
+// Правит профиль и (на /about/) FAQPage в JSON-LD страницы.
+function patchLd(html, withFaq) {
   return html.replace(/(<script type="application\/ld\+json">)([\s\S]*?)(<\/script>)/g, (all, a, body, b) => {
     let j; try { j = JSON.parse(body); } catch (e) { return all; }
-    if (j['@type'] === 'ProfilePage' && j.mainEntity) {
-      const p = j.mainEntity;
-      p.hasCredential = (p.hasCredential || []).filter(c => !c['x-nsok'] && !(c.recognizedBy && c.recognizedBy.alternateName === N.OPERATOR)).concat(credentialsLd());
-      const knows = new Set(p.knowsAbout || []);
-      N.active().forEach(c => knows.add(c.name));
-      p.knowsAbout = [...knows];
-    } else if (j['@type'] === 'FAQPage' && Array.isArray(j.mainEntity)) {
+    if (withFaq && j['@type'] === 'FAQPage' && Array.isArray(j.mainEntity)) {
       j.mainEntity = j.mainEntity.filter(q => q.name !== FAQ_Q);
       if (N.active().length) j.mainEntity.unshift({ '@type': 'Question', name: FAQ_Q, acceptedAnswer: { '@type': 'Answer', text: faqAnswer() } });
-    } else return all;
+    } else if (!patchPerson(j)) return all;
     // x-nsok нужен только для поиска своих записей; в выдачу не отдаём
-    const out = JSON.stringify(j, null, 2).replace(/,\s*"x-nsok": true/g, '');
+    // на главных пишем компактно, чтобы не утяжелять страницу
+    const out = JSON.stringify(j, null, withFaq ? 2 : 0).replace(/,\s*"x-nsok":\s*true/g, '');
     return `${a}\n${out}\n    ${b}`;
   });
 }
@@ -158,11 +171,34 @@ function applyAbout() {
   if (html.includes('<!-- certs:start')) html = html.replace(/<!-- certs:start[\s\S]*?<!-- certs:end -->/, block);
   else html = html.replace(/(\s*<div class="about-section">\s*<h2>Регалии и сертификаты<\/h2>)/, `\n                ${block}$1`);
   // старый ld хранит x-nsok только внутри скрипта; после stringify он вырезан, поэтому ищем по alternateName
-  html = patchLd(html);
+  html = patchLd(html, true);
   html = patchFaqVisible(html);
+  html = patchTitle(html);
   fs.writeFileSync(ABOUT, html);
+  applyHomes();
+}
+
+// Заголовок /about/ для выдачи: число сертификатов считается, после истечения уходит само.
+function patchTitle(html) {
+  const n = N.active().length;
+  const t = n ? `Чимитдоржи Дарижапов: разработка, ИИ, 152-ФЗ. ${n} ИТ-сертификатов` : 'Чимитдоржи Дарижапов: разработка, ИИ и 152-ФЗ для бизнеса';
+  return html
+    .replace(/<title>[^<]*<\/title>/, () => `<title>${t}</title>`)
+    .replace(/(<meta name="title" content=")[^"]*(")/, (m, a, b) => a + t + b)
+    .replace(/(<meta property="og:title" content=")[^"]*(")/, (m, a, b) => a + t + b);
+}
+
+// Главные на всех языках: профиль автора в JSON-LD.
+const HOMES = ['index.html', 'en/index.html', 'cn/index.html', 'mn/index.html'].map(f => path.join(ROOT, f));
+function applyHomes() {
+  for (const f of HOMES) {
+    if (!fs.existsSync(f)) continue;
+    const html = fs.readFileSync(f, 'utf8');
+    const out = patchLd(html, false);
+    if (out !== html) fs.writeFileSync(f, out);
+  }
 }
 
 module.exports = { aboutBlockHtml, casesStripHtml, caseChipsHtml, llmsFact, applyAbout };
 
-if (require.main === module) { applyAbout(); console.log('certs: /about/ обновлена'); }
+if (require.main === module) { applyAbout(); console.log('certs: /about/ и главные обновлены'); }

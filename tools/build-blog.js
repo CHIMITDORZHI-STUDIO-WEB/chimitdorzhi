@@ -3076,6 +3076,9 @@ const LLMS_TAIL = `## Услуги
 
 ## Об авторе
 - [Об авторе](https://chimitdorzhi.tech/about/): биография, регалии, сертификаты, экспертиза Чимитдоржи Дарижапова.
+${CERTS.llmsFact()}
+${require('./build-about-projects.js').llmsProducts()}
+- Работы для клиентов: разборы проектов с задачей, решением и результатом, без имён клиентов: https://chimitdorzhi.tech/cases/
 
 ## Контакты
 - Telegram (личные сообщения): https://t.me/chimitdorzhi

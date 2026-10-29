@@ -99,7 +99,12 @@ function applyAbout(published) {
   fs.writeFileSync(ABOUT, html);
 }
 
-module.exports = { applyAbout };
+// Строка для раздела «Об авторе» в llms.txt: продукты автора со ссылками.
+function llmsProducts() {
+  return `- Продукты автора: ${PRODUCTS.map(p => `${p.name} (${p.url}): ${p.text.charAt(0).toLowerCase()}${p.text.slice(1)}`).join('; ')}.`;
+}
+
+module.exports = { applyAbout, llmsProducts };
 
 if (require.main === module) {
   const published = require('./blog-data.js').filter(a => a.published !== false);
