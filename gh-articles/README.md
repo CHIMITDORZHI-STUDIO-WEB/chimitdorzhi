@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2713**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2718**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -1325,6 +1325,7 @@
 
 ## Отрасли
 
+- [Сайт аренды авто в Дубае: лицензия RTA, депозит, Salik и цены](./sayt-arendy-avto-v-dubae-rta-depozit-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-arendy-avto-v-dubae-rta-depozit-2026/)
 - [Как своя система такси раздаёт заказы: очередь, зоны, час пик](./raspredelenie-zakazov-taksi-ochered-stoyanok-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/raspredelenie-zakazov-taksi-ochered-stoyanok-2026/)
 - [Клиент согласовал не ту смету: версии и подтверждение в боте](./versii-smety-i-soglasovanie-klientom-v-bote-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/versii-smety-i-soglasovanie-klientom-v-bote-2026/)
 - [Сайт учебного центра в Дубае: KHDA, запись на пробное, VAT и дети](./sayt-uchebnogo-centra-v-dubae-khda-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-uchebnogo-centra-v-dubae-khda-2026/)
@@ -1736,6 +1737,10 @@
 
 ## Право и 152-ФЗ
 
+- [Сайт автошколы: что обязательно по закону об образовании в 2026](./sayt-avtoshkoly-svedeniya-ob-obrazovatelnoy-organizacii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-avtoshkoly-svedeniya-ob-obrazovatelnoy-organizacii-2026/)
+- [Сайт фитнес-клуба по закону: оферта, абонемент, возврат денег](./sayt-fitnes-kluba-abonement-oferta-vozvrat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-fitnes-kluba-abonement-oferta-vozvrat-2026/)
+- [Сайт частной охранной организации: лицензия, услуги и реклама](./sayt-chastnoy-ohrannoy-organizacii-licenziya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-chastnoy-ohrannoy-organizacii-licenziya-2026/)
+- [Сайт ритуального агентства: что требует закон и как не давить](./sayt-ritualnogo-agentstva-trebovaniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-ritualnogo-agentstva-trebovaniya-2026/)
 - [Сайт таксопарка и служба заказа такси по 580-ФЗ: что обязательно](./sayt-taksoparka-sluzhba-zakaza-taksi-580-fz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-taksoparka-sluzhba-zakaza-taksi-580-fz-2026/)
 - [Что должно быть на сайте автосервиса по Правилам № 780 в 2026 году](./sayt-avtoservisa-obyazatelnaya-informaciya-pravila-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-avtoservisa-obyazatelnaya-informaciya-pravila-2026/)
 - [Что должно быть на сайте ветклиники в 2026 году](./sayt-vetkliniki-obyazatelnaya-informaciya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-vetkliniki-obyazatelnaya-informaciya-2026/)
