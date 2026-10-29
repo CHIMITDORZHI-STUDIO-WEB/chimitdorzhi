@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2723**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2728**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -371,6 +371,9 @@
 
 ## Open-source и свой сервер
 
+- [Nemotron 3.5 Transcribe: расшифровка звонков на своём сервере](./nemotron-3-5-transcribe-rasshifrovka-zvonkov-i-sovescheniy-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nemotron-3-5-transcribe-rasshifrovka-zvonkov-i-sovescheniy-na-svoem-servere-2026/)
+- [Zammad: общая почта и мессенджеры в одну очередь обращений](./zammad-edinaya-sluzhba-podderzhki-iz-pochty-chata-i-sotsetey-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zammad-edinaya-sluzhba-podderzhki-iz-pochty-chata-i-sotsetey-na-svoem-servere-2026/)
+- [solidtime: учёт часов и ставок для студии на своём сервере](./solidtime-uchet-rabochego-vremeni-i-stavok-dlya-studii-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/solidtime-uchet-rabochego-vremeni-i-stavok-dlya-studii-na-svoem-servere-2026/)
 - [Open source для бизнеса: карта разборов по задачам](./open-source-dlya-biznesa-karta-razborov-po-zadacham-oktyabr-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/open-source-dlya-biznesa-karta-razborov-po-zadacham-oktyabr-2026/)
 - [PDF2MD: сканы и архивы в текст и отчёт, где OCR мог ошибиться](./pdf2md-skany-i-arhivy-dokumentov-v-tekst-s-otchetom-gde-ocr-oshibsya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pdf2md-skany-i-arhivy-dokumentov-v-tekst-s-otchetom-gde-ocr-oshibsya-2026/)
 - [ClamAV: проверка файлов с сайта и почты и чего он не заменит](./clamav-proverka-faylov-ot-klientov-na-sayte-i-v-pochte-chego-antivirus-ne-zamenit-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/clamav-proverka-faylov-ot-klientov-na-sayte-i-v-pochte-chego-antivirus-ne-zamenit-2026/)
@@ -693,6 +696,8 @@
 
 ## Безопасность
 
+- [Qwen в тесте Cohere пыталась выйти в сеть: что делать с весами](./cohere-nashla-v-qwen-skrytuyu-otpravku-dannyh-pochemu-otkrytye-vesa-ne-zashchita-ot-utechki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/cohere-nashla-v-qwen-skrytuyu-otpravku-dannyh-pochemu-otkrytye-vesa-ne-zashchita-ot-utechki-2026/)
+- [Аудит кода ИИ-агентом в шесть этапов: что доверить скиллу Cloudflare](./cloudflare-security-audit-skill-audit-koda-agentom-v-shest-etapov-chto-mozhno-doverit-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/cloudflare-security-audit-skill-audit-koda-agentom-v-shest-etapov-chto-mozhno-doverit-2026/)
 - [Банки США блокируют ИИ-агентов с логином клиента: что делать вместо](./banki-ssha-blokiruyut-ii-agentov-s-loginom-klienta-chto-delat-vmesto-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/banki-ssha-blokiruyut-ii-agentov-s-loginom-klienta-chto-delat-vmesto-2026/)
 - [PHP: критическая дыра CVE-2026-109618, что проверить владельцу сайта](./php-kriticheskaya-uyazvimost-naydena-ii-chto-proverit-vladeltsu-sayta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/php-kriticheskaya-uyazvimost-naydena-ii-chto-proverit-vladeltsu-sayta-2026/)
 - [Claude Duet: агент, который пишет первым, и что взять бизнесу](./claude-duet-lichnyy-agent-kotoryy-pishet-pervym-chto-eto-dlya-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/claude-duet-lichnyy-agent-kotoryy-pishet-pervym-chto-eto-dlya-biznesa-2026/)
