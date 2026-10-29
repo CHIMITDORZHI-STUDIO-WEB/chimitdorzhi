@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2713**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2723**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -1325,6 +1325,7 @@
 
 ## Отрасли
 
+- [Сайт аренды авто в Дубае: лицензия RTA, депозит, Salik и цены](./sayt-arendy-avto-v-dubae-rta-depozit-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-arendy-avto-v-dubae-rta-depozit-2026/)
 - [Как своя система такси раздаёт заказы: очередь, зоны, час пик](./raspredelenie-zakazov-taksi-ochered-stoyanok-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/raspredelenie-zakazov-taksi-ochered-stoyanok-2026/)
 - [Клиент согласовал не ту смету: версии и подтверждение в боте](./versii-smety-i-soglasovanie-klientom-v-bote-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/versii-smety-i-soglasovanie-klientom-v-bote-2026/)
 - [Сайт учебного центра в Дубае: KHDA, запись на пробное, VAT и дети](./sayt-uchebnogo-centra-v-dubae-khda-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-uchebnogo-centra-v-dubae-khda-2026/)
@@ -1736,6 +1737,10 @@
 
 ## Право и 152-ФЗ
 
+- [Сайт автошколы: что обязательно по закону об образовании в 2026](./sayt-avtoshkoly-svedeniya-ob-obrazovatelnoy-organizacii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-avtoshkoly-svedeniya-ob-obrazovatelnoy-organizacii-2026/)
+- [Сайт фитнес-клуба по закону: оферта, абонемент, возврат денег](./sayt-fitnes-kluba-abonement-oferta-vozvrat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-fitnes-kluba-abonement-oferta-vozvrat-2026/)
+- [Сайт частной охранной организации: лицензия, услуги и реклама](./sayt-chastnoy-ohrannoy-organizacii-licenziya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-chastnoy-ohrannoy-organizacii-licenziya-2026/)
+- [Сайт ритуального агентства: что требует закон и как не давить](./sayt-ritualnogo-agentstva-trebovaniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-ritualnogo-agentstva-trebovaniya-2026/)
 - [Сайт таксопарка и служба заказа такси по 580-ФЗ: что обязательно](./sayt-taksoparka-sluzhba-zakaza-taksi-580-fz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-taksoparka-sluzhba-zakaza-taksi-580-fz-2026/)
 - [Что должно быть на сайте автосервиса по Правилам № 780 в 2026 году](./sayt-avtoservisa-obyazatelnaya-informaciya-pravila-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-avtoservisa-obyazatelnaya-informaciya-pravila-2026/)
 - [Что должно быть на сайте ветклиники в 2026 году](./sayt-vetkliniki-obyazatelnaya-informaciya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-vetkliniki-obyazatelnaya-informaciya-2026/)
@@ -2019,6 +2024,11 @@
 
 ## Разработка
 
+- [Атака на Wi-Fi в кафе или офисе: как её заметить без админа](./get-the-hacker-obnaruzhenie-atak-na-wi-fi-kafe-oteli-i-ofisa-passivnyj-datchik-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/get-the-hacker-obnaruzhenie-atak-na-wi-fi-kafe-oteli-i-ofisa-passivnyj-datchik-2026/)
+- [Бэкап базы бота в Telegram: когда это опасно](./telegram-db-backup-rezervnye-kopii-bazy-bota-v-telegram-kogda-eto-opasno-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/telegram-db-backup-rezervnye-kopii-bazy-bota-v-telegram-kogda-eto-opasno-2026/)
+- [Ever Gauzy: время, проекты, CRM и счета студии на своём сервере](./ever-gauzy-platforma-dlya-agentstva-vremya-proekty-crm-i-scheta-chto-v-otkrytoj-chasti-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ever-gauzy-platforma-dlya-agentstva-vremya-proekty-crm-i-scheta-chto-v-otkrytoj-chasti-2026/)
+- [MinerU: сканы и PDF в текст и таблицы, лицензия и железо](./mineru-skany-i-dokumenty-v-tekst-i-tablicy-dlya-poiska-i-ii-licenziya-i-zhelezo-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/mineru-skany-i-dokumenty-v-tekst-i-tablicy-dlya-poiska-i-ii-licenziya-i-zhelezo-2026/)
+- [Kept: учёт инструмента с QR и ИИ на своём сервере, что проверено](./kept-inventarizaciya-oborudovaniya-i-instrumenta-s-qr-kodami-i-ii-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kept-inventarizaciya-oborudovaniya-i-instrumenta-s-qr-kodami-i-ii-na-svoem-servere-2026/)
 - [OData в 1С: как подключить приложение, бота или ИИ без расширения](./odata-1s-podklyuchit-prilozhenie-bez-rasshireniya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/odata-1s-podklyuchit-prilozhenie-bez-rasshireniya-2026/)
 - [Пробный доступ к B2B-продукту: как давать демо и не слить продукт](./probnyy-dostup-b2b-demo-bez-utechki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/probnyy-dostup-b2b-demo-bez-utechki-2026/)
 - [Как уйти с Битрикс24 на свою систему и не остановить работу](./uyti-s-bitrix24-na-svoyu-sistemu-bez-ostanovki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uyti-s-bitrix24-na-svoyu-sistemu-bez-ostanovki-2026/)
