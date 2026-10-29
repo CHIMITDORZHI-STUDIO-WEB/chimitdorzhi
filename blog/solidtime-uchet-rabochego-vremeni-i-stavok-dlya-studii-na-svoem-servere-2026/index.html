@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>solidtime (солидтайм): учёт часов и ставок для студии</title>
+    <meta name="description" content="solidtime (солидтайм) под AGPL-3.0: учёт часов, ставки и роли для студии на своём сервере. Что платно, проверено 29.10.2026, пилот на 2 недели.">
+    <meta name="keywords" content="solidtime, учёт рабочего времени, open source, студия и агентство">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/solidtime-uchet-rabochego-vremeni-i-stavok-dlya-studii-na-svoem-servere-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/solidtime-uchet-rabochego-vremeni-i-stavok-dlya-studii-na-svoem-servere-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/solidtime-uchet-rabochego-vremeni-i-stavok-dlya-studii-na-svoem-servere-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/solidtime-uchet-rabochego-vremeni-i-stavok-dlya-studii-na-svoem-servere-2026/">
+    <meta property="og:title" content="solidtime (солидтайм): учёт часов и ставок для студии">
+    <meta property="og:description" content="solidtime (солидтайм) под AGPL-3.0: учёт часов, ставки и роли для студии на своём сервере. Что платно, проверено 29.10.2026, пилот на 2 недели.">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/solidtime-uchet-rabochego-vremeni-i-stavok-dlya-studii-na-svoem-servere-2026/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="solidtime (солидтайм): учёт часов и ставок для студии">
+    <meta name="twitter:description" content="solidtime (солидтайм) под AGPL-3.0: учёт часов, ставки и роли для студии на своём сервере. Что платно, проверено 29.10.2026, пилот на 2 недели.">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/solidtime-uchet-rabochego-vremeni-i-stavok-dlya-studii-na-svoem-servere-2026/cover.png">
+
+    <link rel="icon" href="/favicon.svg?v=5" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=5">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png?v=5">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=5">
+    <link rel="preload" href="/assets/fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=79">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "solidtime: учёт часов и ставок для студии на своём сервере",
+  "description": "solidtime (солидтайм) под AGPL-3.0: учёт часов, ставки и роли для студии на своём сервере. Что платно, проверено 29.10.2026, пилот на 2 недели.",
+  "image": "https://chimitdorzhi.tech/blog/solidtime-uchet-rabochego-vremeni-i-stavok-dlya-studii-na-svoem-servere-2026/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://t.me/chimitdorzhi_studio",
+      "https://max.ru/channel_chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio",
+      "https://github.com/chimitdorzhi",
+      "https://chimitdorzhi.tech/about/"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/solidtime-uchet-rabochego-vremeni-i-stavok-dlya-studii-na-svoem-servere-2026/"
+  },
+  "datePublished": "2026-10-29",
+  "dateModified": "2026-10-29",
+  "keywords": "solidtime, учёт рабочего времени, open source, студия и агентство",
+  "articleSection": "Open-source и свой сервер",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "solidtime: учёт часов и ставок для студии на своём сервере",
+      "item": "https://chimitdorzhi.tech/blog/solidtime-uchet-rabochego-vremeni-i-stavok-dlya-studii-na-svoem-servere-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Можно ли выставлять счета в бесплатной версии?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "По странице on-premise нет, выставление счетов входит в платный тариф Business. Часы и ставки собираются бесплатно, счёт готовится из выгрузки."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Умеет ли solidtime импортировать данные из Toggl и Clockify?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да. README называет Toggl и Clockify, документация по импорту ещё Harvest и универсальный CSV в кодировке UTF-8."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Чем solidtime отличается от Kimai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Сравнения по функциям я не делал. Известно, что версия solidtime пока 0.x, а инвойсы платные."
+      }
+    }
+  ]
+}
+    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+var inject=function(){for (var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)};
+var go=function(){('requestIdleCallback' in window)?requestIdleCallback(inject,{timeout:5000}):setTimeout(inject,3000)};var run=function(){var c=null;try{c=JSON.parse(localStorage.getItem('cookieConsent'))}catch(_){}if(c&&c.analytics){go()}else{m.addEventListener('cookieConsent',function(ev){if(ev.detail&&ev.detail.analytics)go()})}};
+(e.readyState==='complete')?run():m.addEventListener('load',run);})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<!-- /Yandex.Metrika counter -->
+<!-- Цели Метрики: клики по контактам и услугам -->
+<script type="text/javascript">
+(function(){
+  var GOALS = [
+    { re: /t\.me\//i,                     goal: 'tg_click' },
+    { re: /max\.ru\//i,                    goal: 'max_click' },
+    { re: /audit\.chimitdorzhi\.tech/i,    goal: 'audit_click' },
+    { re: /chimitdorzhi\.tech\/services\//i, goal: 'service_click' },
+    { re: /chimitdorzhi\.tech\/predlozheniya\//i, goal: 'offer_click' }
+  ];
+  document.addEventListener('click', function(e){
+    var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    for (var i = 0; i < GOALS.length; i++) {
+      if (GOALS[i].re.test(href)) {
+        try { if (window.ym) ym(109281884, 'reachGoal', GOALS[i].goal); } catch (err) {}
+        break;
+      }
+    }
+  }, true);
+})();
+</script>
+</head>
+<body class="wx-read">
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/" data-i18n="nav.home">Главная</a></li>
+            <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+            <li class="nav-dropdown">
+                <a href="/cases/" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+                <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему" aria-pressed="false">
+                <i class="ph ph-moon" aria-hidden="true"></i>
+            </button>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/" data-i18n="nav.home">Главная</a></li>
+        <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+        <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+        <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+        <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+        <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+        <li class="mobile-has-submenu">
+            <details>
+                <summary aria-label="Проекты — развернуть"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down" aria-hidden="true"></i></summary>
+                <ul class="mobile-submenu">
+                    <li>
+                        <a href="https://gerel.space" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">Gerel.space</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/universe_buryat/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/arey/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.arey">AREY</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/mwrlife/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">MWR Life</span>
+                                <span class="mobile-sub-desc">Travel-клуб и партнёрка</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </details>
+        </li>
+        <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+    </ul>
+    <div class="mobile-controls">
+        <div class="mobile-lang-switcher" role="group" aria-label="Выбор языка">
+            <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+            <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+            <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+        </div>
+        <button class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle" aria-label="Переключить тему" aria-pressed="false">
+            <i class="ph ph-moon" aria-hidden="true"></i>
+        </button>
+    </div>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">solidtime: учёт часов и ставок для студии на своём сервере</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/opensource/"><i class="ph ph-bookmark" aria-hidden="true"></i> Open-source и свой сервер</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин чтения</span>
+                        <time datetime="2026-10-29"><i class="ph ph-calendar" aria-hidden="true"></i> 29 октября 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">solidtime: учёт часов и ставок для студии на своём сервере</h1>
+
+                    <p class="blog-lead">solidtime это open-source учёт рабочего времени для студий и агентств под AGPL-3.0: проекты, клиенты, ставки на четырёх уровнях, роли, импорт из Toggl и Clockify. Разбираю, что бесплатно на своём сервере, что платно (счета), как договориться с командой без слежки и как провести пилот на двух проектах.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>solidtime</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>учёт рабочего времени</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>open source</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>студия и агентство</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr">
+  <strong>Коротко.</strong> solidtime (репозиторий solidtime-io/solidtime) это учёт рабочего времени для фрилансеров и агентств: проекты, клиенты, задачи, ставки оплаты, роли, импорт из Toggl и Clockify. Лицензия AGPL-3.0, PHP и Laravel с PostgreSQL, запуск через Docker. Счета при своём сервере платные: тариф Business по странице цен 199 евро в год (рядом есть и цифра 49, она противоречит). Интерфейс, судя по репозиторию, английский. Для студии на 3-15 человек польза в одном: увидеть, сколько часов ушло на проект против оценки. Проверено 29.10.2026.
+</div>
+<div class="blog-cta-internal">
+  <i class="ph-fill ph-rocket-launch" aria-hidden="true"></i>
+  <div>
+    <strong>Хотите внедрить это у себя?</strong>
+    <p>Сделаю под ключ: разберу задачу, назову срок и цену. Чтобы начать, <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%ABsolidtime%3A%20%D1%83%D1%87%D1%91%D1%82%20%D1%87%D0%B0%D1%81%D0%BE%D0%B2%20%D0%B8%20%D1%81%D1%82%D0%B0%D0%B2%D0%BE%D0%BA%20%D0%B4%D0%BB%D1%8F%20%D1%81%D1%82%D1%83%D0%B4%D0%B8%D0%B8%20%D0%BD%D0%B0%20%D1%81%D0%B2%D0%BE%D1%91%D0%BC%20%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B5%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener">напишите в Telegram</a> одной фразой.</p>
+    <a href="https://chimitdorzhi.tech/services/business-automation/">Автоматизация бизнеса: учёт времени и ставок под ключ <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</div>
+
+<h2 id="proekt-gorit">Проект горит, а часов никто не считал</h2>
+
+<p>Сайт продан за 200 000 ₽, в смете 100 часов. Через два месяца клиент всё ещё присылает правки, команда сидит вечерами, а заработали вы или нет, непонятно. Деньги по договору известны, часы нигде не лежат.</p>
+
+<p>Условный пример. Час команды обходится студии в 1 000 ₽. По смете затраты 100 000 ₽ и маржа 100 000 ₽. По факту ушло 160 часов: затраты 160 000 ₽, маржа 40 000 ₽. Выручка на час вышла 1 250 ₽ вместо 2 000 ₽. Узнать это можно только по записанным часам.</p>
+
+<p>Облачные трекеры берут за каждого человека, а ставки и клиенты лежат у них. Соседний вариант, <a href="/blog/kimai-uchet-rabochego-vremeni-2026/">Kimai</a>, я разбирал отдельно. Сейчас на очереди solidtime.</p>
+
+<h2 id="chto-proveril">Что это за проект и что я проверил</h2>
+
+<p>Проверял 29.10.2026. Репозиторий <a href="https://github.com/solidtime-io/solidtime" target="_blank" rel="noopener nofollow">solidtime-io/solidtime</a> создан 16 января 2024 года, описан как современное open-source приложение для учёта времени, не архивирован. Около 9,1 тысячи звёзд, 528 форков. Последний коммит от 29 октября 2026 года, последний релиз v0.22.1 от 21 октября. Версия начинается с нуля, проект быстро меняется.</p>
+
+<p>Файл LICENSE.md содержит текст GNU AGPL версии 3. По composer.json: PHP 8.3, Laravel 13, веб-интерфейс на Vue, админка на Filament. В документации по самостоятельной установке указан PostgreSQL. Системных требований (память, процессор) в документации не нашёл, размер сервера определяйте на пилоте.</p>
+
+<p>Рядом есть настольное приложение для macOS, Windows и Linux (AGPL-3.0, в README пометка «бета», релиз v0.4.0-beta от 3 сентября) и расширение для Chrome и Firefox, запускающее таймер из Linear, Jira и Plane. <a href="https://chimitdorzhi.tech/services/mobile-apps/" class="blog-inline-link">Мобильного приложения</a> и вебхуков в репозиториях и документации я не нашёл. API есть: REST с токеном.</p>
+
+<h2 id="stavki-i-platnoe">Ставки, отчёты и что платное</h2>
+
+<p>По <a href="https://docs.solidtime.io/user-guide/billable-rates" target="_blank" rel="noopener nofollow">документации</a>, ставка оплаты может стоять на четырёх уровнях: участник проекта, проект, участник организации, организация. Более конкретный уровень перекрывает общий. Если у человека своя ставка в проекте, берётся она, если нет, ставка проекта, и так далее. Дизайнер и верстальщик в одном проекте могут идти по разным ценам.</p>
+
+<p>Роли в коде: owner, admin, manager, employee, placeholder. Менеджер управляет проектами, клиентами, записями и отчётами, но не людьми и не организацией. Сотрудник работает только со своим временем. Placeholder создаётся при импорте или деактивации участника, чтобы сохранить его часы. В отчётах можно группировать по проектам, задачам, людям, клиентам, тегам, описаниям и признаку «оплачиваемо». В коде есть экспорт в CSV, PDF, XLSX и ODS. Для PDF нужен отдельный сервис Gotenberg.</p>
+
+<p>Цены со <a href="https://www.solidtime.io/pricing/on-premise" target="_blank" rel="noopener nofollow">страницы on-premise</a>. Open Source: 0 евро, «все базовые функции», но без выставления счетов, закрытого реестра образов, журнала аудита и приоритетной поддержки. Business: 199 евро в год без НДС для одной организации и пяти пользователей, ползунок доходит до 100. В таблице сравнения на той же странице написано «от 49 евро в год». Какая цифра верна, страница не объясняет, уточняйте у разработчиков.</p>
+
+<p>Облако для сравнения. На <a href="https://www.solidtime.io/pricing" target="_blank" rel="noopener nofollow">странице цен</a> есть бесплатный тариф для одного пользователя и Professional за 9 или 8 евро на пользователя в месяц без НДС (какая цифра действует, не сказано). Условный пример: 8 человек по 9 евро, 72 евро в месяц. Оплата из России: уточняйте. Разделения PDF-отчётов и публичных ссылок для своего сервера не нашёл, проверьте на пилоте.</p>
+
+<h2 id="komanda-i-klient">Договориться с командой и отчитаться клиенту</h2>
+
+<p>Трекер легко превратить в слежку, и тогда часы пишут для галочки. Правила, которые я предлагаю студии. Цель учёта называется вслух: оценка проектов и цены, а не проверка людей. Скриншоты и сбор активности не используются. На странице цен облака в списке функций есть автоматическое отслеживание активности в настольном приложении, поэтому в регламенте запишите прямо: мы им не пользуемся. Отчёты по проектам обсуждает вся команда, по людям их видит руководитель, для расчёта ставок.</p>
+
+<p>Отчёт клиенту по часам собирается из группировки по проекту и задачам с фильтром «оплачиваемо». Выгружаете PDF или таблицу без внутренних задач. Названия проектов и описания часто под NDA, пишите их так, чтобы не стыдно показать клиенту. Логика выбора между фиксированной ценой и почасовой оплатой описана в <a href="/blog/fiksirovannaya-cena-vs-pochasovka-2027/">отдельной статье</a>. Отметки в мессенджере: <a href="/blog/uchet-vremeni-po-proektam-studiya-2026/">вариант с ботом</a>.</p>
+
+<h2 id="chto-uchest">Что важно учесть</h2>
+
+<p>Интерфейс. В папке lang репозитория только английские файлы, русской локализации я не нашёл, живой интерфейс не открывал. Заложите время на обучение.</p>
+
+<p>Персональные данные. Часы привязаны к людям, это данные сотрудников. Как оформить учёт в локальных актах, нужно ли согласие и где должен стоять сервер: вопросы к юристу. Учёт по проектам не заменяет кадровый <a href="https://chimitdorzhi.tech/services/hr-team-management/" class="blog-inline-link">табель</a>, о нём я писал в статье про <a href="/blog/uchet-rabochego-vremeni-tabel-2026/">табель</a>.</p>
+
+<p>Эксплуатация. Резервные копии в документации не описаны. Копируйте базу PostgreSQL, файлы хранилища (если не в S3) и laravel.env с ключами. Копии базы с восстановлением разбирает <a href="/blog/databasus-kopii-postgresql-s-vosstanovleniem-na-moment-vremeni-2026/">статья про Databasus</a>. Обновление по документации: сменить тег образа, docker compose pull, docker compose up -d и миграции. Перед обновлением делайте свежую копию.</p>
+
+<h2 id="chto-sdelat">Что можно сделать уже сейчас</h2>
+
+<p>Пилот на две недели, два проекта и четыре человека. Два дня на настройку, дальше обычная работа с таймером. Две метрики. Доля учтённых часов: записанные часы делим на рабочие часы людей из пилота. Отклонение факта от оценки: факт минус оценка, делим на оценку, по каждому проекту. Пороги задайте заранее вместе с командой.</p>
+
+<p>Чек-лист из семи пунктов:</p>
+
+<ul>
+<li>записать цель учёта и запрет на слежку в регламенте;</li>
+<li>выбрать два проекта: с фиксированной ценой и почасовой;</li>
+<li>посчитать стоимость часа и завести ставки;</li>
+<li>раздать роли: менеджер видит отчёты, остальные свои часы;</li>
+<li>поднять тестовый сервер, проверить PDF и экспорт, настроить копии базы;</li>
+<li>в конце недели обсудить отчёт с командой, без разбора по людям;</li>
+<li>через две недели сравнить метрики и решить, нужны ли платные инвойсы.</li>
+</ul>
+
+<p>Развернуть solidtime, настроить копии, подготовить регламент и обучить команду могу в рамках <a href="/services/business-automation/">автоматизации бизнеса</a>.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+
+<h3>Можно ли выставлять счета в бесплатной версии?</h3>
+
+<p>По странице on-premise нет, выставление счетов входит в платный тариф Business. Часы и ставки собираются бесплатно, счёт готовится из выгрузки.</p>
+
+<h3>Умеет ли solidtime импортировать данные из Toggl и Clockify?</h3>
+
+<p>Да. README называет Toggl и Clockify, документация по импорту ещё Harvest и универсальный CSV в кодировке UTF-8.</p>
+
+<h3>Чем solidtime отличается от Kimai?</h3>
+
+<p>Сравнения по функциям я не делал. Известно, что версия solidtime пока 0.x, а инвойсы платные.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+
+<p>solidtime под AGPL-3.0 даёт студии учёт часов, ставки на четырёх уровнях и роли на своём сервере. Инвойсы, реестр образа и журнал аудита платные, интерфейс английский, версия 0.x, резервные копии придётся настроить самому.</p>
+
+<p>Если хотите пилот на двух проектах и четырёх людях с готовым регламентом и отчётом для клиента, напишите мне в Telegram кодовое слово «ВРЕМЯ».</p>
+
+                    </div>
+                    
+
+                    
+                    
+                    <div class="blog-cta-card">
+                        <div class="blog-cta-card-body">
+                            <h3>Ещё open-source для бизнеса</h3>
+                            <p>Эта статья — часть каталога бесплатных решений, которые я разворачиваю на вашем сервере под ключ: CRM, аналитика, документы, почта, безопасность, магазины, AI.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="/blog/katalog-open-source-resheniy-dlya-biznesa-2026/" class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> Каталог open-source решений</a>
+                        </div>
+                    </div>
+                    
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Обсудим вашу задачу</div>
+  <h3 class="blog-services-offer-title">Что я делаю для бизнеса</h3>
+  <p class="blog-services-offer-lead">Напишите одной фразой, что нужно. Отвечу, что подойдёт, сколько займёт и сколько стоит. Сообщение уже подготовлено.</p>
+  <ul class="blog-services-offer-list"><li><i class="ph-fill ph-robot"></i> <span>Боты в Telegram, MAX, VK</span></li><li><i class="ph-fill ph-gear"></i> <span>Автоматизация процессов и CRM</span></li><li><i class="ph-fill ph-chart-bar"></i> <span>Аналитика и дашборды</span></li><li><i class="ph-fill ph-globe"></i> <span>Сайты и лендинги под ключ</span></li></ul>
+  <div class="blog-services-offer-ctas">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%ABsolidtime%3A%20%D1%83%D1%87%D1%91%D1%82%20%D1%87%D0%B0%D1%81%D0%BE%D0%B2%20%D0%B8%20%D1%81%D1%82%D0%B0%D0%B2%D0%BE%D0%BA%20%D0%B4%D0%BB%D1%8F%20%D1%81%D1%82%D1%83%D0%B4%D0%B8%D0%B8%20%D0%BD%D0%B0%20%D1%81%D0%B2%D0%BE%D1%91%D0%BC%20%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B5%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener" class="blog-services-offer-cta">
+      <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
+    </a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="blog-services-offer-cta blog-services-offer-cta-max">
+      <i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> Написать в MAX
+    </a>
+    <a href="https://chimitdorzhi.tech/services/business-automation/" class="blog-services-offer-cta blog-services-offer-cta-max"><i class="ph ph-arrow-right" aria-hidden="true"></i> Автоматизация бизнеса: учёт времени и ставок под ключ</a>
+  </div>
+</div>
+                    
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/kimai-uchet-rabochego-vremeni-2026/" data-category="opensource" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-timer"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>Kimai: учёт рабочего времени и таймтрекинг на своём сервере</h3>
+  <p>Kimai — это прозрачный учёт рабочего времени по проектам и клиентам с табелями, отчётами и биллингом часов, на вашем сервере и без подписки за пользователя. Для фрилансеров, агентств и команд. Разбираю запуск.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 16 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/uchet-vremeni-po-proektam-studiya-2026/" data-category="expert" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-timer"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Экспертный блог</span>
+  <h3>Команда загружена, а денег нет: на что уходят часы студии</h3>
+  <p>В студии и агентстве главная статья расходов это часы команды, и владелец её обычно не видит. Разбираю, как отметка часов в боте за минуту показывает проекты, которые съедают больше, чем принесли, и почему это не должно выглядеть как слежка.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 30 сентября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/fiksirovannaya-cena-vs-pochasovka-2027/" data-category="expert" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-scales"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Экспертный блог</span>
+  <h3>Фиксированная цена или почасовка: как платить за разработку и не переплатить</h3>
+  <p>Боитесь, что разработка «уплывёт» по бюджету или вас разведут на почасовке? Разбираю три модели оплаты — фикс, почасовка, поэтапно — где риски заказчика и как выбрать свою, чтобы не переплатить.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 30 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/uchet-sebestoimosti-i-marzhi-2026/" data-category="expert" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-calculator"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Экспертный блог</span>
+  <h3>Себестоимость на глаз: как найти, где вы теряете деньги</h3>
+  <p>Владелец видит выручку и остаток на счёте, но не знает, сколько зарабатывает каждая позиция. Из-за этого часть товаров и блюд продаётся в минус, а скидки съедают прибыль незаметно. Разбираю, как поставить расчёт себестоимости и маржинальности и собрать отчёт, где именно утекают деньги.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 27 сентября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    <section class="blog-subscribe">
+  <div class="blog-subscribe-body">
+    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
+    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
+  </div>
+  <div class="blog-subscribe-actions">
+    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
+  </div>
+</section>
+                    
+                    
+                    
+                    
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow"><span class="b-l b-l-ru">Готовые решения под ключ</span><span class="b-l b-l-en" lang="en">Turnkey solutions</span><span class="b-l b-l-es" lang="es">Soluciones llave en mano</span><span class="b-l b-l-cn" lang="zh">交钥匙解决方案</span><span class="b-l b-l-mn" lang="mn">Түлхүүр гардуулах шийдэл</span></span>
+                            <span class="blog-offer-cta-title"><span class="b-l b-l-ru">451 готовых IT-решений для бизнеса</span><span class="b-l b-l-en" lang="en">451 ready-made IT solutions for business</span><span class="b-l b-l-es" lang="es">451 soluciones IT listas para empresas</span><span class="b-l b-l-cn" lang="zh">451 个面向企业的现成 IT 解决方案</span><span class="b-l b-l-mn" lang="mn">Бизнест зориулсан 451 бэлэн IT шийдэл</span></span>
+                            <span class="blog-offer-cta-price"><span class="b-l b-l-ru">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span><span class="b-l b-l-en" lang="en">Automation, bots, AI, data privacy and platforms · free consultation</span><span class="b-l b-l-es" lang="es">Automatización, bots, IA, privacidad de datos y plataformas · consulta gratis</span><span class="b-l b-l-cn" lang="zh">自动化、机器人、AI、数据合规与平台 · 免费咨询</span><span class="b-l b-l-mn" lang="mn">Автоматжуулалт, бот, AI, өгөгдлийн хамгаалалт ба платформ · үнэгүй зөвлөгөө</span></span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> <span class="b-l b-l-ru">Смотреть каталог</span><span class="b-l b-l-en" lang="en">View catalog</span><span class="b-l b-l-es" lang="es">Ver catálogo</span><span class="b-l b-l-cn" lang="zh">查看目录</span><span class="b-l b-l-mn" lang="mn">Каталог үзэх</span></span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#proekt-gorit"><span class="blog-toc-num">01</span> Проект горит, а часов никто не считал</a></li>
+<li><a href="#chto-proveril"><span class="blog-toc-num">02</span> Что это за проект и что я проверил</a></li>
+<li><a href="#stavki-i-platnoe"><span class="blog-toc-num">03</span> Ставки, отчёты и что платное</a></li>
+<li><a href="#komanda-i-klient"><span class="blog-toc-num">04</span> Договориться с командой и отчитаться клиенту</a></li>
+<li><a href="#chto-uchest"><span class="blog-toc-num">05</span> Что важно учесть</a></li>
+<li><a href="#chto-sdelat"><span class="blog-toc-num">06</span> Что можно сделать уже сейчас</a></li>
+<li><a href="#faq"><span class="blog-toc-num">07</span> Частые вопросы</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">08</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+971563369591" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +971 56 336 9591</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">RA Standard - F.Z.E</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_licence">Лицензия 57033</span><span> · </span><span data-i18n="footer.legal_authority">Free Zones Authority of Ajman</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">Эмират Аджман, ОАЭ</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/cases/" class="footer-policy-link">Кейсы</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=44" defer></script>
+<script src="/services-i18n.js?v=44" defer></script>
+<script src="/script.js?v=41" defer></script>
+<script src="/search-widget.js?v=1" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>
