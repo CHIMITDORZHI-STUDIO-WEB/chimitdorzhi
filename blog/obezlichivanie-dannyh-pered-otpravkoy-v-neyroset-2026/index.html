@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обезличивание данных перед отправкой в нейросеть</title>
+    <meta name="description" content="Как обезличить данные клиентов до отправки в нейросеть: метки вместо имён, вырезание персданных, журнал, локальная модель и статья 12 152-ФЗ.">
+    <meta name="keywords" content="обезличивание данных нейросеть, персональные данные в нейросети, ии бот 152-фз, трансграничная передача персональных данных нейросеть, маскирование персональных данных, локальная модель, журнал запросов к ии">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/obezlichivanie-dannyh-pered-otpravkoy-v-neyroset-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/obezlichivanie-dannyh-pered-otpravkoy-v-neyroset-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/obezlichivanie-dannyh-pered-otpravkoy-v-neyroset-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/obezlichivanie-dannyh-pered-otpravkoy-v-neyroset-2026/">
+    <meta property="og:title" content="Обезличивание данных перед отправкой в нейросеть">
+    <meta property="og:description" content="Как обезличить данные клиентов до отправки в нейросеть: метки вместо имён, вырезание персданных, журнал, локальная модель и статья 12 152-ФЗ.">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/obezlichivanie-dannyh-pered-otpravkoy-v-neyroset-2026/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Обезличивание данных перед отправкой в нейросеть">
+    <meta name="twitter:description" content="Как обезличить данные клиентов до отправки в нейросеть: метки вместо имён, вырезание персданных, журнал, локальная модель и статья 12 152-ФЗ.">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/obezlichivanie-dannyh-pered-otpravkoy-v-neyroset-2026/cover.png">
+
+    <link rel="icon" href="/favicon.svg?v=5" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=5">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png?v=5">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=5">
+    <link rel="preload" href="/assets/fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=79">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Бот отправляет данные клиентов в нейросеть: как их обезличить",
+  "description": "Как обезличить данные клиентов до отправки в нейросеть: метки вместо имён, вырезание персданных, журнал, локальная модель и статья 12 152-ФЗ.",
+  "image": "https://chimitdorzhi.tech/blog/obezlichivanie-dannyh-pered-otpravkoy-v-neyroset-2026/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://t.me/chimitdorzhi_studio",
+      "https://max.ru/channel_chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio",
+      "https://github.com/chimitdorzhi",
+      "https://chimitdorzhi.tech/about/"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/obezlichivanie-dannyh-pered-otpravkoy-v-neyroset-2026/"
+  },
+  "datePublished": "2026-10-29",
+  "dateModified": "2026-10-29",
+  "keywords": "ИИ, нейросети, 152-ФЗ, персональные данные, чат-боты",
+  "articleSection": "AI для разработчиков",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  },
+  "about": [
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://chimitdorzhi.tech/slovar/#152-fz",
+      "name": "152-ФЗ"
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://chimitdorzhi.tech/slovar/#pd",
+      "name": "Персональные данные (ПД)"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Бот отправляет данные клиентов в нейросеть: как их обезличить",
+      "item": "https://chimitdorzhi.tech/blog/obezlichivanie-dannyh-pered-otpravkoy-v-neyroset-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Хватит ли просто попросить нейросеть не запоминать данные?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет. Просьба в промпте не меняет того, что данные уже ушли на чужой сервер. Защищает только то, что вы убрали до отправки."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Не испортит ли обезличивание ответы?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Для большинства задач нет: модели не нужно знать имя, чтобы посчитать долг или составить ответ. Где смысл держится на конкретных данных, лучше локальная модель."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Российская облачная модель решает вопрос?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Снимает вопрос трансграничной передачи, если данные обрабатываются в России. Обязанности оператора по 152-ФЗ остаются, и обезличивание всё равно уменьшает то, что может утечь."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько времени занимает доработка?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Зависит от бота. В ИИ-бухгалтере обезличивание вышло отдельной версией после показа на форуме, вместе с журналом и тестом на утечки."
+      }
+    }
+  ]
+}
+    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+var inject=function(){for (var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)};
+var go=function(){('requestIdleCallback' in window)?requestIdleCallback(inject,{timeout:5000}):setTimeout(inject,3000)};var run=function(){var c=null;try{c=JSON.parse(localStorage.getItem('cookieConsent'))}catch(_){}if(c&&c.analytics){go()}else{m.addEventListener('cookieConsent',function(ev){if(ev.detail&&ev.detail.analytics)go()})}};
+(e.readyState==='complete')?run():m.addEventListener('load',run);})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<!-- /Yandex.Metrika counter -->
+<!-- Цели Метрики: клики по контактам и услугам -->
+<script type="text/javascript">
+(function(){
+  var GOALS = [
+    { re: /t\.me\//i,                     goal: 'tg_click' },
+    { re: /max\.ru\//i,                    goal: 'max_click' },
+    { re: /audit\.chimitdorzhi\.tech/i,    goal: 'audit_click' },
+    { re: /chimitdorzhi\.tech\/services\//i, goal: 'service_click' },
+    { re: /chimitdorzhi\.tech\/predlozheniya\//i, goal: 'offer_click' }
+  ];
+  document.addEventListener('click', function(e){
+    var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    for (var i = 0; i < GOALS.length; i++) {
+      if (GOALS[i].re.test(href)) {
+        try { if (window.ym) ym(109281884, 'reachGoal', GOALS[i].goal); } catch (err) {}
+        break;
+      }
+    }
+  }, true);
+})();
+</script>
+</head>
+<body class="wx-read">
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/" data-i18n="nav.home">Главная</a></li>
+            <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+            <li class="nav-dropdown">
+                <a href="/cases/" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+                <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему" aria-pressed="false">
+                <i class="ph ph-moon" aria-hidden="true"></i>
+            </button>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/" data-i18n="nav.home">Главная</a></li>
+        <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+        <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+        <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+        <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+        <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+        <li class="mobile-has-submenu">
+            <details>
+                <summary aria-label="Проекты — развернуть"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down" aria-hidden="true"></i></summary>
+                <ul class="mobile-submenu">
+                    <li>
+                        <a href="https://gerel.space" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">Gerel.space</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/universe_buryat/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/arey/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.arey">AREY</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/mwrlife/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">MWR Life</span>
+                                <span class="mobile-sub-desc">Travel-клуб и партнёрка</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </details>
+        </li>
+        <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+    </ul>
+    <div class="mobile-controls">
+        <div class="mobile-lang-switcher" role="group" aria-label="Выбор языка">
+            <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+            <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+            <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+        </div>
+        <button class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle" aria-label="Переключить тему" aria-pressed="false">
+            <i class="ph ph-moon" aria-hidden="true"></i>
+        </button>
+    </div>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Бот отправляет данные клиентов в нейросеть: как их обезличить</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/ai-dev/"><i class="ph ph-bookmark" aria-hidden="true"></i> AI для разработчиков</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин чтения</span>
+                        <time datetime="2026-10-29"><i class="ph ph-calendar" aria-hidden="true"></i> 29 октября 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Бот отправляет данные клиентов в нейросеть: как их обезличить</h1>
+
+                    <p class="blog-lead">Если бот передаёт переписку во внешнюю нейросеть, туда уходят имена, телефоны и реквизиты. Как заменить их метками до отправки, вырезать персданные из свободного текста, вести журнал «что ушло в нейросеть», когда нужна локальная модель и что статья 12 152-ФЗ требует при трансграничной передаче. На примере трёх моих проектов.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>ИИ</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>нейросети</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>152-ФЗ</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>персональные данные</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>чат-боты</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
+<li>Если бот передаёт текст клиента во внешнюю нейросеть, туда уходят имена, телефоны, ИНН и всё, что человек сам написал. Это нужно убирать до отправки.</li>
+<li>Рабочая схема: метки вместо имён и реквизитов, вырезание персданных из свободного текста, расшифровка ответа уже на своём сервере, журнал «что ушло в нейросеть».</li>
+<li>Если модель стоит за границей и в неё уходят персональные данные, по 152-ФЗ это трансграничная передача: статья 12 требует уведомить Роскомнадзор до начала. Локальная модель снимает этот вопрос.</li>
+<li>Так сделано в трёх моих проектах: ИИ-бухгалтер над 1С, приложение руководителя команды и ИИ-администратор врача. Аудит сайта и бота по 152-ФЗ у меня от 15 000 ₽.</li>
+</ul></div>
+<div class="blog-cta-internal">
+  <i class="ph-fill ph-rocket-launch" aria-hidden="true"></i>
+  <div>
+    <strong>Нужен чат-бот для вашего бизнеса?</strong>
+    <p>Сделаю под ключ: разберу задачу, назову срок и цену. Чтобы начать, <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%91%D0%BE%D1%82%20%D0%BE%D1%82%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D1%8F%D0%B5%D1%82%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%B5%20%D0%BA%D0%BB%D0%B8%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%20%D0%B2%20%D0%BD%D0%B5%D0%B9%D1%80%D0%BE%D1%81%D0%B5%D1%82%D1%8C%3A%20%D0%BA%D0%B0%D0%BA%20%D0%B8%D1%85%20%D0%BE%D0%B1%D0%B5%D0%B7%D0%BB%D0%B8%D1%87%D0%B8%D1%82%D1%8C%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D1%87%D0%B0%D1%82-%D0%B1%D0%BE%D1%82%D0%B0%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B3%D0%BE%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0." target="_blank" rel="noopener">напишите в Telegram</a> одной фразой.</p>
+    <a href="https://chimitdorzhi.tech/services/rkn-audit/">Аудит по 152-ФЗ <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</div>
+
+<p>Обезличивание перед отправкой в нейросеть это шаг на вашем сервере, который заменяет имена, телефоны, почты, ИНН и счета в тексте на метки вида КЛИЕНТ_1 или ИНН_2, отправляет в модель уже такой текст, а ответ модели расшифровывает обратно у себя. Нейросеть видит задачу и цифры, но не видит, о ком речь. Ключ от меток остаётся у вас, а каждый запрос пишется в журнал, чтобы можно было показать, что именно ушло наружу.</p>
+
+<h2 id="chto-uhodit">Что именно ваш бот отправляет в нейросеть</h2>
+<p>Типичный ИИ-бот устроен так: человек пишет вопрос, бот добавляет к нему контекст из базы (история заказов, карточка клиента, записи) и отправляет всё одним запросом в модель. Если ничего не делать, в этот запрос попадают:</p>
+<ul>
+<li>ФИО и телефон из профиля, потому что «так ответ получится вежливее»;</li>
+<li>реквизиты: ИНН, КПП, СНИЛС, номера счетов, если бот работает с учётной системой;</li>
+<li>то, что клиент написал сам: «я Иванова, мой номер такой-то, у меня аллергия»;</li>
+<li>данные третьих лиц: коллег, родственников, контрагентов.</li>
+</ul>
+<p>Закон определяет персональные данные широко: <a href="https://www.consultant.ru/document/cons_doc_LAW_61801/4f41fe599ce341751e4e34dc50a4b676674c1416/" rel="noopener nofollow" target="_blank">статья 3 152-ФЗ</a> называет так любую информацию, относящуюся к прямо или косвенно определённому или определяемому человеку. Передача в нейросеть в этом смысле обычная обработка.</p>
+
+<h2 id="obezlichivanie-zakon">Что закон называет обезличиванием</h2>
+<p>В той же <a href="https://www.consultant.ru/document/cons_doc_LAW_61801/4f41fe599ce341751e4e34dc50a4b676674c1416/" rel="noopener nofollow" target="_blank">статье 3</a> (п. 9) обезличивание это действия, после которых без дополнительной информации нельзя определить, какому человеку принадлежат данные. Метки с ключом на вашем сервере под это определение подходят: ключ и есть та дополнительная информация, и наружу он не уходит.</p>
+<p>Одна оговорка. У вас данные остаются персональными, ведь ключ у вас. Считается ли обезличенный текст в нейросети персональными данными для внешнего сервиса, прямого ответа в тексте закона я не нашёл. Поэтому я строю так, чтобы в модель не уходило ничего, по чему человека можно узнать, и не опираюсь на одну только метку. Если вопрос для вас принципиальный, его стоит разобрать с юристом.</p>
+
+<aside class="blog-inline-tg" aria-label="Обсудить задачу">
+  <div class="blog-inline-tg-body">
+    <p class="blog-inline-tg-title">Нужен чат-бот для вашего бизнеса?</p>
+    <p>Опишите задачу в двух словах — отвечу в Telegram, что подойдёт, сколько займёт и сколько стоит. Сообщение уже подготовлено.</p>
+  </div>
+  <div class="blog-inline-tg-actions">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%91%D0%BE%D1%82%20%D0%BE%D1%82%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D1%8F%D0%B5%D1%82%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%B5%20%D0%BA%D0%BB%D0%B8%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%20%D0%B2%20%D0%BD%D0%B5%D0%B9%D1%80%D0%BE%D1%81%D0%B5%D1%82%D1%8C%3A%20%D0%BA%D0%B0%D0%BA%20%D0%B8%D1%85%20%D0%BE%D0%B1%D0%B5%D0%B7%D0%BB%D0%B8%D1%87%D0%B8%D1%82%D1%8C%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D1%87%D0%B0%D1%82-%D0%B1%D0%BE%D1%82%D0%B0%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B3%D0%BE%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0." target="_blank" rel="noopener" class="btn btn-accent"><i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram</a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+  </div>
+</aside>
+<h2 id="metki">Метки вместо имён и телефонов</h2>
+<p>Самый надёжный слой: вы заранее знаете, кто есть в вашей базе. Значит, имена клиентов, сотрудников, названия контрагентов и их реквизиты можно заменить по справочнику до того, как текст уйдёт.</p>
+<p>Так я сделал в <a href="/blog/ii-buhgalter-1s-stend-foruma-keys-2026/">ИИ-бухгалтере над 1С</a>. Перед отправкой контрагенты, организации, ФИО, ИНН, КПП, СНИЛС, счета, телефоны и почта заменяются метками вида КОНТР_1 или ИНН_2 по справочникам 1С и шаблонам. Ответ модели и аргументы её команд расшифровываются обратно уже на сервере. Модель может сказать «проверь оплаты КОНТР_3», и сервер сам поймёт, о каком контрагенте речь.</p>
+<p>В <a href="/blog/prilozhenie-rukovoditelya-komandy-telegram-max-keys-2026/">приложении руководителя большой команды</a> ИИ-секретарь собирает сводку по структуре. До модели доходят цифры и метки вида «Группа 1», имена подставляются в готовую сводку уже у нас.</p>
+<p>Правила для меток, которые я соблюдаю:</p>
+<ul>
+<li>метка устойчива внутри одного запроса: один и тот же человек везде КЛИЕНТ_1;</li>
+<li>таблица соответствия живёт только в памяти сервера на время запроса или в защищённой базе;</li>
+<li>в логах приложения лежит обезличенный текст, исходный там не нужен.</li>
+</ul>
+
+<h2 id="vyrezanie">Вырезание персданных из свободного текста</h2>
+<p>Справочник не спасает от того, что человек пишет сам. Для этого второй слой: поиск по шаблонам и словарям в тексте сообщения.</p>
+<ul>
+<li>Телефоны, почты, ники, номера документов ищутся шаблонами.</li>
+<li>Имена и фамилии ищутся по базе людей. В приложении руководителя функция вырезает в том числе одиночные имена в разных падежах.</li>
+<li>Что можно не отправлять вовсе, не отправляется. У <a href="/blog/sayt-kosmetologa-etap-1-keys-2026/">ИИ-администратора врача-косметолога</a> запись идёт кнопками, и в модель она не попадает. Свободные вопросы уходят, но имена, телефоны и почты вычищаются до отправки. На вопросы о тревожных симптомах бот отвечает без нейросети и направляет к врачу.</li>
+</ul>
+<p>Для больших объёмов текста есть готовые инструменты поиска персданных. Один из них я разбирал отдельно в статье <a href="/blog/presidio-obezlichivanie-personalnyh-dannyh-2026/">про Presidio</a>, там же его плюсы и пределы для русского языка.</p>
+
+<h2 id="lokalnaya-model">Локальная модель: когда данные вообще не выходят</h2>
+<p>Если модель стоит на вашем сервере, текст не покидает ваш контур. Это разумный выбор для медицины, бухгалтерии и любых случаев, где обезличивание ломает смысл ответа. Цена вопроса в железе и качестве: локальная модель слабее крупных облачных, и её надо проверять на ваших вопросах.</p>
+<p>В ИИ-бухгалтере адрес локальной модели уже настраивается, но в этом режиме продукт я пока не проверял, и пишу об этом прямо. Как поднять модель у себя, есть в статье про <a href="/blog/ollama-svoy-chatgpt-na-servere-2026/">Ollama на своём сервере</a>.</p>
+
+<h2 id="zhurnal">Журнал «что ушло в нейросеть»</h2>
+<p>Обезличивание без журнала нельзя проверить. Поэтому каждый запрос к модели я пишу в журнал: время, какой сценарий его вызвал и какой текст ушёл после замены. В ИИ-бухгалтере бухгалтер открывает этот журнал по ссылке «Что ушло в нейросеть» прямо из интерфейса.</p>
+<p>Второе, что делаю: проверку на утечки в автотестах. Тест берёт данные с известными именами и реквизитами, прогоняет сценарий и смотрит, не осталось ли их в отправленном тексте. В ИИ-бухгалтере такая проверка добавлена в сквозной тест. Если кто-то через полгода поменяет промпт и забудет про замену, тест упадёт до выкладки.</p>
+<p>Ещё одна мелочь из практики: в журналы попадает больше, чем кажется. В приложении руководителя пришлось заглушить журнал HTTP-клиента, потому что токен бота стоит прямо в адресе запроса и попадал бы в логи.</p>
+
+<h2 id="transgranichnaya">Трансграничная передача и статья 12 152-ФЗ</h2>
+<p>По <a href="https://www.consultant.ru/document/cons_doc_LAW_61801/4f41fe599ce341751e4e34dc50a4b676674c1416/" rel="noopener nofollow" target="_blank">п. 11 статьи 3</a> трансграничная передача это передача персональных данных на территорию иностранного государства органу власти, иностранному физическому или юридическому лицу. Если бот отправляет персональные данные в нейросеть зарубежной компании, под это определение он попадает.</p>
+<p>Что требует <a href="https://www.consultant.ru/document/cons_doc_LAW_61801/e4ebbe1780de623c7cf32a59ca82a7bb523a25dd/" rel="noopener nofollow" target="_blank">статья 12</a>:</p>
+<ul>
+<li>ч. 3: до начала трансграничной передачи оператор уведомляет Роскомнадзор о намерении её осуществлять, отдельно от уведомления об обработке персональных данных;</li>
+<li>ч. 4: в уведомлении указываются цель и правовое основание, категории и перечень данных, категории людей, список стран и дата оценки того, как получатель обеспечивает конфиденциальность и безопасность;</li>
+<li>ч. 5: до подачи уведомления оператор получает от зарубежного получателя сведения о мерах защиты данных и об условиях прекращения обработки;</li>
+<li>ч. 10 и 11: в страны из перечня Роскомнадзора с адекватной защитой передавать можно после уведомления, в остальные нельзя до истечения сроков рассмотрения уведомления, кроме случаев защиты жизни и здоровья.</li>
+</ul>
+<p>На практике у бизнеса два честных пути. Первый: в зарубежную модель уходит только обезличенный текст, и это видно по журналу. Второй: модель в России или на своём сервере. Редакция закона меняется, поэтому перед подачей уведомления сверяйте актуальный текст статьи 12.</p>
+<p>Проверить, что у вас уже отправляется наружу, можно аудитом: я смотрю сайт, формы, бота и интеграции и даю список того, что исправить. Подробнее на странице <a href="/services/rkn-audit/">аудита по 152-ФЗ</a>.</p>
+
+<h2 id="chto-govorit-klientu">Что говорить клиенту</h2>
+<p>Клиенту не нужна лекция про метки. Ему нужно три ответа, и их стоит написать в политике обработки данных и в коротком тексте рядом с ботом:</p>
+<ul>
+<li>Какие данные бот хранит и где. Например: имя и телефон лежат в базе на сервере компании.</li>
+<li>Что видит нейросеть. Например: только текст вопроса без имён, телефонов и почты.</li>
+<li>Как удалить свои данные. В приложении руководителя это кнопка «Удалить мои данные», которая обезличивает профиль.</li>
+</ul>
+<p>Если используете стороннего подрядчика для обработки, оформляется <a href="https://audit.chimitdorzhi.tech/" class="blog-inline-link">договор поручения на обработку</a>. Общие требования к ботам собраны в статье про <a href="/blog/152-fz-dlya-chat-botov-i-messendzherov-2026/">152-ФЗ для чат-ботов</a>.</p>
+
+<h2 id="kak-ya-delayu">Как я это делаю</h2>
+<ol>
+<li><strong>Карта данных.</strong> Выписываю, какие поля бот берёт из базы и что пользователь может написать сам. Всё, что модели не нужно, не передаётся вовсе.</li>
+<li><strong>Справочник меток.</strong> Имена, организации и реквизиты из базы заменяются метками, ключ остаётся на сервере.</li>
+<li><strong>Шаблоны для свободного текста.</strong> Телефоны, почты, ники, номера документов, имена в разных падежах.</li>
+<li><strong>Расшифровка у себя.</strong> Ответ модели и её команды возвращаются в метках, настоящие значения подставляет сервер.</li>
+<li><strong>Журнал и тест на утечки.</strong> Каждый запрос в журнале, в автотестах проверка, что в отправленном тексте нет известных персданных.</li>
+<li><strong>Запасной режим.</strong> Если модель недоступна, бот работает по правилам. В приложении руководителя без ключа ИИ сводка собирается без нейросети.</li>
+</ol>
+
+<h2 id="ceny">Сколько стоит обезличивание и аудит бота</h2>
+<ul>
+<li>Аудит сайта по 152-ФЗ: от 15 000 ₽, от 2 дней. Включаю в него проверку, что бот и формы отправляют наружу.</li>
+<li>Бот в мессенджере: от 30 000 ₽, от 1 недели. <a href="https://chimitdorzhi.tech/development/telegram-bots/" class="blog-inline-link">Бот для бизнеса</a> с оплатой, записью и CRM: от 80 000 ₽, от 2 недель.</li>
+<li>Автоматизация процессов и документов с ИИ: от 60 000 ₽, от 2 недель.</li>
+<li>Доработка готового бота по часам: от 3 000 ₽ в час. Поддержка: от 20 000 ₽ в месяц.</li>
+</ul>
+<p>Если бот уже работает, обезличивание обычно добавляется доработкой. Сколько часов уйдёт, зависит от того, сколько мест в коде обращаются к модели.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+<h3>Хватит ли просто попросить нейросеть не запоминать данные?</h3>
+<p>Нет. Просьба в промпте не меняет того, что данные уже ушли на чужой сервер. Защищает только то, что вы убрали до отправки.</p>
+<h3>Не испортит ли обезличивание ответы?</h3>
+<p>Для большинства задач нет: модели не нужно знать имя, чтобы посчитать долг или составить ответ. Где смысл держится на конкретных данных, лучше локальная модель.</p>
+<h3>Российская облачная модель решает вопрос?</h3>
+<p>Снимает вопрос трансграничной передачи, если данные обрабатываются в России. Обязанности оператора по 152-ФЗ остаются, и обезличивание всё равно уменьшает то, что может утечь.</p>
+<h3>Сколько времени занимает доработка?</h3>
+<p>Зависит от бота. В ИИ-бухгалтере обезличивание вышло отдельной версией после показа на форуме, вместе с журналом и тестом на утечки.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+<ul>
+<li>Персональные данные убираются до отправки в нейросеть: метки по справочнику плюс вырезание из свободного текста.</li>
+<li>Ключ от меток и расшифровка ответа остаются на вашем сервере.</li>
+<li>Журнал «что ушло в нейросеть» и тест на утечки делают обезличивание проверяемым.</li>
+<li>Персональные данные в зарубежную модель это трансграничная передача по статье 12 152-ФЗ с уведомлением Роскомнадзора до начала. Локальная модель этот вопрос снимает.</li>
+</ul>
+<p>Если ваш бот уже отправляет переписку в нейросеть и вы хотите знать, что там уходит, напишите мне в <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%91%D0%BE%D1%82%20%D0%BE%D1%82%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D1%8F%D0%B5%D1%82%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%B5%20%D0%BA%D0%BB%D0%B8%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%20%D0%B2%20%D0%BD%D0%B5%D0%B9%D1%80%D0%BE%D1%81%D0%B5%D1%82%D1%8C%3A%20%D0%BA%D0%B0%D0%BA%20%D0%B8%D1%85%20%D0%BE%D0%B1%D0%B5%D0%B7%D0%BB%D0%B8%D1%87%D0%B8%D1%82%D1%8C%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D1%87%D0%B0%D1%82-%D0%B1%D0%BE%D1%82%D0%B0%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B3%D0%BE%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0." rel="noopener" target="_blank">Telegram</a> слово «МАСКА». Посмотрю, где данные выходят наружу, и предложу, как это закрыть.</p>
+
+                    </div>
+                    
+
+                    
+                    
+                    
+                    
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Обсудим вашу задачу</div>
+  <h3 class="blog-services-offer-title">Обезличивание данных в ИИ-боте</h3>
+  <p class="blog-services-offer-lead">Напишите одной фразой, что нужно. Отвечу, что подойдёт, сколько займёт и сколько стоит. Сообщение уже подготовлено.</p>
+  <ul class="blog-services-offer-list"><li><i class="ph-fill ph-eye-slash"></i> <span>Метки вместо имён, телефонов и реквизитов до отправки в модель</span></li><li><i class="ph-fill ph-list-checks"></i> <span>Журнал «что ушло в нейросеть» и тест на утечки</span></li><li><i class="ph-fill ph-database"></i> <span>Локальная модель на вашем сервере</span></li><li><i class="ph-fill ph-shield-check"></i> <span>Аудит сайта и бота по 152-ФЗ</span></li></ul>
+  <div class="blog-services-offer-ctas">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%91%D0%BE%D1%82%20%D0%BE%D1%82%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D1%8F%D0%B5%D1%82%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%B5%20%D0%BA%D0%BB%D0%B8%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%20%D0%B2%20%D0%BD%D0%B5%D0%B9%D1%80%D0%BE%D1%81%D0%B5%D1%82%D1%8C%3A%20%D0%BA%D0%B0%D0%BA%20%D0%B8%D1%85%20%D0%BE%D0%B1%D0%B5%D0%B7%D0%BB%D0%B8%D1%87%D0%B8%D1%82%D1%8C%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D1%87%D0%B0%D1%82-%D0%B1%D0%BE%D1%82%D0%B0%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B3%D0%BE%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0." target="_blank" rel="noopener" class="blog-services-offer-cta">
+      <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
+    </a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="blog-services-offer-cta blog-services-offer-cta-max">
+      <i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> Написать в MAX
+    </a>
+    <a href="https://chimitdorzhi.tech/services/rkn-audit/" class="blog-services-offer-cta blog-services-offer-cta-max"><i class="ph ph-arrow-right" aria-hidden="true"></i> Аудит по 152-ФЗ</a>
+  </div>
+</div>
+                    <div class="blog-cta-card">
+                        <div class="blog-cta-card-body">
+                            <h3>Бесплатно: чек-лист «Готов ли ваш бизнес к 152-ФЗ»</h3>
+                            <p>12 пунктов, которые проверяют готовность за час: данные, согласия, уведомление в РКН, локализация, защита. Отметьте, что уже сделано, и увидите дыры, за которые сейчас штрафуют.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="/checklist-152-fz/" class="btn btn-accent"><i class="ph-fill ph-clipboard-text" aria-hidden="true"></i> Открыть чек-лист</a>
+                        </div>
+                    </div>
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/ii-buhgalter-1s-stend-foruma-keys-2026/" data-category="cases" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-calculator"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Кейсы</span>
+  <h3>ИИ-бухгалтер над 1С для стенда на ДВЭФ: беспорядок в базе и откат</h3>
+  <p>Заказчику нужен был живой номер для стенда на ДВЭФ: ИИ-бухгалтер, который на глазах у гостей находит ошибки в 1С. Я подключил его к демо-базе по стандартному OData, сделал кнопки «навести беспорядок» и «откатить», чат на DeepSeek и обезличивание данных перед отправкой в нейросеть. Демо показано на форуме 22 октября.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 28 октября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 6 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/prilozhenie-rukovoditelya-komandy-telegram-max-keys-2026/" data-category="cases" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-tree-structure"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Кейсы</span>
+  <h3>Приложение руководителя большой команды в Telegram, MAX и на сайте</h3>
+  <p>Руководителю большой команды нужно было видеть всю структуру, ставить поручения вниз по цепочке и получать сводку без звонков. Я собрал мини-приложение в Telegram и MAX и сайт на одной базе: иерархия, поручения со сроками и напоминаниями, база знаний и ИИ-секретарь. Работает с 25.10.2026 на сервере заказчика, сейчас он тестирует его сам.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 28 октября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 6 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/sayt-kosmetologa-etap-1-keys-2026/" data-category="cases" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-stethoscope"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Кейсы</span>
+  <h3>Сайт и ИИ-администратор для врача-косметолога из Петербурга</h3>
+  <p>Врач-косметолог из Петербурга принимает в двух коворкингах и не ведёт соцсети. Я собрал сайт на её сервере, с 17 октября работают ИИ-администратор в Telegram и мини-приложение записи, 20 октября поданы заявки в каталоги карт. Первый блок закрыт, начат цифровой двойник врача.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 2 октября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 6 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/presidio-obezlichivanie-personalnyh-dannyh-2026/" data-category="legal" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-eye-slash"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Право и compliance</span>
+  <h3>Presidio: как автоматически найти и обезличить персональные данные</h3>
+  <p>Персональные данные всплывают там, где их не ждёшь: в логах, выгрузках, тестовых базах. Открытый инструмент Presidio сам находит имена, телефоны и паспорта в тексте и обезличивает их. Разбираю, зачем это по 152-ФЗ и как внедрить у себя.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 3 августа 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 5 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    <section class="blog-subscribe">
+  <div class="blog-subscribe-body">
+    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
+    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
+  </div>
+  <div class="blog-subscribe-actions">
+    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
+  </div>
+</section>
+                    
+                    
+                    
+                    
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow"><span class="b-l b-l-ru">Готовые решения под ключ</span><span class="b-l b-l-en" lang="en">Turnkey solutions</span><span class="b-l b-l-es" lang="es">Soluciones llave en mano</span><span class="b-l b-l-cn" lang="zh">交钥匙解决方案</span><span class="b-l b-l-mn" lang="mn">Түлхүүр гардуулах шийдэл</span></span>
+                            <span class="blog-offer-cta-title"><span class="b-l b-l-ru">451 готовых IT-решений для бизнеса</span><span class="b-l b-l-en" lang="en">451 ready-made IT solutions for business</span><span class="b-l b-l-es" lang="es">451 soluciones IT listas para empresas</span><span class="b-l b-l-cn" lang="zh">451 个面向企业的现成 IT 解决方案</span><span class="b-l b-l-mn" lang="mn">Бизнест зориулсан 451 бэлэн IT шийдэл</span></span>
+                            <span class="blog-offer-cta-price"><span class="b-l b-l-ru">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span><span class="b-l b-l-en" lang="en">Automation, bots, AI, data privacy and platforms · free consultation</span><span class="b-l b-l-es" lang="es">Automatización, bots, IA, privacidad de datos y plataformas · consulta gratis</span><span class="b-l b-l-cn" lang="zh">自动化、机器人、AI、数据合规与平台 · 免费咨询</span><span class="b-l b-l-mn" lang="mn">Автоматжуулалт, бот, AI, өгөгдлийн хамгаалалт ба платформ · үнэгүй зөвлөгөө</span></span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> <span class="b-l b-l-ru">Смотреть каталог</span><span class="b-l b-l-en" lang="en">View catalog</span><span class="b-l b-l-es" lang="es">Ver catálogo</span><span class="b-l b-l-cn" lang="zh">查看目录</span><span class="b-l b-l-mn" lang="mn">Каталог үзэх</span></span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#chto-uhodit"><span class="blog-toc-num">01</span> Что именно ваш бот отправляет в нейросеть</a></li>
+<li><a href="#obezlichivanie-zakon"><span class="blog-toc-num">02</span> Что закон называет обезличиванием</a></li>
+<li><a href="#metki"><span class="blog-toc-num">03</span> Метки вместо имён и телефонов</a></li>
+<li><a href="#vyrezanie"><span class="blog-toc-num">04</span> Вырезание персданных из свободного текста</a></li>
+<li><a href="#lokalnaya-model"><span class="blog-toc-num">05</span> Локальная модель: когда данные вообще не выходят</a></li>
+<li><a href="#zhurnal"><span class="blog-toc-num">06</span> Журнал «что ушло в нейросеть»</a></li>
+<li><a href="#transgranichnaya"><span class="blog-toc-num">07</span> Трансграничная передача и статья 12 152-ФЗ</a></li>
+<li><a href="#chto-govorit-klientu"><span class="blog-toc-num">08</span> Что говорить клиенту</a></li>
+<li><a href="#kak-ya-delayu"><span class="blog-toc-num">09</span> Как я это делаю</a></li>
+<li><a href="#ceny"><span class="blog-toc-num">10</span> Сколько стоит обезличивание и аудит бота</a></li>
+<li><a href="#faq"><span class="blog-toc-num">11</span> Частые вопросы</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">12</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+971563369591" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +971 56 336 9591</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">RA Standard - F.Z.E</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_licence">Лицензия 57033</span><span> · </span><span data-i18n="footer.legal_authority">Free Zones Authority of Ajman</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">Эмират Аджман, ОАЭ</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/cases/" class="footer-policy-link">Кейсы</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=44" defer></script>
+<script src="/services-i18n.js?v=44" defer></script>
+<script src="/script.js?v=41" defer></script>
+<script src="/search-widget.js?v=1" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>
