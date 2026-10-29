@@ -3258,6 +3258,7 @@ async function main() {
   updateSitemap(published);
   writeLlms(published);
   CERTS.applyAbout();
+  require('./build-about-projects.js').applyAbout(published);
   fs.writeFileSync(OUT_FEED, subOffersCount(buildRss(published)), 'utf8');
   // Отдельный RSS под Pinterest: вертикальные обложки pin.png.
   fs.writeFileSync(OUT_PIN_FEED, buildPinterestRss(published).xml, 'utf8');
