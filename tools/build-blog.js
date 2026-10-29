@@ -12,6 +12,7 @@ const path = require('path');
 const articles = require('./blog-data');
 // Маркировка запрещённых/заблокированных в РФ площадок (Meta и её продукты, LinkedIn, X, Discord…)
 const RP = require('./restricted-platforms.js');
+const CERTS = require('./build-certs.js');
 
 // --- Честная дата изменения из git -------------------------------------------
 // dateModified берётся из последнего коммита, который реально менял контент-файл
@@ -1814,6 +1815,7 @@ ${faqLd(a)}${howToLd(a)}${itemListLd(a)}${METRIKA}</head>
                         ${bodyHtml}
                     </div>
                     ${RP.NOTE_PLACEHOLDER}
+                    ${a.category === 'cases' ? CERTS.caseChipsHtml(caseStack(a.slug)) : ''}
 
                     ${prefillTgLinks(repoBlockHtml(a), a)}
                     ${seriesHtml(a, published)}
@@ -2501,6 +2503,9 @@ function flagshipBlock() {
             </div>`;
 }
 
+// Стек для значков НСОК: только у реальных проектов, у КП и аудитов (type doc) значков нет.
+function caseStack(slug) { const c = FLAGSHIP.find(x => x.slug === slug); return (c && c.type !== 'doc' && c.stack) || []; }
+
 function portfolioPage(published) {
   const flagBySlug = new Map(FLAGSHIP.filter(c => c.slug).map(c => [c.slug, c]));
   const flagOrder = new Map(FLAGSHIP.map((c, i) => [c.slug || c.name, i]));
@@ -2607,6 +2612,7 @@ ${METRIKA}</head>
                     <span class="section-label">${L('ПОРТФОЛИО', 'PORTFOLIO', 'PORTAFOLIO')}</span>
                     <h1 class="section-heading">${L('Кейсы под ключ', 'Turnkey cases', 'Casos llave en mano')}</h1>
                     <p class="section-sub">${L('Реальные проекты: сайты, боты и мини-аппы, ИИ-решения и платформы. У каждого — задача, решение и результат. Выберите направление или смотрите все.', 'Real projects: websites, bots and mini-apps, AI solutions and platforms. Each with a task, a solution and a result. Pick a direction or browse all.', 'Proyectos reales: sitios web, bots y mini-apps, soluciones de IA y plataformas. Cada uno con una tarea, una solución y un resultado. Elige una dirección o míralos todos.')}</p>
+                    ${CERTS.casesStripHtml(L)}
                 </div>
 
                 ${filterHtml}
@@ -3093,6 +3099,7 @@ function llmsFacts(published) {
 
 Об эксперте:
 - Чимитдоржи Дарижапов, основатель Chimitdorzhi Studio (год основания — 2016), Чита, Забайкальский край; работает удалённо со всей Россией.
+${CERTS.llmsFact()}
 - Опыт в IT — 16+ лет. Сертификаты: Vanderbilt University (AI Agents Developer), MongoDB Inc. (AI with MongoDB), IBM; верификация цифровых навыков на Госуслугах (Python, SQL, Docker, Java, C++, C#, Go, Git, Linux, ML).
 - Профили в отраслевых каталогах: Ruward (https://ruward.ru/catalog/chimitdorzhi-tech/), Workspace (https://workspace.ru/contractors/chimitdorzhi-studio/).
 
@@ -3250,6 +3257,7 @@ async function main() {
 
   updateSitemap(published);
   writeLlms(published);
+  CERTS.applyAbout();
   fs.writeFileSync(OUT_FEED, subOffersCount(buildRss(published)), 'utf8');
   // Отдельный RSS под Pinterest: вертикальные обложки pin.png.
   fs.writeFileSync(OUT_PIN_FEED, buildPinterestRss(published).xml, 'utf8');
