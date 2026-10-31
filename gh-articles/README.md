@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2746**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2753**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -2610,6 +2610,13 @@
 
 ## Экспертное
 
+- [Система без документации: что делать, если разработчик ушёл](./razobrat-sistemu-bez-dokumentacii-esli-razrabotchik-ushyol-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/razobrat-sistemu-bez-dokumentacii-esli-razrabotchik-ushyol-2026/)
+- [Разведка чужой системы перед проектом: объём и риск за 1-3 дня](./razvedka-chuzhoy-sistemy-pered-proektom-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/razvedka-chuzhoy-sistemy-pered-proektom-2026/)
+- [Как подключиться к старой программе без API: пять способов](./podklyuchit-staruyu-programmu-bez-api-pyat-sposobov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/podklyuchit-staruyu-programmu-bez-api-pyat-sposobov-2026/)
+- [Как забрать свои данные из закрытой системы без экспорта](./zabrat-dannye-iz-zakrytoy-sistemy-bez-eksporta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zabrat-dannye-iz-zakrytoy-sistemy-bez-eksporta-2026/)
+- [Когда реверс-инжиниринг законен: ст. 1280 ГК РФ для бизнеса](./kogda-reverse-inzhiniring-zakonen-st-1280-gk-rf-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kogda-reverse-inzhiniring-zakonen-st-1280-gk-rf-2026/)
+- [Перевод legacy-системы на low-code: конвертер, линтер, эталон](./perevod-legacy-sistemy-na-low-code-konverter-etalon-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/perevod-legacy-sistemy-na-low-code-konverter-etalon-2026/)
+- [Аудит чужого кода перед покупкой: закладки, телеметрия, ключи](./audit-chuzhogo-koda-zakladki-telemetriya-klyuchi-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/audit-chuzhogo-koda-zakladki-telemetriya-klyuchi-2026/)
 - [Mistral Large 4 открыла веса: API или свой сервер для бизнеса](./mistral-large-4-otkryla-vesa-chto-eto-znachit-dlya-biznesa-api-ili-svoy-server-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/mistral-large-4-otkryla-vesa-chto-eto-znachit-dlya-biznesa-api-ili-svoy-server-2026/)
 - [«Суверенный ИИ» Giotto и Kimi: как проверить, что вам продали](./giotto-i-kimi-suverennyy-ii-kak-proverit-chto-model-vam-prodali-imenno-ta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/giotto-i-kimi-suverennyy-ii-kak-proverit-chto-model-vam-prodali-imenno-ta-2026/)
 - [GitHub Copilot: оплата ИИ-кредитами вместо подписок](./github-copilot-oplata-ii-kreditami-vmesto-podpisok-chto-menyat-v-byudzhete-studii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/github-copilot-oplata-ii-kreditami-vmesto-podpisok-chto-menyat-v-byudzhete-studii-2026/)
