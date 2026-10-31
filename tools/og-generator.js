@@ -123,20 +123,41 @@ function fitTitle(title, variants) {
   return { lines, fs: last.fs, lh: Math.round(last.fs * last.lhK) };
 }
 
-// Список фотографий (кешируется на процесс)
+// Список фотографий (кешируется на процесс). Сортировка по числовому префиксу файла (01 ... 99, 100),
+// иначе трёхзначные номера встали бы между двузначными и сдвинули бы закреплённые кадры старых статей.
 let PHOTOS = null;
+const photoNum = (f) => parseInt((String(f).match(/^(\d+)-/) || [])[1] || '0', 10);
 function photoList() {
   if (PHOTOS) return PHOTOS;
   try {
-    PHOTOS = fs.readdirSync(PHOTO_DIR).filter(f => /\.(jpe?g|png)$/i.test(f)).sort();
+    PHOTOS = fs.readdirSync(PHOTO_DIR).filter(f => /\.(jpe?g|png)$/i.test(f)).sort((x, y) => photoNum(x) - photoNum(y) || x.localeCompare(y));
   } catch (e) { PHOTOS = []; }
   return PHOTOS;
 }
+// Кадры 01..68 закреплены за уже вышедшими статьями: их обложки не должны меняться.
+// Кадры 69 и дальше (вторая часть фотосессии) получают новые статьи: вышедшие с 01.11.2026
+// и серия из FRESH_PIN (там кадр выбран вручную под тему).
+const LEGACY_MAX = 68;
+const FRESH_SINCE = '2026-11-01';
+const FRESH_PIN = {
+  'razobrat-sistemu-bez-dokumentacii-esli-razrabotchik-ushyol-2026': 75,
+  'razvedka-chuzhoy-sistemy-pered-proektom-2026': 74,
+  'podklyuchit-staruyu-programmu-bez-api-pyat-sposobov-2026': 91,
+  'zabrat-dannye-iz-zakrytoy-sistemy-bez-eksporta-2026': 72,
+  'kogda-reverse-inzhiniring-zakonen-st-1280-gk-rf-2026': 93,
+  'perevod-legacy-sistemy-na-low-code-konverter-etalon-2026': 104,
+  'audit-chuzhogo-koda-zakladki-telemetriya-klyuchi-2026': 85,
+};
 // Фото закреплено за статьёй: один и тот же slug всегда даёт один и тот же кадр.
 function photoFor(article) {
   const list = photoList();
   if (!list.length) return null;
-  return path.join(PHOTO_DIR, list[hashNum(article.slug) % list.length]);
+  const pinned = FRESH_PIN[article.slug];
+  if (pinned) { const hit = list.find(f => photoNum(f) === pinned); if (hit) return path.join(PHOTO_DIR, hit); }
+  const fresh = list.filter(f => photoNum(f) > LEGACY_MAX);
+  if (fresh.length && String(article.datePublished || '') >= FRESH_SINCE) return path.join(PHOTO_DIR, fresh[hashNum(article.slug) % fresh.length]);
+  const legacy = list.filter(f => photoNum(f) <= LEGACY_MAX);
+  return path.join(PHOTO_DIR, legacy[hashNum(article.slug) % legacy.length]);
 }
 // Где на фото лицо: доля высоты кадра (центр лица), по номеру файла. Размечено
 // вручную по листу миниатюр 22.09.2026. Автообрезка sharp (attention) уводила кадр
@@ -150,11 +171,16 @@ const FACE_Y = {
   '46': .40, '47': .40, '48': .50, '49': .50, '50': .42, '51': .43, '52': .45, '53': .45, '54': .40,
   '55': .32, '56': .40, '57': .40, '58': .40, '59': .45, '60': .36, '61': .36, '62': .47, '63': .50,
   '64': .53, '65': .40, '66': .42, '67': .42, '68': .55,
+  // вторая часть фотосессии (разметка по листу миниатюр 31.10.2026)
+  '69': .42, '70': .42, '71': .46, '72': .42, '73': .42, '74': .43, '75': .45, '76': .40, '77': .40, '78': .38, '79': .40,
+  '80': .34, '81': .40, '82': .34, '83': .36, '84': .36, '85': .34, '86': .36, '87': .30, '88': .46, '89': .46, '90': .42,
+  '91': .37, '92': .37, '93': .39, '94': .37, '95': .44, '97': .45, '98': .45, '99': .47, '100': .39, '101': .39,
+  '102': .39, '103': .43, '104': .47, '105': .49, '106': .49, '107': .47, '108': .47, '109': .49, '110': .41, '111': .41,
 };
 // Обрезать фото до w×h так, чтобы лицо оказалось по центру окна (насколько позволяет кадр).
 async function cropToFace(photo, w, h) {
   const meta = await sharp(photo).metadata();
-  const faceY = FACE_Y[path.basename(photo).slice(0, 2)] ?? 0.42;
+  const faceY = FACE_Y[String(photoNum(path.basename(photo))).padStart(2, '0')] ?? 0.42;
   const scale = Math.max(w / meta.width, h / meta.height);
   const rw = Math.round(meta.width * scale), rh = Math.round(meta.height * scale);
   const left = Math.round((rw - w) / 2);

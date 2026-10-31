@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Аудит чужого кода: закладки, телеметрия и ключи 2026</title>
+    <meta name="description" content="Как проверить чужой код перед покупкой или приёмкой: скрытые доступы, отправка данных наружу, забытые ключи, зависимости, права. Безопасно, на копии, с отчётом.">
+    <meta name="keywords" content="аудит чужого кода, проверка кода перед покупкой, закладки в коде, скрытая телеметрия, забытые ключи в коде, приёмка проекта от подрядчика, технический аудит сайта, TruffleHog">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/audit-chuzhogo-koda-zakladki-telemetriya-klyuchi-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/audit-chuzhogo-koda-zakladki-telemetriya-klyuchi-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/audit-chuzhogo-koda-zakladki-telemetriya-klyuchi-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/audit-chuzhogo-koda-zakladki-telemetriya-klyuchi-2026/">
+    <meta property="og:title" content="Аудит чужого кода: закладки, телеметрия и ключи 2026">
+    <meta property="og:description" content="Как проверить чужой код перед покупкой или приёмкой: скрытые доступы, отправка данных наружу, забытые ключи, зависимости, права. Безопасно, на копии, с отчётом.">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/audit-chuzhogo-koda-zakladki-telemetriya-klyuchi-2026/cover.jpg">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Аудит чужого кода: закладки, телеметрия и ключи 2026">
+    <meta name="twitter:description" content="Как проверить чужой код перед покупкой или приёмкой: скрытые доступы, отправка данных наружу, забытые ключи, зависимости, права. Безопасно, на копии, с отчётом.">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/audit-chuzhogo-koda-zakladki-telemetriya-klyuchi-2026/cover.jpg">
+
+    <link rel="icon" href="/favicon.svg?v=5" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=5">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png?v=5">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=5">
+    <link rel="preload" href="/assets/fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=79">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Аудит чужого кода перед покупкой: закладки, телеметрия, ключи",
+  "description": "Как проверить чужой код перед покупкой или приёмкой: скрытые доступы, отправка данных наружу, забытые ключи, зависимости, права. Безопасно, на копии, с отчётом.",
+  "image": "https://chimitdorzhi.tech/blog/audit-chuzhogo-koda-zakladki-telemetriya-klyuchi-2026/cover.jpg",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://t.me/chimitdorzhi_studio",
+      "https://max.ru/channel_chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio",
+      "https://github.com/chimitdorzhi",
+      "https://chimitdorzhi.tech/about/"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/audit-chuzhogo-koda-zakladki-telemetriya-klyuchi-2026/"
+  },
+  "datePublished": "2026-10-31",
+  "dateModified": "2026-10-31",
+  "keywords": "аудит кода, приёмка проекта, безопасность, ключи в коде, технический аудит, 2026",
+  "articleSection": "Экспертный блог",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Аудит чужого кода перед покупкой: закладки, телеметрия, ключи",
+      "item": "https://chimitdorzhi.tech/blog/audit-chuzhogo-koda-zakladki-telemetriya-klyuchi-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Можно ли найти все закладки автоматически?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет. Сканеры хорошо ловят ключи и известные уязвимости, но намеренно спрятанную логику находит только чтение кода и наблюдение за поведением системы. Поэтому я совмещаю инструменты и ручной разбор и пишу в отчёте, что осталось непроверенным."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужен ли мне исходный код, если сайт уже работает?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да. Без исходников можно проверить только внешнее поведение: куда идут запросы и что видно в браузере. Скрытые входы, права и задачи по расписанию внутри сервера по такой проверке не видны."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что делать, если продавец не даёт копию?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Это один из признаков, при которых стоит остановиться. Нормальный продавец понимает, что покупатель хочет проверить то, за что платит. Отказ от проверки сам по себе информация для решения."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Это юридическая проверка?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет. Я фиксирую технические факты. Права на код, ответственность сторон и последствия находок оценивает юрист."
+      }
+    }
+  ]
+}
+    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+var inject=function(){for (var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)};
+var go=function(){('requestIdleCallback' in window)?requestIdleCallback(inject,{timeout:5000}):setTimeout(inject,3000)};var run=function(){var c=null;try{c=JSON.parse(localStorage.getItem('cookieConsent'))}catch(_){}if(c&&c.analytics){go()}else{m.addEventListener('cookieConsent',function(ev){if(ev.detail&&ev.detail.analytics)go()})}};
+(e.readyState==='complete')?run():m.addEventListener('load',run);})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<!-- /Yandex.Metrika counter -->
+<!-- Цели Метрики: клики по контактам и услугам -->
+<script type="text/javascript">
+(function(){
+  var GOALS = [
+    { re: /t\.me\//i,                     goal: 'tg_click' },
+    { re: /max\.ru\//i,                    goal: 'max_click' },
+    { re: /audit\.chimitdorzhi\.tech/i,    goal: 'audit_click' },
+    { re: /chimitdorzhi\.tech\/services\//i, goal: 'service_click' },
+    { re: /chimitdorzhi\.tech\/predlozheniya\//i, goal: 'offer_click' }
+  ];
+  document.addEventListener('click', function(e){
+    var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    for (var i = 0; i < GOALS.length; i++) {
+      if (GOALS[i].re.test(href)) {
+        try { if (window.ym) ym(109281884, 'reachGoal', GOALS[i].goal); } catch (err) {}
+        break;
+      }
+    }
+  }, true);
+})();
+</script>
+</head>
+<body class="wx-read">
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/" data-i18n="nav.home">Главная</a></li>
+            <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+            <li class="nav-dropdown">
+                <a href="/cases/" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+                <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему" aria-pressed="false">
+                <i class="ph ph-moon" aria-hidden="true"></i>
+            </button>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/" data-i18n="nav.home">Главная</a></li>
+        <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+        <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+        <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+        <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+        <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+        <li class="mobile-has-submenu">
+            <details>
+                <summary aria-label="Проекты — развернуть"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down" aria-hidden="true"></i></summary>
+                <ul class="mobile-submenu">
+                    <li>
+                        <a href="https://gerel.space" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">Gerel.space</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/universe_buryat/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/arey/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.arey">AREY</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/mwrlife/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">MWR Life</span>
+                                <span class="mobile-sub-desc">Travel-клуб и партнёрка</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </details>
+        </li>
+        <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+    </ul>
+    <div class="mobile-controls">
+        <div class="mobile-lang-switcher" role="group" aria-label="Выбор языка">
+            <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+            <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+            <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+        </div>
+        <button class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle" aria-label="Переключить тему" aria-pressed="false">
+            <i class="ph ph-moon" aria-hidden="true"></i>
+        </button>
+    </div>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Аудит чужого кода перед покупкой: закладки, телеметрия, ключи</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/expert/"><i class="ph ph-bookmark" aria-hidden="true"></i> Экспертный блог</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 8 мин чтения</span>
+                        <time datetime="2026-10-31"><i class="ph ph-calendar" aria-hidden="true"></i> 31 октября 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Аудит чужого кода перед покупкой: закладки, телеметрия, ключи</h1>
+
+                    <p class="blog-lead">Что искать в чужом проекте до покупки или подписания акта: скрытые доступы, отправку данных наружу, забытые ключи, подозрительные зависимости, лишние права и задачи по расписанию. Как проверять безопасно на копии, чем, как оформить отчёт по важности и когда сразу отказываться.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>аудит кода</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>приёмка проекта</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>безопасность</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>ключи в коде</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>технический аудит</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>2026</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
+<li>Аудит чужого кода перед покупкой или приёмкой отвечает на один вопрос: что эта система делает на самом деле, кроме того, что обещает продавец или подрядчик. Я ищу шесть вещей: скрытые доступы, отправку данных наружу, забытые ключи, подозрительные зависимости, лишние права и задачи по расписанию.</li>
+<li>Проверять нужно на копии, в изолированной среде и с выдуманными данными. Боевую базу и боевые ключи в проверку не берут.</li>
+<li>Итог оформляется отчётом: находки по важности, к каждой доказательство и что делать. То, что не проверено, пишется отдельной строкой.</li>
+<li>Технический аудит у меня от 50 000 ₽, срок от 1 недели.</li>
+</ul></div>
+<div class="blog-cta-internal">
+  <i class="ph-fill ph-rocket-launch" aria-hidden="true"></i>
+  <div>
+    <strong>Хотите внедрить это у себя?</strong>
+    <p>Сделаю под ключ: разберу задачу, назову срок и цену. Чтобы начать, <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%90%D1%83%D0%B4%D0%B8%D1%82%20%D1%87%D1%83%D0%B6%D0%BE%D0%B3%D0%BE%20%D0%BA%D0%BE%D0%B4%D0%B0%20%D0%BF%D0%B5%D1%80%D0%B5%D0%B4%20%D0%BF%D0%BE%D0%BA%D1%83%D0%BF%D0%BA%D0%BE%D0%B9%3A%20%D0%B7%D0%B0%D0%BA%D0%BB%D0%B0%D0%B4%D0%BA%D0%B8%2C%20%D1%82%D0%B5%D0%BB%D0%B5%D0%BC%D0%B5%D1%82%D1%80%D0%B8%D1%8F%2C%20%D0%BA%D0%BB%D1%8E%D1%87%D0%B8%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener">напишите в Telegram</a> одной фразой.</p>
+    <a href="https://chimitdorzhi.tech/services/it-audit/">ИТ-аудит <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</div>
+
+<p>Аудит чужого кода перед покупкой или приёмкой нужен, чтобы до подписания акта выяснить, нет ли в системе удалённого входа для прежнего разработчика, скрытой отправки данных на сторонние серверы, забытых паролей и лишних прав. Это инженерная проверка на копии проекта. Она не гарантирует отсутствие любых проблем, но снимает самые неприятные сюрпризы и даёт вам документ для переговоров.</p>
+
+<h2 id="zachem">Зачем проверять код, который уже работает</h2>
+<p>Работающий сайт или бот показывает только то, что видит пользователь. Всё остальное происходит за кулисами: куда уходят заявки, кто может войти в админку, какие задачи запускаются ночью. Покупатель готового проекта и заказчик, принимающий работу от подрядчика, в этот момент забирают ещё и чужие решения, договорённости и долги.</p>
+<p>Про сам порядок приёмки я уже писал в статье <a href="/blog/priemka-raboty-podryadchika-2026/">как принимать работу подрядчика</a>, а про доступы и документацию в материале <a href="/blog/kak-ne-stat-zalozhnikom-podryadchika-dostupy-repozitoriy-dokumentaciya-2026/">как не стать заложником подрядчика</a>. Здесь только одна часть: что именно искать в самом коде и на сервере.</p>
+
+<h2 id="chto-iskat">Что я ищу: шесть групп находок</h2>
+<h3>1. Скрытые доступы и чёрные ходы</h3>
+<p>Это учётные записи, ключи и участки кода, о которых не знает владелец. Типичные признаки: пользователь с неочевидным именем в списке администраторов, вход по фиксированному паролю или секретной ссылке, чужой публичный ключ на сервере, отладочный маршрут, который открывает админку без проверки. Международный каталог слабостей MITRE описывает такой класс как <a href="https://cwe.mitre.org/data/definitions/912.html" rel="noopener nofollow" target="_blank">скрытую функциональность (CWE-912)</a>: функция не задокументирована, не входит в спецификацию и недоступна через очевидные для пользователей и администраторов интерфейсы. Я не утверждаю, что она есть в каждом проекте. Я проверяю, что её нет.</p>
+
+<h3>2. Скрытая телеметрия и отправка данных наружу</h3>
+<p>Сайт или бот может отправлять заявки, адреса и содержимое форм не только в вашу почту. Я составляю список всех внешних адресов, к которым обращается система, и сверяю его с тем, что вам заявлено. Счётчик аналитики, платёжный сервис, SMS-шлюз ожидаемы. Неизвестный домен, на который уходят данные клиентов, это находка высокой важности. Тот же приём я применял в кейсе про <a href="/blog/audit-sayta-po-152-fz-dokazatelstva-keys-2026/">аудит сайта по закону о персональных данных</a>: читал журнал сетевых запросов и фиксировал, что и когда реально уходит, а документы только сверял с ним.</p>
+
+<h3>3. Забытые ключи и пароли в коде</h3>
+<p>Ключ платёжной системы, пароль от базы, токен бота могут лежать прямо в файлах и в старых коммитах. MITRE называет это <a href="https://cwe.mitre.org/data/definitions/798.html" rel="noopener nofollow" target="_blank">использованием жёстко заданных учётных данных (CWE-798)</a>. Искать их вручную по всей истории бессмысленно, для этого есть сканеры. Как работает один из них, я разобрал в статье про <a href="/blog/trufflehog-poisk-zabytyh-klyuchey-v-kode-2026/">TruffleHog</a>.</p>
+
+<h3>4. Подозрительные зависимости</h3>
+<p>Современный проект почти всегда собран из чужих библиотек. Смотрю, что подключено, нет ли лишних и забытых пакетов, нет ли пакетов с подозрительными названиями и нет ли в них скриптов, которые запускаются при установке. Например, по документации npm при обычной установке автоматически выполняются скрипты <a href="https://docs.npmjs.com/cli/v10/using-npm/scripts" rel="noopener nofollow" target="_blank">preinstall, install, postinstall и prepare</a>, поэтому просто «поставить зависимости» на рабочей машине нельзя. Известные уязвимости помогают найти штатные инструменты: <a href="https://docs.npmjs.com/cli/v10/commands/npm-audit" rel="noopener nofollow" target="_blank">npm audit</a> сверяет зависимости с базой уязвимостей, а <a href="https://google.github.io/osv-scanner/" rel="noopener nofollow" target="_blank">OSV-Scanner</a> использует открытую базу osv.dev.</p>
+
+<h3>5. Лишние права</h3>
+<p>Проверяю, от чьего имени работает приложение и что ему разрешено. Бот или сайт с правами администратора сервера, ключ с доступом ко всем проектам вместо одного, база с одним общим паролем для всех служб: всё это превращает любую мелкую ошибку в большую аварию.</p>
+
+<h3>6. Расписания и фоновые задачи</h3>
+<p>Планировщик заданий, фоновые службы и обработчики очередей показывают, что система делает без вашего участия. Ночная выгрузка в чужое хранилище, периодический запрос на неизвестный адрес, задача, которую никто не может объяснить, попадают в отчёт отдельным пунктом.</p>
+
+<h2 id="bezopasno">Как проверять безопасно</h2>
+<p>Чужой код нельзя запускать на рабочем компьютере и тем более рядом с боевыми данными. Мои правила:</p>
+<ul>
+<li>Работаю только с копией: архив проекта, копия репозитория, снимок сервера. Оригинал не трогаю.</li>
+<li>Среда изолирована: отдельная виртуальная машина или контейнер, при необходимости без выхода в сеть.</li>
+<li>База заполнена выдуманными данными. Боевые клиентские данные в проверку не попадают.</li>
+<li>Боевые ключи не подставляю. Если проекту нужен ключ платёжной системы или SMS, ставлю тестовый или заглушку.</li>
+<li>Сначала читаю, потом запускаю. Установочные скрипты зависимостей просматриваю до установки.</li>
+<li>Найденные ключи не использую. Проверку работоспособности ключей у сканеров отключаю: у TruffleHog для этого есть флаг <a href="https://github.com/trufflesecurity/trufflehog" rel="noopener nofollow" target="_blank">--no-verification</a>, иначе сканер сам обращается к сервисам, которым ключ принадлежит. Ключ из чужого проекта отдаю владельцу на перевыпуск.</li>
+</ul>
+<p>Если проект собирается сложно и у вас есть <a href="https://chimitdorzhi.tech/services/devops/" class="blog-inline-link">свой сервер</a>, часть разбора кода можно отдать локальному ИИ-ревью: как это устроено, я описал в статье про <a href="/blog/review-ducktective-ii-revyu-koda-na-svoem-servere-2026/">review_ducktective</a>. Код при этом остаётся на вашем сервере. Решение по находкам всё равно принимает человек.</p>
+
+<h2 id="kak-ya-delayu">Как я это делаю</h2>
+<p>Мой порядок из пяти шагов:</p>
+<ol>
+<li>Получаю копию кода и описание того, как проект живёт сейчас: где хостинг, какие сервисы подключены, что вам обещали. Это даёт список ожиданий, с которым я потом сверяюсь.</li>
+<li>Поднимаю проект в изолированной среде с выдуманными данными и записываю журнал сетевых запросов: куда обращается система при обычной работе.</li>
+<li>Прохожу шесть групп из этой статьи: доступы, внешние адреса, ключи, зависимости, права, расписания. Для каждой находки сохраняю доказательство: строку кода, скриншот или запись из журнала.</li>
+<li>Делю находки на три уровня и пишу, что делать с каждой.</li>
+<li>Отдельным разделом перечисляю, что не проверил и почему.</li>
+</ol>
+<p>Про работу на чужом сервере у меня есть живой пример: в проекте <a href="/blog/self-storage-bronirovanie-boksov-keys-2026/">бронирования боксов для склада</a> я поднимал старые сайты заказчика из резервных копий на его же сервере. Чужие настройки я меняю только с разрешения владельца и перед правкой сохраняю копию. Один из сбоев в том проекте мой сторож не заметил, потому что проверял только изнутри сервера, а снаружи сертификат был неверным. Вывод для аудита: проверять надо по пути посетителя, и логи самой системы тут недостаточны.</p>
+<p>Если вам нужна такая проверка перед покупкой проекта или подписанием акта, посмотрите <a href="https://chimitdorzhi.tech/services/it-audit/">мою страницу про ИТ-аудит</a>. Я пришлю отчёт, который можно показать продавцу, подрядчику или юристу.</p>
+
+<h2 id="otchet">Как оформить отчёт: находки по важности</h2>
+<p>Отчёт читает владелец бизнеса, поэтому я строю его по важности находок, и список инструментов остаётся в приложении.</p>
+<div class="blog-table"><table>
+<tr><th>Уровень</th><th>Что сюда попадает</th><th>Что делать</th></tr>
+<tr><td>Критично</td><td>Скрытый вход для третьих лиц, отправка данных клиентов на неизвестный адрес, рабочие боевые ключи в коде</td><td>Не принимать и не платить, пока не устранено; ключи перевыпустить</td></tr>
+<tr><td>Важно</td><td>Лишние права, устаревшие зависимости с известными уязвимостями, задачи по расписанию без объяснения</td><td>Исправить до запуска или включить в договор как обязательство</td></tr>
+<tr><td>Наблюдение</td><td>Мёртвый код, отсутствие документации, неудобная структура</td><td>Запланировать, учесть в цене</td></tr>
+</table></div>
+<p>К каждой находке прикладываю доказательство и способ перепроверить. Без этого отчёт превращается в мнение, с которым легко спорить. Так же я строил отчёт в кейсе про персональные данные: скриншот и журнал запросов на каждую находку, непроверенное отдельной строкой, оценка юридических последствий оставлена юристу. Вопросы ответственности и прав на код тоже решает юрист, я их не оцениваю.</p>
+
+<div class="blog-callout blog-callout-info blog-read-next"><i class="ph-fill ph-book-open" aria-hidden="true"></i><div><strong>Читайте дальше по теме</strong><ul><li><a href="/blog/razobrat-sistemu-bez-dokumentacii-esli-razrabotchik-ushyol-2026/">Система без документации: что делать, если разработчик ушёл</a></li><li><a href="/blog/kogda-reverse-inzhiniring-zakonen-st-1280-gk-rf-2026/">Когда реверс-инжиниринг законен: ст. 1280 ГК РФ для бизнеса</a></li></ul></div></div>
+<h2 id="otkaz">Когда сразу отказываться</h2>
+<p>Есть ситуации, где продолжать нет смысла:</p>
+<ul>
+<li>Продавец или подрядчик не даёт полный код, а только готовую сборку, и не объясняет почему.</li>
+<li>Не разрешает работать на копии и не позволяет проверить сервер.</li>
+<li>В коде найден скрытый доступ или отправка данных на неизвестный адрес, и по этому поводу нет внятного объяснения.</li>
+<li>Боевые пароли и ключи лежат в открытом виде, а прежние владельцы отказываются их заменить.</li>
+<li>Нет ни одного человека, который может объяснить, как система устроена, и нет документации.</li>
+</ul>
+<p>Любой из этих пунктов повод остановиться и пересмотреть цену или условия сделки. Что я делаю, когда прежнего разработчика уже нет, описано в материале про <a href="/blog/razrabotchik-propal-zabrat-sayt-2026/">пропавшего разработчика</a>.</p>
+
+<h2 id="ceny">Сколько это стоит</h2>
+<p>Цены по моему прайсу: технический аудит от 50 000 ₽, срок от 1 недели. Если нужны исправления после аудита, считаю по часам от 3 000 ₽/час. Дальнейшее сопровождение (исправления, доработки, обновления, мониторинг) от 20 000 ₽/мес. Точная цена зависит от размера проекта и числа подключённых сервисов, поэтому сначала смотрю объём и называю цифру до начала работы. Подробнее на странице <a href="/ceny/">цен</a>.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+<h3>Можно ли найти все закладки автоматически?</h3>
+<p>Нет. Сканеры хорошо ловят ключи и известные уязвимости, но намеренно спрятанную логику находит только чтение кода и наблюдение за поведением системы. Поэтому я совмещаю инструменты и ручной разбор и пишу в отчёте, что осталось непроверенным.</p>
+<h3>Нужен ли мне исходный код, если сайт уже работает?</h3>
+<p>Да. Без исходников можно проверить только внешнее поведение: куда идут запросы и что видно в браузере. Скрытые входы, права и задачи по расписанию внутри сервера по такой проверке не видны.</p>
+<h3>Что делать, если продавец не даёт копию?</h3>
+<p>Это один из признаков, при которых стоит остановиться. Нормальный продавец понимает, что покупатель хочет проверить то, за что платит. Отказ от проверки сам по себе информация для решения.</p>
+<h3>Это юридическая проверка?</h3>
+<p>Нет. Я фиксирую технические факты. Права на код, ответственность сторон и последствия находок оценивает юрист.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+<p>Перед покупкой или приёмкой чужого проекта проверьте шесть вещей: скрытые доступы, отправку данных наружу, забытые ключи, зависимости, права и расписания. Делайте это на копии, в изолированной среде и без боевых данных. Находки записывайте по важности, с доказательствами и отдельной строкой о том, что не проверено. Если продавец не даёт код или не позволяет проверить сервер, это причина остановиться.</p>
+<p>Если вы собираетесь купить или принять проект и хотите знать, что в нём на самом деле, напишите мне в <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%90%D1%83%D0%B4%D0%B8%D1%82%20%D1%87%D1%83%D0%B6%D0%BE%D0%B3%D0%BE%20%D0%BA%D0%BE%D0%B4%D0%B0%20%D0%BF%D0%B5%D1%80%D0%B5%D0%B4%20%D0%BF%D0%BE%D0%BA%D1%83%D0%BF%D0%BA%D0%BE%D0%B9%3A%20%D0%B7%D0%B0%D0%BA%D0%BB%D0%B0%D0%B4%D0%BA%D0%B8%2C%20%D1%82%D0%B5%D0%BB%D0%B5%D0%BC%D0%B5%D1%82%D1%80%D0%B8%D1%8F%2C%20%D0%BA%D0%BB%D1%8E%D1%87%D0%B8%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83.">Telegram</a> со словом «ПРОВЕРКА». Я посмотрю объём и назову срок и цену до начала работы.</p>
+
+                    </div>
+                    
+                    
+
+                    
+                    
+                    
+                    
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Обсудим вашу задачу</div>
+  <h3 class="blog-services-offer-title">Технический аудит чужого проекта до покупки или приёмки</h3>
+  <p class="blog-services-offer-lead">Напишите одной фразой, что нужно. Отвечу, что подойдёт, сколько займёт и сколько стоит. Сообщение уже подготовлено.</p>
+  <ul class="blog-services-offer-list"><li><i class="ph-fill ph-magnifying-glass"></i> <span>Поиск скрытых доступов и отправки данных наружу</span></li><li><i class="ph-fill ph-lock-key"></i> <span>Проверка ключей, паролей и прав в коде и на сервере</span></li><li><i class="ph-fill ph-shield-check"></i> <span>Отчёт с находками по важности и доказательствами</span></li><li><i class="ph-fill ph-bug"></i> <span>Проверка на копии, без запуска боевой базы</span></li></ul>
+  <div class="blog-services-offer-ctas">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%90%D1%83%D0%B4%D0%B8%D1%82%20%D1%87%D1%83%D0%B6%D0%BE%D0%B3%D0%BE%20%D0%BA%D0%BE%D0%B4%D0%B0%20%D0%BF%D0%B5%D1%80%D0%B5%D0%B4%20%D0%BF%D0%BE%D0%BA%D1%83%D0%BF%D0%BA%D0%BE%D0%B9%3A%20%D0%B7%D0%B0%D0%BA%D0%BB%D0%B0%D0%B4%D0%BA%D0%B8%2C%20%D1%82%D0%B5%D0%BB%D0%B5%D0%BC%D0%B5%D1%82%D1%80%D0%B8%D1%8F%2C%20%D0%BA%D0%BB%D1%8E%D1%87%D0%B8%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener" class="blog-services-offer-cta">
+      <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
+    </a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="blog-services-offer-cta blog-services-offer-cta-max">
+      <i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> Написать в MAX
+    </a>
+    <a href="https://chimitdorzhi.tech/services/it-audit/" class="blog-services-offer-cta blog-services-offer-cta-max"><i class="ph ph-arrow-right" aria-hidden="true"></i> ИТ-аудит</a>
+  </div>
+</div>
+                    
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/audit-sayta-po-152-fz-dokazatelstva-keys-2026/" data-category="cases" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-shield-check"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Кейсы</span>
+  <h3>Аудит сайта по закону о персональных данных: с доказательствами</h3>
+  <p>Проверил не документы, а поведение сайта учреждения культуры. Метрика с Вебвизором и отраслевой счётчик ставили 12 cookie за 4 секунды до согласия и не реагировали на отказ. Ещё шесть нарушений, отчёт на 13 страниц с доказательствами.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 22 сентября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 6 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/self-storage-bronirovanie-boksov-keys-2026/" data-category="cases" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-warehouse"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Кейсы</span>
+  <h3>Бронирование боксов для склада хранения: система, лендинги и сервер</h3>
+  <p>Склад ответственного хранения в Красноярске, 93 бокса в двух ярусах. Я собрал демо бронирования и 6 октября 2026 перевёл его в рабочий режим на сервере заказчика. В конце октября добавились лендинг производства секций хранения и лендинг франшизы с заявками в панель, а на том же сервере я поднял из резервных копий старые сайты заказчика и разобрал, почему сервер падал.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 2 октября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 6 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/priemka-raboty-podryadchika-2026/" data-category="development" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-clipboard-text"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
+  <h3>Как принять работу у подрядчика: чек-лист приёмки сайта, бота и интеграции</h3>
+  <p>Принять работу — не значит открыть сайт и сказать «красиво». Даю чек-лист приёмки и признаки, что сдавать ещё рано.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 21 сентября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 5 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/trufflehog-poisk-zabytyh-klyuchey-v-kode-2026/" data-category="development" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-magnifying-glass"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
+  <h3>Забытые пароли в коде: ищем их сканером TruffleHog</h3>
+  <p>Старый коммит с ключом платёжки или базы остаётся в истории, даже если файл давно удалён. Разбираю, как TruffleHog находит такие секреты, как его запустить и что делать с найденным до передачи проекта клиенту, смены подрядчика или открытия репозитория.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 6 октября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/kak-ne-stat-zalozhnikom-podryadchika-dostupy-repozitoriy-dokumentaciya-2026/" data-category="biznes-krugozor" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-key"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Бизнес-кругозор</span>
+  <h3>Как не стать заложником подрядчика: доступы и документация</h3>
+  <p>Разбираю чек-лист «кому принадлежит»: домен, сервер, репозиторий, секреты, бот, копии и мониторинг. Даю девять шагов, контрольный тест «развернуть с нуля по README» и список на день ухода подрядчика. Пишу как подрядчик, который сам советует заказчику требовать этого.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 5 октября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    <section class="blog-subscribe">
+  <div class="blog-subscribe-body">
+    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
+    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
+  </div>
+  <div class="blog-subscribe-actions">
+    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
+  </div>
+</section>
+                    
+                    
+                    
+                    
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow"><span class="b-l b-l-ru">Готовые решения под ключ</span><span class="b-l b-l-en" lang="en">Turnkey solutions</span><span class="b-l b-l-es" lang="es">Soluciones llave en mano</span><span class="b-l b-l-cn" lang="zh">交钥匙解决方案</span><span class="b-l b-l-mn" lang="mn">Түлхүүр гардуулах шийдэл</span></span>
+                            <span class="blog-offer-cta-title"><span class="b-l b-l-ru">451 готовых IT-решений для бизнеса</span><span class="b-l b-l-en" lang="en">451 ready-made IT solutions for business</span><span class="b-l b-l-es" lang="es">451 soluciones IT listas para empresas</span><span class="b-l b-l-cn" lang="zh">451 个面向企业的现成 IT 解决方案</span><span class="b-l b-l-mn" lang="mn">Бизнест зориулсан 451 бэлэн IT шийдэл</span></span>
+                            <span class="blog-offer-cta-price"><span class="b-l b-l-ru">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span><span class="b-l b-l-en" lang="en">Automation, bots, AI, data privacy and platforms · free consultation</span><span class="b-l b-l-es" lang="es">Automatización, bots, IA, privacidad de datos y plataformas · consulta gratis</span><span class="b-l b-l-cn" lang="zh">自动化、机器人、AI、数据合规与平台 · 免费咨询</span><span class="b-l b-l-mn" lang="mn">Автоматжуулалт, бот, AI, өгөгдлийн хамгаалалт ба платформ · үнэгүй зөвлөгөө</span></span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> <span class="b-l b-l-ru">Смотреть каталог</span><span class="b-l b-l-en" lang="en">View catalog</span><span class="b-l b-l-es" lang="es">Ver catálogo</span><span class="b-l b-l-cn" lang="zh">查看目录</span><span class="b-l b-l-mn" lang="mn">Каталог үзэх</span></span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#zachem"><span class="blog-toc-num">01</span> Зачем проверять код, который уже работает</a></li>
+<li><a href="#chto-iskat"><span class="blog-toc-num">02</span> Что я ищу: шесть групп находок</a></li>
+<li><a href="#bezopasno"><span class="blog-toc-num">03</span> Как проверять безопасно</a></li>
+<li><a href="#kak-ya-delayu"><span class="blog-toc-num">04</span> Как я это делаю</a></li>
+<li><a href="#otchet"><span class="blog-toc-num">05</span> Как оформить отчёт: находки по важности</a></li>
+<li><a href="#otkaz"><span class="blog-toc-num">06</span> Когда сразу отказываться</a></li>
+<li><a href="#ceny"><span class="blog-toc-num">07</span> Сколько это стоит</a></li>
+<li><a href="#faq"><span class="blog-toc-num">08</span> Частые вопросы</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">09</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+971563369591" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +971 56 336 9591</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">RA Standard - F.Z.E</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_licence">Лицензия 57033</span><span> · </span><span data-i18n="footer.legal_authority">Free Zones Authority of Ajman</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">Эмират Аджман, ОАЭ</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/cases/" class="footer-policy-link">Кейсы</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=44" defer></script>
+<script src="/services-i18n.js?v=44" defer></script>
+<script src="/script.js?v=41" defer></script>
+<script src="/search-widget.js?v=1" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>
