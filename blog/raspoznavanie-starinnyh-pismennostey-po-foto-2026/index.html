@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Распознавание старинных письменностей по фото: что работает</title>
+    <meta name="description" content="Почему обычный OCR не читает вязь и рукописи, что работает: ИИ с изображением, транскрипция, перевод, проверка носителем и честные пределы точности.">
+    <meta name="keywords" content="распознавание старинных рукописей по фото, старомонгольская письменность распознавание, OCR редких языков, распознавание рукописного текста нейросеть, перевод старописьменного текста, оцифровка архивов">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/raspoznavanie-starinnyh-pismennostey-po-foto-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/raspoznavanie-starinnyh-pismennostey-po-foto-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/raspoznavanie-starinnyh-pismennostey-po-foto-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/raspoznavanie-starinnyh-pismennostey-po-foto-2026/">
+    <meta property="og:title" content="Распознавание старинных письменностей по фото: что работает">
+    <meta property="og:description" content="Почему обычный OCR не читает вязь и рукописи, что работает: ИИ с изображением, транскрипция, перевод, проверка носителем и честные пределы точности.">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/raspoznavanie-starinnyh-pismennostey-po-foto-2026/cover.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Распознавание старинных письменностей по фото: что работает">
+    <meta name="twitter:description" content="Почему обычный OCR не читает вязь и рукописи, что работает: ИИ с изображением, транскрипция, перевод, проверка носителем и честные пределы точности.">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/raspoznavanie-starinnyh-pismennostey-po-foto-2026/cover.png">
+
+    <link rel="icon" href="/favicon.svg?v=5" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=5">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png?v=5">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=5">
+    <link rel="preload" href="/assets/fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=79">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Распознавание старинных и редких письменностей по фото",
+  "description": "Почему обычный OCR не читает вязь и рукописи, что работает: ИИ с изображением, транскрипция, перевод, проверка носителем и честные пределы точности.",
+  "image": "https://chimitdorzhi.tech/blog/raspoznavanie-starinnyh-pismennostey-po-foto-2026/cover.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://t.me/chimitdorzhi_studio",
+      "https://max.ru/channel_chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio",
+      "https://github.com/chimitdorzhi",
+      "https://chimitdorzhi.tech/about/"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/raspoznavanie-starinnyh-pismennostey-po-foto-2026/"
+  },
+  "datePublished": "2026-10-31",
+  "dateModified": "2026-10-31",
+  "keywords": "OCR, рукописи, старомонгольская письменность, архивы, нейросети, перевод",
+  "articleSection": "AI для разработчиков",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Распознавание старинных и редких письменностей по фото",
+      "item": "https://chimitdorzhi.tech/blog/raspoznavanie-starinnyh-pismennostey-po-foto-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Можно ли распознать любую старинную рукопись?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Гарантии нет. Для одних письменностей есть открытые модели, для других нет. Поэтому я начинаю с пробного прогона на трёх-пяти фото и только потом называю срок и цену."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли публиковать результат без проверки?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет. Машинный перевод старого текста остаётся черновиком, пока его не прочитал носитель языка. В моём проекте надёжным по смыслу признан только верхний ярус, нижний требовал сверки."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужно ли отправлять оригиналы в облачный сервис?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Необязательно. Открытые модели можно запускать на своём сервере или компьютере, и фото остаются у вас. Если заказчик разрешает облако, это отдельное решение."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Какие фото нужны для хорошего результата?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ровные, резкие, при равномерном свете и в достаточном разрешении. Несколько кадров одной страницы лучше одного. Полный список выше."
+      }
+    }
+  ]
+}
+    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+var inject=function(){for (var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)};
+var go=function(){('requestIdleCallback' in window)?requestIdleCallback(inject,{timeout:5000}):setTimeout(inject,3000)};var run=function(){var c=null;try{c=JSON.parse(localStorage.getItem('cookieConsent'))}catch(_){}if(c&&c.analytics){go()}else{m.addEventListener('cookieConsent',function(ev){if(ev.detail&&ev.detail.analytics)go()})}};
+(e.readyState==='complete')?run():m.addEventListener('load',run);})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<!-- /Yandex.Metrika counter -->
+<!-- Цели Метрики: клики по контактам и услугам -->
+<script type="text/javascript">
+(function(){
+  var GOALS = [
+    { re: /t\.me\//i,                     goal: 'tg_click' },
+    { re: /max\.ru\//i,                    goal: 'max_click' },
+    { re: /audit\.chimitdorzhi\.tech/i,    goal: 'audit_click' },
+    { re: /chimitdorzhi\.tech\/services\//i, goal: 'service_click' },
+    { re: /chimitdorzhi\.tech\/predlozheniya\//i, goal: 'offer_click' }
+  ];
+  document.addEventListener('click', function(e){
+    var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    for (var i = 0; i < GOALS.length; i++) {
+      if (GOALS[i].re.test(href)) {
+        try { if (window.ym) ym(109281884, 'reachGoal', GOALS[i].goal); } catch (err) {}
+        break;
+      }
+    }
+  }, true);
+})();
+</script>
+</head>
+<body class="wx-read">
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/" data-i18n="nav.home">Главная</a></li>
+            <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+            <li class="nav-dropdown">
+                <a href="/cases/" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+                <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему" aria-pressed="false">
+                <i class="ph ph-moon" aria-hidden="true"></i>
+            </button>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/" data-i18n="nav.home">Главная</a></li>
+        <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+        <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+        <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+        <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+        <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+        <li class="mobile-has-submenu">
+            <details>
+                <summary aria-label="Проекты — развернуть"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down" aria-hidden="true"></i></summary>
+                <ul class="mobile-submenu">
+                    <li>
+                        <a href="https://gerel.space" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">Gerel.space</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/universe_buryat/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/arey/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.arey">AREY</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/mwrlife/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">MWR Life</span>
+                                <span class="mobile-sub-desc">Travel-клуб и партнёрка</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </details>
+        </li>
+        <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+    </ul>
+    <div class="mobile-controls">
+        <div class="mobile-lang-switcher" role="group" aria-label="Выбор языка">
+            <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+            <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+            <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+        </div>
+        <button class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle" aria-label="Переключить тему" aria-pressed="false">
+            <i class="ph ph-moon" aria-hidden="true"></i>
+        </button>
+    </div>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Распознавание старинных и редких письменностей по фото</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/ai-dev/"><i class="ph ph-bookmark" aria-hidden="true"></i> AI для разработчиков</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 7 мин чтения</span>
+                        <time datetime="2026-10-31"><i class="ph ph-calendar" aria-hidden="true"></i> 31 октября 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Распознавание старинных и редких письменностей по фото</h1>
+
+                    <p class="blog-lead">Почему обычный OCR не читает вертикальную вязь, рукописи и редкие алфавиты, какая цепочка работает: модель под письмо, транскрипция, перевод, сверка и проверка носителем языка. Честные пределы точности и список того, что просить у заказчика.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>OCR</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>рукописи</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>старомонгольская письменность</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>архивы</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>нейросети</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>перевод</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
+<li>Обычный <a href="https://chimitdorzhi.tech/services/business-automation/" class="blog-inline-link">OCR</a> рассчитан на печатные буквы в строке слева направо. Вертикальная вязь, рукопись и редкий алфавит выходят за эти рамки, поэтому результат получается пустым или случайным.</li>
+<li>Рабочая цепочка: хорошее фото, распознавание моделью под конкретное письмо, транскрипция, перевод, сверка с эталоном и с носителем языка.</li>
+<li>Точность на таких текстах всегда неполная. Я делю результат на надёжное и черновое и показываю сомнительные места списком.</li>
+<li>От заказчика нужны качественные фото, образцы почерка или шрифта, опубликованные версии текста и человек, который прочтёт оригинал.</li>
+</ul></div>
+<div class="blog-cta-internal">
+  <i class="ph-fill ph-rocket-launch" aria-hidden="true"></i>
+  <div>
+    <strong>Хотите внедрить это у себя?</strong>
+    <p>Сделаю под ключ: разберу задачу, назову срок и цену. Чтобы начать, <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%A0%D0%B0%D1%81%D0%BF%D0%BE%D0%B7%D0%BD%D0%B0%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20%D1%81%D1%82%D0%B0%D1%80%D0%B8%D0%BD%D0%BD%D1%8B%D1%85%20%D0%B8%20%D1%80%D0%B5%D0%B4%D0%BA%D0%B8%D1%85%20%D0%BF%D0%B8%D1%81%D1%8C%D0%BC%D0%B5%D0%BD%D0%BD%D0%BE%D1%81%D1%82%D0%B5%D0%B9%20%D0%BF%D0%BE%20%D1%84%D0%BE%D1%82%D0%BE%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener">напишите в Telegram</a> одной фразой.</p>
+    <a href="https://chimitdorzhi.tech/services/ai-agents/">ИИ-агенты и обработка документов <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</div>
+
+<p>Распознать старинную или редкую письменность по фото можно, но получится только черновик, который обязательно проверяет человек, читающий это письмо. Обычный сервис распознавания текста для такой работы не годится: нужна модель, обученная на конкретном письме, и честная пометка, какие места читаются уверенно, а какие нет.</p>
+
+<h2 id="pochemu-ocr">Почему обычный OCR не справляется</h2>
+<p>Классический OCR делает три допущения. Строки идут горизонтально, буквы стоят отдельно друг от друга, и алфавит известен программе заранее. Старые и редкие письменности ломают каждое из трёх.</p>
+<p>Возьмём старописьменную монгольскую вязь. По описанию консорциума W3C, текст в ней идёт сверху вниз вертикальными строками, а сами строки сменяют друг друга слева направо (<a href="https://www.w3.org/TR/mlreq/" rel="noopener nofollow" target="_blank">W3C, Mongolian Language Enablement</a>). Письмо курсивное, буквы соединяются с соседями с обеих сторон, поэтому форма знака зависит от его места в слове. Одну и ту же букву на фото легко принять за несколько разных.</p>
+<p>С рукописями другая беда. Почерк у каждого писца свой, чернила выцветают, бумага темнеет и просвечивает. С архивами та же история: штампы поверх текста, сгибы, пятна, чужие пометки на полях.</p>
+<p>Я уже разбирал, как <a href="/blog/ocr-raspoznat-tekst-s-foto-2026/">распознают обычный текст с фото</a>. Здесь речь о случаях, где этот путь не работает вовсе.</p>
+
+<h2 id="chto-rabotaet">Что работает на практике</h2>
+<p>Универсального решения нет. Работает цепочка из нескольких шагов, и каждый шаг можно проверить отдельно.</p>
+<p>Первый шаг: модель, обученная именно на этом письме. Для старомонгольской вязи есть открытый проект image2bichig, он указан в наборе tugstugi/mongolian-nlp. В описании сказано, что это традиционный монгольский OCR на основе CRNN, то есть свёрточной сети с рекуррентным слоем (<a href="https://github.com/tugstugi/mongolian-nlp" rel="noopener nofollow" target="_blank">репозиторий tugstugi/mongolian-nlp</a>). Там же упомянут синтетический набор из 80 тысяч картинок, собранный из текстов песен и словаря. Из этого я делаю осторожный вывод: модели такого рода учатся на искусственно сгенерированных строках, поэтому на чужом почерке или повреждённой бумаге результат может быть заметно хуже. Это мой вывод, авторы проекта такого не заявляли.</p>
+<p>Второй шаг: современные модели, которые видят изображение целиком. Многие из них читают и таблицы, и рукописный текст. Про один такой инструмент я писал в статье <a href="/blog/chandra-ai-ocr-dokumenty-2026/">про Chandra</a>. Для редкого письма заявления разработчиков надо проверять на своих образцах: поддерживает ли модель вашу письменность, показывает только пробный прогон.</p>
+<p>Третий шаг: транскрипция. Это запись исходного текста привычными буквами, знак за знаком. Она нужна специалисту, чтобы сверять распознавание, не разбирая оригинал глазами.</p>
+<p>Четвёртый шаг: перевод. Он идёт последним и стоит ровно столько, сколько стоят предыдущие слои. Если транскрипция с ошибками, красивый перевод ничего не исправит.</p>
+
+<h2 id="keys">Как это выглядело в моём проекте</h2>
+<p>Так я работал над <a href="/blog/raspoznavanie-staromongolskogo-teksta-keys-2026/">переводом старомонгольского текста по фото</a>. Нужно было прочитать надпись на старописьменной вязи и перевести её. Мини-программы WeChat и китайские сервисы распознавания оказались недоступны, поэтому я взял открытую модель image2bichig.</p>
+<p>Сырой результат модели я сверил с опубликованной версией той же легенды и разложил на три слоя: транслитерация, современный монгольский на кириллице и русский перевод. К ним добавил список мест, которые требуют сверки. Всё вышло в PDF на 5 страниц.</p>
+<p>Итог: верхний ярус текста надёжен по смыслу, нижний ярус начиная с 16-й колонки остаётся черновиком. Это написано в отчёте прямо. Для публикации такой текст нужно показать носителю языка.</p>
+
+<h2 id="proverka">Как проверять результат</h2>
+<p>Проверка состоит из двух частей, и пропускать нельзя ни одну.</p>
+<p>Первая часть: сверка с эталоном. Если у текста есть опубликованная версия, издание, словарь или близкий по смыслу текст, я сопоставляю с ним распознанное. Совпадения подтверждают чтение. Расхождения отмечаю отдельно: это либо ошибка модели, либо отличие именно этого экземпляра от известного. Какой из двух случаев перед нами, решает специалист, мне это не под силу.</p>
+<p>Вторая часть: носитель языка. Человек, который читает это письмо, смотрит на отчёт с оригиналом в руках. Ему не нужно начинать с нуля. Он получает транскрипцию, современную запись, перевод и список мест, куда глядеть в первую очередь. Время такого специалиста обычно самая дорогая часть работы, и список сомнительных мест помогает его экономить.</p>
+<p>Если вам важно сохранить язык для следующих поколений, мои мысли об этом есть в статье <a href="/blog/ii-dlya-sohraneniya-buryatskogo-yazyka-2027/">про ИИ и бурятский язык</a>.</p>
+
+<h2 id="predely">Честные пределы точности</h2>
+<p>Я не называю проценты точности для редких письменностей, потому что у меня нет измерений на вашем материале, а чужие цифры с других текстов к нему не относятся. Любая цифра без пробного прогона на ваших фото будет догадкой.</p>
+<p>Что можно сказать честно. Качество неоднородно даже внутри одного документа: в моём проекте верхний ярус читался надёжно, а нижний нет. Нейросеть выдаёт гладкий текст одинаково уверенно, и когда поняла, и когда угадывала, поэтому <a href="/blog/ii-galyucinacii-nelzya-slepo-doveryat-2026/">слепо доверять результату нельзя</a>. Модель может подставить правдоподобное слово вместо неразборчивого.</p>
+<p>Поэтому в отчёте я никогда не заполняю сомнительное место красивой фразой. Лучше пустое место с пометкой, чем связный перевод, в котором не видно догадок. Для текста, который напечатают, повесят на стену или процитируют, такая пометка важнее гладкости.</p>
+
+<h2 id="chto-prosit">Что просить у заказчика</h2>
+<p>От качества исходников зависит больше, чем от выбора модели. Вот мой список:</p>
+<ul>
+<li>Фото сверху, камера параллельно странице, без перспективы и бликов. Лучше несколько кадров одной страницы при разном свете.</li>
+<li>Разрешение, при котором отдельный знак хорошо виден. Если буква на фото занимает несколько пикселей, никакая модель её не прочтёт.</li>
+<li>Линейка или цветовая шкала в кадре, чтобы был виден масштаб и цвет.</li>
+<li>Образцы: другие страницы того же почерка или документа, особенно с уже известным текстом.</li>
+<li>Опубликованные версии, словари, справочники, всё, с чем можно сверить результат.</li>
+<li>Контакт человека, который прочтёт оригинал и подтвердит итог. Без него я не обещаю публикуемый перевод.</li>
+<li>Сведения о происхождении: век, регион, жанр. Они сужают круг возможных слов.</li>
+</ul>
+
+<h2 id="kak-ya-delayu">Как я это делаю</h2>
+<p>Сначала прошу три-пять фото на пробу и ничего не обещаю заранее. Смотрю, читается ли письмо открытой моделью, и показываю результат вместе с неудачными местами. После этого заказчик решает, продолжать ли.</p>
+<p>Если проба показывает, что распознавание возможно, я собираю цепочку: подготовка изображений, распознавание, сверка, транскрипция, перевод и отчёт со списком сомнительных мест. Работаю на открытых моделях, поэтому исходники можно не отправлять в чужие сервисы и держать у себя. Если у вас стопка документов, делаю <a href="/services/ai-agents/">ИИ-обработку пачкой с отчётом</a>, где видно, на какой странице распознавание сомнительно. Для сканов и архивов на обычных языках у меня есть отдельная статья про <a href="/blog/pdf2md-skany-i-arhivy-dokumentov-v-tekst-s-otchetom-gde-ocr-oshibsya-2026/">PDF2MD и отчёт об ошибках OCR</a>.</p>
+<p>Финальную вычитку делает носитель языка, которого находит заказчик: музей, архив, библиотека или знакомый специалист. Я могу подготовить ему удобный формат для проверки.</p>
+
+<h2 id="ceny">Сколько это стоит</h2>
+<p>Распознавание документов с извлечением данных стоит от 100 000 ₽, срок от 2 недель. Для редкой письменности цену называю после пробного прогона на ваших фото, потому что объём ручной сверки заранее неизвестен. Если нужна автоматизация потока документов вокруг распознавания, она стоит от 60 000 ₽, срок от 2 недель. Разовые доработки и эксперименты идут по часам, от 3 000 ₽/час. Для зарубежных заказчиков цена в дирхамах считается по курсу на день оплаты.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+<h3>Можно ли распознать любую старинную рукопись?</h3>
+<p>Гарантии нет. Для одних письменностей есть открытые модели, для других нет. Поэтому я начинаю с пробного прогона на трёх-пяти фото и только потом называю срок и цену.</p>
+<h3>Можно ли публиковать результат без проверки?</h3>
+<p>Нет. Машинный перевод старого текста остаётся черновиком, пока его не прочитал носитель языка. В моём проекте надёжным по смыслу признан только верхний ярус, нижний требовал сверки.</p>
+<h3>Нужно ли отправлять оригиналы в облачный сервис?</h3>
+<p>Необязательно. Открытые модели можно запускать на своём сервере или компьютере, и фото остаются у вас. Если заказчик разрешает облако, это отдельное решение.</p>
+<h3>Какие фото нужны для хорошего результата?</h3>
+<p>Ровные, резкие, при равномерном свете и в достаточном разрешении. Несколько кадров одной страницы лучше одного. Полный список выше.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+<p>Обычный OCR не читает вертикальную вязь, рукописи и редкие алфавиты, потому что рассчитан на другие допущения. Работает цепочка: хорошее фото, модель под конкретное письмо, транскрипция, перевод, сверка с эталоном и проверка носителем языка.</p>
+<p>Точность для таких текстов всегда неполная, и самая ценная часть отчёта это честная граница между надёжным и черновым. Заказчик помогает больше всего качественными фото, образцами и человеком, который прочтёт оригинал.</p>
+<p>Если у вас есть рукопись, надпись или архив на редком письме, напишите мне в Telegram с кодовым словом «РУКОПИСЬ», и я посмотрю на пробные фото.</p>
+
+                    </div>
+                    
+                    
+
+                    
+                    
+                    
+                    
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Обсудим вашу задачу</div>
+  <h3 class="blog-services-offer-title">Распознавание редких письменностей по фото с проверкой</h3>
+  <p class="blog-services-offer-lead">Напишите одной фразой, что нужно. Отвечу, что подойдёт, сколько займёт и сколько стоит. Сообщение уже подготовлено.</p>
+  <ul class="blog-services-offer-list"><li><i class="ph-fill ph-camera"></i> <span>Пробный прогон на ваших фото до договора</span></li><li><i class="ph-fill ph-translate"></i> <span>Транскрипция, современная запись и перевод</span></li><li><i class="ph-fill ph-list-checks"></i> <span>Список сомнительных мест для сверки носителем языка</span></li><li><i class="ph-fill ph-file-pdf"></i> <span>Отчёт в PDF с границей надёжного и чернового</span></li></ul>
+  <div class="blog-services-offer-ctas">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%A0%D0%B0%D1%81%D0%BF%D0%BE%D0%B7%D0%BD%D0%B0%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20%D1%81%D1%82%D0%B0%D1%80%D0%B8%D0%BD%D0%BD%D1%8B%D1%85%20%D0%B8%20%D1%80%D0%B5%D0%B4%D0%BA%D0%B8%D1%85%20%D0%BF%D0%B8%D1%81%D1%8C%D0%BC%D0%B5%D0%BD%D0%BD%D0%BE%D1%81%D1%82%D0%B5%D0%B9%20%D0%BF%D0%BE%20%D1%84%D0%BE%D1%82%D0%BE%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener" class="blog-services-offer-cta">
+      <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
+    </a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="blog-services-offer-cta blog-services-offer-cta-max">
+      <i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> Написать в MAX
+    </a>
+    <a href="https://chimitdorzhi.tech/services/ai-agents/" class="blog-services-offer-cta blog-services-offer-cta-max"><i class="ph ph-arrow-right" aria-hidden="true"></i> ИИ-агенты и обработка документов</a>
+  </div>
+</div>
+                    
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/raspoznavanie-staromongolskogo-teksta-keys-2026/" data-category="cases" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-translate"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Кейсы</span>
+  <h3>Распознавание и перевод старомонгольского текста по фото</h3>
+  <p>Китайские сервисы оказались недоступны, поэтому текст на старописьменной монгольской вязи распознал открытой моделью image2bichig и сверил с опубликованной версией легенды. Три слоя результата, отчёт на 5 страниц и чёткая граница между надёжным и черновым.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 22 сентября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 6 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/chandra-ai-ocr-dokumenty-2026/" data-category="opensource" data-clicks="4">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-scan"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>Chandra: AI-OCR для извлечения данных из документов на своём сервере</h3>
+  <p>Chandra извлекает из сканов и PDF структурированные данные — таблицы, формы, рукописный текст — для автоматической обработки. Дополняет архив Paperless-ngx. Разбираю применение и запуск.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 15 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/ii-dlya-sohraneniya-buryatskogo-yazyka-2027/" data-category="expert" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-translate"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Экспертный блог</span>
+  <h3>ИИ для сохранения бурятского языка: как технологии помогают родной речи</h3>
+  <p>Языки исчезают, но технологии впервые дают шанс их сохранить. Разбираю, как ИИ — перевод, распознавание речи, цифровые словари — может помочь бурятскому языку, и что реально сделать уже сейчас.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 30 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 7 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/pdf2md-skany-i-arhivy-dokumentov-v-tekst-s-otchetom-gde-ocr-oshibsya-2026/" data-category="opensource" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-file-magnifying-glass"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>PDF2MD: сканы и архивы в текст и отчёт, где OCR мог ошибиться</h3>
+  <p>PDF2MD превращает папки, архивы и сканы в Markdown и пишет отчёт: какие страницы пропали, где вместо текста мусор. Разбираю по исходникам, куда уходят файлы, как считается качество и как проверить программу пилотом на 100 страницах.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 24 октября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    <section class="blog-subscribe">
+  <div class="blog-subscribe-body">
+    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
+    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
+  </div>
+  <div class="blog-subscribe-actions">
+    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
+  </div>
+</section>
+                    
+                    
+                    
+                    
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow"><span class="b-l b-l-ru">Готовые решения под ключ</span><span class="b-l b-l-en" lang="en">Turnkey solutions</span><span class="b-l b-l-es" lang="es">Soluciones llave en mano</span><span class="b-l b-l-cn" lang="zh">交钥匙解决方案</span><span class="b-l b-l-mn" lang="mn">Түлхүүр гардуулах шийдэл</span></span>
+                            <span class="blog-offer-cta-title"><span class="b-l b-l-ru">451 готовых IT-решений для бизнеса</span><span class="b-l b-l-en" lang="en">451 ready-made IT solutions for business</span><span class="b-l b-l-es" lang="es">451 soluciones IT listas para empresas</span><span class="b-l b-l-cn" lang="zh">451 个面向企业的现成 IT 解决方案</span><span class="b-l b-l-mn" lang="mn">Бизнест зориулсан 451 бэлэн IT шийдэл</span></span>
+                            <span class="blog-offer-cta-price"><span class="b-l b-l-ru">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span><span class="b-l b-l-en" lang="en">Automation, bots, AI, data privacy and platforms · free consultation</span><span class="b-l b-l-es" lang="es">Automatización, bots, IA, privacidad de datos y plataformas · consulta gratis</span><span class="b-l b-l-cn" lang="zh">自动化、机器人、AI、数据合规与平台 · 免费咨询</span><span class="b-l b-l-mn" lang="mn">Автоматжуулалт, бот, AI, өгөгдлийн хамгаалалт ба платформ · үнэгүй зөвлөгөө</span></span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> <span class="b-l b-l-ru">Смотреть каталог</span><span class="b-l b-l-en" lang="en">View catalog</span><span class="b-l b-l-es" lang="es">Ver catálogo</span><span class="b-l b-l-cn" lang="zh">查看目录</span><span class="b-l b-l-mn" lang="mn">Каталог үзэх</span></span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#pochemu-ocr"><span class="blog-toc-num">01</span> Почему обычный OCR не справляется</a></li>
+<li><a href="#chto-rabotaet"><span class="blog-toc-num">02</span> Что работает на практике</a></li>
+<li><a href="#keys"><span class="blog-toc-num">03</span> Как это выглядело в моём проекте</a></li>
+<li><a href="#proverka"><span class="blog-toc-num">04</span> Как проверять результат</a></li>
+<li><a href="#predely"><span class="blog-toc-num">05</span> Честные пределы точности</a></li>
+<li><a href="#chto-prosit"><span class="blog-toc-num">06</span> Что просить у заказчика</a></li>
+<li><a href="#kak-ya-delayu"><span class="blog-toc-num">07</span> Как я это делаю</a></li>
+<li><a href="#ceny"><span class="blog-toc-num">08</span> Сколько это стоит</a></li>
+<li><a href="#faq"><span class="blog-toc-num">09</span> Частые вопросы</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">10</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+971563369591" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +971 56 336 9591</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">RA Standard - F.Z.E</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_licence">Лицензия 57033</span><span> · </span><span data-i18n="footer.legal_authority">Free Zones Authority of Ajman</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">Эмират Аджман, ОАЭ</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/cases/" class="footer-policy-link">Кейсы</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=44" defer></script>
+<script src="/services-i18n.js?v=44" defer></script>
+<script src="/script.js?v=41" defer></script>
+<script src="/search-widget.js?v=1" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>
