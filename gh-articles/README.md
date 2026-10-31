@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2738**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2746**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -37,6 +37,8 @@
 
 ## AI для разработчиков
 
+- [Как проверить прогнозную модель на истории и не обмануть себя](./proverka-prognoznoy-modeli-na-istorii-bektest-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/proverka-prognoznoy-modeli-na-istorii-bektest-2026/)
+- [Распознавание старинных и редких письменностей по фото](./raspoznavanie-starinnyh-pismennostey-po-foto-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/raspoznavanie-starinnyh-pismennostey-po-foto-2026/)
 - [Бот отправляет данные клиентов в нейросеть: как их обезличить](./obezlichivanie-dannyh-pered-otpravkoy-v-neyroset-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/obezlichivanie-dannyh-pered-otpravkoy-v-neyroset-2026/)
 - [Сколько стоит одна генерация ИИ в продукте и какую цену ставить](./sebestoimost-generacii-ii-v-produkte-i-cena-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sebestoimost-generacii-ii-v-produkte-i-cena-2026/)
 - [ИИ-демо для выставки или форума, которое не упадёт на стенде](./ii-demo-dlya-vystavki-stend-bez-sboev-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-demo-dlya-vystavki-stend-bez-sboev-2026/)
@@ -1332,6 +1334,7 @@
 
 ## Отрасли
 
+- [ИИ-протокол приёма врача в закрытом контуре клиники](./ii-protokol-priema-vracha-zakrytyy-kontur-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-protokol-priema-vracha-zakrytyy-kontur-2026/)
 - [Сайт аренды авто в Дубае: лицензия RTA, депозит, Salik и цены](./sayt-arendy-avto-v-dubae-rta-depozit-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-arendy-avto-v-dubae-rta-depozit-2026/)
 - [Как своя система такси раздаёт заказы: очередь, зоны, час пик](./raspredelenie-zakazov-taksi-ochered-stoyanok-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/raspredelenie-zakazov-taksi-ochered-stoyanok-2026/)
 - [Клиент согласовал не ту смету: версии и подтверждение в боте](./versii-smety-i-soglasovanie-klientom-v-bote-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/versii-smety-i-soglasovanie-klientom-v-bote-2026/)
@@ -2036,6 +2039,11 @@
 - [Тестовая база без живых клиентов: Mimesis вместо выгрузки](./mimesis-vydumannye-dannye-dlya-testovogo-stenda-vmesto-zhivoj-bazy-klientov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/mimesis-vydumannye-dannye-dlya-testovogo-stenda-vmesto-zhivoj-bazy-klientov-2026/)
 - [Свой генератор картинок для карточек: лицензии и риски webui](./stable-diffusion-webui-svoya-generaciya-kartinok-dlya-kartochek-tovarov-licenzii-i-riski-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/stable-diffusion-webui-svoya-generaciya-kartinok-dlya-kartochek-tovarov-licenzii-i-riski-2026/)
 - [Свой канбан вместо Trello и Jira: Wekan, перенос досок, права](./wekan-svoy-kanban-vmesto-trello-i-jira-ustanovka-import-dosok-i-prava-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/wekan-svoy-kanban-vmesto-trello-i-jira-ustanovka-import-dosok-i-prava-2026/)
+- [SSL-сертификат на Windows Server, когда порт 80 занят: win-acme](./ssl-sertifikat-windows-server-port-80-zanyat-win-acme-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ssl-sertifikat-windows-server-port-80-zanyat-win-acme-2026/)
+- [Перенос заявок из старой системы в новую: что и как не потерять](./perenos-zayavok-iz-staroy-sistemy-v-novuyu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/perenos-zayavok-iz-staroy-sistemy-v-novuyu-2026/)
+- [Деньги в программе: почему суммы хранят в копейках](./dengi-v-programme-hranit-v-kopeykah-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/dengi-v-programme-hranit-v-kopeykah-2026/)
+- [Даты в расчётах: 29 февраля и ловушки Excel](./daty-v-raschetah-29-fevralya-i-lovushki-excel-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/daty-v-raschetah-29-fevralya-i-lovushki-excel-2026/)
+- [Напоминания клиентам и сотрудникам: часовые пояса и тихие часы](./napominaniya-chasovye-poyasa-i-tihie-chasy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/napominaniya-chasovye-poyasa-i-tihie-chasy-2026/)
 - [Атака на Wi-Fi в кафе или офисе: как её заметить без админа](./get-the-hacker-obnaruzhenie-atak-na-wi-fi-kafe-oteli-i-ofisa-passivnyj-datchik-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/get-the-hacker-obnaruzhenie-atak-na-wi-fi-kafe-oteli-i-ofisa-passivnyj-datchik-2026/)
 - [Бэкап базы бота в Telegram: когда это опасно](./telegram-db-backup-rezervnye-kopii-bazy-bota-v-telegram-kogda-eto-opasno-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/telegram-db-backup-rezervnye-kopii-bazy-bota-v-telegram-kogda-eto-opasno-2026/)
 - [Ever Gauzy: время, проекты, CRM и счета студии на своём сервере](./ever-gauzy-platforma-dlya-agentstva-vremya-proekty-crm-i-scheta-chto-v-otkrytoj-chasti-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ever-gauzy-platforma-dlya-agentstva-vremya-proekty-crm-i-scheta-chto-v-otkrytoj-chasti-2026/)
