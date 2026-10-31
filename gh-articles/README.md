@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2728**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2733**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -2029,6 +2029,11 @@
 
 ## Разработка
 
+- [one-api: свой шлюз к ИИ-моделям, ключи, лимиты и журнал расходов](./one-api-svoy-shlyuz-k-ii-modelyam-klyuchi-limity-i-zhurnal-rashodov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/one-api-svoy-shlyuz-k-ii-modelyam-klyuchi-limity-i-zhurnal-rashodov-2026/)
+- [Mercury: ИИ-агент в Telegram с правилами и лимитом расходов](./mercury-lichnyj-ii-agent-s-razresheniyami-i-dnevnym-byudzhetom-tokenov-v-telegram-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/mercury-lichnyj-ii-agent-s-razresheniyami-i-dnevnym-byudzhetom-tokenov-v-telegram-2026/)
+- [Тестовая база без живых клиентов: Mimesis вместо выгрузки](./mimesis-vydumannye-dannye-dlya-testovogo-stenda-vmesto-zhivoj-bazy-klientov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/mimesis-vydumannye-dannye-dlya-testovogo-stenda-vmesto-zhivoj-bazy-klientov-2026/)
+- [Свой генератор картинок для карточек: лицензии и риски webui](./stable-diffusion-webui-svoya-generaciya-kartinok-dlya-kartochek-tovarov-licenzii-i-riski-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/stable-diffusion-webui-svoya-generaciya-kartinok-dlya-kartochek-tovarov-licenzii-i-riski-2026/)
+- [Свой канбан вместо Trello и Jira: Wekan, перенос досок, права](./wekan-svoy-kanban-vmesto-trello-i-jira-ustanovka-import-dosok-i-prava-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/wekan-svoy-kanban-vmesto-trello-i-jira-ustanovka-import-dosok-i-prava-2026/)
 - [Атака на Wi-Fi в кафе или офисе: как её заметить без админа](./get-the-hacker-obnaruzhenie-atak-na-wi-fi-kafe-oteli-i-ofisa-passivnyj-datchik-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/get-the-hacker-obnaruzhenie-atak-na-wi-fi-kafe-oteli-i-ofisa-passivnyj-datchik-2026/)
 - [Бэкап базы бота в Telegram: когда это опасно](./telegram-db-backup-rezervnye-kopii-bazy-bota-v-telegram-kogda-eto-opasno-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/telegram-db-backup-rezervnye-kopii-bazy-bota-v-telegram-kogda-eto-opasno-2026/)
 - [Ever Gauzy: время, проекты, CRM и счета студии на своём сервере](./ever-gauzy-platforma-dlya-agentstva-vremya-proekty-crm-i-scheta-chto-v-otkrytoj-chasti-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ever-gauzy-platforma-dlya-agentstva-vremya-proekty-crm-i-scheta-chto-v-otkrytoj-chasti-2026/)
