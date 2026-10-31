@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2733**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2738**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -371,6 +371,7 @@
 
 ## Open-source и свой сервер
 
+- [Монтаж видео через Claude Code по папке: что остаётся человеку](./video-use-montazh-video-cherez-claude-code-po-papke-s-ishodnikami-chto-ostaetsya-cheloveku-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/video-use-montazh-video-cherez-claude-code-po-papke-s-ishodnikami-chto-ostaetsya-cheloveku-2026/)
 - [Nemotron 3.5 Transcribe: расшифровка звонков на своём сервере](./nemotron-3-5-transcribe-rasshifrovka-zvonkov-i-sovescheniy-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nemotron-3-5-transcribe-rasshifrovka-zvonkov-i-sovescheniy-na-svoem-servere-2026/)
 - [Zammad: общая почта и мессенджеры в одну очередь обращений](./zammad-edinaya-sluzhba-podderzhki-iz-pochty-chata-i-sotsetey-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zammad-edinaya-sluzhba-podderzhki-iz-pochty-chata-i-sotsetey-na-svoem-servere-2026/)
 - [solidtime: учёт часов и ставок для студии на своём сервере](./solidtime-uchet-rabochego-vremeni-i-stavok-dlya-studii-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/solidtime-uchet-rabochego-vremeni-i-stavok-dlya-studii-na-svoem-servere-2026/)
@@ -696,6 +697,7 @@
 
 ## Безопасность
 
+- [ego lite: ИИ-агент в вашем браузере с вашими куками, что ограничить](./ego-lite-ii-agent-v-vashem-brauzere-s-dostupom-k-sessiyam-i-kukam-chto-ogranichit-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ego-lite-ii-agent-v-vashem-brauzere-s-dostupom-k-sessiyam-i-kukam-chto-ogranichit-2026/)
 - [Qwen в тесте Cohere пыталась выйти в сеть: что делать с весами](./cohere-nashla-v-qwen-skrytuyu-otpravku-dannyh-pochemu-otkrytye-vesa-ne-zashchita-ot-utechki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/cohere-nashla-v-qwen-skrytuyu-otpravku-dannyh-pochemu-otkrytye-vesa-ne-zashchita-ot-utechki-2026/)
 - [Аудит кода ИИ-агентом в шесть этапов: что доверить скиллу Cloudflare](./cloudflare-security-audit-skill-audit-koda-agentom-v-shest-etapov-chto-mozhno-doverit-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/cloudflare-security-audit-skill-audit-koda-agentom-v-shest-etapov-chto-mozhno-doverit-2026/)
 - [Банки США блокируют ИИ-агентов с логином клиента: что делать вместо](./banki-ssha-blokiruyut-ii-agentov-s-loginom-klienta-chto-delat-vmesto-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/banki-ssha-blokiruyut-ii-agentov-s-loginom-klienta-chto-delat-vmesto-2026/)
@@ -2600,6 +2602,9 @@
 
 ## Экспертное
 
+- [Mistral Large 4 открыла веса: API или свой сервер для бизнеса](./mistral-large-4-otkryla-vesa-chto-eto-znachit-dlya-biznesa-api-ili-svoy-server-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/mistral-large-4-otkryla-vesa-chto-eto-znachit-dlya-biznesa-api-ili-svoy-server-2026/)
+- [«Суверенный ИИ» Giotto и Kimi: как проверить, что вам продали](./giotto-i-kimi-suverennyy-ii-kak-proverit-chto-model-vam-prodali-imenno-ta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/giotto-i-kimi-suverennyy-ii-kak-proverit-chto-model-vam-prodali-imenno-ta-2026/)
+- [GitHub Copilot: оплата ИИ-кредитами вместо подписок](./github-copilot-oplata-ii-kreditami-vmesto-podpisok-chto-menyat-v-byudzhete-studii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/github-copilot-oplata-ii-kreditami-vmesto-podpisok-chto-menyat-v-byudzhete-studii-2026/)
 - [Claude API убрал temperature: что проверить в коде бота](./claude-api-ubrali-temperature-top-p-top-k-chto-proverit-v-kode-bota-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/claude-api-ubrali-temperature-top-p-top-k-chto-proverit-v-kode-bota-2026/)
 - [Cloudflare Clairic: счета и накладные в поля за один проход](./cloudflare-clairic-izvlechenie-poley-iz-schetov-i-nakladnykh-za-odin-prokhod-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/cloudflare-clairic-izvlechenie-poley-iz-schetov-i-nakladnykh-za-odin-prokhod-2026/)
 - [Voxtral 3: русский в списке, весов нет. Что с локальным запуском](./voxtral-3-golosovye-modeli-mistral-russkiy-yazyk-licenziya-i-lokalnyy-zapusk-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/voxtral-3-golosovye-modeli-mistral-russkiy-yazyk-licenziya-i-lokalnyy-zapusk-2026/)
