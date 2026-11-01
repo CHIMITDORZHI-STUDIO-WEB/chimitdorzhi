@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2728**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2753**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -37,6 +37,8 @@
 
 ## AI для разработчиков
 
+- [Как проверить прогнозную модель на истории и не обмануть себя](./proverka-prognoznoy-modeli-na-istorii-bektest-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/proverka-prognoznoy-modeli-na-istorii-bektest-2026/)
+- [Распознавание старинных и редких письменностей по фото](./raspoznavanie-starinnyh-pismennostey-po-foto-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/raspoznavanie-starinnyh-pismennostey-po-foto-2026/)
 - [Бот отправляет данные клиентов в нейросеть: как их обезличить](./obezlichivanie-dannyh-pered-otpravkoy-v-neyroset-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/obezlichivanie-dannyh-pered-otpravkoy-v-neyroset-2026/)
 - [Сколько стоит одна генерация ИИ в продукте и какую цену ставить](./sebestoimost-generacii-ii-v-produkte-i-cena-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sebestoimost-generacii-ii-v-produkte-i-cena-2026/)
 - [ИИ-демо для выставки или форума, которое не упадёт на стенде](./ii-demo-dlya-vystavki-stend-bez-sboev-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-demo-dlya-vystavki-stend-bez-sboev-2026/)
@@ -371,6 +373,7 @@
 
 ## Open-source и свой сервер
 
+- [Монтаж видео через Claude Code по папке: что остаётся человеку](./video-use-montazh-video-cherez-claude-code-po-papke-s-ishodnikami-chto-ostaetsya-cheloveku-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/video-use-montazh-video-cherez-claude-code-po-papke-s-ishodnikami-chto-ostaetsya-cheloveku-2026/)
 - [Nemotron 3.5 Transcribe: расшифровка звонков на своём сервере](./nemotron-3-5-transcribe-rasshifrovka-zvonkov-i-sovescheniy-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nemotron-3-5-transcribe-rasshifrovka-zvonkov-i-sovescheniy-na-svoem-servere-2026/)
 - [Zammad: общая почта и мессенджеры в одну очередь обращений](./zammad-edinaya-sluzhba-podderzhki-iz-pochty-chata-i-sotsetey-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zammad-edinaya-sluzhba-podderzhki-iz-pochty-chata-i-sotsetey-na-svoem-servere-2026/)
 - [solidtime: учёт часов и ставок для студии на своём сервере](./solidtime-uchet-rabochego-vremeni-i-stavok-dlya-studii-na-svoem-servere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/solidtime-uchet-rabochego-vremeni-i-stavok-dlya-studii-na-svoem-servere-2026/)
@@ -696,6 +699,7 @@
 
 ## Безопасность
 
+- [ego lite: ИИ-агент в вашем браузере с вашими куками, что ограничить](./ego-lite-ii-agent-v-vashem-brauzere-s-dostupom-k-sessiyam-i-kukam-chto-ogranichit-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ego-lite-ii-agent-v-vashem-brauzere-s-dostupom-k-sessiyam-i-kukam-chto-ogranichit-2026/)
 - [Qwen в тесте Cohere пыталась выйти в сеть: что делать с весами](./cohere-nashla-v-qwen-skrytuyu-otpravku-dannyh-pochemu-otkrytye-vesa-ne-zashchita-ot-utechki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/cohere-nashla-v-qwen-skrytuyu-otpravku-dannyh-pochemu-otkrytye-vesa-ne-zashchita-ot-utechki-2026/)
 - [Аудит кода ИИ-агентом в шесть этапов: что доверить скиллу Cloudflare](./cloudflare-security-audit-skill-audit-koda-agentom-v-shest-etapov-chto-mozhno-doverit-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/cloudflare-security-audit-skill-audit-koda-agentom-v-shest-etapov-chto-mozhno-doverit-2026/)
 - [Банки США блокируют ИИ-агентов с логином клиента: что делать вместо](./banki-ssha-blokiruyut-ii-agentov-s-loginom-klienta-chto-delat-vmesto-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/banki-ssha-blokiruyut-ii-agentov-s-loginom-klienta-chto-delat-vmesto-2026/)
@@ -1330,6 +1334,7 @@
 
 ## Отрасли
 
+- [ИИ-протокол приёма врача в закрытом контуре клиники](./ii-protokol-priema-vracha-zakrytyy-kontur-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-protokol-priema-vracha-zakrytyy-kontur-2026/)
 - [Сайт аренды авто в Дубае: лицензия RTA, депозит, Salik и цены](./sayt-arendy-avto-v-dubae-rta-depozit-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-arendy-avto-v-dubae-rta-depozit-2026/)
 - [Как своя система такси раздаёт заказы: очередь, зоны, час пик](./raspredelenie-zakazov-taksi-ochered-stoyanok-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/raspredelenie-zakazov-taksi-ochered-stoyanok-2026/)
 - [Клиент согласовал не ту смету: версии и подтверждение в боте](./versii-smety-i-soglasovanie-klientom-v-bote-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/versii-smety-i-soglasovanie-klientom-v-bote-2026/)
@@ -2029,6 +2034,16 @@
 
 ## Разработка
 
+- [one-api: свой шлюз к ИИ-моделям, ключи, лимиты и журнал расходов](./one-api-svoy-shlyuz-k-ii-modelyam-klyuchi-limity-i-zhurnal-rashodov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/one-api-svoy-shlyuz-k-ii-modelyam-klyuchi-limity-i-zhurnal-rashodov-2026/)
+- [Mercury: ИИ-агент в Telegram с правилами и лимитом расходов](./mercury-lichnyj-ii-agent-s-razresheniyami-i-dnevnym-byudzhetom-tokenov-v-telegram-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/mercury-lichnyj-ii-agent-s-razresheniyami-i-dnevnym-byudzhetom-tokenov-v-telegram-2026/)
+- [Тестовая база без живых клиентов: Mimesis вместо выгрузки](./mimesis-vydumannye-dannye-dlya-testovogo-stenda-vmesto-zhivoj-bazy-klientov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/mimesis-vydumannye-dannye-dlya-testovogo-stenda-vmesto-zhivoj-bazy-klientov-2026/)
+- [Свой генератор картинок для карточек: лицензии и риски webui](./stable-diffusion-webui-svoya-generaciya-kartinok-dlya-kartochek-tovarov-licenzii-i-riski-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/stable-diffusion-webui-svoya-generaciya-kartinok-dlya-kartochek-tovarov-licenzii-i-riski-2026/)
+- [Свой канбан вместо Trello и Jira: Wekan, перенос досок, права](./wekan-svoy-kanban-vmesto-trello-i-jira-ustanovka-import-dosok-i-prava-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/wekan-svoy-kanban-vmesto-trello-i-jira-ustanovka-import-dosok-i-prava-2026/)
+- [SSL-сертификат на Windows Server, когда порт 80 занят: win-acme](./ssl-sertifikat-windows-server-port-80-zanyat-win-acme-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ssl-sertifikat-windows-server-port-80-zanyat-win-acme-2026/)
+- [Перенос заявок из старой системы в новую: что и как не потерять](./perenos-zayavok-iz-staroy-sistemy-v-novuyu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/perenos-zayavok-iz-staroy-sistemy-v-novuyu-2026/)
+- [Деньги в программе: почему суммы хранят в копейках](./dengi-v-programme-hranit-v-kopeykah-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/dengi-v-programme-hranit-v-kopeykah-2026/)
+- [Даты в расчётах: 29 февраля и ловушки Excel](./daty-v-raschetah-29-fevralya-i-lovushki-excel-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/daty-v-raschetah-29-fevralya-i-lovushki-excel-2026/)
+- [Напоминания клиентам и сотрудникам: часовые пояса и тихие часы](./napominaniya-chasovye-poyasa-i-tihie-chasy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/napominaniya-chasovye-poyasa-i-tihie-chasy-2026/)
 - [Атака на Wi-Fi в кафе или офисе: как её заметить без админа](./get-the-hacker-obnaruzhenie-atak-na-wi-fi-kafe-oteli-i-ofisa-passivnyj-datchik-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/get-the-hacker-obnaruzhenie-atak-na-wi-fi-kafe-oteli-i-ofisa-passivnyj-datchik-2026/)
 - [Бэкап базы бота в Telegram: когда это опасно](./telegram-db-backup-rezervnye-kopii-bazy-bota-v-telegram-kogda-eto-opasno-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/telegram-db-backup-rezervnye-kopii-bazy-bota-v-telegram-kogda-eto-opasno-2026/)
 - [Ever Gauzy: время, проекты, CRM и счета студии на своём сервере](./ever-gauzy-platforma-dlya-agentstva-vremya-proekty-crm-i-scheta-chto-v-otkrytoj-chasti-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ever-gauzy-platforma-dlya-agentstva-vremya-proekty-crm-i-scheta-chto-v-otkrytoj-chasti-2026/)
@@ -2595,6 +2610,16 @@
 
 ## Экспертное
 
+- [Система без документации: что делать, если разработчик ушёл](./razobrat-sistemu-bez-dokumentacii-esli-razrabotchik-ushyol-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/razobrat-sistemu-bez-dokumentacii-esli-razrabotchik-ushyol-2026/)
+- [Разведка чужой системы перед проектом: объём и риск за 1-3 дня](./razvedka-chuzhoy-sistemy-pered-proektom-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/razvedka-chuzhoy-sistemy-pered-proektom-2026/)
+- [Как подключиться к старой программе без API: пять способов](./podklyuchit-staruyu-programmu-bez-api-pyat-sposobov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/podklyuchit-staruyu-programmu-bez-api-pyat-sposobov-2026/)
+- [Как забрать свои данные из закрытой системы без экспорта](./zabrat-dannye-iz-zakrytoy-sistemy-bez-eksporta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zabrat-dannye-iz-zakrytoy-sistemy-bez-eksporta-2026/)
+- [Когда реверс-инжиниринг законен: ст. 1280 ГК РФ для бизнеса](./kogda-reverse-inzhiniring-zakonen-st-1280-gk-rf-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kogda-reverse-inzhiniring-zakonen-st-1280-gk-rf-2026/)
+- [Перевод legacy-системы на low-code: конвертер, линтер, эталон](./perevod-legacy-sistemy-na-low-code-konverter-etalon-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/perevod-legacy-sistemy-na-low-code-konverter-etalon-2026/)
+- [Аудит чужого кода перед покупкой: закладки, телеметрия, ключи](./audit-chuzhogo-koda-zakladki-telemetriya-klyuchi-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/audit-chuzhogo-koda-zakladki-telemetriya-klyuchi-2026/)
+- [Mistral Large 4 открыла веса: API или свой сервер для бизнеса](./mistral-large-4-otkryla-vesa-chto-eto-znachit-dlya-biznesa-api-ili-svoy-server-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/mistral-large-4-otkryla-vesa-chto-eto-znachit-dlya-biznesa-api-ili-svoy-server-2026/)
+- [«Суверенный ИИ» Giotto и Kimi: как проверить, что вам продали](./giotto-i-kimi-suverennyy-ii-kak-proverit-chto-model-vam-prodali-imenno-ta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/giotto-i-kimi-suverennyy-ii-kak-proverit-chto-model-vam-prodali-imenno-ta-2026/)
+- [GitHub Copilot: оплата ИИ-кредитами вместо подписок](./github-copilot-oplata-ii-kreditami-vmesto-podpisok-chto-menyat-v-byudzhete-studii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/github-copilot-oplata-ii-kreditami-vmesto-podpisok-chto-menyat-v-byudzhete-studii-2026/)
 - [Claude API убрал temperature: что проверить в коде бота](./claude-api-ubrali-temperature-top-p-top-k-chto-proverit-v-kode-bota-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/claude-api-ubrali-temperature-top-p-top-k-chto-proverit-v-kode-bota-2026/)
 - [Cloudflare Clairic: счета и накладные в поля за один проход](./cloudflare-clairic-izvlechenie-poley-iz-schetov-i-nakladnykh-za-odin-prokhod-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/cloudflare-clairic-izvlechenie-poley-iz-schetov-i-nakladnykh-za-odin-prokhod-2026/)
 - [Voxtral 3: русский в списке, весов нет. Что с локальным запуском](./voxtral-3-golosovye-modeli-mistral-russkiy-yazyk-licenziya-i-lokalnyy-zapusk-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/voxtral-3-golosovye-modeli-mistral-russkiy-yazyk-licenziya-i-lokalnyy-zapusk-2026/)
