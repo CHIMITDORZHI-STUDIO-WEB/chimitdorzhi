@@ -1,0 +1,33 @@
+// Mage-VL-Cowork (Microsoft). Факты сверены по карточке Hugging Face на 02.11.2026.
+module.exports = [
+  {
+    id: 'mage-vl-cowork',
+    name: 'Mage-VL-Cowork',
+    developer: 'Microsoft', country: 'США',
+    modality: ['vlm', 'agent'],
+    first: '2026-10', latest: '2026-10',
+    sizes: '4B',
+    license: 'Apache 2.0',
+    commercial: 'yes',
+    hardware: ['min', 'gpu'],
+    ru: 'unknown',
+    industries: ['dev', 'support', 'docs'],
+    ollama: false,
+    cpu: false,
+    summary: 'Компактная модель на 4B, которая сама управляет компьютером: смотрит на скриншот и кликает, а когда выгоднее, переключается на командную строку и правит файлы кодом. Обе роли в одной модели, без внешнего оркестратора. По тесту OSWorld-Verified (50 шагов) набирает 66,0%, по словам авторов лучший результат среди моделей на 4B, на задачах операционной системы 87,5%. Обучена из промежуточной Mage-VL в пять этапов, с набором из почти 294 тысяч синтетических задач на 6915 навыков. Контекст при обучении и запуске 32 768 токенов, архитектура держит до 262 144. Подходит для офисной автоматизации и помощников на своём компьютере. Цифры авторов.',
+    tasks: ['агент, который работает в приложениях по скриншотам и командной строке', 'автоматизация офисных задач на своём компьютере без облака', 'прототип помощника, управляющего рабочим столом'],
+    where: ['офисная автоматизация', 'разработка агентов', 'поддержка и внутренние сервисы компаний'],
+    versions: [['Mage-VL-Cowork 4B', '2026-10']],
+    hf: 'https://huggingface.co/microsoft/Mage-VL-Cowork',
+    github: null,
+    alternatives: ['qwen-vl', 'evocua', 'ui-venus'],
+    source: 'https://huggingface.co/microsoft/Mage-VL-Cowork',
+    verified: true,
+    en: {
+      summary: "A compact 4B model that operates a computer by itself: it looks at a screenshot and clicks, and when that is more efficient it switches to the command line and edits files with code. Both roles are in one model, with no external orchestrator. On the OSWorld-Verified test (50 steps) it scores 66.0%, which the authors say is the best result among 4B models, and 87.5% on operating-system tasks. It was trained from the intermediate Mage-VL in five stages, with a set of almost 294 thousand synthetic tasks over 6,915 skills. The context for training and running is 32,768 tokens, and the architecture holds up to 262,144. It suits office automation and assistants on your own computer. The figures come from the authors.",
+      tasks: ['an agent that works in applications through screenshots and the command line', 'automating office tasks on your own computer without a cloud', 'a prototype assistant that operates the desktop'],
+      where: ['office automation', 'agent development', 'support and internal company services'],
+      country: 'USA',
+    },
+  },
+];
