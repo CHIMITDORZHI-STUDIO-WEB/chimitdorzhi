@@ -235,8 +235,8 @@ export async function getLivePrices(oem: string): Promise&lt;PriceResult[]&gt; {
 
 Свяжитесь со мной напрямую для бесплатной технической консультации по вашему проекту:
 
-- **Telegram:** [@ваш_аккаунт](https://t.me/your_telegram) — оперативный ответ, обсуждение архитектуры.
-- **VK:** [vk.com/ваш_профиль](https://vk.com/your_vk) — группа с кейсами и отзывами.
+- **Telegram:** [@chimitdorzhi](https://t.me/chimitdorzhi) — оперативный ответ, обсуждение архитектуры.
+- **VK:** [vk.com/chimitdorzhi](https://vk.com/chimitdorzhi) — группа с кейсами и отзывами.
 - **Каталог услуг:** [chimitdorzhi.tech](https://chimitdorzhi.tech/) — подробное portfolio и прайс-лист на разработку.
 
 ## Часто задаваемые вопросы (FAQ)

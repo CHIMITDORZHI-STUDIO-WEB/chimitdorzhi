@@ -417,7 +417,7 @@ async def process_salary(message: types.Message, state: FSMContext):
 
 **Готовы обсудить вашу задачу?**
 
-Свяжитесь со мной напрямую, чтобы получить бесплатную консультацию и аудит вашего процесса найма: * Напишите мне в Telegram: [@chimitdorzhi](https://t.me/chimitdorzhi) * Свяжитесь в VK: [chimitdorzhi_tech](https://vk.com/chimitdorzhi_tech) * Посмотрите все услуги в [Каталоге предложений](/predlozheniya/)
+Свяжитесь со мной напрямую, чтобы получить бесплатную консультацию и аудит вашего процесса найма: * Напишите мне в Telegram: [@chimitdorzhi](https://t.me/chimitdorzhi) * Свяжитесь в VK: [chimitdorzhi_tech](https://vk.com/chimitdorzhi) * Посмотрите все услуги в [Каталоге предложений](/predlozheniya/)
 
 ## FAQ: Часто задаваемые вопросы
 

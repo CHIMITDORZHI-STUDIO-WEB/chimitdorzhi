@@ -209,8 +209,8 @@ sequenceDiagram
 
 Свяжитесь со мной, чтобы получить бесплатный аудит ваших текущих бизнес-процессов детейлинга и персональное предложение по автоматизации:
 
-- **Telegram:** [@chimit_darzhaev](https://t.me/chimit_darzhaev)
-- **VK:** [chimit_tech](https://vk.com/chimit_tech)
+- **Telegram:** [@chimitdorzhi](https://t.me/chimitdorzhi)
+- **VK:** [chimit_tech](https://vk.com/chimitdorzhi)
 - **Каталог готовых решений:** [chimitdorzhi.tech/catalog](https://chimitdorzhi.tech/services/)
 
 ## Часто задаваемые вопросы (FAQ)

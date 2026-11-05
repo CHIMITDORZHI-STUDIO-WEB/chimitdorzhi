@@ -4,7 +4,7 @@
 // не работает: при ошибке скрипт предлагает ту же заявку отправить в Telegram вручную.
 
 // LEAD_URL можно подменить переменной окружения для локальной проверки.
-const LEAD_URL = process.env.LEAD_URL || 'https://chimitdorzhi.space/api/site-lead';
+const LEAD_URL = process.env.LEAD_URL || 'https://ai.chimitdorzhi.tech/api/site-lead';
 const ASSET_V = 1;
 
 const esc = (s) => String(s == null ? '' : s)
