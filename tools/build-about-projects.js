@@ -11,10 +11,10 @@ const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replac
 
 // Свои продукты: ссылка на продукт и на разбор. Статус берётся из флагманской карточки по slug.
 const PRODUCTS = [
-  { name: 'НЮТАГ', icon: 'ph-map-trifold', text: 'Онлайн-симулятор жизни села на настоящей 3D-карте, вход через MAX и Telegram', url: 'https://nutag.chimitdorzhi.space/', slug: 'nyutag-simulyator-zhizni-sela-keys-2026', kind: 'VideoGame' },
+  { name: 'НЮТАГ', icon: 'ph-map-trifold', text: 'Онлайн-симулятор жизни села на настоящей 3D-карте, вход через MAX и Telegram', url: 'https://nutag.chimitdorzhi.tech/', slug: 'nyutag-simulyator-zhizni-sela-keys-2026', kind: 'VideoGame' },
   { name: 'Kinly', icon: 'ph-house-line', text: 'Семейный ИИ-ассистент: дела, покупки и напоминания из голоса и фото в Telegram и MAX', url: 'https://kinly.chimitdorzhi.space/', slug: 'kinly-semeynyy-assistent-telegram-max-keys-2026', kind: 'SoftwareApplication' },
-  { name: 'Ферзь', icon: 'ph-crown', text: 'Рабочее место руководителя без штатных юриста и кадровика: документы, поручения, контроль', url: 'https://ferz.chimitdorzhi.space/', slug: 'ferz-rabochee-mesto-rukovoditelya-saas-keys-2026', kind: 'SoftwareApplication' },
-  { name: 'SPACE', icon: 'ph-squares-four', text: 'Платформа готовых решений для микробизнеса с входом через Telegram', url: 'https://chimitdorzhi.space/', slug: 'space-platforma-gotovyh-resheniy-keys-2026', kind: 'SoftwareApplication' },
+  { name: 'Ферзь', icon: 'ph-crown', text: 'Рабочее место руководителя без штатных юриста и кадровика: документы, поручения, контроль', url: null /* сервер стёрт 02.11.2026, вернуть адрес после восстановления */, slug: 'ferz-rabochee-mesto-rukovoditelya-saas-keys-2026', kind: 'SoftwareApplication' },
+  { name: 'SPACE', icon: 'ph-squares-four', text: 'Платформа готовых решений для микробизнеса с входом через Telegram', url: null /* сервер стёрт 02.11.2026, вернуть адрес после восстановления */, slug: 'space-platforma-gotovyh-resheniy-keys-2026', kind: 'SoftwareApplication' },
   { name: 'Аудит 152-ФЗ', icon: 'ph-seal-check', text: 'Проверка сайта на соответствие закону о персональных данных, с доказательствами', url: 'https://audit.chimitdorzhi.tech/', slug: 'audit-sayta-po-152-fz-dokazatelstva-keys-2026', kind: 'WebApplication' },
   { name: 'Вселенная Бурят', icon: 'ph-globe-hemisphere-east', text: 'Культурный портал о бурятском народе: история, язык, расселение', url: `${SITE}/universe_buryat/`, slug: null, done: true, kind: 'WebSite' },
 ];
@@ -153,7 +153,7 @@ function ldHtml(flagship) {
       '@type': p.kind,
       name: p.name,
       description: p.text,
-      url: p.url,
+      ...(p.url ? { url: p.url } : {}),
       ...(p.kind === 'SoftwareApplication' || p.kind === 'WebApplication' ? { applicationCategory: 'BusinessApplication', operatingSystem: 'Web' } : {}),
       creator: { '@id': `${SITE}/#person` },
       ...(p.slug ? { subjectOf: { '@type': 'Article', url: `${SITE}/blog/${p.slug}/` } } : {}),
@@ -184,7 +184,7 @@ function applyAbout(published) {
 
 // Строка для раздела «Об авторе» в llms.txt: продукты автора со ссылками.
 function llmsProducts() {
-  return `- Продукты автора: ${PRODUCTS.map(p => `${p.name} (${p.url}): ${p.text.charAt(0).toLowerCase()}${p.text.slice(1)}`).join('; ')}.`;
+  return `- Продукты автора: ${PRODUCTS.map(p => `${p.name}${p.url ? ' (' + p.url + ')' : ''}: ${p.text.charAt(0).toLowerCase()}${p.text.slice(1)}`).join('; ')}.`;
 }
 
 module.exports = { applyAbout, llmsProducts };
