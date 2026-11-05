@@ -96,8 +96,8 @@ function escapeXml(str) {
 function hashNum(s) { let h = 0; for (let i = 0; i < String(s).length; i++) h = (h * 31 + String(s).charCodeAt(i)) >>> 0; return h; }
 
 // Заголовок заглавными, разбитый на строки
-function wrapTitle(title, maxChars, maxLines) {
-  const words = String(title || '').toUpperCase().split(/\s+/);
+function wrapTitle(title, maxChars, maxLines, keepCase) {
+  const words = (keepCase ? String(title || '') : String(title || '').toUpperCase()).split(/\s+/);
   const lines = []; let cur = '';
   for (const w of words) {
     if ((cur + ' ' + w).trim().length > maxChars && cur) { lines.push(cur.trim()); cur = w; }
@@ -110,14 +110,14 @@ function wrapTitle(title, maxChars, maxLines) {
 
 // Подбор размера заголовка: берём первый вариант, куда текст влезает целиком.
 // Так длинные заголовки не обрезаются на полуслове, а короткие остаются крупными.
-function fitTitle(title, variants) {
+function fitTitle(title, variants, keepCase) {
   const total = String(title || '').trim().length;
   for (const v of variants) {
-    const lines = wrapTitle(title, v.chars, v.maxLines);
+    const lines = wrapTitle(title, v.chars, v.maxLines, keepCase);
     if (lines.join(' ').length >= total - 2) return { lines, fs: v.fs, lh: Math.round(v.fs * v.lhK) };
   }
   const last = variants[variants.length - 1];
-  const lines = wrapTitle(title, last.chars, last.maxLines);
+  const lines = wrapTitle(title, last.chars, last.maxLines, keepCase);
   // не влезло даже в самый мелкий вариант — честное многоточие вместо обрыва
   if (lines.length) lines[lines.length - 1] = lines[lines.length - 1].replace(/[\s,:;—-]*$/, '') + '…';
   return { lines, fs: last.fs, lh: Math.round(last.fs * last.lhK) };
@@ -243,6 +243,39 @@ function landscapeOverlay(article, withPhoto) {
 </svg>`;
 }
 
+// ---------- Стиль «цвет по типу» (с 05.11.2026): фото на всю обложку, цветной градиент рубрики ----------
+const STYLE4_SINCE = '2026-11-05';
+function useStyle4(article) {
+  const d = String(article.datePublished || '');
+  return d >= STYLE4_SINCE || (d >= PHOTO_ALL_SINCE && !PHOTO_CATEGORIES.has(article.category));
+}
+function darken(hex, k) {
+  const n = parseInt(String(hex).replace('#', ''), 16);
+  const c = (v) => Math.max(0, Math.min(255, Math.round(v * k))).toString(16).padStart(2, '0');
+  return '#' + c((n >> 16) & 255) + c((n >> 8) & 255) + c(n & 255);
+}
+function style4Overlay(article) {
+  const cat = CATEGORY_LABELS[article.category] || 'Блог';
+  const min = article.readingMinutes || 5;
+  const C = darken(CATEGORY_ACCENT[article.category] || '#3b82f6', 0.72);
+  const fit = fitTitle(article.title, [
+    { chars: 16, maxLines: 3, fs: 74, lhK: 1.16 }, { chars: 19, maxLines: 4, fs: 62, lhK: 1.16 }, { chars: 23, maxLines: 5, fs: 50, lhK: 1.18 },
+  ], true);
+  const lines = fit.lines, lh = fit.lh;
+  const top = Math.max(236, 300 - (lines.length - 1) * lh / 2) + fit.fs * 0.35;
+  const pillW = Math.round(cat.length * 18 * 0.64 + 44);
+  const txt = lines.map((l, i) => '<text x="64" y="' + Math.round(top + i * lh) + '" font-family="' + FONT + '" font-weight="800" font-size="' + fit.fs + '" letter-spacing="-1" fill="#ffffff">' + escapeXml(l) + '</text>').join('\n  ');
+  return '<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">' +
+    '<defs><linearGradient id="g4" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="' + C + '" stop-opacity=".95"/><stop offset=".6" stop-color="' + C + '" stop-opacity=".55"/><stop offset="1" stop-color="' + INK + '" stop-opacity="0"/></linearGradient></defs>' +
+    '<rect width="1200" height="630" fill="' + INK + '" fill-opacity=".35"/><rect width="1200" height="630" fill="url(#g4)"/>' +
+    '<rect x="64" y="64" rx="20" width="' + pillW + '" height="40" fill="#ffffff"/>' +
+    '<text x="' + (64 + pillW / 2) + '" y="91" text-anchor="middle" font-family="' + FONT + '" font-weight="800" font-size="18" letter-spacing="1.5" fill="' + C + '">' + escapeXml(cat.toUpperCase()) + '</text>' +
+    '<circle cx="1110" cy="84" r="34" fill="#ffffff"/><path d="M1094 84h32m-12-12 12 12-12 12" stroke="' + C + '" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>' +
+    txt +
+    '<text x="64" y="568" font-family="' + FONT + '" font-weight="800" font-size="22" fill="#ffffff">Чимитдоржи Дарижапов</text>' +
+    '<text x="64" y="598" font-family="' + FONT + '" font-weight="500" font-size="18" fill="#ffffff" fill-opacity=".75">chimitdorzhi.tech · ' + min + ' мин чтения</text></svg>';
+}
+
 // ---------- Вертикали: pin / square / story ----------
 function tallOverlay(article, size, withPhoto) {
   const { w, h } = size;
@@ -287,6 +320,10 @@ async function renderSize(article, kind) {
   const size = SIZES[kind];
   if (!size) throw new Error('Неизвестный формат обложки: ' + kind);
   const withPhoto = usesPhoto(article);
+  if (kind === 'cover' && withPhoto && useStyle4(article)) {
+    const full = await (await cropToFace(photoFor(article), size.w, size.h)).png().toBuffer();
+    return sharp(full).composite([{ input: Buffer.from(style4Overlay(article)) }]);
+  }
   const overlay = size.orient === 'land'
     ? landscapeOverlay(article, withPhoto)
     : tallOverlay(article, size, withPhoto);

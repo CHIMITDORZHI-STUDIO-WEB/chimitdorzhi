@@ -691,8 +691,10 @@ function footer() {
 
 // Имя файла обложки зависит от стиля: фото-обложки — jpg, графические — png.
 const OG = (() => { try { return require('./og-generator.js'); } catch (e) { return null; } })();
-function coverFileName(a) { return OG ? OG.coverFile(a) : 'cover.png'; }
-function pinFileName(a) { return OG ? OG.pinFile(a) : 'pin.png'; }
+// Без sharp (например, в CI) берём тот файл, который уже лежит в репозитории: иначе og:image уйдёт на несуществующий cover.png.
+const existingAsset = (a, base) => fs.existsSync(path.join(__dirname, '..', 'blog', a.slug, base + '.jpg')) ? base + '.jpg' : base + '.png';
+function coverFileName(a) { return OG ? OG.coverFile(a) : existingAsset(a, 'cover'); }
+function pinFileName(a) { return OG ? OG.pinFile(a) : existingAsset(a, 'pin'); }
 function coverUrl(a) {
   return `${SITE}/blog/${a.slug}/${coverFileName(a)}`;
 }
