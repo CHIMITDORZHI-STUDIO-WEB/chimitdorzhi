@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2753**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2764**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -157,6 +157,17 @@
 
 ## cases
 
+- [ИИ-агент студии: свой кабинет, база знаний, подключения и заявки](./ii-agent-studii-kabinet-baza-znaniy-podklyucheniya-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-agent-studii-kabinet-baza-znaniy-podklyucheniya-keys-2026/)
+- [Аудит маркетинга и сайта для чартера джетов и яхт: два оффера](./audit-i-dva-offera-charter-samoletov-yaht-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/audit-i-dva-offera-charter-samoletov-yaht-predlozhenie-keys-2026/)
+- [Датасет бурятского языка: партнёрское предложение на 12 страниц](./dataset-buryatskogo-yazyka-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/dataset-buryatskogo-yazyka-predlozhenie-keys-2026/)
+- [Умные экраны на Android ТВ для отелей, аренды и офисов: предложение](./umnye-ekrany-android-tv-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/umnye-ekrany-android-tv-predlozhenie-keys-2026/)
+- [Витрина услуг и партнёрка в MAX для юрфирмы по банкротству: предложение](./vitrina-max-yurfirma-bankrotstvo-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vitrina-max-yurfirma-bankrotstvo-predlozhenie-keys-2026/)
+- [Сервис проектов ОВК для проектной организации: предложение](./kontur-ovk-servis-proektov-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kontur-ovk-servis-proektov-predlozhenie-keys-2026/)
+- [КП для сети гостиниц в Сибири: система поверх бронирования, 26 модулей](./set-gostinic-sibir-sistema-bronirovaniya-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/set-gostinic-sibir-sistema-bronirovaniya-predlozhenie-keys-2026/)
+- [Свой въезд для посёлка на 100 дворов вместо облачного шлагбаума: КП](./poselok-svoy-vezd-vmesto-oblachnogo-shlagbauma-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/poselok-svoy-vezd-vmesto-oblachnogo-shlagbauma-predlozhenie-keys-2026/)
+- [Онлайн-школа практик: концепция сайта, бота и кабинета ученика](./onlayn-shkola-praktik-koncepciya-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/onlayn-shkola-praktik-koncepciya-predlozhenie-keys-2026/)
+- [Приложение-PWA для психолога: уровни, подписка и кабинет специалиста](./psiholog-pwa-obuchayushchee-prilozhenie-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/psiholog-pwa-obuchayushchee-prilozhenie-predlozhenie-keys-2026/)
+- [Приложение для делового сообщества: два макета по три экрана](./prilozhenie-delovogo-soobshchestva-makety-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/prilozhenie-delovogo-soobshchestva-makety-predlozhenie-keys-2026/)
 - [Сайт и шесть пультов собственника с закрытым пробным кабинетом](./pulty-sobstvennika-sayt-probnyy-kabinet-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pulty-sobstvennika-sayt-probnyy-kabinet-keys-2026/)
 - [Учёт для бухфирмы в Дубае: бот, мини-приложение, НДС и баланс](./uchet-dlya-buhfirmy-v-dubae-bot-pwa-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uchet-dlya-buhfirmy-v-dubae-bot-pwa-keys-2026/)
 - [MinIO, SSL и сайт для внешних участников у сервера взаимодействия 1С](./minio-dlya-servera-vzaimodeystviya-1c-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/minio-dlya-servera-vzaimodeystviya-1c-keys-2026/)
@@ -168,8 +179,8 @@
 - [MVP ИИ-сервиса для управления личной жизнью и делами](./ii-servis-upravleniya-zhiznyu-mvp-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-servis-upravleniya-zhiznyu-mvp-keys-2026/)
 - [Платформа мероприятий в Telegram: билеты с QR, оплата в USDT и нетворкинг](./platforma-meropriyatiy-bilety-qr-usdt-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/platforma-meropriyatiy-bilety-qr-usdt-keys-2026/)
 - [Аудиты, исследования и ролик для маркетингового агентства в ОАЭ](./audity-i-analitika-dlya-agentstva-oae-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/audity-i-analitika-dlya-agentstva-oae-keys-2026/)
-- [Своя система вместо Битрикс24 для транспортной компании: КП и рейсы](./logistika-svoya-sistema-vmesto-bitrix24-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/logistika-svoya-sistema-vmesto-bitrix24-predlozhenie-keys-2026/)
-- [Автоматизация доставки еды в Чите: заказы в MAX и Telegram, кухня, этапы](./dostavka-edy-chita-avtomatizaciya-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/dostavka-edy-chita-avtomatizaciya-predlozhenie-keys-2026/)
+- [Битрикс24 для логистики: от своей системы к ремонту, приложению и ИИ](./logistika-svoya-sistema-vmesto-bitrix24-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/logistika-svoya-sistema-vmesto-bitrix24-predlozhenie-keys-2026/)
+- [Автоматизация доставки еды в Чите: от предложения к рабочему стенду](./dostavka-edy-chita-avtomatizaciya-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/dostavka-edy-chita-avtomatizaciya-predlozhenie-keys-2026/)
 - [Предзаказ кофе для двух кофеен при медклиниках в Кыргызстане: PWA](./predzakaz-kofe-pwa-kofeyni-v-klinikah-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/predzakaz-kofe-pwa-kofeyni-v-klinikah-predlozhenie-keys-2026/)
 - [CRM для студии тренировок с одним тренером: КП с макетами экранов](./crm-studii-trenirovok-makety-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/crm-studii-trenirovok-makety-predlozhenie-keys-2026/)
 - [Одно окно для частной клиники и ИИ-черновик протокола: типовое КП](./odno-okno-kliniki-ii-protokol-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/odno-okno-kliniki-ii-protokol-predlozhenie-keys-2026/)
