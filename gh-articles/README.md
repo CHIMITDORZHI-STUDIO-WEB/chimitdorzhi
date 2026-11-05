@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2764**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2774**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -168,6 +168,16 @@
 - [Онлайн-школа практик: концепция сайта, бота и кабинета ученика](./onlayn-shkola-praktik-koncepciya-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/onlayn-shkola-praktik-koncepciya-predlozhenie-keys-2026/)
 - [Приложение-PWA для психолога: уровни, подписка и кабинет специалиста](./psiholog-pwa-obuchayushchee-prilozhenie-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/psiholog-pwa-obuchayushchee-prilozhenie-predlozhenie-keys-2026/)
 - [Приложение для делового сообщества: два макета по три экрана](./prilozhenie-delovogo-soobshchestva-makety-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/prilozhenie-delovogo-soobshchestva-makety-predlozhenie-keys-2026/)
+- [Исследование рынка и бизнес-план кофейни в Сан-Паулу](./issledovanie-rynka-kofeyni-biznes-plan-san-paulu-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/issledovanie-rynka-kofeyni-biznes-plan-san-paulu-keys-2026/)
+- [Платформа встреч на своём коде: вторая версия, афиша и места](./platforma-vstrech-svoy-kod-afisha-mesta-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/platforma-vstrech-svoy-kod-afisha-mesta-keys-2026/)
+- [2D-конфигуратор входных дверей для сайта: рабочее демо на фото клиента](./konfigurator-vhodnyh-dverey-na-sayt-demo-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/konfigurator-vhodnyh-dverey-na-sayt-demo-keys-2026/)
+- [Электронное ПТО для подрядчика: программа, которая ведёт работу по плану](./elektronnoe-pto-ispolnitelnaya-dokumentaciya-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/elektronnoe-pto-ispolnitelnaya-dokumentaciya-predlozhenie-keys-2026/)
+- [Серия роликов для доставки еды в Дубае: как я собрал первый](./seriya-rolikov-dlya-dostavki-edy-v-dubae-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/seriya-rolikov-dlya-dostavki-edy-v-dubae-keys-2026/)
+- [Приложение для кондитерской: конструктор торта и напоминания о праздниках](./konditerskaya-konstruktor-torta-napominaniya-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/konditerskaya-konstruktor-torta-napominaniya-predlozhenie-keys-2026/)
+- [Партнёрская программа для цветочной студии с низкими ценами: концепция](./sistema-partnerov-dlya-cvetochnoy-studii-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sistema-partnerov-dlya-cvetochnoy-studii-predlozhenie-keys-2026/)
+- [Как забрать сайт и домен у ушедшего разработчика: план для компании](./vernut-sayt-na-tilde-i-domen-posle-uhoda-razrabotchika-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vernut-sayt-na-tilde-i-domen-posle-uhoda-razrabotchika-predlozhenie-keys-2026/)
+- [Открытая ИИ-модель на своём железе: три варианта и отказ в пользу облака](./lokalnaya-otkrytaya-ii-model-dlya-promptov-i-kartinok-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/lokalnaya-otkrytaya-ii-model-dlya-promptov-i-kartinok-predlozhenie-keys-2026/)
+- [Промо-ролик игры на Remotion: съёмка кадров прямо из игры](./promo-rolik-igry-remotion-iz-kadrov-igry-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/promo-rolik-igry-remotion-iz-kadrov-igry-keys-2026/)
 - [Сайт и шесть пультов собственника с закрытым пробным кабинетом](./pulty-sobstvennika-sayt-probnyy-kabinet-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pulty-sobstvennika-sayt-probnyy-kabinet-keys-2026/)
 - [Учёт для бухфирмы в Дубае: бот, мини-приложение, НДС и баланс](./uchet-dlya-buhfirmy-v-dubae-bot-pwa-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uchet-dlya-buhfirmy-v-dubae-bot-pwa-keys-2026/)
 - [MinIO, SSL и сайт для внешних участников у сервера взаимодействия 1С](./minio-dlya-servera-vzaimodeystviya-1c-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/minio-dlya-servera-vzaimodeystviya-1c-keys-2026/)
