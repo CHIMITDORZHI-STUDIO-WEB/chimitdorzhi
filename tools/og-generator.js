@@ -139,6 +139,9 @@ function photoList() {
 // и серия из FRESH_PIN (там кадр выбран вручную под тему).
 const LEGACY_MAX = 68;
 const FRESH_SINCE = '2026-11-01';
+// С 05.11.2026 фото автора ставится на обложки ВСЕХ рубрик у статей, вышедших с этой даты
+// (раньше только cases, expert, sales). Кадры берутся из второй части фотосессии (69+).
+const PHOTO_ALL_SINCE = '2026-10-28';
 const FRESH_PIN = {
   'razobrat-sistemu-bez-dokumentacii-esli-razrabotchik-ushyol-2026': 75,
   'razvedka-chuzhoy-sistemy-pered-proektom-2026': 74,
@@ -155,7 +158,8 @@ function photoFor(article) {
   const pinned = FRESH_PIN[article.slug];
   if (pinned) { const hit = list.find(f => photoNum(f) === pinned); if (hit) return path.join(PHOTO_DIR, hit); }
   const fresh = list.filter(f => photoNum(f) > LEGACY_MAX);
-  if (fresh.length && String(article.datePublished || '') >= FRESH_SINCE) return path.join(PHOTO_DIR, fresh[hashNum(article.slug) % fresh.length]);
+  const allCat = !PHOTO_CATEGORIES.has(article.category) && String(article.datePublished || '') >= PHOTO_ALL_SINCE;
+  if (fresh.length && (allCat || String(article.datePublished || '') >= FRESH_SINCE)) return path.join(PHOTO_DIR, fresh[hashNum(article.slug) % fresh.length]);
   const legacy = list.filter(f => photoNum(f) <= LEGACY_MAX);
   return path.join(PHOTO_DIR, legacy[hashNum(article.slug) % legacy.length]);
 }
@@ -188,7 +192,8 @@ async function cropToFace(photo, w, h) {
   return sharp(photo).resize(rw, rh).extract({ left, top, width: w, height: h });
 }
 function usesPhoto(article) {
-  return PHOTO_CATEGORIES.has(article.category) && !!photoFor(article);
+  const photoOk = PHOTO_CATEGORIES.has(article.category) || String(article.datePublished || '') >= PHOTO_ALL_SINCE;
+  return photoOk && !!photoFor(article);
 }
 // Какой файл обложки у статьи: фото — jpg, графика — png
 function coverFile(article) { return usesPhoto(article) ? 'cover.jpg' : 'cover.png'; }
