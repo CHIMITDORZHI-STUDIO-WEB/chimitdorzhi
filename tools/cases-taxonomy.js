@@ -192,6 +192,17 @@ const MAP = {
   'bot-i-rassylki-hudozhnicy-perenos-predlozhenie-keys-2026': ['doc', 'culture'],
   'rozygryshi-s-partnerkoy-v-max-riski-predlozhenie-keys-2026': ['doc', 'services'],
   'deteyling-dubay-klienty-partnerka-predlozhenie-keys-2026': ['doc', 'auto'],
+  'ii-agent-studii-kabinet-baza-znaniy-podklyucheniya-keys-2026': ['ai', 'it'],
+  'audit-i-dva-offera-charter-samoletov-yaht-predlozhenie-keys-2026': ['site', 'travel'],
+  'dataset-buryatskogo-yazyka-predlozhenie-keys-2026': ['ai', 'culture'],
+  'umnye-ekrany-android-tv-predlozhenie-keys-2026': ['platform', 'services'],
+  'vitrina-max-yurfirma-bankrotstvo-predlozhenie-keys-2026': ['bot', 'services'],
+  'kontur-ovk-servis-proektov-predlozhenie-keys-2026': ['platform', 'services'],
+  'set-gostinic-sibir-sistema-bronirovaniya-predlozhenie-keys-2026': ['site', 'travel'],
+  'poselok-svoy-vezd-vmesto-oblachnogo-shlagbauma-predlozhenie-keys-2026': ['bot', 'realty'],
+  'onlayn-shkola-praktik-koncepciya-predlozhenie-keys-2026': ['platform', 'services'],
+  'psiholog-pwa-obuchayushchee-prilozhenie-predlozhenie-keys-2026': ['bot', 'health'],
+  'prilozhenie-delovogo-soobshchestva-makety-predlozhenie-keys-2026': ['bot', 'services'],
   // Флагманский кейс без статьи в блоге: ключ по названию карточки.
   'SpyGambl': ['platform', 'it'],
 };
