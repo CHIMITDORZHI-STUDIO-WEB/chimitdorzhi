@@ -208,7 +208,7 @@ WordPress по своей природе является легковесной
 >
 ### Коротко (TL;DR)
 
-Если вашему сайту на WordPress или 1С-Битрикс требуется профессиональная оптимизация скорости, напишите мне: - Telegram: [@chimit_d](https://t.me/chimit_d) - VK: [vk.com/chimit_d](https://vk.com/chimit_d) - Каталог предложений: [Перейти в каталог](/predlozheniya/)
+Если вашему сайту на WordPress или 1С-Битрикс требуется профессиональная оптимизация скорости, напишите мне: - Telegram: [@chimitdorzhi](https://t.me/chimitdorzhi) - VK: [vk.com/chimitdorzhi](https://vk.com/chimitdorzhi) - Каталог предложений: [Перейти в каталог](/predlozheniya/)
 
 ## Мониторинг скорости после оптимизации
 

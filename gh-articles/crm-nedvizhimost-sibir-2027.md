@@ -161,7 +161,7 @@ graph TD
 >
 ### Коротко (TL;DR)
 
-Свяжитесь со мной напрямую для бесплатной консультации и экспресс-аудита ваших продаж: - **Telegram**: [@chimit_d](https://t.me/chimit_d) - **ВКонтакте**: [vk.com/chimit_d](https://vk.com/chimit_d) - **Каталог услуг**: [chimitdorzhi.tech/catalog](https://chimitdorzhi.tech/services/)
+Свяжитесь со мной напрямую для бесплатной консультации и экспресс-аудита ваших продаж: - **Telegram**: [@chimitdorzhi](https://t.me/chimitdorzhi) - **ВКонтакте**: [vk.com/chimitdorzhi](https://vk.com/chimitdorzhi) - **Каталог услуг**: [chimitdorzhi.tech/catalog](https://chimitdorzhi.tech/services/)
 
 ## Часто задаваемые вопросы (FAQ)
 
