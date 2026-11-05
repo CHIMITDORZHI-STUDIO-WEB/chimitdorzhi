@@ -203,6 +203,16 @@ const MAP = {
   'onlayn-shkola-praktik-koncepciya-predlozhenie-keys-2026': ['platform', 'services'],
   'psiholog-pwa-obuchayushchee-prilozhenie-predlozhenie-keys-2026': ['bot', 'health'],
   'prilozhenie-delovogo-soobshchestva-makety-predlozhenie-keys-2026': ['bot', 'services'],
+  'issledovanie-rynka-kofeyni-biznes-plan-san-paulu-keys-2026': ['doc', 'food'],
+  'platforma-vstrech-svoy-kod-afisha-mesta-keys-2026': ['platform', 'it'],
+  'konfigurator-vhodnyh-dverey-na-sayt-demo-keys-2026': ['site', 'retail'],
+  'elektronnoe-pto-ispolnitelnaya-dokumentaciya-predlozhenie-keys-2026': ['ai', 'services'],
+  'seriya-rolikov-dlya-dostavki-edy-v-dubae-keys-2026': ['ai', 'food'],
+  'konditerskaya-konstruktor-torta-napominaniya-predlozhenie-keys-2026': ['doc', 'food'],
+  'sistema-partnerov-dlya-cvetochnoy-studii-predlozhenie-keys-2026': ['doc', 'retail'],
+  'vernut-sayt-na-tilde-i-domen-posle-uhoda-razrabotchika-predlozhenie-keys-2026': ['doc', 'services'],
+  'lokalnaya-otkrytaya-ii-model-dlya-promptov-i-kartinok-predlozhenie-keys-2026': ['ai', 'it'],
+  'promo-rolik-igry-remotion-iz-kadrov-igry-keys-2026': ['game', 'culture'],
   // Флагманский кейс без статьи в блоге: ключ по названию карточки.
   'SpyGambl': ['platform', 'it'],
 };
