@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2779**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2784**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -157,6 +157,11 @@
 
 ## cases
 
+- [Простая онлайн-запись для спа, врача и столика: собственный сервис](./prostaya-onlayn-zapis-spa-vrach-stolik-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/prostaya-onlayn-zapis-spa-vrach-stolik-keys-2026/)
+- [Набор из девяти виджетов для сайтов малого бизнеса: предложение](./nabor-vidzhetov-dlya-sayta-malogo-biznesa-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nabor-vidzhetov-dlya-sayta-malogo-biznesa-predlozhenie-keys-2026/)
+- [Консьерж «свои люди по миру»: бот, закрытый канал и мини-приложение](./konsierzh-svoi-lyudi-po-miru-telegram-mini-app-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/konsierzh-svoi-lyudi-po-miru-telegram-mini-app-keys-2026/)
+- [Вкладка «Заработок» в приложении команды: учёт партнёрских заявок](./zarabotok-v-prilozhenii-partnerskaya-vkladka-uchet-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zarabotok-v-prilozhenii-partnerskaya-vkladka-uchet-keys-2026/)
+- [ИИ-агент в работе: сколько стоит, лимиты тарифа и доступ сотрудников](./ii-agent-rashod-limity-tarifa-dostup-sotrudnikov-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-agent-rashod-limity-tarifa-dostup-sotrudnikov-keys-2026/)
 - [ИИ-агент студии: свой кабинет, база знаний, подключения и заявки](./ii-agent-studii-kabinet-baza-znaniy-podklyucheniya-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-agent-studii-kabinet-baza-znaniy-podklyucheniya-keys-2026/)
 - [Аудит маркетинга и сайта для чартера джетов и яхт: два оффера](./audit-i-dva-offera-charter-samoletov-yaht-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/audit-i-dva-offera-charter-samoletov-yaht-predlozhenie-keys-2026/)
 - [Датасет бурятского языка: партнёрское предложение на 12 страниц](./dataset-buryatskogo-yazyka-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/dataset-buryatskogo-yazyka-predlozhenie-keys-2026/)
